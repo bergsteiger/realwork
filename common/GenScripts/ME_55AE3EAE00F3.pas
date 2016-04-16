@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TL3XMLWriterTest = class(TBaseTest)
+ TL3XMLWriterTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   private
    procedure BuildXML;
   protected

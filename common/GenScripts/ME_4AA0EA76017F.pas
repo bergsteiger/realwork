@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TLiteSearchModule = class(TvcmModule)
+ TLiteSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
     aZoneType: TvcmZoneType;

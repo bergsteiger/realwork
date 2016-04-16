@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK578892941 = class(TBaseTest)
+ TK578892941 = class({$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ )
   {* [RequestLink:578892941] }
   protected
    {$If Defined(nsTest)}

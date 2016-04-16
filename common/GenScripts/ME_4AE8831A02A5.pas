@@ -57,7 +57,10 @@ type
 
  // ParentZone
 
- TPrimOldSituationSearchForm = {abstract} class(TvcmContainerForm)
+ TPrimOldSituationSearchForm = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Поиск по ситуации }
   private
    f_BackgroundPanel: TvtPanel;

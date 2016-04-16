@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TToK2 = class(TTestResultsPlace)
+ TToK2 = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   public
    {$If NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;

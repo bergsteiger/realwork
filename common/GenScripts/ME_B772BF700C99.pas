@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_WorkJournal_Control_JournalTree
 
- Tkw_WorkJournal_Control_JournalTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_WorkJournal_Control_JournalTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола JournalTree
 ----
 *Пример использования*:

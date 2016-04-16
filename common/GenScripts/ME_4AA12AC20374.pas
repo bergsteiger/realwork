@@ -54,7 +54,10 @@ type
 
  // CommonDiction
 
- Tfs_Tips = {final} class(TvcmFormSetFactory)
+ Tfs_Tips = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Советы дня }
   protected
    procedure InitFields; override;

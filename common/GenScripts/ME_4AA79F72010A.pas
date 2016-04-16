@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TSettingsModule = class(TvcmModule)
+ TSettingsModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure OpenStyleEditorAsModal; overload;
     {* Редактор стилей... }

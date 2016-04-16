@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TK235868845 = class(TBaseTest)
+ TK235868845 = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* [RequestLink:235868845] }
   protected
    function GetFolder: AnsiString; override;

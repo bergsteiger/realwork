@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TPrimEULAForm = class(TvcmEntityForm)
+ TPrimEULAForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_ShellCaptionLabel: TvtLabel;
     {* Поле для свойства ShellCaptionLabel }

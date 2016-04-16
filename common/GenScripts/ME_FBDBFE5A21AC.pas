@@ -83,7 +83,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_FindBtn
 
- Tkw_NewBaseSearch_Control_FindBtn_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_FindBtn_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FindBtn
 ----
 *Пример использования*:
@@ -108,7 +111,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_FindBackBtn
 
- Tkw_NewBaseSearch_Control_FindBackBtn_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_FindBackBtn_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FindBackBtn
 ----
 *Пример использования*:
@@ -133,7 +139,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_CloseBtn
 
- Tkw_NewBaseSearch_Control_CloseBtn_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_CloseBtn_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CloseBtn
 ----
 *Пример использования*:
@@ -158,7 +167,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_AreaCombo
 
- Tkw_NewBaseSearch_Control_AreaCombo_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_AreaCombo_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола AreaCombo
 ----
 *Пример использования*:
@@ -183,7 +195,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_QueryExampleLabel
 
- Tkw_NewBaseSearch_Control_QueryExampleLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_QueryExampleLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола QueryExampleLabel
 ----
 *Пример использования*:
@@ -208,7 +223,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_DropButton
 
- Tkw_NewBaseSearch_Control_DropButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_DropButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола DropButton
 ----
 *Пример использования*:
@@ -233,7 +251,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_FoundCountLabel
 
- Tkw_NewBaseSearch_Control_FoundCountLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_FoundCountLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FoundCountLabel
 ----
 *Пример использования*:
@@ -258,7 +279,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_ExampleLabel
 
- Tkw_NewBaseSearch_Control_ExampleLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_ExampleLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ExampleLabel
 ----
 *Пример использования*:
@@ -283,7 +307,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_ContextEditPanel
 
- Tkw_NewBaseSearch_Control_ContextEditPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_ContextEditPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ContextEditPanel
 ----
 *Пример использования*:
@@ -308,7 +335,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Layout1
 
- Tkw_NewBaseSearch_Control_Layout1_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_Layout1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Layout1
 ----
 *Пример использования*:
@@ -333,7 +363,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Layout2
 
- Tkw_NewBaseSearch_Control_Layout2_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_Layout2_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Layout2
 ----
 *Пример использования*:
@@ -358,7 +391,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Layout3
 
- Tkw_NewBaseSearch_Control_Layout3_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_Layout3_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Layout3
 ----
 *Пример использования*:
@@ -383,7 +419,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_vgScene1
 
- Tkw_NewBaseSearch_Control_vgScene1_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_vgScene1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола vgScene1
 ----
 *Пример использования*:
@@ -408,7 +447,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_MoreTab
 
- Tkw_NewBaseSearch_Control_MoreTab_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_MoreTab_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MoreTab
 ----
 *Пример использования*:
@@ -433,7 +475,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Border
 
- Tkw_NewBaseSearch_Control_Border_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_Border_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Border
 ----
 *Пример использования*:
@@ -458,7 +503,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_InnerBorder
 
- Tkw_NewBaseSearch_Control_InnerBorder_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_InnerBorder_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола InnerBorder
 ----
 *Пример использования*:
@@ -483,7 +531,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_MostOuterRectangle
 
- Tkw_NewBaseSearch_Control_MostOuterRectangle_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_MostOuterRectangle_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MostOuterRectangle
 ----
 *Пример использования*:
@@ -508,7 +559,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_Rectangle1
 
- Tkw_NewBaseSearch_Control_Rectangle1_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_Rectangle1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Rectangle1
 ----
 *Пример использования*:
@@ -533,7 +587,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_NewBaseSearch_Control_ContextEdit
 
- Tkw_NewBaseSearch_Control_ContextEdit_Push = {final} class(TkwBynameControlPush)
+ Tkw_NewBaseSearch_Control_ContextEdit_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ContextEdit
 ----
 *Пример использования*:

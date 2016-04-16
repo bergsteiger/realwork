@@ -80,7 +80,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_vtPanel1
 
- Tkw_ShutDown_Control_vtPanel1_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_vtPanel1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола vtPanel1
 ----
 *Пример использования*:
@@ -105,7 +108,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_LeftPanel
 
- Tkw_ShutDown_Control_LeftPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_LeftPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LeftPanel
 ----
 *Пример использования*:
@@ -130,7 +136,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_Image
 
- Tkw_ShutDown_Control_Image_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_Image_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Image
 ----
 *Пример использования*:
@@ -155,7 +164,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_CenterPanel
 
- Tkw_ShutDown_Control_CenterPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_CenterPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CenterPanel
 ----
 *Пример использования*:
@@ -180,7 +192,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_TopSpacerPanel
 
- Tkw_ShutDown_Control_TopSpacerPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_TopSpacerPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TopSpacerPanel
 ----
 *Пример использования*:
@@ -205,7 +220,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_WarningText
 
- Tkw_ShutDown_Control_WarningText_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_WarningText_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarningText
 ----
 *Пример использования*:
@@ -230,7 +248,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_RightSpacerPanel
 
- Tkw_ShutDown_Control_RightSpacerPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_RightSpacerPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RightSpacerPanel
 ----
 *Пример использования*:
@@ -255,7 +276,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_pnlBottom
 
- Tkw_ShutDown_Control_pnlBottom_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_pnlBottom_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlBottom
 ----
 *Пример использования*:
@@ -280,7 +304,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ShutDown_Control_CloseButton
 
- Tkw_ShutDown_Control_CloseButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_ShutDown_Control_CloseButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CloseButton
 ----
 *Пример использования*:

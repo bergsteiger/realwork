@@ -40,7 +40,10 @@ uses
 type
  TnsRegisterAction = function(aSender: TCustomForm): TModalResult of object;
 
- TPrimRegistrationForm = class(TvcmEntityForm)
+ TPrimRegistrationForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Регистрация }
   private
    f_pnMainData: TvtPanel;

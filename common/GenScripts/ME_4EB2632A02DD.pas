@@ -44,7 +44,10 @@ uses
 ;
 
 type
- TDiffFormHack = {abstract} class(TDiffForm)
+ TDiffFormHack = {abstract} class({$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ TDiffForm
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ )
  end;//TDiffFormHack
 
 procedure TkwDiffIteratorWord.DoDiffForm(aForm: TDiffForm;

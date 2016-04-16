@@ -56,7 +56,10 @@ type
  {$Define HasRightNavigator}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
- TMainPrimForm = class(TOfficeLikeMainForm, InsMainFormChildZoneManager)
+ TMainPrimForm = class({$If NOT Defined(NoVCM)}
+ TOfficeLikeMainForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsMainFormChildZoneManager)
   private
    f_NeedSwitchKeyboard: Boolean;
    f_OldCaption: Il3CString;

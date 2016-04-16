@@ -65,7 +65,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_Panel1
 
- Tkw_DefineSearchDate_Control_Panel1_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_Panel1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Panel1
 ----
 *Пример использования*:
@@ -90,7 +93,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_ElLabel1
 
- Tkw_DefineSearchDate_Control_ElLabel1_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_ElLabel1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ElLabel1
 ----
 *Пример использования*:
@@ -115,7 +121,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_ElLabel2
 
- Tkw_DefineSearchDate_Control_ElLabel2_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_ElLabel2_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ElLabel2
 ----
 *Пример использования*:
@@ -140,7 +149,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_ElLabel3
 
- Tkw_DefineSearchDate_Control_ElLabel3_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_ElLabel3_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ElLabel3
 ----
 *Пример использования*:
@@ -165,7 +177,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD1EqD2
 
- Tkw_DefineSearchDate_Control_dD1EqD2_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_dD1EqD2_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола dD1EqD2
 ----
 *Пример использования*:
@@ -190,7 +205,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbEq
 
- Tkw_DefineSearchDate_Control_rbEq_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_rbEq_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbEq
 ----
 *Пример использования*:
@@ -215,7 +233,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbInt
 
- Tkw_DefineSearchDate_Control_rbInt_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_rbInt_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbInt
 ----
 *Пример использования*:
@@ -240,7 +261,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbD2Only
 
- Tkw_DefineSearchDate_Control_rbD2Only_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_rbD2Only_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbD2Only
 ----
 *Пример использования*:
@@ -265,7 +289,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD1Only
 
- Tkw_DefineSearchDate_Control_dD1Only_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_dD1Only_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола dD1Only
 ----
 *Пример использования*:
@@ -290,7 +317,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD2Only
 
- Tkw_DefineSearchDate_Control_dD2Only_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_dD2Only_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола dD2Only
 ----
 *Пример использования*:
@@ -315,7 +345,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD1
 
- Tkw_DefineSearchDate_Control_dD1_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_dD1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола dD1
 ----
 *Пример использования*:
@@ -340,7 +373,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_rbD1Only
 
- Tkw_DefineSearchDate_Control_rbD1Only_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_rbD1Only_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbD1Only
 ----
 *Пример использования*:
@@ -365,7 +401,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DefineSearchDate_Control_dD2
 
- Tkw_DefineSearchDate_Control_dD2_Push = {final} class(TkwBynameControlPush)
+ Tkw_DefineSearchDate_Control_dD2_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола dD2
 ----
 *Пример использования*:

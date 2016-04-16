@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TDeleteColumnToolTest = {abstract} class(TTextViaEditorProcessor)
+ TDeleteColumnToolTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* “ест удалени€ колонки через редактор }
   protected
    {$If NOT Defined(NoVCM)}

@@ -28,7 +28,10 @@ type
 
  // Right
 
- TAACContainerPrimForm = class(TvcmContainerForm)
+ TAACContainerPrimForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_TabCaption: IvcmCString;
    f_pnBack: TvtProportionalPanel;

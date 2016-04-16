@@ -41,7 +41,10 @@ uses
 ;
 
 type
- TPrimUserListForm = class(TvcmEntityForm, IbsUserListViewListener)
+ TPrimUserListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsUserListViewListener)
   private
    f_PrevUID: Integer;
     {* ID предыдущего пользователя, но которого надо встать в случае отмены создания нового пользователя }

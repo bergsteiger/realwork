@@ -69,7 +69,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TopPanel
 
- Tkw_StartupTips_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_TopPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TopPanel
 ----
 *Пример использования*:
@@ -94,7 +97,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TitlePaintBox
 
- Tkw_StartupTips_Control_TitlePaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_TitlePaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TitlePaintBox
 ----
 *Пример использования*:
@@ -119,7 +125,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TitleLabel
 
- Tkw_StartupTips_Control_TitleLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_TitleLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TitleLabel
 ----
 *Пример использования*:
@@ -144,7 +153,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_BottomPanel
 
- Tkw_StartupTips_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_BottomPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BottomPanel
 ----
 *Пример использования*:
@@ -169,7 +181,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_HintPanel
 
- Tkw_StartupTips_Control_HintPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_HintPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HintPanel
 ----
 *Пример использования*:
@@ -194,7 +209,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_TipLabel
 
- Tkw_StartupTips_Control_TipLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_TipLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TipLabel
 ----
 *Пример использования*:
@@ -219,7 +237,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_DetailLabel
 
- Tkw_StartupTips_Control_DetailLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_DetailLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола DetailLabel
 ----
 *Пример использования*:
@@ -244,7 +265,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_ShowCheckBox
 
- Tkw_StartupTips_Control_ShowCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_ShowCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ShowCheckBox
 ----
 *Пример использования*:
@@ -269,7 +293,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_wwwPanel
 
- Tkw_StartupTips_Control_wwwPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_wwwPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола wwwPanel
 ----
 *Пример использования*:
@@ -294,7 +321,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_wwwPaintBox
 
- Tkw_StartupTips_Control_wwwPaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_wwwPaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола wwwPaintBox
 ----
 *Пример использования*:
@@ -319,7 +349,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_wwwLabel
 
- Tkw_StartupTips_Control_wwwLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_wwwLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола wwwLabel
 ----
 *Пример использования*:
@@ -344,7 +377,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_NextButton
 
- Tkw_StartupTips_Control_NextButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_NextButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NextButton
 ----
 *Пример использования*:
@@ -369,7 +405,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_PrevButton
 
- Tkw_StartupTips_Control_PrevButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_PrevButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола PrevButton
 ----
 *Пример использования*:
@@ -394,7 +433,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StartupTips_Control_CloseButton
 
- Tkw_StartupTips_Control_CloseButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StartupTips_Control_CloseButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CloseButton
 ----
 *Пример использования*:

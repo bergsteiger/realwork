@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_tvComplectInfo
 
- Tkw_CompInfo_Control_tvComplectInfo_Push = {final} class(TkwBynameControlPush)
+ Tkw_CompInfo_Control_tvComplectInfo_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvComplectInfo
 ----
 *Пример использования*:
@@ -89,7 +92,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_pnBottom
 
- Tkw_CompInfo_Control_pnBottom_Push = {final} class(TkwBynameControlPush)
+ Tkw_CompInfo_Control_pnBottom_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnBottom
 ----
 *Пример использования*:
@@ -114,7 +120,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_pnVisualRepresentationData
 
- Tkw_CompInfo_Control_pnVisualRepresentationData_Push = {final} class(TkwBynameControlPush)
+ Tkw_CompInfo_Control_pnVisualRepresentationData_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnVisualRepresentationData
 ----
 *Пример использования*:
@@ -139,7 +148,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption
 
- Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push = {final} class(TkwBynameControlPush)
+ Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnVisualRepresentationDataCaption
 ----
 *Пример использования*:
@@ -164,7 +176,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CompInfo_Control_lblVisualRepresentationData
 
- Tkw_CompInfo_Control_lblVisualRepresentationData_Push = {final} class(TkwBynameControlPush)
+ Tkw_CompInfo_Control_lblVisualRepresentationData_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblVisualRepresentationData
 ----
 *Пример использования*:

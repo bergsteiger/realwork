@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TCheckingFilesInFolderTest = {abstract} class(TBaseTest)
+ TCheckingFilesInFolderTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    procedure DoDoit; virtual; abstract;
    function GetFolder: AnsiString; override;

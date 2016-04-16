@@ -416,7 +416,10 @@ type
     aParaID: Integer): InevWaiter; reintroduce;
  end;//TnsChangedParaWaiter
 
- THackWinControl = {abstract} class(TWinControl)
+ THackWinControl = {abstract} class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackWinControl
 
  TvtComboBoxQSHack = {abstract} class(TvtComboBoxQS)

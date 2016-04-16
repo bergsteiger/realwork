@@ -128,7 +128,10 @@ type
 
  // ListAnalize
 
- Tfs_List = {final} class(TvcmFormSetFactory)
+ Tfs_List = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK235864277 = class(TDeleteSectionBreakTest)
+ TK235864277 = class({$If NOT Defined(NoVCM)}
+ TDeleteSectionBreakTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$235864277] }
   protected
    function GetFolder: AnsiString; override;

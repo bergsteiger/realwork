@@ -70,7 +70,10 @@ type
 
  // DictionContainer
 
- Tfs_Diction = {final} class(TvcmFormSetFactory)
+ Tfs_Diction = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Сборка форм толкового словаря }
   protected
    procedure InitFields; override;

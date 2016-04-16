@@ -29,7 +29,10 @@ uses
 ;
 
 type
- TPrimTurnOffTimeMachineForm = class(TvcmEntityForm)
+ TPrimTurnOffTimeMachineForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_rb_totmChangeDate: TvtRadioButton;
     {* Поле для свойства rb_totmChangeDate }

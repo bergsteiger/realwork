@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TnsMainMenuFormGUIDFactory = class(TvcmFormGUIDFromMainFormList)
+ TnsMainMenuFormGUIDFactory = class({$If NOT Defined(NoVCM)}
+ TvcmFormGUIDFromMainFormList
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Фабрика GUID'ов для ОМ
 http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-330698414 }
   public

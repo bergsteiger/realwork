@@ -155,7 +155,10 @@ uses
 ;
 
 type
- THackWinControl = class(TWinControl)
+ THackWinControl = class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackWinControl
 
 const

@@ -32,7 +32,10 @@ uses
 ;
 
 type
- TPrimUserPropertyForm = class(TvcmEntityForm, IbsUserPropertyListener)
+ TPrimUserPropertyForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsUserPropertyListener)
   private
    f_PasswordChanged: Boolean;
    f_LockCheckBox: Boolean;

@@ -71,7 +71,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_pnMainData
 
- Tkw_SelfInfo_Control_pnMainData_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_pnMainData_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnMainData
 ----
 *Пример использования*:
@@ -96,7 +99,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_UserNameLabel
 
- Tkw_SelfInfo_Control_UserNameLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_UserNameLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола UserNameLabel
 ----
 *Пример использования*:
@@ -121,7 +127,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_PasswordLabel
 
- Tkw_SelfInfo_Control_PasswordLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_PasswordLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола PasswordLabel
 ----
 *Пример использования*:
@@ -146,7 +155,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_LoginLabel
 
- Tkw_SelfInfo_Control_LoginLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_LoginLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LoginLabel
 ----
 *Пример использования*:
@@ -171,7 +183,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_InfoLabel
 
- Tkw_SelfInfo_Control_InfoLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_InfoLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола InfoLabel
 ----
 *Пример использования*:
@@ -196,7 +211,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_EMailLabel
 
- Tkw_SelfInfo_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_EMailLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EMailLabel
 ----
 *Пример использования*:
@@ -221,7 +239,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_ConfirmPasswordLabel
 
- Tkw_SelfInfo_Control_ConfirmPasswordLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_ConfirmPasswordLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ConfirmPasswordLabel
 ----
 *Пример использования*:
@@ -246,7 +267,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_vtAsteriskLabelLogin
 
- Tkw_SelfInfo_Control_vtAsteriskLabelLogin_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_vtAsteriskLabelLogin_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола vtAsteriskLabelLogin
 ----
 *Пример использования*:
@@ -271,7 +295,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_vtAsteriskLabelFIO
 
- Tkw_SelfInfo_Control_vtAsteriskLabelFIO_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_vtAsteriskLabelFIO_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола vtAsteriskLabelFIO
 ----
 *Пример использования*:
@@ -296,7 +323,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_edPassword
 
- Tkw_SelfInfo_Control_edPassword_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_edPassword_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edPassword
 ----
 *Пример использования*:
@@ -321,7 +351,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_edUserName
 
- Tkw_SelfInfo_Control_edUserName_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_edUserName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edUserName
 ----
 *Пример использования*:
@@ -346,7 +379,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_edLogin
 
- Tkw_SelfInfo_Control_edLogin_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_edLogin_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edLogin
 ----
 *Пример использования*:
@@ -371,7 +407,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_edEmail
 
- Tkw_SelfInfo_Control_edEmail_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_edEmail_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edEmail
 ----
 *Пример использования*:
@@ -396,7 +435,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_edConfirm
 
- Tkw_SelfInfo_Control_edConfirm_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_edConfirm_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edConfirm
 ----
 *Пример использования*:
@@ -421,7 +463,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_BottomPanel
 
- Tkw_SelfInfo_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_BottomPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BottomPanel
 ----
 *Пример использования*:
@@ -446,7 +491,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_RegisterButton
 
- Tkw_SelfInfo_Control_RegisterButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_RegisterButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RegisterButton
 ----
 *Пример использования*:
@@ -471,7 +519,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_HelpPanel
 
- Tkw_SelfInfo_Control_HelpPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_HelpPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HelpPanel
 ----
 *Пример использования*:
@@ -496,7 +547,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_HelpPaintBox
 
- Tkw_SelfInfo_Control_HelpPaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_HelpPaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HelpPaintBox
 ----
 *Пример использования*:
@@ -521,7 +575,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SelfInfo_Control_HelpLabel
 
- Tkw_SelfInfo_Control_HelpLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_SelfInfo_Control_HelpLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HelpLabel
 ----
 *Пример использования*:

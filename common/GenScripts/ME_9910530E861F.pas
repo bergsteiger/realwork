@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersInfo_Control_ChildZone
 
- Tkw_FoldersInfo_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersInfo_Control_ChildZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ChildZone
 ----
 *Пример использования*:

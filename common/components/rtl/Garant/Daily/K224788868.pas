@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK224788868 = class(TSearchAndReplaceTest)
+ TK224788868 = class({$If NOT Defined(NoVCM)}
+ TSearchAndReplaceTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:224788868] }
   protected
    {$If NOT Defined(NoVCM)}

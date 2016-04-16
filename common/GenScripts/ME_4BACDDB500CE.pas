@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TWriterTest = {abstract} class(TBaseTest)
+ TWriterTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Базовый тест записи }
   protected
    procedure DoWrite(aReader: Tk2CustomFileReader;

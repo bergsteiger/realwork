@@ -76,7 +76,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_spRight
 
- Tkw_CustomizeTasksPanel_Control_spRight_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_spRight_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола spRight
 ----
 *Пример использования*:
@@ -101,7 +104,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlBottom
 
- Tkw_CustomizeTasksPanel_Control_pnlBottom_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlBottom_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlBottom
 ----
 *Пример использования*:
@@ -126,7 +132,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave
 
- Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblConfirmSave
 ----
 *Пример использования*:
@@ -151,7 +160,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption
 
- Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblAvailableOpsCaption
 ----
 *Пример использования*:
@@ -176,7 +188,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btOk
 
- Tkw_CustomizeTasksPanel_Control_btOk_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btOk_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btOk
 ----
 *Пример использования*:
@@ -201,7 +216,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btCancel
 
- Tkw_CustomizeTasksPanel_Control_btCancel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btCancel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btCancel
 ----
 *Пример использования*:
@@ -226,7 +244,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btApply
 
- Tkw_CustomizeTasksPanel_Control_btApply_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btApply_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btApply
 ----
 *Пример использования*:
@@ -251,7 +272,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlRep
 
- Tkw_CustomizeTasksPanel_Control_pnlRep_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlRep_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlRep
 ----
 *Пример использования*:
@@ -276,7 +300,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_splRep
 
- Tkw_CustomizeTasksPanel_Control_splRep_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_splRep_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола splRep
 ----
 *Пример использования*:
@@ -301,7 +328,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups
 
- Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола gbAvailableGroups
 ----
 *Пример использования*:
@@ -326,7 +356,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups
 
- Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvRepGroups
 ----
 *Пример использования*:
@@ -351,7 +384,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_vtPanel1
 
- Tkw_CustomizeTasksPanel_Control_vtPanel1_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_vtPanel1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола vtPanel1
 ----
 *Пример использования*:
@@ -376,7 +412,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_cbGroupName
 
- Tkw_CustomizeTasksPanel_Control_cbGroupName_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_cbGroupName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbGroupName
 ----
 *Пример использования*:
@@ -401,7 +440,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup
 
- Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnAddGroup
 ----
 *Пример использования*:
@@ -426,7 +468,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup
 
- Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnChangeGroup
 ----
 *Пример использования*:
@@ -451,7 +496,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup
 
- Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnDeleteGroup
 ----
 *Пример использования*:
@@ -476,7 +524,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations
 
- Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола gbAvailableOperations
 ----
 *Пример использования*:
@@ -501,7 +552,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_tvRepOps
 
- Tkw_CustomizeTasksPanel_Control_tvRepOps_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_tvRepOps_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvRepOps
 ----
 *Пример использования*:
@@ -526,7 +580,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlForms
 
- Tkw_CustomizeTasksPanel_Control_pnlForms_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlForms_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlForms
 ----
 *Пример использования*:
@@ -551,7 +608,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblForms
 
- Tkw_CustomizeTasksPanel_Control_lblForms_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_lblForms_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblForms
 ----
 *Пример использования*:
@@ -576,7 +636,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_cbForms
 
- Tkw_CustomizeTasksPanel_Control_cbForms_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_cbForms_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbForms
 ----
 *Пример использования*:
@@ -601,7 +664,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlMain
 
- Tkw_CustomizeTasksPanel_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlMain_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlMain
 ----
 *Пример использования*:
@@ -626,7 +692,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlLeft
 
- Tkw_CustomizeTasksPanel_Control_pnlLeft_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlLeft_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlLeft
 ----
 *Пример использования*:
@@ -651,7 +720,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel
 
- Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnMoveOpToPanel
 ----
 *Пример использования*:
@@ -676,7 +748,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep
 
- Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnMoveOpToRep
 ----
 *Пример использования*:
@@ -701,7 +776,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel
 
- Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnMoveGroupToPanel
 ----
 *Пример использования*:
@@ -726,7 +804,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep
 
- Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnMoveGroupToRep
 ----
 *Пример использования*:
@@ -751,7 +832,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel
 
- Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlTasksPanel
 ----
 *Пример использования*:
@@ -776,7 +860,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel
 
- Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола gbTasksPanel
 ----
 *Пример использования*:
@@ -801,7 +888,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel
 
- Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvTasksPanel
 ----
 *Пример использования*:
@@ -826,7 +916,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3
 
- Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола vtGroupBox3
 ----
 *Пример использования*:
@@ -851,7 +944,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_lblCaption
 
- Tkw_CustomizeTasksPanel_Control_lblCaption_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_lblCaption_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblCaption
 ----
 *Пример использования*:
@@ -876,7 +972,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_edChange
 
- Tkw_CustomizeTasksPanel_Control_edChange_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_edChange_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edChange
 ----
 *Пример использования*:
@@ -901,7 +1000,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases
 
- Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbForAllUseCases
 ----
 *Пример использования*:
@@ -926,7 +1028,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem
 
- Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnChangeItem
 ----
 *Пример использования*:
@@ -951,7 +1056,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos
 
- Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlOperationPos
 ----
 *Пример использования*:
@@ -976,7 +1084,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn
 
- Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола UpBitBtn
 ----
 *Пример использования*:
@@ -1001,7 +1112,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn
 
- Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push = {final} class(TkwBynameControlPush)
+ Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола DownBitBtn
 ----
 *Пример использования*:

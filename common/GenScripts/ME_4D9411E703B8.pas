@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TWrongSearchTest = {abstract} class(TSearchAndReplaceTest)
+ TWrongSearchTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TSearchAndReplaceTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Поиск строки не должен проходить. }
   protected
    {$If NOT Defined(NoVCM)}

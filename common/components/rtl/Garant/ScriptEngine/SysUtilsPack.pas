@@ -963,6 +963,49 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwSysutilsLog
 
+ TkwStopTimerNoLog = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта StopTimerNoLog
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aName StopTimerNoLog >>> l_Integer
+[code]  }
+  private
+   function StopTimerNoLog(const aCtx: TtfwContext;
+    const aName: AnsiString): Integer;
+    {* Реализация слова скрипта StopTimerNoLog }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStopTimerNoLog
+
+ TkwStopTimerExNoLog = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта StopTimerExNoLog
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aName aSubName StopTimerExNoLog >>> l_Integer
+[code]  }
+  private
+   function StopTimerExNoLog(const aCtx: TtfwContext;
+    const aSubName: AnsiString;
+    const aName: AnsiString): Integer;
+    {* Реализация слова скрипта StopTimerExNoLog }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStopTimerExNoLog
+
 class function TSysUtilsPackResNameGetter.ResName: AnsiString;
 begin
   Result := 'SysUtilsPack';
@@ -3159,6 +3202,109 @@ begin
  Result := 'sysutils:Log';
 end;//TkwSysutilsLog.GetWordNameForRegister
 
+function TkwStopTimerNoLog.StopTimerNoLog(const aCtx: TtfwContext;
+ const aName: AnsiString): Integer;
+ {* Реализация слова скрипта StopTimerNoLog }
+//#UC START# *5E78D238500C_B2DDD43C4AAD_var*
+//#UC END# *5E78D238500C_B2DDD43C4AAD_var*
+begin
+//#UC START# *5E78D238500C_B2DDD43C4AAD_impl*
+ Result := aCtx.rCaller.StopTimer(aName, '', false);
+//#UC END# *5E78D238500C_B2DDD43C4AAD_impl*
+end;//TkwStopTimerNoLog.StopTimerNoLog
+
+procedure TkwStopTimerNoLog.DoDoIt(const aCtx: TtfwContext);
+var l_aName: AnsiString;
+begin
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(StopTimerNoLog(aCtx, l_aName));
+end;//TkwStopTimerNoLog.DoDoIt
+
+function TkwStopTimerNoLog.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStopTimerNoLog.GetResultTypeInfo
+
+function TkwStopTimerNoLog.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStopTimerNoLog.GetAllParamsCount
+
+function TkwStopTimerNoLog.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStopTimerNoLog.ParamsTypes
+
+class function TkwStopTimerNoLog.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StopTimerNoLog';
+end;//TkwStopTimerNoLog.GetWordNameForRegister
+
+function TkwStopTimerExNoLog.StopTimerExNoLog(const aCtx: TtfwContext;
+ const aSubName: AnsiString;
+ const aName: AnsiString): Integer;
+ {* Реализация слова скрипта StopTimerExNoLog }
+//#UC START# *F9CE454CCB41_74A78971F11E_var*
+//#UC END# *F9CE454CCB41_74A78971F11E_var*
+begin
+//#UC START# *F9CE454CCB41_74A78971F11E_impl*
+ Result := aCtx.rCaller.StopTimer(aName, aSubName, false);
+//#UC END# *F9CE454CCB41_74A78971F11E_impl*
+end;//TkwStopTimerExNoLog.StopTimerExNoLog
+
+procedure TkwStopTimerExNoLog.DoDoIt(const aCtx: TtfwContext);
+var l_aSubName: AnsiString;
+var l_aName: AnsiString;
+begin
+ try
+  l_aSubName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSubName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(StopTimerExNoLog(aCtx, l_aSubName, l_aName));
+end;//TkwStopTimerExNoLog.DoDoIt
+
+function TkwStopTimerExNoLog.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStopTimerExNoLog.GetResultTypeInfo
+
+function TkwStopTimerExNoLog.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwStopTimerExNoLog.GetAllParamsCount
+
+function TkwStopTimerExNoLog.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
+end;//TkwStopTimerExNoLog.ParamsTypes
+
+class function TkwStopTimerExNoLog.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StopTimerExNoLog';
+end;//TkwStopTimerExNoLog.GetWordNameForRegister
+
 initialization
  TSysUtilsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
@@ -3254,6 +3400,10 @@ initialization
  {* Регистрация sysutils_RemoveDir }
  TkwSysutilsLog.RegisterInEngine;
  {* Регистрация sysutils_Log }
+ TkwStopTimerNoLog.RegisterInEngine;
+ {* Регистрация StopTimerNoLog }
+ TkwStopTimerExNoLog.RegisterInEngine;
+ {* Регистрация StopTimerExNoLog }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TComplexScrollParams = {abstract} class(TTextEditorVisitor, InevVScrollerPosLogger)
+ TComplexScrollParams = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InevVScrollerPosLogger)
   protected
    function GetSubNumber(aFirst: Boolean): Integer; virtual;
    {$If NOT Defined(NoVCM)}

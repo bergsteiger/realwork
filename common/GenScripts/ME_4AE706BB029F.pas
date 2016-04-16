@@ -41,7 +41,10 @@ uses
 type
  TTypeMap = array [TFoldersElementType] of TFoldersItemType;
 
- TPrimFoldersElementInfoForm = class(TvcmEntityForm)
+ TPrimFoldersElementInfoForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_EDoChangedAlreadyDoneFired: Boolean;
     {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обрабиотки переподнять его }

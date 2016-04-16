@@ -69,7 +69,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_pnlMain
 
- Tkw_BaseSearchCard_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchCard_Control_pnlMain_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlMain
 ----
 *Пример использования*:
@@ -94,7 +97,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_hfBaseSearch
 
- Tkw_BaseSearchCard_Control_hfBaseSearch_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchCard_Control_hfBaseSearch_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола hfBaseSearch
 ----
 *Пример использования*:
@@ -119,7 +125,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_lrBaseSearch
 
- Tkw_BaseSearchCard_Control_lrBaseSearch_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchCard_Control_lrBaseSearch_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lrBaseSearch
 ----
 *Пример использования*:
@@ -144,7 +153,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchCard_Control_CardTextLabel
 
- Tkw_BaseSearchCard_Control_CardTextLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchCard_Control_CardTextLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CardTextLabel
 ----
 *Пример использования*:

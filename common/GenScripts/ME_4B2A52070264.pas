@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TTestFilerCopyViaReadLn = class(TBaseTest)
+ TTestFilerCopyViaReadLn = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }

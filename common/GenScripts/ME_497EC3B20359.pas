@@ -35,7 +35,10 @@ uses
 ;
 
 type
- TPrimSelectedAttributesForm = class(TvcmEntityForm)
+ TPrimSelectedAttributesForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_SelectedTree: TnscTreeViewWithAdapterDragDrop;
     {* Поле для свойства SelectedTree }

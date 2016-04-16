@@ -25,7 +25,10 @@ uses
 ;
 
 type
- TBaseSearchModule = class(TvcmModule)
+ TBaseSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Базовый поиск }
   public
    procedure TryAnotherBaseSearch(const aContainer: IvcmContainer;

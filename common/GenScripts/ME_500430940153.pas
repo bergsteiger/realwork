@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TBaseUC = class(TTestResultsPlace)
+ TBaseUC = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Тесты для запуска перед коммитами }
   public
    {$If NOT Defined(NotTunedDUnit)}

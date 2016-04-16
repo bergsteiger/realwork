@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TOutlinerWithEVDStyleNodes = {abstract} class(TOutlinerTest)
+ TOutlinerWithEVDStyleNodes = {abstract} class({$If NOT Defined(NoVCM)}
+ TOutlinerTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    {$If NOT Defined(NoVCM)}
    function FormExtent: TPoint; override;

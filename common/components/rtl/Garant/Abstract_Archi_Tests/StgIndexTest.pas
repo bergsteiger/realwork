@@ -21,7 +21,10 @@ const
  cIndexFileName = 'bserv001.idx';
 
 type
- TStgIndexTest = {abstract} class(TBaseTest)
+ TStgIndexTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   private
    f_IndexFile: AnsiString;
   protected

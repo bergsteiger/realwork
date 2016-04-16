@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TArchiServerForm = class(TForm)
+ TArchiServerForm = class({$If NOT Defined(NoVCL)}
+ TForm
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//TArchiServerForm
 
  TAutoPipeServerForm = class

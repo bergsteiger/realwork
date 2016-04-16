@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TAutoBlockTest = {abstract} class(TTextViaEditorProcessor)
+ TAutoBlockTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Тест разбиения документа на блоки }
   protected
    {$If NOT Defined(NoVCM)}

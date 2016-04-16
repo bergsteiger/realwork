@@ -68,7 +68,6 @@ type
    procedure InitKeyboardNavigation;
    procedure ActionElement(Sender: TObject;
     Index: Integer);
-   procedure pnlMainResize(aSender: TObject);
    procedure WMMouseWheel(var Message: TWMMouseWheel); message WM_MOUSEWHEEL;
   protected
    function pm_GetTreeStyle: TnsTreeStyleManager;
@@ -77,6 +76,7 @@ type
     {* установить размеры таблицы }
    procedure RecalcGrid;
    procedure BuildGrid;
+   procedure pnlMainResize(aSender: TObject); virtual;
    function DoBuildGrid: InscArrangeGrid; virtual; abstract;
    procedure DoInitKeyboardNavigation(const aTable: InscTabTable); virtual;
    procedure LoadLastOpenDocs; virtual;

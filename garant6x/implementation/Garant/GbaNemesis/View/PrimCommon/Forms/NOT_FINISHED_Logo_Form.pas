@@ -14,7 +14,10 @@ uses
 ;
 
 type
- TLogoForm = {final} class(TvcmEntityForm)
+ TLogoForm = {final} class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
  end;//TLogoForm
 
 implementation

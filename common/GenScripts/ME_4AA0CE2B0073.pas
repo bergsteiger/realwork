@@ -28,7 +28,10 @@ uses
 ;
 
 type
- TPrimListAnalizerForm = class(TvcmEntityForm)
+ TPrimListAnalizerForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Анализ списка }
   private
    f_BackgroundPanel: TvtPanel;

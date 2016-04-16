@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuAutoSpellTask = class(TcsAutoSpellTask)
+ TalcuAutoSpellTask = class({$If NOT Defined(Nemesis)}
+ TcsAutoSpellTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuAutoSpellTask
 {$IfEnd} // Defined(ServerTasks)
 

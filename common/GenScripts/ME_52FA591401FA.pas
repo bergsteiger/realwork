@@ -13,7 +13,6 @@ uses
  l3IntfUses
  , csDictEditQueryPrim
  , csDeleteDocsQueryPrim
- , csRemoteDictEditQueryPrim
  , csUserEditQueryPrim
  , ddRunCommandTaskPrim
 ;
@@ -27,9 +26,6 @@ type
 
  TDeleteDocsQuery = class(TcsDeleteDocsQueryPrim)
  end;//TDeleteDocsQuery
-
- TRemoteDictEditQuery = class(TcsRemoteDictEditQueryPrim)
- end;//TRemoteDictEditQuery
 
  TUserEditQuery = class(TcsUserEditQueryPrim)
  end;//TUserEditQuery

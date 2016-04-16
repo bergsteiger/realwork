@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK227477421 = class(TScrollBackByLineWithCheckTopAnchoTest)
+ TK227477421 = class({$If NOT Defined(NoVCM)}
+ TScrollBackByLineWithCheckTopAnchoTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$227477421] }
   protected
    {$If NOT Defined(NoVCM)}

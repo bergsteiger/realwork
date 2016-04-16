@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TK275780190 = class(TTextViaEditorProcessor)
+ TK275780190 = class({$If NOT Defined(NoVCM)}
+ TTextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:275780190]. }
   protected
    {$If NOT Defined(NoVCM)}

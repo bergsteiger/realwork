@@ -15,7 +15,10 @@ uses
 ;
 
 type
- TCustomInsiderScripter = {abstract} class(TvcmInsiderTest)
+ TCustomInsiderScripter = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TvcmInsiderTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    procedure Run; virtual; abstract;
    procedure Prepare; virtual; abstract;

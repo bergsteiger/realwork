@@ -313,7 +313,7 @@ type
     read f_Op;
  end;//TvcmRepOperationNode
 
- TvcmTree = class(Tl3TreeItpTree)
+ TvcmTree = class(Tl3Tree)
   protected
    procedure Save;
  end;//TvcmTree

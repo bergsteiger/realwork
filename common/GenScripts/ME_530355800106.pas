@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuExport = class(TcsExport)
+ TalcuExport = class({$If NOT Defined(Nemesis)}
+ TcsExport
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuExport
 {$IfEnd} // Defined(ServerTasks)
 

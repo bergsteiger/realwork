@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TkwDiffFormWord = {abstract} class(TkwFormFromControlWord)
+ TkwDiffFormWord = {abstract} class({$If NOT Defined(NoVCL)}
+ TkwFormFromControlWord
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   protected
    procedure DoDiffForm(aForm: TDiffForm;
     const aCtx: TtfwContext); virtual; abstract;

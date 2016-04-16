@@ -68,7 +68,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_ClientPanel
 
- Tkw_LongProcess_Control_ClientPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_ClientPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ClientPanel
 ----
 *Пример использования*:
@@ -93,7 +96,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_MessageLabel
 
- Tkw_LongProcess_Control_MessageLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_MessageLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MessageLabel
 ----
 *Пример использования*:
@@ -118,7 +124,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_BottomPanel
 
- Tkw_LongProcess_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_BottomPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BottomPanel
 ----
 *Пример использования*:
@@ -143,7 +152,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_ProgressBar
 
- Tkw_LongProcess_Control_ProgressBar_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_ProgressBar_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ProgressBar
 ----
 *Пример использования*:
@@ -168,7 +180,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_LeftPanel
 
- Tkw_LongProcess_Control_LeftPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_LeftPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LeftPanel
 ----
 *Пример использования*:
@@ -193,7 +208,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_Image
 
- Tkw_LongProcess_Control_Image_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_Image_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Image
 ----
 *Пример использования*:
@@ -218,7 +236,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_ButtonPanel
 
- Tkw_LongProcess_Control_ButtonPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_ButtonPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ButtonPanel
 ----
 *Пример использования*:
@@ -243,7 +264,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_LongProcess_Control_btnExit
 
- Tkw_LongProcess_Control_btnExit_Push = {final} class(TkwBynameControlPush)
+ Tkw_LongProcess_Control_btnExit_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnExit
 ----
 *Пример использования*:

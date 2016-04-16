@@ -69,7 +69,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_poDocumentNames
 
- Tkw_PrintDialog_Control_poDocumentNames_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_poDocumentNames_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола poDocumentNames
 ----
 *Пример использования*:
@@ -94,7 +97,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintSelected
 
- Tkw_PrintDialog_Control_rbPrintSelected_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_rbPrintSelected_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbPrintSelected
 ----
 *Пример использования*:
@@ -119,7 +125,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintCurrent
 
- Tkw_PrintDialog_Control_rbPrintCurrent_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_rbPrintCurrent_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbPrintCurrent
 ----
 *Пример использования*:
@@ -144,7 +153,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_edPrintInterval
 
- Tkw_PrintDialog_Control_edPrintInterval_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_edPrintInterval_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edPrintInterval
 ----
 *Пример использования*:
@@ -169,7 +181,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_edCopyCount
 
- Tkw_PrintDialog_Control_edCopyCount_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_edCopyCount_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edCopyCount
 ----
 *Пример использования*:
@@ -194,7 +209,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_CollateCheckBox
 
- Tkw_PrintDialog_Control_CollateCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_CollateCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CollateCheckBox
 ----
 *Пример использования*:
@@ -219,7 +237,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_cbOddEven
 
- Tkw_PrintDialog_Control_cbOddEven_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_cbOddEven_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbOddEven
 ----
 *Пример использования*:
@@ -244,7 +265,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_poDocumentTexts
 
- Tkw_PrintDialog_Control_poDocumentTexts_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_poDocumentTexts_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола poDocumentTexts
 ----
 *Пример использования*:
@@ -269,7 +293,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintAll
 
- Tkw_PrintDialog_Control_rbPrintAll_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_rbPrintAll_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbPrintAll
 ----
 *Пример использования*:
@@ -294,7 +321,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_rbPrintInterval
 
- Tkw_PrintDialog_Control_rbPrintInterval_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_rbPrintInterval_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbPrintInterval
 ----
 *Пример использования*:
@@ -319,7 +349,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_cbPrinter
 
- Tkw_PrintDialog_Control_cbPrinter_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_cbPrinter_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbPrinter
 ----
 *Пример использования*:
@@ -344,7 +377,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PrintDialog_Control_cbPrintInfo
 
- Tkw_PrintDialog_Control_cbPrintInfo_Push = {final} class(TkwBynameControlPush)
+ Tkw_PrintDialog_Control_cbPrintInfo_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbPrintInfo
 ----
 *Пример использования*:

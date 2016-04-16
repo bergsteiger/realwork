@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TWholeSelectionWithMouseTest = {abstract} class(TTextEditorVisitor)
+ TWholeSelectionWithMouseTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Выделение с помощью мыши всего документа (с прокруткой). }
   protected
    {$If NOT Defined(NoVCM)}

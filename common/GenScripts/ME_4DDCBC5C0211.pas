@@ -35,7 +35,10 @@ uses
 type
  // Parent
 
- Tfs_ViewChangedFragments = {final} class(TvcmFormSetFactory)
+ Tfs_ViewChangedFragments = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

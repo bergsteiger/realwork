@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TParentAndChildPrimModule = {abstract} class(TvcmModule)
+ TParentAndChildPrimModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure MakeChild(aMainForm: TvcmMainForm;
     anOwner: TvcmEntityForm);

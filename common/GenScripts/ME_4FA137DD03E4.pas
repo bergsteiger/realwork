@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TArchiStorageTest = {abstract} class(TBaseTest)
+ TArchiStorageTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    procedure DoBase(const aDB: Im3DB); virtual;
    function NeedTestRenaming: Boolean; virtual;

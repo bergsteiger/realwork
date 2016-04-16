@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TLinesTest = {abstract} class(TTextEditorVisitor, Il3FrameLinesLogger)
+ TLinesTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3FrameLinesLogger)
   {* Тестирование отрисовки линий. }
   private
    f_ObjID: Integer;

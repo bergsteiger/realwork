@@ -56,7 +56,10 @@ type
 
  // Attributes
 
- Tfs_MedicFirmDocument = {final} class(TvcmFormSetFactory)
+ Tfs_MedicFirmDocument = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

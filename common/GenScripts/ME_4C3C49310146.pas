@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK226001269 = class(TTwoSpaceForOneReplacerTest)
+ TK226001269 = class({$If NOT Defined(NoVCM)}
+ TTwoSpaceForOneReplacerTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$226001269] }
   protected
    function GetFolder: AnsiString; override;

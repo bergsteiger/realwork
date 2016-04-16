@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuAACImport = class(TcsAACImport)
+ TalcuAACImport = class({$If NOT Defined(Nemesis)}
+ TcsAACImport
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuAACImport
 {$IfEnd} // Defined(ServerTasks) AND Defined(AAC)
 

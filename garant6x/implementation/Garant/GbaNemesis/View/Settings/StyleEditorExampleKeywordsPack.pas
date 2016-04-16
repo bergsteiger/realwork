@@ -79,7 +79,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorExample_Control_EditorPanel
 
- Tkw_StyleEditorExample_Control_EditorPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorExample_Control_EditorPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EditorPanel
 ----
 *Пример использования*:
@@ -104,7 +107,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorExample_Control_Editor
 
- Tkw_StyleEditorExample_Control_Editor_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorExample_Control_Editor_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Editor
 ----
 *Пример использования*:

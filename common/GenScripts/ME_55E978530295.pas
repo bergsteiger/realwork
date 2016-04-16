@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuMdpSyncDicts = class(TcsMdpSyncDicts)
+ TalcuMdpSyncDicts = class({$If NOT Defined(Nemesis)}
+ TcsMdpSyncDicts
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuMdpSyncDicts
 {$IfEnd} // Defined(ServerTasks)
 

@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_SynchroView_Control_DocView
 
- Tkw_SynchroView_Control_DocView_Push = {final} class(TkwBynameControlPush)
+ Tkw_SynchroView_Control_DocView_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола DocView
 ----
 *Пример использования*:

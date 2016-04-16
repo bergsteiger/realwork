@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TConsultationModule = class(TvcmModule)
+ TConsultationModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Консультации }
   public
    procedure GiveMarkOnConsultation(const aNode: Il3SimpleNode);

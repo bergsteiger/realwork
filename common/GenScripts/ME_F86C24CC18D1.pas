@@ -68,7 +68,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate
 
- Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rb_totmOnDate
 ----
 *Пример использования*:
@@ -93,7 +96,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation
 
- Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rb_totmOnCurrentRedation
 ----
 *Пример использования*:
@@ -118,7 +124,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_deDate
 
- Tkw_TurnOnTimeMachine_Control_deDate_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_deDate_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола deDate
 ----
 *Пример использования*:
@@ -143,7 +152,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon
 
- Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pbDialogIcon
 ----
 *Пример использования*:
@@ -168,7 +180,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo
 
- Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblTurnOnTimeMachineInfo
 ----
 *Пример использования*:
@@ -193,7 +208,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_btnOk
 
- Tkw_TurnOnTimeMachine_Control_btnOk_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_btnOk_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnOk
 ----
 *Пример использования*:
@@ -218,7 +236,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TurnOnTimeMachine_Control_btnCancel
 
- Tkw_TurnOnTimeMachine_Control_btnCancel_Push = {final} class(TkwBynameControlPush)
+ Tkw_TurnOnTimeMachine_Control_btnCancel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnCancel
 ----
 *Пример использования*:

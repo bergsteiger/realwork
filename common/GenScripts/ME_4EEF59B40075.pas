@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TFormulaRender = {abstract} class(TTextEditorVisitor)
+ TFormulaRender = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_ParaNumber: Integer;
    f_FormulaNumber: Integer;

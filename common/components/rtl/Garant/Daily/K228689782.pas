@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK228689782 = class(TPreviewTestBefore235875079)
+ TK228689782 = class({$If NOT Defined(NoVCM)}
+ TPreviewTestBefore235875079
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$228689782] }
   protected
    {$If NOT Defined(NoVCM)}

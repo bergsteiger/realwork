@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_EULA_Control_ShellCaptionLabel
 
- Tkw_EULA_Control_ShellCaptionLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_EULA_Control_ShellCaptionLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ShellCaptionLabel
 ----
 *Пример использования*:
@@ -89,7 +92,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_EULA_Control_OkButton
 
- Tkw_EULA_Control_OkButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_EULA_Control_OkButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола OkButton
 ----
 *Пример использования*:
@@ -114,7 +120,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_EULA_Control_eeMemoWithEditOperations1
 
- Tkw_EULA_Control_eeMemoWithEditOperations1_Push = {final} class(TkwBynameControlPush)
+ Tkw_EULA_Control_eeMemoWithEditOperations1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола eeMemoWithEditOperations1
 ----
 *Пример использования*:

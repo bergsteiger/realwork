@@ -38,7 +38,10 @@ type
 
  // NewsLine
 
- Tfs_Autoreferat = {final} class(TvcmFormSetFactory)
+ Tfs_Autoreferat = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

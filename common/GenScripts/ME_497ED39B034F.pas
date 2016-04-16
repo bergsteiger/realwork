@@ -28,7 +28,10 @@ uses
 ;
 
 type
- TPrimForbidAutoregistrationForm = class(TvcmEntityForm)
+ TPrimForbidAutoregistrationForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* »спользуетс€ при запрете авторегистрации }
   private
    f_lblReference: TvtLabel;

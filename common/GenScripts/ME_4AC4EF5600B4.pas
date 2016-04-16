@@ -73,7 +73,10 @@ type
     {* Преобразование строкового значения к порядковому }
  end;//ContactTypeMapHelper
 
- TPrimContactListForm = class(TvcmEntityForm, IbsContactList)
+ TPrimContactListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsContactList)
   {* Совещание онлайн }
   private
    f_BackgroundPanel: TvtPanel;

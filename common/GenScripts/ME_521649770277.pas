@@ -24,7 +24,10 @@ const
   {* 'Тестовое приложение VCM' }
 
 type
- TVCMSandBoxRes = {final} class(TvcmApplication)
+ TVCMSandBoxRes = {final} class({$If NOT Defined(NoVCM)}
+ TvcmApplication
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Тестовое приложение VCM }
  end;//TVCMSandBoxRes
 

@@ -17,7 +17,10 @@ uses
 ;
 
 type
- Tl3StringToStringMapTest = class(TBaseTest)
+ Tl3StringToStringMapTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }

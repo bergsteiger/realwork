@@ -85,7 +85,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Picture_Control_ieViewer
 
- Tkw_Picture_Control_ieViewer_Push = {final} class(TkwBynameControlPush)
+ Tkw_Picture_Control_ieViewer_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ieViewer
 ----
 *Пример использования*:

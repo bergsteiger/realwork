@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuRelPublishTask = class(TcsImportTaskItem)
+ TalcuRelPublishTask = class({$If NOT Defined(Nemesis)}
+ TcsImportTaskItem
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuRelPublishTask
 {$IfEnd} // Defined(ServerTasks)
 

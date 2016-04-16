@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TPrimPictureInfoForm = class(TvcmEntityForm)
+ TPrimPictureInfoForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Информация о картинке }
   private
    f_Info: TeeMemoWithEditOperations;

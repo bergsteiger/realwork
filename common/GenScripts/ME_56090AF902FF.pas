@@ -17,7 +17,10 @@ uses
 ;
 
 type
- Tl3IntegerToIntegerMapTest = class(TBaseTest)
+ Tl3IntegerToIntegerMapTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }

@@ -70,7 +70,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_BackgroundPanel
 
- Tkw_Contents_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -95,7 +98,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_lstBookmarks
 
- Tkw_Contents_Control_lstBookmarks_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_lstBookmarks_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lstBookmarks
 ----
 *Пример использования*:
@@ -120,7 +126,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_lstComments
 
- Tkw_Contents_Control_lstComments_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_lstComments_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lstComments
 ----
 *Пример использования*:
@@ -145,7 +154,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_lstExternalObjects
 
- Tkw_Contents_Control_lstExternalObjects_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_lstExternalObjects_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lstExternalObjects
 ----
 *Пример использования*:
@@ -170,7 +182,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_ContentsTree
 
- Tkw_Contents_Control_ContentsTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_ContentsTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ContentsTree
 ----
 *Пример использования*:
@@ -195,7 +210,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_ContextFilter
 
- Tkw_Contents_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_ContextFilter_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ContextFilter
 ----
 *Пример использования*:
@@ -220,7 +238,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Contents_Control_Tasks
 
- Tkw_Contents_Control_Tasks_Push = {final} class(TkwBynameControlPush)
+ Tkw_Contents_Control_Tasks_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Tasks
 ----
 *Пример использования*:

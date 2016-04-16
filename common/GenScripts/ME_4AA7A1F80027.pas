@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TMainMenuModule = class(TvcmModule)
+ TMainMenuModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
    class function MainMenuChangeableMainMenuTypeSetting: Integer;

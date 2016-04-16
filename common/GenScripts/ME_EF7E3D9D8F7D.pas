@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_PreviewForm_Control_PreviewPanel
 
- Tkw_PreviewForm_Control_PreviewPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_PreviewForm_Control_PreviewPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола PreviewPanel
 ----
 *Пример использования*:

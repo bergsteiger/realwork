@@ -2573,12 +2573,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , csBaseStatusRequest in 'w:\common\components\rtl\Garant\cs\csBaseStatusRequest.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- {$If Defined(InsiderTest) AND Defined(RemoteDict)}
- , K517772970_TddNonEditableDictsRequest in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddNonEditableDictsRequest.pas'
- {$IfEnd} // Defined(InsiderTest) AND Defined(RemoteDict)
- {$If NOT Defined(Nemesis)}
- , csNonEditableDictsRequest in 'w:\common\components\rtl\Garant\cs\csNonEditableDictsRequest.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(InsiderTest)}
  , K517772970_TddServerStatusRequest in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddServerStatusRequest.pas'
  {$IfEnd} // Defined(InsiderTest)
@@ -2726,10 +2720,6 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , DeleteDocsQuery_Const in 'w:\common\components\rtl\Garant\EVD\DeleteDocsQuery_Const.pas'
  {$If NOT Defined(Nemesis)}
- , csRemoteDictEditQueryPrim in 'w:\common\components\rtl\Garant\cs\csRemoteDictEditQueryPrim.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , RemoteDictEditQuery_Const in 'w:\common\components\rtl\Garant\EVD\RemoteDictEditQuery_Const.pas'
- {$If NOT Defined(Nemesis)}
  , csUserEditQueryPrim in 'w:\common\components\rtl\Garant\cs\csUserEditQueryPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , UserEditQuery_Const in 'w:\common\components\rtl\Garant\EVD\UserEditQuery_Const.pas'
@@ -2754,9 +2744,6 @@ uses
  {$If Defined(InsiderTest)}
  , K517772970_TUserEditQuery in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TUserEditQuery.pas'
  {$IfEnd} // Defined(InsiderTest)
- {$If Defined(InsiderTest) AND Defined(RemoteDict)}
- , K517772970_TRemoteDictEditQuery in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TRemoteDictEditQuery.pas'
- {$IfEnd} // Defined(InsiderTest) AND Defined(RemoteDict)
  {$If Defined(InsiderTest)}
  , K517772970_TalcuAutoExportTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TalcuAutoExportTask.pas'
  {$IfEnd} // Defined(InsiderTest)
@@ -2970,9 +2957,6 @@ uses
  {$If Defined(InsiderTest)}
  , K517772970_TddGetTaskRequestDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddGetTaskRequestDefault.pas'
  {$IfEnd} // Defined(InsiderTest)
- {$If Defined(InsiderTest) AND Defined(RemoteDict)}
- , K517772970_TddNonEditableDictsRequestDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddNonEditableDictsRequestDefault.pas'
- {$IfEnd} // Defined(InsiderTest) AND Defined(RemoteDict)
  {$If Defined(InsiderTest)}
  , K517772970_TddProcessTaskDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddProcessTaskDefault.pas'
  {$IfEnd} // Defined(InsiderTest)
@@ -3000,9 +2984,6 @@ uses
  {$If Defined(InsiderTest)}
  , K517772970_TGetDictEditQueryDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TGetDictEditQueryDefault.pas'
  {$IfEnd} // Defined(InsiderTest)
- {$If Defined(InsiderTest) AND Defined(RemoteDict)}
- , K517772970_TRemoteDictEditQueryDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TRemoteDictEditQueryDefault.pas'
- {$IfEnd} // Defined(InsiderTest) AND Defined(RemoteDict)
  {$If Defined(InsiderTest)}
  , K517772970_TUserEditQueryDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TUserEditQueryDefault.pas'
  {$IfEnd} // Defined(InsiderTest)

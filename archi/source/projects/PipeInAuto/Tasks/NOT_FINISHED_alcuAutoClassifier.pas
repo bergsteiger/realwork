@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TalcuAutoClassTask = class(TcsAutoClassTask)
+ TalcuAutoClassTask = class({$If NOT Defined(Nemesis)}
+ TcsAutoClassTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
   protected
    {$If NOT Defined(Nemesis)}
    procedure GetTaskResultClass : TcsClassResultClass; override;

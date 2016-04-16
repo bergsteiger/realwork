@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK226005021 = class(TOldNSRCFlagCnahge)
+ TK226005021 = class({$If NOT Defined(NoVCM)}
+ TOldNSRCFlagCnahge
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$226005021] }
   protected
    function GetFolder: AnsiString; override;

@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TkwExTextFormWord = {abstract} class(TkwFormFromControlWord)
+ TkwExTextFormWord = {abstract} class({$If NOT Defined(NoVCL)}
+ TkwFormFromControlWord
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   protected
    procedure DoTextForm(aForm: TExTextForm;
     const aCtx: TtfwContext); virtual; abstract;

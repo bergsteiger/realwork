@@ -32,7 +32,10 @@ type
    class procedure Log;
  end;//TnsOpenDictionaryEvent
 
- TDictionModule = class(TvcmModule)
+ TDictionModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Толковый словарь }
   protected
    procedure OpenDict;

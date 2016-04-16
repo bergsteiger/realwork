@@ -30,7 +30,10 @@ uses
 ;
 
 type
- TPrimShutDownForm = class(TvcmEntityForm, Il3WndProcRetListener, Il3Listener)
+ TPrimShutDownForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3WndProcRetListener, Il3Listener)
   {* Предупреждение }
   private
    f_ShutdownTimer: TTimer;

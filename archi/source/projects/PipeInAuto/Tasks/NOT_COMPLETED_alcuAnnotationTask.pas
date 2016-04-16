@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuAnnotationTask = class(TcsAnnotationTask)
+ TalcuAnnotationTask = class({$If NOT Defined(Nemesis)}
+ TcsAnnotationTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuAnnotationTask
 {$IfEnd} // Defined(ServerTasks)
 

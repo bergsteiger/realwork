@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicListSynchroView_Control_ztChild
 
- Tkw_MedicListSynchroView_Control_ztChild_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicListSynchroView_Control_ztChild_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ztChild
 ----
 *Пример использования*:

@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TkwQueryCardFormWord = {abstract} class(TkwFormFromControlWord)
+ TkwQueryCardFormWord = {abstract} class({$If NOT Defined(NoVCL)}
+ TkwFormFromControlWord
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   protected
    procedure DoQueryCardForm(aForm: TPrimQueryCardForm;
     const aCtx: TtfwContext); virtual; abstract;

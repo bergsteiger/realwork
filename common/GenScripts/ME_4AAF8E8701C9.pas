@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TPrimPrintDialogForm = class(TvcmEntityForm)
+ TPrimPrintDialogForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    f_Preview: IafwDocumentPreview;
   protected

@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent
 
- Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push = {final} class(TkwBynameControlPush)
+ Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FirstLevelContent
 ----
 *Пример использования*:

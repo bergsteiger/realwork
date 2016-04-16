@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchContainer_Control_ChildZone
 
- Tkw_BaseSearchContainer_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchContainer_Control_ChildZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ChildZone
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchContainer_Control_pnHeader
 
- Tkw_BaseSearchContainer_Control_pnHeader_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchContainer_Control_pnHeader_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnHeader
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchContainer_Control_lbHeader
 
- Tkw_BaseSearchContainer_Control_lbHeader_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchContainer_Control_lbHeader_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbHeader
 ----
 *Пример использования*:
@@ -141,7 +150,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchContainer_Control_pbHeader
 
- Tkw_BaseSearchContainer_Control_pbHeader_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchContainer_Control_pbHeader_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pbHeader
 ----
 *Пример использования*:
@@ -166,7 +178,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_BaseSearchContainer_Control_ParentZone
 
- Tkw_BaseSearchContainer_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_BaseSearchContainer_Control_ParentZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ParentZone
 ----
 *Пример использования*:

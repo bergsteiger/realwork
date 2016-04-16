@@ -38,7 +38,10 @@ uses
 ;
 
 type
- TPrimGroupListForm = class(TvcmEntityForm, IbsGroupListViewListener)
+ TPrimGroupListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsGroupListViewListener)
   {* Группы пользователей }
   private
    f_BackgroundPanel: TvtPanel;

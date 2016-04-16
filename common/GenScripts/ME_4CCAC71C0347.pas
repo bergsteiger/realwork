@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TUnderControlModule = class(TvcmModule)
+ TUnderControlModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure UnderControlOpen(const aContainer: IvcmContainer);
    function FindUnderControlForm(const aContainer: IvcmContainer): IvcmEntityForm;

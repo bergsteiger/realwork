@@ -63,7 +63,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListAnalizer_Control_BackgroundPanel
 
- Tkw_ListAnalizer_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ListAnalizer_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -88,7 +91,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListAnalizer_Control_ListTree
 
- Tkw_ListAnalizer_Control_ListTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_ListAnalizer_Control_ListTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ListTree
 ----
 *Пример использования*:

@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AttributeSelect_Control_BackgroundPanel
 
- Tkw_AttributeSelect_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_AttributeSelect_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -89,7 +92,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AttributeSelect_Control_SelectedZone
 
- Tkw_AttributeSelect_Control_SelectedZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_AttributeSelect_Control_SelectedZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SelectedZone
 ----
 *Пример использования*:
@@ -114,7 +120,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AttributeSelect_Control_ValuesZone
 
- Tkw_AttributeSelect_Control_ValuesZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_AttributeSelect_Control_ValuesZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ValuesZone
 ----
 *Пример использования*:

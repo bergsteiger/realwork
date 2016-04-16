@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TAACPrimModule = class(TvcmModule)
+ TAACPrimModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Реализация прецедента "Актуальная аналитика". [RequestLink:365838080] }
   public
    procedure MakeAAC(const aDocInfo: IdeDocInfo;

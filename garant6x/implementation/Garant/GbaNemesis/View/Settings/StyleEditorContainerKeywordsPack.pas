@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorContainer_Control_BackgroundPanel
 
- Tkw_StyleEditorContainer_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorContainer_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -89,7 +92,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorContainer_Control_MainZone
 
- Tkw_StyleEditorContainer_Control_MainZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorContainer_Control_MainZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MainZone
 ----
 *Пример использования*:
@@ -114,7 +120,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorContainer_Control_ParentZone
 
- Tkw_StyleEditorContainer_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorContainer_Control_ParentZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ParentZone
 ----
 *Пример использования*:
@@ -139,7 +148,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorContainer_Control_ChildZone
 
- Tkw_StyleEditorContainer_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorContainer_Control_ChildZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ChildZone
 ----
 *Пример использования*:
@@ -164,7 +176,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorContainer_Control_NavigatorZone
 
- Tkw_StyleEditorContainer_Control_NavigatorZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorContainer_Control_NavigatorZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NavigatorZone
 ----
 *Пример использования*:

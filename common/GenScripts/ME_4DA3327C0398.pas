@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TtoK = class(TTestResultsPlace)
+ TtoK = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    {$If NOT Defined(NotTunedDUnit)}
    class function IsGK: Boolean; override;

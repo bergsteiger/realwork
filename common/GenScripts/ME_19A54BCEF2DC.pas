@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Filters_Control_FiltersList
 
- Tkw_Filters_Control_FiltersList_Push = {final} class(TkwBynameControlPush)
+ Tkw_Filters_Control_FiltersList_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FiltersList
 ----
 *Пример использования*:

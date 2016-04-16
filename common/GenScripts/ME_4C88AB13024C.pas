@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK234363360 = class(TPasteColumnTest)
+ TK234363360 = class({$If NOT Defined(NoVCM)}
+ TPasteColumnTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$234363360] }
   protected
    function GetFolder: AnsiString; override;

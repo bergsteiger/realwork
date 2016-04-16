@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TkwEndAddSubByMouse = class(TkwControlWord)
+ TkwEndAddSubByMouse = class({$If NOT Defined(NoVCL)}
+ TkwControlWord
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* «акончить простановку ссылки на саб с помощью мыши (Drag&Drop):
 окно_редактора:постановить_ссылку_мышью }
   protected

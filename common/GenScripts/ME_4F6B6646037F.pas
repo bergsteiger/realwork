@@ -30,7 +30,10 @@ uses
 type
  // ChildZone
 
- TPrimChildForm = class(TvcmContainerForm)
+ TPrimChildForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_ParentHeight: Integer;
    f_ParentParentHeight: Integer;
@@ -118,7 +121,10 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- THackControl = {abstract} class(TControl)
+ THackControl = {abstract} class({$If NOT Defined(NoVCL)}
+ TControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackControl
 
 const

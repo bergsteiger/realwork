@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TMultyOperationTest = {abstract} class(TBaseTest)
+ TMultyOperationTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   private
    procedure ClearBase(const aBasePath: AnsiString);
   protected

@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TTreeAttributeForm = {abstract} class(TvcmEntityForm, IbsCurrentChangedListener)
+ TTreeAttributeForm = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsCurrentChangedListener)
   {* Форма выбора атрибутов }
   protected
    procedure CurrentChangedNotification(const aNode: Il3SimpleNode); virtual; abstract;

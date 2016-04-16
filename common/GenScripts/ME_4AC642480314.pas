@@ -58,7 +58,10 @@ type
 
  TseComboValues = array [TseIntegerComboValueType] of AnsiString;
 
- TPrimStyleEditorFontForm = class(TvcmEntityForm)
+ TPrimStyleEditorFontForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* ֿאנאלוענû רנטפעא }
   private
    f_UpdateLockCount: Integer;

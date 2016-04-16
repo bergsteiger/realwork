@@ -76,7 +76,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_remOnlineDead
 
- Tkw_MainWindow_Control_remOnlineDead_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_remOnlineDead_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола remOnlineDead
 ----
 *Пример использования*:
@@ -101,7 +104,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_remNewChatMessages
 
- Tkw_MainWindow_Control_remNewChatMessages_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_remNewChatMessages_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола remNewChatMessages
 ----
 *Пример использования*:
@@ -126,7 +132,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_TrialModeWarning
 
- Tkw_MainWindow_Control_TrialModeWarning_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_TrialModeWarning_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TrialModeWarning
 ----
 *Пример использования*:
@@ -151,7 +160,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_OldBaseWarning
 
- Tkw_MainWindow_Control_OldBaseWarning_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_OldBaseWarning_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола OldBaseWarning
 ----
 *Пример использования*:
@@ -176,7 +188,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_RemindersLine
 
- Tkw_MainWindow_Control_RemindersLine_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_RemindersLine_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RemindersLine
 ----
 *Пример использования*:
@@ -201,7 +216,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_ControlledChangingWarning
 
- Tkw_MainWindow_Control_ControlledChangingWarning_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_ControlledChangingWarning_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ControlledChangingWarning
 ----
 *Пример использования*:
@@ -226,7 +244,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_remUnreadConsultations
 
- Tkw_MainWindow_Control_remUnreadConsultations_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_remUnreadConsultations_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола remUnreadConsultations
 ----
 *Пример использования*:
@@ -251,7 +272,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_StatusBar
 
- Tkw_MainWindow_Control_StatusBar_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_StatusBar_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола StatusBar
 ----
 *Пример использования*:
@@ -276,7 +300,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_ClientZone
 
- Tkw_MainWindow_Control_ClientZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_ClientZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ClientZone
 ----
 *Пример использования*:
@@ -301,7 +328,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_MainZone
 
- Tkw_MainWindow_Control_MainZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_MainZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MainZone
 ----
 *Пример использования*:
@@ -326,7 +356,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_ParentZonePanel
 
- Tkw_MainWindow_Control_ParentZonePanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_ParentZonePanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ParentZonePanel
 ----
 *Пример использования*:
@@ -351,7 +384,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_ChildZonePanel
 
- Tkw_MainWindow_Control_ChildZonePanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_ChildZonePanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ChildZonePanel
 ----
 *Пример использования*:
@@ -376,7 +412,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_BaseSearchPanel
 
- Tkw_MainWindow_Control_BaseSearchPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_BaseSearchPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BaseSearchPanel
 ----
 *Пример использования*:
@@ -401,7 +440,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_LeftNavigator
 
- Tkw_MainWindow_Control_LeftNavigator_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_LeftNavigator_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LeftNavigator
 ----
 *Пример использования*:
@@ -429,7 +471,10 @@ type
 {$IfEnd} // Defined(HasRightNavigator)
 
 {$If Defined(HasRightNavigator)}
- Tkw_MainWindow_Control_RightNavigator_Push = {final} class(TkwBynameControlPush)
+ Tkw_MainWindow_Control_RightNavigator_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RightNavigator
 ----
 *Пример использования*:

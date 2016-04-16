@@ -35,7 +35,10 @@ uses
 type
  // TextForm
 
- Tfs_AutoreferatAfterSearch = {final} class(TvcmFormSetFactory)
+ Tfs_AutoreferatAfterSearch = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

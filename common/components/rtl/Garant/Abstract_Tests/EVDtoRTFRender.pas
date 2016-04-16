@@ -19,7 +19,10 @@ uses
 type
  THiddenStylesArray = array of LongInt;
 
- TEVDtoRTFRender = {abstract} class(TBaseTest)
+ TEVDtoRTFRender = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function NeedEliminateCommentDecorations: Boolean; virtual;
    function TreatExceptionAsSuccess: Boolean; virtual;

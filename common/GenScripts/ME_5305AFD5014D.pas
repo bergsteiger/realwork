@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuImport = class(TcsImportTaskItem)
+ TalcuImport = class({$If NOT Defined(Nemesis)}
+ TcsImportTaskItem
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
   protected
    {$If NOT Defined(Nemesis)}
    procedure GetTaskResultClass : TcsClassResultClass; override;

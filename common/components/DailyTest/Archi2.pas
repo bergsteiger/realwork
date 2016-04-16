@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TArchi2 = class(TTestResultsPlace)
+ TArchi2 = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Тесты на Archi2 }
   public
    {$If NOT Defined(NotTunedDUnit)}

@@ -47,7 +47,10 @@ const
  c_mmSecondItemColor = $00F2F2F2;
 
 type
- TnsLastOpenDocsManager = class(TvcmBase)
+ TnsLastOpenDocsManager = class({$If NOT Defined(NoVCM)}
+ TvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* менеджер дерева последних открытых документов }
   private
    f_MainMenuColor: TColor;
@@ -76,7 +79,10 @@ type
     aNewSchool: Boolean); reintroduce;
  end;//TnsLastOpenDocsManager
 
- TnsTreeStyleManager = class(TvcmBase)
+ TnsTreeStyleManager = class({$If NOT Defined(NoVCM)}
+ TvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* менеджер стилей деревьев для основного меню }
   private
    f_MainMenuColor: TColor;

@@ -26,7 +26,10 @@ type
    class procedure Log;
  end;//TnsOpenInternetAgentEvent
 
- TPrimInternetAgentModule = {abstract} class(TvcmModule)
+ TPrimInternetAgentModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Модуль для [Интернет-агента|$144575249] }
   protected
    procedure PrimInternetAgent_InternetAgent_Test(const aParams: IvcmTestParamsPrim);

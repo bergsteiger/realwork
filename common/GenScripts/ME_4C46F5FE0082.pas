@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TK227478018 = class(TDrawLineTest)
+ TK227478018 = class({$If NOT Defined(NoVCM)}
+ TDrawLineTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$227478018] }
   protected
    {$If NOT Defined(NoVCM)}

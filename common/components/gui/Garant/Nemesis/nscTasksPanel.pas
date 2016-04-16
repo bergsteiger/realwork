@@ -27,7 +27,10 @@ uses
 ;
 
 type
- TnscTasksPanel = class(TvcmCustOpsNotifier{$If NOT Defined(NoVCM)}
+ TnscTasksPanel = class({$If NOT Defined(NoVCM)}
+ TvcmCustOpsNotifier
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , IvcmCustOps
  {$IfEnd} // NOT Defined(NoVCM)
  )

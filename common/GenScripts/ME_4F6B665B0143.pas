@@ -23,7 +23,10 @@ uses
 type
  // ParentZone
 
- TPrimParentForm = class(TvcmContainerForm)
+ TPrimParentForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_ParentZone: TvtPanel;
     {* Поле для свойства ParentZone }

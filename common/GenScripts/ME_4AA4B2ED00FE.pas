@@ -37,7 +37,10 @@ type
 
  // cfFolders
 
- Tfs_Folders = {final} class(TvcmFormSetFactory)
+ Tfs_Folders = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

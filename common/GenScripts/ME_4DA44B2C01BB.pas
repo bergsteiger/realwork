@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TPrimDocumentListFromFileModule = class(TvcmModule)
+ TPrimDocumentListFromFileModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Список документов из файла }
   private
    procedure OpenDocumentListFromFile;

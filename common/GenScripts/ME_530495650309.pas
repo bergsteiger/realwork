@@ -42,7 +42,10 @@ _nscFormWithArrangeGrid_ = _nscFormWithArrangeGrid_Parent_;
 
 {$If Defined(Nemesis)}
 type
- THackControl = class(TControl)
+ THackControl = class({$If NOT Defined(NoVCL)}
+ TControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackControl
 
 procedure _nscFormWithArrangeGrid_.BuildGrid;

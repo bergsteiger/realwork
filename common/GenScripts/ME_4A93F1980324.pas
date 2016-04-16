@@ -35,7 +35,10 @@ const
  WM_USER_FINISH_PROCESS = WM_USER + $0102;
 
 type
- TPrimProgressIndicatorForm = class(TvcmEntityForm)
+ TPrimProgressIndicatorForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Индикатор прогресса }
   private
    f_CancelButton: TvtVGButton;

@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TnsConfigurationProperties = class(TvcmStringList{$If NOT Defined(NoVCM)}
+ TnsConfigurationProperties = class({$If NOT Defined(NoVCM)}
+ TvcmStringList
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , IvcmStrings
  {$IfEnd} // NOT Defined(NoVCM)
  )

@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TTestFilerReadLn = class(TBaseTest)
+ TTestFilerReadLn = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   private
    function ReadViaDelphiPrim(const aName: AnsiString): Longword;
   protected

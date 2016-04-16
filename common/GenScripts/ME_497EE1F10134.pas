@@ -27,7 +27,10 @@ uses
 type
  // ChildZone
 
- TPrimMedicListSynchroViewForm = class(TvcmContainerForm)
+ TPrimMedicListSynchroViewForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Синхронный просмотр }
   private
    f_ztChild: TvtPanel;

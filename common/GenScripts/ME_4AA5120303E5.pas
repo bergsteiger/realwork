@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TAdminModule = class(TvcmModule)
+ TAdminModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure OpenUserList(const aContainer: IvcmContainer);
    function ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;

@@ -67,7 +67,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_BackgroundPanel
 
- Tkw_OldSituationSearch_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -92,7 +95,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ContextFilter
 
- Tkw_OldSituationSearch_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_ContextFilter_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ContextFilter
 ----
 *Пример использования*:
@@ -117,7 +123,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel
 
- Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола InnerBackgroundPanel
 ----
 *Пример использования*:
@@ -142,7 +151,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_BotomPanel
 
- Tkw_OldSituationSearch_Control_BotomPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_BotomPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BotomPanel
 ----
 *Пример использования*:
@@ -167,7 +179,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ParentZone
 
- Tkw_OldSituationSearch_Control_ParentZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_ParentZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ParentZone
 ----
 *Пример использования*:
@@ -192,7 +207,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ZoneContainer
 
- Tkw_OldSituationSearch_Control_ZoneContainer_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_ZoneContainer_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ZoneContainer
 ----
 *Пример использования*:
@@ -217,7 +235,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_ChildZone
 
- Tkw_OldSituationSearch_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_ChildZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ChildZone
 ----
 *Пример использования*:
@@ -242,7 +263,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OldSituationSearch_Control_MainZone
 
- Tkw_OldSituationSearch_Control_MainZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_OldSituationSearch_Control_MainZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MainZone
 ----
 *Пример использования*:

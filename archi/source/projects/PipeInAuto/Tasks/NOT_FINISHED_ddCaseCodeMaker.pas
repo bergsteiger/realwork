@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TddCaseCodeTask = class(TddCaseCodeTaskPrim)
+ TddCaseCodeTask = class({$If NOT Defined(Nemesis)}
+ TddCaseCodeTaskPrim
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TddCaseCodeTask
 {$IfEnd} // Defined(ServerTasks)
 

@@ -28,7 +28,10 @@ uses
 ;
 
 type
- TPrimFoldersTreeForm = class(TvcmEntityForm, Il3ItemNotifyRecipient, InsFolderNodeListener)
+ TPrimFoldersTreeForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3ItemNotifyRecipient, InsFolderNodeListener)
   {* Дерево папок }
   private
    f_FoldersTree: TnscTreeViewWithAdapterDragDrop;

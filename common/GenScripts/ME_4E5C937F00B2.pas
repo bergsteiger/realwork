@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TkwDocumentSpravka = class(TtfwRegisterableWord)
+ TkwDocumentSpravka = class({$If NOT Defined(NoScripts)}
+ TtfwRegisterableWord
+ {$IfEnd} // NOT Defined(NoScripts)
+ )
   protected
    {$If NOT Defined(NoScripts)}
    procedure DoDoIt(const aCtx: TtfwContext); override;

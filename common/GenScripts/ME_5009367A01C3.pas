@@ -111,7 +111,10 @@ type
 
  // SimilarDocumentsToFragment
 
- Tfs_AbstractDocument = {abstract} class(TvcmFormSetFactory)
+ Tfs_AbstractDocument = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
   public

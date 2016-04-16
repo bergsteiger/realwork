@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TListModule = class(TvcmModule)
+ TListModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Работа со списком документов }
   protected
    function TryOpenDocument(const aList: IdeList;

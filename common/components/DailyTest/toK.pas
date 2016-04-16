@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TtoK = class(TTestResultsPlace)
+ TtoK = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Стандартный вывод для ГК }
   protected
    {$If NOT Defined(NotTunedDUnit)}

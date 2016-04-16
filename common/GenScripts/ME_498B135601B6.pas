@@ -28,7 +28,10 @@ uses
 ;
 
 type
- TDocumentModule = class(TvcmModule)
+ TDocumentModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Работа с документом }
   protected
    procedure OpenDocOnNumber;

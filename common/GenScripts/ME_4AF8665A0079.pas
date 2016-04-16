@@ -32,7 +32,10 @@ type
  //#UC END# *4AF8665A0079ci*
  //#UC START# *4AF8665A0079cit*
  //#UC END# *4AF8665A0079cit*
- TPrimStyleEditorExampleForm = class(TvcmEntityForm)
+ TPrimStyleEditorExampleForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_TextSource: TnscTextSource;
     {* Поле для свойства TextSource }

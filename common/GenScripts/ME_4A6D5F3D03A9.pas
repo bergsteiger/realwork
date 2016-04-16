@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TBaseEditionsModule = {abstract} class(TvcmModule)
+ TBaseEditionsModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure MakeCompareEditions(const aDoc: IDocument;
     const aPara: IeeLeafPara;

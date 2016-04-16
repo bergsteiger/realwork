@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TBigBrotherAccess = {final} class(TBigBrotherTbl)
+ TBigBrotherAccess = {final} class({$If NOT Defined(Nemesis)}
+ TBigBrotherTbl
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TBigBrotherAccess
 
  ThtJournal = class(TdaJournal)

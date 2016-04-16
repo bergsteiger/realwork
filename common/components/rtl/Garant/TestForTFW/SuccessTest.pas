@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TSuccessTest = class(TBaseTest)
+ TSuccessTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Успешный тест }
   protected
    function GetFolder: AnsiString; override;

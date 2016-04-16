@@ -25,7 +25,10 @@ uses
 ;
 
 type
- TCommonSearchModule = class(TvcmModule, IafwPageSetup, IafwPrintManager)
+ TCommonSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IafwPageSetup, IafwPrintManager)
   protected
    function pm_GetMargins: TafwRect;
    function pm_GetOrientation: Tl3PageOrientation;

@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatHistory_Control_HistoryEditor
 
- Tkw_ChatHistory_Control_HistoryEditor_Push = {final} class(TkwBynameControlPush)
+ Tkw_ChatHistory_Control_HistoryEditor_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HistoryEditor
 ----
 *Пример использования*:

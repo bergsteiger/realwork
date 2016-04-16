@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_EditionsContainer_Control_BackgroundPanel
 
- Tkw_EditionsContainer_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_EditionsContainer_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -89,7 +92,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_EditionsContainer_Control_pnLeft
 
- Tkw_EditionsContainer_Control_pnLeft_Push = {final} class(TkwBynameControlPush)
+ Tkw_EditionsContainer_Control_pnLeft_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnLeft
 ----
 *Пример использования*:
@@ -114,7 +120,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_EditionsContainer_Control_pnRight
 
- Tkw_EditionsContainer_Control_pnRight_Push = {final} class(TkwBynameControlPush)
+ Tkw_EditionsContainer_Control_pnRight_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnRight
 ----
 *Пример использования*:

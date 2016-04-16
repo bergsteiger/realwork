@@ -34,7 +34,10 @@ uses
 ;
 
 type
- TPrimUnderControlForm = class(TvcmEntityForm, InsUnderControlRootListener)
+ TPrimUnderControlForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsUnderControlRootListener)
   {* На контроле }
   private
    f_UnderControlList: TnscTreeViewWithAdapterDragDrop;

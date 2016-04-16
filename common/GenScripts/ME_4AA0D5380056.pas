@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TDayTipsModule = class(TvcmModule)
+ TDayTipsModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure OpenTipsPrim(const aSDS: IsdsCommonDiction;
     const aContainer: IvcmContainer);

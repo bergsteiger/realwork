@@ -35,7 +35,10 @@ const
   {* 'Ёкспорт выделенных лент' }
 
 type
- TPrimPostingsListForm = class(TvcmEntityForm)
+ TPrimPostingsListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_OnUpdate: Boolean;
    f_tvPostings: TeeTreeView;

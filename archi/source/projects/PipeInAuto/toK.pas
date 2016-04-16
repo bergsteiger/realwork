@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TtoK = class(TTestResultsPlace)
+ TtoK = class({$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ )
   public
    {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;

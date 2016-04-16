@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK235050248 = class(TCommentInTableAndScrollTest)
+ TK235050248 = class({$If NOT Defined(NoVCM)}
+ TCommentInTableAndScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$235050248] }
   protected
    function GetFolder: AnsiString; override;

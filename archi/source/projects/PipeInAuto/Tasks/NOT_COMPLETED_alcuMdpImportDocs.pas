@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuMdpImportDocs = class(TcsMdpImportDocs)
+ TalcuMdpImportDocs = class({$If NOT Defined(Nemesis)}
+ TcsMdpImportDocs
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TalcuMdpImportDocs
 {$IfEnd} // Defined(ServerTasks)
 

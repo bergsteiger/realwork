@@ -68,7 +68,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_pnMainData
 
- Tkw_UserProperty_Control_pnMainData_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_pnMainData_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnMainData
 ----
 *Пример использования*:
@@ -93,7 +96,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_TopPanel
 
- Tkw_UserProperty_Control_f_TopPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_f_TopPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола f_TopPanel
 ----
 *Пример использования*:
@@ -118,7 +124,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_UserNameLabel
 
- Tkw_UserProperty_Control_UserNameLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_UserNameLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола UserNameLabel
 ----
 *Пример использования*:
@@ -143,7 +152,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_PasswordLabel
 
- Tkw_UserProperty_Control_PasswordLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_PasswordLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола PasswordLabel
 ----
 *Пример использования*:
@@ -168,7 +180,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_LoginLabel
 
- Tkw_UserProperty_Control_LoginLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_LoginLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LoginLabel
 ----
 *Пример использования*:
@@ -193,7 +208,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_EMailLabel
 
- Tkw_UserProperty_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_EMailLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EMailLabel
 ----
 *Пример использования*:
@@ -218,7 +236,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_ConfirmPasswordLabel
 
- Tkw_UserProperty_Control_ConfirmPasswordLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_ConfirmPasswordLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ConfirmPasswordLabel
 ----
 *Пример использования*:
@@ -243,7 +264,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_GroupLabel
 
- Tkw_UserProperty_Control_GroupLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_GroupLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола GroupLabel
 ----
 *Пример использования*:
@@ -268,7 +292,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edPassword
 
- Tkw_UserProperty_Control_edPassword_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edPassword_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edPassword
 ----
 *Пример использования*:
@@ -293,7 +320,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edUserName
 
- Tkw_UserProperty_Control_edUserName_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edUserName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edUserName
 ----
 *Пример использования*:
@@ -318,7 +348,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edLogin
 
- Tkw_UserProperty_Control_edLogin_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edLogin_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edLogin
 ----
 *Пример использования*:
@@ -343,7 +376,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edEmail
 
- Tkw_UserProperty_Control_edEmail_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edEmail_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edEmail
 ----
 *Пример использования*:
@@ -368,7 +404,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edConfirm
 
- Tkw_UserProperty_Control_edConfirm_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edConfirm_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edConfirm
 ----
 *Пример использования*:
@@ -393,7 +432,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edGroup
 
- Tkw_UserProperty_Control_edGroup_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edGroup_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edGroup
 ----
 *Пример использования*:
@@ -418,7 +460,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_MiddlePanel
 
- Tkw_UserProperty_Control_f_MiddlePanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_f_MiddlePanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола f_MiddlePanel
 ----
 *Пример использования*:
@@ -443,7 +488,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edPrivilegedUser
 
- Tkw_UserProperty_Control_edPrivilegedUser_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edPrivilegedUser_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edPrivilegedUser
 ----
 *Пример использования*:
@@ -468,7 +516,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edBuyConsulting
 
- Tkw_UserProperty_Control_edBuyConsulting_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edBuyConsulting_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edBuyConsulting
 ----
 *Пример использования*:
@@ -493,7 +544,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel
 
- Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола f_DontDeleteIdleUserPanel
 ----
 *Пример использования*:
@@ -518,7 +572,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edDontDeleteIdleUser
 
- Tkw_UserProperty_Control_edDontDeleteIdleUser_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edDontDeleteIdleUser_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edDontDeleteIdleUser
 ----
 *Пример использования*:
@@ -543,7 +600,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_f_BottomPanel
 
- Tkw_UserProperty_Control_f_BottomPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_f_BottomPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола f_BottomPanel
 ----
 *Пример использования*:
@@ -568,7 +628,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_InfoLabel
 
- Tkw_UserProperty_Control_InfoLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_InfoLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола InfoLabel
 ----
 *Пример использования*:
@@ -593,7 +656,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserProperty_Control_edHasSharedFilters
 
- Tkw_UserProperty_Control_edHasSharedFilters_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserProperty_Control_edHasSharedFilters_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edHasSharedFilters
 ----
 *Пример использования*:

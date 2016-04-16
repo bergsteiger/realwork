@@ -65,7 +65,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_GroupProperty_Control_edName
 
- Tkw_GroupProperty_Control_edName_Push = {final} class(TkwBynameControlPush)
+ Tkw_GroupProperty_Control_edName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edName
 ----
 *Пример использования*:
@@ -90,7 +93,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_GroupProperty_Control_Label1
 
- Tkw_GroupProperty_Control_Label1_Push = {final} class(TkwBynameControlPush)
+ Tkw_GroupProperty_Control_Label1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Label1
 ----
 *Пример использования*:

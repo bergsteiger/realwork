@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TnsSubPrim = class(TeeSubExport)
+ TnsSubPrim = class({$If Defined(Nemesis)}
+ TeeSubExport
+ {$IfEnd} // Defined(Nemesis)
+ )
   protected
    function Tag: Tl3Tag; virtual;
    function SubPara: Tl3Tag; virtual;

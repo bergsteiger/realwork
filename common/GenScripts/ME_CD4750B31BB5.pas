@@ -70,7 +70,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_RubricatorList
 
- Tkw_Rubricator_Control_RubricatorList_Push = {final} class(TkwBynameControlPush)
+ Tkw_Rubricator_Control_RubricatorList_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RubricatorList
 ----
 *Пример использования*:
@@ -95,7 +98,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_TopPanel
 
- Tkw_Rubricator_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Rubricator_Control_TopPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TopPanel
 ----
 *Пример использования*:
@@ -120,7 +126,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_PaintBox
 
- Tkw_Rubricator_Control_PaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_Rubricator_Control_PaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола PaintBox
 ----
 *Пример использования*:
@@ -145,7 +154,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_NewDocLabel
 
- Tkw_Rubricator_Control_NewDocLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Rubricator_Control_NewDocLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NewDocLabel
 ----
 *Пример использования*:
@@ -170,7 +182,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Rubricator_Control_DelimiterPanel
 
- Tkw_Rubricator_Control_DelimiterPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Rubricator_Control_DelimiterPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола DelimiterPanel
 ----
 *Пример использования*:

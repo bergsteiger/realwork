@@ -27,7 +27,10 @@ uses
 ;
 
 type
- TPrimSettingsForm = class(TvcmContainerForm)
+ TPrimSettingsForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Настройка конфигурации }
   private
    f_Filled: Boolean;

@@ -73,7 +73,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_Header
 
- Tkw_RightEdition_Control_Header_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_Header_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Header
 ----
 *Пример использования*:
@@ -98,7 +101,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_pnLeft
 
- Tkw_RightEdition_Control_pnLeft_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_pnLeft_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnLeft
 ----
 *Пример использования*:
@@ -123,7 +129,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_EditionLink
 
- Tkw_RightEdition_Control_EditionLink_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_EditionLink_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EditionLink
 ----
 *Пример использования*:
@@ -148,7 +157,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_pbIcon
 
- Tkw_RightEdition_Control_pbIcon_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_pbIcon_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pbIcon
 ----
 *Пример использования*:
@@ -173,7 +185,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_pnCaption
 
- Tkw_RightEdition_Control_pnCaption_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_pnCaption_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnCaption
 ----
 *Пример использования*:
@@ -198,7 +213,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_EditionChoose
 
- Tkw_RightEdition_Control_EditionChoose_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_EditionChoose_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EditionChoose
 ----
 *Пример использования*:
@@ -223,7 +241,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RightEdition_Control_Text
 
- Tkw_RightEdition_Control_Text_Push = {final} class(TkwBynameControlPush)
+ Tkw_RightEdition_Control_Text_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Text
 ----
 *Пример использования*:

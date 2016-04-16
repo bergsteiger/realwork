@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_pnTagTree
 
- Tkw_MemoryUsage_Control_pnTagTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_pnTagTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnTagTree
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_TagTree
 
- Tkw_MemoryUsage_Control_TagTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_TagTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TagTree
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_pnMemClasses
 
- Tkw_MemoryUsage_Control_pnMemClasses_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_pnMemClasses_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnMemClasses
 ----
 *Пример использования*:
@@ -141,7 +150,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_memClasses
 
- Tkw_MemoryUsage_Control_memClasses_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_memClasses_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола memClasses
 ----
 *Пример использования*:
@@ -166,7 +178,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_pnSummary
 
- Tkw_MemoryUsage_Control_pnSummary_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_pnSummary_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnSummary
 ----
 *Пример использования*:
@@ -191,7 +206,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbLocalMemory
 
- Tkw_MemoryUsage_Control_lbLocalMemory_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbLocalMemory_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbLocalMemory
 ----
 *Пример использования*:
@@ -216,7 +234,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbObjectMemory
 
- Tkw_MemoryUsage_Control_lbObjectMemory_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbObjectMemory_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbObjectMemory
 ----
 *Пример использования*:
@@ -241,7 +262,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbObjectCount
 
- Tkw_MemoryUsage_Control_lbObjectCount_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbObjectCount_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbObjectCount
 ----
 *Пример использования*:
@@ -266,7 +290,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbGlobalMemory
 
- Tkw_MemoryUsage_Control_lbGlobalMemory_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbGlobalMemory_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbGlobalMemory
 ----
 *Пример использования*:
@@ -291,7 +318,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount
 
- Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbDocumentsInCacheCount
 ----
 *Пример использования*:
@@ -316,7 +346,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbAllLocalMemory
 
- Tkw_MemoryUsage_Control_lbAllLocalMemory_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbAllLocalMemory_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbAllLocalMemory
 ----
 *Пример использования*:
@@ -341,7 +374,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MemoryUsage_Control_lbTotalMemory
 
- Tkw_MemoryUsage_Control_lbTotalMemory_Push = {final} class(TkwBynameControlPush)
+ Tkw_MemoryUsage_Control_lbTotalMemory_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lbTotalMemory
 ----
 *Пример использования*:

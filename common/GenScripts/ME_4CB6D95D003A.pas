@@ -29,7 +29,10 @@ uses
 ;
 
 type
- TPrimCreateFilterForm = class(TvcmEntityForm)
+ TPrimCreateFilterForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    ViewArea: IdsCreateFilter;
    f_NameLabel: TvtLabel;

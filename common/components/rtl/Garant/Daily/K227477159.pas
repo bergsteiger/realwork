@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK227477159 = class(TScrollBackByLineTest)
+ TK227477159 = class({$If NOT Defined(NoVCM)}
+ TScrollBackByLineTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$227477159] }
   protected
    {$If NOT Defined(NoVCM)}

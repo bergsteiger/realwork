@@ -49,7 +49,10 @@ uses
 ;
 
 type
- TPrimListOptionsFormHack = class(TPrimListOptionsForm)
+ TPrimListOptionsFormHack = class({$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ TPrimListOptionsForm
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ )
  end;//TPrimListOptionsFormHack
 
 procedure TkwPopTreeViewExportSelectionWithFormat.DoWithNscTreeView(aTreeView: TnscTreeView;

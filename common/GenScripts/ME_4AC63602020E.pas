@@ -25,7 +25,10 @@ uses
 ;
 
 type
- TPrimDocNumberQueryForm = class(TvcmEntityForm)
+ TPrimDocNumberQueryForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_Label1: TvtLabel;
     {* Поле для свойства Label1 }

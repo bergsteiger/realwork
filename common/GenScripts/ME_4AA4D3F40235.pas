@@ -79,7 +79,10 @@ type
 
  // ListInfo
 
- Tfs_DrugList = {final} class(TvcmFormSetFactory)
+ Tfs_DrugList = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

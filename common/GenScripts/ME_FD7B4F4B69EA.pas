@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_F1LikeTextLoad_Control_Text
 
- Tkw_F1LikeTextLoad_Control_Text_Push = {final} class(TkwBynameControlPush)
+ Tkw_F1LikeTextLoad_Control_Text_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Text
 ----
 *Пример использования*:

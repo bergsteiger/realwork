@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TTextViaEditorProcessorWithExternalSave = {abstract} class(TTextViaEditorProcessor)
+ TTextViaEditorProcessorWithExternalSave = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure DoSave(aForm: TPrimTextLoadForm;
     aFiler: Tl3CustomFiler); virtual; abstract;

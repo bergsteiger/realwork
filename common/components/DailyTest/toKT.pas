@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TtoKT = class(TTestResultsPlace)
+ TtoKT = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* ≈жедневные тесты библиотек в “вери }
   protected
    {$If NOT Defined(NotTunedDUnit)}

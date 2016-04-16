@@ -37,7 +37,10 @@ type
     {* Метод получения экземпляра синглетона Tf1StartupCompletedServiceImpl }
  end;//Tf1StartupCompletedServiceImpl
 
- TPrimMonitoringsModule = {abstract} class(TvcmModule)
+ TPrimMonitoringsModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure OpenNewsLine; overload;
     {* Новостная лента }

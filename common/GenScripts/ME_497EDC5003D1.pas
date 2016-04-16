@@ -29,7 +29,10 @@ const
  c_TextCommentLen = 6000;
 
 type
- TPrimConsultationMarkForm = class(TvcmEntityForm)
+ TPrimConsultationMarkForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* ќценка консультации }
   private
    f_gbMark: TvtGroupBox;

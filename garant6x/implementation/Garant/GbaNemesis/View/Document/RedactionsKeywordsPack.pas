@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Redactions_Control_RedactionTree
 
- Tkw_Redactions_Control_RedactionTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_Redactions_Control_RedactionTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RedactionTree
 ----
 *Пример использования*:

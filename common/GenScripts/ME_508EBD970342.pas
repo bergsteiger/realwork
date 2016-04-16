@@ -25,7 +25,10 @@ uses
 ;
 
 type
- TnscTasksPanelActionLink = class(TActionLink)
+ TnscTasksPanelActionLink = class({$If NOT Defined(NoVCL)}
+ TActionLink
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_Op: Integer;
    f_Tree: TControl;

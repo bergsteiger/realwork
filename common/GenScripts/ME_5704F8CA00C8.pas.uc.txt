@@ -25,14 +25,15 @@
  ActionElementMode := l3_amSingleClick;
  IsShowLines := False;
 
- ViewOptions := [voShowInterRowSpace, voDoNotShowFocusRect];
+ ViewOptions := [voShowOpenChip, voShowInterRowSpace, voShowSelectAsArrow, voDoNotShowFocusRect];
  MultiStrokeItem := False;
+ SelfDrawNodes := True;
  SelectColor.TextColor := clWhite;
  SelectColor.BackColor := $b87140;
  SelectNonFocusColor.TextColor := clWhite;
  SelectNonFocusColor.BackColor := $b87140;
  f_HighLightItem := -1;
- HighlightColor := $fac88c;
+ HighlightColor := $fac88c
 //#UC END# *47D1602000C6_5704FC1A0398_impl*
 //#UC START# *47D1602000C6_5704FC1A0398_var*
 //#UC END# *47D1602000C6_5704FC1A0398_var*
@@ -68,7 +69,7 @@ var
  if Assigned(TreeStruct) and (TreeStruct.RootNode.ThisChildrenCount > 0) then
  begin
   Tree.Current := f_CurrentItem;
-  Tree.ClientHeight := Tree.CalcFullHeight;
+  Tree.ClientHeight := Tree.CalcFullHeight + 1;//Tree.GetBorderSize;
   Tree.Width := Max(Tree.CalcFullWidth + 30, Width);
   with ClientToScreen(Point(0, Height)) do
   begin
@@ -97,13 +98,7 @@ var
      l_Pt := aHookStruct^.Pt;
      l_Handle := WindowFromPoint(l_Pt);
      if (l_Handle <> Tree.Handle) then
-     begin
-      with Self.BoundsRect do
-       l_SelfRect := Rect(Parent.ClientToScreen(TopLeft), Parent.ClientToScreen(BottomRight));
-      if PtInRect(l_SelfRect, l_Pt) then
-       Exit;
       Tree.CloseUp(False);
-     end;
     end;
   end;
 //#UC END# *4F79CEDF005A_5704F8CA00C8_impl*
@@ -111,7 +106,6 @@ var
 var
  l_Pt: TPoint;
  l_Handle: THandle;
- l_SelfRect: TRect;
 //#UC END# *4F79CEDF005A_5704F8CA00C8_var*
 //#UC START# *4F79CF3400BB_5704F8CA00C8_impl*
  if (Msg.message = WM_ACTIVATEAPP) then
@@ -142,7 +136,7 @@ var
 //#UC START# *508F825303E4_5704FC1A0398_var*
 //#UC END# *508F825303E4_5704FC1A0398_var*
 //#UC START# *5151AF650239_5704FC1A0398_impl*
- Result := inherited DoOnGetItemIndent;
+ Result := 0;
 //#UC END# *5151AF650239_5704FC1A0398_impl*
 //#UC START# *5151AF650239_5704FC1A0398_var*
 //#UC END# *5151AF650239_5704FC1A0398_var*
@@ -156,7 +150,7 @@ var
 //#UC START# *515317860183_5704FC1A0398_var*
 //#UC END# *515317860183_5704FC1A0398_var*
 //#UC START# *5266253D035D_5704FC1A0398_impl*
- Result := inherited NeedDrawArrowSelection(aItemIndex);
+ Result := inherited NeedDrawArrowSelection(aItemIndex) or (aItemIndex = f_HighLightItem);
 //#UC END# *5266253D035D_5704FC1A0398_impl*
 //#UC START# *5266253D035D_5704FC1A0398_var*
 //#UC END# *5266253D035D_5704FC1A0398_var*
@@ -195,20 +189,32 @@ var
 //#UC END# *5298BFFA014B_5704FC1A0398_var*
 //#UC START# *5298C02D03B3_5704FC1A0398_impl*
  inherited;
- l_D := Tl3Drawer.Create(aDC);
+ l_Rgn := CreateRectRgn(0,0,0,0);
  try
-  l_D.PenColor := $d0ba9d;
-  l_D.DrawLine(1, 1, Width - 1, 1, 3);
-  l_D.DrawLine(1, 1, 1, Height - 1, 3);
-  l_D.DrawLine(Width - 2, Height - 2, Width - 2, 1, 3);
-  l_D.DrawLine(Width - 2, Height - 2, 1, Height - 2, 3);
+  GetWindowRgn(Self.Handle, l_Rgn);
+  l_D := Tl3Drawer.Create(aDC);
+  try
+   l_FW := cFrameWidth + 3;
+   l_D.FrameRegion(l_Rgn, l_FW, Self.Color);
+   l_D.DrawArc(0 + l_FW - 1, Height - cRad - l_FW{ + 1}, cRad, cRad, 90, 90, l_FW + 1, Self.Color);
+   l_FW := cFrameWidth - 1;
+   l_D.FrameRegion(l_Rgn, l_FW, $d0ba9d);
+   l_D.DrawArc(0 + l_FW - 1, Height - cRad - l_FW{ + 1}, cRad, cRad, 90, 90, l_FW + 1, $d0ba9d);
+  finally
+   FreeAndNil(l_D);
+  end;//try..finally
  finally
-  FreeAndNil(l_D);
+  DeleteObject(l_Rgn);
  end;//try..finally
 //#UC END# *5298C02D03B3_5704FC1A0398_impl*
 //#UC START# *5298C02D03B3_5704FC1A0398_var*
+const
+ cFrameWidth = 3;
+ cRad = 26;
 var
  l_D: Tl3Drawer;
+ l_Rgn: hRgn;
+ l_FW: Integer;
 //#UC END# *5298C02D03B3_5704FC1A0398_var*
 //#UC START# *5704F9AE00E5_5704F8CA00C8_impl*
  UpdateCaption;
@@ -268,19 +274,18 @@ var
 //#UC END# *570664D202D8_5704FC1A0398_var*
 //#UC START# *570664F001CF_5704FC1A0398_impl*
  inherited;
- Inc(Message.CalcSize_Params.rgrc[0].Top, 3);
- Dec(Message.CalcSize_Params.rgrc[0].Bottom, 3);
- Inc(Message.CalcSize_Params.rgrc[0].Left, 3);
- Dec(Message.CalcSize_Params.rgrc[0].Right, 3);
+ Inc(Message.CalcSize_Params.rgrc[0].Top, cFrameWidth);
+ Dec(Message.CalcSize_Params.rgrc[0].Bottom, cFrameWidth + 2);
+ Inc(Message.CalcSize_Params.rgrc[0].Left, cFrameWidth + 2);
+ Dec(Message.CalcSize_Params.rgrc[0].Right, cFrameWidth);
 //#UC END# *570664F001CF_5704FC1A0398_impl*
 //#UC START# *570664F001CF_5704FC1A0398_var*
+const
+ cFrameWidth = 3;
 //#UC END# *570664F001CF_5704FC1A0398_var*
 //#UC START# *57067C0302FD_5704FC1A0398_impl*
- with Message do
-  if (CharCode = VK_ESCAPE) then
-   CloseUp(False)
-  else
-   inherited;
+ inherited;
+ //CloseUp(False);
 //#UC END# *57067C0302FD_5704FC1A0398_impl*
 //#UC START# *57067C0302FD_5704FC1A0398_var*
 //#UC END# *57067C0302FD_5704FC1A0398_var*
@@ -293,16 +298,13 @@ var
 //#UC START# *5706819E0333_5704F8CA00C8_var*
 //#UC END# *5706819E0333_5704F8CA00C8_var*
 //#UC START# *570685C4031F_5704F8CA00C8set_impl*
- if (f_CurrentItem <> aValue) then
- begin
-  f_CurrentItem := aValue;
-  DoChanged;
- end;
+ f_CurrentItem := aValue;
+ DoChanged;
 //#UC END# *570685C4031F_5704F8CA00C8set_impl*
 //#UC START# *570685C4031F_5704F8CA00C8set_var*
 //#UC END# *570685C4031F_5704F8CA00C8set_var*
 //#UC START# *570685E80050_5704F8CA00C8_impl*
- if (f_CurrentItem >= 0) and (f_CurrentItem < Tree.Total) then
+ if (f_CurrentItem >= 0) then
   Caption := l3Str(TreeStruct.Nodes[f_CurrentItem].Text)
  else
   Caption := '';
@@ -319,8 +321,6 @@ var
 //#UC END# *57078A99008F_5704FC1A0398_var*
 //#UC START# *5707A0EB00B5_5704F8CA00C8_impl*
  f_Dropped := False;
- if (Windows.GetFocus = Tree.Handle) then
-  Windows.SetFocus(f_FocusedControl); 
 //#UC END# *5707A0EB00B5_5704F8CA00C8_impl*
 //#UC START# *5707A0EB00B5_5704F8CA00C8_var*
 //#UC END# *5707A0EB00B5_5704F8CA00C8_var*

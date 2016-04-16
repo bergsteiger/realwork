@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TScrollAndCheckCursorTest = {abstract} class(TTextEditorVisitor)
+ TScrollAndCheckCursorTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    {$If NOT Defined(NoVCM)}
    procedure DoVisit(aForm: TPrimTextLoadForm); override;

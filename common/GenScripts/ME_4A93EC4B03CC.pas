@@ -33,7 +33,10 @@ uses
 type
  TnsSendAction = function(aSender: TCustomForm): TModalResult of object;
 
- TPrimRememberPasswordForm = class(TvcmEntityForm)
+ TPrimRememberPasswordForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Забыли пароль? }
   private
    f_EMailLabel: TvtLabel;

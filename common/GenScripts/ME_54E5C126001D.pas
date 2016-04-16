@@ -310,7 +310,10 @@ type
     write Set_Number;
  end;//TqaReqPhone
 
- TqaDateReqDataHolder = class(TvcmBase, IqaDateReqDataHolder)
+ TqaDateReqDataHolder = class({$If NOT Defined(NoVCM)}
+ TvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IqaDateReqDataHolder)
   private
    f_ReqCaption: Il3CString;
    f_StartDate: TDateTime;
@@ -350,7 +353,10 @@ type
  InsMisatakesCorrectorForNemesis = InsMistakesCorrector;
 {$IfEnd} // NOT Defined(Monitorings)
 
- TqaMgrSearch = class(TvcmBase, IqaMgrSearch, IevAdapterModel{$If NOT Defined(Monitorings)}
+ TqaMgrSearch = class({$If NOT Defined(NoVCM)}
+ TvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IqaMgrSearch, IevAdapterModel{$If NOT Defined(Monitorings)}
  , InsMisatakesCorrectorForNemesis
  {$IfEnd} // NOT Defined(Monitorings)
  )

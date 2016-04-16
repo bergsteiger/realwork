@@ -49,7 +49,10 @@ type
 
  // AACContainer
 
- Tfs_AACContents = {final} class(TvcmFormSetFactory)
+ Tfs_AACContents = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Сборка для документа ОГЛАВЛЕНИЯ ААК }
   protected
    procedure InitFields; override;

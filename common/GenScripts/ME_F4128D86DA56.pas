@@ -57,7 +57,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UnderControl_Control_UnderControlList
 
- Tkw_UnderControl_Control_UnderControlList_Push = {final} class(TkwBynameControlPush)
+ Tkw_UnderControl_Control_UnderControlList_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола UnderControlList
 ----
 *Пример использования*:

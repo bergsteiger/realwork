@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TalcuAutoExportTaskPrim = class(TddProcessTask)
+ TalcuAutoExportTaskPrim = class({$If NOT Defined(Nemesis)}
+ TddProcessTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
   protected
    function pm_GetToday: TDateTime;
    procedure pm_SetToday(aValue: TDateTime);

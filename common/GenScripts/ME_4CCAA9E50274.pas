@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TFiltersModule = class(TvcmModule)
+ TFiltersModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure FiltersOpen(const aData: IucpFilters);
    procedure OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;

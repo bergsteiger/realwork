@@ -38,7 +38,10 @@ type
    class procedure Log;
  end;//TnsOpenConsultationEvent
 
- TPrimFoldersModule = {abstract} class(TvcmModule)
+ TPrimFoldersModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_InfoTypeList: IvcmItems;
   private

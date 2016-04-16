@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TDrawTest = {abstract} class(TDrawTestPrim)
+ TDrawTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TDrawTestPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* “ест вида: нарисовали и сравнили с эталоном. }
   protected
    {$If NOT Defined(NoVCM)}

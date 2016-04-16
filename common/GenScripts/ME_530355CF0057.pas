@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TalcuHavanskyExportTask = class(TalcuHavanskyExportTaskPrim)
+ TalcuHavanskyExportTask = class({$If Defined(HavanskyExport)}
+ TalcuHavanskyExportTaskPrim
+ {$IfEnd} // Defined(HavanskyExport)
+ )
  end;//TalcuHavanskyExportTask
 {$IfEnd} // Defined(ServerTasks)
 

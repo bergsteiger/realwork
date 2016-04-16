@@ -33,7 +33,10 @@ type
 
  // Navigator
 
- TPrimStyleEditorContainerForm = class(TvcmContainerForm)
+ TPrimStyleEditorContainerForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Редактор стилей }
   private
    f_BackgroundPanel: TvtProportionalPanel;

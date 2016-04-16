@@ -110,7 +110,10 @@ uses
 ;
 
 type
- TControlFriend = {abstract} class(TControl)
+ TControlFriend = {abstract} class({$If NOT Defined(NoVCL)}
+ TControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Друг для TControl }
  end;//TControlFriend
 

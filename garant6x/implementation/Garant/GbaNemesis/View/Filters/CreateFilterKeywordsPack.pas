@@ -65,7 +65,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CreateFilter_Control_NameLabel
 
- Tkw_CreateFilter_Control_NameLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_CreateFilter_Control_NameLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NameLabel
 ----
 *Пример использования*:
@@ -90,7 +93,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_CreateFilter_Control_FilterName
 
- Tkw_CreateFilter_Control_FilterName_Push = {final} class(TkwBynameControlPush)
+ Tkw_CreateFilter_Control_FilterName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FilterName
 ----
 *Пример использования*:

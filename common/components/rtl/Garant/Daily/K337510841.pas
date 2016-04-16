@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK337510841 = class(TScrollBackTest)
+ TK337510841 = class({$If NOT Defined(NoVCM)}
+ TScrollBackTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [Requestlink:337510841] }
   protected
    function GetFolder: AnsiString; override;

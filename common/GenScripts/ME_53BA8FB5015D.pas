@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TRegisteredTasksTest = class(TBaseTest)
+ TRegisteredTasksTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
@@ -51,7 +54,10 @@ uses
 type
  RddTaskItemFriend = class of TddTaskItemFriend;
 
- TddTaskItemFriend = class(TddTaskItem)
+ TddTaskItemFriend = class({$If NOT Defined(Nemesis)}
+ TddTaskItem
+ {$IfEnd} // NOT Defined(Nemesis)
+ )
  end;//TddTaskItemFriend
 
 procedure TRegisteredTasksTest.DoIt;

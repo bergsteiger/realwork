@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_gbMark
 
- Tkw_ConsultationMark_Control_gbMark_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_gbMark_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола gbMark
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbNotSure
 
- Tkw_ConsultationMark_Control_rbNotSure_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_rbNotSure_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbNotSure
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbTwo
 
- Tkw_ConsultationMark_Control_rbTwo_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_rbTwo_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbTwo
 ----
 *Пример использования*:
@@ -141,7 +150,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbThree
 
- Tkw_ConsultationMark_Control_rbThree_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_rbThree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbThree
 ----
 *Пример использования*:
@@ -166,7 +178,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbFour
 
- Tkw_ConsultationMark_Control_rbFour_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_rbFour_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbFour
 ----
 *Пример использования*:
@@ -191,7 +206,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_rbFive
 
- Tkw_ConsultationMark_Control_rbFive_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_rbFive_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола rbFive
 ----
 *Пример использования*:
@@ -216,7 +234,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_pnlHelp
 
- Tkw_ConsultationMark_Control_pnlHelp_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_pnlHelp_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlHelp
 ----
 *Пример использования*:
@@ -241,7 +262,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_lblHelp
 
- Tkw_ConsultationMark_Control_lblHelp_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_lblHelp_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblHelp
 ----
 *Пример использования*:
@@ -266,7 +290,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_gbComment
 
- Tkw_ConsultationMark_Control_gbComment_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_gbComment_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола gbComment
 ----
 *Пример использования*:
@@ -291,7 +318,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ConsultationMark_Control_mComment
 
- Tkw_ConsultationMark_Control_mComment_Push = {final} class(TkwBynameControlPush)
+ Tkw_ConsultationMark_Control_mComment_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола mComment
 ----
 *Пример использования*:

@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_OutlinerForm_Control_TreeControl
 
- Tkw_OutlinerForm_Control_TreeControl_Push = {final} class(TkwBynameControlPush)
+ Tkw_OutlinerForm_Control_TreeControl_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TreeControl
 ----
 *Пример использования*:

@@ -34,7 +34,10 @@ uses
 ;
 
 type
- TPrimConfigurationListForm = class(TvcmEntityForm)
+ TPrimConfigurationListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Конфигурации }
   private
    f_tvConfs: TnscTreeViewWithAdapterDragDrop;

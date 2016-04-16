@@ -32,7 +32,10 @@ uses
 type
  // InternetAgent
 
- Tfs_InternetAgent = {final} class(TvcmFormSetFactory)
+ Tfs_InternetAgent = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Сборка форм для прецедента Интернет-агент }
   protected
    procedure InitFields; override;

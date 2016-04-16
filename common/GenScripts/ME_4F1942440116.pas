@@ -45,7 +45,10 @@ uses
 ;
 
 type
- TExTextFormHack = class(TExTextForm)
+ TExTextFormHack = class({$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ TExTextForm
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ )
  end;//TExTextFormHack
 
 procedure TkwTextFormGetDocumentID.DoTextForm(aForm: TExTextForm;

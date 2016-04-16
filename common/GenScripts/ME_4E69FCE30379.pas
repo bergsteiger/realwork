@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK283149108 = class(TPreviewTest)
+ TK283149108 = class({$If NOT Defined(NoVCM)}
+ TPreviewTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:283149108] }
   protected
    {$If NOT Defined(NoVCM)}

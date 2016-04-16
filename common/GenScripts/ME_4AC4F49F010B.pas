@@ -30,7 +30,10 @@ uses
 ;
 
 type
- TPrimStartupTipsForm = class(TvcmEntityForm, Il3WndProcListener)
+ TPrimStartupTipsForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3WndProcListener)
   {* Совет дня }
   private
    f_TopPanel: TvtPanel;

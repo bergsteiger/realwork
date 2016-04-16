@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_EMailLabel
 
- Tkw_RememberPassword_Control_EMailLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_RememberPassword_Control_EMailLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EMailLabel
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_HintLabel
 
- Tkw_RememberPassword_Control_HintLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_RememberPassword_Control_HintLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HintLabel
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_btnCancel
 
- Tkw_RememberPassword_Control_btnCancel_Push = {final} class(TkwBynameControlPush)
+ Tkw_RememberPassword_Control_btnCancel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnCancel
 ----
 *Пример использования*:
@@ -141,7 +150,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_btnSend
 
- Tkw_RememberPassword_Control_btnSend_Push = {final} class(TkwBynameControlPush)
+ Tkw_RememberPassword_Control_btnSend_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnSend
 ----
 *Пример использования*:
@@ -166,7 +178,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_RememberPassword_Control_edEmail
 
- Tkw_RememberPassword_Control_edEmail_Push = {final} class(TkwBynameControlPush)
+ Tkw_RememberPassword_Control_edEmail_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edEmail
 ----
 *Пример использования*:

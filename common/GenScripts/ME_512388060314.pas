@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TtoKTPrime = class(TTestResultsPlace)
+ TtoKTPrime = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   public
    {$If NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;

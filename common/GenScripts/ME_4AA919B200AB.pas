@@ -22,7 +22,10 @@ uses
 ;
 
 type
- TCommonPostModule = class(TvcmModule)
+ TCommonPostModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Новостная лента }
   private
    function MessageHook(var Msg: TMessage): Boolean;

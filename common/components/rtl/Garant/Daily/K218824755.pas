@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TK218824755 = class(TComplexScrollByLines)
+ TK218824755 = class({$If NOT Defined(NoVCM)}
+ TComplexScrollByLines
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:218824755] }
   protected
    {$If NOT Defined(NoVCM)}

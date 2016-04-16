@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TPrimPageSetupForm = class(TvcmEntityForm)
+ TPrimPageSetupForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Настройка страницы }
   private
    f_PreviewGroupBox: TvtGroupBox;

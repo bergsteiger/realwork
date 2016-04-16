@@ -45,7 +45,10 @@ uses
 type
  TnsLoginAction = function(aSender: TCustomForm): TModalResult of object;
 
- TPrimLoginForm = class(TvcmEntityForm)
+ TPrimLoginForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Вход в систему ГАРАНТ }
   private
    f_NeedRelogin: Boolean;

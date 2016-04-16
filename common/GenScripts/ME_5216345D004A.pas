@@ -15,7 +15,10 @@ uses
 ;
 
 type
- TDocumentModule = class(TvcmModule)
+ TDocumentModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Документ }
   public
    class function DocumentPrintAndExportDefaultSetting: Boolean;

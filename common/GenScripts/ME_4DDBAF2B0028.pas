@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TChangesBetweenEditionsModule = class(TvcmModule)
+ TChangesBetweenEditionsModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Просмотр только измененных фрагментов }
   public
    procedure ViewChangedFragments(const aLeft: IDocument;

@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK401511110 = class(TArchiInsiderTest)
+ TK401511110 = class({$If NOT Defined(NoScripts)}
+ TArchiInsiderTest
+ {$IfEnd} // NOT Defined(NoScripts)
+ )
   {* [Requestlink:401511110] }
   protected
    function GetFolder: AnsiString; override;

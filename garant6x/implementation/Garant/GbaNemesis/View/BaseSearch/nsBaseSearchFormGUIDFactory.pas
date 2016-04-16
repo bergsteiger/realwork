@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TnsBaseSearchFormGUIDFactory = class(TvcmFormGUIDFromMainFormList)
+ TnsBaseSearchFormGUIDFactory = class({$If NOT Defined(NoVCM)}
+ TvcmFormGUIDFromMainFormList
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Фабрика GUID'ов для форм БП }
   public
    class function Instance: TnsBaseSearchFormGUIDFactory;

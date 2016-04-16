@@ -30,7 +30,10 @@ uses
 ;
 
 type
- TPrimNavigatorForm = class(TvcmEntityForm, InsTreeDataListener)
+ TPrimNavigatorForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsTreeDataListener)
   {* Μενώ }
   private
    f_BackgroundPanel: TvtPanel;

@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserList_Control_BackgroundPanel
 
- Tkw_UserList_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserList_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserList_Control_ContextFilter
 
- Tkw_UserList_Control_ContextFilter_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserList_Control_ContextFilter_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ContextFilter
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_UserList_Control_trUserList
 
- Tkw_UserList_Control_trUserList_Push = {final} class(TkwBynameControlPush)
+ Tkw_UserList_Control_trUserList_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола trUserList
 ----
 *Пример использования*:

@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TArchiScriptEngine = class(TtfwScriptEngineEX)
+ TArchiScriptEngine = class({$If NOT Defined(NoScripts)}
+ TtfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
+ )
  end;//TArchiScriptEngine
 
 implementation

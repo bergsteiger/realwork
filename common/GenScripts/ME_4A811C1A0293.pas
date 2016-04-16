@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TBaseWorkJournalModule = class(TvcmModule)
+ TBaseWorkJournalModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure BaseWorkJournal_OpenJournal_Test(const aParams: IvcmTestParamsPrim);
    procedure BaseWorkJournal_OpenJournal_Execute(const aParams: IvcmExecuteParamsPrim);

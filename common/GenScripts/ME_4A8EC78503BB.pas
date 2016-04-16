@@ -20,7 +20,10 @@ type
   , wkLogout
  );//TShutdownWarningKind
 
- TPrimCommonModule = {abstract} class(TvcmModule)
+ TPrimCommonModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure MakeUpdateMessage;
     {* Создаёт окно с сообщением об обновлении базы }

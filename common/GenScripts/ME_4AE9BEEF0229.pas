@@ -26,7 +26,10 @@ uses
 type
  // Child
 
- TPrimFoldersInfoForm = class(TvcmContainerForm)
+ TPrimFoldersInfoForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_ChildZone: TvtPanel;
     {* Поле для свойства ChildZone }

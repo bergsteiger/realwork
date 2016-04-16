@@ -67,7 +67,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_BackgroundPanel
 
- Tkw_ChatWindow_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ChatWindow_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -92,7 +95,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_BottomPanel
 
- Tkw_ChatWindow_Control_BottomPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ChatWindow_Control_BottomPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BottomPanel
 ----
 *Пример использования*:
@@ -117,7 +123,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_BottomEditor
 
- Tkw_ChatWindow_Control_BottomEditor_Push = {final} class(TkwBynameControlPush)
+ Tkw_ChatWindow_Control_BottomEditor_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BottomEditor
 ----
 *Пример использования*:
@@ -142,7 +151,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_TopPanel
 
- Tkw_ChatWindow_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_ChatWindow_Control_TopPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TopPanel
 ----
 *Пример использования*:
@@ -167,7 +179,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ChatWindow_Control_HistoryEditor
 
- Tkw_ChatWindow_Control_HistoryEditor_Push = {final} class(TkwBynameControlPush)
+ Tkw_ChatWindow_Control_HistoryEditor_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HistoryEditor
 ----
 *Пример использования*:

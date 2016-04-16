@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TGZipTest = {abstract} class(TBaseTest)
+ TGZipTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }

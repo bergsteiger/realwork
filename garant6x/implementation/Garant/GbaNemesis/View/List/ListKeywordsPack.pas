@@ -78,7 +78,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_RemindersLine
 
- Tkw_List_Control_RemindersLine_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_RemindersLine_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RemindersLine
 ----
 *Пример использования*:
@@ -103,7 +106,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remListFiltered
 
- Tkw_List_Control_remListFiltered_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_remListFiltered_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола remListFiltered
 ----
 *Пример использования*:
@@ -128,7 +134,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remListModified
 
- Tkw_List_Control_remListModified_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_remListModified_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола remListModified
 ----
 *Пример использования*:
@@ -153,7 +162,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remTimeMachineWarning
 
- Tkw_List_Control_remTimeMachineWarning_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_remTimeMachineWarning_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола remTimeMachineWarning
 ----
 *Пример использования*:
@@ -178,7 +190,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_EmptyListEditor
 
- Tkw_List_Control_EmptyListEditor_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_EmptyListEditor_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EmptyListEditor
 ----
 *Пример использования*:
@@ -203,7 +218,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_ListPanel
 
- Tkw_List_Control_ListPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_ListPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ListPanel
 ----
 *Пример использования*:
@@ -228,7 +246,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_tvList
 
- Tkw_List_Control_tvList_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_tvList_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvList
 ----
 *Пример использования*:
@@ -253,7 +274,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_cfList
 
- Tkw_List_Control_cfList_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_cfList_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cfList
 ----
 *Пример использования*:
@@ -278,7 +302,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_ExSearchPanel
 
- Tkw_List_Control_ExSearchPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_ExSearchPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ExSearchPanel
 ----
 *Пример использования*:
@@ -303,7 +330,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_ExSearchLabel
 
- Tkw_List_Control_ExSearchLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_List_Control_ExSearchLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ExSearchLabel
 ----
 *Пример использования*:

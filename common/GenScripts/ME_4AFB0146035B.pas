@@ -25,7 +25,10 @@ type
 
  // Child
 
- TPrimAdminForm = class(TvcmContainerForm)
+ TPrimAdminForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_BackgroundPanel: TvtProportionalPanel;
     {* Поле для свойства BackgroundPanel }

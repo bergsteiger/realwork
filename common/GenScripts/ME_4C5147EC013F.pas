@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK228693150 = class(TTwoEmptyParaForOneReplacerTest)
+ TK228693150 = class({$If NOT Defined(NoVCM)}
+ TTwoEmptyParaForOneReplacerTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:228693150] }
   protected
    function GetFolder: AnsiString; override;

@@ -15,7 +15,10 @@ uses
 ;
 
 type
- TLongintListTest = class(TBaseTest)
+ TLongintListTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }

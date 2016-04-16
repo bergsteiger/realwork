@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK234360960 = class(TInsertRowTest)
+ TK234360960 = class({$If NOT Defined(NoVCM)}
+ TInsertRowTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$234360960] }
   protected
    function GetFolder: AnsiString; override;

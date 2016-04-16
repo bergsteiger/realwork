@@ -39,7 +39,10 @@ uses
 ;
 
 type
- TSearchModule = class(TvcmModule)
+ TSearchModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Поиск }
   private
    f_SearchTypeList: IvcmItems;

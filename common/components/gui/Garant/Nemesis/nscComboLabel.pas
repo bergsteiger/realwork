@@ -57,11 +57,6 @@ type
     var aVJustify: TvtVJustify;
     var aFocused: Boolean;
     var theImageVertOffset: Integer); override;
-   function DoOnGetItemIndent: Integer; override;
-    {* функция определяет добавляемое свободное место до иконки элемента.
-Если отступ в обработчике будет определен как нулевой, то по
-умолчанию отступ делается на ширину иконки, если таковые имеются. }
-   function NeedDrawArrowSelection(aItemIndex: Integer): Boolean; override;
    procedure NCDraw(aDC: hDC); override;
   public
    constructor Create(AOwner: TComponent); override;
@@ -148,6 +143,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3ListenersManager
+ , SysUtils
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -348,18 +344,6 @@ begin
 //#UC END# *508F825303E4_5704FC1A0398_impl*
 end;//TnscLabelSubTree.DoOnGetItemStyle
 
-function TnscLabelSubTree.DoOnGetItemIndent: Integer;
- {* функция определяет добавляемое свободное место до иконки элемента.
-Если отступ в обработчике будет определен как нулевой, то по
-умолчанию отступ делается на ширину иконки, если таковые имеются. }
-//#UC START# *5151AF650239_5704FC1A0398_var*
-//#UC END# *5151AF650239_5704FC1A0398_var*
-begin
-//#UC START# *5151AF650239_5704FC1A0398_impl*
- Result := 0;
-//#UC END# *5151AF650239_5704FC1A0398_impl*
-end;//TnscLabelSubTree.DoOnGetItemIndent
-
 {$If NOT Defined(NoVCL)}
 procedure TnscLabelSubTree.MouseWheelHandler(var Message: TMessage);
 //#UC START# *515317860183_5704FC1A0398_var*
@@ -374,15 +358,6 @@ begin
 //#UC END# *515317860183_5704FC1A0398_impl*
 end;//TnscLabelSubTree.MouseWheelHandler
 {$IfEnd} // NOT Defined(NoVCL)
-
-function TnscLabelSubTree.NeedDrawArrowSelection(aItemIndex: Integer): Boolean;
-//#UC START# *5266253D035D_5704FC1A0398_var*
-//#UC END# *5266253D035D_5704FC1A0398_var*
-begin
-//#UC START# *5266253D035D_5704FC1A0398_impl*
- Result := inherited NeedDrawArrowSelection(aItemIndex) or (aItemIndex = f_HighLightItem);
-//#UC END# *5266253D035D_5704FC1A0398_impl*
-end;//TnscLabelSubTree.NeedDrawArrowSelection
 
 procedure TnscLabelSubTree.NCDraw(aDC: hDC);
 //#UC START# *5298C02D03B3_5704FC1A0398_var*

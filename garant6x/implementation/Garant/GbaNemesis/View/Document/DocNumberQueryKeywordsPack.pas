@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DocNumberQuery_Control_Label1
 
- Tkw_DocNumberQuery_Control_Label1_Push = {final} class(TkwBynameControlPush)
+ Tkw_DocNumberQuery_Control_Label1_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Label1
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DocNumberQuery_Control_edNumber
 
- Tkw_DocNumberQuery_Control_edNumber_Push = {final} class(TkwBynameControlPush)
+ Tkw_DocNumberQuery_Control_edNumber_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edNumber
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_DocNumberQuery_Control_cbInternal
 
- Tkw_DocNumberQuery_Control_cbInternal_Push = {final} class(TkwBynameControlPush)
+ Tkw_DocNumberQuery_Control_cbInternal_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbInternal
 ----
 *Пример использования*:

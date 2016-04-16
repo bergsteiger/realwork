@@ -51,7 +51,10 @@ type
 
  // DictionContainer
 
- Tfs_MedicDiction = {final} class(TvcmFormSetFactory)
+ Tfs_MedicDiction = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Словарь медицинских терминов }
   protected
    procedure InitFields; override;

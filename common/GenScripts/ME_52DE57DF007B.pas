@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TnscTreeViewWithAdapterDragDrop = class(TnscTreeView)
+ TnscTreeViewWithAdapterDragDrop = class({$If Defined(Nemesis)}
+ TnscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ )
   protected
    function DataObjectClass: RvtNodeDataObject; override;
  end;//TnscTreeViewWithAdapterDragDrop

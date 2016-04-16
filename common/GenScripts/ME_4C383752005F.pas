@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TK200902351 = class(TTableSelectTest)
+ TK200902351 = class({$If NOT Defined(NoVCM)}
+ TTableSelectTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$200902351] }
   protected
    {$If NOT Defined(NoVCM)}

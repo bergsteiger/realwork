@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TBaseChatModule = class(TvcmModule)
+ TBaseChatModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure BaseChat_OpenContactList_Test(const aParams: IvcmTestParamsPrim);
    procedure BaseChat_OpenContactList_Execute(const aParams: IvcmExecuteParamsPrim);

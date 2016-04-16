@@ -32,7 +32,10 @@ uses
 type
  // Main
 
- Tfs_InpharmMainMenu = {final} class(TvcmFormSetFactory)
+ Tfs_InpharmMainMenu = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

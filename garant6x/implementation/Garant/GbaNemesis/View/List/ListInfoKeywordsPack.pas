@@ -67,7 +67,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ListInfo_Control_ListInfoViewer
 
- Tkw_ListInfo_Control_ListInfoViewer_Push = {final} class(TkwBynameControlPush)
+ Tkw_ListInfo_Control_ListInfoViewer_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ListInfoViewer
 ----
 *Пример использования*:

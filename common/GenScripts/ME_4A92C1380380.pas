@@ -33,7 +33,10 @@ uses
 ;
 
 type
- TPrimF1CommonModule = {abstract} class(TvcmModule)
+ TPrimF1CommonModule = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* "Общий" только для F1 }
   protected
    procedure ComplectInfo;

@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminForm_Control_BackgroundPanel
 
- Tkw_AdminForm_Control_BackgroundPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_AdminForm_Control_BackgroundPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола BackgroundPanel
 ----
 *Пример использования*:
@@ -89,7 +92,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminForm_Control_PropertyZone
 
- Tkw_AdminForm_Control_PropertyZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_AdminForm_Control_PropertyZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола PropertyZone
 ----
 *Пример использования*:
@@ -114,7 +120,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AdminForm_Control_TreeZone
 
- Tkw_AdminForm_Control_TreeZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_AdminForm_Control_TreeZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TreeZone
 ----
 *Пример использования*:

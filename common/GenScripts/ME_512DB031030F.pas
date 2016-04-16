@@ -15,7 +15,10 @@ uses
 ;
 
 type
- TEverestLiteTestSuite = class(TArchiAutoTestSuite)
+ TEverestLiteTestSuite = class({$If NOT Defined(NoScripts)}
+ TArchiAutoTestSuite
+ {$IfEnd} // NOT Defined(NoScripts)
+ )
  end;//TEverestLiteTestSuite
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 

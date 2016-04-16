@@ -36,7 +36,10 @@ type
   ['{F678B4F8-60D5-4B4F-AE77-F61D6A29D2F9}']
  end;//AboutFormDef
 
- TefAbout = {final} class(TvcmEntityForm, AboutFormDef)
+ TefAbout = {final} class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AboutFormDef)
   {* О программе }
   private
    f_pbLogo: TPaintBox;

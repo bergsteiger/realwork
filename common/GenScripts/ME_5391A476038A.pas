@@ -28,7 +28,10 @@ uses
 ;
 
 type
- TMemoryUsagePrimForm = class(TvcmEntityForm)
+ TMemoryUsagePrimForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Используемые ресурсы }
   private
    f_pnTagTree: TvtPanel;

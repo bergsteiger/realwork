@@ -53,7 +53,10 @@ type
 
  // TreeAttributeFirstLevel
 
- Tfs_SituationSearch = {final} class(TvcmFormSetFactory)
+ Tfs_SituationSearch = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* ооя 6.У }
   protected
    procedure InitFields; override;

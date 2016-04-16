@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TItsLAW = class(TTestResultsPlace)
+ TItsLAW = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   protected
    {$If NOT Defined(NotTunedDUnit)}
    class function IsLAW: Boolean; override;

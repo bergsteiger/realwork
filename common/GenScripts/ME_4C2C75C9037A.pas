@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TK221250480 = class(TScrollTest)
+ TK221250480 = class({$If NOT Defined(NoVCM)}
+ TScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$221250480] }
   protected
    {$If NOT Defined(NoVCM)}

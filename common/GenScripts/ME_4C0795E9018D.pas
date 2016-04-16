@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK210043423 = class(TScrollBackTest)
+ TK210043423 = class({$If NOT Defined(NoVCM)}
+ TScrollBackTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:210043423] }
   protected
    function GetEnabled: Boolean; override;

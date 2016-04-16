@@ -30,7 +30,10 @@ uses
 ;
 
 type
- TPrimTurnOnTimeMachineForm = class(TvcmEntityForm)
+ TPrimTurnOnTimeMachineForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Включить Машину времени }
   private
    f_rb_totmOnDate: TvtRadioButton;

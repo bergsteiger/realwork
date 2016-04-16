@@ -69,7 +69,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries
 
- Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола hfReferencesAndDictionaries
 ----
 *Пример использования*:
@@ -94,7 +97,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries
 
- Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvReferencesAndDictionaries
 ----
 *Пример использования*:
@@ -119,7 +125,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation
 
- Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола hfReferencePharmaceuticalInformation
 ----
 *Пример использования*:
@@ -144,7 +153,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation
 
- Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvReferencePharmaceuticalInformation
 ----
 *Пример использования*:
@@ -169,7 +181,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfMainFeatures
 
- Tkw_MedicMainMenu_Control_hfMainFeatures_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_hfMainFeatures_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола hfMainFeatures
 ----
 *Пример использования*:
@@ -194,7 +209,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvMainFeatures
 
- Tkw_MedicMainMenu_Control_tvMainFeatures_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_tvMainFeatures_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvMainFeatures
 ----
 *Пример использования*:
@@ -219,7 +237,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation
 
- Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола hfRegulatoryInformation
 ----
 *Пример использования*:
@@ -244,7 +265,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation
 
- Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvRegulatoryInformation
 ----
 *Пример использования*:
@@ -269,7 +293,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_pnlMain
 
- Tkw_MedicMainMenu_Control_pnlMain_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_pnlMain_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlMain
 ----
 *Пример использования*:
@@ -294,7 +321,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs
 
- Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола hfLastOpenDocs
 ----
 *Пример использования*:
@@ -319,7 +349,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs
 
- Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push = {final} class(TkwBynameControlPush)
+ Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tvLastOpenDocs
 ----
 *Пример использования*:

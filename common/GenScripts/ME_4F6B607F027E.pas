@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TF1LikeRes = {abstract} class(TOfficeLikeRes)
+ TF1LikeRes = {abstract} class({$If NOT Defined(NoVCM)}
+ TOfficeLikeRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    {$If NOT Defined(NoVCM)}
    class procedure MakeResources; override;

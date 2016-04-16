@@ -31,10 +31,16 @@ uses
 ;
 
 type
- TnscStatusBarDock = class(TDock97, IafwAlwaysOnTopControl)
+ TnscStatusBarDock = class({$If NOT Defined(NoTB97)}
+ TDock97
+ {$IfEnd} // NOT Defined(NoTB97)
+ , IafwAlwaysOnTopControl)
  end;//TnscStatusBarDock
 
- TnscStatusBar = class(TCustomToolbar97, IafwStatusBar, InscStatusBarItemsVisualizer)
+ TnscStatusBar = class({$If NOT Defined(NoTB97)}
+ TCustomToolbar97
+ {$IfEnd} // NOT Defined(NoTB97)
+ , IafwStatusBar, InscStatusBarItemsVisualizer)
   private
    f_Dock: TnscStatusBarDock;
    f_Strings: TafwStatusInfo;

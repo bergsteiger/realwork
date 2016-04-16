@@ -347,9 +347,7 @@ const
 //#UC END# *56FE6DC90398_56FA889202B4_var*
 begin
 //#UC START# *56FE6DC90398_56FA889202B4_impl*
- pnlMain.Top := 0;
- pnlMain.Left := bvlLeft.Width;
- pnlMain.Width := bvlRight.Left - pnlMain.Left;
+ bvlLeft.Left := 0;
 
  pnlClient.Left := pnlLeft.Left + pnlLeft.Width;
  pnlClient.Width := pnlMain.Width - pnlLeft.Width;
@@ -613,7 +611,7 @@ begin
    if (l_Name <> nil) then
    begin
     ieBanner.Hint := l3Str(nsCStr(l_Name));
-    ieBanner.ShowHint := true;
+    ieBanner.ShowHint := True;
    end//l_Name <> nil
    else
     ieBanner.Hint := '';
@@ -628,11 +626,17 @@ procedure TPrimMainMenuWithProfNewsForm.lblTaxesChange(Sender: TObject);
 //#UC START# *5707BB3A0018_56FA889202B4_var*
 var
  l_Section: IMainMenuSection;
+ l_NewsSection: Integer;
 //#UC END# *5707BB3A0018_56FA889202B4_var*
 begin
 //#UC START# *5707BB3A0018_56FA889202B4_impl*
  if Supports(lblTaxes.TreeStruct.Nodes[lblTaxes.CurrentItem], IMainMenuSection, l_Section) then
+ begin
   tvTaxes.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
+  l_NewsSection := l_Section.GetNewsSectionIndex;
+  if (l_NewsSection >= 0) and (l_NewsSection <> lblProfNews.CurrentItem) then
+   lblProfNews.CurrentItem := l_NewsSection;
+ end;
  ArrangeControls;
  afw.Settings.SaveInteger(pi_MainMenu_TaxesSection, lblTaxes.CurrentItem);
 //#UC END# *5707BB3A0018_56FA889202B4_impl*
@@ -647,7 +651,7 @@ begin
 //#UC START# *5707BB480178_56FA889202B4_impl*
  if Supports(lblProfNews.TreeStruct.Nodes[lblProfNews.CurrentItem], IMainMenuSection, l_Section) then
   tvProfNews.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
- ArrangeControls;        
+ ArrangeControls;
  afw.Settings.SaveInteger(pi_MainMenu_ProfNewsSection, lblProfNews.CurrentItem);
 //#UC END# *5707BB480178_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.lblProfNewsChange
@@ -765,6 +769,7 @@ procedure TPrimMainMenuWithProfNewsForm.InitControls;
     TnscTreeViewHotTruck(Components[I]).StyleID := f1_saNewSchoolMainMenuConstPath;
     TnscTreeViewHotTruck(Components[I]).Color := clWhite;
     TnscTreeViewHotTruck(Components[I]).Align := alNone;
+    TnscTreeViewHotTruck(Components[I]).InterRowIndent := 5;
    end;
  end; // lp_SetupTrees
 
@@ -787,6 +792,7 @@ begin
  bvlRight.Shape := bsSpacer;
  with pnlMain do
  begin
+  Align := alTop;
   BevelOuter := bvNone;
   Color := clWhite;
   TabOrder := 0;
@@ -800,6 +806,7 @@ begin
  end;
  with pnlClient do
  begin
+  Align := alClient;
   BevelOuter := bvNone;
   Color := clWhite;
  end;
@@ -1058,6 +1065,7 @@ procedure TPrimMainMenuWithProfNewsForm.LoadTrees;
 var
  l_ProfNewsSections,
  l_TaxesSections: IMainMenuSectionList;
+ l_ProfNewsItem: Integer;
 //#UC END# *4AC9E9EC0064_56FA889202B4_var*
 begin
 //#UC START# *4AC9E9EC0064_56FA889202B4_impl*
@@ -1067,7 +1075,6 @@ begin
  if Assigned(l_TaxesSections) then
  begin
   lblTaxes.TreeStruct := TsmSectionTree.Make(l_TaxesSections);
-  lblTaxes.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_TaxesSection, dv_MainMenu_TaxesSection);
  end else
  begin
   lblTaxes.Caption := '---';
@@ -1075,18 +1082,20 @@ begin
   tvTaxes.Visible := False;
  end;
 
-
  DefDataAdapter.NativeAdapter.MakeMainMenu.GetNewsSectionList(l_ProfNewsSections);
  if Assigned(l_ProfNewsSections) then
  begin
   lblProfNews.TreeStruct := TsmSectionTree.Make(l_ProfNewsSections);
-  lblProfNews.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_ProfNewsSection, dv_MainMenu_ProfNewsSection);
  end else
  begin
   lblProfNews.Caption := '---';
   lblProfNews.Visible := False;
   tvProfNews.Visible := False;
  end;
+
+ l_ProfNewsItem := afw.Settings.LoadInteger(pi_MainMenu_ProfNewsSection, dv_MainMenu_ProfNewsSection);
+ lblTaxes.CurrentItem := afw.Settings.LoadInteger(pi_MainMenu_TaxesSection, dv_MainMenu_TaxesSection);
+ lblProfNews.CurrentItem := l_ProfNewsItem;
 //#UC END# *4AC9E9EC0064_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadTrees
 

@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ProgressIndicator_Control_ProgressBar
 
- Tkw_ProgressIndicator_Control_ProgressBar_Push = {final} class(TkwBynameControlPush)
+ Tkw_ProgressIndicator_Control_ProgressBar_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ProgressBar
 ----
 *Пример использования*:

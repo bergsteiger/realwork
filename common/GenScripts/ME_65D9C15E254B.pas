@@ -72,7 +72,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScrollBox
 
- Tkw_StyleEditorFont_Control_FontScrollBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontScrollBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontScrollBox
 ----
 *Пример использования*:
@@ -97,7 +100,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel
 
- Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontUnderlineLabel
 ----
 *Пример использования*:
@@ -122,7 +128,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel
 
- Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontStrikeoutLabel
 ----
 *Пример использования*:
@@ -147,7 +156,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontSizeLabel
 
- Tkw_StyleEditorFont_Control_FontSizeLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontSizeLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontSizeLabel
 ----
 *Пример использования*:
@@ -172,7 +184,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontNameLabel
 
- Tkw_StyleEditorFont_Control_FontNameLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontNameLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontNameLabel
 ----
 *Пример использования*:
@@ -197,7 +212,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontItalicLabel
 
- Tkw_StyleEditorFont_Control_FontItalicLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontItalicLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontItalicLabel
 ----
 *Пример использования*:
@@ -222,7 +240,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontForeColorLabel
 
- Tkw_StyleEditorFont_Control_FontForeColorLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontForeColorLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontForeColorLabel
 ----
 *Пример использования*:
@@ -247,7 +268,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBoldLabel
 
- Tkw_StyleEditorFont_Control_FontBoldLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontBoldLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontBoldLabel
 ----
 *Пример использования*:
@@ -272,7 +296,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBackColorLabel
 
- Tkw_StyleEditorFont_Control_FontBackColorLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontBackColorLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontBackColorLabel
 ----
 *Пример использования*:
@@ -297,7 +324,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScalableLabel
 
- Tkw_StyleEditorFont_Control_FontScalableLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontScalableLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontScalableLabel
 ----
 *Пример использования*:
@@ -322,7 +352,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScalableBevel
 
- Tkw_StyleEditorFont_Control_FontScalableBevel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontScalableBevel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontScalableBevel
 ----
 *Пример использования*:
@@ -347,7 +380,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontStrikeoutInheritanceButton
 ----
 *Пример использования*:
@@ -372,7 +408,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontSizeInheritanceButton
 ----
 *Пример использования*:
@@ -397,7 +436,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontNameInheritanceButton
 ----
 *Пример использования*:
@@ -422,7 +464,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontItalicInheritanceButton
 ----
 *Пример использования*:
@@ -447,7 +492,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontForeColorInheritanceButton
 ----
 *Пример использования*:
@@ -472,7 +520,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontBoldInheritanceButton
 ----
 *Пример использования*:
@@ -497,7 +548,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontBackColorInheritanceButton
 ----
 *Пример использования*:
@@ -522,7 +576,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton
 
- Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontUnderlineInheritanceButton
 ----
 *Пример использования*:
@@ -547,7 +604,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox
 
- Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontUnderlineCheckBox
 ----
 *Пример использования*:
@@ -572,7 +632,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox
 
- Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontStrikeoutCheckBox
 ----
 *Пример использования*:
@@ -597,7 +660,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontSizeComboBox
 
- Tkw_StyleEditorFont_Control_FontSizeComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontSizeComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontSizeComboBox
 ----
 *Пример использования*:
@@ -622,7 +688,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontNameComboBox
 
- Tkw_StyleEditorFont_Control_FontNameComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontNameComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontNameComboBox
 ----
 *Пример использования*:
@@ -647,7 +716,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox
 
- Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontItalicCheckBox
 ----
 *Пример использования*:
@@ -672,7 +744,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontForeColorBox
 
- Tkw_StyleEditorFont_Control_FontForeColorBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontForeColorBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontForeColorBox
 ----
 *Пример использования*:
@@ -697,7 +772,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox
 
- Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontBoldCheckBox
 ----
 *Пример использования*:
@@ -722,7 +800,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontBackColorBox
 
- Tkw_StyleEditorFont_Control_FontBackColorBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontBackColorBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontBackColorBox
 ----
 *Пример использования*:
@@ -747,7 +828,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox
 
- Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FontScalableCheckBox
 ----
 *Пример использования*:
@@ -772,7 +856,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_LeftIndentLabel
 
- Tkw_StyleEditorFont_Control_LeftIndentLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_LeftIndentLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LeftIndentLabel
 ----
 *Пример использования*:
@@ -797,7 +884,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox
 
- Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LeftIndentComboBox
 ----
 *Пример использования*:
@@ -822,7 +912,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_RightIndentLabel
 
- Tkw_StyleEditorFont_Control_RightIndentLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_RightIndentLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RightIndentLabel
 ----
 *Пример использования*:
@@ -847,7 +940,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_RightIndentComboBox
 
- Tkw_StyleEditorFont_Control_RightIndentComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_RightIndentComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RightIndentComboBox
 ----
 *Пример использования*:
@@ -872,7 +968,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FirstIndentLabel
 
- Tkw_StyleEditorFont_Control_FirstIndentLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FirstIndentLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FirstIndentLabel
 ----
 *Пример использования*:
@@ -897,7 +996,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox
 
- Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FirstIndentComboBox
 ----
 *Пример использования*:
@@ -922,7 +1024,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel
 
- Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SpaceBeforeLabel
 ----
 *Пример использования*:
@@ -947,7 +1052,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox
 
- Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SpaceBeforeComboBox
 ----
 *Пример использования*:
@@ -972,7 +1080,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel
 
- Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SpaceAfterLabel
 ----
 *Пример использования*:
@@ -997,7 +1108,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox
 
- Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SpaceAfterComboBox
 ----
 *Пример использования*:
@@ -1022,7 +1136,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton
 
- Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола LeftIndentInheritanceButton
 ----
 *Пример использования*:
@@ -1047,7 +1164,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton
 
- Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RightIndentInheritanceButton
 ----
 *Пример использования*:
@@ -1072,7 +1192,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton
 
- Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FirstIndentInheritanceButton
 ----
 *Пример использования*:
@@ -1097,7 +1220,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton
 
- Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SpaceBeforeInheritanceButton
 ----
 *Пример использования*:
@@ -1122,7 +1248,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton
 
- Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SpaceAfterInheritanceButton
 ----
 *Пример использования*:
@@ -1147,7 +1276,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel
 
- Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола StyleCaptionLabel
 ----
 *Пример использования*:
@@ -1172,7 +1304,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox
 
- Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола StyleCaptionComboBox
 ----
 *Пример использования*:

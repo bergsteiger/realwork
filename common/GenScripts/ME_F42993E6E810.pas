@@ -68,7 +68,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_CommentPanel
 
- Tkw_FoldersElementInfo_Control_CommentPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_CommentPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CommentPanel
 ----
 *Пример использования*:
@@ -93,7 +96,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_ElementComment
 
- Tkw_FoldersElementInfo_Control_ElementComment_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_ElementComment_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ElementComment
 ----
 *Пример использования*:
@@ -118,7 +124,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_CaptionPanel
 
- Tkw_FoldersElementInfo_Control_CaptionPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_CaptionPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола CaptionPanel
 ----
 *Пример использования*:
@@ -143,7 +152,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_lblComment
 
- Tkw_FoldersElementInfo_Control_lblComment_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_lblComment_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblComment
 ----
 *Пример использования*:
@@ -168,7 +180,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_TopPanel
 
- Tkw_FoldersElementInfo_Control_TopPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_TopPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола TopPanel
 ----
 *Пример использования*:
@@ -193,7 +208,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_NamePanel
 
- Tkw_FoldersElementInfo_Control_NamePanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_NamePanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NamePanel
 ----
 *Пример использования*:
@@ -218,7 +236,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_lblElementName
 
- Tkw_FoldersElementInfo_Control_lblElementName_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_lblElementName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblElementName
 ----
 *Пример использования*:
@@ -243,7 +264,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_ElementName
 
- Tkw_FoldersElementInfo_Control_ElementName_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_ElementName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ElementName
 ----
 *Пример использования*:
@@ -268,7 +292,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_cbShared
 
- Tkw_FoldersElementInfo_Control_cbShared_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_cbShared_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbShared
 ----
 *Пример использования*:
@@ -293,7 +320,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersElementInfo_Control_InfoName
 
- Tkw_FoldersElementInfo_Control_InfoName_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersElementInfo_Control_InfoName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола InfoName
 ----
 *Пример использования*:

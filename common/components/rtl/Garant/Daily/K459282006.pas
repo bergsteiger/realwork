@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK459282006 = class(TPageCountTest)
+ TK459282006 = class({$If NOT Defined(NoVCM)}
+ TPageCountTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [Requestlink:459282006] }
   protected
    function GetFolder: AnsiString; override;

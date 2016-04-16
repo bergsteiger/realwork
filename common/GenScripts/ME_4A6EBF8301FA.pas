@@ -49,7 +49,10 @@ type
 
  // EditionsContainer
 
- Tfs_CompareEditions = {final} class(TvcmFormSetFactory)
+ Tfs_CompareEditions = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Сравнение редакций документа }
   protected
    procedure InitFields; override;

@@ -22,7 +22,10 @@ uses
 type
  RnsF1DocumentContainerPrim = class of TnsF1DocumentContainerPrim;
 
- TnsF1DocumentContainerPrim = class(TeeDocumentContainer)
+ TnsF1DocumentContainerPrim = class({$If Defined(Nemesis)}
+ TeeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ )
   {* Базовый контейнер документа для F1 }
   protected
    function DocumentForFindPara: Tl3Tag; virtual;

@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TarchiDBTest = class(TBaseTest)
+ TarchiDBTest = class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Ѕазовый класс дл€ тестов, использующих базу данных }
   protected
    f_SabFiller: IValueSetFiller;

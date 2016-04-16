@@ -76,7 +76,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_RegisteredGroupBox
 
- Tkw_Login_Control_RegisteredGroupBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_RegisteredGroupBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RegisteredGroupBox
 ----
 *Пример использования*:
@@ -101,7 +104,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_lblLogin
 
- Tkw_Login_Control_lblLogin_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_lblLogin_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblLogin
 ----
 *Пример использования*:
@@ -126,7 +132,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_lblPassword
 
- Tkw_Login_Control_lblPassword_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_lblPassword_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblPassword
 ----
 *Пример использования*:
@@ -151,7 +160,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_EnterPaintBox
 
- Tkw_Login_Control_EnterPaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_EnterPaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола EnterPaintBox
 ----
 *Пример использования*:
@@ -176,7 +188,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_edUserName
 
- Tkw_Login_Control_edUserName_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_edUserName_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edUserName
 ----
 *Пример использования*:
@@ -201,7 +216,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_edPassword
 
- Tkw_Login_Control_edPassword_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_edPassword_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edPassword
 ----
 *Пример использования*:
@@ -226,7 +244,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_lblForgetPassword
 
- Tkw_Login_Control_lblForgetPassword_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_lblForgetPassword_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblForgetPassword
 ----
 *Пример использования*:
@@ -251,7 +272,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_cbAutoLogin
 
- Tkw_Login_Control_cbAutoLogin_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_cbAutoLogin_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbAutoLogin
 ----
 *Пример использования*:
@@ -276,7 +300,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_btnOk
 
- Tkw_Login_Control_btnOk_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_btnOk_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола btnOk
 ----
 *Пример использования*:
@@ -301,7 +328,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_NewUserGroupBox
 
- Tkw_Login_Control_NewUserGroupBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_NewUserGroupBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NewUserGroupBox
 ----
 *Пример использования*:
@@ -326,7 +356,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_NewUserLabel
 
- Tkw_Login_Control_NewUserLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_NewUserLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NewUserLabel
 ----
 *Пример использования*:
@@ -351,7 +384,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_NewUserPaintBox
 
- Tkw_Login_Control_NewUserPaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_NewUserPaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола NewUserPaintBox
 ----
 *Пример использования*:
@@ -376,7 +412,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_lblNewUser
 
- Tkw_Login_Control_lblNewUser_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_lblNewUser_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblNewUser
 ----
 *Пример использования*:
@@ -401,7 +440,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_HelpPanel
 
- Tkw_Login_Control_HelpPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_HelpPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HelpPanel
 ----
 *Пример использования*:
@@ -426,7 +468,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_HelpPaintBox
 
- Tkw_Login_Control_HelpPaintBox_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_HelpPaintBox_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HelpPaintBox
 ----
 *Пример использования*:
@@ -451,7 +496,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Login_Control_HelpLabel
 
- Tkw_Login_Control_HelpLabel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Login_Control_HelpLabel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HelpLabel
 ----
 *Пример использования*:

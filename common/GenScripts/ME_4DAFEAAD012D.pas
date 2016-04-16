@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TInsertFormulaTest = {abstract} class(TTextViaEditorProcessor)
+ TInsertFormulaTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextViaEditorProcessor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Тест на вставку формулы. }
   protected
    function GetFormulaText: AnsiString; virtual; abstract;

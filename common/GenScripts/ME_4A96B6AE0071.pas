@@ -35,7 +35,10 @@ type
 
  // ChildZone
 
- TPrimFoldersForm = class(TvcmContainerForm)
+ TPrimFoldersForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Мои документы }
   private
    f_IsInfoShown: Boolean;

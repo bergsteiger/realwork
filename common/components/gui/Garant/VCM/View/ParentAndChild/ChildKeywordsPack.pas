@@ -65,7 +65,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Child_Control_ChildZone
 
- Tkw_Child_Control_ChildZone_Push = {final} class(TkwBynameControlPush)
+ Tkw_Child_Control_ChildZone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола ChildZone
 ----
 *Пример использования*:
@@ -90,7 +93,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Child_Control_MainPageTab
 
- Tkw_Child_Control_MainPageTab_Push = {final} class(TkwBynameControlPush)
+ Tkw_Child_Control_MainPageTab_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола MainPageTab
 ----
 *Пример использования*:

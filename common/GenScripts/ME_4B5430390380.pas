@@ -33,7 +33,10 @@ uses
 ;
 
 type
- TPrimSelfInfoForm = class(TvcmEntityForm)
+ TPrimSelfInfoForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Регистрационные данные }
   private
    f_PasswordChanged: Boolean;

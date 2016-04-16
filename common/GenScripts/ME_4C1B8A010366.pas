@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK218464982 = class(TPreviewTestBefore235875079)
+ TK218464982 = class({$If NOT Defined(NoVCM)}
+ TPreviewTestBefore235875079
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$218464982] }
   protected
    function GetFolder: AnsiString; override;

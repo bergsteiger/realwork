@@ -43,7 +43,10 @@ type
 
  // Mark
 
- Tfs_Consultation = {final} class(TvcmFormSetFactory)
+ Tfs_Consultation = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* —борка дл€ показа консультации }
   protected
    procedure InitFields; override;

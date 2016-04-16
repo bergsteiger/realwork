@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK235057437 = class(TQueryCardAddAttributeTest)
+ TK235057437 = class({$If NOT Defined(NoVCM)}
+ TQueryCardAddAttributeTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [$235057437] }
   protected
    function GetFolder: AnsiString; override;

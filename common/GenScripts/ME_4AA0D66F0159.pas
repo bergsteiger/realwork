@@ -43,7 +43,10 @@ type
    class procedure Log;
  end;//TnsOpenMedicFirmsEvent
 
- TInpharmModule = class(TvcmModule)
+ TInpharmModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure OpenMedicDictionPrim(const aSDS: IsdsCommonDiction;
     const aContainer: IvcmContainer);

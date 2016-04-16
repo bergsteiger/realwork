@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TtoKAdmin = class(TTestResultsPlace)
+ TtoKAdmin = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   public
    {$If NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;

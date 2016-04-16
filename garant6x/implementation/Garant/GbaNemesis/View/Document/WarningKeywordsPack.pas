@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Warning_Control_Viewer
 
- Tkw_Warning_Control_Viewer_Push = {final} class(TkwBynameControlPush)
+ Tkw_Warning_Control_Viewer_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Viewer
 ----
 *Пример использования*:

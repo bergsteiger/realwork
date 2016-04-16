@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TAutoPipeServerTestsRunner = class(TGUIAppTester)
+ TAutoPipeServerTestsRunner = class({$If Defined(nsTest)}
+ TGUIAppTester
+ {$IfEnd} // Defined(nsTest)
+ )
   public
    {$If Defined(nsTest)}
    class function GetResultsPlaces: TResultsPlaces; override;

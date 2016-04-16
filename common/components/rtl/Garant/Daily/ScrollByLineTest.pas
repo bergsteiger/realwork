@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TScrollByLineTest = {abstract} class(TTextEditorVisitor)
+ TScrollByLineTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextEditorVisitor
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Тест прокрутки вниз построчно }
   protected
    {$If NOT Defined(NoVCM)}

@@ -40,7 +40,10 @@ type
 
  // Child
 
- TPrimAttributeSelectForm = class(TvcmContainerForm)
+ TPrimAttributeSelectForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_BackgroundPanel: TvtProportionalPanel;
     {* Поле для свойства BackgroundPanel }

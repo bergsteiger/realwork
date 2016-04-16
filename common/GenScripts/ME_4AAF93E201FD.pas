@@ -29,7 +29,10 @@ type
  TnsCaptionChangeEvent = procedure(aIndex: Integer;
   const aNewCaption: Il3CString) of object;
 
- TnsPostingsTree = class(TvcmCacheableBase, If1NotificationListener)
+ TnsPostingsTree = class({$If NOT Defined(NoVCM)}
+ TvcmCacheableBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , If1NotificationListener)
   private
    f_MgrSearch: Pointer;
     {* IqaMgrSearch

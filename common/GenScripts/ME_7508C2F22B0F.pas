@@ -64,7 +64,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_TasksPanel_Control_tpvMain
 
- Tkw_TasksPanel_Control_tpvMain_Push = {final} class(TkwBynameControlPush)
+ Tkw_TasksPanel_Control_tpvMain_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола tpvMain
 ----
 *Пример использования*:

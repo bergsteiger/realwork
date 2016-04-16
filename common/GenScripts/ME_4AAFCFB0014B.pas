@@ -69,7 +69,10 @@ type
   function GetInfo: InsLinkedObjectDescription;
  end;//IPictureFormState
 
- TPictureFormState = class(TvcmCacheableBase{$If NOT Defined(NoVCM)}
+ TPictureFormState = class({$If NOT Defined(NoVCM)}
+ TvcmCacheableBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , IvcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , IPictureFormState)

@@ -42,7 +42,10 @@ type
   , tdD1D2
  );//TTypeDate
 
- TPrimDefineSearchDateForm = class(TvcmEntityForm)
+ TPrimDefineSearchDateForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Дата }
   private
    f_ButtonList: TList;

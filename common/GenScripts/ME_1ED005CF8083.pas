@@ -62,7 +62,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_FoldersTree_Control_FoldersTree
 
- Tkw_FoldersTree_Control_FoldersTree_Push = {final} class(TkwBynameControlPush)
+ Tkw_FoldersTree_Control_FoldersTree_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола FoldersTree
 ----
 *Пример использования*:

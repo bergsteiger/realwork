@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TAllChildreCountTest = {abstract} class(TTextViaEditorProcessorPrim)
+ TAllChildreCountTest = {abstract} class({$If NOT Defined(NoVCM)}
+ TTextViaEditorProcessorPrim
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* “ест дл€ подсчета количества AllChildrenCount у тегов документа. }
   private
    f_Filer: Tl3CustomFiler;

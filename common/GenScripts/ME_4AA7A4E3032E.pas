@@ -46,7 +46,10 @@ type
 
  // cfSaveLoad_slqtFilters
 
- Tfs_SituationFilter = {final} class(TvcmFormSetFactory)
+ Tfs_SituationFilter = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Фильтр ППС }
   protected
    procedure InitFields; override;

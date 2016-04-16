@@ -38,7 +38,10 @@ type
    rIconName: PAnsiChar;
  end;//TnsLongProcessData
 
- TPrimLongProcessForm = class(TvcmEntityForm)
+ TPrimLongProcessForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Информация }
   private
    f_InLongProcess: Boolean;

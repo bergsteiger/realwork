@@ -17,7 +17,10 @@ uses
 ;
 
 type
- TarchiExportActionTest = class(TBaseTest)
+ TarchiExportActionTest = class({$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ )
   protected
    {$If Defined(nsTest)}
    function GetFolder: AnsiString; override;

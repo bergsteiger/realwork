@@ -15,7 +15,10 @@ uses
 ;
 
 type
- TListModule = class(TvcmModule)
+ TListModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Список }
   public
    class function ListPrintAndExportDefaultSetting: Boolean;

@@ -75,7 +75,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_RemindersLine
 
- Tkw_Text_Control_RemindersLine_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_RemindersLine_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола RemindersLine
 ----
 *Пример использования*:
@@ -100,7 +103,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnTimeMachineException
 
- Tkw_Text_Control_WarnTimeMachineException_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnTimeMachineException_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnTimeMachineException
 ----
 *Пример использования*:
@@ -125,7 +131,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnIsAbolished
 
- Tkw_Text_Control_WarnIsAbolished_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnIsAbolished_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnIsAbolished
 ----
 *Пример использования*:
@@ -150,7 +159,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnPreActive
 
- Tkw_Text_Control_WarnPreActive_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnPreActive_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnPreActive
 ----
 *Пример использования*:
@@ -175,7 +187,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnTimeMachineWarning
 
- Tkw_Text_Control_WarnTimeMachineWarning_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnTimeMachineWarning_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnTimeMachineWarning
 ----
 *Пример использования*:
@@ -200,7 +215,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnOnControl
 
- Tkw_Text_Control_WarnOnControl_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnOnControl_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnOnControl
 ----
 *Пример использования*:
@@ -225,7 +243,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnJuror
 
- Tkw_Text_Control_WarnJuror_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnJuror_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnJuror
 ----
 *Пример использования*:
@@ -250,7 +271,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnRedaction
 
- Tkw_Text_Control_WarnRedaction_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnRedaction_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnRedaction
 ----
 *Пример использования*:
@@ -275,7 +299,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnInactualDocument
 
- Tkw_Text_Control_WarnInactualDocument_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnInactualDocument_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnInactualDocument
 ----
 *Пример использования*:
@@ -300,7 +327,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_WarnTimeMachineOn
 
- Tkw_Text_Control_WarnTimeMachineOn_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_WarnTimeMachineOn_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола WarnTimeMachineOn
 ----
 *Пример использования*:
@@ -325,7 +355,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_SubPanel
 
- Tkw_Text_Control_SubPanel_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_SubPanel_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола SubPanel
 ----
 *Пример использования*:
@@ -350,7 +383,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_HScroll
 
- Tkw_Text_Control_HScroll_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_HScroll_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола HScroll
 ----
 *Пример использования*:
@@ -375,7 +411,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Text_Control_Text
 
- Tkw_Text_Control_Text_Push = {final} class(TkwBynameControlPush)
+ Tkw_Text_Control_Text_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола Text
 ----
 *Пример использования*:

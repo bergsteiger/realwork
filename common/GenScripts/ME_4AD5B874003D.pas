@@ -140,7 +140,10 @@ type
    Save - сохранить и сделать значениями по умолчанию }
  end;//InsConfigStorage
 
- TnsConfigStorage = class(TvcmCacheableBase, InsConfigStorage)
+ TnsConfigStorage = class({$If NOT Defined(NoVCM)}
+ TvcmCacheableBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsConfigStorage)
   {* производит запись, чтение настроек }
   private
    f_DefaultValuesOperation: Boolean;

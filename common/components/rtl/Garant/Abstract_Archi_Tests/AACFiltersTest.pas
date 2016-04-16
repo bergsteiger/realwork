@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TAACFiltersTest = {abstract} class(TBaseTest)
+ TAACFiltersTest = {abstract} class({$If NOT Defined(NotTunedDUnit)}
+ TBaseTest
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* [Requestlink:294595323] }
   protected
    function GetFolder: AnsiString; override;

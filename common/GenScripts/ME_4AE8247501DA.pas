@@ -30,7 +30,10 @@ const
  WM_AFTERINSERT = WM_USER  + 111;
 
 type
- TPrimStyleEditorNavigatorForm = class(TvcmEntityForm)
+ TPrimStyleEditorNavigatorForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Дерево стилей }
   private
    f_StyleTreeView: TnscTreeViewWithAdapterDragDrop;

@@ -43,7 +43,10 @@ type
    class procedure Log;
  end;//TnsSendTestRequestToLegalAdviceEvent
 
- TPrimQueryCardForm = class(TvcmEntityForm)
+ TPrimQueryCardForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Карточка запросов }
   private
    f_IsFilter: Boolean;

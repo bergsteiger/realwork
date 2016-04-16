@@ -16,7 +16,7 @@ uses
 ;
 
 type
- TalcuAnoncedExport = class(TalcuExportTalcuAnoncedExportPrim)
+ TalcuAnoncedExport = class(TalcuExport)
  end;//TalcuAnoncedExport
 {$IfEnd} // Defined(ServerTasks)
 

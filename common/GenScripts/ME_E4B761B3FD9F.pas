@@ -66,7 +66,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblReference
 
- Tkw_ForbidAutoregistration_Control_lblReference_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_lblReference_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblReference
 ----
 *Пример использования*:
@@ -91,7 +94,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_gbInfo
 
- Tkw_ForbidAutoregistration_Control_gbInfo_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_gbInfo_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола gbInfo
 ----
 *Пример использования*:
@@ -116,7 +122,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblPhone
 
- Tkw_ForbidAutoregistration_Control_lblPhone_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_lblPhone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblPhone
 ----
 *Пример использования*:
@@ -141,7 +150,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblEmail
 
- Tkw_ForbidAutoregistration_Control_lblEmail_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_lblEmail_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblEmail
 ----
 *Пример использования*:
@@ -166,7 +178,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_lblHint
 
- Tkw_ForbidAutoregistration_Control_lblHint_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_lblHint_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblHint
 ----
 *Пример использования*:
@@ -191,7 +206,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_cbPhone
 
- Tkw_ForbidAutoregistration_Control_cbPhone_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_cbPhone_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbPhone
 ----
 *Пример использования*:
@@ -216,7 +234,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_ForbidAutoregistration_Control_cbEmail
 
- Tkw_ForbidAutoregistration_Control_cbEmail_Push = {final} class(TkwBynameControlPush)
+ Tkw_ForbidAutoregistration_Control_cbEmail_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола cbEmail
 ----
 *Пример использования*:

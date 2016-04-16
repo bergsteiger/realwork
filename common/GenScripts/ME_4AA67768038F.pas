@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TRubricatorModule = class(TvcmModule)
+ TRubricatorModule = class({$If NOT Defined(NoVCM)}
+ TvcmModule
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   public
    procedure OpenRubricator(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;

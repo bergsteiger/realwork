@@ -70,7 +70,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnWriteToUs
 
- Tkw_AACContainer_Control_pnWriteToUs_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnWriteToUs_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnWriteToUs
 ----
 *Пример использования*:
@@ -95,7 +98,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_edWriteToUs
 
- Tkw_AACContainer_Control_edWriteToUs_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_edWriteToUs_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола edWriteToUs
 ----
 *Пример использования*:
@@ -120,7 +126,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnSeeAlso
 
- Tkw_AACContainer_Control_pnSeeAlso_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnSeeAlso_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnSeeAlso
 ----
 *Пример использования*:
@@ -145,7 +154,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_lblSeeAlso
 
- Tkw_AACContainer_Control_lblSeeAlso_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_lblSeeAlso_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола lblSeeAlso
 ----
 *Пример использования*:
@@ -170,7 +182,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnLinkToContent
 
- Tkw_AACContainer_Control_pnLinkToContent_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnLinkToContent_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnLinkToContent
 ----
 *Пример использования*:
@@ -195,7 +210,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pbLinkToContent
 
- Tkw_AACContainer_Control_pbLinkToContent_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pbLinkToContent_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pbLinkToContent
 ----
 *Пример использования*:
@@ -220,7 +238,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnBack
 
- Tkw_AACContainer_Control_pnBack_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnBack_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnBack
 ----
 *Пример использования*:
@@ -245,7 +266,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnRightEx
 
- Tkw_AACContainer_Control_pnRightEx_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnRightEx_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnRightEx
 ----
 *Пример использования*:
@@ -270,7 +294,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnRightForScroll
 
- Tkw_AACContainer_Control_pnRightForScroll_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnRightForScroll_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnRightForScroll
 ----
 *Пример использования*:
@@ -295,7 +322,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnRight
 
- Tkw_AACContainer_Control_pnRight_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnRight_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnRight
 ----
 *Пример использования*:
@@ -320,7 +350,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnlRightTop
 
- Tkw_AACContainer_Control_pnlRightTop_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnlRightTop_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlRightTop
 ----
 *Пример использования*:
@@ -345,7 +378,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_scrRight
 
- Tkw_AACContainer_Control_scrRight_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_scrRight_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола scrRight
 ----
 *Пример использования*:
@@ -370,7 +406,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnLeftEx
 
- Tkw_AACContainer_Control_pnLeftEx_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnLeftEx_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnLeftEx
 ----
 *Пример использования*:
@@ -395,7 +434,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnLeftForScroll
 
- Tkw_AACContainer_Control_pnLeftForScroll_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnLeftForScroll_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnLeftForScroll
 ----
 *Пример использования*:
@@ -420,7 +462,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnlLeftTop
 
- Tkw_AACContainer_Control_pnlLeftTop_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnlLeftTop_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnlLeftTop
 ----
 *Пример использования*:
@@ -445,7 +490,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_pnLeft
 
- Tkw_AACContainer_Control_pnLeft_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_pnLeft_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола pnLeft
 ----
 *Пример использования*:
@@ -470,7 +518,10 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_AACContainer_Control_scrLeft
 
- Tkw_AACContainer_Control_scrLeft_Push = {final} class(TkwBynameControlPush)
+ Tkw_AACContainer_Control_scrLeft_Push = {final} class({$If NOT Defined(NoVCL)}
+ TkwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Слово словаря для контрола scrLeft
 ----
 *Пример использования*:

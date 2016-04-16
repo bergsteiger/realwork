@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TItsLAW = class(TTestResultsPlace)
+ TItsLAW = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
   {* Вывод для отладочных целей }
   protected
    {$If NOT Defined(NotTunedDUnit)}

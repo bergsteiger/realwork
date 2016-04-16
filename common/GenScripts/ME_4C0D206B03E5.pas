@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TK217680060 = class(TScrollTest)
+ TK217680060 = class({$If NOT Defined(NoVCM)}
+ TScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:217680060] }
   protected
    function GetFolder: AnsiString; override;

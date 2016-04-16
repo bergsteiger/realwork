@@ -20,7 +20,10 @@ uses
 ;
 
 type
- TK210436976 = class(TScrollTest)
+ TK210436976 = class({$If NOT Defined(NoVCM)}
+ TScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* [RequestLink:210436976] }
   protected
    {$If NOT Defined(NoVCM)}

@@ -27,7 +27,10 @@ uses
 ;
 
 type
- TPrimGroupPropertyForm = class(TvcmEntityForm)
+ TPrimGroupPropertyForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Свойства группы }
   private
    f_edName: TnscEdit;

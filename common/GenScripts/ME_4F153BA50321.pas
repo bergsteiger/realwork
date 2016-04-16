@@ -23,7 +23,10 @@ uses
 ;
 
 type
- TnsWarningDocumentContainer = class(TeeDocumentContainer)
+ TnsWarningDocumentContainer = class({$If Defined(Nemesis)}
+ TeeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ )
   private
    f_ViewArea: IdsWarning;
    f_UserType: TvcmUserType;

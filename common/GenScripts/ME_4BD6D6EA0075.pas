@@ -31,7 +31,10 @@ uses
 ;
 
 type
- TPrimWorkJournalForm = class(TvcmEntityForm)
+ TPrimWorkJournalForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_JournalTree: TnscTreeViewWithAdapterDragDrop;
     {* Поле для свойства JournalTree }

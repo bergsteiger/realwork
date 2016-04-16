@@ -48,7 +48,10 @@ type
 
  // Synonyms
 
- Tfs_DrugDocument = {final} class(TvcmFormSetFactory)
+ Tfs_DrugDocument = {final} class({$If NOT Defined(NoVCM)}
+ TvcmFormSetFactory
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}
