@@ -47,14 +47,20 @@ const
  vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
 
 type
- TvcmDockDefPrim = class(TDock97)
+ TvcmDockDefPrim = class({$If NOT Defined(NoTB97)}
+ TDock97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
  end;//TvcmDockDefPrim
 
  //#UC START# *50289DB9036Fci*
  //#UC END# *50289DB9036Fci*
  //#UC START# *50289DB9036Fcit*
  //#UC END# *50289DB9036Fcit*
- TvcmToolbarDef = class(TToolbar97)
+ TvcmToolbarDef = class({$If NOT Defined(NoTB97)}
+ TToolbar97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
   private
    f_Pos: TvcmEffectiveToolBarPos;
   protected
@@ -90,7 +96,10 @@ type
 
  TvcmDockDef = class;
 
- TvcmToolbarDockPanel = class(TCustomPanel)
+ TvcmToolbarDockPanel = class({$If NOT Defined(NoVCL)}
+ TCustomPanel
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_ToolbarDock: TvcmDockDef;
   protected
@@ -153,7 +162,10 @@ type
     write f_DockPanel;
  end;//TvcmDockDef
 
- TvcmSeparatorDef = class(TToolbarSep97)
+ TvcmSeparatorDef = class({$If NOT Defined(NoTB97)}
+ TToolbarSep97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
  end;//TvcmSeparatorDef
 
  TvcmDockPanelButton = class;
@@ -209,7 +221,10 @@ type
     write pm_SetToolbarDock;
  end;//TvcmDockPanel
 
- TvcmDockPanelButton = class(TCustomToolbarButton97)
+ TvcmDockPanelButton = class({$If NOT Defined(NoTB97)}
+ TCustomToolbarButton97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
   private
    f_Form: TCustomForm;
    f_DockPanel: TvcmDockPanel;

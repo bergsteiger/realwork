@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TeeTextParaCursor = class(TevTextParaCursor)
+ TeeTextParaCursor = class({$If Defined(evUseVisibleCursors)}
+ TevTextParaCursor
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ )
   private
    function Editor: IeeEditor;
   protected

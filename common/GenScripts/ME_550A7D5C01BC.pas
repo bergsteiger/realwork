@@ -162,7 +162,10 @@ type
    FMouseControl: TControl;
  end;//THackApplication
 
- THackCustomForm = {final} class(TCustomForm)
+ THackCustomForm = {final} class({$If NOT Defined(NoVCL)}
+ TCustomForm
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackCustomForm
 
 const

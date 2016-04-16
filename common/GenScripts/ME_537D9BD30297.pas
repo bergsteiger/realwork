@@ -73,7 +73,10 @@ _vcmContainedForm_ = _vcmContainedForm_Parent_;
 
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 type
- THackCustomForm = class(TScrollingWinControl)
+ THackCustomForm = class({$If NOT Defined(NoVCL)}
+ TScrollingWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    FActiveControl: TWinControl;
    FFocusedControl: TWinControl;

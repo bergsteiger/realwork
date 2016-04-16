@@ -26,7 +26,10 @@ uses
 ;
 
 type
- TnsStartupSupport = class(TvcmCacheableBase)
+ TnsStartupSupport = class({$If NOT Defined(NoVCM)}
+ TvcmCacheableBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   private
    f_CheckRunTimer: TTimer;
    f_DataInstallerCommandLine: AnsiString;

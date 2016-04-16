@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TeeDocumentCursor = class(TevDocumentCursor)
+ TeeDocumentCursor = class({$If Defined(evUseVisibleCursors)}
+ TevDocumentCursor
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ )
  end;//TeeDocumentCursor
 
 implementation

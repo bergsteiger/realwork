@@ -273,7 +273,10 @@ type
   aForm: TForm;
   var aCanUndock: Boolean) of object;
 
- TChromeLikeTabAction = {final} class(TAction)
+ TChromeLikeTabAction = {final} class({$If NOT Defined(NoVCL)}
+ TAction
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_Tab: TChromeLikeTab;
   protected

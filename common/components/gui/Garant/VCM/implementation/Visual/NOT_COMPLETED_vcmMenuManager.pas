@@ -143,7 +143,10 @@ type
    constructor Create(AOwner: TComponent); override;
  end;//TvcmFakeBox
 
- TvcmDockContainer = class(TPanel)
+ TvcmDockContainer = class({$If NOT Defined(NoVCL)}
+ TPanel
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Панель используемая для размещения главной панели инструментов формы. }
   public
    constructor Create(AOwner: TComponent); override;
@@ -738,13 +741,22 @@ type
 
  TvcmTBPosStringArray = array [TvcmEffectiveToolBarPos] of AnsiString;
 
- THackWinControl = class(TWinControl)
+ THackWinControl = class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackWinControl
 
- THackControl = class(TControl)
+ THackControl = class({$If NOT Defined(NoVCL)}
+ TControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackControl
 
- THackPopupMenu = class(TMenu)
+ THackPopupMenu = class({$If NOT Defined(NoVCL)}
+ TMenu
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    FPopupPoint: TPoint;
  end;//THackPopupMenu

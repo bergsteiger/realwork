@@ -47,7 +47,10 @@ type
  //#UC END# *710C3389FF5Dpubl*
  end;//TvcmTabbedMenuWordsPackResNameGetter
 
- TvcmBaseMenuForChromeLikeFriend = {abstract} class(TvcmBaseMenuForChromeLike)
+ TvcmBaseMenuForChromeLikeFriend = {abstract} class({$If NOT Defined(NoVGScene)}
+ TvcmBaseMenuForChromeLike
+ {$IfEnd} // NOT Defined(NoVGScene)
+ )
   {* Друг для TvcmBaseMenuForChromeLike }
  end;//TvcmBaseMenuForChromeLikeFriend
 

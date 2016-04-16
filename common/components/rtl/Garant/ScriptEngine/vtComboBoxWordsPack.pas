@@ -51,7 +51,10 @@ type
  //#UC END# *D1FD416FEE23publ*
  end;//TvtComboBoxWordsPackResNameGetter
 
- TCustomComboBoxFriend = {abstract} class(TCustomComboBox)
+ TCustomComboBoxFriend = {abstract} class({$If NOT Defined(NoVCL)}
+ TCustomComboBox
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Друг для TCustomComboBox }
  end;//TCustomComboBoxFriend
 

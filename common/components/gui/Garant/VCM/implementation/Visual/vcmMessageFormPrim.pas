@@ -61,7 +61,10 @@ uses
 ;
 
 type
- TCustomCheckBoxHack = class(TCustomCheckBox)
+ TCustomCheckBoxHack = class({$If NOT Defined(NoVCL)}
+ TCustomCheckBox
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//TCustomCheckBoxHack
 
  TvgVisualObjectHack = class(TvgVisualObject)

@@ -30,7 +30,10 @@ type
   , cbsPushed
  );//TChromeLikeWindowCaptionButtonState
 
- TChromeLikeBaseWindowCaptionButton = class(TCustomControl)
+ TChromeLikeBaseWindowCaptionButton = class({$If NOT Defined(NoVCL)}
+ TCustomControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_State: TChromeLikeWindowCaptionButtonState;
    f_Active: Boolean;

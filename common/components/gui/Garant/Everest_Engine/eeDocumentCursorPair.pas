@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TeeDocumentCursorPair = class(TevDocumentCursorPair)
+ TeeDocumentCursorPair = class({$If Defined(evUseVisibleCursors)}
+ TevDocumentCursorPair
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ )
   protected
    {$If Defined(evUseVisibleCursors)}
    function DoInsertStream(const aView: InevView;

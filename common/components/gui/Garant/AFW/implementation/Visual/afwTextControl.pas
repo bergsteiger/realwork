@@ -52,7 +52,10 @@ uses
 ;
 
 type
- THackLink = class(TControlActionLink)
+ THackLink = class({$If NOT Defined(NoVCL)}
+ TControlActionLink
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackLink
 
 function TafwTextControl.CaptionStored: Boolean;

@@ -32,7 +32,10 @@ type
   , sbalLeft
  );//TvtScrollBarAlign
 
- TvtScrollBar = class(TWinControl)
+ TvtScrollBar = class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_SmallChange: TScrollBarInc;
    f_LargeChange: TScrollBarInc;

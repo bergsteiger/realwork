@@ -31,7 +31,10 @@ uses
 ;
 
 type
- THackControl = class(TCustomControl)
+ THackControl = class({$If NOT Defined(NoVCL)}
+ TCustomControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackControl
 
 constructor Tl3CustomControlCanvas.Create(aControl: TCustomControl;

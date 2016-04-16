@@ -36,7 +36,10 @@ type
 
  TvtCurrentBounds = array [TvtTailPosition] of TRect;
 
- TvtPopupForm = class(TCustomForm)
+ TvtPopupForm = class({$If NOT Defined(NoVCL)}
+ TCustomForm
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_Scene: TvgScene;
    f_Background: TvgBackground;

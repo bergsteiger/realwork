@@ -24,7 +24,10 @@ uses
 ;
 
 type
- TvgReminderActionLink = class(TActionLink)
+ TvgReminderActionLink = class({$If NOT Defined(NoVCL)}
+ TActionLink
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   protected
    f_Client: TComponent;
   protected

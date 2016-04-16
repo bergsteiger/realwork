@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TvtSpeedButton = class(TToolbarButton97)
+ TvtSpeedButton = class({$If NOT Defined(NoTB97)}
+ TToolbarButton97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
  end;//TvtSpeedButton
 
 implementation

@@ -172,7 +172,10 @@ uses
 ;
 
 type
- THackWinControl = {final} class(TWinControl)
+ THackWinControl = {final} class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackWinControl
 
 procedure TFakeBoxPrim.pm_SetTextValid(aValue: Boolean);

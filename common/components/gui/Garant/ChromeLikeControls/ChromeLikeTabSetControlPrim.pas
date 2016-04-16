@@ -31,7 +31,10 @@ type
   rRect: TRect;
  end;//TChromeLikeTabHintParams
 
- TChromeLikeTabSetControlPrim = class(TWinControl)
+ TChromeLikeTabSetControlPrim = class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_BufferBitmap: Tl3Bitmap;
    f_Images: TCustomImageList;

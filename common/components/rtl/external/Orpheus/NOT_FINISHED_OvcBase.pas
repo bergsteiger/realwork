@@ -18,7 +18,10 @@ uses
 ;
 
 type
- TOvcBase = class(TCustomControl)
+ TOvcBase = class({$If NOT Defined(NoVCL)}
+ TCustomControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* base class for Orpheus components. Provides controller access. }
   public
    Controller: TOvcController;

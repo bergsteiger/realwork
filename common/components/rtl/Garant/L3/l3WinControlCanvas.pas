@@ -38,7 +38,10 @@ uses
 ;
 
 type
- THackWinControl = class(TWinControl)
+ THackWinControl = class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackWinControl
 
 constructor Tl3WinControlCanvas.Create(aControl: TWinControl;

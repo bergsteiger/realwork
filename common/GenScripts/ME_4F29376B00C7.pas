@@ -29,7 +29,10 @@ uses
 ;
 
 type
- TGraphicControlFriend = {abstract} class(TGraphicControl)
+ TGraphicControlFriend = {abstract} class({$If NOT Defined(NoVCL)}
+ TGraphicControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Друг для TGraphicControl }
  end;//TGraphicControlFriend
 

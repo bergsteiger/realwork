@@ -14,7 +14,10 @@ uses
 ;
 
 type
- TWebBrowser = class(TOleControl)
+ TWebBrowser = class({$If NOT Defined(NoVCL)}
+ TOleControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//TWebBrowser
 
 implementation

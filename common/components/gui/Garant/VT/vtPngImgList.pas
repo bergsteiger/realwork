@@ -32,7 +32,10 @@ type
  //#UC END# *4ACB4A5201FCci*
  //#UC START# *4ACB4A5201FCcit*
  //#UC END# *4ACB4A5201FCcit*
- TvtNonFixedPngImageListPrim = class(TCustomImageList, IvtFlashImageList)
+ TvtNonFixedPngImageListPrim = class({$If NOT Defined(NoVCL)}
+ TCustomImageList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , IvtFlashImageList)
   private
    f_Glyph: TaBPPGlyphs;
    f_OldHeight: Integer;
@@ -151,7 +154,10 @@ type
  //#UC END# *4FD0A98C01BDci*
  //#UC START# *4FD0A98C01BDcit*
  //#UC END# *4FD0A98C01BDcit*
- TvtPngImageListPrim = class(TCustomImageList, IvtFlashImageList)
+ TvtPngImageListPrim = class({$If NOT Defined(NoVCL)}
+ TCustomImageList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , IvtFlashImageList)
   private
    f_ChangeOn: Boolean;
    f_Glyph: TvtSizeBPPGlyphs;
@@ -275,7 +281,10 @@ type
  //#UC END# *4FD0BFBC00F9ci*
  //#UC START# *4FD0BFBC00F9cit*
  //#UC END# *4FD0BFBC00F9cit*
- TvtFixedSizeProxyPngImageListPrim = class(TCustomImageList, IvtFlashImageList)
+ TvtFixedSizeProxyPngImageListPrim = class({$If NOT Defined(NoVCL)}
+ TCustomImageList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , IvtFlashImageList)
   private
    f_ImageChangeLink: TChangeLink;
    f_FixedSize: TvtPILSize;

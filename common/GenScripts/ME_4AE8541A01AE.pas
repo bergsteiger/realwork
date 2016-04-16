@@ -375,7 +375,10 @@ uses
 ;
 
 type
- THackLink = class(TControlActionLink)
+ THackLink = class({$If NOT Defined(NoVCL)}
+ TControlActionLink
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//THackLink
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}

@@ -16,7 +16,10 @@ uses
 ;
 
 type
- TvtCustomStatusBar = class(TCustomStatusBar)
+ TvtCustomStatusBar = class({$If NOT Defined(NoVCL)}
+ TCustomStatusBar
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
  end;//TvtCustomStatusBar
 
  TvtStatusPanel = class

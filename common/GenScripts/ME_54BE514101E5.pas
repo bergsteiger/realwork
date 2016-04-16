@@ -21,7 +21,10 @@ uses
 ;
 
 type
- TeeTextParaInterfaceFactory = class(TevTextParaInterfaceFactory)
+ TeeTextParaInterfaceFactory = class({$If Defined(k2ForEditor)}
+ TevTextParaInterfaceFactory
+ {$IfEnd} // Defined(k2ForEditor)
+ )
   public
    function QueryTool(aTag: Tl3Variant;
     const ID: Tl3IID;

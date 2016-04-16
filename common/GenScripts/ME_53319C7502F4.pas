@@ -26,7 +26,10 @@ const
  WM_SYNCPOS = WM_USER + 1;
 
 type
- TvgRemindersLineForm = class(TForm)
+ TvgRemindersLineForm = class({$If NOT Defined(NoVCL)}
+ TForm
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   private
    f_ActivateProcessingLockCount: Integer;
    f_Scene: TvgCustomScene;

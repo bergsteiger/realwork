@@ -19,7 +19,10 @@ uses
 ;
 
 type
- TeeTextCursorPair = class(TevTextCursorPair)
+ TeeTextCursorPair = class({$If Defined(evUseVisibleCursors)}
+ TevTextCursorPair
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ )
   protected
    {$If Defined(evUseVisibleCursors)}
    function DoGetFont(const aView: InevView;

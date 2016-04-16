@@ -422,7 +422,10 @@ type
   , nbtClose
  );//TnpButtonType
 
- TnpButton = class(TCustomToolbarButton97)
+ TnpButton = class({$If NOT Defined(NoTB97)}
+ TCustomToolbarButton97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
   {* кнопки использующиеся в TvtNavigator }
   private
    f_BtnType: TnpButtonType;
