@@ -463,6 +463,32 @@ ref; // ME_570E07E90148 Message
 
 ref; // ME_57067C0302FD CNKeyDown
 
+: ME_5710FAE2032C
+ CONST Name 'Message'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48E22C340122' '476F78840219.pas.ms.script' // TWMKillFocus
+ ;
+
+ref; // ME_5710FAE2032C Message
+
+: ME_5710FAC701BB
+ CONST UID '5710FAC701BB'
+ CONST Name 'WMKillFocus'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ : Parameters
+   Seq: ( ME_5710FAE2032C // Message
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_KILLFOCUS'
+
+ref; // ME_5710FAC701BB WMKillFocus
+
 : ME_5298BEBA032D_ME_5704FC1A0398
  : Original WL 'ME_5298BEBA032D' '48297E42011A.pas.ms.script' // IsSizeableTree
  ;
@@ -555,6 +581,7 @@ ref; // ME_5298C02D03B3_ME_5704FC1A0398 NCDraw
  ME_570664D202D8 // CMMouseLeave
  ME_570664F001CF // WMNCCalcSize
  ME_57067C0302FD // CNKeyDown
+ ME_5710FAC701BB // WMKillFocus
  )
  ; // Operations
  : Implemented
@@ -668,6 +695,20 @@ ref; // ME_5704FDF001B3 TreeStruct
  CONST "reads field" true
 
 ref; // ME_570685C4031F CurrentItem
+
+: ME_5710F16102AE
+ CONST UID '5710F16102AE'
+ CONST Name 'f_FocusedControl'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ : Target WL 'ME_4E95755B0162' '4AB0C3F60375.pas.ms.script' // HWND
+ ;
+
+ref; // ME_5710F16102AE f_FocusedControl
 
 : ME_5704F9AE00E5
  CONST UID '5704F9AE00E5'
@@ -869,6 +910,12 @@ ref; // ME_47D1602000C6_ME_5704F8CA00C8 Create
  CONST OpKind opkind_Overridden
 ref; // ME_4E7896270076_ME_5704F8CA00C8 MouseUp
 
+: ME_4F88473B03CD_ME_5704F8CA00C8
+ : Original WL 'ME_4F88473B03CD' '4799D29F033F.pas.ms.script' // MouseDown
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4F88473B03CD_ME_5704F8CA00C8 MouseDown
+
 : ME_5704F8CA00C8
  CONST UID '5704F8CA00C8'
  CONST Name 'TnscComboLabel'
@@ -895,6 +942,7 @@ ref; // ME_4E7896270076_ME_5704F8CA00C8 MouseUp
  ME_5704FCF60069 // Tree
  ME_5704FDF001B3 // TreeStruct
  ME_570685C4031F // CurrentItem
+ ME_5710F16102AE // f_FocusedControl
  )
  ; // Attributes
  : Operations
@@ -913,6 +961,7 @@ ref; // ME_4E7896270076_ME_5704F8CA00C8 MouseUp
    Seq: ( ME_479731C50290_ME_5704F8CA00C8 // Cleanup
  ME_47D1602000C6_ME_5704F8CA00C8 // Create
  ME_4E7896270076_ME_5704F8CA00C8 // MouseUp
+ ME_4F88473B03CD_ME_5704F8CA00C8 // MouseDown
  )
  ; // Overridden
  : Children

@@ -497,7 +497,7 @@ VOID WORDWORKER "Открыть редактирование текстового шаблона и выполнить"
 ;
 
 VOID WORDWORKER "Открыть редактирование текстового шаблона из меню и выполнить"
-	// @ ( "Вызвать из меню дочернего окна {( 'Вставка/Текстовый шаблон/Вставить' )}" ) MODAL ( WordToWork DO )
+	//@ ( "Вызвать из меню дочернего окна {( 'Вставка/Текстовый шаблон/Вставить' )}" ) MODAL ( WordToWork DO )
 	"Вызвать из меню дочернего окна {( 'Вставка/Текстовый шаблон/Вставить' )}"		
 ;
 
@@ -772,13 +772,19 @@ PROCEDURE "Сравнить с эталоном RTF" STRING IN aDocName
 	 // "Проверить наличие каталога для RTF-файла {(aDocName)}"
 ;
 
-PROCEDURE "Добавить документы" IN anID
+/* PROCEDURE "Добавить документы" IN anID
  	INTEGER VAR l_Loop
 	0 >>> l_Loop
 	anID Array:Count раз (
 	@ ( "Добавить ID" ) MODAL ( "Заполнить ID {( l_Loop anID [i] )}" )
 	++! l_Loop
 	)
+; */
+
+// Добавить документы - интератор
+PROCEDURE "Добавить документы" ARRAY IN anID
+	for anID ( INTEGER IN aDocNum
+	@ ( "Добавить ID" ) MODAL ( "Заполнить ID {(aDocNum)}"  ) )
 ;
 
 PROCEDURE "Открыть и закрыть выпадающий список" OBJECT IN aComboBox

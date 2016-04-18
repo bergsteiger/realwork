@@ -13,6 +13,12 @@
 //#UC END# *47EA4E9002C6_56FA889202B4_impl*
 //#UC START# *47EA4E9002C6_56FA889202B4_var*
 //#UC END# *47EA4E9002C6_56FA889202B4_var*
+//#UC START# *47EA4E9002C6_5714A94A0015_impl*
+ f_ProfNewsTreeItemIndex := 0;
+ f_TaxesTreeItemIndex := 0;
+//#UC END# *47EA4E9002C6_5714A94A0015_impl*
+//#UC START# *47EA4E9002C6_5714A94A0015_var*
+//#UC END# *47EA4E9002C6_5714A94A0015_var*
 //#UC START# *49803F5503AA_56FA889202B4_impl*
  //f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
  //UpdateTaxesTreeCaption;
@@ -26,10 +32,29 @@
 //#UC END# *49803F5503AA_56FA889202B4_impl*
 //#UC START# *49803F5503AA_56FA889202B4_var*
 //#UC END# *49803F5503AA_56FA889202B4_var*
+//#UC START# *49806ED503D5_56FA889202B4_impl*
+ l_InnerState := nil;
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ theState := TMainMenuWithProfNewsFormState.Make(l_InnerState, lblProfNews.CurrentItem, lblTaxes.CurrentItem);
+//#UC END# *49806ED503D5_56FA889202B4_impl*
+//#UC START# *49806ED503D5_56FA889202B4_var*
+var
+ l_InnerState: IvcmBase;
+//#UC END# *49806ED503D5_56FA889202B4_var*
 //#UC START# *49807428008C_56FA889202B4_impl*
- inherited DoLoadState(aState, aStateType);
+ if Supports(aState, IMainMenuWithProfNewsFormState, l_State) then
+ begin
+  l_InnerState := l_State.InnerState;
+  lblProfNews.CurrentItem := l_State.ProfNewsTreeItemIndex;
+  lblTaxes.CurrentItem := l_State.TaxesTreeItemIndex;
+  Result := inherited DoLoadState(l_InnerState, aStateType);
+ end else
+  Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_56FA889202B4_impl*
 //#UC START# *49807428008C_56FA889202B4_var*
+var
+ l_State: IMainMenuWithProfNewsFormState;
+ l_InnerState: IvcmBase;
 //#UC END# *49807428008C_56FA889202B4_var*
 //#UC START# *4A485B710126_56FA889202B4_impl*
  inherited;
@@ -858,3 +883,25 @@ var
 var
  l_Section: IMainMenuSection;
 //#UC END# *5707BB480178_56FA889202B4_var*
+//#UC START# *5714A8C101F2_5714A94A0015get_impl*
+ Result := f_TaxesTreeItemIndex;
+//#UC END# *5714A8C101F2_5714A94A0015get_impl*
+//#UC START# *5714A8C101F2_5714A94A0015get_var*
+//#UC END# *5714A8C101F2_5714A94A0015get_var*
+//#UC START# *5714A8DC0258_5714A94A0015get_impl*
+ Result := f_ProfNewsTreeItemIndex;
+//#UC END# *5714A8DC0258_5714A94A0015get_impl*
+//#UC START# *5714A8DC0258_5714A94A0015get_var*
+//#UC END# *5714A8DC0258_5714A94A0015get_var*
+//#UC START# *5714A9230017_5714A94A0015get_impl*
+ Result := f_InnerState;
+//#UC END# *5714A9230017_5714A94A0015get_impl*
+//#UC START# *5714A9230017_5714A94A0015get_var*
+//#UC END# *5714A9230017_5714A94A0015get_var*
+//#UC START# *5714AA3A022F_5714A94A0015_impl*
+ f_InnerState := anInnerState;
+ f_ProfNewsTreeItemIndex := aProfNewsIndex;
+ f_TaxesTreeItemIndex := aTaxesTreeIndex;
+//#UC END# *5714AA3A022F_5714A94A0015_impl*
+//#UC START# *5714AA3A022F_5714A94A0015_var*
+//#UC END# *5714AA3A022F_5714A94A0015_var*

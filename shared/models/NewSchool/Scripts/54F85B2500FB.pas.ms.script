@@ -7713,6 +7713,212 @@ ref; // ME_479731C50290_ME_5600FA2301B9 Cleanup
 
 ref; // ME_5600FA2301B9 TdaTabledQuery
 
+FORWARD ME_5714CBFE00FA
+
+FORWARD ME_5714CC1501B0
+
+: ME_5714CC6603CF
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5714CC6603CF anID
+
+: ME_5714CC6603DF
+ CONST Name 'CropIfLocal'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_5714CC6603DF CropIfLocal
+
+: ME_5714CC4F0099
+ CONST UID '5714CC4F0099'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5714CC1501B0 // GetRegionStringFromUserID
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5714CC6603CF // anID
+ ME_5714CC6603DF // CropIfLocal
+ )
+ ; // Parameters
+
+ref; // ME_5714CC4F0099 DoIt
+
+: ME_5714D4580196
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5714CC1501B0 // GetRegionStringFromUserID
+ ;
+ : Target ME_551A7D9602DC // GlobalDataProvider
+ ;
+
+ref; // ME_5714D4580196 
+
+: ME_5714CC1501B0
+ CONST UID '5714CC1501B0'
+ CONST Name 'GetRegionStringFromUserID'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ : Operations
+   Seq: ( ME_5714CC4F0099 // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_5714D4580196 // GlobalDataProvider
+ )
+ ; // Dependencies
+
+ref; // ME_5714CC1501B0 GetRegionStringFromUserID
+
+FORWARD ME_5714CC980361
+
+: ME_5714CCC40118
+ CONST Name 'aRegionName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5714CCC40118 aRegionName
+
+: ME_5714CCC40138
+ CONST Name 'aUserName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5714CCC40138 aUserName
+
+: ME_5714CCAC0312
+ CONST UID '5714CCAC0312'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5714CC980361 // ConcatRegionAndUserNames
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5714CCC40118 // aRegionName
+ ME_5714CCC40138 // aUserName
+ )
+ ; // Parameters
+
+ref; // ME_5714CCAC0312 DoIt
+
+: ME_5714CC980361
+ CONST UID '5714CC980361'
+ CONST Name 'ConcatRegionAndUserNames'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ : Operations
+   Seq: ( ME_5714CCAC0312 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5714CC980361 ConcatRegionAndUserNames
+
+FORWARD ME_5714CD00006F
+
+: ME_5714CD320291
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5714CD320291 anID
+
+: ME_5714CD3202B0
+ CONST Name 'aUserName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5714CD3202B0 aUserName
+
+: ME_5714CD1D0081
+ CONST UID '5714CD1D0081'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5714CD00006F // ConcatRegionAndUserNames$overload
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5714CD320291 // anID
+ ME_5714CD3202B0 // aUserName
+ )
+ ; // Parameters
+
+ref; // ME_5714CD1D0081 DoIt
+
+: ME_5714CD00006F
+ CONST UID '5714CD00006F'
+ CONST Name 'ConcatRegionAndUserNames'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ : Operations
+   Seq: ( ME_5714CD1D0081 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5714CD00006F ConcatRegionAndUserNames$overload
+
+: ME_5714CBFE00FA
+ CONST UID '5714CBFE00FA'
+ CONST Name 'daUserManagerUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Operations
+   Seq: ( ME_5714CC1501B0 // GetRegionStringFromUserID
+ ME_5714CC980361 // ConcatRegionAndUserNames
+ ME_5714CD00006F // ConcatRegionAndUserNames$overload
+ )
+ ; // Operations
+ CONST "no hands" false
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daUserManagerUtils.pas'
+
+ref; // ME_5714CBFE00FA daUserManagerUtils
+
 : ME_54F85B2500FB
  CONST UID '54F85B2500FB'
  CONST Name 'Provider'
@@ -7753,6 +7959,7 @@ ref; // ME_5600FA2301B9 TdaTabledQuery
  ME_566E71FA000F // TdaFieldParamDescription
  ME_5680EF290107 // TdaSortField
  ME_5600FA2301B9 // TdaTabledQuery
+ ME_5714CBFE00FA // daUserManagerUtils
  )
  ; // Children
  : Depends

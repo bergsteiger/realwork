@@ -306,33 +306,49 @@
 
   // Копируем настройки принтера:
   Self.GetPrinter(l_Device, l_Driver, l_Port, l_hDeviceMode);
-  //Result.SetPrinter(l_Device, l_Driver, l_Port, CopyData(l_hDeviceMode));
-  Result.SetPrinter(l_Device, l_Driver, l_Port, 0);
+  Result.SetPrinter(l_Device, l_Driver, l_Port, CopyData(l_Device, l_hDeviceMode));
+  //Result.SetPrinter(l_Device, l_Driver, l_Port, 0);
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=249069717
 //#UC END# *49BAA14602EC_4799D40F0004_impl*
 //#UC START# *49BAA14602EC_4799D40F0004_var*
 
-(* function CopyData(Handle: THandle): THandle;
+ function CopyData(aDevice: PChar; Handle: THandle): THandle;
  var
-   Src, Dest: PChar;
+   Src, Dest: PDeviceMode;
    Size: Integer;
+   l_Same : Boolean;
  begin
-   if Handle <> 0 then
+   if (Handle <> 0) then
    begin
      Size := GlobalSize(Handle);
      Result := GlobalAlloc(GHND, Size);
-     if Result <> 0 then
-       try
-         Src := GlobalLock(Handle);
-         Dest := GlobalLock(Result);
-         if (Src <> nil) and (Dest <> nil) then l3Move(Src^, Dest^, Size);
-       finally
-         GlobalUnlock(Handle);
-         GlobalUnlock(Result);
-       end
-   end
-   else Result := 0;
- end;*)
+     if (Result <> 0) then
+     begin
+      try
+        Src := GlobalLock(Handle);
+        Dest := GlobalLock(Result);
+        if (Src <> nil) and (Dest <> nil) then
+        begin
+         l3Move(Src^, Dest^, Size);
+         l_Same := StrComp(aDevice, Dest^.dmDeviceName) = 0;
+         //l3Move(aDevice^, Dest^.dmDeviceName, StrLen(aDevice) + 1);
+        end;//Src <> nil
+      finally
+        GlobalUnlock(Handle);
+        GlobalUnlock(Result);
+      end;//try..finally
+      if not l_Same then
+      // - http://mdp.garant.ru/pages/viewpage.action?pageId=249069717
+      // - http://mdp.garant.ru/pages/viewpage.action?pageId=611828637
+      begin
+       GlobalFree(Result);
+       Result := 0;
+      end;//not l_Same
+     end;//Result <> 0
+   end//Handle <> 0
+   else
+    Result := 0;
+ end;
 
 var
  l_PrinterIndex : Integer;

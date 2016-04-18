@@ -1,0 +1,40 @@
+PROGRAM ToArray.ms.script
+
+USES
+ core.ms.dict
+;
+
+ARRAY FUNCTION .ToArray
+  IN A
+ RULES
+//  ( A IsArray )
+//   A
+  ( 
+   ( A IsObj )
+   AND ( A Is class::TkwBeginLikeCompiledCode )
+  )
+   ( 
+    nil
+    A CodeIterator
+    .map> call.me
+    .for> (
+     SWAP JOIN
+    )
+   ) // ( A Is class::TkwBeginLikeCompiledCode )
+  DEFAULT
+   ( [ A DO ] )
+ ; // RULES  
+ >>> Result
+; // .ToArray
+
+ARRAY FUNCTION ToArray:
+  ^ IN A
+ A .ToArray
+ >>> Result 
+; // ToArray:
+
+ToArray: 1 .
+ToArray: ( 2 3 ) .
+ToArray: ( 4 5 6 ) .
+ToArray: ( [ 'a' 'b' ] 7 ) .
+//ToArray: ToArray: 10
