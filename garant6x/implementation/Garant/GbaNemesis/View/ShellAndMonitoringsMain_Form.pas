@@ -1,63 +1,40 @@
 unit ShellAndMonitoringsMain_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/ShellAndMonitoringsMain_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::ShellAndMonitorings::ShellAndMonitoringsMain
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsMain_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "ShellAndMonitoringsMain" MUID: (4AAA43F601F7)
+// Имя типа: "TShellAndMonitoringsMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  PrimMainOptions_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimMainOptions_Form
+;
 
-{$If not defined(Admin)}
 type
- TShellAndMonitoringsMainForm = {form} class(TPrimMainOptionsForm)
+ TShellAndMonitoringsMainForm = class(TPrimMainOptionsForm)
  end;//TShellAndMonitoringsMainForm
-
- TvcmMainFormRef = TShellAndMonitoringsMainForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-
-{$IfEnd} //not Admin
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация ShellAndMonitoringsMain
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TShellAndMonitoringsMainForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация ShellAndMonitoringsMain }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -11,7 +11,9 @@ program Admin;
 uses
  l3IntfUses
  , l3ImplUses
+ {$If Defined(Nemesis)}
  , nsApplication
+ {$IfEnd} // Defined(Nemesis)
  , l3ExceptionsLog in 'w:\common\components\rtl\Garant\L3\l3ExceptionsLog.pas'
  {$If NOT Defined(NoScripts)}
  , ObjectFromstackWords in 'w:\common\components\rtl\Garant\ScriptEngine\ObjectFromstackWords.pas'
@@ -669,7 +671,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , AdminAppRes in 'w:\garant6x\implementation\Garant\GbaNemesis\AdminAppRes.pas'
  , PrimF1Res in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas'
  , F1LikeRes in 'w:\common\components\gui\Garant\VCM\View\F1LikeRes.pas'
@@ -2474,14 +2478,318 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmCustomizeAvailableToolbarOps in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmCustomizeAvailableToolbarOps.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opCustomize in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opCustomize.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ , tfwModuleOperationWord in 'w:\common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opAvailableOperations in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opAvailableOperations.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opIconsSize in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opIconsSize.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opFasten in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opFasten.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , CustomizeTools_Form in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimCustomizeTools_Form in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\PrimCustomizeTools_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , eeShortCutEdit in 'w:\common\components\gui\Garant\Everest_Engine\eeShortCutEdit.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , CustomizeToolsKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , CustomizeTools_ut_CustomizeTools_UserType in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_ut_CustomizeTools_UserType.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLikeMain_Form in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Usual_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , moTasksPanelMenu in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\moTasksPanelMenu.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , PrimTasksPanelMenu_Module in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\PrimTasksPanelMenu_Module.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , kw_TasksPanelMenu_opCustomize in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\kw_TasksPanelMenu_opCustomize.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , CustomizeTasksPanel_Form in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimCustomizeTasksPanel_Form in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\PrimCustomizeTasksPanel_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtCtrls in 'w:\common\components\gui\Garant\VT\vtCtrls.pas'
+ , vtButton in 'w:\common\components\gui\Garant\VT\vtButton.pas'
+ , eeButton in 'w:\common\components\gui\Garant\VT\eeButton.pas'
+ , vtGroupBox in 'w:\common\components\gui\Garant\VT\vtGroupBox.pas'
+ , eeTreeView in 'w:\common\components\gui\Garant\Everest_Engine\eeTreeView.pas'
+ , eeInterfaces in 'w:\common\components\gui\Garant\Everest_Engine\eeInterfaces.pas'
+ , eeConst in 'w:\common\components\gui\Garant\Everest_Engine\eeConst.pas'
+ , eeTreeViewExport in 'w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas'
+ , vtOutlinerWithDragDrop in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDrop.pas'
+ , vtOutlinerWithDragDropRes in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
+ , eeInterfacesEx in 'w:\common\components\gui\Garant\Everest_Engine\eeInterfacesEx.pas'
+ , eeNode in 'w:\common\components\gui\Garant\Everest_Engine\eeNode.pas'
+ , eeNodeUtils in 'w:\common\components\gui\Garant\Everest_Engine\eeNodeUtils.pas'
+ {$If NOT Defined(NoVCM)}
+ , CustomizeTasksPanelRes in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\CustomizeTasksPanelRes.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmCustOpsRepGroupList in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\vcmCustOpsRepGroupList.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+ , CustomizeTasksPanelKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\CustomizeTasksPanelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , moParentAndChild in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
  , ParentAndChildPrim_Module in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
+ , Parent_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas'
+ , PrimParent_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas'
+ , PrimParent_utHistory_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas'
+ , F1Like_FormDefinitions_Controls in 'w:\common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas'
+ {$If NOT Defined(NoScripts)}
+ , ParentKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Child_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.pas'
+ , PrimChild_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas'
+ , F1Like_InternalOperations_Controls in 'w:\common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas'
+ {$If Defined(Nemesis)}
+ , nscFormsPageControl in 'w:\common\components\gui\Garant\Nemesis\nscFormsPageControl.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , nsFormUtils in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas'
+ , PresentationInterfaces in 'w:\common\components\gui\Garant\VCM\View\PresentationInterfaces.pas'
+ , vtProportionalPanel in 'w:\common\components\gui\Garant\VT\vtProportionalPanel.pas'
+ , PrimChild_cutUsual_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutUsual_UserType.pas'
+ , PrimChild_cutForDiction_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutForDiction_UserType.pas'
+ {$If NOT Defined(NoScripts)}
+ , ChildKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , MainPrim_Form in 'w:\common\components\gui\Garant\VCM\View\MainPrim_Form.pas'
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_System_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_System_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscStatusBar in 'w:\common\components\gui\Garant\Nemesis\nscStatusBar.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces in 'w:\common\components\gui\Garant\Nemesis\nscNewInterfaces.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscSizeGripPanel in 'w:\common\components\gui\Garant\Nemesis\nscSizeGripPanel.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , StatusBarUtils in 'w:\common\components\gui\Garant\Nemesis\StatusBarUtils.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscStatusBarButton in 'w:\common\components\gui\Garant\Nemesis\nscStatusBarButton.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
+ , StatusBarButtonWords in 'w:\common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
+ {$If Defined(Nemesis)}
+ , nscStatusBarPanel in 'w:\common\components\gui\Garant\Nemesis\nscStatusBarPanel.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscStatusBarSep in 'w:\common\components\gui\Garant\Nemesis\nscStatusBarSep.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
+ , StatusBarWords in 'w:\common\components\rtl\Garant\ScriptEngine\StatusBarWords.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
+ , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
+ {$If Defined(Nemesis)}
+ , nscNavigator in 'w:\common\components\gui\Garant\Nemesis\nscNavigator.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , nsWindowsList in 'w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowsList.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , nsWindowsListPrim in 'w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowsListPrim.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLikeAppInterfaces in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeAppInterfaces.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcher.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerForm in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerForm.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmChromeLikeTabbedContainerForm in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerForm.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmChromeLikeTabbedContainerFormPrim in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabbedContainerFormPrim.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmGlassForm in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmGlassFrame in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassFrame.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , FormFrameDecorator in 'w:\common\components\gui\Garant\ChromeLikeControls\FormFrameDecorator.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeFormFramePainter in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormFramePainter.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeWindowCaptionButtonsRes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeWindowCaptionButtonsRes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeFormCaptionData in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormCaptionData.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeWinUtils in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeWinUtils.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTypes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTypes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseWindowCaptionButton in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseWindowCaptionButton.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , UxTheme in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\UxTheme.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeLegacyWindowCaptionButtons in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeLegacyWindowCaptionButtons.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeThemedWindowCaptionButtons in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeThemedWindowCaptionButtons.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseThemedWindowCaptionButton in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseThemedWindowCaptionButton.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControl in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControl.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControlPrim in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlPrim.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetTypes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetTypes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , GDIPOBJ in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPOBJ.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeDrawingContext in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeDrawingContext.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetUtils in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetUtils.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeInterfaces in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseVisualObjectPrim in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectPrim.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseVisualObject in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObject.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseVisualObjectList in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectList.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetAnimationManager in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , MMSystem in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\MMSystem.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetStyles in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetStyles.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , GDIPUTIL in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPUTIL.pas'
+ , GDIPAPI in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPAPI.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabParams in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabParams.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControlRes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlRes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetRes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetRes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmMainMenuStripForChromeLike in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMainMenuStripForChromeLike.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmBaseMenuForChromeLike in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmBaseMenuForChromeLike.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmMenuForChromeLikeItems in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMenuForChromeLikeItems.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmMainMenuForChromeLikeTypes in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMainMenuForChromeLikeTypes.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
+ , vcmTabbedMenuWordsPack in 'w:\common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmDropDownMenuForChromeLike in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmDropDownMenuForChromeLike.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCL)}
+ , ShadowWnd in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ShadowWnd.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , multimon in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\multimon.pas'
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmPopupControlWindowService in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmPopupControlWindowService.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerRes in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerRes.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmFormSetHistory in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistory.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmFormSetFormHistoryItemList in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetFormHistoryItemList.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmFormSetHistoryStepList in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistoryStepList.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmFormSetHistoryItemList in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistoryItemList.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmFormSetHistoryStepItemList in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmFormSetHistoryStepItemList.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM)}
+ , vcmIEntityFormList in 'w:\common\components\gui\Garant\VCM\implementation\vcmIEntityFormList.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmTabbedContainersService in 'w:\common\components\gui\Garant\VCM\vcmTabbedContainersService.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
+ , vcmTabsWordsPack in 'w:\common\components\gui\Garant\VCM\vcmTabsWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcherUtils in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcherUtils.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabsHistoryService in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabsHistoryService.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityFormsIterable in 'w:\common\components\gui\Garant\VCM\implementation\vcmEntityFormsIterable.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeFormTabParamsList in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeFormTabParamsList.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM)}
+ , nsWindowNode in 'w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowNode.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmStringList in 'w:\common\components\gui\Garant\VCM\implementation\vcmStringList.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsSettingsConst in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas'
  {$If NOT Defined(Admin)}
  , nsQueryInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryInterfaces.pas'
  {$IfEnd} // NOT Defined(Admin)
@@ -2529,102 +2837,52 @@ uses
  , nsTypesNew in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas'
  , SearchInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\SearchInterfaces.pas'
  , TreeInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Tree\TreeInterfaces.pas'
- {$If Defined(Nemesis)}
- , nscNewInterfaces in 'w:\common\components\gui\Garant\Nemesis\nscNewInterfaces.pas'
- {$IfEnd} // Defined(Nemesis)
  , SimpleListInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\List\SimpleListInterfaces.pas'
  , SearchDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\SearchDomainInterfaces.pas'
  , SearchLite_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Strange_Controls.pas'
  , PrimAttributeSelect_utAttributeSelect_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_utAttributeSelect_UserType.pas'
- , moRealCommon in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas'
- , PrimCommon_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas'
- , F1_Application_Template_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas'
- , nsStartupSupport in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas'
+ , TreeAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelect_Form.pas'
+ , PrimTreeAttributeSelectOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelectOptions_Form.pas'
+ , PrimTreeAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_Form.pas'
+ , TreeAttribute_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttribute_Form.pas'
  , nsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUtils.pas'
- , DebugStr in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\DebugStr.pas'
- {$If Defined(Nemesis)}
- , F1_Schema in 'w:\common\components\gui\Garant\Everest_Engine\F1_Schema.pas'
- {$IfEnd} // Defined(Nemesis)
- , Everest_Schema in 'w:\common\components\gui\Garant\Everest\Everest_Schema.pas'
- , evNative_Schema in 'w:\common\components\gui\Garant\Everest\evNative_Schema.pas'
- , evdNative_Schema in 'w:\common\components\rtl\Garant\EVD\evdNative_Schema.pas'
- , evdTasks_Schema in 'w:\common\components\rtl\Garant\EVD\evdTasks_Schema.pas'
- , k2Native_Schema in 'w:\common\components\rtl\Garant\K2\k2Native_Schema.pas'
- , k2Core_Schema in 'w:\common\components\rtl\Garant\K2\k2Core_Schema.pas'
- , ddTaskItemPrim in 'w:\common\components\rtl\Garant\EVD\ddTaskItemPrim.pas'
- , evdTaskTypes in 'w:\common\components\rtl\Garant\EVD\evdTaskTypes.pas'
- , csTaskListening in 'w:\common\components\rtl\Garant\EVD\csTaskListening.pas'
- , Task_Const in 'w:\common\components\rtl\Garant\EVD\Task_Const.pas'
- , DateTimeNotNull_Const in 'w:\common\components\rtl\Garant\EVD\DateTimeNotNull_Const.pas'
- , DateTime_Const in 'w:\common\components\rtl\Garant\EVD\DateTime_Const.pas'
- , ULong_Const in 'w:\common\components\rtl\Garant\EVD\ULong_Const.pas'
- , evdNative_AttrValues in 'w:\common\components\rtl\Garant\EVD\evdNative_AttrValues.pas'
- , evNative_AttrValues in 'w:\common\components\gui\Garant\Everest\evNative_AttrValues.pas'
- {$If Defined(Nemesis)}
- , eeDocument_Schema in 'w:\common\components\gui\Garant\Everest_Engine\eeDocument_Schema.pas'
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , F1_AttrValues in 'w:\common\components\gui\Garant\Everest_Engine\F1_AttrValues.pas'
- {$IfEnd} // Defined(Nemesis)
- , nsSettings in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.pas'
  , bsInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\bsInterfaces.pas'
  , ExternalOperationUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ExternalOperationUnit.pas'
  , SettingsUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SettingsUnit.pas'
  , SecurityUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\SecurityUnit.pas'
  , bsTypes in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\bsTypes.pas'
- , eeInterfaces in 'w:\common\components\gui\Garant\Everest_Engine\eeInterfaces.pas'
- , eeConst in 'w:\common\components\gui\Garant\Everest_Engine\eeConst.pas'
- , InsUserSettingsListenerPtrList in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsUserSettingsListenerPtrList.pas'
- , InsUserSettingsEditListenerPtrList in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsUserSettingsEditListenerPtrList.pas'
- , nsContextFilterEventListener in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventListener.pas'
- , nsContextFilterEventDataList in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventDataList.pas'
+ , L10nInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\L10nInterfaces.pas'
  {$If Defined(Nemesis)}
  , nscContextFilter in 'w:\common\components\gui\Garant\Nemesis\nscContextFilter.pas'
  {$IfEnd} // Defined(Nemesis)
  {$If Defined(Nemesis)}
  , nscContextFilterRes in 'w:\common\components\gui\Garant\Nemesis\nscContextFilterRes.pas'
  {$IfEnd} // Defined(Nemesis)
- , evdSchema in 'w:\common\components\gui\Garant\Everest\evdSchema.pas'
- {$If Defined(Archi)}
- , evArchi_Schema in 'w:\common\components\gui\Garant\Everest\evArchi_Schema.pas'
- {$IfEnd} // Defined(Archi)
- {$If Defined(evMyEditor)}
- , My_Schema in 'w:\common\components\gui\Garant\Everest\My_Schema.pas'
- {$IfEnd} // Defined(evMyEditor)
- {$If Defined(DesignTimeLibrary)}
- , Design_Schema in 'w:\common\components\gui\Garant\Everest\Design_Schema.pas'
- {$IfEnd} // Defined(DesignTimeLibrary)
- , Design_AttrValues in 'w:\common\components\gui\Garant\Everest\Design_AttrValues.pas'
- , Logo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_Form.pas'
- {$If NOT Defined(NoScripts)}
- , LogoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LogoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , Logo_ut_Logo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_ut_Logo_UserType.pas'
- , nsAppTitleData in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsAppTitleData.pas'
- , f1StartupCompletedService in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompletedService.pas'
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck in 'w:\common\components\gui\Garant\Nemesis\nscTreeViewHotTruck.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeView in 'w:\common\components\gui\Garant\Nemesis\nscTreeView.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Text_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscTreeViewRes in 'w:\common\components\gui\Garant\Nemesis\nscTreeViewRes.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmDefaultOperations in 'w:\common\components\gui\Garant\VCM\vcmDefaultOperations.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , afwConsts in 'w:\common\components\gui\Garant\AFW\afwConsts.pas'
- , StartUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\StartUnit.pas'
- , BannerUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\BannerUnit.pas'
- , SPHTMLHelp in 'w:\common\components\gui\Garant\AFW\SPHTMLHelp.pas'
- , GblAdapter
- , moAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas'
- , Admin_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Admin_Module.pas'
- , AdminInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\AdminInterfaces.pas'
- , PrimGroupProperty_admCreateGroup_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admCreateGroup_UserType.pas'
- , PrimGroupProperty_admRenameGroup_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admRenameGroup_UserType.pas'
- , deAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\deAdmin.pas'
- , sdsAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas'
- , dsUserList in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserList.pas'
- , AdminRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\AdminRes.pas'
- , l3InterfacedInterfaceList in 'w:\common\components\rtl\Garant\L3\l3InterfacedInterfaceList.pas'
- , l3InterfaceList in 'w:\common\components\rtl\Garant\L3\l3InterfaceList.pas'
- , deNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\deNode.pas'
- , nsUserFlagsFilter in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilter.pas'
- , nsUserTreeStructWithDrag in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserTreeStructWithDrag.pas'
- , nsUserTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserTreeStruct.pas'
+ , PrimTreeAttributeSelect_astOneLevel_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astOneLevel_UserType.pas'
+ , PrimTreeAttributeSelect_astNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astNone_UserType.pas'
+ , nsLogicOperationToFlags in 'w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsLogicOperationToFlags.pas'
+ , nsAttrBranchStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttrBranchStruct.pas'
+ , nsAttributeOneLevelTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeOneLevelTreeStruct.pas'
+ , nsOneLevelTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsOneLevelTreeStruct.pas'
  , nsDataResetTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsDataResetTreeStruct.pas'
  , nsFilterableTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsFilterableTreeStruct.pas'
  , nsTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsTreeStruct.pas'
@@ -2636,10 +2894,72 @@ uses
  , nsAdapterFilters in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsAdapterFilters.pas'
  , nsContextFilterParams in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsContextFilterParams.pas'
  , Il3ContextFilterParamsNotifierPtrList in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\Il3ContextFilterParamsNotifierPtrList.pas'
+ , nsINodeOneLevelRootWrap in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeOneLevelRootWrap.pas'
+ , nsINodeOneLevelWrap in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeOneLevelWrap.pas'
+ , nsAttributeTreeFilters in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeFilters.pas'
+ , nsAttributeTreeCacheNew in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeCacheNew.pas'
+ , l3InterfacedStringList in 'w:\common\components\rtl\Garant\L3\l3InterfacedStringList.pas'
+ , GblAdapter
+ , bsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\bsUtils.pas'
+ , nsSelectedAttributesIterators in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSelectedAttributesIterators.pas'
+ , nsTreeAttributeNodesNew in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsTreeAttributeNodesNew.pas'
+ , nsAttributeTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeStruct.pas'
  , nsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsConst.pas'
- , nsUserFlagsFilters in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilters.pas'
- , nsGroupFilter in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsGroupFilter.pas'
- , bsUserDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserDataObject.pas'
+ , nsValueMaps in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsValueMaps.pas'
+ , nsIntegerValueMapFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsIntegerValueMapFactory.pas'
+ , nsStringValueMapFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactory.pas'
+ , nsStringValueMapFactoryRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactoryRes.pas'
+ , nsValueMapsIDs in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsValueMapsIDs.pas'
+ , nsFirstLevelStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsFirstLevelStruct.pas'
+ , SearchRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchRes.pas'
+ , dsTreeAttributeSelect in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeSelect.pas'
+ , nsNewCachableNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas'
+ , deSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearch.pas'
+ {$If NOT Defined(Admin)}
+ , nsQuery in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsQuery.pas'
+ {$IfEnd} // NOT Defined(Admin)
+ , SearchLite_FormDefinitions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_FormDefinitions_Controls.pas'
+ , tasSaveLoadProxy in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\tasSaveLoadProxy.pas'
+ {$If Defined(Nemesis)}
+ , nscContextFilterState in 'w:\common\components\gui\Garant\Nemesis\nscContextFilterState.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , PrimTreeAttributeSelect_astFirstLevel_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astFirstLevel_UserType.pas'
+ , PrimTreeAttributeSelect_astTaxesPublishSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astTaxesPublishSearch_UserType.pas'
+ , PrimTreeAttributeSelect_astPharmPublishSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astPharmPublishSearch_UserType.pas'
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Result_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TreeAttributeSelectKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\TreeAttributeSelectKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , AttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\AttributeSelect_Form.pas'
+ , PrimAttributeSelectOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelectOptions_Form.pas'
+ , PrimAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_Form.pas'
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_ResultEx_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimAttributeSelect_utSingleSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_utSingleSearch_UserType.pas'
+ , nsNodes in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodes.pas'
+ , nsBaseNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsBaseNode.pas'
+ , nsPrimCacheableNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimCacheableNode.pas'
+ , nsPrimAdapterNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimAdapterNode.pas'
+ , nsPrimNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimNode.pas'
+ , eeVirtualNode in 'w:\common\components\gui\Garant\Everest_Engine\eeVirtualNode.pas'
+ , l3VirtualNode in 'w:\common\components\rtl\Garant\L3\l3VirtualNode.pas'
+ {$If NOT Defined(Admin)}
+ , nsWrapperNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsWrapperNode.pas'
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(Admin)}
+ , OldTreeInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\OldTreeInterfaces.pas'
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(NoScripts)}
+ , AttributeSelectKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\AttributeSelectKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SelectedAttributes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\SelectedAttributes_Form.pas'
+ , PrimSelectedAttributesOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributesOptions_Form.pas'
+ , PrimSelectedAttributes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_Form.pas'
+ , nscTreeViewWithAdapterDragDrop in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nscTreeViewWithAdapterDragDrop.pas'
+ , nsEntitiesTreeDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nsEntitiesTreeDataObject.pas'
  , evNodeData in 'w:\common\components\gui\Garant\EverestCommon\evNodeData.pas'
  , evNodeDataObject in 'w:\common\components\gui\Garant\Everest\evNodeDataObject.pas'
  , evNodeStorable in 'w:\common\components\gui\Garant\Everest\evNodeStorable.pas'
@@ -2697,6 +3017,122 @@ uses
  , ddPictureSegment in 'w:\common\components\rtl\Garant\dd\ddPictureSegment.pas'
  , ddObjectSegment in 'w:\common\components\rtl\Garant\dd\ddObjectSegment.pas'
  , ddFormulaSegment in 'w:\common\components\rtl\Garant\dd\ddFormulaSegment.pas'
+ , nsNodeDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nsNodeDataObject.pas'
+ , nsNodeStorable in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nsNodeStorable.pas'
+ , nsNodeBaseList in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsNodeBaseList.pas'
+ , nsSelectedTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsSelectedTreeStruct.pas'
+ , PrimSelectedAttributes_utSelectedAttributes_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_utSelectedAttributes_UserType.pas'
+ {$If NOT Defined(NoScripts)}
+ , SelectedAttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\SelectedAttributesKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , moRealCommon in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas'
+ , PrimCommon_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas'
+ , F1_Application_Template_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas'
+ , ShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDown_Form.pas'
+ , PrimShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_Form.pas'
+ , f1NotificationManager in 'w:\garant6x\implementation\Garant\GbaNemesis\View\f1NotificationManager.pas'
+ , PrimShutDown_sftNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_sftNone_UserType.pas'
+ {$If NOT Defined(NoScripts)}
+ , ShutDownKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\ShutDownKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Login_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_Form.pas'
+ , PrimLogin_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_Form.pas'
+ {$If Defined(Nemesis)}
+ , nscComboBoxWithReadOnly in 'w:\common\components\gui\Garant\Nemesis\nscComboBoxWithReadOnly.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscComboBox in 'w:\common\components\gui\Garant\Nemesis\nscComboBox.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , nsStartupSupport in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas'
+ , nsFlashWindow in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFlashWindow.pas'
+ {$If NOT Defined(NoScripts)}
+ , LoginKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LoginKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Login_ut_Login_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_ut_Login_UserType.pas'
+ , LongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_Form.pas'
+ , PrimLongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLongProcess_Form.pas'
+ , vtGradientWaitbar in 'w:\common\components\gui\Garant\VT\vtGradientWaitbar.pas'
+ , l3AsincMessageWindowRes in 'w:\common\components\rtl\Garant\L3\l3AsincMessageWindowRes.pas'
+ {$If NOT Defined(NoScripts)}
+ , LongProcessKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LongProcessKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , LongProcess_ut_LongProcess_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas'
+ , DebugStr in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\DebugStr.pas'
+ {$If Defined(Nemesis)}
+ , F1_Schema in 'w:\common\components\gui\Garant\Everest_Engine\F1_Schema.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , Everest_Schema in 'w:\common\components\gui\Garant\Everest\Everest_Schema.pas'
+ , evNative_Schema in 'w:\common\components\gui\Garant\Everest\evNative_Schema.pas'
+ , evdNative_Schema in 'w:\common\components\rtl\Garant\EVD\evdNative_Schema.pas'
+ , evdTasks_Schema in 'w:\common\components\rtl\Garant\EVD\evdTasks_Schema.pas'
+ , k2Native_Schema in 'w:\common\components\rtl\Garant\K2\k2Native_Schema.pas'
+ , k2Core_Schema in 'w:\common\components\rtl\Garant\K2\k2Core_Schema.pas'
+ , ddTaskItemPrim in 'w:\common\components\rtl\Garant\EVD\ddTaskItemPrim.pas'
+ , evdTaskTypes in 'w:\common\components\rtl\Garant\EVD\evdTaskTypes.pas'
+ , csTaskListening in 'w:\common\components\rtl\Garant\EVD\csTaskListening.pas'
+ , Task_Const in 'w:\common\components\rtl\Garant\EVD\Task_Const.pas'
+ , DateTimeNotNull_Const in 'w:\common\components\rtl\Garant\EVD\DateTimeNotNull_Const.pas'
+ , DateTime_Const in 'w:\common\components\rtl\Garant\EVD\DateTime_Const.pas'
+ , ULong_Const in 'w:\common\components\rtl\Garant\EVD\ULong_Const.pas'
+ , evdNative_AttrValues in 'w:\common\components\rtl\Garant\EVD\evdNative_AttrValues.pas'
+ , evNative_AttrValues in 'w:\common\components\gui\Garant\Everest\evNative_AttrValues.pas'
+ {$If Defined(Nemesis)}
+ , eeDocument_Schema in 'w:\common\components\gui\Garant\Everest_Engine\eeDocument_Schema.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , F1_AttrValues in 'w:\common\components\gui\Garant\Everest_Engine\F1_AttrValues.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , nsSettings in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.pas'
+ , InsUserSettingsListenerPtrList in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsUserSettingsListenerPtrList.pas'
+ , InsUserSettingsEditListenerPtrList in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsUserSettingsEditListenerPtrList.pas'
+ , nsContextFilterEventListener in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventListener.pas'
+ , nsContextFilterEventDataList in 'w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsContextFilterEventDataList.pas'
+ , evdSchema in 'w:\common\components\gui\Garant\Everest\evdSchema.pas'
+ {$If Defined(Archi)}
+ , evArchi_Schema in 'w:\common\components\gui\Garant\Everest\evArchi_Schema.pas'
+ {$IfEnd} // Defined(Archi)
+ {$If Defined(evMyEditor)}
+ , My_Schema in 'w:\common\components\gui\Garant\Everest\My_Schema.pas'
+ {$IfEnd} // Defined(evMyEditor)
+ {$If Defined(DesignTimeLibrary)}
+ , Design_Schema in 'w:\common\components\gui\Garant\Everest\Design_Schema.pas'
+ {$IfEnd} // Defined(DesignTimeLibrary)
+ , Design_AttrValues in 'w:\common\components\gui\Garant\Everest\Design_AttrValues.pas'
+ , Logo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_Form.pas'
+ {$If NOT Defined(NoScripts)}
+ , LogoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LogoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Logo_ut_Logo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_ut_Logo_UserType.pas'
+ , nsAppTitleData in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsAppTitleData.pas'
+ , f1StartupCompletedService in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompletedService.pas'
+ , StartUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\StartUnit.pas'
+ , BannerUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\BannerUnit.pas'
+ , SPHTMLHelp in 'w:\common\components\gui\Garant\AFW\SPHTMLHelp.pas'
+ , PrimMain_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimMain_Form.pas'
+ , nsCustomStyleProcessor in 'w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCustomStyleProcessor.pas'
+ , evCustomStyleManager in 'w:\common\components\gui\Garant\Everest\evCustomStyleManager.pas'
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nscDocumentHistory in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentHistory.pas'
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ , PrimMainOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimMainOptions_Form.pas'
+ , moAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas'
+ , Admin_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Admin_Module.pas'
+ , AdminInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\AdminInterfaces.pas'
+ , PrimGroupProperty_admCreateGroup_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admCreateGroup_UserType.pas'
+ , PrimGroupProperty_admRenameGroup_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_admRenameGroup_UserType.pas'
+ , deAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\deAdmin.pas'
+ , sdsAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas'
+ , dsUserList in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserList.pas'
+ , AdminRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\AdminRes.pas'
+ , l3InterfacedInterfaceList in 'w:\common\components\rtl\Garant\L3\l3InterfacedInterfaceList.pas'
+ , l3InterfaceList in 'w:\common\components\rtl\Garant\L3\l3InterfaceList.pas'
+ , deNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\deNode.pas'
+ , nsUserFlagsFilter in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilter.pas'
+ , nsUserTreeStructWithDrag in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserTreeStructWithDrag.pas'
+ , nsUserTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserTreeStruct.pas'
+ , nsUserFlagsFilters in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserFlagsFilters.pas'
+ , nsGroupFilter in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsGroupFilter.pas'
+ , bsUserDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserDataObject.pas'
  , nsUserDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserDataObject.pas'
  , nsUserInterfacedDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserInterfacedDataObject.pas'
  , bsUserTreeData in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsUserTreeData.pas'
@@ -2704,33 +3140,60 @@ uses
  , deProfile in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\deProfile.pas'
  , adminUserNodeList in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\adminUserNodeList.pas'
  , l3SimpleNodeList in 'w:\common\components\rtl\Garant\L3\l3SimpleNodeList.pas'
- , nsNewCachableNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNewCachableNode.pas'
- {$If Defined(Nemesis)}
- , nscContextFilterState in 'w:\common\components\gui\Garant\Nemesis\nscContextFilterState.pas'
- {$IfEnd} // Defined(Nemesis)
  , dsUserProperty in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserProperty.pas'
  , dsAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsAdmin.pas'
- , nsAttributeTreeCacheNew in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeCacheNew.pas'
- , l3InterfacedStringList in 'w:\common\components\rtl\Garant\L3\l3InterfacedStringList.pas'
- , nsLogicOperationToFlags in 'w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsLogicOperationToFlags.pas'
  , dsGroupsList in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsGroupsList.pas'
  , nsGroupTreeStructWithDrop in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStructWithDrop.pas'
  , nsGroupTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsGroupTreeStruct.pas'
  , nsUserNodes in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserNodes.pas'
  , bsEditGroupName in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsEditGroupName.pas'
- , deSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearch.pas'
  , dsBasesAccess in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsBasesAccess.pas'
- , dsTreeAttributeSelect in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTreeAttributeSelect.pas'
- , L10nInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\L10nInterfaces.pas'
- , nsAttributeTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeStruct.pas'
- , nsAttributeTreeFilters in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsAttributeTreeFilters.pas'
- , bsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\bsUtils.pas'
- , nsValueMaps in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsValueMaps.pas'
- , nsIntegerValueMapFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsIntegerValueMapFactory.pas'
- , nsStringValueMapFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactory.pas'
- , nsStringValueMapFactoryRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStringValueMapFactoryRes.pas'
- , nsValueMapsIDs in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsValueMapsIDs.pas'
- , nsSelectedAttributesIterators in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsSelectedAttributesIterators.pas'
+ , fsAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\fsAdmin.pas'
+ , PrimAdmin_utAdmin_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_utAdmin_UserType.pas'
+ , Admin_FormDefinitions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin_FormDefinitions_Controls.pas'
+ , PrimGroupList_admGroupList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupList_admGroupList_UserType.pas'
+ , PrimUserList_admUserList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserList_admUserList_UserType.pas'
+ , PrimUserProperty_admUseProperties_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserProperty_admUseProperties_UserType.pas'
+ , GroupProperty_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupProperty_Form.pas'
+ , PrimGroupPropertyOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupPropertyOptions_Form.pas'
+ , PrimGroupProperty_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_Form.pas'
+ {$If NOT Defined(NoScripts)}
+ , GroupPropertyKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\GroupPropertyKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , ForbidAutoregistration_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\ForbidAutoregistration_Form.pas'
+ , PrimForbidAutoregistrationOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistrationOptions_Form.pas'
+ , PrimForbidAutoregistration_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistration_Form.pas'
+ , nsVerifyValue in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsVerifyValue.pas'
+ {$If NOT Defined(NoScripts)}
+ , ForbidAutoregistrationKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\ForbidAutoregistrationKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , ForbidAutoregistration_ut_ForbidAutoregistration_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\ForbidAutoregistration_ut_ForbidAutoregistration_UserType.pas'
+ , UserList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserList_Form.pas'
+ , PrimUserListOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserListOptions_Form.pas'
+ , PrimUserList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserList_Form.pas'
+ , Admin_Users_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin_Users_Controls.pas'
+ , dsForbidAutoregistration in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsForbidAutoregistration.pas'
+ {$If NOT Defined(NoScripts)}
+ , UserListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\UserListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , UserProperty_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserProperty_Form.pas'
+ , PrimUserPropertyOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserPropertyOptions_Form.pas'
+ , PrimUserProperty_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserProperty_Form.pas'
+ {$If NOT Defined(NoScripts)}
+ , UserPropertyKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\UserPropertyKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , GroupList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupList_Form.pas'
+ , PrimGroupListOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupListOptions_Form.pas'
+ , PrimGroupList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupList_Form.pas'
+ {$If NOT Defined(NoScripts)}
+ , GroupListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\GroupListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Admin_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\Admin_Form.pas'
+ , PrimAdminOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdminOptions_Form.pas'
+ , PrimAdmin_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_Form.pas'
+ {$If NOT Defined(NoScripts)}
+ , AdminFormKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\AdminFormKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat in 'w:\common\components\gui\Garant\Everest\ext\evExtFormat.pas'
  , evdScriptHyperlinkEliminator in 'w:\common\components\gui\Garant\Everest\evdScriptHyperlinkEliminator.pas'
  , evdHyperlinkEliminator in 'w:\common\components\rtl\Garant\EVD\evdHyperlinkEliminator.pas'
@@ -2745,6 +3208,12 @@ uses
  , SynGdiPlus in 'w:\common\components\rtl\external\SynPDF\SynGdiPlus.pas'
  , SynLZ in 'w:\common\components\rtl\external\SynPDF\SynLZ.pas'
  , nevDocumentProvider4PDF in 'w:\common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas'
+ , PrimAdminMain_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\PrimAdminMain_Form.pas'
+ , PrimAdminMain_utEmptyMainWindow_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\PrimAdminMain_utEmptyMainWindow_UserType.pas'
+ , AdminMain_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\AdminMain_Form.pas'
+ {$If NOT Defined(NoScripts)}
+ , AdminMainKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\AdminMainKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(XE)}
  , F1Test in 'w:\garant6x\implementation\Garant\GbaNemesis\F1Test.pas'
  {$IfEnd} // NOT Defined(XE)
@@ -2801,18 +3270,6 @@ uses
  {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
  , vcmBaseMenuForChromeLike_p in 'w:\common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
- , vcmBaseMenuForChromeLike in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmBaseMenuForChromeLike.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
- , vcmMenuForChromeLikeItems in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMenuForChromeLikeItems.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
- , vcmMainMenuForChromeLikeTypes in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMainMenuForChromeLikeTypes.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
- , vcmTabbedMenuWordsPack in 'w:\common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
  {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
  , vcmMenuForChromeLikeItemWrap in 'w:\common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
@@ -2822,49 +3279,6 @@ uses
  {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
  , ChromeLikeTabSetControl_p in 'w:\common\components\gui\Garant\VCM\ChromeLikeTabSetControl_p.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetControl in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControl.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetControlPrim in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlPrim.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetTypes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetTypes.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- , GDIPOBJ in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPOBJ.pas'
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeDrawingContext in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeDrawingContext.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetUtils in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetUtils.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeInterfaces in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeBaseVisualObjectPrim in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectPrim.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeBaseVisualObject in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObject.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeBaseVisualObjectList in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectList.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetAnimationManager in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- , MMSystem in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\MMSystem.pas'
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetStyles in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetStyles.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- , GDIPUTIL in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPUTIL.pas'
- , GDIPAPI in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPAPI.pas'
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabParams in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabParams.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
- , ChromeLikeTabSetControlRes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlRes.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
  {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
  , ChromeLikeTab_p in 'w:\common\components\gui\Garant\VCM\ChromeLikeTab_p.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
@@ -2874,18 +3288,9 @@ uses
  {$If Defined(Nemesis) AND NOT Defined(XE)}
  , nscNavigatorPageControl_p in 'w:\common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas'
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
- {$If Defined(Nemesis)}
- , nscNavigator in 'w:\common\components\gui\Garant\Nemesis\nscNavigator.pas'
- {$IfEnd} // Defined(Nemesis)
  {$If Defined(Nemesis) AND NOT Defined(XE)}
  , eeTreeViewExport_p in 'w:\common\components\gui\Garant\Nemesis\eeTreeViewExport_p.pas'
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
- , eeTreeViewExport in 'w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas'
- , vtOutlinerWithDragDrop in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDrop.pas'
- , vtOutlinerWithDragDropRes in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
- , eeInterfacesEx in 'w:\common\components\gui\Garant\Everest_Engine\eeInterfacesEx.pas'
- , eeNode in 'w:\common\components\gui\Garant\Everest_Engine\eeNode.pas'
- , eeNodeUtils in 'w:\common\components\gui\Garant\Everest_Engine\eeNodeUtils.pas'
  {$If Defined(Nemesis)}
  , nscTaskPanelInterfaces in 'w:\common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -2919,22 +3324,6 @@ uses
  {$If NOT Defined(XE)}
  , nsDocumentsList_p in 'w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas'
  {$IfEnd} // NOT Defined(XE)
- {$If Defined(Nemesis)}
- , nscTreeView in 'w:\common\components\gui\Garant\Nemesis\nscTreeView.pas'
- {$IfEnd} // Defined(Nemesis)
- , eeTreeView in 'w:\common\components\gui\Garant\Everest_Engine\eeTreeView.pas'
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Text_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Text_Controls.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Tree_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If Defined(Nemesis)}
- , nscTreeViewRes in 'w:\common\components\gui\Garant\Nemesis\nscTreeViewRes.pas'
- {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoVCM)}
- , vcmDefaultOperations in 'w:\common\components\gui\Garant\VCM\vcmDefaultOperations.pas'
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(XE)}
  , TestDocListUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas'
  {$IfEnd} // NOT Defined(XE)

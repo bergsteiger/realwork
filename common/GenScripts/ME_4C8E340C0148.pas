@@ -86,10 +86,26 @@ uses
  , vcmUserControls
  , vcmMenus
  , vcmToolbar
+ {$If NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opCustomize
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opAvailableOperations
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opIconsSize
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_ToolbarMenu_opFasten
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , l3MinMax
  , RTLConsts
  , SysUtils
+ , CustomizeTools_Form
+ {$If NOT Defined(NoScripts)}
+ , CustomizeToolsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type _Instance_R_ = TIvcmToolbarsCustomizeListenerPtrList;

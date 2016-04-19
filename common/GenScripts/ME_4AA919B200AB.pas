@@ -70,6 +70,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_CommonPost_opSavePostList
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmUtils
  {$IfEnd} // NOT Defined(NoVCM)
@@ -93,6 +96,10 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsOpenUtils
+ , PostingsList_Form
+ {$If NOT Defined(NoScripts)}
+ , PostingsListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

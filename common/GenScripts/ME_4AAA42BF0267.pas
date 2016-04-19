@@ -27,6 +27,7 @@ uses
  l3ImplUses
  , moCommonSearch
  , tasSaveLoadRealization
+ , ShellAndMonitoringsMain_Form
 ;
 {$IfEnd} // NOT Defined(Admin)
 

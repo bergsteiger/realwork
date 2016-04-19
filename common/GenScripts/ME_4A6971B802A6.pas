@@ -57,7 +57,22 @@ uses
  , PrimContactList_chatContacts_UserType
  , BaseHistoryWindow_utChatHistory_UserType
  , BaseChatWindow_cwChat_UserType
+ {$If NOT Defined(NoScripts)}
+ , kw_Chat_opOpenContactList
+ {$IfEnd} // NOT Defined(NoScripts)
  , bsChatDispatcher
+ , ContactList_Form
+ , ChatWindow_Form
+ , ChatHistory_Form
+ {$If NOT Defined(NoScripts)}
+ , ContactListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ChatWindowKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ChatHistoryKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

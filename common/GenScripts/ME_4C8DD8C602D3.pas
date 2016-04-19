@@ -55,6 +55,13 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , kw_TasksPanelMenu_opCustomize
+ {$IfEnd} // NOT Defined(NoScripts)
+ , CustomizeTasksPanel_Form
+ {$If NOT Defined(NoScripts)}
+ , CustomizeTasksPanelKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 var g_dmTasksPanelMenu: TPrimTasksPanelMenuModule = nil;

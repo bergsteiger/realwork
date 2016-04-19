@@ -80,6 +80,19 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , sdsCompareEditions
  , nsCompareEditionsInfo
+ , LeftEdition_Form
+ , RightEdition_Form
+ , EditionsContainer_Form
+ , fsCompareEditions
+ {$If NOT Defined(NoScripts)}
+ , LeftEditionKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , RightEditionKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EditionsContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}
