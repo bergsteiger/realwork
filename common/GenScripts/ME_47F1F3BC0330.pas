@@ -22,6 +22,7 @@ uses
  , k2Base
  , evTypes
  , k2Interfaces
+ , evdTypes
 ;
 
 function evInPara(anAtom: Tl3Variant;
@@ -64,6 +65,9 @@ procedure evExpandOwnerStyleBlocks(const aPara: InevObject;
  const aView: InevControlView);
 function evNeedDrawParaInCollapsedMode(const aPara: InevObjectPrim): Boolean;
 function evHeaderTextPara(aPara: Tl3Variant): Boolean; overload;
+function evInBlock(anAtom: Tl3Variant;
+ aViewKind: TevBlockViewKind;
+ out theParent: Tl3Variant): Boolean;
 function evSearchPara(const aList: InevObject;
  const aSearcher: IevSearcher;
  out aPara: InevObject;
@@ -172,7 +176,6 @@ uses
  , l3String
  , k2OpMisc
  , SysUtils
- , evdTypes
  , TableCell_Const
  , ParaList_Const
  , TextPara_Const
@@ -642,6 +645,17 @@ begin
  Result := EvHeaderTextPara(l_Para);
 //#UC END# *5603D8AD0108_47F1F3BC0330_impl*
 end;//evHeaderTextPara
+
+function evInBlock(anAtom: Tl3Variant;
+ aViewKind: TevBlockViewKind;
+ out theParent: Tl3Variant): Boolean;
+//#UC START# *5715E58F019A_47F1F3BC0330_var*
+//#UC END# *5715E58F019A_47F1F3BC0330_var*
+begin
+//#UC START# *5715E58F019A_47F1F3BC0330_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E58F019A_47F1F3BC0330_impl*
+end;//evInBlock
 
 function evSearchPara(const aList: InevObject;
  const aSearcher: IevSearcher;
