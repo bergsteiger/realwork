@@ -1,93 +1,59 @@
 unit kw_Folders_opUnderControlOpenFrmAct;
+ {* Слово словаря для вызова операции модуля Folders.UnderControlOpenFrmAct (Папки Документы на контроле) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/kw_Folders_opUnderControlOpenFrmAct.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> F1 Основные прецеденты::Folders::View::Folders::Tkw_Folders_opUnderControlOpenFrmAct
-//
-// Слово словаря для вызова операции модуля Folders.UnderControlOpenFrmAct (Папки Документы на
-// контроле)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\kw_Folders_opUnderControlOpenFrmAct.pas"
+// Стереотип: "ScriptKeyword"
+// Элемент модели: "Tkw_Folders_opUnderControlOpenFrmAct" MUID: (5F4AF867A6B8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  tfwModuleOperationWord
-  {$IfEnd} //not NoScripts AND not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , tfwModuleOperationWord
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(NoVCM)}
 type
- Tkw_Folders_opUnderControlOpenFrmAct = {final scriptword} class(TtfwModuleOperationWord)
+ Tkw_Folders_opUnderControlOpenFrmAct = {final} class(TtfwModuleOperationWord)
   {* Слово словаря для вызова операции модуля Folders.UnderControlOpenFrmAct (Папки Документы на контроле) }
- protected
- // overridden protected methods
+  protected
    class function GetWordNameForRegister: AnsiString; override;
-   {$If not defined(NoScripts) AND not defined(NoVCM)}
    class function GetModuleOperationCode: TvcmMOPID; override;
-   {$IfEnd} //not NoScripts AND not NoVCM
  end;//Tkw_Folders_opUnderControlOpenFrmAct
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-
-// start class Tkw_Folders_opUnderControlOpenFrmAct
 
 class function Tkw_Folders_opUnderControlOpenFrmAct.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'моп::Папки_Документы_на_контроле';
 end;//Tkw_Folders_opUnderControlOpenFrmAct.GetWordNameForRegister
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 class function Tkw_Folders_opUnderControlOpenFrmAct.GetModuleOperationCode: TvcmMOPID;
- {-}
 begin
  Result := TdmStdRes.mod_opcode_Folders_UnderControlOpenFrmAct;
 end;//Tkw_Folders_opUnderControlOpenFrmAct.GetModuleOperationCode
-{$IfEnd} //not NoScripts AND not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_Folders_opUnderControlOpenFrmAct
  Tkw_Folders_opUnderControlOpenFrmAct.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Tkw_Folders_opUnderControlOpenFrmAct }
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 end.

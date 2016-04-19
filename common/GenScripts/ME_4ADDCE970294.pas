@@ -28,6 +28,7 @@ uses
  , moToolbarMenu
  , vcmBaseOperationsCollectionItem
  , vcmUserControls
+ , OfficeLikeMain_Form
 ;
 {$IfEnd} // NOT Defined(NoVCM)
 

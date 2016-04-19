@@ -52,6 +52,14 @@ uses
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ , MainMenuNew_Form
+ , MainMenuWithProfNews_Form
+ {$If NOT Defined(NoScripts)}
+ , MainMenuNewKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , MainMenuWithProfNewsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

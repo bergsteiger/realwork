@@ -31,14 +31,11 @@ uses
  , Types
  , Windows
  , l3InternalInterfaces
- , l3Region
  , vtLister
 ;
 
 type
- _RegionableControl_Parent_ = TSubTree;
- {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
- TnscSubTree = class(_RegionableControl_)
+ TnscSubTree = class(TSubTree)
   private
    f_CloseSize: TSize;
    f_CloseRect: TRect;
@@ -64,7 +61,6 @@ type
    {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
    {$IfEnd} // NOT Defined(NoVCL)
-   procedure TuneRegion(aRegion: Tl3Region); override;
    procedure DoOnGetItemStyle(aItemIndex: Integer;
     const aFont: Il3Font;
     var aTextBackColor: TColor;
@@ -263,9 +259,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCL)}
- , Themes
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 const
@@ -275,8 +268,6 @@ const
  cRad = 26;
  cButtonHeight = 22;
  op_local_Paste = ev_msgLast + 1;
-
-{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 
 procedure TnscSubTree.SetMouseTrackItemIndex(aIndex: Integer);
 //#UC START# *53FDAD2F00B9_53FDAB5501EB_var*
@@ -530,28 +521,6 @@ begin
 //#UC END# *48C7925A02E5_53FDAB5501EB_impl*
 end;//TnscSubTree.CreateParams
 {$IfEnd} // NOT Defined(NoVCL)
-
-procedure TnscSubTree.TuneRegion(aRegion: Tl3Region);
-//#UC START# *4CC847800383_53FDAB5501EB_var*
-var
- l_R: Tl3Region;
-//#UC END# *4CC847800383_53FDAB5501EB_var*
-begin
-//#UC START# *4CC847800383_53FDAB5501EB_impl*
- //if Regionable then
- begin
-  l_R := Tl3Region.Create;
-  try
-   l_R.Rgn := CreateRoundRectRgn(0, 0, Width + 1, Height + 1, cRad, cRad);
-   aRegion.Combine(l_R, RGN_OR);
-   aRegion.CombineRect(l3SRect(Width - cRad, 0, Width, Height), RGN_OR);
-   aRegion.CombineRect(l3SRect(0, 0, Width, cRad), RGN_OR);
-  finally
-   FreeAndNil(l_R);
-  end;//try..fianlly
- end;//Regionable
-//#UC END# *4CC847800383_53FDAB5501EB_impl*
-end;//TnscSubTree.TuneRegion
 
 procedure TnscSubTree.DoOnGetItemStyle(aItemIndex: Integer;
  const aFont: Il3Font;

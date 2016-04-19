@@ -47,6 +47,31 @@ uses
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3String
+ , fsAdmin
+ , GroupProperty_Form
+ , ForbidAutoregistration_Form
+ , UserList_Form
+ , UserProperty_Form
+ , GroupList_Form
+ , Admin_Form
+ {$If NOT Defined(NoScripts)}
+ , GroupPropertyKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ForbidAutoregistrationKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , UserListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , UserPropertyKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , GroupListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , AdminFormKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -86,6 +86,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Inpharm_opMedicDiction
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Inpharm_opMedicFirms
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Inpharm_opDrugList
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Inpharm_opMedicMainMenu
+ {$IfEnd} // NOT Defined(NoScripts)
  , sdsMedicDiction
  , sdsMedicFirmDocument
  , sdsDrugDocument
@@ -95,6 +107,24 @@ uses
  , DynamicDocListUnit
  , sdsMedicFirmList
  , LoggingUnit
+ , fsMedicDiction
+ , fsMedicFirmDocument
+ , fsDrugDocument
+ , fsDrugList
+ , fsMedicFirmList
+ , MedicMainMenu_Form
+ , MedicFirmList_Form
+ , MedicListSynchroView_Form
+ , fsInpharmMainMenu
+ {$If NOT Defined(NoScripts)}
+ , MedicMainMenuKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , MedicFirmListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , MedicListSynchroViewKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

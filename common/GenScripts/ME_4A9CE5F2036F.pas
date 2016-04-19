@@ -67,6 +67,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Diction_opOpenDict
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3String
  , deDiction
  , l3Chars
@@ -75,6 +78,19 @@ uses
  , sdsDiction
  , DataAdapter
  , LoggingUnit
+ , Diction_Form
+ , fsDiction
+ , DictionContainer_Form
+ , CommonDiction_Form
+ {$If NOT Defined(NoScripts)}
+ , DictionKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , DictionContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , CommonDictionKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

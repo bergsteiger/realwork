@@ -1070,6 +1070,10 @@ type
    function TrySelectPara(const aContainer: InevDocumentContainer;
     const aSel: InevSelection;
     aParaID: Integer): Boolean; override;
+   function TrySelectSub(const aContainer: InevDocumentContainer;
+    const aSel: InevSelection;
+    aSubID: Integer;
+    aType: Integer): Boolean; override;
   public
    constructor Create(aForm: TExTextForm;
     const aPos: TbsDocPos); reintroduce;
@@ -1252,6 +1256,43 @@ begin
  end;//try..finally
 //#UC END# *4BFFA0FF01D2_4C066918002D_impl*
 end;//TnsDocumentPointWaiter.TrySelectPara
+
+function TnsDocumentPointWaiter.TrySelectSub(const aContainer: InevDocumentContainer;
+ const aSel: InevSelection;
+ aSubID: Integer;
+ aType: Integer): Boolean;
+//#UC START# *5715DB6E02FC_4C066918002D_var*
+var
+ l_Sub      : IevSub;
+ l_Para     : Tl3Variant;
+ l_Addr     : TevAddress;
+ l_Block    : Tl3Variant;
+ l_SubHandle: Integer;
+//#UC END# *5715DB6E02FC_4C066918002D_var*
+begin
+//#UC START# *5715DB6E02FC_4C066918002D_impl*
+ Result := inherited TrySelectSub(aContainer, aSel, aSubID, aType);
+ if not Result then
+ begin
+  l_Sub := f_Form.AAC.Right.Container.SubList.SubEx[aSubID, aType];
+  if (l_Sub <> nil) and l_Sub.Exists then
+  begin
+   l_Para := l_Sub.Para;
+   l_SubHandle := 0;
+   if evInBlock(l_Para, ev_bvkRight, l_Block) then
+   begin
+    l_SubHandle := l_Block.IntA[k2_tiHandle];
+    l_Block.BoolA[k2_tiCollapsed] := False;
+   end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+   if (l_SubHandle > 0) then
+   begin
+    l_Addr := TevAddress_C(-1, l_SubHandle);
+    f_Form.Text.SearchHyperLinkAddress(true, true, l_Addr);
+   end; // if (l_SubHandle > 0) then
+  end; // if (l_Sub <> nil) and l_Sub.Exists then
+ end; // if not Result then
+//#UC END# *5715DB6E02FC_4C066918002D_impl*
+end;//TnsDocumentPointWaiter.TrySelectSub
 
 constructor TExTextFormState.Create(const aInnerState: IvcmBase;
  aNeedShowUserComments: Boolean;

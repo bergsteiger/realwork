@@ -1,84 +1,57 @@
 unit OfficeLikeMain_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "UserInteraction"
-// Модуль: "w:/common/components/gui/Garant/VCM/UserInteraction/OfficeLikeMain_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> Shared Delphi Operations::OfficeLike::UserInteraction::OfficeLike::OfficeLikeMain
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "OfficeLikeMain" MUID: (4ADDD3030251)
+// Имя типа: "TOfficeLikeMainForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  OfficeLike_Usual_Controls,
-  vcmMainForm,
-  Classes,
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmMainForm
+ , OfficeLike_Usual_Controls
+ , vcmExternalInterfaces
+ , Classes
+;
 
-{$If not defined(NoVCM)}
 type
- TOfficeLikeMainForm = {form} class(TvcmMainForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   procedure Common_Exit_Test(const aParams: IvcmTestParamsPrim);
-   procedure Common_Exit_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure History_Back_Test(const aParams: IvcmTestParamsPrim);
-     {* Назад }
-   procedure History_Back_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Назад }
-   procedure History_Forward_Test(const aParams: IvcmTestParamsPrim);
-     {* Вперёд }
-   procedure History_Forward_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Вперёд }
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
+ TOfficeLikeMainForm = class(TvcmMainForm)
+  protected
    procedure DoBack(const aParams: IvcmExecuteParamsPrim); virtual;
    procedure DoForward(const aParams: IvcmExecuteParamsPrim); virtual;
    function NeedTerminateOnExit: Boolean; virtual;
    function AskMayExit: Boolean; virtual;
+  public
+   procedure Common_Exit_Test(const aParams: IvcmTestParamsPrim);
+   procedure Common_Exit_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure History_Back_Test(const aParams: IvcmTestParamsPrim);
+    {* Назад }
+   procedure History_Back_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Назад }
+   procedure History_Forward_Test(const aParams: IvcmTestParamsPrim);
+    {* Вперёд }
+   procedure History_Forward_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вперёд }
+   constructor Create(AOwner: TComponent); override;
  end;//TOfficeLikeMainForm
-
- TvcmMainFormRef = TOfficeLikeMainForm;
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Windows,
-  vcmBaseOperationsCollectionItem,
-  vcmUserControls
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TOfficeLikeMainForm
+ l3ImplUses
+ , Windows
+ , vcmBaseOperationsCollectionItem
+ , vcmUserControls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TOfficeLikeMainForm.DoBack(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8DDE6B01A6_4ADDD3030251_var*
@@ -141,6 +114,7 @@ begin
 end;//TOfficeLikeMainForm.Common_Exit_Execute
 
 procedure TOfficeLikeMainForm.History_Back_Test(const aParams: IvcmTestParamsPrim);
+ {* Назад }
 //#UC START# *4ADDDC550118_4ADDD3030251test_var*
 var
  l_History: IvcmHistory;
@@ -154,6 +128,7 @@ begin
 end;//TOfficeLikeMainForm.History_Back_Test
 
 procedure TOfficeLikeMainForm.History_Back_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Назад }
 //#UC START# *4ADDDC550118_4ADDD3030251exec_var*
 //#UC END# *4ADDDC550118_4ADDD3030251exec_var*
 begin
@@ -163,6 +138,7 @@ begin
 end;//TOfficeLikeMainForm.History_Back_Execute
 
 procedure TOfficeLikeMainForm.History_Forward_Test(const aParams: IvcmTestParamsPrim);
+ {* Вперёд }
 //#UC START# *4ADDDC630097_4ADDD3030251test_var*
 var
  l_History: IvcmHistory;
@@ -176,6 +152,7 @@ begin
 end;//TOfficeLikeMainForm.History_Forward_Test
 
 procedure TOfficeLikeMainForm.History_Forward_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вперёд }
 //#UC START# *4ADDDC630097_4ADDD3030251exec_var*
 //#UC END# *4ADDDC630097_4ADDD3030251exec_var*
 begin
@@ -203,25 +180,11 @@ begin
 //#UC END# *47D1602000C6_4ADDD3030251_impl*
 end;//TOfficeLikeMainForm.Create
 
-procedure TOfficeLikeMainForm.InitEntities;
-begin
- inherited;
- with Entities.Entities do
- begin
-  PublishFormEntity(en_Common, nil);
-  PublishFormEntity(en_History, nil);
-  PublishOp(en_Common, op_Exit, Common_Exit_Execute, Common_Exit_Test, nil);
-  PublishOp(en_History, op_Back, History_Back_Execute, History_Back_Test, nil);
-  PublishOp(en_History, op_Forward, History_Forward_Execute, History_Forward_Test, nil);
- end;//with Entities.Entities
-end;
-
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация OfficeLikeMain
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TOfficeLikeMainForm);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация OfficeLikeMain }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.
