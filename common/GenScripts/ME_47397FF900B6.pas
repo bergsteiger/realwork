@@ -16,4 +16,7 @@ exports
 //#UC END# *47397FF900B6exports*
 ;
 
+{$R GblAdapter.res}
+
+begin
 end.

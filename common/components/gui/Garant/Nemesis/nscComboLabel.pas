@@ -38,6 +38,7 @@ type
    procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
    procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
    procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
+   procedure WMKillFocus(var Message: TWMKillFocus); message WM_KILLFOCUS;
   protected
    procedure pm_SetHighLightItem(aValue: Integer);
    procedure CloseUp(anAccept: Boolean);
@@ -80,6 +81,7 @@ type
  TnscComboLabel = class(TnscImageLabel, Il3WndProcListener, Il3MouseListener)
   {* Метка с выпадающим списком }
   private
+   f_FocusedControl: HWND;
    f_Dropped: Boolean;
    f_OnChange: TNotifyEvent;
    f_Tree: TnscLabelSubTree;
@@ -104,6 +106,12 @@ type
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCL)}
    procedure MouseUp(Button: TMouseButton;
+    Shift: TShiftState;
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure MouseDown(Button: TMouseButton;
     Shift: TShiftState;
     X: Integer;
     Y: Integer); override;
@@ -225,6 +233,17 @@ begin
  //CloseUp(False);
 //#UC END# *57067C0302FD_5704FC1A0398_impl*
 end;//TnscLabelSubTree.CNKeyDown
+
+procedure TnscLabelSubTree.WMKillFocus(var Message: TWMKillFocus);
+//#UC START# *5710FAC701BB_5704FC1A0398_var*
+//#UC END# *5710FAC701BB_5704FC1A0398_var*
+begin
+//#UC START# *5710FAC701BB_5704FC1A0398_impl*
+ if (Message.FocusedWnd <> Handle) then
+  CloseUp(False);
+ inherited;
+//#UC END# *5710FAC701BB_5704FC1A0398_impl*
+end;//TnscLabelSubTree.WMKillFocus
 
 function TnscLabelSubTree.IsSizeableTree: Boolean;
 //#UC START# *5298BEBA032D_5704FC1A0398_var*
@@ -575,6 +594,21 @@ begin
  end;
 //#UC END# *4E7896270076_5704F8CA00C8_impl*
 end;//TnscComboLabel.MouseUp
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TnscComboLabel.MouseDown(Button: TMouseButton;
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
+//#UC START# *4F88473B03CD_5704F8CA00C8_var*
+//#UC END# *4F88473B03CD_5704F8CA00C8_var*
+begin
+//#UC START# *4F88473B03CD_5704F8CA00C8_impl*
+ inherited;
+ f_FocusedControl := Windows.GetFocus;
+//#UC END# *4F88473B03CD_5704F8CA00C8_impl*
+end;//TnscComboLabel.MouseDown
 {$IfEnd} // NOT Defined(NoVCL)
 
 initialization
