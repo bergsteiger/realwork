@@ -2147,6 +2147,9 @@ uses
  , l3IterateComponentParents in 'w:\common\components\rtl\Garant\L3\l3IterateComponentParents.pas'
  {$IfEnd} // NOT Defined(NoVCL)
  {$If Defined(nsTest) AND Defined(InsiderTest)}
+ , Tasks_TestLibrary in 'w:\archi\source\projects\Archi\Tests\Tasks_TestLibrary.pas'
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+ {$If Defined(nsTest) AND Defined(InsiderTest)}
  , RegisteredTasksTest in 'w:\archi\source\projects\Archi\Tests\RegisteredTasksTest.pas'
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
@@ -2171,6 +2174,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , csTaskTypes in 'w:\common\components\rtl\Garant\cs\csTaskTypes.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(InsiderTest)}
+ , Low_Level_Tests_TestLibrary in 'w:\archi\source\projects\PipeInAuto\Tests\Low_Level_Tests_TestLibrary.pas'
+ {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , K515862135 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K515862135.pas'
  {$IfEnd} // Defined(InsiderTest)
@@ -2522,10 +2528,10 @@ uses
  , K578892941 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K578892941.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
- , K517772970_TCheckSaveToStream in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas'
+ , K517772970_TddTaskItem in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddTaskItem.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
- , K517772970_TddTaskItem in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddTaskItem.pas'
+ , K517772970_TCheckSaveToStream in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TCheckSaveToStream.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , K517772970_TddProcessTask in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddProcessTask.pas'
@@ -2853,6 +2859,9 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , UserDefinedExportTask_Const in 'w:\common\components\rtl\Garant\EVD\UserDefinedExportTask_Const.pas'
  {$If Defined(InsiderTest)}
+ , K517789752 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\K517789752.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
  , alcuImportTest in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract\alcuImportTest.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
@@ -2886,13 +2895,10 @@ uses
  , CsErrors in 'w:\common\components\rtl\Garant\cs\CsErrors.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(InsiderTest)}
- , K517772970_TCheckSaveToStreamDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\K517772970_TCheckSaveToStreamDefault.pas'
- {$IfEnd} // Defined(InsiderTest)
- {$If Defined(InsiderTest)}
- , K517789752 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\K517789752.pas'
- {$IfEnd} // Defined(InsiderTest)
- {$If Defined(InsiderTest)}
  , K517772970_TddTaskItemDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddTaskItemDefault.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
+ , K517772970_TCheckSaveToStreamDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\K517772970_TCheckSaveToStreamDefault.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , K517772970_TalcuAnnotationTaskDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TalcuAnnotationTaskDefault.pas'
@@ -3002,6 +3008,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , CsReplyProceduresWithRegistering in 'w:\common\components\rtl\Garant\cs\CsReplyProceduresWithRegistering.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(InsiderTest)}
+ , New_Actions_Test_TestLibrary in 'w:\archi\source\projects\PipeInAuto\Tests\New_Actions_Test_TestLibrary.pas'
+ {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , archiExportActionTest in 'w:\archi\source\projects\PipeInAuto\Tests\NewActions\Export\archiExportActionTest.pas'
  {$IfEnd} // Defined(InsiderTest)

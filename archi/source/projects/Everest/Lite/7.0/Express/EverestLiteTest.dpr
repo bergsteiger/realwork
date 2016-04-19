@@ -2182,6 +2182,7 @@ uses
  , kwPopEditorSetStyle2Table in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , toKT in 'w:\archi\source\projects\Everest\Lite\7.0\Express\toKT.pas'
+ , EverestLiteTests_TestLibrary in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\EverestLiteTests_TestLibrary.pas'
  , K431386215 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K431386215.pas'
  , K403079732 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K403079732.pas'
  , K514874341 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K514874341.pas'

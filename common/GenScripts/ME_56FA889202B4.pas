@@ -13,7 +13,6 @@ interface
 uses
  l3IntfUses
  , PrimLegalMainMenu_Form
- , MainMenuUnit
  , BannerUnit
  , vtPanel
  {$If NOT Defined(NoVCL)}
@@ -55,7 +54,6 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimMainMenuWithProfNewsForm = class(_vcmChromeLikeTabIconUpdater_)
   private
-   f_CurrentSection: TSectionType;
    f_Banner: IBanner;
    f_pnlLeft: TvtPanel;
     {* Поле для свойства pnlLeft }
@@ -144,6 +142,17 @@ type
    procedure DoInit(aFromHistory: Boolean); override;
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -156,6 +165,7 @@ type
    function pm_GetContainerForBaseSearch: IvcmContainer; override;
    function NewSchool: Boolean; override;
     {* Определяет, что основное меню вида 2009 - [$164601183] }
+   procedure pnlMainResize(aSender: TObject); override;
    {$If NOT Defined(NoVCM)}
    procedure SetControlsResources; override;
     {* Установить контролам ресурсы для интернационализации }
@@ -174,10 +184,6 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
   public
-   property bvlLeft: TBevel
-    read f_bvlLeft;
-   property bvlRight: TBevel
-    read f_bvlRight;
    property ieIO: TImageEnIO
     read f_ieIO;
  end;//TPrimMainMenuWithProfNewsForm
@@ -193,6 +199,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObject
+ , afwInterfaces
  , Graphics
  , nsLastOpenDocTree
  , nsTypes
@@ -221,7 +229,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , afwInterfaces
  , DocumentRes
  , MainMenuNewRes
  {$If Defined(Nemesis)}
@@ -239,6 +246,7 @@ uses
  , smSectionTree
  , smMainMenuTree2016
  , nsQueryInterfaces
+ , MainMenuUnit
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -246,19 +254,119 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , afwFacade
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
- , afwFacade
 ;
 
 type
  // ExcludeTree
 
+ IMainMenuWithProfNewsFormState = interface(IvcmBase)
+  ['{6CF72EBE-CFF7-439A-8F12-9B556D710E4B}']
+  function Get_TaxesTreeItemIndex: Integer;
+  function Get_ProfNewsTreeItemIndex: Integer;
+  function Get_InnerState: IvcmBase;
+  property TaxesTreeItemIndex: Integer
+   read Get_TaxesTreeItemIndex;
+  property ProfNewsTreeItemIndex: Integer
+   read Get_ProfNewsTreeItemIndex;
+  property InnerState: IvcmBase
+   read Get_InnerState;
+ end;//IMainMenuWithProfNewsFormState
+
+ _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+ TMainMenuWithProfNewsFormState = class(_afwApplicationDataUpdate_, IMainMenuWithProfNewsFormState)
+  private
+   f_InnerState: IvcmBase;
+   f_ProfNewsTreeItemIndex: Integer;
+   f_TaxesTreeItemIndex: Integer;
+  protected
+   function Get_TaxesTreeItemIndex: Integer;
+   function Get_ProfNewsTreeItemIndex: Integer;
+   function Get_InnerState: IvcmBase;
+   procedure FinishDataUpdate; override;
+  public
+   constructor Create(const anInnerState: IvcmBase;
+    aProfNewsIndex: Integer;
+    aTaxesTreeIndex: Integer); reintroduce;
+   class function Make(const anInnerState: IvcmBase;
+    aProfNewsIndex: Integer;
+    aTaxesTreeIndex: Integer): IMainMenuWithProfNewsFormState; reintroduce;
+ end;//TMainMenuWithProfNewsFormState
+
 const
  {* Локализуемые строки utMainMenuWithProfNewsLocalConstants }
  str_utMainMenuWithProfNewsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuWithProfNewsCaption'; rValue : 'Основное меню');
   {* Заголовок пользовательского типа "Основное меню" }
+
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+
+constructor TMainMenuWithProfNewsFormState.Create(const anInnerState: IvcmBase;
+ aProfNewsIndex: Integer;
+ aTaxesTreeIndex: Integer);
+//#UC START# *5714AA3A022F_5714A94A0015_var*
+//#UC END# *5714AA3A022F_5714A94A0015_var*
+begin
+//#UC START# *5714AA3A022F_5714A94A0015_impl*
+ f_InnerState := anInnerState;
+ f_ProfNewsTreeItemIndex := aProfNewsIndex;
+ f_TaxesTreeItemIndex := aTaxesTreeIndex;
+//#UC END# *5714AA3A022F_5714A94A0015_impl*
+end;//TMainMenuWithProfNewsFormState.Create
+
+class function TMainMenuWithProfNewsFormState.Make(const anInnerState: IvcmBase;
+ aProfNewsIndex: Integer;
+ aTaxesTreeIndex: Integer): IMainMenuWithProfNewsFormState;
+var
+ l_Inst : TMainMenuWithProfNewsFormState;
+begin
+ l_Inst := Create(anInnerState, aProfNewsIndex, aTaxesTreeIndex);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TMainMenuWithProfNewsFormState.Make
+
+function TMainMenuWithProfNewsFormState.Get_TaxesTreeItemIndex: Integer;
+//#UC START# *5714A8C101F2_5714A94A0015get_var*
+//#UC END# *5714A8C101F2_5714A94A0015get_var*
+begin
+//#UC START# *5714A8C101F2_5714A94A0015get_impl*
+ Result := f_TaxesTreeItemIndex;
+//#UC END# *5714A8C101F2_5714A94A0015get_impl*
+end;//TMainMenuWithProfNewsFormState.Get_TaxesTreeItemIndex
+
+function TMainMenuWithProfNewsFormState.Get_ProfNewsTreeItemIndex: Integer;
+//#UC START# *5714A8DC0258_5714A94A0015get_var*
+//#UC END# *5714A8DC0258_5714A94A0015get_var*
+begin
+//#UC START# *5714A8DC0258_5714A94A0015get_impl*
+ Result := f_ProfNewsTreeItemIndex;
+//#UC END# *5714A8DC0258_5714A94A0015get_impl*
+end;//TMainMenuWithProfNewsFormState.Get_ProfNewsTreeItemIndex
+
+function TMainMenuWithProfNewsFormState.Get_InnerState: IvcmBase;
+//#UC START# *5714A9230017_5714A94A0015get_var*
+//#UC END# *5714A9230017_5714A94A0015get_var*
+begin
+//#UC START# *5714A9230017_5714A94A0015get_impl*
+ Result := f_InnerState;
+//#UC END# *5714A9230017_5714A94A0015get_impl*
+end;//TMainMenuWithProfNewsFormState.Get_InnerState
+
+procedure TMainMenuWithProfNewsFormState.FinishDataUpdate;
+//#UC START# *47EA4E9002C6_5714A94A0015_var*
+//#UC END# *47EA4E9002C6_5714A94A0015_var*
+begin
+//#UC START# *47EA4E9002C6_5714A94A0015_impl*
+ f_ProfNewsTreeItemIndex := 0;
+ f_TaxesTreeItemIndex := 0;
+//#UC END# *47EA4E9002C6_5714A94A0015_impl*
+end;//TMainMenuWithProfNewsFormState.FinishDataUpdate
 
 type _Instance_R_ = TPrimMainMenuWithProfNewsForm;
 
@@ -709,6 +817,47 @@ begin
 end;//TPrimMainMenuWithProfNewsForm.DoInit
 {$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
+function TPrimMainMenuWithProfNewsForm.DoSaveState(out theState: IvcmBase;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
+//#UC START# *49806ED503D5_56FA889202B4_var*
+var
+ l_InnerState: IvcmBase;
+//#UC END# *49806ED503D5_56FA889202B4_var*
+begin
+//#UC START# *49806ED503D5_56FA889202B4_impl*
+ l_InnerState := nil;
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ theState := TMainMenuWithProfNewsFormState.Make(l_InnerState, lblProfNews.CurrentItem, lblTaxes.CurrentItem);
+//#UC END# *49806ED503D5_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.DoSaveState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function TPrimMainMenuWithProfNewsForm.DoLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
+//#UC START# *49807428008C_56FA889202B4_var*
+var
+ l_State: IMainMenuWithProfNewsFormState;
+ l_InnerState: IvcmBase;
+//#UC END# *49807428008C_56FA889202B4_var*
+begin
+//#UC START# *49807428008C_56FA889202B4_impl*
+ if Supports(aState, IMainMenuWithProfNewsFormState, l_State) then
+ begin
+  l_InnerState := l_State.InnerState;
+  lblProfNews.CurrentItem := l_State.ProfNewsTreeItemIndex;
+  lblTaxes.CurrentItem := l_State.TaxesTreeItemIndex;
+  Result := inherited DoLoadState(l_InnerState, aStateType);
+ end else
+  Result := inherited DoLoadState(aState, aStateType);
+//#UC END# *49807428008C_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.DoLoadState
+{$IfEnd} // NOT Defined(NoVCM)
+
 {$If NOT Defined(DesignTimeLibrary)}
 procedure TPrimMainMenuWithProfNewsForm.DoStyleTableChanged;
 //#UC START# *4A485B710126_56FA889202B4_var*
@@ -1117,6 +1266,15 @@ begin
  Result := True;
 //#UC END# *4ACB2F98002B_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.NewSchool
+
+procedure TPrimMainMenuWithProfNewsForm.pnlMainResize(aSender: TObject);
+//#UC START# *4ACC82D6017B_56FA889202B4_var*
+//#UC END# *4ACC82D6017B_56FA889202B4_var*
+begin
+//#UC START# *4ACC82D6017B_56FA889202B4_impl*
+ ArrangeControls;
+//#UC END# *4ACC82D6017B_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.pnlMainResize
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuWithProfNewsForm.SetControlsResources;

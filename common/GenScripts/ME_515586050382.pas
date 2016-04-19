@@ -1690,7 +1690,12 @@ uses
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , FolderSupport in 'w:\common\components\rtl\external\DUnit\src\FolderSupport.pas'
  , TestForm4Scripts in 'w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas'
+ , Containers_TestLibrary in 'w:\common\components\rtl\Garant\Containers\Containers_TestLibrary.pas'
  , LongintListTest in 'w:\common\components\rtl\Garant\Containers\LongintListTest.pas'
+ , SandBoxTest_TestLibrary in 'w:\common\components\SandBox\SandBoxTest_TestLibrary.pas'
+ {$If NOT Defined(NoScripts)}
+ , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  , IntStackTest in 'w:\common\components\SandBox\IntStackTest.pas'
  , IntStack in 'w:\common\components\SandBox\IntStack.pas'
  , StringStackTest in 'w:\common\components\SandBox\StringStackTest.pas'

@@ -2738,6 +2738,205 @@ uses
  , SynGdiPlus in 'w:\common\components\rtl\external\SynPDF\SynGdiPlus.pas'
  , SynLZ in 'w:\common\components\rtl\external\SynPDF\SynLZ.pas'
  , nevDocumentProvider4PDF in 'w:\common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas'
+ {$If NOT Defined(XE)}
+ , F1Test in 'w:\garant6x\implementation\Garant\GbaNemesis\F1Test.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , EverestTest in 'w:\common\components\gui\Garant\Everest\EverestTest.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , nevSelection_p in 'w:\common\components\gui\Garant\Everest\nevSelection_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ , Variants
+ , tc5OpenAppClasses
+ , tc5PublicInfo
+ , tc6OpenAppClasses
+ , tc6PublicInfo
+ {$If NOT Defined(XE)}
+ , afwCaret_p in 'w:\common\components\gui\Garant\Everest\afwCaret_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , evTunedEditor_p in 'w:\common\components\gui\Garant\Everest\evTunedEditor_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ , evTunedEditor in 'w:\common\components\gui\Garant\Everest\evTunedEditor.pas'
+ {$If NOT Defined(XE)}
+ , afwCustomCaretType_p in 'w:\common\components\gui\Garant\Everest\afwCustomCaretType_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ , tc5OpenApp
+ , tc6OpenApp
+ {$If NOT Defined(XE)}
+ , VTTest in 'w:\common\components\gui\Garant\VT\VTTest.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , FakeBox_p in 'w:\common\components\gui\Garant\VT\FakeBox_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , SubTree_p in 'w:\common\components\gui\Garant\VT\SubTree_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , vgRemindersLine_p in 'w:\common\components\gui\Garant\VT\vgRemindersLine_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , vgReminder_p in 'w:\common\components\gui\Garant\VT\vgReminder_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM)}
+ , VCMTest in 'w:\common\components\gui\Garant\VCM\VCMTest.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM)}
+ , vcmProfilersCollection_p in 'w:\common\components\gui\Garant\VCM\vcmProfilersCollection_p.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmProfilersCollection in 'w:\common\components\gui\Garant\VCM\implementation\vcmProfilersCollection.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmProfiler in 'w:\common\components\gui\Garant\VCM\implementation\vcmProfiler.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , vcmBaseMenuForChromeLike_p in 'w:\common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmBaseMenuForChromeLike in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmBaseMenuForChromeLike.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmMenuForChromeLikeItems in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMenuForChromeLikeItems.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmMainMenuForChromeLikeTypes in 'w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmMainMenuForChromeLikeTypes.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
+ , vcmTabbedMenuWordsPack in 'w:\common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , vcmMenuForChromeLikeItemWrap in 'w:\common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , RectWrap in 'w:\common\components\gui\Garant\VCM\RectWrap.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControl_p in 'w:\common\components\gui\Garant\VCM\ChromeLikeTabSetControl_p.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControl in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControl.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControlPrim in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlPrim.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetTypes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetTypes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , GDIPOBJ in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPOBJ.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeDrawingContext in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeDrawingContext.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetUtils in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetUtils.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeInterfaces in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseVisualObjectPrim in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectPrim.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseVisualObject in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObject.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeBaseVisualObjectList in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseVisualObjectList.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetAnimationManager in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , MMSystem in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\MMSystem.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetStyles in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetStyles.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ , GDIPUTIL in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPUTIL.pas'
+ , GDIPAPI in 'w:\common\components\rtl\external\JEDI\GDIPLUS\GDIPAPI.pas'
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabParams in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabParams.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTabSetControlRes in 'w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlRes.pas'
+ {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , ChromeLikeTab_p in 'w:\common\components\gui\Garant\VCM\ChromeLikeTab_p.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , NemesisTest in 'w:\common\components\gui\Garant\Nemesis\NemesisTest.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , nscNavigatorPageControl_p in 'w:\common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ {$If Defined(Nemesis)}
+ , nscNavigator in 'w:\common\components\gui\Garant\Nemesis\nscNavigator.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , eeTreeViewExport_p in 'w:\common\components\gui\Garant\Nemesis\eeTreeViewExport_p.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ , eeTreeViewExport in 'w:\common\components\gui\Garant\Everest_Engine\eeTreeViewExport.pas'
+ , vtOutlinerWithDragDrop in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDrop.pas'
+ , vtOutlinerWithDragDropRes in 'w:\common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
+ , eeInterfacesEx in 'w:\common\components\gui\Garant\Everest_Engine\eeInterfacesEx.pas'
+ , eeNode in 'w:\common\components\gui\Garant\Everest_Engine\eeNode.pas'
+ , eeNodeUtils in 'w:\common\components\gui\Garant\Everest_Engine\eeNodeUtils.pas'
+ {$If Defined(Nemesis)}
+ , nscTaskPanelInterfaces in 'w:\common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , nscSimpleEditor_p in 'w:\common\components\gui\Garant\Nemesis\nscSimpleEditor_p.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , AFWTest in 'w:\common\components\gui\Garant\AFW\AFWTest.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , MenuItem_p in 'w:\common\components\gui\Garant\AFW\MenuItem_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , Menu_p in 'w:\common\components\gui\Garant\AFW\Menu_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , Control_p in 'w:\common\components\gui\Garant\AFW\Control_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , WinControl_p in 'w:\common\components\gui\Garant\AFW\WinControl_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , Component_p in 'w:\common\components\gui\Garant\AFW\Component_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE) AND NOT Defined(NoVGScene)}
+ , VGSceneTest in 'w:\common\components\rtl\external\VGScene\VGSceneTest.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVGScene)
+ {$If NOT Defined(XE) AND NOT Defined(NoVGScene)}
+ , vgVisualObject_p in 'w:\common\components\rtl\external\VGScene\vgVisualObject_p.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVGScene)
+ {$If NOT Defined(XE)}
+ , nsDocumentsList_p in 'w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If Defined(Nemesis)}
+ , nscTreeView in 'w:\common\components\gui\Garant\Nemesis\nscTreeView.pas'
+ {$IfEnd} // Defined(Nemesis)
+ , eeTreeView in 'w:\common\components\gui\Garant\Everest_Engine\eeTreeView.pas'
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Text_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscTreeViewRes in 'w:\common\components\gui\Garant\Nemesis\nscTreeViewRes.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmDefaultOperations in 'w:\common\components\gui\Garant\VCM\vcmDefaultOperations.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(XE)}
+ , TestDocListUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , MessageOnDesktop in 'w:\garant6x\implementation\Garant\GbaNemesis\MessageOnDesktop.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , TestStringUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestStringUtils.pas'
+ {$IfEnd} // NOT Defined(XE)
  , l3MouseWheelHelper in 'w:\common\components\rtl\Garant\L3\l3MouseWheelHelper.pas'
  , AdminTestRes in 'w:\garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas'
  {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}

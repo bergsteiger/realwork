@@ -449,8 +449,13 @@ end;//TArrayProcessingPackResNameGetter.ResName
 procedure TkwArrayClear.Clear(const aCtx: TtfwContext;
  const aArray: ItfwValueList);
  {* Реализация слова скрипта Array:Clear }
+//#UC START# *428D1CC30289_878FE88B604D_var*
+//#UC END# *428D1CC30289_878FE88B604D_var*
 begin
- aArray.Clear;
+//#UC START# *428D1CC30289_878FE88B604D_impl*
+ if (aArray <> nil) then
+  aArray.Clear;
+//#UC END# *428D1CC30289_878FE88B604D_impl*
 end;//TkwArrayClear.Clear
 
 procedure TkwArrayClear.DoDoIt(const aCtx: TtfwContext);
@@ -1086,8 +1091,15 @@ end;//TkwArraySlice.GetWordNameForRegister
 function TkwArrayCount.Count(const aCtx: TtfwContext;
  const aArray: ItfwValueList): Integer;
  {* Реализация слова скрипта Array:Count }
+//#UC START# *87ED8662D31C_F4E1D8EB306A_var*
+//#UC END# *87ED8662D31C_F4E1D8EB306A_var*
 begin
- Result := aArray.Count;
+//#UC START# *87ED8662D31C_F4E1D8EB306A_impl*
+ if (aArray = nil) then
+  Result := 0
+ else
+  Result := aArray.Count; 
+//#UC END# *87ED8662D31C_F4E1D8EB306A_impl*
 end;//TkwArrayCount.Count
 
 procedure TkwArrayCount.DoDoIt(const aCtx: TtfwContext);

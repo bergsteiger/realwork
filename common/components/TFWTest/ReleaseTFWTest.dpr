@@ -1364,6 +1364,7 @@ uses
  , WinUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoWindows)
  , CommCtrl in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas'
+ , TestForTFW_TestLibrary in 'w:\common\components\rtl\Garant\TestForTFW\TestForTFW_TestLibrary.pas'
  , SuccessTest in 'w:\common\components\rtl\Garant\TestForTFW\SuccessTest.pas'
  , FailedTest in 'w:\common\components\rtl\Garant\TestForTFW\FailedTest.pas'
  , K235868845 in 'w:\common\components\rtl\Garant\TestForTFW\K235868845.pas'

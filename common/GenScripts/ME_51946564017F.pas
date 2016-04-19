@@ -1704,6 +1704,12 @@ uses
  , TestForm4Scripts in 'w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
+ , ImportExportTestLibrary_TestLibrary in 'w:\archi\source\projects\ImportExportTest\ImportExportTestLibrary_TestLibrary.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , K455105826 in 'w:\archi\source\projects\ImportExportTest\K455105826.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
  , ietBaseTest in 'w:\archi\source\projects\ImportExportTest\ietBaseTest.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
@@ -1764,9 +1770,6 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Renum in 'w:\common\components\rtl\Garant\DT\dt_Renum.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- {$If Defined(nsTest)}
- , K455105826 in 'w:\archi\source\projects\ImportExportTest\K455105826.pas'
- {$IfEnd} // Defined(nsTest)
  {$If NOT Defined(Nemesis)}
  , dt_Jour in 'w:\common\components\rtl\Garant\DT\dt_Jour.pas'
  {$IfEnd} // NOT Defined(Nemesis)
@@ -1783,12 +1786,15 @@ uses
  , K465700807 in 'w:\archi\source\projects\ImportExportTest\K465700807.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
- , ExportPipeTestPrim in 'w:\archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas'
+ , SimpleTests_TestLibrary in 'w:\archi\source\projects\ImportExportTest\SimpleTests_TestLibrary.pas'
  {$IfEnd} // Defined(nsTest)
- , ddFileIterator in 'w:\common\components\rtl\Garant\dd\ddFileIterator.pas'
  {$If Defined(nsTest)}
  , ExportToSeparateNSRTest in 'w:\archi\source\projects\ImportExportTest\ExportToSeparateNSRTest.pas'
  {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , ExportPipeTestPrim in 'w:\archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas'
+ {$IfEnd} // Defined(nsTest)
+ , ddFileIterator in 'w:\common\components\rtl\Garant\dd\ddFileIterator.pas'
  {$If Defined(nsTest)}
  , ExportToSingleNSRTest in 'w:\archi\source\projects\ImportExportTest\ExportToSingleNSRTest.pas'
  {$IfEnd} // Defined(nsTest)

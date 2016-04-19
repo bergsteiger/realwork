@@ -2492,6 +2492,7 @@ uses
  , l3IterateComponentParents in 'w:\common\components\rtl\Garant\L3\l3IterateComponentParents.pas'
  {$IfEnd} // NOT Defined(NoVCL)
  , toKT in 'w:\archi\source\projects\Archi\toKT.pas'
+ , ArchiInsiderTests_TestLibrary in 'w:\archi\source\projects\Archi\Tests\ArchiInsiderTests_TestLibrary.pas'
  , K264902382 in 'w:\archi\source\projects\Archi\Tests\K264902382.pas'
  , K266421641 in 'w:\archi\source\projects\Archi\Tests\K266421641.pas'
  , K271754614 in 'w:\archi\source\projects\Archi\Tests\K271754614.pas'
@@ -2720,6 +2721,7 @@ uses
  , K482752570 in 'w:\archi\source\projects\Archi\Tests\K482752570.pas'
  , K482767115 in 'w:\archi\source\projects\Archi\Tests\K482767115.pas'
  , K517791575 in 'w:\archi\source\projects\Archi\Tests\K517791575.pas'
+ , Tasks_TestLibrary in 'w:\archi\source\projects\Archi\Tests\Tasks_TestLibrary.pas'
  , RegisteredTasksTest in 'w:\archi\source\projects\Archi\Tests\RegisteredTasksTest.pas'
  {$If NOT Defined(Nemesis)}
  , ddServerTask in 'w:\common\components\rtl\Garant\cs\ddServerTask.pas'

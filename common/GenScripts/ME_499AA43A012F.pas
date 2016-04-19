@@ -22,12 +22,6 @@ uses
  l3ImplUses
  , vcmProfilersCollection_p
  {$If NOT Defined(NoTabs)}
- , RectWrap
- {$IfEnd} // NOT Defined(NoTabs)
- {$If NOT Defined(NoTabs)}
- , vcmMenuForChromeLikeItemWrap
- {$IfEnd} // NOT Defined(NoTabs)
- {$If NOT Defined(NoTabs)}
  , vcmBaseMenuForChromeLike_p
  {$IfEnd} // NOT Defined(NoTabs)
  {$If NOT Defined(NoTabs)}

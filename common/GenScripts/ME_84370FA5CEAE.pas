@@ -2059,8 +2059,17 @@ uses
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoWindows)
  , CommCtrl in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas'
  {$If Defined(nsTest)}
+ , Containers_TestLibrary in 'w:\common\components\rtl\Garant\Containers\Containers_TestLibrary.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
  , LongintListTest in 'w:\common\components\rtl\Garant\Containers\LongintListTest.pas'
  {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , SandBoxTest_TestLibrary in 'w:\common\components\SandBox\SandBoxTest_TestLibrary.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest) AND NOT Defined(NoScripts)}
+ , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
  {$If Defined(nsTest)}
  , IntStackTest in 'w:\common\components\SandBox\IntStackTest.pas'
  {$IfEnd} // Defined(nsTest)

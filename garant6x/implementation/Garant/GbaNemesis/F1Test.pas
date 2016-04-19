@@ -32,9 +32,6 @@ uses
  {$If NOT Defined(NoVGScene)}
  , VGSceneTest
  {$IfEnd} // NOT Defined(NoVGScene)
- , TestDocListUtils
- , MessageOnDesktop
- , TestStringUtils
  , nsDocumentsList_p
  , tc5OpenApp
  , tc6OpenApp
