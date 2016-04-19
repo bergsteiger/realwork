@@ -5256,6 +5256,81 @@ ref; // ME_483E6CFE02DC nevPersistentDocumentContainer
 
 FORWARD ME_4988405001B5
 
+FORWARD ME_5715DB6E02FC
+
+: ME_5715DBB90302
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
+ ;
+
+ref; // ME_5715DBB90302 aContainer
+
+: ME_5715DBB90312
+ CONST Name 'aSel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
+ ;
+
+ref; // ME_5715DBB90312 aSel
+
+: ME_5715DBB90331
+ CONST Name 'aSubID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5715DBB90331 aSubID
+
+: ME_5715DBB90350
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5715DBB90350 aType
+
+: ME_5715DB8D0211
+ CONST UID '5715DB8D0211'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5715DB6E02FC // TrySelectSub
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5715DBB90302 // aContainer
+ ME_5715DBB90312 // aSel
+ ME_5715DBB90331 // aSubID
+ ME_5715DBB90350 // aType
+ )
+ ; // Parameters
+
+ref; // ME_5715DB8D0211 DoIt
+
+: ME_5715DB6E02FC
+ CONST UID '5715DB6E02FC'
+ CONST Name 'TrySelectSub'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4988405001B5 // TevSubWaiter
+ ;
+ : Operations
+   Seq: ( ME_5715DB8D0211 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5715DB6E02FC TrySelectSub
+
 : ME_4BFFA1120243
  CONST Name 'aContainer'
  CONST Class class_Parameter
@@ -5317,7 +5392,8 @@ ref; // ME_4BFFA0FF01D2 TrySelectPara
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4BFFA0FF01D2 // TrySelectPara
+   Seq: ( ME_5715DB6E02FC // TrySelectSub
+ ME_4BFFA0FF01D2 // TrySelectPara
  )
  ; // Operations
  CONST "finished" false

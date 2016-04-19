@@ -3373,6 +3373,39 @@ ref; // ME_555351BE026E IdaFieldFromTable
 
 FORWARD ME_5628D14000F6
 
+: ME_5715DEF20209
+ CONST UID '5715DEF20209'
+ CONST Name 'AllUsers'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Все пользователи системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_515413200198' '47913B47006E.pas.ms.script' // Tl3StringDataList
+ ;
+ CONST "pm" false
+
+ref; // ME_5715DEF20209 AllUsers
+
+: ME_5715DF0D03C2
+ CONST UID '5715DF0D03C2'
+ CONST Name 'AllGroups'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_515413200198' '47913B47006E.pas.ms.script' // Tl3StringDataList
+ ;
+ CONST "pm" false
+
+ref; // ME_5715DF0D03C2 AllGroups
+
 : ME_5628D23B037F
  CONST Name 'aLogin'
  CONST Class class_Parameter
@@ -3466,6 +3499,11 @@ ref; // ME_56EA993D0218 IsUserAdmin
  CONST Abstraction at_regular
  : Parent ME_5432518A0316 // daInterfaces
  ;
+ : Attributes
+   Seq: ( ME_5715DEF20209 // AllUsers
+ ME_5715DF0D03C2 // AllGroups
+ )
+ ; // Attributes
  : Operations
    Seq: ( ME_5628D14D0151 // CheckPassword
  ME_56EA993D0218 // IsUserAdmin

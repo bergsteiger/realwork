@@ -3602,17 +3602,29 @@ ref; // ME_562A031E02CB
 
 ref; // ME_562DD8D3037C 
 
-: ME_5628D14D0151_ME_5629FC88034B
- : Original WL 'ME_5628D14D0151' '5432518A0316.pas.ms.script' // CheckPassword
+: ME_5715E71600DD_ME_5629FC88034B
+ : Original WL 'ME_5715E71600DD' '54F85B2500FB.pas.ms.script' // FillAllUsers
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5628D14D0151_ME_5629FC88034B CheckPassword
+ref; // ME_5715E71600DD_ME_5629FC88034B FillAllUsers
 
-: ME_56EA993D0218_ME_5629FC88034B
- : Original WL 'ME_56EA993D0218' '5432518A0316.pas.ms.script' // IsUserAdmin
+: ME_5715E74402CA_ME_5629FC88034B
+ : Original WL 'ME_5715E74402CA' '54F85B2500FB.pas.ms.script' // FillAllGroups
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_56EA993D0218_ME_5629FC88034B IsUserAdmin
+ref; // ME_5715E74402CA_ME_5629FC88034B FillAllGroups
+
+: ME_5715E767013D_ME_5629FC88034B
+ : Original WL 'ME_5715E767013D' '54F85B2500FB.pas.ms.script' // DoCheckPassword
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5715E767013D_ME_5629FC88034B DoCheckPassword
+
+: ME_5715E78F013E_ME_5629FC88034B
+ : Original WL 'ME_5715E78F013E' '54F85B2500FB.pas.ms.script' // DoIsUserAdmin
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5715E78F013E_ME_5629FC88034B DoIsUserAdmin
 
 : ME_479731C50290_ME_5629FC88034B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -3631,13 +3643,9 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  : Parent ME_55D6CF3B014B // Provider
  ;
  : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+   Seq: ( WL 'ME_5715E69F00AE' '54F85B2500FB.pas.ms.script' // TdaUserManager
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
- )
- ; // Implements
  : Attributes
    Seq: ( ME_562DCE66007D // f_Factory
  ME_562DDF8F0159 // f_PasswordQuery
@@ -3650,8 +3658,10 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5628D14D0151_ME_5629FC88034B // CheckPassword
- ME_56EA993D0218_ME_5629FC88034B // IsUserAdmin
+   Seq: ( ME_5715E71600DD_ME_5629FC88034B // FillAllUsers
+ ME_5715E74402CA_ME_5629FC88034B // FillAllGroups
+ ME_5715E767013D_ME_5629FC88034B // DoCheckPassword
+ ME_5715E78F013E_ME_5629FC88034B // DoIsUserAdmin
  )
  ; // Implemented
  : Overridden

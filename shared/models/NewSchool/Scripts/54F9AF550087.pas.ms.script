@@ -3718,17 +3718,29 @@ ref; // ME_5629EAD402A8
 
 ref; // ME_56EAA61202FC 
 
-: ME_5628D14D0151_ME_5629E343023B
- : Original WL 'ME_5628D14D0151' '5432518A0316.pas.ms.script' // CheckPassword
+: ME_5715E71600DD_ME_5629E343023B
+ : Original WL 'ME_5715E71600DD' '54F85B2500FB.pas.ms.script' // FillAllUsers
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5628D14D0151_ME_5629E343023B CheckPassword
+ref; // ME_5715E71600DD_ME_5629E343023B FillAllUsers
 
-: ME_56EA993D0218_ME_5629E343023B
- : Original WL 'ME_56EA993D0218' '5432518A0316.pas.ms.script' // IsUserAdmin
+: ME_5715E74402CA_ME_5629E343023B
+ : Original WL 'ME_5715E74402CA' '54F85B2500FB.pas.ms.script' // FillAllGroups
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_56EA993D0218_ME_5629E343023B IsUserAdmin
+ref; // ME_5715E74402CA_ME_5629E343023B FillAllGroups
+
+: ME_5715E767013D_ME_5629E343023B
+ : Original WL 'ME_5715E767013D' '54F85B2500FB.pas.ms.script' // DoCheckPassword
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5715E767013D_ME_5629E343023B DoCheckPassword
+
+: ME_5715E78F013E_ME_5629E343023B
+ : Original WL 'ME_5715E78F013E' '54F85B2500FB.pas.ms.script' // DoIsUserAdmin
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5715E78F013E_ME_5629E343023B DoIsUserAdmin
 
 : ME_5629E343023B
  CONST UID '5629E343023B'
@@ -3741,21 +3753,19 @@ ref; // ME_56EA993D0218_ME_5629E343023B IsUserAdmin
  : Parent ME_54F9AF550087 // Provider
  ;
  : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+   Seq: ( WL 'ME_5715E69F00AE' '54F85B2500FB.pas.ms.script' // TdaUserManager
  )
  ; // Inherits
- : Implements
-   Seq: ( WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
- )
- ; // Implements
  : Operations
    Seq: ( ME_5629F0F901C8 // Create
  ME_5629F11200B8 // Make
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5628D14D0151_ME_5629E343023B // CheckPassword
- ME_56EA993D0218_ME_5629E343023B // IsUserAdmin
+   Seq: ( ME_5715E71600DD_ME_5629E343023B // FillAllUsers
+ ME_5715E74402CA_ME_5629E343023B // FillAllGroups
+ ME_5715E767013D_ME_5629E343023B // DoCheckPassword
+ ME_5715E78F013E_ME_5629E343023B // DoIsUserAdmin
  )
  ; // Implemented
  : Dependencies

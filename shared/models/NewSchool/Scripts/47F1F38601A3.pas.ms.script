@@ -1199,6 +1199,72 @@ ref; // ME_5603D8C301D8 DoIt
 
 ref; // ME_5603D8AD0108 evHeaderTextPara$1
 
+FORWARD ME_5715E58F019A
+
+: ME_5715F75801E1
+ CONST Name 'anAtom'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_533D31A90231' '4678209200A6.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5715F75801E1 anAtom
+
+: ME_5715F758021F
+ CONST Name 'aViewKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4FBE15CD02C7' '469D0AC7005E.pas.ms.script' // BlockViewKind
+ ;
+
+ref; // ME_5715F758021F aViewKind
+
+: ME_5715F758025E
+ CONST Name 'theParent'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_533D31A90231' '4678209200A6.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5715F758025E theParent
+
+: ME_5715E5B40319
+ CONST UID '5715E5B40319'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5715E58F019A // evInBlock
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5715F75801E1 // anAtom
+ ME_5715F758021F // aViewKind
+ ME_5715F758025E // theParent
+ )
+ ; // Parameters
+
+ref; // ME_5715E5B40319 DoIt
+
+: ME_5715E58F019A
+ CONST UID '5715E58F019A'
+ CONST Name 'evInBlock'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47F1F3BC0330 // evParaTools
+ ;
+ : Operations
+   Seq: ( ME_5715E5B40319 // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'InBlock'
+
+ref; // ME_5715E58F019A evInBlock
+
 : ME_47F1F425037E
  CONST Name 'aList'
  CONST Class class_Parameter
@@ -2619,6 +2685,7 @@ ref; // ME_5600F3180040
  ME_55F7F2C60135 // evExpandOwnerStyleBlocks
  ME_5600F8C80213 // evNeedDrawParaInCollapsedMode
  ME_5603D8AD0108 // evHeaderTextPara$1
+ ME_5715E58F019A // evInBlock
  ME_47F1F3EF01BC // evSearchPara
  ME_47F1F42F032D // evSearchPara
  ME_48E4E9370259 // evQueryParaInterface
