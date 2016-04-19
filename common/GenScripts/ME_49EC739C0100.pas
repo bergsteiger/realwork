@@ -57,6 +57,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_InternetAgent_opInternetAgent
+ {$IfEnd} // NOT Defined(NoScripts)
  , sdsInternetAgent
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -65,6 +68,11 @@ uses
  , vcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ , InternetAgent_Form
+ , fsInternetAgent
+ {$If NOT Defined(NoScripts)}
+ , InternetAgentKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -108,6 +108,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Folders_opMyInformation
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Folders_opMyConsultations
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Folders_opUnderControlOpenFrmAct
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Folders_opOpenFrmAct
+ {$IfEnd} // NOT Defined(NoScripts)
  , DataAdapter
  {$If NOT Defined(NoVCM)}
  , vcmItems
@@ -125,6 +137,23 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , LoggingUnit
+ , Folders_Form
+ , fsFolders
+ , FoldersInfo_Form
+ , FoldersTree_Form
+ , FoldersElementInfo_Form
+ {$If NOT Defined(NoScripts)}
+ , FoldersKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , FoldersInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , FoldersTreeKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , FoldersElementInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

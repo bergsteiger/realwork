@@ -366,7 +366,9 @@ uses
  , ItfwCompilerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwCompilerWordsPack.pas'
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , toK in 'w:\common\components\DailyTest\toK.pas'
  {$If NOT Defined(NotTunedDUnit)}
  , KTestRunner in 'w:\common\components\rtl\Garant\DUnitTuning\KTestRunner.pas'

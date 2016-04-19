@@ -106,6 +106,8 @@ uses
  , GblAdapter
  , SysUtils
  , LoggingUnit
+ , PrimMain_Form
+ , PrimMainOptions_Form
 ;
 
 type

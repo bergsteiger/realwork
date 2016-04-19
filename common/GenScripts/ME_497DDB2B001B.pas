@@ -1943,7 +1943,7 @@ begin
                       and Assigned(l_BS.SearchWindow)
                       and l_BS.SearchWindow.Visible
                       and Assigned(dsDocumentList)
-                      and dsDocumentList.IsSnippet
+                      and (dsDocumentList.OpenFrom = lofBaseSearch)
                       and not dsDocumentList.IsChanged
                       and defDataAdapter.NativeAdapter.MakeDecisionsArchiveSupport.SearchServerAvailable;
 //#UC END# *56F412F403C7_497DDB2B001B_impl*

@@ -1,71 +1,42 @@
 unit PrimMainOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimMainOptions_Form.pas"
-// Начат: 10.09.2010 16:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> F1 Базовые определения предметной области::F1 Application Template::View::PrimF1::PrimMainOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimMainOptions_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "PrimMainOptions" MUID: (4C8A210E018C)
+// Имя типа: "TPrimMainOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  F1_Application_Template_InternalOperations_Controls,
-  PrimMain_Form,
-  MainPrim_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ , PrimMain_Form
+ , F1_Application_Template_InternalOperations_Controls
+;
 
 type
- TPrimMainOptionsForm = {form} class(TPrimMainForm)
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+ TPrimMainOptionsForm = class(TPrimMainForm)
+  public
    procedure Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
    procedure Help_HelpTopics_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimMainOptionsForm
 
- TvcmMainFormRef = TPrimMainOptionsForm;
-
 implementation
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vtNavigator
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsConst
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-
-// start class TPrimMainOptionsForm
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vtNavigator
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsConst
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TPrimMainOptionsForm.Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A27DA0087_4C8A210E018Ctest_var*
@@ -86,32 +57,10 @@ begin
 //#UC END# *4C8A27DA0087_4C8A210E018Cexec_impl*
 end;//TPrimMainOptionsForm.Help_HelpTopics_Execute
 
-procedure TPrimMainOptionsForm.InitEntities;
-begin
- inherited;
- with Entities.Entities do
- begin
-  PublishFormEntity(en_Help, nil);
-  PublishOp(en_Help, op_HelpTopics, Help_HelpTopics_Execute, Help_HelpTopics_Test, nil);
-  ShowInContextMenu(en_Help, op_HelpTopics, false);
-  ShowInToolbar(en_Help, op_HelpTopics, false);
- end;//with Entities.Entities
-end;
-
-procedure TPrimMainOptionsForm.MakeControls;
-begin
- inherited;
- ClientZone.Parent := Self;
- LeftNavigator.Parent := ClientZone;
-{$If defined(HasRightNavigator)}
- RightNavigator.Parent := ClientZone;
-{$IfEnd} //HasRightNavigator
-end;
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация PrimMainOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMainOptionsForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimMainOptions }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

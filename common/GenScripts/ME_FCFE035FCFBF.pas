@@ -1,9 +1,9 @@
-unit kw_Common_OpenMainMenuNew;
- {* Слово словаря для вызова операции модуля Common.OpenMainMenuNew (Окна Основное меню) }
+unit kw_Folders_opOpenFrmAct;
+ {* Слово словаря для вызова операции модуля Folders.OpenFrmAct (Папки Мои документы) }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\kw_Common_OpenMainMenuNew.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\kw_Folders_opOpenFrmAct.pas"
 // Стереотип: "ScriptKeyword"
-// Элемент модели: "Tkw_Common_OpenMainMenuNew" MUID: (34770F0004CA)
+// Элемент модели: "Tkw_Folders_opOpenFrmAct" MUID: (FCFE035FCFBF)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
@@ -33,26 +33,26 @@ uses
 
 {$If NOT Defined(NoVCM)}
 type
- Tkw_Common_OpenMainMenuNew = {final} class(TtfwModuleOperationWord)
-  {* Слово словаря для вызова операции модуля Common.OpenMainMenuNew (Окна Основное меню) }
+ Tkw_Folders_opOpenFrmAct = {final} class(TtfwModuleOperationWord)
+  {* Слово словаря для вызова операции модуля Folders.OpenFrmAct (Папки Мои документы) }
   protected
    class function GetWordNameForRegister: AnsiString; override;
    class function GetModuleOperationCode: TvcmMOPID; override;
- end;//Tkw_Common_OpenMainMenuNew
+ end;//Tkw_Folders_opOpenFrmAct
 
-class function Tkw_Common_OpenMainMenuNew.GetWordNameForRegister: AnsiString;
+class function Tkw_Folders_opOpenFrmAct.GetWordNameForRegister: AnsiString;
 begin
- Result := 'моп::Окна_Основное_меню';
-end;//Tkw_Common_OpenMainMenuNew.GetWordNameForRegister
+ Result := 'моп::Папки_Мои_документы';
+end;//Tkw_Folders_opOpenFrmAct.GetWordNameForRegister
 
-class function Tkw_Common_OpenMainMenuNew.GetModuleOperationCode: TvcmMOPID;
+class function Tkw_Folders_opOpenFrmAct.GetModuleOperationCode: TvcmMOPID;
 begin
- Result := TdmStdRes.mod_opcode_Common_OpenMainMenuNew;
-end;//Tkw_Common_OpenMainMenuNew.GetModuleOperationCode
+ Result := TdmStdRes.mod_opcode_Folders_OpenFrmAct;
+end;//Tkw_Folders_opOpenFrmAct.GetModuleOperationCode
 
 initialization
- Tkw_Common_OpenMainMenuNew.RegisterInEngine;
- {* Регистрация Tkw_Common_OpenMainMenuNew }
+ Tkw_Folders_opOpenFrmAct.RegisterInEngine;
+ {* Регистрация Tkw_Folders_opOpenFrmAct }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

@@ -68,6 +68,23 @@ uses
  , ListInterfaces
  , DynamicDocListUnit
  , PrimListInterfaces
+ , List_Form
+ , ListInfo_Form
+ , ListAnalizer_Form
+ , fsList
+ , ListAnalize_Form
+ {$If NOT Defined(NoScripts)}
+ , ListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ListInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ListAnalizerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ListAnalizeKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}
