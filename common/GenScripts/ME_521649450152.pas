@@ -667,7 +667,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , VCMSandBoxRes in 'w:\common\components\SandBox\VCM\VCMSandBoxRes.pas'
  {$If NOT Defined(NoVCM)}
  , vcmApplication in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas'

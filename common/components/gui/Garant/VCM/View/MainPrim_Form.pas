@@ -1,219 +1,124 @@
 unit MainPrim_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/MainPrim_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> Shared Delphi F1 Like Application::F1Like::View::F1Like::MainPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\MainPrim_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "MainPrim" MUID: (4F6B382E00D9)
+// Имя типа: "TMainPrimForm"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMainForm
-  {$IfEnd} //not NoVCM
-  ,
-  PresentationInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNavigator
-  {$IfEnd} //Nemesis
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLikeMain_Form
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBar
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_System_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  F1Like_InternalOperations_Controls,
-  Classes,
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLikeMain_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PresentationInterfaces
+ , F1Like_InternalOperations_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_System_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ {$If Defined(Nemesis)}
+ , nscStatusBar
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ , vtProportionalPanel
+ , vtSizeablePanel
+ {$If Defined(Nemesis)}
+ , nscNavigator
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMainForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
+;
 
 type
+ // LeftNavigatorZone
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+ // RightNavigatorZone
+
+ // ChildZone
+
+ // ParentZone
+
+ // BaseSeachZone
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Define HasRightNavigator}
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
- TMainPrimForm = {form} class(TOfficeLikeMainForm, InsMainFormChildZoneManager)
- private
- // private fields
-   f_NeedSwitchKeyboard : Boolean;
-   f_OldCaption : Il3CString;
-   f_StatusBar : TnscStatusBar;
-    {* Поле для свойства StatusBar}
-   f_ClientZone : TvtPanel;
-    {* Поле для свойства ClientZone}
-   f_MainZone : TvtProportionalPanel;
-    {* Поле для свойства MainZone}
-   f_ParentZonePanel : TvtPanel;
-    {* Поле для свойства ParentZonePanel}
-   f_ChildZonePanel : TvtSizeablePanel;
-    {* Поле для свойства ChildZonePanel}
-   f_BaseSearchPanel : TvtPanel;
-    {* Поле для свойства BaseSearchPanel}
-   f_LeftNavigator : TnscNavigator;
-    {* Поле для свойства LeftNavigator}
-  {$If defined(HasRightNavigator)}
-   f_RightNavigator : TnscNavigator;
-    {* Поле для свойства RightNavigator}
-  {$IfEnd} //HasRightNavigator
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
-   procedure VcmMainFormCloseQuery(Sender: TObject;
-     var CanClose: Boolean);
-   procedure VcmMainFormInsertForm(const aForm: IvcmEntityForm;
-     var aMode: TvcmInsertMode);
-   procedure FChildZoneQueryResize(ALeft: Integer;
-     ATop: Integer;
-     AWidth: Integer;
-     AHeight: Integer;
-     var aCanResize: Boolean);
-   procedure FLeftNavigatorSaveSize(Sender: TObject;
-     aSize: Integer);
-   procedure FLeftNavigatorStateChange(Sender: TObject);
-   procedure FLeftNavigatorLoadSize(Sender: TObject;
-     var aSize: Integer);
-    {$If defined(HasRightNavigator)}
-   procedure FRightNavigatorSaveSize(Sender: TObject;
-     aSize: Integer);
-    {$IfEnd} //HasRightNavigator
-    {$If defined(HasRightNavigator)}
-   procedure FRightNavigatorStateChange(Sender: TObject);
-    {$IfEnd} //HasRightNavigator
-    {$If defined(HasRightNavigator)}
-   procedure FRightNavigatorLoadSize(Sender: TObject;
-     var aSize: Integer);
-    {$IfEnd} //HasRightNavigator
-    {$If defined(HasRightNavigator)}
+ TMainPrimForm = class({$If NOT Defined(NoVCM)}
+ TOfficeLikeMainForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsMainFormChildZoneManager)
+  private
+   f_NeedSwitchKeyboard: Boolean;
+   f_OldCaption: Il3CString;
+   f_StatusBar: TnscStatusBar;
+    {* Поле для свойства StatusBar }
+   f_ClientZone: TvtPanel;
+    {* Поле для свойства ClientZone }
+   f_MainZone: TvtProportionalPanel;
+    {* Поле для свойства MainZone }
+   f_ParentZonePanel: TvtPanel;
+    {* Поле для свойства ParentZonePanel }
+   f_ChildZonePanel: TvtSizeablePanel;
+    {* Поле для свойства ChildZonePanel }
+   f_BaseSearchPanel: TvtPanel;
+    {* Поле для свойства BaseSearchPanel }
+   f_LeftNavigator: TnscNavigator;
+    {* Поле для свойства LeftNavigator }
+   {$If Defined(HasRightNavigator)}
+   f_RightNavigator: TnscNavigator;
+    {* Поле для свойства RightNavigator }
+   {$IfEnd} // Defined(HasRightNavigator)
+  private
+   procedure vcmMainFormCloseQuery(Sender: TObject;
+    var CanClose: Boolean);
+   procedure vcmMainFormInsertForm(const aForm: IvcmEntityForm;
+    var aMode: TvcmInsertMode);
+   procedure fChildZoneQueryResize(ALeft: Integer;
+    ATop: Integer;
+    AWidth: Integer;
+    AHeight: Integer;
+    var aCanResize: Boolean);
+   procedure fLeftNavigatorSaveSize(Sender: TObject;
+    aSize: Integer);
+   procedure fLeftNavigatorStateChange(Sender: TObject);
+   procedure fLeftNavigatorLoadSize(Sender: TObject;
+    var aSize: Integer);
+   {$If Defined(HasRightNavigator)}
+   procedure fRightNavigatorSaveSize(Sender: TObject;
+    aSize: Integer);
+   {$IfEnd} // Defined(HasRightNavigator)
+   {$If Defined(HasRightNavigator)}
+   procedure fRightNavigatorStateChange(Sender: TObject);
+   {$IfEnd} // Defined(HasRightNavigator)
+   {$If Defined(HasRightNavigator)}
+   procedure fRightNavigatorLoadSize(Sender: TObject;
+    var aSize: Integer);
+   {$IfEnd} // Defined(HasRightNavigator)
+   {$If Defined(HasRightNavigator)}
    procedure SaveRightNavigatorSize;
-    {$IfEnd} //HasRightNavigator
-    {$If defined(HasRightNavigator)}
+   {$IfEnd} // Defined(HasRightNavigator)
+   {$If Defined(HasRightNavigator)}
    procedure LoadRightNavigatorSize;
-    {$IfEnd} //HasRightNavigator
+   {$IfEnd} // Defined(HasRightNavigator)
    procedure SaveLeftNavigatorSize;
    procedure LoadLeftNavigatorSize;
- protected
- // property methods
-
-    {$If defined(HasRightNavigator)}
-
-    {$IfEnd} //HasRightNavigator
- protected
- // realized methods
-   procedure CorrectHeight(var aHeight: Integer);
-     {* корректирует при необходимости высоту дочерней зоны }
-   procedure Common_ShowSplitter_Execute(aVisible: Boolean);
-   procedure Common_ShowSplitter(const aParams: IvcmExecuteParams);
-   procedure Common_CheckChildZone_Execute(aToggle: Boolean);
-   procedure Common_CheckChildZone(const aParams: IvcmExecuteParams);
-   {$If not defined(NoVCM)}
-   procedure Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_OpenNewWindowByUser_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_GetWindowList_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_GetWindowList_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_CascadeWindows_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_CascadeWindows_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_TileWindowsHorizontal_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_TileWindowsHorizontal_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_TileWindowsVertical_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_TileWindowsVertical_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_CloseAllWindows_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Common_CloseAllWindows_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCL)}
-   procedure DoShow; override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCM)}
-   procedure DoSaveInSettings; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure DispatcherCreated; override;
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
+  protected
    procedure ActivateDefKeyboardLayout; virtual;
    procedure InitClone(aForm: TvcmMainForm); virtual;
-   procedure VcmMainFormAfterInsertForm(const aForm: IvcmEntityForm); virtual;
+   procedure vcmMainFormAfterInsertForm(const aForm: IvcmEntityForm); virtual;
    procedure DropChangeStatusToOpened; virtual;
    procedure LoadSettings; virtual;
    function NeedAskMayExit: Boolean; virtual;
@@ -226,86 +131,119 @@ type
    function DoGetNextMainForm: IvcmEntityForm; virtual;
    function GetCurrentActiveWindow: IvcmEntityForm; virtual;
    function GetCurrentOpenedWindowsCount: Integer; virtual;
- public
- // public properties
+   procedure CorrectHeight(var aHeight: Integer);
+    {* корректирует при необходимости высоту дочерней зоны }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCL)}
+   procedure DoShow; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure DoSaveInSettings; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DispatcherCreated; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+  public
+   procedure Common_ShowSplitter_Execute(aVisible: Boolean);
+   procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+   procedure Common_CheckChildZone_Execute(aToggle: Boolean);
+   procedure Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
+   {$If NOT Defined(NoVCM)}
+   procedure Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_OpenNewWindowByUser_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_GetWindowList_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_GetWindowList_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_CascadeWindows_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_CascadeWindows_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsHorizontal_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsHorizontal_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsVertical_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_TileWindowsVertical_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_CloseAllWindows_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Common_CloseAllWindows_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   constructor Create(AOwner: TComponent); override;
+  public
    property StatusBar: TnscStatusBar
-     read f_StatusBar;
+    read f_StatusBar;
    property ClientZone: TvtPanel
-     read f_ClientZone;
-   property MainZone: TvtProportionalPanel
-     read f_MainZone;
-   property ParentZonePanel: TvtPanel
-     read f_ParentZonePanel;
-   property ChildZonePanel: TvtSizeablePanel
-     read f_ChildZonePanel;
-   property BaseSearchPanel: TvtPanel
-     read f_BaseSearchPanel;
-   property LeftNavigator: TnscNavigator
-     read f_LeftNavigator;
-     {$If defined(HasRightNavigator)}
-   property RightNavigator: TnscNavigator
-     read f_RightNavigator;
-     {$IfEnd} //HasRightNavigator
+    read f_ClientZone;
  end;//TMainPrimForm
 
 implementation
 
 uses
-  F1Like_FormDefinitions_Controls,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  nsWindowsList
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  afwFacade,
-  Windows,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLikeAppInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3String,
-  nsFormUtils,
-  nsSettingsConst
-  {$If not defined(NoVCM)}
-  ,
-  vcmHistory
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vtNavigator
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , nsWindowsList
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , afwFacade
+ , Windows
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , OfficeLikeAppInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , nsFormUtils
+ , nsSettingsConst
+ {$If NOT Defined(NoVCM)}
+ , vcmHistory
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vtNavigator
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , F1Like_FormDefinitions_Controls
+;
 
-var
-   g_InMakeClone : Boolean = false;
+{$If NOT Defined(NoVCM)}
+var g_InMakeClone: Boolean = False;
 
-// start class TMainPrimForm
-
-procedure TMainPrimForm.VcmMainFormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
+procedure TMainPrimForm.vcmMainFormCloseQuery(Sender: TObject;
+ var CanClose: Boolean);
 //#UC START# *4F6B4C7101EB_4F6B382E00D9_var*
 //#UC END# *4F6B4C7101EB_4F6B382E00D9_var*
 begin
@@ -327,10 +265,10 @@ begin
   end;//with Dispatcher
  end;//CanClose..
 //#UC END# *4F6B4C7101EB_4F6B382E00D9_impl*
-end;//TMainPrimForm.VcmMainFormCloseQuery
+end;//TMainPrimForm.vcmMainFormCloseQuery
 
-procedure TMainPrimForm.VcmMainFormInsertForm(const aForm: IvcmEntityForm;
-  var aMode: TvcmInsertMode);
+procedure TMainPrimForm.vcmMainFormInsertForm(const aForm: IvcmEntityForm;
+ var aMode: TvcmInsertMode);
 //#UC START# *4F6B688F02BB_4F6B382E00D9_var*
 var
  l_IForm: IvcmEntityForm;
@@ -381,13 +319,22 @@ begin
    aMode := vcm_imAllow;
  end;//case aForm.ZoneType
 //#UC END# *4F6B688F02BB_4F6B382E00D9_impl*
-end;//TMainPrimForm.VcmMainFormInsertForm
+end;//TMainPrimForm.vcmMainFormInsertForm
 
-procedure TMainPrimForm.FChildZoneQueryResize(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer;
-  var aCanResize: Boolean);
+procedure TMainPrimForm.ActivateDefKeyboardLayout;
+//#UC START# *4F71FA8102BF_4F6B382E00D9_var*
+//#UC END# *4F71FA8102BF_4F6B382E00D9_var*
+begin
+//#UC START# *4F71FA8102BF_4F6B382E00D9_impl*
+ // - ничего не делаем
+//#UC END# *4F71FA8102BF_4F6B382E00D9_impl*
+end;//TMainPrimForm.ActivateDefKeyboardLayout
+
+procedure TMainPrimForm.fChildZoneQueryResize(ALeft: Integer;
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer;
+ var aCanResize: Boolean);
 //#UC START# *4F7AE3370161_4F6B382E00D9_var*
 const
  cMinChildHeight = 75;
@@ -408,73 +355,100 @@ begin
   lForm := nil;
  end;//try..finally
 //#UC END# *4F7AE3370161_4F6B382E00D9_impl*
-end;//TMainPrimForm.FChildZoneQueryResize
+end;//TMainPrimForm.fChildZoneQueryResize
 
-procedure TMainPrimForm.FLeftNavigatorSaveSize(Sender: TObject;
-  aSize: Integer);
+procedure TMainPrimForm.InitClone(aForm: TvcmMainForm);
+//#UC START# *4F7AE85E01EF_4F6B382E00D9_var*
+//#UC END# *4F7AE85E01EF_4F6B382E00D9_var*
+begin
+//#UC START# *4F7AE85E01EF_4F6B382E00D9_impl*
+ // - ничего не делаем, пусть потомки делают
+//#UC END# *4F7AE85E01EF_4F6B382E00D9_impl*
+end;//TMainPrimForm.InitClone
+
+procedure TMainPrimForm.vcmMainFormAfterInsertForm(const aForm: IvcmEntityForm);
+//#UC START# *4F7AEC7F03CB_4F6B382E00D9_var*
+//#UC END# *4F7AEC7F03CB_4F6B382E00D9_var*
+begin
+//#UC START# *4F7AEC7F03CB_4F6B382E00D9_impl*
+ nsSetPageIcon(aForm);
+//#UC END# *4F7AEC7F03CB_4F6B382E00D9_impl*
+end;//TMainPrimForm.vcmMainFormAfterInsertForm
+
+procedure TMainPrimForm.DropChangeStatusToOpened;
+//#UC START# *4F7AED150304_4F6B382E00D9_var*
+//#UC END# *4F7AED150304_4F6B382E00D9_var*
+begin
+//#UC START# *4F7AED150304_4F6B382E00D9_impl*
+ // - ничего не делаем, пусть потомки разбираются
+//#UC END# *4F7AED150304_4F6B382E00D9_impl*
+end;//TMainPrimForm.DropChangeStatusToOpened
+
+procedure TMainPrimForm.fLeftNavigatorSaveSize(Sender: TObject;
+ aSize: Integer);
 //#UC START# *4F7B02880214_4F6B382E00D9_var*
 //#UC END# *4F7B02880214_4F6B382E00D9_var*
 begin
 //#UC START# *4F7B02880214_4F6B382E00D9_impl*
  afw.Settings.SaveInteger(pi_Navigator_LeftSize, aSize);
 //#UC END# *4F7B02880214_4F6B382E00D9_impl*
-end;//TMainPrimForm.FLeftNavigatorSaveSize
+end;//TMainPrimForm.fLeftNavigatorSaveSize
 
-procedure TMainPrimForm.FLeftNavigatorStateChange(Sender: TObject);
+procedure TMainPrimForm.fLeftNavigatorStateChange(Sender: TObject);
 //#UC START# *4F7B02A4014A_4F6B382E00D9_var*
 //#UC END# *4F7B02A4014A_4F6B382E00D9_var*
 begin
 //#UC START# *4F7B02A4014A_4F6B382E00D9_impl*
  afw.Settings.SaveInteger(pi_LeftNavigator, Ord(LeftNavigator.State));
 //#UC END# *4F7B02A4014A_4F6B382E00D9_impl*
-end;//TMainPrimForm.FLeftNavigatorStateChange
+end;//TMainPrimForm.fLeftNavigatorStateChange
 
-procedure TMainPrimForm.FLeftNavigatorLoadSize(Sender: TObject;
-  var aSize: Integer);
+procedure TMainPrimForm.fLeftNavigatorLoadSize(Sender: TObject;
+ var aSize: Integer);
 //#UC START# *4F7B02C1038C_4F6B382E00D9_var*
 //#UC END# *4F7B02C1038C_4F6B382E00D9_var*
 begin
 //#UC START# *4F7B02C1038C_4F6B382E00D9_impl*
  aSize := afw.Settings.LoadInteger(pi_Navigator_LeftSize, dv_Navigator_LeftSize);
 //#UC END# *4F7B02C1038C_4F6B382E00D9_impl*
-end;//TMainPrimForm.FLeftNavigatorLoadSize
+end;//TMainPrimForm.fLeftNavigatorLoadSize
 
-{$If defined(HasRightNavigator)}
-procedure TMainPrimForm.FRightNavigatorSaveSize(Sender: TObject;
-  aSize: Integer);
+{$If Defined(HasRightNavigator)}
+procedure TMainPrimForm.fRightNavigatorSaveSize(Sender: TObject;
+ aSize: Integer);
 //#UC START# *4F7B030202AF_4F6B382E00D9_var*
 //#UC END# *4F7B030202AF_4F6B382E00D9_var*
 begin
 //#UC START# *4F7B030202AF_4F6B382E00D9_impl*
  afw.Settings.SaveInteger(pi_Navigator_RightSize, aSize);
 //#UC END# *4F7B030202AF_4F6B382E00D9_impl*
-end;//TMainPrimForm.FRightNavigatorSaveSize
-{$IfEnd} //HasRightNavigator
+end;//TMainPrimForm.fRightNavigatorSaveSize
+{$IfEnd} // Defined(HasRightNavigator)
 
-{$If defined(HasRightNavigator)}
-procedure TMainPrimForm.FRightNavigatorStateChange(Sender: TObject);
+{$If Defined(HasRightNavigator)}
+procedure TMainPrimForm.fRightNavigatorStateChange(Sender: TObject);
 //#UC START# *4F7B0324026C_4F6B382E00D9_var*
 //#UC END# *4F7B0324026C_4F6B382E00D9_var*
 begin
 //#UC START# *4F7B0324026C_4F6B382E00D9_impl*
  afw.Settings.SaveInteger(pi_RightNavigator, Ord(RightNavigator.State));
 //#UC END# *4F7B0324026C_4F6B382E00D9_impl*
-end;//TMainPrimForm.FRightNavigatorStateChange
-{$IfEnd} //HasRightNavigator
+end;//TMainPrimForm.fRightNavigatorStateChange
+{$IfEnd} // Defined(HasRightNavigator)
 
-{$If defined(HasRightNavigator)}
-procedure TMainPrimForm.FRightNavigatorLoadSize(Sender: TObject;
-  var aSize: Integer);
+{$If Defined(HasRightNavigator)}
+procedure TMainPrimForm.fRightNavigatorLoadSize(Sender: TObject;
+ var aSize: Integer);
 //#UC START# *4F7B03520229_4F6B382E00D9_var*
 //#UC END# *4F7B03520229_4F6B382E00D9_var*
 begin
 //#UC START# *4F7B03520229_4F6B382E00D9_impl*
  aSize := afw.Settings.LoadInteger(pi_Navigator_RightSize, dv_Navigator_RightSize);
 //#UC END# *4F7B03520229_4F6B382E00D9_impl*
-end;//TMainPrimForm.FRightNavigatorLoadSize
-{$IfEnd} //HasRightNavigator
+end;//TMainPrimForm.fRightNavigatorLoadSize
+{$IfEnd} // Defined(HasRightNavigator)
 
-{$If defined(HasRightNavigator)}
+{$If Defined(HasRightNavigator)}
 procedure TMainPrimForm.SaveRightNavigatorSize;
 //#UC START# *4F7B07610146_4F6B382E00D9_var*
 //#UC END# *4F7B07610146_4F6B382E00D9_var*
@@ -483,9 +457,9 @@ begin
  afw.Settings.SaveInteger(pi_Navigator_RightSize, RightNavigator.SizeNormal);
 //#UC END# *4F7B07610146_4F6B382E00D9_impl*
 end;//TMainPrimForm.SaveRightNavigatorSize
-{$IfEnd} //HasRightNavigator
+{$IfEnd} // Defined(HasRightNavigator)
 
-{$If defined(HasRightNavigator)}
+{$If Defined(HasRightNavigator)}
 procedure TMainPrimForm.LoadRightNavigatorSize;
 //#UC START# *4F7B077502AC_4F6B382E00D9_var*
 //#UC END# *4F7B077502AC_4F6B382E00D9_var*
@@ -495,7 +469,7 @@ begin
   dv_Navigator_RightSize);
 //#UC END# *4F7B077502AC_4F6B382E00D9_impl*
 end;//TMainPrimForm.LoadRightNavigatorSize
-{$IfEnd} //HasRightNavigator
+{$IfEnd} // Defined(HasRightNavigator)
 
 procedure TMainPrimForm.SaveLeftNavigatorSize;
 //#UC START# *4F7B0786002B_4F6B382E00D9_var*
@@ -515,42 +489,6 @@ begin
   dv_Navigator_LeftSize);
 //#UC END# *4F7B079B001C_4F6B382E00D9_impl*
 end;//TMainPrimForm.LoadLeftNavigatorSize
-
-procedure TMainPrimForm.ActivateDefKeyboardLayout;
-//#UC START# *4F71FA8102BF_4F6B382E00D9_var*
-//#UC END# *4F71FA8102BF_4F6B382E00D9_var*
-begin
-//#UC START# *4F71FA8102BF_4F6B382E00D9_impl*
- // - ничего не делаем
-//#UC END# *4F71FA8102BF_4F6B382E00D9_impl*
-end;//TMainPrimForm.ActivateDefKeyboardLayout
-
-procedure TMainPrimForm.InitClone(aForm: TvcmMainForm);
-//#UC START# *4F7AE85E01EF_4F6B382E00D9_var*
-//#UC END# *4F7AE85E01EF_4F6B382E00D9_var*
-begin
-//#UC START# *4F7AE85E01EF_4F6B382E00D9_impl*
- // - ничего не делаем, пусть потомки делают
-//#UC END# *4F7AE85E01EF_4F6B382E00D9_impl*
-end;//TMainPrimForm.InitClone
-
-procedure TMainPrimForm.VcmMainFormAfterInsertForm(const aForm: IvcmEntityForm);
-//#UC START# *4F7AEC7F03CB_4F6B382E00D9_var*
-//#UC END# *4F7AEC7F03CB_4F6B382E00D9_var*
-begin
-//#UC START# *4F7AEC7F03CB_4F6B382E00D9_impl*
- nsSetPageIcon(aForm);
-//#UC END# *4F7AEC7F03CB_4F6B382E00D9_impl*
-end;//TMainPrimForm.VcmMainFormAfterInsertForm
-
-procedure TMainPrimForm.DropChangeStatusToOpened;
-//#UC START# *4F7AED150304_4F6B382E00D9_var*
-//#UC END# *4F7AED150304_4F6B382E00D9_var*
-begin
-//#UC START# *4F7AED150304_4F6B382E00D9_impl*
- // - ничего не делаем, пусть потомки разбираются
-//#UC END# *4F7AED150304_4F6B382E00D9_impl*
-end;//TMainPrimForm.DropChangeStatusToOpened
 
 procedure TMainPrimForm.LoadSettings;
 //#UC START# *4F7B0815025A_4F6B382E00D9_var*
@@ -702,6 +640,7 @@ begin
 end;//TMainPrimForm.GetCurrentOpenedWindowsCount
 
 procedure TMainPrimForm.CorrectHeight(var aHeight: Integer);
+ {* корректирует при необходимости высоту дочерней зоны }
 //#UC START# *499037820017_4F6B382E00D9_var*
 var
  l_AvailableHeight: Integer;
@@ -726,11 +665,11 @@ begin
 //#UC END# *4AE8744002F3_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_ShowSplitter_Execute
 
-procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
+procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
 begin
  with (aParams.Data As ICommon_ShowSplitter_Params) do
-  Common_ShowSplitter_Execute(Visible);
-end;
+  Self.Common_ShowSplitter_Execute(Visible);
+end;//TMainPrimForm.Common_ShowSplitter
 
 procedure TMainPrimForm.Common_CheckChildZone_Execute(aToggle: Boolean);
 //#UC START# *4AE8777F01A3_4F6B382E00D9exec_var*
@@ -755,13 +694,12 @@ begin
 //#UC END# *4AE8777F01A3_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_CheckChildZone_Execute
 
-procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParams);
+procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
 begin
  with (aParams.Data As ICommon_CheckChildZone_Params) do
-  Common_CheckChildZone_Execute(Toggle);
-end;
+  Self.Common_CheckChildZone_Execute(Toggle);
+end;//TMainPrimForm.Common_CheckChildZone
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A30B60087_4F6B382E00D9test_var*
 //#UC END# *4C8A30B60087_4F6B382E00D9test_var*
@@ -776,9 +714,7 @@ begin
 {$ifend}
 //#UC END# *4C8A30B60087_4F6B382E00D9test_impl*
 end;//TMainPrimForm.Common_OpenNewWindowByUser_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_OpenNewWindowByUser_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A30B60087_4F6B382E00D9exec_var*
 //#UC END# *4C8A30B60087_4F6B382E00D9exec_var*
@@ -792,9 +728,7 @@ begin
  end;//try..finally
 //#UC END# *4C8A30B60087_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_OpenNewWindowByUser_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_GetWindowList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A30DB001D_4F6B382E00D9test_var*
 var
@@ -838,9 +772,7 @@ begin
 {$ifend}
 //#UC END# *4C8A30DB001D_4F6B382E00D9test_impl*
 end;//TMainPrimForm.Common_GetWindowList_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_GetWindowList_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A30DB001D_4F6B382E00D9exec_var*
 var
@@ -866,9 +798,7 @@ begin
  end;//with Dispatcher.FormDispatcher
 //#UC END# *4C8A30DB001D_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_GetWindowList_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_CascadeWindows_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A30F30115_4F6B382E00D9test_var*
 //#UC END# *4C8A30F30115_4F6B382E00D9test_var*
@@ -880,9 +810,7 @@ begin
 {$ifend}
 //#UC END# *4C8A30F30115_4F6B382E00D9test_impl*
 end;//TMainPrimForm.Common_CascadeWindows_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_CascadeWindows_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A30F30115_4F6B382E00D9exec_var*
 //#UC END# *4C8A30F30115_4F6B382E00D9exec_var*
@@ -891,9 +819,7 @@ begin
  DoCascadeWindows;
 //#UC END# *4C8A30F30115_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_CascadeWindows_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_TileWindowsHorizontal_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A3114001E_4F6B382E00D9test_var*
 //#UC END# *4C8A3114001E_4F6B382E00D9test_var*
@@ -905,9 +831,7 @@ begin
 {$ifend}
 //#UC END# *4C8A3114001E_4F6B382E00D9test_impl*
 end;//TMainPrimForm.Common_TileWindowsHorizontal_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_TileWindowsHorizontal_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A3114001E_4F6B382E00D9exec_var*
 //#UC END# *4C8A3114001E_4F6B382E00D9exec_var*
@@ -916,9 +840,7 @@ begin
  DoTileWindowsHorizontal;
 //#UC END# *4C8A3114001E_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_TileWindowsHorizontal_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_TileWindowsVertical_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A312F018D_4F6B382E00D9test_var*
 //#UC END# *4C8A312F018D_4F6B382E00D9test_var*
@@ -930,9 +852,7 @@ begin
 {$ifend}
 //#UC END# *4C8A312F018D_4F6B382E00D9test_impl*
 end;//TMainPrimForm.Common_TileWindowsVertical_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_TileWindowsVertical_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A312F018D_4F6B382E00D9exec_var*
 //#UC END# *4C8A312F018D_4F6B382E00D9exec_var*
@@ -941,9 +861,7 @@ begin
  DoTileWindowsVertical;
 //#UC END# *4C8A312F018D_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_TileWindowsVertical_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_CloseAllWindows_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8A31770143_4F6B382E00D9test_var*
 //#UC END# *4C8A31770143_4F6B382E00D9test_var*
@@ -957,9 +875,7 @@ begin
 {$ifend}
 //#UC END# *4C8A31770143_4F6B382E00D9test_impl*
 end;//TMainPrimForm.Common_CloseAllWindows_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.Common_CloseAllWindows_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A31770143_4F6B382E00D9exec_var*
 //#UC END# *4C8A31770143_4F6B382E00D9exec_var*
@@ -968,9 +884,9 @@ begin
  DoCloseAllWindows;
 //#UC END# *4C8A31770143_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_CloseAllWindows_Execute
-{$IfEnd} //not NoVCM
 
 procedure TMainPrimForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F6B382E00D9_var*
 //#UC END# *479731C50290_4F6B382E00D9_var*
 begin
@@ -1000,8 +916,8 @@ begin
 //#UC END# *47D1602000C6_4F6B382E00D9_impl*
 end;//TMainPrimForm.Create
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B382E00D9_var*
 //#UC END# *49803F5503AA_4F6B382E00D9_var*
 begin
@@ -1017,10 +933,9 @@ begin
  f_NeedSwitchKeyboard := (Dispatcher.FormDispatcher.MainFormsCount = 1);
 //#UC END# *49803F5503AA_4F6B382E00D9_impl*
 end;//TMainPrimForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F6B382E00D9_var*
 //#UC END# *4A8E8F2E0195_4F6B382E00D9_var*
 begin
@@ -1152,9 +1067,8 @@ begin
  RequestAlign; 
 //#UC END# *4A8E8F2E0195_4F6B382E00D9_impl*
 end;//TMainPrimForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TMainPrimForm.DoShow;
 //#UC START# *4B321D1301DD_4F6B382E00D9_var*
 //#UC END# *4B321D1301DD_4F6B382E00D9_var*
@@ -1168,9 +1082,8 @@ begin
  end;//f_NeedSwitchKeyboard
 //#UC END# *4B321D1301DD_4F6B382E00D9_impl*
 end;//TMainPrimForm.DoShow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.DoSaveInSettings;
 //#UC START# *4F7B072201AA_4F6B382E00D9_var*
 //#UC END# *4F7B072201AA_4F6B382E00D9_var*
@@ -1194,9 +1107,7 @@ begin
  end;//with afw.Settings
 //#UC END# *4F7B072201AA_4F6B382E00D9_impl*
 end;//TMainPrimForm.DoSaveInSettings
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TMainPrimForm.DispatcherCreated;
 //#UC START# *4F7B0CF50022_4F6B382E00D9_var*
 //#UC END# *4F7B0CF50022_4F6B382E00D9_var*
@@ -1207,136 +1118,18 @@ begin
  MenuManager.LoadShortcuts;
 //#UC END# *4F7B0CF50022_4F6B382E00D9_impl*
 end;//TMainPrimForm.DispatcherCreated
-{$IfEnd} //not NoVCM
 
 procedure TMainPrimForm.ClearFields;
- {-}
 begin
  f_OldCaption := nil;
  inherited;
 end;//TMainPrimForm.ClearFields
 
-procedure TMainPrimForm.InitEntities;
-begin
- inherited;
- with Entities.Entities do
- begin
-  PublishFormEntity(en_Common, nil);
-  PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
-  PublishOpWithResult(en_Common, op_CheckChildZone, Common_CheckChildZone, nil, nil);
-  {$If not defined(NoVCM)}
-  PublishOp(en_Common, op_OpenNewWindowByUser, Common_OpenNewWindowByUser_Execute, Common_OpenNewWindowByUser_Test, nil);
-  ShowInContextMenu(en_Common, op_OpenNewWindowByUser, false);
-  ShowInToolbar(en_Common, op_OpenNewWindowByUser, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  PublishOp(en_Common, op_GetWindowList, Common_GetWindowList_Execute, Common_GetWindowList_Test, nil);
-  ShowInContextMenu(en_Common, op_GetWindowList, false);
-  ShowInToolbar(en_Common, op_GetWindowList, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  PublishOp(en_Common, op_CascadeWindows, Common_CascadeWindows_Execute, Common_CascadeWindows_Test, nil);
-  ShowInContextMenu(en_Common, op_CascadeWindows, false);
-  ShowInToolbar(en_Common, op_CascadeWindows, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  PublishOp(en_Common, op_TileWindowsHorizontal, Common_TileWindowsHorizontal_Execute, Common_TileWindowsHorizontal_Test, nil);
-  ShowInContextMenu(en_Common, op_TileWindowsHorizontal, false);
-  ShowInToolbar(en_Common, op_TileWindowsHorizontal, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  PublishOp(en_Common, op_TileWindowsVertical, Common_TileWindowsVertical_Execute, Common_TileWindowsVertical_Test, nil);
-  ShowInContextMenu(en_Common, op_TileWindowsVertical, false);
-  ShowInToolbar(en_Common, op_TileWindowsVertical, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  PublishOp(en_Common, op_CloseAllWindows, Common_CloseAllWindows_Execute, Common_CloseAllWindows_Test, nil);
-  ShowInContextMenu(en_Common, op_CloseAllWindows, false);
-  ShowInToolbar(en_Common, op_CloseAllWindows, false);
-  {$IfEnd} //not NoVCM
-
- end;//with Entities.Entities
-end;
-
-procedure TMainPrimForm.MakeControls;
-begin
- inherited;
- f_StatusBar := TnscStatusBar.Create(Self);
- f_StatusBar.Name := 'StatusBar';
- f_StatusBar.Parent := Self;
- f_ClientZone := TvtPanel.Create(Self);
- f_ClientZone.Name := 'ClientZone';
- f_ClientZone.Parent := Self;
- f_MainZone := TvtProportionalPanel.Create(Self);
- f_MainZone.Name := 'MainZone';
- f_MainZone.Parent := ClientZone;
- f_ParentZonePanel := TvtPanel.Create(Self);
- f_ParentZonePanel.Name := 'ParentZonePanel';
- f_ParentZonePanel.Parent := MainZone;
- with DefineZone(vcm_ztParent, f_ParentZonePanel) do
- begin
-  //#UC START# *4F6B3F1401A7*
-  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
-  FormStyle.Toolbars.Bottom.ImageSize := isLarge;
-  Self.TasksPanelZone := Index;
-  //#UC END# *4F6B3F1401A7*
- end;//with DefineZone(vcm_ztParent, f_ParentZonePanel)
- f_ChildZonePanel := TvtSizeablePanel.Create(Self);
- f_ChildZonePanel.Name := 'ChildZonePanel';
- f_ChildZonePanel.Parent := MainZone;
- with DefineZone(vcm_ztChild, f_ChildZonePanel) do
- begin
- end;//with DefineZone(vcm_ztChild, f_ChildZonePanel)
- f_BaseSearchPanel := TvtPanel.Create(Self);
- f_BaseSearchPanel.Name := 'BaseSearchPanel';
- f_BaseSearchPanel.Parent := ClientZone;
- with DefineZone(vcm_ztMain, f_BaseSearchPanel) do
- begin
- end;//with DefineZone(vcm_ztMain, f_BaseSearchPanel)
- f_LeftNavigator := TnscNavigator.Create(Self);
- f_LeftNavigator.Name := 'LeftNavigator';
- f_LeftNavigator.Parent := ClientZone;
- with DefineZone(vcm_ztNavigator, f_LeftNavigator) do
- begin
-  CanClose := vcm_ccEnable;
-  //#UC START# *4F6B38AA020C*
-  //Self.TasksPanelZone := Index;
-  CanUndock := True;
-  //CanClose = vcm_ccEnable
-  FormStyle.Toolbars.Left.ImageSize := isSmall;
-  FormStyle.Toolbars.Right.ImageSize := isSmall;
-  FormStyle.Toolbars.Top.ImageSize := isSmall;
-  FormStyle.Toolbars.Bottom.ImageSize := isSmall;
-  //#UC END# *4F6B38AA020C*
- end;//with DefineZone(vcm_ztNavigator, f_LeftNavigator)
-{$If defined(HasRightNavigator)}
- f_RightNavigator := TnscNavigator.Create(Self);
- f_RightNavigator.Name := 'RightNavigator';
- f_RightNavigator.Parent := ClientZone;
- with DefineZone(vcm_ztNavigator, f_RightNavigator) do
- begin
-  CanClose := vcm_ccEnable;
-  //#UC START# *4F6B38BE03C7*
-  CanUndock := True;
-  //CanClose = vcm_ccEnable
-  FormStyle.Toolbars.Left.ImageSize := isSmall;
-  FormStyle.Toolbars.Right.ImageSize := isSmall;
-  FormStyle.Toolbars.Top.ImageSize := isSmall;
-  FormStyle.Toolbars.Bottom.ImageSize := isSmall;
-  //#UC END# *4F6B38BE03C7*
- end;//with DefineZone(vcm_ztNavigator, f_RightNavigator)
-{$IfEnd} //HasRightNavigator
-end;
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация MainPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMainPrimForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация MainPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -44,6 +44,16 @@ uses
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , sdsAAC
+ , AACContainer_Form
+ , AACContentsContainer_Form
+ , fsAACContents
+ , fsAAC
+ {$If NOT Defined(NoScripts)}
+ , AACContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , AACContentsContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

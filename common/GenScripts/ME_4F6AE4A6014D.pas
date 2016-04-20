@@ -48,6 +48,11 @@ uses
  , Windows
  , l3MessageID
  , evExtFormat
+ , NewGenMainPrim_Form
+ , Main_Form
+ {$If NOT Defined(NoScripts)}
+ , MainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

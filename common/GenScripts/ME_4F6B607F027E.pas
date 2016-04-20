@@ -36,6 +36,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , moParentAndChild
  , vtStdRes
+ , MainPrim_Form
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -666,7 +666,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , ToK in 'w:\common\components\SearchTest\ToK.pas'
  {$If NOT Defined(NotTunedDUnit)}
  , KTestRunner in 'w:\common\components\rtl\Garant\DUnitTuning\KTestRunner.pas'

@@ -56,6 +56,10 @@ uses
  , BaseTypesUnit
  , nsFolders
  , FoldersDomainInterfaces
+ , UnderControl_Form
+ {$If NOT Defined(NoScripts)}
+ , UnderControlKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

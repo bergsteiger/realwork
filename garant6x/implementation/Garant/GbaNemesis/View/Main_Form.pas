@@ -1,145 +1,53 @@
 unit Main_Form;
+ {* Главная форма }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Main_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::PrimNemesis::Main
-//
-// Главная форма
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Main_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "Main" MUID: (4A952BA3006D)
+// Имя типа: "TMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages,
-  F1_Without_Usecases_System_Controls,
-  BaseSearchInterfaces,
-  MainOptions_Form,
-  PrimBaseSearchInterfaces,
-  nsNotificationManager,
-  l3TabbedContainersDispatcher,
-  Classes,
-  Windows,
-  nsIntegrationSupport,
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MainOptions_Form
+ , l3Interfaces
+ , PrimBaseSearchInterfaces
+ , BaseSearchInterfaces
+ , F1_Without_Usecases_System_Controls
+ , nsNotificationManager
+ , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Messages
+ , Windows
+ , nsIntegrationSupport
+ , Classes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TMainForm = {form} class(TMainOptionsForm, Il3ItemNotifyRecipient, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsBaseSearchWindowOpener, InsBaseSearchQueryDataProcessor, Il3MouseWheelListener, InsIntegrationProcessor, InsNotificationListener, InsBaseSearchInitialStateProvider, Il3TabbedContainersListener, InsBaseSearcherProvider)
+ TMainForm = class(TMainOptionsForm, Il3ItemNotifyRecipient, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsBaseSearchQueryDataProcessor, Il3MouseWheelListener, InsIntegrationProcessor, InsNotificationListener, InsBaseSearchInitialStateProvider, Il3TabbedContainersListener, InsBaseSearcherProvider)
   {* Главная форма }
- private
- // private fields
-   f_StartupTipsForm : IvcmEntityForm;
-   f_InitialContext : Il3CString;
- protected
-  procedure InitEntities; override;
- private
- // private methods
+  private
+   f_StartupTipsForm: IvcmEntityForm;
+   f_InitialContext: Il3CString;
+  protected
+   f_BaseSearcher: InsBaseSearcher;
+   f_LastWMActivateTickCount: Cardinal;
+   f_ActivatesCount: Cardinal;
+  private
    procedure CorrectStartupTipsPosition;
-     {* Сигнатура метода CorrectStartupTipsPosition }
    procedure NotifyBaseSearcherFormClosing;
-     {* Сигнатура метода NotifyBaseSearcherFormClosing }
    procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
    procedure WMActivateApp(var Message: TWMActivateApp); message WM_ACTIVATEAPP;
    procedure WMCopyData(var aMessage: TWMCopyData); message WM_COPYDATA;
    procedure WMDisplayChange(var aMessage: TWMDisplayChange); message WM_DISPLAYCHANGE;
    procedure WMWindowPosChanging(var aMessage: TWMWindowPosChanging); message WM_WINDOWPOSCHANGING;
- protected
- // realized methods
-   procedure Notify(const aNotifier: Il3ChangeNotifier;
-    aOperation: Integer;
-    aIndex: Integer);
-     {* прошла операция. }
-   procedure CheckLocalDataReady;
-   procedure SearchResultEmpty(TryFullList: Boolean);
-   procedure SearchResultExists;
-   procedure AnotherSearchSuccessed;
-   procedure OpenWindow(OpenKind: TnsBaseSearchOpenKind);
-   procedure SetDataFromQuery(const aQuery: IUnknown);
-   procedure RequestFind;
-   procedure RequestCheckFragmentsCount;
-   procedure RequestCheckFindBack;
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   procedure AnotherSearchCancelled;
-   procedure MouseWheelListenerNotify(Msg: PMsg;
-     var theResult: Tl3HookProcResult);
-   function ProcessCommand(aCommand: Integer;
-      InNewWindow: Boolean;
-      const aContainer: IvcmContainer): Boolean;
-   function ProcessLink(aLink: PnsLinkDataArray): Boolean;
-   function CheckKey(aKey: PnsLinkDataArray): Boolean;
-   procedure CheckInconic;
-   procedure Common_MemUsage_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure NsNotification(aType: TnsNotificationType);
-   function pm_GetInitialState: InsBaseSearcherInitialState;
-   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
-   function pm_GetStateForClone: InsBaseSearcherInitialState;
-   function Get_BaseSearcher: InsBaseSearcher;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure FinishDataUpdate; override;
-   procedure SettingsReplaceFinish; override;
-   procedure UserSettingsChanged; override;
-     {* Изменились настройки пользователя }
-   procedure StartSettingsEdit; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   procedure ReleaseResources; override;
-     {* Сигнатура метода ReleaseResources }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
-     aForClone: Boolean); override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected fields
-   f_BaseSearcher : InsBaseSearcher;
-   f_LastWMActivateTickCount : Cardinal;
-   f_ActivatesCount : Cardinal;
- protected
- // protected methods
+  protected
    procedure UpdateUnreadConsultations;
    procedure InitForm;
    procedure PrepareChildZoneBeforeResize(aNewHeight: Integer);
@@ -151,128 +59,136 @@ type
    function CanFirstLoginActivity: Boolean;
    function CheckInstallDefaultSettings: Boolean;
    function IntegrationInProcess: Boolean;
-   procedure VcmMainFormShow(Sender: TObject);
+   procedure vcmMainFormShow(Sender: TObject);
    procedure CheckConsultationManagerStatus;
+   procedure Notify(const aNotifier: Il3ChangeNotifier;
+    aOperation: Integer;
+    aIndex: Integer);
+    {* прошла операция. }
+   procedure CheckLocalDataReady;
+   procedure SearchResultEmpty(TryFullList: Boolean);
+   procedure SearchResultExists;
+   procedure AnotherSearchSuccessed;
+   procedure SetDataFromQuery(const aQuery: IUnknown);
+   procedure RequestFind;
+   procedure RequestCheckFragmentsCount;
+   procedure RequestCheckFindBack;
+   procedure AnotherSearchCancelled;
+   procedure MouseWheelListenerNotify(Msg: PMsg;
+    var theResult: Tl3HookProcResult);
+   function ProcessCommand(aCommand: Integer;
+    InNewWindow: Boolean;
+    const aContainer: IvcmContainer): Boolean;
+   function ProcessLink(aLink: PnsLinkDataArray): Boolean;
+   function CheckKey(aKey: PnsLinkDataArray): Boolean;
+   procedure CheckInconic;
+   procedure nsNotification(aType: TnsNotificationType);
+   function pm_GetInitialState: InsBaseSearcherInitialState;
+   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
+   function pm_GetStateForClone: InsBaseSearcherInitialState;
+   function Get_BaseSearcher: InsBaseSearcher;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
+   procedure SettingsReplaceFinish; override;
+   procedure UserSettingsChanged; override;
+    {* Изменились настройки пользователя }
+   procedure StartSettingsEdit; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ReleaseResources; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
+    aForClone: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure Common_MemUsage_Execute(const aParams: IvcmExecuteParamsPrim);
+   constructor Create(AOwner: TComponent); override;
  end;//TMainForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  nsConst,
-  nsQueryInterfaces,
-  IOUnit,
-  l3String,
-  DataAdapter,
-  nsOpenUtils,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  BaseTypesUnit,
-  bsTypes,
-  nsManagers
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsBaseSearcher,
-  nsQueryUtils,
-  nsContextHistory,
-  MemoryUsage_Form
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  l3AsincMessageWindow,
-  l3SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  IntegrationProjectUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmMenuManager
-  {$IfEnd} //not NoVCM
-  ,
-  l3ListenersManager,
-  HelpIntfs,
-  vtVerInf,
-  SettingsUnit
-  {$If not defined(NoVCM)}
-  ,
-  nsWindowsList
-  {$IfEnd} //not NoVCM
-  ,
-  nsConfiguration,
-  nsValueMaps,
-  resWarnImages,
-  nsValueMapsIDs,
-  nsSettingsUtils,
-  ContextHistoryInterfaces
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsBaseSearchService
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , afwFacade
+ , nsConst
+ , nsQueryInterfaces
+ , IOUnit
+ , l3String
+ , DataAdapter
+ , nsOpenUtils
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , BaseTypesUnit
+ , bsTypes
+ , nsManagers
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsBaseSearcher
+ , nsQueryUtils
+ , nsContextHistory
+ , MemoryUsage_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3AsincMessageWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IntegrationProjectUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmMenuManager
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ListenersManager
+ , HelpIntfs
+ , vtVerInf
+ , SettingsUnit
+ {$If NOT Defined(NoVCM)}
+ , nsWindowsList
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsConfiguration
+ , nsValueMaps
+ , resWarnImages
+ , nsValueMapsIDs
+ , nsSettingsUtils
+ , ContextHistoryInterfaces
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsBaseSearchService
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   g_IntegrationMessage : Cardinal = 0;
-var
-   g_LastMainWindowMessage : Cardinal = 0;
-
-// start class TMainForm
-
-procedure TMainForm.CorrectStartupTipsPosition;
-//#UC START# *5411B2D10071_4A952BA3006D_var*
-var
- l_WndPos: TPoint;
-//#UC END# *5411B2D10071_4A952BA3006D_var*
-begin
-//#UC START# *5411B2D10071_4A952BA3006D_impl*
- if Assigned(f_StartupTipsForm) and
-    Assigned(f_StartupTipsForm.VCLWinControl) then
- try
-  l_WndPos := ClientToScreen(Point(0, 0));
-
-  with f_StartupTipsForm.VCLWinControl do
-   SetBounds(l_WndPos.X + (Self.Width - Width) div 2,
-             l_WndPos.Y + (Self.Height - Height) div 2,
-             Width, Height);
- finally
-  f_StartupTipsForm := nil;
- end;
-//#UC END# *5411B2D10071_4A952BA3006D_impl*
-end;//TMainForm.CorrectStartupTipsPosition
-
-procedure TMainForm.NotifyBaseSearcherFormClosing;
-//#UC START# *55CC2C9101F8_4A952BA3006D_var*
-//#UC END# *55CC2C9101F8_4A952BA3006D_var*
-begin
-//#UC START# *55CC2C9101F8_4A952BA3006D_impl*
- if (f_BaseSearcher <> nil) then
-  f_BaseSearcher.ContainerIsClosing;
-//#UC END# *55CC2C9101F8_4A952BA3006D_impl*
-end;//TMainForm.NotifyBaseSearcherFormClosing
+var g_IntegrationMessage: Cardinal = 0;
+var g_LastMainWindowMessage: Cardinal = 0;
 
 procedure TMainForm.UpdateUnreadConsultations;
 //#UC START# *4F88013F007B_4A952BA3006D_var*
@@ -540,7 +456,7 @@ begin
 //#UC END# *4F8BF41E00D8_4A952BA3006D_impl*
 end;//TMainForm.IntegrationInProcess
 
-procedure TMainForm.VcmMainFormShow(Sender: TObject);
+procedure TMainForm.vcmMainFormShow(Sender: TObject);
 //#UC START# *4F8BF5C602C3_4A952BA3006D_var*
 //#UC END# *4F8BF5C602C3_4A952BA3006D_var*
 begin
@@ -549,7 +465,29 @@ begin
   ShowStartupAdvertising;
  TdmStdRes.MakeChatDispatcher.StartProcessing;
 //#UC END# *4F8BF5C602C3_4A952BA3006D_impl*
-end;//TMainForm.VcmMainFormShow
+end;//TMainForm.vcmMainFormShow
+
+procedure TMainForm.CorrectStartupTipsPosition;
+//#UC START# *5411B2D10071_4A952BA3006D_var*
+var
+ l_WndPos: TPoint;
+//#UC END# *5411B2D10071_4A952BA3006D_var*
+begin
+//#UC START# *5411B2D10071_4A952BA3006D_impl*
+ if Assigned(f_StartupTipsForm) and
+    Assigned(f_StartupTipsForm.VCLWinControl) then
+ try
+  l_WndPos := ClientToScreen(Point(0, 0));
+
+  with f_StartupTipsForm.VCLWinControl do
+   SetBounds(l_WndPos.X + (Self.Width - Width) div 2,
+             l_WndPos.Y + (Self.Height - Height) div 2,
+             Width, Height);
+ finally
+  f_StartupTipsForm := nil;
+ end;
+//#UC END# *5411B2D10071_4A952BA3006D_impl*
+end;//TMainForm.CorrectStartupTipsPosition
 
 procedure TMainForm.CheckConsultationManagerStatus;
 //#UC START# *550144FA0072_4A952BA3006D_var*
@@ -577,6 +515,16 @@ begin
   CheckInternetConnection;
 //#UC END# *550144FA0072_4A952BA3006D_impl*
 end;//TMainForm.CheckConsultationManagerStatus
+
+procedure TMainForm.NotifyBaseSearcherFormClosing;
+//#UC START# *55CC2C9101F8_4A952BA3006D_var*
+//#UC END# *55CC2C9101F8_4A952BA3006D_var*
+begin
+//#UC START# *55CC2C9101F8_4A952BA3006D_impl*
+ if (f_BaseSearcher <> nil) then
+  f_BaseSearcher.ContainerIsClosing;
+//#UC END# *55CC2C9101F8_4A952BA3006D_impl*
+end;//TMainForm.NotifyBaseSearcherFormClosing
 
 procedure TMainForm.WMActivate(var Message: TWMActivate);
 //#UC START# *4F882B3402EB_4A952BA3006D_var*
@@ -743,8 +691,9 @@ begin
 end;//TMainForm.WMWindowPosChanging
 
 procedure TMainForm.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_4A952BA3006D_var*
 //#UC END# *46A4504B03C4_4A952BA3006D_var*
 begin
@@ -803,15 +752,6 @@ begin
 //#UC END# *496B4FD20320_4A952BA3006D_impl*
 end;//TMainForm.AnotherSearchSuccessed
 
-procedure TMainForm.OpenWindow(OpenKind: TnsBaseSearchOpenKind);
-//#UC START# *496B52D602EE_4A952BA3006D_var*
-//#UC END# *496B52D602EE_4A952BA3006D_var*
-begin
-//#UC START# *496B52D602EE_4A952BA3006D_impl*
- BaseSearcher.ShowWindowByUser(OpenKind);
-//#UC END# *496B52D602EE_4A952BA3006D_impl*
-end;//TMainForm.OpenWindow
-
 procedure TMainForm.SetDataFromQuery(const aQuery: IUnknown);
 //#UC START# *496B534B0098_4A952BA3006D_var*
 var
@@ -865,8 +805,9 @@ begin
 //#UC END# *4A13A97F0211_4A952BA3006D_impl*
 end;//TMainForm.RequestCheckFindBack
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_4A952BA3006Dtest_var*
 //#UC END# *4AC5D61E0284_4A952BA3006Dtest_var*
 begin
@@ -874,21 +815,11 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4AC5D61E0284_4A952BA3006Dtest_impl*
 end;//TMainForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TMainForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_var*
-//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_var*
-begin
-//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
- // - ничего не делаем
-//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
-end;//TMainForm.Result_Cancel_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_4A952BA3006Dexec_var*
 //#UC END# *4AC5D61E0284_4A952BA3006Dexec_var*
 begin
@@ -896,7 +827,19 @@ begin
  Dispatcher.History.Back;
 //#UC END# *4AC5D61E0284_4A952BA3006Dexec_impl*
 end;//TMainForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_var*
+//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_var*
+begin
+//#UC START# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_4A952BA3006Dgetstate_impl*
+end;//TMainForm.Result_Cancel_GetState
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TMainForm.AnotherSearchCancelled;
 //#UC START# *4C04AFC8015D_4A952BA3006D_var*
@@ -911,7 +854,7 @@ begin
 end;//TMainForm.AnotherSearchCancelled
 
 procedure TMainForm.MouseWheelListenerNotify(Msg: PMsg;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79D08A02C7_4A952BA3006D_var*
 var
  l_Rect: TRect;
@@ -933,8 +876,8 @@ begin
 end;//TMainForm.MouseWheelListenerNotify
 
 function TMainForm.ProcessCommand(aCommand: Integer;
-  InNewWindow: Boolean;
-  const aContainer: IvcmContainer): Boolean;
+ InNewWindow: Boolean;
+ const aContainer: IvcmContainer): Boolean;
 //#UC START# *4F86BF5F0198_4A952BA3006D_var*
 var
  l_FormToActivate: TCustomForm;
@@ -1079,7 +1022,7 @@ begin
 //#UC END# *4F88213001DE_4A952BA3006Dexec_impl*
 end;//TMainForm.Common_MemUsage_Execute
 
-procedure TMainForm.NsNotification(aType: TnsNotificationType);
+procedure TMainForm.nsNotification(aType: TnsNotificationType);
 //#UC START# *542BF11D00B6_4A952BA3006D_var*
 //#UC END# *542BF11D00B6_4A952BA3006D_var*
 begin
@@ -1087,7 +1030,7 @@ begin
  if aType = ntMainFormBecomeTopmostAtStartup then
   ShowStartupAdvertising;
 //#UC END# *542BF11D00B6_4A952BA3006D_impl*
-end;//TMainForm.NsNotification
+end;//TMainForm.nsNotification
 
 function TMainForm.pm_GetInitialState: InsBaseSearcherInitialState;
 //#UC START# *54327CCD0178_4A952BA3006Dget_var*
@@ -1131,6 +1074,7 @@ begin
 end;//TMainForm.Get_BaseSearcher
 
 procedure TMainForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A952BA3006D_var*
 //#UC END# *479731C50290_4A952BA3006D_var*
 begin
@@ -1183,6 +1127,7 @@ begin
 end;//TMainForm.SettingsReplaceFinish
 
 procedure TMainForm.UserSettingsChanged;
+ {* Изменились настройки пользователя }
 //#UC START# *4958BE910345_4A952BA3006D_var*
 //#UC END# *4958BE910345_4A952BA3006D_var*
 begin
@@ -1202,8 +1147,9 @@ begin
 //#UC END# *4958F46C003B_4A952BA3006D_impl*
 end;//TMainForm.StartSettingsEdit
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4A952BA3006D_var*
 //#UC END# *49803F5503AA_4A952BA3006D_var*
 begin
@@ -1264,18 +1210,15 @@ begin
   CheckConsultationManagerStatus;
 //#UC END# *49803F5503AA_4A952BA3006D_impl*
 end;//TMainForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TMainForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_BaseSearcher := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TMainForm.ClearFields
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainForm.ReleaseResources;
 //#UC START# *538C374A00B7_4A952BA3006D_var*
 //#UC END# *538C374A00B7_4A952BA3006D_var*
@@ -1285,11 +1228,11 @@ begin
  inherited;
 //#UC END# *538C374A00B7_4A952BA3006D_impl*
 end;//TMainForm.ReleaseResources
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainForm.DoInitFromPrevContainer(const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ aForClone: Boolean);
 //#UC START# *54327E120331_4A952BA3006D_var*
 var
  l_StateProvider: InsBaseSearchInitialStateProvider;
@@ -1314,34 +1257,17 @@ begin
  end;
 //#UC END# *54327E120331_4A952BA3006D_impl*
 end;//TMainForm.DoInitFromPrevContainer
-{$IfEnd} //not NoVCM
-
-procedure TMainForm.InitEntities;
-begin
- inherited;
- with Entities.Entities do
- begin
-  PublishFormEntity(en_Common, nil);
-  {$If not defined(NoVCM)}
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
-  {$IfEnd} //not NoVCM
-
-  PublishOp(en_Common, op_MemUsage, Common_MemUsage_Execute, nil, nil);
- end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *4F882E1B0358*
  g_IntegrationMessage := RegisterWindowMessage(c_IntegrationMessageName);
  g_LastMainWindowMessage := RegisterWindowMessage(c_LastMainWindowMessageName);
 //#UC END# *4F882E1B0358*
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Main
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMainForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Main }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

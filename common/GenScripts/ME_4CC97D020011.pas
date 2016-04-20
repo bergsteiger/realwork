@@ -59,6 +59,18 @@ uses
  , SearchLite_Strange_Controls
  , nsBaseSearchService
  , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
+ , BaseSearchCard_Form
+ , NewBaseSearch_Form
+ , BaseSearchContainer_Form
+ {$If NOT Defined(NoScripts)}
+ , BaseSearchCardKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , NewBaseSearchKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , BaseSearchContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

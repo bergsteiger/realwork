@@ -57,6 +57,12 @@ uses
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
+ , fsSendConsultation
+ , fsConsultation
+ , ConsultationMark_Form
+ {$If NOT Defined(NoScripts)}
+ , ConsultationMarkKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

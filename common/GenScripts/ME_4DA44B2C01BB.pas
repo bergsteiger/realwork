@@ -36,6 +36,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_DocumentListFromFile_opOpenDocumentListFromFile
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
  {$If NOT Defined(NoVCL)}
  , Dialogs

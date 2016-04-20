@@ -668,7 +668,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , EverestLiteTestRes in 'w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLiteTestRes.pas'
  , GUIAppTester in 'w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas'
  {$If NOT Defined(NotTunedDUnit)}

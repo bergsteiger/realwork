@@ -1,151 +1,63 @@
 unit NewGenRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/MDProcess/NewGen/NewGenRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMApplication::Class>> MDProcess$NewGen$Interface::NewGen::NewGen
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\MDProcess\NewGen\NewGenRes.pas"
+// Стереотип: "VCMApplication"
+// Элемент модели: "NewGen" MUID: (4F6AE4A6014D)
+// Имя типа: "TNewGenRes"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\NewGen\ngDefine.inc}
+{$Include w:\MDProcess\NewGen\ngDefine.inc}
 
 interface
 
-{$If defined(NewGen)}
+{$If Defined(NewGen)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscNavigator
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBar
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
-  Main_Form,
-  MainPrim_Form,
-  F1LikeRes,
-  NewGenMainPrim_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(NewGen) AND not defined(NoScripts)}
-  ,
-  MainKeywordsPack
-  {$IfEnd} //NewGen AND not NoScripts
-  ,
-  vcmExternalInterfaces {a}
-  ;
-{$IfEnd} //NewGen
+ l3IntfUses
+ , F1LikeRes
+ , l3StringIDEx
+;
 
-{$If defined(NewGen)}
-var
- { Локализуемые строки Local }
-str_NewGenTitle : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'NewGenTitle'; rValue : 'НЕ Роза');
- { 'НЕ Роза' }
+const
+ {* Локализуемые строки Local }
+ str_NewGenTitle: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'NewGenTitle'; rValue : 'НЕ Роза');
+  {* 'НЕ Роза' }
 
 type
-TNewGenRes = {final} class(TF1LikeRes)
-protected
-   procedure RegisterFormSetFactories; override;
-   procedure Loaded; override;
-protected
-// overridden protected methods
-    {$If not defined(NoVCM)}
+ TNewGenRes = {final} class(TF1LikeRes)
+  protected
+   {$If NOT Defined(NoVCM)}
    class procedure Runner(const aTitle: Tl3StringIDEx;
-     const aHelpFile: AnsiString); override;
-    {$IfEnd} //not NoVCM
+    const aHelpFile: AnsiString); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//TNewGenRes
 
-end;//TNewGenRes
-TvcmApplicationRef = TNewGenRes;
- {* Ссылка на приложение для DesignTime редакторов }
-
-{$IfEnd} //NewGen
+ TvcmApplicationRef = TNewGenRes;
+  {* Ссылка на приложение для DesignTime редакторов }
+{$IfEnd} // Defined(NewGen)
 
 implementation
 
-{$If defined(NewGen)}
+{$If Defined(NewGen)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  l3MessageID
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
-  evExtFormat
-  ;
-{$IfEnd} //NewGen
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , l3MessageID
+ , evExtFormat
+ , NewGenMainPrim_Form
+ , Main_Form
+ {$If NOT Defined(NoScripts)}
+ , MainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If defined(NewGen)}
-
-// start class TNewGenRes
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 class procedure TNewGenRes.Runner(const aTitle: Tl3StringIDEx;
-  const aHelpFile: AnsiString);
+ const aHelpFile: AnsiString);
 //#UC START# *4F6AF5860291_4F6AE4A6014D_var*
 var
  l_Main : TForm;
@@ -168,24 +80,11 @@ begin
  Application.Run;
 //#UC END# *4F6AF5860291_4F6AE4A6014D_impl*
 end;//TNewGenRes.Runner
-{$IfEnd} //not NoVCM
-
-procedure TNewGenRes.RegisterFormSetFactories;
-begin
- inherited;
-end;
-
-procedure TNewGenRes.Loaded;
-begin
- inherited;
-end;
-
-{$IfEnd} //NewGen
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(NewGen)}
-// Инициализация str_NewGenTitle
  str_NewGenTitle.Init;
-{$IfEnd} //NewGen
+ {* Инициализация str_NewGenTitle }
+{$IfEnd} // Defined(NewGen)
 
 end.

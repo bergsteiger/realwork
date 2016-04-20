@@ -1,87 +1,65 @@
 unit VCMSandBoxTestRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "VCMSandBoxTestRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: VCMTestApplication::Class Shared Delphi Sand Box$TestApp::VCMSandBox::VCMSandBoxTest
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\SandBox\VCM\VCMSandBoxTestRes.pas"
+// Стереотип: "VCMTestApplication"
+// Элемент модели: "VCMSandBoxTest" MUID: (523024100274)
+// Имя типа: "TVCMSandBoxTestRes"
 
-{$Include ..\VCM\sbtDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbtDefine.inc}
 
 interface
 
 uses
-  VCMSandBoxRes
-  {$If defined(nsTest)}
-  ,
-  GUITestRunner
-  {$IfEnd} //nsTest
-  
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts) AND not defined(NotTunedDUnit)}
-  ,
-  tfwScriptDebugger
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts AND not NotTunedDUnit
-  ,
-  Classes {a},
-  vcmInterfaces {a},
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ , VCMSandBoxRes
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
+ , tfwScriptDebugger
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest)}
+ , GUITestRunner
+ {$IfEnd} // Defined(nsTest)
+;
 
 type
  _VCMAppTester_Parent_ = TVCMSandBoxRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TVCMSandBoxTestRes = {final} class(_VCMAppTester_)
- public
- // realized methods
-    {$If defined(nsTest)}
+  public
+   {$If Defined(nsTest)}
    class function CalcBatchMode: Boolean; override;
-    {$IfEnd} //nsTest
+   {$IfEnd} // Defined(nsTest)
  end;//TVCMSandBoxTestRes
+
  TvcmApplicationRef = TVCMSandBoxTestRes;
   {* Ссылка на приложение для DesignTime редакторов }
-
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  ,
-  l3Base,
-  l3ComponentInfoHelper
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(nsTest)}
-  ,
-  TestFrameWork
-  {$IfEnd} //nsTest
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptEngineEX
-  {$IfEnd} //not NoScripts
-  ,
-  l3BatchService
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(nsTest) AND NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
+ , l3Base
+ , l3ComponentInfoHelper
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If Defined(nsTest)}
+ , TestFrameWork
+ {$IfEnd} // Defined(nsTest)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3BatchService
+;
 
+{$If Defined(nsTest) AND Defined(InsiderTest)}
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
 
-// start class TVCMSandBoxTestRes
-
-{$If defined(nsTest)}
 class function TVCMSandBoxTestRes.CalcBatchMode: Boolean;
 //#UC START# *4F79BCC902C5_523024100274_var*
 //#UC END# *4F79BCC902C5_523024100274_var*
@@ -91,6 +69,6 @@ begin
  Result := KTestRunner.NeedKTestRunner([]);
 //#UC END# *4F79BCC902C5_523024100274_impl*
 end;//TVCMSandBoxTestRes.CalcBatchMode
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 end.

@@ -76,6 +76,13 @@ uses
  , ChromeLikeInterfaces
  {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
  , vtDateEditRes
+ , NemesisMain_Form
+ , MainOptions_Form
+ , Main_Form
+ , MainWithReminders_Form
+ {$If NOT Defined(NoScripts)}
+ , MainWindowKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 class procedure TPrimNemesisRes.BeforeCorrectDate(const aDate: AnsiString);

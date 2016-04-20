@@ -668,7 +668,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , AutoPipeServerForm in 'w:\archi\source\projects\PipeInAuto\AutoPipeServerForm.pas'
  , alcuServer in 'w:\archi\source\projects\PipeInAuto\Server\alcuServer.pas'
  , alcuAutoPipeServer in 'w:\archi\source\projects\PipeInAuto\Server\alcuAutoPipeServer.pas'

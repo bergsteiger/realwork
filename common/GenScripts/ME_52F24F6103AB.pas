@@ -668,7 +668,9 @@ uses
  , kwPopClassInherits in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopClassInherits.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3RTTI in 'w:\common\components\rtl\Garant\L3\l3RTTI.pas'
+ {$If NOT Defined(NoVCL)}
  , ControlResizeBugFix
+ {$IfEnd} // NOT Defined(NoVCL)
  , AutoPipeServerTestsRunner in 'w:\archi\source\projects\PipeInAuto\AutoPipeServerTestsRunner.pas'
  {$If Defined(nsTest)}
  , GUIAppTester in 'w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.pas'

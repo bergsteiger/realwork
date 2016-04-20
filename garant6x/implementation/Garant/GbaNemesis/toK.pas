@@ -1,75 +1,64 @@
 unit toK;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/toK.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> F1 Ежедневные тесты::Nemesis::toK
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toK.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "toK" MUID: (4DA3327C0398)
+// Имя типа: "TtoK"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\GbaNemesis\nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //InsiderTest AND nsTest AND not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
 type
- TtoK = class(TTestResultsPlace)
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-   class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
- protected
- // overridden protected methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+ TtoK = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
+  protected
+   {$If NOT Defined(NotTunedDUnit)}
    class function IsGK: Boolean; override;
-     {* Тесты запущены ГК }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Тесты запущены ГК }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+  public
+   {$If NOT Defined(NotTunedDUnit)}
+   class function CommandLineKey: AnsiString; override;
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
+   class function TimesPage: Integer; override;
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
+   class function ResultsPage: Integer; override;
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
  end;//TtoK
-{$IfEnd} //InsiderTest AND nsTest AND not Admin AND not Monitorings
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
-// start class TtoK
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 class function TtoK.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-toK';
 end;//TtoK.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoK.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_4DA3327C0398_var*
 //#UC END# *4B7C0B43005B_4DA3327C0398_var*
 begin
@@ -77,10 +66,9 @@ begin
  Result := 260447843;
 //#UC END# *4B7C0B43005B_4DA3327C0398_impl*
 end;//TtoK.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoK.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_4DA3327C0398_var*
 //#UC END# *4B7C0B670215_4DA3327C0398_var*
 begin
@@ -88,10 +76,9 @@ begin
  Result := 260447840;
 //#UC END# *4B7C0B670215_4DA3327C0398_impl*
 end;//TtoK.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoK.IsGK: Boolean;
+ {* Тесты запущены ГК }
 //#UC START# *4BEA9969001B_4DA3327C0398_var*
 //#UC END# *4BEA9969001B_4DA3327C0398_var*
 begin
@@ -99,8 +86,7 @@ begin
  Result := true;
 //#UC END# *4BEA9969001B_4DA3327C0398_impl*
 end;//TtoK.IsGK
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //InsiderTest AND nsTest AND not Admin AND not Monitorings
-
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

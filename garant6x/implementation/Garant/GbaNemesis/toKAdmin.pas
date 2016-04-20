@@ -1,69 +1,59 @@
 unit toKAdmin;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/toKAdmin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> F1 Ежедневные тесты Администратора::Admin::toKAdmin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKAdmin.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "toKAdmin" MUID: (5123A75E00D5)
+// Имя типа: "TtoKAdmin"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\GbaNemesis\nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If defined(Admin) AND defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //Admin AND InsiderTest AND nsTest
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(Admin) AND defined(InsiderTest) AND defined(nsTest)}
 type
- TtoKAdmin = class(TTestResultsPlace)
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+ TtoKAdmin = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
+  public
+   {$If NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
    class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
    class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
  end;//TtoKAdmin
-{$IfEnd} //Admin AND InsiderTest AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)
 
 implementation
 
-{$If defined(Admin) AND defined(InsiderTest) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)}
+uses
+ l3ImplUses
+;
 
-// start class TtoKAdmin
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 class function TtoKAdmin.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-toKAdmin';
 end;//TtoKAdmin.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKAdmin.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_5123A75E00D5_var*
 //#UC END# *4B7C0B43005B_5123A75E00D5_var*
 begin
@@ -71,10 +61,9 @@ begin
  Result := 431378129;
 //#UC END# *4B7C0B43005B_5123A75E00D5_impl*
 end;//TtoKAdmin.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKAdmin.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_5123A75E00D5_var*
 //#UC END# *4B7C0B670215_5123A75E00D5_var*
 begin
@@ -82,8 +71,7 @@ begin
  Result := 431378120;
 //#UC END# *4B7C0B670215_5123A75E00D5_impl*
 end;//TtoKAdmin.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //Admin AND InsiderTest AND nsTest
-
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Admin)
 end.

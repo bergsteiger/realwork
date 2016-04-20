@@ -1,91 +1,91 @@
 unit MainWithReminders_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainWithReminders_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::PrimNemesis::MainWithReminders
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainWithReminders_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "MainWithReminders" MUID: (4F7DAC14027A)
+// Имя типа: "TMainWithRemindersForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  F1_Without_Usecases_System_Controls,
-  Main_Form,
-  l3StringIDEx,
-  MainOptions_Form
-  {$If defined(Nemesis)}
-  ,
-  nscReminder
-  {$IfEnd} //Nemesis
-  ,
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Main_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , F1_Without_Usecases_System_Controls
+ , l3Interfaces
+ {$If Defined(Nemesis)}
+ , nscReminder
+ {$IfEnd} // Defined(Nemesis)
+ , l3StringIDEx
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-var
-  { Локализуемые строки Reminders' Hints }
- str_ControlledChangingWarningHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ControlledChangingWarningHint'; rValue : 'Внимание! Документы на контроле изменились');
-  { 'Внимание! Документы на контроле изменились' }
- str_OldBaseWarningHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'OldBaseWarningHint'; rValue : 'Внимание! Информационный банк устарел');
-  { 'Внимание! Информационный банк устарел' }
- str_TrialModeWarningHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TrialModeWarningHint'; rValue : 'Вы работаете с ознакомительной версией системы ГАРАНТ');
-  { 'Вы работаете с ознакомительной версией системы ГАРАНТ' }
- str_remUnreadConsultationsHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remUnreadConsultationsHint'; rValue : 'Получены ответы или уведомления от службы Правовой поддержки онлайн');
-  { 'Получены ответы или уведомления от службы Правовой поддержки онлайн' }
- str_remOnlineDeadHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remOnlineDeadHint'; rValue : 'С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.');
-  { 'С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.' }
+const
+ {* Локализуемые строки Reminders' Hints }
+ str_ControlledChangingWarningHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ControlledChangingWarningHint'; rValue : 'Внимание! Документы на контроле изменились');
+  {* 'Внимание! Документы на контроле изменились' }
+ str_OldBaseWarningHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'OldBaseWarningHint'; rValue : 'Внимание! Информационный банк устарел');
+  {* 'Внимание! Информационный банк устарел' }
+ str_TrialModeWarningHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TrialModeWarningHint'; rValue : 'Вы работаете с ознакомительной версией системы ГАРАНТ');
+  {* 'Вы работаете с ознакомительной версией системы ГАРАНТ' }
+ str_remUnreadConsultationsHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remUnreadConsultationsHint'; rValue : 'Получены ответы или уведомления от службы Правовой поддержки онлайн');
+  {* 'Получены ответы или уведомления от службы Правовой поддержки онлайн' }
+ str_remOnlineDeadHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remOnlineDeadHint'; rValue : 'С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.');
+  {* 'С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.' }
 
 type
- TMainWithRemindersForm = {form} class(TMainForm {$If defined(Nemesis) AND not defined(NoVCM)}, IvcmFlashingWindow{$IfEnd} //Nemesis AND not NoVCM
+ // RemindersZone
+
+ TMainWithRemindersForm = class(TMainForm{$If Defined(Nemesis) AND NOT Defined(NoVCM)}
+ , IvcmFlashingWindow
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
  )
- private
- // private fields
-   f_Flashing : Boolean;
-   f_remOnlineDead : TnscReminder;
-    {* Поле для свойства remOnlineDead}
-   f_remNewChatMessages : TnscReminder;
-    {* Поле для свойства remNewChatMessages}
-   f_TrialModeWarning : TnscReminder;
-    {* Поле для свойства TrialModeWarning}
-   f_OldBaseWarning : TnscReminder;
-    {* Поле для свойства OldBaseWarning}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_Flashing: Boolean;
+   f_remOnlineDead: TnscReminder;
+    {* Поле для свойства remOnlineDead }
+   f_remNewChatMessages: TnscReminder;
+    {* Поле для свойства remNewChatMessages }
+   f_TrialModeWarning: TnscReminder;
+    {* Поле для свойства TrialModeWarning }
+   f_OldBaseWarning: TnscReminder;
+    {* Поле для свойства OldBaseWarning }
+  protected
+   f_remOnlineDeadHidden: Boolean;
+   f_OldBaseWarningString: Il3CString;
+  private
    procedure ControlledChangingWarningBecomeVisible(Sender: TObject);
    procedure ControlledChangingWarningAfterBaloonShowed(Sender: TObject);
    procedure ControlledChangingWarningAfterBaloonHidden(Sender: TObject);
-   procedure RemOnlineDeadAfterBaloonHidden(Sender: TObject);
- protected
- // realized methods
-    {$If defined(Nemesis) AND not defined(NoVCM)}
+   procedure remOnlineDeadAfterBaloonHidden(Sender: TObject);
+  protected
+   {$If Defined(Nemesis) AND NOT Defined(NoVCM)}
    procedure StartFlashing;
-    {$IfEnd} //Nemesis AND not NoVCM
-    {$If defined(Nemesis) AND not defined(NoVCM)}
+   {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
+   {$If Defined(Nemesis) AND NOT Defined(NoVCM)}
    procedure StopFlashing;
-    {$IfEnd} //Nemesis AND not NoVCM
+   {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
+   procedure FillOldBaseWarning; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure EntitiesInited; override;
+    {* Вызывается после того как все операции зарегистрированы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeVisible; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeInvisible; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Reminder_RemMWControlledChangingWarning_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_RemMWControlledChangingWarning_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_RemMWOldBaseWarning_Test(const aParams: IvcmTestParamsPrim);
@@ -96,92 +96,42 @@ type
    procedure Reminder_RemNewChatMessages_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_RemOnlineDead_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_RemOnlineDead_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure FillOldBaseWarning; override;
    procedure Reminder_remUnreadConsultations_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_remUnreadConsultations_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure EntitiesInited; override;
-     {* Вызывается после того как все операции зарегистрированы }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure BecomeVisible; override;
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   procedure BecomeInvisible; override;
-     {* Сигнатура метода BecomeInvisible }
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_remOnlineDeadHidden : Boolean;
-   f_OldBaseWarningString : Il3CString;
- public
- // public properties
-
-   property remOnlineDead: TnscReminder
-     read f_remOnlineDead;
-   property remNewChatMessages: TnscReminder
-     read f_remNewChatMessages;
-   property TrialModeWarning: TnscReminder
-     read f_TrialModeWarning;
-   property OldBaseWarning: TnscReminder
-     read f_OldBaseWarning;
  end;//TMainWithRemindersForm
-
- TvcmMainFormRef = TMainWithRemindersForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  resWarnImages,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  l3Base,
-  DataAdapter,
-  l3String,
-  l3Chars,
-  BaloonWarningUserTypes_ControlledChangingWarning_UserType,
-  BaloonWarningUserTypes_OldBaseWarning_UserType,
-  BaloonWarningUserTypes_TrialModeWarning_UserType,
-  BaloonWarningUserTypes_remUnreadConsultations_UserType,
-  BaloonWarningUserTypes_remOnlineDead_UserType
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TMainWithRemindersForm
+ l3ImplUses
+ , resWarnImages
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
+ , DataAdapter
+ , l3String
+ , l3Chars
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ , BaloonWarningUserTypes_TrialModeWarning_UserType
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ , BaloonWarningUserTypes_remOnlineDead_UserType
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TMainWithRemindersForm.ControlledChangingWarningBecomeVisible(Sender: TObject);
 //#UC START# *4F7DCAFE028B_4F7DAC14027A_var*
@@ -223,16 +173,16 @@ begin
 //#UC END# *4F7DCB68009E_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.ControlledChangingWarningAfterBaloonHidden
 
-procedure TMainWithRemindersForm.RemOnlineDeadAfterBaloonHidden(Sender: TObject);
+procedure TMainWithRemindersForm.remOnlineDeadAfterBaloonHidden(Sender: TObject);
 //#UC START# *4F7DCB83012B_4F7DAC14027A_var*
 //#UC END# *4F7DCB83012B_4F7DAC14027A_var*
 begin
 //#UC START# *4F7DCB83012B_4F7DAC14027A_impl*
  f_remOnlineDeadHidden := true;
 //#UC END# *4F7DCB83012B_4F7DAC14027A_impl*
-end;//TMainWithRemindersForm.RemOnlineDeadAfterBaloonHidden
+end;//TMainWithRemindersForm.remOnlineDeadAfterBaloonHidden
 
-{$If defined(Nemesis) AND not defined(NoVCM)}
+{$If Defined(Nemesis) AND NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.StartFlashing;
 //#UC START# *4F7DCF74032D_4F7DAC14027A_var*
 var
@@ -251,9 +201,9 @@ begin
  end;//not f_Flashing
 //#UC END# *4F7DCF74032D_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.StartFlashing
-{$IfEnd} //Nemesis AND not NoVCM
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
 
-{$If defined(Nemesis) AND not defined(NoVCM)}
+{$If Defined(Nemesis) AND NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.StopFlashing;
 //#UC START# *4F7DCF8D03CC_4F7DAC14027A_var*
 var
@@ -272,7 +222,7 @@ begin
  end;//f_Flashing
 //#UC END# *4F7DCF8D03CC_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.StopFlashing
-{$IfEnd} //Nemesis AND not NoVCM
+{$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
 
 procedure TMainWithRemindersForm.Reminder_RemMWControlledChangingWarning_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4F86AAF903B5_4F7DAC14027Atest_var*
@@ -395,8 +345,9 @@ begin
 //#UC END# *542D70330042_4F7DAC14027Aexec_impl*
 end;//TMainWithRemindersForm.Reminder_remUnreadConsultations_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F7DAC14027A_var*
 //#UC END# *4A8E8F2E0195_4F7DAC14027A_var*
 begin
@@ -472,10 +423,11 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.EntitiesInited;
+ {* Вызывается после того как все операции зарегистрированы }
 //#UC START# *4AE1948900DE_4F7DAC14027A_var*
 //#UC END# *4AE1948900DE_4F7DAC14027A_var*
 begin
@@ -513,9 +465,9 @@ begin
  end;
 //#UC END# *4AE1948900DE_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.EntitiesInited
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.BecomeVisible;
 //#UC START# *4F7C808A0349_4F7DAC14027A_var*
 //#UC END# *4F7C808A0349_4F7DAC14027A_var*
@@ -530,18 +482,15 @@ begin
  end;
 //#UC END# *4F7C808A0349_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.BecomeVisible
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TMainWithRemindersForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_OldBaseWarningString := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TMainWithRemindersForm.ClearFields
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.BecomeInvisible;
 //#UC START# *537C9007038A_4F7DAC14027A_var*
 //#UC END# *537C9007038A_4F7DAC14027A_var*
@@ -552,67 +501,23 @@ begin
   RemindersLine.Visible := Visible;
 //#UC END# *537C9007038A_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.BecomeInvisible
-{$IfEnd} //not NoVCM
-
-procedure TMainWithRemindersForm.InitEntities;
-begin
- inherited;
- with Entities.Entities do
- begin
-  PublishFormEntity(en_Reminder, nil);
-  PublishOp(en_Reminder, op_RemMWControlledChangingWarning, Reminder_RemMWControlledChangingWarning_Execute, Reminder_RemMWControlledChangingWarning_Test, nil);
-  PublishOp(en_Reminder, op_RemMWOldBaseWarning, Reminder_RemMWOldBaseWarning_Execute, Reminder_RemMWOldBaseWarning_Test, nil);
-  PublishOp(en_Reminder, op_RemMWTrialModeWarning, Reminder_RemMWTrialModeWarning_Execute, Reminder_RemMWTrialModeWarning_Test, nil);
-  PublishOp(en_Reminder, op_RemNewChatMessages, Reminder_RemNewChatMessages_Execute, Reminder_RemNewChatMessages_Test, nil);
-  PublishOp(en_Reminder, op_RemOnlineDead, Reminder_RemOnlineDead_Execute, Reminder_RemOnlineDead_Test, nil);
-  PublishOp(en_Reminder, op_remUnreadConsultations, Reminder_remUnreadConsultations_Execute, Reminder_remUnreadConsultations_Test, nil);
-  ShowInContextMenu(en_Reminder, op_remUnreadConsultations, false);
- end;//with Entities.Entities
-end;
-
-procedure TMainWithRemindersForm.MakeControls;
-begin
- inherited;
- RemindersLine.Parent := Self;
- with DefineZone(vcm_ztReminder, RemindersLine) do
- begin
- end;//with DefineZone(vcm_ztReminder, RemindersLine)
- f_remOnlineDead := TnscReminder.Create(RemindersLine);
- f_remOnlineDead.Name := 'remOnlineDead';
- f_remNewChatMessages := TnscReminder.Create(RemindersLine);
- f_remNewChatMessages.Name := 'remNewChatMessages';
- f_TrialModeWarning := TnscReminder.Create(RemindersLine);
- f_TrialModeWarning.Name := 'TrialModeWarning';
- f_OldBaseWarning := TnscReminder.Create(RemindersLine);
- f_OldBaseWarning.Name := 'OldBaseWarning';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ControlledChangingWarningHint
  str_ControlledChangingWarningHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_OldBaseWarningHint
+ {* Инициализация str_ControlledChangingWarningHint }
  str_OldBaseWarningHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_TrialModeWarningHint
+ {* Инициализация str_OldBaseWarningHint }
  str_TrialModeWarningHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_remUnreadConsultationsHint
+ {* Инициализация str_TrialModeWarningHint }
  str_remUnreadConsultationsHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_remOnlineDeadHint
+ {* Инициализация str_remUnreadConsultationsHint }
  str_remOnlineDeadHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация MainWithReminders
+ {* Инициализация str_remOnlineDeadHint }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMainWithRemindersForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация MainWithReminders }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

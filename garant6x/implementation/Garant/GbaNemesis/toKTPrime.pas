@@ -1,69 +1,59 @@
 unit toKTPrime;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/toKTPrime.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<TestResults::Class>> F1 Ежедневные тесты ПРАЙМ::Prime::toKTPrime
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKTPrime.pas"
+// Стереотип: "TestResults"
+// Элемент модели: "toKTPrime" MUID: (512388060314)
+// Имя типа: "TtoKTPrime"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\GbaNemesis\nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(Monitorings) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NotTunedDUnit)}
-  ,
-  KTestRunner
-  {$IfEnd} //nsTest AND not NotTunedDUnit
-  
-  ;
-{$IfEnd} //InsiderTest AND Monitorings AND nsTest
+ l3IntfUses
+ {$If NOT Defined(NotTunedDUnit)}
+ , KTestRunner
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+;
 
-{$If defined(InsiderTest) AND defined(Monitorings) AND defined(nsTest)}
 type
- TtoKTPrime = class(TTestResultsPlace)
- public
- // realized methods
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+ TtoKTPrime = class({$If NOT Defined(NotTunedDUnit)}
+ TTestResultsPlace
+ {$IfEnd} // NOT Defined(NotTunedDUnit)
+ )
+  public
+   {$If NOT Defined(NotTunedDUnit)}
    class function CommandLineKey: AnsiString; override;
-     {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
    class function TimesPage: Integer; override;
-     {* Страница для вывода замеров времени }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
-   {$If defined(nsTest) AND not defined(NotTunedDUnit)}
+    {* Страница для вывода замеров времени }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
+   {$If NOT Defined(NotTunedDUnit)}
    class function ResultsPage: Integer; override;
-     {* Страница для вывода результатов тестов }
-   {$IfEnd} //nsTest AND not NotTunedDUnit
+    {* Страница для вывода результатов тестов }
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
  end;//TtoKTPrime
-{$IfEnd} //InsiderTest AND Monitorings AND nsTest
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(Monitorings) AND defined(nsTest)}
+{$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)}
+uses
+ l3ImplUses
+;
 
-// start class TtoKTPrime
-
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If NOT Defined(NotTunedDUnit)}
 class function TtoKTPrime.CommandLineKey: AnsiString;
- {-}
+ {* Ключ командной строки при указании которого будет выбрано данное место расположения результатов }
 begin
  Result := '-toKTPrime';
 end;//TtoKTPrime.CommandLineKey
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKTPrime.TimesPage: Integer;
+ {* Страница для вывода замеров времени }
 //#UC START# *4B7C0B43005B_512388060314_var*
 //#UC END# *4B7C0B43005B_512388060314_var*
 begin
@@ -71,10 +61,9 @@ begin
  Result := 431377634;
 //#UC END# *4B7C0B43005B_512388060314_impl*
 end;//TtoKTPrime.TimesPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
 
-{$If defined(nsTest) AND not defined(NotTunedDUnit)}
 class function TtoKTPrime.ResultsPage: Integer;
+ {* Страница для вывода результатов тестов }
 //#UC START# *4B7C0B670215_512388060314_var*
 //#UC END# *4B7C0B670215_512388060314_var*
 begin
@@ -82,8 +71,7 @@ begin
  Result := 431377632;
 //#UC END# *4B7C0B670215_512388060314_impl*
 end;//TtoKTPrime.ResultsPage
-{$IfEnd} //nsTest AND not NotTunedDUnit
+{$IfEnd} // NOT Defined(NotTunedDUnit)
 
-{$IfEnd} //InsiderTest AND Monitorings AND nsTest
-
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)
 end.

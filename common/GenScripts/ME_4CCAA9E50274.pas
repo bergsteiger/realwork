@@ -50,6 +50,14 @@ uses
  , PrimCreateFilter_cfCreate_UserType
  , dsCreateFilter
  , deFilter
+ , Filters_Form
+ , CreateFilter_Form
+ {$If NOT Defined(NoScripts)}
+ , FiltersKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , CreateFilterKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}
