@@ -75,6 +75,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Monitorings_opOpenNewsLine
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Monitorings_opOpenLegislationReview
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
@@ -96,6 +102,12 @@ uses
  , LoggingUnit
  , SysUtils
  , l3Base
+ , NewsLine_Form
+ , fsAutoreferat
+ , fsAutoreferatAfterSearch
+ {$If NOT Defined(NoScripts)}
+ , NewsLineKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

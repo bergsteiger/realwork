@@ -14,6 +14,7 @@ uses
  , l3ProtoObject
  , daInterfaces
  , daTypes
+ , l3DatLst
 ;
 
 type
@@ -27,6 +28,8 @@ type
     RequireAdminRights: Boolean;
     out theUserID: TdaUserID): TdaLoginError;
    function IsUserAdmin(anUserID: TdaUserID): Boolean;
+   function Get_AllUsers: Tl3StringDataList;
+   function Get_AllGroups: Tl3StringDataList;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -95,6 +98,24 @@ begin
  Assert(Result = f_PGManager.IsUserAdmin(anUserID));
 //#UC END# *56EA993D0218_56C428E4014A_impl*
 end;//TcaUserManager.IsUserAdmin
+
+function TcaUserManager.Get_AllUsers: Tl3StringDataList;
+//#UC START# *5715DEF20209_56C428E4014Aget_var*
+//#UC END# *5715DEF20209_56C428E4014Aget_var*
+begin
+//#UC START# *5715DEF20209_56C428E4014Aget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715DEF20209_56C428E4014Aget_impl*
+end;//TcaUserManager.Get_AllUsers
+
+function TcaUserManager.Get_AllGroups: Tl3StringDataList;
+//#UC START# *5715DF0D03C2_56C428E4014Aget_var*
+//#UC END# *5715DF0D03C2_56C428E4014Aget_var*
+begin
+//#UC START# *5715DF0D03C2_56C428E4014Aget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715DF0D03C2_56C428E4014Aget_impl*
+end;//TcaUserManager.Get_AllGroups
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

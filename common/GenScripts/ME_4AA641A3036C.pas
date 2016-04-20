@@ -167,6 +167,39 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opPublishSourceSearch
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opInpharmSearch
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opStartENO
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opDocumentsWithoutClass
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opDocumentsWithoutIncluded
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opDocumentsWithoutKey
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opBaseSearch
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opOpenConsult
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opAllSearch
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opOpenKeyWordSearch
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Search_opAttributeSearch
+ {$IfEnd} // NOT Defined(NoScripts)
  , nsConst
  , l3String
  , afwFacade
@@ -188,6 +221,20 @@ uses
  , afwAnswer
  {$IfEnd} // NOT Defined(NoScripts)
  , Base_Operations_Strange_Controls
+ , fsSituationSearch
+ , fsSituationFilter
+ , DefineSearchDate_Form
+ , OldSituationSearch_Form
+ , TreeAttributeFirstLevel_Form
+ {$If NOT Defined(NoScripts)}
+ , DefineSearchDateKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , OldSituationSearchKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TreeAttributeFirstLevelKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

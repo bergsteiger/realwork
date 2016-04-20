@@ -11,23 +11,26 @@ interface
 {$If Defined(UsePostgres)}
 uses
  l3IntfUses
- , l3ProtoObject
+ , daUserManager
  , daInterfaces
+ , l3DatLst
  , daTypes
 ;
 
 type
- TpgUserManager = class(Tl3ProtoObject, IdaUserManager)
+ TpgUserManager = class(TdaUserManager)
   private
    f_Factory: IdaTableQueryFactory;
    f_PasswordQuery: IdaTabledQuery;
    f_UserFlagsQuery: IdaTabledQuery;
   protected
-   function CheckPassword(const aLogin: AnsiString;
+   procedure FillAllUsers(aList: Tl3StringDataList); override;
+   procedure FillAllGroups(aList: Tl3StringDataList); override;
+   function DoCheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
-    out theUserID: TdaUserID): TdaLoginError;
-   function IsUserAdmin(anUserID: TdaUserID): Boolean;
+    out theUserID: TdaUserID): TdaLoginError; override;
+   function DoIsUserAdmin(anUserID: TdaUserID): Boolean; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -78,77 +81,44 @@ begin
  end;//try..finally
 end;//TpgUserManager.Make
 
-function TpgUserManager.CheckPassword(const aLogin: AnsiString;
+procedure TpgUserManager.FillAllUsers(aList: Tl3StringDataList);
+//#UC START# *5715E71600DD_5629FC88034B_var*
+//#UC END# *5715E71600DD_5629FC88034B_var*
+begin
+//#UC START# *5715E71600DD_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E71600DD_5629FC88034B_impl*
+end;//TpgUserManager.FillAllUsers
+
+procedure TpgUserManager.FillAllGroups(aList: Tl3StringDataList);
+//#UC START# *5715E74402CA_5629FC88034B_var*
+//#UC END# *5715E74402CA_5629FC88034B_var*
+begin
+//#UC START# *5715E74402CA_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E74402CA_5629FC88034B_impl*
+end;//TpgUserManager.FillAllGroups
+
+function TpgUserManager.DoCheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
  RequireAdminRights: Boolean;
  out theUserID: TdaUserID): TdaLoginError;
-//#UC START# *5628D14D0151_5629FC88034B_var*
-var
- l_ResultSet: IdaResultSet;
- l_Flags: Byte;
-//#UC END# *5628D14D0151_5629FC88034B_var*
+//#UC START# *5715E767013D_5629FC88034B_var*
+//#UC END# *5715E767013D_5629FC88034B_var*
 begin
-//#UC START# *5628D14D0151_5629FC88034B_impl*
- theUserID := 0;
- Result := da_leUserParamsWrong;
- if (AnsiLowerCase(aLogin) = c_SupervisorUserName) and not RequireAdminRights then
-  Exit;
- f_PasswordQuery.Param['p_ShortName'].AsString := aLogin;
- l_ResultSet := f_PasswordQuery.OpenResultSet;
- try
-  if l_ResultSet.IsEmpty then
-    Exit;
-  if (l_ResultSet.Field['Password'].AsString <> '') and (not AnsiSameText(l_ResultSet.Field['Password'].AsString, aPassword)) then
-    Exit;
-  theUserID := l_ResultSet.Field['User_ID'].AsLargeInt;
-  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := theUserID;
- finally
-  l_ResultSet := nil;
- end;
+//#UC START# *5715E767013D_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E767013D_5629FC88034B_impl*
+end;//TpgUserManager.DoCheckPassword
 
- if theUserID <> usSupervisor then
- begin
-  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
-  try
-   l_Flags := l_ResultSet.Field['Active'].AsByte;
-   if (l_Flags and usActive) <> usActive then
-    Exit;
-   if RequireAdminRights and ((l_Flags and usAdmin) <> usAdmin) then
-   begin
-    Result := da_leInsufficientRights;
-    Exit;
-   end;
-   Result := da_leOk;
-
-  finally
-   l_ResultSet := nil;
-  end;
- end
- else
-  Result := da_leOk;
-//#UC END# *5628D14D0151_5629FC88034B_impl*
-end;//TpgUserManager.CheckPassword
-
-function TpgUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
-//#UC START# *56EA993D0218_5629FC88034B_var*
-var
- l_ResultSet: IdaResultSet;
-//#UC END# *56EA993D0218_5629FC88034B_var*
+function TpgUserManager.DoIsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *5715E78F013E_5629FC88034B_var*
+//#UC END# *5715E78F013E_5629FC88034B_var*
 begin
-//#UC START# *56EA993D0218_5629FC88034B_impl*
- Result := (anUserID = usSupervisor);
- if not Result then
- begin
-  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := anUserID;
-  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
-  try
-   Result := not l_ResultSet.IsEmpty and ((l_ResultSet.Field['Active'].AsByte and usAdmin) = usAdmin);
-  finally
-   l_ResultSet := nil;
-  end;
- end;
-//#UC END# *56EA993D0218_5629FC88034B_impl*
-end;//TpgUserManager.IsUserAdmin
+//#UC START# *5715E78F013E_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E78F013E_5629FC88034B_impl*
+end;//TpgUserManager.DoIsUserAdmin
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

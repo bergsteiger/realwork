@@ -16,8 +16,8 @@ uses
  , evdTaskTypes
  , ddAppConfig
  , l3Date
- , l3Languages
  , l3DatLst
+ , l3Languages
 ;
 
 const
@@ -410,11 +410,18 @@ type
 
  IdaUserManager = interface
   ['{43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3}']
+  function Get_AllUsers: Tl3StringDataList;
+  function Get_AllGroups: Tl3StringDataList;
   function CheckPassword(const aLogin: AnsiString;
    const aPassword: AnsiString;
    RequireAdminRights: Boolean;
    out theUserID: TdaUserID): TdaLoginError;
   function IsUserAdmin(anUserID: TdaUserID): Boolean;
+  property AllUsers: Tl3StringDataList
+   read Get_AllUsers;
+   {* Все пользователи системы }
+  property AllGroups: Tl3StringDataList
+   read Get_AllGroups;
  end;//IdaUserManager
 
  IdaSortField = interface

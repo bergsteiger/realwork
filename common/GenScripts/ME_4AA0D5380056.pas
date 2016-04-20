@@ -47,12 +47,20 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Tips_opShowDayTips
+ {$IfEnd} // NOT Defined(NoScripts)
  , sdsTips
  , nsStartupTips
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , DataAdapter
+ , fsTips
+ , StartupTips_Form
+ {$If NOT Defined(NoScripts)}
+ , StartupTipsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

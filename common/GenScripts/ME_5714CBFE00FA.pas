@@ -19,6 +19,7 @@ function ConcatRegionAndUserNames(const aRegionName: AnsiString;
  const aUserName: AnsiString): AnsiString; overload;
 function ConcatRegionAndUserNames(anID: TdaUserID;
  const aUserName: AnsiString): AnsiString; overload;
+function GetUserRegion(anUserID: TdaUserID): TdaRegionID;
 
 implementation
 
@@ -56,5 +57,14 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5714CD00006F_5714CBFE00FA_impl*
 end;//ConcatRegionAndUserNames
+
+function GetUserRegion(anUserID: TdaUserID): TdaRegionID;
+//#UC START# *5715FBBC0249_5714CBFE00FA_var*
+//#UC END# *5715FBBC0249_5714CBFE00FA_var*
+begin
+//#UC START# *5715FBBC0249_5714CBFE00FA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715FBBC0249_5714CBFE00FA_impl*
+end;//GetUserRegion
 
 end.

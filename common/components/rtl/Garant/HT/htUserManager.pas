@@ -10,19 +10,22 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoObject
+ , daUserManager
  , daInterfaces
+ , l3DatLst
  , daTypes
 ;
 
 type
- ThtUserManager = class(Tl3ProtoObject, IdaUserManager)
+ ThtUserManager = class(TdaUserManager)
   protected
-   function CheckPassword(const aLogin: AnsiString;
+   procedure FillAllUsers(aList: Tl3StringDataList); override;
+   procedure FillAllGroups(aList: Tl3StringDataList); override;
+   function DoCheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
-    out theUserID: TdaUserID): TdaLoginError;
-   function IsUserAdmin(anUserID: TdaUserID): Boolean;
+    out theUserID: TdaUserID): TdaLoginError; override;
+   function DoIsUserAdmin(anUserID: TdaUserID): Boolean; override;
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
@@ -61,37 +64,43 @@ begin
  end;//try..finally
 end;//ThtUserManager.Make
 
-function ThtUserManager.CheckPassword(const aLogin: AnsiString;
+procedure ThtUserManager.FillAllUsers(aList: Tl3StringDataList);
+//#UC START# *5715E71600DD_5629E343023B_var*
+//#UC END# *5715E71600DD_5629E343023B_var*
+begin
+//#UC START# *5715E71600DD_5629E343023B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E71600DD_5629E343023B_impl*
+end;//ThtUserManager.FillAllUsers
+
+procedure ThtUserManager.FillAllGroups(aList: Tl3StringDataList);
+//#UC START# *5715E74402CA_5629E343023B_var*
+//#UC END# *5715E74402CA_5629E343023B_var*
+begin
+//#UC START# *5715E74402CA_5629E343023B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E74402CA_5629E343023B_impl*
+end;//ThtUserManager.FillAllGroups
+
+function ThtUserManager.DoCheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
  RequireAdminRights: Boolean;
  out theUserID: TdaUserID): TdaLoginError;
-//#UC START# *5628D14D0151_5629E343023B_var*
-var
- l_Result: Boolean;
-//#UC END# *5628D14D0151_5629E343023B_var*
+//#UC START# *5715E767013D_5629E343023B_var*
+//#UC END# *5715E767013D_5629E343023B_var*
 begin
-//#UC START# *5628D14D0151_5629E343023B_impl*
- l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, RequireAdminRights);
- if l_Result then
-  Result := da_leOk
- else
- begin
-  if RequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
-   Result := da_leInsufficientRights
-  else
-   Result := da_leUserParamsWrong;
- end;
- theUserID := GlobalHTServer.xxxUserID;
-//#UC END# *5628D14D0151_5629E343023B_impl*
-end;//ThtUserManager.CheckPassword
+//#UC START# *5715E767013D_5629E343023B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E767013D_5629E343023B_impl*
+end;//ThtUserManager.DoCheckPassword
 
-function ThtUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
-//#UC START# *56EA993D0218_5629E343023B_var*
-//#UC END# *56EA993D0218_5629E343023B_var*
+function ThtUserManager.DoIsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *5715E78F013E_5629E343023B_var*
+//#UC END# *5715E78F013E_5629E343023B_var*
 begin
-//#UC START# *56EA993D0218_5629E343023B_impl*
- Result :=  UserManager.IsUserAdmin(anUserID);
-//#UC END# *56EA993D0218_5629E343023B_impl*
-end;//ThtUserManager.IsUserAdmin
+//#UC START# *5715E78F013E_5629E343023B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5715E78F013E_5629E343023B_impl*
+end;//ThtUserManager.DoIsUserAdmin
 
 end.

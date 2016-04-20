@@ -57,6 +57,24 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , kw_Settings_opOpenStyleEditorAsModal
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Settings_opAutoLogin
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Settings_opSelectConfig
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Settings_opOpenConfList
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Settings_opLoadActiveSettings
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kw_Settings_opUserProperties
+ {$IfEnd} // NOT Defined(NoScripts)
  , nsStyleEditor
  , evStyleInterface
  {$If NOT Defined(NoVCL)}
@@ -73,6 +91,33 @@ uses
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
  , SelfInfo_Form
+ , StyleEditorContainer_Form
+ , StyleEditorFont_Form
+ , StyleEditorNavigator_Form
+ , ConfigurationList_Form
+ , Settings_Form
+ , StyleEditorExample_Form
+ {$If NOT Defined(NoScripts)}
+ , StyleEditorContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , StyleEditorFontKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , StyleEditorNavigatorKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ConfigurationListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , SettingsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , StyleEditorExampleKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , SelfInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}
