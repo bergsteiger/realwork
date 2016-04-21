@@ -288,57 +288,6 @@ ref; // ME_9829DDD71BB4 utEmptyMainWindowSettingsCaption
 
 ref; // ME_0C90E699281E LCImplutEmptyMainWindowLocalConstants
 
-: ME_1CD1CD4A5A3A
- CONST UID '1CD1CD4A5A3A'
- CONST Name 'Init_Str_utEmptyMainWindowCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utEmptyMainWindowCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA919040176 // PrimMonitoringsMain
- ;
- : Speller ME_2223A66B7E5C // utEmptyMainWindowCaption
- ;
- : SpelledFor ME_21973BB13B8A // utEmptyMainWindowCaption
- ;
-
-ref; // ME_1CD1CD4A5A3A Init_Str_utEmptyMainWindowCaption
-
-: ME_25C19092138D
- CONST UID '25C19092138D'
- CONST Name 'Init_Str_utEmptyMainWindowSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utEmptyMainWindowSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA919040176 // PrimMonitoringsMain
- ;
- : Speller ME_D7F21C10DA6E // utEmptyMainWindowSettingsCaption
- ;
- : SpelledFor ME_9829DDD71BB4 // utEmptyMainWindowSettingsCaption
- ;
-
-ref; // ME_25C19092138D Init_Str_utEmptyMainWindowSettingsCaption
-
-: ME_0A22AE23AB3C
- CONST UID '0A22AE23AB3C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimMonitoringsMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA919040176 // PrimMonitoringsMain
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0A22AE23AB3C Ini_Reg_Class
-
 : ME_BE3F24D0F58F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -360,17 +309,6 @@ ref; // ME_BE3F24D0F58F
  ;
 
 ref; // ME_B900EA68AB55 
-
-: ME_0AB8F0933CC1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA919040176 // PrimMonitoringsMain
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0AB8F0933CC1 
 
 : ME_49803F5503AA_ME_4AA919040176
  : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
@@ -396,12 +334,6 @@ ref; // ME_49803F5503AA_ME_4AA919040176 DoInit
    Seq: ( WL 'ME_4F7C1E96000A' '4F7C1E2803C5.pas.ms.script' // AdminAndMonitoringsMainForm
  )
  ; // Implements
- : Operations
-   Seq: ( ME_1CD1CD4A5A3A // Init_Str_utEmptyMainWindowCaption
- ME_25C19092138D // Init_Str_utEmptyMainWindowSettingsCaption
- ME_0A22AE23AB3C // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_49803F5503AA_ME_4AA919040176 // DoInit
  )
@@ -418,7 +350,6 @@ ref; // ME_49803F5503AA_ME_4AA919040176 DoInit
  : Dependencies
    Seq: ( ME_BE3F24D0F58F // Tl3StringIDEx
  ME_B900EA68AB55 // Tl3MessageID
- ME_0AB8F0933CC1 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -550,21 +481,6 @@ ref; // ME_AEDE99EEC64F MonitoringsMainIDs
 
 ref; // ME_C02C69F1F8D8 MonitoringsMain$Def
 
-: ME_7DE84C1ACFF7
- CONST UID '7DE84C1ACFF7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MonitoringsMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F7C2E78015C // MonitoringsMain
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7DE84C1ACFF7 Ini_Reg_Class
-
 : ME_14FDCD5D4A1E
  CONST UID '14FDCD5D4A1E'
  CONST Name 'Ini_FormFactory_MonitoringsMain'
@@ -580,17 +496,6 @@ ref; // ME_7DE84C1ACFF7 Ini_Reg_Class
  ;
 
 ref; // ME_14FDCD5D4A1E Ini_FormFactory_MonitoringsMain$Def
-
-: ME_2126BF9F8AFF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F7C2E78015C // MonitoringsMain
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2126BF9F8AFF 
 
 FORWARD ME_A57CFBB4AD10
 
@@ -613,18 +518,13 @@ FORWARD ME_A57CFBB4AD10
  )
  ; // Implements
  : Operations
-   Seq: ( ME_7DE84C1ACFF7 // Ini_Reg_Class
- ME_14FDCD5D4A1E // Ini_FormFactory_MonitoringsMain$Def
+   Seq: ( ME_14FDCD5D4A1E // Ini_FormFactory_MonitoringsMain$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_C02C69F1F8D8 // MonitoringsMain$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_2126BF9F8AFF // TtfwClassRef
- )
- ; // Dependencies
  : Injected
    Seq: ( ME_A57CFBB4AD10 // MonitoringsMain
  )
@@ -3490,24 +3390,6 @@ ref; // ME_ED33546FFF82 MonitoringsMainKeywordsPack
 
 ref; // ME_5F742ACC56BA TvcmApplicationRef
 
-: ME_DA5A0975D373
- CONST UID 'DA5A0975D373'
- CONST Name 'Init_Str_MonitoringTitle'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_MonitoringTitle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA9038C0387 // Monitorings
- ;
- : Speller ME_4F79AF7C02CC // MonitoringTitle
- ;
- : SpelledFor ME_02B481441F7A // MonitoringTitle
- ;
-
-ref; // ME_DA5A0975D373 Init_Str_MonitoringTitle
-
 : ME_4AA919EF02D4
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3583,10 +3465,6 @@ ref; // ME_4AA7E4DC0047_ME_4AA9038C0387 DoRun
    Seq: ( WL 'ME_4AAA42BF0267' '4A78013D01CD.pas.ms.script' // ShellAndMonitorings
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_DA5A0975D373 // Init_Str_MonitoringTitle
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4AA7E4DC0047_ME_4AA9038C0387 // DoRun
  )

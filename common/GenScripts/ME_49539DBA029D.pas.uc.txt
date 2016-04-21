@@ -1212,11 +1212,13 @@ var
       l_SubHandle := l_Para.AsObject.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub),
        k2_tiChildren, k2_tiByIndex, 0]).IntA[k2_tiHandle];
       if (l_SubHandle <= 0) then
-       if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      begin
+       if evInBlock(l_Para.AsObject, ev_bvkRight, l_Block) then
        begin
         l_SubHandle := l_Block.IntA[k2_tiHandle];
         l_Block.BoolA[k2_tiCollapsed] := False;
        end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      end; // if (l_SubHandle <= 0) then
       if (l_SubHandle > 0) then
       begin
        l_Addr := TevAddress_C(-1, l_SubHandle);
@@ -4193,7 +4195,7 @@ var
 //#UC END# *565C49E9039D_56558AAF003Bget_var*
 //#UC START# *5715DB6E02FC_4C066918002D_impl*
  Result := inherited TrySelectSub(aContainer, aSel, aSubID, aType);
- if not Result then
+ if not Result and (f_Form.AAC <> nil) and (f_Form.AAC.Right <> nil) and f_Form.AAC.Right.HasDoc then
  begin
   l_Sub := f_Form.AAC.Right.Container.SubList.SubEx[aSubID, aType];
   if (l_Sub <> nil) and l_Sub.Exists then

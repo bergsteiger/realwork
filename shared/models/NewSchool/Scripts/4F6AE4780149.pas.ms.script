@@ -6,34 +6,6 @@ FORWARD ME_4F6AE4780149
 
 FORWARD ME_4F6AE4A6014D
 
-FORWARD ME_4F6B6E380367
-
-: ME_F695BCF3E6BE
- CONST UID 'F695BCF3E6BE'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация NewGenMainPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B6E380367 // NewGenMainPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F695BCF3E6BE Ini_Reg_Class
-
-: ME_B3956B43B200
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B6E380367 // NewGenMainPrim
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B3956B43B200 
-
 : ME_4F6B6E380367
  CONST UID '4F6B6E380367'
  CONST Name 'NewGenMainPrim'
@@ -48,14 +20,6 @@ ref; // ME_B3956B43B200
    Seq: ( WL 'ME_4F6B382E00D9' '4F6B660100D5.pas.ms.script' // MainPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F695BCF3E6BE // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_B3956B43B200 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "base wnd class" 'CWnd'
@@ -417,21 +381,6 @@ ref; // ME_9078059E32E3 ut_MainCaption
 
 ref; // ME_DE4E6B1B2519 LCImplut_MainLocalConstants
 
-: ME_B26FACB83461
- CONST UID 'B26FACB83461'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Main' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6AEAE5007B // Main
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B26FACB83461 Ini_Reg_Class
-
 : ME_DEA25D90B258
  CONST UID 'DEA25D90B258'
  CONST Name 'Ini_FormFactory_Main'
@@ -447,35 +396,6 @@ ref; // ME_B26FACB83461 Ini_Reg_Class
  ;
 
 ref; // ME_DEA25D90B258 Ini_FormFactory_Main$Def
-
-: ME_259B617D1E72
- CONST UID '259B617D1E72'
- CONST Name 'Init_Str_ut_MainCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_MainCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6AEAE5007B // Main
- ;
- : Speller ME_0BDA345AEA4F // ut_MainCaption
- ;
- : SpelledFor ME_9078059E32E3 // ut_MainCaption
- ;
-
-ref; // ME_259B617D1E72 Init_Str_ut_MainCaption
-
-: ME_F23726573890
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6AEAE5007B // Main
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F23726573890 
 
 : ME_723AF4FC7E4E
  CONST IsSummoned true
@@ -527,9 +447,7 @@ FORWARD ME_ACFCD04ACF80
  )
  ; // Implements
  : Operations
-   Seq: ( ME_B26FACB83461 // Ini_Reg_Class
- ME_DEA25D90B258 // Ini_FormFactory_Main$Def
- ME_259B617D1E72 // Init_Str_ut_MainCaption
+   Seq: ( ME_DEA25D90B258 // Ini_FormFactory_Main$Def
  )
  ; // Operations
  : Overridden
@@ -547,8 +465,7 @@ FORWARD ME_ACFCD04ACF80
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_F23726573890 // TtfwClassRef
- ME_723AF4FC7E4E // Tl3StringIDEx
+   Seq: ( ME_723AF4FC7E4E // Tl3StringIDEx
  ME_FAD8734C0E0F // Tl3MessageID
  )
  ; // Dependencies
@@ -3417,24 +3334,6 @@ ref; // ME_8E2928F6F277 MainKeywordsPack
 
 ref; // ME_6C5C8CEC4C67 TvcmApplicationRef
 
-: ME_D5610304C0F7
- CONST UID 'D5610304C0F7'
- CONST Name 'Init_Str_NewGenTitle'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_NewGenTitle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6AE4A6014D // NewGen
- ;
- : Speller ME_4F6AF458003D // NewGenTitle
- ;
- : SpelledFor ME_4ED00BF6B9A3 // NewGenTitle
- ;
-
-ref; // ME_D5610304C0F7 Init_Str_NewGenTitle
-
 : ME_4F6B01250088
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3519,10 +3418,6 @@ ref; // ME_4F6AF5860291_ME_4F6AE4A6014D Runner
    Seq: ( WL 'ME_4F6B607F027E' '4F6B660100D5.pas.ms.script' // F1Like
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D5610304C0F7 // Init_Str_NewGenTitle
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4F6AF5860291_ME_4F6AE4A6014D // Runner
  )

@@ -61,20 +61,6 @@ ref; // ME_4FC3795D015E cIndexFileName
 
 ref; // ME_4F193A4F034C DBNames
 
-: ME_4FCC617701AE
- CONST UID '4FCC617701AE'
- CONST Name 'f_IndexFile'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4F193294011F // TStgIndexTest
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_4FCC617701AE f_IndexFile
-
 FORWARD ME_4F19335D01E9
 
 : ME_4F19337C00A3
@@ -214,6 +200,12 @@ ref; // ME_4B4F588B0241_ME_4F193294011F FileForOutput
  CONST OpKind opkind_Overridden
 ref; // ME_4C937013031D_ME_4F193294011F GetFolder
 
+: ME_4CA5DAD4014C_ME_4F193294011F
+ : Original WL 'ME_4CA5DAD4014C' '4B2A112B011A.pas.ms.script' // RaiseIfEtalonCreated
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4CA5DAD4014C_ME_4F193294011F RaiseIfEtalonCreated
+
 : ME_4DAED6F60146_ME_4F193294011F
  : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
  ;
@@ -240,10 +232,6 @@ ref; // ME_4DCA41A20364_ME_4F193294011F FileNameForOutput
    Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
  )
  ; // Inherits
- : Attributes
-   Seq: ( ME_4FCC617701AE // f_IndexFile
- )
- ; // Attributes
  : Operations
    Seq: ( ME_4F19335D01E9 // DoIt
  )
@@ -251,6 +239,7 @@ ref; // ME_4DCA41A20364_ME_4F193294011F FileNameForOutput
  : Overridden
    Seq: ( ME_4B4F588B0241_ME_4F193294011F // FileForOutput
  ME_4C937013031D_ME_4F193294011F // GetFolder
+ ME_4CA5DAD4014C_ME_4F193294011F // RaiseIfEtalonCreated
  ME_4DAED6F60146_ME_4F193294011F // GetModelElementGUID
  ME_4DCA41A20364_ME_4F193294011F // FileNameForOutput
  )

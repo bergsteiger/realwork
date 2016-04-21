@@ -175,12 +175,15 @@ PROCEDURE "Сохранить изображение и сравнить с эталоном" INTEGER IN aHeight INTEG
 	l_FileName aHeight aWidth aTop aLeft aHandle ScreenShot2FileWithCheck	
 ;
 
+CONST cnScrollBarWidth 17
+
 PROCEDURE "Сохранить изображение контрола и сравнить с эталоном" BOOLEAN IN aNeedRepaint
 	EtalonNeedsComputerName
 	OBJECT VAR l_Editor
 	focused:control:push >>> l_Editor 	
 	INTEGER VAR l_Width	
 	l_Editor pop:Control:Width >>> l_Width
+	Если ( l_Editor pop:Control:VScrollerVisible ) то ( l_Width cnScrollBarWidth - >>> l_Width )
 	INTEGER VAR l_Height 	
 	l_Editor pop:Control:Height >>> l_Height	
 	Если ( aNeedRepaint ) то 

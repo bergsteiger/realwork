@@ -1,0 +1,71 @@
+PROGRAM arrayHas.ms.script
+
+USES
+ arrays.ms.dict
+;
+
+1 [ 1 2 ] array:Has .
+3 [ 1 2 ] array:Has .
+
+1 .InArray: [ 1 2 ] .
+3 .InArray: [ 1 2 ] .
+
+: A1 [ 1 2 ] ;
+
+1 .InArray: A1 .
+3 .InArray: A1 .
+
+[ 1 2 ] >reverted> .
+[ 1 2 ] .reverted> .
+[ 1 2 ] REVERTED .
+[ 1 2 ] Reverted .
+[ 1 2 ] reverted .
+
+1 .NotInArray: [ 1 2 ] .
+3 .NotInArray: [ 1 2 ] .
+1 .NotInArray: A1 .
+3 .NotInArray: A1 .
+
+[ 'a' 'b' ] 'a' array:HasString .
+[ 'a' 'b' ] 'c' array:HasString .
+[ 'a' 'b' ] 'A' array:HasString .
+[ 'a' 'b' ] 'C' array:HasString .
+
+'a' .StringInArray: [ 'a' 'b' ] .
+'c' .StringInArray: [ 'a' 'b' ] .
+'A' .StringInArray: [ 'a' 'b' ] .
+'C' .StringInArray: [ 'a' 'b' ] .
+
+'a' .StringNotInArray: [ 'a' 'b' ] .
+'c' .StringNotInArray: [ 'a' 'b' ] .
+'A' .StringNotInArray: [ 'a' 'b' ] .
+'C' .StringNotInArray: [ 'a' 'b' ] .
+
+[ 'a' 'b' ] 'a' array:HasText .
+[ 'a' 'b' ] 'c' array:HasText .
+[ 'a' 'b' ] 'A' array:HasText .
+[ 'a' 'b' ] 'C' array:HasText .
+
+'a' .TextInArray: [ 'a' 'b' ] .
+'c' .TextInArray: [ 'a' 'b' ] .
+'A' .TextInArray: [ 'a' 'b' ] .
+'C' .TextInArray: [ 'a' 'b' ] .
+
+'a' .TextNotInArray: [ 'a' 'b' ] .
+'c' .TextNotInArray: [ 'a' 'b' ] .
+'A' .TextNotInArray: [ 'a' 'b' ] .
+'C' .TextNotInArray: [ 'a' 'b' ] .
+
+@ ( 1 + ) [ 1 2 3 ] map .for> .
+
+@ ( 2 != ) [ 1 2 3 ] filter .for> .
+
+1 to 10 .for> .
+
+[ 1 2 3 4 5 ] IT .
+
+[ 1 2 3 4 5 ] ==> .
+
+for [ 1 2 ] .
+
+[ 1 2 3 ] >for> .

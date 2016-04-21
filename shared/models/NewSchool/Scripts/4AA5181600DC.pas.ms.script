@@ -288,57 +288,6 @@ ref; // ME_B8812FBD0B55 utEmptyMainWindowSettingsCaption
 
 ref; // ME_C8D82111D71F LCImplutEmptyMainWindowLocalConstants
 
-: ME_186AB74EF69F
- CONST UID '186AB74EF69F'
- CONST Name 'Init_Str_utEmptyMainWindowCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utEmptyMainWindowCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA518EB039C // PrimAdminMain
- ;
- : Speller ME_278E12042949 // utEmptyMainWindowCaption
- ;
- : SpelledFor ME_49866ECA0263 // utEmptyMainWindowCaption
- ;
-
-ref; // ME_186AB74EF69F Init_Str_utEmptyMainWindowCaption
-
-: ME_023554B117B4
- CONST UID '023554B117B4'
- CONST Name 'Init_Str_utEmptyMainWindowSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utEmptyMainWindowSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA518EB039C // PrimAdminMain
- ;
- : Speller ME_0204FD1238BF // utEmptyMainWindowSettingsCaption
- ;
- : SpelledFor ME_B8812FBD0B55 // utEmptyMainWindowSettingsCaption
- ;
-
-ref; // ME_023554B117B4 Init_Str_utEmptyMainWindowSettingsCaption
-
-: ME_CFC25BB7C72E
- CONST UID 'CFC25BB7C72E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimAdminMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA518EB039C // PrimAdminMain
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CFC25BB7C72E Ini_Reg_Class
-
 : ME_CD40FFA5D768
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -360,17 +309,6 @@ ref; // ME_CD40FFA5D768
  ;
 
 ref; // ME_6D4AFB9D0671 
-
-: ME_BD3B8E13CE5B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA518EB039C // PrimAdminMain
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BD3B8E13CE5B 
 
 : ME_49803F5503AA_ME_4AA518EB039C
  : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
@@ -396,12 +334,6 @@ ref; // ME_49803F5503AA_ME_4AA518EB039C DoInit
    Seq: ( WL 'ME_4F7C1E96000A' '4F7C1E2803C5.pas.ms.script' // AdminAndMonitoringsMainForm
  )
  ; // Implements
- : Operations
-   Seq: ( ME_186AB74EF69F // Init_Str_utEmptyMainWindowCaption
- ME_023554B117B4 // Init_Str_utEmptyMainWindowSettingsCaption
- ME_CFC25BB7C72E // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_49803F5503AA_ME_4AA518EB039C // DoInit
  )
@@ -418,7 +350,6 @@ ref; // ME_49803F5503AA_ME_4AA518EB039C DoInit
  : Dependencies
    Seq: ( ME_CD40FFA5D768 // Tl3StringIDEx
  ME_6D4AFB9D0671 // Tl3MessageID
- ME_BD3B8E13CE5B // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -550,21 +481,6 @@ ref; // ME_3B4547FBE885 AdminMainIDs
 
 ref; // ME_1EFCD4E79E8C AdminMain$Def
 
-: ME_71819FD6CDC3
- CONST UID '71819FD6CDC3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация AdminMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F7C3C0B035C // AdminMain
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_71819FD6CDC3 Ini_Reg_Class
-
 : ME_4CFE30C727D1
  CONST UID '4CFE30C727D1'
  CONST Name 'Ini_FormFactory_AdminMain'
@@ -580,17 +496,6 @@ ref; // ME_71819FD6CDC3 Ini_Reg_Class
  ;
 
 ref; // ME_4CFE30C727D1 Ini_FormFactory_AdminMain$Def
-
-: ME_220F0B6AB399
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F7C3C0B035C // AdminMain
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_220F0B6AB399 
 
 FORWARD ME_FA06B64FF5AF
 
@@ -613,18 +518,13 @@ FORWARD ME_FA06B64FF5AF
  )
  ; // Implements
  : Operations
-   Seq: ( ME_71819FD6CDC3 // Ini_Reg_Class
- ME_4CFE30C727D1 // Ini_FormFactory_AdminMain$Def
+   Seq: ( ME_4CFE30C727D1 // Ini_FormFactory_AdminMain$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_1EFCD4E79E8C // AdminMain$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_220F0B6AB399 // TtfwClassRef
- )
- ; // Dependencies
  : Injected
    Seq: ( ME_FA06B64FF5AF // AdminMain
  )
@@ -3490,24 +3390,6 @@ ref; // ME_437C54D5FFBC AdminMainKeywordsPack
 
 ref; // ME_DBB74992E310 TvcmApplicationRef
 
-: ME_A01D8E37D673
- CONST UID 'A01D8E37D673'
- CONST Name 'Init_Str_AdminTitle'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_AdminTitle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA517B5037A // AdminApp
- ;
- : Speller ME_4F79AF3E036E // AdminTitle
- ;
- : SpelledFor ME_559914C9D3D3 // AdminTitle
- ;
-
-ref; // ME_A01D8E37D673 Init_Str_AdminTitle
-
 : ME_4AA5186D0213
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3593,10 +3475,6 @@ ref; // ME_4AA7E4DC0047_ME_4AA517B5037A DoRun
    Seq: ( WL 'ME_4A92BBDF0126' '4986ECDF01F4.pas.ms.script' // PrimF1
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A01D8E37D673 // Init_Str_AdminTitle
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4AA7E4DC0047_ME_4AA517B5037A // DoRun
  )

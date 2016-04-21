@@ -6676,6 +6676,152 @@ ref; // ME_5617F4D00243_ME_A91467BC2C27 ParamsTypes
 
 ref; // ME_A91467BC2C27 string_SmallHash_New
 
+FORWARD ME_5718A63E039C
+
+FORWARD ME_A9758C4E23DF
+
+FORWARD ME_FDCE9825C3FB
+
+: ME_0478BD4C7F78
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_0478BD4C7F78 aCtx
+
+: ME_0478BD4C7F79
+ CONST Name 'aString'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_0478BD4C7F79 aString
+
+: ME_A9758C4E23DF
+ CONST UID 'A9758C4E23DF'
+ CONST Name 'string_Transliterate'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта string:Transliterate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_FDCE9825C3FB // string_Transliterate
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_0478BD4C7F78 // aCtx
+ ME_0478BD4C7F79 // aString
+ )
+ ; // Parameters
+ : SpelledFor ME_5718A63E039C // string_Transliterate
+ ;
+
+ref; // ME_A9758C4E23DF string_Transliterate
+
+: ME_3281CDEACD12
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_FDCE9825C3FB // string_Transliterate
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_3281CDEACD12 
+
+: ME_4CDD68DA3966
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_FDCE9825C3FB // string_Transliterate
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4CDD68DA3966 
+
+: ME_4DAEEDE10285_ME_FDCE9825C3FB
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_FDCE9825C3FB DoDoIt
+
+: ME_551544E2001A_ME_FDCE9825C3FB
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_FDCE9825C3FB GetResultTypeInfo
+
+: ME_559687E6025A_ME_FDCE9825C3FB
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_FDCE9825C3FB GetAllParamsCount
+
+: ME_5617F4D00243_ME_FDCE9825C3FB
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_FDCE9825C3FB ParamsTypes
+
+: ME_FDCE9825C3FB
+ CONST UID 'FDCE9825C3FB'
+ CONST Name 'string_Transliterate'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта string:Transliterate'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aString string:Transliterate >>> l_String'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_A9758C4E23DF // string_Transliterate
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_FDCE9825C3FB // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_FDCE9825C3FB // GetResultTypeInfo
+ ME_559687E6025A_ME_FDCE9825C3FB // GetAllParamsCount
+ ME_5617F4D00243_ME_FDCE9825C3FB // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_3281CDEACD12 // TTypeInfo
+ ME_4CDD68DA3966 // SysUtils
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'string:Transliterate'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwStringTransliterate'
+ CONST extprop:rc:SelfName 'StringTransliterate'
+ CONST extprop:rc:isAcceptableForScripts true
+ : Speller WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : SpelledFor ME_5718A63E039C // string_Transliterate
+ ;
+ : Stub ME_A9758C4E23DF // string_Transliterate
+ ;
+
+ref; // ME_FDCE9825C3FB string_Transliterate
+
 FORWARD ME_55686F4301AB
 
 FORWARD ME_9CC163BCA241
@@ -9063,6 +9209,25 @@ ref; // ME_56F40BBA029D string_Hash_New
 
 ref; // ME_56F40BD3026A string_SmallHash_New
 
+: ME_5718A63E039C
+ CONST UID '5718A63E039C'
+ CONST Name 'string_Transliterate'
+ CONST Class class_Operation
+ : Stereotype st_keyword::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+ : Speller ME_FDCE9825C3FB // string_Transliterate
+ ;
+
+ref; // ME_5718A63E039C string_Transliterate
+
 : ME_3D95A4A91861
  CONST UID '3D95A4A91861'
  CONST Name 'Reg_Type_TtfwContext'
@@ -9158,6 +9323,22 @@ ref; // ME_5C7667971622 Reg_Type_Char
  ;
 
 ref; // ME_C563AA3E982B Reg_Type_ItfwValueList
+
+: ME_9B8F16F66619
+ CONST UID '9B8F16F66619'
+ CONST Name 'Reg_Type_String'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55682D8F01C7 // tfwIl3CStringPack
+ ;
+ : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_9B8F16F66619 Reg_Type_String
 
 : ME_4919361078A2
  CONST UID '4919361078A2'
@@ -9341,12 +9522,14 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
  ME_56F3EF7C0205 // string_Iterator
  ME_56F40BBA029D // string_Hash_New
  ME_56F40BD3026A // string_SmallHash_New
+ ME_5718A63E039C // string_Transliterate
  ME_3D95A4A91861 // Reg_Type_TtfwContext
  ME_C931EF002EA0 // Reg_Type_Il3CString
  ME_3FD573D2D0F1 // Reg_Type_Boolean
  ME_AAEC7D283934 // Reg_Type_Integer
  ME_5C7667971622 // Reg_Type_Char
  ME_C563AA3E982B // Reg_Type_ItfwValueList
+ ME_9B8F16F66619 // Reg_Type_String
  ME_4919361078A2 // Reg_Type_TtfwWord
  )
  ; // Operations
@@ -9399,6 +9582,7 @@ ref; // ME_46780DEF03E5_ME_55682D8F01C7 AsWStr
  ME_AE2A1F9F2367 // string_Iterator
  ME_B0A153973998 // string_Hash_New
  ME_A91467BC2C27 // string_SmallHash_New
+ ME_FDCE9825C3FB // string_Transliterate
  ME_5B249AD9723E // VarDecLen
  ME_FF4D82AA3241 // VarInc
  ME_D442EF995DFF // RSplitTo

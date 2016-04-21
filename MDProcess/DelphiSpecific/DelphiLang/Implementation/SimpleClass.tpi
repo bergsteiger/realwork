@@ -62,23 +62,6 @@ p needs script:tribool=undefined ? Нужна скриптовая обвязка
 // Унаследованная реализация
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит документацию для СЛОВА скрипта, которое представляет данный эелемент
-%f _DoSpellKeywordDocumentation
-// параметры: aSummoner: MDAClass = %1
-//#UC START# *4F30D27300BAfor481EC6BD016B*
-	%S%[inherited]f_DoSpellKeywordDocumentation(%1)\
-	[{%S%f_NeedsKeywordDocumentation()=true}\
-	%f_set_var(NAME,"%S%f_ScriptKeywordDocumentationName()")\
-//	[{"%1<{}{%CN=%{NAME}N}{C}>"="0"}\
-	%1%f_add_class(%SU_%1U,ScriptKeywordDocumentation,%{NAME}N,KeywordDocumentation_Inst)\
-	%{KeywordDocumentation_Inst}%f_set_documentation(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%f_str_replace(%SD, Пример:, *Пример:*),\n\n*Пример:*,\n *Пример:*),\n\nПример:,\n *Пример:*),\n*Пример:*,\n *Пример:*),\nПример:,\n *Пример:*))\
-// WST = WasSpelledTo
-	%{KeywordDocumentation_Inst}%f_set_var(WST,S)\
-//	]\
-	]
-//#UC END# *4F30D27300BAfor481EC6BD016B*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Нужно ли документацию к слову скрипта, которое представляет элемента
 %f _NeedsKeywordDocumentation
 // возвращаемый результат: boolean
@@ -93,21 +76,6 @@ p needs script:tribool=undefined ? Нужна скриптовая обвязка
 	false\
 	]
 //#UC END# *4F30B869036Efor481EC6BD016B*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-%f _ScriptKeywordDocumentationName
-// возвращаемый результат: a-string
-//#UC START# *4F30B8E60385for481EC6BD016B*
-	[%P#f_pas_ElementPrefixBase()_]%f_cut_prefix(%f_cut_prefix(%f_N(%S),Tkw),_)
-//#UC END# *4F30B8E60385for481EC6BD016B*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Создаёт документацию к словам скрипта
-%f _SpellKeywordsDocumentation
-// параметры: aSummoner: MDAClass = %1
-//#UC START# *4F30B8A403DFfor481EC6BD016B*
-	%S%[inherited]f_SpellKeywordsDocumentation(%1)
-//#UC END# *4F30B8A403DFfor481EC6BD016B*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Добавляет файлы необходимые элементу с точки зрения метамодели

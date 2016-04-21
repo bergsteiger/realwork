@@ -1741,17 +1741,37 @@ ref; // ME_570B3C910214 Вставка разрыва страницы
 
 ref; // ME_570B3CAB0184 Вставка формулы
 
+FORWARD ME_570B3CC80287
+
+: ME_5715C52B0299
+ CONST UID '5715C52B0299'
+ CONST Name 'Работа с диалогом шаблонов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вызов из меню: Вставка\Текстовый шаблон\Редактирование'#13#10'В окне редактирования можно ввести шаблон вручную или выбрать уже готовый через выпадающий список.'#13#10'Для удобства ввода доступен выпадащее меню, вызываемое по кнопке "Макросы".  В нем находится список поддерживаемых макросов, доступных для вставки в шаблон. При выборе пункта меню в текст в редакторе шаблона вставляется макрос. '#13#10'Готовый макрос можно сохранить. Для чего досупна кнопка "Сохранить текущий шаблон". После нажатия на кнопку будет запрошено имя сохраняемого шаблона. После сохранения имя шаблона будет помещено в список.'#13#10'Шаблон можно удалить. Для этого справа от списка находится кнопка. Кнопка доступна только после выбора любого шаблона из списка. Если ни одни шаблон не выбран, то на кнопку нельзя будет нажать.'#13#10'Реализованна в задаче: {Requestlink:202342677}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_570B3CC80287 // Вставка текстового шаблона
+ ;
+
+ref; // ME_5715C52B0299 Работа с диалогом шаблонов
+
 : ME_570B3CC80287
  CONST UID '570B3CC80287'
  CONST Name 'Вставка текстового шаблона'
  CONST Class class_Class
  : Stereotype st_UseCaseRequirement ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Текстовый шаблон вставляется с помощью меню "Вставка\Текстовый шаблон". С помощью клавиатуры используется комбинация клавиш "Alt+Ins". '#13#10'В результате появляется окно работы с текстовым шаблоном, в котором можно:'#13#10'* написать шаблон вручную'#13#10'* выбрать из уже готовых шаблонов.'#13#10'По окончании работы с шаблоном, пользователь нажимает "ОК" для обработки шаблона и вставки результата в текст документа. Или "Отмена" для закрытия окна без изменения документа.' ;
+ %SUMMARY 'Текстовый шаблон вставляется с помощью меню "Вставка\Текстовый шаблон". С помощью клавиатуры используется комбинация клавиш "Alt+Ins". '#13#10'В результате появляется окно работы с текстовым шаблоном, в котором можно:'#13#10'* написать шаблон вручную'#13#10'* выбрать из уже готовых шаблонов.'#13#10'По окончании работы с шаблоном, пользователь нажимает "ОК" для обработки шаблона и вставки результата в текст документа. Или "Отмена" для закрытия окна без изменения документа.'#13#10'Доступна также кнопка "Помощь" для вызова справки по шаблонам.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
  : Parent ME_570B3C440128 // Вставка в документ
  ;
+ : Children
+   Seq: ( ME_5715C52B0299 // Работа с диалогом шаблонов
+ )
+ ; // Children
 
 ref; // ME_570B3CC80287 Вставка текстового шаблона
 
@@ -1790,6 +1810,320 @@ ref; // ME_570B3C440128 Вставка в документ
 
 ref; // ME_570DE64F021D Создание схем
 
+: ME_5715CB480335
+ CONST UID '5715CB480335'
+ CONST Name 'Проверка орфографии'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Запускает процесс проверки орфографии для текста документа.'#13#10'Вызывается с помощью кнопки на панели инструментов "Проверка орфографии".'#13#10'Проверка начинается с текущего положения курсора.'#13#10'Окно содержит два поля: "Нет в словаре", где содерится слово, которое не найдено в орфографическом словаре системой проверки орфографии. Такое слово считается ошибочным. И окно "Варианты" - слова, на которые система предлагает заменить ошибочное слово. '#13#10'Справа от полей находятся кнопки: '#13#10'"Пропустить" - считать слово правильным.'#13#10'"Пропустить все" - считать текущее слово и все последующие слова правильными '#13#10'"Добавить" - добавляет текущее слово в орфографический словарь. Такое слово будет считаться правильным в этом и других документах.'#13#10'"Заменить" - заменить текущее слово на выбранное в поле "Варианты"'#13#10'"Заменить все" - заменять все ошибочные слова на первые слова в поле "Варианты"'#13#10'Если в редакторе выделена часть текста, то проверка будет производится для выделенного фрагмента.'#13#10'В нижней части окна есть две кнопки: "Помощь" и "Завершить".' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551121E4029E // Редактирование документа
+ ;
+
+ref; // ME_5715CB480335 Проверка орфографии
+
+FORWARD ME_5715CFEF0244
+
+FORWARD ME_5715D02202C0
+
+: ME_5718697D017C
+ CONST UID '5718697D017C'
+ CONST Name 'Поиск со специсимволами'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Справа от поля есть кнопка "Спецсимволы" для добавленя в поиск специальных условий поиска:'#13#10'* любой буквы '#13#10'* перевода строки'#13#10'* табуляции'#13#10'* параграфа'#13#10'* любого символа'#13#10'* любой цифры'#13#10'* неразрывного пробела'#13#10'* тире'#13#10'* длинного тире.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_5718697D017C Поиск со специсимволами
+
+: ME_571869930272
+ CONST UID '571869930272'
+ CONST Name 'Поиск с учетом регистра'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При поиске учитывается регистр слова или выражения.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_571869930272 Поиск с учетом регистра
+
+: ME_571869ED0204
+ CONST UID '571869ED0204'
+ CONST Name 'Поиск слова целиком'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При выделении параметра ищется целое вхождение слова в текст.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_571869ED0204 Поиск слова целиком
+
+: ME_57186A120064
+ CONST UID '57186A120064'
+ CONST Name 'Поиск со словоформами'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поиск словоформ подразумевает поиск различных склонений имён существительных и прилагательных (по падежам, родам и числам), спряжений глаголов. Поиск неизменяемых частей речи, например, предлогов, вводных слов, наречий и'#13#10'союзов, будет осуществляться в исходном виде. Например, для слова "идти" будут найдены следующие словоформы: "шёл", "идут", "пойдем" и т.д.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_57186A120064 Поиск со словоформами
+
+: ME_57186A6B0265
+ CONST UID '57186A6B0265'
+ CONST Name 'Поиск слова с любыми окончаниями'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слова, имеющие разные окончания, будут считаться одинаковыми при поиске. Для поиск строгозаданной последовательности символов в конце слова используется восклицательный знак.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_57186A6B0265 Поиск слова с любыми окончаниями
+
+: ME_57186B160007
+ CONST UID '57186B160007'
+ CONST Name 'Поиск с регулярными выраженями'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поиск текста с использованием регулярных выражений.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_57186B160007 Поиск с регулярными выраженями
+
+: ME_57186B560280
+ CONST UID '57186B560280'
+ CONST Name 'Параметры области поиска'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Искать можно по всему тексту или по выделенному фрагменту' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_57186B560280 Параметры области поиска
+
+: ME_57186B7D031F
+ CONST UID '57186B7D031F'
+ CONST Name 'Начало поиска'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Искать можно от курсора или от начала текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_57186B7D031F Начало поиска
+
+: ME_57186CB300D4
+ CONST UID '57186CB300D4'
+ CONST Name 'Использование текста из предыдущего поиска'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'До 20 предыдущих слов или словосочетаний сохраняются в выпадающем списке поля поиска и могут быть использованы для последующего поиска.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_57186CB300D4 Использование текста из предыдущего поиска
+
+: ME_5715D02202C0
+ CONST UID '5715D02202C0'
+ CONST Name 'Поиск текста'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Вызывается с помощью меню "Поиск\Найти" или по комбинации клавиш "Ctrl+F" или "Ctrl+T".'#13#10'В окне поиска можно набить слово или словосочетание для поиска. Слова могут вводиться не полностью.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+ : Children
+   Seq: ( ME_5718697D017C // Поиск со специсимволами
+ ME_571869930272 // Поиск с учетом регистра
+ ME_571869ED0204 // Поиск слова целиком
+ ME_57186A120064 // Поиск со словоформами
+ ME_57186A6B0265 // Поиск слова с любыми окончаниями
+ ME_57186B160007 // Поиск с регулярными выраженями
+ ME_57186B560280 // Параметры области поиска
+ ME_57186B7D031F // Начало поиска
+ ME_57186CB300D4 // Использование текста из предыдущего поиска
+ )
+ ; // Children
+
+ref; // ME_5715D02202C0 Поиск текста
+
+: ME_5715D06103E1
+ CONST UID '5715D06103E1'
+ CONST Name 'Поиск стиля'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_5715D06103E1 Поиск стиля
+
+: ME_5715D06C00C8
+ CONST UID '5715D06C00C8'
+ CONST Name 'Поиск гиперссылок'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_5715D06C00C8 Поиск гиперссылок
+
+: ME_5715D0770375
+ CONST UID '5715D0770375'
+ CONST Name 'Поиск таблиц'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поиск таблицы находится в меню "Поиск". Команда "Найти таблицу" или с помощью сочетания клавиш "Alt+T"'#13#10'При выборе команды ищется таблица вниз от курсора. Изменить направления поиска нельзя. '#13#10'Подпись по этой команде на находтися.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_5715D0770375 Поиск таблиц
+
+: ME_5715D16B0195
+ CONST UID '5715D16B0195'
+ CONST Name 'Продолжения поиска'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_5715D16B0195 Продолжения поиска
+
+: ME_5715D17C0051
+ CONST UID '5715D17C0051'
+ CONST Name 'Поиск по фрагменту'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_5715D17C0051 Поиск по фрагменту
+
+: ME_57186C3A0215
+ CONST UID '57186C3A0215'
+ CONST Name 'Замента текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_57186C3A0215 Замента текста
+
+: ME_57186C4500FA
+ CONST UID '57186C4500FA'
+ CONST Name 'Замена гиперссылки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_57186C4500FA Замена гиперссылки
+
+: ME_57186C740391
+ CONST UID '57186C740391'
+ CONST Name 'Замена стиля'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_57186C740391 Замена стиля
+
+: ME_57186C7F0298
+ CONST UID '57186C7F0298'
+ CONST Name 'Установка метки на найденный фрагмент'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715CFEF0244 // Поиск и замена
+ ;
+
+ref; // ME_57186C7F0298 Установка метки на найденный фрагмент
+
+: ME_5715CFEF0244
+ CONST UID '5715CFEF0244'
+ CONST Name 'Поиск и замена'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551121E4029E // Редактирование документа
+ ;
+ : Children
+   Seq: ( ME_5715D02202C0 // Поиск текста
+ ME_5715D06103E1 // Поиск стиля
+ ME_5715D06C00C8 // Поиск гиперссылок
+ ME_5715D0770375 // Поиск таблиц
+ ME_5715D16B0195 // Продолжения поиска
+ ME_5715D17C0051 // Поиск по фрагменту
+ ME_57186C3A0215 // Замента текста
+ ME_57186C4500FA // Замена гиперссылки
+ ME_57186C740391 // Замена стиля
+ ME_57186C7F0298 // Установка метки на найденный фрагмент
+ )
+ ; // Children
+
+ref; // ME_5715CFEF0244 Поиск и замена
+
 : ME_551121E4029E
  CONST UID '551121E4029E'
  CONST Name 'Редактирование документа'
@@ -1806,6 +2140,8 @@ ref; // ME_570DE64F021D Создание схем
  ME_551122D603B9 // Изменение оформления
  ME_570B3C440128 // Вставка в документ
  ME_570DE64F021D // Создание схем
+ ME_5715CB480335 // Проверка орфографии
+ ME_5715CFEF0244 // Поиск и замена
  )
  ; // Children
 

@@ -2029,42 +2029,6 @@ f _NeedFinalize
 	false
 //#UC END# *4F30B869036Efor470F151302FD*
 
-// Создаёт документацию к словам скрипта
-%f _SpellKeywordsDocumentation
-// параметры: aSummoner: MDAClass = %1
-//#UC START# *4F30B8A403DFfor470F151302FD*
-	[{%S%{_WasSpelled}N!=1}\
-	[{%SS!=Requirements&%SS!=Constants&%SS!=TestLibrary}\
-	%S%f_set_var(_WasSpelled,"1")\
-//	[{%S%{WasSpelledToKeywordsDocumentation}N!=true}\
-//	%S%f_set_var(WasSpelledToKeywordsDocumentation,"true")\
-	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
-	<{}{%CC=Class|%CC=Category}\
-	[{%C#f_IsMethod()!=true}\
-	%C#f_SpellKeywordsDocumentation(%1)\
-	]\
-	>\
-// - тут итерируем ТОЛЬКО по классам и категориям, не заходя внутрь методов,
-//   операций и связей, так наверное памяти СИЛЬНО меньше тратиться должно,
-//   до и по времени побыстрее должно быть
-	%S%f_DoSpellKeywordDocumentation(%1)\
-	]\
-	]
-//#UC END# *4F30B8A403DFfor470F151302FD*
-
-%f _ScriptKeywordDocumentationName
-// возвращаемый результат: a-string
-//#UC START# *4F30B8E60385for470F151302FD*
-	%f_N(%S)
-//#UC END# *4F30B8E60385for470F151302FD*
-
-// Выводит документацию для СЛОВА скрипта, которое представляет данный эелемент
-%f _DoSpellKeywordDocumentation
-// параметры: aSummoner: MDAClass = %1
-//#UC START# *4F30D27300BAfor470F151302FD*
-// - специально ничего не делаем
-//#UC END# *4F30D27300BAfor470F151302FD*
-
 %f _IsUnit
 // возвращаемый результат: boolean
 //#UC START# *4F30E88502A5for470F151302FD*

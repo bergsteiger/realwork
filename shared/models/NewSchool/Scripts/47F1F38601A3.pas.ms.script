@@ -1265,6 +1265,98 @@ ref; // ME_5715E5B40319 DoIt
 
 ref; // ME_5715E58F019A evInBlock
 
+FORWARD ME_57187A09034A
+
+: ME_57187A4B0393
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_533D31A90231' '4678209200A6.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_57187A4B0393 aPara
+
+: ME_57187A430082
+ CONST UID '57187A430082'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57187A09034A // evCheckParaOwner
+ ;
+ : Target WL 'ME_533D31A90231' '4678209200A6.pas.ms.script' // Tl3Variant
+ ;
+ : Parameters
+   Seq: ( ME_57187A4B0393 // aPara
+ )
+ ; // Parameters
+
+ref; // ME_57187A430082 DoIt
+
+: ME_57187A09034A
+ CONST UID '57187A09034A'
+ CONST Name 'evCheckParaOwner'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47F1F3BC0330 // evParaTools
+ ;
+ : Operations
+   Seq: ( ME_57187A430082 // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'CheckParaOwner'
+
+ref; // ME_57187A09034A evCheckParaOwner
+
+FORWARD ME_57187A510399
+
+: ME_57187A9C01DF
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_57187A9C01DF aPara
+
+: ME_57187A930371
+ CONST UID '57187A930371'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57187A510399 // evCheckParaOwner$1
+ ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+ : Parameters
+   Seq: ( ME_57187A9C01DF // aPara
+ )
+ ; // Parameters
+
+ref; // ME_57187A930371 DoIt
+
+: ME_57187A510399
+ CONST UID '57187A510399'
+ CONST Name 'evCheckParaOwner'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47F1F3BC0330 // evParaTools
+ ;
+ : Operations
+   Seq: ( ME_57187A930371 // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'CheckParaOwner'
+
+ref; // ME_57187A510399 evCheckParaOwner$1
+
 : ME_47F1F425037E
  CONST Name 'aList'
  CONST Class class_Parameter
@@ -2654,6 +2746,16 @@ ref; // ME_55FA82CD002E
 
 ref; // ME_5600F3180040 
 
+: ME_57187A020191
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_47F1F3BC0330 // evParaTools
+ ;
+ : Target WL 'ME_4CEBC4B702DD' '48492FC0029D.pas.ms.script' // LeafParaDecorationsHolder
+ ;
+
+ref; // ME_57187A020191 
+
 : ME_47F1F3BC0330
  CONST UID '47F1F3BC0330'
  CONST Name 'evParaTools'
@@ -2686,6 +2788,8 @@ ref; // ME_5600F3180040
  ME_5600F8C80213 // evNeedDrawParaInCollapsedMode
  ME_5603D8AD0108 // evHeaderTextPara$1
  ME_5715E58F019A // evInBlock
+ ME_57187A09034A // evCheckParaOwner
+ ME_57187A510399 // evCheckParaOwner$1
  ME_47F1F3EF01BC // evSearchPara
  ME_47F1F42F032D // evSearchPara
  ME_48E4E9370259 // evQueryParaInterface
@@ -2739,6 +2843,7 @@ ref; // ME_5600F3180040
  ME_5523BE2703BD // Formula
  ME_55FA82CD002E // DecorTextPara
  ME_5600F3180040 // Document
+ ME_57187A020191 // LeafParaDecorationsHolder
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'
@@ -5764,6 +5869,16 @@ ref; // ME_552FA163004F aMap
 
 ref; // ME_552FA1580225 DoIt
 
+: ME_57187AB000CB
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_552FA1440245 // evGetFirstParaHyperlink
+ ;
+ : Target WL 'ME_4CEBC4B702DD' '48492FC0029D.pas.ms.script' // LeafParaDecorationsHolder
+ ;
+
+ref; // ME_57187AB000CB 
+
 : ME_552FA1440245
  CONST UID '552FA1440245'
  CONST Name 'evGetFirstParaHyperlink'
@@ -5778,6 +5893,10 @@ ref; // ME_552FA1580225 DoIt
    Seq: ( ME_552FA1580225 // DoIt
  )
  ; // Operations
+ : Dependencies
+   Seq: ( ME_57187AB000CB // LeafParaDecorationsHolder
+ )
+ ; // Dependencies
  CONST extprop:rc:SelfName 'GetFirstParaHyperlink'
 
 ref; // ME_552FA1440245 evGetFirstParaHyperlink

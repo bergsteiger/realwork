@@ -118,24 +118,6 @@ ref; // ME_C2620AA17C48 LCImplLocal
 
 ref; // ME_5679B8CFF998 TvcmApplicationRef
 
-: ME_340142971821
- CONST UID '340142971821'
- CONST Name 'Init_Str_VCMSandBoxTitle'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_VCMSandBoxTitle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_521649770277 // VCMSandBox
- ;
- : Speller ME_52164E880101 // VCMSandBoxTitle
- ;
- : SpelledFor ME_9659A6A38ED9 // VCMSandBoxTitle
- ;
-
-ref; // ME_340142971821 Init_Str_VCMSandBoxTitle
-
 : ME_521649AB009E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -215,10 +197,6 @@ ref; // ME_F93258F0CAE4
    Seq: ( WL 'ME_4AB22E140136' '50883A2E00B3.pas.ms.script' // TvcmApplication
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_340142971821 // Init_Str_VCMSandBoxTitle
- )
- ; // Operations
  : Children
    Seq: ( ME_5679B8CFF998 // TvcmApplicationRef
  )

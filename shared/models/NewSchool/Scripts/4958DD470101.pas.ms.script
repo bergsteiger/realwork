@@ -6368,6 +6368,20 @@ ref; // ME_56FA98DC0106 ieIO
 
 ref; // ME_57024AD6034E f_Banner
 
+: ME_5718A70801BA
+ CONST UID '5718A70801BA'
+ CONST Name 'f_IsInited'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5718A70801BA f_IsInited
+
 : ME_5864D92D3811
  CONST UID '5864D92D3811'
  CONST Name 'f_pnlLeft'
@@ -7792,6 +7806,12 @@ ref; // ME_4AC9B6D00250_ME_56FA889202B4 DoBuildGrid
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_56FA889202B4 Cleanup
 
+: ME_47A042E100E2_ME_56FA889202B4
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_56FA889202B4 InitFields
+
 : ME_47EA4E9002C6_ME_56FA889202B4
  : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
  ;
@@ -7916,6 +7936,7 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
    Seq: ( ME_56FA8A4400E5 // pnlMain
  ME_56FA98DC0106 // ieIO
  ME_57024AD6034E // f_Banner
+ ME_5718A70801BA // f_IsInited
  ME_5864D92D3811 // f_pnlLeft
  ME_AE26FCA0BCF1 // f_bvlLeftTop
  ME_4CD3A645F765 // f_pnlLogo
@@ -7973,6 +7994,7 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ; // Implemented
  : Overridden
    Seq: ( ME_479731C50290_ME_56FA889202B4 // Cleanup
+ ME_47A042E100E2_ME_56FA889202B4 // InitFields
  ME_47EA4E9002C6_ME_56FA889202B4 // FinishDataUpdate
  ME_49803F5503AA_ME_56FA889202B4 // DoInit
  ME_49806ED503D5_ME_56FA889202B4 // DoSaveState
@@ -31776,6 +31798,7 @@ ref; // ME_98CD882A435E TstMainMenuChangeableMainMenuTypeItem
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47D036150077' '47D036150077.pas.ms.script' // l3ControlsTypes
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47EA4BB502F9' '47EA4BB502F9.pas.ms.script' // afwMixIns
  WL 'ME_47EA50050263' '47EA50050263.pas.ms.script' // BaseDocument
  WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
  WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes

@@ -1,4 +1,3 @@
-2. ( [
 7. Почистить, там многое не нужно:
  tfw_wmVirtual = tfwScriptingTypes.tfw_wmVirtual;
  tfw_wmAbstract = tfwScriptingTypes.tfw_wmAbstract;
@@ -62,10 +61,8 @@ STRING elem_func IfDefStr
 - чобы как раз пункт 17 сделать.
 19. Вообще - обобщить IfDefStr и IfNDefStr.
 20. Вот положим мне сказали печатать на А6 - ерунда вопрос - взял текст и поджал с А4 на А6, и напечатал. А если там таблица (которая регулируется разделами), что делать? Обрезать таблицу? Смасштабировать? Напечатать на несколько листов А6?
-22. Возможно копирование ChildrenEx через array:Copy увеличит производительность. 
 23. Возможно копирование Dependencies через array:Copy увеличит производительность.
 24. Возможно копирование Depends через array:Copy увеличит производительность.
-25. Перенести VCMTestTarget в новый генератор.
 26. Перенести VCMGUI в новый генератор.
 27. Убрать TestCase из TestTarget - они теперь доступны и подключаются через TestLibrary.
 28. Возможно копирование ConstantsEx через array:Copy увеличит производительность.
@@ -74,11 +71,29 @@ STRING elem_func IfDefStr
 31. .Inherits .filter> прошерстить насчёт кешируемости
 32. Закешировать .DependsEx .filter> .IsTestLibrary
 33. Закешировать Self .DependsVCMGUI .filter> ( .GetUP "F1Like" false ?== )
-34. nsSettingsConst не попало в uses AdminAppTest.
-35. MainPrim_Form.pas не попало в uses AdminAppTest.
-36. PrimCustomizeTools_Form не попало в uses AdminAppTest.
-37. kw_ToolbarMenu_opCustomize не попало в uses AdminAppTest.
-38. Надо как-то сделать, чтобы VCMModule в uses попало.
 39. VCMApplication перенести в новый генератор.
-40. VCMFormsPack сделать uses Parent ScriptKeyword.
-41.
+41. GblAdaper AdapterUnion перенести в новый генератор.
+42. Удалить генерацию "документации" к словам. Толку от неё всё равно никакого, а время жрёть.
+46. Убрать NOT_COMPLETED_ у dfm etc.
+48. Заменить ! на .Not.
+50. ( .NotInArray: - убрать скобки, скобки выводить в MACRO.
+51. Перенести PROGRAM XXX из Generation в DailyTest Auto.
+52. .Predicate ! заменить на .Not: .Predicate - .IsMixIn ! => .Not: .IsMixIn. Учесть необходимость скобок.
+53. Self .Abstraction at_abstract != заменить на Self .Abstraction .NEQ at_abstract - MACRO, а не <>
+54. Self .Abstraction at_abstract == заменить на Self .Abstraction .EQ at_abstract - MACRO, а не =
+55. Конструкцию:
+    .filter> ( 
+      IN anItem
+     if ( anItem .NotInArray: l_OutedIterators ) then
+     begin
+      anItem .AddToArray: l_OutedIterators
+      true
+     end
+     else
+      false 
+    )
+- заменить на .?AddToArray - аналог array:?AddTo, но возвращающую булевкое значение, что элемнта в массиве не было.    
+56. LCIDToCodePage(GetThreadLocale)
+57. nsQuestions AddDefaultChoice.
+58. PrimF1Res - пропадают операции. Потому что там не хватает ВХОДЯЩИХ uses.
+59. 

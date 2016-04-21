@@ -195,9 +195,7 @@ var
 //#UC START# *5266249D00E3_53FDAB5501EB_var*
 //#UC END# *5266249D00E3_53FDAB5501EB_var*
 //#UC START# *5266253D035D_53FDAB5501EB_impl*
- //http://mdp.garant.ru/pages/viewpage.action?pageId=361399733
- Result := inherited NeedDrawArrowSelection(aItemIndex) or
-  (f_YandexLikeBehaviour and (aItemIndex = f_MouseTrackItemIndex)); 
+ Result := False;
 //#UC END# *5266253D035D_53FDAB5501EB_impl*
 //#UC START# *5266253D035D_53FDAB5501EB_var*
 //#UC END# *5266253D035D_53FDAB5501EB_var*
@@ -208,23 +206,23 @@ var
 //#UC END# *5298BF130022_53FDAB5501EB_var*
 //#UC START# *5298C02D03B3_53FDAB5501EB_impl*
  inherited;
- l_Rgn := CreateRectRgn(0,0,0,0);
- try
-  GetWindowRgn(Self.Handle, l_Rgn);
-  l_D := Tl3Drawer.Create(aDC);
+ with Il3Canvas(Canvas)do
+ begin
+  DC := aDC;
+  DrawEnabled := True;
   try
-   l_FW := cFrameWidth + 3;
-   l_D.FrameRegion(l_Rgn, l_FW, Self.Color);
-   l_D.DrawArc(0 + l_FW - 1, Height - cRad - l_FW{ + 1}, cRad, cRad, 90, 90, l_FW + 1, Self.Color);
-   l_FW := cFrameWidth - 1;
-   l_D.FrameRegion(l_Rgn, l_FW, cGarant2011GradientStartColor);
-   l_D.DrawArc(0 + l_FW - 1, Height - cRad - l_FW{ + 1}, cRad, cRad, 90, 90, l_FW + 1, cGarant2011GradientStartColor);
+   Canvas.Pen.Width := 3;
+   Canvas.Pen.Color := cGarant2011GradientStartColor;
+   Canvas.Pen.Style := psSolid;
+   MoveTo(l3SPoint(1, 1));
+   LineTo(l3SPoint(1, Height - 2));
+   LineTo(l3SPoint(Width - 2, Height - 2));
+   LineTo(l3SPoint(Width - 2, 1));
+   LineTo(l3SPoint(1, 1));
   finally
-   FreeAndNil(l_D);
-  end;//try..finally
- finally
-  DeleteObject(l_Rgn);
- end;//try..finally
+   DrawEnabled := False;
+  end;
+ end;
  with Self.ClientRect do
   DrawCloseButton(aDC, Rect(Left + cFrameWidth + 3,
                             Bottom + cFrameWidth - cButtonHeight + 2,
@@ -232,10 +230,6 @@ var
                             Bottom + cFrameWidth + 2));
 //#UC END# *5298C02D03B3_53FDAB5501EB_impl*
 //#UC START# *5298C02D03B3_53FDAB5501EB_var*
-var
- l_D: Tl3Drawer;
- l_Rgn: hRgn;
- l_FW: Integer;
 //#UC END# *5298C02D03B3_53FDAB5501EB_var*
 //#UC START# *53ECD12B0045_4B97EDFB0057set_impl*
  if (aValue <> Dropped) then
@@ -329,11 +323,10 @@ var
   Font := Self.Font;
   ActionElementMode := l3_amSingleClick;
   OnGetItemImage := GetItemImageHandler;
-  isShowLines := True;
+  //isShowLines := True;
   Tree.OnCurrentChanged := TreeCurrentChanged;
   ViewOptions := PromptViewOptions;
   MultiStrokeItem := True;
-  SelfDrawNodes := True;
  end;//with Tree
  ShowIcons := False;
 {$EndIf DesignTimeLibrary}
@@ -810,8 +803,8 @@ var
 //#UC START# *53FDD0B201C8_53FDAB5501EB_impl*
  inherited;
  Inc(Message.CalcSize_Params.rgrc[0].Top, cFrameWidth);
- Dec(Message.CalcSize_Params.rgrc[0].Bottom, cFrameWidth + 2);
- Inc(Message.CalcSize_Params.rgrc[0].Left, cFrameWidth + 2);
+ Dec(Message.CalcSize_Params.rgrc[0].Bottom, cFrameWidth);
+ Inc(Message.CalcSize_Params.rgrc[0].Left, cFrameWidth);
  Dec(Message.CalcSize_Params.rgrc[0].Right, cFrameWidth);
 //#UC END# *53FDD0B201C8_53FDAB5501EB_impl*
 //#UC START# *53FDD0B201C8_53FDAB5501EB_var*

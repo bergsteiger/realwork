@@ -1985,12 +1985,6 @@ ref; // ME_559B80BD00A8_ME_554C7FE80228 MakeSelectField
  CONST OpKind opkind_Implemented
 ref; // ME_559B810003CF_ME_554C7FE80228 MakeParamsCondition
 
-: ME_559BAF4401C8_ME_554C7FE80228
- : Original WL 'ME_559BAF4401C8' '5432518A0316.pas.ms.script' // GetUserNameStr
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_559BAF4401C8_ME_554C7FE80228 GetUserNameStr
-
 : ME_55C1BFA402E3_ME_554C7FE80228
  : Original WL 'ME_55C1BFA402E3' '5432518A0316.pas.ms.script' // DataConverter
  ;
@@ -2054,7 +2048,6 @@ ref; // ME_479731C50290_ME_554C7FE80228 Cleanup
    Seq: ( ME_5549C65D038D_ME_554C7FE80228 // MakeTabledQuery
  ME_559B80BD00A8_ME_554C7FE80228 // MakeSelectField
  ME_559B810003CF_ME_554C7FE80228 // MakeParamsCondition
- ME_559BAF4401C8_ME_554C7FE80228 // GetUserNameStr
  ME_55C1BFA402E3_ME_554C7FE80228 // DataConverter
  ME_56405475021D_ME_554C7FE80228 // MakeLogicCondition
  ME_5641E5DB02C3_ME_554C7FE80228 // MakeSubQueryCondition
@@ -3698,16 +3691,6 @@ ref; // ME_5629F0F901C8 Create
 
 ref; // ME_5629F11200B8 Make
 
-: ME_5629EAD402A8
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5629E343023B // ThtUserManager
- ;
- : Target WL 'ME_5406A83E013E' '519B797A0048.pas.ms.script' // dt_Serv
- ;
-
-ref; // ME_5629EAD402A8 
-
 : ME_56EAA61202FC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3718,29 +3701,47 @@ ref; // ME_5629EAD402A8
 
 ref; // ME_56EAA61202FC 
 
-: ME_5715E71600DD_ME_5629E343023B
- : Original WL 'ME_5715E71600DD' '54F85B2500FB.pas.ms.script' // FillAllUsers
+: ME_57175A7D00E3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5629E343023B // ThtUserManager
  ;
- CONST OpKind opkind_Implemented
-ref; // ME_5715E71600DD_ME_5629E343023B FillAllUsers
+ : Target WL 'ME_5406A83E013E' '519B797A0048.pas.ms.script' // dt_Serv
+ ;
 
-: ME_5715E74402CA_ME_5629E343023B
- : Original WL 'ME_5715E74402CA' '54F85B2500FB.pas.ms.script' // FillAllGroups
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5715E74402CA_ME_5629E343023B FillAllGroups
+ref; // ME_57175A7D00E3 
 
-: ME_5715E767013D_ME_5629E343023B
- : Original WL 'ME_5715E767013D' '54F85B2500FB.pas.ms.script' // DoCheckPassword
+: ME_5628D14D0151_ME_5629E343023B
+ : Original WL 'ME_5628D14D0151' '5432518A0316.pas.ms.script' // CheckPassword
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5715E767013D_ME_5629E343023B DoCheckPassword
+ref; // ME_5628D14D0151_ME_5629E343023B CheckPassword
 
-: ME_5715E78F013E_ME_5629E343023B
- : Original WL 'ME_5715E78F013E' '54F85B2500FB.pas.ms.script' // DoIsUserAdmin
+: ME_56EA993D0218_ME_5629E343023B
+ : Original WL 'ME_56EA993D0218' '5432518A0316.pas.ms.script' // IsUserAdmin
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5715E78F013E_ME_5629E343023B DoIsUserAdmin
+ref; // ME_56EA993D0218_ME_5629E343023B IsUserAdmin
+
+: ME_5715DEF20209_ME_5629E343023B
+ : Original WL 'ME_5715DEF20209' '5432518A0316.pas.ms.script' // AllUsers
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5715DEF20209_ME_5629E343023B AllUsers
+
+: ME_5715DF0D03C2_ME_5629E343023B
+ : Original WL 'ME_5715DF0D03C2' '5432518A0316.pas.ms.script' // AllGroups
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5715DF0D03C2_ME_5629E343023B AllGroups
+
+: ME_5718B5CF0399_ME_5629E343023B
+ : Original WL 'ME_5718B5CF0399' '5432518A0316.pas.ms.script' // GetUserName
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5718B5CF0399_ME_5629E343023B GetUserName
 
 : ME_5629E343023B
  CONST UID '5629E343023B'
@@ -3753,24 +3754,29 @@ ref; // ME_5715E78F013E_ME_5629E343023B DoIsUserAdmin
  : Parent ME_54F9AF550087 // Provider
  ;
  : Inherits
-   Seq: ( WL 'ME_5715E69F00AE' '54F85B2500FB.pas.ms.script' // TdaUserManager
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ )
+ ; // Implements
  : Operations
    Seq: ( ME_5629F0F901C8 // Create
  ME_5629F11200B8 // Make
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5715E71600DD_ME_5629E343023B // FillAllUsers
- ME_5715E74402CA_ME_5629E343023B // FillAllGroups
- ME_5715E767013D_ME_5629E343023B // DoCheckPassword
- ME_5715E78F013E_ME_5629E343023B // DoIsUserAdmin
+   Seq: ( ME_5628D14D0151_ME_5629E343023B // CheckPassword
+ ME_56EA993D0218_ME_5629E343023B // IsUserAdmin
+ ME_5715DEF20209_ME_5629E343023B // AllUsers
+ ME_5715DF0D03C2_ME_5629E343023B // AllGroups
+ ME_5718B5CF0399_ME_5629E343023B // GetUserName
  )
  ; // Implemented
  : Dependencies
-   Seq: ( ME_5629EAD402A8 // dt_Serv
- ME_56EAA61202FC // dt_User
+   Seq: ( ME_56EAA61202FC // dt_User
+ ME_57175A7D00E3 // dt_Serv
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

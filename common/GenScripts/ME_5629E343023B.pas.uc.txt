@@ -21,7 +21,54 @@ var
 //#UC START# *5629F0F901C8_5629E343023B_var*
 //#UC END# *5629F0F901C8_5629E343023B_var*
 //#UC START# *56EA993D0218_5629E343023B_impl*
- Result :=  UserManager.IsUserAdmin(anUserID);
+ Result := dt_User.UserManager.xxxIsUserAdmin(anUserID);
 //#UC END# *56EA993D0218_5629E343023B_impl*
 //#UC START# *56EA993D0218_5629E343023B_var*
 //#UC END# *56EA993D0218_5629E343023B_var*
+//#UC START# *5715DEF20209_5629E343023Bget_impl*
+ Result := dt_User.UserManager.xxxAllUsers;
+//#UC END# *5715DEF20209_5629E343023Bget_impl*
+//#UC START# *5715DEF20209_5629E343023Bget_var*
+//#UC END# *5715DEF20209_5629E343023Bget_var*
+//#UC START# *5715DF0D03C2_5629E343023Bget_impl*
+ Result := dt_User.UserManager.xxxAllGroups;
+//#UC END# *5715DF0D03C2_5629E343023Bget_impl*
+//#UC START# *5715DF0D03C2_5629E343023Bget_var*
+//#UC END# *5715DF0D03C2_5629E343023Bget_var*
+//#UC START# *5715E71600DD_5629E343023B_impl*
+ aList.Assign(dt_User.UserManager.xxxAllUsers);
+//#UC END# *5715E71600DD_5629E343023B_impl*
+//#UC START# *5715E71600DD_5629E343023B_var*
+//#UC END# *5715E71600DD_5629E343023B_var*
+//#UC START# *5715E74402CA_5629E343023B_impl*
+ aList.Assign(dt_User.UserManager.UGroups);
+//#UC END# *5715E74402CA_5629E343023B_impl*
+//#UC START# *5715E74402CA_5629E343023B_var*
+//#UC END# *5715E74402CA_5629E343023B_var*
+//#UC START# *5715E767013D_5629E343023B_impl*
+ l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, RequireAdminRights);
+ if l_Result then
+  Result := da_leOk
+ else
+ begin
+  if RequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
+   Result := da_leInsufficientRights
+  else
+   Result := da_leUserParamsWrong;
+ end;
+ theUserID := GlobalHTServer.xxxUserID;
+//#UC END# *5715E767013D_5629E343023B_impl*
+//#UC START# *5715E767013D_5629E343023B_var*
+var
+ l_Result: Boolean;
+//#UC END# *5715E767013D_5629E343023B_var*
+//#UC START# *5715E78F013E_5629E343023B_impl*
+ Result :=  UserManager.xxxIsUserAdmin(anUserID);
+//#UC END# *5715E78F013E_5629E343023B_impl*
+//#UC START# *5715E78F013E_5629E343023B_var*
+//#UC END# *5715E78F013E_5629E343023B_var*
+//#UC START# *5718B5CF0399_5629E343023B_impl*
+ Result := dt_User.UserManager.GetUserName(anUserID);
+//#UC END# *5718B5CF0399_5629E343023B_impl*
+//#UC START# *5718B5CF0399_5629E343023B_var*
+//#UC END# *5718B5CF0399_5629E343023B_var*

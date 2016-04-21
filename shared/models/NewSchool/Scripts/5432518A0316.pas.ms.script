@@ -3488,6 +3488,32 @@ ref; // ME_56EA99550202 anUserID
 
 ref; // ME_56EA993D0218 IsUserAdmin
 
+: ME_5718B5E00246
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5718B5E00246 anUserID
+
+: ME_5718B5CF0399
+ CONST UID '5718B5CF0399'
+ CONST Name 'GetUserName'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5718B5E00246 // anUserID
+ )
+ ; // Parameters
+
+ref; // ME_5718B5CF0399 GetUserName
+
 : ME_5628D14000F6
  CONST UID '5628D14000F6'
  CONST GUID '43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3'
@@ -3507,6 +3533,7 @@ ref; // ME_56EA993D0218 IsUserAdmin
  : Operations
    Seq: ( ME_5628D14D0151 // CheckPassword
  ME_56EA993D0218 // IsUserAdmin
+ ME_5718B5CF0399 // GetUserName
  )
  ; // Operations
  CONST extprop:rc:SelfName 'daUserManager'
@@ -4082,32 +4109,6 @@ ref; // ME_559B814E0144 aParamName
 
 ref; // ME_559B810003CF MakeParamsCondition
 
-: ME_559BB48E00DB
- CONST Name 'anUserID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_559390220212' '5432448401BC.pas.ms.script' // LargeInt
- ;
-
-ref; // ME_559BB48E00DB anUserID
-
-: ME_559BAF4401C8
- CONST UID '559BAF4401C8'
- CONST Name 'GetUserNameStr'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_554C78BD038C // IdaTableQueryFactory
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_559BB48E00DB // anUserID
- )
- ; // Parameters
-
-ref; // ME_559BAF4401C8 GetUserNameStr
-
 : ME_564054AA03CC
  CONST Name 'aLeft'
  CONST Class class_Parameter
@@ -4259,7 +4260,6 @@ ref; // ME_56811844032C MakeSortField
    Seq: ( ME_5549C65D038D // MakeTabledQuery
  ME_559B80BD00A8 // MakeSelectField
  ME_559B810003CF // MakeParamsCondition
- ME_559BAF4401C8 // GetUserNameStr
  ME_56405475021D // MakeLogicCondition
  ME_5641E5DB02C3 // MakeSubQueryCondition
  ME_56811844032C // MakeSortField

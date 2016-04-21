@@ -1507,4 +1507,41 @@ PROCEDURE "Нажать кнопку 'Проверка орфографии'"
 	"Контрол по имени {("Кнопка 'Проверка орфографии'")}"  pop:Control:Click	
 ;
 
-	
+// На форме 'Проверка орфографии'
+PROCEDURE "Нажать кнопку на форме 'Проверка орфографии'" BOOLEAN IN aLast IN aValueButtom
+	Если ( aLast ) то
+	(
+		"Контрол по имени {(acCancelButtomInSpelCheckWindow)}" pop:Control:Click  
+	)
+	иначе 	
+	(
+		"Контрол по имени {(aValueButtom)}" pop:Control:Click
+	)
+;
+
+PROCEDURE "Нажимать кнопку 'Проверка орфографии' и исправить слова вручную, затем нажать кнопку 'Завершить'"
+	@ ( "Нажать кнопку 'Проверка орфографии'" ) MODAL (
+		"Установить фокус в контрол с именем" "Нет в словаре"
+		"Набить текст {('прогон')}"
+		"Нажать кнопку 'Завершить'"
+	)
+;
+
+PROCEDURE "Выбрать группу 'Точка начала'"
+	INTEGER IN l_Index 
+	"Контрол по имени {("Точка начала")}" pop:RadioGroup:ItemIndex := l_Index
+;
+
+// Поиск текста c RadioGroup
+PROCEDURE "Поиск текста в 'Точка начала'" STRING IN aFindString IN aIndexRadioGroup
+	 	'Ctrl+F' key
+ 		aIndexRadioGroup "Выбрать группу 'Точка начала'"
+	 TRY
+	 	"Набить текст {(aFindString)}"
+	 	"Обработать сообщения"
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click 
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
+;
+

@@ -13,8 +13,6 @@
 
 : TestResults::Class
 ? –езультаты теста
-> ScriptKeywordsDocumentation::Class
-
 = SimpleClass::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,38 +57,7 @@ p needs script keywords documentation:tribool=undefined ?
 	%{TTestResultsPlace_CommandLineKey}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TTestResultsPlace_CommandLineKey},%S)_var, {-})\
 	%{TTestResultsPlace_CommandLineKey}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TTestResultsPlace_CommandLineKey},%S)_impl, \
 	Result := '-%f_cut_prefix(%f_N(%S),Release)';\
-	)\
-
-	[{%S{needs script keywords documentation}=true}\
-	%S%f_add_class(%SU_KeywordsDocumentation,ScriptKeywordsDocumentation,ќписание слов тестовой машины,KeywordsDocumentation_Inst)\
-	%{KeywordsDocumentation_Inst}%f_set_documentation(ќписание слов тестовой машины дл€ "%f_N(%P%P)")\
-
-	%f_clear_list(WasSpelledToKeywordsDocumentation_LIST)\
-	%f_DoSpellKeywordsDocumentation(%P%P,%{KeywordsDocumentation_Inst})\
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_del_var(WasSpelledToKeywordsDocumentation)>\
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_del_var(WasSpelledToKeywordsDocumentation1)>\
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(WasSpelledToKeywordsDocumentation,"")>\
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(WasSpelledToKeywordsDocumentation1,"")>\
-
-	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(_WasSpelled,"")>\
-	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(_WasSpelled1,"")>\
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%%f_del_var(WasSpelledTo)>\
-// - Ќ≈Ћ№«я это делать, т.к. WasSpelledTo нам ѕќ“ќћ понадобитс€
-	%f_clear_list(WasSpelledToKeywordsDocumentation_LIST)\
-	]
-
-f _DoSpellKeywordsDocumentation
-	[{%S%{_WasSpelled1}N!=true}\
-	%S%f_set_var(_WasSpelled1,"true")\
-//	[{%S%{WasSpelledToKeywordsDocumentation1}N!=true}\
-//	%S%f_set_var(WasSpelledToKeywordsDocumentation1,"true")\
-	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
-	%S#f_SpellKeywordsDocumentation(%1)\
-	<%f_DoSpellKeywordsDocumentation(%D,%1)>
-	]
+	)
 //#UC END# *4B2A19E3038Bfor4B7BFBB103E2*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator

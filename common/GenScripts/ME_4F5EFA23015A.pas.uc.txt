@@ -53,6 +53,25 @@ var
 //#UC END# *20FE7F32818E_E438AFCDC08A_impl*
 //#UC START# *20FE7F32818E_E438AFCDC08A_var*
 //#UC END# *20FE7F32818E_E438AFCDC08A_var*
+//#UC START# *28FAC549D1D9_F3BEFDFBCD3D_impl*
+ Result := Windows.GetACP; 
+//#UC END# *28FAC549D1D9_F3BEFDFBCD3D_impl*
+//#UC START# *28FAC549D1D9_F3BEFDFBCD3D_var*
+//#UC END# *28FAC549D1D9_F3BEFDFBCD3D_var*
+//#UC START# *2B350B586005_99FA1EBBCB0B_impl*
+ Result := LCIDToCodePage(GetThreadLocale);
+//#UC END# *2B350B586005_99FA1EBBCB0B_impl*
+//#UC START# *2B350B586005_99FA1EBBCB0B_var*
+
+ function LCIDToCodePage(ALcid: LCID): Integer;
+ var
+   Buffer: array [0..6] of Char;
+ begin
+   GetLocaleInfo(ALcid, LOCALE_IDEFAULTANSICODEPAGE, Buffer, SizeOf(Buffer));
+   Result:= StrToIntDef(Buffer, GetACP);
+ end;
+ 
+//#UC END# *2B350B586005_99FA1EBBCB0B_var*
 //#UC START# *3D183F3BE41C_F086F3387CB5_impl*
  {$If Declared(Clipboard)}
  l3System.SetClipboardData(Tl3CStringDataObject.Make(aValue));
@@ -317,7 +336,7 @@ var
  l_DelphiTime: TDateTime;
 //#UC END# *90D645BF4786_7411EFEEC0A2_var*
 //#UC START# *9630E77C53F3_861A2BB899E3_impl*
- Result := aCtx.rCaller.StopTimer(aName, aSubName)
+ Result := aCtx.rCaller.StopTimer(aName, aSubName);
 //#UC END# *9630E77C53F3_861A2BB899E3_impl*
 //#UC START# *9630E77C53F3_861A2BB899E3_var*
 //#UC END# *9630E77C53F3_861A2BB899E3_var*
@@ -367,6 +386,11 @@ var
 //#UC END# *E7960C7CE4B0_F9F8F376A6AB_impl*
 //#UC START# *E7960C7CE4B0_F9F8F376A6AB_var*
 //#UC END# *E7960C7CE4B0_F9F8F376A6AB_var*
+//#UC START# *EB678D53E91B_0E473EAE64F5_impl*
+ Result := GetThreadLocale;
+//#UC END# *EB678D53E91B_0E473EAE64F5_impl*
+//#UC START# *EB678D53E91B_0E473EAE64F5_var*
+//#UC END# *EB678D53E91B_0E473EAE64F5_var*
 //#UC START# *F86B14A38365_7B3EE646F965_impl*
  l_S := aPath;
  if (ExtractFilePath(l_S) = '') then

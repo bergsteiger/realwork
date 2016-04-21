@@ -6598,6 +6598,405 @@ ref; // ME_5617F4D00243_ME_74A78971F11E ParamsTypes
 
 ref; // ME_74A78971F11E StopTimerExNoLog
 
+FORWARD ME_571766B60308
+
+FORWARD ME_EB678D53E91B
+
+FORWARD ME_0E473EAE64F5
+
+: ME_946D582FD3F3
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_946D582FD3F3 aCtx
+
+: ME_EB678D53E91B
+ CONST UID 'EB678D53E91B'
+ CONST Name 'sysutils_Locale'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта sysutils:Locale' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_0E473EAE64F5 // sysutils_Locale
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_946D582FD3F3 // aCtx
+ )
+ ; // Parameters
+ : SpelledFor ME_571766B60308 // sysutils_Locale
+ ;
+
+ref; // ME_EB678D53E91B sysutils_Locale
+
+: ME_CBB40F7AF014
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0E473EAE64F5 // sysutils_Locale
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_CBB40F7AF014 
+
+: ME_3D716BF61DA4
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_0E473EAE64F5 // sysutils_Locale
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_3D716BF61DA4 
+
+: ME_4DAEEDE10285_ME_0E473EAE64F5
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_0E473EAE64F5 DoDoIt
+
+: ME_551544E2001A_ME_0E473EAE64F5
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_0E473EAE64F5 GetResultTypeInfo
+
+: ME_559687E6025A_ME_0E473EAE64F5
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_0E473EAE64F5 GetAllParamsCount
+
+: ME_5617F4D00243_ME_0E473EAE64F5
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_0E473EAE64F5 ParamsTypes
+
+: ME_0E473EAE64F5
+ CONST UID '0E473EAE64F5'
+ CONST Name 'sysutils_Locale'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта sysutils:Locale'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' sysutils:Locale >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_EB678D53E91B // sysutils_Locale
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_0E473EAE64F5 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_0E473EAE64F5 // GetResultTypeInfo
+ ME_559687E6025A_ME_0E473EAE64F5 // GetAllParamsCount
+ ME_5617F4D00243_ME_0E473EAE64F5 // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_CBB40F7AF014 // TTypeInfo
+ ME_3D716BF61DA4 // SysUtils
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'sysutils:Locale'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwSysutilsLocale'
+ CONST extprop:rc:SelfName 'SysutilsLocale'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_571766B60308 // sysutils_Locale
+ ;
+ : Stub ME_EB678D53E91B // sysutils_Locale
+ ;
+
+ref; // ME_0E473EAE64F5 sysutils_Locale
+
+FORWARD ME_571766C80011
+
+FORWARD ME_2B350B586005
+
+FORWARD ME_99FA1EBBCB0B
+
+: ME_70B7B3EFC5CE
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_70B7B3EFC5CE aCtx
+
+: ME_2B350B586005
+ CONST UID '2B350B586005'
+ CONST Name 'sysutils_CodePage'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта sysutils:CodePage' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_99FA1EBBCB0B // sysutils_CodePage
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_70B7B3EFC5CE // aCtx
+ )
+ ; // Parameters
+ : SpelledFor ME_571766C80011 // sysutils_CodePage
+ ;
+
+ref; // ME_2B350B586005 sysutils_CodePage
+
+: ME_A71487DE8F9B
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_99FA1EBBCB0B // sysutils_CodePage
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_A71487DE8F9B 
+
+: ME_0B38A26E22CF
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_99FA1EBBCB0B // sysutils_CodePage
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_0B38A26E22CF 
+
+: ME_4DAEEDE10285_ME_99FA1EBBCB0B
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_99FA1EBBCB0B DoDoIt
+
+: ME_551544E2001A_ME_99FA1EBBCB0B
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_99FA1EBBCB0B GetResultTypeInfo
+
+: ME_559687E6025A_ME_99FA1EBBCB0B
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_99FA1EBBCB0B GetAllParamsCount
+
+: ME_5617F4D00243_ME_99FA1EBBCB0B
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_99FA1EBBCB0B ParamsTypes
+
+: ME_99FA1EBBCB0B
+ CONST UID '99FA1EBBCB0B'
+ CONST Name 'sysutils_CodePage'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта sysutils:CodePage'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' sysutils:CodePage >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_2B350B586005 // sysutils_CodePage
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_99FA1EBBCB0B // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_99FA1EBBCB0B // GetResultTypeInfo
+ ME_559687E6025A_ME_99FA1EBBCB0B // GetAllParamsCount
+ ME_5617F4D00243_ME_99FA1EBBCB0B // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_A71487DE8F9B // TTypeInfo
+ ME_0B38A26E22CF // SysUtils
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'sysutils:CodePage'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwSysutilsCodePage'
+ CONST extprop:rc:SelfName 'SysutilsCodePage'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_571766C80011 // sysutils_CodePage
+ ;
+ : Stub ME_2B350B586005 // sysutils_CodePage
+ ;
+
+ref; // ME_99FA1EBBCB0B sysutils_CodePage
+
+FORWARD ME_5718D0250329
+
+FORWARD ME_28FAC549D1D9
+
+FORWARD ME_F3BEFDFBCD3D
+
+: ME_2C3C838EB011
+ CONST Name 'aCtx'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_2C3C838EB011 aCtx
+
+: ME_28FAC549D1D9
+ CONST UID '28FAC549D1D9'
+ CONST Name 'sysutils_GetACP'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Реализация слова скрипта sysutils:GetACP' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_F3BEFDFBCD3D // sysutils_GetACP
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_2C3C838EB011 // aCtx
+ )
+ ; // Parameters
+ : SpelledFor ME_5718D0250329 // sysutils_GetACP
+ ;
+
+ref; // ME_28FAC549D1D9 sysutils_GetACP
+
+: ME_ECBBE0EE3453
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F3BEFDFBCD3D // sysutils_GetACP
+ ;
+ : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
+ ;
+
+ref; // ME_ECBBE0EE3453 
+
+: ME_DC67EC3813B5
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_F3BEFDFBCD3D // sysutils_GetACP
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_DC67EC3813B5 
+
+: ME_4DAEEDE10285_ME_F3BEFDFBCD3D
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_F3BEFDFBCD3D DoDoIt
+
+: ME_551544E2001A_ME_F3BEFDFBCD3D
+ : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_551544E2001A_ME_F3BEFDFBCD3D GetResultTypeInfo
+
+: ME_559687E6025A_ME_F3BEFDFBCD3D
+ : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_559687E6025A_ME_F3BEFDFBCD3D GetAllParamsCount
+
+: ME_5617F4D00243_ME_F3BEFDFBCD3D
+ : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5617F4D00243_ME_F3BEFDFBCD3D ParamsTypes
+
+: ME_F3BEFDFBCD3D
+ CONST UID 'F3BEFDFBCD3D'
+ CONST Name 'sysutils_GetACP'
+ CONST IsSummoned true
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово скрипта sysutils:GetACP'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' sysutils:GetACP >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_28FAC549D1D9 // sysutils_GetACP
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_F3BEFDFBCD3D // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_551544E2001A_ME_F3BEFDFBCD3D // GetResultTypeInfo
+ ME_559687E6025A_ME_F3BEFDFBCD3D // GetAllParamsCount
+ ME_5617F4D00243_ME_F3BEFDFBCD3D // ParamsTypes
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_ECBBE0EE3453 // TTypeInfo
+ ME_DC67EC3813B5 // SysUtils
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'sysutils:GetACP'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwSysutilsGetACP'
+ CONST extprop:rc:SelfName 'SysutilsGetACP'
+ CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5718D0250329 // sysutils_GetACP
+ ;
+ : Stub ME_28FAC549D1D9 // sysutils_GetACP
+ ;
+
+ref; // ME_F3BEFDFBCD3D sysutils_GetACP
+
 : ME_555F0CD4039A
  CONST UID '555F0CD4039A'
  CONST Name 'HasTabs'
@@ -7908,6 +8307,54 @@ ref; // ME_570FF8D20329 aName
 
 ref; // ME_570FF8C8038E StopTimerExNoLog
 
+: ME_571766B60308
+ CONST UID '571766B60308'
+ CONST Name 'sysutils_Locale'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Speller ME_0E473EAE64F5 // sysutils_Locale
+ ;
+
+ref; // ME_571766B60308 sysutils_Locale
+
+: ME_571766C80011
+ CONST UID '571766C80011'
+ CONST Name 'sysutils_CodePage'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Speller ME_99FA1EBBCB0B // sysutils_CodePage
+ ;
+
+ref; // ME_571766C80011 sysutils_CodePage
+
+: ME_5718D0250329
+ CONST UID '5718D0250329'
+ CONST Name 'sysutils_GetACP'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Speller ME_F3BEFDFBCD3D // sysutils_GetACP
+ ;
+
+ref; // ME_5718D0250329 sysutils_GetACP
+
 : ME_48AC062FBBC2
  CONST UID '48AC062FBBC2'
  CONST Name 'Reg_Type_TtfwContext'
@@ -8261,6 +8708,9 @@ ref; // ME_CA5D7E33C306
  ME_570E6FCA0217 // sysutils_Log
  ME_570FF89B00BE // StopTimerNoLog
  ME_570FF8C8038E // StopTimerExNoLog
+ ME_571766B60308 // sysutils_Locale
+ ME_571766C80011 // sysutils_CodePage
+ ME_5718D0250329 // sysutils_GetACP
  ME_48AC062FBBC2 // Reg_Type_TtfwContext
  ME_45EED529C1C1 // Reg_Type_Boolean
  ME_9FB716079546 // Reg_Type_String
@@ -8320,6 +8770,9 @@ ref; // ME_CA5D7E33C306
  ME_11AFB32EDAFF // sysutils_Log
  ME_B2DDD43C4AAD // StopTimerNoLog
  ME_74A78971F11E // StopTimerExNoLog
+ ME_0E473EAE64F5 // sysutils_Locale
+ ME_99FA1EBBCB0B // sysutils_CodePage
+ ME_F3BEFDFBCD3D // sysutils_GetACP
  )
  ; // Children
  : Dependencies
