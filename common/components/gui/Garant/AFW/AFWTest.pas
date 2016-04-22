@@ -20,11 +20,8 @@ implementation
 {$If NOT Defined(XE)}
 uses
  l3ImplUses
- , MenuItem_p
- , Menu_p
- , Control_p
- , WinControl_p
- , Component_p
+ , AFWTest_VCL_TestUnit
+ , AFWTest_Rtl_TestUnit
  , tc5OpenApp
  , tc6OpenApp
 ;

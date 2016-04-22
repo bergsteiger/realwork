@@ -238,7 +238,6 @@ uses
  , l3Base
  , evOp
  , nscNewInterfaces
- , l3Drawer
  , l3Units
  , l3MinMax
  {$If NOT Defined(NoVCL)}
@@ -256,6 +255,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , l3GetComponentBoundsHelper
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3Region
+ , l3Drawer
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

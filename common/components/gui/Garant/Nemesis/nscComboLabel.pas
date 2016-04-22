@@ -145,13 +145,13 @@ uses
  , l3MinMax
  , l3ControlsTypes
  , l3Defaults
- , l3Drawer
  , l3Units
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3ListenersManager
  , SysUtils
+ , l3InternalInterfaces
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

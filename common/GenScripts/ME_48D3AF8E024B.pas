@@ -142,6 +142,7 @@ uses
  , l3Units
  , nevFacade
  , evChangeCodePage
+ , LeafParaDecorationsHolder_Const
 ;
 
 function GetD2S(var WC: Integer;

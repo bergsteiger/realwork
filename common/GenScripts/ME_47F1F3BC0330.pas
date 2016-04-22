@@ -68,6 +68,8 @@ function evHeaderTextPara(aPara: Tl3Variant): Boolean; overload;
 function evInBlock(anAtom: Tl3Variant;
  aViewKind: TevBlockViewKind;
  out theParent: Tl3Variant): Boolean;
+function evCheckParaOwner(aPara: Tl3Variant): Tl3Variant; overload;
+function evCheckParaOwner(const aPara: InevPara): InevPara; overload;
 function evSearchPara(const aList: InevObject;
  const aSearcher: IevSearcher;
  out aPara: InevObject;
@@ -185,6 +187,7 @@ uses
  , Formula_Const
  , DecorTextPara_Const
  , Document_Const
+ , LeafParaDecorationsHolder_Const
  , k2Const
  , evdStyles
  , evdFrame_Const
@@ -656,6 +659,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5715E58F019A_47F1F3BC0330_impl*
 end;//evInBlock
+
+function evCheckParaOwner(aPara: Tl3Variant): Tl3Variant;
+//#UC START# *57187A09034A_47F1F3BC0330_var*
+//#UC END# *57187A09034A_47F1F3BC0330_var*
+begin
+//#UC START# *57187A09034A_47F1F3BC0330_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57187A09034A_47F1F3BC0330_impl*
+end;//evCheckParaOwner
+
+function evCheckParaOwner(const aPara: InevPara): InevPara;
+//#UC START# *57187A510399_47F1F3BC0330_var*
+//#UC END# *57187A510399_47F1F3BC0330_var*
+begin
+//#UC START# *57187A510399_47F1F3BC0330_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57187A510399_47F1F3BC0330_impl*
+end;//evCheckParaOwner
 
 function evSearchPara(const aList: InevObject;
  const aSearcher: IevSearcher;

@@ -647,19 +647,12 @@ var
 //#UC START# *55E54A7100E5_55A5EB6F0346_impl*
  Assert(aContainer <> nil);
  Result := TvcmFormSetHistoryStepItems.Make;
- l_HasNonformSetForms := HasNonFormSetForms(aContainer);
- if l_HasNonFormSetForms then
+ if HasNonFormSetForms(aContainer) then
   Result.Add(TvcmLegacyFormSetHistoryItemStep.Make(aContainer, aForClone));
- l_HasAnyFormSet := HasAnyFormSet(aContainer);
- if l_HasAnyFormSet then
+ if HasAnyFormSet(aContainer) then
   Result.Add(TvcmFormSetHistoryItemStep.Make(aContainer, aForClone));
- Assert(l_HasNonFormSetForms or l_HasAnyFormSet,
-  'Не должно быть такого чтоб вообще не было форм для сохранения');
 //#UC END# *55E54A7100E5_55A5EB6F0346_impl*
 //#UC START# *55E54A7100E5_55A5EB6F0346_var*
-var
- l_HasNonFormSetForms: Boolean;
- l_HasAnyFormSet: Boolean;
 //#UC END# *55E54A7100E5_55A5EB6F0346_var*
 //#UC START# *55E56013034C_55A5EB6F0346_impl*
  Assert(aContainer <> nil);
@@ -687,7 +680,7 @@ var
   l_Component: TComponent;
   l_Form: IvcmEntityForm;
  begin
-  Result := (not IsInFormset(aForm));
+  Result := (not IsInFormset(aForm)) and (aForm.Aggregate <> nil);
   if (not Result) then
   begin
    for l_Index := 0 to Pred(aForm.VCLWinControl.ControlCount) do

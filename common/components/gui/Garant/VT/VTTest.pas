@@ -20,10 +20,8 @@ implementation
 {$If NOT Defined(XE)}
 uses
  l3ImplUses
- , FakeBox_p
- , SubTree_p
- , vgRemindersLine_p
- , vgReminder_p
+ , VTTest_ComboTree_TestUnit
+ , VTTest_NewReminders_TestUnit
  , tc5OpenApp
  , tc6OpenApp
 ;

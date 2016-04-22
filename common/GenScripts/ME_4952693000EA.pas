@@ -197,6 +197,7 @@ uses
  , l3MinMax
  , l3Units
  , SysUtils
+ , TableCell_Const
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

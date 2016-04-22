@@ -1272,7 +1272,7 @@ var
 begin
 //#UC START# *5715DB6E02FC_4C066918002D_impl*
  Result := inherited TrySelectSub(aContainer, aSel, aSubID, aType);
- if not Result then
+ if not Result and (f_Form.AAC <> nil) and (f_Form.AAC.Right <> nil) and f_Form.AAC.Right.HasDoc then
  begin
   l_Sub := f_Form.AAC.Right.Container.SubList.SubEx[aSubID, aType];
   if (l_Sub <> nil) and l_Sub.Exists then

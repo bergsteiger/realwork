@@ -55,6 +55,7 @@ type
  TPrimMainMenuWithProfNewsForm = class(_vcmChromeLikeTabIconUpdater_)
   private
    f_Banner: IBanner;
+   f_IsInited: Boolean;
    f_pnlLeft: TvtPanel;
     {* Поле для свойства pnlLeft }
    f_bvlLeftTop: TBevel;
@@ -137,6 +138,7 @@ type
    function DoBuildGrid: InscArrangeGrid; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   procedure InitFields; override;
    procedure FinishDataUpdate; override;
    {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
@@ -741,12 +743,18 @@ begin
  if Supports(lblTaxes.TreeStruct.Nodes[lblTaxes.CurrentItem], IMainMenuSection, l_Section) then
  begin
   tvTaxes.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
-  l_NewsSection := l_Section.GetNewsSectionIndex;
-  if (l_NewsSection >= 0) and (l_NewsSection <> lblProfNews.CurrentItem) then
-   lblProfNews.CurrentItem := l_NewsSection;
+  if f_IsInited then
+  begin
+   l_NewsSection := l_Section.GetNewsSectionIndex;
+   if (l_NewsSection >= 0) and (l_NewsSection <> lblProfNews.CurrentItem) then
+    lblProfNews.CurrentItem := l_NewsSection;
+  end;
  end;
- ArrangeControls;
- afw.Settings.SaveInteger(pi_MainMenu_TaxesSection, lblTaxes.CurrentItem);
+ if f_IsInited then
+ begin
+  ArrangeControls;
+  afw.Settings.SaveInteger(pi_MainMenu_TaxesSection, lblTaxes.CurrentItem);
+ end;
 //#UC END# *5707BB3A0018_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.lblTaxesChange
 
@@ -759,8 +767,11 @@ begin
 //#UC START# *5707BB480178_56FA889202B4_impl*
  if Supports(lblProfNews.TreeStruct.Nodes[lblProfNews.CurrentItem], IMainMenuSection, l_Section) then
   tvProfNews.TreeStruct := TsmMainMenuTree2016.Make(l_Section);
- ArrangeControls;
- afw.Settings.SaveInteger(pi_MainMenu_ProfNewsSection, lblProfNews.CurrentItem);
+ if f_IsInited then
+ begin
+  ArrangeControls;
+  afw.Settings.SaveInteger(pi_MainMenu_ProfNewsSection, lblProfNews.CurrentItem);
+ end;
 //#UC END# *5707BB480178_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.lblProfNewsChange
 
@@ -784,6 +795,16 @@ begin
 //#UC END# *479731C50290_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.Cleanup
 
+procedure TPrimMainMenuWithProfNewsForm.InitFields;
+//#UC START# *47A042E100E2_56FA889202B4_var*
+//#UC END# *47A042E100E2_56FA889202B4_var*
+begin
+//#UC START# *47A042E100E2_56FA889202B4_impl*
+ inherited;
+ f_IsInited := False;
+//#UC END# *47A042E100E2_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.InitFields
+
 procedure TPrimMainMenuWithProfNewsForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_56FA889202B4_var*
 //#UC END# *47EA4E9002C6_56FA889202B4_var*
@@ -804,8 +825,6 @@ procedure TPrimMainMenuWithProfNewsForm.DoInit(aFromHistory: Boolean);
 //#UC END# *49803F5503AA_56FA889202B4_var*
 begin
 //#UC START# *49803F5503AA_56FA889202B4_impl*
- //f_CurrentSection := TSectionType(TdmStdRes.MainMenuChangeableMainMenuTypeSetting);
- //UpdateTaxesTreeCaption;
  inherited;
  LoadBanner;
  UpdateCaption;
@@ -813,6 +832,7 @@ begin
  LoadTrees;
  UpdateReferencesAndLawNewsCaptions;
  ArrangeControls;
+ f_IsInited := True;
 //#UC END# *49803F5503AA_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoInit
 {$IfEnd} // NOT Defined(NoVCM)

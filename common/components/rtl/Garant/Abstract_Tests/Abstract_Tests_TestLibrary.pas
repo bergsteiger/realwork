@@ -20,6 +20,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Abstract_Tests_EditorTests_TestUnit
+ , Abstract_Tests_RenderEVD_TestUnit
+ , Abstract_Tests_CheckFilesInFolderTest_TestUnit
  {$If NOT Defined(NoVCM)}
  , TestFormsTest_TestLibrary
  {$IfEnd} // NOT Defined(NoVCM)

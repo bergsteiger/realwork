@@ -20,15 +20,9 @@ implementation
 {$If NOT Defined(XE) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , vcmProfilersCollection_p
+ , VCMTest_Profilers_TestUnit
  {$If NOT Defined(NoTabs)}
- , vcmBaseMenuForChromeLike_p
- {$IfEnd} // NOT Defined(NoTabs)
- {$If NOT Defined(NoTabs)}
- , ChromeLikeTabSetControl_p
- {$IfEnd} // NOT Defined(NoTabs)
- {$If NOT Defined(NoTabs)}
- , ChromeLikeTab_p
+ , VCMTest_ChromeLike_TestUnit
  {$IfEnd} // NOT Defined(NoTabs)
  , tc5OpenApp
  , tc6OpenApp
