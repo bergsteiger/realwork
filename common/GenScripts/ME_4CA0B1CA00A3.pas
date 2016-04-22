@@ -18,9 +18,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , SuccessTest
- , FailedTest
- , K235868845
+ , TestForTFW_TFWTests_TestUnit
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

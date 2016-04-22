@@ -19,7 +19,7 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
  l3ImplUses
- , RegisteredTasksTest
+ , Tasks_Registering_TestUnit
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 

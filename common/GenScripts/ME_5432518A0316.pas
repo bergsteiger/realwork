@@ -417,6 +417,7 @@ type
    RequireAdminRights: Boolean;
    out theUserID: TdaUserID): TdaLoginError;
   function IsUserAdmin(anUserID: TdaUserID): Boolean;
+  function GetUserName(anUserID: TdaUserID): AnsiString;
   property AllUsers: Tl3StringDataList
    read Get_AllUsers;
    {* Все пользователи системы }
@@ -468,7 +469,6 @@ type
    const aField: IdaFieldDescription;
    anOperation: TdaCompareOperation;
    const aParamName: AnsiString): IdaCondition;
-  function GetUserNameStr(anUserID: LargeInt): AnsiString;
   function MakeLogicCondition(const aLeft: IdaCondition;
    anOperation: TdaLogicOperation;
    const aRight: IdaCondition): IdaCondition;

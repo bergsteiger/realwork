@@ -20,6 +20,7 @@ implementation
 {$If NOT Defined(XE)}
 uses
  l3ImplUses
+ , F1Test_Tree_TestUnit
  , EverestTest
  , VTTest
  {$If NOT Defined(NoVCM)}
@@ -32,7 +33,6 @@ uses
  {$If NOT Defined(NoVGScene)}
  , VGSceneTest
  {$IfEnd} // NOT Defined(NoVGScene)
- , nsDocumentsList_p
  , tc5OpenApp
  , tc6OpenApp
 ;

@@ -1166,6 +1166,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , evSectionPara in 'w:\common\components\gui\Garant\Everest\new\evSectionPara.pas'
  , nevRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
@@ -1544,7 +1545,6 @@ uses
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -1693,17 +1693,18 @@ uses
  , FolderSupport in 'w:\common\components\rtl\external\DUnit\src\FolderSupport.pas'
  , TestForm4Scripts in 'w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas'
  , Containers_TestLibrary in 'w:\common\components\rtl\Garant\Containers\Containers_TestLibrary.pas'
+ , Containers_Lists_TestUnit in 'w:\common\components\rtl\Garant\Containers\Containers_Lists_TestUnit.pas'
  , LongintListTest in 'w:\common\components\rtl\Garant\Containers\LongintListTest.pas'
  , SandBoxTest_TestLibrary in 'w:\common\components\SandBox\SandBoxTest_TestLibrary.pas'
- {$If NOT Defined(NoScripts)}
- , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ , SandBoxTest_ContainersTestsPrim_TestUnit in 'w:\common\components\SandBox\SandBoxTest_ContainersTestsPrim_TestUnit.pas'
+ , SandBoxTest_ContainersTests_TestUnit in 'w:\common\components\SandBox\SandBoxTest_ContainersTests_TestUnit.pas'
  , IntStackTest in 'w:\common\components\SandBox\IntStackTest.pas'
  , IntStack in 'w:\common\components\SandBox\IntStack.pas'
  , StringStackTest in 'w:\common\components\SandBox\StringStackTest.pas'
  , StringStack in 'w:\common\components\SandBox\StringStack.pas'
  , IntStackTestViaMixIn in 'w:\common\components\SandBox\IntStackTestViaMixIn.pas'
  , StringStackTestViaMixIn in 'w:\common\components\SandBox\StringStackTestViaMixIn.pas'
+ , SandBoxTest_Core_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Core_TestUnit.pas'
  , RefcountedTest in 'w:\common\components\SandBox\RefcountedTest.pas'
  , myInterfacedObjectTest in 'w:\common\components\SandBox\myInterfacedObjectTest.pas'
  , myInterfacedObject in 'w:\common\components\SandBox\myInterfacedObject.pas'
@@ -1712,11 +1713,15 @@ uses
  , ServiceTest in 'w:\common\components\SandBox\ServiceTest.pas'
  , IterateableService in 'w:\common\components\SandBox\IterateableService.pas'
  , IterateableServiceProvider in 'w:\common\components\SandBox\IterateableServiceProvider.pas'
+ , SandBoxTest_Emba_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Emba_TestUnit.pas'
  , ReallocMemTest in 'w:\common\components\SandBox\ReallocMemTest.pas'
+ , SandBoxTest_Rounded_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Rounded_TestUnit.pas'
  , RoundedControlsTest in 'w:\common\components\SandBox\RoundedControlsTest.pas'
  , RoundedButton in 'w:\common\components\SandBox\RoundedButton.pas'
  , RoundedEdit in 'w:\common\components\SandBox\RoundedEdit.pas'
+ , SandBoxTest_Memory_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Memory_TestUnit.pas'
  , MemorySizeTest in 'w:\common\components\SandBox\MemorySizeTest.pas'
+ , SandBoxTest_FinalContainersTests_TestUnit in 'w:\common\components\SandBox\SandBoxTest_FinalContainersTests_TestUnit.pas'
  , Int64ListTest in 'w:\common\components\SandBox\Int64ListTest.pas'
  , Int64List in 'w:\common\components\SandBox\Int64List.pas'
  , l3PtrLoc in 'w:\common\components\rtl\Garant\L3\l3PtrLoc.pas'
@@ -1726,6 +1731,12 @@ uses
  , IUnknownRefList in 'w:\common\components\SandBox\IUnknownRefList.pas'
  , ByteListTest in 'w:\common\components\SandBox\ByteListTest.pas'
  , ByteList in 'w:\common\components\SandBox\ByteList.pas'
+ {$If NOT Defined(NoScripts)}
+ , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ScriptTestLibrary_ScriptTestUnit_TestUnit in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_ScriptTestUnit_TestUnit.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 {$IfEnd} // Defined(nsTest)
 

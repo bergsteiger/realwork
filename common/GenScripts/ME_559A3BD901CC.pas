@@ -120,6 +120,7 @@ uses
  , daScheme
  , SysUtils
  , TypInfo
+ , daDataProvider
  , l3Nodes
  , l3TreeInterfaces
 ;

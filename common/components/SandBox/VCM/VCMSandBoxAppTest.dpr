@@ -1096,6 +1096,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , evSectionPara in 'w:\common\components\gui\Garant\Everest\new\evSectionPara.pas'
  , nevRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
@@ -1951,7 +1952,6 @@ uses
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'

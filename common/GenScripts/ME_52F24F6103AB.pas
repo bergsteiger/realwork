@@ -1022,6 +1022,7 @@ uses
  , evQueryCardInt in 'w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas'
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  {$If Defined(nsTest)}
  , afwPreviewPageSpy in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas'
@@ -1669,7 +1670,6 @@ uses
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -2152,6 +2152,9 @@ uses
  , Tasks_TestLibrary in 'w:\archi\source\projects\Archi\Tests\Tasks_TestLibrary.pas'
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
  {$If Defined(nsTest) AND Defined(InsiderTest)}
+ , Tasks_Registering_TestUnit in 'w:\archi\source\projects\Archi\Tests\Tasks_Registering_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+ {$If Defined(nsTest) AND Defined(InsiderTest)}
  , RegisteredTasksTest in 'w:\archi\source\projects\Archi\Tests\RegisteredTasksTest.pas'
  {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
@@ -2178,6 +2181,9 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(InsiderTest)}
  , Low_Level_Tests_TestLibrary in 'w:\archi\source\projects\PipeInAuto\Tests\Low_Level_Tests_TestLibrary.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
+ , Low_Level_Tests_TasksProcessing_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Processing\Low_Level_Tests_TasksProcessing_TestUnit.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , K515862135 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K515862135.pas'
@@ -2530,6 +2536,9 @@ uses
  , K578892941 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K578892941.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
+ , Low_Level_Tests_TaskSaveLoad_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\Low_Level_Tests_TaskSaveLoad_TestUnit.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
  , K517772970_TddTaskItem in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoad\K517772970_TddTaskItem.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
@@ -2861,6 +2870,15 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , UserDefinedExportTask_Const in 'w:\common\components\rtl\Garant\EVD\UserDefinedExportTask_Const.pas'
  {$If Defined(InsiderTest)}
+ , Low_Level_Tests_AbstractImportTasks_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract\Low_Level_Tests_AbstractImportTasks_TestUnit.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
+ , Low_Level_Tests_AbstractTasksSaveLoadWithDefault_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\Low_Level_Tests_AbstractTasksSaveLoadWithDefault_TestUnit.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
+ , Low_Level_Tests_ConcreteImportTasks_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Low_Level_Tests_ConcreteImportTasks_TestUnit.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
  , K517789752 in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\K517789752.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
@@ -2896,6 +2914,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , CsErrors in 'w:\common\components\rtl\Garant\cs\CsErrors.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(InsiderTest)}
+ , Low_Level_Tests_TasksSaveLoadWithDefault_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Low_Level_Tests_TasksSaveLoadWithDefault_TestUnit.pas'
+ {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , K517772970_TddTaskItemDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddTaskItemDefault.pas'
  {$IfEnd} // Defined(InsiderTest)
@@ -3002,6 +3023,9 @@ uses
  , K517772970_TcsUserDefinedExportDefault in 'w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsUserDefinedExportDefault.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
+ , Low_Level_Tests_TasksRegistering_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\Low_Level_Tests_TasksRegistering_TestUnit.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
  , RegisteredRepliesTest in 'w:\archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(Nemesis)}
@@ -3012,6 +3036,9 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(InsiderTest)}
  , New_Actions_Test_TestLibrary in 'w:\archi\source\projects\PipeInAuto\Tests\New_Actions_Test_TestLibrary.pas'
+ {$IfEnd} // Defined(InsiderTest)
+ {$If Defined(InsiderTest)}
+ , New_Actions_Test_Tasked_Actions_TestUnit in 'w:\archi\source\projects\PipeInAuto\Tests\NewActions\Export\New_Actions_Test_Tasked_Actions_TestUnit.pas'
  {$IfEnd} // Defined(InsiderTest)
  {$If Defined(InsiderTest)}
  , archiExportActionTest in 'w:\archi\source\projects\PipeInAuto\Tests\NewActions\Export\archiExportActionTest.pas'

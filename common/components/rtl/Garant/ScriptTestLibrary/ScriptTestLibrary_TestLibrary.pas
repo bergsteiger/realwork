@@ -17,6 +17,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ScriptTestLibrary_ScriptTestUnit_TestUnit
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

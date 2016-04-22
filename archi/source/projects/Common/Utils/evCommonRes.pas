@@ -38,6 +38,8 @@ const
   {* 'Документ "%S" был отредактирован.'^M'Записать?' }
  str_sidEmptyViborka: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'sidEmptyViborka'; rValue : 'Выбранная выборка пустая');
   {* 'Выбранная выборка пустая' }
+ str_str_sidSpellCheckFragmentAsk: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'str_sidSpellCheckFragmentAsk'; rValue : 'Проверить правописание только в выделенном фрагменте?');
+  {* 'Проверить правописание только в выделенном фрагменте?' }
 
 implementation
 
@@ -69,5 +71,7 @@ initialization
  {* Инициализация str_sidSaveAsk }
  str_sidEmptyViborka.Init;
  {* Инициализация str_sidEmptyViborka }
+ str_str_sidSpellCheckFragmentAsk.Init;
+ {* Инициализация str_str_sidSpellCheckFragmentAsk }
 
 end.

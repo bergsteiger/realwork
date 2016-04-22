@@ -1108,6 +1108,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , evSectionPara in 'w:\common\components\gui\Garant\Everest\new\evSectionPara.pas'
  , nevRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
@@ -1963,7 +1964,6 @@ uses
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -4126,7 +4126,7 @@ uses
  , bsDocumentContextSearcher in 'w:\garant6x\implementation\Garant\GbaNemesis\View\bsDocumentContextSearcher.pas'
  , nsContextSearchParams in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsContextSearchParams.pas'
  , nsFindIteratorNew in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNew.pas'
- , l3ProtoObjectForTie in 'w:\garant6x\implementation\Garant\GbaNemesis\View\l3ProtoObjectForTie.pas'
+ , l3ProtoObjectForTie in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectForTie.pas'
  , nsFindIteratorNewFindPositionList in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewFindPositionList.pas'
  , nsFindIteratorNewForAutoreferat in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForAutoreferat.pas'
  , nsFindIteratorNewForDiction in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewForDiction.pas'
@@ -5500,15 +5500,33 @@ uses
  , F1Test in 'w:\garant6x\implementation\Garant\GbaNemesis\F1Test.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
- , EverestTest in 'w:\common\components\gui\Garant\Everest\EverestTest.pas'
+ , F1Test_Tree_TestUnit in 'w:\garant6x\implementation\Garant\GbaNemesis\F1Test_Tree_TestUnit.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
- , nevSelection_p in 'w:\common\components\gui\Garant\Everest\nevSelection_p.pas'
+ , nsDocumentsList_p in 'w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , TestDocListUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , MessageOnDesktop in 'w:\garant6x\implementation\Garant\GbaNemesis\MessageOnDesktop.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , TestStringUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestStringUtils.pas'
  {$IfEnd} // NOT Defined(XE)
  , tc5OpenAppClasses
  , tc5PublicInfo
  , tc6OpenAppClasses
  , tc6PublicInfo
+ {$If NOT Defined(XE)}
+ , EverestTest in 'w:\common\components\gui\Garant\Everest\EverestTest.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , EverestTest_Editors_TestUnit in 'w:\common\components\gui\Garant\Everest\EverestTest_Editors_TestUnit.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , nevSelection_p in 'w:\common\components\gui\Garant\Everest\nevSelection_p.pas'
+ {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
  , afwCaret_p in 'w:\common\components\gui\Garant\Everest\afwCaret_p.pas'
  {$IfEnd} // NOT Defined(XE)
@@ -5524,10 +5542,16 @@ uses
  , VTTest in 'w:\common\components\gui\Garant\VT\VTTest.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
+ , VTTest_ComboTree_TestUnit in 'w:\common\components\gui\Garant\VT\VTTest_ComboTree_TestUnit.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
  , FakeBox_p in 'w:\common\components\gui\Garant\VT\FakeBox_p.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
  , SubTree_p in 'w:\common\components\gui\Garant\VT\SubTree_p.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , VTTest_NewReminders_TestUnit in 'w:\common\components\gui\Garant\VT\VTTest_NewReminders_TestUnit.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
  , vgRemindersLine_p in 'w:\common\components\gui\Garant\VT\vgRemindersLine_p.pas'
@@ -5539,6 +5563,9 @@ uses
  , VCMTest in 'w:\common\components\gui\Garant\VCM\VCMTest.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
  {$If NOT Defined(XE) AND NOT Defined(NoVCM)}
+ , VCMTest_Profilers_TestUnit in 'w:\common\components\gui\Garant\VCM\VCMTest_Profilers_TestUnit.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM)}
  , vcmProfilersCollection_p in 'w:\common\components\gui\Garant\VCM\vcmProfilersCollection_p.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -5547,6 +5574,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmProfiler in 'w:\common\components\gui\Garant\VCM\implementation\vcmProfiler.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+ , VCMTest_ChromeLike_TestUnit in 'w:\common\components\gui\Garant\VCM\VCMTest_ChromeLike_TestUnit.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
  {$If NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
  , vcmBaseMenuForChromeLike_p in 'w:\common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
@@ -5566,16 +5596,28 @@ uses
  , NemesisTest in 'w:\common\components\gui\Garant\Nemesis\NemesisTest.pas'
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
  {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , NemesisTest_Navigator_TestUnit in 'w:\common\components\gui\Garant\Nemesis\NemesisTest_Navigator_TestUnit.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
  , nscNavigatorPageControl_p in 'w:\common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas'
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
  {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , NemesisTest_Tree_TestUnit in 'w:\common\components\gui\Garant\Nemesis\NemesisTest_Tree_TestUnit.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
  , eeTreeViewExport_p in 'w:\common\components\gui\Garant\Nemesis\eeTreeViewExport_p.pas'
+ {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
+ {$If Defined(Nemesis) AND NOT Defined(XE)}
+ , NemesisTest_Editor_TestUnit in 'w:\common\components\gui\Garant\Nemesis\NemesisTest_Editor_TestUnit.pas'
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
  {$If Defined(Nemesis) AND NOT Defined(XE)}
  , nscSimpleEditor_p in 'w:\common\components\gui\Garant\Nemesis\nscSimpleEditor_p.pas'
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(XE)
  {$If NOT Defined(XE)}
  , AFWTest in 'w:\common\components\gui\Garant\AFW\AFWTest.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
+ , AFWTest_VCL_TestUnit in 'w:\common\components\gui\Garant\AFW\AFWTest_VCL_TestUnit.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
  , MenuItem_p in 'w:\common\components\gui\Garant\AFW\MenuItem_p.pas'
@@ -5590,26 +5632,20 @@ uses
  , WinControl_p in 'w:\common\components\gui\Garant\AFW\WinControl_p.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE)}
+ , AFWTest_Rtl_TestUnit in 'w:\common\components\gui\Garant\AFW\AFWTest_Rtl_TestUnit.pas'
+ {$IfEnd} // NOT Defined(XE)
+ {$If NOT Defined(XE)}
  , Component_p in 'w:\common\components\gui\Garant\AFW\Component_p.pas'
  {$IfEnd} // NOT Defined(XE)
  {$If NOT Defined(XE) AND NOT Defined(NoVGScene)}
  , VGSceneTest in 'w:\common\components\rtl\external\VGScene\VGSceneTest.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVGScene)
  {$If NOT Defined(XE) AND NOT Defined(NoVGScene)}
+ , VGSceneTest_Impl_TestUnit in 'w:\common\components\rtl\external\VGScene\VGSceneTest_Impl_TestUnit.pas'
+ {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVGScene)
+ {$If NOT Defined(XE) AND NOT Defined(NoVGScene)}
  , vgVisualObject_p in 'w:\common\components\rtl\external\VGScene\vgVisualObject_p.pas'
  {$IfEnd} // NOT Defined(XE) AND NOT Defined(NoVGScene)
- {$If NOT Defined(XE)}
- , nsDocumentsList_p in 'w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas'
- {$IfEnd} // NOT Defined(XE)
- {$If NOT Defined(XE)}
- , TestDocListUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas'
- {$IfEnd} // NOT Defined(XE)
- {$If NOT Defined(XE)}
- , MessageOnDesktop in 'w:\garant6x\implementation\Garant\GbaNemesis\MessageOnDesktop.pas'
- {$IfEnd} // NOT Defined(XE)
- {$If NOT Defined(XE)}
- , TestStringUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\TestStringUtils.pas'
- {$IfEnd} // NOT Defined(XE)
  , l3MouseWheelHelper in 'w:\common\components\rtl\Garant\L3\l3MouseWheelHelper.pas'
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

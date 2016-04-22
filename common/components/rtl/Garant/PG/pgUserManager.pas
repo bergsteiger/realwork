@@ -11,26 +11,39 @@ interface
 {$If Defined(UsePostgres)}
 uses
  l3IntfUses
- , daUserManager
+ , l3ProtoObject
  , daInterfaces
  , l3DatLst
  , daTypes
 ;
 
 type
- TpgUserManager = class(TdaUserManager)
+ TpgUserManager = class(Tl3ProtoObject, IdaUserManager)
   private
    f_Factory: IdaTableQueryFactory;
    f_PasswordQuery: IdaTabledQuery;
    f_UserFlagsQuery: IdaTabledQuery;
+   f_AllUsers: Tl3StringDataList;
+   f_AllGroups: Tl3StringDataList;
+   f_UserNameQuery: IdaTabledQuery;
+  private
+   procedure FillListByResultSet(aList: Tl3StringDataList;
+    const aResultSet: IdaResultSet;
+    const anIDFieldName: AnsiString;
+    const aNameFieldName: AnsiString);
+   procedure FillAllUsers(aList: Tl3StringDataList);
+   procedure FillAllGroups(aList: Tl3StringDataList);
+   procedure SortUsersInList(aList: Tl3StringDataList);
+   function UserNameQuery: IdaTabledQuery;
   protected
-   procedure FillAllUsers(aList: Tl3StringDataList); override;
-   procedure FillAllGroups(aList: Tl3StringDataList); override;
-   function DoCheckPassword(const aLogin: AnsiString;
+   function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
-    out theUserID: TdaUserID): TdaLoginError; override;
-   function DoIsUserAdmin(anUserID: TdaUserID): Boolean; override;
+    out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
+   function Get_AllUsers: Tl3StringDataList;
+   function Get_AllGroups: Tl3StringDataList;
+   function GetUserName(anUserID: TdaUserID): AnsiString;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -46,6 +59,9 @@ uses
  l3ImplUses
  , SysUtils
  , daScheme
+ , daDataProvider
+ , daUserManagerUtils
+ , l3Base
 ;
 
 constructor TpgUserManager.Create(const aFactory: IdaTableQueryFactory);
@@ -81,6 +97,33 @@ begin
  end;//try..finally
 end;//TpgUserManager.Make
 
+procedure TpgUserManager.FillListByResultSet(aList: Tl3StringDataList;
+ const aResultSet: IdaResultSet;
+ const anIDFieldName: AnsiString;
+ const aNameFieldName: AnsiString);
+//#UC START# *57172C740069_5629FC88034B_var*
+var
+ l_ID: TdaUserID;
+//#UC END# *57172C740069_5629FC88034B_var*
+begin
+//#UC START# *57172C740069_5629FC88034B_impl*
+ aList.Changing;
+ try
+  aList.Clear;
+  aList.DataSize := SizeOf(l_ID);
+  aList.NeedAllocStr := True;
+  while not aResultSet.EOF do
+  begin
+   l_ID := aResultSet.Field[anIDFieldName].AsLargeInt;
+   Tl3StringDataList(aList).AddStr(aResultSet.Field[aNameFieldName].AsString, @l_ID);
+   aResultSet.Next;
+  end;
+ finally
+  aList.Changed;
+ end;
+//#UC END# *57172C740069_5629FC88034B_impl*
+end;//TpgUserManager.FillListByResultSet
+
 procedure TpgUserManager.FillAllUsers(aList: Tl3StringDataList);
 //#UC START# *5715E71600DD_5629FC88034B_var*
 //#UC END# *5715E71600DD_5629FC88034B_var*
@@ -99,26 +142,184 @@ begin
 //#UC END# *5715E74402CA_5629FC88034B_impl*
 end;//TpgUserManager.FillAllGroups
 
-function TpgUserManager.DoCheckPassword(const aLogin: AnsiString;
+procedure TpgUserManager.SortUsersInList(aList: Tl3StringDataList);
+//#UC START# *5715ED0002E0_5629FC88034B_var*
+
+ function l_CompareUsers(I, J: Integer): Integer;
+ var
+  l_Reg1, l_Reg2: TdaRegionID;
+  l_Name1, l_Name2: AnsiString;
+ begin
+  // сначала сравниваем регионы
+  l_Reg1 := GetUserRegion(TdaUserID(aList.DataInt[I]));
+  l_Reg2 := GetUserRegion(TdaUserID(aList.DataInt[J]));
+  if l_Reg1 <> l_Reg2 then
+  begin
+   // если регион наш, родной, то он должен быть наверху, однозначно!
+   if l_Reg1 = GlobalDataProvider.RegionID then
+   begin
+    Result := -1;
+    Exit;
+   end
+   else
+    if l_Reg2 = GlobalDataProvider.RegionID then
+    begin
+     Result := 1;
+     Exit;
+    end
+  end;
+  // По региону не вышел наверх. Сортируем по имени (к которому название региона уже приклеено)
+  l_Name1 := aList.PasStr[I];
+  l_Name2 := aList.PasStr[J];
+  if l_Name1 < l_Name2 then
+   Result := -1
+  else
+   if l_Name1 > l_Name2 then
+    Result := 1
+   else
+    Result := 0;
+ end;
+
+//#UC END# *5715ED0002E0_5629FC88034B_var*
+begin
+//#UC START# *5715ED0002E0_5629FC88034B_impl*
+ aList.SortF(l3LocalStub(@l_CompareUsers));
+//#UC END# *5715ED0002E0_5629FC88034B_impl*
+end;//TpgUserManager.SortUsersInList
+
+function TpgUserManager.UserNameQuery: IdaTabledQuery;
+//#UC START# *5718C16B036E_5629FC88034B_var*
+//#UC END# *5718C16B036E_5629FC88034B_var*
+begin
+//#UC START# *5718C16B036E_5629FC88034B_impl*
+ if f_UserNameQuery = nil then
+ begin
+  f_UserNameQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+  f_UserNameQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  f_UserNameQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
+  f_UserNameQuery.Prepare;
+ end;
+ Result := f_UserNameQuery;
+//#UC END# *5718C16B036E_5629FC88034B_impl*
+end;//TpgUserManager.UserNameQuery
+
+function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
  RequireAdminRights: Boolean;
  out theUserID: TdaUserID): TdaLoginError;
-//#UC START# *5715E767013D_5629FC88034B_var*
-//#UC END# *5715E767013D_5629FC88034B_var*
+//#UC START# *5628D14D0151_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+ l_Flags: Byte;
+//#UC END# *5628D14D0151_5629FC88034B_var*
 begin
-//#UC START# *5715E767013D_5629FC88034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5715E767013D_5629FC88034B_impl*
-end;//TpgUserManager.DoCheckPassword
+//#UC START# *5628D14D0151_5629FC88034B_impl*
+ theUserID := 0;
+ Result := da_leUserParamsWrong;
+ if (AnsiLowerCase(aLogin) = c_SupervisorUserName) and not RequireAdminRights then
+  Exit;
+ f_PasswordQuery.Param['p_ShortName'].AsString := aLogin;
+ l_ResultSet := f_PasswordQuery.OpenResultSet;
+ try
+  if l_ResultSet.IsEmpty then
+    Exit;
+  if (l_ResultSet.Field['Password'].AsString <> '') and (not AnsiSameText(l_ResultSet.Field['Password'].AsString, aPassword)) then
+    Exit;
+  theUserID := l_ResultSet.Field['User_ID'].AsLargeInt;
+  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := theUserID;
+ finally
+  l_ResultSet := nil;
+ end;
 
-function TpgUserManager.DoIsUserAdmin(anUserID: TdaUserID): Boolean;
-//#UC START# *5715E78F013E_5629FC88034B_var*
-//#UC END# *5715E78F013E_5629FC88034B_var*
+ if theUserID <> usSupervisor then
+ begin
+  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
+  try
+   l_Flags := l_ResultSet.Field['Active'].AsByte;
+   if (l_Flags and usActive) <> usActive then
+    Exit;
+   if RequireAdminRights and ((l_Flags and usAdmin) <> usAdmin) then
+   begin
+    Result := da_leInsufficientRights;
+    Exit;
+   end;
+   Result := da_leOk;
+
+  finally
+   l_ResultSet := nil;
+  end;
+ end
+ else
+  Result := da_leOk;
+//#UC END# *5628D14D0151_5629FC88034B_impl*
+end;//TpgUserManager.CheckPassword
+
+function TpgUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *56EA993D0218_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *56EA993D0218_5629FC88034B_var*
 begin
-//#UC START# *5715E78F013E_5629FC88034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5715E78F013E_5629FC88034B_impl*
-end;//TpgUserManager.DoIsUserAdmin
+//#UC START# *56EA993D0218_5629FC88034B_impl*
+ Result := (anUserID = usSupervisor);
+ if not Result then
+ begin
+  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := anUserID;
+  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
+  try
+   Result := not l_ResultSet.IsEmpty and ((l_ResultSet.Field['Active'].AsByte and usAdmin) = usAdmin);
+  finally
+   l_ResultSet := nil;
+  end;
+ end;
+//#UC END# *56EA993D0218_5629FC88034B_impl*
+end;//TpgUserManager.IsUserAdmin
+
+function TpgUserManager.Get_AllUsers: Tl3StringDataList;
+//#UC START# *5715DEF20209_5629FC88034Bget_var*
+//#UC END# *5715DEF20209_5629FC88034Bget_var*
+begin
+//#UC START# *5715DEF20209_5629FC88034Bget_impl*
+ if f_AllUsers = nil then
+ begin
+  f_AllUsers := Tl3StringDataList.Create;
+  FillAllUsers(f_AllUsers);
+  SortUsersInList(f_AllUsers);
+ end;
+ Result:=f_AllUsers;
+//#UC END# *5715DEF20209_5629FC88034Bget_impl*
+end;//TpgUserManager.Get_AllUsers
+
+function TpgUserManager.Get_AllGroups: Tl3StringDataList;
+//#UC START# *5715DF0D03C2_5629FC88034Bget_var*
+//#UC END# *5715DF0D03C2_5629FC88034Bget_var*
+begin
+//#UC START# *5715DF0D03C2_5629FC88034Bget_impl*
+ if f_AllGroups = nil then
+ begin
+  f_AllGroups := Tl3StringDataList.Create;
+  FillAllGroups(f_AllGroups);
+ end;
+ Result := f_AllGroups;
+//#UC END# *5715DF0D03C2_5629FC88034Bget_impl*
+end;//TpgUserManager.Get_AllGroups
+
+function TpgUserManager.GetUserName(anUserID: TdaUserID): AnsiString;
+//#UC START# *5718B5CF0399_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *5718B5CF0399_5629FC88034B_var*
+begin
+//#UC START# *5718B5CF0399_5629FC88034B_impl*
+ UserNameQuery.Param['p_UserID'].AsLargeInt := anUserID;
+ l_ResultSet := UserNameQuery.OpenResultSet;
+ try
+  Result := l_ResultSet.Field['user_name'].AsString;
+ finally
+  l_ResultSet := nil;
+ end;
+//#UC END# *5718B5CF0399_5629FC88034B_impl*
+end;//TpgUserManager.GetUserName
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

@@ -44,12 +44,12 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , MainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , Main_ut_Main_UserType
 ;
@@ -69,14 +69,14 @@ begin
 end;//TMainForm.InitFields
 
 initialization
+ str_ut_MainCaption.Init;
+ {* Инициализация str_ut_MainCaption }
+ fm_MainForm.SetFactory(TMainForm.Make);
+ {* Регистрация фабрики формы Main }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMainForm);
  {* Регистрация Main }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_MainForm.SetFactory(TMainForm.Make);
- {* Регистрация фабрики формы Main }
- str_ut_MainCaption.Init;
- {* Инициализация str_ut_MainCaption }
 {$IfEnd} // Defined(NewGen)
 
 end.

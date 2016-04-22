@@ -17,7 +17,7 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
- , LongintListTest
+ , Containers_Lists_TestUnit
 ;
 {$IfEnd} // Defined(nsTest)
 

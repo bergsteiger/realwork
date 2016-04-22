@@ -10,22 +10,23 @@ interface
 
 uses
  l3IntfUses
- , daUserManager
+ , l3ProtoObject
  , daInterfaces
- , l3DatLst
  , daTypes
+ , l3DatLst
 ;
 
 type
- ThtUserManager = class(TdaUserManager)
+ ThtUserManager = class(Tl3ProtoObject, IdaUserManager)
   protected
-   procedure FillAllUsers(aList: Tl3StringDataList); override;
-   procedure FillAllGroups(aList: Tl3StringDataList); override;
-   function DoCheckPassword(const aLogin: AnsiString;
+   function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
     RequireAdminRights: Boolean;
-    out theUserID: TdaUserID): TdaLoginError; override;
-   function DoIsUserAdmin(anUserID: TdaUserID): Boolean; override;
+    out theUserID: TdaUserID): TdaLoginError;
+   function IsUserAdmin(anUserID: TdaUserID): Boolean;
+   function Get_AllUsers: Tl3StringDataList;
+   function Get_AllGroups: Tl3StringDataList;
+   function GetUserName(anUserID: TdaUserID): AnsiString;
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
@@ -36,10 +37,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(Nemesis)}
- , dt_Serv
+ , dt_User
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
- , dt_User
+ , dt_Serv
  {$IfEnd} // NOT Defined(Nemesis)
 ;
 
@@ -64,43 +65,64 @@ begin
  end;//try..finally
 end;//ThtUserManager.Make
 
-procedure ThtUserManager.FillAllUsers(aList: Tl3StringDataList);
-//#UC START# *5715E71600DD_5629E343023B_var*
-//#UC END# *5715E71600DD_5629E343023B_var*
-begin
-//#UC START# *5715E71600DD_5629E343023B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5715E71600DD_5629E343023B_impl*
-end;//ThtUserManager.FillAllUsers
-
-procedure ThtUserManager.FillAllGroups(aList: Tl3StringDataList);
-//#UC START# *5715E74402CA_5629E343023B_var*
-//#UC END# *5715E74402CA_5629E343023B_var*
-begin
-//#UC START# *5715E74402CA_5629E343023B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5715E74402CA_5629E343023B_impl*
-end;//ThtUserManager.FillAllGroups
-
-function ThtUserManager.DoCheckPassword(const aLogin: AnsiString;
+function ThtUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
  RequireAdminRights: Boolean;
  out theUserID: TdaUserID): TdaLoginError;
-//#UC START# *5715E767013D_5629E343023B_var*
-//#UC END# *5715E767013D_5629E343023B_var*
+//#UC START# *5628D14D0151_5629E343023B_var*
+var
+ l_Result: Boolean;
+//#UC END# *5628D14D0151_5629E343023B_var*
 begin
-//#UC START# *5715E767013D_5629E343023B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5715E767013D_5629E343023B_impl*
-end;//ThtUserManager.DoCheckPassword
+//#UC START# *5628D14D0151_5629E343023B_impl*
+ l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, RequireAdminRights);
+ if l_Result then
+  Result := da_leOk
+ else
+ begin
+  if RequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
+   Result := da_leInsufficientRights
+  else
+   Result := da_leUserParamsWrong;
+ end;
+ theUserID := GlobalHTServer.xxxUserID;
+//#UC END# *5628D14D0151_5629E343023B_impl*
+end;//ThtUserManager.CheckPassword
 
-function ThtUserManager.DoIsUserAdmin(anUserID: TdaUserID): Boolean;
-//#UC START# *5715E78F013E_5629E343023B_var*
-//#UC END# *5715E78F013E_5629E343023B_var*
+function ThtUserManager.IsUserAdmin(anUserID: TdaUserID): Boolean;
+//#UC START# *56EA993D0218_5629E343023B_var*
+//#UC END# *56EA993D0218_5629E343023B_var*
 begin
-//#UC START# *5715E78F013E_5629E343023B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5715E78F013E_5629E343023B_impl*
-end;//ThtUserManager.DoIsUserAdmin
+//#UC START# *56EA993D0218_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxIsUserAdmin(anUserID);
+//#UC END# *56EA993D0218_5629E343023B_impl*
+end;//ThtUserManager.IsUserAdmin
+
+function ThtUserManager.Get_AllUsers: Tl3StringDataList;
+//#UC START# *5715DEF20209_5629E343023Bget_var*
+//#UC END# *5715DEF20209_5629E343023Bget_var*
+begin
+//#UC START# *5715DEF20209_5629E343023Bget_impl*
+ Result := dt_User.UserManager.xxxAllUsers;
+//#UC END# *5715DEF20209_5629E343023Bget_impl*
+end;//ThtUserManager.Get_AllUsers
+
+function ThtUserManager.Get_AllGroups: Tl3StringDataList;
+//#UC START# *5715DF0D03C2_5629E343023Bget_var*
+//#UC END# *5715DF0D03C2_5629E343023Bget_var*
+begin
+//#UC START# *5715DF0D03C2_5629E343023Bget_impl*
+ Result := dt_User.UserManager.xxxAllGroups;
+//#UC END# *5715DF0D03C2_5629E343023Bget_impl*
+end;//ThtUserManager.Get_AllGroups
+
+function ThtUserManager.GetUserName(anUserID: TdaUserID): AnsiString;
+//#UC START# *5718B5CF0399_5629E343023B_var*
+//#UC END# *5718B5CF0399_5629E343023B_var*
+begin
+//#UC START# *5718B5CF0399_5629E343023B_impl*
+ Result := dt_User.UserManager.GetUserName(anUserID);
+//#UC END# *5718B5CF0399_5629E343023B_impl*
+end;//ThtUserManager.GetUserName
 
 end.

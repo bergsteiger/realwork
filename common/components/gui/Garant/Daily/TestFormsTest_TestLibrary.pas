@@ -20,11 +20,12 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , TestFormsTest_Everest_TestUnit
+ , TestFormsTest_OutlinerTests_TestUnit
+ , TestFormsTest_EmptyFormTests_TestUnit
  {$If NOT Defined(NoScripts)}
  , ScriptTestLibrary_TestLibrary
  {$IfEnd} // NOT Defined(NoScripts)
- , K204114253
- , TextLoad
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 

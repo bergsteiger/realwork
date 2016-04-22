@@ -19,24 +19,16 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ , SandBoxTest_ContainersTestsPrim_TestUnit
+ , SandBoxTest_ContainersTests_TestUnit
+ , SandBoxTest_Core_TestUnit
+ , SandBoxTest_Emba_TestUnit
+ , SandBoxTest_Rounded_TestUnit
+ , SandBoxTest_Memory_TestUnit
+ , SandBoxTest_FinalContainersTests_TestUnit
  {$If NOT Defined(NoScripts)}
  , ScriptTestLibrary_TestLibrary
  {$IfEnd} // NOT Defined(NoScripts)
- , IntStackTest
- , StringStackTest
- , IntStackTestViaMixIn
- , StringStackTestViaMixIn
- , RefcountedTest
- , myInterfacedObjectTest
- , myReferenceCountGuardTest
- , ServiceTest
- , ReallocMemTest
- , RoundedControlsTest
- , MemorySizeTest
- , Int64ListTest
- , IntegerListTest
- , IUnknownRefListTest
- , ByteListTest
 ;
 {$IfEnd} // Defined(nsTest)
 

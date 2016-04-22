@@ -965,6 +965,7 @@ uses
  , IedTableWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas'
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , evSectionPara in 'w:\common\components\gui\Garant\Everest\new\evSectionPara.pas'
  , nevRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
@@ -1238,7 +1239,6 @@ uses
  , l3Bits in 'w:\common\components\rtl\Garant\L3\l3Bits.pas'
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -2167,7 +2167,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , TestFormsTest_TestLibrary in 'w:\common\components\gui\Garant\Daily\TestFormsTest_TestLibrary.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
+ {$If NOT Defined(NoVCM)}
+ , TestFormsTest_Everest_TestUnit in 'w:\common\components\gui\Garant\Daily\TestFormsTest_Everest_TestUnit.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , K204114253 in 'w:\common\components\gui\Garant\Daily\K204114253.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2356,133 +2358,26 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , ddSectionRepair in 'w:\common\components\rtl\Garant\dd\ddSectionRepair.pas'
  {$If NOT Defined(NoVCM)}
- , TextEditorVisitorPrim in 'w:\common\components\gui\Garant\Daily\TextEditorVisitorPrim.pas'
+ , TestFormsTest_OutlinerTests_TestUnit in 'w:\common\components\gui\Garant\Daily\TestFormsTest_OutlinerTests_TestUnit.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , TextEditorVisitor in 'w:\common\components\gui\Garant\Daily\TextEditorVisitor.pas'
+ , TestFormsTest_EmptyFormTests_TestUnit in 'w:\common\components\gui\Garant\Daily\TestFormsTest_EmptyFormTests_TestUnit.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , TextViaEditorProcessor in 'w:\common\components\gui\Garant\Daily\TextViaEditorProcessor.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , SearchAndReplacePrimTest in 'w:\common\components\gui\Garant\Daily\SearchAndReplacePrimTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PreviewTestBefore235875079 in 'w:\common\components\gui\Garant\Daily\PreviewTestBefore235875079.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- , vtPreviewPanel in 'w:\common\components\gui\Garant\VT\vtPreviewPanel.pas'
- , vtCustomPreviewPanel in 'w:\common\components\gui\Garant\VT\vtCustomPreviewPanel.pas'
- {$If NOT Defined(NoVCM)}
- , PrimScrollTest in 'w:\common\components\gui\Garant\Daily\PrimScrollTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , ScrollBackTest in 'w:\common\components\gui\Garant\Daily\ScrollBackTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , ComplexScrollByLines in 'w:\common\components\gui\Garant\Daily\ComplexScrollByLines.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , SearchAndReplaceTest in 'w:\common\components\gui\Garant\Daily\SearchAndReplaceTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , TwoEmptyParaForOneReplacerTest in 'w:\common\components\gui\Garant\Daily\TwoEmptyParaForOneReplacerTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , TableSelectTest in 'w:\common\components\gui\Garant\Daily\TableSelectTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , TwoSpaceForOneReplacerTest in 'w:\common\components\gui\Garant\Daily\TwoSpaceForOneReplacerTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , ChangeAllTablesTest in 'w:\common\components\gui\Garant\Daily\ChangeAllTablesTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , OldNSRCFlagCnahge in 'w:\common\components\gui\Garant\Daily\OldNSRCFlagCnahge.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , ScrollBackByLineTest in 'w:\common\components\gui\Garant\Daily\ScrollBackByLineTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , ScrollBackByLineWithCheckTopAnchoTest in 'w:\common\components\gui\Garant\Daily\ScrollBackByLineWithCheckTopAnchoTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , DrawLineTest in 'w:\common\components\gui\Garant\Daily\DrawLineTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PasteColumnTest in 'w:\common\components\gui\Garant\Daily\PasteColumnTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , ScrollTest in 'w:\common\components\gui\Garant\Daily\ScrollTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , CommentAndScrollTest in 'w:\common\components\gui\Garant\Daily\CommentAndScrollTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , QueryCardAddAttributeTest in 'w:\common\components\gui\Garant\Daily\QueryCardAddAttributeTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , CommentInTableAndScrollTest in 'w:\common\components\gui\Garant\Daily\CommentInTableAndScrollTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , InsertRowTest in 'w:\common\components\gui\Garant\Daily\InsertRowTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , DrawTestPrim in 'w:\common\components\gui\Garant\Daily\DrawTestPrim.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , DeleteSectionBreakTest in 'w:\common\components\gui\Garant\Daily\DeleteSectionBreakTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , TableToolsTestPrim in 'w:\common\components\gui\Garant\Daily\TableToolsTestPrim.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PreviewWithLinesTestBefore235875079 in 'w:\common\components\gui\Garant\Daily\PreviewWithLinesTestBefore235875079.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PreviewTestBefore278833302 in 'w:\common\components\gui\Garant\Daily\PreviewTestBefore278833302.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PreviewWithLinesTest in 'w:\common\components\gui\Garant\Daily\PreviewWithLinesTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PreviewTest in 'w:\common\components\gui\Garant\Daily\PreviewTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , PageCountTest in 'w:\common\components\gui\Garant\Daily\PageCountTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , OutlinerTest in 'w:\common\components\gui\Garant\Daily\OutlinerTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , Outliner_Form in 'w:\common\components\gui\Garant\Daily\Forms\Outliner_Form.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- , vtOutlinerControl in 'w:\common\components\gui\Garant\VT\vtOutlinerControl.pas'
- {$If NOT Defined(NoVCM)}
- , OutlinerFormKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , OutlinerForm_ut_OutlinerForm_UserType in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerForm_ut_OutlinerForm_UserType.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , EmptyFormTest in 'w:\common\components\gui\Garant\Daily\EmptyFormTest.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , FromWithPanel_Form in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , FromWithPanelKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , FromWithPanel_ut_FromWithPanel_UserType in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_ut_FromWithPanel_UserType.pas'
- {$IfEnd} // NOT Defined(NoVCM)
+ , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
+ , ScriptTestLibrary_ScriptTestUnit_TestUnit in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_ScriptTestUnit_TestUnit.pas'
  , Containers_TestLibrary in 'w:\common\components\rtl\Garant\Containers\Containers_TestLibrary.pas'
+ , Containers_Lists_TestUnit in 'w:\common\components\rtl\Garant\Containers\Containers_Lists_TestUnit.pas'
  , LongintListTest in 'w:\common\components\rtl\Garant\Containers\LongintListTest.pas'
  , DailyTest_TestLibrary in 'w:\common\components\rtl\Garant\Daily\DailyTest_TestLibrary.pas'
- , Abstract_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_TestLibrary.pas'
+ , DailyTest_Core_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_Core_TestUnit.pas'
  , TestMMX in 'w:\common\components\rtl\Garant\Daily\TestMMX.pas'
  , TestFilerReadLn in 'w:\common\components\rtl\Garant\Daily\TestFilerReadLn.pas'
  , TestGlobals in 'w:\common\components\rtl\Garant\Daily\TestGlobals.pas'
  , TestFilerCopyViaReadLn in 'w:\common\components\rtl\Garant\Daily\TestFilerCopyViaReadLn.pas'
+ , DailyTest_Write_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_Write_TestUnit.pas'
+ , DailyTest_RTF_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_RTF_TestUnit.pas'
+ , DailyTest_EVD_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_EVD_TestUnit.pas'
+ , DailyTest_NSRCTests_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_NSRCTests_TestUnit.pas'
  , StyleCtoStyleJTest in 'w:\common\components\rtl\Garant\Daily\StyleCtoStyleJTest.pas'
  , NSRCWriterTest in 'w:\common\components\rtl\Garant\Daily\NSRCWriterTest.pas'
  , WriterTest in 'w:\common\components\rtl\Garant\Daily\WriterTest.pas'
@@ -2535,15 +2430,39 @@ uses
  , K446824679 in 'w:\common\components\rtl\Garant\Daily\K446824679.pas'
  , K565842263 in 'w:\common\components\rtl\Garant\Daily\K565842263.pas'
  , K565862557 in 'w:\common\components\rtl\Garant\Daily\K565862557.pas'
+ , DailyTest_EditorTests_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_EditorTests_TestUnit.pas'
+ , DailyTest_GZip_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_GZip_TestUnit.pas'
  , GZipUnzipTest in 'w:\common\components\rtl\Garant\Daily\GZipUnzipTest.pas'
  , l3GZipStream in 'w:\common\components\rtl\Garant\L3\l3GZipStream.pas'
+ , DailyTest_7_6_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_6_TestUnit.pas'
  , K165514106 in 'w:\common\components\rtl\Garant\Daily\K165514106.pas'
+ {$If NOT Defined(NoVCM)}
+ , TwoEmptyParaForOneReplacerTest in 'w:\common\components\gui\Garant\Daily\TwoEmptyParaForOneReplacerTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , SearchAndReplacePrimTest in 'w:\common\components\gui\Garant\Daily\SearchAndReplacePrimTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , TextViaEditorProcessor in 'w:\common\components\gui\Garant\Daily\TextViaEditorProcessor.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitor in 'w:\common\components\gui\Garant\Daily\TextEditorVisitor.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , TextEditorVisitorPrim in 'w:\common\components\gui\Garant\Daily\TextEditorVisitorPrim.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K219122895 in 'w:\common\components\rtl\Garant\Daily\K219122895.pas'
  , EVDtoEVDWriterTest in 'w:\common\components\rtl\Garant\Daily\EVDtoEVDWriterTest.pas'
  , EVDWriterTest in 'w:\common\components\rtl\Garant\Daily\EVDWriterTest.pas'
  , ddMisspellCorrect in 'w:\common\components\rtl\Garant\dd\ddMisspellCorrect.pas'
  , K165512428 in 'w:\common\components\rtl\Garant\Daily\K165512428.pas'
  , K221250480 in 'w:\common\components\rtl\Garant\Daily\K221250480.pas'
+ {$If NOT Defined(NoVCM)}
+ , ScrollTest in 'w:\common\components\gui\Garant\Daily\ScrollTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , PrimScrollTest in 'w:\common\components\gui\Garant\Daily\PrimScrollTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K217678457 in 'w:\common\components\rtl\Garant\Daily\K217678457.pas'
  , EVDtoEVDSectionRepairTest in 'w:\common\components\rtl\Garant\Daily\EVDtoEVDSectionRepairTest.pas'
  , ddSectionWithSub2Para in 'w:\common\components\rtl\Garant\dd\ddSectionWithSub2Para.pas'
@@ -2551,17 +2470,32 @@ uses
  , K222757750 in 'w:\common\components\rtl\Garant\Daily\K222757750.pas'
  , K223608965 in 'w:\common\components\rtl\Garant\Daily\K223608965.pas'
  , K224134476 in 'w:\common\components\rtl\Garant\Daily\K224134476.pas'
+ {$If NOT Defined(NoVCM)}
+ , ComplexScrollByLines in 'w:\common\components\gui\Garant\Daily\ComplexScrollByLines.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K224133899 in 'w:\common\components\rtl\Garant\Daily\K224133899.pas'
  , Translate2TextTest in 'w:\common\components\rtl\Garant\Daily\Translate2TextTest.pas'
  , TableToolsTest in 'w:\common\components\rtl\Garant\Daily\TableToolsTest.pas'
+ {$If NOT Defined(NoVCM)}
+ , TableToolsTestPrim in 'w:\common\components\gui\Garant\Daily\TableToolsTestPrim.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K224135562 in 'w:\common\components\rtl\Garant\Daily\K224135562.pas'
  , K224788868 in 'w:\common\components\rtl\Garant\Daily\K224788868.pas'
+ {$If NOT Defined(NoVCM)}
+ , SearchAndReplaceTest in 'w:\common\components\gui\Garant\Daily\SearchAndReplaceTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K200902351 in 'w:\common\components\rtl\Garant\Daily\K200902351.pas'
+ {$If NOT Defined(NoVCM)}
+ , TableSelectTest in 'w:\common\components\gui\Garant\Daily\TableSelectTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K224791621 in 'w:\common\components\rtl\Garant\Daily\K224791621.pas'
  , MergeTablesTest in 'w:\common\components\rtl\Garant\Daily\MergeTablesTest.pas'
  , K226001213 in 'w:\common\components\rtl\Garant\Daily\K226001213.pas'
  , ColumnAlignHorisontallyTest in 'w:\common\components\rtl\Garant\Daily\ColumnAlignHorisontallyTest.pas'
  , K226001269 in 'w:\common\components\rtl\Garant\Daily\K226001269.pas'
+ {$If NOT Defined(NoVCM)}
+ , TwoSpaceForOneReplacerTest in 'w:\common\components\gui\Garant\Daily\TwoSpaceForOneReplacerTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K226002079 in 'w:\common\components\rtl\Garant\Daily\K226002079.pas'
  , CheckTopAnchorTest in 'w:\common\components\rtl\Garant\Daily\CheckTopAnchorTest.pas'
  , ScrollAndSelectPtTest in 'w:\common\components\rtl\Garant\Daily\ScrollAndSelectPtTest.pas'
@@ -2570,12 +2504,27 @@ uses
  , EVDtoEVDOEMTableFlagTest in 'w:\common\components\rtl\Garant\Daily\EVDtoEVDOEMTableFlagTest.pas'
  , evOEMTableFlagFilter in 'w:\common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas'
  , K226005021 in 'w:\common\components\rtl\Garant\Daily\K226005021.pas'
+ {$If NOT Defined(NoVCM)}
+ , OldNSRCFlagCnahge in 'w:\common\components\gui\Garant\Daily\OldNSRCFlagCnahge.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , ChangeAllTablesTest in 'w:\common\components\gui\Garant\Daily\ChangeAllTablesTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K227477159 in 'w:\common\components\rtl\Garant\Daily\K227477159.pas'
+ {$If NOT Defined(NoVCM)}
+ , ScrollBackByLineTest in 'w:\common\components\gui\Garant\Daily\ScrollBackByLineTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K227478617 in 'w:\common\components\rtl\Garant\Daily\K227478617.pas'
  , DeleteCharTest in 'w:\common\components\rtl\Garant\Daily\DeleteCharTest.pas'
  , TextViaEditorProcessorWithNavigate in 'w:\common\components\rtl\Garant\Daily\TextViaEditorProcessorWithNavigate.pas'
  , K227477421 in 'w:\common\components\rtl\Garant\Daily\K227477421.pas'
+ {$If NOT Defined(NoVCM)}
+ , ScrollBackByLineWithCheckTopAnchoTest in 'w:\common\components\gui\Garant\Daily\ScrollBackByLineWithCheckTopAnchoTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K227478018 in 'w:\common\components\rtl\Garant\Daily\K227478018.pas'
+ {$If NOT Defined(NoVCM)}
+ , DrawLineTest in 'w:\common\components\gui\Garant\Daily\DrawLineTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K227972911 in 'w:\common\components\rtl\Garant\Daily\K227972911.pas'
  , MergeCellsTest in 'w:\common\components\rtl\Garant\Daily\MergeCellsTest.pas'
  , K228691360 in 'w:\common\components\rtl\Garant\Daily\K228691360.pas'
@@ -2589,6 +2538,11 @@ uses
  , K228692043 in 'w:\common\components\rtl\Garant\Daily\K228692043.pas'
  , evUnblockEmptyParaFilter in 'w:\common\components\gui\Garant\EverestCommon\evUnblockEmptyParaFilter.pas'
  , K228689782 in 'w:\common\components\rtl\Garant\Daily\K228689782.pas'
+ {$If NOT Defined(NoVCM)}
+ , PreviewTestBefore235875079 in 'w:\common\components\gui\Garant\Daily\PreviewTestBefore235875079.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtPreviewPanel in 'w:\common\components\gui\Garant\VT\vtPreviewPanel.pas'
+ , vtCustomPreviewPanel in 'w:\common\components\gui\Garant\VT\vtCustomPreviewPanel.pas'
  , K228688660 in 'w:\common\components\rtl\Garant\Daily\K228688660.pas'
  , K232097143 in 'w:\common\components\rtl\Garant\Daily\K232097143.pas'
  , K224133855 in 'w:\common\components\rtl\Garant\Daily\K224133855.pas'
@@ -2652,6 +2606,9 @@ uses
  , ddFormulaSegment in 'w:\common\components\rtl\Garant\dd\ddFormulaSegment.pas'
  , K234361767 in 'w:\common\components\rtl\Garant\Daily\K234361767.pas'
  , K234363360 in 'w:\common\components\rtl\Garant\Daily\K234363360.pas'
+ {$If NOT Defined(NoVCM)}
+ , PasteColumnTest in 'w:\common\components\gui\Garant\Daily\PasteColumnTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K235046445 in 'w:\common\components\rtl\Garant\Daily\K235046445.pas'
  , K234363136 in 'w:\common\components\rtl\Garant\Daily\K234363136.pas'
  , K234360974 in 'w:\common\components\rtl\Garant\Daily\K234360974.pas'
@@ -2696,12 +2653,21 @@ uses
  , K235052965 in 'w:\common\components\rtl\Garant\Daily\K235052965.pas'
  , SelectColumnAndDelete in 'w:\common\components\rtl\Garant\Daily\SelectColumnAndDelete.pas'
  , K235050021 in 'w:\common\components\rtl\Garant\Daily\K235050021.pas'
+ {$If NOT Defined(NoVCM)}
+ , CommentAndScrollTest in 'w:\common\components\gui\Garant\Daily\CommentAndScrollTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K235054362 in 'w:\common\components\rtl\Garant\Daily\K235054362.pas'
  , K235057437 in 'w:\common\components\rtl\Garant\Daily\K235057437.pas'
+ {$If NOT Defined(NoVCM)}
+ , QueryCardAddAttributeTest in 'w:\common\components\gui\Garant\Daily\QueryCardAddAttributeTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K235058888 in 'w:\common\components\rtl\Garant\Daily\K235058888.pas'
  , K235060094 in 'w:\common\components\rtl\Garant\Daily\K235060094.pas'
  , K235058873 in 'w:\common\components\rtl\Garant\Daily\K235058873.pas'
  , K235050248 in 'w:\common\components\rtl\Garant\Daily\K235050248.pas'
+ {$If NOT Defined(NoVCM)}
+ , CommentInTableAndScrollTest in 'w:\common\components\gui\Garant\Daily\CommentInTableAndScrollTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K234360788 in 'w:\common\components\rtl\Garant\Daily\K234360788.pas'
  , K235062061 in 'w:\common\components\rtl\Garant\Daily\K235062061.pas'
  , K235864191 in 'w:\common\components\rtl\Garant\Daily\K235864191.pas'
@@ -2710,7 +2676,16 @@ uses
  , K235866221 in 'w:\common\components\rtl\Garant\Daily\K235866221.pas'
  , K235866981 in 'w:\common\components\rtl\Garant\Daily\K235866981.pas'
  , K234360960 in 'w:\common\components\rtl\Garant\Daily\K234360960.pas'
+ {$If NOT Defined(NoVCM)}
+ , InsertRowTest in 'w:\common\components\gui\Garant\Daily\InsertRowTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K235864277 in 'w:\common\components\rtl\Garant\Daily\K235864277.pas'
+ {$If NOT Defined(NoVCM)}
+ , DeleteSectionBreakTest in 'w:\common\components\gui\Garant\Daily\DeleteSectionBreakTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , DrawTestPrim in 'w:\common\components\gui\Garant\Daily\DrawTestPrim.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K235873011 in 'w:\common\components\rtl\Garant\Daily\K235873011.pas'
  , K235875463 in 'w:\common\components\rtl\Garant\Daily\K235875463.pas'
  , ScrollByLineTest in 'w:\common\components\rtl\Garant\Daily\ScrollByLineTest.pas'
@@ -2746,7 +2721,13 @@ uses
  , K244195248 in 'w:\common\components\rtl\Garant\Daily\K244195248.pas'
  , K245203249 in 'w:\common\components\rtl\Garant\Daily\K245203249.pas'
  , K245204495 in 'w:\common\components\rtl\Garant\Daily\K245204495.pas'
+ {$If NOT Defined(NoVCM)}
+ , PreviewWithLinesTestBefore235875079 in 'w:\common\components\gui\Garant\Daily\PreviewWithLinesTestBefore235875079.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DailyTest_NSRC_7_6_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_NSRC_7_6_TestUnit.pas'
  , K245206060 in 'w:\common\components\rtl\Garant\Daily\K245206060.pas'
+ , DailyTest_OutlinerTests_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_OutlinerTests_TestUnit.pas'
+ , DailyTest_7_7_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_7_TestUnit.pas'
  , K245761273 in 'w:\common\components\rtl\Garant\Daily\K245761273.pas'
  , AutoBlockTest in 'w:\common\components\rtl\Garant\Abstract_Tests\AutoBlockTest.pas'
  , evAutoBlock in 'w:\common\components\gui\Garant\Everest\ext\evAutoBlock.pas'
@@ -2762,6 +2743,9 @@ uses
  , K244712164 in 'w:\common\components\rtl\Garant\Daily\K244712164.pas'
  , K248194804 in 'w:\common\components\rtl\Garant\Daily\K248194804.pas'
  , K235875079 in 'w:\common\components\rtl\Garant\Daily\K235875079.pas'
+ {$If NOT Defined(NoVCM)}
+ , PreviewTestBefore278833302 in 'w:\common\components\gui\Garant\Daily\PreviewTestBefore278833302.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K247302160 in 'w:\common\components\rtl\Garant\Daily\K247302160.pas'
  , TextMericsAfterDeleteTest in 'w:\common\components\rtl\Garant\Daily\TextMericsAfterDeleteTest.pas'
  , K249333540 in 'w:\common\components\rtl\Garant\Daily\K249333540.pas'
@@ -2776,6 +2760,19 @@ uses
  , DrawTest in 'w:\common\components\rtl\Garant\Daily\DrawTest.pas'
  , K252086528 in 'w:\common\components\rtl\Garant\Daily\K252086528.pas'
  , OutlinerWithEVDStyleNodes in 'w:\common\components\rtl\Garant\Daily\OutlinerWithEVDStyleNodes.pas'
+ {$If NOT Defined(NoVCM)}
+ , OutlinerTest in 'w:\common\components\gui\Garant\Daily\OutlinerTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , Outliner_Form in 'w:\common\components\gui\Garant\Daily\Forms\Outliner_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtOutlinerControl in 'w:\common\components\gui\Garant\VT\vtOutlinerControl.pas'
+ {$If NOT Defined(NoVCM)}
+ , OutlinerFormKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OutlinerForm_ut_OutlinerForm_UserType in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerForm_ut_OutlinerForm_UserType.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , evTreeGenerator in 'w:\common\components\gui\Garant\Everest\evTreeGenerator.pas'
  , K252524029 in 'w:\common\components\rtl\Garant\Daily\K252524029.pas'
  , InsertPictureTest in 'w:\common\components\rtl\Garant\Abstract_Tests\InsertPictureTest.pas'
@@ -2869,12 +2866,18 @@ uses
  , K267328230 in 'w:\common\components\rtl\Garant\Daily\K267328230.pas'
  , ScrollAndLinesTest in 'w:\common\components\rtl\Garant\Abstract_Tests\ScrollAndLinesTest.pas'
  , K283149108 in 'w:\common\components\rtl\Garant\Daily\K283149108.pas'
+ {$If NOT Defined(NoVCM)}
+ , PreviewTest in 'w:\common\components\gui\Garant\Daily\PreviewTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K288787848 in 'w:\common\components\rtl\Garant\Daily\K288787848.pas'
  , K296095866 in 'w:\common\components\rtl\Garant\Daily\K296095866.pas'
  , AllChildreCountTest in 'w:\common\components\rtl\Garant\Abstract_Tests\AllChildreCountTest.pas'
  , K297705917 in 'w:\common\components\rtl\Garant\Daily\K297705917.pas'
  , K330700128 in 'w:\common\components\rtl\Garant\Daily\K330700128.pas'
  , K347636412 in 'w:\common\components\rtl\Garant\Daily\K347636412.pas'
+ , DailyTest_Wiki_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_Wiki_TestUnit.pas'
+ , DailyTest_HTML_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_HTML_TestUnit.pas'
+ , DailyTest_NSRC_7_7_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_NSRC_7_7_TestUnit.pas'
  , K253662098 in 'w:\common\components\rtl\Garant\Daily\K253662098.pas'
  , K260442347 in 'w:\common\components\rtl\Garant\Daily\K260442347.pas'
  , K267324701 in 'w:\common\components\rtl\Garant\Daily\K267324701.pas'
@@ -2885,6 +2888,7 @@ uses
  , K342865677 in 'w:\common\components\rtl\Garant\Daily\K342865677.pas'
  , K532630317 in 'w:\common\components\rtl\Garant\Daily\K532630317.pas'
  , K532634915 in 'w:\common\components\rtl\Garant\Daily\K532634915.pas'
+ , DailyTest_7_5_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_5_TestUnit.pas'
  , K197497243 in 'w:\common\components\rtl\Garant\Daily\K197497243.pas'
  , K199589954 in 'w:\common\components\rtl\Garant\Daily\K199589954.pas'
  , K199591594 in 'w:\common\components\rtl\Garant\Daily\K199591594.pas'
@@ -2917,6 +2921,9 @@ uses
  , K210043095 in 'w:\common\components\rtl\Garant\Daily\K210043095.pas'
  , K213713115 in 'w:\common\components\rtl\Garant\Daily\K213713115.pas'
  , K216072357 in 'w:\common\components\rtl\Garant\Daily\K216072357.pas'
+ {$If NOT Defined(NoVCM)}
+ , ScrollBackTest in 'w:\common\components\gui\Garant\Daily\ScrollBackTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K210043423 in 'w:\common\components\rtl\Garant\Daily\K210043423.pas'
  , K201493907 in 'w:\common\components\rtl\Garant\Daily\K201493907.pas'
  , K204931408 in 'w:\common\components\rtl\Garant\Daily\K204931408.pas'
@@ -2948,11 +2955,13 @@ uses
  , K219124975 in 'w:\common\components\rtl\Garant\Daily\K219124975.pas'
  , K219124086 in 'w:\common\components\rtl\Garant\Daily\K219124086.pas'
  , K220594340 in 'w:\common\components\rtl\Garant\Daily\K220594340.pas'
+ , DailyTest_ScriptTest_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_ScriptTest_TestUnit.pas'
  , K276537900 in 'w:\common\components\rtl\Garant\Daily\K276537900.pas'
  , K254349574 in 'w:\common\components\rtl\Garant\Daily\K254349574.pas'
  , K290266820 in 'w:\common\components\rtl\Garant\Daily\K290266820.pas'
  , K290951357 in 'w:\common\components\rtl\Garant\Daily\K290951357.pas'
  , K327822716 in 'w:\common\components\rtl\Garant\Daily\K327822716.pas'
+ , DailyTest_7_7_Lulin_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_7_Lulin_TestUnit.pas'
  , K254944075 in 'w:\common\components\rtl\Garant\Daily\K254944075.pas'
  , WikiToEVDWriterTest in 'w:\common\components\rtl\Garant\Daily\WikiToEVDWriterTest.pas'
  , WikiReaderTest in 'w:\common\components\rtl\Garant\Daily\WikiReaderTest.pas'
@@ -2986,8 +2995,10 @@ uses
  , K336664105 in 'w:\common\components\rtl\Garant\Daily\K336664105.pas'
  , K336663851 in 'w:\common\components\rtl\Garant\Daily\K336663851.pas'
  , K344139764 in 'w:\common\components\rtl\Garant\Daily\K344139764.pas'
+ , DailyTest_XML_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_XML_TestUnit.pas'
  , L3XMLWriterTest in 'w:\common\components\rtl\Garant\Daily\L3XMLWriterTest.pas'
  , l3XMLWriter in 'w:\common\components\rtl\Garant\L3\l3XMLWriter.pas'
+ , DailyTest_7_8_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_8_TestUnit.pas'
  , K337510841 in 'w:\common\components\rtl\Garant\Daily\K337510841.pas'
  , K362130309 in 'w:\common\components\rtl\Garant\Daily\K362130309.pas'
  , K385025566 in 'w:\common\components\rtl\Garant\Daily\K385025566.pas'
@@ -3033,21 +3044,40 @@ uses
  , K459284317 in 'w:\common\components\rtl\Garant\Daily\K459284317.pas'
  , K459284359 in 'w:\common\components\rtl\Garant\Daily\K459284359.pas'
  , K459282006 in 'w:\common\components\rtl\Garant\Daily\K459282006.pas'
+ {$If NOT Defined(NoVCM)}
+ , PageCountTest in 'w:\common\components\gui\Garant\Daily\PageCountTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , K371654285 in 'w:\common\components\rtl\Garant\Daily\K371654285.pas'
+ , DailyTest_SandBoxTests_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_SandBoxTests_TestUnit.pas'
  , K460262716 in 'w:\common\components\rtl\Garant\Daily\K460262716.pas'
  , CheckingFilesInFolderTest in 'w:\common\components\rtl\Garant\Abstract_Tests\CheckingFilesInFolderTest.pas'
+ , DailyTest_RegExp_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_RegExp_TestUnit.pas'
  , K460275638 in 'w:\common\components\rtl\Garant\Daily\K460275638.pas'
  , RegExpTest in 'w:\common\components\rtl\Garant\Daily\RegExpTest.pas'
  , l3RegEx in 'w:\common\components\rtl\Garant\L3\l3RegEx.pas'
  , l3IniFile in 'w:\common\components\rtl\Garant\L3\l3IniFile.pas'
  , K460275638Suite in 'w:\common\components\rtl\Garant\Daily\K460275638Suite.pas'
  , CustomFolderTestSuite in 'w:\common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas'
+ , DailyTest_AppConfig_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_AppConfig_TestUnit.pas'
+ , DailyTest_7_9_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_9_TestUnit.pas'
  , K462555833 in 'w:\common\components\rtl\Garant\Daily\K462555833.pas'
  , EVDtoEVDEmptyRowAndEmptyTableTest in 'w:\common\components\rtl\Garant\Daily\EVDtoEVDEmptyRowAndEmptyTableTest.pas'
  , K462555833_1 in 'w:\common\components\rtl\Garant\Daily\K462555833_1.pas'
  , K466751465 in 'w:\common\components\rtl\Garant\Daily\K466751465.pas'
  , K462555879 in 'w:\common\components\rtl\Garant\Daily\K462555879.pas'
  , AppConfigBaseTest in 'w:\common\components\rtl\Garant\Daily\AppConfigBaseTest.pas'
+ {$If NOT Defined(NoVCM)}
+ , EmptyFormTest in 'w:\common\components\gui\Garant\Daily\EmptyFormTest.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , FromWithPanel_Form in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , FromWithPanelKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , FromWithPanel_ut_FromWithPanel_UserType in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_ut_FromWithPanel_UserType.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
  , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
  , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
@@ -3107,6 +3137,7 @@ uses
  , K483405717 in 'w:\common\components\rtl\Garant\Daily\K483405717.pas'
  , LostNodeAppConfigTest in 'w:\common\components\rtl\Garant\Daily\LostNodeAppConfigTest.pas'
  , K480825135 in 'w:\common\components\rtl\Garant\Daily\K480825135.pas'
+ , DailyTest_7_10_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_10_TestUnit.pas'
  , K493868665 in 'w:\common\components\rtl\Garant\Daily\K493868665.pas'
  , K493324121 in 'w:\common\components\rtl\Garant\Daily\K493324121.pas'
  , K494524369 in 'w:\common\components\rtl\Garant\Daily\K494524369.pas'
@@ -3172,13 +3203,16 @@ uses
  , K565269737 in 'w:\common\components\rtl\Garant\Daily\K565269737.pas'
  , K568147841 in 'w:\common\components\rtl\Garant\Daily\K568147841.pas'
  , K571646843 in 'w:\common\components\rtl\Garant\Daily\K571646843.pas'
+ , DailyTest_BadEVD_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_BadEVD_TestUnit.pas'
  , K553427493 in 'w:\common\components\rtl\Garant\Daily\K553427493.pas'
  , BadEVDTest in 'w:\common\components\rtl\Garant\Daily\BadEVDTest.pas'
  , evdBadEVDToEmptyDocumentTranslator in 'w:\common\components\gui\Garant\Everest\evdBadEVDToEmptyDocumentTranslator.pas'
  , k2TagTranslator in 'w:\common\components\rtl\Garant\K2\k2TagTranslator.pas'
  , K553427493_notBad in 'w:\common\components\rtl\Garant\Daily\K553427493_notBad.pas'
+ , DailyTest_RenderFormula_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_RenderFormula_TestUnit.pas'
  , K543448591 in 'w:\common\components\rtl\Garant\Daily\K543448591.pas'
  , K554585756 in 'w:\common\components\rtl\Garant\Daily\K554585756.pas'
+ , DailyTest_7_11_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_11_TestUnit.pas'
  , K585129079 in 'w:\common\components\rtl\Garant\Daily\K585129079.pas'
  , K585129079_NSRC in 'w:\common\components\rtl\Garant\Daily\K585129079_NSRC.pas'
  , K585129079_NSRC_ANSI in 'w:\common\components\rtl\Garant\Daily\K585129079_NSRC_ANSI.pas'
@@ -3256,11 +3290,15 @@ uses
  , l3IntegerToIntegerMap in 'w:\common\components\rtl\Garant\L3\l3IntegerToIntegerMap.pas'
  , l3StringToStringMapTest in 'w:\common\components\rtl\Garant\Daily\l3StringToStringMapTest.pas'
  , l3StringToStringMap in 'w:\common\components\rtl\Garant\L3\l3StringToStringMap.pas'
+ , DailyTest_Containers_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_Containers_TestUnit.pas'
  , tfwParserTokenListTest in 'w:\common\components\rtl\Garant\Daily\tfwParserTokenListTest.pas'
  , testCConstDelphiString in 'w:\common\components\rtl\Garant\Daily\testCConstDelphiString.pas'
+ , DailyTest_DecorText_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_DecorText_TestUnit.pas'
  , K604929313 in 'w:\common\components\rtl\Garant\Daily\K604929313.pas'
  , K604929290 in 'w:\common\components\rtl\Garant\Daily\K604929290.pas'
+ , DailyTest_Unicode_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_Unicode_TestUnit.pas'
  , K605362960 in 'w:\common\components\rtl\Garant\Daily\K605362960.pas'
+ , DailyTest_7_12_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_7_12_TestUnit.pas'
  , K607751255 in 'w:\common\components\rtl\Garant\Daily\K607751255.pas'
  , K608627112 in 'w:\common\components\rtl\Garant\Daily\K608627112.pas'
  , K608626880 in 'w:\common\components\rtl\Garant\Daily\K608626880.pas'
@@ -3342,9 +3380,11 @@ uses
  , K619938529 in 'w:\common\components\rtl\Garant\Daily\K619938529.pas'
  , K620674333 in 'w:\common\components\rtl\Garant\Daily\K620674333.pas'
  , K621258431 in 'w:\common\components\rtl\Garant\Daily\K621258431.pas'
+ , DailyTest_Diff_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_Diff_TestUnit.pas'
  , DiffTest in 'w:\common\components\rtl\Garant\Daily\DiffTest.pas'
  , l3Diff in 'w:\common\components\rtl\Garant\L3\l3Diff.pas'
  , l3DiffSupport in 'w:\common\components\rtl\Garant\L3\l3DiffSupport.pas'
+ , DailyTest_CrossSegments_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_CrossSegments_TestUnit.pas'
  , K619938320 in 'w:\common\components\rtl\Garant\Daily\K619938320.pas'
  , K619938320_1 in 'w:\common\components\rtl\Garant\Daily\K619938320_1.pas'
  , K619938320_2 in 'w:\common\components\rtl\Garant\Daily\K619938320_2.pas'
@@ -3383,9 +3423,19 @@ uses
  , K620665614_H11400224_1 in 'w:\common\components\rtl\Garant\Daily\K620665614_H11400224_1.pas'
  , K620665614_Hk0900071 in 'w:\common\components\rtl\Garant\Daily\K620665614_Hk0900071.pas'
  , K620665614_W21428490p in 'w:\common\components\rtl\Garant\Daily\K620665614_W21428490p.pas'
- , DOCtoEVDWriterTest in 'w:\common\components\rtl\Garant\Daily\DOCtoEVDWriterTest.pas'
- , InsertStreamTestWithImplementedNavigate in 'w:\common\components\rtl\Garant\Daily\InsertStreamTestWithImplementedNavigate.pas'
+ , Abstract_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_TestLibrary.pas'
+ , Abstract_Tests_EditorTests_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_EditorTests_TestUnit.pas'
+ , Abstract_Tests_RenderEVD_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_RenderEVD_TestUnit.pas'
+ , Abstract_Tests_CheckFilesInFolderTest_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_CheckFilesInFolderTest_TestUnit.pas'
  , Abstract_Archi_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\Abstract_Archi_Tests_TestLibrary.pas'
+ , Abstract_Archi_Tests_Filters_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\Abstract_Archi_Tests_Filters_TestUnit.pas'
+ , Abstract_Archi_Tests_Storage_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\Abstract_Archi_Tests_Storage_TestUnit.pas'
+ , Abstract_Archi_Tests_DataBase_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\Abstract_Archi_Tests_DataBase_TestUnit.pas'
+ , Archi_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Archi_Tests\Archi_Tests_TestLibrary.pas'
+ , Archi_Tests_Tags_TestUnit in 'w:\common\components\rtl\Garant\Archi_Tests\Archi_Tests_Tags_TestUnit.pas'
+ , K275780190 in 'w:\common\components\rtl\Garant\Archi_Tests\K275780190.pas'
+ , Archi_Tests_Filters_TestUnit in 'w:\common\components\rtl\Garant\Archi_Tests\Archi_Tests_Filters_TestUnit.pas'
+ , K294595323 in 'w:\common\components\rtl\Garant\Archi_Tests\K294595323.pas'
  , AACFiltersTest in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\AACFiltersTest.pas'
  , evEvdWriter in 'w:\common\components\gui\Garant\Everest\evEvdWriter.pas'
  , dd_lcTextFormatter in 'w:\common\components\rtl\Garant\dd\dd_lcTextFormatter.pas'
@@ -3413,18 +3463,31 @@ uses
  , dd_lcStartDocFormatter in 'w:\common\components\rtl\Garant\dd\dd_lcStartDocFormatter.pas'
  , dd_lcTextStyleCorrector in 'w:\common\components\rtl\Garant\dd\dd_lcTextStyleCorrector.pas'
  , dd_lcTextSplitter in 'w:\common\components\rtl\Garant\dd\dd_lcTextSplitter.pas'
- , ArchiStorageTest in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTest.pas'
- , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
- , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
+ , K294595323Suite in 'w:\common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas'
+ , Archi_Tests_DBTests_TestUnit in 'w:\common\components\rtl\Garant\Archi_Tests\Archi_Tests_DBTests_TestUnit.pas'
+ , K327821495 in 'w:\common\components\rtl\Garant\Archi_Tests\K327821495.pas'
+ , StgIndexTest in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas'
+ , m3SplittedFileStream in 'w:\common\components\rtl\Garant\m3\m3SplittedFileStream.pas'
+ , m3BaseStream in 'w:\common\components\rtl\Garant\m3\m3BaseStream.pas'
+ , m3PrimStream in 'w:\common\components\rtl\Garant\m3\m3PrimStream.pas'
  , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
+ , m2InternalInterfaces in 'w:\common\components\rtl\Garant\L3\m2\m2InternalInterfaces.pas'
+ , m2COMLib in 'w:\common\components\rtl\Garant\L3\m2\m2COMLib.pas'
+ , ComObj in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas'
+ , m3FileStream in 'w:\common\components\rtl\Garant\m3\m3FileStream.pas'
+ , m3FileStreamMapView in 'w:\common\components\rtl\Garant\m3\m3FileStreamMapView.pas'
+ , m2AddPrc in 'w:\common\components\rtl\Garant\L3\m2\m2AddPrc.pas'
+ , m3StorageIndexAdapter in 'w:\common\components\rtl\Garant\TestsSupport\m3StorageIndexAdapter.pas'
+ , m4DBInterfaces in 'w:\common\components\rtl\Garant\m4\m4DBInterfaces.pas'
+ , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
+ , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
+ , m4DB in 'w:\common\components\rtl\Garant\m4\m4DB.pas'
  , m3DB in 'w:\common\components\rtl\Garant\m3\m3DB.pas'
  , m3BaseObject in 'w:\common\components\rtl\Garant\m3\m3BaseObject.pas'
  , m3PrimDB in 'w:\common\components\rtl\Garant\m3\m3PrimDB.pas'
  , l3ProxyStream in 'w:\common\components\rtl\Garant\L3\l3ProxyStream.pas'
- , ComObj in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas'
  , m3BackupTools in 'w:\common\components\rtl\Garant\m3\m3BackupTools.pas'
  , m3StorageTools in 'w:\common\components\rtl\Garant\m3\m3StorageTools.pas'
- , m2COMLib in 'w:\common\components\rtl\Garant\L3\m2\m2COMLib.pas'
  , m3StgMgr in 'w:\common\components\rtl\Garant\m3\m3StgMgr.pas'
  , m3ArchiveStorage in 'w:\common\components\rtl\Garant\m3\m3ArchiveStorage.pas'
  , m3NewStorage in 'w:\common\components\rtl\Garant\m3\m3NewStorage.pas'
@@ -3434,7 +3497,6 @@ uses
  , m3StoragePrim in 'w:\common\components\rtl\Garant\m3\m3StoragePrim.pas'
  , m3BaseStorage in 'w:\common\components\rtl\Garant\m3\m3BaseStorage.pas'
  , m3BaseStore in 'w:\common\components\rtl\Garant\m3\m3BaseStore.pas'
- , m2InternalInterfaces in 'w:\common\components\rtl\Garant\L3\m2\m2InternalInterfaces.pas'
  , m3TOCHandleList in 'w:\common\components\rtl\Garant\m3\m3TOCHandleList.pas'
  , m3TOCHandle in 'w:\common\components\rtl\Garant\m3\m3TOCHandle.pas'
  , m3Persistent in 'w:\common\components\rtl\Garant\m3\m3Persistent.pas'
@@ -3447,8 +3509,6 @@ uses
  , m3Exceptions in 'w:\common\components\rtl\Garant\m3\m3Exceptions.pas'
  , m3BuffStream in 'w:\common\components\rtl\Garant\m3\m3BuffStream.pas'
  , m3CustomStream in 'w:\common\components\rtl\Garant\m3\m3CustomStream.pas'
- , m3BaseStream in 'w:\common\components\rtl\Garant\m3\m3BaseStream.pas'
- , m3PrimStream in 'w:\common\components\rtl\Garant\m3\m3PrimStream.pas'
  , m2S32Lib in 'w:\common\components\rtl\Garant\L3\m2\m2S32Lib.pas'
  , m2S64Lib in 'w:\common\components\rtl\Garant\L3\m2\m2S64Lib.pas'
  , m3Const in 'w:\common\components\rtl\Garant\m3\m3Const.pas'
@@ -3467,7 +3527,6 @@ uses
  , m3BaseHeaderStream in 'w:\common\components\rtl\Garant\m3\m3BaseHeaderStream.pas'
  , m3LinkedStream in 'w:\common\components\rtl\Garant\m3\m3LinkedStream.pas'
  , m2AddDbg in 'w:\common\components\rtl\Garant\L3\m2\m2AddDbg.pas'
- , m2AddPrc in 'w:\common\components\rtl\Garant\L3\m2\m2AddPrc.pas'
  , l3Int64List in 'w:\common\components\rtl\Garant\L3\l3Int64List.pas'
  , l3RevertedInt64List in 'w:\common\components\rtl\Garant\L3\l3RevertedInt64List.pas'
  , m3StoreHeaderData in 'w:\common\components\rtl\Garant\m3\m3StoreHeaderData.pas'
@@ -3476,9 +3535,6 @@ uses
  , m3TempEnumStatStg in 'w:\common\components\rtl\Garant\m3\m3TempEnumStatStg.pas'
  , m3BaseEnumStatStg in 'w:\common\components\rtl\Garant\m3\m3BaseEnumStatStg.pas'
  , m3StorageService in 'w:\common\components\rtl\Garant\m3\m3StorageService.pas'
- , m3FileStream in 'w:\common\components\rtl\Garant\m3\m3FileStream.pas'
- , m3FileStreamMapView in 'w:\common\components\rtl\Garant\m3\m3FileStreamMapView.pas'
- , m3SplittedFileStream in 'w:\common\components\rtl\Garant\m3\m3SplittedFileStream.pas'
  , m3StorageElementIDList in 'w:\common\components\rtl\Garant\m3\m3StorageElementIDList.pas'
  , m3DBProxyWriteStream in 'w:\common\components\rtl\Garant\m3\m3DBProxyWriteStream.pas'
  , m3DBProxyStream in 'w:\common\components\rtl\Garant\m3\m3DBProxyStream.pas'
@@ -3488,21 +3544,14 @@ uses
  , m3NewVersionStream in 'w:\common\components\rtl\Garant\m3\m3NewVersionStream.pas'
  , l3ForkStream in 'w:\common\components\rtl\Garant\L3\l3ForkStream.pas'
  , m3DBFiler in 'w:\common\components\rtl\Garant\m3\m3DBFiler.pas'
- , ArchiStorageTestWithRename in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTestWithRename.pas'
- , StgIndexTest in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas'
- , m3StorageIndexAdapter in 'w:\common\components\rtl\Garant\TestsSupport\m3StorageIndexAdapter.pas'
- , m4DBInterfaces in 'w:\common\components\rtl\Garant\m4\m4DBInterfaces.pas'
- , m4DB in 'w:\common\components\rtl\Garant\m4\m4DB.pas'
+ , K392696007 in 'w:\common\components\rtl\Garant\Archi_Tests\K392696007.pas'
  , MultyOperationTest in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\MultyOperationTest.pas'
  , DataBaseTester in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\DataBaseTester.pas'
- , Archi_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Archi_Tests\Archi_Tests_TestLibrary.pas'
- , K275780190 in 'w:\common\components\rtl\Garant\Archi_Tests\K275780190.pas'
- , K294595323 in 'w:\common\components\rtl\Garant\Archi_Tests\K294595323.pas'
- , K294595323Suite in 'w:\common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas'
- , K327821495 in 'w:\common\components\rtl\Garant\Archi_Tests\K327821495.pas'
- , K392696007 in 'w:\common\components\rtl\Garant\Archi_Tests\K392696007.pas'
+ , Archi_Tests_Storage_TestUnit in 'w:\common\components\rtl\Garant\Archi_Tests\Archi_Tests_Storage_TestUnit.pas'
  , K361038156 in 'w:\common\components\rtl\Garant\Archi_Tests\K361038156.pas'
+ , ArchiStorageTest in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTest.pas'
  , K365838449 in 'w:\common\components\rtl\Garant\Archi_Tests\K365838449.pas'
+ , ArchiStorageTestWithRename in 'w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTestWithRename.pas'
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

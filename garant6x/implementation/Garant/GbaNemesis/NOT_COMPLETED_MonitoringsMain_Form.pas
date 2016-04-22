@@ -40,20 +40,20 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , MonitoringsMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , MonitoringsMainKeywordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 initialization
+ fm_MonitoringsMainForm.SetFactory(TMonitoringsMainForm.Make);
+ {* Регистрация фабрики формы MonitoringsMain }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMonitoringsMainForm);
  {* Регистрация MonitoringsMain }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_MonitoringsMainForm.SetFactory(TMonitoringsMainForm.Make);
- {* Регистрация фабрики формы MonitoringsMain }
 {$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
 end.

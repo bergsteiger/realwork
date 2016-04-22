@@ -19,9 +19,9 @@ implementation
 {$If Defined(Nemesis) AND NOT Defined(XE)}
 uses
  l3ImplUses
- , nscNavigatorPageControl_p
- , eeTreeViewExport_p
- , nscSimpleEditor_p
+ , NemesisTest_Navigator_TestUnit
+ , NemesisTest_Tree_TestUnit
+ , NemesisTest_Editor_TestUnit
  , tc5OpenApp
  , tc6OpenApp
 ;

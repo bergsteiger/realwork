@@ -17,11 +17,8 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest)}
 uses
  l3ImplUses
- , K431386215
- , K403079732
- , K514874341
- , K514874360
- , K517783699
+ , EverestLiteTests_FileFormatTests_TestUnit
+ , EverestLiteTests_PreivewTests_TestUnit
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 

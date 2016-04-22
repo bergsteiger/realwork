@@ -19,12 +19,7 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
- , ExportToSeparateNSRTest
- , ExportToSingleNSRTest
- , ExportSeparatedByMainTest
- , ExportSeparatedBySizeTest
- , ExportByMainRelNamedTest
- , ExportBySizeAndMain
+ , SimpleTests_ExportPipeTests_TestUnit
 ;
 {$IfEnd} // Defined(nsTest)
 

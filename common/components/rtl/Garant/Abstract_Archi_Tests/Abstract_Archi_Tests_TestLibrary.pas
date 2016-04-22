@@ -19,6 +19,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Abstract_Archi_Tests_Filters_TestUnit
+ , Abstract_Archi_Tests_Storage_TestUnit
+ , Abstract_Archi_Tests_DataBase_TestUnit
  , DailyTest_TestLibrary
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)

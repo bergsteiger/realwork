@@ -19,17 +19,15 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Archi_Tests_Tags_TestUnit
+ , Archi_Tests_Filters_TestUnit
+ , Archi_Tests_DBTests_TestUnit
+ , Archi_Tests_Storage_TestUnit
  {$If NOT Defined(NoVCM)}
  , TestFormsTest_TestLibrary
  {$IfEnd} // NOT Defined(NoVCM)
  , Abstract_Tests_TestLibrary
  , Abstract_Archi_Tests_TestLibrary
- , K275780190
- , K294595323
- , K327821495
- , K392696007
- , K361038156
- , K365838449
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

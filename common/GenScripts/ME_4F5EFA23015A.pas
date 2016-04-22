@@ -1006,6 +1006,66 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStopTimerExNoLog
 
+ TkwSysutilsLocale = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:Locale
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ sysutils:Locale >>> l_Integer
+[code]  }
+  private
+   function sysutils_Locale(const aCtx: TtfwContext): Integer;
+    {* Реализация слова скрипта sysutils:Locale }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsLocale
+
+ TkwSysutilsCodePage = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:CodePage
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ sysutils:CodePage >>> l_Integer
+[code]  }
+  private
+   function sysutils_CodePage(const aCtx: TtfwContext): Integer;
+    {* Реализация слова скрипта sysutils:CodePage }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsCodePage
+
+ TkwSysutilsGetACP = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:GetACP
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ sysutils:GetACP >>> l_Integer
+[code]  }
+  private
+   function sysutils_GetACP(const aCtx: TtfwContext): Integer;
+    {* Реализация слова скрипта sysutils:GetACP }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsGetACP
+
 class function TSysUtilsPackResNameGetter.ResName: AnsiString;
 begin
   Result := 'SysUtilsPack';
@@ -3305,6 +3365,120 @@ begin
  Result := 'StopTimerExNoLog';
 end;//TkwStopTimerExNoLog.GetWordNameForRegister
 
+function TkwSysutilsLocale.sysutils_Locale(const aCtx: TtfwContext): Integer;
+ {* Реализация слова скрипта sysutils:Locale }
+//#UC START# *EB678D53E91B_0E473EAE64F5_var*
+//#UC END# *EB678D53E91B_0E473EAE64F5_var*
+begin
+//#UC START# *EB678D53E91B_0E473EAE64F5_impl*
+ Result := GetThreadLocale;
+//#UC END# *EB678D53E91B_0E473EAE64F5_impl*
+end;//TkwSysutilsLocale.sysutils_Locale
+
+procedure TkwSysutilsLocale.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushInt(sysutils_Locale(aCtx));
+end;//TkwSysutilsLocale.DoDoIt
+
+function TkwSysutilsLocale.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwSysutilsLocale.GetResultTypeInfo
+
+function TkwSysutilsLocale.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwSysutilsLocale.GetAllParamsCount
+
+function TkwSysutilsLocale.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwSysutilsLocale.ParamsTypes
+
+class function TkwSysutilsLocale.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:Locale';
+end;//TkwSysutilsLocale.GetWordNameForRegister
+
+function TkwSysutilsCodePage.sysutils_CodePage(const aCtx: TtfwContext): Integer;
+ {* Реализация слова скрипта sysutils:CodePage }
+//#UC START# *2B350B586005_99FA1EBBCB0B_var*
+
+ function LCIDToCodePage(ALcid: LCID): Integer;
+ var
+   Buffer: array [0..6] of Char;
+ begin
+   GetLocaleInfo(ALcid, LOCALE_IDEFAULTANSICODEPAGE, Buffer, SizeOf(Buffer));
+   Result:= StrToIntDef(Buffer, GetACP);
+ end;
+ 
+//#UC END# *2B350B586005_99FA1EBBCB0B_var*
+begin
+//#UC START# *2B350B586005_99FA1EBBCB0B_impl*
+ Result := LCIDToCodePage(GetThreadLocale);
+//#UC END# *2B350B586005_99FA1EBBCB0B_impl*
+end;//TkwSysutilsCodePage.sysutils_CodePage
+
+procedure TkwSysutilsCodePage.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushInt(sysutils_CodePage(aCtx));
+end;//TkwSysutilsCodePage.DoDoIt
+
+function TkwSysutilsCodePage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwSysutilsCodePage.GetResultTypeInfo
+
+function TkwSysutilsCodePage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwSysutilsCodePage.GetAllParamsCount
+
+function TkwSysutilsCodePage.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwSysutilsCodePage.ParamsTypes
+
+class function TkwSysutilsCodePage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:CodePage';
+end;//TkwSysutilsCodePage.GetWordNameForRegister
+
+function TkwSysutilsGetACP.sysutils_GetACP(const aCtx: TtfwContext): Integer;
+ {* Реализация слова скрипта sysutils:GetACP }
+//#UC START# *28FAC549D1D9_F3BEFDFBCD3D_var*
+//#UC END# *28FAC549D1D9_F3BEFDFBCD3D_var*
+begin
+//#UC START# *28FAC549D1D9_F3BEFDFBCD3D_impl*
+ Result := Windows.GetACP; 
+//#UC END# *28FAC549D1D9_F3BEFDFBCD3D_impl*
+end;//TkwSysutilsGetACP.sysutils_GetACP
+
+procedure TkwSysutilsGetACP.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushInt(sysutils_GetACP(aCtx));
+end;//TkwSysutilsGetACP.DoDoIt
+
+function TkwSysutilsGetACP.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwSysutilsGetACP.GetResultTypeInfo
+
+function TkwSysutilsGetACP.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwSysutilsGetACP.GetAllParamsCount
+
+function TkwSysutilsGetACP.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwSysutilsGetACP.ParamsTypes
+
+class function TkwSysutilsGetACP.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:GetACP';
+end;//TkwSysutilsGetACP.GetWordNameForRegister
+
 initialization
  TSysUtilsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
@@ -3404,6 +3578,12 @@ initialization
  {* Регистрация StopTimerNoLog }
  TkwStopTimerExNoLog.RegisterInEngine;
  {* Регистрация StopTimerExNoLog }
+ TkwSysutilsLocale.RegisterInEngine;
+ {* Регистрация sysutils_Locale }
+ TkwSysutilsCodePage.RegisterInEngine;
+ {* Регистрация sysutils_CodePage }
+ TkwSysutilsGetACP.RegisterInEngine;
+ {* Регистрация sysutils_GetACP }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

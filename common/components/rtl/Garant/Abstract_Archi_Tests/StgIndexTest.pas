@@ -25,8 +25,6 @@ type
  TBaseTest
  {$IfEnd} // NOT Defined(NotTunedDUnit)
  )
-  private
-   f_IndexFile: AnsiString;
   protected
    {$If NOT Defined(NotTunedDUnit)}
    function FileForOutput: AnsiString; override;
@@ -34,6 +32,9 @@ type
    {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
+   {$If NOT Defined(NotTunedDUnit)}
+   function RaiseIfEtalonCreated: Boolean; override;
+   {$IfEnd} // NOT Defined(NotTunedDUnit)
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
    {$If NOT Defined(NotTunedDUnit)}
@@ -158,6 +159,15 @@ function TStgIndexTest.GetFolder: AnsiString;
 begin
  Result := 'DataBase';
 end;//TStgIndexTest.GetFolder
+
+function TStgIndexTest.RaiseIfEtalonCreated: Boolean;
+//#UC START# *4CA5DAD4014C_4F193294011F_var*
+//#UC END# *4CA5DAD4014C_4F193294011F_var*
+begin
+//#UC START# *4CA5DAD4014C_4F193294011F_impl*
+ Result := false;
+//#UC END# *4CA5DAD4014C_4F193294011F_impl*
+end;//TStgIndexTest.RaiseIfEtalonCreated
 
 function TStgIndexTest.GetModelElementGUID: AnsiString;
  {* Идентификатор элемента модели, который описывает тест }

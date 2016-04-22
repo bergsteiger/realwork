@@ -1,6 +1,4 @@
 //#UC START# *479731C50290_5629FC88034B_impl*
- FreeAndNil(f_AllUsers);
- FreeAndNil(f_AllGroups);
  f_PasswordQuery := nil;
  f_UserFlagsQuery := nil;
  f_Factory := nil;
@@ -108,107 +106,24 @@ var
 //#UC START# *5715DF0D03C2_5629FC88034Bget_var*
 //#UC END# *5715DF0D03C2_5629FC88034Bget_var*
 //#UC START# *5715E71600DD_5629FC88034B_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
- try
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
-  l_Query.Prepare;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   FillListByResultSet(aList, l_ResultSet, 'id', 'user_name');
-  finally
-   l_ResultSet := nil;
-  end;
- finally
-  l_Query := nil;
- end;
+ !!! Needs to be implemented !!!
 //#UC END# *5715E71600DD_5629FC88034B_impl*
 //#UC START# *5715E71600DD_5629FC88034B_var*
-var
- l_Query: IdaTabledQuery;
- l_ResultSet: IdaResultSet;
 //#UC END# *5715E71600DD_5629FC88034B_var*
 //#UC START# *5715E74402CA_5629FC88034B_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtGroups));
- try
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['id']));
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['group_name']));
-  l_Query.Prepare;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   FillListByResultSet(aList, l_ResultSet, 'id', 'group_name');
-  finally
-   l_ResultSet := nil;
-  end;
- finally
-  l_Query := nil;
- end;
+ !!! Needs to be implemented !!!
 //#UC END# *5715E74402CA_5629FC88034B_impl*
 //#UC START# *5715E74402CA_5629FC88034B_var*
-var
- l_Query: IdaTabledQuery;
- l_ResultSet: IdaResultSet;
 //#UC END# *5715E74402CA_5629FC88034B_var*
 //#UC START# *5715E767013D_5629FC88034B_impl*
- theUserID := 0;
- Result := da_leUserParamsWrong;
- if (AnsiLowerCase(aLogin) = c_SupervisorUserName) and not RequireAdminRights then
-  Exit;
- f_PasswordQuery.Param['p_ShortName'].AsString := aLogin;
- l_ResultSet := f_PasswordQuery.OpenResultSet;
- try
-  if l_ResultSet.IsEmpty then
-    Exit;
-  if (l_ResultSet.Field['Password'].AsString <> '') and (not AnsiSameText(l_ResultSet.Field['Password'].AsString, aPassword)) then
-    Exit;
-  theUserID := l_ResultSet.Field['User_ID'].AsLargeInt;
-  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := theUserID;
- finally
-  l_ResultSet := nil;
- end;
-
- if theUserID <> usSupervisor then
- begin
-  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
-  try
-   l_Flags := l_ResultSet.Field['Active'].AsByte;
-   if (l_Flags and usActive) <> usActive then
-    Exit;
-   if RequireAdminRights and ((l_Flags and usAdmin) <> usAdmin) then
-   begin
-    Result := da_leInsufficientRights;
-    Exit;
-   end;
-   Result := da_leOk;
-
-  finally
-   l_ResultSet := nil;
-  end;
- end
- else
-  Result := da_leOk;
+ !!! Needs to be implemented !!!
 //#UC END# *5715E767013D_5629FC88034B_impl*
 //#UC START# *5715E767013D_5629FC88034B_var*
-var
- l_ResultSet: IdaResultSet;
- l_Flags: Byte;
 //#UC END# *5715E767013D_5629FC88034B_var*
 //#UC START# *5715E78F013E_5629FC88034B_impl*
- Result := (anUserID = usSupervisor);
- if not Result then
- begin
-  f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := anUserID;
-  l_ResultSet := f_UserFlagsQuery.OpenResultSet;
-  try
-   Result := not l_ResultSet.IsEmpty and ((l_ResultSet.Field['Active'].AsByte and usAdmin) = usAdmin);
-  finally
-   l_ResultSet := nil;
-  end;
- end;
+ !!! Needs to be implemented !!!
 //#UC END# *5715E78F013E_5629FC88034B_impl*
 //#UC START# *5715E78F013E_5629FC88034B_var*
-var
- l_ResultSet: IdaResultSet;
 //#UC END# *5715E78F013E_5629FC88034B_var*
 //#UC START# *5715ED0002E0_5629FC88034B_impl*
  aList.SortF(l3LocalStub(@l_CompareUsers));

@@ -20,10 +20,7 @@ implementation
 {$If NOT Defined(XE)}
 uses
  l3ImplUses
- , nevSelection_p
- , afwCaret_p
- , evTunedEditor_p
- , afwCustomCaretType_p
+ , EverestTest_Editors_TestUnit
  , tc5OpenApp
  , tc6OpenApp
 ;

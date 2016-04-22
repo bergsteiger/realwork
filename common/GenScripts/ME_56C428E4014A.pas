@@ -30,6 +30,7 @@ type
    function IsUserAdmin(anUserID: TdaUserID): Boolean;
    function Get_AllUsers: Tl3StringDataList;
    function Get_AllGroups: Tl3StringDataList;
+   function GetUserName(anUserID: TdaUserID): AnsiString;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -116,6 +117,16 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5715DF0D03C2_56C428E4014Aget_impl*
 end;//TcaUserManager.Get_AllGroups
+
+function TcaUserManager.GetUserName(anUserID: TdaUserID): AnsiString;
+//#UC START# *5718B5CF0399_56C428E4014A_var*
+//#UC END# *5718B5CF0399_56C428E4014A_var*
+begin
+//#UC START# *5718B5CF0399_56C428E4014A_impl*
+ Result := f_HTManager.GetUserName(anUserID);
+ Assert(Result = f_PGManager.GetUserName(anUserID));
+//#UC END# *5718B5CF0399_56C428E4014A_impl*
+end;//TcaUserManager.GetUserName
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

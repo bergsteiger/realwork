@@ -33,7 +33,6 @@ type
     const aField: IdaFieldDescription;
     anOperation: TdaCompareOperation;
     const aParamName: AnsiString): IdaCondition;
-   function GetUserNameStr(anUserID: LargeInt): AnsiString;
    function Get_DataConverter: IdaDataConverter;
    function MakeLogicCondition(const aLeft: IdaCondition;
     anOperation: TdaLogicOperation;
@@ -129,16 +128,6 @@ begin
  Result := TdaParamsCondition.Make(aTableAlias, aField, anOperation, aParamName);
 //#UC END# *559B810003CF_56C4594703CF_impl*
 end;//TcaTableQueryFactory.MakeParamsCondition
-
-function TcaTableQueryFactory.GetUserNameStr(anUserID: LargeInt): AnsiString;
-//#UC START# *559BAF4401C8_56C4594703CF_var*
-//#UC END# *559BAF4401C8_56C4594703CF_var*
-begin
-//#UC START# *559BAF4401C8_56C4594703CF_impl*
- Result := f_HTFactory.GetUserNameStr(anUserID);
- Assert(Result = f_PGFactory.GetUserNameStr(anUserID));
-//#UC END# *559BAF4401C8_56C4594703CF_impl*
-end;//TcaTableQueryFactory.GetUserNameStr
 
 function TcaTableQueryFactory.Get_DataConverter: IdaDataConverter;
 //#UC START# *55C1BFA402E3_56C4594703CFget_var*

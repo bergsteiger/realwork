@@ -1014,6 +1014,7 @@ uses
  , evQueryCardInt in 'w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas'
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , afwPreviewPageSpy in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas'
  , afwPreviewPage in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPage.pas'
@@ -1657,7 +1658,6 @@ uses
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -2185,10 +2185,12 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , toKT in 'w:\archi\source\projects\Everest\Lite\7.0\Express\toKT.pas'
  , EverestLiteTests_TestLibrary in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\EverestLiteTests_TestLibrary.pas'
+ , EverestLiteTests_FileFormatTests_TestUnit in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\EverestLiteTests_FileFormatTests_TestUnit.pas'
  , K431386215 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K431386215.pas'
  , K403079732 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K403079732.pas'
  , K514874341 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K514874341.pas'
  , K514874360 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K514874360.pas'
+ , EverestLiteTests_PreivewTests_TestUnit in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\EverestLiteTests_PreivewTests_TestUnit.pas'
  , K517783699 in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\K517783699.pas'
  //#UC START# *512AF4A800AAmanualuses*
 

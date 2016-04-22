@@ -995,6 +995,27 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStringSmallHashNew
 
+ TkwStringTransliterate = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Transliterate
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aString string:Transliterate >>> l_String
+[code]  }
+  private
+   function string_Transliterate(const aCtx: TtfwContext;
+    const aString: Il3CString): AnsiString;
+    {* Реализация слова скрипта string:Transliterate }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringTransliterate
+
  TkwVarDecLen = {final} class(TtfwWordWorkerEx)
   {* Слово скрипта string:--Len!
 *Пример:*
@@ -3563,6 +3584,52 @@ begin
  Result := 'string:SmallHash:New';
 end;//TkwStringSmallHashNew.GetWordNameForRegister
 
+function TkwStringTransliterate.string_Transliterate(const aCtx: TtfwContext;
+ const aString: Il3CString): AnsiString;
+ {* Реализация слова скрипта string:Transliterate }
+//#UC START# *A9758C4E23DF_FDCE9825C3FB_var*
+//#UC END# *A9758C4E23DF_FDCE9825C3FB_var*
+begin
+//#UC START# *A9758C4E23DF_FDCE9825C3FB_impl*
+ Result := l3Transliterate(l3Str(aString));
+//#UC END# *A9758C4E23DF_FDCE9825C3FB_impl*
+end;//TkwStringTransliterate.string_Transliterate
+
+procedure TkwStringTransliterate.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Transliterate(aCtx, l_aString));
+end;//TkwStringTransliterate.DoDoIt
+
+function TkwStringTransliterate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringTransliterate.GetResultTypeInfo
+
+function TkwStringTransliterate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringTransliterate.GetAllParamsCount
+
+function TkwStringTransliterate.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringTransliterate.ParamsTypes
+
+class function TkwStringTransliterate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Transliterate';
+end;//TkwStringTransliterate.GetWordNameForRegister
+
 procedure TkwVarDecLen.VarDecLen(const aCtx: TtfwContext;
  aVar: TtfwWord);
  {* Реализация слова скрипта string:--Len! }
@@ -4105,6 +4172,8 @@ initialization
  {* Регистрация string_Hash_New }
  TkwStringSmallHashNew.RegisterInEngine;
  {* Регистрация string_SmallHash_New }
+ TkwStringTransliterate.RegisterInEngine;
+ {* Регистрация string_Transliterate }
  TkwVarDecLen.RegisterInEngine;
  {* Регистрация VarDecLen }
  TkwVarInc.RegisterInEngine;
@@ -4131,6 +4200,8 @@ initialization
  {* Регистрация типа Char }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));
  {* Регистрация типа ItfwValueList }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
 {$IfEnd} // NOT Defined(NoScripts)

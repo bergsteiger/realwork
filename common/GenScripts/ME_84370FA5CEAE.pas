@@ -1172,6 +1172,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , evSectionPara in 'w:\common\components\gui\Garant\Everest\new\evSectionPara.pas'
  , nevRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
@@ -1552,7 +1553,6 @@ uses
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -2064,14 +2064,20 @@ uses
  , Containers_TestLibrary in 'w:\common\components\rtl\Garant\Containers\Containers_TestLibrary.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
+ , Containers_Lists_TestUnit in 'w:\common\components\rtl\Garant\Containers\Containers_Lists_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
  , LongintListTest in 'w:\common\components\rtl\Garant\Containers\LongintListTest.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
  , SandBoxTest_TestLibrary in 'w:\common\components\SandBox\SandBoxTest_TestLibrary.pas'
  {$IfEnd} // Defined(nsTest)
- {$If Defined(nsTest) AND NOT Defined(NoScripts)}
- , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
- {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest)}
+ , SandBoxTest_ContainersTestsPrim_TestUnit in 'w:\common\components\SandBox\SandBoxTest_ContainersTestsPrim_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , SandBoxTest_ContainersTests_TestUnit in 'w:\common\components\SandBox\SandBoxTest_ContainersTests_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
  , IntStackTest in 'w:\common\components\SandBox\IntStackTest.pas'
  {$IfEnd} // Defined(nsTest)
@@ -2085,6 +2091,9 @@ uses
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
  , StringStackTestViaMixIn in 'w:\common\components\SandBox\StringStackTestViaMixIn.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , SandBoxTest_Core_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Core_TestUnit.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
  , RefcountedTest in 'w:\common\components\SandBox\RefcountedTest.pas'
@@ -2103,7 +2112,13 @@ uses
  , IterateableService in 'w:\common\components\SandBox\IterateableService.pas'
  , IterateableServiceProvider in 'w:\common\components\SandBox\IterateableServiceProvider.pas'
  {$If Defined(nsTest)}
+ , SandBoxTest_Emba_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Emba_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
  , ReallocMemTest in 'w:\common\components\SandBox\ReallocMemTest.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , SandBoxTest_Rounded_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Rounded_TestUnit.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
  , RoundedControlsTest in 'w:\common\components\SandBox\RoundedControlsTest.pas'
@@ -2111,7 +2126,13 @@ uses
  , RoundedButton in 'w:\common\components\SandBox\RoundedButton.pas'
  , RoundedEdit in 'w:\common\components\SandBox\RoundedEdit.pas'
  {$If Defined(nsTest)}
+ , SandBoxTest_Memory_TestUnit in 'w:\common\components\SandBox\SandBoxTest_Memory_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
  , MemorySizeTest in 'w:\common\components\SandBox\MemorySizeTest.pas'
+ {$IfEnd} // Defined(nsTest)
+ {$If Defined(nsTest)}
+ , SandBoxTest_FinalContainersTests_TestUnit in 'w:\common\components\SandBox\SandBoxTest_FinalContainersTests_TestUnit.pas'
  {$IfEnd} // Defined(nsTest)
  {$If Defined(nsTest)}
  , Int64ListTest in 'w:\common\components\SandBox\Int64ListTest.pas'
@@ -2130,6 +2151,12 @@ uses
  , ByteListTest in 'w:\common\components\SandBox\ByteListTest.pas'
  {$IfEnd} // Defined(nsTest)
  , ByteList in 'w:\common\components\SandBox\ByteList.pas'
+ {$If Defined(nsTest) AND NOT Defined(NoScripts)}
+ , ScriptTestLibrary_TestLibrary in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_TestLibrary.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND NOT Defined(NoScripts)}
+ , ScriptTestLibrary_ScriptTestUnit_TestUnit in 'w:\common\components\rtl\Garant\ScriptTestLibrary\ScriptTestLibrary_ScriptTestUnit_TestUnit.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 ;
 
 {$R ReleaseSandBoxTest.res}

@@ -806,6 +806,7 @@ uses
  , IedTableWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas'
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
+ , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , k2Const in 'w:\common\components\rtl\Garant\K2\k2Const.pas'
  , evSectionPara in 'w:\common\components\gui\Garant\Everest\new\evSectionPara.pas'
  , nevRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevRubberCellsRenderInfo.pas'
@@ -1080,7 +1081,6 @@ uses
  , l3Bits in 'w:\common\components\rtl\Garant\L3\l3Bits.pas'
  , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
  , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , LeafParaDecorationsHolder_Const in 'w:\common\components\gui\Garant\Everest\LeafParaDecorationsHolder_Const.pas'
  , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
  , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
  , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
@@ -1367,6 +1367,7 @@ uses
  {$IfEnd} // NOT Defined(NoWindows)
  , CommCtrl in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\CommCtrl.pas'
  , TestForTFW_TestLibrary in 'w:\common\components\rtl\Garant\TestForTFW\TestForTFW_TestLibrary.pas'
+ , TestForTFW_TFWTests_TestUnit in 'w:\common\components\rtl\Garant\TestForTFW\TestForTFW_TFWTests_TestUnit.pas'
  , SuccessTest in 'w:\common\components\rtl\Garant\TestForTFW\SuccessTest.pas'
  , FailedTest in 'w:\common\components\rtl\Garant\TestForTFW\FailedTest.pas'
  , K235868845 in 'w:\common\components\rtl\Garant\TestForTFW\K235868845.pas'

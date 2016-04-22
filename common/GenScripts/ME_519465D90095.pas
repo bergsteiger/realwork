@@ -19,8 +19,7 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
- , K455105826
- , K465700807
+ , ImportExportTestLibrary_ImportExport_TestUnit
 ;
 {$IfEnd} // Defined(nsTest)
 

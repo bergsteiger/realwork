@@ -36,7 +36,6 @@ type
     const aField: IdaFieldDescription;
     anOperation: TdaCompareOperation;
     const aParamName: AnsiString): IdaCondition;
-   function GetUserNameStr(anUserID: LargeInt): AnsiString;
    function Get_DataConverter: IdaDataConverter;
    function MakeLogicCondition(const aLeft: IdaCondition;
     anOperation: TdaLogicOperation;
@@ -144,23 +143,6 @@ begin
  Result := TdaParamsCondition.Make(aTableAlias, aField, anOperation, aParamName);
 //#UC END# *559B810003CF_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeParamsCondition
-
-function TpgTableQueryFactory.GetUserNameStr(anUserID: LargeInt): AnsiString;
-//#UC START# *559BAF4401C8_55F81B3F024D_var*
-var
- l_ResultSet: IdaResultSet;
-//#UC END# *559BAF4401C8_55F81B3F024D_var*
-begin
-//#UC START# *559BAF4401C8_55F81B3F024D_impl*
- UserNameQuery.Param['p_UserID'].AsLargeInt := anUserID;
- l_ResultSet := UserNameQuery.OpenResultSet;
- try
-  Result := l_ResultSet.Field['user_name'].AsString;
- finally
-  l_ResultSet := nil;
- end;
-//#UC END# *559BAF4401C8_55F81B3F024D_impl*
-end;//TpgTableQueryFactory.GetUserNameStr
 
 function TpgTableQueryFactory.Get_DataConverter: IdaDataConverter;
 //#UC START# *55C1BFA402E3_55F81B3F024Dget_var*

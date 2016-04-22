@@ -19,7 +19,7 @@ implementation
 {$If NOT Defined(XE) AND NOT Defined(NoVGScene)}
 uses
  l3ImplUses
- , vgVisualObject_p
+ , VGSceneTest_Impl_TestUnit
  , tc5OpenApp
  , tc6OpenApp
 ;

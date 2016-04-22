@@ -40,20 +40,20 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , AdminMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , AdminMainKeywordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 initialization
+ fm_AdminMainForm.SetFactory(TAdminMainForm.Make);
+ {* Регистрация фабрики формы AdminMain }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAdminMainForm);
  {* Регистрация AdminMain }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_AdminMainForm.SetFactory(TAdminMainForm.Make);
- {* Регистрация фабрики формы AdminMain }
 {$IfEnd} // Defined(Admin)
 
 end.
