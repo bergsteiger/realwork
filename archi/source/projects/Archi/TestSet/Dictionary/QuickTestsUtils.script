@@ -49,8 +49,21 @@ PROCEDURE "Поиск гиперссылки" STRING IN aFindString
 	 END 
 ;
 
+// Поиск текста 'Ctrl+F'
 PROCEDURE "Поиск текста" STRING IN aFindString
 	 'Ctrl+F' key
+	 TRY
+	  "Набить текст {(aFindString)}"
+	  "Обработать сообщения"
+	  "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
+	 FINALLY
+	  "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
+;
+
+// Поиск текста 'Ctrl+T'
+PROCEDURE "Поиск текста 'Ctrl+T'" STRING IN aFindString
+	 'Ctrl+T' key
 	 TRY
 	  "Набить текст {(aFindString)}"
 	  "Обработать сообщения"
@@ -1503,6 +1516,18 @@ PROCEDURE "Документ для задачи TK621255876_4"
 	"Открывать документ из базы"
 ;
 
+//Поиск текста через меню
+PROCEDURE "Поиск текста через меню" STRING IN aFindString
+	 "Вызвать из меню дочернего окна {('Поиск/Найти')}"
+	 TRY
+	  "Набить текст {(aFindString)}"
+	  "Обработать сообщения"
+	  "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
+	 FINALLY
+	  "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
+;
+
 PROCEDURE "Нажать кнопку 'Проверка орфографии'"
 	"Контрол по имени {("Кнопка 'Проверка орфографии'")}"  pop:Control:Click	
 ;
@@ -1527,6 +1552,16 @@ PROCEDURE "Нажимать кнопку 'Проверка орфографии' и исправить слова вручную, зате
 	)
 ;
 
+PROCEDURE "Выполнить с ожиданием 'Да' 'Проверка орфографии'"
+	"Выполнить с ожиданием 'Да'" ( "Нажать кнопку 'Проверка орфографии'" )
+;
+
+PROCEDURE "Выполнить с ожиданием 'Да' 'Проверка орфографии'. Нажимать кнопку 'Заменить' до окончания проверки, затем нажать кнопку 'Завершить'"
+	@ ( "Выполнить с ожиданием 'Да' 'Проверка орфографии'" ) MODAL ( 
+	"Нажать кнопку на форме 'Проверка орфографии' {("Заменить")}" 
+	)
+;
+
 PROCEDURE "Выбрать группу 'Точка начала'"
 	INTEGER IN l_Index 
 	"Контрол по имени {("Точка начала")}" pop:RadioGroup:ItemIndex := l_Index
@@ -1544,4 +1579,67 @@ PROCEDURE "Поиск текста в 'Точка начала'" STRING IN aFindString IN aIndexRadioGr
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
 	 END 
 ;
+
+// Поиск текста c CheckBox
+PROCEDURE "Поиск текста c учетом чекбокса" STRING IN aFindString IN aCheckBoxName
+	 	'Ctrl+F' key
+	 TRY
+	 	"Набить текст {(aFindString)}"
+		
+		"Установить фокус в контрол с именем" aCheckBoxName
+		Если ( "Состояние чекбокса {("Контрол в фокусе")}" ! ) то ( "Поставить галочку в чекбоксе" )
+
+	 	"Обработать сообщения"
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;
+
+// Поиск текста c CheckBox 'Выставить галочку'
+/* PROCEDURE "Убедиться, что контрол класса" OBJECT IN aControl STRING IN aClass
+ 	aControl ЯВЛЯЕТСЯ aClass [ 'Фокус на контроле, который относится к другому классу: ' aControl pop:object:ClassName ', а не: ' aClass ] strings:Cat ASSERTS
+; */
+
+BOOLEAN FUNCTION "Выбран чекбокс" OBJECT IN aCheckBox
+  'Checked' aCheckBox pop:object:GetOrdProp РАВНО 1 >>> Result
+;
+
+PROCEDURE "Выставить галочку" OBJECT IN aCheckBox
+	1 'Checked' aCheckBox pop:object:SetOrdProp 
+;
+
+PROCEDURE "Убрать галочку" OBJECT IN aCheckBox
+	0 'Checked' aCheckBox pop:object:SetOrdProp
+;
+
+PROCEDURE "Выставить галочку в чекбоксе" OBJECT IN aValue // STRING IN aClass
+	// "Убедиться, что контрол класса {(aValue)} {(aClass)}"
+	( "Выбран чекбокс {(aValue)}" ! ) ?ASSURE 'Чекбокс уже отмечен!'
+	"Выставить галочку {(aValue)}"	
+;
+
+PROCEDURE "Убрать галочку в чекбоксе" OBJECT IN aValue // STRING IN aClass
+	// "Убедиться, что контрол класса {(aValue)} {(aClass)}" 
+	( "Выбран чекбокс {(aValue)}" ) ?ASSURE 'Чекбокс не был отмечен!'
+	"Убрать галочку {(aValue)}" 
+;
+
+PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку'" STRING IN aFindString IN aCheckBoxName
+	 	'Ctrl+F' key
+	 TRY
+
+	 	"Набить текст {(aFindString)}"
+
+		"Установить фокус в контрол с именем" aCheckBoxName
+		// Если ( "Состояние чекбокса {("Контрол в фокусе")}" ! ) то ( "Выставить галочку в чекбоксе {("Контрол в фокусе")} {('TCheckBox')}" )
+		Если ( "Выбран чекбокс {("Контрол в фокусе")}" ! ) то ( "Выставить галочку в чекбоксе {("Контрол в фокусе")}" )
+	 	"Обработать сообщения"
+		
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;
+
 

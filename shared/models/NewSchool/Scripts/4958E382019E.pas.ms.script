@@ -6109,6 +6109,8 @@ ref; // ME_52544597027B_ME_497EBA4301CA CleanDependencies
  CONST OpKind opkind_Overridden
 ref; // ME_562E15F20132_ME_497EBA4301CA DoBeforeHistoryNavigate
 
+FORWARD ME_571A240100B0
+
 : ME_497EBA4301CA
  CONST UID '497EBA4301CA'
  CONST Name 'PrimQueryCard'
@@ -6272,6 +6274,10 @@ ref; // ME_562E15F20132_ME_497EBA4301CA DoBeforeHistoryNavigate
  ME_663301D32E48 // TtfwClassRef
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_571A240100B0 // PrimQueryCard
+ )
+ ; // Injected
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'
@@ -16587,17 +16593,6 @@ ref; // ME_44C527A9C1C0 Reg_Type_TvtLabel
 
 ref; // ME_D9167E375865 Reg_Type_TPaintBox
 
-: ME_D982845BA153
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CEA950D49586 // SaveLoadKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_D982845BA153 
-
 : ME_C7B227F6157E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -16608,17 +16603,6 @@ ref; // ME_D982845BA153
  ;
 
 ref; // ME_C7B227F6157E 
-
-: ME_CD269F3CFEA2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CEA950D49586 // SaveLoadKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_CD269F3CFEA2 
 
 : ME_CEA950D49586
  CONST UID 'CEA950D49586'
@@ -16672,9 +16656,7 @@ ref; // ME_CD269F3CFEA2
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_D982845BA153 // TypeInfoExt
- ME_C7B227F6157E // SaveLoad
- ME_CD269F3CFEA2 // TtfwTypeRegistrator
+   Seq: ( ME_C7B227F6157E // SaveLoad
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -17376,17 +17358,6 @@ ref; // ME_D1935AA4CAC6 Reg_Type_TevQueryCardEditor
 
 ref; // ME_66CFC761F37F Reg_Type_TevTextSource
 
-: ME_4051E1EA2C9A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ED7E2BA7F4EF // QueryCardKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_4051E1EA2C9A 
-
 : ME_9B7A8CC27599
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -17397,17 +17368,6 @@ ref; // ME_4051E1EA2C9A
  ;
 
 ref; // ME_9B7A8CC27599 
-
-: ME_D21A5F81AEB6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ED7E2BA7F4EF // QueryCardKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_D21A5F81AEB6 
 
 : ME_494F89C30197_ME_ED7E2BA7F4EF
  : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
@@ -17612,9 +17572,7 @@ ref; // ME_4A7C1F420169_ME_ED7E2BA7F4EF ShowInfo
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4051E1EA2C9A // TypeInfoExt
- ME_9B7A8CC27599 // QueryCard
- ME_D21A5F81AEB6 // TtfwTypeRegistrator
+   Seq: ( ME_9B7A8CC27599 // QueryCard
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -18029,17 +17987,6 @@ ref; // ME_C06655C4B116 Reg_Type_PreviewForm
 
 ref; // ME_7D9C9E9AF71D Reg_Type_TnscPreviewPanel
 
-: ME_304CE7AC7E44
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_EF7E3D9D8F7D // PreviewFormKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_304CE7AC7E44 
-
 : ME_4EDEC4B80445
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -18050,17 +17997,6 @@ ref; // ME_304CE7AC7E44
  ;
 
 ref; // ME_4EDEC4B80445 
-
-: ME_9A7DB46D9403
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_EF7E3D9D8F7D // PreviewFormKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_9A7DB46D9403 
 
 : ME_495220F2033A_ME_EF7E3D9D8F7D
  : Original WL 'ME_495220F2033A' '494F898C013E.pas.ms.script' // PrintPreview
@@ -18132,9 +18068,7 @@ ref; // ME_495235F401C0_ME_EF7E3D9D8F7D Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_304CE7AC7E44 // TypeInfoExt
- ME_4EDEC4B80445 // PreviewForm
- ME_9A7DB46D9403 // TtfwTypeRegistrator
+   Seq: ( ME_4EDEC4B80445 // PreviewForm
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -18911,17 +18845,6 @@ ref; // ME_6AB714E0D8B7 Reg_Type_TvtGroupBox
 
 ref; // ME_2EE90570CA2F Reg_Type_TnscPageControl
 
-: ME_179777630E9F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0BBFEB6E713F // PageSetupKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_179777630E9F 
-
 : ME_BFAAB4D6DBDC
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -18932,17 +18855,6 @@ ref; // ME_179777630E9F
  ;
 
 ref; // ME_BFAAB4D6DBDC 
-
-: ME_B192FE2C3421
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0BBFEB6E713F // PageSetupKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_B192FE2C3421 
 
 : ME_0BBFEB6E713F
  CONST UID '0BBFEB6E713F'
@@ -18985,9 +18897,7 @@ ref; // ME_B192FE2C3421
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_179777630E9F // TypeInfoExt
- ME_BFAAB4D6DBDC // PageSetup
- ME_B192FE2C3421 // TtfwTypeRegistrator
+   Seq: ( ME_BFAAB4D6DBDC // PageSetup
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -22922,17 +22832,6 @@ ref; // ME_C07E6F29C6D8 Reg_Type_TvtCheckBox
 
 ref; // ME_8BFDC07C3C50 Reg_Type_TvtComboBoxQS
 
-: ME_0359CA53640A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_0359CA53640A 
-
 : ME_259FF4D02E22
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -22943,17 +22842,6 @@ ref; // ME_0359CA53640A
  ;
 
 ref; // ME_259FF4D02E22 
-
-: ME_AD8B3F481683
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_AD8B3F481683 
 
 : ME_1127EF0E219F
  CONST UID '1127EF0E219F'
@@ -23049,9 +22937,7 @@ ref; // ME_AD8B3F481683
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_0359CA53640A // TypeInfoExt
- ME_259FF4D02E22 // PrintDialog
- ME_AD8B3F481683 // TtfwTypeRegistrator
+   Seq: ( ME_259FF4D02E22 // PrintDialog
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -24386,6 +24272,245 @@ ref; // ME_4F5DA09300C5 PrimSaveLoadOptionsForBaseSearch
 
 ref; // ME_4AA93171022B CommonSearch$UC
 
+FORWARD ME_571A23EE0196
+
+FORWARD ME_4F69AE35012F
+
+FORWARD ME_4F69AE600137
+
+: ME_4F69AE9B01BC
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_497EBA4301CA // PrimQueryCard
+ ;
+
+ref; // ME_4F69AE9B01BC aForm
+
+: ME_4F69AE9B0218
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4F69AE9B0218 aCtx
+
+: ME_4F69AE6A02B4
+ CONST UID '4F69AE6A02B4'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F69AE600137 // DoQueryCardForm
+ ;
+ : Parameters
+   Seq: ( ME_4F69AE9B01BC // aForm
+ ME_4F69AE9B0218 // aCtx
+ )
+ ; // Parameters
+
+ref; // ME_4F69AE6A02B4 DoIt
+
+: ME_4F69AE600137
+ CONST UID '4F69AE600137'
+ CONST Name 'DoQueryCardForm'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4F69AE35012F // TkwQueryCardFormWord
+ ;
+ : Operations
+   Seq: ( ME_4F69AE6A02B4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4F69AE600137 DoQueryCardForm
+
+: ME_4EB25DE00396_ME_4F69AE35012F
+ : Original WL 'ME_4EB25DE00396' '54DB92D203C9.pas.ms.script' // DoForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4EB25DE00396_ME_4F69AE35012F DoForm
+
+: ME_4F69AE35012F
+ CONST UID '4F69AE35012F'
+ CONST Name 'TkwQueryCardFormWord'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_571A23EE0196 // PrimQueryCardWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.pas.ms.script' // TkwFormFromControlWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4F69AE600137 // DoQueryCardForm
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4EB25DE00396_ME_4F69AE35012F // DoForm
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'QueryCardFormWord'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F69AE35012F TkwQueryCardFormWord
+
+FORWARD ME_4F69AF3E01C0
+
+: ME_4F69AE600137_ME_4F69AF3E01C0
+ : Original ME_4F69AE600137 // DoQueryCardForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F69AE600137_ME_4F69AF3E01C0 DoQueryCardForm
+
+: ME_4F69AF3E01C0
+ CONST UID '4F69AF3E01C0'
+ CONST Name 'QueryCard_SetCanSaveState'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Устанавливает флаг того может ли карточка запроса писать своё состояние' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A23EE0196 // PrimQueryCardWordsPack
+ ;
+ : Inherits
+   Seq: ( ME_4F69AE35012F // TkwQueryCardFormWord
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4F69ADC70003' '484FA67302D7.pas.ms.script' // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+ )
+ ; // Implements
+ : Implemented
+   Seq: ( ME_4F69AE600137_ME_4F69AF3E01C0 // DoQueryCardForm
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwQueryCardSetCanSaveState'
+ CONST extprop:rc:SelfName 'QueryCardSetCanSaveState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F69AF3E01C0 QueryCard_SetCanSaveState
+
+FORWARD ME_4DAF1DD9017F
+
+: ME_550ADA9002BA
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF1DD9017F // Ok
+ ;
+ : Target WL 'ME_4AA936DC0154' '47D0E1500033.pas.ms.script' // vcmDispatcher
+ ;
+
+ref; // ME_550ADA9002BA 
+
+: ME_571E466102C4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DAF1DD9017F // Ok
+ ;
+ : Target WL 'ME_4A8AD4260126' '4A8AD3DE0008.pas.ms.script' // Result
+ ;
+
+ref; // ME_571E466102C4 
+
+: ME_4DAEEDE10285_ME_4DAF1DD9017F
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DAF1DD9017F DoDoIt
+
+: ME_4DAF1DD9017F
+ CONST UID '4DAF1DD9017F'
+ CONST Name 'Ok'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A23EE0196 // PrimQueryCardWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DAF1DD9017F // DoDoIt
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_550ADA9002BA // vcmDispatcher
+ ME_571E466102C4 // Result
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'Ok'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 21:54'
+ CONST extprop:pas:TypeName 'TkwOk'
+ CONST extprop:rc:SelfName 'Ok'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DAF1DD9017F Ok
+
+: ME_571A240100B0
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_571A23EE0196 // PrimQueryCardWordsPack
+ ;
+ : Target ME_497EBA4301CA // PrimQueryCard
+ ;
+
+ref; // ME_571A240100B0 
+
+: ME_571A23EE0196
+ CONST UID '571A23EE0196'
+ CONST Name 'PrimQueryCardWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4958E382019E // Search$Presentation for F1 and Monitorings
+ ;
+ : Children
+   Seq: ( ME_4F69AE35012F // TkwQueryCardFormWord
+ ME_4F69AF3E01C0 // QueryCard_SetCanSaveState
+ ME_4DAF1DD9017F // Ok
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_571A240100B0 // PrimQueryCard
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "need UC" true
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\PrimQueryCardWordsPack.pas'
+
+ref; // ME_571A23EE0196 PrimQueryCardWordsPack
+
 : ME_4958E382019E
  CONST UID '4958E382019E'
  CONST Name 'Search'
@@ -24411,6 +24536,7 @@ ref; // ME_4AA93171022B CommonSearch$UC
  ME_4AA931390118 // CommonSearch
  ME_4F5DA09300C5 // PrimSaveLoadOptionsForBaseSearch
  ME_4AA93171022B // CommonSearch$UC
+ ME_571A23EE0196 // PrimQueryCardWordsPack
  )
  ; // Children
  : Depends
@@ -24537,9 +24663,7 @@ ref; // ME_4AA93171022B CommonSearch$UC
  WL 'ME_54F8746B033F' '54F8746B033F.pas.ms.script' // nsbQueryUtils
  WL 'ME_54F9EC5B0269' '54F9EC5B0269.pas.ms.script' // ContextHistory
  WL 'ME_54F9F6FB0143' '54F9F6FB0143.pas.ms.script' // ContextHistoryInterfaces
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_553893E60323' '553893E60323.pas.ms.script' // Services
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping

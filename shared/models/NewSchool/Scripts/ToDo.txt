@@ -63,17 +63,12 @@ STRING elem_func IfDefStr
 20. Вот положим мне сказали печатать на А6 - ерунда вопрос - взял текст и поджал с А4 на А6, и напечатал. А если там таблица (которая регулируется разделами), что делать? Обрезать таблицу? Смасштабировать? Напечатать на несколько листов А6?
 23. Возможно копирование Dependencies через array:Copy увеличит производительность.
 24. Возможно копирование Depends через array:Copy увеличит производительность.
-26. Перенести VCMGUI в новый генератор.
-27. Убрать TestCase из TestTarget - они теперь доступны и подключаются через TestLibrary.
 28. Возможно копирование ConstantsEx через array:Copy увеличит производительность.
 29. Возможно копирование AllOperationsForOverload через array:Copy увеличит производительность.
 30. .Implements .filter> прошерстить насчёт кешируемости
 31. .Inherits .filter> прошерстить насчёт кешируемости
-32. Закешировать .DependsEx .filter> .IsTestLibrary
 33. Закешировать Self .DependsVCMGUI .filter> ( .GetUP "F1Like" false ?== )
 39. VCMApplication перенести в новый генератор.
-41. GblAdaper AdapterUnion перенести в новый генератор.
-42. Удалить генерацию "документации" к словам. Толку от неё всё равно никакого, а время жрёть.
 46. Убрать NOT_COMPLETED_ у dfm etc.
 48. Заменить ! на .Not.
 50. ( .NotInArray: - убрать скобки, скобки выводить в MACRO.
@@ -92,8 +87,32 @@ STRING elem_func IfDefStr
      else
       false 
     )
-- заменить на .?AddToArray - аналог array:?AddTo, но возвращающую булевкое значение, что элемнта в массиве не было.    
-56. LCIDToCodePage(GetThreadLocale)
+- заменить на .?AddToArray - аналог array:?AddTo, но возвращающую булевское значение, что элемента в массиве не было.    
 57. nsQuestions AddDefaultChoice.
 58. PrimF1Res - пропадают операции. Потому что там не хватает ВХОДЯЩИХ uses.
-59. 
+59. F1 Like Application - засунуть в группу Shared Dephi Libraries.
+60. F1 Shell Words перенести поближе к прецедентам.
+61. Генерировать коды операций как синглетоны.
+62. Заменить "фабрики модулей" на сервисы.
+> FormSetFactory::Class
+> FormFactory::Class
+> FactoryMethod::Class
+> VCMFormSetFactory::Class
+> ModuleMethod::Class
+M:\NewSchool\Scripts\4951181B02B6.pas.ms.script
+M:\NewSchool\Scripts\4958E382019E.pas.ms.script
+M:\NewSchool\Scripts\497DCBF8017B.pas.ms.script
+M:\NewSchool\Scripts\497ED74F0032.pas.ms.script
+M:\NewSchool\Scripts\4A66D6BF0190.pas.ms.script
+M:\NewSchool\Scripts\4A85282C0252.pas.ms.script
+M:\NewSchool\Scripts\4A924BCA0092.pas.ms.script
+M:\NewSchool\Scripts\4A92D644009B.pas.ms.script
+M:\NewSchool\Scripts\4AA6418F02AD.pas.ms.script
+M:\NewSchool\Scripts\4AA66B460175.pas.ms.script
+M:\NewSchool\Scripts\4AA79F630309.pas.ms.script
+M:\NewSchool\Scripts\4AA9196700EB.pas.ms.script
+M:\NewSchool\Scripts\4CC97BDA02DF.pas.ms.script
+M:\NewSchool\Scripts\4F6B66140294.pas.ms.script
+M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
+63. SysUtils убрать из генерации ScriptKeywordsPack.
+64. 

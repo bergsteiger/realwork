@@ -3963,6 +3963,12 @@ ref; // ME_5715DF0D03C2_ME_5629FC88034B AllGroups
  CONST OpKind opkind_Implemented
 ref; // ME_5718B5CF0399_ME_5629FC88034B GetUserName
 
+: ME_571DCFB50217_ME_5629FC88034B
+ : Original WL 'ME_571DCFB50217' '5432518A0316.pas.ms.script' // GetUserPriorities
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_571DCFB50217_ME_5629FC88034B GetUserPriorities
+
 : ME_479731C50290_ME_5629FC88034B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -4012,6 +4018,7 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5715DEF20209_ME_5629FC88034B // AllUsers
  ME_5715DF0D03C2_ME_5629FC88034B // AllGroups
  ME_5718B5CF0399_ME_5629FC88034B // GetUserName
+ ME_571DCFB50217_ME_5629FC88034B // GetUserPriorities
  )
  ; // Implemented
  : Overridden
@@ -7100,6 +7107,20 @@ ref; // ME_56EA9E8102F1 f_HasAdminRights
 
 ref; // ME_56EFCB7A038B f_AlienSessionID
 
+: ME_5719E3330352
+ CONST UID '5719E3330352'
+ CONST Name 'f_ImpersonateCounter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55D6DA9E00BF // TpgDataProvider
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5719E3330352 f_ImpersonateCounter
+
 FORWARD ME_55E00D5A0297
 
 : ME_56BC71B900B6
@@ -7961,6 +7982,7 @@ ref; // ME_479731C50290_ME_55D6DA9E00BF Cleanup
  ME_56BC714C020E // f_SetGlobalDataProvider
  ME_56EA9E8102F1 // f_HasAdminRights
  ME_56EFCB7A038B // f_AlienSessionID
+ ME_5719E3330352 // f_ImpersonateCounter
  )
  ; // Attributes
  : Operations

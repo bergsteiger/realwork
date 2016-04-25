@@ -1743,17 +1743,8 @@ BOOLEAN elem_func SomeAncestorImplements
 
 WordAlias .KeepInStack NOP
 
-WordAlias [[ [
-%REMARK 'Начинает определение константного массива. Пока просто мапируется на неконстантный.'
-WordAlias ]] ]
-%REMARK 'Заканчивает определение константного массива. Пока просто мапируется на неконстантный.'
-
 ARRAY FUNCTION array:Copy
   IN anArray
- %SUMMARY 
-  'Копирует массив anArray в другой КОНСТАНТНЫЙ массив.'
-  'Возвращает [nil] если исходный массив nil или пустой.'
- ; 
  RULES
   ( anArray IsNil )
    [nil]
@@ -1761,13 +1752,13 @@ ARRAY FUNCTION array:Copy
    (
     VAR l_Empty
     true >>> l_Empty
-    [[ 
+    [ 
      anArray .for> ( 
       // .KeepInStack 
       // - это теперь не нужно, непустой функтор и так есть
       false >>> l_Empty
      ) // anArray .for>
-    ]] 
+    ] 
     RULES
      l_Empty
       ( DROP [nil] )
@@ -1779,10 +1770,6 @@ ARRAY FUNCTION array:Copy
 
 ARRAY FUNCTION array:CopyNotNil
   IN anArray
- %SUMMARY 
-  'Копирует массив anArray в другой массив.'
-  'ВСЕГДА возвращает НЕ nil.'
- ; 
  [ anArray .for> .KeepInStack ] 
  >>> Result
 ; // array:CopyNotNil
@@ -1980,6 +1967,11 @@ BOOLEAN elem_func IsStaticMethod
  ; // RULES 
  >>> Result
 ; // IsStaticMethod
+
+WordAlias [[ [
+%REMARK 'Начинает определение константного массива. Пока просто мапируется на неконстантный.'
+WordAlias ]] ]
+%REMARK 'Заканчивает определение константного массива. Пока просто мапируется на неконстантный.'
 
 ARRAY elem_func ElementToArray
  RULES
@@ -2763,7 +2755,7 @@ elem_proc DefaultUserCode
   [ cUCStart aKey ] .Out
   [ aCode DO ] .Out
   [ cUCEnd aKey ] .Out
- ) // Self aKey .DefaultUserCodePrim:
+ ) // Self aKey .OutUserCode:
 ; // DefaultUserCode
 
 elem_proc PredefinedUserCode:
@@ -2774,7 +2766,7 @@ elem_proc PredefinedUserCode:
  Self aKey .DefaultUserCodePrim: (
    IN aKey
   [ aCode DO ] aOutLambda DO
- ) // Self aKey .DefaultUserCodePrim:
+ ) // Self aKey .OutUserCode:
 ; // PredefinedUserCode:
 
 elem_proc PredefinedMethodUserCode:
@@ -5929,6 +5921,9 @@ elem_iterator ImplUses
   if ( Self .IsScriptKeywordsPack ) then
   begin
    .join> ( Self .ChildrenWithOwnFile )
+   .join> ToArray: GarantModel::SysUtils
+   .join> ToArray: GarantModel::TtfwTypeRegistrator
+   .join> ToArray: GarantModel::TypeInfoExt
   end // ( Self .IsScriptKeywordsPack )
   
   if ( Self .IsTarget ) then
@@ -5954,6 +5949,11 @@ elem_iterator ImplUses
   if ( Self .IsVCMApplication ) then
   begin
    .join> ( Self .ChildrenWithOwnFile )
+   .join> ToArray: GarantModel::evExtFormat
+   if ( Self .Abstraction at_final == ) then
+   begin
+    .join> ToArray: GarantModel::StdRes
+   end // ( Self .Abstraction at_final == )
   end // ( Self .IsVCMApplication )
   
   if ( Self .IsVCMUseCaseRealization ) then

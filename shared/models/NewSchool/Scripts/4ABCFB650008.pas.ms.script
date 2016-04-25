@@ -1129,6 +1129,8 @@ ref; // ME_A40622A91F66
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_497EDC5003D1 InitControls
 
+FORWARD ME_571A297B0071
+
 : ME_497EDC5003D1
  CONST UID '497EDC5003D1'
  CONST Name 'PrimConsultationMark'
@@ -1197,6 +1199,10 @@ ref; // ME_4A8E8F2E0195_ME_497EDC5003D1 InitControls
  ME_A40622A91F66 // TtfwClassRef
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_571A297B0071 // PrimConsultationMark
+ )
+ ; // Injected
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Ëþëèí À.Â.'
@@ -6214,17 +6220,6 @@ ref; // ME_F8DEF7E5A1C2 Reg_Type_TvtLabel
 
 ref; // ME_AE6A13085975 Reg_Type_TeeMemoWithEditOperations
 
-: ME_F72306081C35
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_18755A78D1B1 // ConsultationMarkKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_F72306081C35 
-
 : ME_57B07CC577B3
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -6235,17 +6230,6 @@ ref; // ME_F72306081C35
  ;
 
 ref; // ME_57B07CC577B3 
-
-: ME_12E5ABA91BDC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_18755A78D1B1 // ConsultationMarkKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_12E5ABA91BDC 
 
 : ME_4A8AD46D0226_ME_18755A78D1B1
  : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
@@ -6366,9 +6350,7 @@ ref; // ME_4A97EBE702F8_ME_18755A78D1B1 Ok
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_F72306081C35 // TypeInfoExt
- ME_57B07CC577B3 // ConsultationMark
- ME_12E5ABA91BDC // TtfwTypeRegistrator
+   Seq: ( ME_57B07CC577B3 // ConsultationMark
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -6867,6 +6849,119 @@ ref; // ME_5997B82EED64
 
 ref; // ME_4ABCFB7F017B Consultation$FP
 
+FORWARD ME_571A296801DD
+
+FORWARD ME_4DECF7F4001F
+
+: ME_4DECF85901A2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DECF7F4001F // TkwF1ImportConsultation
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_4DECF85901A2 
+
+: ME_4DECF87F00BF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DECF7F4001F // TkwF1ImportConsultation
+ ;
+ : Target WL 'ME_4AAF9718001D' '47F2170002B2.pas.ms.script' // nsAStr
+ ;
+
+ref; // ME_4DECF87F00BF 
+
+: ME_4DAEEDE10285_ME_4DECF7F4001F
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DECF7F4001F DoDoIt
+
+: ME_4DB0614603C8_ME_4DECF7F4001F
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DECF7F4001F GetWordNameForRegister
+
+: ME_4DECF7F4001F
+ CONST UID '4DECF7F4001F'
+ CONST Name 'TkwF1ImportConsultation'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A296801DD // ConsultationWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DECF7F4001F // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DECF7F4001F // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DECF85901A2 // DefDataAdapter
+ ME_4DECF87F00BF // nsAStr
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'f1::ImportConsultation'
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.06.2011 19:53'
+ CONST extprop:rc:SelfName 'F1ImportConsultation'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DECF7F4001F TkwF1ImportConsultation
+
+: ME_571A297B0071
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_571A296801DD // ConsultationWordsPack
+ ;
+ : Target ME_497EDC5003D1 // PrimConsultationMark
+ ;
+
+ref; // ME_571A297B0071 
+
+: ME_571A296801DD
+ CONST UID '571A296801DD'
+ CONST Name 'ConsultationWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ABCFB650008 // Consultation
+ ;
+ : Children
+   Seq: ( ME_4DECF7F4001F // TkwF1ImportConsultation
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_571A297B0071 // PrimConsultationMark
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "need UC" true
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\ConsultationWordsPack.pas'
+
+ref; // ME_571A296801DD ConsultationWordsPack
+
 : ME_4ABCFB650008
  CONST UID '4ABCFB650008'
  CONST Name 'Consultation'
@@ -6881,6 +6976,7 @@ ref; // ME_4ABCFB7F017B Consultation$FP
    Seq: ( ME_497EDC5003D1 // PrimConsultationMark
  ME_4C84E097023A // PrimConsultationMarkOptions
  ME_4ABCFB7F017B // Consultation$FP
+ ME_571A296801DD // ConsultationWordsPack
  )
  ; // Children
  : Depends
@@ -6894,6 +6990,7 @@ ref; // ME_4ABCFB7F017B Consultation$FP
  WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
  WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
  WL 'ME_491C3E40007B' '491C3E40007B.pas.ms.script' // Consultation
  WL 'ME_491C3E540050' '491C3E540050.pas.ms.script' // ConsultationInterfaces
@@ -6917,8 +7014,6 @@ ref; // ME_4ABCFB7F017B Consultation$FP
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

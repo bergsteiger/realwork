@@ -2681,6 +2681,117 @@ ref; // ME_567CF83800AA da_soDescending
 
 ref; // ME_567CF81B01BA TdaSortOrder
 
+FORWARD ME_571DB8E5025A
+
+: ME_571DB9620383
+ CONST UID '571DB9620383'
+ CONST Name 'prLowest'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_571DB8E5025A // TdaPriorityBuggy
+ ;
+ CONST Value '-2'
+ CONST extprop:pas:Value '-2'
+
+ref; // ME_571DB9620383 prLowest
+
+: ME_571DB974006B
+ CONST UID '571DB974006B'
+ CONST Name 'prLow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_571DB8E5025A // TdaPriorityBuggy
+ ;
+ CONST Value '-1'
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_571DB974006B prLow
+
+: ME_571DB97F0079
+ CONST UID '571DB97F0079'
+ CONST Name 'prNormal'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_571DB8E5025A // TdaPriorityBuggy
+ ;
+ CONST Value 0
+ CONST extprop:pas:Value 0
+
+ref; // ME_571DB97F0079 prNormal
+
+: ME_571DB98A02F7
+ CONST UID '571DB98A02F7'
+ CONST Name 'prHigh'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_571DB8E5025A // TdaPriorityBuggy
+ ;
+ CONST Value 1
+ CONST extprop:pas:Value 1
+
+ref; // ME_571DB98A02F7 prHigh
+
+: ME_571DB99300C7
+ CONST UID '571DB99300C7'
+ CONST Name 'prHighest'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_571DB8E5025A // TdaPriorityBuggy
+ ;
+ CONST Value 2
+ CONST extprop:pas:Value 2
+
+ref; // ME_571DB99300C7 prHighest
+
+: ME_571DB8E5025A
+ CONST UID '571DB8E5025A'
+ CONST Name 'TdaPriorityBuggy'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432448401BC // daTypes
+ ;
+ : Attributes
+   Seq: ( ME_571DB9620383 // prLowest
+ ME_571DB974006B // prLow
+ ME_571DB97F0079 // prNormal
+ ME_571DB98A02F7 // prHigh
+ ME_571DB99300C7 // prHighest
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_571DB8E5025A TdaPriorityBuggy
+
+: ME_571DEC680076
+ CONST UID '571DEC680076'
+ CONST Name 'TdaPriority'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432448401BC // daTypes
+ ;
+ : Inherits
+   Seq: ( WL 'ME_571DE63B037A' '47BC51FE018B.pas.ms.script' // TPriority
+ )
+ ; // Inherits
+
+ref; // ME_571DEC680076 TdaPriority
+
 : ME_5432448401BC
  CONST UID '5432448401BC'
  CONST Name 'daTypes'
@@ -2725,6 +2836,8 @@ ref; // ME_567CF81B01BA TdaSortOrder
  ME_564591F20226 // TdaDictID
  ME_56667A4D00EA // TdaParamType
  ME_567CF81B01BA // TdaSortOrder
+ ME_571DB8E5025A // TdaPriorityBuggy
+ ME_571DEC680076 // TdaPriority
  )
  ; // Children
  : Depends

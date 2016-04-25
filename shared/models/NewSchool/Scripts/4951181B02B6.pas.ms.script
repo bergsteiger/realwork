@@ -11222,6 +11222,8 @@ ref; // ME_54EED7DF0249_ME_49539DBA029D NeedSaveInWorkJournal
  CONST OpKind opkind_Overridden
 ref; // ME_54F458DD01CE_ME_49539DBA029D DoGetNeedAddFormToTasksPanel
 
+FORWARD ME_571A2137001E
+
 : ME_49539DBA029D
  CONST UID '49539DBA029D'
  CONST Name 'ExText'
@@ -11738,6 +11740,10 @@ ref; // ME_54F458DD01CE_ME_49539DBA029D DoGetNeedAddFormToTasksPanel
  ME_3504C5448707 // TtfwClassRef
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_571A2137001E // ExText
+ )
+ ; // Injected
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "base wnd class" 'CWnd'
@@ -22378,17 +22384,6 @@ ref; // ME_4DDFD2EA0116_ME_B6F09834AD0F GetString
 
 ref; // ME_B6F09834AD0F Tkw_Form_DocumentWithFlash
 
-: ME_4D83291C019D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C6122277F87 // DocumentWithFlashKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_4D83291C019D 
-
 : ME_FBA6EADCEC34
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -22454,8 +22449,7 @@ ref; // ME_55545C63026E_ME_4C6122277F87 CommonDocumentOpenNewTab
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4D83291C019D // TypeInfoExt
- ME_FBA6EADCEC34 // DocumentWithFlash
+   Seq: ( ME_FBA6EADCEC34 // DocumentWithFlash
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -26741,17 +26735,6 @@ ref; // ME_B79B0D6719C8 Reg_Type_TvtScrollBar
 
 ref; // ME_3B9862DAE8FA Reg_Type_TnscEditor
 
-: ME_6F3EC98805FA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A1D2CA8370DB // TextKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_6F3EC98805FA 
-
 : ME_C3F24B4F5131
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -26762,17 +26745,6 @@ ref; // ME_6F3EC98805FA
  ;
 
 ref; // ME_C3F24B4F5131 
-
-: ME_6E1B9FF014F0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A1D2CA8370DB // TextKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_6E1B9FF014F0 
 
 : ME_A1D2CA8370DB
  CONST UID 'A1D2CA8370DB'
@@ -26874,9 +26846,7 @@ ref; // ME_6E1B9FF014F0
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_6F3EC98805FA // TypeInfoExt
- ME_C3F24B4F5131 // Text
- ME_6E1B9FF014F0 // TtfwTypeRegistrator
+   Seq: ( ME_C3F24B4F5131 // Text
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -27291,17 +27261,6 @@ ref; // ME_529B60D87A36 Reg_Type_Redactions
 
 ref; // ME_E2A9AFA90F2E Reg_Type_TnscTreeViewWithAdapterDragDrop
 
-: ME_0F3430838519
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B7646B5A91F5 // RedactionsKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_0F3430838519 
-
 : ME_671FBB8E0C12
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -27312,17 +27271,6 @@ ref; // ME_0F3430838519
  ;
 
 ref; // ME_671FBB8E0C12 
-
-: ME_1E8E84C5DD0F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B7646B5A91F5 // RedactionsKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_1E8E84C5DD0F 
 
 : ME_B7646B5A91F5
  CONST UID 'B7646B5A91F5'
@@ -27359,9 +27307,7 @@ ref; // ME_1E8E84C5DD0F
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_0F3430838519 // TypeInfoExt
- ME_671FBB8E0C12 // Redactions
- ME_1E8E84C5DD0F // TtfwTypeRegistrator
+   Seq: ( ME_671FBB8E0C12 // Redactions
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -29706,17 +29652,6 @@ ref; // ME_61ECEE6FDCE4 Reg_Type_TnscContextFilter
 
 ref; // ME_C78641C7B549 Reg_Type_TnscTasksPanelView
 
-: ME_E3009FF853D3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_39D904AB57B9 // ContentsKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_E3009FF853D3 
-
 : ME_B4958776B4E0
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -29727,17 +29662,6 @@ ref; // ME_E3009FF853D3
  ;
 
 ref; // ME_B4958776B4E0 
-
-: ME_8985D35186E6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_39D904AB57B9 // ContentsKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_8985D35186E6 
 
 : ME_494F89C30197_ME_39D904AB57B9
  : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
@@ -29971,9 +29895,7 @@ ref; // ME_4BDAF7880236_ME_39D904AB57B9 ExpandAll
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_E3009FF853D3 // TypeInfoExt
- ME_B4958776B4E0 // Contents
- ME_8985D35186E6 // TtfwTypeRegistrator
+   Seq: ( ME_B4958776B4E0 // Contents
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -30962,17 +30884,6 @@ ref; // ME_772C51E088D8 Reg_Type_TImageEnView
 
 ref; // ME_E5A5D89BA033 Reg_Type_TImageEnProc
 
-: ME_4CA9E21E70E2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A28EB2B768F3 // PictureKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_4CA9E21E70E2 
-
 : ME_D9301BA40761
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -30983,17 +30894,6 @@ ref; // ME_4CA9E21E70E2
  ;
 
 ref; // ME_D9301BA40761 
-
-: ME_4549AF0C6FA4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A28EB2B768F3 // PictureKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_4549AF0C6FA4 
 
 : ME_4951284902BD_ME_A28EB2B768F3
  : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
@@ -31390,9 +31290,7 @@ ref; // ME_55545C63026E_ME_A28EB2B768F3 CommonDocumentOpenNewTab
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_4CA9E21E70E2 // TypeInfoExt
- ME_D9301BA40761 // Picture
- ME_4549AF0C6FA4 // TtfwTypeRegistrator
+   Seq: ( ME_D9301BA40761 // Picture
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -31807,17 +31705,6 @@ ref; // ME_39BD18756DE9 Reg_Type_PictureInfo
 
 ref; // ME_C5FB9E1EF516 Reg_Type_TeeMemoWithEditOperations
 
-: ME_7621B1D39729
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_44AABA98B261 // PictureInfoKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_7621B1D39729 
-
 : ME_07F13C7B4EEB
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -31828,17 +31715,6 @@ ref; // ME_7621B1D39729
  ;
 
 ref; // ME_07F13C7B4EEB 
-
-: ME_F85B3BEF8A55
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_44AABA98B261 // PictureInfoKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_F85B3BEF8A55 
 
 : ME_4951284902BD_ME_44AABA98B261
  : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
@@ -32022,9 +31898,7 @@ ref; // ME_4C7D0C7B0185_ME_44AABA98B261 Copy
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_7621B1D39729 // TypeInfoExt
- ME_07F13C7B4EEB // PictureInfo
- ME_F85B3BEF8A55 // TtfwTypeRegistrator
+   Seq: ( ME_07F13C7B4EEB // PictureInfo
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -33093,17 +32967,6 @@ ref; // ME_1E740C511C1B Reg_Type_TnscComboBox
 
 ref; // ME_45A17B41F51B Reg_Type_TvtCheckBox
 
-: ME_B14CFD540C16
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A40358DFC617 // DocNumberQueryKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_B14CFD540C16 
-
 : ME_2D4F7DF8938B
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -33114,17 +32977,6 @@ ref; // ME_B14CFD540C16
  ;
 
 ref; // ME_2D4F7DF8938B 
-
-: ME_76F49F60ED90
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A40358DFC617 // DocNumberQueryKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_76F49F60ED90 
 
 : ME_4A97EBE702F8_ME_A40358DFC617
  : Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.pas.ms.script' // Ok
@@ -33208,9 +33060,7 @@ ref; // ME_4AC5D61E0284_ME_A40358DFC617 Cancel
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_B14CFD540C16 // TypeInfoExt
- ME_2D4F7DF8938B // DocNumberQuery
- ME_76F49F60ED90 // TtfwTypeRegistrator
+   Seq: ( ME_2D4F7DF8938B // DocNumberQuery
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -33625,17 +33475,6 @@ ref; // ME_A3DBCC2882AE Reg_Type_Warning
 
 ref; // ME_41E5BB6A499C Reg_Type_TnscEditor
 
-: ME_F439D859916C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AC8C0D7A6291 // WarningKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_F439D859916C 
-
 : ME_189DE4B2C3E9
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -33646,17 +33485,6 @@ ref; // ME_F439D859916C
  ;
 
 ref; // ME_189DE4B2C3E9 
-
-: ME_10DCEA291D67
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AC8C0D7A6291 // WarningKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_10DCEA291D67 
 
 : ME_495235F401C0_ME_AC8C0D7A6291
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -33712,9 +33540,7 @@ ref; // ME_495235F401C0_ME_AC8C0D7A6291 Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_F439D859916C // TypeInfoExt
- ME_189DE4B2C3E9 // Warning
- ME_10DCEA291D67 // TtfwTypeRegistrator
+   Seq: ( ME_189DE4B2C3E9 // Warning
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -34129,17 +33955,6 @@ ref; // ME_2A8DA81754A6 Reg_Type_Attributes
 
 ref; // ME_5F2FE56F492B Reg_Type_TnscTreeViewWithAdapterDragDrop
 
-: ME_B5F04C52C7F2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_312806286B17 // AttributesKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_B5F04C52C7F2 
-
 : ME_2F129FC2E1BB
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -34150,17 +33965,6 @@ ref; // ME_B5F04C52C7F2
  ;
 
 ref; // ME_2F129FC2E1BB 
-
-: ME_65C8A2ECD39F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_312806286B17 // AttributesKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_65C8A2ECD39F 
 
 : ME_4951284902BD_ME_312806286B17
  : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
@@ -34376,9 +34180,7 @@ ref; // ME_49FEDE4703B8_ME_312806286B17 FindPrev
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_B5F04C52C7F2 // TypeInfoExt
- ME_2F129FC2E1BB // Attributes
- ME_65C8A2ECD39F // TtfwTypeRegistrator
+   Seq: ( ME_2F129FC2E1BB // Attributes
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -34793,17 +34595,6 @@ ref; // ME_D01600863EC1 Reg_Type_SynchroView
 
 ref; // ME_EE87D66F9BB3 Reg_Type_TvtPanel
 
-: ME_28066C0ACAA5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0D4815BAE705 // SynchroViewKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_28066C0ACAA5 
-
 : ME_02E2DA1FD09E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -34814,17 +34605,6 @@ ref; // ME_28066C0ACAA5
  ;
 
 ref; // ME_02E2DA1FD09E 
-
-: ME_C9438E94D6F9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0D4815BAE705 // SynchroViewKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_C9438E94D6F9 
 
 : ME_0D4815BAE705
  CONST UID '0D4815BAE705'
@@ -34861,9 +34641,7 @@ ref; // ME_C9438E94D6F9
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_28066C0ACAA5 // TypeInfoExt
- ME_02E2DA1FD09E // SynchroView
- ME_C9438E94D6F9 // TtfwTypeRegistrator
+   Seq: ( ME_02E2DA1FD09E // SynchroView
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -37208,17 +36986,6 @@ ref; // ME_4DF56A6BCC86 Reg_Type_TvtLabel
 
 ref; // ME_EA15E6613F2A Reg_Type_TvtButton
 
-: ME_AB32879810EF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F86C24CC18D1 // TurnOnTimeMachineKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_AB32879810EF 
-
 : ME_9EDB8A902623
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -37229,17 +36996,6 @@ ref; // ME_AB32879810EF
  ;
 
 ref; // ME_9EDB8A902623 
-
-: ME_5C8A36AADD30
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F86C24CC18D1 // TurnOnTimeMachineKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_5C8A36AADD30 
 
 : ME_F86C24CC18D1
  CONST UID 'F86C24CC18D1'
@@ -37310,9 +37066,7 @@ ref; // ME_5C8A36AADD30
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_AB32879810EF // TypeInfoExt
- ME_9EDB8A902623 // TurnOnTimeMachine
- ME_5C8A36AADD30 // TtfwTypeRegistrator
+   Seq: ( ME_9EDB8A902623 // TurnOnTimeMachine
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -37727,17 +37481,6 @@ ref; // ME_921732449AA8 Reg_Type_WarningBaloon
 
 ref; // ME_763B6346F381 Reg_Type_TnscEditor
 
-: ME_0BB2E51D1BB7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_32B9B7EBE1E4 // WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_0BB2E51D1BB7 
-
 : ME_65264281DF1D
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -37748,17 +37491,6 @@ ref; // ME_0BB2E51D1BB7
  ;
 
 ref; // ME_65264281DF1D 
-
-: ME_CA0895B37D2D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_32B9B7EBE1E4 // WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_CA0895B37D2D 
 
 : ME_495235F401C0_ME_32B9B7EBE1E4
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -37814,9 +37546,7 @@ ref; // ME_495235F401C0_ME_32B9B7EBE1E4 Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_0BB2E51D1BB7 // TypeInfoExt
- ME_65264281DF1D // WarningBaloon
- ME_CA0895B37D2D // TtfwTypeRegistrator
+   Seq: ( ME_65264281DF1D // WarningBaloon
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -38231,17 +37961,6 @@ ref; // ME_438C9BEC8E1E Reg_Type_SynchroView_WarningBaloon
 
 ref; // ME_CBCF1A911B4C Reg_Type_TnscEditor
 
-: ME_3D845D493029
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3C62EDF0B841 // SynchroView_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_3D845D493029 
-
 : ME_20567F11E5F1
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -38252,17 +37971,6 @@ ref; // ME_3D845D493029
  ;
 
 ref; // ME_20567F11E5F1 
-
-: ME_1485D9974079
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3C62EDF0B841 // SynchroView_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_1485D9974079 
 
 : ME_495235F401C0_ME_3C62EDF0B841
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -38318,9 +38026,7 @@ ref; // ME_495235F401C0_ME_3C62EDF0B841 Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_3D845D493029 // TypeInfoExt
- ME_20567F11E5F1 // SynchroView_WarningBaloon
- ME_1485D9974079 // TtfwTypeRegistrator
+   Seq: ( ME_20567F11E5F1 // SynchroView_WarningBaloon
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -38735,17 +38441,6 @@ ref; // ME_AF28A5EB6379 Reg_Type_Translation_WarningBaloon
 
 ref; // ME_10D1BEF8C7DB Reg_Type_TnscEditor
 
-: ME_78593A676DE1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DE0052063257 // Translation_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_78593A676DE1 
-
 : ME_A525F24BC5A3
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -38756,17 +38451,6 @@ ref; // ME_78593A676DE1
  ;
 
 ref; // ME_A525F24BC5A3 
-
-: ME_F56F7E49AC9C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DE0052063257 // Translation_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_F56F7E49AC9C 
 
 : ME_495235F401C0_ME_DE0052063257
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -38822,9 +38506,7 @@ ref; // ME_495235F401C0_ME_DE0052063257 Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_78593A676DE1 // TypeInfoExt
- ME_A525F24BC5A3 // Translation_WarningBaloon
- ME_F56F7E49AC9C // TtfwTypeRegistrator
+   Seq: ( ME_A525F24BC5A3 // Translation_WarningBaloon
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -39239,17 +38921,6 @@ ref; // ME_FAB9F3A30A37 Reg_Type_UserCR1_WarningBaloon
 
 ref; // ME_95989E8713FE Reg_Type_TnscEditor
 
-: ME_DA6651819257
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_594C197976C3 // UserCR1_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_DA6651819257 
-
 : ME_932B16DDA0F7
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -39260,17 +38931,6 @@ ref; // ME_DA6651819257
  ;
 
 ref; // ME_932B16DDA0F7 
-
-: ME_F5E1EEC80980
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_594C197976C3 // UserCR1_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_F5E1EEC80980 
 
 : ME_495235F401C0_ME_594C197976C3
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -39326,9 +38986,7 @@ ref; // ME_495235F401C0_ME_594C197976C3 Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_DA6651819257 // TypeInfoExt
- ME_932B16DDA0F7 // UserCR1_WarningBaloon
- ME_F5E1EEC80980 // TtfwTypeRegistrator
+   Seq: ( ME_932B16DDA0F7 // UserCR1_WarningBaloon
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -39743,17 +39401,6 @@ ref; // ME_DCD6EC58F4EE Reg_Type_UserCR2_WarningBaloon
 
 ref; // ME_EE3445AA5128 Reg_Type_TnscEditor
 
-: ME_ECAD512337ED
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8A4E6ECFFC7B // UserCR2_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_ECAD512337ED 
-
 : ME_388574EE6B0A
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -39764,17 +39411,6 @@ ref; // ME_ECAD512337ED
  ;
 
 ref; // ME_388574EE6B0A 
-
-: ME_593C787C51F9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8A4E6ECFFC7B // UserCR2_WarningBaloonKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_593C787C51F9 
 
 : ME_495235F401C0_ME_8A4E6ECFFC7B
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -39830,9 +39466,7 @@ ref; // ME_495235F401C0_ME_8A4E6ECFFC7B Save
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_ECAD512337ED // TypeInfoExt
- ME_388574EE6B0A // UserCR2_WarningBaloon
- ME_593C787C51F9 // TtfwTypeRegistrator
+   Seq: ( ME_388574EE6B0A // UserCR2_WarningBaloon
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -41275,6 +40909,555 @@ ref; // ME_4B13A26203DB_ME_4B13AFDF013A EventID
 
 ref; // ME_4B13AFDF013A TnsUseDocumentSubPanelOperationEvent
 
+FORWARD ME_571A211F0239
+
+FORWARD ME_4DCA5A94013D
+
+: ME_4F194996002E
+ CONST UID '4F194996002E'
+ CONST Name 'TExTextFormHack'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ : Inherits
+   Seq: ( ME_49539DBA029D // ExText
+ )
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'ExTextFormHack'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F194996002E TExTextFormHack
+
+FORWARD ME_4DCA5B340360
+
+: ME_4DCA5B500241
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49539DBA029D // ExText
+ ;
+
+ref; // ME_4DCA5B500241 aForm
+
+: ME_4EB2681F02E7
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_4EB2681F02E7 aCtx
+
+: ME_4DCA5B490175
+ CONST UID '4DCA5B490175'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DCA5B340360 // DoTextForm
+ ;
+ : Parameters
+   Seq: ( ME_4DCA5B500241 // aForm
+ ME_4EB2681F02E7 // aCtx
+ )
+ ; // Parameters
+
+ref; // ME_4DCA5B490175 DoIt
+
+: ME_4DCA5B340360
+ CONST UID '4DCA5B340360'
+ CONST Name 'DoTextForm'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ : Operations
+   Seq: ( ME_4DCA5B490175 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4DCA5B340360 DoTextForm
+
+: ME_4DCA5ACE027E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ : Target ME_49539DBA029D // ExText
+ ;
+
+ref; // ME_4DCA5ACE027E 
+
+: ME_4DCA5B03035D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4DCA5B03035D 
+
+: ME_4DCA631202E8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DCA5A94013D // TkwExTextFormWord
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_4DCA631202E8 
+
+: ME_4EB25DE00396_ME_4DCA5A94013D
+ : Original WL 'ME_4EB25DE00396' '54DB92D203C9.pas.ms.script' // DoForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4EB25DE00396_ME_4DCA5A94013D DoForm
+
+: ME_4DCA5A94013D
+ CONST UID '4DCA5A94013D'
+ CONST Name 'TkwExTextFormWord'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.pas.ms.script' // TkwFormFromControlWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_4DCA5B340360 // DoTextForm
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4EB25DE00396_ME_4DCA5A94013D // DoForm
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_4F194996002E // TExTextFormHack
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_4DCA5ACE027E // ExText
+ ME_4DCA5B03035D // afwFacade
+ ME_4DCA631202E8 // SysUtils
+ )
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '11.05.2011 13:45'
+ CONST extprop:rc:SelfName 'ExTextFormWord'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DCA5A94013D TkwExTextFormWord
+
+FORWARD ME_4F1942440116
+
+: ME_4F1947FC01A0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F1942440116 // TkwTextFormGetDocumentID
+ ;
+ : Target WL 'ME_47FB50E4008E' '48F747EC0073.pas.ms.script' // nsConst
+ ;
+
+ref; // ME_4F1947FC01A0 
+
+: ME_4DCA5B340360_ME_4F1942440116
+ : Original ME_4DCA5B340360 // DoTextForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DCA5B340360_ME_4F1942440116 DoTextForm
+
+: ME_4DB0614603C8_ME_4F1942440116
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4F1942440116 GetWordNameForRegister
+
+: ME_4F1942440116
+ CONST UID '4F1942440116'
+ CONST Name 'TkwTextFormGetDocumentID'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возвращает идентификатор текущего открытого документа' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( ME_4DCA5A94013D // TkwExTextFormWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DCA5B340360_ME_4F1942440116 // DoTextForm
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F1942440116 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4F1947FC01A0 // nsConst
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'textform:GetDocumentID'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.01.2012 14:31'
+ CONST extprop:rc:SelfName 'TextFormGetDocumentID'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F1942440116 TkwTextFormGetDocumentID
+
+FORWARD ME_4F183D860083
+
+: ME_4DCA5B340360_ME_4F183D860083
+ : Original ME_4DCA5B340360 // DoTextForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DCA5B340360_ME_4F183D860083 DoTextForm
+
+: ME_4DB0614603C8_ME_4F183D860083
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4F183D860083 GetWordNameForRegister
+
+: ME_4F183D860083
+ CONST UID '4F183D860083'
+ CONST Name 'TkwTextFormSetNeedShowIntranetWarning'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( ME_4DCA5A94013D // TkwExTextFormWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DCA5B340360_ME_4F183D860083 // DoTextForm
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4F183D860083 // GetWordNameForRegister
+ )
+ ; // Overridden
+ CONST "NameForScript" 'textform:SetNeedShowIntranetWarning'
+ CONST "author" 'Люлин А.В.'
+ CONST "ifdef" 'nsTest'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.01.2012 19^58'
+ CONST extprop:rc:SelfName 'TextFormSetNeedShowIntranetWarning'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4F183D860083 TkwTextFormSetNeedShowIntranetWarning
+
+FORWARD ME_500E876A0208
+
+: ME_4DCA5B340360_ME_500E876A0208
+ : Original ME_4DCA5B340360 // DoTextForm
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DCA5B340360_ME_500E876A0208 DoTextForm
+
+: ME_500E876A0208
+ CONST UID '500E876A0208'
+ CONST Name 'document_LikeState'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( ME_4DCA5A94013D // TkwExTextFormWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DCA5B340360_ME_500E876A0208 // DoTextForm
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwDocumentLikeState'
+ CONST extprop:rc:SelfName 'DocumentLikeState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_500E876A0208 document_LikeState
+
+FORWARD ME_4DB00AF302F0
+
+: ME_50FFA6360333
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB00AF302F0 // OpenDocument
+ ;
+ : Target WL 'ME_4B2A12BA0288' '4AB0C3C60310.pas.ms.script' // IntToStr
+ ;
+
+ref; // ME_50FFA6360333 
+
+: ME_4DAEEDE10285_ME_4DB00AF302F0
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DB00AF302F0 DoDoIt
+
+: ME_4DB00AF302F0
+ CONST UID '4DB00AF302F0'
+ CONST Name 'OpenDocument'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB00AF302F0 // DoDoIt
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_50FFA6360333 // IntToStr
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'Открыть'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '21.04.2011 14:46'
+ CONST extprop:pas:TypeName 'TkwOpenDocument'
+ CONST extprop:rc:SelfName 'OpenDocument'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DB00AF302F0 OpenDocument
+
+FORWARD ME_4DB82E4D0197
+
+: ME_4DB82EC60013
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ;
+ : Target WL 'ME_47F100430323' '47F086170200.pas.ms.script' // TevDocumentsCache
+ ;
+
+ref; // ME_4DB82EC60013 
+
+: ME_4DAEEDE10285_ME_4DB82E4D0197
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DB82E4D0197 DoDoIt
+
+: ME_4DB0614603C8_ME_4DB82E4D0197
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DB82E4D0197 GetWordNameForRegister
+
+: ME_4DB82E4D0197
+ CONST UID '4DB82E4D0197'
+ CONST Name 'TkwDocumentsCacheClear'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DB82E4D0197 // DoDoIt
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DB82E4D0197 // GetWordNameForRegister
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4DB82EC60013 // TevDocumentsCache
+ )
+ ; // Dependencies
+ CONST "NameForScript" 'documentscache:Clear'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.04.2011 18:55'
+ CONST extprop:rc:SelfName 'DocumentsCacheClear'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DB82E4D0197 TkwDocumentsCacheClear
+
+FORWARD ME_53B2CAE50115
+
+: ME_53B2CB6B0177
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ : Target WL 'ME_4574353000CB' '4570501E037A.pas.ms.script' // NodeFlags
+ ;
+
+ref; // ME_53B2CB6B0177 
+
+: ME_53B2CBC9035C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ : Target WL 'ME_4B1E8FAE0380' '48F747EC0073.pas.ms.script' // DefDataAdapter
+ ;
+
+ref; // ME_53B2CBC9035C 
+
+: ME_53B2CC23000A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53B2CAE50115 // IsMyDocumentsEmpty
+ ;
+ : Target WL 'ME_456FE63B01D4' '456F02A50196.pas.ms.script' // Node
+ ;
+
+ref; // ME_53B2CC23000A 
+
+: ME_4DAEEDE10285_ME_53B2CAE50115
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_53B2CAE50115 DoDoIt
+
+: ME_53B2CAE50115
+ CONST UID '53B2CAE50115'
+ CONST Name 'IsMyDocumentsEmpty'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_53B2CAE50115 // DoDoIt
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_53B2CB6B0177 // NodeFlags
+ ME_53B2CBC9035C // DefDataAdapter
+ ME_53B2CC23000A // Node
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwIsMyDocumentsEmpty'
+ CONST extprop:rc:SelfName 'IsMyDocumentsEmpty'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53B2CAE50115 IsMyDocumentsEmpty
+
+: ME_571A2137001E
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Target ME_49539DBA029D // ExText
+ ;
+
+ref; // ME_571A2137001E 
+
+: ME_571E2007038D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_571A211F0239 // ExTextFormWordsPack
+ ;
+ : Target WL 'ME_4DB7EA830363' '4F4CB50403CC.pas.ms.script' // pop_editor_DeleteUserComment
+ ;
+
+ref; // ME_571E2007038D 
+
+: ME_571A211F0239
+ CONST UID '571A211F0239'
+ CONST Name 'ExTextFormWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4951181B02B6 // Document
+ ;
+ : Children
+   Seq: ( ME_4DCA5A94013D // TkwExTextFormWord
+ ME_4F1942440116 // TkwTextFormGetDocumentID
+ ME_4F183D860083 // TkwTextFormSetNeedShowIntranetWarning
+ ME_500E876A0208 // document_LikeState
+ ME_4DB00AF302F0 // OpenDocument
+ ME_4DB82E4D0197 // TkwDocumentsCacheClear
+ ME_53B2CAE50115 // IsMyDocumentsEmpty
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_571A2137001E // ExText
+ ME_571E2007038D // pop_editor_DeleteUserComment
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "need UC" true
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\ExTextFormWordsPack.pas'
+
+ref; // ME_571A211F0239 ExTextFormWordsPack
+
 FORWARD ME_CDF589453472
 
 : ME_A88A805E3EC1
@@ -42175,6 +42358,7 @@ ref; // ME_A84598360094 Tkw_Document_opOpenDocOnNumber
  ME_4B0E6EAD01D9 // TnsSwitchVersionCommentsEvent
  ME_4B0E6F160372 // TnsTextTabActivateEvent
  ME_4B13AFDF013A // TnsUseDocumentSubPanelOperationEvent
+ ME_571A211F0239 // ExTextFormWordsPack
  ME_9847AD90023A // DocumentShowChangesInfoSettingRes
  ME_A8C41C353B7D // TstDocumentShowChangesInfoItem
  ME_A84598360094 // Tkw_Document_opOpenDocOnNumber
@@ -42344,6 +42528,7 @@ ref; // ME_A84598360094 Tkw_Document_opOpenDocOnNumber
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
+ WL 'ME_4F4CB50403CC' '4F4CB50403CC.pas.ms.script' // EditorFromStackKeyWords
  WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
  WL 'ME_4FF2E5B80387' '4FF2E5B80387.pas.ms.script' // AAC
@@ -42361,9 +42546,7 @@ ref; // ME_A84598360094 Tkw_Document_opOpenDocOnNumber
  WL 'ME_54817B05034F' '54817B05034F.pas.ms.script' // eeSubPanel
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine

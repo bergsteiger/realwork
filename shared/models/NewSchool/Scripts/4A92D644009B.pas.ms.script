@@ -2220,6 +2220,8 @@ ref; // ME_4F7B072201AA_ME_497EBEC4031D DoSaveInSettings
  CONST OpKind opkind_Overridden
 ref; // ME_4FC38C4C0119_ME_497EBEC4031D NeedSaveInSettings
 
+FORWARD ME_571A26FD011E
+
 : ME_497EBEC4031D
  CONST UID '497EBEC4031D'
  CONST Name 'PrimNewsLine'
@@ -2324,6 +2326,10 @@ ref; // ME_4FC38C4C0119_ME_497EBEC4031D NeedSaveInSettings
  ME_4DFCFEEE374E // TtfwClassRef
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_571A26FD011E // PrimNewsLine
+ )
+ ; // Injected
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Ëþëèí À.Â.'
@@ -4376,17 +4382,6 @@ ref; // ME_55F66220D931 Reg_Type_NewsLine
 
 ref; // ME_5FCD0F18BA69 Reg_Type_TnscTreeViewForNewsLine
 
-: ME_DC51DD000309
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7F393F8A2EA8 // NewsLineKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_DC51DD000309 
-
 : ME_10BE8D559D6A
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -4397,17 +4392,6 @@ ref; // ME_DC51DD000309
  ;
 
 ref; // ME_10BE8D559D6A 
-
-: ME_05F6A0504E19
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7F393F8A2EA8 // NewsLineKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_05F6A0504E19 
 
 : ME_4BDAF7B803CF_ME_7F393F8A2EA8
  : Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.pas.ms.script' // Wrap
@@ -4463,9 +4447,7 @@ ref; // ME_4BDAF7B803CF_ME_7F393F8A2EA8 Wrap
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_DC51DD000309 // TypeInfoExt
- ME_10BE8D559D6A // NewsLine
- ME_05F6A0504E19 // TtfwTypeRegistrator
+   Seq: ( ME_10BE8D559D6A // NewsLine
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -5912,6 +5894,97 @@ ref; // ME_524D5B4003C7
 
 ref; // ME_4C87BD1A0218 TnsNewsLine
 
+FORWARD ME_571A26F2006C
+
+FORWARD ME_54294F2701D0
+
+: ME_542A83A700D7
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54294F2701D0 // OpenPrimeForm
+ ;
+ : Target ME_542950E801C0 // OpenNewsLinePrim
+ ;
+
+ref; // ME_542A83A700D7 
+
+: ME_4DAEEDE10285_ME_54294F2701D0
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_54294F2701D0 DoDoIt
+
+: ME_54294F2701D0
+ CONST UID '54294F2701D0'
+ CONST Name 'OpenPrimeForm'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=235046973' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571A26F2006C // PrimMonitoringsWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_54294F2701D0 // DoDoIt
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_542A83A700D7 // OpenNewsLinePrim
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwOpenPrimeForm'
+ CONST extprop:rc:SelfName 'OpenPrimeForm'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_54294F2701D0 OpenPrimeForm
+
+: ME_571A26FD011E
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_571A26F2006C // PrimMonitoringsWordsPack
+ ;
+ : Target ME_497EBEC4031D // PrimNewsLine
+ ;
+
+ref; // ME_571A26FD011E 
+
+: ME_571A26F2006C
+ CONST UID '571A26F2006C'
+ CONST Name 'PrimMonitoringsWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A92D644009B // Search
+ ;
+ : Children
+   Seq: ( ME_54294F2701D0 // OpenPrimeForm
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_571A26FD011E // PrimNewsLine
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "need UC" true
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitoringsWordsPack.pas'
+
+ref; // ME_571A26F2006C PrimMonitoringsWordsPack
+
 : ME_4EFCE18E96D8
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -6052,6 +6125,7 @@ ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
  ME_4C87BB9C0143 // PrimNewsLineOptions
  ME_4A8ECF3001D2 // PrimMonitorings
  ME_4C87BD1A0218 // TnsNewsLine
+ ME_571A26F2006C // PrimMonitoringsWordsPack
  ME_9EC9D4649A50 // Tkw_Monitorings_opOpenNewsLine
  ME_787EB19E7B3F // Tkw_Monitorings_opOpenLegislationReview
  )
@@ -6112,8 +6186,6 @@ ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
  WL 'ME_54522F8A01A8' '54522F8A01A8.pas.ms.script' // Tree
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

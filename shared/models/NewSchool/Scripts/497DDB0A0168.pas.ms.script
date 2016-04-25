@@ -13628,6 +13628,8 @@ ref; // ME_53F1C6EF02C9_ME_4C46AA3401DB DoGetTabCaption
  CONST "no prefix" false
 ref; // ME_53FF40030272_ME_4C46AA3401DB AnalizeList
 
+FORWARD ME_571A2C160184
+
 : ME_4C46AA3401DB
  CONST UID '4C46AA3401DB'
  CONST Name 'PrimListOptions'
@@ -13875,6 +13877,10 @@ ref; // ME_53FF40030272_ME_4C46AA3401DB AnalizeList
  ME_89F6336AADC2 // TtfwClassRef
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_571A2C160184 // PrimListOptions
+ )
+ ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Ëþëèí À.Â.'
@@ -26687,17 +26693,6 @@ ref; // ME_79D152584972 Reg_Type_TnscContextFilter
 
 ref; // ME_D0F28AD948B4 Reg_Type_TvtFocusLabel
 
-: ME_31F93C9A4849
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0F9EB2C7D445 // ListKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_31F93C9A4849 
-
 : ME_ABF5DB31E3F7
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -26708,17 +26703,6 @@ ref; // ME_31F93C9A4849
  ;
 
 ref; // ME_ABF5DB31E3F7 
-
-: ME_518EB30F0262
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0F9EB2C7D445 // ListKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_518EB30F0262 
 
 : ME_4951285702E1_ME_0F9EB2C7D445
  : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
@@ -27187,9 +27171,7 @@ ref; // ME_55545C63026E_ME_0F9EB2C7D445 CommonDocumentOpenNewTab
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_31F93C9A4849 // TypeInfoExt
- ME_ABF5DB31E3F7 // List
- ME_518EB30F0262 // TtfwTypeRegistrator
+   Seq: ( ME_ABF5DB31E3F7 // List
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -27891,17 +27873,6 @@ ref; // ME_326915A66284 Reg_Type_TnscEditor
 
 ref; // ME_4A62F0478D4B Reg_Type_TnscTextSource
 
-: ME_90F372792DB0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_67BD224FB2E7 // ListInfoKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_90F372792DB0 
-
 : ME_BBC5B65EAB5C
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -27912,17 +27883,6 @@ ref; // ME_90F372792DB0
  ;
 
 ref; // ME_BBC5B65EAB5C 
-
-: ME_6136EFDFB760
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_67BD224FB2E7 // ListInfoKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_6136EFDFB760 
 
 : ME_4951285702E1_ME_67BD224FB2E7
  : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
@@ -28127,9 +28087,7 @@ ref; // ME_4C7D0C7B0185_ME_67BD224FB2E7 Copy
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_90F372792DB0 // TypeInfoExt
- ME_BBC5B65EAB5C // ListInfo
- ME_6136EFDFB760 // TtfwTypeRegistrator
+   Seq: ( ME_BBC5B65EAB5C // ListInfo
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -28871,17 +28829,6 @@ ref; // ME_7C0197C00C92 Reg_Type_TvtPanel
 
 ref; // ME_91EF1C7F0056 Reg_Type_TeeTreeView
 
-: ME_B21BD716B2D2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F05ED964BBD9 // ListAnalizerKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_B21BD716B2D2 
-
 : ME_70F0C95EBDD8
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -28892,17 +28839,6 @@ ref; // ME_B21BD716B2D2
  ;
 
 ref; // ME_70F0C95EBDD8 
-
-: ME_9AFEA4CB0247
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F05ED964BBD9 // ListAnalizerKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_9AFEA4CB0247 
 
 : ME_F05ED964BBD9
  CONST UID 'F05ED964BBD9'
@@ -28945,9 +28881,7 @@ ref; // ME_9AFEA4CB0247
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_B21BD716B2D2 // TypeInfoExt
- ME_70F0C95EBDD8 // ListAnalizer
- ME_9AFEA4CB0247 // TtfwTypeRegistrator
+   Seq: ( ME_70F0C95EBDD8 // ListAnalizer
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -29003,17 +28937,6 @@ ref; // ME_4DDFD2EA0116_ME_B7DFAFBD7BE2 GetString
 
 ref; // ME_B7DFAFBD7BE2 Tkw_Form_ListAnalize
 
-: ME_1FC297B212F1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FF111F2E9A9B // ListAnalizeKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_1FC297B212F1 
-
 : ME_C3E0BBAC9EC5
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -29046,8 +28969,7 @@ ref; // ME_C3E0BBAC9EC5
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_1FC297B212F1 // TypeInfoExt
- ME_C3E0BBAC9EC5 // ListAnalize
+   Seq: ( ME_C3E0BBAC9EC5 // ListAnalize
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -29825,6 +29747,261 @@ ref; // ME_52A8228C0304
 
 ref; // ME_52A821F90360 nsListEvents
 
+FORWARD ME_5130D80002C1
+
+FORWARD ME_512FA1800269
+
+FORWARD ME_512FA22703B6
+
+: ME_512FA29F00AF
+ CONST Name 'aTreeView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_499C26240034' '499C2614028C.pas.ms.script' // TnscTreeView
+ ;
+
+ref; // ME_512FA29F00AF aTreeView
+
+: ME_512FA29F00CE
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_512FA29F00CE aCtx
+
+: ME_512FA295029D
+ CONST UID '512FA295029D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_512FA22703B6 // DoWithNscTreeView
+ ;
+ : Parameters
+   Seq: ( ME_512FA29F00AF // aTreeView
+ ME_512FA29F00CE // aCtx
+ )
+ ; // Parameters
+
+ref; // ME_512FA295029D DoIt
+
+: ME_512FA22703B6
+ CONST UID '512FA22703B6'
+ CONST Name 'DoWithNscTreeView'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_512FA1800269 // TkwNscTreeViewWord
+ ;
+ : Operations
+   Seq: ( ME_512FA295029D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_512FA22703B6 DoWithNscTreeView
+
+: ME_4F212C3A015A_ME_512FA1800269
+ : Original WL 'ME_4F212C3A015A' '54DB92D203C9.pas.ms.script' // DoControl
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F212C3A015A_ME_512FA1800269 DoControl
+
+: ME_512FA1800269
+ CONST UID '512FA1800269'
+ CONST Name 'TkwNscTreeViewWord'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5130D80002C1 // nscTreeViewForDocumentListWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4F212C120371' '54DB92D203C9.pas.ms.script' // kwControlFromStackWord
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_512FA22703B6 // DoWithNscTreeView
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4F212C3A015A_ME_512FA1800269 // DoControl
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'NscTreeViewWord'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_512FA1800269 TkwNscTreeViewWord
+
+FORWARD ME_512FA2CC033C
+
+: ME_5130B70A030A
+ CONST UID '5130B70A030A'
+ CONST Name 'TPrimListOptionsFormHack'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ ;
+ : Inherits
+   Seq: ( ME_4C46AA3401DB // PrimListOptions
+ )
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'PrimListOptionsFormHack'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5130B70A030A TPrimListOptionsFormHack
+
+: ME_5130B17702B8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ ;
+ : Target WL 'ME_4A6854C70390' '47F2170002B2.pas.ms.script' // nsTypes
+ ;
+
+ref; // ME_5130B17702B8 
+
+: ME_5130B17A0373
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ ;
+ : Target WL 'ME_47F2177103CB' '47EA07FA02CE.pas.ms.script' // TbsSaveListKind
+ ;
+
+ref; // ME_5130B17A0373 
+
+: ME_54DA395A01A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_54DA395A01A5 
+
+: ME_550ADBAD030C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ ;
+ : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
+ ;
+
+ref; // ME_550ADBAD030C 
+
+: ME_512FA22703B6_ME_512FA2CC033C
+ : Original ME_512FA22703B6 // DoWithNscTreeView
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_512FA22703B6_ME_512FA2CC033C DoWithNscTreeView
+
+: ME_512FA2CC033C
+ CONST UID '512FA2CC033C'
+ CONST Name 'pop_TreeView_ExportSelectionWithFormat'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5130D80002C1 // nscTreeViewForDocumentListWordsPack
+ ;
+ : Inherits
+   Seq: ( ME_512FA1800269 // TkwNscTreeViewWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_512FA22703B6_ME_512FA2CC033C // DoWithNscTreeView
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_5130B70A030A // TPrimListOptionsFormHack
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_5130B17702B8 // nsTypes
+ ME_5130B17A0373 // TbsSaveListKind
+ ME_54DA395A01A5 // afwFacade
+ ME_550ADBAD030C // TCustomForm
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:pas:TypeName 'TkwPopTreeViewExportSelectionWithFormat'
+ CONST extprop:rc:SelfName 'PopTreeViewExportSelectionWithFormat'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_512FA2CC033C pop_TreeView_ExportSelectionWithFormat
+
+: ME_5130D844016A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5130D80002C1 // nscTreeViewForDocumentListWordsPack
+ ;
+ : Target ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ ;
+
+ref; // ME_5130D844016A 
+
+: ME_571A2C160184
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_5130D80002C1 // nscTreeViewForDocumentListWordsPack
+ ;
+ : Target ME_4C46AA3401DB // PrimListOptions
+ ;
+
+ref; // ME_571A2C160184 
+
+: ME_5130D80002C1
+ CONST UID '5130D80002C1'
+ CONST Name 'nscTreeViewForDocumentListWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_497DDB0A0168 // List
+ ;
+ : Children
+   Seq: ( ME_512FA1800269 // TkwNscTreeViewWord
+ ME_512FA2CC033C // pop_TreeView_ExportSelectionWithFormat
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_5130D844016A // pop_TreeView_ExportSelectionWithFormat
+ ME_571A2C160184 // PrimListOptions
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "need UC" true
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\nscTreeViewForDocumentListWordsPack.pas'
+ CONST extprop:rc:SelfName 'TreeViewForDocumentListWordsPack'
+
+ref; // ME_5130D80002C1 nscTreeViewForDocumentListWordsPack
+
 : ME_497DDB0A0168
  CONST UID '497DDB0A0168'
  CONST Name 'List'
@@ -29845,6 +30022,7 @@ ref; // ME_52A821F90360 nsListEvents
  ME_4A9BF42601A9 // List$FP
  ME_4F82BA9D0310 // TnsListSortTypeMap
  ME_52A821F90360 // nsListEvents
+ ME_5130D80002C1 // nscTreeViewForDocumentListWordsPack
  )
  ; // Children
  : Depends
@@ -29967,8 +30145,6 @@ ref; // ME_52A821F90360 nsListEvents
  WL 'ME_53D227F702DF' '53D227F702DF.pas.ms.script' // DocumentHistory
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping

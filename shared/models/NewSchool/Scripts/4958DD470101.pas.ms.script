@@ -17226,17 +17226,6 @@ ref; // ME_27C2FB327C1C Reg_Type_TImageEnView
 
 ref; // ME_88D80C411E16 Reg_Type_TImageEnIO
 
-: ME_21CBA9F1B6C6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_867969A10DF8 // MainMenuNewKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_21CBA9F1B6C6 
-
 : ME_C26EF8A7BD84
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -17247,17 +17236,6 @@ ref; // ME_21CBA9F1B6C6
  ;
 
 ref; // ME_C26EF8A7BD84 
-
-: ME_7CCBD32DD2E2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_867969A10DF8 // MainMenuNewKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_7CCBD32DD2E2 
 
 : ME_867969A10DF8
  CONST UID '867969A10DF8'
@@ -17434,9 +17412,7 @@ ref; // ME_7CCBD32DD2E2
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_21CBA9F1B6C6 // TypeInfoExt
- ME_C26EF8A7BD84 // MainMenuNew
- ME_7CCBD32DD2E2 // TtfwTypeRegistrator
+   Seq: ( ME_C26EF8A7BD84 // MainMenuNew
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -30084,17 +30060,6 @@ ref; // ME_095D2CFA7EBD Reg_Type_TImageEnIO
 
 ref; // ME_42E00E7624F7 Reg_Type_TnscHideField
 
-: ME_94C956059A90
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_94C956059A90 
-
 : ME_D95452ABE669
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -30105,17 +30070,6 @@ ref; // ME_94C956059A90
  ;
 
 ref; // ME_D95452ABE669 
-
-: ME_F21F33B6FE0A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_483B68B1ABBB // MainMenuWithProfNewsKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_F21F33B6FE0A 
 
 : ME_483B68B1ABBB
  CONST UID '483B68B1ABBB'
@@ -30355,9 +30309,7 @@ ref; // ME_F21F33B6FE0A
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_94C956059A90 // TypeInfoExt
- ME_D95452ABE669 // MainMenuWithProfNews
- ME_F21F33B6FE0A // TtfwTypeRegistrator
+   Seq: ( ME_D95452ABE669 // MainMenuWithProfNews
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -30686,6 +30638,8 @@ ref; // ME_FD95DDBA2CF0
 
 ref; // ME_DFC80F9DB2F7 
 
+FORWARD ME_571E2409028C
+
 : ME_4AA7A1F80027
  CONST UID '4AA7A1F80027'
  CONST Name 'MainMenu'
@@ -30717,6 +30671,10 @@ ref; // ME_DFC80F9DB2F7
  ME_DFC80F9DB2F7 // vcmBase
  )
  ; // Dependencies
+ : Injected
+   Seq: ( ME_571E2409028C // MainMenu$FP
+ )
+ ; // Injected
  CONST "author" 'Люлин А.В.'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -30730,6 +30688,85 @@ ref; // ME_DFC80F9DB2F7
  CONST extprop:pas:UnitName 'MainMenu_Module'
 
 ref; // ME_4AA7A1F80027 MainMenu$FP
+
+FORWARD ME_571E23FB01C3
+
+FORWARD ME_4DAF1471030D
+
+: ME_4DAEEDE10285_ME_4DAF1471030D
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DAF1471030D DoDoIt
+
+: ME_4DAF1471030D
+ CONST UID '4DAF1471030D'
+ CONST Name 'MainMenu'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_571E23FB01C3 // MainMenuProcessingWordsPack
+ ;
+ : Inherits
+   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_4DAEEDE10285_ME_4DAF1471030D // DoDoIt
+ )
+ ; // Implemented
+ CONST "NameForScript" 'ОсновноеМеню'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '20.04.2011 21:14'
+ CONST extprop:pas:TypeName 'TkwMainMenu'
+ CONST extprop:rc:SelfName 'MainMenu'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4DAF1471030D MainMenu
+
+: ME_571E2409028C
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_571E23FB01C3 // MainMenuProcessingWordsPack
+ ;
+ : Target ME_4AA7A1F80027 // MainMenu$FP
+ ;
+
+ref; // ME_571E2409028C 
+
+: ME_571E23FB01C3
+ CONST UID '571E23FB01C3'
+ CONST Name 'MainMenuProcessingWordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4958DD470101 // MainMenu
+ ;
+ : Children
+   Seq: ( ME_4DAF1471030D // MainMenu
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_571E2409028C // MainMenu$FP
+ )
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "need UC" true
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuProcessingWordsPack.pas'
+
+ref; // ME_571E23FB01C3 MainMenuProcessingWordsPack
 
 FORWARD ME_079D9884894A
 
@@ -31776,6 +31813,7 @@ ref; // ME_98CD882A435E TstMainMenuChangeableMainMenuTypeItem
  ME_56FA889202B4 // PrimMainMenuWithProfNews
  ME_4F2012220355 // TnsMainMenuFormGUIDFactory
  ME_4AA7A1F80027 // MainMenu$FP
+ ME_571E23FB01C3 // MainMenuProcessingWordsPack
  ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
  ME_98CD882A435E // TstMainMenuChangeableMainMenuTypeItem
  )
@@ -31842,8 +31880,6 @@ ref; // ME_98CD882A435E TstMainMenuChangeableMainMenuTypeItem
  WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine

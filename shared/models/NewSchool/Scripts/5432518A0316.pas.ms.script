@@ -3514,6 +3514,52 @@ ref; // ME_5718B5E00246 anUserID
 
 ref; // ME_5718B5CF0399 GetUserName
 
+: ME_571DF2820241
+ CONST Name 'aGrouId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_571DF2820241 aGrouId
+
+: ME_571DF2820270
+ CONST Name 'aImportPriority'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_571DEC680076' '5432448401BC.pas.ms.script' // TdaPriority
+ ;
+
+ref; // ME_571DF2820270 aImportPriority
+
+: ME_571DF282029F
+ CONST Name 'aExportPriority'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_571DEC680076' '5432448401BC.pas.ms.script' // TdaPriority
+ ;
+
+ref; // ME_571DF282029F aExportPriority
+
+: ME_571DCFB50217
+ CONST UID '571DCFB50217'
+ CONST Name 'GetUserPriorities'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_571DF2820241 // aGrouId
+ ME_571DF2820270 // aImportPriority
+ ME_571DF282029F // aExportPriority
+ )
+ ; // Parameters
+
+ref; // ME_571DCFB50217 GetUserPriorities
+
 : ME_5628D14000F6
  CONST UID '5628D14000F6'
  CONST GUID '43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3'
@@ -3534,6 +3580,7 @@ ref; // ME_5718B5CF0399 GetUserName
    Seq: ( ME_5628D14D0151 // CheckPassword
  ME_56EA993D0218 // IsUserAdmin
  ME_5718B5CF0399 // GetUserName
+ ME_571DCFB50217 // GetUserPriorities
  )
  ; // Operations
  CONST extprop:rc:SelfName 'daUserManager'

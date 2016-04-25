@@ -88,6 +88,7 @@ p external name:s ? внешнее имя изсполнимого модуля
 	[{%SS=VCMTestTarget}{\
 	[{%S{is insider test}!=true}\
 	[{%S{no scripts}!=true}\
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
 	%S%f_make_accessable(%{TAutoTestsSuite}U)\
 	%f_addCDep(%S,%{TAutoTestsSuite})\
@@ -96,7 +97,9 @@ p external name:s ? внешнее имя изсполнимого модуля
 	%f_addCDep(%S,%{TtfwScriptEngineEX})\
 	]\
 	]\
+	]\
 	}\
+	[{%S#f_UseNewGenRec()!=true}\
 	[{<{}{%D#f_IsVCMGUI()=true&%D{F1Like}=false}{C}>=0}{\
 	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
 	%S%f_make_accessable(%{TAutoTestsSuite}U)\
@@ -107,7 +110,9 @@ p external name:s ? внешнее имя изсполнимого модуля
 	%f_addCDep(%S,%{TF1AutoTestSuite})\
 	]\
 	]\
+	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{Exception}N"=""}%f_find_element(4787A405013D,Exception)]\
 	%S%f_make_accessable(%{Exception}U)\
 	%f_addCDep(%S,%{Exception})\
@@ -136,6 +141,7 @@ p external name:s ? внешнее имя изсполнимого модуля
 	[{"%{TvcmInsiderTest}N"=""}%f_find_element(TvcmInsiderTest,TvcmInsiderTest)]\
 	%S%f_make_accessable(%{TvcmInsiderTest}U)\
 	%f_addCDep(%S,%{TvcmInsiderTest})\
+	]\
 	]\
 	]
 //#UC END# *4B2A19E3038Bfor470382290251*

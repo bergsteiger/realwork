@@ -61,8 +61,10 @@ p ifndef:s=NoScripts ?
 
 	%f_SpellScriptFramework(%S)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
 	%f_addCDep(%S,%{TypeInfoExt})\
+	]\
 
 	%f_clear_list(PROPS)\
 
@@ -118,8 +120,10 @@ p ifndef:s=NoScripts ?
 
 	[{%f_is_empty(PARAMS)=false}\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{TtfwTypeRegistrator}N"=""}%f_find_element(5527F8330362,TtfwTypeRegistrator)]\
 	%f_addCDep(%S,%{TtfwTypeRegistrator})\
+	]\
 
 	%{PARAMS}<{}{}{%C}\
 
@@ -372,10 +376,11 @@ f _SpellWordByOp
 	%f_set_var(MyDo,{TtfwAnonimousWord.DoRun})\
 	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{SysUtils}N"=""}%f_find_element(47877EB202FB,SysUtils)]\
-
 	%{Class_Inst}%f_make_accessable(%{SysUtils}U)\
 	%f_addCDep(%{Class_Inst},%{SysUtils})\
+	]\
 
 	[{""=""}\
 // - специально так хитро закомментировано
