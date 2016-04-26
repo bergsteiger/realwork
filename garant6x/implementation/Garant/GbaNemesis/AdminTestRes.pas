@@ -53,6 +53,8 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
+ , evExtFormat
+ , StdRes
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}

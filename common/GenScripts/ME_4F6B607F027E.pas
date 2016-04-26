@@ -37,6 +37,7 @@ uses
  , moParentAndChild
  , vtStdRes
  , MainPrim_Form
+ , evExtFormat
 ;
 
 {$If NOT Defined(NoVCM)}

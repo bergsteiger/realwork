@@ -83,6 +83,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , MainWindowKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , evExtFormat
 ;
 
 class procedure TPrimNemesisRes.BeforeCorrectDate(const aDate: AnsiString);

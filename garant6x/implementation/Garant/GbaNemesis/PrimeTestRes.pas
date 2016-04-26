@@ -56,6 +56,8 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
+ , evExtFormat
+ , StdRes
 ;
 
 {$If NOT Defined(Admin)}
