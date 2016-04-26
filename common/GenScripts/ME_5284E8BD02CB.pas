@@ -26,8 +26,10 @@ uses
  , kwRAISE
  , kwBracketBegin
  , kwBEGIN
- , tfwScriptingTypes
  , kwRULES
+ , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

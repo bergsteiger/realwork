@@ -23,10 +23,11 @@ uses
  , kwCompiledWordPrim
  , tfwScriptingInterfaces
  , l3Interfaces
- , tfwScriptingTypes
  , kwCompiledFunction
  , SysUtils
  , l3Base
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

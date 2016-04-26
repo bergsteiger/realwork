@@ -26,9 +26,11 @@ uses
  , kwBynameControlPush
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
- , tfwScriptingTypes
  , nscTreeViewWithAdapterDragDrop
  , TtfwClassRef_Proxy
+ , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

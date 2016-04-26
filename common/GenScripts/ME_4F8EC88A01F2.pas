@@ -31,6 +31,8 @@ uses
  , kwMouseGetCursorPosition
  , kwMouseWheelUp
  , kwMouseWheelDown
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

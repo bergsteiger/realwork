@@ -34,9 +34,9 @@ uses
  , l3Base
  , m2HasLib
  , tfwHash16Table
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

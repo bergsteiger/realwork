@@ -23,9 +23,9 @@ uses
  , WordsRTTIPack
  , tfwClassLike
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

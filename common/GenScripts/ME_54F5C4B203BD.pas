@@ -29,9 +29,9 @@ uses
  , tfwTypeInfo
  , Messages
  , Windows
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

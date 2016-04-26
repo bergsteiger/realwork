@@ -55,9 +55,7 @@ uses
  , moAAC
  , moCommonPost
  , evExtFormat
- {$If NOT Defined(NoVCM)}
  , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

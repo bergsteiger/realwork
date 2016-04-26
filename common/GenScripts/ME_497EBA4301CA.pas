@@ -242,6 +242,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , PrimQueryCardWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , ActiveX
  , l3Memory
  , l3Interfaces

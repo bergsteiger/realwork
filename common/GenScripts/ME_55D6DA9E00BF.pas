@@ -58,6 +58,7 @@ type
    f_SetGlobalDataProvider: Boolean;
    f_HasAdminRights: Boolean;
    f_AlienSessionID: TdaSessionID;
+   f_ImpersonateCounter: Integer;
   private
    procedure ReadIniFile;
    function RegionQuery: IdaTabledQuery;

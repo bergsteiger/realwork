@@ -25,9 +25,9 @@ uses
  , tfwScriptEngine
  , tfwOutToFileScriptCaller
  , tfwDebugScriptCaller
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

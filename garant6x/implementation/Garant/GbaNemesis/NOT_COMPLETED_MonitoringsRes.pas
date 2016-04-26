@@ -40,15 +40,13 @@ uses
  l3ImplUses
  , moCommonPost
  , l3MessageID
- , evExtFormat
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimMonitoringsMain_Form
  , MonitoringsMain_Form
  {$If NOT Defined(NoScripts)}
  , MonitoringsMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , evExtFormat
+ , StdRes
 ;
 
 class procedure TMonitoringsRes.DoRun(var theSplash: IUnknown);

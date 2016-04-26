@@ -28,6 +28,8 @@ uses
  , kwPopQueryCardAttributeGetLogicOperation
  , kwPopQueryCardAttributeIsLogicOperationEnabled
  , kwPopQueryCardGetCurrentReqName
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

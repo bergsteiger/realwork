@@ -60,13 +60,13 @@ uses
  , kwCompiledWordWorker
  , tfwWordRefList
  , tfwScriptEngineExInterfaces
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , kwCompiledWordWorkerWordRunner
  , kwCompiledWordWorkerWord
  , kwCompiledIfElse
  , SysUtils
  , tfwWordBoxPack
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

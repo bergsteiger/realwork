@@ -22,8 +22,10 @@ uses
  l3ImplUses
  , CustomizeTools_Form
  , tfwControlString
- , tfwScriptingTypes
  , TtfwClassRef_Proxy
+ , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

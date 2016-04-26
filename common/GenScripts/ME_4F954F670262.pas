@@ -23,6 +23,8 @@ uses
  , kwPopEditorParaEndCoordsToScreen
  , kwPopEditorParaMiddleCoordsToScreen
  , kwPopEditorCursorCoordsToScreen
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

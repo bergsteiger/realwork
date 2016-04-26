@@ -51,9 +51,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmForm
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , F1ScriptEngine
- {$IfEnd} // NOT Defined(NoScripts)
  , toK64
  {$If NOT Defined(NoScripts)}
  , afwAnswer
@@ -68,6 +65,7 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
+ , evExtFormat
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}

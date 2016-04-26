@@ -30,10 +30,6 @@ uses
  , kwMainMenu
  , kwOk
  , kwOpenDocument
- , F1ShellWordsPack
- , TreeViewWordsPack
- , Integration
- , InterfacedNodeWordsPack
  , f1WordsPack
  , kwPopEditorDeleteUserComment
 ;

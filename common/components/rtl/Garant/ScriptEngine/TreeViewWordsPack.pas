@@ -24,9 +24,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , TreeNodeWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

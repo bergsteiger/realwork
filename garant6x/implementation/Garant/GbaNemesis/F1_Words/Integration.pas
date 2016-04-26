@@ -21,6 +21,8 @@ uses
  l3ImplUses
  , kwIntegrationOpenLink
  , tfwScriptingTypes
+ , SysUtils
+ , tfwTypeRegistrator
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

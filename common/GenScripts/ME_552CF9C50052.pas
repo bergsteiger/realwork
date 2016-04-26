@@ -24,9 +24,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , l3AutolinkService
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

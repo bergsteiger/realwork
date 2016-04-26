@@ -49,8 +49,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Graphics
  , l3PicturePathService
- , tfwScriptingTypes
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

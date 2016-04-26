@@ -26,6 +26,8 @@ uses
  , kwPushMainForm
  , kwPopEditorSetStyle2Table
  , tfwScriptingTypes
+ , SysUtils
+ , tfwTypeRegistrator
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 

@@ -26,9 +26,9 @@ uses
  , tfwTypeInfo
  , TypInfo
  , tfwGlobalKeyWord
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

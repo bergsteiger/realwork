@@ -25,6 +25,8 @@ uses
  , kwWaitYes
  , kwWaitCancel
  , kwWaitChoice
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

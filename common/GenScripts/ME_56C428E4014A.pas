@@ -31,6 +31,9 @@ type
    function Get_AllUsers: Tl3StringDataList;
    function Get_AllGroups: Tl3StringDataList;
    function GetUserName(anUserID: TdaUserID): AnsiString;
+   function GetUserPriorities(aGrouId: TdaUserID;
+    var aImportPriority: TdaPriority;
+    var aExportPriority: TdaPriority): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -127,6 +130,17 @@ begin
  Assert(Result = f_PGManager.GetUserName(anUserID));
 //#UC END# *5718B5CF0399_56C428E4014A_impl*
 end;//TcaUserManager.GetUserName
+
+function TcaUserManager.GetUserPriorities(aGrouId: TdaUserID;
+ var aImportPriority: TdaPriority;
+ var aExportPriority: TdaPriority): Boolean;
+//#UC START# *571DCFB50217_56C428E4014A_var*
+//#UC END# *571DCFB50217_56C428E4014A_var*
+begin
+//#UC START# *571DCFB50217_56C428E4014A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *571DCFB50217_56C428E4014A_impl*
+end;//TcaUserManager.GetUserPriorities
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

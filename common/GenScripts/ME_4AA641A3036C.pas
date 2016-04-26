@@ -200,6 +200,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , kw_Search_opAttributeSearch
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , SearchModuleWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , nsConst
  , l3String
  , afwFacade

@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , ExtCtrls
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

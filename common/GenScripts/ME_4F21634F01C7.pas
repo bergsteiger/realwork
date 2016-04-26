@@ -25,9 +25,9 @@ uses
  , seModalSupport
  , l3AFWExceptions
  , seThreadSupport
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

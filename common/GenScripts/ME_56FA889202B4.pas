@@ -458,9 +458,10 @@ const
 begin
 //#UC START# *56FE6DC90398_56FA889202B4_impl*
  bvlLeft.Left := 0;
+ pnlMain.Width := Max(850, ClientWidth);
 
  pnlClient.Left := pnlLeft.Left + pnlLeft.Width;
- pnlClient.Width := pnlMain.Width - pnlLeft.Width;
+ pnlClient.Width := pnlMain.ClientWidth - pnlLeft.Width;
                       
  pnlNews.Top := 0;
  //////
@@ -539,9 +540,10 @@ begin
  end;
  with pnlBanner do
  begin
-  Height := 160;
+  Height := ieBanner.Height + 40;
   Top := pnlLogo.Top + pnlLogo.Height;
  end;
+ ieBanner.Top := 20;
 
  pnlFeedback.Top := pnlBanner.Top + pnlBanner.Height;
  pnlOnlineResources.Top := pnlFeedback.Top + pnlFeedback.Height;
@@ -550,6 +552,9 @@ begin
  if pnlMain.Height > ClientHeight
   then VertScrollBar.Range := pnlMain.Height
   else VertScrollBar.Range := 0;
+ if pnlMain.Width > ClientWidth
+  then HorzScrollBar.Range := pnlMain.Width
+  else HorzScrollBar.Range := 0;
 //#UC END# *56FE6DC90398_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.ArrangeControls
 
@@ -727,8 +732,6 @@ begin
     ieBanner.Hint := '';
   end;//l_EO <> nil
  end;//f_Banner <> nil
- pnlBanner.Height := ieBanner.Height * 2;
- ieBanner.Top := ieBanner.Height div 4;
 //#UC END# *57024B0D006F_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.LoadBanner
 
@@ -961,7 +964,8 @@ begin
  bvlRight.Shape := bsSpacer;
  with pnlMain do
  begin
-  Align := alTop;
+  Top := 0;
+  Left := 0;
   BevelOuter := bvNone;
   Color := clWhite;
   TabOrder := 0;
@@ -1191,8 +1195,8 @@ begin
   with ieBanner do
   begin
    Left := 10;
-   Width := 310;
-   Height := 90;
+   Width := 155;
+   Height := 200;
    Cursor := crHandPoint;
    BorderStyle := bsNone;
    LegacyBitmap := False;

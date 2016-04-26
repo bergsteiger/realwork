@@ -24,9 +24,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , ContainedActionsWordspack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

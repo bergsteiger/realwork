@@ -23,9 +23,9 @@ uses
  , tfwRegisterableWord
  , tfwScriptingInterfaces
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

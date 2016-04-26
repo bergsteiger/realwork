@@ -44,6 +44,8 @@ uses
  , kwConfigurationActivate
  , kwConfigurationGetID
  , tfwScriptingTypes
+ , SysUtils
+ , tfwTypeRegistrator
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

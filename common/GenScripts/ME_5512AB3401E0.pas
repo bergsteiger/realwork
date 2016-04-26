@@ -21,6 +21,8 @@ uses
  l3ImplUses
  , tfwTypeInfo
  , tfwConst
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 

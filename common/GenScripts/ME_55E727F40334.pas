@@ -27,9 +27,9 @@ uses
  , tfwMembersIterator
  , tfwScriptEngineExInterfaces
  , tfwKeywordsIterator
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

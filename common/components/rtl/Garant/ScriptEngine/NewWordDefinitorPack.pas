@@ -57,11 +57,11 @@ uses
  , l3Interfaces
  , TypInfo
  , tfwPropertyLike
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , l3Base
  , l3String
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

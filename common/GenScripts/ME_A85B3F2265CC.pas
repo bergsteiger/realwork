@@ -22,6 +22,8 @@ uses
  l3ImplUses
  , InternetAgent_Form
  , tfwControlString
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 

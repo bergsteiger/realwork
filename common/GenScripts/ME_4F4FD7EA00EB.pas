@@ -63,8 +63,8 @@ uses
  , l3FileUtils
  , l3Base
  , l3Stream
- , tfwScriptingTypes
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

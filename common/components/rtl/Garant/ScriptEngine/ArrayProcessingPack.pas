@@ -38,10 +38,10 @@ uses
  , tfwJoinIterator
  , tfwTruncatedArrayView
  , tfwSliceView
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , tfwArray
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

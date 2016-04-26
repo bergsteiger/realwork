@@ -38,6 +38,7 @@ type
    f_ImpersonatedUserID: TdaUserID;
    f_UserManager: IdaUserManager;
    f_SetGlobalDataProvider: Boolean;
+   f_ImpersonateCounter: Integer;
   private
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
    procedure DoProgressNotify(aState: Byte;

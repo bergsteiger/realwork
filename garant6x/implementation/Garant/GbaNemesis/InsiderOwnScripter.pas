@@ -13,12 +13,16 @@ interface
 uses
  l3IntfUses
  , CustomInsiderScripter
+ //#UC START# *4DB03B1B0055intf_uses*
+ //#UC END# *4DB03B1B0055intf_uses*
 ;
 
 type
- _F1Test_Parent_ = TCustomInsiderScripter;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
- TInsiderOwnScripter = {abstract} class(_F1Test_)
+ //#UC START# *4DB03B1B0055ci*
+ //#UC END# *4DB03B1B0055ci*
+ //#UC START# *4DB03B1B0055cit*
+ //#UC END# *4DB03B1B0055cit*
+ TInsiderOwnScripter = {abstract} class(TCustomInsiderScripter)
   protected
    procedure Run; override;
    procedure Prepare; override;
@@ -27,6 +31,8 @@ type
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
     {* Идентификатор элемента модели, который описывает тест }
+ //#UC START# *4DB03B1B0055publ*
+ //#UC END# *4DB03B1B0055publ*
  end;//TInsiderOwnScripter
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -35,23 +41,11 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(Admin)}
- , nsQueryInterfaces
- {$IfEnd} // NOT Defined(Admin)
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Result_Controls
- {$IfEnd} // NOT Defined(NoVCM)
- , nsUtils
- , nsConst
- , bsTypesNew
  , TestFrameWork
  , tfwScriptEngine
+ //#UC START# *4DB03B1B0055impl_uses*
+ //#UC END# *4DB03B1B0055impl_uses*
 ;
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
 
 procedure TInsiderOwnScripter.Run;
 //#UC START# *4DC3D2E00153_4DB03B1B0055_var*
@@ -85,6 +79,9 @@ function TInsiderOwnScripter.GetModelElementGUID: AnsiString;
 begin
  Result := '4DB03B1B0055';
 end;//TInsiderOwnScripter.GetModelElementGUID
+
+//#UC START# *4DB03B1B0055impl*
+//#UC END# *4DB03B1B0055impl*
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

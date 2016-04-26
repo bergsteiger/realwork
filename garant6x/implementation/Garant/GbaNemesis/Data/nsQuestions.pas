@@ -134,6 +134,7 @@ initialization
  str_DocumentEMailSelection.Init;
  str_DocumentEMailSelection.AddChoice(str_DocumentEMailSelection_Choice_Selection);
  str_DocumentEMailSelection.AddChoice(str_DocumentEMailSelection_Choice_WholeDocument);
+ str_DocumentEMailSelection.AddDefaultChoice(str_DocumentEMailSelection_Choice_Selection);
  str_DocumentEMailSelection.SetNeedCheck(true);
  str_DocumentEMailSelection.SetCheckCaption(str_DocumentEMailSelection_CheckCaption);
  str_DocumentEMailSelection.SetSettingsCaption(str_DocumentEMailSelection_SettingsCaption);
@@ -143,6 +144,7 @@ initialization
  str_ListEMailSelection.Init;
  str_ListEMailSelection.AddChoice(str_ListEMailSelection_Choice_Selected);
  str_ListEMailSelection.AddChoice(str_ListEMailSelection_Choice_WholeList);
+ str_ListEMailSelection.AddDefaultChoice(str_ListEMailSelection_Choice_Selected);
  str_ListEMailSelection.SetNeedCheck(true);
  str_ListEMailSelection.SetCheckCaption(str_ListEMailSelection_CheckCaption);
  str_ListEMailSelection.SetSettingsCaption(str_ListEMailSelection_SettingsCaption);
@@ -152,6 +154,7 @@ initialization
  str_ListPrintSelectedConfirmation.Init;
  str_ListPrintSelectedConfirmation.AddChoice(str_ListPrintSelectedConfirmation_Choice_Selected);
  str_ListPrintSelectedConfirmation.AddChoice(str_ListPrintSelectedConfirmation_Choice_WholeList);
+ str_ListPrintSelectedConfirmation.AddDefaultChoice(str_ListPrintSelectedConfirmation_Choice_Selected);
  str_ListPrintSelectedConfirmation.SetNeedCheck(true);
  str_ListPrintSelectedConfirmation.SetCheckCaption(str_ListPrintSelectedConfirmation_CheckCaption);
  str_ListPrintSelectedConfirmation.SetSettingsCaption(str_ListPrintSelectedConfirmation_SettingsCaption);
@@ -161,6 +164,7 @@ initialization
  str_PrintSelectedConfirmation.Init;
  str_PrintSelectedConfirmation.AddChoice(str_PrintSelectedConfirmation_Choice_Selected);
  str_PrintSelectedConfirmation.AddChoice(str_PrintSelectedConfirmation_Choice_WholeDocument);
+ str_PrintSelectedConfirmation.AddDefaultChoice(str_PrintSelectedConfirmation_Choice_Selected);
  str_PrintSelectedConfirmation.SetNeedCheck(true);
  str_PrintSelectedConfirmation.SetCheckCaption(str_PrintSelectedConfirmation_CheckCaption);
  str_PrintSelectedConfirmation.SetSettingsCaption(str_PrintSelectedConfirmation_SettingsCaption);
@@ -170,6 +174,7 @@ initialization
  str_ExportSelectionToWord.Init;
  str_ExportSelectionToWord.AddChoice(str_ExportSelectionToWord_Choice_Selected);
  str_ExportSelectionToWord.AddChoice(str_ExportSelectionToWord_Choice_WholeDocument);
+ str_ExportSelectionToWord.AddDefaultChoice(str_ExportSelectionToWord_Choice_Selected);
  str_ExportSelectionToWord.SetNeedCheck(true);
  str_ExportSelectionToWord.SetCheckCaption(str_ExportSelectionToWord_CheckCaption);
  str_ExportSelectionToWord.SetSettingsCaption(str_ExportSelectionToWord_SettingsCaption);
@@ -179,6 +184,7 @@ initialization
  str_ListExportSelectionToWord.Init;
  str_ListExportSelectionToWord.AddChoice(str_ListExportSelectionToWord_Choice_Selected);
  str_ListExportSelectionToWord.AddChoice(str_ListExportSelectionToWord_Choice_WholeList);
+ str_ListExportSelectionToWord.AddDefaultChoice(str_ListExportSelectionToWord_Choice_Selected);
  str_ListExportSelectionToWord.SetNeedCheck(true);
  str_ListExportSelectionToWord.SetCheckCaption(str_ListExportSelectionToWord_CheckCaption);
  str_ListExportSelectionToWord.SetSettingsCaption(str_ListExportSelectionToWord_SettingsCaption);
@@ -188,6 +194,7 @@ initialization
  str_ConsultDocumentsNotFound.Init;
  str_ConsultDocumentsNotFound.AddChoice(str_ConsultDocumentsNotFound_Choice_Spec);
  str_ConsultDocumentsNotFound.AddChoice(str_ConsultDocumentsNotFound_Choice_Back);
+ str_ConsultDocumentsNotFound.AddCustomChoice(str_ConsultDocumentsNotFound_Choice_Spec);
  str_ConsultDocumentsNotFound.SetDlgType(mtWarning);
  {* Инициализация str_ConsultDocumentsNotFound }
  str_ConsultDocumentsNotFoundNoSpec.Init;

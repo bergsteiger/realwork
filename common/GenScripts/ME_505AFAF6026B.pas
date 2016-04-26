@@ -28,9 +28,9 @@ uses
  , TypInfo
  , k2EVDReaderService
  , k2EVDWriterService
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

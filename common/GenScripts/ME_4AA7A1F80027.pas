@@ -42,6 +42,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , MainMenuProcessingWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , nsConst
  , nsTypes

@@ -29,9 +29,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , IedTableWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

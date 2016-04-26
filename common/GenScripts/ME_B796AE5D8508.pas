@@ -32,13 +32,13 @@ uses
  , tfwPropertyLike
  , tfwTypeInfo
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , TtfwClassRef_Proxy
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

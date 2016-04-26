@@ -26,9 +26,9 @@ uses
  , tfwTypeInfo
  , TypInfo
  , Windows
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

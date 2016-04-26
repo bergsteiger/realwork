@@ -26,6 +26,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , F1ShellWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure nsPrepareTextForMailto;

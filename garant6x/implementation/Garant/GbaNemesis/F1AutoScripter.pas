@@ -37,18 +37,6 @@ uses
  , SysUtils
  , StrUtils
  , TestFrameWork
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(Admin)}
- , nsQueryInterfaces
- {$IfEnd} // NOT Defined(Admin)
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Result_Controls
- {$IfEnd} // NOT Defined(NoVCM)
- , nsUtils
- , nsConst
- , bsTypesNew
  , tfwScriptEngine
 ;
 

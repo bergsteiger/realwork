@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , kwFORWARD
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

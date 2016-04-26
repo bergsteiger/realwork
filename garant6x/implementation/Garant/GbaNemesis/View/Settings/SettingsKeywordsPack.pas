@@ -22,6 +22,8 @@ uses
  l3ImplUses
  , Settings_Form
  , tfwControlString
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 

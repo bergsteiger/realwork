@@ -26,9 +26,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , ItfwKeywordFinderWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

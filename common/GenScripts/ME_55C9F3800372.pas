@@ -25,9 +25,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , FolderSupport
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

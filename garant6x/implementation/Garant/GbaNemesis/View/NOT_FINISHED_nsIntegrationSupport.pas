@@ -29,6 +29,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , IntegrationWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

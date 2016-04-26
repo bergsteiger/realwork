@@ -27,9 +27,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

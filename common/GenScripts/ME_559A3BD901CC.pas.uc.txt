@@ -170,9 +170,7 @@ var
  l_ResultSet: IdaResultSet;
 //#UC END# *5549F9E70184_559A3BD901CC_var*
 //#UC START# *554A037B0325_559A3BD901CC_impl*
- if NeedLogSessionEnd then
-  LogEvent(da_oobSessionEnd, 0, 0, 0);
- f_CurSessionID := BlankSession;
+ LogEvent(da_oobSessionEnd, 0, 0, 0);
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 //#UC START# *554A037B0325_559A3BD901CC_var*
 //#UC END# *554A037B0325_559A3BD901CC_var*
@@ -222,7 +220,7 @@ var
        then
         begin
          TmpNode:=CurStatTree.InsertNode(CurStatTree.RootNode,
-                                 MakeNode(PAnsiChar(GlobalDataProvider.UserManager.GetUserName(l_ExtIDField.AsLargeInt))));
+                                 MakeNode(PChar(f_Factory.GetUserNameStr(l_ExtIDField.AsLargeInt))));
          (TmpNode as Il3HandleNode).Handle:=l_ExtIDField.AsLargeInt;
         end;
       StDateToDMY(l_DateField.AsStDate,Day,Month,Year);
@@ -421,9 +419,8 @@ Var
 //#UC START# *55657CD20360_559A3BD901CC_impl*
  if FromDate = 0 then
   FromDate := 1{CurrentDate};
- Assert(false, 'ToDate наверное должно быть var'); 
-{ if ToDate = 0 then
-  ToDate := CurrentDate + 5;}
+ if ToDate = 0 then
+  ToDate := CurrentDate + 5;
 //#UC END# *55657CD20360_559A3BD901CC_impl*
 //#UC START# *55657CD20360_559A3BD901CC_var*
 //#UC END# *55657CD20360_559A3BD901CC_var*
@@ -442,10 +439,8 @@ Var
  begin
   if f_CurSessionID <> BlankSession then
   begin
-   f_CurSessionID := BlankSession;
-   SessionChanged;
-   if NeedLogSessionEnd then
-    LogEvent(da_oobSessionEnd, 0, 0, 0);
+   LogEvent(da_oobSessionEnd, 0, 0, 0);
+   f_CurSessionID := BlankSession
   end;
   f_CurUser := anUserID;
   UserChanged(f_CurUser);
@@ -453,8 +448,7 @@ Var
   begin
     f_CurSessionID := aSessionID;
     SessionChanged;
-    if NeedLogSessionBegin then
-     LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
   end;
  end;
 //#UC END# *56E2A25501A6_559A3BD901CC_impl*

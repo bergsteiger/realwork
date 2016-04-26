@@ -25,9 +25,9 @@ uses
  , tfwTypeInfo
  , tfwPropertyLike
  , kwValue
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

@@ -911,6 +911,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ExTextFormWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , nsTrialSupport
  , bsDocumentContextSearcher
  , afwFacade

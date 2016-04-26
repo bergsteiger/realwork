@@ -202,6 +202,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , InsFilterNodeWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , FiltersProcessingWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

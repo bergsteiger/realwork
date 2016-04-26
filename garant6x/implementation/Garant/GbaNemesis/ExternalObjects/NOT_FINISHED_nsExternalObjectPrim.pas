@@ -40,6 +40,9 @@ uses
  , nsBrowserInfo
  , evPDFWriter
  , nsDocumentStreamList
+ {$If NOT Defined(NoScripts)}
+ , F1ShellWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure nsDoShellExecute;

@@ -34,9 +34,9 @@ uses
  {$If NOT Defined(NotTunedDUnit)}
  , KTestRunner
  {$IfEnd} // NOT Defined(NotTunedDUnit)
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

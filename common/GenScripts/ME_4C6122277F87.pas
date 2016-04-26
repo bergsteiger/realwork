@@ -22,6 +22,8 @@ uses
  l3ImplUses
  , DocumentWithFlash_Form
  , tfwControlString
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 

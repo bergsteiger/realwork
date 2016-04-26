@@ -22,6 +22,8 @@ uses
  l3ImplUses
  , ListAnalize_Form
  , tfwControlString
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 

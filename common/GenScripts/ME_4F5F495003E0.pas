@@ -26,8 +26,9 @@ uses
  , kwCheckEtalon
  , kwTestResolveInputFilePath
  , l3EtalonsService
- , tfwScriptingTypes
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

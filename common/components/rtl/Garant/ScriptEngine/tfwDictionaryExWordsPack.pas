@@ -39,9 +39,9 @@ uses
  , tfwMembersIterator
  , tfwDictionaryWordsPack
  , tfwScriptEngineExInterfaces
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

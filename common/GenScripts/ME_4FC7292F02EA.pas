@@ -29,9 +29,9 @@ uses
  , Controls
  , Forms
  , l3ScreenService
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

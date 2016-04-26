@@ -32,9 +32,9 @@ uses
  , CustomFormProcessingPack
  , Controls
  , ActionListWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

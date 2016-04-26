@@ -35,8 +35,8 @@ uses
  , tfwInitedDictionariesListIterator
  , tfwDictionaryListIterator
  , tfwWordsIterator
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
 ;
 
 type

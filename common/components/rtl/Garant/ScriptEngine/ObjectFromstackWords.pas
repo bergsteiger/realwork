@@ -26,8 +26,8 @@ uses
  , kwPopClassInherits
  , SysUtils
  , l3RTTI
- , tfwScriptingTypes
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

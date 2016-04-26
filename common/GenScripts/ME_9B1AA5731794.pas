@@ -24,6 +24,8 @@ uses
  , tfwControlString
  , tfwScriptingTypes
  , TtfwClassRef_Proxy
+ , SysUtils
+ , tfwTypeRegistrator
 ;
 
 type

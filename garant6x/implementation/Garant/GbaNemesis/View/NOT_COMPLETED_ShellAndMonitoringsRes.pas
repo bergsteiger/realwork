@@ -28,6 +28,7 @@ uses
  , moCommonSearch
  , tasSaveLoadRealization
  , ShellAndMonitoringsMain_Form
+ , evExtFormat
 ;
 {$IfEnd} // NOT Defined(Admin)
 

@@ -23,9 +23,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , l3PicturePathService
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

@@ -37,9 +37,9 @@ uses
  , l3PopupMenuHelper
  , l3FormsService
  , l3ControlFontService
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

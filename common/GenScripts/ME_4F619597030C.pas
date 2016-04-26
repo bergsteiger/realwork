@@ -33,6 +33,8 @@ uses
  , AttributeExplorerWordsPack
  , kwClearConfig
  , tfwScriptingTypes
+ , SysUtils
+ , tfwTypeRegistrator
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 

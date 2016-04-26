@@ -29,9 +29,9 @@ uses
  , tfwClassLike
  , tfwDictionaryEx
  , tfwDictionaryExWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

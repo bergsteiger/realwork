@@ -27,9 +27,9 @@ uses
  , tfwPropertyLike
  , tfwTypeInfo
  , tfwScriptEngineExInterfaces
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

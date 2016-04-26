@@ -44,8 +44,8 @@ uses
  , l3Utils
  , l3CStringDataObject
  , l3Chars
- , tfwScriptingTypes
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

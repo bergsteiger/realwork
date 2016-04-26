@@ -359,6 +359,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , nscTreeViewForDocumentListWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes

@@ -24,6 +24,8 @@ uses
  , kwHardKey
  , kwKeyDown
  , kwKeyUp
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 

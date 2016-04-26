@@ -41,15 +41,13 @@ uses
  , moAdmin
  , nsStartupSupport
  , l3MessageID
- , evExtFormat
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimAdminMain_Form
  , AdminMain_Form
  {$If NOT Defined(NoScripts)}
  , AdminMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , evExtFormat
+ , StdRes
 ;
 
 class procedure TAdminAppRes.DoRun(var theSplash: IUnknown);

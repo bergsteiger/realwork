@@ -27,6 +27,9 @@ type
    function Get_AllUsers: Tl3StringDataList;
    function Get_AllGroups: Tl3StringDataList;
    function GetUserName(anUserID: TdaUserID): AnsiString;
+   function GetUserPriorities(aGrouId: TdaUserID;
+    var aImportPriority: TdaPriority;
+    var aExportPriority: TdaPriority): Boolean;
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
@@ -124,5 +127,16 @@ begin
  Result := dt_User.UserManager.GetUserName(anUserID);
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 end;//ThtUserManager.GetUserName
+
+function ThtUserManager.GetUserPriorities(aGrouId: TdaUserID;
+ var aImportPriority: TdaPriority;
+ var aExportPriority: TdaPriority): Boolean;
+//#UC START# *571DCFB50217_5629E343023B_var*
+//#UC END# *571DCFB50217_5629E343023B_var*
+begin
+//#UC START# *571DCFB50217_5629E343023B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *571DCFB50217_5629E343023B_impl*
+end;//ThtUserManager.GetUserPriorities
 
 end.

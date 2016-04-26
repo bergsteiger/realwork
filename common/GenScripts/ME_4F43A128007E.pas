@@ -57,9 +57,9 @@ uses
  , kwValue
  , kwWordPtrPushWord
  , kwForwardDeclarationHolder
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

@@ -29,6 +29,7 @@ uses
  , vcmBaseOperationsCollectionItem
  , vcmUserControls
  , OfficeLikeMain_Form
+ , evExtFormat
 ;
 {$IfEnd} // NOT Defined(NoVCM)
 

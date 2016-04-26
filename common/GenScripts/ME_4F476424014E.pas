@@ -19,9 +19,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwScriptingTypes
  , kwInclude
  , kwUses
+ , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

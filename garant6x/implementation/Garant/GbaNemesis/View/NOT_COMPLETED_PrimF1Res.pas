@@ -108,6 +108,7 @@ uses
  , LoggingUnit
  , PrimMain_Form
  , PrimMainOptions_Form
+ , evExtFormat
 ;
 
 type

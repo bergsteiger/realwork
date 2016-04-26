@@ -27,8 +27,8 @@ uses
  , tfwClassLike
  , TypInfo
  , tfwPropertyLike
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
 ;
 
 type
