@@ -30,6 +30,8 @@ uses
  , kwCFRTF
  , kwCFEVERESTBIN
  , kwCFPDF
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

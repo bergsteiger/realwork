@@ -38,8 +38,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingTypes
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

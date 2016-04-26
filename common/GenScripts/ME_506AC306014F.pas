@@ -33,9 +33,9 @@ uses
  , Classes
  , vgObject
  , vg_objects
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

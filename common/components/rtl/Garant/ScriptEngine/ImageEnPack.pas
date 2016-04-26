@@ -21,6 +21,8 @@ uses
  l3ImplUses
  , kwImageEnViewerSaveBitmap
  , ImageEnViewRegistrator
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)

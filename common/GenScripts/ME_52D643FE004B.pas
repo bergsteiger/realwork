@@ -29,6 +29,8 @@ uses
  , kwIterateSubDecriptorsOnSubPanel
  , kwIterateSubDecriptorsOnSubPanelEX
  , kwSubPanelGetPopupMenuForSub
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

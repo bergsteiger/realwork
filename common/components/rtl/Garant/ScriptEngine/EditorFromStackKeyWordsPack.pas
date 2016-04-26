@@ -79,9 +79,9 @@ uses
  {$IfEnd} // Defined(nsTest)
  , evTypes
  , TevCustomEditorWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

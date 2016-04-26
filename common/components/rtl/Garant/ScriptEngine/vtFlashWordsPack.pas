@@ -25,9 +25,9 @@ uses
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

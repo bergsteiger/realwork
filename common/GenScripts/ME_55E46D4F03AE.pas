@@ -28,9 +28,9 @@ uses
  , evdTypes
  , l3Interfaces
  , IedRangeWordsPack
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

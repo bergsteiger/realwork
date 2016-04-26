@@ -36,9 +36,9 @@ uses
  , l3String
  , k2OpMisc
  , k2Facade
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

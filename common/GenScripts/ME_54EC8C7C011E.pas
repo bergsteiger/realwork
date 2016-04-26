@@ -34,8 +34,8 @@ uses
  , l3Types
  , l3Interfaces
  , SysUtils
- , tfwScriptingTypes
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

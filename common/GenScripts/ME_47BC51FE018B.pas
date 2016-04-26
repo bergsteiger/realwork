@@ -110,6 +110,8 @@ type
  TOperActionType = (
  );//TOperActionType
 
+ TPriority = ;
+
 implementation
 
 uses

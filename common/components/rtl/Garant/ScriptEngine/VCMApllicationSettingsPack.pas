@@ -24,9 +24,9 @@ uses
  , vcmToolbarMenuRes
  , TypInfo
  , vcmMenuManager
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

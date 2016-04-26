@@ -45,6 +45,8 @@ uses
  , kwObjectCreate
  , kwVcmDispatcherLockInOp
  , kwVcmDispatcherUnlockInOp
+ , SysUtils
+ , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)

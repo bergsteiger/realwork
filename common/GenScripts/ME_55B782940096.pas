@@ -24,9 +24,9 @@ uses
  , l3TreeInterfaces
  , tfwScriptingInterfaces
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

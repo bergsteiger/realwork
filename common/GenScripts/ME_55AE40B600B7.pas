@@ -23,9 +23,9 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , l3TabbedContainersDispatcher
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

@@ -25,9 +25,9 @@ uses
  , l3Interfaces
  , vtHintManager
  , Windows
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

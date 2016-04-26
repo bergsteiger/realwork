@@ -23,9 +23,9 @@ uses
  , DragData
  , tfwScriptingInterfaces
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

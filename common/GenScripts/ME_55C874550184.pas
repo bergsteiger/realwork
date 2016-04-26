@@ -29,9 +29,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type
