@@ -47,19 +47,19 @@ type
 
  TResultValue = (
   {* Возможные значения возвращаемых значений функций }
-  RV_SUCCESS
+  RV_SUCCESS = 0
    {* функция отработала успешно }
-  , RV_DUPLICATED
+  , RV_DUPLICATED = 1
    {* запрос в базе уже помечен, как отвеченный. }
-  , RV_EMPTY
+  , RV_EMPTY = 2
    {* на данный момент нет запросов данного типа }
-  , RV_ERROR
+  , RV_ERROR = -1
    {* серверу не удалось прочесть ответ, или положить его в базу, или произошел еще какой-то внутренний сбой. В этом случае необходимо повторить попытку отдачи ответа. }
-  , RV_BAD_XML
+  , RV_BAD_XML = -2
    {* формат ответа не соответствует "ожиданиям" сервера. }
-  , RV_COMPLECT_REMOVED_ERROR
+  , RV_COMPLECT_REMOVED_ERROR = -3
    {* комплект был удалён из АРМ-а (http://mdp.garant.ru/pages/viewpage.action?pageId=118982402) }
-  , RV_INVALID_QUERY_ID
+  , RV_INVALID_QUERY_ID = -4
    {* данного идентификатора нет в базе }
  );//TResultValue
 
@@ -124,5 +124,10 @@ implementation
 uses
  l3ImplUses
 ;
+
+type
+ IOnlineDataFriend = {abstract} class(IOnlineData)
+  {* Друг к классу IOnlineData }
+ end;//IOnlineDataFriend
 
 end.

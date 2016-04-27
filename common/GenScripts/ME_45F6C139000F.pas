@@ -58,6 +58,11 @@ uses
  l3ImplUses
 ;
 
+type
+ RealNodeBaseFriend = {abstract} class(RealNodeBase)
+  {* ƒруг к классу RealNodeBase }
+ end;//RealNodeBaseFriend
+
 function DelegateNodeBase.GetHasFilteredChildren: ByteBool;
 //#UC START# *45FAC21A0148_45F6C139000Fget_var*
 //#UC END# *45FAC21A0148_45F6C139000Fget_var*

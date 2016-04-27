@@ -12,7 +12,9 @@ interface
 uses
  l3IntfUses
  , IOUnit
+ , BaseTypesUnit
  , DynamicTreeUnit
+ , BannerUnit
 ;
 
 type
@@ -66,6 +68,7 @@ type
    {* Получить элементы раздела ОМ }
   function GetNewsSectionIndex: Integer; stdcall;
    {* получить для проф. секции индекс в новостной секции }
+  function GetBanner: IBanner; stdcall;
   property Caption: IString
    read GetCaption;
    {* имя }

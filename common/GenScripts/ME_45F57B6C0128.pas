@@ -58,9 +58,19 @@ implementation
 
 uses
  l3ImplUses
+ , DelegateNodeBase
  , RealNodeBase
  , ApplicationHelper
 ;
+
+type
+ TreeBaseFriend = {abstract} class(TreeBase)
+  {* ƒруг к классу TreeBase }
+ end;//TreeBaseFriend
+
+ DelegateNodeBaseFriend = {abstract} class(DelegateNodeBase)
+  {* ƒруг к классу DelegateNodeBase }
+ end;//DelegateNodeBaseFriend
 
 function ViewBase.GetMode: TFlagMask;
 //#UC START# *46025C6602BF_45F57B6C0128get_var*

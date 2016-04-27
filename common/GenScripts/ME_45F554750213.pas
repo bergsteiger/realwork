@@ -234,6 +234,7 @@ implementation
 
 uses
  l3ImplUses
+ , DelegateNodeBase
  , ApplicationHelper
  , SecurityUnit
  , ServerAdapterConverters
@@ -252,6 +253,18 @@ type
    procedure EachFunc(var static_node;
     out dummy: integer); virtual; stdcall;
  end;//NodeExpander
+
+ RealNodeBaseFriend = {abstract} class(RealNodeBase)
+  {* ƒруг к классу RealNodeBase }
+ end;//RealNodeBaseFriend
+
+ DelegateNodeBaseFriend = {abstract} class(DelegateNodeBase)
+  {* ƒруг к классу DelegateNodeBase }
+ end;//DelegateNodeBaseFriend
+
+ DefaultNodeBaseFriend = {abstract} class(DefaultNodeBase)
+  {* ƒруг к классу DefaultNodeBase }
+ end;//DefaultNodeBaseFriend
 
 constructor NodeExpander.Make(all_expanded: Boolean;
  expand_root: Boolean);

@@ -89,9 +89,15 @@ implementation
 
 uses
  l3ImplUses
+ , DelegateNodeBase
  //#UC START# *45F7D8410157impl_uses*
  //#UC END# *45F7D8410157impl_uses*
 ;
+
+type
+ DelegateNodeBaseFriend = {abstract} class(DelegateNodeBase)
+  {* ƒруг к классу DelegateNodeBase }
+ end;//DelegateNodeBaseFriend
 
 constructor NodeChangeTransaction.Make(var node: RealNodeBase);
 //#UC START# *45FF97C502FD_45FF97A70109_var*

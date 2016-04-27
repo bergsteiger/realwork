@@ -21,6 +21,8 @@ uses
 ;
 
 type
+ DelegateNodeBaseFriend = class;
+
  //#UC START# *45F7ECA8034Bci*
  //#UC END# *45F7ECA8034Bci*
  //#UC START# *45F7ECA8034Bcit*
@@ -144,12 +146,18 @@ implementation
 
 uses
  l3ImplUses
+ , DelegateNodeBase
  , RealNodeBase
  , ServerAdapterConverters
  , ViewBase
  //#UC START# *45F7ECA8034Bimpl_uses*
  //#UC END# *45F7ECA8034Bimpl_uses*
 ;
+
+type
+ DelegateNodeBaseFriend = {abstract} class(DelegateNodeBase)
+  {* ƒруг к классу DelegateNodeBase }
+ end;//DelegateNodeBaseFriend
 
 function DefaultNodeBase.GetChildrenFlags: TFlagMask;
 //#UC START# *45F95D2600AB_45F7ECA8034Bget_var*

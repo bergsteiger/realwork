@@ -24,4 +24,9 @@ uses
  l3ImplUses
 ;
 
+type
+ Friend = {abstract} class
+  {* ƒруг к классу  }
+ end;//Friend
+
 end.
