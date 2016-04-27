@@ -17,6 +17,8 @@ uses
 
 type
  TOfficeLikeRes = {abstract} class(TvcmApplication)
+  protected
+   procedure Loaded; override;
  end;//TOfficeLikeRes
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -31,6 +33,11 @@ uses
  , OfficeLikeMain_Form
  , evExtFormat
 ;
+
+procedure TOfficeLikeRes.Loaded;
+begin
+ inherited;
+end;//TOfficeLikeRes.Loaded
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

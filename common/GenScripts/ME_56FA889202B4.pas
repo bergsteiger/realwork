@@ -454,6 +454,13 @@ const
  c_RightIndent = 10;
  c_TopIndent = 10;
  c_BottomIndent = 20;
+ c_LawNewsIndent = 60;
+var
+ lnArea: Integer;
+ lnLeft: Integer;
+ lnWidth: Integer;
+ pnWidth: Integer;
+ F: THandle;
 //#UC END# *56FE6DC90398_56FA889202B4_var*
 begin
 //#UC START# *56FE6DC90398_56FA889202B4_impl*
@@ -462,34 +469,46 @@ begin
 
  pnlClient.Left := pnlLeft.Left + pnlLeft.Width;
  pnlClient.Width := pnlMain.ClientWidth - pnlLeft.Width;
-                      
+
  pnlNews.Top := 0;
  //////
+ F := Windows.GetFocus;
+
+ pnlNews.Visible := False;
+
+ tvProfNews.MultiStrokeItem := False;
+ if tvProfNews.CalcFullWidth + c_RightIndent > (pnlNews.ClientWidth - c_LawNewsIndent - c_LeftIndent - c_RightIndent) * 2 div 3 then
+ begin
+  tvProfNews.MultiStrokeItem := True;
+  pnWidth := (pnlNews.ClientWidth - c_LawNewsIndent - c_LeftIndent - c_RightIndent) * 2 div 3 - c_RightIndent;
+ end else
+  pnWidth := tvProfNews.CalcFullWidth + c_RightIndent;                                                        
+
  tvLawNews.MultiStrokeItem := False;
- if tvLawNews.CalcFullWidth > (pnlNews.ClientWidth div 3) - c_LeftIndent - c_RightIndent then
+ if tvLawNews.CalcFullWidth + 2 * c_RightIndent > (pnlNews.ClientWidth - c_LawNewsIndent - c_LeftIndent - c_RightIndent) div 3 then
  begin
   tvLawNews.MultiStrokeItem := True;
-  tvLawNews.Width := pnlNews.ClientWidth div 3;
+  lnWidth := (pnlNews.ClientWidth - c_LawNewsIndent - c_LeftIndent - c_RightIndent) div 3 - 2 * c_RightIndent;
  end else
-  tvLawNews.Width := tvLawNews.CalcFullWidth + c_RightIndent;
+  lnWidth := tvLawNews.CalcFullWidth + 2 * c_RightIndent;                                                    
 
- lblLawNews.Width := tvLawNews.Width;
+ lnArea := pnlNews.ClientWidth - c_LeftIndent - c_RightIndent - c_LawNewsIndent - pnWidth;
 
- tvLawNews.Top := lblLawNews.Top + lblLawNews.Height + c_TopIndent;
- tvLawNews.Left := pnlNews.ClientWidth - c_RightIndent - tvLawNews.Width;
- tvLawNews.Height := tvLawNews.CalcFullHeight; 
-
+ lnLeft := pnWidth + c_LawNewsIndent + (lnArea - lnWidth) div 2 - 2 * c_RightIndent;
  lblLawNews.Top := c_lblTop;
- lblLawNews.Left := tvLawNews.Left;
- //
+ lblLawNews.Left := lnLeft;
+ lblLawNews.Width := Min(lnWidth, pnlNews.ClientWidth - lnLeft - 2 * c_RightIndent);
+ tvLawNews.SetBounds(lnLeft, lblLawNews.Top + lblLawNews.Height + c_TopIndent, lnWidth, tvLawNews.CalcFullHeight);
+
  lblProfNews.Top := c_lblTop;
  lblProfNews.Left := c_LeftIndent;
- lblProfNews.Width := tvLawNews.Left - c_LeftIndent * 2 - c_RightIndent;
- tvProfNews.Left := c_LeftIndent;
- tvProfNews.Top := lblProfNews.Top + lblProfNews.Height + c_TopIndent;
- tvProfNews.Width := tvLawNews.Left - c_LeftIndent * 2 - c_RightIndent;
- tvProfNews.Height := tvProfNews.CalcFullHeight;
+ lblProfNews.Width := pnWidth;
+ tvProfNews.SetBounds(c_LeftIndent, lblProfNews.Top + lblProfNews.Height + c_TopIndent, pnWidth, tvProfNews.CalcFullHeight);
  pnlNews.ClientHeight := Max(tvProfNews.Top + tvProfNews.Height, tvLawNews.Top + tvLawNews.Height) + c_BottomIndent;
+ pnlNews.Visible := True;
+
+ if F <> Windows.GetFocus then
+  Windows.SetFocus(F);
  //////
  pnlBaseSearch.Height := 110;
  pnlBaseSearchZone.Height := 100;
@@ -583,39 +602,19 @@ begin
  if (Sender = pbOnLineResources) then
  begin
   if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
-  begin
-   if DefDataAdapter.IsInternetAgentEnabled then
-    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 1, True)
-   else
-    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 1, True);
-  end//afw.Application.LocaleInfo.Language = afw_lngEnglish
+   nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 1, True)
   else
-  begin
-   if DefDataAdapter.IsInternetAgentEnabled then
-    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 5, True)
-   else
-    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 5, True);
-  end;//afw.Application.LocaleInfo.Language = afw_lngEnglish
+   nsPaintImage(dmMainMenuNew.ilButtonsNew, pbOnLineResources, 5, True);
  end//Sender = pbOnLineResources
  else
  if (Sender = pbWebVersion) then
  begin
-  if pbWebVersion.Visible then
+  if pnlWebVersion.Visible then
   begin
    if (afw.Application.LocaleInfo.Language = afw_lngEnglish) then
-   begin
-    if DefDataAdapter.IsInternetAgentEnabled then
-     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 2, True)
-    else
-     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 2, True);
-   end//afw.Application.LocaleInfo.Language = afw_lngEnglish
+    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 2, True)
    else
-   begin
-    if DefDataAdapter.IsInternetAgentEnabled then
-     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 4, True)
-    else
-     nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 4, True);
-   end;//afw.Application.LocaleInfo.Language = afw_lngEnglish
+    nsPaintImage(dmMainMenuNew.ilButtonsNew, pbWebVersion, 4, True);
   end;//pbWebVersion.Visible
  end;//Sender = pbWebVersion
 //#UC END# *56FE8B9303D1_56FA889202B4_impl*
@@ -635,11 +634,6 @@ begin
  else
  if (Sender = pbOnLineResources) then
  begin
-  vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_InternetAgent_InternetAgent);
- end//Sender = pbOnLineResources
- else
- if (Sender = pbWebVersion) then
- begin
   if DefDataAdapter.IsInternetAgentEnabled then
   begin
    //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
@@ -650,6 +644,11 @@ begin
     afw.EndOp;
    end;//try..finally
   end;
+ end//Sender = pbOnLineResources
+ else
+ if (Sender = pbWebVersion) then
+ begin
+  vcmDispatcher.ModuleOperation(TdmStdRes.mod_opcode_Common_OpenIntranet);
  end;//Sender = pbWebVersion
 //#UC END# *57023AD501A4_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.PaintBoxClick
@@ -927,7 +926,10 @@ procedure TPrimMainMenuWithProfNewsForm.InitControls;
     Assert(False);
   end;
 
-  pnlWebVersion.Visible := afw.Application.LocaleInfo.Language = afw_lngRussian;
+  pnlWebVersion.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
+                       and Assigned(defDataAdapter)
+                       and defDataAdapter.RevisionCheckEnabled
+                       and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE);
  end; // lp_SetupButtons
 
  procedure lp_SetupTrees;

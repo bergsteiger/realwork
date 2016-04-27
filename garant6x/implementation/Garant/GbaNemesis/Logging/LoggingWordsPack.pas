@@ -24,9 +24,9 @@ uses
  , TypInfo
  , nsLoggingTestService
  , nsCachedEventsProcessor
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type
