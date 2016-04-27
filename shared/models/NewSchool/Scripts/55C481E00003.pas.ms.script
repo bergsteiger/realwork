@@ -584,63 +584,6 @@ ref; // ME_55D345A40226 TtfwHyperlinkScriptCaller
 
 FORWARD ME_55D34A7E0127
 
-FORWARD ME_2601B8C0800A
-
-: ME_D0D5A4EAD080
- CONST UID 'D0D5A4EAD080'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2601B8C0800A // TtfwArchiHyperlinkScriptCallerResNameGetter
- ;
-
-ref; // ME_D0D5A4EAD080 RegAxiom
-
-: ME_55B7A3AF0359_ME_2601B8C0800A
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_2601B8C0800A ResName
-
-: ME_2601B8C0800A
- CONST UID '2601B8C0800A'
- CONST Name 'TtfwArchiHyperlinkScriptCallerResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55D34A7E0127 // TtfwArchiHyperlinkScriptCaller
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_D0D5A4EAD080 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_2601B8C0800A // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'ArchiHyperlinkScriptCallerResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2601B8C0800A TtfwArchiHyperlinkScriptCallerResNameGetter
-
 : ME_55D34AD90105_ME_55D34A7E0127
  : Original ME_55D34AD90105 // DoResolveIncludedFilePath
  ;
@@ -666,10 +609,6 @@ ref; // ME_55D34AD90105_ME_55D34A7E0127 DoResolveIncludedFilePath
    Seq: ( ME_55D34AD90105_ME_55D34A7E0127 // DoResolveIncludedFilePath
  )
  ; // Overridden
- : Children
-   Seq: ( ME_2601B8C0800A // TtfwArchiHyperlinkScriptCallerResNameGetter
- )
- ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" true
  CONST "no hands" false
@@ -682,63 +621,6 @@ ref; // ME_55D34AD90105_ME_55D34A7E0127 DoResolveIncludedFilePath
 ref; // ME_55D34A7E0127 TtfwArchiHyperlinkScriptCaller
 
 FORWARD ME_55D34A9B0067
-
-FORWARD ME_77DB2124A8AE
-
-: ME_4100BCBA3C15
- CONST UID '4100BCBA3C15'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_77DB2124A8AE // TtfwF1HyperlinkScriptCallerResNameGetter
- ;
-
-ref; // ME_4100BCBA3C15 RegAxiom
-
-: ME_55B7A3AF0359_ME_77DB2124A8AE
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_77DB2124A8AE ResName
-
-: ME_77DB2124A8AE
- CONST UID '77DB2124A8AE'
- CONST Name 'TtfwF1HyperlinkScriptCallerResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55D34A9B0067 // TtfwF1HyperlinkScriptCaller
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_4100BCBA3C15 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_77DB2124A8AE // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'F1HyperlinkScriptCallerResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_77DB2124A8AE TtfwF1HyperlinkScriptCallerResNameGetter
 
 : ME_55D34AD90105_ME_55D34A9B0067
  : Original ME_55D34AD90105 // DoResolveIncludedFilePath
@@ -765,10 +647,6 @@ ref; // ME_55D34AD90105_ME_55D34A9B0067 DoResolveIncludedFilePath
    Seq: ( ME_55D34AD90105_ME_55D34A9B0067 // DoResolveIncludedFilePath
  )
  ; // Overridden
- : Children
-   Seq: ( ME_77DB2124A8AE // TtfwF1HyperlinkScriptCallerResNameGetter
- )
- ; // Children
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" true
  CONST "no hands" false

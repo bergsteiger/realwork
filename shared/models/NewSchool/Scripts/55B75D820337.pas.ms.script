@@ -21,17 +21,6 @@ FORWARD ME_66D69322DA0D
 
 ref; // ME_41E3004C10FC 
 
-: ME_218BE94724A8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_66D69322DA0D // logging_StartListening
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_218BE94724A8 
-
 : ME_4DAEEDE10285_ME_66D69322DA0D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -77,7 +66,6 @@ ref; // ME_559687E6025A_ME_66D69322DA0D GetAllParamsCount
  ; // Overridden
  : Dependencies
    Seq: ( ME_41E3004C10FC // TTypeInfo
- ME_218BE94724A8 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'logging:StartListening'
@@ -107,17 +95,6 @@ FORWARD ME_961A18770456
  ;
 
 ref; // ME_98FDCAA99FE6 
-
-: ME_1DCAC9AEC59C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_961A18770456 // logging_FinishListening
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_1DCAC9AEC59C 
 
 : ME_4DAEEDE10285_ME_961A18770456
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
@@ -164,7 +141,6 @@ ref; // ME_559687E6025A_ME_961A18770456 GetAllParamsCount
  ; // Overridden
  : Dependencies
    Seq: ( ME_98FDCAA99FE6 // TTypeInfo
- ME_1DCAC9AEC59C // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'logging:FinishListening'
@@ -228,17 +204,6 @@ ref; // ME_E7318C288828 logging_GetLogRecords
 
 ref; // ME_B05276724B8F 
 
-: ME_BCFF64EE7EE6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FDD3D4A4771 // logging_GetLogRecords
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_BCFF64EE7EE6 
-
 : ME_4DAEEDE10285_ME_4FDD3D4A4771
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -295,7 +260,6 @@ ref; // ME_5617F4D00243_ME_4FDD3D4A4771 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_B05276724B8F // TTypeInfo
- ME_BCFF64EE7EE6 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'logging:GetLogRecords'
@@ -327,17 +291,6 @@ FORWARD ME_03C2482A3269
  ;
 
 ref; // ME_A1B4F3844B8F 
-
-: ME_B4CC425A789B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_03C2482A3269 // logging_WriteCachedEvents
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B4CC425A789B 
 
 : ME_4DAEEDE10285_ME_03C2482A3269
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
@@ -384,7 +337,6 @@ ref; // ME_559687E6025A_ME_03C2482A3269 GetAllParamsCount
  ; // Overridden
  : Dependencies
    Seq: ( ME_A1B4F3844B8F // TTypeInfo
- ME_B4CC425A789B // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'logging:WriteCachedEvents'
@@ -520,28 +472,6 @@ ref; // ME_55BA0271031A
 
 ref; // ME_56D4155A01AF 
 
-: ME_3610CEC90F91
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55B75D980276 // LoggingWordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_3610CEC90F91 
-
-: ME_AEDD7F920897
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55B75D980276 // LoggingWordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_AEDD7F920897 
-
 : ME_55B75D980276
  CONST UID '55B75D980276'
  CONST Name 'LoggingWordsPack'
@@ -572,8 +502,6 @@ ref; // ME_AEDD7F920897
    Seq: ( ME_55BA026201A4 // TnsLoggingTestService
  ME_55BA0271031A // TnsLoggingTestService
  ME_56D4155A01AF // TnsCachedEventsProcessor
- ME_3610CEC90F91 // TypeInfoExt
- ME_AEDD7F920897 // TtfwTypeRegistrator
  )
  ; // Dependencies
  CONST "author" 'Костицын'
@@ -604,9 +532,7 @@ ref; // ME_55B75D980276 LoggingWordsPack
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55B9FF5B03CB' '55B9FF5B03CB.pas.ms.script' // LoggingTestService
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

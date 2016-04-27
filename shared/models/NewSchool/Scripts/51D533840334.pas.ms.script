@@ -736,17 +736,6 @@ ref; // ME_73128B9B7C04 WorkSpace
 
 ref; // ME_D697F9ED72A5 
 
-: ME_13EDC7B7428A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E583E346F779 // FromWithPanelForm_WorkSpace
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_13EDC7B7428A 
-
 : ME_4DAEEDE10285_ME_E583E346F779
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -810,7 +799,6 @@ ref; // ME_5617F4D00243_ME_E583E346F779 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D697F9ED72A5 // TTypeInfo
- ME_13EDC7B7428A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" '.TFromWithPanelForm.WorkSpace'
@@ -921,17 +909,6 @@ ref; // ME_4F72F0093097 Reg_Type_FromWithPanel
 
 ref; // ME_CFA23B3A24C8 Reg_Type_TvtPanel
 
-: ME_77B21BEE3650
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_77B21BEE3650 
-
 : ME_E2DBF02FE0BB
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -942,17 +919,6 @@ ref; // ME_77B21BEE3650
  ;
 
 ref; // ME_E2DBF02FE0BB 
-
-: ME_35E62FA89000
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_35E62FA89000 
 
 : ME_0DCE11DEABEB
  CONST UID '0DCE11DEABEB'
@@ -989,9 +955,7 @@ ref; // ME_35E62FA89000
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_77B21BEE3650 // TypeInfoExt
- ME_E2DBF02FE0BB // FromWithPanel
- ME_35E62FA89000 // TtfwTypeRegistrator
+   Seq: ( ME_E2DBF02FE0BB // FromWithPanel
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -1025,13 +989,10 @@ ref; // ME_0DCE11DEABEB FromWithPanelKeywordsPack
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

@@ -862,3 +862,45 @@ PROCEDURE "Перезагрузить стили"
 	@ ( "Вызвать 'Дизайнер стилей'" )
 		MODAL (	"Нажать ОКBtn" )
 ;
+
+// Работа с чекбокс поиска
+BOOLEAN FUNCTION "Чекбокс отмечен?" OBJECT IN aCheckBox
+  'Checked' aCheckBox pop:object:GetOrdProp РАВНО 1 >>> Result
+;
+
+PROCEDURE "Отметить чекбокс" OBJECT IN aCheckBox
+	1 'Checked' aCheckBox pop:object:SetOrdProp 
+;
+
+PROCEDURE "Убрать галочку" OBJECT IN aCheckBox
+	0 'Checked' aCheckBox pop:object:SetOrdProp
+;
+
+PROCEDURE "Убрать галочку в чекбоксе" OBJECT IN aValue
+	( "Чекбокс {(aValue)} отмечен?" ) ?FAIL 'Чекбокс не был отмечен!'
+	"Убрать галочку {(aValue)}" 
+;
+
+PROCEDURE "Выставить галочку в чекбоксе" OBJECT IN aValue
+	( "Чекбокс {(aValue)} отмечен?" ) ?FAIL 'Чекбокс уже отмечен'
+	"Отметить чекбокс {(aValue)}"	
+;
+
+PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку'" STRING IN aFindString IN aCheckBoxName
+	 	'Ctrl+F' key
+	 TRY
+
+	 	"Набить текст {(aFindString)}"
+
+		OBJECT VAR l_Control 
+		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		OBJECT VAR l_Result
+		"Найти контрол {(aCheckBoxName)} на форме {(l_Control)}"  >>> l_Result
+		Если ( "Чекбокс {(l_Result)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_Result)}" )
+	 	"Обработать сообщения"
+		
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;

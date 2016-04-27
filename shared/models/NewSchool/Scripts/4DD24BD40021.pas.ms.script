@@ -417,6 +417,19 @@ ref; // ME_56FE579901A9 get_items
 
 ref; // ME_570D16D600A2 get_news_section_index
 
+: ME_571F72D303BC
+ CONST UID '571F72D303BC'
+ CONST Name 'get_banner'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56FE518A027D // MainMenuSection
+ ;
+ : Target WL 'ME_4ACC6DD00230' '4ACC6D940387.pas.ms.script' // Banner
+ ;
+
+ref; // ME_571F72D303BC get_banner
+
 : ME_56FE518A027D
  CONST UID '56FE518A027D'
  CONST GUID '9B596AAB-BF7B-41A0-978D-3FAD93DC180C'
@@ -436,6 +449,7 @@ ref; // ME_570D16D600A2 get_news_section_index
    Seq: ( ME_56FE51B601CF // make
  ME_56FE579901A9 // get_items
  ME_570D16D600A2 // get_news_section_index
+ ME_571F72D303BC // get_banner
  )
  ; // Operations
  CONST "single impl" false
@@ -658,7 +672,9 @@ ref; // ME_4DD24C180204 MainMenu
  ; // Children
  : Depends
    Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
+ WL 'ME_4ACC6D940387' '4ACC6D940387.pas.ms.script' // Banner
  )
  ; // Depends
  CONST "no hands" false

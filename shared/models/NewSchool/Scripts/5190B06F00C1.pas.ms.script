@@ -6,63 +6,6 @@ FORWARD ME_5190B06F00C1
 
 FORWARD ME_5190B264037C
 
-FORWARD ME_9F904801EF08
-
-: ME_B39AB875FA33
- CONST UID 'B39AB875FA33'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_9F904801EF08 // TFontWordsPackResNameGetter
- ;
-
-ref; // ME_B39AB875FA33 RegAxiom
-
-: ME_55B7A3AF0359_ME_9F904801EF08
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_9F904801EF08 ResName
-
-: ME_9F904801EF08
- CONST UID '9F904801EF08'
- CONST Name 'TFontWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_B39AB875FA33 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_9F904801EF08 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'FontWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_9F904801EF08 TFontWordsPackResNameGetter
-
 FORWARD ME_69F0C68E7956
 
 FORWARD ME_7040B1F6FD7B
@@ -121,17 +64,6 @@ ref; // ME_7040B1F6FD7B Color
  ;
 
 ref; // ME_10D607BCA0FF 
-
-: ME_B967B61C6A15
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B42B6353E972 // Font_Color
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B967B61C6A15 
 
 : ME_4DAEEDE10285_ME_B42B6353E972
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
@@ -196,7 +128,6 @@ ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_10D607BCA0FF // TTypeInfo
- ME_B967B61C6A15 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:Color'
@@ -275,17 +206,6 @@ ref; // ME_85B9473C71C2 BackColor
 
 ref; // ME_EA23D7A2EF10 
 
-: ME_877BCF1B8C41
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ADDA8C159EED // Font_BackColor
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_877BCF1B8C41 
-
 : ME_4DAEEDE10285_ME_ADDA8C159EED
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -349,7 +269,6 @@ ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_EA23D7A2EF10 // TTypeInfo
- ME_877BCF1B8C41 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:BackColor'
@@ -428,17 +347,6 @@ ref; // ME_F4864359618B IsBold
 
 ref; // ME_1E09FCD099AA 
 
-: ME_6ED364D09083
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_6426AF77D4E5 // Font_IsBold
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_6ED364D09083 
-
 : ME_4DAEEDE10285_ME_6426AF77D4E5
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -502,7 +410,6 @@ ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1E09FCD099AA // TTypeInfo
- ME_6ED364D09083 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:IsBold'
@@ -581,17 +488,6 @@ ref; // ME_3EC3A4D3FAB3 IsItalic
 
 ref; // ME_95E947FCF90C 
 
-: ME_10783F504837
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FAD60EB55765 // Font_IsItalic
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_10783F504837 
-
 : ME_4DAEEDE10285_ME_FAD60EB55765
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -655,7 +551,6 @@ ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_95E947FCF90C // TTypeInfo
- ME_10783F504837 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:IsItalic'
@@ -734,17 +629,6 @@ ref; // ME_F84904DE8371 IsUnderline
 
 ref; // ME_E48C49C2C8DF 
 
-: ME_821B1E9FF796
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0A56585439B0 // Font_IsUnderline
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_821B1E9FF796 
-
 : ME_4DAEEDE10285_ME_0A56585439B0
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -808,7 +692,6 @@ ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_E48C49C2C8DF // TTypeInfo
- ME_821B1E9FF796 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:IsUnderline'
@@ -887,17 +770,6 @@ ref; // ME_56B18ED23F7B IsStrikeOut
 
 ref; // ME_885647D387E7 
 
-: ME_894BA64073E7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48690441DF69 // Font_IsStrikeOut
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_894BA64073E7 
-
 : ME_4DAEEDE10285_ME_48690441DF69
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -961,7 +833,6 @@ ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_885647D387E7 // TTypeInfo
- ME_894BA64073E7 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:IsStrikeOut'
@@ -1040,17 +911,6 @@ ref; // ME_5822CA56AAFA Name
 
 ref; // ME_51A878C2ECF5 
 
-: ME_618427B60E48
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7A73CF636A32 // Font_Name
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_618427B60E48 
-
 : ME_4DAEEDE10285_ME_7A73CF636A32
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1114,7 +974,6 @@ ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_51A878C2ECF5 // TTypeInfo
- ME_618427B60E48 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:Name'
@@ -1193,17 +1052,6 @@ ref; // ME_88C29661A1A9 Size
 
 ref; // ME_12C9A959F14F 
 
-: ME_4A5DF3F6A350
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F76B0EA46A07 // Font_Size
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4A5DF3F6A350 
-
 : ME_4DAEEDE10285_ME_F76B0EA46A07
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1267,7 +1115,6 @@ ref; // ME_5617F4D00243_ME_F76B0EA46A07 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_12C9A959F14F // TTypeInfo
- ME_4A5DF3F6A350 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Font:Size'
@@ -1824,8 +1671,7 @@ ref; // ME_46A60F89031E_ME_5190B264037C Index
  )
  ; // Implemented
  : Children
-   Seq: ( ME_9F904801EF08 // TFontWordsPackResNameGetter
- ME_B42B6353E972 // Font_Color
+   Seq: ( ME_B42B6353E972 // Font_Color
  ME_ADDA8C159EED // Font_BackColor
  ME_6426AF77D4E5 // Font_IsBold
  ME_FAD60EB55765 // Font_IsItalic
@@ -1867,7 +1713,6 @@ ref; // ME_5190B264037C FontWordsPack
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

@@ -116,63 +116,6 @@ ref; // ME_4DB1A01E01F4 Key
 
 FORWARD ME_50195665016F
 
-FORWARD ME_83D838C45464
-
-: ME_8BE6A6DAEBE2
- CONST UID '8BE6A6DAEBE2'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_83D838C45464 // TKeyboardInputPackResNameGetter
- ;
-
-ref; // ME_8BE6A6DAEBE2 RegAxiom
-
-: ME_55B7A3AF0359_ME_83D838C45464
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_83D838C45464 ResName
-
-: ME_83D838C45464
- CONST UID '83D838C45464'
- CONST Name 'TKeyboardInputPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50195665016F // KeyboardInputPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_8BE6A6DAEBE2 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_83D838C45464 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'KeyboardInputPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_83D838C45464 TKeyboardInputPackResNameGetter
-
 : ME_501956770078
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -229,10 +172,6 @@ ref; // ME_5220A4770079
  CONST Abstraction at_final
  : Parent ME_5019517A022F // KeyBoardInput
  ;
- : Children
-   Seq: ( ME_83D838C45464 // TKeyboardInputPackResNameGetter
- )
- ; // Children
  : Dependencies
    Seq: ( ME_501956770078 // Key
  ME_50195691015A // HardKey
@@ -703,7 +642,6 @@ ref; // ME_5220A3FC021A KeyUp
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_5506D079035B' '5506D079035B.pas.ms.script' // AFWServices
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
  )
  ; // Depends

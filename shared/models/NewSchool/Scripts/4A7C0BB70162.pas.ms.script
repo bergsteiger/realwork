@@ -2879,20 +2879,6 @@ ref; // ME_4B4DC181009D f_SearchWindowVisible
 
 ref; // ME_561640F40309 f_IsPageActive
 
-: ME_4B4DB95002D0
- CONST UID '4B4DB95002D0'
- CONST Name 'f_SearchArea'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4B4DB88E01B6 // DocumentBaseSearcher
- ;
- : Target WL 'ME_495132300336' '4A9F98B901A5.pas.ms.script' // TnsSearchArea
- ;
-
-ref; // ME_4B4DB95002D0 f_SearchArea
-
 : ME_4B4DB9720181
  CONST UID '4B4DB9720181'
  CONST Name 'ContextSearcher'
@@ -2909,6 +2895,20 @@ ref; // ME_4B4DB95002D0 f_SearchArea
  CONST "pm" true
 
 ref; // ME_4B4DB9720181 ContextSearcher
+
+: ME_4B4DB95002D0
+ CONST UID '4B4DB95002D0'
+ CONST Name 'f_SearchArea'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ : Target WL 'ME_495132300336' '4A9F98B901A5.pas.ms.script' // TnsSearchArea
+ ;
+
+ref; // ME_4B4DB95002D0 f_SearchArea
 
 : ME_4EE30D945EF8
  CONST UID '4EE30D945EF8'
@@ -3504,8 +3504,8 @@ ref; // ME_5000565C019C_ME_4B4DB88E01B6 ClearFields
  : Attributes
    Seq: ( ME_4B4DC181009D // f_SearchWindowVisible
  ME_561640F40309 // f_IsPageActive
- ME_4B4DB95002D0 // f_SearchArea
  ME_4B4DB9720181 // ContextSearcher
+ ME_4B4DB95002D0 // f_SearchArea
  ME_4EE30D945EF8 // f_ContextSearcher
  )
  ; // Attributes

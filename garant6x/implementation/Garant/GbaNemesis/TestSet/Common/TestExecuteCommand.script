@@ -341,7 +341,14 @@ PROCEDURE "Открыть прецедент"
  END
 ;
 
+PROCEDURE "Открыть старое ОМ"
+ "Форма БП" "Получить родительскую форму" ЯВЛЯЕТСЯ class::Ten_MainMenuWithProfNews ? (
+  "Подготовить настройки: стандартный вид ОМ"
+ )
+;
+
 VOID WORDWORKER Выполнить_тест
+ "Открыть старое ОМ"
  Если ( ( g_NumberOfUseCaseToProcess IsVoid ) ИЛИ ( g_NumberOfUseCaseToProcess =0 ) ) то ( "Ничего не делаем" )
   иначе ( "Открыть прецедент" )
  TRY

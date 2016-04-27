@@ -737,17 +737,6 @@ ref; // ME_F29E9001A722 TreeControl
 
 ref; // ME_FC305D97E3A1 
 
-: ME_EBB544BBD6EF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B10A49D0279E // OutlinerFormForm_TreeControl
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_EBB544BBD6EF 
-
 : ME_4DAEEDE10285_ME_B10A49D0279E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -811,7 +800,6 @@ ref; // ME_5617F4D00243_ME_B10A49D0279E ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_FC305D97E3A1 // TTypeInfo
- ME_EBB544BBD6EF // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" '.TOutlinerFormForm.TreeControl'
@@ -922,17 +910,6 @@ ref; // ME_0FDABFB63CD1 Reg_Type_OutlinerForm
 
 ref; // ME_0FFA84ED1888 Reg_Type_TvtOutlinerControl
 
-: ME_45AE575272BA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_45AE575272BA 
-
 : ME_245F1A6BCEAD
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -943,17 +920,6 @@ ref; // ME_45AE575272BA
  ;
 
 ref; // ME_245F1A6BCEAD 
-
-: ME_EA6716572A66
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_EA6716572A66 
 
 : ME_AF4AF7ED74A4
  CONST UID 'AF4AF7ED74A4'
@@ -990,9 +956,7 @@ ref; // ME_EA6716572A66
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_45AE575272BA // TypeInfoExt
- ME_245F1A6BCEAD // OutlinerForm
- ME_EA6716572A66 // TtfwTypeRegistrator
+   Seq: ( ME_245F1A6BCEAD // OutlinerForm
  )
  ; // Dependencies
  CONST "UseNewGen" true
@@ -1025,14 +989,11 @@ ref; // ME_AF4AF7ED74A4 OutlinerFormKeywordsPack
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
- WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

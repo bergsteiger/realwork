@@ -6,63 +6,6 @@ FORWARD ME_505AD9C20338
 
 FORWARD ME_505AFAF6026B
 
-FORWARD ME_9EE368A1435D
-
-: ME_198613660F32
- CONST UID '198613660F32'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_9EE368A1435D // TkwFiltersAndGeneratorsPackResNameGetter
- ;
-
-ref; // ME_198613660F32 RegAxiom
-
-: ME_55B7A3AF0359_ME_9EE368A1435D
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_9EE368A1435D ResName
-
-: ME_9EE368A1435D
- CONST UID '9EE368A1435D'
- CONST Name 'TkwFiltersAndGeneratorsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_198613660F32 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_9EE368A1435D // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'FiltersAndGeneratorsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_9EE368A1435D TkwFiltersAndGeneratorsPackResNameGetter
-
 FORWARD ME_552BD7AD0110
 
 FORWARD ME_51B232178794
@@ -131,17 +74,6 @@ ref; // ME_51B232178794 generators_Execute
 
 ref; // ME_FEB4D26E3E0E 
 
-: ME_5081FC449269
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_825779F5AD08 // generators_Execute
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_5081FC449269 
-
 : ME_4DAEEDE10285_ME_825779F5AD08
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -198,7 +130,6 @@ ref; // ME_5617F4D00243_ME_825779F5AD08 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_FEB4D26E3E0E // TTypeInfo
- ME_5081FC449269 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'generators:Execute'
@@ -288,17 +219,6 @@ ref; // ME_C44F9D8AB364 generators_Link
 
 ref; // ME_5D1B461D094E 
 
-: ME_F1EC809573CF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E6DB290D23D7 // generators_Link
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F1EC809573CF 
-
 : ME_4DAEEDE10285_ME_E6DB290D23D7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -355,7 +275,6 @@ ref; // ME_5617F4D00243_ME_E6DB290D23D7 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_5D1B461D094E // TTypeInfo
- ME_F1EC809573CF // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'generators:Link'
@@ -713,8 +632,7 @@ ref; // ME_533C0C71011C_ME_505AFAF6026B Context
  )
  ; // Implemented
  : Children
-   Seq: ( ME_9EE368A1435D // TkwFiltersAndGeneratorsPackResNameGetter
- ME_825779F5AD08 // generators_Execute
+   Seq: ( ME_825779F5AD08 // generators_Execute
  ME_E6DB290D23D7 // generators_Link
  )
  ; // Children
@@ -757,7 +675,6 @@ ref; // ME_505AFAF6026B kwFiltersAndGeneratorsPack
  WL 'ME_483E80C9025F' '483E80C9025F.pas.ms.script' // Readers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

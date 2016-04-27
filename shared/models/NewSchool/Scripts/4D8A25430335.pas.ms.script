@@ -78,6 +78,22 @@ ref; // ME_49526D3A0398 f_CaretPoint
 
 FORWARD ME_4A1FEB0D01AF
 
+: ME_4A1FFA0E01DA
+ CONST UID '4A1FFA0E01DA'
+ CONST Name 'Lock'
+ CONST Class class_Attribute
+ : Stereotype st_var::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A1FEB0D01AF // DoContextFound
+ ;
+ : Target WL 'ME_467C0F5201EB' '4677FBA70343.pas.ms.script' // Il3Lock
+ ;
+ CONST "IsResult" false
+
+ref; // ME_4A1FFA0E01DA Lock
+
 : ME_4A1FF9E10170
  CONST UID '4A1FF9E10170'
  CONST Name 'Start'
@@ -109,22 +125,6 @@ ref; // ME_4A1FF9E10170 Start
  CONST "IsResult" false
 
 ref; // ME_4A1FF9F102EE Finish
-
-: ME_4A1FFA0E01DA
- CONST UID '4A1FFA0E01DA'
- CONST Name 'Lock'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4A1FEB0D01AF // DoContextFound
- ;
- : Target WL 'ME_467C0F5201EB' '4677FBA70343.pas.ms.script' // Il3Lock
- ;
- CONST "IsResult" false
-
-ref; // ME_4A1FFA0E01DA Lock
 
 : ME_4A1FEB2202AB
  CONST Name 'aFoundBlock'
@@ -171,9 +171,9 @@ ref; // ME_4A1FEB1B027E DoIt
  : Parent ME_495137C70135 // TbsDocumentContextSearcher
  ;
  : Attributes
-   Seq: ( ME_4A1FF9E10170 // Start
+   Seq: ( ME_4A1FFA0E01DA // Lock
+ ME_4A1FF9E10170 // Start
  ME_4A1FF9F102EE // Finish
- ME_4A1FFA0E01DA // Lock
  )
  ; // Attributes
  : Operations

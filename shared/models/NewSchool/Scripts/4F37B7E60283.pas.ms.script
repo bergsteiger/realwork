@@ -205,63 +205,6 @@ ref; // ME_479731C50290_ME_567A8DB002B6 Cleanup
 
 ref; // ME_567A8DB002B6 TtfwWordBox
 
-FORWARD ME_BD54BA1C4F00
-
-: ME_80C25935A41A
- CONST UID '80C25935A41A'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BD54BA1C4F00 // TWordsRTTIPackResNameGetter
- ;
-
-ref; // ME_80C25935A41A RegAxiom
-
-: ME_55B7A3AF0359_ME_BD54BA1C4F00
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_BD54BA1C4F00 ResName
-
-: ME_BD54BA1C4F00
- CONST UID 'BD54BA1C4F00'
- CONST Name 'TWordsRTTIPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550C25D70182 // WordsRTTIPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_80C25935A41A // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_BD54BA1C4F00 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'WordsRTTIPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_BD54BA1C4F00 TWordsRTTIPackResNameGetter
-
 FORWARD ME_550C278901A4
 
 FORWARD ME_77728EE03A69
@@ -332,17 +275,6 @@ ref; // ME_77728EE03A69 GetLeftWordRefValue
 
 ref; // ME_197CE9AF4B83 
 
-: ME_75A043F8F5E7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_082046A8DE7B // pop_Word_GetLeftWordRefValue
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_75A043F8F5E7 
-
 : ME_4DAEEDE10285_ME_082046A8DE7B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -399,7 +331,6 @@ ref; // ME_5617F4D00243_ME_082046A8DE7B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_197CE9AF4B83 // TTypeInfo
- ME_75A043F8F5E7 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:GetLeftWordRefValue'
@@ -489,17 +420,6 @@ ref; // ME_0E50B5B72F85 GetParam
 
 ref; // ME_5E35C245BF90 
 
-: ME_6490B5749ECA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_18E1A6E1AA33 // pop_Word_GetParam
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_6490B5749ECA 
-
 : ME_4DAEEDE10285_ME_18E1A6E1AA33
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -556,7 +476,6 @@ ref; // ME_5617F4D00243_ME_18E1A6E1AA33 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_5E35C245BF90 // TTypeInfo
- ME_6490B5749ECA // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:GetParam'
@@ -644,17 +563,6 @@ ref; // ME_76D0ECD79670 SetProducer
 
 ref; // ME_CA149B794E6C 
 
-: ME_3DC50AE241E9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8EA9132CC57C // pop_Word_SetProducer
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_3DC50AE241E9 
-
 : ME_4DAEEDE10285_ME_8EA9132CC57C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -711,7 +619,6 @@ ref; // ME_5617F4D00243_ME_8EA9132CC57C ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_CA149B794E6C // TTypeInfo
- ME_3DC50AE241E9 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:SetProducer'
@@ -801,17 +708,6 @@ ref; // ME_A78847AB9E1F FindMember
 
 ref; // ME_43BFE40957A7 
 
-: ME_F47EFABBAFD6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_289A2FC7F4D3 // pop_Word_FindMember
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F47EFABBAFD6 
-
 : ME_4DAEEDE10285_ME_289A2FC7F4D3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -868,7 +764,6 @@ ref; // ME_5617F4D00243_ME_289A2FC7F4D3 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_43BFE40957A7 // TTypeInfo
- ME_F47EFABBAFD6 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:FindMember'
@@ -947,17 +842,6 @@ ref; // ME_40860C2E9C2E GetRef
 
 ref; // ME_C16A291BF20B 
 
-: ME_D1D85A780299
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A74A73E17FB3 // pop_Word_GetRef
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D1D85A780299 
-
 : ME_4DAEEDE10285_ME_A74A73E17FB3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1014,7 +898,6 @@ ref; // ME_5617F4D00243_ME_A74A73E17FB3 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_C16A291BF20B // TTypeInfo
- ME_D1D85A780299 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:GetRef'
@@ -1093,17 +976,6 @@ ref; // ME_D90ED7F34B68 SourcePointString
 
 ref; // ME_9A8DB781911C 
 
-: ME_1FE9E6382978
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_023E8C15D57F // pop_Word_SourcePointString
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_1FE9E6382978 
-
 : ME_4DAEEDE10285_ME_023E8C15D57F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1160,7 +1032,6 @@ ref; // ME_5617F4D00243_ME_023E8C15D57F ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_9A8DB781911C // TTypeInfo
- ME_1FE9E6382978 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:SourcePointString'
@@ -1239,17 +1110,6 @@ ref; // ME_2E59A9A784D4 IsVarLike
 
 ref; // ME_2F43A147CABE 
 
-: ME_C0585523F57A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D3A8B5A317FE // pop_Word_IsVarLike
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_C0585523F57A 
-
 : ME_4DAEEDE10285_ME_D3A8B5A317FE
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1306,7 +1166,6 @@ ref; // ME_5617F4D00243_ME_D3A8B5A317FE ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_2F43A147CABE // TTypeInfo
- ME_C0585523F57A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:IsVarLike'
@@ -1385,17 +1244,6 @@ ref; // ME_A3681005727A IsInParam
 
 ref; // ME_2AA900A1F333 
 
-: ME_7AD686430786
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_252F9E4AEA1C // pop_Word_IsInParam
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_7AD686430786 
-
 : ME_4DAEEDE10285_ME_252F9E4AEA1C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1452,7 +1300,6 @@ ref; // ME_5617F4D00243_ME_252F9E4AEA1C ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_2AA900A1F333 // TTypeInfo
- ME_7AD686430786 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:IsInParam'
@@ -1540,17 +1387,6 @@ ref; // ME_80E6106682BF SetValue
 
 ref; // ME_5B5D188FAFB4 
 
-: ME_8273175A236C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FF9BD5F0BEBA // pop_Word_SetValue
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_8273175A236C 
-
 : ME_4DAEEDE10285_ME_FF9BD5F0BEBA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1607,7 +1443,6 @@ ref; // ME_5617F4D00243_ME_FF9BD5F0BEBA ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_5B5D188FAFB4 // TTypeInfo
- ME_8273175A236C // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:SetValue'
@@ -1686,17 +1521,6 @@ ref; // ME_51983D6F5E34 Info
 
 ref; // ME_81556137C3CF 
 
-: ME_2F8DD4BDFCE5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_729F2B05F10B // pop_Word_Info
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_2F8DD4BDFCE5 
-
 : ME_4DAEEDE10285_ME_729F2B05F10B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1753,7 +1577,6 @@ ref; // ME_5617F4D00243_ME_729F2B05F10B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_81556137C3CF // TTypeInfo
- ME_2F8DD4BDFCE5 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Info'
@@ -1832,17 +1655,6 @@ ref; // ME_83CFF18DA9B9 IsForHelp
 
 ref; // ME_03A056630817 
 
-: ME_9750646E48EC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BD8751956DAF // pop_Word_IsForHelp
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_9750646E48EC 
-
 : ME_4DAEEDE10285_ME_BD8751956DAF
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1899,7 +1711,6 @@ ref; // ME_5617F4D00243_ME_BD8751956DAF ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_03A056630817 // TTypeInfo
- ME_9750646E48EC // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:IsForHelp'
@@ -1978,17 +1789,6 @@ ref; // ME_2FA551E3AF7E IsImmediate
 
 ref; // ME_665039D59F1D 
 
-: ME_5FC4D2DAFED7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0D83B83BE222 // pop_Word_IsImmediate
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_5FC4D2DAFED7 
-
 : ME_4DAEEDE10285_ME_0D83B83BE222
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2045,7 +1845,6 @@ ref; // ME_5617F4D00243_ME_0D83B83BE222 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_665039D59F1D // TTypeInfo
- ME_5FC4D2DAFED7 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:IsImmediate'
@@ -2122,17 +1921,6 @@ ref; // ME_E571552281D4 IncRef
 
 ref; // ME_A130771DB2EA 
 
-: ME_565830CAA0B7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_76CDD4A4EF99 // pop_Word_IncRef
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_565830CAA0B7 
-
 : ME_4DAEEDE10285_ME_76CDD4A4EF99
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2189,7 +1977,6 @@ ref; // ME_5617F4D00243_ME_76CDD4A4EF99 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_A130771DB2EA // TTypeInfo
- ME_565830CAA0B7 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:IncRef'
@@ -2266,17 +2053,6 @@ ref; // ME_0F1AAC70C4E6 DecRef
 
 ref; // ME_E22C8D1F35DE 
 
-: ME_0ACD4238D917
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E5CE67CA0A33 // pop_Word_DecRef
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_0ACD4238D917 
-
 : ME_4DAEEDE10285_ME_E5CE67CA0A33
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2333,7 +2109,6 @@ ref; // ME_5617F4D00243_ME_E5CE67CA0A33 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_E22C8D1F35DE // TTypeInfo
- ME_0ACD4238D917 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:DecRef'
@@ -2412,17 +2187,6 @@ ref; // ME_092BBE4CCE0C MembersIterator
 
 ref; // ME_307D032E307B 
 
-: ME_86553D2BF385
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_44A52B9145D9 // pop_Word_MembersIterator
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_86553D2BF385 
-
 : ME_4DAEEDE10285_ME_44A52B9145D9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2479,7 +2243,6 @@ ref; // ME_5617F4D00243_ME_44A52B9145D9 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_307D032E307B // TTypeInfo
- ME_86553D2BF385 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:MembersIterator'
@@ -2558,17 +2321,6 @@ ref; // ME_5F29394A3B0F InnerDictionary
 
 ref; // ME_0EF576250EA0 
 
-: ME_7A56695C1013
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3B0F200560B8 // pop_Word_InnerDictionary
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_7A56695C1013 
-
 : ME_4DAEEDE10285_ME_3B0F200560B8
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2625,7 +2377,6 @@ ref; // ME_5617F4D00243_ME_3B0F200560B8 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0EF576250EA0 // TTypeInfo
- ME_7A56695C1013 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:InnerDictionary'
@@ -2704,17 +2455,6 @@ ref; // ME_C4C77155D94B CodeIterator
 
 ref; // ME_EF6911500ADB 
 
-: ME_E3ECF449D5FA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_368F6A08F367 // pop_Word_CodeIterator
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_E3ECF449D5FA 
-
 : ME_4DAEEDE10285_ME_368F6A08F367
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2771,7 +2511,6 @@ ref; // ME_5617F4D00243_ME_368F6A08F367 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_EF6911500ADB // TTypeInfo
- ME_E3ECF449D5FA // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:CodeIterator'
@@ -2859,17 +2598,6 @@ ref; // ME_81B1B00AB03E SetValuePrim
 
 ref; // ME_8249CDC4E61D 
 
-: ME_1466B7DCBD64
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B103AAB7CCE4 // pop_Word_SetValuePrim
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_1466B7DCBD64 
-
 : ME_4DAEEDE10285_ME_B103AAB7CCE4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2926,7 +2654,6 @@ ref; // ME_5617F4D00243_ME_B103AAB7CCE4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_8249CDC4E61D // TTypeInfo
- ME_1466B7DCBD64 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:SetValuePrim'
@@ -3005,17 +2732,6 @@ ref; // ME_34F1730D1DCE KeyWord
 
 ref; // ME_324DECA80E01 
 
-: ME_6283B20A1344
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E6AF38361418 // pop_Word_KeyWord
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_6283B20A1344 
-
 : ME_4DAEEDE10285_ME_E6AF38361418
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3072,7 +2788,6 @@ ref; // ME_5617F4D00243_ME_E6AF38361418 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_324DECA80E01 // TTypeInfo
- ME_6283B20A1344 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:KeyWord'
@@ -3160,17 +2875,6 @@ ref; // ME_1E3B0BF5E600 SetParent
 
 ref; // ME_A4E6CEC8A4B7 
 
-: ME_9A0B25BE71A6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_69FD1B01AD85 // pop_Word_SetParent
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_9A0B25BE71A6 
-
 : ME_4DAEEDE10285_ME_69FD1B01AD85
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3227,7 +2931,6 @@ ref; // ME_5617F4D00243_ME_69FD1B01AD85 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_A4E6CEC8A4B7 // TTypeInfo
- ME_9A0B25BE71A6 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:SetParent'
@@ -3315,17 +3018,6 @@ ref; // ME_EEC2356F711F SetKey
 
 ref; // ME_9308926EAAB8 
 
-: ME_8891E5390EBA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E15AE75A5B92 // pop_Word_SetKey
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_8891E5390EBA 
-
 : ME_4DAEEDE10285_ME_E15AE75A5B92
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3382,7 +3074,6 @@ ref; // ME_5617F4D00243_ME_E15AE75A5B92 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_9308926EAAB8 // TTypeInfo
- ME_8891E5390EBA // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:SetKey'
@@ -3461,17 +3152,6 @@ ref; // ME_9C15D843AC16 Box
 
 ref; // ME_1F85E7BA4CBC 
 
-: ME_9C836398D3DF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F1A210163CD1 // pop_Word_Box
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_9C836398D3DF 
-
 : ME_4DAEEDE10285_ME_F1A210163CD1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3528,7 +3208,6 @@ ref; // ME_5617F4D00243_ME_F1A210163CD1 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1F85E7BA4CBC // TTypeInfo
- ME_9C836398D3DF // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Box'
@@ -3607,17 +3286,6 @@ ref; // ME_FB7C52FA2B52 Directives
 
 ref; // ME_AA21BA1DC7D1 
 
-: ME_E815B1319C62
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3D48CC7059CD // pop_Word_Directives
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_E815B1319C62 
-
 : ME_4DAEEDE10285_ME_3D48CC7059CD
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3681,7 +3349,6 @@ ref; // ME_5617F4D00243_ME_3D48CC7059CD ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_AA21BA1DC7D1 // TTypeInfo
- ME_E815B1319C62 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Directives'
@@ -3760,17 +3427,6 @@ ref; // ME_A2984E82225C EndBracket
 
 ref; // ME_0662ECA42659 
 
-: ME_F6BC3ACD18F0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_035A954E5F92 // pop_Word_EndBracket
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F6BC3ACD18F0 
-
 : ME_4DAEEDE10285_ME_035A954E5F92
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3834,7 +3490,6 @@ ref; // ME_5617F4D00243_ME_035A954E5F92 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0662ECA42659 // TTypeInfo
- ME_F6BC3ACD18F0 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:EndBracket'
@@ -3913,17 +3568,6 @@ ref; // ME_506A313D6D93 LeftWordRefValuesCount
 
 ref; // ME_13BF5180E51E 
 
-: ME_F426FE29A627
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_699E423B4C87 // pop_Word_LeftWordRefValuesCount
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F426FE29A627 
-
 : ME_4DAEEDE10285_ME_699E423B4C87
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3987,7 +3631,6 @@ ref; // ME_5617F4D00243_ME_699E423B4C87 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_13BF5180E51E // TTypeInfo
- ME_F426FE29A627 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:LeftWordRefValuesCount'
@@ -4066,17 +3709,6 @@ ref; // ME_88F83475097B Name
 
 ref; // ME_155DD1E71C62 
 
-: ME_F3AE6F99CACA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F6AEFC7115C2 // pop_Word_Name
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F3AE6F99CACA 
-
 : ME_4DAEEDE10285_ME_F6AEFC7115C2
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4140,7 +3772,6 @@ ref; // ME_5617F4D00243_ME_F6AEFC7115C2 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_155DD1E71C62 // TTypeInfo
- ME_F3AE6F99CACA // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Name'
@@ -4219,17 +3850,6 @@ ref; // ME_D6565DAC49E7 Parent
 
 ref; // ME_4D57DC99D0A5 
 
-: ME_A09942833143
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5AA39503403C // pop_Word_Parent
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_A09942833143 
-
 : ME_4DAEEDE10285_ME_5AA39503403C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4293,7 +3913,6 @@ ref; // ME_5617F4D00243_ME_5AA39503403C ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_4D57DC99D0A5 // TTypeInfo
- ME_A09942833143 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Parent'
@@ -4372,17 +3991,6 @@ ref; // ME_8C360D05017B Producer
 
 ref; // ME_1B9C6EE13C83 
 
-: ME_C45DE6576DE3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2979371FE619 // pop_Word_Producer
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_C45DE6576DE3 
-
 : ME_4DAEEDE10285_ME_2979371FE619
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4446,7 +4054,6 @@ ref; // ME_5617F4D00243_ME_2979371FE619 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1B9C6EE13C83 // TTypeInfo
- ME_C45DE6576DE3 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Producer'
@@ -4525,17 +4132,6 @@ ref; // ME_FFA0775C9845 Redefines
 
 ref; // ME_D951F1E8F08D 
 
-: ME_F139A646AACD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_90152F7BB588 // pop_Word_Redefines
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F139A646AACD 
-
 : ME_4DAEEDE10285_ME_90152F7BB588
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4599,7 +4195,6 @@ ref; // ME_5617F4D00243_ME_90152F7BB588 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D951F1E8F08D // TTypeInfo
- ME_F139A646AACD // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Word:Redefines'
@@ -5819,7 +5414,6 @@ ref; // ME_4DAEEDE10285_ME_550C25D70182 DoDoIt
  : Children
    Seq: ( ME_567A8D710267 // ItfwWordBox
  ME_567A8DB002B6 // TtfwWordBox
- ME_BD54BA1C4F00 // TWordsRTTIPackResNameGetter
  ME_082046A8DE7B // pop_Word_GetLeftWordRefValue
  ME_18E1A6E1AA33 // pop_Word_GetParam
  ME_8EA9132CC57C // pop_Word_SetProducer
@@ -5886,63 +5480,6 @@ ref; // ME_550C25D70182 WordsRTTIPack
 
 FORWARD ME_550C4C8701B4
 
-FORWARD ME_B848CAD2CFA5
-
-: ME_ADFED793D33E
- CONST UID 'ADFED793D33E'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B848CAD2CFA5 // TTypeInfoPackResNameGetter
- ;
-
-ref; // ME_ADFED793D33E RegAxiom
-
-: ME_55B7A3AF0359_ME_B848CAD2CFA5
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_B848CAD2CFA5 ResName
-
-: ME_B848CAD2CFA5
- CONST UID 'B848CAD2CFA5'
- CONST Name 'TTypeInfoPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550C4C8701B4 // TypeInfoPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_ADFED793D33E // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_B848CAD2CFA5 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'TypeInfoPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_B848CAD2CFA5 TTypeInfoPackResNameGetter
-
 FORWARD ME_550C4CAD0164
 
 FORWARD ME_15B838867296
@@ -6002,17 +5539,6 @@ ref; // ME_15B838867296 IsArray
 
 ref; // ME_D208E9719810 
 
-: ME_0AB7BF542C24
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_758F80018751 // IsArray
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_0AB7BF542C24 
-
 : ME_4DAEEDE10285_ME_758F80018751
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6069,7 +5595,6 @@ ref; // ME_5617F4D00243_ME_758F80018751 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D208E9719810 // TTypeInfo
- ME_0AB7BF542C24 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsArray'
@@ -6148,17 +5673,6 @@ ref; // ME_C4B2F87508DA IsVoid
 
 ref; // ME_8374FC11ADB6 
 
-: ME_31E1E9F9A97B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0707D9C010E3 // IsVoid
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_31E1E9F9A97B 
-
 : ME_4DAEEDE10285_ME_0707D9C010E3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6215,7 +5729,6 @@ ref; // ME_5617F4D00243_ME_0707D9C010E3 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_8374FC11ADB6 // TTypeInfo
- ME_31E1E9F9A97B // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsVoid'
@@ -6294,17 +5807,6 @@ ref; // ME_99DC3EB5BE4F IsObj
 
 ref; // ME_B9AB672298E2 
 
-: ME_E2D009F35B2A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_257BCAC433BA // IsObj
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_E2D009F35B2A 
-
 : ME_4DAEEDE10285_ME_257BCAC433BA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6361,7 +5863,6 @@ ref; // ME_5617F4D00243_ME_257BCAC433BA ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_B9AB672298E2 // TTypeInfo
- ME_E2D009F35B2A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsObj'
@@ -6440,17 +5941,6 @@ ref; // ME_2091967DFD07 IsIntf
 
 ref; // ME_48C3E774B38C 
 
-: ME_D726B0D7397A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_475E881B9090 // IsIntf
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D726B0D7397A 
-
 : ME_4DAEEDE10285_ME_475E881B9090
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6507,7 +5997,6 @@ ref; // ME_5617F4D00243_ME_475E881B9090 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_48C3E774B38C // TTypeInfo
- ME_D726B0D7397A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsIntf'
@@ -6586,17 +6075,6 @@ ref; // ME_07ECD13EA5B8 IsChar
 
 ref; // ME_6CBB0B3C1FAB 
 
-: ME_ED228BD98053
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ACCFB9C57546 // IsChar
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_ED228BD98053 
-
 : ME_4DAEEDE10285_ME_ACCFB9C57546
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6653,7 +6131,6 @@ ref; // ME_5617F4D00243_ME_ACCFB9C57546 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_6CBB0B3C1FAB // TTypeInfo
- ME_ED228BD98053 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsChar'
@@ -6732,17 +6209,6 @@ ref; // ME_35FB3393AF28 IsString
 
 ref; // ME_D00E4E430A78 
 
-: ME_47374ADFB53F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_689D96A305FE // IsString
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_47374ADFB53F 
-
 : ME_4DAEEDE10285_ME_689D96A305FE
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6799,7 +6265,6 @@ ref; // ME_5617F4D00243_ME_689D96A305FE ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D00E4E430A78 // TTypeInfo
- ME_47374ADFB53F // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsString'
@@ -6878,17 +6343,6 @@ ref; // ME_5961904482C4 IsInt
 
 ref; // ME_5D40AE4B0DCE 
 
-: ME_B07C8BB69C5A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1E29EA0B90A4 // IsInt
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B07C8BB69C5A 
-
 : ME_4DAEEDE10285_ME_1E29EA0B90A4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -6945,7 +6399,6 @@ ref; // ME_5617F4D00243_ME_1E29EA0B90A4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_5D40AE4B0DCE // TTypeInfo
- ME_B07C8BB69C5A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsInt'
@@ -7024,17 +6477,6 @@ ref; // ME_91B47D0849F0 IsClass
 
 ref; // ME_4FF03CB6D5F8 
 
-: ME_F1A3963A3C29
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D8E9C4F61308 // IsClass
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F1A3963A3C29 
-
 : ME_4DAEEDE10285_ME_D8E9C4F61308
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7091,7 +6533,6 @@ ref; // ME_5617F4D00243_ME_D8E9C4F61308 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_4FF03CB6D5F8 // TTypeInfo
- ME_F1A3963A3C29 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsClass'
@@ -7170,17 +6611,6 @@ ref; // ME_8C01CED67FCB ToPrintable
 
 ref; // ME_94A986E16324 
 
-: ME_FB248C4B73A8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0B39C51FE7D1 // ToPrintable
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_FB248C4B73A8 
-
 : ME_4DAEEDE10285_ME_0B39C51FE7D1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7237,7 +6667,6 @@ ref; // ME_5617F4D00243_ME_0B39C51FE7D1 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_94A986E16324 // TTypeInfo
- ME_FB248C4B73A8 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'ToPrintable'
@@ -7316,17 +6745,6 @@ ref; // ME_65885D693C21 IsBool
 
 ref; // ME_D8C8331E9433 
 
-: ME_D715D5567E23
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_805A190E934E // IsBool
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D715D5567E23 
-
 : ME_4DAEEDE10285_ME_805A190E934E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7383,7 +6801,6 @@ ref; // ME_5617F4D00243_ME_805A190E934E ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D8C8331E9433 // TTypeInfo
- ME_D715D5567E23 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsBool'
@@ -7473,17 +6890,6 @@ ref; // ME_97D860339C94 IsTypeOf
 
 ref; // ME_135C97AEC67A 
 
-: ME_5DDAAFB20AF5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_482D1ABE67DA // IsTypeOf
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_5DDAAFB20AF5 
-
 : ME_4DAEEDE10285_ME_482D1ABE67DA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7540,7 +6946,6 @@ ref; // ME_5617F4D00243_ME_482D1ABE67DA ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_135C97AEC67A // TTypeInfo
- ME_5DDAAFB20AF5 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsTypeOf'
@@ -7619,17 +7024,6 @@ ref; // ME_1AC4F2BEB556 IsNil
 
 ref; // ME_468BD2F3F169 
 
-: ME_FAFDFA673195
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1D17EAE13A3E // IsNil
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_FAFDFA673195 
-
 : ME_4DAEEDE10285_ME_1D17EAE13A3E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7686,7 +7080,6 @@ ref; // ME_5617F4D00243_ME_1D17EAE13A3E ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_468BD2F3F169 // TTypeInfo
- ME_FAFDFA673195 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'IsNil'
@@ -7763,17 +7156,6 @@ ref; // ME_38D90DF7C305 Ctx_IncludeModifier
 
 ref; // ME_AD4291CAE0C3 
 
-: ME_077E26212C08
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C05D38D44F64 // Ctx_IncludeModifier
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_077E26212C08 
-
 : ME_4DAEEDE10285_ME_C05D38D44F64
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7830,7 +7212,6 @@ ref; // ME_5617F4D00243_ME_C05D38D44F64 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_AD4291CAE0C3 // TTypeInfo
- ME_077E26212C08 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:IncludeModifier'
@@ -7896,17 +7277,6 @@ ref; // ME_CDAA2A6A2AD7 Ctx_PushCompiler
 
 ref; // ME_88A9EC1942B9 
 
-: ME_23603427BBE0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_76B2C4302847 // Ctx_PushCompiler
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_23603427BBE0 
-
 : ME_4DAEEDE10285_ME_76B2C4302847
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -7963,7 +7333,6 @@ ref; // ME_5617F4D00243_ME_76B2C4302847 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_88A9EC1942B9 // TTypeInfo
- ME_23603427BBE0 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:PushCompiler'
@@ -8029,17 +7398,6 @@ ref; // ME_ECD8F9EEA9F6 Ctx_PushFinder
 
 ref; // ME_0D0DD725BA0C 
 
-: ME_CE654F237C49
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E129F00B5D0B // Ctx_PushFinder
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_CE654F237C49 
-
 : ME_4DAEEDE10285_ME_E129F00B5D0B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -8096,7 +7454,6 @@ ref; // ME_5617F4D00243_ME_E129F00B5D0B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0D0DD725BA0C // TTypeInfo
- ME_CE654F237C49 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:PushFinder'
@@ -8171,17 +7528,6 @@ ref; // ME_7547D1BE3A40 pop_Compiler_SetToCtx
 
 ref; // ME_65359CCDC318 
 
-: ME_07A023FF8E1E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DCE6B328F683 // pop_Compiler_SetToCtx
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_07A023FF8E1E 
-
 : ME_4DAEEDE10285_ME_DCE6B328F683
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -8238,7 +7584,6 @@ ref; // ME_5617F4D00243_ME_DCE6B328F683 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_65359CCDC318 // TTypeInfo
- ME_07A023FF8E1E // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:SetToCtx'
@@ -8313,17 +7658,6 @@ ref; // ME_F415B417142F pop_Finder_SetToCtx
 
 ref; // ME_74CCED0FDE46 
 
-: ME_629FEA0C8BCD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5222729B474B // pop_Finder_SetToCtx
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_629FEA0C8BCD 
-
 : ME_4DAEEDE10285_ME_5222729B474B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -8380,7 +7714,6 @@ ref; // ME_5617F4D00243_ME_5222729B474B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_74CCED0FDE46 // TTypeInfo
- ME_629FEA0C8BCD // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Finder:SetToCtx'
@@ -8412,17 +7745,6 @@ FORWARD ME_723DBAD5D836
  ;
 
 ref; // ME_2E205566FFC2 
-
-: ME_024CA18A2195
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_723DBAD5D836 // NotImplemented
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_024CA18A2195 
 
 : ME_4DAEEDE10285_ME_723DBAD5D836
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
@@ -8469,7 +7791,6 @@ ref; // ME_559687E6025A_ME_723DBAD5D836 GetAllParamsCount
  ; // Overridden
  : Dependencies
    Seq: ( ME_2E205566FFC2 // TTypeInfo
- ME_024CA18A2195 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'NotImplemented'
@@ -8533,17 +7854,6 @@ ref; // ME_A3EE7AAF51AE Ctx_NewWordDefinitor
 
 ref; // ME_7F2104D92FAD 
 
-: ME_38A0B14F4D3E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_727C5ED83D51 // Ctx_NewWordDefinitor
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_38A0B14F4D3E 
-
 : ME_4DAEEDE10285_ME_727C5ED83D51
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -8600,7 +7910,6 @@ ref; // ME_5617F4D00243_ME_727C5ED83D51 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_7F2104D92FAD // TTypeInfo
- ME_38A0B14F4D3E // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:NewWordDefinitor'
@@ -8632,17 +7941,6 @@ FORWARD ME_A118FE89A230
  ;
 
 ref; // ME_E77884CE0F04 
-
-: ME_2384FAB8D886
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A118FE89A230 // Ctx_ClearTypeInfo
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_2384FAB8D886 
 
 : ME_4DAEEDE10285_ME_A118FE89A230
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
@@ -8689,7 +7987,6 @@ ref; // ME_559687E6025A_ME_A118FE89A230 GetAllParamsCount
  ; // Overridden
  : Dependencies
    Seq: ( ME_E77884CE0F04 // TTypeInfo
- ME_2384FAB8D886 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:ClearTypeInfo'
@@ -8762,17 +8059,6 @@ ref; // ME_FAD614919182 Ctx_SetWordProducerForCompiledClass
 
 ref; // ME_6C81668CA23E 
 
-: ME_EA5F93D7F9A4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_6940038A26AA // Ctx_SetWordProducerForCompiledClass
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_EA5F93D7F9A4 
-
 : ME_4DAEEDE10285_ME_6940038A26AA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -8829,7 +8115,6 @@ ref; // ME_5617F4D00243_ME_6940038A26AA ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_6C81668CA23E // TTypeInfo
- ME_EA5F93D7F9A4 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:SetWordProducerForCompiledClass'
@@ -8904,17 +8189,6 @@ ref; // ME_88A555297CD8 Ctx_SetNewWordName
 
 ref; // ME_5CEF84C5A64A 
 
-: ME_6CA1A4601656
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C23B404259CC // Ctx_SetNewWordName
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_6CA1A4601656 
-
 : ME_4DAEEDE10285_ME_C23B404259CC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -8971,7 +8245,6 @@ ref; // ME_5617F4D00243_ME_C23B404259CC ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_5CEF84C5A64A // TTypeInfo
- ME_6CA1A4601656 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:SetNewWordName'
@@ -9046,17 +8319,6 @@ ref; // ME_C76389C21A2D Ctx_IncludeTypeModifier
 
 ref; // ME_C7BBB5C1EA7B 
 
-: ME_211EC30A3380
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_286CAF6C6B6A // Ctx_IncludeTypeModifier
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_211EC30A3380 
-
 : ME_4DAEEDE10285_ME_286CAF6C6B6A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9113,7 +8375,6 @@ ref; // ME_5617F4D00243_ME_286CAF6C6B6A ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_C7BBB5C1EA7B // TTypeInfo
- ME_211EC30A3380 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:IncludeTypeModifier'
@@ -9179,17 +8440,6 @@ ref; // ME_03F9D805A35E Ctx_WordDefiningNow
 
 ref; // ME_9162921E6ACD 
 
-: ME_9EBEC87B8DFE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F9DC6877556A // Ctx_WordDefiningNow
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_9EBEC87B8DFE 
-
 : ME_4DAEEDE10285_ME_F9DC6877556A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9246,7 +8496,6 @@ ref; // ME_5617F4D00243_ME_F9DC6877556A ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_9162921E6ACD // TTypeInfo
- ME_9EBEC87B8DFE // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:WordDefiningNow'
@@ -9312,17 +8561,6 @@ ref; // ME_256B4C029617 Ctx_KeyWordDefiningNow
 
 ref; // ME_D0EB835052E0 
 
-: ME_1ACA35981C87
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1C2D3DEAE952 // Ctx_KeyWordDefiningNow
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_1ACA35981C87 
-
 : ME_4DAEEDE10285_ME_1C2D3DEAE952
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9379,7 +8617,6 @@ ref; // ME_5617F4D00243_ME_1C2D3DEAE952 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D0EB835052E0 // TTypeInfo
- ME_1ACA35981C87 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:KeyWordDefiningNow'
@@ -9454,17 +8691,6 @@ ref; // ME_AA17108711E6 Ctx_IncludeAccessType
 
 ref; // ME_ED1365AB2A5B 
 
-: ME_50E4FEA4F853
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7AAC4F1C32BA // Ctx_IncludeAccessType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_50E4FEA4F853 
-
 : ME_4DAEEDE10285_ME_7AAC4F1C32BA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9521,7 +8747,6 @@ ref; // ME_5617F4D00243_ME_7AAC4F1C32BA ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_ED1365AB2A5B // TTypeInfo
- ME_50E4FEA4F853 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:IncludeAccessType'
@@ -9596,17 +8821,6 @@ ref; // ME_23B154B4DBB8 Ctx_IncludeLinkType
 
 ref; // ME_D7FB0DF74D41 
 
-: ME_3DD8E4627C68
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53FBB3F9AAFD // Ctx_IncludeLinkType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_3DD8E4627C68 
-
 : ME_4DAEEDE10285_ME_53FBB3F9AAFD
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9663,7 +8877,6 @@ ref; // ME_5617F4D00243_ME_53FBB3F9AAFD ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_D7FB0DF74D41 // TTypeInfo
- ME_3DD8E4627C68 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:IncludeLinkType'
@@ -9729,17 +8942,6 @@ ref; // ME_352E66091EEC Ctx_ValueTypes
 
 ref; // ME_ED72DB656B0C 
 
-: ME_7CC8AF8DAE0C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2701D2795604 // Ctx_ValueTypes
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_7CC8AF8DAE0C 
-
 : ME_4DAEEDE10285_ME_2701D2795604
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9796,7 +8998,6 @@ ref; // ME_5617F4D00243_ME_2701D2795604 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_ED72DB656B0C // TTypeInfo
- ME_7CC8AF8DAE0C // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:ValueTypes'
@@ -9871,17 +9072,6 @@ ref; // ME_712E549F6918 Ctx_SetValueTypes
 
 ref; // ME_2893A14F643F 
 
-: ME_15E513234EED
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0501B6DEBAE2 // Ctx_SetValueTypes
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_15E513234EED 
-
 : ME_4DAEEDE10285_ME_0501B6DEBAE2
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -9938,7 +9128,6 @@ ref; // ME_5617F4D00243_ME_0501B6DEBAE2 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_2893A14F643F // TTypeInfo
- ME_15E513234EED // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:SetValueTypes'
@@ -10013,17 +9202,6 @@ ref; // ME_A48D2ADCEACA Ctx_IncludeValueTypes
 
 ref; // ME_BD272B633C77 
 
-: ME_D361A3410568
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_183633344722 // Ctx_IncludeValueTypes
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D361A3410568 
-
 : ME_4DAEEDE10285_ME_183633344722
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10080,7 +9258,6 @@ ref; // ME_5617F4D00243_ME_183633344722 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_BD272B633C77 // TTypeInfo
- ME_D361A3410568 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:IncludeValueTypes'
@@ -10146,17 +9323,6 @@ ref; // ME_FFF18757733C Ctx_WordInfo
 
 ref; // ME_0EFFBDF62FA2 
 
-: ME_5475337AC74E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3BE27B131D46 // Ctx_WordInfo
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_5475337AC74E 
-
 : ME_4DAEEDE10285_ME_3BE27B131D46
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10213,7 +9379,6 @@ ref; // ME_5617F4D00243_ME_3BE27B131D46 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0EFFBDF62FA2 // TTypeInfo
- ME_5475337AC74E // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:WordInfo'
@@ -10290,17 +9455,6 @@ ref; // ME_C1B1C109F815 Ctx_ResolveIncludedFilePath
 
 ref; // ME_BF46D736F1FC 
 
-: ME_A76D9F65741F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_880CCE28EDF4 // Ctx_ResolveIncludedFilePath
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_A76D9F65741F 
-
 : ME_4DAEEDE10285_ME_880CCE28EDF4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10357,7 +9511,6 @@ ref; // ME_5617F4D00243_ME_880CCE28EDF4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_BF46D736F1FC // TTypeInfo
- ME_A76D9F65741F // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:ResolveIncludedFilePath'
@@ -10423,17 +9576,6 @@ ref; // ME_F12DBD5766C9 Ctx_MainDictionary
 
 ref; // ME_3E1B3DE5EA2C 
 
-: ME_B4335C437E5A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F387799EAE1E // Ctx_MainDictionary
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B4335C437E5A 
-
 : ME_4DAEEDE10285_ME_F387799EAE1E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10490,7 +9632,6 @@ ref; // ME_5617F4D00243_ME_F387799EAE1E ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_3E1B3DE5EA2C // TTypeInfo
- ME_B4335C437E5A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:MainDictionary'
@@ -10556,17 +9697,6 @@ ref; // ME_9CB880934455 Ctx_StandardDictionaries
 
 ref; // ME_F4E0FD17164D 
 
-: ME_B15D3603E3B0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7FC312875F45 // Ctx_StandardDictionaries
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B15D3603E3B0 
-
 : ME_4DAEEDE10285_ME_7FC312875F45
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10623,7 +9753,6 @@ ref; // ME_5617F4D00243_ME_7FC312875F45 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_F4E0FD17164D // TTypeInfo
- ME_B15D3603E3B0 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:StandardDictionaries'
@@ -10689,17 +9818,6 @@ ref; // ME_78F97FD56568 Ctx_Dictionaries
 
 ref; // ME_4CB391C8401C 
 
-: ME_C5C4EC82E564
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2A2848913C0E // Ctx_Dictionaries
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_C5C4EC82E564 
-
 : ME_4DAEEDE10285_ME_2A2848913C0E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10756,7 +9874,6 @@ ref; // ME_5617F4D00243_ME_2A2848913C0E ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_4CB391C8401C // TTypeInfo
- ME_C5C4EC82E564 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:Dictionaries'
@@ -10822,17 +9939,6 @@ ref; // ME_7DD94B76F5AF Ctx_InitedDictionaries
 
 ref; // ME_6B7714045841 
 
-: ME_9DC174A37909
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2B152A45C4EE // Ctx_InitedDictionaries
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_9DC174A37909 
-
 : ME_4DAEEDE10285_ME_2B152A45C4EE
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -10889,7 +9995,6 @@ ref; // ME_5617F4D00243_ME_2B152A45C4EE ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_6B7714045841 // TTypeInfo
- ME_9DC174A37909 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:InitedDictionaries'
@@ -10955,17 +10060,6 @@ ref; // ME_F777D1BA53D9 Ctx_DisabledForHelp
 
 ref; // ME_2C588951BC59 
 
-: ME_EFE83C3B5BC6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DDA19C1F4E5B // Ctx_DisabledForHelp
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_EFE83C3B5BC6 
-
 : ME_4DAEEDE10285_ME_DDA19C1F4E5B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -11022,7 +10116,6 @@ ref; // ME_5617F4D00243_ME_DDA19C1F4E5B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_2C588951BC59 // TTypeInfo
- ME_EFE83C3B5BC6 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'Ctx:DisabledForHelp'
@@ -12243,8 +11336,7 @@ ref; // ME_733B3E4AEBB6
  )
  ; // Operations
  : Children
-   Seq: ( ME_B848CAD2CFA5 // TTypeInfoPackResNameGetter
- ME_758F80018751 // IsArray
+   Seq: ( ME_758F80018751 // IsArray
  ME_0707D9C010E3 // IsVoid
  ME_257BCAC433BA // IsObj
  ME_475E881B9090 // IsIntf
@@ -12530,17 +11622,6 @@ ref; // ME_49B168237E12 CheckWord
 
 ref; // ME_1CF360C390BE 
 
-: ME_268CB0BD771C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B46B312AFA96 // pop_NewWordDefinitor_CheckWord
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_268CB0BD771C 
-
 : ME_4DAEEDE10285_ME_B46B312AFA96
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -12597,7 +11678,6 @@ ref; // ME_5617F4D00243_ME_B46B312AFA96 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1CF360C390BE // TTypeInfo
- ME_268CB0BD771C // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:NewWordDefinitor:CheckWord'
@@ -12698,17 +11778,6 @@ ref; // ME_D57528D8717B CheckVar
 
 ref; // ME_1A353644B45C 
 
-: ME_70621F4F318D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0518A66C4F49 // pop_NewWordDefinitor_CheckVar
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_70621F4F318D 
-
 : ME_4DAEEDE10285_ME_0518A66C4F49
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -12765,7 +11834,6 @@ ref; // ME_5617F4D00243_ME_0518A66C4F49 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1A353644B45C // TTypeInfo
- ME_70621F4F318D // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:NewWordDefinitor:CheckVar'
@@ -12866,17 +11934,6 @@ ref; // ME_B2F36CF00AB7 DefineInParameter
 
 ref; // ME_B4735E390283 
 
-: ME_EAF9E7D7C69B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CDFCC0A90AF7 // pop_NewWordDefinitor_DefineInParameter
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_EAF9E7D7C69B 
-
 : ME_4DAEEDE10285_ME_CDFCC0A90AF7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -12933,7 +11990,6 @@ ref; // ME_5617F4D00243_ME_CDFCC0A90AF7 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_B4735E390283 // TTypeInfo
- ME_EAF9E7D7C69B // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:NewWordDefinitor:DefineInParameter'
@@ -13034,17 +12090,6 @@ ref; // ME_FB5BD5AE3D3A CheckRefcountVar
 
 ref; // ME_93D883015634 
 
-: ME_99CFAD788757
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_61662B3659A7 // pop_NewWordDefinitor_CheckRefcountVar
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_99CFAD788757 
-
 : ME_4DAEEDE10285_ME_61662B3659A7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -13101,7 +12146,6 @@ ref; // ME_5617F4D00243_ME_61662B3659A7 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_93D883015634 // TTypeInfo
- ME_99CFAD788757 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:NewWordDefinitor:CheckRefcountVar'
@@ -13180,17 +12224,6 @@ ref; // ME_2EA08C0CC8B4 KeywordFinder
 
 ref; // ME_78FB618642D3 
 
-: ME_A860C27364EE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C919B8A4B92C // pop_NewWordDefinitor_KeywordFinder
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_A860C27364EE 
-
 : ME_4DAEEDE10285_ME_C919B8A4B92C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -13254,7 +12287,6 @@ ref; // ME_5617F4D00243_ME_C919B8A4B92C ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_78FB618642D3 // TTypeInfo
- ME_A860C27364EE // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:NewWordDefinitor:KeywordFinder'
@@ -13752,17 +12784,6 @@ ref; // ME_D7C9A8EDA8B8 SetWord
 
 ref; // ME_9C2DEDECA0DF 
 
-: ME_26DAA0BC15D2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DA7B06A59C14 // pop_KeyWord_SetWord
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_26DAA0BC15D2 
-
 : ME_4DAEEDE10285_ME_DA7B06A59C14
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -13819,7 +12840,6 @@ ref; // ME_5617F4D00243_ME_DA7B06A59C14 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_9C2DEDECA0DF // TTypeInfo
- ME_26DAA0BC15D2 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:KeyWord:SetWord'
@@ -13898,17 +12918,6 @@ ref; // ME_A55E297B02BE Word
 
 ref; // ME_F1A0234DD1E1 
 
-: ME_D36BFB6A2132
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_909E3EF864CC // pop_KeyWord_Word
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D36BFB6A2132 
-
 : ME_4DAEEDE10285_ME_909E3EF864CC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -13972,7 +12981,6 @@ ref; // ME_5617F4D00243_ME_909E3EF864CC ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_F1A0234DD1E1 // TTypeInfo
- ME_D36BFB6A2132 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:KeyWord:Word'
@@ -14051,17 +13059,6 @@ ref; // ME_23CD12DE8461 Name
 
 ref; // ME_0E50E1E850F8 
 
-: ME_2CD31AC9D17C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F4F627A63039 // pop_KeyWord_Name
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_2CD31AC9D17C 
-
 : ME_4DAEEDE10285_ME_F4F627A63039
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -14125,7 +13122,6 @@ ref; // ME_5617F4D00243_ME_F4F627A63039 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0E50E1E850F8 // TTypeInfo
- ME_2CD31AC9D17C // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:KeyWord:Name'
@@ -14204,17 +13200,6 @@ ref; // ME_CF988D0FA0BC Dictionary
 
 ref; // ME_90B45BC5A748 
 
-: ME_16063F68222B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_668B733FDAFB // pop_KeyWord_Dictionary
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_16063F68222B 
-
 : ME_4DAEEDE10285_ME_668B733FDAFB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -14278,7 +13263,6 @@ ref; // ME_5617F4D00243_ME_668B733FDAFB ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_90B45BC5A748 // TTypeInfo
- ME_16063F68222B // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:KeyWord:Dictionary'
@@ -14666,17 +13650,6 @@ ref; // ME_8AF404C5D805 CompileInParameterPopCode
 
 ref; // ME_A288F7E5F4E5 
 
-: ME_23A38D390407
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1EEC2B16B8DA // pop_Compiler_CompileInParameterPopCode
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_23A38D390407 
-
 : ME_4DAEEDE10285_ME_1EEC2B16B8DA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -14733,7 +13706,6 @@ ref; // ME_5617F4D00243_ME_1EEC2B16B8DA ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_A288F7E5F4E5 // TTypeInfo
- ME_23A38D390407 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:CompileInParameterPopCode'
@@ -14812,17 +13784,6 @@ ref; // ME_2865825201AC GetWordCompilingNow
 
 ref; // ME_22F414379792 
 
-: ME_584A7A5563A4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E67ED9D1F090 // pop_Compiler_GetWordCompilingNow
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_584A7A5563A4 
-
 : ME_4DAEEDE10285_ME_E67ED9D1F090
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -14879,7 +13840,6 @@ ref; // ME_5617F4D00243_ME_E67ED9D1F090 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_22F414379792 // TTypeInfo
- ME_584A7A5563A4 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:GetWordCompilingNow'
@@ -14967,17 +13927,6 @@ ref; // ME_1B3CE4878CE9 AddCodePart
 
 ref; // ME_85780E4485AC 
 
-: ME_DAD969863909
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0A08F7650387 // pop_Compiler_AddCodePart
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_DAD969863909 
-
 : ME_4DAEEDE10285_ME_0A08F7650387
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -15034,7 +13983,6 @@ ref; // ME_5617F4D00243_ME_0A08F7650387 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_85780E4485AC // TTypeInfo
- ME_DAD969863909 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:AddCodePart'
@@ -15122,17 +14070,6 @@ ref; // ME_4A88B5E4BF40 AddCodePartValue
 
 ref; // ME_4A78FDAC6FC0 
 
-: ME_78BB3F19AD9D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_77BEE4F9136B // pop_Compiler_AddCodePartValue
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_78BB3F19AD9D 
-
 : ME_4DAEEDE10285_ME_77BEE4F9136B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -15189,7 +14126,6 @@ ref; // ME_5617F4D00243_ME_77BEE4F9136B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_4A78FDAC6FC0 // TTypeInfo
- ME_78BB3F19AD9D // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:AddCodePartValue'
@@ -15268,17 +14204,6 @@ ref; // ME_ACAA83F81CD5 KeywordFinder
 
 ref; // ME_B9247641B194 
 
-: ME_82DD44CAD2C7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3521615FAE64 // pop_Compiler_KeywordFinder
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_82DD44CAD2C7 
-
 : ME_4DAEEDE10285_ME_3521615FAE64
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -15342,7 +14267,6 @@ ref; // ME_5617F4D00243_ME_3521615FAE64 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_B9247641B194 // TTypeInfo
- ME_82DD44CAD2C7 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:KeywordFinder'
@@ -15421,17 +14345,6 @@ ref; // ME_E66311949296 NewWordDefinitor
 
 ref; // ME_0A7D1D5001AB 
 
-: ME_1B558E93D703
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_468F9B6E6285 // pop_Compiler_NewWordDefinitor
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_1B558E93D703 
-
 : ME_4DAEEDE10285_ME_468F9B6E6285
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -15495,7 +14408,6 @@ ref; // ME_5617F4D00243_ME_468F9B6E6285 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0A7D1D5001AB // TTypeInfo
- ME_1B558E93D703 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:Compiler:NewWordDefinitor'
@@ -15956,17 +14868,6 @@ ref; // ME_C636771AEA7F Compare
 
 ref; // ME_4E5E0FFA919D 
 
-: ME_668E82B52649
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B6B378D787FB // pop_ValueTypes_Compare
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_668E82B52649 
-
 : ME_4DAEEDE10285_ME_B6B378D787FB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16023,7 +14924,6 @@ ref; // ME_5617F4D00243_ME_B6B378D787FB ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_4E5E0FFA919D // TTypeInfo
- ME_668E82B52649 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:Compare'
@@ -16113,17 +15013,6 @@ ref; // ME_5536E76EB9C0 AcceptsValue
 
 ref; // ME_AA91C86AA29B 
 
-: ME_4C4A967A2A69
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_677C9B87E711 // pop_ValueTypes_AcceptsValue
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4C4A967A2A69 
-
 : ME_4DAEEDE10285_ME_677C9B87E711
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16180,7 +15069,6 @@ ref; // ME_5617F4D00243_ME_677C9B87E711 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_AA91C86AA29B // TTypeInfo
- ME_4C4A967A2A69 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:AcceptsValue'
@@ -16270,17 +15158,6 @@ ref; // ME_A69F1372BCB3 Add
 
 ref; // ME_F6ACB340BDED 
 
-: ME_38C822B5219E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8B6319E2FC07 // pop_ValueTypes_Add
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_38C822B5219E 
-
 : ME_4DAEEDE10285_ME_8B6319E2FC07
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16337,7 +15214,6 @@ ref; // ME_5617F4D00243_ME_8B6319E2FC07 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_F6ACB340BDED // TTypeInfo
- ME_38C822B5219E // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:Add'
@@ -16427,17 +15303,6 @@ ref; // ME_C742B74FA29A Has
 
 ref; // ME_CDC578AEFF55 
 
-: ME_D51BD0094779
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1C691DB5ECAC // pop_ValueTypes_Has
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D51BD0094779 
-
 : ME_4DAEEDE10285_ME_1C691DB5ECAC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16494,7 +15359,6 @@ ref; // ME_5617F4D00243_ME_1C691DB5ECAC ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_CDC578AEFF55 // TTypeInfo
- ME_D51BD0094779 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:Has'
@@ -16584,17 +15448,6 @@ ref; // ME_3652BF1196D7 EQ
 
 ref; // ME_F7B128DBE431 
 
-: ME_4E9AD76979C2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B4D5F2A5070B // pop_ValueTypes_EQ
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_4E9AD76979C2 
-
 : ME_4DAEEDE10285_ME_B4D5F2A5070B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16651,7 +15504,6 @@ ref; // ME_5617F4D00243_ME_B4D5F2A5070B ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_F7B128DBE431 // TTypeInfo
- ME_4E9AD76979C2 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:EQ'
@@ -16730,17 +15582,6 @@ ref; // ME_094C61557ACA DefaultValue
 
 ref; // ME_61A68B58096F 
 
-: ME_8AE82170C37A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F7AC71868E2 // pop_ValueTypes_DefaultValue
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_8AE82170C37A 
-
 : ME_4DAEEDE10285_ME_4F7AC71868E2
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16797,7 +15638,6 @@ ref; // ME_5617F4D00243_ME_4F7AC71868E2 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_61A68B58096F // TTypeInfo
- ME_8AE82170C37A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:DefaultValue'
@@ -16887,17 +15727,6 @@ ref; // ME_F5EDA08C381E MakeCustomName
 
 ref; // ME_716ADAEF05BE 
 
-: ME_DD2FCFC9411E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2A110DF50AE7 // pop_ValueTypes_MakeCustomName
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_DD2FCFC9411E 
-
 : ME_4DAEEDE10285_ME_2A110DF50AE7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -16954,7 +15783,6 @@ ref; // ME_5617F4D00243_ME_2A110DF50AE7 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_716ADAEF05BE // TTypeInfo
- ME_DD2FCFC9411E // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:MakeCustomName'
@@ -17044,17 +15872,6 @@ ref; // ME_E369C00B85CB Accepts
 
 ref; // ME_26BE94F18E87 
 
-: ME_9823E40E1946
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A6AA1D032B6D // pop_ValueTypes_Accepts
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_9823E40E1946 
-
 : ME_4DAEEDE10285_ME_A6AA1D032B6D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -17111,7 +15928,6 @@ ref; // ME_5617F4D00243_ME_A6AA1D032B6D ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_26BE94F18E87 // TTypeInfo
- ME_9823E40E1946 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:Accepts'
@@ -17190,17 +16006,6 @@ ref; // ME_A5FB98932E66 Name
 
 ref; // ME_0F42195C1BE4 
 
-: ME_662BC7E9B174
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0180EF65E172 // pop_ValueTypes_Name
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_662BC7E9B174 
-
 : ME_4DAEEDE10285_ME_0180EF65E172
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -17264,7 +16069,6 @@ ref; // ME_5617F4D00243_ME_0180EF65E172 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0F42195C1BE4 // TTypeInfo
- ME_662BC7E9B174 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:ValueTypes:Name'
@@ -17840,17 +16644,6 @@ ref; // ME_196CCED78325 IncludeModifier
 
 ref; // ME_DD2A5CB8C469 
 
-: ME_59F34C5A57DD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_14934B24DEE4 // pop_WordInfo_IncludeModifier
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_59F34C5A57DD 
-
 : ME_4DAEEDE10285_ME_14934B24DEE4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -17907,7 +16700,6 @@ ref; // ME_5617F4D00243_ME_14934B24DEE4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_DD2A5CB8C469 // TTypeInfo
- ME_59F34C5A57DD // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:IncludeModifier'
@@ -17986,17 +16778,6 @@ ref; // ME_DE7D56B67062 Empty
 
 ref; // ME_163199791594 
 
-: ME_8DFC08D150CC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9E29B763689D // pop_WordInfo_Empty
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_8DFC08D150CC 
-
 : ME_4DAEEDE10285_ME_9E29B763689D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18053,7 +16834,6 @@ ref; // ME_5617F4D00243_ME_9E29B763689D ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_163199791594 // TTypeInfo
- ME_8DFC08D150CC // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:Empty'
@@ -18143,17 +16923,6 @@ ref; // ME_6F1830859A21 HasWordModifier
 
 ref; // ME_20AF891CB6DD 
 
-: ME_C36E724E3648
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4280F4A50B03 // pop_WordInfo_HasWordModifier
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_C36E724E3648 
-
 : ME_4DAEEDE10285_ME_4280F4A50B03
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18210,7 +16979,6 @@ ref; // ME_5617F4D00243_ME_4280F4A50B03 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_20AF891CB6DD // TTypeInfo
- ME_C36E724E3648 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:HasWordModifier'
@@ -18300,17 +17068,6 @@ ref; // ME_DE1E3B21A195 IncludeTypeModifier
 
 ref; // ME_0C32125CF613 
 
-: ME_B1026F80F515
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D286CB4FCDB1 // pop_WordInfo_IncludeTypeModifier
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B1026F80F515 
-
 : ME_4DAEEDE10285_ME_D286CB4FCDB1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18367,7 +17124,6 @@ ref; // ME_5617F4D00243_ME_D286CB4FCDB1 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0C32125CF613 // TTypeInfo
- ME_B1026F80F515 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:IncludeTypeModifier'
@@ -18457,17 +17213,6 @@ ref; // ME_AEC40CE6A30A HasValueType
 
 ref; // ME_3255668E1BFD 
 
-: ME_5E8712326699
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E77A7D4C22A1 // pop_WordInfo_HasValueType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_5E8712326699 
-
 : ME_4DAEEDE10285_ME_E77A7D4C22A1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18524,7 +17269,6 @@ ref; // ME_5617F4D00243_ME_E77A7D4C22A1 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_3255668E1BFD // TTypeInfo
- ME_5E8712326699 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:HasValueType'
@@ -18614,17 +17358,6 @@ ref; // ME_0A2D02F701A4 AcceptsValue
 
 ref; // ME_664A074BFA01 
 
-: ME_B51639D2D8E3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FA9440B232C5 // pop_WordInfo_AcceptsValue
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_B51639D2D8E3 
-
 : ME_4DAEEDE10285_ME_FA9440B232C5
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18681,7 +17414,6 @@ ref; // ME_5617F4D00243_ME_FA9440B232C5 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_664A074BFA01 // TTypeInfo
- ME_B51639D2D8E3 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:AcceptsValue'
@@ -18771,17 +17503,6 @@ ref; // ME_DE32097D5418 HasAccessType
 
 ref; // ME_0063C7000987 
 
-: ME_F3E741ADFABB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E7485F00A9C9 // pop_WordInfo_HasAccessType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F3E741ADFABB 
-
 : ME_4DAEEDE10285_ME_E7485F00A9C9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18838,7 +17559,6 @@ ref; // ME_5617F4D00243_ME_E7485F00A9C9 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_0063C7000987 // TTypeInfo
- ME_F3E741ADFABB // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:HasAccessType'
@@ -18928,17 +17648,6 @@ ref; // ME_D15A2C77F385 IncludeAccesType
 
 ref; // ME_F3914486A14E 
 
-: ME_C967FB7FDA2A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C7CED070DA03 // pop_WordInfo_IncludeAccesType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_C967FB7FDA2A 
-
 : ME_4DAEEDE10285_ME_C7CED070DA03
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -18995,7 +17704,6 @@ ref; // ME_5617F4D00243_ME_C7CED070DA03 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_F3914486A14E // TTypeInfo
- ME_C967FB7FDA2A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:IncludeAccesType'
@@ -19074,17 +17782,6 @@ ref; // ME_3716941F3DF2 ValueTypes
 
 ref; // ME_C62CD906606F 
 
-: ME_541036CCA1C7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2DC3823CA5CC // pop_WordInfo_ValueTypes
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_541036CCA1C7 
-
 : ME_4DAEEDE10285_ME_2DC3823CA5CC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -19141,7 +17838,6 @@ ref; // ME_5617F4D00243_ME_2DC3823CA5CC ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_C62CD906606F // TTypeInfo
- ME_541036CCA1C7 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:ValueTypes'
@@ -19231,17 +17927,6 @@ ref; // ME_883B22654478 IncludeLinkType
 
 ref; // ME_1C4A47249EC1 
 
-: ME_BE24989D60D5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ECDA96443339 // pop_WordInfo_IncludeLinkType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_BE24989D60D5 
-
 : ME_4DAEEDE10285_ME_ECDA96443339
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -19298,7 +17983,6 @@ ref; // ME_5617F4D00243_ME_ECDA96443339 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1C4A47249EC1 // TTypeInfo
- ME_BE24989D60D5 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:IncludeLinkType'
@@ -19388,17 +18072,6 @@ ref; // ME_C3E1AB4AA1BE HasLinkType
 
 ref; // ME_84714E9B1B24 
 
-: ME_731271B13431
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1B2BFB318FE4 // pop_WordInfo_HasLinkType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_731271B13431 
-
 : ME_4DAEEDE10285_ME_1B2BFB318FE4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -19455,7 +18128,6 @@ ref; // ME_5617F4D00243_ME_1B2BFB318FE4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_84714E9B1B24 // TTypeInfo
- ME_731271B13431 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:HasLinkType'
@@ -19545,17 +18217,6 @@ ref; // ME_B3545BF94A1B Compare
 
 ref; // ME_1458CA517F5B 
 
-: ME_1A5154C7595E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3A178A402C19 // pop_WordInfo_Compare
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_1A5154C7595E 
-
 : ME_4DAEEDE10285_ME_3A178A402C19
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -19612,7 +18273,6 @@ ref; // ME_5617F4D00243_ME_3A178A402C19 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_1458CA517F5B // TTypeInfo
- ME_1A5154C7595E // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:Compare'
@@ -19691,17 +18351,6 @@ ref; // ME_370E27C51EFF ToString
 
 ref; // ME_894394E6A164 
 
-: ME_D6B5C01EBE8C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_507247595622 // pop_WordInfo_ToString
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D6B5C01EBE8C 
-
 : ME_4DAEEDE10285_ME_507247595622
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -19758,7 +18407,6 @@ ref; // ME_5617F4D00243_ME_507247595622 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_894394E6A164 // TTypeInfo
- ME_D6B5C01EBE8C // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:ToString'
@@ -19837,17 +18485,6 @@ ref; // ME_21E60E61B55F TypeName
 
 ref; // ME_6C89ED2A7DF1 
 
-: ME_A6C2C1FDB92D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B1E1BB0DD574 // pop_WordInfo_TypeName
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_A6C2C1FDB92D 
-
 : ME_4DAEEDE10285_ME_B1E1BB0DD574
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -19911,7 +18548,6 @@ ref; // ME_5617F4D00243_ME_B1E1BB0DD574 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_6C89ED2A7DF1 // TTypeInfo
- ME_A6C2C1FDB92D // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:TypeName'
@@ -19990,17 +18626,6 @@ ref; // ME_136782AFAE6C LinkType
 
 ref; // ME_8A08EFE0252E 
 
-: ME_7C12C26EF43D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CB22BA2EDEAC // pop_WordInfo_LinkType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_7C12C26EF43D 
-
 : ME_4DAEEDE10285_ME_CB22BA2EDEAC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -20064,7 +18689,6 @@ ref; // ME_5617F4D00243_ME_CB22BA2EDEAC ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_8A08EFE0252E // TTypeInfo
- ME_7C12C26EF43D // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:LinkType'
@@ -20143,17 +18767,6 @@ ref; // ME_4AA112FDE63E AccessType
 
 ref; // ME_DF1CEA1A27BB 
 
-: ME_E05590FEC4EA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F04BAA3E2A4 // pop_WordInfo_AccessType
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_E05590FEC4EA 
-
 : ME_4DAEEDE10285_ME_4F04BAA3E2A4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -20217,7 +18830,6 @@ ref; // ME_5617F4D00243_ME_4F04BAA3E2A4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_DF1CEA1A27BB // TTypeInfo
- ME_E05590FEC4EA // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordInfo:AccessType'
@@ -21209,17 +19821,6 @@ ref; // ME_B9B1A8117301 Boxed
 
 ref; // ME_A3A6AECFF363 
 
-: ME_E69D37298DE8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_72ECED106E06 // pop_WordBox_Boxed
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_E69D37298DE8 
-
 : ME_4DAEEDE10285_ME_72ECED106E06
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -21276,7 +19877,6 @@ ref; // ME_5617F4D00243_ME_72ECED106E06 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_A3A6AECFF363 // TTypeInfo
- ME_E69D37298DE8 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:WordBox:Boxed'
@@ -21458,7 +20058,6 @@ ref; // ME_567A8EB00176 tfwWordBoxPack
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
  WL 'ME_54F07F0302C2' '54F07F0302C2.pas.ms.script' // WordsList
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55BF153300A4' '55BF153300A4.pas.ms.script' // tfwTypeInfo
  WL 'ME_55BF29CB003B' '55BF29CB003B.pas.ms.script' // TypeInfoCache

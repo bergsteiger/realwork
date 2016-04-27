@@ -51,31 +51,6 @@ ref; // ME_5320594E0264 itDetailed
 
 ref; // ME_532059320073 TRTTIInfoType
 
-: ME_CDD86107C8D2
- CONST UID 'CDD86107C8D2'
- CONST Name 'TControlFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_4F72CAA90045 // Tl3ComponentInfoHelper
- ;
- : Inherits
-   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'ControlFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_CDD86107C8D2 TControlFriend
-
 : ME_5320598C001B
  CONST UID '5320598C001B'
  CONST Name 'f_ClickPos'
@@ -700,7 +675,6 @@ ref; // ME_47A042E100E2_ME_4F72CAA90045 InitFields
  ; // Overridden
  : Children
    Seq: ( ME_532059320073 // TRTTIInfoType
- ME_CDD86107C8D2 // TControlFriend
  )
  ; // Children
  : Dependencies

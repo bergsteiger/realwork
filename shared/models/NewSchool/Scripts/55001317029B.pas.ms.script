@@ -200,31 +200,6 @@ ref; // ME_E1C719B751DC_ME_04CE71F4AB07 GetPopupMenuForComponentInfo
 
 ref; // ME_04CE71F4AB07 Il3PopupMenuHelper
 
-: ME_EFA6EAF6766C
- CONST UID 'EFA6EAF6766C'
- CONST Name 'TControlFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_550013770000 // Tl3PopupMenuHelper
- ;
- : Inherits
-   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'ControlFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_EFA6EAF6766C TControlFriend
-
 : ME_A59886A74A23
  CONST UID 'A59886A74A23'
  CONST Name 'Alien'
@@ -384,7 +359,6 @@ ref; // ME_E1C719B751DC_ME_550013770000 GetPopupMenuForComponentInfo
    Seq: ( ME_5514099B0316 // Tl3PopupMenuHelperCallback
  ME_E654F73164D2 // Ml3PopupMenuHelper
  ME_04CE71F4AB07 // Il3PopupMenuHelper
- ME_EFA6EAF6766C // TControlFriend
  )
  ; // Children
  : Dependencies
@@ -2597,31 +2571,6 @@ FORWARD ME_556F24A80035
 
 FORWARD ME_556F25860097
 
-: ME_25FD6EF29149
- CONST UID '25FD6EF29149'
- CONST Name 'TControlFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_556F25860097 // Tl3ControlFontInfo
- ;
- : Inherits
-   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'ControlFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_25FD6EF29149 TControlFriend
-
 : ME_556F25FC0213
  CONST UID '556F25FC0213'
  CONST Name 'f_Control'
@@ -2844,10 +2793,6 @@ ref; // ME_479731C50290_ME_556F25860097 Cleanup
    Seq: ( ME_479731C50290_ME_556F25860097 // Cleanup
  )
  ; // Overridden
- : Children
-   Seq: ( ME_25FD6EF29149 // TControlFriend
- )
- ; // Children
  : Dependencies
    Seq: ( ME_556F25AF0144 // TControl
  ME_556F3C8C0144 // Graphics

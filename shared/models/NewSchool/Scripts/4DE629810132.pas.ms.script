@@ -3651,17 +3651,6 @@ ref; // ME_632EECFCBB72 IsNeedSaveDocument
 
 ref; // ME_A1D587ED6E6B 
 
-: ME_926AAFC8FDAC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1E0CF5C9A3AF // DocEditorWindow_IsNeedSaveDocument
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_926AAFC8FDAC 
-
 : ME_4DAEEDE10285_ME_1E0CF5C9A3AF
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -3718,7 +3707,6 @@ ref; // ME_5617F4D00243_ME_1E0CF5C9A3AF ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_A1D587ED6E6B // TTypeInfo
- ME_926AAFC8FDAC // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'DocEditorWindow:IsNeedSaveDocument'
@@ -3805,17 +3793,6 @@ ref; // ME_F4B29D7B80DF Reg_Type_TDocEditorWindow
 
 ref; // ME_392E9D4E1569 Reg_Type_Boolean
 
-: ME_F5A32543A433
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55B664E00149 // archiDocEditorWindowWordsPack
- ;
- : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
- ;
-
-ref; // ME_F5A32543A433 
-
 : ME_0936F83112BC
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -3826,17 +3803,6 @@ ref; // ME_F5A32543A433
  ;
 
 ref; // ME_0936F83112BC 
-
-: ME_1B3673F87166
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55B664E00149 // archiDocEditorWindowWordsPack
- ;
- : Target WL 'ME_5527F8330362' '5527F81C020E.pas.ms.script' // TtfwTypeRegistrator
- ;
-
-ref; // ME_1B3673F87166 
 
 : ME_55B664E00149
  CONST UID '55B664E00149'
@@ -3865,9 +3831,7 @@ ref; // ME_1B3673F87166
  )
  ; // Children
  : Dependencies
-   Seq: ( ME_F5A32543A433 // TypeInfoExt
- ME_0936F83112BC // TDocEditorWindow
- ME_1B3673F87166 // TtfwTypeRegistrator
+   Seq: ( ME_0936F83112BC // TDocEditorWindow
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -3966,9 +3930,7 @@ ref; // ME_55B664E00149 archiDocEditorWindowWordsPack
  WL 'ME_5450CFDA02FF' '5450CFDA02FF.pas.ms.script' // Mail
  WL 'ME_5486E32B0191' '5486E32B0191.pas.ms.script' // StorageHolder
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_5527F81C020E' '5527F81C020E.pas.ms.script' // TypesRegistration
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
- WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

@@ -1248,63 +1248,6 @@ ref; // ME_4DAEEDE10285_ME_4DBADEE702A8 DoDoIt
 
 ref; // ME_4DBADEE702A8 TkwCompiledTryExcept
 
-FORWARD ME_5F598AAE50EE
-
-: ME_BD949B5797DC
- CONST UID 'BD949B5797DC'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5F598AAE50EE // TkwMainResNameGetter
- ;
-
-ref; // ME_BD949B5797DC RegAxiom
-
-: ME_55B7A3AF0359_ME_5F598AAE50EE
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_5F598AAE50EE ResName
-
-: ME_5F598AAE50EE
- CONST UID '5F598AAE50EE'
- CONST Name 'TkwMainResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DC90A1E03C2 // TkwMain
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_BD949B5797DC // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_5F598AAE50EE // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'MainResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5F598AAE50EE TkwMainResNameGetter
-
 : ME_4F73561D0397
  CONST UID '4F73561D0397'
  CONST Name 'g_ScriptEngine'
@@ -1808,10 +1751,6 @@ ref; // ME_4F733B9C0064_ME_4DC90A1E03C2 Script
  ME_4F733B9C0064_ME_4DC90A1E03C2 // Script
  )
  ; // Overridden
- : Children
-   Seq: ( ME_5F598AAE50EE // TkwMainResNameGetter
- )
- ; // Children
  : Dependencies
    Seq: ( ME_4DC90ABD0017 // FreeAndNil
  ME_4DC90AD402CC // l3Set
@@ -4217,17 +4156,6 @@ ref; // ME_E207F0F6327C Compiled
 
 ref; // ME_77CF799FA9A7 
 
-: ME_331CC4D37972
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9E9D700614C3 // pop_CompiledWordWorkerWord_Compiled
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_331CC4D37972 
-
 : ME_4DAEEDE10285_ME_9E9D700614C3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4291,7 +4219,6 @@ ref; // ME_5617F4D00243_ME_9E9D700614C3 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_77CF799FA9A7 // TTypeInfo
- ME_331CC4D37972 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'pop:CompiledWordWorkerWord:Compiled'
@@ -4501,17 +4428,6 @@ ref; // ME_8C9C82BDE803 Create
 
 ref; // ME_8A2B0B67ED96 
 
-: ME_D7900132C5C2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_87E51971436F // CompiledProcedure_Create
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_D7900132C5C2 
-
 : ME_4DAEEDE10285_ME_87E51971436F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4568,7 +4484,6 @@ ref; // ME_5617F4D00243_ME_87E51971436F ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_8A2B0B67ED96 // TTypeInfo
- ME_D7900132C5C2 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'CompiledProcedure:Create'
@@ -4779,17 +4694,6 @@ ref; // ME_7E12612EF455 Create
 
 ref; // ME_33C955B81AA3 
 
-: ME_57DD76E37504
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_6CD721531904 // KeyValues_Create
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_57DD76E37504 
-
 : ME_4DAEEDE10285_ME_6CD721531904
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -4846,7 +4750,6 @@ ref; // ME_5617F4D00243_ME_6CD721531904 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_33C955B81AA3 // TTypeInfo
- ME_57DD76E37504 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'KeyValues:Create'
@@ -5045,17 +4948,6 @@ ref; // ME_1DB03B13C581 script_RunFromFile
 
 ref; // ME_05536E007228 
 
-: ME_DA0518E65C2B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7C9C5C70AAD4 // script_RunFromFile
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_DA0518E65C2B 
-
 : ME_4DAEEDE10285_ME_7C9C5C70AAD4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -5112,7 +5004,6 @@ ref; // ME_5617F4D00243_ME_7C9C5C70AAD4 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_05536E007228 // TTypeInfo
- ME_DA0518E65C2B // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'script:RunFromFile'

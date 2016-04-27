@@ -1601,45 +1601,5 @@ PROCEDURE "Поиск текста c учетом чекбокса" STRING IN aFindString IN aCheckBoxNam
  	aControl ЯВЛЯЕТСЯ aClass [ 'Фокус на контроле, который относится к другому классу: ' aControl pop:object:ClassName ', а не: ' aClass ] strings:Cat ASSERTS
 ; */
 
-BOOLEAN FUNCTION "Выбран чекбокс" OBJECT IN aCheckBox
-  'Checked' aCheckBox pop:object:GetOrdProp РАВНО 1 >>> Result
-;
-
-PROCEDURE "Выставить галочку" OBJECT IN aCheckBox
-	1 'Checked' aCheckBox pop:object:SetOrdProp 
-;
-
-PROCEDURE "Убрать галочку" OBJECT IN aCheckBox
-	0 'Checked' aCheckBox pop:object:SetOrdProp
-;
-
-PROCEDURE "Выставить галочку в чекбоксе" OBJECT IN aValue // STRING IN aClass
-	// "Убедиться, что контрол класса {(aValue)} {(aClass)}"
-	( "Выбран чекбокс {(aValue)}" ! ) ?ASSURE 'Чекбокс уже отмечен!'
-	"Выставить галочку {(aValue)}"	
-;
-
-PROCEDURE "Убрать галочку в чекбоксе" OBJECT IN aValue // STRING IN aClass
-	// "Убедиться, что контрол класса {(aValue)} {(aClass)}" 
-	( "Выбран чекбокс {(aValue)}" ) ?ASSURE 'Чекбокс не был отмечен!'
-	"Убрать галочку {(aValue)}" 
-;
-
-PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку'" STRING IN aFindString IN aCheckBoxName
-	 	'Ctrl+F' key
-	 TRY
-
-	 	"Набить текст {(aFindString)}"
-
-		"Установить фокус в контрол с именем" aCheckBoxName
-		// Если ( "Состояние чекбокса {("Контрол в фокусе")}" ! ) то ( "Выставить галочку в чекбоксе {("Контрол в фокусе")} {('TCheckBox')}" )
-		Если ( "Выбран чекбокс {("Контрол в фокусе")}" ! ) то ( "Выставить галочку в чекбоксе {("Контрол в фокусе")}" )
-	 	"Обработать сообщения"
-		
-	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
-	 FINALLY
-	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
-	 END
-;
 
 

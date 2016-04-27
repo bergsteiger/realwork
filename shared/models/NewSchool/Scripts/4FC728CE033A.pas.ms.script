@@ -6,88 +6,6 @@ FORWARD ME_4FC728CE033A
 
 FORWARD ME_4FC7292F02EA
 
-FORWARD ME_B4809E50CD0F
-
-: ME_FEC4D8387E4D
- CONST UID 'FEC4D8387E4D'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B4809E50CD0F // TMenuWordsPackResNameGetter
- ;
-
-ref; // ME_FEC4D8387E4D RegAxiom
-
-: ME_55B7A3AF0359_ME_B4809E50CD0F
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_B4809E50CD0F ResName
-
-: ME_B4809E50CD0F
- CONST UID 'B4809E50CD0F'
- CONST Name 'TMenuWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_FEC4D8387E4D // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_B4809E50CD0F // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'MenuWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_B4809E50CD0F TMenuWordsPackResNameGetter
-
-: ME_B5F06AA54D7F
- CONST UID 'B5F06AA54D7F'
- CONST Name 'TMenuItemFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TMenuItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'MenuItemFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_B5F06AA54D7F TMenuItemFriend
-
 FORWARD ME_552E558F0367
 
 FORWARD ME_FE880101357B
@@ -145,17 +63,6 @@ ref; // ME_FE880101357B Click
 
 ref; // ME_32723ABA0DF8 
 
-: ME_F991E84567B9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_639406FE8331 // MenuItem_Click
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_F991E84567B9 
-
 : ME_4DAEEDE10285_ME_639406FE8331
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -212,7 +119,6 @@ ref; // ME_5617F4D00243_ME_639406FE8331 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_32723ABA0DF8 // TTypeInfo
- ME_F991E84567B9 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:Click'
@@ -302,17 +208,6 @@ ref; // ME_E7D62A88975C GetItem
 
 ref; // ME_34DF7CED5394 
 
-: ME_51FE76E67C59
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_89C28B4155A9 // MenuItem_GetItem
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_51FE76E67C59 
-
 : ME_4DAEEDE10285_ME_89C28B4155A9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -369,7 +264,6 @@ ref; // ME_5617F4D00243_ME_89C28B4155A9 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_34DF7CED5394 // TTypeInfo
- ME_51FE76E67C59 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:GetItem'
@@ -448,17 +342,6 @@ ref; // ME_F09CA18F756D GetMenuHeight
 
 ref; // ME_7963D0D72F01 
 
-: ME_69933848A348
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F44EDB26B480 // MenuItem_GetMenuHeight
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_69933848A348 
-
 : ME_4DAEEDE10285_ME_F44EDB26B480
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -515,7 +398,6 @@ ref; // ME_5617F4D00243_ME_F44EDB26B480 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_7963D0D72F01 // TTypeInfo
- ME_69933848A348 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:GetMenuHeight'
@@ -594,17 +476,6 @@ ref; // ME_03C94E0DC3DE Caption
 
 ref; // ME_759C0C5D5DA6 
 
-: ME_AD7E1FCEABD8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8BC1AB992E7A // MenuItem_Caption
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_AD7E1FCEABD8 
-
 : ME_4DAEEDE10285_ME_8BC1AB992E7A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -668,7 +539,6 @@ ref; // ME_5617F4D00243_ME_8BC1AB992E7A ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_759C0C5D5DA6 // TTypeInfo
- ME_AD7E1FCEABD8 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:GetCaption'
@@ -747,17 +617,6 @@ ref; // ME_CA20A0E7C888 Count
 
 ref; // ME_110ADDCFA792 
 
-: ME_22F49F938B68
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E34D149B8718 // MenuItem_Count
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_22F49F938B68 
-
 : ME_4DAEEDE10285_ME_E34D149B8718
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -821,7 +680,6 @@ ref; // ME_5617F4D00243_ME_E34D149B8718 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_110ADDCFA792 // TTypeInfo
- ME_22F49F938B68 // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:GetCount'
@@ -900,17 +758,6 @@ ref; // ME_D753B3DC40BE Enabled
 
 ref; // ME_6413F1B86A9D 
 
-: ME_64F7DCB41F3A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BDC4E91C886F // MenuItem_Enabled
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_64F7DCB41F3A 
-
 : ME_4DAEEDE10285_ME_BDC4E91C886F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -974,7 +821,6 @@ ref; // ME_5617F4D00243_ME_BDC4E91C886F ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_6413F1B86A9D // TTypeInfo
- ME_64F7DCB41F3A // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:IsEnabled'
@@ -1053,17 +899,6 @@ ref; // ME_D9ABAB31B79C Visible
 
 ref; // ME_4A52914D7F6A 
 
-: ME_8BCA5C9A23CC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5633D99495D3 // MenuItem_Visible
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_8BCA5C9A23CC 
-
 : ME_4DAEEDE10285_ME_5633D99495D3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -1127,7 +962,6 @@ ref; // ME_5617F4D00243_ME_5633D99495D3 ParamsTypes
  ; // Overridden
  : Dependencies
    Seq: ( ME_4A52914D7F6A // TTypeInfo
- ME_8BCA5C9A23CC // SysUtils
  )
  ; // Dependencies
  CONST "NameForScript" 'menuitem:IsVisible'
@@ -1546,9 +1380,7 @@ ref; // ME_6978466606D9
  )
  ; // Operations
  : Children
-   Seq: ( ME_B4809E50CD0F // TMenuWordsPackResNameGetter
- ME_B5F06AA54D7F // TMenuItemFriend
- ME_639406FE8331 // MenuItem_Click
+   Seq: ( ME_639406FE8331 // MenuItem_Click
  ME_89C28B4155A9 // MenuItem_GetItem
  ME_F44EDB26B480 // MenuItem_GetMenuHeight
  ME_8BC1AB992E7A // MenuItem_Caption

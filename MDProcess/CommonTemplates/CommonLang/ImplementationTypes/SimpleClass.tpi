@@ -481,6 +481,7 @@ f _pas_FileName
 
 f _SpellScriptFramework
 	[{%S{needs script}=true}\
+	[{%S#f_UseNewGenRec()!=true}\
 	%S%f_add_class(%SU_ResNameGetter,SimpleClass,T%f_pas_FileName(%S)ResNameGetter,Class_Inst)\
 	%{Class_Inst}%f_set_documentation(Регистрация скриптованой аксиоматики)\
 	%{Class_Inst}%f_set_abstraction_type(final)\
@@ -504,11 +505,9 @@ f _SpellScriptFramework
 	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
 	 %f_pas_TypeName(%{Class_Inst}).Register;\
 	)\
-	]\
 
 	[{"%{TtfwAxiomaticsResNameGetter.ResName}N"=""}%f_find_element(55B7A3AF0359,TtfwAxiomaticsResNameGetter.ResName)]\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -518,9 +517,11 @@ f _SpellScriptFramework
 	)\
 	]\
 
+	]\
 	]
 
 f _SpellFriends
+	[{%S#f_UseNewGenRec()!=true}\
 	%f_clear_list(FRIENDS)\
 	<{}{%CS=friend&%CC=Dependency&%C%T#f_IsSimpleClass()=true}\
 	%f_add_to_list(FRIENDS,C%T)\
@@ -542,7 +543,8 @@ f _SpellFriends
 	]\
 	%f_set_var(FRIEND_NAME,"")\
 	>\
-	%f_clear_list(FRIENDS)
+	%f_clear_list(FRIENDS)\
+	]
 
 f _SpellRegisterInEngine
 	[{%S%f_InheritsFrom("TtfwRegisterableWord")=true}\
