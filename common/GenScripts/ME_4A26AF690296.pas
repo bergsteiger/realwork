@@ -48,6 +48,7 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ , TextPara_Const
  , k2Tags
  , evdTypes
  , k2Base
@@ -67,6 +68,11 @@ uses
  , evAACContentUtils
  {$IfEnd} // Defined(k2ForEditor)
 ;
+
+type
+ TextParaTagFriend = {abstract} class(TextParaTagClass)
+  {* ƒруг к классу TextParaTag }
+ end;//TextParaTagFriend
 
 {$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
 

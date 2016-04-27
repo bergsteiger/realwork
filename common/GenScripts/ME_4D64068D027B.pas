@@ -57,14 +57,19 @@ implementation
 {$If Defined(evNeedHotSpot) AND Defined(evReqGroupNeedsRadio)}
 uses
  l3ImplUses
+ , ReqGroup_Const
  , evHotSpotMisc
  , k2Tags
  , l3Units
  , l3Const
  , l3MinMax
- , ReqGroup_Const
  , SysUtils
 ;
+
+type
+ ReqGroupTagFriend = {abstract} class(ReqGroupTagClass)
+  {* ƒруг к классу ReqGroupTag }
+ end;//ReqGroupTagFriend
 
 type _Instance_R_ = TevReqGroupHotSpot;
 

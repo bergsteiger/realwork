@@ -58,6 +58,10 @@ type
    f_SavingClone: Boolean;
    f_Forms: TvcmIEntityFormPtrList;
    f_ContainerItem: IvcmContainerHistoryItem;
+   f_Current: Integer;
+   f_Starts: Integer;
+   f_Delta: Integer;
+   f_MainForm: Pointer;
    f_Last: Boolean;
     {* признак того, что вызов последний }
    f_Multi: Boolean;
@@ -65,10 +69,6 @@ type
    f_InBF: Boolean;
    f_InBack: Boolean;
    f_ForceSave: Boolean;
-   f_Current: Integer;
-   f_Starts: Integer;
-   f_Delta: Integer;
-   f_MainForm: Pointer;
   protected
    function pm_GetMainForm: IvcmEntityForm;
    function NeedSaveForm(const aForm: IvcmEntityForm;
@@ -333,8 +333,8 @@ type
 
  TvcmHistoryItemRec = class(TvcmHistoryItemBase)
   private
-   f_Children: TvcmFormHistoryItemList;
    f_Docked: TvcmFormHistoryItemList;
+   f_Children: TvcmFormHistoryItemList;
   protected
    function MakeChild(const aForm: IvcmEntityForm;
     aStateType: TvcmStateType): IvcmFormHistoryItem; virtual; abstract;

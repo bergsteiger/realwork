@@ -24,7 +24,13 @@ implementation
 {$If Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)}
 uses
  l3ImplUses
+ , ControlsBlock_Const
 ;
+
+type
+ ControlsBlockTagFriend = {abstract} class(ControlsBlockTagClass)
+  {* ƒруг к классу ControlsBlockTag }
+ end;//ControlsBlockTagFriend
 
 {$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
 end.

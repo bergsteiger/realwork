@@ -28,7 +28,13 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ , Table_Const
 ;
+
+type
+ TableTagFriend = {abstract} class(TableTagClass)
+  {* ƒруг к классу TableTag }
+ end;//TableTagFriend
 {$IfEnd} // Defined(evNeedHotSpot)
 
 end.
