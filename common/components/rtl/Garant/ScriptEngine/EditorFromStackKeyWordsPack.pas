@@ -85,16 +85,10 @@ uses
 ;
 
 type
- //#UC START# *89CE586D099Aci*
- //#UC END# *89CE586D099Aci*
- //#UC START# *89CE586D099Acit*
- //#UC END# *89CE586D099Acit*
  TEditorFromStackKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *89CE586D099Apubl*
- //#UC END# *89CE586D099Apubl*
  end;//TEditorFromStackKeyWordsPackResNameGetter
 
  TkwPopEditorScrollBottom = {final} class(TtfwClassLike)
@@ -467,7 +461,7 @@ TnevRubberTablesMode VAR l_TnevRubberTablesMode
 
 class function TEditorFromStackKeyWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'EditorFromStackKeyWordsPack';
+ Result := 'EditorFromStackKeyWordsPack';
 end;//TEditorFromStackKeyWordsPackResNameGetter.ResName
 
  {$R EditorFromStackKeyWordsPack.res}

@@ -34,16 +34,10 @@ uses
 ;
 
 type
- //#UC START# *D2EC9F607FB9ci*
- //#UC END# *D2EC9F607FB9ci*
- //#UC START# *D2EC9F607FB9cit*
- //#UC END# *D2EC9F607FB9cit*
  TTevCustomEditorWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *D2EC9F607FB9publ*
- //#UC END# *D2EC9F607FB9publ*
  end;//TTevCustomEditorWordsPackResNameGetter
 
  TkwPopEditorInsertTable = {final} class(TtfwClassLike)
@@ -302,7 +296,7 @@ INTERFACE VAR l_IedRange
 
 class function TTevCustomEditorWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'TevCustomEditorWordsPack';
+ Result := 'TevCustomEditorWordsPack';
 end;//TTevCustomEditorWordsPackResNameGetter.ResName
 
  {$R TevCustomEditorWordsPack.res}

@@ -30,16 +30,10 @@ uses
 ;
 
 type
- //#UC START# *4797480437D2ci*
- //#UC END# *4797480437D2ci*
- //#UC START# *4797480437D2cit*
- //#UC END# *4797480437D2cit*
  TVGComboBoxPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *4797480437D2publ*
- //#UC END# *4797480437D2publ*
  end;//TVGComboBoxPackResNameGetter
 
  TkwVgComboBoxGetText = {final} class(TtfwClassLike)
@@ -150,7 +144,7 @@ INTEGER VAR l_Integer
 
 class function TVGComboBoxPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'VGComboBoxPack';
+ Result := 'VGComboBoxPack';
 end;//TVGComboBoxPackResNameGetter.ResName
 
  {$R VGComboBoxPack.res}

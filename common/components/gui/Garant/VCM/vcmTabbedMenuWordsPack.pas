@@ -35,16 +35,10 @@ uses
 ;
 
 type
- //#UC START# *710C3389FF5Dci*
- //#UC END# *710C3389FF5Dci*
- //#UC START# *710C3389FF5Dcit*
- //#UC END# *710C3389FF5Dcit*
  TvcmTabbedMenuWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *710C3389FF5Dpubl*
- //#UC END# *710C3389FF5Dpubl*
  end;//TvcmTabbedMenuWordsPackResNameGetter
 
  TvcmBaseMenuForChromeLikeFriend = {abstract} class({$If NOT Defined(NoVGScene)}
@@ -119,7 +113,7 @@ OBJECT VAR l_TMenuItem
 
 class function TvcmTabbedMenuWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'vcmTabbedMenuWordsPack';
+ Result := 'vcmTabbedMenuWordsPack';
 end;//TvcmTabbedMenuWordsPackResNameGetter.ResName
 
  {$R vcmTabbedMenuWordsPack.res}

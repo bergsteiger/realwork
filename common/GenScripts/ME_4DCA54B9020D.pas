@@ -25,9 +25,9 @@ uses
  , TypInfo
  , nsExternalObjectPrim
  , nsUtils
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

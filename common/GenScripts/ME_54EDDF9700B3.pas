@@ -42,16 +42,10 @@ uses
 ;
 
 type
- //#UC START# *B6DC8B9D2ADEci*
- //#UC END# *B6DC8B9D2ADEci*
- //#UC START# *B6DC8B9D2ADEcit*
- //#UC END# *B6DC8B9D2ADEcit*
  TevParaWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *B6DC8B9D2ADEpubl*
- //#UC END# *B6DC8B9D2ADEpubl*
  end;//TevParaWordsPackResNameGetter
 
  TkwParaBoolA = {final} class(TtfwClassLike)
@@ -294,7 +288,7 @@ BOOLEAN VAR l_Boolean
 
 class function TevParaWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'evParaWordsPack';
+ Result := 'evParaWordsPack';
 end;//TevParaWordsPackResNameGetter.ResName
 
  {$R evParaWordsPack.res}

@@ -43,16 +43,10 @@ uses
 ;
 
 type
- //#UC START# *B62FFB5F75B4ci*
- //#UC END# *B62FFB5F75B4ci*
- //#UC START# *B62FFB5F75B4cit*
- //#UC END# *B62FFB5F75B4cit*
  TvtOutlinerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *B62FFB5F75B4publ*
- //#UC END# *B62FFB5F75B4publ*
  end;//TvtOutlinerWordsPackResNameGetter
 
  TvtCustomOutlinerFriend = {abstract} class(TvtCustomOutliner)
@@ -481,7 +475,7 @@ BOOLEAN VAR l_Boolean
 
 class function TvtOutlinerWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'vtOutlinerWordsPack';
+ Result := 'vtOutlinerWordsPack';
 end;//TvtOutlinerWordsPackResNameGetter.ResName
 
  {$R vtOutlinerWordsPack.res}

@@ -28,14 +28,15 @@ uses
  l3ImplUses
 ;
 
+{$If NOT Defined(NoVCL)}
 type
- TGraphicControlFriend = {abstract} class({$If NOT Defined(NoVCL)}
- TGraphicControl
- {$IfEnd} // NOT Defined(NoVCL)
- )
-  {* Друг для TGraphicControl }
+ TGraphicControlFriend = {abstract} class(TGraphicControl)
+  {* Друг к классу TGraphicControl }
  end;//TGraphicControlFriend
+{$IfEnd} // NOT Defined(NoVCL)
 
+{$If NOT Defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
 constructor Tl3GraphicControlCanvas.Create(aControl: TGraphicControl);
 //#UC START# *56B9CBE7022E_4F29376B00C7_var*
 //#UC END# *56B9CBE7022E_4F29376B00C7_var*

@@ -39,16 +39,10 @@ uses
 ;
 
 type
- //#UC START# *905837D55EDDci*
- //#UC END# *905837D55EDDci*
- //#UC START# *905837D55EDDcit*
- //#UC END# *905837D55EDDcit*
  TVGSceneWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *905837D55EDDpubl*
- //#UC END# *905837D55EDDpubl*
  end;//TVGSceneWordsPackResNameGetter
 
  TvgVisualObjectFriend = {abstract} class(TvgVisualObject)
@@ -369,7 +363,7 @@ STRING VAR l_String
 
 class function TVGSceneWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'VGSceneWordsPack';
+ Result := 'VGSceneWordsPack';
 end;//TVGSceneWordsPackResNameGetter.ResName
 
  {$R VGSceneWordsPack.res}

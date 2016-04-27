@@ -39,16 +39,10 @@ uses
 ;
 
 type
- //#UC START# *D1FD416FEE23ci*
- //#UC END# *D1FD416FEE23ci*
- //#UC START# *D1FD416FEE23cit*
- //#UC END# *D1FD416FEE23cit*
  TvtComboBoxWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *D1FD416FEE23publ*
- //#UC END# *D1FD416FEE23publ*
  end;//TvtComboBoxWordsPackResNameGetter
 
  TCustomComboBoxFriend = {abstract} class({$If NOT Defined(NoVCL)}
@@ -320,7 +314,7 @@ INTEGER VAR l_Integer
 
 class function TvtComboBoxWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'vtComboBoxWordsPack';
+ Result := 'vtComboBoxWordsPack';
 end;//TvtComboBoxWordsPackResNameGetter.ResName
 
  {$R vtComboBoxWordsPack.res}
