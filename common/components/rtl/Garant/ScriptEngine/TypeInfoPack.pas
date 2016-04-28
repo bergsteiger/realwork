@@ -20,7 +20,6 @@ implementation
 uses
  l3ImplUses
  , tfwTypeInfo
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
@@ -28,6 +27,7 @@ uses
  , tfwGlobalKeyWord
  , tfwScriptingTypes
  , tfwMainDictionary
+ , tfwAxiomaticsResNameGetter
  , l3String
  , tfwScriptEngineExInterfaces
  , tfwStandardDictionaries
@@ -40,18 +40,6 @@ uses
 ;
 
 type
- //#UC START# *B848CAD2CFA5ci*
- //#UC END# *B848CAD2CFA5ci*
- //#UC START# *B848CAD2CFA5cit*
- //#UC END# *B848CAD2CFA5cit*
- TTypeInfoPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *B848CAD2CFA5publ*
- //#UC END# *B848CAD2CFA5publ*
- end;//TTypeInfoPackResNameGetter
-
  TkwIsArray = {final} class(TtfwClassLike)
   {* Слово скрипта IsArray
 *Тип результата:* Boolean
@@ -785,12 +773,11 @@ ARRAY VAR l_ItfwValueList
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCtxDisabledForHelp
 
-class function TTypeInfoPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'TypeInfoPack';
-end;//TTypeInfoPackResNameGetter.ResName
-
- {$R TypeInfoPack.res}
+ TTypeInfoPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TTypeInfoPackResNameGetter
 
 function TkwIsArray.IsArray(const aCtx: TtfwContext;
  const aSV: TtfwStackValue): Boolean;
@@ -2350,9 +2337,14 @@ begin
  Result := 'Ctx:DisabledForHelp';
 end;//TkwCtxDisabledForHelp.GetWordNameForRegister
 
+class function TTypeInfoPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'TypeInfoPack';
+end;//TTypeInfoPackResNameGetter.ResName
+
+ {$R TypeInfoPack.res}
+
 initialization
- TTypeInfoPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwIsArray.RegisterInEngine;
  {* Регистрация IsArray }
  TkwIsVoid.RegisterInEngine;
@@ -2427,6 +2419,8 @@ initialization
  {* Регистрация Ctx_InitedDictionaries }
  TkwCtxDisabledForHelp.RegisterInEngine;
  {* Регистрация Ctx_DisabledForHelp }
+ TTypeInfoPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);

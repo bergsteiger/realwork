@@ -39,11 +39,11 @@ uses
  l3ImplUses
  , tfwConstLike
  , kwCompiledWordPrim
- , tfwAxiomaticsResNameGetter
  , tfwGlobalKeyWord
  , TypInfo
  , tfwWordWorkerEx
  , tfwParserInterfaces
+ , tfwAxiomaticsResNameGetter
  , l3Chars
  , Windows
  , l3String
@@ -75,18 +75,6 @@ type
   public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
  end;//TkwDefine
-
- //#UC START# *94E4F896CE56ci*
- //#UC END# *94E4F896CE56ci*
- //#UC START# *94E4F896CE56cit*
- //#UC END# *94E4F896CE56cit*
- TBasicsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *94E4F896CE56publ*
- //#UC END# *94E4F896CE56publ*
- end;//TBasicsPackResNameGetter
 
  TkwTrue = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта true
@@ -1658,6 +1646,12 @@ INTERFACE VAR l_ItfwStoredValuesStack
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDROPN
 
+ TBasicsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TBasicsPackResNameGetter
+
 function CompareValues(const aV1: TtfwStackValue;
  const aV2: TtfwStackValue;
  const aCtx: TtfwContext;
@@ -1867,13 +1861,6 @@ begin
  Result := WordToWork.WordName;
 //#UC END# *55AFD7DA0258_55A50F960186_impl*
 end;//TkwCompiledPushWord.WordName
-
-class function TBasicsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'BasicsPack';
-end;//TBasicsPackResNameGetter.ResName
-
- {$R BasicsPack.res}
 
 function TkwTrue.True(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта true }
@@ -5440,13 +5427,18 @@ begin
  Result := 'DROPN';
 end;//TkwDROPN.GetWordNameForRegister
 
+class function TBasicsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'BasicsPack';
+end;//TBasicsPackResNameGetter.ResName
+
+ {$R BasicsPack.res}
+
 initialization
  TkwDefine.RegisterInEngine;
  {* Регистрация Define }
  TkwCompiledPushWord.RegisterClass;
  {* Регистрация TkwCompiledPushWord }
- TBasicsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwTrue.RegisterInEngine;
  {* Регистрация True }
  TkwFalse.RegisterInEngine;
@@ -5611,6 +5603,8 @@ initialization
  {* Регистрация DUPN }
  TkwDROPN.RegisterInEngine;
  {* Регистрация DROPN }
+ TBasicsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
 //#UC START# *551588F90151*
  TtfwClassRef.Register(EStreamError);
  TtfwClassRef.Register(EFileStreamError);

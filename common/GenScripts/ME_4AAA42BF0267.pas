@@ -17,6 +17,8 @@ uses
 
 type
  TShellAndMonitoringsRes = {abstract} class(TPrimF1Res)
+  protected
+   procedure Loaded; override;
  end;//TShellAndMonitoringsRes
 {$IfEnd} // NOT Defined(Admin)
 
@@ -30,6 +32,11 @@ uses
  , ShellAndMonitoringsMain_Form
  , evExtFormat
 ;
+
+procedure TShellAndMonitoringsRes.Loaded;
+begin
+ inherited;
+end;//TShellAndMonitoringsRes.Loaded
 {$IfEnd} // NOT Defined(Admin)
 
 end.

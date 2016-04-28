@@ -43,10 +43,6 @@ uses
 ;
 
 type
- TControlFriend = {abstract} class(TControl)
-  {* Друг для TControl }
- end;//TControlFriend
-
  TkwPopControlClientToScreen = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:ClientToScreen
 *Тип результата:* TPoint
@@ -653,6 +649,10 @@ INTERFACE VAR l_Il3FontInfo
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlFont
+
+ TControlFriend = {abstract} class(TControl)
+  {* Друг к классу TControl }
+ end;//TControlFriend
 
 function TkwPopControlClientToScreen.ClientToScreen(const aCtx: TtfwContext;
  aControl: TControl;

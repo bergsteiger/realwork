@@ -22,29 +22,17 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- //#UC START# *609BA308C8F6ci*
- //#UC END# *609BA308C8F6ci*
- //#UC START# *609BA308C8F6cit*
- //#UC END# *609BA308C8F6cit*
- TInterfacedNodeWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *609BA308C8F6publ*
- //#UC END# *609BA308C8F6publ*
- end;//TInterfacedNodeWordsResNameGetter
-
  TkwNodeCaption = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:Caption
 *Тип результата:* Tl3WString
@@ -114,12 +102,11 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeIndexInTree
 
-class function TInterfacedNodeWordsResNameGetter.ResName: AnsiString;
-begin
-  Result := 'InterfacedNodeWords';
-end;//TInterfacedNodeWordsResNameGetter.ResName
-
- {$R InterfacedNodeWords.res}
+ TInterfacedNodeWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TInterfacedNodeWordsResNameGetter
 
 function TkwNodeCaption.Caption(const aCtx: TtfwContext;
  const aNode: Il3Node): Tl3WString;
@@ -291,15 +278,22 @@ begin
  Result := 'Node:IndexInTree';
 end;//TkwNodeIndexInTree.GetWordNameForRegister
 
+class function TInterfacedNodeWordsResNameGetter.ResName: AnsiString;
+begin
+ Result := 'InterfacedNodeWords';
+end;//TInterfacedNodeWordsResNameGetter.ResName
+
+ {$R InterfacedNodeWords.res}
+
 initialization
- TInterfacedNodeWordsResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwNodeCaption.RegisterInEngine;
  {* Регистрация Node_Caption }
  TkwNodeIndex.RegisterInEngine;
  {* Регистрация Node_Index }
  TkwNodeIndexInTree.RegisterInEngine;
  {* Регистрация Node_IndexInTree }
+ TInterfacedNodeWordsResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3Node));

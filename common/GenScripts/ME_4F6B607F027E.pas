@@ -25,6 +25,7 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure MakeResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure Loaded; override;
  end;//TF1LikeRes
 
 implementation
@@ -49,6 +50,11 @@ begin
  Application.CreateForm(TvtStdResources, vtStdResources);
 //#UC END# *4F6AF5F00058_4F6B607F027E_impl*
 end;//TF1LikeRes.MakeResources
+
+procedure TF1LikeRes.Loaded;
+begin
+ inherited;
+end;//TF1LikeRes.Loaded
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

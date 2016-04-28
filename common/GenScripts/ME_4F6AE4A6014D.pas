@@ -28,6 +28,7 @@ type
    class procedure Runner(const aTitle: Tl3StringIDEx;
     const aHelpFile: AnsiString); override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure Loaded; override;
  end;//TNewGenRes
 
  TvcmApplicationRef = TNewGenRes;
@@ -47,12 +48,12 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , l3MessageID
- , evExtFormat
  , NewGenMainPrim_Form
  , Main_Form
  {$If NOT Defined(NoScripts)}
  , MainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , evExtFormat
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -81,6 +82,11 @@ begin
 //#UC END# *4F6AF5860291_4F6AE4A6014D_impl*
 end;//TNewGenRes.Runner
 {$IfEnd} // NOT Defined(NoVCM)
+
+procedure TNewGenRes.Loaded;
+begin
+ inherited;
+end;//TNewGenRes.Loaded
 
 initialization
  str_NewGenTitle.Init;

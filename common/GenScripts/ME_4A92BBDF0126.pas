@@ -54,6 +54,7 @@ type
    {$If NOT Defined(NoVCM)}
    class procedure MakeResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure Loaded; override;
   public
    {$If NOT Defined(Admin)}
    class procedure OpenQuery(aQueryType: TlgQueryType;
@@ -417,6 +418,11 @@ begin
 //#UC END# *4F6AF5F00058_4A92BBDF0126_impl*
 end;//TPrimF1Res.MakeResources
 {$IfEnd} // NOT Defined(NoVCM)
+
+procedure TPrimF1Res.Loaded;
+begin
+ inherited;
+end;//TPrimF1Res.Loaded
 
 initialization
  str_ApplicationLoading.Init;

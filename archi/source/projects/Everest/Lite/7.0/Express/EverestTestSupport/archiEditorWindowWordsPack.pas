@@ -22,22 +22,16 @@ uses
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type
- //#UC START# *39046F3AEE5Aci*
- //#UC END# *39046F3AEE5Aci*
- //#UC START# *39046F3AEE5Acit*
- //#UC END# *39046F3AEE5Acit*
  TarchiEditorWindowWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *39046F3AEE5Apubl*
- //#UC END# *39046F3AEE5Apubl*
  end;//TarchiEditorWindowWordsPackResNameGetter
 
  TkwIsNeedSaveDocument = {final} class(TtfwClassLike)
@@ -63,7 +57,7 @@ BOOLEAN VAR l_Boolean
 
 class function TarchiEditorWindowWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'archiEditorWindowWordsPack';
+ Result := 'archiEditorWindowWordsPack';
 end;//TarchiEditorWindowWordsPackResNameGetter.ResName
 
  {$R archiEditorWindowWordsPack.res}

@@ -32,16 +32,10 @@ uses
 ;
 
 type
- //#UC START# *5BD9647988E7ci*
- //#UC END# *5BD9647988E7ci*
- //#UC START# *5BD9647988E7cit*
- //#UC END# *5BD9647988E7cit*
  TITestWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *5BD9647988E7publ*
- //#UC END# *5BD9647988E7publ*
  end;//TITestWordsPackResNameGetter
 
  TkwPopTestName = {final} class(TtfwPropertyLike)
@@ -158,7 +152,7 @@ BOOLEAN VAR l_Boolean
 
 class function TITestWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'ITestWordsPack';
+ Result := 'ITestWordsPack';
 end;//TITestWordsPackResNameGetter.ResName
 
  {$R ITestWordsPack.res}

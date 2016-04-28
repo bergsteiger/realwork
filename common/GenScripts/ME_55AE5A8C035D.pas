@@ -20,11 +20,11 @@ implementation
 uses
  l3ImplUses
  , tfwDictionaryEx
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , l3Interfaces
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , tfwDictionaryDataIteratorPrim
  , tfwExportedDictionariesIterator
  , tfwUsedDictionariesIterator
@@ -45,18 +45,6 @@ uses
 ;
 
 type
- //#UC START# *EDB2EC981E9Aci*
- //#UC END# *EDB2EC981E9Aci*
- //#UC START# *EDB2EC981E9Acit*
- //#UC END# *EDB2EC981E9Acit*
- TtfwDictionaryExWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *EDB2EC981E9Apubl*
- //#UC END# *EDB2EC981E9Apubl*
- end;//TtfwDictionaryExWordsPackResNameGetter
-
  TkwPopDictionaryExFileName = {final} class(TtfwClassLike)
   {* Слово скрипта pop:DictionaryEx:FileName
 *Тип результата:* Il3CString
@@ -201,12 +189,11 @@ STRING VAR l_String
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopDictionaryExRemoveFromCache
 
-class function TtfwDictionaryExWordsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'tfwDictionaryExWordsPack';
-end;//TtfwDictionaryExWordsPackResNameGetter.ResName
-
- {$R tfwDictionaryExWordsPack.res}
+ TtfwDictionaryExWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TtfwDictionaryExWordsPackResNameGetter
 
 function TkwPopDictionaryExFileName.FileName(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx): Il3CString;
@@ -565,9 +552,14 @@ begin
  Result := 'pop:DictionaryEx:RemoveFromCache';
 end;//TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister
 
+class function TtfwDictionaryExWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'tfwDictionaryExWordsPack';
+end;//TtfwDictionaryExWordsPackResNameGetter.ResName
+
+ {$R tfwDictionaryExWordsPack.res}
+
 initialization
- TtfwDictionaryExWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopDictionaryExFileName.RegisterInEngine;
  {* Регистрация pop_DictionaryEx_FileName }
  TkwPopDictionaryExUsedDictionaries.RegisterInEngine;
@@ -582,6 +574,8 @@ initialization
  {* Регистрация pop_DictionaryEx_FileDateTime }
  TkwPopDictionaryExRemoveFromCache.RegisterInEngine;
  {* Регистрация pop_DictionaryEx_RemoveFromCache }
+ TtfwDictionaryExWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwDictionaryEx));

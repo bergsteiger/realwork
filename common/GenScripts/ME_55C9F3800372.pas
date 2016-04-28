@@ -31,16 +31,10 @@ uses
 ;
 
 type
- //#UC START# *CE36BAE2E068ci*
- //#UC END# *CE36BAE2E068ci*
- //#UC START# *CE36BAE2E068cit*
- //#UC END# *CE36BAE2E068cit*
  TTTreeNodeForTestsWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *CE36BAE2E068publ*
- //#UC END# *CE36BAE2E068publ*
  end;//TTTreeNodeForTestsWordsPackResNameGetter
 
  TkwPopTreeNodeIsNodeFolder = {final} class(TtfwClassLike)
@@ -66,7 +60,7 @@ BOOLEAN VAR l_Boolean
 
 class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'TTreeNodeForTestsWordsPack';
+ Result := 'TTreeNodeForTestsWordsPack';
 end;//TTTreeNodeForTestsWordsPackResNameGetter.ResName
 
  {$R TTreeNodeForTestsWordsPack.res}

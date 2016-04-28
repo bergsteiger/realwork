@@ -20,9 +20,9 @@ uses
  , kwLoadFromFile
  , kwSetFontSize
  , kwGetFontSize
- , tfwScriptingTypes
  , SysUtils
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 

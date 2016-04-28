@@ -36,16 +36,10 @@ uses
 ;
 
 type
- //#UC START# *1FDB698BC58Cci*
- //#UC END# *1FDB698BC58Cci*
- //#UC START# *1FDB698BC58Ccit*
- //#UC END# *1FDB698BC58Ccit*
  TInsFilterNodeWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *1FDB698BC58Cpubl*
- //#UC END# *1FDB698BC58Cpubl*
  end;//TInsFilterNodeWordsPackResNameGetter
 
  TkwFilterNodeAutoApplied = {final} class(TtfwPropertyLike)
@@ -142,7 +136,7 @@ BOOLEAN VAR l_Boolean
 
 class function TInsFilterNodeWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'InsFilterNodeWordsPack';
+ Result := 'InsFilterNodeWordsPack';
 end;//TInsFilterNodeWordsPackResNameGetter.ResName
 
  {$R InsFilterNodeWordsPack.res}

@@ -19,6 +19,8 @@ uses
 type
  TNemesisRes = {final} class(TPrimNemesisRes)
   {* [$90440042] }
+  protected
+   procedure Loaded; override;
  end;//TNemesisRes
 
  TvcmApplicationRef = TNemesisRes;
@@ -54,9 +56,19 @@ uses
  , moSearch
  , moAAC
  , moCommonPost
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptEngineEX
+ {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
+ {$If NOT Defined(NoVCM)}
  , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+procedure TNemesisRes.Loaded;
+begin
+ inherited;
+end;//TNemesisRes.Loaded
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

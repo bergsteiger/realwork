@@ -27,6 +27,7 @@ type
   {* Оболочка Admin }
   protected
    class procedure DoRun(var theSplash: IUnknown); override;
+   procedure Loaded; override;
  end;//TAdminAppRes
 
  TvcmApplicationRef = TAdminAppRes;
@@ -47,7 +48,9 @@ uses
  , AdminMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
+ {$If NOT Defined(NoVCM)}
  , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 class procedure TAdminAppRes.DoRun(var theSplash: IUnknown);
@@ -61,6 +64,11 @@ begin
  Application.CreateForm(TAdminMainForm, l_Main);
 //#UC END# *4AA7E4DC0047_4AA517B5037A_impl*
 end;//TAdminAppRes.DoRun
+
+procedure TAdminAppRes.Loaded;
+begin
+ inherited;
+end;//TAdminAppRes.Loaded
 
 initialization
  str_AdminTitle.Init;

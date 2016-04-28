@@ -23,12 +23,12 @@ uses
  l3ImplUses
  , tfwBeginLikeWord
  , kwCompiledWordPrim
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , TypInfo
  , tfwTypeInfo
  , tfwRegisterableWord
  , tfwPropertyLike
+ , tfwAxiomaticsResNameGetter
  , kwBeginLikeCompiledCode
  , kwCloseBracket
  , tfwRevertedArrayView
@@ -65,18 +65,6 @@ type
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwOpenArray
-
- //#UC START# *DB8D8DCA5554ci*
- //#UC END# *DB8D8DCA5554ci*
- //#UC START# *DB8D8DCA5554cit*
- //#UC END# *DB8D8DCA5554cit*
- TArrayProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *DB8D8DCA5554publ*
- //#UC END# *DB8D8DCA5554publ*
- end;//TArrayProcessingPackResNameGetter
 
  TkwArrayClear = {final} class(TtfwClassLike)
   {* Слово скрипта Array:Clear
@@ -342,6 +330,12 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwArrayCount
 
+ TArrayProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TArrayProcessingPackResNameGetter
+
 procedure TkwCompiledArray.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52EB991C028F_var*
 var
@@ -438,13 +432,6 @@ class function TkwOpenArray.GetWordNameForRegister: AnsiString;
 begin
  Result := '[';
 end;//TkwOpenArray.GetWordNameForRegister
-
-class function TArrayProcessingPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'ArrayProcessingPack';
-end;//TArrayProcessingPackResNameGetter.ResName
-
- {$R ArrayProcessingPack.res}
 
 procedure TkwArrayClear.Clear(const aCtx: TtfwContext;
  const aArray: ItfwValueList);
@@ -1143,6 +1130,13 @@ begin
  Result := 'Array:Count';
 end;//TkwArrayCount.GetWordNameForRegister
 
+class function TArrayProcessingPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'ArrayProcessingPack';
+end;//TArrayProcessingPackResNameGetter.ResName
+
+ {$R ArrayProcessingPack.res}
+
 initialization
  TkwCompiledArray.RegisterClass;
  {* Регистрация TkwCompiledArray }
@@ -1150,8 +1144,6 @@ initialization
  {* Регистрация CloseArray }
  TkwOpenArray.RegisterInEngine;
  {* Регистрация OpenArray }
- TArrayProcessingPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwArrayClear.RegisterInEngine;
  {* Регистрация Array_Clear }
  TkwArrayItem.RegisterInEngine;
@@ -1176,6 +1168,8 @@ initialization
  {* Регистрация Array_Slice }
  TkwArrayCount.RegisterInEngine;
  {* Регистрация Array_Count }
+ TArrayProcessingPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));

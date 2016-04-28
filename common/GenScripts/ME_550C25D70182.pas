@@ -42,12 +42,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , TypInfo
  , tfwDictionary
  , tfwPropertyLike
  , tfwTypeInfo
+ , tfwAxiomaticsResNameGetter
  , seWordsInfo
  , tfwMembersIterator
  , kwForwardDeclaration
@@ -70,18 +70,6 @@ uses
 ;
 
 type
- //#UC START# *BD54BA1C4F00ci*
- //#UC END# *BD54BA1C4F00ci*
- //#UC START# *BD54BA1C4F00cit*
- //#UC END# *BD54BA1C4F00cit*
- TWordsRTTIPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *BD54BA1C4F00publ*
- //#UC END# *BD54BA1C4F00publ*
- end;//TWordsRTTIPackResNameGetter
-
  TkwPopWordGetLeftWordRefValue = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Word:GetLeftWordRefValue
 *Тип результата:* TtfwWord
@@ -701,6 +689,12 @@ OBJECT VAR l_TtfwWord
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopWordRedefines
 
+ TWordsRTTIPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TWordsRTTIPackResNameGetter
+
 constructor TtfwWordBox.Create(aWord: TtfwWord);
 //#UC START# *567A8DFB0357_567A8DB002B6_var*
 //#UC END# *567A8DFB0357_567A8DB002B6_var*
@@ -742,13 +736,6 @@ begin
  inherited;
 //#UC END# *479731C50290_567A8DB002B6_impl*
 end;//TtfwWordBox.Cleanup
-
-class function TWordsRTTIPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'WordsRTTIPack';
-end;//TWordsRTTIPackResNameGetter.ResName
-
- {$R WordsRTTIPack.res}
 
 function TkwPopWordGetLeftWordRefValue.GetLeftWordRefValue(const aCtx: TtfwContext;
  aWord: TtfwWord;
@@ -2328,9 +2315,14 @@ begin
  Result := 'pop:Word:Redefines';
 end;//TkwPopWordRedefines.GetWordNameForRegister
 
+class function TWordsRTTIPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'WordsRTTIPack';
+end;//TWordsRTTIPackResNameGetter.ResName
+
+ {$R WordsRTTIPack.res}
+
 initialization
- TWordsRTTIPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopWordGetLeftWordRefValue.RegisterInEngine;
  {* Регистрация pop_Word_GetLeftWordRefValue }
  TkwPopWordGetParam.RegisterInEngine;
@@ -2389,6 +2381,8 @@ initialization
  {* Регистрация pop_Word_Producer }
  TkwPopWordRedefines.RegisterInEngine;
  {* Регистрация pop_Word_Redefines }
+ TWordsRTTIPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));

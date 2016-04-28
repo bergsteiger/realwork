@@ -30,21 +30,15 @@ uses
 ;
 
 type
- //#UC START# *77DB2124A8AEci*
- //#UC END# *77DB2124A8AEci*
- //#UC START# *77DB2124A8AEcit*
- //#UC END# *77DB2124A8AEcit*
  TtfwF1HyperlinkScriptCallerResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *77DB2124A8AEpubl*
- //#UC END# *77DB2124A8AEpubl*
  end;//TtfwF1HyperlinkScriptCallerResNameGetter
 
 class function TtfwF1HyperlinkScriptCallerResNameGetter.ResName: AnsiString;
 begin
-  Result := 'tfwF1HyperlinkScriptCaller';
+ Result := 'tfwF1HyperlinkScriptCaller';
 end;//TtfwF1HyperlinkScriptCallerResNameGetter.ResName
 
  {$R tfwF1HyperlinkScriptCaller.res}

@@ -50,7 +50,6 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwRegisterableWord
  , TypInfo
  , tfwClassLike
@@ -58,6 +57,7 @@ uses
  , tfwTypeInfo
  , l3Types
  , tfwGlobalKeyWord
+ , tfwAxiomaticsResNameGetter
  , l3String
  , SysUtils
  , l3FileUtils
@@ -68,18 +68,6 @@ uses
 ;
 
 type
- //#UC START# *23408B0EC0B1ci*
- //#UC END# *23408B0EC0B1ci*
- //#UC START# *23408B0EC0B1cit*
- //#UC END# *23408B0EC0B1cit*
- TFileProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *23408B0EC0B1publ*
- //#UC END# *23408B0EC0B1publ*
- end;//TFileProcessingPackResNameGetter
-
  TkwFileOpenRead = {final} class(TtfwRegisterableWord)
   {* Слово скрипта File:OpenRead
 *Тип результата:* ItfwFile
@@ -594,6 +582,12 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCompareFiles
 
+ TFileProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TFileProcessingPackResNameGetter
+
 constructor TtfwFile.CreateRead(const aFileName: AnsiString);
 //#UC START# *4F4FD849026C_4F4FD77B03CC_var*
 //#UC END# *4F4FD849026C_4F4FD77B03CC_var*
@@ -777,13 +771,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4F4FD77B03CC_impl*
 end;//TtfwFile.Cleanup
-
-class function TFileProcessingPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'FileProcessingPack';
-end;//TFileProcessingPackResNameGetter.ResName
-
- {$R FileProcessingPack.res}
 
 function TkwFileOpenRead.OpenRead(const aCtx: TtfwContext;
  const aName: AnsiString): ItfwFile;
@@ -2052,9 +2039,14 @@ begin
  Result := 'CompareFiles';
 end;//TkwCompareFiles.GetWordNameForRegister
 
+class function TFileProcessingPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'FileProcessingPack';
+end;//TFileProcessingPackResNameGetter.ResName
+
+ {$R FileProcessingPack.res}
+
 initialization
- TFileProcessingPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwFileOpenRead.RegisterInEngine;
  {* Регистрация File_OpenRead }
  TkwFileOpenWrite.RegisterInEngine;
@@ -2099,6 +2091,8 @@ initialization
  {* Регистрация FileSize }
  TkwCompareFiles.RegisterInEngine;
  {* Регистрация CompareFiles }
+ TFileProcessingPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

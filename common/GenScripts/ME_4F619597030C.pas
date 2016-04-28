@@ -32,9 +32,9 @@ uses
  , kwDialogsLockDocumentSetSkipMode
  , AttributeExplorerWordsPack
  , kwClearConfig
- , tfwScriptingTypes
  , SysUtils
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 

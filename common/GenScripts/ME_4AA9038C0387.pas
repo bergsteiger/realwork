@@ -27,6 +27,7 @@ type
   {* Мониторинги }
   protected
    class procedure DoRun(var theSplash: IUnknown); override;
+   procedure Loaded; override;
  end;//TMonitoringsRes
 
  TvcmApplicationRef = TMonitoringsRes;
@@ -46,7 +47,9 @@ uses
  , MonitoringsMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
+ {$If NOT Defined(NoVCM)}
  , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 class procedure TMonitoringsRes.DoRun(var theSplash: IUnknown);
@@ -60,6 +63,11 @@ begin
  Application.CreateForm(TMonitoringsMainForm, l_Main);
 //#UC END# *4AA7E4DC0047_4AA9038C0387_impl*
 end;//TMonitoringsRes.DoRun
+
+procedure TMonitoringsRes.Loaded;
+begin
+ inherited;
+end;//TMonitoringsRes.Loaded
 
 initialization
  str_MonitoringTitle.Init;

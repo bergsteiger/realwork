@@ -21,29 +21,17 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- //#UC START# *FCED2C4D2DBAci*
- //#UC END# *FCED2C4D2DBAci*
- //#UC START# *FCED2C4D2DBAcit*
- //#UC END# *FCED2C4D2DBAcit*
- Tl3NodesKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *FCED2C4D2DBApubl*
- //#UC END# *FCED2C4D2DBApubl*
- end;//Tl3NodesKeyWordsPackResNameGetter
-
  TkwNodeIsFirst = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:IsFirst
 [panel]Узел первый?[panel]
@@ -140,12 +128,11 @@ STRING VAR l_Tl3WString
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeText
 
-class function Tl3NodesKeyWordsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'l3NodesKeyWordsPack';
-end;//Tl3NodesKeyWordsPackResNameGetter.ResName
-
- {$R l3NodesKeyWordsPack.res}
+ Tl3NodesKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//Tl3NodesKeyWordsPackResNameGetter
 
 function TkwNodeIsFirst.IsFirst(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Boolean;
@@ -339,9 +326,14 @@ begin
  Result := 'Node:Text';
 end;//TkwNodeText.GetWordNameForRegister
 
+class function Tl3NodesKeyWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'l3NodesKeyWordsPack';
+end;//Tl3NodesKeyWordsPackResNameGetter.ResName
+
+ {$R l3NodesKeyWordsPack.res}
+
 initialization
- Tl3NodesKeyWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwNodeIsFirst.RegisterInEngine;
  {* Регистрация Node_IsFirst }
  TkwNodeIsLast.RegisterInEngine;
@@ -350,6 +342,8 @@ initialization
  {* Регистрация Node_Flags }
  TkwNodeText.RegisterInEngine;
  {* Регистрация Node_Text }
+ Tl3NodesKeyWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));

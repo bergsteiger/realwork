@@ -23,6 +23,8 @@ type
  _VCMAppTester_Parent_ = TNemesisRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TNemesisTestRes = {final} class(_VCMAppTester_)
+  protected
+   procedure Loaded; override;
   public
    class function CalcBatchMode: Boolean; override;
  end;//TNemesisTestRes
@@ -78,6 +80,11 @@ begin
  Result := KTestRunner.NeedKTestRunner([TtoK, TItsLAW, TtoK64, TtoKT, TBaseUC, TtoK2, TtoK3]);
 //#UC END# *4F79BCC902C5_4D9F2DDA024D_impl*
 end;//TNemesisTestRes.CalcBatchMode
+
+procedure TNemesisTestRes.Loaded;
+begin
+ inherited;
+end;//TNemesisTestRes.Loaded
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

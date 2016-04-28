@@ -38,10 +38,10 @@ uses
  , tfwPropertyLike
  , tfwTypeInfo
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , TtfwClassRef_Proxy
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

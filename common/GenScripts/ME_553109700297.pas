@@ -25,22 +25,16 @@ uses
  , tfwScriptingInterfaces
  , dt_AttrSchema
  , TypInfo
- , tfwScriptingTypes
- , tfwTypeRegistrator
  , SysUtils
+ , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type
- //#UC START# *83014FAE4406ci*
- //#UC END# *83014FAE4406ci*
- //#UC START# *83014FAE4406cit*
- //#UC END# *83014FAE4406cit*
  TAttributeExplorerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *83014FAE4406publ*
- //#UC END# *83014FAE4406publ*
  end;//TAttributeExplorerWordsPackResNameGetter
 
  TkwAttrExplorerGotoOnAttrNode = {final} class(TtfwClassLike)
@@ -71,7 +65,7 @@ TdtAttribute::atKeyWords "Контрол по имени [('otlAttributes')]- в стек" pop:Comp
 
 class function TAttributeExplorerWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'AttributeExplorerWordsPack';
+ Result := 'AttributeExplorerWordsPack';
 end;//TAttributeExplorerWordsPackResNameGetter.ResName
 
  {$R AttributeExplorerWordsPack.res}

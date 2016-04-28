@@ -20,12 +20,12 @@ implementation
 uses
  l3ImplUses
  , Menus
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , tfwPropertyLike
  , tfwTypeInfo
+ , tfwAxiomaticsResNameGetter
  , Controls
  , Forms
  , l3ScreenService
@@ -35,22 +35,6 @@ uses
 ;
 
 type
- //#UC START# *B4809E50CD0Fci*
- //#UC END# *B4809E50CD0Fci*
- //#UC START# *B4809E50CD0Fcit*
- //#UC END# *B4809E50CD0Fcit*
- TMenuWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *B4809E50CD0Fpubl*
- //#UC END# *B4809E50CD0Fpubl*
- end;//TMenuWordsPackResNameGetter
-
- TMenuItemFriend = {abstract} class(TMenuItem)
-  {* Друг для TMenuItem }
- end;//TMenuItemFriend
-
  TkwMenuItemClick = {final} class(TtfwClassLike)
   {* Слово скрипта menuitem:Click
 *Пример:*
@@ -205,12 +189,15 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwMenuItemVisible
 
-class function TMenuWordsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'MenuWordsPack';
-end;//TMenuWordsPackResNameGetter.ResName
+ TMenuItemFriend = {abstract} class(TMenuItem)
+  {* Друг к классу TMenuItem }
+ end;//TMenuItemFriend
 
- {$R MenuWordsPack.res}
+ TMenuWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TMenuWordsPackResNameGetter
 
 procedure TkwMenuItemClick.Click(const aCtx: TtfwContext;
  aMenuItem: TMenuItem);
@@ -568,9 +555,14 @@ begin
  Result := 'menuitem:IsVisible';
 end;//TkwMenuItemVisible.GetWordNameForRegister
 
+class function TMenuWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'MenuWordsPack';
+end;//TMenuWordsPackResNameGetter.ResName
+
+ {$R MenuWordsPack.res}
+
 initialization
- TMenuWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwMenuItemClick.RegisterInEngine;
  {* Регистрация MenuItem_Click }
  TkwMenuItemGetItem.RegisterInEngine;
@@ -585,6 +577,8 @@ initialization
  {* Регистрация MenuItem_Enabled }
  TkwMenuItemVisible.RegisterInEngine;
  {* Регистрация MenuItem_Visible }
+ TMenuWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TMenuItem));

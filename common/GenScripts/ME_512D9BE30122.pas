@@ -24,9 +24,9 @@ uses
  , kwOpenWith
  , kwIsPreviewInProgress
  , archiEditorWindowWordsPack
- , tfwScriptingTypes
  , SysUtils
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 

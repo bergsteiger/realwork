@@ -78,21 +78,15 @@ uses
 ;
 
 type
- //#UC START# *5F598AAE50EEci*
- //#UC END# *5F598AAE50EEci*
- //#UC START# *5F598AAE50EEcit*
- //#UC END# *5F598AAE50EEcit*
  TkwMainResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *5F598AAE50EEpubl*
- //#UC END# *5F598AAE50EEpubl*
  end;//TkwMainResNameGetter
 
 class function TkwMainResNameGetter.ResName: AnsiString;
 begin
-  Result := 'kwMain';
+ Result := 'kwMain';
 end;//TkwMainResNameGetter.ResName
 
  {$R kwMain.res}

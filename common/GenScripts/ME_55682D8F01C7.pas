@@ -22,12 +22,12 @@ uses
  l3ImplUses
  , tfwIteratableParent
  , tfwScriptingInterfaces
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , TypInfo
  , tfwRegisterableWord
  , tfwWordWorkerEx
  , tfwGlobalKeyWord
+ , tfwAxiomaticsResNameGetter
  , l3String
  , l3Types
  , l3Chars
@@ -56,18 +56,6 @@ type
    procedure ForEachBack(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext);
  end;//TtfwStringIterator
-
- //#UC START# *1C3B459FC59Bci*
- //#UC END# *1C3B459FC59Bci*
- //#UC START# *1C3B459FC59Bcit*
- //#UC END# *1C3B459FC59Bcit*
- TtfwIl3CStringPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *1C3B459FC59Bpubl*
- //#UC END# *1C3B459FC59Bpubl*
- end;//TtfwIl3CStringPackResNameGetter
 
  TkwStartsStr = {final} class(TtfwClassLike)
   {* Слово скрипта StartsStr
@@ -1165,6 +1153,12 @@ ARRAY VAR l_ItfwValueList
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwHash16Table
 
+ TtfwIl3CStringPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TtfwIl3CStringPackResNameGetter
+
 constructor TtfwStringIterator.Create(const aString: Il3CString);
 //#UC START# *56F3EF17004C_56F3EEE50232_var*
 //#UC END# *56F3EF17004C_56F3EEE50232_var*
@@ -1247,13 +1241,6 @@ begin
  f_String := nil;
  inherited;
 end;//TtfwStringIterator.ClearFields
-
-class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'tfwIl3CStringPack';
-end;//TtfwIl3CStringPackResNameGetter.ResName
-
- {$R tfwIl3CStringPack.res}
 
 function TkwStartsStr.StartsStr(const aCtx: TtfwContext;
  const aString: Il3CString;
@@ -4085,9 +4072,14 @@ begin
  Result := 'Hash16Table';
 end;//TkwHash16Table.GetWordNameForRegister
 
+class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'tfwIl3CStringPack';
+end;//TtfwIl3CStringPackResNameGetter.ResName
+
+ {$R tfwIl3CStringPack.res}
+
 initialization
- TtfwIl3CStringPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwStartsStr.RegisterInEngine;
  {* Регистрация StartsStr }
  TkwStartsText.RegisterInEngine;
@@ -4188,6 +4180,8 @@ initialization
  {* Регистрация VarPushCharAndInc }
  TkwHash16Table.RegisterInEngine;
  {* Регистрация Hash16Table }
+ TtfwIl3CStringPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

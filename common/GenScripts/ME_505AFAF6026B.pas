@@ -22,10 +22,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , k2EVDReaderService
  , k2EVDWriterService
  , SysUtils
@@ -34,18 +34,6 @@ uses
 ;
 
 type
- //#UC START# *9EE368A1435Dci*
- //#UC END# *9EE368A1435Dci*
- //#UC START# *9EE368A1435Dcit*
- //#UC END# *9EE368A1435Dcit*
- TkwFiltersAndGeneratorsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *9EE368A1435Dpubl*
- //#UC END# *9EE368A1435Dpubl*
- end;//TkwFiltersAndGeneratorsPackResNameGetter
-
  TkwGeneratorsExecute = {final} class(TtfwClassLike)
   {* Слово скрипта generators:Execute
 [panel]Берёт со стека имя имя входного файла (EVD) и генератор (или цепочку). Затем делает трубу и прогоняет через неё файл.[panel]
@@ -90,12 +78,11 @@ INTERFACE VAR l_Ik2TagGenerator
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwGeneratorsLink
 
-class function TkwFiltersAndGeneratorsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'kwFiltersAndGeneratorsPack';
-end;//TkwFiltersAndGeneratorsPackResNameGetter.ResName
-
- {$R kwFiltersAndGeneratorsPack.res}
+ TkwFiltersAndGeneratorsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TkwFiltersAndGeneratorsPackResNameGetter
 
 procedure TkwGeneratorsExecute.generators_Execute(const aCtx: TtfwContext;
  const aTagGenerator: Ik2TagGenerator;
@@ -241,13 +228,20 @@ begin
  Result := 'generators:Link';
 end;//TkwGeneratorsLink.GetWordNameForRegister
 
+class function TkwFiltersAndGeneratorsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'kwFiltersAndGeneratorsPack';
+end;//TkwFiltersAndGeneratorsPackResNameGetter.ResName
+
+ {$R kwFiltersAndGeneratorsPack.res}
+
 initialization
- TkwFiltersAndGeneratorsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwGeneratorsExecute.RegisterInEngine;
  {* Регистрация generators_Execute }
  TkwGeneratorsLink.RegisterInEngine;
  {* Регистрация generators_Link }
+ TkwFiltersAndGeneratorsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ik2TagGenerator));

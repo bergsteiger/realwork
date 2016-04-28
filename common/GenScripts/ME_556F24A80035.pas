@@ -87,7 +87,7 @@ uses
 
 type
  TControlFriend = {abstract} class(TControl)
-  {* Друг для TControl }
+  {* Друг к классу TControl }
  end;//TControlFriend
 
 var g_Tl3ControlFontService: Tl3ControlFontService = nil;

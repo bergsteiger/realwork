@@ -21,29 +21,17 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- //#UC START# *9F904801EF08ci*
- //#UC END# *9F904801EF08ci*
- //#UC START# *9F904801EF08cit*
- //#UC END# *9F904801EF08cit*
- TFontWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *9F904801EF08publ*
- //#UC END# *9F904801EF08publ*
- end;//TFontWordsPackResNameGetter
-
  TkwFontColor = {final} class(TtfwPropertyLike)
   {* Слово скрипта Font:Color
 *Тип результата:* Tl3Color
@@ -228,12 +216,11 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwFontSize
 
-class function TFontWordsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'FontWordsPack';
-end;//TFontWordsPackResNameGetter.ResName
-
- {$R FontWordsPack.res}
+ TFontWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TFontWordsPackResNameGetter
 
 function TkwFontColor.Color(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
@@ -651,9 +638,14 @@ begin
  Result := 'Font:Size';
 end;//TkwFontSize.GetWordNameForRegister
 
+class function TFontWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'FontWordsPack';
+end;//TFontWordsPackResNameGetter.ResName
+
+ {$R FontWordsPack.res}
+
 initialization
- TFontWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwFontColor.RegisterInEngine;
  {* Регистрация Font_Color }
  TkwFontBackColor.RegisterInEngine;
@@ -670,6 +662,8 @@ initialization
  {* Регистрация Font_Name }
  TkwFontSize.RegisterInEngine;
  {* Регистрация Font_Size }
+ TFontWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3FontInfo));

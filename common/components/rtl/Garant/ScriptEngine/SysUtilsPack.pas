@@ -19,12 +19,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
  , TypInfo
  , l3Interfaces
  , tfwTypeInfo
+ , tfwAxiomaticsResNameGetter
  , l3TabService
  , l3SysUtils
  , Windows
@@ -49,18 +49,6 @@ uses
 ;
 
 type
- //#UC START# *CA1C227465CDci*
- //#UC END# *CA1C227465CDci*
- //#UC START# *CA1C227465CDcit*
- //#UC END# *CA1C227465CDcit*
- TSysUtilsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *CA1C227465CDpubl*
- //#UC END# *CA1C227465CDpubl*
- end;//TSysUtilsPackResNameGetter
-
  TkwHasTabs = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта HasTabs
 *Тип результата:* Boolean
@@ -1066,12 +1054,11 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwSysutilsGetACP
 
-class function TSysUtilsPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'SysUtilsPack';
-end;//TSysUtilsPackResNameGetter.ResName
-
- {$R SysUtilsPack.res}
+ TSysUtilsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TSysUtilsPackResNameGetter
 
 function TkwHasTabs.HasTabs(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта HasTabs }
@@ -3479,9 +3466,14 @@ begin
  Result := 'sysutils:GetACP';
 end;//TkwSysutilsGetACP.GetWordNameForRegister
 
+class function TSysUtilsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'SysUtilsPack';
+end;//TSysUtilsPackResNameGetter.ResName
+
+ {$R SysUtilsPack.res}
+
 initialization
- TSysUtilsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwHasTabs.RegisterInEngine;
  {* Регистрация HasTabs }
  TkwIsUnder64.RegisterInEngine;
@@ -3584,6 +3576,8 @@ initialization
  {* Регистрация sysutils_CodePage }
  TkwSysutilsGetACP.RegisterInEngine;
  {* Регистрация sysutils_GetACP }
+ TSysUtilsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

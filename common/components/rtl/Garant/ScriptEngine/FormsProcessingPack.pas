@@ -20,13 +20,13 @@ implementation
 uses
  l3ImplUses
  , Forms
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , Menus
  , ActnList
  , tfwGlobalKeyWord
+ , tfwAxiomaticsResNameGetter
  , l3ObjectList
  , Classes
  , CustomFormProcessingPack
@@ -38,18 +38,6 @@ uses
 ;
 
 type
- //#UC START# *38481B365F20ci*
- //#UC END# *38481B365F20ci*
- //#UC START# *38481B365F20cit*
- //#UC END# *38481B365F20cit*
- TFormsProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *38481B365F20publ*
- //#UC END# *38481B365F20publ*
- end;//TFormsProcessingPackResNameGetter
-
  TkwPopFormActiveMDIChild = {final} class(TtfwClassLike)
   {* Слово скрипта pop:form:ActiveMDIChild
 *Тип результата:* TForm
@@ -299,12 +287,11 @@ OBJECT VAR l_TActionList
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwIterateForms
 
-class function TFormsProcessingPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'FormsProcessingPack';
-end;//TFormsProcessingPackResNameGetter.ResName
-
- {$R FormsProcessingPack.res}
+ TFormsProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TFormsProcessingPackResNameGetter
 
 function TkwPopFormActiveMDIChild.pop_form_ActiveMDIChild(const aCtx: TtfwContext;
  aForm: TForm): TForm;
@@ -1015,9 +1002,14 @@ begin
  Result := 'IterateForms';
 end;//TkwIterateForms.GetWordNameForRegister
 
+class function TFormsProcessingPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'FormsProcessingPack';
+end;//TFormsProcessingPackResNameGetter.ResName
+
+ {$R FormsProcessingPack.res}
+
 initialization
- TFormsProcessingPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopFormActiveMDIChild.RegisterInEngine;
  {* Регистрация pop_form_ActiveMDIChild }
  TkwPopFormClose.RegisterInEngine;
@@ -1042,6 +1034,8 @@ initialization
  {* Регистрация pop_form_FindActionList }
  TkwIterateForms.RegisterInEngine;
  {* Регистрация IterateForms }
+ TFormsProcessingPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TForm));

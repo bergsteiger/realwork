@@ -109,13 +109,12 @@ uses
  , l3Base
 ;
 
+{$If NOT Defined(NoVCL)}
 type
- TControlFriend = {abstract} class({$If NOT Defined(NoVCL)}
- TControl
- {$IfEnd} // NOT Defined(NoVCL)
- )
-  {* ƒруг дл€ TControl }
+ TControlFriend = {abstract} class(TControl)
+  {* ƒруг к классу TControl }
  end;//TControlFriend
+{$IfEnd} // NOT Defined(NoVCL)
 
 var g_Tl3ComponentInfoHelper: Tl3ComponentInfoHelper = nil;
  {* Ёкземпл€р синглетона Tl3ComponentInfoHelper }
@@ -126,6 +125,8 @@ begin
  l3Free(g_Tl3ComponentInfoHelper);
 end;//Tl3ComponentInfoHelperFree
 
+{$If NOT Defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
 procedure Tl3ComponentInfoHelper.ObjectPropFound(anObject: TObject;
  var aValue: AnsiString);
 //#UC START# *532059A801C4_4F72CAA90045_var*

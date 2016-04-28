@@ -20,28 +20,16 @@ implementation
 uses
  l3ImplUses
  , Forms
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- //#UC START# *C209DE35C0DBci*
- //#UC END# *C209DE35C0DBci*
- //#UC START# *C209DE35C0DBcit*
- //#UC END# *C209DE35C0DBcit*
- TCustomFormProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *C209DE35C0DBpubl*
- //#UC END# *C209DE35C0DBpubl*
- end;//TCustomFormProcessingPackResNameGetter
-
  TkwPopFormFormStyle = {final} class(TtfwClassLike)
   {* Слово скрипта pop:form:FormStyle
 *Тип результата:* TFormStyle
@@ -63,12 +51,11 @@ TFormStyle VAR l_TFormStyle
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopFormFormStyle
 
-class function TCustomFormProcessingPackResNameGetter.ResName: AnsiString;
-begin
-  Result := 'CustomFormProcessingPack';
-end;//TCustomFormProcessingPackResNameGetter.ResName
-
- {$R CustomFormProcessingPack.res}
+ TCustomFormProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TCustomFormProcessingPackResNameGetter
 
 function TkwPopFormFormStyle.pop_form_FormStyle(const aCtx: TtfwContext;
  aForm: TCustomForm): TFormStyle;
@@ -116,11 +103,18 @@ begin
  Result := 'pop:form:FormStyle';
 end;//TkwPopFormFormStyle.GetWordNameForRegister
 
+class function TCustomFormProcessingPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'CustomFormProcessingPack';
+end;//TCustomFormProcessingPackResNameGetter.ResName
+
+ {$R CustomFormProcessingPack.res}
+
 initialization
- TCustomFormProcessingPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopFormFormStyle.RegisterInEngine;
  {* Регистрация pop_form_FormStyle }
+ TCustomFormProcessingPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomForm));

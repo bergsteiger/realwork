@@ -33,16 +33,10 @@ uses
 ;
 
 type
- //#UC START# *98311E435825ci*
- //#UC END# *98311E435825ci*
- //#UC START# *98311E435825cit*
- //#UC END# *98311E435825cit*
  TStatusBarWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *98311E435825publ*
- //#UC END# *98311E435825publ*
  end;//TStatusBarWordsResNameGetter
 
  TkwStatusBarOrderedControl = {final} class(TtfwClassLike)
@@ -112,7 +106,7 @@ INTEGER VAR l_Integer
 
 class function TStatusBarWordsResNameGetter.ResName: AnsiString;
 begin
-  Result := 'StatusBarWords';
+ Result := 'StatusBarWords';
 end;//TStatusBarWordsResNameGetter.ResName
 
  {$R StatusBarWords.res}

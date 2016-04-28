@@ -29,6 +29,8 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  )
   {* Тестовое приложение VCM }
+  protected
+   procedure Loaded; override;
  end;//TVCMSandBoxRes
 
  TvcmApplicationRef = TVCMSandBoxRes;
@@ -48,6 +50,11 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
+procedure TVCMSandBoxRes.Loaded;
+begin
+ inherited;
+end;//TVCMSandBoxRes.Loaded
+
 initialization
  str_VCMSandBoxTitle.Init;
  {* Инициализация str_VCMSandBoxTitle }

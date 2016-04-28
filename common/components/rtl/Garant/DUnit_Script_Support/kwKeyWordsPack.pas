@@ -40,16 +40,10 @@ uses
 ;
 
 type
- //#UC START# *56D015564877ci*
- //#UC END# *56D015564877ci*
- //#UC START# *56D015564877cit*
- //#UC END# *56D015564877cit*
  TkwKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
- //#UC START# *56D015564877publ*
- //#UC END# *56D015564877publ*
  end;//TkwKeyWordsPackResNameGetter
 
  TkwGUITestRunnerPushDUnitForm = {final} class(TtfwRegisterableWord)
@@ -117,7 +111,7 @@ INTERFACE VAR l_ITest
 
 class function TkwKeyWordsPackResNameGetter.ResName: AnsiString;
 begin
-  Result := 'kwKeyWordsPack';
+ Result := 'kwKeyWordsPack';
 end;//TkwKeyWordsPackResNameGetter.ResName
 
  {$R kwKeyWordsPack.res}

@@ -24,6 +24,8 @@ type
  _VCMAppTester_Parent_ = TVCMSandBoxRes;
  {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TVCMSandBoxTestRes = {final} class(_VCMAppTester_)
+  protected
+   procedure Loaded; override;
   public
    {$If Defined(nsTest)}
    class function CalcBatchMode: Boolean; override;
@@ -56,7 +58,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
  , evExtFormat
+ {$If NOT Defined(NoVCM)}
  , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If Defined(nsTest) AND Defined(InsiderTest)}
@@ -71,6 +75,11 @@ begin
  Result := KTestRunner.NeedKTestRunner([]);
 //#UC END# *4F79BCC902C5_523024100274_impl*
 end;//TVCMSandBoxTestRes.CalcBatchMode
+
+procedure TVCMSandBoxTestRes.Loaded;
+begin
+ inherited;
+end;//TVCMSandBoxTestRes.Loaded
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
 
 end.

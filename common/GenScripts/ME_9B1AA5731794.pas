@@ -22,10 +22,10 @@ uses
  l3ImplUses
  , Logo_Form
  , tfwControlString
- , tfwScriptingTypes
  , TtfwClassRef_Proxy
  , SysUtils
  , tfwTypeRegistrator
+ , tfwScriptingTypes
 ;
 
 type

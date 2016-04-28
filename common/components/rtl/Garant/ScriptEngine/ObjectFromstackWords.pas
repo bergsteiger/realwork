@@ -19,10 +19,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , kwPopClassInherits
  , SysUtils
  , l3RTTI
@@ -31,18 +31,6 @@ uses
 ;
 
 type
- //#UC START# *695731F3434Eci*
- //#UC END# *695731F3434Eci*
- //#UC START# *695731F3434Ecit*
- //#UC END# *695731F3434Ecit*
- TObjectFromstackWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- //#UC START# *695731F3434Epubl*
- //#UC END# *695731F3434Epubl*
- end;//TObjectFromstackWordsResNameGetter
-
  TkwPopObjectInherits = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:Inherits
 *Тип результата:* Boolean
@@ -302,12 +290,11 @@ STRING VAR l_String
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectSetStrProp
 
-class function TObjectFromstackWordsResNameGetter.ResName: AnsiString;
-begin
-  Result := 'ObjectFromstackWords';
-end;//TObjectFromstackWordsResNameGetter.ResName
-
- {$R ObjectFromstackWords.res}
+ TObjectFromstackWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TObjectFromstackWordsResNameGetter
 
 function TkwPopObjectInherits.Inherits(const aCtx: TtfwContext;
  aObject: TObject;
@@ -1035,9 +1022,14 @@ begin
  Result := 'pop:Object:SetStrProp';
 end;//TkwPopObjectSetStrProp.GetWordNameForRegister
 
+class function TObjectFromstackWordsResNameGetter.ResName: AnsiString;
+begin
+ Result := 'ObjectFromstackWords';
+end;//TObjectFromstackWordsResNameGetter.ResName
+
+ {$R ObjectFromstackWords.res}
+
 initialization
- TObjectFromstackWordsResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopObjectInherits.RegisterInEngine;
  {* Регистрация pop_Object_Inherits }
  TkwPopObjectClassName.RegisterInEngine;
@@ -1062,6 +1054,8 @@ initialization
  {* Регистрация pop_Object_SetOrdProp }
  TkwPopObjectSetStrProp.RegisterInEngine;
  {* Регистрация pop_Object_SetStrProp }
+ TObjectFromstackWordsResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TObject));

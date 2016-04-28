@@ -34,6 +34,7 @@ type
    class function DoGlobalInit(aLogo: TCustomForm;
     var theSplash: IUnknown): Boolean; override;
    class procedure DoRun(var theSplash: IUnknown); override;
+   procedure Loaded; override;
   public
    class procedure OpenQuery(aQueryType: TlgQueryType;
     const aQuery: IQuery;
@@ -323,6 +324,11 @@ begin
  end;//case aQueryType
 //#UC END# *4AC4A69D03B7_4A925AFF01BA_impl*
 end;//TPrimNemesisRes.OpenQuery
+
+procedure TPrimNemesisRes.Loaded;
+begin
+ inherited;
+end;//TPrimNemesisRes.Loaded
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
