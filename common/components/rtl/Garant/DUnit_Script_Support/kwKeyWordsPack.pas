@@ -20,7 +20,6 @@ implementation
 uses
  l3ImplUses
  , GUITestRunner
- , tfwAxiomaticsResNameGetter
  , tfwRegisterableWord
  , tfwScriptingInterfaces
  , TypInfo
@@ -28,6 +27,7 @@ uses
  , TestFrameWork
  , ComCtrls
  , tfwGlobalKeyWord
+ , tfwAxiomaticsResNameGetter
  , ITestWordsPack
  , TTreeNodeForTestsWordsPack
  , TestForm4Scripts
@@ -40,12 +40,6 @@ uses
 ;
 
 type
- TkwKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TkwKeyWordsPackResNameGetter
-
  TkwGUITestRunnerPushDUnitForm = {final} class(TtfwRegisterableWord)
   {* Слово скрипта GUITestRunner:push:DUnitForm
 *Тип результата:* TGUITestRunner
@@ -109,12 +103,11 @@ INTERFACE VAR l_ITest
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDeleteEtalons
 
-class function TkwKeyWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'kwKeyWordsPack';
-end;//TkwKeyWordsPackResNameGetter.ResName
-
- {$R kwKeyWordsPack.res}
+ TkwKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TkwKeyWordsPackResNameGetter
 
 function TkwGUITestRunnerPushDUnitForm.push_DUnitForm(const aCtx: TtfwContext): TGUITestRunner;
  {* Реализация слова скрипта GUITestRunner:push:DUnitForm }
@@ -276,15 +269,22 @@ begin
  Result := 'DeleteEtalons';
 end;//TkwDeleteEtalons.GetWordNameForRegister
 
+class function TkwKeyWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'kwKeyWordsPack';
+end;//TkwKeyWordsPackResNameGetter.ResName
+
+ {$R kwKeyWordsPack.res}
+
 initialization
- TkwKeyWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwGUITestRunnerPushDUnitForm.RegisterInEngine;
  {* Регистрация GUITestRunner_push_DUnitForm }
  TkwPopGUITestRunnerNodeToTest.RegisterInEngine;
  {* Регистрация pop_GUITestRunner_NodeToTest }
  TkwDeleteEtalons.RegisterInEngine;
  {* Регистрация DeleteEtalons }
+ TkwKeyWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TGUITestRunner));

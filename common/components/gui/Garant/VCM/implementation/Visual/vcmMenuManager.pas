@@ -1,470 +1,488 @@
 unit vcmMenuManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmMenuManager.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual::TvcmMenuManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvcmMenuManager" MUID: (4B30EC67025A)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBase,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vcmEntityForm,
-  vcmUserControls,
-  l3ProtoObject,
-  l3ProtoDataContainer
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBaseMenuManager,
-  vtDblClickDateEdit,
-  IafwMenuUnlockedPostBuildPtrList,
-  vcmToolbarMenuRes
-  {$If not defined(NoTB97)}
-  ,
-  tb97Ctls
-  {$IfEnd} //not NoTB97
-  ,
-  vcmPopupMenuPrim,
-  l3ProtoObjectRefList,
-  vcmOperationAction
-  {$If not defined(NoTB97)}
-  ,
-  TB97Tlbr
-  {$IfEnd} //not NoTB97
-  
-  {$If not defined(NoTB97)}
-  ,
-  TB97
-  {$IfEnd} //not NoTB97
-  ,
-  vcmToolbar,
-  evButton,
-  vcmMenuItemsCollection
-  {$If not defined(NoTB97)}
-  ,
-  TB97ExtInterfaces
-  {$IfEnd} //not NoTB97
-  ,
-  vcmWinControlActionLink
-  {$If not defined(NoTB97)}
-  ,
-  tb97vt
-  {$IfEnd} //not NoTB97
-  ,
-  l3MenuManagerHelper,
-  l3DispatcherHelper,
-  vcmUserTypeDefList,
-  vtComboTree,
-  vcmBaseCollectionItem,
-  afwInterfaces,
-  Types,
-  l3Interfaces,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NoTB97)}
+ , tb97vt
+ {$IfEnd} // NOT Defined(NoTB97)
+ , vcmPopupMenuPrim
+ , Messages
+ , vcmUserControls
+ , vtComboTree
+ {$If NOT Defined(NoTB97)}
+ , TB97ExtInterfaces
+ {$IfEnd} // NOT Defined(NoTB97)
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , evButton
+ , vcmExternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmInterfaces
+ , vcmBaseMenuManager
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmToolbarMenuRes
+ , vcmMenuItemsCollection
+ , vcmUserTypeDefList
+ , l3ProtoObjectRefList
+ , vcmBase
+ , IafwMenuUnlockedPostBuildPtrList
+ , vcmEntityForm
+ , vcmMenuManagerTypes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoTB97)}
+ , tb97Ctls
+ {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr
+ {$IfEnd} // NOT Defined(NoTB97)
+ , vcmToolbar
+ {$If NOT Defined(NoTB97)}
+ , TB97
+ {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmBaseCollectionItem
+ , afwInterfaces
+ , Types
+ , vcmOperationAction
+ , l3Interfaces
+ , vtDblClickDateEdit
+ , l3ProtoObject
+ , l3MenuManagerHelper
+ , l3DispatcherHelper
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , vcmWinControlActionLink
+ //#UC START# *4B30EC67025Aintf_uses*
+ //#UC END# *4B30EC67025Aintf_uses*
+;
 
-{$If not defined(NoVCM)}
+const
+ {* Алиасы для значений vcmMenuManagerTypes.TvcmMenuOption }
+ vcm_moEntitiesInMainMenu = vcmMenuManagerTypes.vcm_moEntitiesInMainMenu;
+ vcm_moEntitiesInTopMainMenu = vcmMenuManagerTypes.vcm_moEntitiesInTopMainMenu;
+ vcm_moEntitiesInChildMenu = vcmMenuManagerTypes.vcm_moEntitiesInChildMenu;
+ vcm_moEntitesInContextMenu = vcmMenuManagerTypes.vcm_moEntitesInContextMenu;
+
+const
+ {* Алиасы для значений vcmMenuManagerTypes.TvcmToolbarOption }
+ vcm_toModulesInMainToolbar = vcmMenuManagerTypes.vcm_toModulesInMainToolbar;
+ vcm_toEntitiesInMainToolbar = vcmMenuManagerTypes.vcm_toEntitiesInMainToolbar;
+ vcm_toEntitiesInChildToolbar = vcmMenuManagerTypes.vcm_toEntitiesInChildToolbar;
+
+const
+ vcm_DefaultMenuOptions = [vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu];
+ vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
+ CM_TBMOUSEQUERY = tb97vt.CM_TBMOUSEQUERY;
+ CM_TBCHECKCONTROL = tb97vt.CM_TBCHECKCONTROL;
+
 type
  TvcmPopupMenu = class(TvcmPopupMenuPrim)
- private
- // private fields
-   f_InPopup : Boolean;
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
+  private
+   f_InPopup: Boolean;
+  public
+   procedure ClearInPopup;
+   {$If NOT Defined(NoVCL)}
    function IsShortCut(var Message: TWMKey): Boolean; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure Popup(X: Integer;
     Y: Integer); override;
-   {$IfEnd} //not NoVCL
- public
- // public methods
-   procedure ClearInPopup;
-     {* Сигнатура метода ClearInPopup }
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TvcmPopupMenu
 
-
- {$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
  TvcmButtonDef = record
-   rPos : Cardinal;
-   rEn : IvcmOperationalIdentifiedUserFriendlyControl;
-   rOp : IvcmOperationDef;
-   rOptions : TvcmOperationOptions;
-   rNeedSep : Boolean;
-   rIconText : Boolean;
-   rLoaded : Boolean;
+  rPos: Cardinal;
+  rEn: IvcmOperationalIdentifiedUserFriendlyControl;
+  rOp: IvcmOperationDef;
+  rOptions: TvcmOperationOptions;
+  rNeedSep: Boolean;
+  rIconText: Boolean;
+  rLoaded: Boolean;
  end;//TvcmButtonDef
- {$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
- TvcmFakeBox = class(TvtComboTree {$If not defined(NoTB97)}, ITB97Ctrl{$IfEnd} //not NoTB97
+ TvcmFakeBox = class(TvtComboTree{$If NOT Defined(NoTB97)}
+ , ITB97Ctrl
+ {$IfEnd} // NOT Defined(NoTB97)
  )
   {* общая функциональность необходимая vcm при использовании TFakeBox }
- private
- // private fields
-   f_MinWidth : Integer;
- protected
- // realized methods
-  {$If not defined(NoTB97)}
+  private
+   f_MinWidth: Integer;
+  protected
+   {$If NOT Defined(NoTB97)}
    function Get_FullWidth: Integer;
-  {$IfEnd} //not NoTB97
-  {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    function Get_IsSizeable: Boolean;
-  {$IfEnd} //not NoTB97
-  {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    function Get_MinWidth: Integer;
-  {$IfEnd} //not NoTB97
-   {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    procedure DoFitToWidth(aWidth: Integer);
-   {$IfEnd} //not NoTB97
-   {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    procedure DoUnFitToWidth(aWidth: Integer);
-   {$IfEnd} //not NoTB97
-   {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    procedure Expand;
-     {* Сигнатура метода Expand }
-   {$IfEnd} //not NoTB97
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
    constructor Create(AOwner: TComponent); override;
  end;//TvcmFakeBox
 
- TvcmDockContainer = class(TPanel)
+ TvcmDockContainer = class({$If NOT Defined(NoVCL)}
+ TPanel
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
   {* Панель используемая для размещения главной панели инструментов формы. }
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
  end;//TvcmDockContainer
 
-
- {$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
  TvcmButtonDefs = array of TvcmButtonDef;
- {$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
- TvcmMenuOption = (
-   vcm_moEntitiesInMainMenu
- , vcm_moEntitiesInTopMainMenu
- , vcm_moEntitiesInChildMenu
- , vcm_moEntitesInContextMenu
- );//TvcmMenuOption
+ TvcmIconTextType = (
+  vcm_itDefault
+  , vcm_itIcon
+  , vcm_itIconText
+ );//TvcmIconTextType
 
  TvcmToolButtonDefActionLink = class(TevCustomButtonActionLink, IvcmActionLink)
- protected
- // realized methods
+  protected
    procedure ParamsChanged(const anAction: IvcmAction);
    procedure ParamsChanging(const anAction: IvcmAction);
  end;//TvcmToolButtonDefActionLink
 
  TvcmToolButtonDef = class(TevButton)
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+  protected
+   {$If NOT Defined(NoVCL)}
    function GetActionLinkClass: TControlActionLinkClass; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoTB97)}
    function NeedAutoDown: Boolean; override;
-   {$IfEnd} //not NoTB97
+   {$IfEnd} // NOT Defined(NoTB97)
    function HackCheck: Boolean; override;
-   {$If not defined(NoTB97)}
+   {$If NOT Defined(NoTB97)}
    function AutoAllUp: Boolean; override;
-   {$IfEnd} //not NoTB97
- public
- // public methods
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
    function IsIconText: Boolean;
  end;//TvcmToolButtonDef
 
- TvcmToolbarOption = (
-   vcm_toModulesInMainToolbar
- , vcm_toEntitiesInMainToolbar
- , vcm_toEntitiesInChildToolbar
- );//TvcmToolbarOption
-
- TvcmIconTextType = (
-   vcm_itDefault
- , vcm_itIcon
- , vcm_itIconText
- );//TvcmIconTextType
-
-const
-  { vcmMenuManager Const }
- vcm_DefaultMenuOptions = [vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu];
- vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
-
-type
  TvcmGlyphColordepth = (
-   vcm_gcAuto
- , vcm_gc16
- , vcm_gc256
- , vcm_gcTrueColor
+  vcm_gcAuto
+  , vcm_gc16
+  , vcm_gc256
+  , vcm_gcTrueColor
  );//TvcmGlyphColordepth
 
-
- {$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
  TvcmToolbarDefForMenuManager = record
-   rVisibleLoaded : Boolean;
-   rVisible : Boolean;
-   rButtons : TvcmButtonDefs;
-   rUserType : IvcmUserTypeDef;
-   rToolbarName : AnsiString;
+  rVisibleLoaded: Boolean;
+  rVisible: Boolean;
+  rButtons: TvcmButtonDefs;
+  rUserType: IvcmUserTypeDef;
+  rToolbarName: AnsiString;
  end;//TvcmToolbarDefForMenuManager
- {$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
  TvcmButtonPopupMenu = class(TvcmPopupMenuPrim)
  end;//TvcmButtonPopupMenu
 
-
- {$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
  TvcmToolbarDefsForMenuManager = array [TvcmEffectiveToolBarPos] of TvcmToolbarDefForMenuManager;
- {$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
- TvcmMenuOptions = set of TvcmMenuOption;
-
- TvcmComboBoxActionLink = class(TvcmWinControlActionLink)
- protected
- // overridden protected methods
-  {$If not defined(NoVCL)}
-   procedure SetCaption(const Value: String); override;
-  {$IfEnd} //not NoVCL
-   procedure DoParamsChanged(const anAction: IvcmAction); override;
-   procedure DoParamsChanging(const anAction: IvcmAction); override;
- end;//TvcmComboBoxActionLink
-
- TvcmComboBox = class(TvcmFakeBox)
- private
- // private fields
-   f_InUpdateCation : Boolean;
- private
- // private methods
-   procedure CMTBMouseQuery(var Msg: TMessage); message CM_TBMOUSEQUERY;
-   procedure CMTBCheckControl(var Msg: TMessage); message CM_TBCHECKCONTROL;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   function GetActionLinkClass: TControlActionLinkClass; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure ActionChange(Sender: TObject;
-    CheckDefaults: Boolean); override;
-   {$IfEnd} //not NoVCL
-   procedure DropDown; override;
-     {* Сигнатура метода DropDown }
-   procedure ActionExecuteHandler; override;
-     {* Сигнатура метода ActionExecuteHandler }
-   procedure LocalUpdateAction; override;
-     {* Сигнатура метода LocalUpdateAction }
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   procedure SetCaptionFromAction(anAction: TvcmOperationAction;
-     anUpdateIndex: Boolean);
-   function SetStringsFromAction(const anAction: IvcmAction): Boolean;
- end;//TvcmComboBox
-
- TvcmToolbarOptions = set of TvcmToolbarOption;
-
-(*
- MvcmToolbarGlyphService = PureMixIn
+ (*
+ MvcmToolbarGlyphService = interface
   {* Контракт сервиса TvcmToolbarGlyphService }
-   procedure SetGlyphSize(aValue: TvcmGlyphSize);
-   function GetGlyphSize: TvcmGlyphSize;
-   function GetGlyphColorDepth: TvcmGlyphColordepth;
-   procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
+  procedure SetGlyphSize(aValue: TvcmGlyphSize);
+  function GetGlyphSize: TvcmGlyphSize;
+  function GetGlyphColorDepth: TvcmGlyphColordepth;
+  procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
  end;//MvcmToolbarGlyphService
-*)
+ *)
 
- IvcmToolbarGlyphService = interface(IUnknown)
+ IvcmToolbarGlyphService = interface
   {* Интерфейс сервиса TvcmToolbarGlyphService }
-   ['{684F830B-0EE2-4428-A605-4D14D3FB3A2E}']
-  // MvcmToolbarGlyphService
-   procedure SetGlyphSize(aValue: TvcmGlyphSize);
-   function GetGlyphSize: TvcmGlyphSize;
-   function GetGlyphColorDepth: TvcmGlyphColordepth;
-   procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
+  ['{684F830B-0EE2-4428-A605-4D14D3FB3A2E}']
+  procedure SetGlyphSize(aValue: TvcmGlyphSize);
+  function GetGlyphSize: TvcmGlyphSize;
+  function GetGlyphColorDepth: TvcmGlyphColordepth;
+  procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
  end;//IvcmToolbarGlyphService
 
  TvcmToolbarGlyphService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : IvcmToolbarGlyphService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: IvcmToolbarGlyphService;
+    {* Внешняя реализация сервиса IvcmToolbarGlyphService }
+  protected
    procedure pm_SetAlien(const aValue: IvcmToolbarGlyphService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
    function GetGlyphSize: TvcmGlyphSize;
    procedure SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
    function GetGlyphColorDepth: TvcmGlyphColordepth;
    procedure SetGlyphSize(aValue: TvcmGlyphSize);
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: IvcmToolbarGlyphService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса IvcmToolbarGlyphService }
- public
- // singleton factory method
    class function Instance: TvcmToolbarGlyphService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmToolbarGlyphService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property Alien: IvcmToolbarGlyphService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса IvcmToolbarGlyphService }
  end;//TvcmToolbarGlyphService
 
  TvcmCustomMenuManager = class(TvcmBaseMenuManager)
- private
- // private fields
-   f_FocusControl : TWinControl;
-   f_InEnter : Boolean;
-   f_WasDrop : Boolean;
-   f_TickCount : Cardinal;
-    {* можно избавиться?}
-   f_UserTypesLoaded : Boolean;
-   f_IsUnlockExecute : Boolean;
-   f_SaveDockList : Tl3ProtoObjectRefList;
-   f_SaveLockCounter : TvcmLongintList;
-   f_LockCounter : Integer;
-   f_UnlockInProgress : Integer;
-   f_FastenToolbars : Integer;
-   f_ButtonHeight : Integer;
-   f_LockList : TIafwMenuUnlockedPostBuildPtrList;
-  {$If defined(vcmUseSettings) AND not defined(NoVCM)}
-   f_MainToolbarDefs : TvcmToolbarDefsForMenuManager;
-  {$IfEnd} //vcmUseSettings AND not NoVCM
-   f_Popup : TvcmPopupMenu;
-   f_PopupForm : TvcmEntityForm;
-   f_DockButtonsImageList : TCustomImageList;
-    {* Поле для свойства DockButtonsImageList}
-   f_BtnCloseImageIndex : TImageIndex;
-    {* Поле для свойства BtnCloseImageIndex}
-   f_BtnOpenImageIndex : TImageIndex;
-    {* Поле для свойства BtnOpenImageIndex}
-   f_BtnOpenNewWindowImageIndex : TImageIndex;
-    {* Поле для свойства BtnOpenNewWindowImageIndex}
-   f_Actions : TCustomActionList;
-    {* Поле для свойства Actions}
-   f_GlyphSize : TvcmGlyphSize;
-    {* Поле для свойства GlyphSize}
-   f_GlyphColordepth : TvcmGlyphColordepth;
-    {* Поле для свойства GlyphColordepth}
-   f_MainMenuItems : TvcmMenuItemsCollection;
-    {* Поле для свойства MainMenuItems}
-   f_UserTypes : TvcmUserTypeDefList;
-    {* Поле для свойства UserTypes}
-   f_SmallToolbarSize : Integer;
-    {* Поле для свойства SmallToolbarSize}
-   f_MaxControlToolbarSize : Integer;
-    {* Поле для свойства MaxControlToolbarSize}
-   f_OneToolbarPerForm : Boolean;
-    {* Поле для свойства OneToolbarPerForm}
-   f_OnGlyphSizeChanged : TNotifyEvent;
-    {* Поле для свойства OnGlyphSizeChanged}
-   f_OnGlyphColordepthChanged : TNotifyEvent;
-    {* Поле для свойства OnGlyphColordepthChanged}
-   f_MenuOptions : TvcmMenuOptions;
-    {* Поле для свойства MenuOptions}
-   f_ToolbarOptions : TvcmToolbarOptions;
-    {* Поле для свойства ToolbarOptions}
- private
- // private methods
+  private
+   f_FocusControl: TWinControl;
+   f_InEnter: Boolean;
+   f_WasDrop: Boolean;
+   f_TickCount: Cardinal;
+    {* можно избавиться? }
+   f_UserTypesLoaded: Boolean;
+   f_IsUnlockExecute: Boolean;
+   f_SaveDockList: Tl3ProtoObjectRefList;
+   f_SaveLockCounter: TvcmLongintList;
+   f_LockCounter: Integer;
+   f_UnlockInProgress: Integer;
+   f_FastenToolbars: Integer;
+   f_ButtonHeight: Integer;
+   f_LockList: TIafwMenuUnlockedPostBuildPtrList;
+   {$If Defined(vcmUseSettings)}
+   f_MainToolbarDefs: TvcmToolbarDefsForMenuManager;
+   {$IfEnd} // Defined(vcmUseSettings)
+   f_Popup: TvcmPopupMenu;
+   f_PopupForm: TvcmEntityForm;
+   f_DockButtonsImageList: TCustomImageList;
+    {* imagelist используемый для кнопок области dock-а }
+   f_BtnCloseImageIndex: TImageIndex;
+   f_BtnOpenImageIndex: TImageIndex;
+   f_BtnOpenNewWindowImageIndex: TImageIndex;
+   f_Actions: TCustomActionList;
+   f_GlyphSize: TvcmGlyphSize;
+   f_GlyphColordepth: TvcmGlyphColordepth;
+   f_MainMenuItems: TvcmMenuItemsCollection;
+   f_UserTypes: TvcmUserTypeDefList;
+   f_SmallToolbarSize: Integer;
+    {* размер toolbar-а в котором находятся кнопки с маленькими иконками, компонентами TvcmEdit и TvcmDateEdit }
+   f_MaxControlToolbarSize: Integer;
+    {* максимальная высота компонента находящегося в toolbar-е }
+   f_OneToolbarPerForm: Boolean;
+   f_OnGlyphSizeChanged: TNotifyEvent;
+   f_OnGlyphColordepthChanged: TNotifyEvent;
+   f_MenuOptions: TvcmMenuOptions;
+   f_ToolbarOptions: TvcmToolbarOptions;
+  private
    procedure OverridePopupMenu(aForm: TCustomForm);
- protected
- // property methods
+  protected
    procedure pm_SetDockButtonsImageList(aValue: TCustomImageList);
    procedure pm_SetActions(aValue: TCustomActionList);
    procedure pm_SetGlyphSize(aValue: TvcmGlyphSize);
    procedure pm_SetGlyphColordepth(aValue: TvcmGlyphColordepth);
    procedure pm_SetMainMenuItems(aValue: TvcmMenuItemsCollection);
- protected
- // overridden protected methods
+   function ToolbarButtonSize(aToolbarButton: TCustomToolbarButton97;
+    var aSize: Integer): Boolean; overload;
+   procedure ToolbarButtonSize(aToolbarButton: TCustomToolbarButton97); overload;
+    {* устанавливает ширину и высоту кнопки }
+   procedure ToolbarSize(aToolbar: TCustomToolbar97;
+    var aSize: Integer);
+    {* определяет размер toolbar-а }
+   procedure RefocusEntity;
+   procedure RestoreControlText(Sender: TObject);
+   procedure ChangeEntityText(Sender: TObject);
+   procedure ChangeTyperText(Sender: TObject);
+   procedure ControlKeyDown(Sender: TObject;
+    var Key: Word;
+    Shift: TShiftState);
+   procedure ControlEnter(Sender: TObject);
+   procedure ControlExit(Sender: TObject);
+   procedure ControlDown(Sender: TObject);
+   procedure DateDown(Sender: TObject);
+   procedure ComboDown(Sender: TObject);
+   procedure ControlSelect(Sender: TObject);
+   procedure FormChange(Sender: TObject);
+   procedure DoPopup(Sender: TObject);
+   function CheckPopup(const anEntityDef: IvcmEntityDef): IvcmEntity;
+   function GetToolbarName(aForm: TvcmEntityForm;
+    const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
+    anIndex: Integer): AnsiString;
+   {$If NOT Defined(DesignTimeLibrary)}
+   function BuildToolbar(aForm: TvcmEntityForm;
+    const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
+    anIndex: Integer): TvcmToolbarDef; overload;
+    {* anIndex - порядковый номер Toolbar'а (для огранизации нескольких Toolbar'ов в одном доке) }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure FillToolbar(aForm: TvcmEntityForm;
+    var aToolBar: TvcmToolbarDef;
+    const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+    const anOperations: IvcmOperationsDefIterator;
+    anOptions: TvcmOperationOptions);
+   procedure CheckToolbar(var aToolBar: TvcmToolbarDef);
+   {$If NOT Defined(DesignTimeLibrary)}
+   function MakeToolbar(aForm: TvcmEntityForm;
+    const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+    anOptions: TvcmOperationOptions;
+    anExcludePoses: TvcmEffectiveToolBarPoses): Boolean;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure BuildEntitiesToolbars(aForm: TvcmEntityForm;
+    const anEntities: IvcmEntitiesDefIterator;
+    anOptions: TvcmOperationOptions;
+    anExcludePoses: TvcmEffectiveToolBarPoses);
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If Defined(vcmUseSettings)}
+   function LoadButtonsFromSettings(const aUserType: IvcmUserTypeDef;
+    const aToolbar: AnsiString;
+    AddUnsavedButton: Boolean;
+    var theButton: TvcmButtonDef;
+    var theButtons: TvcmButtonDefs): Boolean;
+   {$IfEnd} // Defined(vcmUseSettings)
+   {$If Defined(vcmUseSettings)}
+   procedure MakeToolbarFromSettings(aForm: TvcmEntityForm;
+    const aToolbarName: AnsiString;
+    aPos: TvcmEffectiveToolBarPos;
+    anOptions: TvcmOperationOptions;
+    const theButtons: TvcmButtonDefs);
+   {$IfEnd} // Defined(vcmUseSettings)
+   {$If Defined(vcmUseSettings)}
+   procedure MakeMainToolbarFromSettings(aForm: TvcmEntityForm);
+   {$IfEnd} // Defined(vcmUseSettings)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure BuildFormToolbars(aForm: TvcmEntityForm;
+    anOptions: TvcmOperationOptions);
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure BuildMainToolbars(aForm: TvcmEntityForm;
+    const aModuleDef: IvcmModuleDef);
+    {* создает Toolbar'ы основной формы }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure CheckUserTypes;
+   procedure BuildUserTypes(const aModuleDef: IvcmModuleDef);
+   procedure ToolbarsGetSiteInfo(Sender: TObject;
+    DockClient: TCustomToolWindow97;
+    var CanDock: Boolean);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   function BuildButton(aForm: TvcmEntityForm;
+    aToolBar: TvcmToolbarDef;
+    const aModuleDef: IvcmModuleDef;
+    const anEntityDef: IvcmEntityDef;
+    const anOp: IvcmOperationDef;
+    anOptions: TvcmOperationOptions;
+    anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload;
+   function BuildButton(aForm: TvcmEntityForm;
+    aToolBar: TvcmToolbarDef;
+    const aModuleDef: IvcmModuleDef;
+    const anEntityDef: IvcmEntityDef;
+    const anOp: IvcmOperationDef;
+    anOpOptions: TvcmOperationOptions;
+    anOptions: TvcmOperationOptions;
+    anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload;
+   function BuildButton(aForm: TvcmEntityForm;
+    aToolBar: TvcmToolbarDef;
+    const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+    const anOp: IvcmOperationDef;
+    anOpOptions: TvcmOperationOptions;
+    anOptions: TvcmOperationOptions;
+    anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload;
+   function BuildButton(aForm: TvcmEntityForm;
+    aToolBar: TvcmToolbarDef;
+    const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+    const anOp: IvcmOperationDef;
+    anOptions: TvcmOperationOptions;
+    anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload;
+   function BuildAction(const aModuleDef: IvcmModuleDef;
+    const anOpDef: IvcmOperationDef): TCustomAction; overload;
+   function BuildAction(anOwner: TComponent;
+    const anEntity: IvcmEntity;
+    const anEntityDef: IvcmEntityDef;
+    const anOpDef: IvcmOperationDef;
+    anOptions: TvcmOperationOptions): TCustomAction; overload;
+   function BuildSeparator(aToolBar: TvcmToolbarDef): TControl;
+   function UserTypeByCaption(const aCaption: AnsiString;
+    aFormClass: TClass = nil): IvcmUserTypeDef;
+   function GetOneToolbarPerFormName(aForm: TvcmEntityForm;
+    aPos: TvcmEffectiveToolBarPos;
+    anIndex: Integer): AnsiString;
+   {$If NOT Defined(DesignTimeLibrary)}
+   function BuildToolbar(aForm: TvcmEntityForm;
+    const aName: AnsiString;
+    const aCaption: IvcmCString;
+    aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef; overload;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
+   function BuildToolbar(aForm: TvcmEntityForm;
+    aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef; overload;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure CleanupSaveDockList(anItem: TvcmDockDef);
+   function GetDockParent(aForm: TCustomForm): TWinControl;
+   procedure LoadGlyphSize(aDefault: Boolean = False);
+   procedure LoadGlyphColorDepth(aDefault: Boolean = False);
+   procedure UnlockDocks;
+   procedure LockDocks;
+   procedure StoreGlyphSize;
+   procedure RestoreGlyphSize;
+   procedure StoreGlyphColordepth;
+   procedure RestoreGlyphColordepth;
+   procedure InitToolbarMetrics(aForm: TCustomForm);
+    {* определить метрики панели инструментов. Компоненты, которые могут быть помещены в панель, могут иметь разные размеры, чтобы высота панелей была одинаковой, считаем максимальную высоту и используем её для всех панелей. }
    constructor Create(AOwner: TComponent); override;
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure RegisterModuleInMenu(aForm: TvcmEntityForm;
     const aModuleDef: IvcmModuleDef); override;
-     {* регистрирует модуль в меню, toolbar'ах, etc. Для перекрытия в потомках. }
-   {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    {* регистрирует модуль в меню, toolbar'ах, etc. Для перекрытия в потомках. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure MainCreated(aForm: TvcmEntityForm); override;
-   {$IfEnd} //not DesignTimeLibrary AND not NoVCM
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure RegisterMainInMenu(aForm: TvcmEntityForm); override;
-     {* регистрирует основную форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
-   {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+    {* регистрирует основную форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure RegisterChildInMenu(aForm: TvcmEntityForm); override;
-     {* регистрирует дочернюю форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
-   {$IfEnd} //not DesignTimeLibrary AND not NoVCM
+    {* регистрирует дочернюю форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function GetPopupMenu: TPopupMenu; override;
    procedure ReloadToolbars(const aForm: IvcmEntityForm); override;
    procedure PostBuild(aForm: TvcmEntityForm;
     aFollowDocks: Boolean = False); override;
    procedure BackupOpStatus; override;
-     {* Сигнатура метода BackupOpStatus }
    procedure RestoreOpStatus; override;
-     {* Сигнатура метода RestoreOpStatus }
    procedure BeginOp; override;
-     {* Сигнатура метода BeginOp }
    function GetOpLock: Boolean; override;
    procedure EndOp; override;
-     {* Сигнатура метода EndOp }
    procedure FastenToolbars; override;
-     {* Сигнатура метода FastenToolbars }
    function GetFastenMode: Boolean; override;
    function ObjectByType(anObject: TvcmObject;
     const anObjectName: AnsiString;
@@ -475,332 +493,179 @@ type
    procedure ListenerControlDestroying(const aControl: IafwMenuUnlockedPostBuild); override;
    function FillPopupMenu(const aPopupPoint: TPoint;
     aPopupComponent: TComponent): TvcmPopupMenuPrim; override;
- protected
- // protected methods
-   function ToolbarButtonSize(aToolbarButton: TCustomToolbarButton97;
-     var aSize: Integer): Boolean; overload; 
-     {* по параметрам кнопки определяет её высоту }
-   procedure ToolbarButtonSize(aToolbarButton: TCustomToolbarButton97); overload; 
-     {* устанавливает ширину и высоту кнопки }
-   procedure ToolbarSize(aToolbar: TCustomToolbar97;
-     var aSize: Integer);
-     {* определяет размер toolbar-а }
-   procedure RefocusEntity;
-     {* Сигнатура метода RefocusEntity }
-   procedure RestoreControlText(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ChangeEntityText(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ChangeTyperText(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ControlKeyDown(Sender: TObject;
-     var Key: Word;
-     Shift: TShiftState);
-   procedure ControlEnter(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ControlExit(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ControlDown(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure DateDown(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ComboDown(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ControlSelect(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure FormChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure DoPopup(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   function CheckPopup(const anEntityDef: IvcmEntityDef): IvcmEntity;
-   function GetToolbarName(aForm: TvcmEntityForm;
-     const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
-     anIndex: Integer): AnsiString;
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function BuildToolbar(aForm: TvcmEntityForm;
-     const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
-     anIndex: Integer): TvcmToolbarDef; overload; 
-     {* anIndex - порядковый номер Toolbar'а (для огранизации нескольких Toolbar'ов в одном доке) }
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-   procedure FillToolbar(aForm: TvcmEntityForm;
-     var aToolBar: TvcmToolbarDef;
-     const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-     const anOperations: IvcmOperationsDefIterator;
-     anOptions: TvcmOperationOptions);
-   procedure CheckToolbar(var aToolBar: TvcmToolbarDef);
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function MakeToolbar(aForm: TvcmEntityForm;
-     const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-     anOptions: TvcmOperationOptions;
-     anExcludePoses: TvcmEffectiveToolBarPoses): Boolean;
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   procedure BuildEntitiesToolbars(aForm: TvcmEntityForm;
-     const anEntities: IvcmEntitiesDefIterator;
-     anOptions: TvcmOperationOptions;
-     anExcludePoses: TvcmEffectiveToolBarPoses);
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If defined(vcmUseSettings) AND not defined(NoVCM)}
-   function LoadButtonsFromSettings(const aUserType: IvcmUserTypeDef;
-     const aToolbar: AnsiString;
-     AddUnsavedButton: Boolean;
-     var theButton: TvcmButtonDef;
-     var theButtons: TvcmButtonDefs): Boolean;
-    {$IfEnd} //vcmUseSettings AND not NoVCM
-    {$If defined(vcmUseSettings) AND not defined(NoVCM)}
-   procedure MakeToolbarFromSettings(aForm: TvcmEntityForm;
-     const aToolbarName: AnsiString;
-     aPos: TvcmEffectiveToolBarPos;
-     anOptions: TvcmOperationOptions;
-     const theButtons: TvcmButtonDefs);
-    {$IfEnd} //vcmUseSettings AND not NoVCM
-    {$If defined(vcmUseSettings) AND not defined(NoVCM)}
-   procedure MakeMainToolbarFromSettings(aForm: TvcmEntityForm);
-    {$IfEnd} //vcmUseSettings AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   procedure BuildFormToolbars(aForm: TvcmEntityForm;
-     anOptions: TvcmOperationOptions);
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   procedure BuildMainToolbars(aForm: TvcmEntityForm;
-     const aModuleDef: IvcmModuleDef);
-     {* создает Toolbar'ы основной формы }
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-   procedure CheckUserTypes;
-     {* Сигнатура метода CheckUserTypes }
-   procedure BuildUserTypes(const aModuleDef: IvcmModuleDef);
-   procedure ToolbarsGetSiteInfo(Sender: TObject;
-     DockClient: TCustomToolWindow97;
-     var CanDock: Boolean);
- public
- // public methods
-   function BuildButton(aForm: TvcmEntityForm;
-     aToolBar: TvcmToolbarDef;
-     const aModuleDef: IvcmModuleDef;
-     const anEntityDef: IvcmEntityDef;
-     const anOp: IvcmOperationDef;
-     anOptions: TvcmOperationOptions;
-     anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload; 
-   function BuildButton(aForm: TvcmEntityForm;
-     aToolBar: TvcmToolbarDef;
-     const aModuleDef: IvcmModuleDef;
-     const anEntityDef: IvcmEntityDef;
-     const anOp: IvcmOperationDef;
-     anOpOptions: TvcmOperationOptions;
-     anOptions: TvcmOperationOptions;
-     anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload; 
-   function BuildButton(aForm: TvcmEntityForm;
-     aToolBar: TvcmToolbarDef;
-     const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-     const anOp: IvcmOperationDef;
-     anOpOptions: TvcmOperationOptions;
-     anOptions: TvcmOperationOptions;
-     anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload; 
-   function BuildButton(aForm: TvcmEntityForm;
-     aToolBar: TvcmToolbarDef;
-     const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-     const anOp: IvcmOperationDef;
-     anOptions: TvcmOperationOptions;
-     anIconText: TvcmIconTextType = vcm_itDefault): TControl; overload; 
-   function BuildAction(const aModuleDef: IvcmModuleDef;
-     const anOpDef: IvcmOperationDef): TCustomAction; overload; 
-   function BuildAction(anOwner: TComponent;
-     const anEntity: IvcmEntity;
-     const anEntityDef: IvcmEntityDef;
-     const anOpDef: IvcmOperationDef;
-     anOptions: TvcmOperationOptions): TCustomAction; overload; 
-   function BuildSeparator(aToolBar: TvcmToolbarDef): TControl;
-   function UserTypeByCaption(const aCaption: AnsiString;
-     aFormClass: TClass = nil): IvcmUserTypeDef;
-   function GetOneToolbarPerFormName(aForm: TvcmEntityForm;
-     aPos: TvcmEffectiveToolBarPos;
-     anIndex: Integer): AnsiString;
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function BuildToolbar(aForm: TvcmEntityForm;
-     const aName: AnsiString;
-     const aCaption: IvcmCString;
-     aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef; overload; 
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-    {$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
-   function BuildToolbar(aForm: TvcmEntityForm;
-     aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef; overload; 
-    {$IfEnd} //not DesignTimeLibrary AND not NoVCM
-   procedure CleanupSaveDockList(anItem: TvcmDockDef);
-   function GetDockParent(aForm: TCustomForm): TWinControl;
-   procedure LoadGlyphSize(aDefault: Boolean = False);
-   procedure LoadGlyphColorDepth(aDefault: Boolean = False);
-   procedure UnlockDocks;
-     {* Сигнатура метода UnlockDocks }
-   procedure LockDocks;
-     {* Сигнатура метода LockDocks }
-   procedure StoreGlyphSize;
-     {* Сигнатура метода StoreGlyphSize }
-   procedure RestoreGlyphSize;
-     {* Сигнатура метода RestoreGlyphSize }
-   procedure StoreGlyphColordepth;
-     {* Сигнатура метода StoreGlyphColordepth }
-   procedure RestoreGlyphColordepth;
-     {* Сигнатура метода RestoreGlyphColordepth }
-   procedure InitToolbarMetrics(aForm: TCustomForm);
-     {* определить метрики панели инструментов. Компоненты, которые могут быть помещены в панель, могут иметь разные размеры, чтобы высота панелей была одинаковой, считаем максимальную высоту и используем её для всех панелей. }
- public
- // public properties
+  public
    property DockButtonsImageList: TCustomImageList
-     read f_DockButtonsImageList
-     write pm_SetDockButtonsImageList;
-     {* imagelist используемый для кнопок области dock-а }
+    read f_DockButtonsImageList
+    write pm_SetDockButtonsImageList;
+    {* imagelist используемый для кнопок области dock-а }
    property BtnCloseImageIndex: TImageIndex
-     read f_BtnCloseImageIndex
-     write f_BtnCloseImageIndex;
+    read f_BtnCloseImageIndex
+    write f_BtnCloseImageIndex;
    property BtnOpenImageIndex: TImageIndex
-     read f_BtnOpenImageIndex
-     write f_BtnOpenImageIndex;
+    read f_BtnOpenImageIndex
+    write f_BtnOpenImageIndex;
    property BtnOpenNewWindowImageIndex: TImageIndex
-     read f_BtnOpenNewWindowImageIndex
-     write f_BtnOpenNewWindowImageIndex;
+    read f_BtnOpenNewWindowImageIndex
+    write f_BtnOpenNewWindowImageIndex;
    property Actions: TCustomActionList
-     read f_Actions
-     write pm_SetActions;
+    read f_Actions
+    write pm_SetActions;
    property GlyphSize: TvcmGlyphSize
-     read f_GlyphSize
-     write pm_SetGlyphSize;
+    read f_GlyphSize
+    write pm_SetGlyphSize;
    property GlyphColordepth: TvcmGlyphColordepth
-     read f_GlyphColordepth
-     write pm_SetGlyphColordepth;
+    read f_GlyphColordepth
+    write pm_SetGlyphColordepth;
    property MainMenuItems: TvcmMenuItemsCollection
-     read f_MainMenuItems
-     write pm_SetMainMenuItems;
+    read f_MainMenuItems
+    write pm_SetMainMenuItems;
    property UserTypes: TvcmUserTypeDefList
-     read f_UserTypes;
+    read f_UserTypes;
    property SmallToolbarSize: Integer
-     read f_SmallToolbarSize;
-     {* размер toolbar-а в котором находятся кнопки с маленькими иконками, компонентами TvcmEdit и TvcmDateEdit }
+    read f_SmallToolbarSize;
+    {* размер toolbar-а в котором находятся кнопки с маленькими иконками, компонентами TvcmEdit и TvcmDateEdit }
    property MaxControlToolbarSize: Integer
-     read f_MaxControlToolbarSize;
-     {* максимальная высота компонента находящегося в toolbar-е }
+    read f_MaxControlToolbarSize;
+    {* максимальная высота компонента находящегося в toolbar-е }
    property OneToolbarPerForm: Boolean
-     read f_OneToolbarPerForm
-     write f_OneToolbarPerForm;
+    read f_OneToolbarPerForm
+    write f_OneToolbarPerForm;
    property OnGlyphSizeChanged: TNotifyEvent
-     read f_OnGlyphSizeChanged
-     write f_OnGlyphSizeChanged;
+    read f_OnGlyphSizeChanged
+    write f_OnGlyphSizeChanged;
    property OnGlyphColordepthChanged: TNotifyEvent
-     read f_OnGlyphColordepthChanged
-     write f_OnGlyphColordepthChanged;
+    read f_OnGlyphColordepthChanged
+    write f_OnGlyphColordepthChanged;
    property MenuOptions: TvcmMenuOptions
-     read f_MenuOptions
-     write f_MenuOptions;
+    read f_MenuOptions
+    write f_MenuOptions;
    property ToolbarOptions: TvcmToolbarOptions
-     read f_ToolbarOptions
-     write f_ToolbarOptions;
+    read f_ToolbarOptions
+    write f_ToolbarOptions;
  end;//TvcmCustomMenuManager
+
+ TvcmComboBoxActionLink = class(TvcmWinControlActionLink)
+  protected
+   {$If NOT Defined(NoVCL)}
+   procedure SetCaption(const Value: String); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure DoParamsChanged(const anAction: IvcmAction); override;
+   procedure DoParamsChanging(const anAction: IvcmAction); override;
+ end;//TvcmComboBoxActionLink
+
+ TvcmComboBox = class(TvcmFakeBox)
+  private
+   f_InUpdateCation: Boolean;
+  private
+   procedure CMTBMouseQuery(var Msg: TMessage); message CM_TBMOUSEQUERY;
+   procedure CMTBCheckControl(var Msg: TMessage); message CM_TBCHECKCONTROL;
+  protected
+   procedure SetCaptionFromAction(anAction: TvcmOperationAction;
+    anUpdateIndex: Boolean);
+   function SetStringsFromAction(const anAction: IvcmAction): Boolean;
+   {$If NOT Defined(NoVCL)}
+   function GetActionLinkClass: TControlActionLinkClass; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure ActionChange(Sender: TObject;
+    CheckDefaults: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure DropDown; override;
+   procedure ActionExecuteHandler; override;
+   procedure LocalUpdateAction; override;
+  public
+   constructor Create(AOwner: TComponent); override;
+ end;//TvcmComboBox
 
  TvcmEditActionLink = class(TvcmWinControlActionLink)
  end;//TvcmEditActionLink
 
  TvcmEdit = class(TvcmFakeBox)
- protected
- // overridden protected methods
+  protected
    function DoProcessCommand(Cmd: Tl3OperationCode;
-   aForce: Boolean;
-   aCount: Integer): Boolean; override;
-   {$If not defined(NoVCL)}
+    aForce: Boolean;
+    aCount: Integer): Boolean; override;
+   {$If NOT Defined(NoVCL)}
    function GetActionLinkClass: TControlActionLinkClass; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure ActionChange(Sender: TObject;
     CheckDefaults: Boolean); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    constructor Create(AOwner: TComponent); override;
  end;//TvcmEdit
 
  TvcmDateEditActionLink = class(TvcmWinControlActionLink)
- protected
- // overridden protected methods
-  {$If not defined(NoVCL)}
+  protected
+   {$If NOT Defined(NoVCL)}
    function IsCaptionLinked: Boolean; override;
-  {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DoParamsChanged(const anAction: IvcmAction); override;
  end;//TvcmDateEditActionLink
 
  TvcmDateEdit = class(TvtDblClickDateEdit)
- private
- // private fields
-   f_OnSelectDate : TNotifyEvent;
-    {* Поле для свойства OnSelectDate}
- private
- // private methods
+  private
+   f_OnSelectDate: TNotifyEvent;
+  private
    procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+  protected
+   {$If NOT Defined(NoVCL)}
    function GetActionLinkClass: TControlActionLinkClass; override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure ActionChange(Sender: TObject;
     CheckDefaults: Boolean); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DoCloseUp(Accept: Boolean); override;
- public
- // overridden public methods
+  public
    constructor Create(AOwner: TComponent); override;
- public
- // public properties
+  public
    property OnSelectDate: TNotifyEvent
-     read f_OnSelectDate
-     write f_OnSelectDate;
+    read f_OnSelectDate
+    write f_OnSelectDate;
  end;//TvcmDateEdit
 
-const
-  { MessageConstants }
- CM_TBMOUSEQUERY = tb97vt.CM_TBMOUSEQUERY;
- CM_TBCHECKCONTROL = tb97vt.CM_TBCHECKCONTROL;
-
-type
  TvcmMenuManagerHelper = {final} class(Tl3ProtoObject, Il3MenuManagerHelper)
- public
- // realized methods
+  public
    function CreateManager: Boolean;
    procedure FreeManager;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TvcmMenuManagerHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmMenuManagerHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmMenuManagerHelper
 
  TvcmDispatcherHelper = {final} class(Tl3ProtoObject, Il3DispatcherHelper)
- public
- // realized methods
+  public
    procedure ClearHistory;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TvcmDispatcherHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TvcmDispatcherHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TvcmDispatcherHelper
 
  _ItemType_ = TvcmToolbarDef;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvcmToolbarDefList = class(_l3ObjectPtrList_)
  end;//TvcmToolbarDefList
 
-//#UC START# *4B30EC67025Aci*
-//#UC END# *4B30EC67025Aci*
-//#UC START# *4B30EC67025Acit*
-//#UC END# *4B30EC67025Acit*
+ TvcmMenuOption = vcmMenuManagerTypes.TvcmMenuOption;
+
+ TvcmToolbarOption = vcmMenuManagerTypes.TvcmToolbarOption;
+
+ TvcmMenuOptions = vcmMenuManagerTypes.TvcmMenuOptions;
+
+ TvcmToolbarOptions = vcmMenuManagerTypes.TvcmToolbarOptions;
+
+ //#UC START# *4B30EC67025Aci*
+ //#UC END# *4B30EC67025Aci*
+ //#UC START# *4B30EC67025Acit*
+ //#UC END# *4B30EC67025Acit*
  TvcmMenuManager = {final} class(TvcmCustomMenuManager)
-//#UC START# *4B30EC67025Apubl*
+ //#UC START# *4B30EC67025Apubl*
   published
    property Strings; 
    property DockButtonsImageList;
@@ -823,102 +688,126 @@ type
    property OnGlyphSizeChanged;
    property OnGlyphColordepthChanged;
    property OnOperationExecuteNotify;
-//#UC END# *4B30EC67025Apubl*
+ //#UC END# *4B30EC67025Apubl*
  end;//TvcmMenuManager
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  Graphics,
-  l3Base {a}
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  VCMApllicationSettingsPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  ,
-  l3MinMax,
-  RTLConsts,
-  vcmEntitiesDefIteratorForContextMenu,
-  vcmMenuManagerUtils,
-  vcmMessages,
-  l3InternalInterfaces,
-  l3ScreenIC,
-  TypInfo
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3String,
-  ctTypes,
-  OvcConst,
-  vcmMenus,
-  vcmAction,
-  afwFacade,
-  vcmInternalConst,
-  vcmToolbarUtils,
-  vcmSettings,
-  vcmMainForm,
-  vcmUtils,
-  vcmModuleAction,
-  vcmEntityAction,
-  vcmFormHandler,
-  vcmMenuManagerRes,
-  vcmMenuItemsCollectionItem,
-  vcmMainMenuAction,
-  vcmChromeLikeTypes,
-  vcmMainMenuBuilder
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-var
-   g_InternalButton : TvcmToolButtonDef;
+ l3ImplUses
+ , Windows
+ , vcmEntitiesDefIteratorForContextMenu
+ , vcmMenuManagerUtils
+ , vcmMessages
+ , l3InternalInterfaces
+ , l3ScreenIC
+ , TypInfo
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3String
+ , ctTypes
+ , OvcConst
+ , vcmMenus
+ , vcmAction
+ , afwFacade
+ , vcmInternalConst
+ , l3Base
+ , l3MinMax
+ , vcmToolbarUtils
+ , vcmSettings
+ , vcmMainForm
+ , vcmUtils
+ , vcmModuleAction
+ , vcmEntityAction
+ , vcmFormHandler
+ , vcmMenuManagerRes
+ , vcmMenuItemsCollectionItem
+ , vcmMainMenuAction
+ , vcmChromeLikeTypes
+ , vcmMainMenuBuilder
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , VCMApllicationSettingsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Graphics
+ , RTLConsts
+ //#UC START# *4B30EC67025Aimpl_uses*
+ //#UC END# *4B30EC67025Aimpl_uses*
+;
 
 type
-  TvcmGlyphSizeMap = array [TvcmGlyphSize] of Cardinal;
-  TvcmTBPosStringArray = array [TvcmEffectiveToolBarPos] of AnsiString;
+ TvcmGlyphSizeMap = array [TvcmGlyphSize] of Cardinal;
+
+ TvcmTBPosStringArray = array [TvcmEffectiveToolBarPos] of AnsiString;
+
+ THackWinControl = class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
+ end;//THackWinControl
+
+ THackControl = class({$If NOT Defined(NoVCL)}
+ TControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
+ end;//THackControl
+
+ THackPopupMenu = class({$If NOT Defined(NoVCL)}
+ TMenu
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
+  private
+   FPopupPoint: TPoint;
+ end;//THackPopupMenu
+
+var g_TvcmToolbarGlyphService: TvcmToolbarGlyphService = nil;
+ {* Экземпляр синглетона TvcmToolbarGlyphService }
+var g_TvcmMenuManagerHelper: TvcmMenuManagerHelper = nil;
+ {* Экземпляр синглетона TvcmMenuManagerHelper }
+var g_TvcmDispatcherHelper: TvcmDispatcherHelper = nil;
+ {* Экземпляр синглетона TvcmDispatcherHelper }
+var g_InternalButton: TvcmToolButtonDef;
+
 const
-   { vcmMenuManager Private Const }
-  c_vcmCloseBmpName = 'CLOSEBTN_DOCK97';
-  c_vcmMaximizedBmpName = 'MAXIMIZEDBTN_DOCK97';
-  c_vcmOpenBmpName = 'OPENBTN_DOCK97';
-  c_vcmCloseImageIndex = 0;
-  c_vcmMaximizedImageIndex = 1;
-  c_vcmOpenImageIndex = 2;
-  c_vcmDockContainerName = 'vcmDockContainer';
-  c_GlyphSizeMap : TvcmGlyphSizeMap = (2, 0, 3, 1);
-   { c_GlyphSizeMap: array [TvcmGlyphSize] of Cardinal = (
+ c_vcmCloseBmpName = 'CLOSEBTN_DOCK97';
+ c_vcmMaximizedBmpName = 'MAXIMIZEDBTN_DOCK97';
+ c_vcmOpenBmpName = 'OPENBTN_DOCK97';
+ c_vcmCloseImageIndex = 0;
+ c_vcmMaximizedImageIndex = 1;
+ c_vcmOpenImageIndex = 2;
+ c_vcmDockContainerName = 'vcmDockContainer';
+ c_GlyphSizeMap: TvcmGlyphSizeMap = (2, 0, 3, 1);
+  {* c_GlyphSizeMap: array [TvcmGlyphSize] of Cardinal = (
    2, // vcm_gsAutomatic
    0, // vcm_gs16x16
    3, // vcm_gs24x24
    1 // vcm_gs32x32
   ); }
-  cTBName : TvcmTBPosStringArray = ('Top', 'Bottom', 'Left', 'Right');
+ cTBName: TvcmTBPosStringArray = ('Top', 'Bottom', 'Left', 'Right');
 
-type
-  THackWinControl = class(TWinControl)
-  end;//THackWinControl
+procedure TvcmToolbarGlyphServiceFree;
+ {* Метод освобождения экземпляра синглетона TvcmToolbarGlyphService }
+begin
+ l3Free(g_TvcmToolbarGlyphService);
+end;//TvcmToolbarGlyphServiceFree
 
-  THackControl = class(TControl)
-  end;//THackControl
+procedure TvcmMenuManagerHelperFree;
+ {* Метод освобождения экземпляра синглетона TvcmMenuManagerHelper }
+begin
+ l3Free(g_TvcmMenuManagerHelper);
+end;//TvcmMenuManagerHelperFree
 
-  THackPopupMenu = class(TMenu)
-  private
-  // private fields
-   FPopupPoint : TPoint;
-  end;//THackPopupMenu
-
-// start class TvcmPopupMenu
+procedure TvcmDispatcherHelperFree;
+ {* Метод освобождения экземпляра синглетона TvcmDispatcherHelper }
+begin
+ l3Free(g_TvcmDispatcherHelper);
+end;//TvcmDispatcherHelperFree
 
 procedure TvcmPopupMenu.ClearInPopup;
 //#UC START# *52A091000334_51ED01600060_var*
@@ -929,7 +818,7 @@ begin
 //#UC END# *52A091000334_51ED01600060_impl*
 end;//TvcmPopupMenu.ClearInPopup
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmPopupMenu.IsShortCut(var Message: TWMKey): Boolean;
 //#UC START# *52A0905E002D_51ED01600060_var*
 //#UC END# *52A0905E002D_51ED01600060_var*
@@ -944,11 +833,11 @@ begin
  end;//f_InPopup 
 //#UC END# *52A0905E002D_51ED01600060_impl*
 end;//TvcmPopupMenu.IsShortCut
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmPopupMenu.Popup(X: Integer;
-  Y: Integer);
+ Y: Integer);
 //#UC START# *52A090A90317_51ED01600060_var*
 //#UC END# *52A090A90317_51ED01600060_var*
 begin
@@ -958,10 +847,9 @@ begin
  RequestClearPopup(Self);
 //#UC END# *52A090A90317_51ED01600060_impl*
 end;//TvcmPopupMenu.Popup
-{$IfEnd} //not NoVCL
-// start class TvcmFakeBox
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmFakeBox.Get_FullWidth: Integer;
 //#UC START# *52A8447101AF_52A8430201C5get_var*
 //#UC END# *52A8447101AF_52A8430201C5get_var*
@@ -970,9 +858,9 @@ begin
  Result := FullWidth;
 //#UC END# *52A8447101AF_52A8430201C5get_impl*
 end;//TvcmFakeBox.Get_FullWidth
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmFakeBox.Get_IsSizeable: Boolean;
 //#UC START# *52A8448E0050_52A8430201C5get_var*
 //#UC END# *52A8448E0050_52A8430201C5get_var*
@@ -981,9 +869,9 @@ begin
  Result := True;
 //#UC END# *52A8448E0050_52A8430201C5get_impl*
 end;//TvcmFakeBox.Get_IsSizeable
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmFakeBox.Get_MinWidth: Integer;
 //#UC START# *52A844A300F5_52A8430201C5get_var*
 var
@@ -1000,9 +888,9 @@ begin
  Result := f_MinWidth;
 //#UC END# *52A844A300F5_52A8430201C5get_impl*
 end;//TvcmFakeBox.Get_MinWidth
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmFakeBox.DoFitToWidth(aWidth: Integer);
 //#UC START# *52A844D303D9_52A8430201C5_var*
 //#UC END# *52A844D303D9_52A8430201C5_var*
@@ -1011,9 +899,9 @@ begin
  Width := aWidth;
 //#UC END# *52A844D303D9_52A8430201C5_impl*
 end;//TvcmFakeBox.DoFitToWidth
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmFakeBox.DoUnFitToWidth(aWidth: Integer);
 //#UC START# *52A844E6012E_52A8430201C5_var*
 //#UC END# *52A844E6012E_52A8430201C5_var*
@@ -1022,9 +910,9 @@ begin
  Width := aWidth;
 //#UC END# *52A844E6012E_52A8430201C5_impl*
 end;//TvcmFakeBox.DoUnFitToWidth
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmFakeBox.Expand;
 //#UC START# *52A844F600E6_52A8430201C5_var*
 //#UC END# *52A844F600E6_52A8430201C5_var*
@@ -1033,7 +921,7 @@ begin
  Width := Get_FullWidth;
 //#UC END# *52A844F600E6_52A8430201C5_impl*
 end;//TvcmFakeBox.Expand
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 constructor TvcmFakeBox.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_52A8430201C5_var*
@@ -1046,7 +934,6 @@ begin
  SetToBeginOnTreeSelect := True;
 //#UC END# *47D1602000C6_52A8430201C5_impl*
 end;//TvcmFakeBox.Create
-// start class TvcmDockContainer
 
 constructor TvcmDockContainer.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_52A0812B00B7_var*
@@ -1061,7 +948,6 @@ begin
  BevelOuter := bvNone;
 //#UC END# *47D1602000C6_52A0812B00B7_impl*
 end;//TvcmDockContainer.Create
-// start class TvcmToolButtonDefActionLink
 
 procedure TvcmToolButtonDefActionLink.ParamsChanged(const anAction: IvcmAction);
 //#UC START# *476961930017_52A087CA0218_var*
@@ -1147,7 +1033,6 @@ begin
 //#UC START# *476961A40369_52A087CA0218_impl*
 //#UC END# *476961A40369_52A087CA0218_impl*
 end;//TvcmToolButtonDefActionLink.ParamsChanging
-// start class TvcmToolButtonDef
 
 function TvcmToolButtonDef.IsIconText: Boolean;
 //#UC START# *52A08B7F0082_52A08A9E0275_var*
@@ -1158,7 +1043,7 @@ begin
 //#UC END# *52A08B7F0082_52A08A9E0275_impl*
 end;//TvcmToolButtonDef.IsIconText
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmToolButtonDef.GetActionLinkClass: TControlActionLinkClass;
 //#UC START# *4F8845840032_52A08A9E0275_var*
 //#UC END# *4F8845840032_52A08A9E0275_var*
@@ -1167,9 +1052,9 @@ begin
  Result := TvcmToolButtonDefActionLink;
 //#UC END# *4F8845840032_52A08A9E0275_impl*
 end;//TvcmToolButtonDef.GetActionLinkClass
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmToolButtonDef.NeedAutoDown: Boolean;
 //#UC START# *50477A430157_52A08A9E0275_var*
 //#UC END# *50477A430157_52A08A9E0275_var*
@@ -1178,7 +1063,7 @@ begin
  Result := False;
 //#UC END# *50477A430157_52A08A9E0275_impl*
 end;//TvcmToolButtonDef.NeedAutoDown
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 function TvcmToolButtonDef.HackCheck: Boolean;
 //#UC START# *52A08AF5004B_52A08A9E0275_var*
@@ -1189,7 +1074,7 @@ begin
 //#UC END# *52A08AF5004B_52A08A9E0275_impl*
 end;//TvcmToolButtonDef.HackCheck
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmToolButtonDef.AutoAllUp: Boolean;
 //#UC START# *52A08B2C0001_52A08A9E0275_var*
 //#UC END# *52A08B2C0001_52A08A9E0275_var*
@@ -1198,278 +1083,147 @@ begin
  Result := True;
 //#UC END# *52A08B2C0001_52A08A9E0275_impl*
 end;//TvcmToolButtonDef.AutoAllUp
-{$IfEnd} //not NoTB97
-// start class TvcmComboBox
+{$IfEnd} // NOT Defined(NoTB97)
 
-procedure TvcmComboBox.SetCaptionFromAction(anAction: TvcmOperationAction;
-  anUpdateIndex: Boolean);
-//#UC START# *52A9AA140394_52A045E102E3_var*
-var
- l_Action: IvcmAction;
-//#UC END# *52A9AA140394_52A045E102E3_var*
+procedure TvcmToolbarGlyphService.pm_SetAlien(const aValue: IvcmToolbarGlyphService);
 begin
-//#UC START# *52A9AA140394_52A045E102E3_impl*
- if not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo) then
- begin
-  f_InUpdateCation := True;
-  try
-   if Supports(anAction, IvcmAction, l_Action) then
-   try
-    if not SetStringsFromAction(anAction) then
-    begin
-(*     {$IfNDef vcmUseComboTree}
-     Items.Clear;
-     Items.Add(vcmStr(l_Action.SelectedString));
-     if anUpdateIndex then
-      ItemIndex := Items.IndexOf(vcmStr(l_Action.SelectedString));
-     {$EndIf vcmUseComboTree}*)
-    end;//not SetStringsFromAction(anAction)
-   finally
-    l_Action := nil;
-   end;//try..finally
-  finally
-   f_InUpdateCation := False;
-  end;//try..finally
- end;//not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo)
-//#UC END# *52A9AA140394_52A045E102E3_impl*
-end;//TvcmComboBox.SetCaptionFromAction
+ Assert((f_Alien = nil) OR (aValue = nil));
+ f_Alien := aValue;
+end;//TvcmToolbarGlyphService.pm_SetAlien
 
-function TvcmComboBox.SetStringsFromAction(const anAction: IvcmAction): Boolean;
-//#UC START# *52A9AA400220_52A045E102E3_var*
-var
- l_Strings: IvcmStrings;
-//#UC END# *52A9AA400220_52A045E102E3_var*
+function TvcmToolbarGlyphService.GetGlyphSize: TvcmGlyphSize;
+//#UC START# *9DEC90563B75_552BADA90096_var*
+//#UC END# *9DEC90563B75_552BADA90096_var*
 begin
-//#UC START# *52A9AA400220_52A045E102E3_impl*
- Result := False;
- l_Strings := anAction.SubItems;
- if (l_Strings = nil) or (l_Strings.Count = 0) then
- begin
-  Result := vcmSetRoot(anAction.SubNodes);
-  if (anAction.SubNodes = nil) or (anAction.SubNodes.Count = 0) then
-   if anAction.IsSelectedStringChanged then
-   //if not l3Same(Text, anAction.SelectedString) then
-    Text := anAction.SelectedString;
- end//l_Strings = nil
+//#UC START# *9DEC90563B75_552BADA90096_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetGlyphSize
+ else
+  Result := (g_MenuManager as TvcmCustomMenuManager).GlyphSize;
+//#UC END# *9DEC90563B75_552BADA90096_impl*
+end;//TvcmToolbarGlyphService.GetGlyphSize
+
+procedure TvcmToolbarGlyphService.SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
+//#UC START# *B8089BE16F42_552BADA90096_var*
+//#UC END# *B8089BE16F42_552BADA90096_var*
+begin
+//#UC START# *B8089BE16F42_552BADA90096_impl*
+ if (f_Alien <> nil) then
+  f_Alien.SetGlyphColorDepth(aValue)
  else
  begin
-  Result := True;
-  if (Action is TvcmOperationAction) and
-   (TvcmOperationAction(Action).OpDef.OperationType = vcm_otCombo) then
-  begin
-   Items.Assign(l_Strings.Items);
-   if not vcmIsNil(anAction.SelectedString) then
-    ItemIndex := Items.IndexOf(anAction.SelectedString);
-  end//anAction is TvcmOperationAction
-  else
-  begin
-   Items.Assign(l_Strings.Items);
-   if anAction.IsSelectedStringChanged then
-   begin
-    if not l3Same(Text, anAction.SelectedString) then
-    begin
-     Text := anAction.SelectedString;
-     //AdjustWidth;
-     //// ^ http://mdp.garant.ru/pages/viewpage.action?pageId=100958843
-     // КОСТЫЛЬ ПЕРЕЕХАЛ В TctButtonEdit.pm_SetText из - за K278854646
-    end;//not l3Same(Text, anAction.SelectedString)
-   end;//not vcmSame(f_SelectedString, anAction.SelectedString)
-  end;//anAction is TvcmOperationAction
- end;//l_Strings = nil..
-//#UC END# *52A9AA400220_52A045E102E3_impl*
-end;//TvcmComboBox.SetStringsFromAction
-// start class TvcmComboBoxActionLink
+  (g_MenuManager as TvcmCustomMenuManager).GlyphColorDepth := aValue;
+  (g_MenuManager as TvcmCustomMenuManager).StoreGlyphColorDepth;
+ end;//f_Alien <> nil
+//#UC END# *B8089BE16F42_552BADA90096_impl*
+end;//TvcmToolbarGlyphService.SetGlyphColorDepth
 
-{$If not defined(NoVCL)}
-procedure TvcmComboBoxActionLink.SetCaption(const Value: String);
-//#UC START# *508F991B003B_52A8477B0012_var*
-//#UC END# *508F991B003B_52A8477B0012_var*
+function TvcmToolbarGlyphService.GetGlyphColorDepth: TvcmGlyphColordepth;
+//#UC START# *BC663849408C_552BADA90096_var*
+//#UC END# *BC663849408C_552BADA90096_var*
 begin
-//#UC START# *508F991B003B_52A8477B0012_impl*
- inherited;
- if (FClient is TvcmComboBox) and (Action is TvcmOperationAction) then
-  TvcmComboBox(FClient).SetCaptionFromAction(TvcmOperationAction(Action), True);
-//#UC END# *508F991B003B_52A8477B0012_impl*
-end;//TvcmComboBoxActionLink.SetCaption
-{$IfEnd} //not NoVCL
-
-procedure TvcmComboBoxActionLink.DoParamsChanged(const anAction: IvcmAction);
-//#UC START# *52A8469903AF_52A8477B0012_var*
-//#UC END# *52A8469903AF_52A8477B0012_var*
-begin
-//#UC START# *52A8469903AF_52A8477B0012_impl*
- inherited;
- if (FClient is TvcmComboBox) then
-  with TvcmComboBox(FClient) do
-  begin
-   if (anAction.SubNodes <> nil) then
-    ShowRoot := anAction.SubNodes.ShowRoot;
-   SetStringsFromAction(anAction);
-   {$IfNDef DesignTimeLibrary}
-   if (anAction.SubNodes <> nil) then
-    vcmSetCurrent(anAction.SubNodes.Current);
-   {$EndIf  DesignTimeLibrary} 
-   Hint := vcmStr(anAction.Hint);
-  end;//with TvcmComboBox(FClient)
-//#UC END# *52A8469903AF_52A8477B0012_impl*
-end;//TvcmComboBoxActionLink.DoParamsChanged
-
-procedure TvcmComboBoxActionLink.DoParamsChanging(const anAction: IvcmAction);
-//#UC START# *52A846AF0108_52A8477B0012_var*
-//#UC END# *52A846AF0108_52A8477B0012_var*
-begin
-//#UC START# *52A846AF0108_52A8477B0012_impl*
- inherited;
- if (FClient is TvcmComboBox) then
-  if (anAction.SubNodes <> nil) then
-   with anAction.SubNodes do
-   begin
-    Current := TvcmComboBox(FClient).CurrentNode;
-    ShowRoot := TvcmComboBox(FClient).ShowRoot;
-   end;//anAction.SubNodes
-//#UC END# *52A846AF0108_52A8477B0012_impl*
-end;//TvcmComboBoxActionLink.DoParamsChanging
-
-procedure TvcmComboBox.CMTBMouseQuery(var Msg: TMessage);
-//#UC START# *52A9A42D031B_52A045E102E3_var*
-//#UC END# *52A9A42D031B_52A045E102E3_var*
-begin
-//#UC START# *52A9A42D031B_52A045E102E3_impl*
- if InnerPoint(Point(Integer(Msg.WParam), Integer(Msg.LParam)))
-  then Msg.Result := 1
-  else Msg.Result := 0;
-//#UC END# *52A9A42D031B_52A045E102E3_impl*
-end;//TvcmComboBox.CMTBMouseQuery
-
-procedure TvcmComboBox.CMTBCheckControl(var Msg: TMessage);
-//#UC START# *52A9A4500057_52A045E102E3_var*
-//#UC END# *52A9A4500057_52A045E102E3_var*
-begin
-//#UC START# *52A9A4500057_52A045E102E3_impl*
- if IsInnerControl(HWND(Msg.WParam))
-  then Msg.Result := 1
-  else Msg.Result := 0;
-//#UC END# *52A9A4500057_52A045E102E3_impl*
-end;//TvcmComboBox.CMTBCheckControl
-
-constructor TvcmComboBox.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_52A045E102E3_var*
-//#UC END# *47D1602000C6_52A045E102E3_var*
-begin
-//#UC START# *47D1602000C6_52A045E102E3_impl*
- inherited;
- AutoWidth := awCurrent;
-//#UC END# *47D1602000C6_52A045E102E3_impl*
-end;//TvcmComboBox.Create
-
-{$If not defined(NoVCL)}
-function TvcmComboBox.GetActionLinkClass: TControlActionLinkClass;
-//#UC START# *4F8845840032_52A045E102E3_var*
-//#UC END# *4F8845840032_52A045E102E3_var*
-begin
-//#UC START# *4F8845840032_52A045E102E3_impl*
- Result := TvcmComboBoxActionLink;
-//#UC END# *4F8845840032_52A045E102E3_impl*
-end;//TvcmComboBox.GetActionLinkClass
-{$IfEnd} //not NoVCL
-
-{$If not defined(NoVCL)}
-procedure TvcmComboBox.ActionChange(Sender: TObject;
-  CheckDefaults: Boolean);
-//#UC START# *52A9A8710199_52A045E102E3_var*
-//#UC END# *52A9A8710199_52A045E102E3_var*
-begin
-//#UC START# *52A9A8710199_52A045E102E3_impl*
- if (Sender is TvcmOperationAction) then
-  SetCaptionFromAction(TvcmOperationAction(Sender), False);
- inherited;
-//#UC END# *52A9A8710199_52A045E102E3_impl*
-end;//TvcmComboBox.ActionChange
-{$IfEnd} //not NoVCL
-
-procedure TvcmComboBox.DropDown;
-//#UC START# *52A9A9B802B4_52A045E102E3_var*
-var
- l_Action: IvcmAction;
-//#UC END# *52A9A9B802B4_52A045E102E3_var*
-begin
-//#UC START# *52A9A9B802B4_52A045E102E3_impl*
- if Supports(Action, IvcmAction, l_Action) then
- try
-  SetStringsFromAction(l_Action);
-  inherited;
- finally
-  l_Action := nil;
- end//try..finally
+//#UC START# *BC663849408C_552BADA90096_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetGlyphColordepth
  else
-  inherited;
-//#UC END# *52A9A9B802B4_52A045E102E3_impl*
-end;//TvcmComboBox.DropDown
+  Result := (g_MenuManager as TvcmCustomMenuManager).GlyphColordepth;
+//#UC END# *BC663849408C_552BADA90096_impl*
+end;//TvcmToolbarGlyphService.GetGlyphColorDepth
 
-procedure TvcmComboBox.ActionExecuteHandler;
-//#UC START# *52A9AADF0289_52A045E102E3_var*
-var
- l_LockCount: Integer;
- l_Action: IvcmAction;
-
- procedure lp_SaveLock;
- begin
-  l_LockCount:=0;
-  while l_Action.IsExecuteLocked do
-  begin
-   l_Action.UnlockExecute;
-   Inc(l_LockCount);
-  end;//while l_Action.IsExecuteLocked do
- end;//lp_SaveLock
-
- procedure lp_RestoreLock;
- begin
-  while l_LockCount > 0 do
-  begin
-   l_Action.LockExecute;
-   Dec(l_LockCount);
-  end;//while l_LockCount > 0 do
- end;//lp_RestoreLock
-//#UC END# *52A9AADF0289_52A045E102E3_var*
+procedure TvcmToolbarGlyphService.SetGlyphSize(aValue: TvcmGlyphSize);
+//#UC START# *E8ADA32D143E_552BADA90096_var*
+//#UC END# *E8ADA32D143E_552BADA90096_var*
 begin
-//#UC START# *52A9AADF0289_52A045E102E3_impl*
- if Supports(Action, IvcmAction, l_Action) then
- try
-  Action.ActionComponent := Self;
-  l_Action.SelectedString := Text;
-  l_Action.LockUpdate;
-  try
-   lp_SaveLock;
-   try
-    Action.Execute;
-   finally
-    lp_RestoreLock;
-   end;//try..finally
-  finally
-   l_Action.UnlockUpdate;
-  end;//try..finally
- finally
-  l_Action := nil;
- end;//try..finally
-//#UC END# *52A9AADF0289_52A045E102E3_impl*
-end;//TvcmComboBox.ActionExecuteHandler
+//#UC START# *E8ADA32D143E_552BADA90096_impl*
+ if (f_Alien <> nil) then
+  f_Alien.SetGlyphSize(aValue)
+ else
+ begin
+  (g_MenuManager as TvcmCustomMenuManager).GlyphSize := aValue;
+  (g_MenuManager as TvcmCustomMenuManager).StoreGlyphSize;
+ end;//f_Alien <> nil
+//#UC END# *E8ADA32D143E_552BADA90096_impl*
+end;//TvcmToolbarGlyphService.SetGlyphSize
 
-procedure TvcmComboBox.LocalUpdateAction;
-//#UC START# *52A9AAEA0068_52A045E102E3_var*
-var
- l_Action: IvcmAction;
-//#UC END# *52A9AAEA0068_52A045E102E3_var*
+class function TvcmToolbarGlyphService.Instance: TvcmToolbarGlyphService;
+ {* Метод получения экземпляра синглетона TvcmToolbarGlyphService }
 begin
-//#UC START# *52A9AAEA0068_52A045E102E3_impl*
- if Supports(Action, IvcmAction, l_Action) then
- try
-  l_Action.SelectedString := Text;
- finally
-  l_Action := nil;
- end;//try..finally
-//#UC END# *52A9AAEA0068_52A045E102E3_impl*
-end;//TvcmComboBox.LocalUpdateAction
-// start class TvcmCustomMenuManager
+ if (g_TvcmToolbarGlyphService = nil) then
+ begin
+  l3System.AddExitProc(TvcmToolbarGlyphServiceFree);
+  g_TvcmToolbarGlyphService := Create;
+ end;
+ Result := g_TvcmToolbarGlyphService;
+end;//TvcmToolbarGlyphService.Instance
+
+class function TvcmToolbarGlyphService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmToolbarGlyphService <> nil;
+end;//TvcmToolbarGlyphService.Exists
+
+procedure TvcmToolbarGlyphService.ClearFields;
+begin
+ Alien := nil;
+ inherited;
+end;//TvcmToolbarGlyphService.ClearFields
+
+procedure TvcmCustomMenuManager.pm_SetDockButtonsImageList(aValue: TCustomImageList);
+//#UC START# *52A822880118_4B30EC81021Aset_var*
+//#UC END# *52A822880118_4B30EC81021Aset_var*
+begin
+//#UC START# *52A822880118_4B30EC81021Aset_impl*
+ f_DockButtonsImageList := aValue;
+//#UC END# *52A822880118_4B30EC81021Aset_impl*
+end;//TvcmCustomMenuManager.pm_SetDockButtonsImageList
+
+procedure TvcmCustomMenuManager.pm_SetActions(aValue: TCustomActionList);
+//#UC START# *52A823910334_4B30EC81021Aset_var*
+//#UC END# *52A823910334_4B30EC81021Aset_var*
+begin
+//#UC START# *52A823910334_4B30EC81021Aset_impl*
+ if (f_Actions <> aValue) then
+ begin
+  f_Actions := aValue;
+  vcmMenus.vcmSetActionList(f_Actions);
+ end;//f_Actions <> anActions
+//#UC END# *52A823910334_4B30EC81021Aset_impl*
+end;//TvcmCustomMenuManager.pm_SetActions
+
+procedure TvcmCustomMenuManager.pm_SetGlyphSize(aValue: TvcmGlyphSize);
+//#UC START# *52A823D2029C_4B30EC81021Aset_var*
+//#UC END# *52A823D2029C_4B30EC81021Aset_var*
+begin
+//#UC START# *52A823D2029C_4B30EC81021Aset_impl*
+ if f_GlyphSize <> aValue then
+ begin
+  f_GlyphSize := aValue;
+  if Assigned(f_OnGlyphSizeChanged) then
+   f_OnGlyphSizeChanged(Self);
+ end;
+//#UC END# *52A823D2029C_4B30EC81021Aset_impl*
+end;//TvcmCustomMenuManager.pm_SetGlyphSize
+
+procedure TvcmCustomMenuManager.pm_SetGlyphColordepth(aValue: TvcmGlyphColordepth);
+//#UC START# *52A824150341_4B30EC81021Aset_var*
+//#UC END# *52A824150341_4B30EC81021Aset_var*
+begin
+//#UC START# *52A824150341_4B30EC81021Aset_impl*
+ // Присваиваем всегда. Это делается для того, чтобы работало автоопределение.
+ f_GlyphColordepth := aValue;
+ if Assigned(f_OnGlyphColordepthChanged) then
+  f_OnGlyphColordepthChanged(Self);
+//#UC END# *52A824150341_4B30EC81021Aset_impl*
+end;//TvcmCustomMenuManager.pm_SetGlyphColordepth
+
+procedure TvcmCustomMenuManager.pm_SetMainMenuItems(aValue: TvcmMenuItemsCollection);
+//#UC START# *52A8246C022D_4B30EC81021Aset_var*
+//#UC END# *52A8246C022D_4B30EC81021Aset_var*
+begin
+//#UC START# *52A8246C022D_4B30EC81021Aset_impl*
+ f_MainMenuItems.Assign(aValue);
+//#UC END# *52A8246C022D_4B30EC81021Aset_impl*
+end;//TvcmCustomMenuManager.pm_SetMainMenuItems
 
 procedure TvcmCustomMenuManager.OverridePopupMenu(aForm: TCustomForm);
 //#UC START# *52A83208018D_4B30EC81021A_var*
@@ -1526,7 +1280,7 @@ begin
 end;//TvcmCustomMenuManager.OverridePopupMenu
 
 function TvcmCustomMenuManager.ToolbarButtonSize(aToolbarButton: TCustomToolbarButton97;
-  var aSize: Integer): Boolean;
+ var aSize: Integer): Boolean;
 //#UC START# *52A8329D033C_4B30EC81021A_var*
 //#UC END# *52A8329D033C_4B30EC81021A_var*
 begin
@@ -1545,6 +1299,7 @@ begin
 end;//TvcmCustomMenuManager.ToolbarButtonSize
 
 procedure TvcmCustomMenuManager.ToolbarButtonSize(aToolbarButton: TCustomToolbarButton97);
+ {* устанавливает ширину и высоту кнопки }
 //#UC START# *52A832CD000B_4B30EC81021A_var*
 var
  l_Size: Integer;
@@ -1559,7 +1314,8 @@ begin
 end;//TvcmCustomMenuManager.ToolbarButtonSize
 
 procedure TvcmCustomMenuManager.ToolbarSize(aToolbar: TCustomToolbar97;
-  var aSize: Integer);
+ var aSize: Integer);
+ {* определяет размер toolbar-а }
 //#UC START# *52A833300250_4B30EC81021A_var*
 var
  l_Index: Integer;
@@ -1658,8 +1414,8 @@ begin
 end;//TvcmCustomMenuManager.ChangeTyperText
 
 procedure TvcmCustomMenuManager.ControlKeyDown(Sender: TObject;
-  var Key: Word;
-  Shift: TShiftState);
+ var Key: Word;
+ Shift: TShiftState);
 //#UC START# *52A835090368_4B30EC81021A_var*
 //#UC END# *52A835090368_4B30EC81021A_var*
 begin
@@ -1854,8 +1610,8 @@ begin
 end;//TvcmCustomMenuManager.CheckPopup
 
 function TvcmCustomMenuManager.GetToolbarName(aForm: TvcmEntityForm;
-  const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
-  anIndex: Integer): AnsiString;
+ const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
+ anIndex: Integer): AnsiString;
 //#UC START# *52A836E4024C_4B30EC81021A_var*
 //#UC END# *52A836E4024C_4B30EC81021A_var*
 begin
@@ -1872,10 +1628,11 @@ begin
 //#UC END# *52A836E4024C_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.GetToolbarName
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 function TvcmCustomMenuManager.BuildToolbar(aForm: TvcmEntityForm;
-  const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
-  anIndex: Integer): TvcmToolbarDef;
+ const aDef: IvcmOperationalIdentifiedUserFriendlyControl;
+ anIndex: Integer): TvcmToolbarDef;
+ {* anIndex - порядковый номер Toolbar'а (для огранизации нескольких Toolbar'ов в одном доке) }
 //#UC START# *52A83799024A_4B30EC81021A_var*
 var
  l_ToolbarName: AnsiString;
@@ -1904,13 +1661,13 @@ begin
  end;//aDef = nil
 //#UC END# *52A83799024A_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.BuildToolbar
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvcmCustomMenuManager.FillToolbar(aForm: TvcmEntityForm;
-  var aToolBar: TvcmToolbarDef;
-  const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-  const anOperations: IvcmOperationsDefIterator;
-  anOptions: TvcmOperationOptions);
+ var aToolBar: TvcmToolbarDef;
+ const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+ const anOperations: IvcmOperationsDefIterator;
+ anOptions: TvcmOperationOptions);
 //#UC START# *52A838180205_4B30EC81021A_var*
 //#UC END# *52A838180205_4B30EC81021A_var*
 begin
@@ -1943,11 +1700,11 @@ begin
 //#UC END# *52A8391000A9_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.CheckToolbar
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 function TvcmCustomMenuManager.MakeToolbar(aForm: TvcmEntityForm;
-  const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-  anOptions: TvcmOperationOptions;
-  anExcludePoses: TvcmEffectiveToolBarPoses): Boolean;
+ const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+ anOptions: TvcmOperationOptions;
+ anExcludePoses: TvcmEffectiveToolBarPoses): Boolean;
 //#UC START# *52A8393D0073_4B30EC81021A_var*
 var
  l_Toolbar: TvcmToolbarDef;
@@ -1993,13 +1750,13 @@ begin
  end;//try..finally
 //#UC END# *52A8393D0073_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.MakeToolbar
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmCustomMenuManager.BuildEntitiesToolbars(aForm: TvcmEntityForm;
-  const anEntities: IvcmEntitiesDefIterator;
-  anOptions: TvcmOperationOptions;
-  anExcludePoses: TvcmEffectiveToolBarPoses);
+ const anEntities: IvcmEntitiesDefIterator;
+ anOptions: TvcmOperationOptions;
+ anExcludePoses: TvcmEffectiveToolBarPoses);
 //#UC START# *52A8398C01D1_4B30EC81021A_var*
 //#UC END# *52A8398C01D1_4B30EC81021A_var*
 begin
@@ -2008,14 +1765,14 @@ begin
   while MakeToolbar(aForm, anEntities.Next, anOptions, anExcludePoses) do
 //#UC END# *52A8398C01D1_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.BuildEntitiesToolbars
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
 function TvcmCustomMenuManager.LoadButtonsFromSettings(const aUserType: IvcmUserTypeDef;
-  const aToolbar: AnsiString;
-  AddUnsavedButton: Boolean;
-  var theButton: TvcmButtonDef;
-  var theButtons: TvcmButtonDefs): Boolean;
+ const aToolbar: AnsiString;
+ AddUnsavedButton: Boolean;
+ var theButton: TvcmButtonDef;
+ var theButtons: TvcmButtonDefs): Boolean;
 //#UC START# *52A839C302A6_4B30EC81021A_var*
  procedure l_AddButton;
  var
@@ -2132,14 +1889,14 @@ begin
  end;//theButton.rEn = nil
 //#UC END# *52A839C302A6_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.LoadButtonsFromSettings
-{$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
-{$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
 procedure TvcmCustomMenuManager.MakeToolbarFromSettings(aForm: TvcmEntityForm;
-  const aToolbarName: AnsiString;
-  aPos: TvcmEffectiveToolBarPos;
-  anOptions: TvcmOperationOptions;
-  const theButtons: TvcmButtonDefs);
+ const aToolbarName: AnsiString;
+ aPos: TvcmEffectiveToolBarPos;
+ anOptions: TvcmOperationOptions;
+ const theButtons: TvcmButtonDefs);
 //#UC START# *52A83A050068_4B30EC81021A_var*
 var
  l_Index: Integer;
@@ -2176,9 +1933,9 @@ begin
  end;//Length(l_BtDefs) > 0
 //#UC END# *52A83A050068_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.MakeToolbarFromSettings
-{$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
-{$If defined(vcmUseSettings) AND not defined(NoVCM)}
+{$If Defined(vcmUseSettings)}
 procedure TvcmCustomMenuManager.MakeMainToolbarFromSettings(aForm: TvcmEntityForm);
 //#UC START# *52A83A37024D_4B30EC81021A_var*
 var
@@ -2196,11 +1953,11 @@ begin
    end;//rButtons <> nil
 //#UC END# *52A83A37024D_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.MakeMainToolbarFromSettings
-{$IfEnd} //vcmUseSettings AND not NoVCM
+{$IfEnd} // Defined(vcmUseSettings)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmCustomMenuManager.BuildFormToolbars(aForm: TvcmEntityForm;
-  anOptions: TvcmOperationOptions);
+ anOptions: TvcmOperationOptions);
 //#UC START# *52A83A6903B7_4B30EC81021A_var*
 var
  l_ExcludePoses: TvcmEffectiveToolBarPoses;
@@ -2297,11 +2054,12 @@ begin
  end;//try..finally
 //#UC END# *52A83A6903B7_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.BuildFormToolbars
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmCustomMenuManager.BuildMainToolbars(aForm: TvcmEntityForm;
-  const aModuleDef: IvcmModuleDef);
+ const aModuleDef: IvcmModuleDef);
+ {* создает Toolbar'ы основной формы }
 //#UC START# *52A83AA6033F_4B30EC81021A_var*
 var
  l_ExcludePoses: TvcmEffectiveToolBarPoses;
@@ -2339,7 +2097,7 @@ begin
   BuildEntitiesToolbars(aForm, aModuleDef.EntitiesDefIterator, [vcm_ooShowInMainToolbar], l_ExcludePoses);
 //#UC END# *52A83AA6033F_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.BuildMainToolbars
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvcmCustomMenuManager.CheckUserTypes;
 //#UC START# *52A83AE7029B_4B30EC81021A_var*
@@ -2379,8 +2137,8 @@ begin
 end;//TvcmCustomMenuManager.BuildUserTypes
 
 procedure TvcmCustomMenuManager.ToolbarsGetSiteInfo(Sender: TObject;
-  DockClient: TCustomToolWindow97;
-  var CanDock: Boolean);
+ DockClient: TCustomToolWindow97;
+ var CanDock: Boolean);
 //#UC START# *52A83B1102D4_4B30EC81021A_var*
 //#UC END# *52A83B1102D4_4B30EC81021A_var*
 begin
@@ -2394,12 +2152,12 @@ begin
 end;//TvcmCustomMenuManager.ToolbarsGetSiteInfo
 
 function TvcmCustomMenuManager.BuildButton(aForm: TvcmEntityForm;
-  aToolBar: TvcmToolbarDef;
-  const aModuleDef: IvcmModuleDef;
-  const anEntityDef: IvcmEntityDef;
-  const anOp: IvcmOperationDef;
-  anOptions: TvcmOperationOptions;
-  anIconText: TvcmIconTextType = vcm_itDefault): TControl;
+ aToolBar: TvcmToolbarDef;
+ const aModuleDef: IvcmModuleDef;
+ const anEntityDef: IvcmEntityDef;
+ const anOp: IvcmOperationDef;
+ anOptions: TvcmOperationOptions;
+ anIconText: TvcmIconTextType = vcm_itDefault): TControl;
 //#UC START# *52A83EA20222_4B30EC81021A_var*
 //#UC END# *52A83EA20222_4B30EC81021A_var*
 begin
@@ -2411,13 +2169,13 @@ begin
 end;//TvcmCustomMenuManager.BuildButton
 
 function TvcmCustomMenuManager.BuildButton(aForm: TvcmEntityForm;
-  aToolBar: TvcmToolbarDef;
-  const aModuleDef: IvcmModuleDef;
-  const anEntityDef: IvcmEntityDef;
-  const anOp: IvcmOperationDef;
-  anOpOptions: TvcmOperationOptions;
-  anOptions: TvcmOperationOptions;
-  anIconText: TvcmIconTextType = vcm_itDefault): TControl;
+ aToolBar: TvcmToolbarDef;
+ const aModuleDef: IvcmModuleDef;
+ const anEntityDef: IvcmEntityDef;
+ const anOp: IvcmOperationDef;
+ anOpOptions: TvcmOperationOptions;
+ anOptions: TvcmOperationOptions;
+ anIconText: TvcmIconTextType = vcm_itDefault): TControl;
 //#UC START# *52A83EDA006E_4B30EC81021A_var*
  function lp_Images: TCustomImageList;
   function lp_MakeImages(const aSize: TvcmImageSize): TCustomImageList;
@@ -2608,12 +2366,12 @@ begin
 end;//TvcmCustomMenuManager.BuildButton
 
 function TvcmCustomMenuManager.BuildButton(aForm: TvcmEntityForm;
-  aToolBar: TvcmToolbarDef;
-  const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-  const anOp: IvcmOperationDef;
-  anOpOptions: TvcmOperationOptions;
-  anOptions: TvcmOperationOptions;
-  anIconText: TvcmIconTextType = vcm_itDefault): TControl;
+ aToolBar: TvcmToolbarDef;
+ const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+ const anOp: IvcmOperationDef;
+ anOpOptions: TvcmOperationOptions;
+ anOptions: TvcmOperationOptions;
+ anIconText: TvcmIconTextType = vcm_itDefault): TControl;
 //#UC START# *52A83F1203DA_4B30EC81021A_var*
 var
  l_Module: IvcmModuleDef;
@@ -2628,11 +2386,11 @@ begin
 end;//TvcmCustomMenuManager.BuildButton
 
 function TvcmCustomMenuManager.BuildButton(aForm: TvcmEntityForm;
-  aToolBar: TvcmToolbarDef;
-  const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
-  const anOp: IvcmOperationDef;
-  anOptions: TvcmOperationOptions;
-  anIconText: TvcmIconTextType = vcm_itDefault): TControl;
+ aToolBar: TvcmToolbarDef;
+ const aHolder: IvcmOperationalIdentifiedUserFriendlyControl;
+ const anOp: IvcmOperationDef;
+ anOptions: TvcmOperationOptions;
+ anIconText: TvcmIconTextType = vcm_itDefault): TControl;
 //#UC START# *52A83F4001DE_4B30EC81021A_var*
 //#UC END# *52A83F4001DE_4B30EC81021A_var*
 begin
@@ -2644,7 +2402,7 @@ begin
 end;//TvcmCustomMenuManager.BuildButton
 
 function TvcmCustomMenuManager.BuildAction(const aModuleDef: IvcmModuleDef;
-  const anOpDef: IvcmOperationDef): TCustomAction;
+ const anOpDef: IvcmOperationDef): TCustomAction;
 //#UC START# *52A83F6002D5_4B30EC81021A_var*
 //#UC END# *52A83F6002D5_4B30EC81021A_var*
 begin
@@ -2656,10 +2414,10 @@ begin
 end;//TvcmCustomMenuManager.BuildAction
 
 function TvcmCustomMenuManager.BuildAction(anOwner: TComponent;
-  const anEntity: IvcmEntity;
-  const anEntityDef: IvcmEntityDef;
-  const anOpDef: IvcmOperationDef;
-  anOptions: TvcmOperationOptions): TCustomAction;
+ const anEntity: IvcmEntity;
+ const anEntityDef: IvcmEntityDef;
+ const anOpDef: IvcmOperationDef;
+ anOptions: TvcmOperationOptions): TCustomAction;
 //#UC START# *52A83F7C010F_4B30EC81021A_var*
 var
  l_Form: IafwMainForm;
@@ -2702,7 +2460,7 @@ begin
 end;//TvcmCustomMenuManager.BuildSeparator
 
 function TvcmCustomMenuManager.UserTypeByCaption(const aCaption: AnsiString;
-  aFormClass: TClass = nil): IvcmUserTypeDef;
+ aFormClass: TClass = nil): IvcmUserTypeDef;
 //#UC START# *52A840050220_4B30EC81021A_var*
 var
  l_Index: Integer;
@@ -2731,8 +2489,8 @@ begin
 end;//TvcmCustomMenuManager.UserTypeByCaption
 
 function TvcmCustomMenuManager.GetOneToolbarPerFormName(aForm: TvcmEntityForm;
-  aPos: TvcmEffectiveToolBarPos;
-  anIndex: Integer): AnsiString;
+ aPos: TvcmEffectiveToolBarPos;
+ anIndex: Integer): AnsiString;
 //#UC START# *52A840210281_4B30EC81021A_var*
 //#UC END# *52A840210281_4B30EC81021A_var*
 begin
@@ -2743,11 +2501,11 @@ begin
 //#UC END# *52A840210281_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.GetOneToolbarPerFormName
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 function TvcmCustomMenuManager.BuildToolbar(aForm: TvcmEntityForm;
-  const aName: AnsiString;
-  const aCaption: IvcmCString;
-  aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef;
+ const aName: AnsiString;
+ const aCaption: IvcmCString;
+ aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef;
 //#UC START# *52A84049016E_4B30EC81021A_var*
 var
  l_lnkMaximized,
@@ -2927,11 +2685,11 @@ begin
  end;//l_Toolbar = nil
 //#UC END# *52A84049016E_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.BuildToolbar
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 function TvcmCustomMenuManager.BuildToolbar(aForm: TvcmEntityForm;
-  aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef;
+ aPos: TvcmEffectiveToolBarPos): TvcmToolbarDef;
 //#UC START# *52A84071026E_4B30EC81021A_var*
 var
  l_ToolbarName: AnsiString;
@@ -2949,7 +2707,7 @@ begin
   Result := nil;
 //#UC END# *52A84071026E_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.BuildToolbar
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvcmCustomMenuManager.CleanupSaveDockList(anItem: TvcmDockDef);
 //#UC START# *52A840E30329_4B30EC81021A_var*
@@ -3191,6 +2949,7 @@ begin
 end;//TvcmCustomMenuManager.RestoreGlyphColordepth
 
 procedure TvcmCustomMenuManager.InitToolbarMetrics(aForm: TCustomForm);
+ {* определить метрики панели инструментов. Компоненты, которые могут быть помещены в панель, могут иметь разные размеры, чтобы высота панелей была одинаковой, считаем максимальную высоту и используем её для всех панелей. }
 //#UC START# *52A8418F0245_4B30EC81021A_var*
 var
  l_Toolbar: TvcmToolbar;
@@ -3250,160 +3009,8 @@ begin
 //#UC END# *52A8418F0245_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.InitToolbarMetrics
 
-// start class TvcmToolbarGlyphService
-
-var g_TvcmToolbarGlyphService : TvcmToolbarGlyphService = nil;
-
-procedure TvcmToolbarGlyphServiceFree;
-begin
- l3Free(g_TvcmToolbarGlyphService);
-end;
-
-class function TvcmToolbarGlyphService.Instance: TvcmToolbarGlyphService;
-begin
- if (g_TvcmToolbarGlyphService = nil) then
- begin
-  l3System.AddExitProc(TvcmToolbarGlyphServiceFree);
-  g_TvcmToolbarGlyphService := Create;
- end;
- Result := g_TvcmToolbarGlyphService;
-end;
-
-
-procedure TvcmToolbarGlyphService.pm_SetAlien(const aValue: IvcmToolbarGlyphService);
- {-}
-begin
- Assert((f_Alien = nil) OR (aValue = nil));
- f_Alien := aValue;
-end;//TvcmToolbarGlyphService.pm_SetAlien
-
-class function TvcmToolbarGlyphService.Exists: Boolean;
- {-}
-begin
- Result := g_TvcmToolbarGlyphService <> nil;
-end;//TvcmToolbarGlyphService.Exists
-
-function TvcmToolbarGlyphService.GetGlyphSize: TvcmGlyphSize;
-//#UC START# *9DEC90563B75_552BADA90096_var*
-//#UC END# *9DEC90563B75_552BADA90096_var*
-begin
-//#UC START# *9DEC90563B75_552BADA90096_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.GetGlyphSize
- else
-  Result := (g_MenuManager as TvcmCustomMenuManager).GlyphSize;
-//#UC END# *9DEC90563B75_552BADA90096_impl*
-end;//TvcmToolbarGlyphService.GetGlyphSize
-
-procedure TvcmToolbarGlyphService.SetGlyphColorDepth(aValue: TvcmGlyphColordepth);
-//#UC START# *B8089BE16F42_552BADA90096_var*
-//#UC END# *B8089BE16F42_552BADA90096_var*
-begin
-//#UC START# *B8089BE16F42_552BADA90096_impl*
- if (f_Alien <> nil) then
-  f_Alien.SetGlyphColorDepth(aValue)
- else
- begin
-  (g_MenuManager as TvcmCustomMenuManager).GlyphColorDepth := aValue;
-  (g_MenuManager as TvcmCustomMenuManager).StoreGlyphColorDepth;
- end;//f_Alien <> nil
-//#UC END# *B8089BE16F42_552BADA90096_impl*
-end;//TvcmToolbarGlyphService.SetGlyphColorDepth
-
-function TvcmToolbarGlyphService.GetGlyphColorDepth: TvcmGlyphColordepth;
-//#UC START# *BC663849408C_552BADA90096_var*
-//#UC END# *BC663849408C_552BADA90096_var*
-begin
-//#UC START# *BC663849408C_552BADA90096_impl*
- if (f_Alien <> nil) then
-  Result := f_Alien.GetGlyphColordepth
- else
-  Result := (g_MenuManager as TvcmCustomMenuManager).GlyphColordepth;
-//#UC END# *BC663849408C_552BADA90096_impl*
-end;//TvcmToolbarGlyphService.GetGlyphColorDepth
-
-procedure TvcmToolbarGlyphService.SetGlyphSize(aValue: TvcmGlyphSize);
-//#UC START# *E8ADA32D143E_552BADA90096_var*
-//#UC END# *E8ADA32D143E_552BADA90096_var*
-begin
-//#UC START# *E8ADA32D143E_552BADA90096_impl*
- if (f_Alien <> nil) then
-  f_Alien.SetGlyphSize(aValue)
- else
- begin
-  (g_MenuManager as TvcmCustomMenuManager).GlyphSize := aValue;
-  (g_MenuManager as TvcmCustomMenuManager).StoreGlyphSize;
- end;//f_Alien <> nil
-//#UC END# *E8ADA32D143E_552BADA90096_impl*
-end;//TvcmToolbarGlyphService.SetGlyphSize
-
-procedure TvcmToolbarGlyphService.ClearFields;
- {-}
-begin
- {$If not defined(NoVCM)}
- Alien := nil;
- {$IfEnd} //not NoVCM
- inherited;
-end;//TvcmToolbarGlyphService.ClearFields
-
-procedure TvcmCustomMenuManager.pm_SetDockButtonsImageList(aValue: TCustomImageList);
-//#UC START# *52A822880118_4B30EC81021Aset_var*
-//#UC END# *52A822880118_4B30EC81021Aset_var*
-begin
-//#UC START# *52A822880118_4B30EC81021Aset_impl*
- f_DockButtonsImageList := aValue;
-//#UC END# *52A822880118_4B30EC81021Aset_impl*
-end;//TvcmCustomMenuManager.pm_SetDockButtonsImageList
-
-procedure TvcmCustomMenuManager.pm_SetActions(aValue: TCustomActionList);
-//#UC START# *52A823910334_4B30EC81021Aset_var*
-//#UC END# *52A823910334_4B30EC81021Aset_var*
-begin
-//#UC START# *52A823910334_4B30EC81021Aset_impl*
- if (f_Actions <> aValue) then
- begin
-  f_Actions := aValue;
-  vcmMenus.vcmSetActionList(f_Actions);
- end;//f_Actions <> anActions
-//#UC END# *52A823910334_4B30EC81021Aset_impl*
-end;//TvcmCustomMenuManager.pm_SetActions
-
-procedure TvcmCustomMenuManager.pm_SetGlyphSize(aValue: TvcmGlyphSize);
-//#UC START# *52A823D2029C_4B30EC81021Aset_var*
-//#UC END# *52A823D2029C_4B30EC81021Aset_var*
-begin
-//#UC START# *52A823D2029C_4B30EC81021Aset_impl*
- if f_GlyphSize <> aValue then
- begin
-  f_GlyphSize := aValue;
-  if Assigned(f_OnGlyphSizeChanged) then
-   f_OnGlyphSizeChanged(Self);
- end;
-//#UC END# *52A823D2029C_4B30EC81021Aset_impl*
-end;//TvcmCustomMenuManager.pm_SetGlyphSize
-
-procedure TvcmCustomMenuManager.pm_SetGlyphColordepth(aValue: TvcmGlyphColordepth);
-//#UC START# *52A824150341_4B30EC81021Aset_var*
-//#UC END# *52A824150341_4B30EC81021Aset_var*
-begin
-//#UC START# *52A824150341_4B30EC81021Aset_impl*
- // Присваиваем всегда. Это делается для того, чтобы работало автоопределение.
- f_GlyphColordepth := aValue;
- if Assigned(f_OnGlyphColordepthChanged) then
-  f_OnGlyphColordepthChanged(Self);
-//#UC END# *52A824150341_4B30EC81021Aset_impl*
-end;//TvcmCustomMenuManager.pm_SetGlyphColordepth
-
-procedure TvcmCustomMenuManager.pm_SetMainMenuItems(aValue: TvcmMenuItemsCollection);
-//#UC START# *52A8246C022D_4B30EC81021Aset_var*
-//#UC END# *52A8246C022D_4B30EC81021Aset_var*
-begin
-//#UC START# *52A8246C022D_4B30EC81021Aset_impl*
- f_MainMenuItems.Assign(aValue);
-//#UC END# *52A8246C022D_4B30EC81021Aset_impl*
-end;//TvcmCustomMenuManager.pm_SetMainMenuItems
-
 procedure TvcmCustomMenuManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B30EC81021A_var*
 var
  l_MyEvent: TNotifyEvent;
@@ -3467,9 +3074,10 @@ begin
 //#UC END# *47D1602000C6_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.Create
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmCustomMenuManager.RegisterModuleInMenu(aForm: TvcmEntityForm;
-  const aModuleDef: IvcmModuleDef);
+ const aModuleDef: IvcmModuleDef);
+ {* регистрирует модуль в меню, toolbar'ах, etc. Для перекрытия в потомках. }
 //#UC START# *52A1FC0C0333_4B30EC81021A_var*
 var
  l_Main: TMenuItem;
@@ -3504,9 +3112,9 @@ begin
  end;//aForm = Application.MainForm
 //#UC END# *52A1FC0C0333_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.RegisterModuleInMenu
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmCustomMenuManager.MainCreated(aForm: TvcmEntityForm);
 //#UC START# *52A1FC3D0231_4B30EC81021A_var*
 var
@@ -3533,9 +3141,10 @@ begin
  end;//not (csDesigning in ComponentState)
 //#UC END# *52A1FC3D0231_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.MainCreated
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvcmCustomMenuManager.RegisterMainInMenu(aForm: TvcmEntityForm);
+ {* регистрирует основную форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
 //#UC START# *52A1FC5500AC_4B30EC81021A_var*
 var
  l_Item: TMenuItem;
@@ -3571,8 +3180,9 @@ begin
 //#UC END# *52A1FC5500AC_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.RegisterMainInMenu
 
-{$If not defined(DesignTimeLibrary) AND not defined(NoVCM)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvcmCustomMenuManager.RegisterChildInMenu(aForm: TvcmEntityForm);
+ {* регистрирует дочернюю форму в меню, toolbar'ах, etc. Для перекрытия в потомках. }
 //#UC START# *52A1FC79004A_4B30EC81021A_var*
  procedure BuildMainMenu;
  var
@@ -3604,7 +3214,7 @@ begin
   BuildFormToolbars(aForm, [vcm_ooShowInChildToolbar]);
 //#UC END# *52A1FC79004A_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.RegisterChildInMenu
-{$IfEnd} //not DesignTimeLibrary AND not NoVCM
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TvcmCustomMenuManager.GetPopupMenu: TPopupMenu;
 //#UC START# *52A1FCA20227_4B30EC81021A_var*
@@ -3677,7 +3287,7 @@ begin
 end;//TvcmCustomMenuManager.ReloadToolbars
 
 procedure TvcmCustomMenuManager.PostBuild(aForm: TvcmEntityForm;
-  aFollowDocks: Boolean = False);
+ aFollowDocks: Boolean = False);
 //#UC START# *52A1FD7301A8_4B30EC81021A_var*
 {$IfDef vcmUseSettings}
 var
@@ -4001,9 +3611,9 @@ begin
 end;//TvcmCustomMenuManager.GetFastenMode
 
 function TvcmCustomMenuManager.ObjectByType(anObject: TvcmObject;
-  const anObjectName: AnsiString;
-  const aSubName: AnsiString = '';
-  ForceCreate: Boolean = False): TvcmBaseCollectionItem;
+ const anObjectName: AnsiString;
+ const aSubName: AnsiString = '';
+ ForceCreate: Boolean = False): TvcmBaseCollectionItem;
 //#UC START# *52A1FF0902CE_4B30EC81021A_var*
 //#UC END# *52A1FF0902CE_4B30EC81021A_var*
 begin
@@ -4050,7 +3660,7 @@ begin
 end;//TvcmCustomMenuManager.ListenerControlDestroying
 
 function TvcmCustomMenuManager.FillPopupMenu(const aPopupPoint: TPoint;
-  aPopupComponent: TComponent): TvcmPopupMenuPrim;
+ aPopupComponent: TComponent): TvcmPopupMenuPrim;
 //#UC START# *52A841C500C5_4B30EC81021A_var*
 var
  l_Point: TPoint;
@@ -4089,7 +3699,274 @@ begin
  f_Popup.Items.RethinkLines;
 //#UC END# *52A841C500C5_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.FillPopupMenu
-// start class TvcmEdit
+
+{$If NOT Defined(NoVCL)}
+procedure TvcmComboBoxActionLink.SetCaption(const Value: String);
+//#UC START# *508F991B003B_52A8477B0012_var*
+//#UC END# *508F991B003B_52A8477B0012_var*
+begin
+//#UC START# *508F991B003B_52A8477B0012_impl*
+ inherited;
+ if (FClient is TvcmComboBox) and (Action is TvcmOperationAction) then
+  TvcmComboBox(FClient).SetCaptionFromAction(TvcmOperationAction(Action), True);
+//#UC END# *508F991B003B_52A8477B0012_impl*
+end;//TvcmComboBoxActionLink.SetCaption
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TvcmComboBoxActionLink.DoParamsChanged(const anAction: IvcmAction);
+//#UC START# *52A8469903AF_52A8477B0012_var*
+//#UC END# *52A8469903AF_52A8477B0012_var*
+begin
+//#UC START# *52A8469903AF_52A8477B0012_impl*
+ inherited;
+ if (FClient is TvcmComboBox) then
+  with TvcmComboBox(FClient) do
+  begin
+   if (anAction.SubNodes <> nil) then
+    ShowRoot := anAction.SubNodes.ShowRoot;
+   SetStringsFromAction(anAction);
+   {$IfNDef DesignTimeLibrary}
+   if (anAction.SubNodes <> nil) then
+    vcmSetCurrent(anAction.SubNodes.Current);
+   {$EndIf  DesignTimeLibrary} 
+   Hint := vcmStr(anAction.Hint);
+  end;//with TvcmComboBox(FClient)
+//#UC END# *52A8469903AF_52A8477B0012_impl*
+end;//TvcmComboBoxActionLink.DoParamsChanged
+
+procedure TvcmComboBoxActionLink.DoParamsChanging(const anAction: IvcmAction);
+//#UC START# *52A846AF0108_52A8477B0012_var*
+//#UC END# *52A846AF0108_52A8477B0012_var*
+begin
+//#UC START# *52A846AF0108_52A8477B0012_impl*
+ inherited;
+ if (FClient is TvcmComboBox) then
+  if (anAction.SubNodes <> nil) then
+   with anAction.SubNodes do
+   begin
+    Current := TvcmComboBox(FClient).CurrentNode;
+    ShowRoot := TvcmComboBox(FClient).ShowRoot;
+   end;//anAction.SubNodes
+//#UC END# *52A846AF0108_52A8477B0012_impl*
+end;//TvcmComboBoxActionLink.DoParamsChanging
+
+procedure TvcmComboBox.SetCaptionFromAction(anAction: TvcmOperationAction;
+ anUpdateIndex: Boolean);
+//#UC START# *52A9AA140394_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9AA140394_52A045E102E3_var*
+begin
+//#UC START# *52A9AA140394_52A045E102E3_impl*
+ if not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo) then
+ begin
+  f_InUpdateCation := True;
+  try
+   if Supports(anAction, IvcmAction, l_Action) then
+   try
+    if not SetStringsFromAction(anAction) then
+    begin
+(*     {$IfNDef vcmUseComboTree}
+     Items.Clear;
+     Items.Add(vcmStr(l_Action.SelectedString));
+     if anUpdateIndex then
+      ItemIndex := Items.IndexOf(vcmStr(l_Action.SelectedString));
+     {$EndIf vcmUseComboTree}*)
+    end;//not SetStringsFromAction(anAction)
+   finally
+    l_Action := nil;
+   end;//try..finally
+  finally
+   f_InUpdateCation := False;
+  end;//try..finally
+ end;//not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo)
+//#UC END# *52A9AA140394_52A045E102E3_impl*
+end;//TvcmComboBox.SetCaptionFromAction
+
+function TvcmComboBox.SetStringsFromAction(const anAction: IvcmAction): Boolean;
+//#UC START# *52A9AA400220_52A045E102E3_var*
+var
+ l_Strings: IvcmStrings;
+//#UC END# *52A9AA400220_52A045E102E3_var*
+begin
+//#UC START# *52A9AA400220_52A045E102E3_impl*
+ Result := False;
+ l_Strings := anAction.SubItems;
+ if (l_Strings = nil) or (l_Strings.Count = 0) then
+ begin
+  Result := vcmSetRoot(anAction.SubNodes);
+  if (anAction.SubNodes = nil) or (anAction.SubNodes.Count = 0) then
+   if anAction.IsSelectedStringChanged then
+   //if not l3Same(Text, anAction.SelectedString) then
+    Text := anAction.SelectedString;
+ end//l_Strings = nil
+ else
+ begin
+  Result := True;
+  if (Action is TvcmOperationAction) and
+   (TvcmOperationAction(Action).OpDef.OperationType = vcm_otCombo) then
+  begin
+   Items.Assign(l_Strings.Items);
+   if not vcmIsNil(anAction.SelectedString) then
+    ItemIndex := Items.IndexOf(anAction.SelectedString);
+  end//anAction is TvcmOperationAction
+  else
+  begin
+   Items.Assign(l_Strings.Items);
+   if anAction.IsSelectedStringChanged then
+   begin
+    if not l3Same(Text, anAction.SelectedString) then
+    begin
+     Text := anAction.SelectedString;
+     //AdjustWidth;
+     //// ^ http://mdp.garant.ru/pages/viewpage.action?pageId=100958843
+     // КОСТЫЛЬ ПЕРЕЕХАЛ В TctButtonEdit.pm_SetText из - за K278854646
+    end;//not l3Same(Text, anAction.SelectedString)
+   end;//not vcmSame(f_SelectedString, anAction.SelectedString)
+  end;//anAction is TvcmOperationAction
+ end;//l_Strings = nil..
+//#UC END# *52A9AA400220_52A045E102E3_impl*
+end;//TvcmComboBox.SetStringsFromAction
+
+procedure TvcmComboBox.CMTBMouseQuery(var Msg: TMessage);
+//#UC START# *52A9A42D031B_52A045E102E3_var*
+//#UC END# *52A9A42D031B_52A045E102E3_var*
+begin
+//#UC START# *52A9A42D031B_52A045E102E3_impl*
+ if InnerPoint(Point(Integer(Msg.WParam), Integer(Msg.LParam)))
+  then Msg.Result := 1
+  else Msg.Result := 0;
+//#UC END# *52A9A42D031B_52A045E102E3_impl*
+end;//TvcmComboBox.CMTBMouseQuery
+
+procedure TvcmComboBox.CMTBCheckControl(var Msg: TMessage);
+//#UC START# *52A9A4500057_52A045E102E3_var*
+//#UC END# *52A9A4500057_52A045E102E3_var*
+begin
+//#UC START# *52A9A4500057_52A045E102E3_impl*
+ if IsInnerControl(HWND(Msg.WParam))
+  then Msg.Result := 1
+  else Msg.Result := 0;
+//#UC END# *52A9A4500057_52A045E102E3_impl*
+end;//TvcmComboBox.CMTBCheckControl
+
+constructor TvcmComboBox.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_52A045E102E3_var*
+//#UC END# *47D1602000C6_52A045E102E3_var*
+begin
+//#UC START# *47D1602000C6_52A045E102E3_impl*
+ inherited;
+ AutoWidth := awCurrent;
+//#UC END# *47D1602000C6_52A045E102E3_impl*
+end;//TvcmComboBox.Create
+
+{$If NOT Defined(NoVCL)}
+function TvcmComboBox.GetActionLinkClass: TControlActionLinkClass;
+//#UC START# *4F8845840032_52A045E102E3_var*
+//#UC END# *4F8845840032_52A045E102E3_var*
+begin
+//#UC START# *4F8845840032_52A045E102E3_impl*
+ Result := TvcmComboBoxActionLink;
+//#UC END# *4F8845840032_52A045E102E3_impl*
+end;//TvcmComboBox.GetActionLinkClass
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TvcmComboBox.ActionChange(Sender: TObject;
+ CheckDefaults: Boolean);
+//#UC START# *52A9A8710199_52A045E102E3_var*
+//#UC END# *52A9A8710199_52A045E102E3_var*
+begin
+//#UC START# *52A9A8710199_52A045E102E3_impl*
+ if (Sender is TvcmOperationAction) then
+  SetCaptionFromAction(TvcmOperationAction(Sender), False);
+ inherited;
+//#UC END# *52A9A8710199_52A045E102E3_impl*
+end;//TvcmComboBox.ActionChange
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TvcmComboBox.DropDown;
+//#UC START# *52A9A9B802B4_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9A9B802B4_52A045E102E3_var*
+begin
+//#UC START# *52A9A9B802B4_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  SetStringsFromAction(l_Action);
+  inherited;
+ finally
+  l_Action := nil;
+ end//try..finally
+ else
+  inherited;
+//#UC END# *52A9A9B802B4_52A045E102E3_impl*
+end;//TvcmComboBox.DropDown
+
+procedure TvcmComboBox.ActionExecuteHandler;
+//#UC START# *52A9AADF0289_52A045E102E3_var*
+var
+ l_LockCount: Integer;
+ l_Action: IvcmAction;
+
+ procedure lp_SaveLock;
+ begin
+  l_LockCount:=0;
+  while l_Action.IsExecuteLocked do
+  begin
+   l_Action.UnlockExecute;
+   Inc(l_LockCount);
+  end;//while l_Action.IsExecuteLocked do
+ end;//lp_SaveLock
+
+ procedure lp_RestoreLock;
+ begin
+  while l_LockCount > 0 do
+  begin
+   l_Action.LockExecute;
+   Dec(l_LockCount);
+  end;//while l_LockCount > 0 do
+ end;//lp_RestoreLock
+//#UC END# *52A9AADF0289_52A045E102E3_var*
+begin
+//#UC START# *52A9AADF0289_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  Action.ActionComponent := Self;
+  l_Action.SelectedString := Text;
+  l_Action.LockUpdate;
+  try
+   lp_SaveLock;
+   try
+    Action.Execute;
+   finally
+    lp_RestoreLock;
+   end;//try..finally
+  finally
+   l_Action.UnlockUpdate;
+  end;//try..finally
+ finally
+  l_Action := nil;
+ end;//try..finally
+//#UC END# *52A9AADF0289_52A045E102E3_impl*
+end;//TvcmComboBox.ActionExecuteHandler
+
+procedure TvcmComboBox.LocalUpdateAction;
+//#UC START# *52A9AAEA0068_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9AAEA0068_52A045E102E3_var*
+begin
+//#UC START# *52A9AAEA0068_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  l_Action.SelectedString := Text;
+ finally
+  l_Action := nil;
+ end;//try..finally
+//#UC END# *52A9AAEA0068_52A045E102E3_impl*
+end;//TvcmComboBox.LocalUpdateAction
 
 constructor TvcmEdit.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_52A9AB640217_var*
@@ -4104,8 +3981,8 @@ begin
 end;//TvcmEdit.Create
 
 function TvcmEdit.DoProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *48BD22E601F2_52A9AB640217_var*
 //#UC END# *48BD22E601F2_52A9AB640217_var*
 begin
@@ -4130,7 +4007,7 @@ begin
 //#UC END# *48BD22E601F2_52A9AB640217_impl*
 end;//TvcmEdit.DoProcessCommand
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmEdit.GetActionLinkClass: TControlActionLinkClass;
 //#UC START# *4F8845840032_52A9AB640217_var*
 //#UC END# *4F8845840032_52A9AB640217_var*
@@ -4139,11 +4016,11 @@ begin
  Result := TvcmEditActionLink;
 //#UC END# *4F8845840032_52A9AB640217_impl*
 end;//TvcmEdit.GetActionLinkClass
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmEdit.ActionChange(Sender: TObject;
-  CheckDefaults: Boolean);
+ CheckDefaults: Boolean);
 //#UC START# *52A9A8710199_52A9AB640217_var*
 var
  l_Action: IvcmAction;
@@ -4165,10 +4042,9 @@ begin
   inherited;
 //#UC END# *52A9A8710199_52A9AB640217_impl*
 end;//TvcmEdit.ActionChange
-{$IfEnd} //not NoVCL
-// start class TvcmDateEditActionLink
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmDateEditActionLink.IsCaptionLinked: Boolean;
 //#UC START# *508F983B0344_52A9AF9703DC_var*
 //#UC END# *508F983B0344_52A9AF9703DC_var*
@@ -4179,7 +4055,7 @@ begin
   //   меняться, значение же хранится в параметре SelectedString (K<50758978>);
 //#UC END# *508F983B0344_52A9AF9703DC_impl*
 end;//TvcmDateEditActionLink.IsCaptionLinked
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvcmDateEditActionLink.DoParamsChanged(const anAction: IvcmAction);
 //#UC START# *52A8469903AF_52A9AF9703DC_var*
@@ -4214,7 +4090,7 @@ begin
 //#UC END# *47D1602000C6_52A9ABFF02E0_impl*
 end;//TvcmDateEdit.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmDateEdit.GetActionLinkClass: TControlActionLinkClass;
 //#UC START# *4F8845840032_52A9ABFF02E0_var*
 //#UC END# *4F8845840032_52A9ABFF02E0_var*
@@ -4223,11 +4099,11 @@ begin
  Result := TvcmDateEditActionLink;
 //#UC END# *4F8845840032_52A9ABFF02E0_impl*
 end;//TvcmDateEdit.GetActionLinkClass
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmDateEdit.ActionChange(Sender: TObject;
-  CheckDefaults: Boolean);
+ CheckDefaults: Boolean);
 //#UC START# *52A9A8710199_52A9ABFF02E0_var*
 var
  l_Action: IvcmAction;
@@ -4250,7 +4126,7 @@ begin
  end;//try..finally
 //#UC END# *52A9A8710199_52A9ABFF02E0_impl*
 end;//TvcmDateEdit.ActionChange
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvcmDateEdit.DoCloseUp(Accept: Boolean);
 //#UC START# *52A9AF500143_52A9ABFF02E0_var*
@@ -4262,32 +4138,6 @@ begin
   f_OnSelectDate(Self);
 //#UC END# *52A9AF500143_52A9ABFF02E0_impl*
 end;//TvcmDateEdit.DoCloseUp
-
-// start class TvcmMenuManagerHelper
-
-var g_TvcmMenuManagerHelper : TvcmMenuManagerHelper = nil;
-
-procedure TvcmMenuManagerHelperFree;
-begin
- l3Free(g_TvcmMenuManagerHelper);
-end;
-
-class function TvcmMenuManagerHelper.Instance: TvcmMenuManagerHelper;
-begin
- if (g_TvcmMenuManagerHelper = nil) then
- begin
-  l3System.AddExitProc(TvcmMenuManagerHelperFree);
-  g_TvcmMenuManagerHelper := Create;
- end;
- Result := g_TvcmMenuManagerHelper;
-end;
-
-
-class function TvcmMenuManagerHelper.Exists: Boolean;
- {-}
-begin
- Result := g_TvcmMenuManagerHelper <> nil;
-end;//TvcmMenuManagerHelper.Exists
 
 function TvcmMenuManagerHelper.CreateManager: Boolean;
 //#UC START# *9CBAC5378D28_55019B3B011B_var*
@@ -4313,31 +4163,22 @@ begin
 //#UC END# *FFCD4B7E45D8_55019B3B011B_impl*
 end;//TvcmMenuManagerHelper.FreeManager
 
-// start class TvcmDispatcherHelper
-
-var g_TvcmDispatcherHelper : TvcmDispatcherHelper = nil;
-
-procedure TvcmDispatcherHelperFree;
+class function TvcmMenuManagerHelper.Instance: TvcmMenuManagerHelper;
+ {* Метод получения экземпляра синглетона TvcmMenuManagerHelper }
 begin
- l3Free(g_TvcmDispatcherHelper);
-end;
-
-class function TvcmDispatcherHelper.Instance: TvcmDispatcherHelper;
-begin
- if (g_TvcmDispatcherHelper = nil) then
+ if (g_TvcmMenuManagerHelper = nil) then
  begin
-  l3System.AddExitProc(TvcmDispatcherHelperFree);
-  g_TvcmDispatcherHelper := Create;
+  l3System.AddExitProc(TvcmMenuManagerHelperFree);
+  g_TvcmMenuManagerHelper := Create;
  end;
- Result := g_TvcmDispatcherHelper;
-end;
+ Result := g_TvcmMenuManagerHelper;
+end;//TvcmMenuManagerHelper.Instance
 
-
-class function TvcmDispatcherHelper.Exists: Boolean;
- {-}
+class function TvcmMenuManagerHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TvcmDispatcherHelper <> nil;
-end;//TvcmDispatcherHelper.Exists
+ Result := g_TvcmMenuManagerHelper <> nil;
+end;//TvcmMenuManagerHelper.Exists
 
 procedure TvcmDispatcherHelper.ClearHistory;
 //#UC START# *CA1F3F463873_5501A60D002E_var*
@@ -4349,60 +4190,68 @@ begin
    vcmDispatcher.History.Clear(false);
 //#UC END# *CA1F3F463873_5501A60D002E_impl*
 end;//TvcmDispatcherHelper.ClearHistory
+
+class function TvcmDispatcherHelper.Instance: TvcmDispatcherHelper;
+ {* Метод получения экземпляра синглетона TvcmDispatcherHelper }
+begin
+ if (g_TvcmDispatcherHelper = nil) then
+ begin
+  l3System.AddExitProc(TvcmDispatcherHelperFree);
+  g_TvcmDispatcherHelper := Create;
+ end;
+ Result := g_TvcmDispatcherHelper;
+end;//TvcmDispatcherHelper.Instance
+
+class function TvcmDispatcherHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TvcmDispatcherHelper <> nil;
+end;//TvcmDispatcherHelper.Exists
+
 type _Instance_R_ = TvcmToolbarDefList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
-
 //#UC START# *4B30EC67025Aimpl*
 //#UC END# *4B30EC67025Aimpl*
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmFakeBox
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmFakeBox);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmDockContainer
+ {* Регистрация TvcmFakeBox }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmDockContainer);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmToolButtonDef
+ {* Регистрация TvcmDockContainer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmToolButtonDef);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmComboBox
+ {* Регистрация TvcmToolButtonDef }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmComboBox);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmEdit
+ {* Регистрация TvcmComboBox }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmEdit);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmDateEdit
+ {* Регистрация TvcmEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmDateEdit);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoVCM)}
-// Регистрация TvcmMenuManagerHelper
+ {* Регистрация TvcmDateEdit }
+{$IfEnd} // NOT Defined(NoScripts)
  Tl3MenuManagerHelper.Instance.Alien := TvcmMenuManagerHelper.Instance;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-// Регистрация TvcmDispatcherHelper
+ {* Регистрация TvcmMenuManagerHelper }
  Tl3DispatcherHelper.Instance.Alien := TvcmDispatcherHelper.Instance;
-{$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
+ {* Регистрация TvcmDispatcherHelper }
 //#UC START# *52AB0BCD033E*
  g_InternalButton := TvcmToolButtonDef.Create(nil);
 //#UC END# *52AB0BCD033E*
-{$IfEnd} //not NoVCM
 
 finalization
-{$If not defined(NoVCM)}
 //#UC START# *52AB0BD60025*
  vcmFree(g_InternalButton);
 //#UC END# *52AB0BD60025*
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

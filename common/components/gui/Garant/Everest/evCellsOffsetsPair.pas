@@ -13,6 +13,7 @@ uses
  , l3ProtoObject
  , evCellsCharOffsets
  , edCellTypesList
+ , evEditorInterfacesTypes
  , evEditorInterfaces
 ;
 

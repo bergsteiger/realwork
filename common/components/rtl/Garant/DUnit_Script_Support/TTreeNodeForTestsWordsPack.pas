@@ -20,10 +20,10 @@ implementation
 uses
  l3ImplUses
  , ComCtrls
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , FolderSupport
  , SysUtils
  , tfwTypeRegistrator
@@ -31,12 +31,6 @@ uses
 ;
 
 type
- TTTreeNodeForTestsWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TTTreeNodeForTestsWordsPackResNameGetter
-
  TkwPopTreeNodeIsNodeFolder = {final} class(TtfwClassLike)
   {* Слово скрипта pop:TreeNode:IsNodeFolder
 *Тип результата:* Boolean
@@ -58,12 +52,11 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTreeNodeIsNodeFolder
 
-class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'TTreeNodeForTestsWordsPack';
-end;//TTTreeNodeForTestsWordsPackResNameGetter.ResName
-
- {$R TTreeNodeForTestsWordsPack.res}
+ TTTreeNodeForTestsWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TTTreeNodeForTestsWordsPackResNameGetter
 
 function TkwPopTreeNodeIsNodeFolder.IsNodeFolder(const aCtx: TtfwContext;
  aTreeNode: TTreeNode): Boolean;
@@ -111,11 +104,18 @@ begin
  Result := 'pop:TreeNode:IsNodeFolder';
 end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
 
+class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'TTreeNodeForTestsWordsPack';
+end;//TTTreeNodeForTestsWordsPackResNameGetter.ResName
+
+ {$R TTreeNodeForTestsWordsPack.res}
+
 initialization
- TTTreeNodeForTestsWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopTreeNodeIsNodeFolder.RegisterInEngine;
  {* Регистрация pop_TreeNode_IsNodeFolder }
+ TTTreeNodeForTestsWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));

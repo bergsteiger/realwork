@@ -52,7 +52,7 @@ uses
 
 type
  TnevControlFriend = {abstract} class(TnevControl)
-  {* Друг для TnevControl }
+  {* Друг к классу TnevControl }
  end;//TnevControlFriend
 
 procedure TkwPopEditorCursorCoordsToScreen.Cleanup;

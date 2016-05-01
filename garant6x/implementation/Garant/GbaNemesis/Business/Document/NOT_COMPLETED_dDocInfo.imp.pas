@@ -20,45 +20,45 @@ type
    f_RespType: IbsFrozenNode;
    f_CorrType: IbsFrozenNode;
    f_dsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsSimilarDocumentsToFragmentRef }
+    {* Ссылка на "dsSimilarDocumentsToFragment" }
    f_IsUnderControl: Tl3Bool;
-    {* Поле для свойства IsUnderControl }
+    {* поставлен ли документ на контроль }
    f_dsAnnotationRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsAnnotationRef }
+    {* Ссылка на "аннотация к документу" }
    f_FlashData: IExternalObject;
-    {* Поле для свойства FlashData }
+    {* данные ролика }
    f_dsCorrespondentsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsCorrespondentsRef }
+    {* Ссылка на "БОФ корреспонденты документа" }
    f_HasTranslation: Tl3Bool;
-    {* Поле для свойства HasTranslation }
+    {* Есть ли "БОФ перевода документа" }
    f_HasSimilarDocuments: Tl3Bool;
-    {* Поле для свойства HasSimilarDocuments }
+    {* Есть ли "БОФ похожие документы" }
    f_dsRelatedDocRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsRelatedDocRef }
+    {* Ссылка на "справка к документу" }
    f_dsUserCR2Ref: IvcmFormDataSourceRef;
-    {* Поле для свойства dsUserCR2Ref }
+    {* Ссылка на "БОФ пользовательский СКР2" }
    f_HasAnnotation: Tl3Bool;
-    {* Поле для свойства HasAnnotation }
+    {* Есть ли "аннотация к документу" }
    f_HasChronology: Tl3Bool;
-    {* Поле для свойства HasChronology }
+    {* Есть ли "Хронология судебного дела" }
    f_HasCorrespondents: Tl3Bool;
-    {* Поле для свойства HasCorrespondents }
+    {* Есть ли "БОФ корреспонденты документа" }
    f_HasRelatedDoc: Tl3Bool;
-    {* Поле для свойства HasRelatedDoc }
+    {* Есть ли "справка к документу" }
    f_dsRespondentsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsRespondentsRef }
+    {* Ссылка на "БОФ респонденты документа" }
    f_dsChronologyRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsChronologyRef }
+    {* Ссылка на "Хронология судебного дела" }
    f_dsDocumentWithFlashRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsDocumentWithFlashRef }
+    {* Ссылка на "документ-схема" }
    f_HasRespondents: Tl3Bool;
-    {* Поле для свойства HasRespondents }
+    {* Есть ли "БОФ респонденты документа" }
    f_dsTranslationRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsTranslationRef }
+    {* Ссылка на "БОФ перевода документа" }
    f_dsSimilarDocumentsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsSimilarDocumentsRef }
+    {* Ссылка на "БОФ похожие документы" }
    f_dsUserCR1Ref: IvcmFormDataSourceRef;
-    {* Поле для свойства dsUserCR1Ref }
+    {* Ссылка на "БОФ пользовательский СКР1" }
   protected
    function pm_GetdsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
    function pm_GetIsUnderControl: Tl3Bool;
@@ -569,7 +569,7 @@ begin
  f_RespType := nil;
  f_dsSimilarDocumentsToFragmentRef := nil;
  f_dsAnnotationRef := nil;
- f_FlashData := nil;
+ FlashData := nil;
  f_dsCorrespondentsRef := nil;
  f_dsRelatedDocRef := nil;
  f_dsUserCR2Ref := nil;

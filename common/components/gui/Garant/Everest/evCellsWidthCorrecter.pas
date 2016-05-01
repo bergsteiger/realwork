@@ -20,6 +20,7 @@ uses
  , evCellsOffsetsList
  , nevBase
  , l3Interfaces
+ , evEditorInterfacesTypes
 ;
 
 type

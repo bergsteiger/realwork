@@ -20,24 +20,18 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , TypInfo
  , tfwGlobalKeyWord
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TITestWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TITestWordsPackResNameGetter
-
  TkwPopTestName = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Test:Name
 *Тип результата:* String
@@ -150,12 +144,11 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwTestShouldStop
 
-class function TITestWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'ITestWordsPack';
-end;//TITestWordsPackResNameGetter.ResName
-
- {$R ITestWordsPack.res}
+ TITestWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TITestWordsPackResNameGetter
 
 function TkwPopTestName.Name(const aCtx: TtfwContext;
  const aTest: ITest): AnsiString;
@@ -388,9 +381,14 @@ begin
  Result := 'test:ShouldStop';
 end;//TkwTestShouldStop.GetWordNameForRegister
 
+class function TITestWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'ITestWordsPack';
+end;//TITestWordsPackResNameGetter.ResName
+
+ {$R ITestWordsPack.res}
+
 initialization
- TITestWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopTestName.RegisterInEngine;
  {* Регистрация pop_Test_Name }
  TkwPopTestEnabled.RegisterInEngine;
@@ -401,6 +399,8 @@ initialization
  {* Регистрация pop_Test_HasScriptChildren }
  TkwTestShouldStop.RegisterInEngine;
  {* Регистрация test_ShouldStop }
+ TITestWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ITest));

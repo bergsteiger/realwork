@@ -30,6 +30,7 @@ type
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
     const anIDFieldName: AnsiString;
+    aDataSize: Integer;
     const aNameFieldName: AnsiString);
    procedure FillAllUsers(aList: Tl3StringDataList);
    procedure FillAllGroups(aList: Tl3StringDataList);
@@ -44,9 +45,10 @@ type
    function Get_AllUsers: Tl3StringDataList;
    function Get_AllGroups: Tl3StringDataList;
    function GetUserName(anUserID: TdaUserID): AnsiString;
-   function GetUserPriorities(aGrouId: TdaUserID;
+   function GetUserPriorities(aGroupId: TdaUserID;
     var aImportPriority: TdaPriority;
     var aExportPriority: TdaPriority): Boolean;
+   procedure ReSortUserList;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -103,6 +105,7 @@ end;//TpgUserManager.Make
 procedure TpgUserManager.FillListByResultSet(aList: Tl3StringDataList;
  const aResultSet: IdaResultSet;
  const anIDFieldName: AnsiString;
+ aDataSize: Integer;
  const aNameFieldName: AnsiString);
 //#UC START# *57172C740069_5629FC88034B_var*
 var
@@ -324,7 +327,7 @@ begin
 //#UC END# *5718B5CF0399_5629FC88034B_impl*
 end;//TpgUserManager.GetUserName
 
-function TpgUserManager.GetUserPriorities(aGrouId: TdaUserID;
+function TpgUserManager.GetUserPriorities(aGroupId: TdaUserID;
  var aImportPriority: TdaPriority;
  var aExportPriority: TdaPriority): Boolean;
 //#UC START# *571DCFB50217_5629FC88034B_var*
@@ -334,6 +337,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *571DCFB50217_5629FC88034B_impl*
 end;//TpgUserManager.GetUserPriorities
+
+procedure TpgUserManager.ReSortUserList;
+//#UC START# *5721F5E60367_5629FC88034B_var*
+//#UC END# *5721F5E60367_5629FC88034B_var*
+begin
+//#UC START# *5721F5E60367_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5721F5E60367_5629FC88034B_impl*
+end;//TpgUserManager.ReSortUserList
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

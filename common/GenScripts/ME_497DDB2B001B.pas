@@ -4504,6 +4504,7 @@ end;//TPrimListForm.PageActive
 procedure TPrimListForm.ClearFields;
 begin
  f_SortTypeMap := nil;
+ f_SearchContext := nil;
  inherited;
 end;//TPrimListForm.ClearFields
 

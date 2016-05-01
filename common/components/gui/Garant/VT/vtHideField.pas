@@ -1,167 +1,150 @@
 unit vtHideField;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/vtHideField.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::HideFields::TvtHideField
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\vtHideField.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvtHideField" MUID: (4E732D7F0082)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  afwInterfaces,
-  Types,
-  Messages,
-  Classes,
-  evTypes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwTextControl
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  afwTypes,
-  l3InternalInterfaces
-  ;
-
-type
- ThfOption = (
-   hfoCanHide
- , hfoHyperlink
- );//ThfOption
-
- ThfState = (
-   hfsHide
- , hfsShow
- );//ThfState
-
- ThfOptions = set of ThfOption;
-
- ThfValidateStateEvent = procedure (aSender: TObject;
-  var theState: ThfState) of object;
+ l3IntfUses
+ , l3Interfaces
+ , afwTextControl
+ , afwInterfaces
+ , evTypes
+ , Classes
+ , vtHideFieldTypes
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+ , Messages
+ , afwTypes
+ , l3InternalInterfaces
+ //#UC START# *4E732D7F0082intf_uses*
+ //#UC END# *4E732D7F0082intf_uses*
+;
 
 const
-  { vtHideFields Constants }
+ {* Алиасы для значений vtHideFieldTypes.ThfOption }
+ hfoCanHide = vtHideFieldTypes.hfoCanHide;
+ hfoHyperlink = vtHideFieldTypes.hfoHyperlink;
+
+const
  c_hfTopImageIndent = 5;
-  { отступ иконки сверху по умолчанию }
+  {* отступ иконки сверху по умолчанию }
  c_hfWidth = 150;
-  { ширина по умолчанию }
+  {* ширина по умолчанию }
  c_hfHeight = 100;
-  { высота по умолчанию }
+  {* высота по умолчанию }
  c_hfHeaderColor = clNavy;
-  { цвет по умолчанию для заголовка }
+  {* цвет по умолчанию для заголовка }
+ cDefaultHeight = 20;
+ cDefaultOptions = [hfoCanHide, hfoHyperlink];
 
 type
- ThfCommandEvent = function (aSender: TObject;
+ ThfState = (
+  hfsHide
+  , hfsShow
+ );//ThfState
+
+ ThfValidateStateEvent = procedure(aSender: TObject;
+  var theState: ThfState) of object;
+
+ ThfCommandEvent = function(aSender: TObject;
   aOperation: Tl3OperationCode): Boolean of object;
 
- TvtCustomHideField = class(TafwTextControl {$If not defined(DesignTimeLibrary)}, IafwStyleTableSpy{$IfEnd} //not DesignTimeLibrary
+ TvtCustomHideField = class(TafwTextControl{$If NOT Defined(DesignTimeLibrary)}
+ , IafwStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
  )
- private
- // private fields
-   f_HeaderChangeLink : TChangeLink;
-   f_ButtonChangeLink : TChangeLink;
-   f_DownPoint : TPoint;
-   f_OnNeedProcessCommand : ThfCommandEvent;
-    {* Поле для свойства OnNeedProcessCommand}
-   f_StyleId : TevStyleId;
-    {* Поле для свойства StyleId}
-   f_OnValidateStateChanged : ThfValidateStateEvent;
-    {* Поле для свойства OnValidateStateChanged}
-   f_OnStateChanged : TNotifyEvent;
-    {* Поле для свойства OnStateChanged}
-   f_ShowHeight : Integer;
-    {* Поле для свойства ShowHeight}
-   f_TopHeaderIndent : Integer;
-    {* Поле для свойства TopHeaderIndent}
-   f_AfterClientSpace : Integer;
-    {* Поле для свойства AfterClientSpace}
-   f_BeforeClientSpace : Integer;
-    {* Поле для свойства BeforeClientSpace}
-   f_OnHyperlinkClick : TNotifyEvent;
-    {* Поле для свойства OnHyperlinkClick}
-   f_Options : ThfOptions;
-    {* Поле для свойства Options}
-   f_ClientIndent : Integer;
-    {* Поле для свойства ClientIndent}
-   f_HeaderColor : TColor;
-    {* Поле для свойства HeaderColor}
-   f_ButtonImageList : TCustomImageList;
-    {* Поле для свойства ButtonImageList}
-   f_ButtonOpenImage : TImageIndex;
-    {* Поле для свойства ButtonOpenImage}
-   f_ButtonCloseImage : TImageIndex;
-    {* Поле для свойства ButtonCloseImage}
-   f_HeaderImage : TImageIndex;
-    {* Поле для свойства HeaderImage}
-   f_CaptionIndent : Integer;
-    {* Поле для свойства CaptionIndent}
-   f_LeftImageIndent : Integer;
-    {* Поле для свойства LeftImageIndent}
-   f_TopImageIndent : Integer;
-    {* Поле для свойства TopImageIndent}
-   f_LeftHeaderIndent : Integer;
-    {* Поле для свойства LeftHeaderIndent}
-   f_Images : TCustomImageList;
-    {* Поле для свойства Images}
-   f_ClientControl : TWinControl;
-    {* Поле для свойства ClientControl}
-   f_State : ThfState;
-    {* Поле для свойства State}
- private
- // private methods
+  private
+   f_HeaderChangeLink: TChangeLink;
+   f_ButtonChangeLink: TChangeLink;
+   f_DownPoint: TPoint;
+   f_OnNeedProcessCommand: ThfCommandEvent;
+   f_StyleId: TevStyleId;
+    {* default evd_saGUI }
+   f_OnValidateStateChanged: ThfValidateStateEvent;
+   f_OnStateChanged: TNotifyEvent;
+   f_ShowHeight: Integer;
+   f_TopHeaderIndent: Integer;
+    {* default 0 }
+   f_AfterClientSpace: Integer;
+    {* default 0 }
+   f_BeforeClientSpace: Integer;
+   f_OnHyperlinkClick: TNotifyEvent;
+   f_Options: ThfOptions;
+    {* stored IsOptionsStored }
+   f_ClientIndent: Integer;
+   f_HeaderColor: TColor;
+   f_ButtonImageList: TCustomImageList;
+    {* imagelist с иконками для кнопки }
+   f_ButtonOpenImage: TImageIndex;
+    {* default -1
+кнопка для разворачивания заголовка }
+   f_ButtonCloseImage: TImageIndex;
+    {* default -1
+кнопка для сворачивания заголовка }
+   f_HeaderImage: TImageIndex;
+    {* default -1
+иконка заголовка }
+   f_CaptionIndent: Integer;
+    {* default 0
+отступ названия заголовка }
+   f_LeftImageIndent: Integer;
+    {* default 0
+отступ слева иконки }
+   f_TopImageIndent: Integer;
+    {* default c_hfTopImageIndent
+отступ иконки сверху }
+   f_LeftHeaderIndent: Integer;
+    {* default 0
+отступ слева заголовка, на котором находится гипперссылка и кнопка }
+   f_Images: TCustomImageList;
+   f_ClientControl: TWinControl;
+   f_State: ThfState;
+    {* состояние списка (скрыт/раскрыт) }
+  private
    procedure DoHyperlink;
-     {* Сигнатура метода DoHyperlink }
    procedure OnImageListChange(Sender: TObject);
    procedure ExchangeState;
-     {* поменять состояние }
+    {* поменять состояние }
    function GetHeaderLineRect: TRect;
-     {* высота заголовка, содержащего гипперссылку и кнопку }
+    {* высота заголовка, содержащего гипперссылку и кнопку }
    function GetHeaderLineHeight: Integer;
-     {* высота линии содержащей гиперссылку и кнопку }
+    {* высота линии содержащей гиперссылку и кнопку }
    function GetImageRect: TRect;
-     {* возвращает положение иконки }
+    {* возвращает положение иконки }
    function GetImageTop: Integer;
-     {* верхняя точка иконки }
+    {* верхняя точка иконки }
    procedure Rebuild;
-     {* изменился один из параметров, нужно изменеить высоту и перерисовать }
+    {* изменился один из параметров, нужно изменеить высоту и перерисовать }
    procedure MakeHideHeight;
-     {* установить размер для свернутого состояния }
-    {$If not defined(DesignTimeLibrary)}
+    {* установить размер для свернутого состояния }
+   {$If NOT Defined(DesignTimeLibrary)}
    function IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
-    {$IfEnd} //not DesignTimeLibrary
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure CMControlChange(var Message: TMessage); message CM_CONTROLCHANGE;
    procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
    procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
    procedure CMFontChanged(var Message: TMessage); message CM_FONTCHANGED;
    procedure WMKillFocus(var Message: TMessage); message WM_KILLFOCUS;
    procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure WMSysKeyDown(var Msg: TWMSysKeyDown); message WM_SYSKEYDOWN;
-   {$IfEnd} //not DesignTimeLibrary
-   {$If not defined(DesignTimeLibrary)}
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure CNKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // property methods
-   procedure pm_SetStyleId(aValue: TevStyleId);
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  protected
+   procedure pm_SetStyleId(const aValue: TevStyleId);
    procedure pm_SetShowHeight(aValue: Integer);
    function pm_GetHeaderHeight: Integer;
    procedure pm_SetTopHeaderIndent(aValue: Integer);
@@ -183,172 +166,158 @@ type
    procedure pm_SetState(aValue: ThfState);
    function pm_GetCaptionRect: TRect;
    function pm_GetHeaderRect: TRect;
- protected
- // realized methods
-  {$If not defined(DesignTimeLibrary)}
+   procedure DoStateChanged; virtual;
+   function CheckImage(aImages: TCustomImageList;
+    aImageIndex: Integer): Boolean;
+    {* проверяет установлен ли imagelist и не выходит ли за пределы диапазона индекс. }
+   procedure DoStyleTableChanged; virtual;
+   procedure HideControl; virtual;
+   function OptionsStored: Boolean;
+    {* "Функция определяющая, что свойство Options сохраняется" }
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure StyleTableChanged;
-     {* таблица стилей изменилась. }
-  {$IfEnd} //not DesignTimeLibrary
- protected
- // overridden protected methods
+    {* таблица стилей изменилась. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetCommands: TafwCommands; override;
    function DoProcessCommand(Cmd: Tl3OperationCode;
-   aForce: Boolean;
-   aCount: Integer): Boolean; override;
+    aForce: Boolean;
+    aCount: Integer): Boolean; override;
    procedure Paint(const CN: Il3Canvas); override;
-     {* процедура рисования внешнего вида управляющего элемента }
-  {$If not defined(NoVCL)}
+    {* процедура рисования внешнего вида управляющего элемента }
+   {$If NOT Defined(NoVCL)}
    procedure MouseMove(Shift: TShiftState;
-   X: Integer;
-   Y: Integer); override;
-  {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+    X: Integer;
+    Y: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure MouseUp(Button: TMouseButton;
     Shift: TShiftState;
     X: Integer;
     Y: Integer); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure MouseDown(Button: TMouseButton;
     Shift: TShiftState;
     X: Integer;
     Y: Integer); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure AdjustClientRect(var Rect: TRect); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   procedure DoStateChanged; virtual;
-     {* Сигнатура метода DoStateChanged }
-   function CheckImage(aImages: TCustomImageList;
-     aImageIndex: Integer): Boolean;
-     {* проверяет установлен ли imagelist и не выходит ли за пределы диапазона индекс. }
-   procedure DoStyleTableChanged; virtual;
-     {* Сигнатура метода DoStyleTableChanged }
-   procedure HideControl; virtual;
-     {* Сигнатура метода HideControl }
-   function OptionsStored: Boolean;
-     {* "Функция определяющая, что свойство Options сохраняется" }
- protected
- // protected properties
+  protected
    property CaptionRect: TRect
-     read pm_GetCaptionRect;
+    read pm_GetCaptionRect;
    property HeaderRect: TRect
-     read pm_GetHeaderRect;
- public
- // public properties
+    read pm_GetHeaderRect;
+  public
    property OnNeedProcessCommand: ThfCommandEvent
-     read f_OnNeedProcessCommand
-     write f_OnNeedProcessCommand;
+    read f_OnNeedProcessCommand
+    write f_OnNeedProcessCommand;
    property StyleId: TevStyleId
-     read f_StyleId
-     write pm_SetStyleId;
-     {* default evd_saGUI }
+    read f_StyleId
+    write pm_SetStyleId;
+    {* default evd_saGUI }
    property OnValidateStateChanged: ThfValidateStateEvent
-     read f_OnValidateStateChanged
-     write f_OnValidateStateChanged;
+    read f_OnValidateStateChanged
+    write f_OnValidateStateChanged;
    property OnStateChanged: TNotifyEvent
-     read f_OnStateChanged
-     write f_OnStateChanged;
+    read f_OnStateChanged
+    write f_OnStateChanged;
    property ShowHeight: Integer
-     read f_ShowHeight
-     write pm_SetShowHeight;
+    read f_ShowHeight
+    write pm_SetShowHeight;
    property HeaderHeight: Integer
-     read pm_GetHeaderHeight;
+    read pm_GetHeaderHeight;
    property TopHeaderIndent: Integer
-     read f_TopHeaderIndent
-     write pm_SetTopHeaderIndent;
-     {* default 0 }
+    read f_TopHeaderIndent
+    write pm_SetTopHeaderIndent;
+    {* default 0 }
    property AfterClientSpace: Integer
-     read f_AfterClientSpace
-     write pm_SetAfterClientSpace;
-     {* default 0 }
+    read f_AfterClientSpace
+    write pm_SetAfterClientSpace;
+    {* default 0 }
    property BeforeClientSpace: Integer
-     read f_BeforeClientSpace
-     write pm_SetBeforeClientSpace;
+    read f_BeforeClientSpace
+    write pm_SetBeforeClientSpace;
    property OnHyperlinkClick: TNotifyEvent
-     read f_OnHyperlinkClick
-     write f_OnHyperlinkClick;
+    read f_OnHyperlinkClick
+    write f_OnHyperlinkClick;
    property Options: ThfOptions
-     read f_Options
-     write pm_SetOptions
-     stored OptionsStored;
-     {* stored IsOptionsStored }
+    read f_Options
+    write pm_SetOptions
+    stored OptionsStored;
+    {* stored IsOptionsStored }
    property ClientIndent: Integer
-     read f_ClientIndent
-     write pm_SetClientIndent;
+    read f_ClientIndent
+    write pm_SetClientIndent;
    property HeaderColor: TColor
-     read f_HeaderColor
-     write pm_SetHeaderColor;
+    read f_HeaderColor
+    write pm_SetHeaderColor;
    property ButtonImageList: TCustomImageList
-     read f_ButtonImageList
-     write pm_SetButtonImageList;
-     {* imagelist с иконками для кнопки }
+    read f_ButtonImageList
+    write pm_SetButtonImageList;
+    {* imagelist с иконками для кнопки }
    property ButtonOpenImage: TImageIndex
-     read f_ButtonOpenImage
-     write pm_SetButtonOpenImage;
-     {* default -1
+    read f_ButtonOpenImage
+    write pm_SetButtonOpenImage;
+    {* default -1
 кнопка для разворачивания заголовка }
    property ButtonCloseImage: TImageIndex
-     read f_ButtonCloseImage
-     write pm_SetButtonCloseImage;
-     {* default -1
+    read f_ButtonCloseImage
+    write pm_SetButtonCloseImage;
+    {* default -1
 кнопка для сворачивания заголовка }
    property HeaderImage: TImageIndex
-     read f_HeaderImage
-     write pm_SetHeaderImage;
-     {* default -1
+    read f_HeaderImage
+    write pm_SetHeaderImage;
+    {* default -1
 иконка заголовка }
    property CaptionIndent: Integer
-     read f_CaptionIndent
-     write pm_SetCaptionIndent;
-     {* default 0
+    read f_CaptionIndent
+    write pm_SetCaptionIndent;
+    {* default 0
 отступ названия заголовка }
    property LeftImageIndent: Integer
-     read f_LeftImageIndent
-     write pm_SetLeftImageIndent;
-     {* default 0
+    read f_LeftImageIndent
+    write pm_SetLeftImageIndent;
+    {* default 0
 отступ слева иконки }
    property TopImageIndent: Integer
-     read f_TopImageIndent
-     write pm_SetTopImageIndent;
-     {* default c_hfTopImageIndent
+    read f_TopImageIndent
+    write pm_SetTopImageIndent;
+    {* default c_hfTopImageIndent
 отступ иконки сверху }
    property LeftHeaderIndent: Integer
-     read f_LeftHeaderIndent
-     write pm_SetLeftHeaderIndent;
-     {* default 0
+    read f_LeftHeaderIndent
+    write pm_SetLeftHeaderIndent;
+    {* default 0
 отступ слева заголовка, на котором находится гипперссылка и кнопка }
    property Images: TCustomImageList
-     read f_Images
-     write pm_SetImages;
+    read f_Images
+    write pm_SetImages;
    property ClientControl: TWinControl
-     read f_ClientControl
-     write pm_SetClientControl;
+    read f_ClientControl
+    write pm_SetClientControl;
    property State: ThfState
-     read f_State
-     write pm_SetState;
-     {* состояние списка (скрыт/раскрыт) }
+    read f_State
+    write pm_SetState;
+    {* состояние списка (скрыт/раскрыт) }
  end;//TvtCustomHideField
 
-const
-  { vtHideFields Private Constants }
- cDefaultHeight = 20;
- cDefaultOptions = [hfoCanHide, hfoHyperlink];
+ ThfOption = vtHideFieldTypes.ThfOption;
 
-type
-//#UC START# *4E732D7F0082ci*
-//#UC END# *4E732D7F0082ci*
-//#UC START# *4E732D7F0082cit*
-//#UC END# *4E732D7F0082cit*
+ ThfOptions = vtHideFieldTypes.ThfOptions;
+
+ //#UC START# *4E732D7F0082ci*
+ //#UC END# *4E732D7F0082ci*
+ //#UC START# *4E732D7F0082cit*
+ //#UC END# *4E732D7F0082cit*
  TvtHideField = class(TvtCustomHideField)
-//#UC START# *4E732D7F0082publ*
+ //#UC START# *4E732D7F0082publ*
   published
     property Align;
     property Caption;
@@ -376,262 +345,47 @@ type
   published
     property OnHyperlinkClick;
     property OnStateChanged;
-//#UC END# *4E732D7F0082publ*
+ //#UC END# *4E732D7F0082publ*
  end;//TvtHideField
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  vtHideFieldWords
-  {$IfEnd} //not NoScripts
-  ,
-  vtHideFieldUtils,
-  Windows,
-  l3ScreenIC,
-  l3String,
-  l3Base,
-  l3MinMax,
-  afwFacade,
-  evStyleInterface,
-  TextPara_Const
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  evdTextStyle_Const,
-  OvcCmd,
-  OvcConst,
-  l3Units
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , vtHideFieldUtils
+ , Windows
+ , l3ScreenIC
+ , l3String
+ , l3Base
+ , l3MinMax
+ , afwFacade
+ , evStyleInterface
+ , TextPara_Const
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , evdTextStyle_Const
+ , OvcCmd
+ , OvcConst
+ , l3Units
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtHideFieldWords
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4E732D7F0082impl_uses*
+ //#UC END# *4E732D7F0082impl_uses*
+;
 
 const
-   { nscHideFieldConsts }
-  cstidState = 'State';
-   { идентификатор настройки для состояния }
+ cstidState = 'State';
+  {* идентификатор настройки для состояния }
 
-// start class TvtCustomHideField
-
-procedure TvtCustomHideField.DoHyperlink;
-//#UC START# *5110E8D4004F_4E732D8B0291_var*
-//#UC END# *5110E8D4004F_4E732D8B0291_var*
-begin
-//#UC START# *5110E8D4004F_4E732D8B0291_impl*
- if Assigned(f_OnHyperlinkClick) then
-  f_OnHyperlinkClick(Self);
-//#UC END# *5110E8D4004F_4E732D8B0291_impl*
-end;//TvtCustomHideField.DoHyperlink
-
-procedure TvtCustomHideField.OnImageListChange(Sender: TObject);
-//#UC START# *5110E94B0295_4E732D8B0291_var*
-//#UC END# *5110E94B0295_4E732D8B0291_var*
-begin
-//#UC START# *5110E94B0295_4E732D8B0291_impl*
- Rebuild;
-//#UC END# *5110E94B0295_4E732D8B0291_impl*
-end;//TvtCustomHideField.OnImageListChange
-
-procedure TvtCustomHideField.ExchangeState;
-//#UC START# *5110E98600A4_4E732D8B0291_var*
-//#UC END# *5110E98600A4_4E732D8B0291_var*
-begin
-//#UC START# *5110E98600A4_4E732D8B0291_impl*
- case f_State of
-  hfsHide: State := hfsShow;
- else
-  State := hfsHide;
- end;
-//#UC END# *5110E98600A4_4E732D8B0291_impl*
-end;//TvtCustomHideField.ExchangeState
-
-function TvtCustomHideField.GetHeaderLineRect: TRect;
-//#UC START# *5110E9B3001D_4E732D8B0291_var*
-//#UC END# *5110E9B3001D_4E732D8B0291_var*
-begin
-//#UC START# *5110E9B3001D_4E732D8B0291_impl*
- Result := ClientRect;
- // Верхняя точка
- Result.Top := f_TopHeaderIndent;
- // Высота заголовка
- Result.Bottom := Result.Top + GetHeaderLineHeight;
- // Отступ слева
- Result.Left := f_LeftHeaderIndent;
-//#UC END# *5110E9B3001D_4E732D8B0291_impl*
-end;//TvtCustomHideField.GetHeaderLineRect
-
-function TvtCustomHideField.GetHeaderLineHeight: Integer;
-//#UC START# *5110E9DF0198_4E732D8B0291_var*
-var
- lRect : TRect;
- lI    : Integer;
- lStr  : Il3CString;
- l_IC  : Il3InfoCanvas;
-//#UC END# *5110E9DF0198_4E732D8B0291_var*
-begin
-//#UC START# *5110E9DF0198_4E732D8B0291_impl*
- // Высота текста
- SetRectEmpty(lRect);
- l_IC := l3CrtIC;
- l_IC.Font.AssignFont(Font);
- if l3IsNil(CCaption) then
-  lStr := l3CStr('W')
- else
-  lStr := CCaption;
- l_IC.DrawText(lStr.AsWStr, lRect, DT_CALCRECT);
- // Высота кнопки заголовка
- lI := 0;
- if CheckImage(f_ButtonImageList, f_ButtonOpenImage) then
-  lI := f_ButtonImageList.Height;
- // Наибольшая высота
- Result := Max(lRect.Bottom, lI);
- // Добавим снизу и сверху по 2 дополнительных пикселя
- Inc(Result, 4);
-//#UC END# *5110E9DF0198_4E732D8B0291_impl*
-end;//TvtCustomHideField.GetHeaderLineHeight
-
-function TvtCustomHideField.GetImageRect: TRect;
-//#UC START# *5110EA09030A_4E732D8B0291_var*
-//#UC END# *5110EA09030A_4E732D8B0291_var*
-begin
-//#UC START# *5110EA09030A_4E732D8B0291_impl*
- with Result do
- begin
-  Left := f_LeftImageIndent;
-  Top := GetImageTop;
-  if f_Images <> nil then
-  begin
-   Right := Left + f_Images.Width;
-   Bottom := Top + f_Images.Height;
-  end
-  else
-  begin
-   Right := Left;
-   Bottom := Top;
-  end;
- end;
-//#UC END# *5110EA09030A_4E732D8B0291_impl*
-end;//TvtCustomHideField.GetImageRect
-
-function TvtCustomHideField.GetImageTop: Integer;
-//#UC START# *5110EAD80111_4E732D8B0291_var*
-//#UC END# *5110EAD80111_4E732D8B0291_var*
-begin
-//#UC START# *5110EAD80111_4E732D8B0291_impl*
- Result := ClientRect.Top + f_TopImageIndent;
-//#UC END# *5110EAD80111_4E732D8B0291_impl*
-end;//TvtCustomHideField.GetImageTop
-
-procedure TvtCustomHideField.Rebuild;
-//#UC START# *5110EB070102_4E732D8B0291_var*
-//#UC END# *5110EB070102_4E732D8B0291_var*
-begin
-//#UC START# *5110EB070102_4E732D8B0291_impl*
- if not (csLoading in ComponentState) then
- begin
-  case f_State of
-   hfsShow: Realign;
-   hfsHide: MakeHideHeight;
-  end;//case f_State
-  Invalidate;
- end;//not (csLoading in ComponentState)
-//#UC END# *5110EB070102_4E732D8B0291_impl*
-end;//TvtCustomHideField.Rebuild
-
-procedure TvtCustomHideField.MakeHideHeight;
-//#UC START# *5110EB2F030B_4E732D8B0291_var*
-//#UC END# *5110EB2F030B_4E732D8B0291_var*
-begin
-//#UC START# *5110EB2F030B_4E732D8B0291_impl*
- with HeaderRect do
-  Self.Height := Bottom - Top;
-//#UC END# *5110EB2F030B_4E732D8B0291_impl*
-end;//TvtCustomHideField.MakeHideHeight
-
-{$If not defined(DesignTimeLibrary)}
-function TvtCustomHideField.IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
-//#UC START# *5110EB5702F3_4E732D8B0291_var*
-var
- l_Time: Cardinal;
-//#UC END# *5110EB5702F3_4E732D8B0291_var*
-begin
-//#UC START# *5110EB5702F3_4E732D8B0291_impl*
- Use;
- try
-  afw.BeginOp;
-  try
-   l_Time := GetTickCount;
-   Result := ProcessMessage(TMessage(Msg), l_Time);
-   if Result then
-    Msg.Result := -1;
-  finally
-   afw.EndOp;
-  end;//try..finally
- finally
-  Free;
- end;//try..finally
-//#UC END# *5110EB5702F3_4E732D8B0291_impl*
-end;//TvtCustomHideField.IsHandledShortcut
-{$IfEnd} //not DesignTimeLibrary
-
-procedure TvtCustomHideField.DoStateChanged;
-//#UC START# *508F96700139_4E732D8B0291_var*
-//#UC END# *508F96700139_4E732D8B0291_var*
-begin
-//#UC START# *508F96700139_4E732D8B0291_impl*
- if Assigned(f_OnStateChanged) then
-  f_OnStateChanged(Self);
-//#UC END# *508F96700139_4E732D8B0291_impl*
-end;//TvtCustomHideField.DoStateChanged
-
-function TvtCustomHideField.CheckImage(aImages: TCustomImageList;
-  aImageIndex: Integer): Boolean;
-//#UC START# *5110E8730017_4E732D8B0291_var*
-//#UC END# *5110E8730017_4E732D8B0291_var*
-begin
-//#UC START# *5110E8730017_4E732D8B0291_impl*
- Result := Assigned(aImages) and (aImageIndex <> -1) and (aImageIndex < aImages.Count);
-//#UC END# *5110E8730017_4E732D8B0291_impl*
-end;//TvtCustomHideField.CheckImage
-
-procedure TvtCustomHideField.DoStyleTableChanged;
-//#UC START# *51124356016F_4E732D8B0291_var*
-//#UC END# *51124356016F_4E732D8B0291_var*
-begin
-//#UC START# *51124356016F_4E732D8B0291_impl*
- with TevStyleInterface.Make(k2_typTextPara, f_StyleId) do
- try
-  Font.Assign2Font(Self.Font);
-  HeaderColor := Font.BackColor;
- finally
-  Free;
- end;//try..finally
-//#UC END# *51124356016F_4E732D8B0291_impl*
-end;//TvtCustomHideField.DoStyleTableChanged
-
-procedure TvtCustomHideField.HideControl;
-//#UC START# *5295F76F02C5_4E732D8B0291_var*
-//#UC END# *5295F76F02C5_4E732D8B0291_var*
-begin
-//#UC START# *5295F76F02C5_4E732D8B0291_impl*
- if (f_ClientControl <> nil) then
-  f_ClientControl.Hide;
-//#UC END# *5295F76F02C5_4E732D8B0291_impl*
-end;//TvtCustomHideField.HideControl
-
-procedure TvtCustomHideField.pm_SetStyleId(aValue: TevStyleId);
+procedure TvtCustomHideField.pm_SetStyleId(const aValue: TevStyleId);
 //#UC START# *5110DC1F02C4_4E732D8B0291set_var*
 //#UC END# *5110DC1F02C4_4E732D8B0291set_var*
 begin
@@ -992,6 +746,220 @@ begin
 //#UC END# *5110E73702B2_4E732D8B0291get_impl*
 end;//TvtCustomHideField.pm_GetHeaderRect
 
+procedure TvtCustomHideField.DoStateChanged;
+//#UC START# *508F96700139_4E732D8B0291_var*
+//#UC END# *508F96700139_4E732D8B0291_var*
+begin
+//#UC START# *508F96700139_4E732D8B0291_impl*
+ if Assigned(f_OnStateChanged) then
+  f_OnStateChanged(Self);
+//#UC END# *508F96700139_4E732D8B0291_impl*
+end;//TvtCustomHideField.DoStateChanged
+
+function TvtCustomHideField.CheckImage(aImages: TCustomImageList;
+ aImageIndex: Integer): Boolean;
+ {* проверяет установлен ли imagelist и не выходит ли за пределы диапазона индекс. }
+//#UC START# *5110E8730017_4E732D8B0291_var*
+//#UC END# *5110E8730017_4E732D8B0291_var*
+begin
+//#UC START# *5110E8730017_4E732D8B0291_impl*
+ Result := Assigned(aImages) and (aImageIndex <> -1) and (aImageIndex < aImages.Count);
+//#UC END# *5110E8730017_4E732D8B0291_impl*
+end;//TvtCustomHideField.CheckImage
+
+procedure TvtCustomHideField.DoHyperlink;
+//#UC START# *5110E8D4004F_4E732D8B0291_var*
+//#UC END# *5110E8D4004F_4E732D8B0291_var*
+begin
+//#UC START# *5110E8D4004F_4E732D8B0291_impl*
+ if Assigned(f_OnHyperlinkClick) then
+  f_OnHyperlinkClick(Self);
+//#UC END# *5110E8D4004F_4E732D8B0291_impl*
+end;//TvtCustomHideField.DoHyperlink
+
+procedure TvtCustomHideField.OnImageListChange(Sender: TObject);
+//#UC START# *5110E94B0295_4E732D8B0291_var*
+//#UC END# *5110E94B0295_4E732D8B0291_var*
+begin
+//#UC START# *5110E94B0295_4E732D8B0291_impl*
+ Rebuild;
+//#UC END# *5110E94B0295_4E732D8B0291_impl*
+end;//TvtCustomHideField.OnImageListChange
+
+procedure TvtCustomHideField.ExchangeState;
+ {* поменять состояние }
+//#UC START# *5110E98600A4_4E732D8B0291_var*
+//#UC END# *5110E98600A4_4E732D8B0291_var*
+begin
+//#UC START# *5110E98600A4_4E732D8B0291_impl*
+ case f_State of
+  hfsHide: State := hfsShow;
+ else
+  State := hfsHide;
+ end;
+//#UC END# *5110E98600A4_4E732D8B0291_impl*
+end;//TvtCustomHideField.ExchangeState
+
+function TvtCustomHideField.GetHeaderLineRect: TRect;
+ {* высота заголовка, содержащего гипперссылку и кнопку }
+//#UC START# *5110E9B3001D_4E732D8B0291_var*
+//#UC END# *5110E9B3001D_4E732D8B0291_var*
+begin
+//#UC START# *5110E9B3001D_4E732D8B0291_impl*
+ Result := ClientRect;
+ // Верхняя точка
+ Result.Top := f_TopHeaderIndent;
+ // Высота заголовка
+ Result.Bottom := Result.Top + GetHeaderLineHeight;
+ // Отступ слева
+ Result.Left := f_LeftHeaderIndent;
+//#UC END# *5110E9B3001D_4E732D8B0291_impl*
+end;//TvtCustomHideField.GetHeaderLineRect
+
+function TvtCustomHideField.GetHeaderLineHeight: Integer;
+ {* высота линии содержащей гиперссылку и кнопку }
+//#UC START# *5110E9DF0198_4E732D8B0291_var*
+var
+ lRect : TRect;
+ lI    : Integer;
+ lStr  : Il3CString;
+ l_IC  : Il3InfoCanvas;
+//#UC END# *5110E9DF0198_4E732D8B0291_var*
+begin
+//#UC START# *5110E9DF0198_4E732D8B0291_impl*
+ // Высота текста
+ SetRectEmpty(lRect);
+ l_IC := l3CrtIC;
+ l_IC.Font.AssignFont(Font);
+ if l3IsNil(CCaption) then
+  lStr := l3CStr('W')
+ else
+  lStr := CCaption;
+ l_IC.DrawText(lStr.AsWStr, lRect, DT_CALCRECT);
+ // Высота кнопки заголовка
+ lI := 0;
+ if CheckImage(f_ButtonImageList, f_ButtonOpenImage) then
+  lI := f_ButtonImageList.Height;
+ // Наибольшая высота
+ Result := Max(lRect.Bottom, lI);
+ // Добавим снизу и сверху по 2 дополнительных пикселя
+ Inc(Result, 4);
+//#UC END# *5110E9DF0198_4E732D8B0291_impl*
+end;//TvtCustomHideField.GetHeaderLineHeight
+
+function TvtCustomHideField.GetImageRect: TRect;
+ {* возвращает положение иконки }
+//#UC START# *5110EA09030A_4E732D8B0291_var*
+//#UC END# *5110EA09030A_4E732D8B0291_var*
+begin
+//#UC START# *5110EA09030A_4E732D8B0291_impl*
+ with Result do
+ begin
+  Left := f_LeftImageIndent;
+  Top := GetImageTop;
+  if f_Images <> nil then
+  begin
+   Right := Left + f_Images.Width;
+   Bottom := Top + f_Images.Height;
+  end
+  else
+  begin
+   Right := Left;
+   Bottom := Top;
+  end;
+ end;
+//#UC END# *5110EA09030A_4E732D8B0291_impl*
+end;//TvtCustomHideField.GetImageRect
+
+function TvtCustomHideField.GetImageTop: Integer;
+ {* верхняя точка иконки }
+//#UC START# *5110EAD80111_4E732D8B0291_var*
+//#UC END# *5110EAD80111_4E732D8B0291_var*
+begin
+//#UC START# *5110EAD80111_4E732D8B0291_impl*
+ Result := ClientRect.Top + f_TopImageIndent;
+//#UC END# *5110EAD80111_4E732D8B0291_impl*
+end;//TvtCustomHideField.GetImageTop
+
+procedure TvtCustomHideField.Rebuild;
+ {* изменился один из параметров, нужно изменеить высоту и перерисовать }
+//#UC START# *5110EB070102_4E732D8B0291_var*
+//#UC END# *5110EB070102_4E732D8B0291_var*
+begin
+//#UC START# *5110EB070102_4E732D8B0291_impl*
+ if not (csLoading in ComponentState) then
+ begin
+  case f_State of
+   hfsShow: Realign;
+   hfsHide: MakeHideHeight;
+  end;//case f_State
+  Invalidate;
+ end;//not (csLoading in ComponentState)
+//#UC END# *5110EB070102_4E732D8B0291_impl*
+end;//TvtCustomHideField.Rebuild
+
+procedure TvtCustomHideField.MakeHideHeight;
+ {* установить размер для свернутого состояния }
+//#UC START# *5110EB2F030B_4E732D8B0291_var*
+//#UC END# *5110EB2F030B_4E732D8B0291_var*
+begin
+//#UC START# *5110EB2F030B_4E732D8B0291_impl*
+ with HeaderRect do
+  Self.Height := Bottom - Top;
+//#UC END# *5110EB2F030B_4E732D8B0291_impl*
+end;//TvtCustomHideField.MakeHideHeight
+
+{$If NOT Defined(DesignTimeLibrary)}
+function TvtCustomHideField.IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
+//#UC START# *5110EB5702F3_4E732D8B0291_var*
+var
+ l_Time: Cardinal;
+//#UC END# *5110EB5702F3_4E732D8B0291_var*
+begin
+//#UC START# *5110EB5702F3_4E732D8B0291_impl*
+ Use;
+ try
+  afw.BeginOp;
+  try
+   l_Time := GetTickCount;
+   Result := ProcessMessage(TMessage(Msg), l_Time);
+   if Result then
+    Msg.Result := -1;
+  finally
+   afw.EndOp;
+  end;//try..finally
+ finally
+  Free;
+ end;//try..finally
+//#UC END# *5110EB5702F3_4E732D8B0291_impl*
+end;//TvtCustomHideField.IsHandledShortcut
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+procedure TvtCustomHideField.DoStyleTableChanged;
+//#UC START# *51124356016F_4E732D8B0291_var*
+//#UC END# *51124356016F_4E732D8B0291_var*
+begin
+//#UC START# *51124356016F_4E732D8B0291_impl*
+ with TevStyleInterface.Make(k2_typTextPara, f_StyleId) do
+ try
+  Font.Assign2Font(Self.Font);
+  HeaderColor := Font.BackColor;
+ finally
+  Free;
+ end;//try..finally
+//#UC END# *51124356016F_4E732D8B0291_impl*
+end;//TvtCustomHideField.DoStyleTableChanged
+
+procedure TvtCustomHideField.HideControl;
+//#UC START# *5295F76F02C5_4E732D8B0291_var*
+//#UC END# *5295F76F02C5_4E732D8B0291_var*
+begin
+//#UC START# *5295F76F02C5_4E732D8B0291_impl*
+ if (f_ClientControl <> nil) then
+  f_ClientControl.Hide;
+//#UC END# *5295F76F02C5_4E732D8B0291_impl*
+end;//TvtCustomHideField.HideControl
+
 procedure TvtCustomHideField.CMControlChange(var Message: TMessage);
 //#UC START# *5110EBF201E1_4E732D8B0291_var*
 var
@@ -1065,7 +1033,7 @@ begin
 //#UC END# *5110EC6D0373_4E732D8B0291_impl*
 end;//TvtCustomHideField.WMSetFocus
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvtCustomHideField.WMSysKeyDown(var Msg: TWMSysKeyDown);
 //#UC START# *5110EC890276_4E732D8B0291_var*
 //#UC END# *5110EC890276_4E732D8B0291_var*
@@ -1075,9 +1043,9 @@ begin
   inherited;
 //#UC END# *5110EC890276_4E732D8B0291_impl*
 end;//TvtCustomHideField.WMSysKeyDown
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvtCustomHideField.CNKeyDown(var Msg: TWMKeyDown);
 //#UC START# *5110ECA600E4_4E732D8B0291_var*
 //#UC END# *5110ECA600E4_4E732D8B0291_var*
@@ -1087,9 +1055,10 @@ begin
   inherited;
 //#UC END# *5110ECA600E4_4E732D8B0291_impl*
 end;//TvtCustomHideField.CNKeyDown
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TvtCustomHideField.OptionsStored: Boolean;
+ {* "Функция определяющая, что свойство Options сохраняется" }
 //#UC START# *B7BEA46A4838_4E732D8B0291_var*
 //#UC END# *B7BEA46A4838_4E732D8B0291_var*
 begin
@@ -1098,8 +1067,9 @@ begin
 //#UC END# *B7BEA46A4838_4E732D8B0291_impl*
 end;//TvtCustomHideField.OptionsStored
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TvtCustomHideField.StyleTableChanged;
+ {* таблица стилей изменилась. }
 //#UC START# *467D2CB10135_4E732D8B0291_var*
 //#UC END# *467D2CB10135_4E732D8B0291_var*
 begin
@@ -1107,9 +1077,10 @@ begin
  DoStyleTableChanged;
 //#UC END# *467D2CB10135_4E732D8B0291_impl*
 end;//TvtCustomHideField.StyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TvtCustomHideField.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E732D8B0291_var*
 //#UC END# *479731C50290_4E732D8B0291_var*
 begin
@@ -1178,8 +1149,8 @@ begin
 end;//TvtCustomHideField.GetCommands
 
 function TvtCustomHideField.DoProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *48BD22E601F2_4E732D8B0291_var*
   function lp_CanMoveFocus: Boolean;
   begin
@@ -1231,6 +1202,7 @@ begin
 end;//TvtCustomHideField.DoProcessCommand
 
 procedure TvtCustomHideField.Paint(const CN: Il3Canvas);
+ {* процедура рисования внешнего вида управляющего элемента }
 //#UC START# *48C6C044025E_4E732D8B0291_var*
 var
  l_ClientRect: Tl3SRect;
@@ -1346,10 +1318,10 @@ begin
 //#UC END# *48C6C044025E_4E732D8B0291_impl*
 end;//TvtCustomHideField.Paint
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomHideField.MouseMove(Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ X: Integer;
+ Y: Integer);
 //#UC START# *48E22B250241_4E732D8B0291_var*
 //#UC END# *48E22B250241_4E732D8B0291_var*
 begin
@@ -1363,13 +1335,13 @@ begin
   Windows.SetCursor(Screen.Cursors[crDefault]);
 //#UC END# *48E22B250241_4E732D8B0291_impl*
 end;//TvtCustomHideField.MouseMove
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomHideField.MouseUp(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4E7896270076_4E732D8B0291_var*
 var
  l_Point : TPoint;
@@ -1406,13 +1378,13 @@ begin
  end;//if Button = mbLeft then
 //#UC END# *4E7896270076_4E732D8B0291_impl*
 end;//TvtCustomHideField.MouseUp
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomHideField.MouseDown(Button: TMouseButton;
-  Shift: TShiftState;
-  X: Integer;
-  Y: Integer);
+ Shift: TShiftState;
+ X: Integer;
+ Y: Integer);
 //#UC START# *4F88473B03CD_4E732D8B0291_var*
 //#UC END# *4F88473B03CD_4E732D8B0291_var*
 begin
@@ -1430,9 +1402,9 @@ begin
   f_DownPoint := Point(-1, -1);
 //#UC END# *4F88473B03CD_4E732D8B0291_impl*
 end;//TvtCustomHideField.MouseDown
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvtCustomHideField.AdjustClientRect(var Rect: TRect);
 //#UC START# *508F957E0283_4E732D8B0291_var*
 //#UC END# *508F957E0283_4E732D8B0291_var*
@@ -1447,19 +1419,19 @@ begin
  Dec(Rect.Bottom, f_AfterClientSpace); 
 //#UC END# *508F957E0283_4E732D8B0291_impl*
 end;//TvtCustomHideField.AdjustClientRect
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 //#UC START# *4E732D7F0082impl*
 //#UC END# *4E732D7F0082impl*
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomHideField
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomHideField);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtHideField
+ {* Регистрация TvtCustomHideField }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtHideField);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtHideField }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

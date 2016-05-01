@@ -483,13 +483,12 @@ uses
  , vcmEntitiesDefIteratorForContextMenu
 ;
 
+{$If NOT Defined(NoVCL)}
 type
- TControlFriend = {abstract} class({$If NOT Defined(NoVCL)}
- TControl
- {$IfEnd} // NOT Defined(NoVCL)
- )
-  {* ƒруг дл€ TControl }
+ TControlFriend = {abstract} class(TControl)
+  {* ƒруг к классу TControl }
  end;//TControlFriend
+{$IfEnd} // NOT Defined(NoVCL)
 
 var g_TvcmPopupMenuHelper: TvcmPopupMenuHelper = nil;
  {* Ёкземпл€р синглетона TvcmPopupMenuHelper }
@@ -2835,6 +2834,8 @@ begin
 //#UC END# *52A1ED12039D_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.GetEntitiesCollectionClass
 
+{$If NOT Defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
 function TvcmPopupMenuHelper.CheckPopup(const anEntityDef: IvcmEntityDef): IvcmEntity;
 //#UC START# *51ED0195036B_55002183037A_var*
 var

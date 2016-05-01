@@ -19,6 +19,7 @@ uses
  , nevBase
  , evdTypes
  , l3Interfaces
+ , evEditorInterfacesTypes
 ;
 
 type

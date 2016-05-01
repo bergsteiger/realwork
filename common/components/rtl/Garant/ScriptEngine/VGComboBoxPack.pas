@@ -20,22 +20,16 @@ implementation
 uses
  l3ImplUses
  , vg_listbox
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TVGComboBoxPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TVGComboBoxPackResNameGetter
-
  TkwVgComboBoxGetText = {final} class(TtfwClassLike)
   {* Слово скрипта vg:ComboBox:GetText
 *Тип результата:* String
@@ -142,12 +136,11 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVgComboBoxGetHighLightItemIndex
 
-class function TVGComboBoxPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'VGComboBoxPack';
-end;//TVGComboBoxPackResNameGetter.ResName
-
- {$R VGComboBoxPack.res}
+ TVGComboBoxPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TVGComboBoxPackResNameGetter
 
 function TkwVgComboBoxGetText.vg_ComboBox_GetText(const aCtx: TtfwContext;
  aComboBox: TvgComboBox): AnsiString;
@@ -395,9 +388,14 @@ begin
  Result := 'vg:ComboBox:GetHighLightItemIndex';
 end;//TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister
 
+class function TVGComboBoxPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'VGComboBoxPack';
+end;//TVGComboBoxPackResNameGetter.ResName
+
+ {$R VGComboBoxPack.res}
+
 initialization
- TVGComboBoxPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwVgComboBoxGetText.RegisterInEngine;
  {* Регистрация vg_ComboBox_GetText }
  TkwVgComboBoxItemHeight.RegisterInEngine;
@@ -408,6 +406,8 @@ initialization
  {* Регистрация vg_ComboBox_GetItem }
  TkwVgComboBoxGetHighLightItemIndex.RegisterInEngine;
  {* Регистрация vg_ComboBox_GetHighLightItemIndex }
+ TVGComboBoxPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgComboBox));

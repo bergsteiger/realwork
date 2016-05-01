@@ -27,9 +27,10 @@ type
    function Get_AllUsers: Tl3StringDataList;
    function Get_AllGroups: Tl3StringDataList;
    function GetUserName(anUserID: TdaUserID): AnsiString;
-   function GetUserPriorities(aGrouId: TdaUserID;
+   function GetUserPriorities(aGroupId: TdaUserID;
     var aImportPriority: TdaPriority;
     var aExportPriority: TdaPriority): Boolean;
+   procedure ReSortUserList;
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
@@ -128,7 +129,7 @@ begin
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 end;//ThtUserManager.GetUserName
 
-function ThtUserManager.GetUserPriorities(aGrouId: TdaUserID;
+function ThtUserManager.GetUserPriorities(aGroupId: TdaUserID;
  var aImportPriority: TdaPriority;
  var aExportPriority: TdaPriority): Boolean;
 //#UC START# *571DCFB50217_5629E343023B_var*
@@ -138,5 +139,14 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *571DCFB50217_5629E343023B_impl*
 end;//ThtUserManager.GetUserPriorities
+
+procedure ThtUserManager.ReSortUserList;
+//#UC START# *5721F5E60367_5629E343023B_var*
+//#UC END# *5721F5E60367_5629E343023B_var*
+begin
+//#UC START# *5721F5E60367_5629E343023B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5721F5E60367_5629E343023B_impl*
+end;//ThtUserManager.ReSortUserList
 
 end.

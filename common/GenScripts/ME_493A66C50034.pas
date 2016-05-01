@@ -31,11 +31,11 @@ type
  TdMedicFirmList = class(_dMedicFirmDocument_, IdMedicFirmList)
   private
    f_dsSynchroViewRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsSynchroViewRef }
+    {* Ссылка на "dsSynchroView" }
    f_MedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
-    {* Поле для свойства MedicFirmList_SynchroView_Form }
+    {* Форма синхронного просмотра }
    f_dsFirmListRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsFirmListRef }
+    {* Ссылка на "dsFirmList" }
   protected
    function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
    function pm_GetMedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;

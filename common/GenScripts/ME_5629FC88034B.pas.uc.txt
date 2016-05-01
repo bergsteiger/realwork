@@ -1,6 +1,4 @@
 //#UC START# *479731C50290_5629FC88034B_impl*
- FreeAndNil(f_AllUsers);
- FreeAndNil(f_AllGroups);
  f_PasswordQuery := nil;
  f_UserFlagsQuery := nil;
  f_Factory := nil;
@@ -108,46 +106,14 @@ var
 //#UC START# *5715DF0D03C2_5629FC88034Bget_var*
 //#UC END# *5715DF0D03C2_5629FC88034Bget_var*
 //#UC START# *5715E71600DD_5629FC88034B_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
- try
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
-  l_Query.Prepare;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   FillListByResultSet(aList, l_ResultSet, 'id', 4, 'user_name');
-  finally
-   l_ResultSet := nil;
-  end;
- finally
-  l_Query := nil;
- end;
+ !!! Needs to be implemented !!!
 //#UC END# *5715E71600DD_5629FC88034B_impl*
 //#UC START# *5715E71600DD_5629FC88034B_var*
-var
- l_Query: IdaTabledQuery;
- l_ResultSet: IdaResultSet;
 //#UC END# *5715E71600DD_5629FC88034B_var*
 //#UC START# *5715E74402CA_5629FC88034B_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtGroups));
- try
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['id']));
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['group_name']));
-  l_Query.Prepare;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   FillListByResultSet(aList, l_ResultSet, 'id', 2, 'group_name');
-  finally
-   l_ResultSet := nil;
-  end;
- finally
-  l_Query := nil;
- end;
+ !!! Needs to be implemented !!!
 //#UC END# *5715E74402CA_5629FC88034B_impl*
 //#UC START# *5715E74402CA_5629FC88034B_var*
-var
- l_Query: IdaTabledQuery;
- l_ResultSet: IdaResultSet;
 //#UC END# *5715E74402CA_5629FC88034B_var*
 //#UC START# *5715E767013D_5629FC88034B_impl*
  theUserID := 0;
@@ -255,7 +221,7 @@ var
  aList.Changing;
  try
   aList.Clear;
-  aList.DataSize := aDataSize;
+  aList.DataSize := SizeOf(l_ID);
   aList.NeedAllocStr := True;
   while not aResultSet.EOF do
   begin
@@ -297,30 +263,7 @@ var
 //#UC START# *5718C16B036E_5629FC88034B_var*
 //#UC END# *5718C16B036E_5629FC88034B_var*
 //#UC START# *571DCFB50217_5629FC88034B_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtGroups));
- try
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['import_priority']));
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['export_priority']));
-  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtGroups)['ID'], da_copEqual, 'p_GroupID');
-  l_Query.Prepare;
-  l_Query.Param['p_GroupID'].AsLargeInt := aGroupId;
-  l_ResultSet := l_Query.OpenResultSet;
-  try
-   Result := not l_ResultSet.IsEmpty;
-   if Result then
-   begin
-    aImportPriority := TdaPriority(l_ResultSet.Field['import_priority'].AsInteger);
-    aExportPriority := TdaPriority(l_ResultSet.Field['export_priority'].AsInteger);
-   end;
-  finally
-   l_ResultSet := nil;
-  end;
- finally
-  l_Query := nil;
- end;
+ !!! Needs to be implemented !!!
 //#UC END# *571DCFB50217_5629FC88034B_impl*
 //#UC START# *571DCFB50217_5629FC88034B_var*
-var
- l_Query: IdaTabledQuery;
- l_ResultSet: IdaResultSet;
 //#UC END# *571DCFB50217_5629FC88034B_var*

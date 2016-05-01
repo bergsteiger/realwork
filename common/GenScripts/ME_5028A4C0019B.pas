@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vcmToolbar;
+unit vcmToolbar;
 
-// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_COMPLETED_vcmToolbar.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvcmToolbar" MUID: (5028A4C0019B)
 
@@ -39,9 +39,16 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , vcmMenuManagerTypes
  //#UC START# *5028A4C0019Bintf_uses*
  //#UC END# *5028A4C0019Bintf_uses*
 ;
+
+const
+ {* Алиасы для значений vcmMenuManagerTypes.TvcmToolbarOption }
+ vcm_toModulesInMainToolbar = vcmMenuManagerTypes.vcm_toModulesInMainToolbar;
+ vcm_toEntitiesInMainToolbar = vcmMenuManagerTypes.vcm_toEntitiesInMainToolbar;
+ vcm_toEntitiesInChildToolbar = vcmMenuManagerTypes.vcm_toEntitiesInChildToolbar;
 
 const
  vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
@@ -247,13 +254,9 @@ type
     write f_DockPanel;
  end;//TvcmDockPanelButton
 
- TvcmToolbarOption = (
-  vcm_toModulesInMainToolbar
-  , vcm_toEntitiesInMainToolbar
-  , vcm_toEntitiesInChildToolbar
- );//TvcmToolbarOption
+ TvcmToolbarOptions = vcmMenuManagerTypes.TvcmToolbarOptions;
 
- TvcmToolbarOptions = set of TvcmToolbarOption;
+ TvcmToolbarOption = vcmMenuManagerTypes.TvcmToolbarOption;
 
  //#UC START# *5028A4C0019Bci*
  //#UC END# *5028A4C0019Bci*

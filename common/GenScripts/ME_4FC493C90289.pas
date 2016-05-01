@@ -18,6 +18,7 @@ uses
  , nevTools
  , l3Variant
  , nevBase
+ , evEditorInterfacesTypes
 ;
 
 type

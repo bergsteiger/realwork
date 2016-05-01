@@ -53,7 +53,7 @@ uses
 
 type
  TnevControlFriend = {abstract} class(TnevControl)
-  {* Друг для TnevControl }
+  {* Друг к классу TnevControl }
  end;//TnevControlFriend
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}

@@ -31,9 +31,10 @@ type
    function Get_AllUsers: Tl3StringDataList;
    function Get_AllGroups: Tl3StringDataList;
    function GetUserName(anUserID: TdaUserID): AnsiString;
-   function GetUserPriorities(aGrouId: TdaUserID;
+   function GetUserPriorities(aGroupId: TdaUserID;
     var aImportPriority: TdaPriority;
     var aExportPriority: TdaPriority): Boolean;
+   procedure ReSortUserList;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -49,6 +50,7 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ , l3ListUtils
 ;
 
 constructor TcaUserManager.Create(const aHTManager: IdaUserManager;
@@ -131,7 +133,7 @@ begin
 //#UC END# *5718B5CF0399_56C428E4014A_impl*
 end;//TcaUserManager.GetUserName
 
-function TcaUserManager.GetUserPriorities(aGrouId: TdaUserID;
+function TcaUserManager.GetUserPriorities(aGroupId: TdaUserID;
  var aImportPriority: TdaPriority;
  var aExportPriority: TdaPriority): Boolean;
 //#UC START# *571DCFB50217_56C428E4014A_var*
@@ -141,6 +143,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *571DCFB50217_56C428E4014A_impl*
 end;//TcaUserManager.GetUserPriorities
+
+procedure TcaUserManager.ReSortUserList;
+//#UC START# *5721F5E60367_56C428E4014A_var*
+//#UC END# *5721F5E60367_56C428E4014A_var*
+begin
+//#UC START# *5721F5E60367_56C428E4014A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5721F5E60367_56C428E4014A_impl*
+end;//TcaUserManager.ReSortUserList
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

@@ -22,32 +22,19 @@ uses
  {$If NOT Defined(NoVGScene)}
  , vcmBaseMenuForChromeLike
  {$IfEnd} // NOT Defined(NoVGScene)
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TvcmTabbedMenuWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TvcmTabbedMenuWordsPackResNameGetter
-
- TvcmBaseMenuForChromeLikeFriend = {abstract} class({$If NOT Defined(NoVGScene)}
- TvcmBaseMenuForChromeLike
- {$IfEnd} // NOT Defined(NoVGScene)
- )
-  {* Друг для TvcmBaseMenuForChromeLike }
- end;//TvcmBaseMenuForChromeLikeFriend
-
  TkwPopMenuForChromeLikeActive = {final} class(TtfwClassLike)
   {* Слово скрипта pop:MenuForChromeLike:Active
 *Тип результата:* TvcmBaseMenuForChromeLike
@@ -111,12 +98,17 @@ OBJECT VAR l_TMenuItem
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopMenuForChromeLikeMenuItem
 
-class function TvcmTabbedMenuWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'vcmTabbedMenuWordsPack';
-end;//TvcmTabbedMenuWordsPackResNameGetter.ResName
+{$If NOT Defined(NoVGScene)}
+ TvcmBaseMenuForChromeLikeFriend = {abstract} class(TvcmBaseMenuForChromeLike)
+  {* Друг к классу TvcmBaseMenuForChromeLike }
+ end;//TvcmBaseMenuForChromeLikeFriend
+{$IfEnd} // NOT Defined(NoVGScene)
 
- {$R vcmTabbedMenuWordsPack.res}
+ TvcmTabbedMenuWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TvcmTabbedMenuWordsPackResNameGetter
 
 function TkwPopMenuForChromeLikeActive.Active(const aCtx: TtfwContext;
  aMenuForChromeLike: TvcmBaseMenuForChromeLike): TvcmBaseMenuForChromeLike;
@@ -256,15 +248,24 @@ begin
  Result := 'pop:MenuForChromeLike:MenuItem';
 end;//TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister
 
+{$If NOT Defined(NoVGScene)}
+{$IfEnd} // NOT Defined(NoVGScene)
+class function TvcmTabbedMenuWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'vcmTabbedMenuWordsPack';
+end;//TvcmTabbedMenuWordsPackResNameGetter.ResName
+
+ {$R vcmTabbedMenuWordsPack.res}
+
 initialization
- TvcmTabbedMenuWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopMenuForChromeLikeActive.RegisterInEngine;
  {* Регистрация pop_MenuForChromeLike_Active }
  TkwPopMenuForChromeLikeHovered.RegisterInEngine;
  {* Регистрация pop_MenuForChromeLike_Hovered }
  TkwPopMenuForChromeLikeMenuItem.RegisterInEngine;
  {* Регистрация pop_MenuForChromeLike_MenuItem }
+ TvcmTabbedMenuWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmBaseMenuForChromeLike));

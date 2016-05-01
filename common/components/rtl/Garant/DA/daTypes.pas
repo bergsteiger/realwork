@@ -319,15 +319,13 @@ type
   , da_soDescending
  );//TdaSortOrder
 
- TdaPriorityBuggy = (
+ TdaPriority = (
   prLowest = -2
   , prLow = -1
   , prNormal = 0
   , prHigh = 1
   , prHighest = 2
- );//TdaPriorityBuggy
-
- TdaPriority = TPriority;
+ );//TdaPriority
 
 implementation
 

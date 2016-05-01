@@ -23,10 +23,10 @@ uses
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , vtComboTree
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , tfwAxiomaticsResNameGetters
  , vtComboBoxQS
  , l3TreeInterfaces
@@ -39,19 +39,6 @@ uses
 ;
 
 type
- TvtComboBoxWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TvtComboBoxWordsPackResNameGetter
-
- TCustomComboBoxFriend = {abstract} class({$If NOT Defined(NoVCL)}
- TCustomComboBox
- {$IfEnd} // NOT Defined(NoVCL)
- )
-  {* Друг для TCustomComboBox }
- end;//TCustomComboBoxFriend
-
  TkwPopComboBoxDropDown = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ComboBox:DropDown
 *Пример:*
@@ -312,12 +299,17 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopComboTreeSaveItems
 
-class function TvtComboBoxWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'vtComboBoxWordsPack';
-end;//TvtComboBoxWordsPackResNameGetter.ResName
+{$If NOT Defined(NoVCL)}
+ TCustomComboBoxFriend = {abstract} class(TCustomComboBox)
+  {* Друг к классу TCustomComboBox }
+ end;//TCustomComboBoxFriend
+{$IfEnd} // NOT Defined(NoVCL)
 
- {$R vtComboBoxWordsPack.res}
+ TvtComboBoxWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TvtComboBoxWordsPackResNameGetter
 
 procedure TkwPopComboBoxDropDown.DropDown(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
@@ -1028,9 +1020,16 @@ begin
  Result := 'pop:ComboTree:SaveItems';
 end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
 
+{$If NOT Defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoVCL)
+class function TvtComboBoxWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'vtComboBoxWordsPack';
+end;//TvtComboBoxWordsPackResNameGetter.ResName
+
+ {$R vtComboBoxWordsPack.res}
+
 initialization
- TvtComboBoxWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopComboBoxDropDown.RegisterInEngine;
  {* Регистрация pop_ComboBox_DropDown }
  TkwPopComboBoxGetItemIndex.RegisterInEngine;
@@ -1055,6 +1054,8 @@ initialization
  {* Регистрация pop_ComboTree_SetItemIndex }
  TkwPopComboTreeSaveItems.RegisterInEngine;
  {* Регистрация pop_ComboTree_SaveItems }
+ TvtComboBoxWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomComboBox));

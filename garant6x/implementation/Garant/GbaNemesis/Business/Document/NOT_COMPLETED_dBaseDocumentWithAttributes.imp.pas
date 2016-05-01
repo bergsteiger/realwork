@@ -13,9 +13,9 @@
   {* Данные документа с атрибутами }
   private
    f_dsAttributesRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsAttributesRef }
+    {* Ссылка на "атрибуты документа" }
    f_HasAttributes: Tl3Bool;
-    {* Поле для свойства HasAttributes }
+    {* Есть ли "атрибуты документа" }
   protected
    procedure DoResetBooleans; virtual;
    procedure ResetBooleans;

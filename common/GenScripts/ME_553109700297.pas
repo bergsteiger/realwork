@@ -20,23 +20,17 @@ implementation
 uses
  l3ImplUses
  , F_AttrExplorer
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , dt_AttrSchema
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TAttributeExplorerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TAttributeExplorerWordsPackResNameGetter
-
  TkwAttrExplorerGotoOnAttrNode = {final} class(TtfwClassLike)
   {* Слово скрипта AttrExplorer:GotoOnAttrNode
 [panel]Формат: aNumberAttribute aControl AttributeExplorer:GotoOnAttrNode
@@ -63,12 +57,11 @@ TdtAttribute::atKeyWords "Контрол по имени [('otlAttributes')]- в стек" pop:Comp
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwAttrExplorerGotoOnAttrNode
 
-class function TAttributeExplorerWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'AttributeExplorerWordsPack';
-end;//TAttributeExplorerWordsPackResNameGetter.ResName
-
- {$R AttributeExplorerWordsPack.res}
+ TAttributeExplorerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TAttributeExplorerWordsPackResNameGetter
 
 procedure TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode(const aCtx: TtfwContext;
  aAttrExplorer: TAttrExplorer;
@@ -127,11 +120,18 @@ begin
  Result := 'AttrExplorer:GotoOnAttrNode';
 end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
 
+class function TAttributeExplorerWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'AttributeExplorerWordsPack';
+end;//TAttributeExplorerWordsPackResNameGetter.ResName
+
+ {$R AttributeExplorerWordsPack.res}
+
 initialization
- TAttributeExplorerWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwAttrExplorerGotoOnAttrNode.RegisterInEngine;
  {* Регистрация AttrExplorer_GotoOnAttrNode }
+ TAttributeExplorerWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TAttrExplorer));

@@ -178,6 +178,7 @@ type
    function pm_GetButtonPlace: TddButtonPlace;
    procedure pm_SetButtonPlace(aValue: TddButtonPlace);
    function pm_GetIsChanged(const Alias: AnsiString): Boolean; virtual;
+   procedure TreePanelResize(Sender: TObject);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure BeforeRelease; override;
@@ -496,6 +497,8 @@ uses
  , l3Base
  , multimon
  , l3Nodes
+ , vtSizeablePanel
+ , afwFacade
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2558,6 +2561,15 @@ begin
  f_Root.ReadOnly := True;
 //#UC END# *552BA42B0337_4B990F100126_impl*
 end;//TddAppConfiguration.SetReadOnly
+
+procedure TddAppConfiguration.TreePanelResize(Sender: TObject);
+//#UC START# *5722121600CB_4B990F100126_var*
+//#UC END# *5722121600CB_4B990F100126_var*
+begin
+//#UC START# *5722121600CB_4B990F100126_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5722121600CB_4B990F100126_impl*
+end;//TddAppConfiguration.TreePanelResize
 
 procedure TddAppConfiguration.Cleanup;
  {* Функция очистки полей объекта. }

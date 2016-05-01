@@ -21,13 +21,13 @@ implementation
 uses
  l3ImplUses
  , evCustomEditorWindow
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , nevTools
  , tfwPropertyLike
  , tfwTypeInfo
+ , tfwAxiomaticsResNameGetter
  , kwPopEditorSelectCells
  , kwPopEditorWheelScroll
  , kwPopEditorSelectColumn
@@ -85,12 +85,6 @@ uses
 ;
 
 type
- TEditorFromStackKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TEditorFromStackKeyWordsPackResNameGetter
-
  TkwPopEditorScrollBottom = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Editor:ScrollBottom
 *Пример:*
@@ -459,12 +453,11 @@ TnevRubberTablesMode VAR l_TnevRubberTablesMode
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopEditorAllowRubberTables
 
-class function TEditorFromStackKeyWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'EditorFromStackKeyWordsPack';
-end;//TEditorFromStackKeyWordsPackResNameGetter.ResName
-
- {$R EditorFromStackKeyWordsPack.res}
+ TEditorFromStackKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TEditorFromStackKeyWordsPackResNameGetter
 
 procedure TkwPopEditorScrollBottom.ScrollBottom(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow;
@@ -1391,9 +1384,14 @@ begin
  Result := 'pop:Editor:AllowRubberTables';
 end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
 
+class function TEditorFromStackKeyWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'EditorFromStackKeyWordsPack';
+end;//TEditorFromStackKeyWordsPackResNameGetter.ResName
+
+ {$R EditorFromStackKeyWordsPack.res}
+
 initialization
- TEditorFromStackKeyWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopEditorScrollBottom.RegisterInEngine;
  {* Регистрация pop_Editor_ScrollBottom }
  TkwPopEditorScrollLineUp.RegisterInEngine;
@@ -1428,6 +1426,8 @@ initialization
  {* Регистрация pop_Editor_DrawLines }
  TkwPopEditorAllowRubberTables.RegisterInEngine;
  {* Регистрация pop_Editor_AllowRubberTables }
+ TEditorFromStackKeyWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditorWindow));

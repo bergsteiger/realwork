@@ -31,10 +31,6 @@ uses
 ;
 
 type
- TvtCustomListerFriend = {abstract} class(TvtCustomLister)
-  {* Друг для TvtCustomLister }
- end;//TvtCustomListerFriend
-
  TkwPopListerSelectWithShift = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Lister:SelectWithShift
 [panel]*Формат:* 
@@ -125,6 +121,10 @@ INTEGER VAR l_Integer
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopListerCurrent
+
+ TvtCustomListerFriend = {abstract} class(TvtCustomLister)
+  {* Друг к классу TvtCustomLister }
+ end;//TvtCustomListerFriend
 
 procedure TkwPopListerSelectWithShift.SelectWithShift(const aCtx: TtfwContext;
  aLister: TvtCustomLister;

@@ -21,6 +21,23 @@ type
   ['{3174E619-23DB-4925-8BD5-426D327F9D84}']
   procedure NotifyMenuItemClicked(anItem: TvcmMenuItem);
  end;//IvcmMenuItemClickListener
+
+ TvcmMenuOption = (
+  vcm_moEntitiesInMainMenu
+  , vcm_moEntitiesInTopMainMenu
+  , vcm_moEntitiesInChildMenu
+  , vcm_moEntitesInContextMenu
+ );//TvcmMenuOption
+
+ TvcmMenuOptions = set of TvcmMenuOption;
+
+ TvcmToolbarOption = (
+  vcm_toModulesInMainToolbar
+  , vcm_toEntitiesInMainToolbar
+  , vcm_toEntitiesInChildToolbar
+ );//TvcmToolbarOption
+
+ TvcmToolbarOptions = set of TvcmToolbarOption;
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

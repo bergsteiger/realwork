@@ -809,6 +809,7 @@ uses
  , k2ProcessorTagTool in 'w:\common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
  , k2TagTool in 'w:\common\components\rtl\Garant\K2\k2TagTool.pas'
  , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
+ , evEditorInterfacesTypes in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesTypes.pas'
  , IedTableWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas'
  , Formula_Const in 'w:\common\components\gui\Garant\Everest\Formula_Const.pas'
  , DecorTextPara_Const in 'w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas'
@@ -1805,9 +1806,6 @@ uses
  , tb97WordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\tb97WordsPack.pas'
  {$IfEnd} // NOT Defined(NoTB97)
  {$If NOT Defined(NoVCM)}
- , vcmOperationAction in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmOperationAction.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmToolbarMenuRes in 'w:\common\components\gui\Garant\VCM\implementation\vcmToolbarMenuRes.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -1843,6 +1841,9 @@ uses
  , afwDrawing in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwDrawing.pas'
  {$If NOT Defined(NoVCM)}
  , vcmToolbarUtils in 'w:\common\components\gui\Garant\VCM\vcmToolbarUtils.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmOperationAction in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmOperationAction.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , vtDblClickDateEdit in 'w:\common\components\gui\Garant\VT\vtDblClickDateEdit.pas'
  , vtDateEdit in 'w:\common\components\gui\Garant\VT\vtDateEdit.pas'
@@ -3112,6 +3113,7 @@ uses
  , ddAppConfigTFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigTFrame.pas'
  , ddAppConfigBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigBFrame.pas'
  , multimon in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\multimon.pas'
+ , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
  , K461701432 in 'w:\common\components\rtl\Garant\Daily\K461701432.pas'
  , K471764286 in 'w:\common\components\rtl\Garant\Daily\K471764286.pas'
  , K460279011 in 'w:\common\components\rtl\Garant\Daily\K460279011.pas'
@@ -3408,6 +3410,8 @@ uses
  , K620665614_H11400224_1 in 'w:\common\components\rtl\Garant\Daily\K620665614_H11400224_1.pas'
  , K620665614_Hk0900071 in 'w:\common\components\rtl\Garant\Daily\K620665614_Hk0900071.pas'
  , K620665614_W21428490p in 'w:\common\components\rtl\Garant\Daily\K620665614_W21428490p.pas'
+ , DailyTest_8_0_TestUnit in 'w:\common\components\rtl\Garant\Daily\DailyTest_8_0_TestUnit.pas'
+ , K622402617 in 'w:\common\components\rtl\Garant\Daily\K622402617.pas'
  , Abstract_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_TestLibrary.pas'
  , Abstract_Tests_EditorTests_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_EditorTests_TestUnit.pas'
  , Abstract_Tests_RenderEVD_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_RenderEVD_TestUnit.pas'

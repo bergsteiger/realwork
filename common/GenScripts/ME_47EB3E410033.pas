@@ -37,15 +37,15 @@ type
    f_NodeForPositioning: Il3SimpleNode;
    f_List: IDynList;
    f_dsFiltersRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsFiltersRef }
+    {* Ссылка на "Бизнес объект "Фильтры"" }
    f_dsDrugListRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsDrugListRef }
+    {* Ссылка на "Бизнес объект "Список лекарственных препаратов"" }
    f_dsListInfoRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsListInfoRef }
+    {* Ссылка на "справка к списку" }
    f_dsSynchroViewRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsSynchroViewRef }
+    {* Ссылка на "Бизнес объект "Синхронный просмотра"" }
    f_DrugList_SynchroView_Form: TDrugList_SynchroView_Areas;
-    {* Поле для свойства DrugList_SynchroView_Form }
+    {* Форма синхронного просмотра }
   protected
    function pm_GetdsFiltersRef: IvcmFormDataSourceRef;
    function pm_GetdsDrugListRef: IvcmFormDataSourceRef;

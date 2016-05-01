@@ -63,15 +63,7 @@ const
 
 const
  {* Алиасы для значений tfwScriptingTypes.TtfwWordModifier }
- tfw_wmVirtual = tfwScriptingTypes.tfw_wmVirtual;
- tfw_wmAbstract = tfwScriptingTypes.tfw_wmAbstract;
- tfw_wmFinal = tfwScriptingTypes.tfw_wmFinal;
- tfw_wmSummoned = tfwScriptingTypes.tfw_wmSummoned;
- tfw_wmOverride = tfwScriptingTypes.tfw_wmOverride;
- tfw_wmRealize = tfwScriptingTypes.tfw_wmRealize;
  tfw_wmRedefinition = tfwScriptingTypes.tfw_wmRedefinition;
- tfw_wmRedefineable = tfwScriptingTypes.tfw_wmRedefineable;
- tfw_wmSealed = tfwScriptingTypes.tfw_wmSealed;
  tfw_wmRightWordRef = tfwScriptingTypes.tfw_wmRightWordRef;
  tfw_wmLeftWordRef = tfwScriptingTypes.tfw_wmLeftWordRef;
  tfw_wmImmediate = tfwScriptingTypes.tfw_wmImmediate;

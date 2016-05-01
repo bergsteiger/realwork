@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evControlParaConst;
+unit evControlParaConst;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evControlParaConst.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlParaConst.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "evControlParaConst" MUID: (47D0015C0022)
 

@@ -856,6 +856,7 @@ uses
  , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
  , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
  , nevNavigation in 'w:\common\components\gui\Garant\Everest\new\nevNavigation.pas'
+ , evEditorInterfacesTypes in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesTypes.pas'
  {$If Defined(k2ForEditor)}
  , evCursorTools in 'w:\common\components\gui\Garant\Everest\evCursorTools.pas'
  {$IfEnd} // Defined(k2ForEditor)
@@ -2245,6 +2246,7 @@ uses
  , ddAppConfigTFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigTFrame.pas'
  , ddAppConfigBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigBFrame.pas'
  , multimon in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\multimon.pas'
+ , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
  , AutoPipeServerForm in 'w:\archi\source\projects\PipeInAuto\AutoPipeServerForm.pas'
  , alcuServer in 'w:\archi\source\projects\PipeInAuto\Server\alcuServer.pas'
  , alcuAutoPipeServer in 'w:\archi\source\projects\PipeInAuto\Server\alcuAutoPipeServer.pas'

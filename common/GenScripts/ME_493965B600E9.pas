@@ -12,7 +12,7 @@
  _dMedicFirmDocument_ = class(_dBaseDocumentWithAttributes_, IdMedicFirmDocument)
   private
    f_dsDrugListRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsDrugListRef }
+    {* Ссылка на "список производимых препаратов" }
   protected
    function pm_GetdsDrugListRef: IvcmFormDataSourceRef;
    {$If NOT Defined(NoVCM)}

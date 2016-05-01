@@ -33,15 +33,7 @@ type
  TtfwValueTypes = tfwValueTypes.TtfwValueTypes;
 
  TtfwWordModifier = (
-  tfw_wmVirtual
-  , tfw_wmAbstract
-  , tfw_wmFinal
-  , tfw_wmSummoned
-  , tfw_wmOverride
-  , tfw_wmRealize
-  , tfw_wmRedefinition
-  , tfw_wmRedefineable
-  , tfw_wmSealed
+  tfw_wmRedefinition
   , tfw_wmRightWordRef
   , tfw_wmLeftWordRef
   , tfw_wmImmediate

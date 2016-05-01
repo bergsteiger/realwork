@@ -24,13 +24,7 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
- , ParaList_Const
 ;
-
-type
- ParaListTagFriend = {abstract} class(ParaListTagClass)
-  {* ƒруг к классу ParaListTag }
- end;//ParaListTagFriend
 {$IfEnd} // Defined(evNeedHotSpot)
 
 end.

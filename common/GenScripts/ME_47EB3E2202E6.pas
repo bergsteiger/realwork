@@ -13,11 +13,11 @@
   {* Данные сборки документа }
   private
    f_dsDocumentRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsDocumentRef }
+    {* Ссылка на "Собственно документ" }
    f_HasDocument: Tl3Bool;
-    {* Поле для свойства HasDocument }
+    {* Есть ли "Собственно документ" }
    f_DocInfo: IdeDocInfo;
-    {* Поле для свойства DocInfo }
+    {* DocInfo }
   protected
    function pm_GetdsDocumentRef: IvcmFormDataSourceRef;
    function pm_GetHasDocument: Tl3Bool;
@@ -119,7 +119,7 @@ end;//_dBaseDocument_.AssignData
 procedure _dBaseDocument_.ClearFields;
 begin
  f_dsDocumentRef := nil;
- f_DocInfo := nil;
+ DocInfo := nil;
  inherited;
 end;//_dBaseDocument_.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

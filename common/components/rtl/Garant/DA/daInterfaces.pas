@@ -418,9 +418,10 @@ type
    out theUserID: TdaUserID): TdaLoginError;
   function IsUserAdmin(anUserID: TdaUserID): Boolean;
   function GetUserName(anUserID: TdaUserID): AnsiString;
-  function GetUserPriorities(aGrouId: TdaUserID;
+  function GetUserPriorities(aGroupId: TdaUserID;
    var aImportPriority: TdaPriority;
    var aExportPriority: TdaPriority): Boolean;
+  procedure ReSortUserList;
   property AllUsers: Tl3StringDataList
    read Get_AllUsers;
    {* Все пользователи системы }

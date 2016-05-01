@@ -13,9 +13,9 @@
   {* Данные описания препарата. }
   private
    f_dsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsDrugInternationalNameSynonimsRef }
+    {* Ссылка на "Бизнес объект "Синонимы по международному названию"" }
    f_HasDrugInternationalNameSynonims: Tl3Bool;
-    {* Поле для свойства HasDrugInternationalNameSynonims }
+    {* Есть ли "Бизнес объект "Синонимы по международному названию"" }
   protected
    function pm_GetdsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
    function pm_GetHasDrugInternationalNameSynonims: Tl3Bool;

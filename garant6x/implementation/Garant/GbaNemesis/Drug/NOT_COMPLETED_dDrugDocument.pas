@@ -34,7 +34,7 @@ type
   private
    f_ContentsTree: IdeSimpleTree;
    f_dsContentsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsContentsRef }
+    {* Ссылка на "Оглавление" }
   protected
    function pm_GetdsContentsRef: IvcmFormDataSourceRef;
    function pm_GetContentsTree: IdeSimpleTree;

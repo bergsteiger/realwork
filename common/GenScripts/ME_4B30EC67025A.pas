@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vcmMenuManager;
+unit vcmMenuManager;
 
-// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_COMPLETED_vcmMenuManager.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvcmMenuManager" MUID: (4B30EC67025A)
 
@@ -31,7 +31,6 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , vcmInterfaces
- , vcmOperationAction
  , vcmBaseMenuManager
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -46,6 +45,7 @@ uses
  , vcmBase
  , IafwMenuUnlockedPostBuildPtrList
  , vcmEntityForm
+ , vcmMenuManagerTypes
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -65,6 +65,7 @@ uses
  , vcmBaseCollectionItem
  , afwInterfaces
  , Types
+ , vcmOperationAction
  , l3Interfaces
  , vtDblClickDateEdit
  , l3ProtoObject
@@ -79,6 +80,19 @@ uses
  //#UC START# *4B30EC67025Aintf_uses*
  //#UC END# *4B30EC67025Aintf_uses*
 ;
+
+const
+ {* Алиасы для значений vcmMenuManagerTypes.TvcmMenuOption }
+ vcm_moEntitiesInMainMenu = vcmMenuManagerTypes.vcm_moEntitiesInMainMenu;
+ vcm_moEntitiesInTopMainMenu = vcmMenuManagerTypes.vcm_moEntitiesInTopMainMenu;
+ vcm_moEntitiesInChildMenu = vcmMenuManagerTypes.vcm_moEntitiesInChildMenu;
+ vcm_moEntitesInContextMenu = vcmMenuManagerTypes.vcm_moEntitesInContextMenu;
+
+const
+ {* Алиасы для значений vcmMenuManagerTypes.TvcmToolbarOption }
+ vcm_toModulesInMainToolbar = vcmMenuManagerTypes.vcm_toModulesInMainToolbar;
+ vcm_toEntitiesInMainToolbar = vcmMenuManagerTypes.vcm_toEntitiesInMainToolbar;
+ vcm_toEntitiesInChildToolbar = vcmMenuManagerTypes.vcm_toEntitiesInChildToolbar;
 
 const
  vcm_DefaultMenuOptions = [vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu];
@@ -156,12 +170,11 @@ type
  TvcmButtonDefs = array of TvcmButtonDef;
 {$IfEnd} // Defined(vcmUseSettings)
 
- TvcmMenuOption = (
-  vcm_moEntitiesInMainMenu
-  , vcm_moEntitiesInTopMainMenu
-  , vcm_moEntitiesInChildMenu
-  , vcm_moEntitesInContextMenu
- );//TvcmMenuOption
+ TvcmIconTextType = (
+  vcm_itDefault
+  , vcm_itIcon
+  , vcm_itIconText
+ );//TvcmIconTextType
 
  TvcmToolButtonDefActionLink = class(TevCustomButtonActionLink, IvcmActionLink)
   protected
@@ -184,18 +197,6 @@ type
   public
    function IsIconText: Boolean;
  end;//TvcmToolButtonDef
-
- TvcmToolbarOption = (
-  vcm_toModulesInMainToolbar
-  , vcm_toEntitiesInMainToolbar
-  , vcm_toEntitiesInChildToolbar
- );//TvcmToolbarOption
-
- TvcmIconTextType = (
-  vcm_itDefault
-  , vcm_itIcon
-  , vcm_itIconText
- );//TvcmIconTextType
 
  TvcmGlyphColordepth = (
   vcm_gcAuto
@@ -220,43 +221,6 @@ type
 {$If Defined(vcmUseSettings)}
  TvcmToolbarDefsForMenuManager = array [TvcmEffectiveToolBarPos] of TvcmToolbarDefForMenuManager;
 {$IfEnd} // Defined(vcmUseSettings)
-
- TvcmMenuOptions = set of TvcmMenuOption;
-
- TvcmComboBoxActionLink = class(TvcmWinControlActionLink)
-  protected
-   {$If NOT Defined(NoVCL)}
-   procedure SetCaption(const Value: String); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   procedure DoParamsChanged(const anAction: IvcmAction); override;
-   procedure DoParamsChanging(const anAction: IvcmAction); override;
- end;//TvcmComboBoxActionLink
-
- TvcmComboBox = class(TvcmFakeBox)
-  private
-   f_InUpdateCation: Boolean;
-  private
-   procedure CMTBMouseQuery(var Msg: TMessage); message CM_TBMOUSEQUERY;
-   procedure CMTBCheckControl(var Msg: TMessage); message CM_TBCHECKCONTROL;
-  protected
-   procedure SetCaptionFromAction(anAction: TvcmOperationAction;
-    anUpdateIndex: Boolean);
-   function SetStringsFromAction(const anAction: IvcmAction): Boolean;
-   {$If NOT Defined(NoVCL)}
-   function GetActionLinkClass: TControlActionLinkClass; override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   {$If NOT Defined(NoVCL)}
-   procedure ActionChange(Sender: TObject;
-    CheckDefaults: Boolean); override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   procedure DropDown; override;
-   procedure ActionExecuteHandler; override;
-   procedure LocalUpdateAction; override;
-  public
-   constructor Create(AOwner: TComponent); override;
- end;//TvcmComboBox
-
- TvcmToolbarOptions = set of TvcmToolbarOption;
 
  (*
  MvcmToolbarGlyphService = interface
@@ -580,6 +544,39 @@ type
     write f_ToolbarOptions;
  end;//TvcmCustomMenuManager
 
+ TvcmComboBoxActionLink = class(TvcmWinControlActionLink)
+  protected
+   {$If NOT Defined(NoVCL)}
+   procedure SetCaption(const Value: String); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure DoParamsChanged(const anAction: IvcmAction); override;
+   procedure DoParamsChanging(const anAction: IvcmAction); override;
+ end;//TvcmComboBoxActionLink
+
+ TvcmComboBox = class(TvcmFakeBox)
+  private
+   f_InUpdateCation: Boolean;
+  private
+   procedure CMTBMouseQuery(var Msg: TMessage); message CM_TBMOUSEQUERY;
+   procedure CMTBCheckControl(var Msg: TMessage); message CM_TBCHECKCONTROL;
+  protected
+   procedure SetCaptionFromAction(anAction: TvcmOperationAction;
+    anUpdateIndex: Boolean);
+   function SetStringsFromAction(const anAction: IvcmAction): Boolean;
+   {$If NOT Defined(NoVCL)}
+   function GetActionLinkClass: TControlActionLinkClass; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure ActionChange(Sender: TObject;
+    CheckDefaults: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure DropDown; override;
+   procedure ActionExecuteHandler; override;
+   procedure LocalUpdateAction; override;
+  public
+   constructor Create(AOwner: TComponent); override;
+ end;//TvcmComboBox
+
  TvcmEditActionLink = class(TvcmWinControlActionLink)
  end;//TvcmEditActionLink
 
@@ -655,6 +652,14 @@ type
  TvcmToolbarDefList = class(_l3ObjectPtrList_)
  end;//TvcmToolbarDefList
 
+ TvcmMenuOption = vcmMenuManagerTypes.TvcmMenuOption;
+
+ TvcmToolbarOption = vcmMenuManagerTypes.TvcmToolbarOption;
+
+ TvcmMenuOptions = vcmMenuManagerTypes.TvcmMenuOptions;
+
+ TvcmToolbarOptions = vcmMenuManagerTypes.TvcmToolbarOptions;
+
  //#UC START# *4B30EC67025Aci*
  //#UC END# *4B30EC67025Aci*
  //#UC START# *4B30EC67025Acit*
@@ -727,10 +732,10 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , Graphics
  {$If NOT Defined(NoScripts)}
  , VCMApllicationSettingsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , Graphics
  , RTLConsts
  //#UC START# *4B30EC67025Aimpl_uses*
  //#UC END# *4B30EC67025Aimpl_uses*
@@ -1080,274 +1085,6 @@ begin
 end;//TvcmToolButtonDef.AutoAllUp
 {$IfEnd} // NOT Defined(NoTB97)
 
-{$If NOT Defined(NoVCL)}
-procedure TvcmComboBoxActionLink.SetCaption(const Value: String);
-//#UC START# *508F991B003B_52A8477B0012_var*
-//#UC END# *508F991B003B_52A8477B0012_var*
-begin
-//#UC START# *508F991B003B_52A8477B0012_impl*
- inherited;
- if (FClient is TvcmComboBox) and (Action is TvcmOperationAction) then
-  TvcmComboBox(FClient).SetCaptionFromAction(TvcmOperationAction(Action), True);
-//#UC END# *508F991B003B_52A8477B0012_impl*
-end;//TvcmComboBoxActionLink.SetCaption
-{$IfEnd} // NOT Defined(NoVCL)
-
-procedure TvcmComboBoxActionLink.DoParamsChanged(const anAction: IvcmAction);
-//#UC START# *52A8469903AF_52A8477B0012_var*
-//#UC END# *52A8469903AF_52A8477B0012_var*
-begin
-//#UC START# *52A8469903AF_52A8477B0012_impl*
- inherited;
- if (FClient is TvcmComboBox) then
-  with TvcmComboBox(FClient) do
-  begin
-   if (anAction.SubNodes <> nil) then
-    ShowRoot := anAction.SubNodes.ShowRoot;
-   SetStringsFromAction(anAction);
-   {$IfNDef DesignTimeLibrary}
-   if (anAction.SubNodes <> nil) then
-    vcmSetCurrent(anAction.SubNodes.Current);
-   {$EndIf  DesignTimeLibrary} 
-   Hint := vcmStr(anAction.Hint);
-  end;//with TvcmComboBox(FClient)
-//#UC END# *52A8469903AF_52A8477B0012_impl*
-end;//TvcmComboBoxActionLink.DoParamsChanged
-
-procedure TvcmComboBoxActionLink.DoParamsChanging(const anAction: IvcmAction);
-//#UC START# *52A846AF0108_52A8477B0012_var*
-//#UC END# *52A846AF0108_52A8477B0012_var*
-begin
-//#UC START# *52A846AF0108_52A8477B0012_impl*
- inherited;
- if (FClient is TvcmComboBox) then
-  if (anAction.SubNodes <> nil) then
-   with anAction.SubNodes do
-   begin
-    Current := TvcmComboBox(FClient).CurrentNode;
-    ShowRoot := TvcmComboBox(FClient).ShowRoot;
-   end;//anAction.SubNodes
-//#UC END# *52A846AF0108_52A8477B0012_impl*
-end;//TvcmComboBoxActionLink.DoParamsChanging
-
-procedure TvcmComboBox.SetCaptionFromAction(anAction: TvcmOperationAction;
- anUpdateIndex: Boolean);
-//#UC START# *52A9AA140394_52A045E102E3_var*
-var
- l_Action: IvcmAction;
-//#UC END# *52A9AA140394_52A045E102E3_var*
-begin
-//#UC START# *52A9AA140394_52A045E102E3_impl*
- if not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo) then
- begin
-  f_InUpdateCation := True;
-  try
-   if Supports(anAction, IvcmAction, l_Action) then
-   try
-    if not SetStringsFromAction(anAction) then
-    begin
-(*     {$IfNDef vcmUseComboTree}
-     Items.Clear;
-     Items.Add(vcmStr(l_Action.SelectedString));
-     if anUpdateIndex then
-      ItemIndex := Items.IndexOf(vcmStr(l_Action.SelectedString));
-     {$EndIf vcmUseComboTree}*)
-    end;//not SetStringsFromAction(anAction)
-   finally
-    l_Action := nil;
-   end;//try..finally
-  finally
-   f_InUpdateCation := False;
-  end;//try..finally
- end;//not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo)
-//#UC END# *52A9AA140394_52A045E102E3_impl*
-end;//TvcmComboBox.SetCaptionFromAction
-
-function TvcmComboBox.SetStringsFromAction(const anAction: IvcmAction): Boolean;
-//#UC START# *52A9AA400220_52A045E102E3_var*
-var
- l_Strings: IvcmStrings;
-//#UC END# *52A9AA400220_52A045E102E3_var*
-begin
-//#UC START# *52A9AA400220_52A045E102E3_impl*
- Result := False;
- l_Strings := anAction.SubItems;
- if (l_Strings = nil) or (l_Strings.Count = 0) then
- begin
-  Result := vcmSetRoot(anAction.SubNodes);
-  if (anAction.SubNodes = nil) or (anAction.SubNodes.Count = 0) then
-   if anAction.IsSelectedStringChanged then
-   //if not l3Same(Text, anAction.SelectedString) then
-    Text := anAction.SelectedString;
- end//l_Strings = nil
- else
- begin
-  Result := True;
-  if (Action is TvcmOperationAction) and
-   (TvcmOperationAction(Action).OpDef.OperationType = vcm_otCombo) then
-  begin
-   Items.Assign(l_Strings.Items);
-   if not vcmIsNil(anAction.SelectedString) then
-    ItemIndex := Items.IndexOf(anAction.SelectedString);
-  end//anAction is TvcmOperationAction
-  else
-  begin
-   Items.Assign(l_Strings.Items);
-   if anAction.IsSelectedStringChanged then
-   begin
-    if not l3Same(Text, anAction.SelectedString) then
-    begin
-     Text := anAction.SelectedString;
-     //AdjustWidth;
-     //// ^ http://mdp.garant.ru/pages/viewpage.action?pageId=100958843
-     // КОСТЫЛЬ ПЕРЕЕХАЛ В TctButtonEdit.pm_SetText из - за K278854646
-    end;//not l3Same(Text, anAction.SelectedString)
-   end;//not vcmSame(f_SelectedString, anAction.SelectedString)
-  end;//anAction is TvcmOperationAction
- end;//l_Strings = nil..
-//#UC END# *52A9AA400220_52A045E102E3_impl*
-end;//TvcmComboBox.SetStringsFromAction
-
-procedure TvcmComboBox.CMTBMouseQuery(var Msg: TMessage);
-//#UC START# *52A9A42D031B_52A045E102E3_var*
-//#UC END# *52A9A42D031B_52A045E102E3_var*
-begin
-//#UC START# *52A9A42D031B_52A045E102E3_impl*
- if InnerPoint(Point(Integer(Msg.WParam), Integer(Msg.LParam)))
-  then Msg.Result := 1
-  else Msg.Result := 0;
-//#UC END# *52A9A42D031B_52A045E102E3_impl*
-end;//TvcmComboBox.CMTBMouseQuery
-
-procedure TvcmComboBox.CMTBCheckControl(var Msg: TMessage);
-//#UC START# *52A9A4500057_52A045E102E3_var*
-//#UC END# *52A9A4500057_52A045E102E3_var*
-begin
-//#UC START# *52A9A4500057_52A045E102E3_impl*
- if IsInnerControl(HWND(Msg.WParam))
-  then Msg.Result := 1
-  else Msg.Result := 0;
-//#UC END# *52A9A4500057_52A045E102E3_impl*
-end;//TvcmComboBox.CMTBCheckControl
-
-constructor TvcmComboBox.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_52A045E102E3_var*
-//#UC END# *47D1602000C6_52A045E102E3_var*
-begin
-//#UC START# *47D1602000C6_52A045E102E3_impl*
- inherited;
- AutoWidth := awCurrent;
-//#UC END# *47D1602000C6_52A045E102E3_impl*
-end;//TvcmComboBox.Create
-
-{$If NOT Defined(NoVCL)}
-function TvcmComboBox.GetActionLinkClass: TControlActionLinkClass;
-//#UC START# *4F8845840032_52A045E102E3_var*
-//#UC END# *4F8845840032_52A045E102E3_var*
-begin
-//#UC START# *4F8845840032_52A045E102E3_impl*
- Result := TvcmComboBoxActionLink;
-//#UC END# *4F8845840032_52A045E102E3_impl*
-end;//TvcmComboBox.GetActionLinkClass
-{$IfEnd} // NOT Defined(NoVCL)
-
-{$If NOT Defined(NoVCL)}
-procedure TvcmComboBox.ActionChange(Sender: TObject;
- CheckDefaults: Boolean);
-//#UC START# *52A9A8710199_52A045E102E3_var*
-//#UC END# *52A9A8710199_52A045E102E3_var*
-begin
-//#UC START# *52A9A8710199_52A045E102E3_impl*
- if (Sender is TvcmOperationAction) then
-  SetCaptionFromAction(TvcmOperationAction(Sender), False);
- inherited;
-//#UC END# *52A9A8710199_52A045E102E3_impl*
-end;//TvcmComboBox.ActionChange
-{$IfEnd} // NOT Defined(NoVCL)
-
-procedure TvcmComboBox.DropDown;
-//#UC START# *52A9A9B802B4_52A045E102E3_var*
-var
- l_Action: IvcmAction;
-//#UC END# *52A9A9B802B4_52A045E102E3_var*
-begin
-//#UC START# *52A9A9B802B4_52A045E102E3_impl*
- if Supports(Action, IvcmAction, l_Action) then
- try
-  SetStringsFromAction(l_Action);
-  inherited;
- finally
-  l_Action := nil;
- end//try..finally
- else
-  inherited;
-//#UC END# *52A9A9B802B4_52A045E102E3_impl*
-end;//TvcmComboBox.DropDown
-
-procedure TvcmComboBox.ActionExecuteHandler;
-//#UC START# *52A9AADF0289_52A045E102E3_var*
-var
- l_LockCount: Integer;
- l_Action: IvcmAction;
-
- procedure lp_SaveLock;
- begin
-  l_LockCount:=0;
-  while l_Action.IsExecuteLocked do
-  begin
-   l_Action.UnlockExecute;
-   Inc(l_LockCount);
-  end;//while l_Action.IsExecuteLocked do
- end;//lp_SaveLock
-
- procedure lp_RestoreLock;
- begin
-  while l_LockCount > 0 do
-  begin
-   l_Action.LockExecute;
-   Dec(l_LockCount);
-  end;//while l_LockCount > 0 do
- end;//lp_RestoreLock
-//#UC END# *52A9AADF0289_52A045E102E3_var*
-begin
-//#UC START# *52A9AADF0289_52A045E102E3_impl*
- if Supports(Action, IvcmAction, l_Action) then
- try
-  Action.ActionComponent := Self;
-  l_Action.SelectedString := Text;
-  l_Action.LockUpdate;
-  try
-   lp_SaveLock;
-   try
-    Action.Execute;
-   finally
-    lp_RestoreLock;
-   end;//try..finally
-  finally
-   l_Action.UnlockUpdate;
-  end;//try..finally
- finally
-  l_Action := nil;
- end;//try..finally
-//#UC END# *52A9AADF0289_52A045E102E3_impl*
-end;//TvcmComboBox.ActionExecuteHandler
-
-procedure TvcmComboBox.LocalUpdateAction;
-//#UC START# *52A9AAEA0068_52A045E102E3_var*
-var
- l_Action: IvcmAction;
-//#UC END# *52A9AAEA0068_52A045E102E3_var*
-begin
-//#UC START# *52A9AAEA0068_52A045E102E3_impl*
- if Supports(Action, IvcmAction, l_Action) then
- try
-  l_Action.SelectedString := Text;
- finally
-  l_Action := nil;
- end;//try..finally
-//#UC END# *52A9AAEA0068_52A045E102E3_impl*
-end;//TvcmComboBox.LocalUpdateAction
-
 procedure TvcmToolbarGlyphService.pm_SetAlien(const aValue: IvcmToolbarGlyphService);
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
@@ -1426,12 +1163,9 @@ begin
 end;//TvcmToolbarGlyphService.Exists
 
 procedure TvcmToolbarGlyphService.ClearFields;
-//#UC START# *5000565C019C_552BADA90096_var*
-//#UC END# *5000565C019C_552BADA90096_var*
 begin
-//#UC START# *5000565C019C_552BADA90096_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5000565C019C_552BADA90096_impl*
+ Alien := nil;
+ inherited;
 end;//TvcmToolbarGlyphService.ClearFields
 
 procedure TvcmCustomMenuManager.pm_SetDockButtonsImageList(aValue: TCustomImageList);
@@ -3965,6 +3699,274 @@ begin
  f_Popup.Items.RethinkLines;
 //#UC END# *52A841C500C5_4B30EC81021A_impl*
 end;//TvcmCustomMenuManager.FillPopupMenu
+
+{$If NOT Defined(NoVCL)}
+procedure TvcmComboBoxActionLink.SetCaption(const Value: String);
+//#UC START# *508F991B003B_52A8477B0012_var*
+//#UC END# *508F991B003B_52A8477B0012_var*
+begin
+//#UC START# *508F991B003B_52A8477B0012_impl*
+ inherited;
+ if (FClient is TvcmComboBox) and (Action is TvcmOperationAction) then
+  TvcmComboBox(FClient).SetCaptionFromAction(TvcmOperationAction(Action), True);
+//#UC END# *508F991B003B_52A8477B0012_impl*
+end;//TvcmComboBoxActionLink.SetCaption
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TvcmComboBoxActionLink.DoParamsChanged(const anAction: IvcmAction);
+//#UC START# *52A8469903AF_52A8477B0012_var*
+//#UC END# *52A8469903AF_52A8477B0012_var*
+begin
+//#UC START# *52A8469903AF_52A8477B0012_impl*
+ inherited;
+ if (FClient is TvcmComboBox) then
+  with TvcmComboBox(FClient) do
+  begin
+   if (anAction.SubNodes <> nil) then
+    ShowRoot := anAction.SubNodes.ShowRoot;
+   SetStringsFromAction(anAction);
+   {$IfNDef DesignTimeLibrary}
+   if (anAction.SubNodes <> nil) then
+    vcmSetCurrent(anAction.SubNodes.Current);
+   {$EndIf  DesignTimeLibrary} 
+   Hint := vcmStr(anAction.Hint);
+  end;//with TvcmComboBox(FClient)
+//#UC END# *52A8469903AF_52A8477B0012_impl*
+end;//TvcmComboBoxActionLink.DoParamsChanged
+
+procedure TvcmComboBoxActionLink.DoParamsChanging(const anAction: IvcmAction);
+//#UC START# *52A846AF0108_52A8477B0012_var*
+//#UC END# *52A846AF0108_52A8477B0012_var*
+begin
+//#UC START# *52A846AF0108_52A8477B0012_impl*
+ inherited;
+ if (FClient is TvcmComboBox) then
+  if (anAction.SubNodes <> nil) then
+   with anAction.SubNodes do
+   begin
+    Current := TvcmComboBox(FClient).CurrentNode;
+    ShowRoot := TvcmComboBox(FClient).ShowRoot;
+   end;//anAction.SubNodes
+//#UC END# *52A846AF0108_52A8477B0012_impl*
+end;//TvcmComboBoxActionLink.DoParamsChanging
+
+procedure TvcmComboBox.SetCaptionFromAction(anAction: TvcmOperationAction;
+ anUpdateIndex: Boolean);
+//#UC START# *52A9AA140394_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9AA140394_52A045E102E3_var*
+begin
+//#UC START# *52A9AA140394_52A045E102E3_impl*
+ if not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo) then
+ begin
+  f_InUpdateCation := True;
+  try
+   if Supports(anAction, IvcmAction, l_Action) then
+   try
+    if not SetStringsFromAction(anAction) then
+    begin
+(*     {$IfNDef vcmUseComboTree}
+     Items.Clear;
+     Items.Add(vcmStr(l_Action.SelectedString));
+     if anUpdateIndex then
+      ItemIndex := Items.IndexOf(vcmStr(l_Action.SelectedString));
+     {$EndIf vcmUseComboTree}*)
+    end;//not SetStringsFromAction(anAction)
+   finally
+    l_Action := nil;
+   end;//try..finally
+  finally
+   f_InUpdateCation := False;
+  end;//try..finally
+ end;//not f_InUpdateCation and (anAction.OpDef.OperationType = vcm_otCombo)
+//#UC END# *52A9AA140394_52A045E102E3_impl*
+end;//TvcmComboBox.SetCaptionFromAction
+
+function TvcmComboBox.SetStringsFromAction(const anAction: IvcmAction): Boolean;
+//#UC START# *52A9AA400220_52A045E102E3_var*
+var
+ l_Strings: IvcmStrings;
+//#UC END# *52A9AA400220_52A045E102E3_var*
+begin
+//#UC START# *52A9AA400220_52A045E102E3_impl*
+ Result := False;
+ l_Strings := anAction.SubItems;
+ if (l_Strings = nil) or (l_Strings.Count = 0) then
+ begin
+  Result := vcmSetRoot(anAction.SubNodes);
+  if (anAction.SubNodes = nil) or (anAction.SubNodes.Count = 0) then
+   if anAction.IsSelectedStringChanged then
+   //if not l3Same(Text, anAction.SelectedString) then
+    Text := anAction.SelectedString;
+ end//l_Strings = nil
+ else
+ begin
+  Result := True;
+  if (Action is TvcmOperationAction) and
+   (TvcmOperationAction(Action).OpDef.OperationType = vcm_otCombo) then
+  begin
+   Items.Assign(l_Strings.Items);
+   if not vcmIsNil(anAction.SelectedString) then
+    ItemIndex := Items.IndexOf(anAction.SelectedString);
+  end//anAction is TvcmOperationAction
+  else
+  begin
+   Items.Assign(l_Strings.Items);
+   if anAction.IsSelectedStringChanged then
+   begin
+    if not l3Same(Text, anAction.SelectedString) then
+    begin
+     Text := anAction.SelectedString;
+     //AdjustWidth;
+     //// ^ http://mdp.garant.ru/pages/viewpage.action?pageId=100958843
+     // КОСТЫЛЬ ПЕРЕЕХАЛ В TctButtonEdit.pm_SetText из - за K278854646
+    end;//not l3Same(Text, anAction.SelectedString)
+   end;//not vcmSame(f_SelectedString, anAction.SelectedString)
+  end;//anAction is TvcmOperationAction
+ end;//l_Strings = nil..
+//#UC END# *52A9AA400220_52A045E102E3_impl*
+end;//TvcmComboBox.SetStringsFromAction
+
+procedure TvcmComboBox.CMTBMouseQuery(var Msg: TMessage);
+//#UC START# *52A9A42D031B_52A045E102E3_var*
+//#UC END# *52A9A42D031B_52A045E102E3_var*
+begin
+//#UC START# *52A9A42D031B_52A045E102E3_impl*
+ if InnerPoint(Point(Integer(Msg.WParam), Integer(Msg.LParam)))
+  then Msg.Result := 1
+  else Msg.Result := 0;
+//#UC END# *52A9A42D031B_52A045E102E3_impl*
+end;//TvcmComboBox.CMTBMouseQuery
+
+procedure TvcmComboBox.CMTBCheckControl(var Msg: TMessage);
+//#UC START# *52A9A4500057_52A045E102E3_var*
+//#UC END# *52A9A4500057_52A045E102E3_var*
+begin
+//#UC START# *52A9A4500057_52A045E102E3_impl*
+ if IsInnerControl(HWND(Msg.WParam))
+  then Msg.Result := 1
+  else Msg.Result := 0;
+//#UC END# *52A9A4500057_52A045E102E3_impl*
+end;//TvcmComboBox.CMTBCheckControl
+
+constructor TvcmComboBox.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_52A045E102E3_var*
+//#UC END# *47D1602000C6_52A045E102E3_var*
+begin
+//#UC START# *47D1602000C6_52A045E102E3_impl*
+ inherited;
+ AutoWidth := awCurrent;
+//#UC END# *47D1602000C6_52A045E102E3_impl*
+end;//TvcmComboBox.Create
+
+{$If NOT Defined(NoVCL)}
+function TvcmComboBox.GetActionLinkClass: TControlActionLinkClass;
+//#UC START# *4F8845840032_52A045E102E3_var*
+//#UC END# *4F8845840032_52A045E102E3_var*
+begin
+//#UC START# *4F8845840032_52A045E102E3_impl*
+ Result := TvcmComboBoxActionLink;
+//#UC END# *4F8845840032_52A045E102E3_impl*
+end;//TvcmComboBox.GetActionLinkClass
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TvcmComboBox.ActionChange(Sender: TObject;
+ CheckDefaults: Boolean);
+//#UC START# *52A9A8710199_52A045E102E3_var*
+//#UC END# *52A9A8710199_52A045E102E3_var*
+begin
+//#UC START# *52A9A8710199_52A045E102E3_impl*
+ if (Sender is TvcmOperationAction) then
+  SetCaptionFromAction(TvcmOperationAction(Sender), False);
+ inherited;
+//#UC END# *52A9A8710199_52A045E102E3_impl*
+end;//TvcmComboBox.ActionChange
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TvcmComboBox.DropDown;
+//#UC START# *52A9A9B802B4_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9A9B802B4_52A045E102E3_var*
+begin
+//#UC START# *52A9A9B802B4_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  SetStringsFromAction(l_Action);
+  inherited;
+ finally
+  l_Action := nil;
+ end//try..finally
+ else
+  inherited;
+//#UC END# *52A9A9B802B4_52A045E102E3_impl*
+end;//TvcmComboBox.DropDown
+
+procedure TvcmComboBox.ActionExecuteHandler;
+//#UC START# *52A9AADF0289_52A045E102E3_var*
+var
+ l_LockCount: Integer;
+ l_Action: IvcmAction;
+
+ procedure lp_SaveLock;
+ begin
+  l_LockCount:=0;
+  while l_Action.IsExecuteLocked do
+  begin
+   l_Action.UnlockExecute;
+   Inc(l_LockCount);
+  end;//while l_Action.IsExecuteLocked do
+ end;//lp_SaveLock
+
+ procedure lp_RestoreLock;
+ begin
+  while l_LockCount > 0 do
+  begin
+   l_Action.LockExecute;
+   Dec(l_LockCount);
+  end;//while l_LockCount > 0 do
+ end;//lp_RestoreLock
+//#UC END# *52A9AADF0289_52A045E102E3_var*
+begin
+//#UC START# *52A9AADF0289_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  Action.ActionComponent := Self;
+  l_Action.SelectedString := Text;
+  l_Action.LockUpdate;
+  try
+   lp_SaveLock;
+   try
+    Action.Execute;
+   finally
+    lp_RestoreLock;
+   end;//try..finally
+  finally
+   l_Action.UnlockUpdate;
+  end;//try..finally
+ finally
+  l_Action := nil;
+ end;//try..finally
+//#UC END# *52A9AADF0289_52A045E102E3_impl*
+end;//TvcmComboBox.ActionExecuteHandler
+
+procedure TvcmComboBox.LocalUpdateAction;
+//#UC START# *52A9AAEA0068_52A045E102E3_var*
+var
+ l_Action: IvcmAction;
+//#UC END# *52A9AAEA0068_52A045E102E3_var*
+begin
+//#UC START# *52A9AAEA0068_52A045E102E3_impl*
+ if Supports(Action, IvcmAction, l_Action) then
+ try
+  l_Action.SelectedString := Text;
+ finally
+  l_Action := nil;
+ end;//try..finally
+//#UC END# *52A9AAEA0068_52A045E102E3_impl*
+end;//TvcmComboBox.LocalUpdateAction
 
 constructor TvcmEdit.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_52A9AB640217_var*

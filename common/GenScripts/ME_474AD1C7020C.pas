@@ -862,6 +862,7 @@ uses
  , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
  , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
  , nevNavigation in 'w:\common\components\gui\Garant\Everest\new\nevNavigation.pas'
+ , evEditorInterfacesTypes in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesTypes.pas'
  {$If Defined(k2ForEditor)}
  , evCursorTools in 'w:\common\components\gui\Garant\Everest\evCursorTools.pas'
  {$IfEnd} // Defined(k2ForEditor)

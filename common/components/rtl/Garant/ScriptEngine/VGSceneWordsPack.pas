@@ -20,13 +20,13 @@ implementation
 uses
  l3ImplUses
  , vgVisualObject
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , tfwAxiomaticsResNameGetter
  , VGSceneAndWinControlPack
  , VGComboBoxPack
  , vg_controls
@@ -39,16 +39,6 @@ uses
 ;
 
 type
- TVGSceneWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TVGSceneWordsPackResNameGetter
-
- TvgVisualObjectFriend = {abstract} class(TvgVisualObject)
-  {* Друг для TvgVisualObject }
- end;//TvgVisualObjectFriend
-
  TkwVgControlVisible = {final} class(TtfwClassLike)
   {* Слово скрипта vg:control:Visible
 *Тип результата:* Boolean
@@ -361,12 +351,15 @@ STRING VAR l_String
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVgControlText
 
-class function TVGSceneWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'VGSceneWordsPack';
-end;//TVGSceneWordsPackResNameGetter.ResName
+ TvgVisualObjectFriend = {abstract} class(TvgVisualObject)
+  {* Друг к классу TvgVisualObject }
+ end;//TvgVisualObjectFriend
 
- {$R VGSceneWordsPack.res}
+ TVGSceneWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TVGSceneWordsPackResNameGetter
 
 function TkwVgControlVisible.vg_control_Visible(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Boolean;
@@ -1114,9 +1107,14 @@ begin
  Result := 'vg:control:Text';
 end;//TkwVgControlText.GetWordNameForRegister
 
+class function TVGSceneWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'VGSceneWordsPack';
+end;//TVGSceneWordsPackResNameGetter.ResName
+
+ {$R VGSceneWordsPack.res}
+
 initialization
- TVGSceneWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwVgControlVisible.RegisterInEngine;
  {* Регистрация vg_control_Visible }
  TkwVgControlHeight.RegisterInEngine;
@@ -1147,6 +1145,8 @@ initialization
  {* Регистрация vg_control_Scene }
  TkwVgControlText.RegisterInEngine;
  {* Регистрация vg_control_Text }
+ TVGSceneWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgVisualObject));

@@ -249,6 +249,7 @@ uses
  , smMainMenuTree2016
  , nsQueryInterfaces
  , MainMenuUnit
+ , Windows
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -691,6 +692,7 @@ var
  l_EO: IExternalObject;
  l_Stream: TStream;
  l_Name: IString;
+ l_Section: IMainMenuSection;
 //#UC END# *57024B0D006F_56FA889202B4_var*
 begin
 //#UC START# *57024B0D006F_56FA889202B4_impl*
@@ -700,7 +702,8 @@ begin
   AttachedImageEn := ieBanner;
  end;//ieIO
  try
-  DefDataAdapter.CommonInterfaces.GetBanner(f_Banner);
+  if Supports(lblProfNews.TreeStruct.Nodes[lblProfNews.CurrentItem], IMainMenuSection, l_Section) then
+   l_Section.GetBanner(f_Banner);
  except
   on ECannotFindData do
   begin
@@ -828,11 +831,11 @@ procedure TPrimMainMenuWithProfNewsForm.DoInit(aFromHistory: Boolean);
 begin
 //#UC START# *49803F5503AA_56FA889202B4_impl*
  inherited;
- LoadBanner;
  UpdateCaption;
  UpdateTabCaption(DoGetTabCaption);
  LoadTrees;
  UpdateReferencesAndLawNewsCaptions;
+ LoadBanner;
  ArrangeControls;
  f_IsInited := True;
 //#UC END# *49803F5503AA_56FA889202B4_impl*

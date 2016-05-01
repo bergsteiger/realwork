@@ -80,6 +80,7 @@ procedure Sleep;
 procedure ForceDirectories;
 procedure IntToHex;
 procedure AllocMem;
+procedure CompareMem;
 function Supports(const Instance: IUnknown;
  const IID: TGUID;
  out Intf): Boolean; overload;
@@ -289,6 +290,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5559A8820011_47877EB202FB_impl*
 end;//AllocMem
+
+procedure CompareMem;
+//#UC START# *5721C96F0083_47877EB202FB_var*
+//#UC END# *5721C96F0083_47877EB202FB_var*
+begin
+//#UC START# *5721C96F0083_47877EB202FB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5721C96F0083_47877EB202FB_impl*
+end;//CompareMem
 
 function Supports(const Instance: IUnknown;
  const IID: TGUID;

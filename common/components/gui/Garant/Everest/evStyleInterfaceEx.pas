@@ -68,7 +68,7 @@ uses
 
 type
  Tk2DictionaryFriend = {abstract} class(Tk2Dictionary)
-  {* Друг для Tk2Dictionary }
+  {* Друг к классу Tk2Dictionary }
  end;//Tk2DictionaryFriend
 
  TevStyleTableGenerator = class(Tk2DocumentGenerator)

@@ -22,22 +22,16 @@ uses
  {$If Defined(AppClientSide)}
  , Editwin
  {$IfEnd} // Defined(AppClientSide)
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TarchiDocEditorWindowWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TarchiDocEditorWindowWordsPackResNameGetter
-
  TkwDocEditorWindowIsNeedSaveDocument = {final} class(TtfwClassLike)
   {* Слово скрипта DocEditorWindow:IsNeedSaveDocument
 *Тип результата:* Boolean
@@ -59,12 +53,11 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwDocEditorWindowIsNeedSaveDocument
 
-class function TarchiDocEditorWindowWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'archiDocEditorWindowWordsPack';
-end;//TarchiDocEditorWindowWordsPackResNameGetter.ResName
-
- {$R archiDocEditorWindowWordsPack.res}
+ TarchiDocEditorWindowWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TarchiDocEditorWindowWordsPackResNameGetter
 
 function TkwDocEditorWindowIsNeedSaveDocument.IsNeedSaveDocument(const aCtx: TtfwContext;
  aDocEditorWindow: TDocEditorWindow): Boolean;
@@ -112,11 +105,18 @@ begin
  Result := 'DocEditorWindow:IsNeedSaveDocument';
 end;//TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister
 
+class function TarchiDocEditorWindowWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'archiDocEditorWindowWordsPack';
+end;//TarchiDocEditorWindowWordsPackResNameGetter.ResName
+
+ {$R archiDocEditorWindowWordsPack.res}
+
 initialization
- TarchiDocEditorWindowWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwDocEditorWindowIsNeedSaveDocument.RegisterInEngine;
  {* Регистрация DocEditorWindow_IsNeedSaveDocument }
+ TarchiDocEditorWindowWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TDocEditorWindow));

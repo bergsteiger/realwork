@@ -12,7 +12,7 @@ interface
 uses
  l3IntfUses
  , l3SimpleDataContainer
- , evEditorInterfaces
+ , evEditorInterfacesTypes
  , l3Memory
  , l3Types
  , l3Interfaces

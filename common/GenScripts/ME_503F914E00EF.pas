@@ -20,11 +20,11 @@ implementation
 uses
  l3ImplUses
  , vtOutliner
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , l3TreeInterfaces
+ , tfwAxiomaticsResNameGetter
  , l3Nodes
  , l3String
  , l3Interfaces
@@ -43,16 +43,6 @@ uses
 ;
 
 type
- TvtOutlinerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TvtOutlinerWordsPackResNameGetter
-
- TvtCustomOutlinerFriend = {abstract} class(TvtCustomOutliner)
-  {* Друг для TvtCustomOutliner }
- end;//TvtCustomOutlinerFriend
-
  TkwTreeCheckFlag = {final} class(TtfwClassLike)
   {* Слово скрипта tree:CheckFlag
 *Тип результата:* Boolean
@@ -473,12 +463,15 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwTreeCollapse
 
-class function TvtOutlinerWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'vtOutlinerWordsPack';
-end;//TvtOutlinerWordsPackResNameGetter.ResName
+ TvtCustomOutlinerFriend = {abstract} class(TvtCustomOutliner)
+  {* Друг к классу TvtCustomOutliner }
+ end;//TvtCustomOutlinerFriend
 
- {$R vtOutlinerWordsPack.res}
+ TvtOutlinerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TvtOutlinerWordsPackResNameGetter
 
 function TkwTreeCheckFlag.tree_CheckFlag(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
@@ -1642,9 +1635,14 @@ begin
  Result := 'tree:свернуть';
 end;//TkwTreeCollapse.GetWordNameForRegister
 
+class function TvtOutlinerWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'vtOutlinerWordsPack';
+end;//TvtOutlinerWordsPackResNameGetter.ResName
+
+ {$R vtOutlinerWordsPack.res}
+
 initialization
- TvtOutlinerWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwTreeCheckFlag.RegisterInEngine;
  {* Регистрация tree_CheckFlag }
  TkwTreeCollapseAll.RegisterInEngine;
@@ -1685,6 +1683,8 @@ initialization
  {* Регистрация tree_SetSelected }
  TkwTreeCollapse.RegisterInEngine;
  {* Регистрация tree_collapse }
+ TvtOutlinerWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCustomOutliner));

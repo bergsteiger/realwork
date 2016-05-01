@@ -20,25 +20,19 @@ implementation
 uses
  l3ImplUses
  , nscStatusBar
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TStatusBarWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TStatusBarWordsResNameGetter
-
  TkwStatusBarOrderedControl = {final} class(TtfwClassLike)
   {* Слово скрипта StatusBar:OrderedControl
 *Тип результата:* TControl
@@ -104,12 +98,11 @@ INTEGER VAR l_Integer
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStatusBarOrderIndex
 
-class function TStatusBarWordsResNameGetter.ResName: AnsiString;
-begin
- Result := 'StatusBarWords';
-end;//TStatusBarWordsResNameGetter.ResName
-
- {$R StatusBarWords.res}
+ TStatusBarWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TStatusBarWordsResNameGetter
 
 function TkwStatusBarOrderedControl.OrderedControl(const aCtx: TtfwContext;
  aStatusBar: TnscStatusBar;
@@ -271,15 +264,22 @@ begin
  Result := 'StatusBar:OrderIndex';
 end;//TkwStatusBarOrderIndex.GetWordNameForRegister
 
+class function TStatusBarWordsResNameGetter.ResName: AnsiString;
+begin
+ Result := 'StatusBarWords';
+end;//TStatusBarWordsResNameGetter.ResName
+
+ {$R StatusBarWords.res}
+
 initialization
- TStatusBarWordsResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwStatusBarOrderedControl.RegisterInEngine;
  {* Регистрация StatusBar_OrderedControl }
  TkwStatusBarOrderedControlsCount.RegisterInEngine;
  {* Регистрация StatusBar_OrderedControlsCount }
  TkwStatusBarOrderIndex.RegisterInEngine;
  {* Регистрация StatusBar_OrderIndex }
+ TStatusBarWordsResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBar));

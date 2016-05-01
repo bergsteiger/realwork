@@ -27,6 +27,10 @@ function arUnackBaseFromArchive(const aFileName: AnsiString;
  {* Распаковать базу данных в заданный каталог. }
 function CreateTestBaseArchive: Boolean;
  {* Создает testbase.zip в CVS на основе C:\Base\TestBase и удаляет предыдущий }
+function arUnackFileFromArchive(const aFileName: AnsiString;
+ const aDirName: AnsiString;
+ out aMessage: AnsiString;
+ const aFileMask: AnsiString): Boolean;
 
 implementation
 
@@ -93,5 +97,35 @@ begin
  Result := ZipFiles(csTestBaseArchive, csTestBaseDir);
 //#UC END# *527A05660188_4E4A364200F7_impl*
 end;//CreateTestBaseArchive
+
+function arUnackFileFromArchive(const aFileName: AnsiString;
+ const aDirName: AnsiString;
+ out aMessage: AnsiString;
+ const aFileMask: AnsiString): Boolean;
+//#UC START# *57205539007D_4E4A364200F7_var*
+//#UC END# *57205539007D_4E4A364200F7_var*
+begin
+//#UC START# *57205539007D_4E4A364200F7_impl*
+ aMessage := '';
+ if not FileExists(aFileName) then
+ begin
+  aMessage := Format('Не найден архив с пустой базой "%s"', [aFileName]);
+  Result := False;
+  Exit;
+ end; // if not FileExists('EmptyBase.rar') then
+ 
+ if DirectoryExists(aDirName) then
+ begin
+  Result := UnZipFiles(aFileName, aDirName, aFileMask);
+  if not Result then
+   aMessage := 'Не удалось распакавать архив.'
+ end // if ForceDirectories(aDirName) then
+ else
+ begin
+  aMessage := Format('Не удалось найти директорию: %s!', [aDirName]);
+  Result:= False;
+ end;
+//#UC END# *57205539007D_4E4A364200F7_impl*
+end;//arUnackFileFromArchive
 
 end.

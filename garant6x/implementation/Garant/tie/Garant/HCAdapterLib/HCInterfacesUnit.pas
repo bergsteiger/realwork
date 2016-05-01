@@ -125,9 +125,4 @@ uses
  l3ImplUses
 ;
 
-type
- IOnlineDataFriend = {abstract} class(IOnlineData)
-  {* ƒруг к классу IOnlineData }
- end;//IOnlineDataFriend
-
 end.

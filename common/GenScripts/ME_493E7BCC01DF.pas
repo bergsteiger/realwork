@@ -40,19 +40,19 @@ type
    f_List: IDynList;
    f_DisableAutoOpenAnnotation: Boolean;
    f_dsFiltersRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsFiltersRef }
+    {* Ссылка на "БОС формы фильтры" }
    f_dsListInfoRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsListInfoRef }
+    {* Ссылка на "БОС справка к списку" }
    f_List_SynchroView_Form: TList_SynchroView_Areas;
-    {* Поле для свойства List_SynchroView_Form }
+    {* Форма синхронного просмотра }
    f_NodeForPositioning: Il3SimpleNode;
-    {* Поле для свойства NodeForPositioning }
+    {* - значение. }
    f_dsListRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsListRef }
+    {* Ссылка на "БОС формы список" }
    f_Default_List_SynchroView_Form: TList_SynchroView_Areas;
-    {* Поле для свойства Default_List_SynchroView_Form }
+    {* Форма синхронного просмотра по-умолчанию }
    f_dsSynchroViewRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsSynchroViewRef }
+    {* Ссылка на "БОС синхронного просмотра" }
   protected
    function pm_GetdsFiltersRef: IvcmFormDataSourceRef;
    function pm_GetdsListInfoRef: IvcmFormDataSourceRef;
@@ -286,7 +286,7 @@ begin
  f_List := nil;
  f_dsFiltersRef := nil;
  f_dsListInfoRef := nil;
- f_NodeForPositioning := nil;
+ NodeForPositioning := nil;
  f_dsListRef := nil;
  f_dsSynchroViewRef := nil;
  inherited;

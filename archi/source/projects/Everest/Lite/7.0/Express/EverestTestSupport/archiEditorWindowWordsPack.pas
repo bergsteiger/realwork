@@ -18,22 +18,16 @@ implementation
 uses
  l3ImplUses
  , EdWin
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , tfwTypeRegistrator
  , tfwScriptingTypes
 ;
 
 type
- TarchiEditorWindowWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TarchiEditorWindowWordsPackResNameGetter
-
  TkwIsNeedSaveDocument = {final} class(TtfwClassLike)
   {* Слово скрипта IsNeedSaveDocument
 *Тип результата:* Boolean
@@ -55,12 +49,11 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwIsNeedSaveDocument
 
-class function TarchiEditorWindowWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'archiEditorWindowWordsPack';
-end;//TarchiEditorWindowWordsPackResNameGetter.ResName
-
- {$R archiEditorWindowWordsPack.res}
+ TarchiEditorWindowWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TarchiEditorWindowWordsPackResNameGetter
 
 function TkwIsNeedSaveDocument.IsNeedSaveDocument(const aCtx: TtfwContext;
  aEditor: TEditorWindow): Boolean;
@@ -108,11 +101,18 @@ begin
  Result := 'IsNeedSaveDocument';
 end;//TkwIsNeedSaveDocument.GetWordNameForRegister
 
+class function TarchiEditorWindowWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'archiEditorWindowWordsPack';
+end;//TarchiEditorWindowWordsPackResNameGetter.ResName
+
+ {$R archiEditorWindowWordsPack.res}
+
 initialization
- TarchiEditorWindowWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwIsNeedSaveDocument.RegisterInEngine;
  {* Регистрация IsNeedSaveDocument }
+ TarchiEditorWindowWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TEditorWindow));

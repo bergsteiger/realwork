@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_evEditorInterfaces;
+unit evEditorInterfaces;
  {* Модуль, описывающий работу с текстом на уровне "окна" редактора }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evEditorInterfaces.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "evEditorInterfaces" MUID: (48E3836D00C8)
 
@@ -19,15 +19,45 @@ uses
  , nevTools
  , nevNavigation
  , k2PureMixIns
+ , evEditorInterfacesTypes
  , Graphics
  , l3Variant
  , Windows
 ;
 
 const
+ {* Алиасы для значений evEditorInterfacesTypes.TedRowType }
+ ed_rtNull = evEditorInterfacesTypes.ed_rtNull;
+ ed_rtNumericCels = evEditorInterfacesTypes.ed_rtNumericCels;
+ ed_rtSingleCell = evEditorInterfacesTypes.ed_rtSingleCell;
+ ed_rtSimpleCells = evEditorInterfacesTypes.ed_rtSimpleCells;
+ ed_rtPsevdoSingleCells = evEditorInterfacesTypes.ed_rtPsevdoSingleCells;
+ ed_rtSimpleWithoutEmpty = evEditorInterfacesTypes.ed_rtSimpleWithoutEmpty;
+ ev_rtFormCells = evEditorInterfacesTypes.ev_rtFormCells;
+ ed_rtHasHeadCells = evEditorInterfacesTypes.ed_rtHasHeadCells;
+ ed_rtEmptyWithContnueCells = evEditorInterfacesTypes.ed_rtEmptyWithContnueCells;
+ ed_rtHasMergedCell = evEditorInterfacesTypes.ed_rtHasMergedCell;
+ ed_rtSimpleEmptyCells = evEditorInterfacesTypes.ed_rtSimpleEmptyCells;
+ ed_rtChessTableRow = evEditorInterfacesTypes.ed_rtChessTableRow;
+
+const
+ {* Алиасы для значений evEditorInterfacesTypes.TedCellType }
+ ed_ctNone = evEditorInterfacesTypes.ed_ctNone;
+ ed_ctInteger = evEditorInterfacesTypes.ed_ctInteger;
+ ed_ctNumber = evEditorInterfacesTypes.ed_ctNumber;
+ ed_ctEmpty = evEditorInterfacesTypes.ed_ctEmpty;
+ ed_ctText = evEditorInterfacesTypes.ed_ctText;
+ ed_ctFloat = evEditorInterfacesTypes.ed_ctFloat;
+ ed_ctHasFormLine = evEditorInterfacesTypes.ed_ctHasFormLine;
+ ed_ctNeedDelete = evEditorInterfacesTypes.ed_ctNeedDelete;
+ ed_ctNeedMakeContinue = evEditorInterfacesTypes.ed_ctNeedMakeContinue;
+ ed_ctSmallText = evEditorInterfacesTypes.ed_ctSmallText;
+ ed_ctEmptyAndNotFramed = evEditorInterfacesTypes.ed_ctEmptyAndNotFramed;
+
+const
  edNoneFrame = [];
- edSingleCell = [ed_PsevdoSingleCells, ed_SingleCell];
- edAllowCellInHeadRow = [ed_HasMergedCell, ed_SimpleCells, ed_SimpleWithoutEmpty];
+ edSingleCell = [ed_rtPsevdoSingleCells, ed_rtSingleCell];
+ edAllowCellInHeadRow = [ed_rtHasMergedCell, ed_rtSimpleCells, ed_rtSimpleWithoutEmpty];
 
 type
  PIedFramePart = ^IedFramePart;
@@ -243,36 +273,6 @@ type
    {* шрифт параграфа }
  end;//IedTextParagraph
 
- TedRowType = (
-  ed_Null
-  , ed_NumericCels
-  , ed_SingleCell
-  , ed_SimpleCells
-  , ed_PsevdoSingleCells
-  , ed_SimpleWithoutEmpty
-  , ev_FormCells
-  , ed_HasHeadCells
-  , ed_EmptyWithContnueCells
-  , ed_HasMergedCell
-  , ed_SimpleEmptyCells
-  , ed_ChessTableRow
- );//TedRowType
-
- TedCellType = (
-  {* Классификация содержимого ячейки. }
-  ed_None
-  , ed_Integer
-  , ed_Number
-  , ed_Empty
-  , ed_Text
-  , ed_Float
-  , ed_HasFormLine
-  , ed_NeedDelete
-  , ed_NeedMakeContinue
-  , ed_SmallText
-  , ed_EmptyAndNotFramed
- );//TedCellType
-
  IedTable = interface;
 
  IedCell = interface(IedFramedObject)
@@ -454,14 +454,6 @@ type
    {* номер колонки по порядку от левого края таблицы (начиная с 0) }
  end;//IedColumn
 
- TedRangePart = (
-  ed_rpWord
-  , ed_rpToLeftWord
-  , ed_rpToWordFinish
-  , ed_rpToRightWord
-  , ed_rpWholeWordRight
- );//TedRangePart
-
  IedColumnsIterator = interface(IedProcessorObject)
   {* Интерфейс, обеспечивающий перебор столбцов }
   ['{4CB6AB7D-9813-4ED9-A207-5789E8645932}']
@@ -500,7 +492,13 @@ type
    {* выравнивание содержимого ячейки по вертикали }
  end;//IedCells
 
- TevCellNeighbours = array [TedNeighbourIndex] of Il3TagRef;
+ TedRangePart = (
+  ed_rpWord
+  , ed_rpToLeftWord
+  , ed_rpToWordFinish
+  , ed_rpToRightWord
+  , ed_rpWholeWordRight
+ );//TedRangePart
 
  IedRange_IterateLeafParagraphs_Action = function(const anItem: IedLeafParagraph): Boolean;
   {* Тип подитеративной функции для IedRange.IterateLeafParagraphs }
@@ -606,6 +604,8 @@ type
    write pm_SetCursor;
  end;//IedRangeSource
 
+ TevCellNeighbours = array [TedNeighbourIndex] of Il3TagRef;
+
  TedTabelType = (
   {* Тип таблицы - попытка заточить выравнивание для таблиц определенного вида. }
   ed_tsNone
@@ -623,6 +623,10 @@ type
   , ed_bcLeftEqual
   , ed_bcEqual
  );//TedBoundaryCorrespondence
+
+ TedRowType = evEditorInterfacesTypes.TedRowType;
+
+ TedCellType = evEditorInterfacesTypes.TedCellType;
 
 const
  edGridFrame = [Low(TedFramePartIndex) .. High(TedFramePartIndex)];

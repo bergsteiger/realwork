@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_vtHideField;
+unit vtHideField;
 
-// Модуль: "w:\common\components\gui\Garant\VT\NOT_COMPLETED_vtHideField.pas"
+// Модуль: "w:\common\components\gui\Garant\VT\vtHideField.pas"
 // Стереотип: "GuiControl"
 // Элемент модели: "TvtHideField" MUID: (4E732D7F0082)
 
@@ -15,6 +15,7 @@ uses
  , afwInterfaces
  , evTypes
  , Classes
+ , vtHideFieldTypes
  , Graphics
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -31,6 +32,11 @@ uses
 ;
 
 const
+ {* Алиасы для значений vtHideFieldTypes.ThfOption }
+ hfoCanHide = vtHideFieldTypes.hfoCanHide;
+ hfoHyperlink = vtHideFieldTypes.hfoHyperlink;
+
+const
  c_hfTopImageIndent = 5;
   {* отступ иконки сверху по умолчанию }
  c_hfWidth = 150;
@@ -43,17 +49,10 @@ const
  cDefaultOptions = [hfoCanHide, hfoHyperlink];
 
 type
- ThfOption = (
-  hfoCanHide
-  , hfoHyperlink
- );//ThfOption
-
  ThfState = (
   hfsHide
   , hfsShow
  );//ThfState
-
- ThfOptions = set of ThfOption;
 
  ThfValidateStateEvent = procedure(aSender: TObject;
   var theState: ThfState) of object;
@@ -308,6 +307,10 @@ type
     write pm_SetState;
     {* состояние списка (скрыт/раскрыт) }
  end;//TvtCustomHideField
+
+ ThfOption = vtHideFieldTypes.ThfOption;
+
+ ThfOptions = vtHideFieldTypes.ThfOptions;
 
  //#UC START# *4E732D7F0082ci*
  //#UC END# *4E732D7F0082ci*

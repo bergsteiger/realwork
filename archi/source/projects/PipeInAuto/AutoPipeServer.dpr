@@ -1184,6 +1184,7 @@ uses
  , k2ProcessorTagTool in 'w:\common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
  , k2TagTool in 'w:\common\components\rtl\Garant\K2\k2TagTool.pas'
  , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
+ , evEditorInterfacesTypes in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesTypes.pas'
  {$If NOT Defined(NoScripts)}
  , IedTableWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1748,6 +1749,7 @@ uses
  , ddAppConfigBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigBFrame.pas'
  , vtVerInf in 'w:\common\components\rtl\Garant\L3\vtVerInf.pas'
  , multimon in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\multimon.pas'
+ , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
  , l3Languages in 'w:\common\components\rtl\Garant\L3\l3Languages.pas'
  , alcuBaseEngineHolder in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
  , alcuBaseEngine in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngine.pas'

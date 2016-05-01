@@ -13,6 +13,7 @@ uses
  l3IntfUses
  , l3ProtoObject
  , evEditorInterfaces
+ , evEditorInterfacesTypes
  , evCellsOffsetsPair
 ;
 

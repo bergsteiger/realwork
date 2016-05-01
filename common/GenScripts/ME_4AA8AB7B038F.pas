@@ -406,7 +406,7 @@ uses
 
 type
  TvtCalendarPanelFriend = {abstract} class(TvtCalendarPanel)
-  {* Друг для TvtCalendarPanel }
+  {* Друг к классу TvtCalendarPanel }
  end;//TvtCalendarPanelFriend
 
 const

@@ -20,12 +20,12 @@ implementation
 uses
  l3ImplUses
  , evCustomEditor
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , evEditorInterfaces
  , evdTypes
+ , tfwAxiomaticsResNameGetter
  , l3Interfaces
  , IedRangeWordsPack
  , SysUtils
@@ -34,12 +34,6 @@ uses
 ;
 
 type
- TTevCustomEditorWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TTevCustomEditorWordsPackResNameGetter
-
  TkwPopEditorInsertTable = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Editor:InsertTable
 *Пример:*
@@ -294,12 +288,11 @@ INTERFACE VAR l_IedRange
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopEditorRange
 
-class function TTevCustomEditorWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'TevCustomEditorWordsPack';
-end;//TTevCustomEditorWordsPackResNameGetter.ResName
-
- {$R TevCustomEditorWordsPack.res}
+ TTevCustomEditorWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TTevCustomEditorWordsPackResNameGetter
 
 procedure TkwPopEditorInsertTable.InsertTable(const aCtx: TtfwContext;
  aEditor: TevCustomEditor;
@@ -977,9 +970,14 @@ begin
  Result := 'pop:Editor:Range';
 end;//TkwPopEditorRange.GetWordNameForRegister
 
+class function TTevCustomEditorWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'TevCustomEditorWordsPack';
+end;//TTevCustomEditorWordsPackResNameGetter.ResName
+
+ {$R TevCustomEditorWordsPack.res}
+
 initialization
- TTevCustomEditorWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwPopEditorInsertTable.RegisterInEngine;
  {* Регистрация pop_Editor_InsertTable }
  TkwPopEditorInsertRow.RegisterInEngine;
@@ -1006,6 +1004,8 @@ initialization
  {* Регистрация pop_Editor_NextHyperlink }
  TkwPopEditorRange.RegisterInEngine;
  {* Регистрация pop_Editor_Range }
+ TTevCustomEditorWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditor));

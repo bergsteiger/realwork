@@ -1,38 +1,26 @@
 unit evControlParaConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/evControlParaConst.pas"
-// Начат: 13.11.2004 13:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::Everest::evControlParaConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\evControlParaConst.pas"
+// Стереотип: "Interfaces"
+// Элемент модели: "evControlParaConst" MUID: (47D0015C0022)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  l3Const,
-  Graphics,
-  Windows
-  ;
+ l3IntfUses
+ , evdTypes
+ , l3Const
+ , Windows
+ , Graphics
+;
 
 const
-  { Control Types }
  evCheckableControls = [ev_ctCheckEdit, ev_ctRadioEdit];
  evFlatBTNControls = [ev_ctButton, ev_ctStateButton];
  evButtonControls = evFlatBTNControls + [ev_ctCollapsedPanel];
-  { Компоненты, которые ведут себя как кнопки }
+  {* Компоненты, которые ведут себя как кнопки }
  evButtonStyleControls = evButtonControls + evCheckableControls;
  evControlsWithButtons = [ev_ctCombo, ev_ctEllipsesEdit, ev_ctSpinedit,ev_ctCalEdit];
  evTextLabel = [ev_ctLabel, ev_ctTextParaLabel];
@@ -42,7 +30,6 @@ const
  evEditControls = evControlsWithButtons + evSimpleEditors;
  evMaskedControls = [ev_ctCalEdit];
  evTextControls = evEditControls + evLabelControls;
-  { Margins }
  BefSpace = l3Inch div 128;
  BefBtbSpase = l3Inch div 64;
  BefUpSpase = l3Inch div 32;
@@ -53,18 +40,19 @@ const
  BtnWidth = l3Inch div 4;
  AfterPictureLabel = l3Inch div 32;
  BefPictureLabel = l3Inch div 2;
-  { Keys }
  evParaCtrlKeys = [VK_ESCAPE, VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN,VK_HOME, VK_END];
  evCalParaCtrlKey = [Ord('t'), Ord('T'), Ord('e'), Ord('E')];
  VK_ESCAPE = Windows.VK_ESCAPE;
-  { Colors }
  evErrorColor = Graphics.clRed;
  evValidColor = clWindowText;
-  { Other }
  evMemoLineCount = 5;
  evLineSeparateChar = ' ';
-  { Разделитель строк при вставке пробела }
+  {* Разделитель строк при вставке пробела }
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

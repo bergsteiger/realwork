@@ -52,6 +52,7 @@ uses
  , DailyTest_7_12_TestUnit
  , DailyTest_Diff_TestUnit
  , DailyTest_CrossSegments_TestUnit
+ , DailyTest_8_0_TestUnit
  {$If NOT Defined(NoVCM)}
  , TestFormsTest_TestLibrary
  {$IfEnd} // NOT Defined(NoVCM)

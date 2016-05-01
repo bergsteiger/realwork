@@ -26,11 +26,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , evCustomEditorWindow
+ , tfwAxiomaticsResNameGetter
  , k2Tags
  , l3Base
  , l3String
@@ -42,12 +42,6 @@ uses
 ;
 
 type
- TevParaWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TevParaWordsPackResNameGetter
-
  TkwParaBoolA = {final} class(TtfwClassLike)
   {* Слово скрипта Para:BoolA
 *Тип результата:* Boolean
@@ -286,12 +280,11 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwParaTypeInherits
 
-class function TevParaWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'evParaWordsPack';
-end;//TevParaWordsPackResNameGetter.ResName
-
- {$R evParaWordsPack.res}
+ TevParaWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TevParaWordsPackResNameGetter
 
 function TkwParaBoolA.BoolA(const aCtx: TtfwContext;
  const aPara: InevPara;
@@ -920,9 +913,14 @@ begin
  Result := 'Para:Type:Inherits';
 end;//TkwParaTypeInherits.GetWordNameForRegister
 
+class function TevParaWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'evParaWordsPack';
+end;//TevParaWordsPackResNameGetter.ResName
+
+ {$R evParaWordsPack.res}
+
 initialization
- TevParaWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwParaBoolA.RegisterInEngine;
  {* Регистрация Para_BoolA }
  TkwParaBoolW.RegisterInEngine;
@@ -945,6 +943,8 @@ initialization
  {* Регистрация Para_Text }
  TkwParaTypeInherits.RegisterInEngine;
  {* Регистрация Para_Type_Inherits }
+ TevParaWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(InevPara));

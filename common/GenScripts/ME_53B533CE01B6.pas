@@ -22,11 +22,11 @@ implementation
 uses
  l3ImplUses
  , nsFiltersInterfaces
- , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , TypInfo
+ , tfwAxiomaticsResNameGetter
  , FiltersUnit
  , SysUtils
  , tfwTypeRegistrator
@@ -36,12 +36,6 @@ uses
 ;
 
 type
- TInsFilterNodeWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-  {* Регистрация скриптованой аксиоматики }
-  public
-   class function ResName: AnsiString; override;
- end;//TInsFilterNodeWordsPackResNameGetter
-
  TkwFilterNodeAutoApplied = {final} class(TtfwPropertyLike)
   {* Слово скрипта FilterNode:AutoApplied
 *Тип результата:* Boolean
@@ -134,12 +128,11 @@ BOOLEAN VAR l_Boolean
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwFilterNodeIsChangeable
 
-class function TInsFilterNodeWordsPackResNameGetter.ResName: AnsiString;
-begin
- Result := 'InsFilterNodeWordsPack';
-end;//TInsFilterNodeWordsPackResNameGetter.ResName
-
- {$R InsFilterNodeWordsPack.res}
+ TInsFilterNodeWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
+  public
+   class function ResName: AnsiString; override;
+ end;//TInsFilterNodeWordsPackResNameGetter
 
 function TkwFilterNodeAutoApplied.AutoApplied(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
@@ -363,9 +356,14 @@ begin
  Result := 'FilterNode:IsChangeable';
 end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
 
+class function TInsFilterNodeWordsPackResNameGetter.ResName: AnsiString;
+begin
+ Result := 'InsFilterNodeWordsPack';
+end;//TInsFilterNodeWordsPackResNameGetter.ResName
+
+ {$R InsFilterNodeWordsPack.res}
+
 initialization
- TInsFilterNodeWordsPackResNameGetter.Register;
- {* Регистрация скриптованой аксиоматики }
  TkwFilterNodeAutoApplied.RegisterInEngine;
  {* Регистрация FilterNode_AutoApplied }
  TkwFilterNodeIsUsed.RegisterInEngine;
@@ -374,6 +372,8 @@ initialization
  {* Регистрация FilterNode_IsDeleted }
  TkwFilterNodeIsChangeable.RegisterInEngine;
  {* Регистрация FilterNode_IsChangeable }
+ TInsFilterNodeWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(InsFilterNode));

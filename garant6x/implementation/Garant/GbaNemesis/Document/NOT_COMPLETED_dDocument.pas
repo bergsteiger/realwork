@@ -48,15 +48,15 @@ type
    f_OutgoingLinksFromPartPosList: IPositionList;
    f_SimilarDocumentsBlockId: Integer;
    f_dsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsOutgoingLinksFromPartRef }
+    {* Ссылка на "БОФ ссылок из фрагмента (респондентов)" }
    f_dsContentsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsContentsRef }
+    {* Ссылка на "Оглавление" }
    f_dsWarningRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsWarningRef }
+    {* Ссылка на "БОФ предупреждения" }
    f_dsIncomingLinksToPartRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsIncomingLinksToPartRef }
+    {* Ссылка на "БОФ ссылок на фрагмент (корреспондентов)" }
    f_dsEditionsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsEditionsRef }
+    {* Ссылка на "БОФ редакции документа" }
   protected
    function pm_GetdsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
    function pm_GetIncomingLinksToPartFilter: INodeBase;

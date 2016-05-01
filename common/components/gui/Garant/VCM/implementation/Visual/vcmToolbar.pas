@@ -1,424 +1,343 @@
 unit vcmToolbar;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/vcmToolbar.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual::TvcmToolbar
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas"
+// Стереотип: "GuiControl"
+// Элемент модели: "TvcmToolbar" MUID: (5028A4C0019B)
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  Messages,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vcmLocalInterfaces,
-  vcmUserControls
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoTB97)}
-  ,
-  tb97Ctls
-  {$IfEnd} //not NoTB97
-  
-  {$If not defined(NoTB97)}
-  ,
-  TB97Tlbr
-  {$IfEnd} //not NoTB97
-  
-  {$If not defined(NoTB97)}
-  ,
-  TB97
-  {$IfEnd} //not NoTB97
-  ,
-  vcmControl,
-  Types
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , Classes
+ {$If NOT Defined(NoTB97)}
+ , TB97
+ {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr
+ {$IfEnd} // NOT Defined(NoTB97)
+ , vcmUserControls
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmLocalInterfaces
+ , Messages
+ , vcmExternalInterfaces
+ , vcmControl
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+ {$If NOT Defined(NoTB97)}
+ , tb97Ctls
+ {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmMenuManagerTypes
+ //#UC START# *5028A4C0019Bintf_uses*
+ //#UC END# *5028A4C0019Bintf_uses*
+;
 
-{$If not defined(NoVCM)}
+const
+ {* Алиасы для значений vcmMenuManagerTypes.TvcmToolbarOption }
+ vcm_toModulesInMainToolbar = vcmMenuManagerTypes.vcm_toModulesInMainToolbar;
+ vcm_toEntitiesInMainToolbar = vcmMenuManagerTypes.vcm_toEntitiesInMainToolbar;
+ vcm_toEntitiesInChildToolbar = vcmMenuManagerTypes.vcm_toEntitiesInChildToolbar;
+
+const
+ vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
+
 type
- TvcmDockDefPrim = class(TDock97)
+ TvcmDockDefPrim = class({$If NOT Defined(NoTB97)}
+ TDock97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
  end;//TvcmDockDefPrim
 
-//#UC START# *50289DB9036Fci*
-//#UC END# *50289DB9036Fci*
-//#UC START# *50289DB9036Fcit*
-//#UC END# *50289DB9036Fcit*
- TvcmToolbarDef = class(TToolbar97)
- private
- // private fields
-   f_Pos : TvcmEffectiveToolBarPos;
-    {* Поле для свойства Pos}
- protected
- // property methods
+ //#UC START# *50289DB9036Fci*
+ //#UC END# *50289DB9036Fci*
+ //#UC START# *50289DB9036Fcit*
+ //#UC END# *50289DB9036Fcit*
+ TvcmToolbarDef = class({$If NOT Defined(NoTB97)}
+ TToolbar97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
+  private
+   f_Pos: TvcmEffectiveToolBarPos;
+  protected
    function pm_GetButtonCount: Integer;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-  {$If not defined(NoVCL)}
-   procedure VisibleChanging; override;
-  {$IfEnd} //not NoVCL
-   {$If not defined(NoTB97)}
-   procedure ExecuteHandler(Sender: TObject); override;
-   {$IfEnd} //not NoTB97
-   {$If not defined(NoTB97)}
-   procedure ExecuteDefered; override;
-     {* Сигнатура метода ExecuteDefered }
-   {$IfEnd} //not NoTB97
-   {$If not defined(NoTB97)}
-   procedure UpdateEmpty(aUpdateVisibility: Boolean = True); override;
-   {$IfEnd} //not NoTB97
- protected
- // protected methods
    procedure LockDock;
-     {* Сигнатура метода LockDock }
- public
- // public methods
-   procedure VcmDeleteLastIfSeparator;
-     {* Сигнатура метода vcmDeleteLastIfSeparator }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure VisibleChanging; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoTB97)}
+   procedure ExecuteHandler(Sender: TObject); override;
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
+   procedure ExecuteDefered; override;
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
+   procedure UpdateEmpty(aUpdateVisibility: Boolean = True); override;
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
+   procedure vcmDeleteLastIfSeparator;
    procedure DeleteControls;
-     {* Сигнатура метода DeleteControls }
- public
- // public properties
+  public
    property Pos: TvcmEffectiveToolBarPos
-     read f_Pos;
+    read f_Pos;
    property ButtonCount: Integer
-     read pm_GetButtonCount;
-//#UC START# *50289DB9036Fpubl*
+    read pm_GetButtonCount;
+ //#UC START# *50289DB9036Fpubl*
    property DragKind;
    property DragMode;
-//#UC END# *50289DB9036Fpubl*
+ //#UC END# *50289DB9036Fpubl*
  end;//TvcmToolbarDef
 
+ TvcmDockDef = class;
 
- TvcmToolbarDockPanel = class;
+ TvcmToolbarDockPanel = class({$If NOT Defined(NoVCL)}
+ TCustomPanel
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
+  private
+   f_ToolbarDock: TvcmDockDef;
+  protected
+   {$If NOT Defined(NoVCL)}
+   procedure Paint; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   class function Make(AOwner: TComponent;
+    aDock: TvcmDockDef = nil): TvcmToolbarDockPanel;
+  public
+   property ToolbarDock: TvcmDockDef
+    read f_ToolbarDock
+    write f_ToolbarDock;
+ end;//TvcmToolbarDockPanel
 
-
- TvcmDockPanelButton = class;
-
- TvcmDockPanel = class(TvcmControl)
- private
- // private fields
-   f_BtnClose : TvcmDockPanelButton;
-   f_BtnOpen : TvcmDockPanelButton;
-   f_BtnMaximized : TvcmDockPanelButton;
-   f_ImageList : TImageList;
-   f_pnlToolbar : TvcmToolbarDockPanel;
-   f_pnlDock : TPanel;
-   f_PrevHeight : Integer;
-   f_PrevWidth : Integer;
-   f_Toolbar : TToolbar;
-    {* Поле для свойства Toolbar}
-   f_ToolbarDock : TvcmDockDefPrim;
-    {* Поле для свойства ToolbarDock}
- private
- // private methods
-   procedure WMSize(var Message: TWMSize); message WM_SIZE;
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
- protected
- // property methods
-   procedure pm_SetToolbar(aValue: TToolbar);
-   procedure pm_SetToolbarDock(aValue: TvcmDockDefPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
-   procedure Click; override;
-     {* Сигнатура метода Click }
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
-   procedure AlignControls(AControl: TControl;
-    var Rect: TRect); override;
-   {$IfEnd} //not NoVCL
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   function CheckLink(const aLink: IvcmFormHandler): Boolean;
-   function CreateBtn(aImageIndex: Integer;
-     const aLink: IvcmFormHandler;
-     const aName: AnsiString): TvcmDockPanelButton;
-   procedure SetDockBounds(var ALeft: Integer;
-     var ATop: Integer;
-     var AWidth: Integer;
-     var AHeight: Integer);
- public
- // public methods
-   function CreateMaximizedBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
-   function CreateCloseBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
-   function CreateOpenBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
-   procedure CreateToolbar;
-     {* Сигнатура метода CreateToolbar }
-   procedure UpdateToolbarSize;
-     {* Сигнатура метода UpdateToolbarSize }
- public
- // public properties
-   property Toolbar: TToolbar
-     read f_Toolbar
-     write pm_SetToolbar;
-   property ToolbarDock: TvcmDockDefPrim
-     read f_ToolbarDock
-     write pm_SetToolbarDock;
- end;//TvcmDockPanel
+ TvcmDockPanel = class;
 
  TvcmDockDef = class(TvcmDockDefPrim, IvcmDock)
- private
- // private fields
-   f_AllowGripSize : Boolean;
-   f_Pos : TvcmEffectiveToolBarPos;
-    {* Поле для свойства Pos}
-   f_DockPanel : TvcmDockPanel;
-    {* Поле для свойства DockPanel}
- private
- // private methods
+  private
+   f_AllowGripSize: Boolean;
+   f_Pos: TvcmEffectiveToolBarPos;
+   f_DockPanel: TvcmDockPanel;
+  private
    function SizeGripValid: Boolean;
    procedure WMSize(var Message: TWMSize); message WM_SIZE;
    procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
    procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
    procedure WMNChitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
- protected
- // realized methods
+  protected
    function pm_GetFullWidth: Integer;
    function pm_GetFullHeight: Integer;
    function pm_GetPos: TvcmEffectiveToolBarPos;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
    procedure SetBounds(ALeft: Integer;
     ATop: Integer;
     AWidth: Integer;
     AHeight: Integer); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure Paint; override;
-     {* Сигнатура метода Paint }
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoTB97)}
    function SizeGripWidth: Integer; override;
-   {$IfEnd} //not NoTB97
- public
- // public methods
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
    procedure SetHandlers(const aMaximizedLink: IvcmFormHandler;
-     const aOpenLink: IvcmFormHandler;
-     const aCloseLink: IvcmFormHandler);
+    const aOpenLink: IvcmFormHandler;
+    const aCloseLink: IvcmFormHandler);
    procedure SetFasten(aFasten: Boolean);
    class function Make(anOwner: TComponent;
-     const aName: AnsiString;
-     aPos: TvcmEffectiveToolBarPos): TvcmDockDef;
- public
- // public properties
+    const aName: AnsiString;
+    aPos: TvcmEffectiveToolBarPos): TvcmDockDef;
+  public
    property Pos: TvcmEffectiveToolBarPos
-     read pm_GetPos;
+    read pm_GetPos;
    property DockPanel: TvcmDockPanel
-     read f_DockPanel
-     write f_DockPanel;
+    read f_DockPanel
+    write f_DockPanel;
  end;//TvcmDockDef
 
- TvcmSeparatorDef = class(TToolbarSep97)
+ TvcmSeparatorDef = class({$If NOT Defined(NoTB97)}
+ TToolbarSep97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
  end;//TvcmSeparatorDef
 
- TvcmToolbarDockPanel = class(TCustomPanel)
- private
- // private fields
-   f_ToolbarDock : TvcmDockDef;
-    {* Поле для свойства ToolbarDock}
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure Paint; override;
-     {* Сигнатура метода Paint }
-   {$IfEnd} //not NoVCL
- public
- // public methods
-   class function Make(AOwner: TComponent;
-     aDock: TvcmDockDef = nil): TvcmToolbarDockPanel;
- public
- // public properties
-   property ToolbarDock: TvcmDockDef
-     read f_ToolbarDock
-     write f_ToolbarDock;
- end;//TvcmToolbarDockPanel
+ TvcmDockPanelButton = class;
 
- TvcmDockPanelButton = class(TCustomToolbarButton97)
- private
- // private fields
-   f_Form : TCustomForm;
-   f_DockPanel : TvcmDockPanel;
-    {* Поле для свойства DockPanel}
- protected
- // property methods
-   procedure pm_SetLink(const aValue: IvcmFormHandler);
- protected
- // overridden protected methods
+ TvcmDockPanel = class(TvcmControl)
+  private
+   f_BtnClose: TvcmDockPanelButton;
+   f_BtnOpen: TvcmDockPanelButton;
+   f_BtnMaximized: TvcmDockPanelButton;
+   f_ImageList: TImageList;
+   f_pnlToolbar: TvcmToolbarDockPanel;
+   f_pnlDock: TPanel;
+   f_PrevHeight: Integer;
+   f_PrevWidth: Integer;
+   f_Toolbar: TToolbar;
+   f_ToolbarDock: TvcmDockDefPrim;
+  private
+   procedure WMSize(var Message: TWMSize); message WM_SIZE;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
+  protected
+   procedure pm_SetToolbar(aValue: TToolbar);
+   procedure pm_SetToolbarDock(aValue: TvcmDockDefPrim);
+   function CheckLink(const aLink: IvcmFormHandler): Boolean;
+   function CreateBtn(aImageIndex: Integer;
+    const aLink: IvcmFormHandler;
+    const aName: AnsiString): TvcmDockPanelButton;
+   procedure SetDockBounds(var ALeft: Integer;
+    var ATop: Integer;
+    var AWidth: Integer;
+    var AHeight: Integer);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure Click; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure AlignControls(AControl: TControl;
+    var Rect: TRect); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
+   function CreateMaximizedBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
+   function CreateCloseBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
+   function CreateOpenBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
+   procedure CreateToolbar;
+   procedure UpdateToolbarSize;
+   constructor Create(AOwner: TComponent); override;
+  public
+   property Toolbar: TToolbar
+    read f_Toolbar
+    write pm_SetToolbar;
+   property ToolbarDock: TvcmDockDefPrim
+    read f_ToolbarDock
+    write pm_SetToolbarDock;
+ end;//TvcmDockPanel
+
+ TvcmDockPanelButton = class({$If NOT Defined(NoTB97)}
+ TCustomToolbarButton97
+ {$IfEnd} // NOT Defined(NoTB97)
+ )
+  private
+   f_Form: TCustomForm;
+   f_DockPanel: TvcmDockPanel;
+  protected
+   procedure pm_SetLink(const aValue: IvcmFormHandler);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    procedure Notification(AComponent: TComponent;
     Operation: TOperation); override;
- public
- // public methods
+  public
    class function Make(aOwner: TComponent;
-     const aLink: IvcmFormHandler;
-     aDockPanel: TvcmDockPanel;
-     const aName: AnsiString): TvcmDockPanelButton;
- public
- // public properties
+    const aLink: IvcmFormHandler;
+    aDockPanel: TvcmDockPanel;
+    const aName: AnsiString): TvcmDockPanelButton;
+  public
    property Link: IvcmFormHandler
-     write pm_SetLink;
+    write pm_SetLink;
    property DockPanel: TvcmDockPanel
-     read f_DockPanel
-     write f_DockPanel;
+    read f_DockPanel
+    write f_DockPanel;
  end;//TvcmDockPanelButton
 
- TvcmToolbarOption = (
-   vcm_toModulesInMainToolbar
- , vcm_toEntitiesInMainToolbar
- , vcm_toEntitiesInChildToolbar
- );//TvcmToolbarOption
+ TvcmToolbarOptions = vcmMenuManagerTypes.TvcmToolbarOptions;
 
- TvcmToolbarOptions = set of TvcmToolbarOption;
+ TvcmToolbarOption = vcmMenuManagerTypes.TvcmToolbarOption;
 
-const
-  { Константы vcmToolbar }
- vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
-
-type
-//#UC START# *5028A4C0019Bci*
-//#UC END# *5028A4C0019Bci*
-//#UC START# *5028A4C0019Bcit*
-//#UC END# *5028A4C0019Bcit*
+ //#UC START# *5028A4C0019Bci*
+ //#UC END# *5028A4C0019Bci*
+ //#UC START# *5028A4C0019Bcit*
+ //#UC END# *5028A4C0019Bcit*
  TvcmToolbar = class(TvcmToolbarDef)
- private
- // private fields
-   f_DockDef : TvcmDockDef;
-    {* Поле для свойства DockDef}
- protected
- // overridden protected methods
-    {$If not defined(NoVCL)}
+  private
+   f_DockDef: TvcmDockDef;
+  protected
+   {$If NOT Defined(NoVCL)}
    procedure RequestAlign; override;
-     {* Сигнатура метода RequestAlign }
-    {$IfEnd} //not NoVCL
-    {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoTB97)}
    function NeedActivateMainForm: Boolean; override;
-    {$IfEnd} //not NoTB97
-    {$If not defined(NoTB97)}
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
    procedure ActivateMainForm; override;
-     {* Сигнатура метода ActivateMainForm }
-    {$IfEnd} //not NoTB97
- public
- // overridden public methods
-    {$If not defined(NoTB97)}
-   procedure BeginUpdate; override;
-     {* Сигнатура метода BeginUpdate }
-    {$IfEnd} //not NoTB97
-    {$If not defined(NoTB97)}
-   procedure EndUpdate; override;
-     {* Сигнатура метода EndUpdate }
-    {$IfEnd} //not NoTB97
- public
- // public methods
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
    constructor Create(anOwner: TComponent;
-     aDock: TvcmDockDef); reintroduce;
- public
- // public properties
+    aDock: TvcmDockDef); reintroduce;
+   {$If NOT Defined(NoTB97)}
+   procedure BeginUpdate; override;
+   {$IfEnd} // NOT Defined(NoTB97)
+   {$If NOT Defined(NoTB97)}
+   procedure EndUpdate; override;
+   {$IfEnd} // NOT Defined(NoTB97)
+  public
    property DockDef: TvcmDockDef
-     read f_DockDef;
-//#UC START# *5028A4C0019Bpubl*
+    read f_DockDef;
+ //#UC START# *5028A4C0019Bpubl*
    property BevelEdges;
-//#UC END# *5028A4C0019Bpubl*
+ //#UC END# *5028A4C0019Bpubl*
  end;//TvcmToolbar
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmToolbarUtils,
-  vcmBaseMenuManager,
-  vcmMenuManager,
-  l3Defaults
-  {$If not defined(NoVCL)}
-  ,
-  ToolWin
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  vcmBase,
-  Windows,
-  vcmInternalConst,
-  vcmInterfaces,
-  afwDrawing,
-  afwInterfaces,
-  afwFacade
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , SysUtils
+ , l3Defaults
+ {$If NOT Defined(NoVCL)}
+ , ToolWin
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , vcmBase
+ , Windows
+ , vcmInternalConst
+ , vcmInterfaces
+ , afwDrawing
+ , vcmToolbarUtils
+ , afwInterfaces
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , vcmBaseMenuManager
+ , vcmMenuManager
+ //#UC START# *5028A4C0019Bimpl_uses*
+ //#UC END# *5028A4C0019Bimpl_uses*
+;
 
-{$If not defined(NoVCM)}
-
-// start class TvcmToolbar
-
-constructor TvcmToolbar.Create(anOwner: TComponent;
-  aDock: TvcmDockDef);
-//#UC START# *5028A7DE0329_5028A4C0019B_var*
-//#UC END# *5028A7DE0329_5028A4C0019B_var*
+function TvcmToolbarDef.pm_GetButtonCount: Integer;
+//#UC START# *52A991A201C8_50289DB9036Fget_var*
+//#UC END# *52A991A201C8_50289DB9036Fget_var*
 begin
-//#UC START# *5028A7DE0329_5028A4C0019B_impl*
- inherited Create(anOwner);
- f_DockDef := aDock;
- if (f_DockDef <> nil) then
-  f_Pos := f_DockDef.Pos;
-//#UC END# *5028A7DE0329_5028A4C0019B_impl*
-end;//TvcmToolbar.Create
-// start class TvcmToolbarDef
+//#UC START# *52A991A201C8_50289DB9036Fget_impl*
+ Result := ControlCount;
+//#UC END# *52A991A201C8_50289DB9036Fget_impl*
+end;//TvcmToolbarDef.pm_GetButtonCount
 
-procedure TvcmToolbarDef.VcmDeleteLastIfSeparator;
+procedure TvcmToolbarDef.vcmDeleteLastIfSeparator;
 //#UC START# *50289E6F021D_50289DB9036F_var*
 //#UC END# *50289E6F021D_50289DB9036F_var*
 begin
 //#UC START# *50289E6F021D_50289DB9036F_impl*
  DeleteLastIfSeparator;
 //#UC END# *50289E6F021D_50289DB9036F_impl*
-end;//TvcmToolbarDef.VcmDeleteLastIfSeparator
+end;//TvcmToolbarDef.vcmDeleteLastIfSeparator
 
 procedure TvcmToolbarDef.DeleteControls;
 //#UC START# *50289E7E0162_50289DB9036F_var*
@@ -451,16 +370,8 @@ begin
 //#UC END# *50289F8500B8_50289DB9036F_impl*
 end;//TvcmToolbarDef.LockDock
 
-function TvcmToolbarDef.pm_GetButtonCount: Integer;
-//#UC START# *52A991A201C8_50289DB9036Fget_var*
-//#UC END# *52A991A201C8_50289DB9036Fget_var*
-begin
-//#UC START# *52A991A201C8_50289DB9036Fget_impl*
- Result := ControlCount;
-//#UC END# *52A991A201C8_50289DB9036Fget_impl*
-end;//TvcmToolbarDef.pm_GetButtonCount
-
 procedure TvcmToolbarDef.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_50289DB9036F_var*
 //#UC END# *479731C50290_50289DB9036F_var*
 begin
@@ -470,7 +381,7 @@ begin
 //#UC END# *479731C50290_50289DB9036F_impl*
 end;//TvcmToolbarDef.Cleanup
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmToolbarDef.VisibleChanging;
 //#UC START# *4CC8658C017B_50289DB9036F_var*
 //#UC END# *4CC8658C017B_50289DB9036F_var*
@@ -480,9 +391,9 @@ begin
  inherited;
 //#UC END# *4CC8658C017B_50289DB9036F_impl*
 end;//TvcmToolbarDef.VisibleChanging
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmToolbarDef.ExecuteHandler(Sender: TObject);
 //#UC START# *5028A00600B5_50289DB9036F_var*
 var
@@ -501,9 +412,9 @@ begin
   inherited;
 //#UC END# *5028A00600B5_50289DB9036F_impl*
 end;//TvcmToolbarDef.ExecuteHandler
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmToolbarDef.ExecuteDefered;
 //#UC START# *5028A09900D5_50289DB9036F_var*
 var
@@ -549,9 +460,9 @@ begin
  end;//if Assigned(FNeedExecution) then
 //#UC END# *5028A09900D5_50289DB9036F_impl*
 end;//TvcmToolbarDef.ExecuteDefered
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmToolbarDef.UpdateEmpty(aUpdateVisibility: Boolean = True);
 //#UC START# *5028A1220383_50289DB9036F_var*
 var
@@ -570,410 +481,36 @@ begin
  inherited;
 //#UC END# *5028A1220383_50289DB9036F_impl*
 end;//TvcmToolbarDef.UpdateEmpty
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 //#UC START# *50289DB9036Fimpl*
 //#UC END# *50289DB9036Fimpl*
-// start class TvcmDockPanel
 
-function TvcmDockPanel.CreateMaximizedBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
-//#UC START# *5028E3DB0203_5028DEDB021D_var*
-var
- l_ImageIndex: Integer;
-//#UC END# *5028E3DB0203_5028DEDB021D_var*
+class function TvcmToolbarDockPanel.Make(AOwner: TComponent;
+ aDock: TvcmDockDef = nil): TvcmToolbarDockPanel;
+//#UC START# *5028A6450052_5028A43300CE_var*
+//#UC END# *5028A6450052_5028A43300CE_var*
 begin
-//#UC START# *5028E3DB0203_5028DEDB021D_impl*
- Result := nil;
- l_ImageIndex := -1;
- if not CheckLink(aLink) then
- begin
-  if (f_BtnMaximized <> nil) then
-   f_BtnMaximized.Visible := false;
-  Exit;
- end;//not CheckLink(aLink)
- Assert(Assigned(g_MenuManager));
- if g_MenuManager is TvcmCustomMenuManager then
-  l_ImageIndex := TvcmCustomMenuManager(g_MenuManager).BtnOpenNewWindowImageIndex;
- if not Assigned(f_BtnMaximized) then
-  f_BtnMaximized := CreateBtn(l_ImageIndex, aLink, 'BtnMaximized')
- else
-  f_BtnMaximized.Link := aLink;
- Result := f_BtnMaximized;
-//#UC END# *5028E3DB0203_5028DEDB021D_impl*
-end;//TvcmDockPanel.CreateMaximizedBtn
+//#UC START# *5028A6450052_5028A43300CE_impl*
+ Result := TvcmToolbarDockPanel.Create(AOwner);
+ Result.ToolbarDock := aDock;
+//#UC END# *5028A6450052_5028A43300CE_impl*
+end;//TvcmToolbarDockPanel.Make
 
-function TvcmDockPanel.CreateCloseBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
-//#UC START# *5028E403004C_5028DEDB021D_var*
-var
- l_ImageIndex: Integer;
-//#UC END# *5028E403004C_5028DEDB021D_var*
+{$If NOT Defined(NoVCL)}
+procedure TvcmToolbarDockPanel.Paint;
+//#UC START# *5028A60300AD_5028A43300CE_var*
+//#UC END# *5028A60300AD_5028A43300CE_var*
 begin
-//#UC START# *5028E403004C_5028DEDB021D_impl*
- Result := nil;
- l_ImageIndex := -1;
- if not CheckLink(aLink) OR not aLink.CanHaveOwnCloseButtonInNavigator then
- begin
-  if (f_BtnClose <> nil) then
-   f_BtnClose.Visible := false;
-  Exit;
- end;//not CheckLink(aLink)
- Assert(Assigned(g_MenuManager));
- if g_MenuManager is TvcmCustomMenuManager then
-  l_ImageIndex := TvcmCustomMenuManager(g_MenuManager).BtnCloseImageIndex;
- if not Assigned(f_BtnClose) then
-  f_BtnClose := CreateBtn(l_ImageIndex, aLink, 'BtnClose')
- else
-  f_BtnClose.Link := aLink;
- Result := f_BtnClose;
-//#UC END# *5028E403004C_5028DEDB021D_impl*
-end;//TvcmDockPanel.CreateCloseBtn
-
-function TvcmDockPanel.CreateOpenBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
-//#UC START# *5028E41E0384_5028DEDB021D_var*
-var
- l_ImageIndex: Integer;
-//#UC END# *5028E41E0384_5028DEDB021D_var*
-begin
-//#UC START# *5028E41E0384_5028DEDB021D_impl*
- Result := nil;
- l_ImageIndex := -1;
- if not CheckLink(aLink) then
- begin
-  if (f_BtnOpen <> nil) then
-   f_BtnOpen.Visible := false;
-  Exit;
- end;//not CheckLink(aLink)
- Assert(Assigned(g_MenuManager));
- if g_MenuManager is TvcmCustomMenuManager then
-  l_ImageIndex := TvcmCustomMenuManager(g_MenuManager).BtnOpenImageIndex;
- if not Assigned(f_BtnOpen) then
-  f_BtnOpen := CreateBtn(l_ImageIndex, aLink, 'BtnOpen')
- else
-  f_BtnOpen.Link := aLink;
- Result := f_BtnOpen;
-//#UC END# *5028E41E0384_5028DEDB021D_impl*
-end;//TvcmDockPanel.CreateOpenBtn
-
-function TvcmDockPanel.CheckLink(const aLink: IvcmFormHandler): Boolean;
-//#UC START# *5028E4BD038B_5028DEDB021D_var*
-//#UC END# *5028E4BD038B_5028DEDB021D_var*
-begin
-//#UC START# *5028E4BD038B_5028DEDB021D_impl*
- Result := (aLink <> nil) and (aLink.Form <> nil) and Assigned(aLink.Handler);
-//#UC END# *5028E4BD038B_5028DEDB021D_impl*
-end;//TvcmDockPanel.CheckLink
-
-function TvcmDockPanel.CreateBtn(aImageIndex: Integer;
-  const aLink: IvcmFormHandler;
-  const aName: AnsiString): TvcmDockPanelButton;
-//#UC START# *5028E4DB0207_5028DEDB021D_var*
-//#UC END# *5028E4DB0207_5028DEDB021D_var*
-begin
-//#UC START# *5028E4DB0207_5028DEDB021D_impl*
- // создадим toolbar для кнопок
- if not Assigned(f_ToolBar) then
-  CreateToolBar;
- // создадим кнопку
- Result := TvcmDockPanelButton.Make(f_ToolBar, aLink, Self, aName);
- with Result do
- begin
-  Name := aName;
-  Parent := f_ToolBar;
-  ImageIndex := aImageIndex;
-  Assert(Assigned(g_MenuManager));
-  if g_MenuManager is TvcmCustomMenuManager then
-   Images := TvcmCustomMenuManager(g_MenuManager).DockButtonsImageList;
- end;//with Result
- // размер toolbar-а
- f_ToolBar.ButtonWidth := Result.Width;
- UpdateToolbarSize;
-//#UC END# *5028E4DB0207_5028DEDB021D_impl*
-end;//TvcmDockPanel.CreateBtn
-
-procedure TvcmDockPanel.SetDockBounds(var ALeft: Integer;
-  var ATop: Integer;
-  var AWidth: Integer;
-  var AHeight: Integer);
-//#UC START# *5028E4FB030F_5028DEDB021D_var*
-//#UC END# *5028E4FB030F_5028DEDB021D_var*
-begin
-//#UC START# *5028E4FB030F_5028DEDB021D_impl*
- { В TvcmDockDef может не быть ни одного toolbar-а, но если есть f_ToolBar, то
-   не даём устанавливать высоту меньше f_ToolBar.ButtonHeight }
- if ToolbarDock <> nil then
- begin
-  if (ToolbarDock.Position = dpTop) or (ToolbarDock.Position = dpBottom) then
-  begin
-   if Assigned(f_ToolBar) and (AHeight < f_ToolBar.ButtonHeight) then
-    AHeight := f_ToolBar.ButtonHeight + 4;
-   { Размеры основной панели }
-   Self.Height := AHeight + Self.BorderWidth * 2;
-   { Toolbar с кнопками }
-   if Assigned(f_Toolbar) then
-    f_Toolbar.Height := f_pnlToolbar.Height;
-  end
-  else
-  begin
-   if Assigned(f_ToolBar) and (AWidth < f_ToolBar.ButtonWidth) then
-    AWidth := f_ToolBar.ButtonWidth + 4;
-   { Размеры основной панели }
-   Self.Width := AWidth + Self.BorderWidth * 2;
-   { Toolbar с кнопками }
-   if Assigned(f_Toolbar) then
-    f_Toolbar.Width := f_pnlToolbar.Width;
-  end;
- end;//if ToolbarDock <> nil then
-//#UC END# *5028E4FB030F_5028DEDB021D_impl*
-end;//TvcmDockPanel.SetDockBounds
-
-procedure TvcmDockPanel.CreateToolbar;
-//#UC START# *5028E59700E9_5028DEDB021D_var*
-//#UC END# *5028E59700E9_5028DEDB021D_var*
-begin
-//#UC START# *5028E59700E9_5028DEDB021D_impl*
- if not Assigned(f_pnlToolbar) then
- begin
-  f_pnlToolbar := TvcmToolbarDockPanel.Make(Self, TvcmDockDef(f_ToolbarDock));
-  with f_pnlToolbar do
-  begin
-   Parent := Self;
-   BevelOuter := bvNone;
-   Align := alRight;
-   BorderStyle := bsNone;
-  {$IfDef Nemesis}
-   Color := cGarant2011BackColor;
-  {$EndIf}
-  end;
- end;
- if not Assigned(f_ToolBar) then
- begin
-  f_ToolBar := TToolBar.Create(Self);
-  with f_ToolBar do
-  begin
-   Parent := f_pnlToolbar;
-   Wrapable := False;
-   AutoSize := True;
-   Flat := True;
-   EdgeInner := TEdgeStyle(esNone);
-   EdgeOuter := TEdgeStyle(esNone);
-   ShowHint := True;
-  end;
- end;
-//#UC END# *5028E59700E9_5028DEDB021D_impl*
-end;//TvcmDockPanel.CreateToolbar
-
-procedure TvcmDockPanel.UpdateToolbarSize;
-//#UC START# *5028E59F005F_5028DEDB021D_var*
-var
- l_AddWidth: Integer;
- l_ButtonWidth: Integer;
- l_Index: Integer;
-//#UC END# *5028E59F005F_5028DEDB021D_var*
-begin
-//#UC START# *5028E59F005F_5028DEDB021D_impl*
- with f_Toolbar do
- begin
-  l_ButtonWidth := 0;
-  for l_Index := Pred(f_Toolbar.ControlCount) downto 0 do
-   with Controls[l_Index] do
-    if Visible then
-    begin
-     Left := l_ButtonWidth;
-     Inc(l_ButtonWidth, ButtonWidth);
-    end;
-  l_AddWidth := 0;
-  (* Левая граница *)
-  if ebLeft in EdgeBorders then
-   l_AddWidth := l_AddWidth + 1;
-  (* Правая граница *)
-  if ebRight in EdgeBorders then
-   l_AddWidth := l_AddWidth + 1;
-  (* У левой и у правой кнопки граница на 1 пиксель больше *)
-  if ButtonCount > 1 then
-   l_AddWidth := 2;
-  f_pnlToolbar.Width := l_ButtonWidth + l_AddWidth;
- end;
-//#UC END# *5028E59F005F_5028DEDB021D_impl*
-end;//TvcmDockPanel.UpdateToolbarSize
-
-procedure TvcmDockPanel.pm_SetToolbar(aValue: TToolbar);
-//#UC START# *52A991CE0016_5028DEDB021Dset_var*
-//#UC END# *52A991CE0016_5028DEDB021Dset_var*
-begin
-//#UC START# *52A991CE0016_5028DEDB021Dset_impl*
- f_Toolbar := aValue;
- f_Toolbar.Parent := f_pnlToolbar;
-//#UC END# *52A991CE0016_5028DEDB021Dset_impl*
-end;//TvcmDockPanel.pm_SetToolbar
-
-procedure TvcmDockPanel.pm_SetToolbarDock(aValue: TvcmDockDefPrim);
-//#UC START# *52A99201025B_5028DEDB021Dset_var*
-//#UC END# *52A99201025B_5028DEDB021Dset_var*
-begin
-//#UC START# *52A99201025B_5028DEDB021Dset_impl*
- f_ToolbarDock := aValue;
- f_ToolbarDock.Parent := f_pnlDock;
-//#UC END# *52A99201025B_5028DEDB021Dset_impl*
-end;//TvcmDockPanel.pm_SetToolbarDock
-
-procedure TvcmDockPanel.WMSize(var Message: TWMSize);
-//#UC START# *5028E6C80331_5028DEDB021D_var*
-var
- l_OldWidth,
- l_OldHeight: Integer;
-//#UC END# *5028E6C80331_5028DEDB021D_var*
-begin
-//#UC START# *5028E6C80331_5028DEDB021D_impl*
- l_OldWidth := Width;
- l_OldHeight := Height;
+//#UC START# *5028A60300AD_5028A43300CE_impl*
  inherited;
- if Parent is TForm then
-  case (Parent as TForm).BorderStyle of
-   bsDialog,
-   bsSingle:
-    case Align of
-     alTop,
-     alBottom:
-       if Height <> (*l_OldHeight*) f_PrevHeight then
-       begin
-        // При размере шрифтов в 125% l_OldHeight бывает равен Height
-        // (http://mdp.garant.ru/pages/viewpage.action?pageId=446825181)
-        (*Parent.Height := Parent.Height + (l_OldHeight - Height);*)
-        Parent.Height := Parent.Height - (f_PrevHeight - Height);
-        f_PrevHeight := Height;
-       end;
-     alLeft,
-     alRight:
-      if Width <> (*l_OldWidth*) f_PrevWidth then
-      begin
-       // http://mdp.garant.ru/pages/viewpage.action?pageId=446825181
-       (*Parent.Width := Parent.Width + (l_OldWidth - Width);*)
-       Parent.Width := Parent.Width - (f_PrevWidth - Width);
-       f_PrevWidth := Width;
-      end;
-    end;
-  end;
-//#UC END# *5028E6C80331_5028DEDB021D_impl*
-end;//TvcmDockPanel.WMSize
-
-procedure TvcmDockPanel.WMEraseBkgnd(var Message: TWMEraseBkgnd);
-//#UC START# *5028E6ED005E_5028DEDB021D_var*
-var
- lR: TRect;
-//#UC END# *5028E6ED005E_5028DEDB021D_var*
-begin
-//#UC START# *5028E6ED005E_5028DEDB021D_impl*
- Message.Result := 1;//не прочищаем фон
- if Assigned(ToolbarDock) then
- begin
-  lR := ClientRect;
-  with Canvas do
-  begin
-   Pen.Color := clBtnShadow;
-   case ToolbarDock.Position of
-    dpTop: 
-     begin
-      MoveTo(lR.Left, Pred(lR.Bottom));
-      LineTo(lR.Right, Pred(lR.Bottom));
-     end;
-    dpBottom: 
-     begin
-      MoveTo(lR.Left, lR.Top);
-      LineTo(lR.Right, lR.Top);
-     end;
-    dpRight: 
-     begin
-      MoveTo(lR.Left, lR.Top);
-      LineTo(lR.Left, lR.Bottom);
-     end;
-    dpLeft: 
-     begin
-      MoveTo(Pred(lR.Right), lR.Top);
-      LineTo(Pred(lR.Right), lR.Bottom);
-     end;
-   end;// case
-  end;// with Canvas
- end;// if Assigned
-//#UC END# *5028E6ED005E_5028DEDB021D_impl*
-end;//TvcmDockPanel.WMEraseBkgnd
-
-procedure TvcmDockPanel.Cleanup;
-//#UC START# *479731C50290_5028DEDB021D_var*
-//#UC END# *479731C50290_5028DEDB021D_var*
-begin
-//#UC START# *479731C50290_5028DEDB021D_impl*
- vcmFree(f_ImageList);
- inherited;
-//#UC END# *479731C50290_5028DEDB021D_impl*
-end;//TvcmDockPanel.Cleanup
-
-constructor TvcmDockPanel.Create(AOwner: TComponent);
-//#UC START# *47D1602000C6_5028DEDB021D_var*
-//#UC END# *47D1602000C6_5028DEDB021D_var*
-begin
-//#UC START# *47D1602000C6_5028DEDB021D_impl*
- inherited Create(AOwner);
- BevelOuter := bvNone;
- Width := 0;
- Height := 0;
- f_pnlDock := TPanel.Create(Self);
- with f_pnlDock do
- begin
-  Parent := Self;
-  Align := alClient;
-  BevelOuter := bvNone;
- end;
-//#UC END# *47D1602000C6_5028DEDB021D_impl*
-end;//TvcmDockPanel.Create
-
-{$If not defined(NoVCL)}
-procedure TvcmDockPanel.Click;
-//#UC START# *4F88469E0021_5028DEDB021D_var*
-//#UC END# *4F88469E0021_5028DEDB021D_var*
-begin
-//#UC START# *4F88469E0021_5028DEDB021D_impl*
- inherited;
-//#UC END# *4F88469E0021_5028DEDB021D_impl*
-end;//TvcmDockPanel.Click
-{$IfEnd} //not NoVCL
-
-{$If not defined(NoVCL)}
-procedure TvcmDockPanel.AlignControls(AControl: TControl;
-  var Rect: TRect);
-//#UC START# *5028E66702B0_5028DEDB021D_var*
- // http: //mdp.garant.ru/pages/viewpage.action?pageId=319489610&focusedCommentId=326767566#comment-326767566
-var
- l_Rect: TRect;
-//#UC END# *5028E66702B0_5028DEDB021D_var*
-begin
-//#UC START# *5028E66702B0_5028DEDB021D_impl*
- CopyRect(l_Rect, Rect);
- if Assigned(ToolbarDock) then
-  case ToolbarDock.Position of
-   dpTop: Dec(Rect.Bottom);
-   dpBottom: Inc(Rect.Top);
-   dpLeft: Dec(Rect.Right);
-   dpRight: Inc(Rect.Left);
-  end;
- inherited AlignControls(AControl, Rect);
- CopyRect(Rect, l_Rect);
-//#UC END# *5028E66702B0_5028DEDB021D_impl*
-end;//TvcmDockPanel.AlignControls
-{$IfEnd} //not NoVCL
-// start class TvcmDockDef
-
-function TvcmDockDef.SizeGripValid: Boolean;
-//#UC START# *502912E4004F_5028DD5E0384_var*
-//#UC END# *502912E4004F_5028DD5E0384_var*
-begin
-//#UC START# *502912E4004F_5028DD5E0384_impl*
- Result := f_AllowGripSize;
-//#UC END# *502912E4004F_5028DD5E0384_impl*
-end;//TvcmDockDef.SizeGripValid
+//#UC END# *5028A60300AD_5028A43300CE_impl*
+end;//TvcmToolbarDockPanel.Paint
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvcmDockDef.SetHandlers(const aMaximizedLink: IvcmFormHandler;
-  const aOpenLink: IvcmFormHandler;
-  const aCloseLink: IvcmFormHandler);
+ const aOpenLink: IvcmFormHandler;
+ const aCloseLink: IvcmFormHandler);
 //#UC START# *5028DE76021E_5028DD5E0384_var*
 //#UC END# *5028DE76021E_5028DD5E0384_var*
 begin
@@ -1013,8 +550,8 @@ begin
 end;//TvcmDockDef.SetFasten
 
 class function TvcmDockDef.Make(anOwner: TComponent;
-  const aName: AnsiString;
-  aPos: TvcmEffectiveToolBarPos): TvcmDockDef;
+ const aName: AnsiString;
+ aPos: TvcmEffectiveToolBarPos): TvcmDockDef;
 //#UC START# *502912730225_5028DD5E0384_var*
 const
  cAlign: array [TvcmEffectiveToolBarPos] of TAlign = (alTop, alBottom, alLeft, alRight);
@@ -1085,6 +622,15 @@ begin
   //   диалоговых форм для размещения панели инструментов.
 //#UC END# *502912730225_5028DD5E0384_impl*
 end;//TvcmDockDef.Make
+
+function TvcmDockDef.SizeGripValid: Boolean;
+//#UC START# *502912E4004F_5028DD5E0384_var*
+//#UC END# *502912E4004F_5028DD5E0384_var*
+begin
+//#UC START# *502912E4004F_5028DD5E0384_impl*
+ Result := f_AllowGripSize;
+//#UC END# *502912E4004F_5028DD5E0384_impl*
+end;//TvcmDockDef.SizeGripValid
 
 procedure TvcmDockDef.WMSize(var Message: TWMSize);
 //#UC START# *502913210162_5028DD5E0384_var*
@@ -1189,6 +735,7 @@ begin
 end;//TvcmDockDef.pm_GetPos
 
 procedure TvcmDockDef.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5028DD5E0384_var*
 //#UC END# *479731C50290_5028DD5E0384_var*
 begin
@@ -1201,11 +748,11 @@ begin
 //#UC END# *479731C50290_5028DD5E0384_impl*
 end;//TvcmDockDef.Cleanup
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmDockDef.SetBounds(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer);
 //#UC START# *4F2A599E0283_5028DD5E0384_var*
 //#UC END# *4F2A599E0283_5028DD5E0384_var*
 begin
@@ -1220,9 +767,9 @@ begin
  inherited SetBounds(ALeft, ATop, AWidth, AHeight);
 //#UC END# *4F2A599E0283_5028DD5E0384_impl*
 end;//TvcmDockDef.SetBounds
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmDockDef.Paint;
 //#UC START# *5028A60300AD_5028DD5E0384_var*
 //#UC END# *5028A60300AD_5028DD5E0384_var*
@@ -1231,9 +778,9 @@ begin
  inherited;
 //#UC END# *5028A60300AD_5028DD5E0384_impl*
 end;//TvcmDockDef.Paint
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmDockDef.SizeGripWidth: Integer;
 //#UC START# *5028DD25024B_5028DD5E0384_var*
 //#UC END# *5028DD25024B_5028DD5E0384_var*
@@ -1245,50 +792,393 @@ begin
   Result := inherited SizeGripWidth;
 //#UC END# *5028DD25024B_5028DD5E0384_impl*
 end;//TvcmDockDef.SizeGripWidth
-{$IfEnd} //not NoTB97
-// start class TvcmToolbarDockPanel
+{$IfEnd} // NOT Defined(NoTB97)
 
-class function TvcmToolbarDockPanel.Make(AOwner: TComponent;
-  aDock: TvcmDockDef = nil): TvcmToolbarDockPanel;
-//#UC START# *5028A6450052_5028A43300CE_var*
-//#UC END# *5028A6450052_5028A43300CE_var*
+procedure TvcmDockPanel.pm_SetToolbar(aValue: TToolbar);
+//#UC START# *52A991CE0016_5028DEDB021Dset_var*
+//#UC END# *52A991CE0016_5028DEDB021Dset_var*
 begin
-//#UC START# *5028A6450052_5028A43300CE_impl*
- Result := TvcmToolbarDockPanel.Create(AOwner);
- Result.ToolbarDock := aDock;
-//#UC END# *5028A6450052_5028A43300CE_impl*
-end;//TvcmToolbarDockPanel.Make
+//#UC START# *52A991CE0016_5028DEDB021Dset_impl*
+ f_Toolbar := aValue;
+ f_Toolbar.Parent := f_pnlToolbar;
+//#UC END# *52A991CE0016_5028DEDB021Dset_impl*
+end;//TvcmDockPanel.pm_SetToolbar
 
-{$If not defined(NoVCL)}
-procedure TvcmToolbarDockPanel.Paint;
-//#UC START# *5028A60300AD_5028A43300CE_var*
-//#UC END# *5028A60300AD_5028A43300CE_var*
+procedure TvcmDockPanel.pm_SetToolbarDock(aValue: TvcmDockDefPrim);
+//#UC START# *52A99201025B_5028DEDB021Dset_var*
+//#UC END# *52A99201025B_5028DEDB021Dset_var*
 begin
-//#UC START# *5028A60300AD_5028A43300CE_impl*
- inherited;
-//#UC END# *5028A60300AD_5028A43300CE_impl*
-end;//TvcmToolbarDockPanel.Paint
-{$IfEnd} //not NoVCL
-// start class TvcmDockPanelButton
+//#UC START# *52A99201025B_5028DEDB021Dset_impl*
+ f_ToolbarDock := aValue;
+ f_ToolbarDock.Parent := f_pnlDock;
+//#UC END# *52A99201025B_5028DEDB021Dset_impl*
+end;//TvcmDockPanel.pm_SetToolbarDock
 
-class function TvcmDockPanelButton.Make(aOwner: TComponent;
-  const aLink: IvcmFormHandler;
-  aDockPanel: TvcmDockPanel;
-  const aName: AnsiString): TvcmDockPanelButton;
-//#UC START# *5028EA1900C1_5028E443024E_var*
-//#UC END# *5028EA1900C1_5028E443024E_var*
+function TvcmDockPanel.CreateMaximizedBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
+//#UC START# *5028E3DB0203_5028DEDB021D_var*
+var
+ l_ImageIndex: Integer;
+//#UC END# *5028E3DB0203_5028DEDB021D_var*
 begin
-//#UC START# *5028EA1900C1_5028E443024E_impl*
- Result := Create(aOwner);
+//#UC START# *5028E3DB0203_5028DEDB021D_impl*
+ Result := nil;
+ l_ImageIndex := -1;
+ if not CheckLink(aLink) then
+ begin
+  if (f_BtnMaximized <> nil) then
+   f_BtnMaximized.Visible := false;
+  Exit;
+ end;//not CheckLink(aLink)
+ Assert(Assigned(g_MenuManager));
+ if g_MenuManager is TvcmCustomMenuManager then
+  l_ImageIndex := TvcmCustomMenuManager(g_MenuManager).BtnOpenNewWindowImageIndex;
+ if not Assigned(f_BtnMaximized) then
+  f_BtnMaximized := CreateBtn(l_ImageIndex, aLink, 'BtnMaximized')
+ else
+  f_BtnMaximized.Link := aLink;
+ Result := f_BtnMaximized;
+//#UC END# *5028E3DB0203_5028DEDB021D_impl*
+end;//TvcmDockPanel.CreateMaximizedBtn
+
+function TvcmDockPanel.CreateCloseBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
+//#UC START# *5028E403004C_5028DEDB021D_var*
+var
+ l_ImageIndex: Integer;
+//#UC END# *5028E403004C_5028DEDB021D_var*
+begin
+//#UC START# *5028E403004C_5028DEDB021D_impl*
+ Result := nil;
+ l_ImageIndex := -1;
+ if not CheckLink(aLink) OR not aLink.CanHaveOwnCloseButtonInNavigator then
+ begin
+  if (f_BtnClose <> nil) then
+   f_BtnClose.Visible := false;
+  Exit;
+ end;//not CheckLink(aLink)
+ Assert(Assigned(g_MenuManager));
+ if g_MenuManager is TvcmCustomMenuManager then
+  l_ImageIndex := TvcmCustomMenuManager(g_MenuManager).BtnCloseImageIndex;
+ if not Assigned(f_BtnClose) then
+  f_BtnClose := CreateBtn(l_ImageIndex, aLink, 'BtnClose')
+ else
+  f_BtnClose.Link := aLink;
+ Result := f_BtnClose;
+//#UC END# *5028E403004C_5028DEDB021D_impl*
+end;//TvcmDockPanel.CreateCloseBtn
+
+function TvcmDockPanel.CreateOpenBtn(const aLink: IvcmFormHandler): TvcmDockPanelButton;
+//#UC START# *5028E41E0384_5028DEDB021D_var*
+var
+ l_ImageIndex: Integer;
+//#UC END# *5028E41E0384_5028DEDB021D_var*
+begin
+//#UC START# *5028E41E0384_5028DEDB021D_impl*
+ Result := nil;
+ l_ImageIndex := -1;
+ if not CheckLink(aLink) then
+ begin
+  if (f_BtnOpen <> nil) then
+   f_BtnOpen.Visible := false;
+  Exit;
+ end;//not CheckLink(aLink)
+ Assert(Assigned(g_MenuManager));
+ if g_MenuManager is TvcmCustomMenuManager then
+  l_ImageIndex := TvcmCustomMenuManager(g_MenuManager).BtnOpenImageIndex;
+ if not Assigned(f_BtnOpen) then
+  f_BtnOpen := CreateBtn(l_ImageIndex, aLink, 'BtnOpen')
+ else
+  f_BtnOpen.Link := aLink;
+ Result := f_BtnOpen;
+//#UC END# *5028E41E0384_5028DEDB021D_impl*
+end;//TvcmDockPanel.CreateOpenBtn
+
+function TvcmDockPanel.CheckLink(const aLink: IvcmFormHandler): Boolean;
+//#UC START# *5028E4BD038B_5028DEDB021D_var*
+//#UC END# *5028E4BD038B_5028DEDB021D_var*
+begin
+//#UC START# *5028E4BD038B_5028DEDB021D_impl*
+ Result := (aLink <> nil) and (aLink.Form <> nil) and Assigned(aLink.Handler);
+//#UC END# *5028E4BD038B_5028DEDB021D_impl*
+end;//TvcmDockPanel.CheckLink
+
+function TvcmDockPanel.CreateBtn(aImageIndex: Integer;
+ const aLink: IvcmFormHandler;
+ const aName: AnsiString): TvcmDockPanelButton;
+//#UC START# *5028E4DB0207_5028DEDB021D_var*
+//#UC END# *5028E4DB0207_5028DEDB021D_var*
+begin
+//#UC START# *5028E4DB0207_5028DEDB021D_impl*
+ // создадим toolbar для кнопок
+ if not Assigned(f_ToolBar) then
+  CreateToolBar;
+ // создадим кнопку
+ Result := TvcmDockPanelButton.Make(f_ToolBar, aLink, Self, aName);
  with Result do
  begin
   Name := aName;
-  DockPanel := aDockPanel;
-  Link := aLink;
-  Alignment := taCenter;
+  Parent := f_ToolBar;
+  ImageIndex := aImageIndex;
+  Assert(Assigned(g_MenuManager));
+  if g_MenuManager is TvcmCustomMenuManager then
+   Images := TvcmCustomMenuManager(g_MenuManager).DockButtonsImageList;
  end;//with Result
-//#UC END# *5028EA1900C1_5028E443024E_impl*
-end;//TvcmDockPanelButton.Make
+ // размер toolbar-а
+ f_ToolBar.ButtonWidth := Result.Width;
+ UpdateToolbarSize;
+//#UC END# *5028E4DB0207_5028DEDB021D_impl*
+end;//TvcmDockPanel.CreateBtn
+
+procedure TvcmDockPanel.SetDockBounds(var ALeft: Integer;
+ var ATop: Integer;
+ var AWidth: Integer;
+ var AHeight: Integer);
+//#UC START# *5028E4FB030F_5028DEDB021D_var*
+//#UC END# *5028E4FB030F_5028DEDB021D_var*
+begin
+//#UC START# *5028E4FB030F_5028DEDB021D_impl*
+ { В TvcmDockDef может не быть ни одного toolbar-а, но если есть f_ToolBar, то
+   не даём устанавливать высоту меньше f_ToolBar.ButtonHeight }
+ if ToolbarDock <> nil then
+ begin
+  if (ToolbarDock.Position = dpTop) or (ToolbarDock.Position = dpBottom) then
+  begin
+   if Assigned(f_ToolBar) and (AHeight < f_ToolBar.ButtonHeight) then
+    AHeight := f_ToolBar.ButtonHeight + 4;
+   { Размеры основной панели }
+   Self.Height := AHeight + Self.BorderWidth * 2;
+   { Toolbar с кнопками }
+   if Assigned(f_Toolbar) then
+    f_Toolbar.Height := f_pnlToolbar.Height;
+  end
+  else
+  begin
+   if Assigned(f_ToolBar) and (AWidth < f_ToolBar.ButtonWidth) then
+    AWidth := f_ToolBar.ButtonWidth + 4;
+   { Размеры основной панели }
+   Self.Width := AWidth + Self.BorderWidth * 2;
+   { Toolbar с кнопками }
+   if Assigned(f_Toolbar) then
+    f_Toolbar.Width := f_pnlToolbar.Width;
+  end;
+ end;//if ToolbarDock <> nil then
+//#UC END# *5028E4FB030F_5028DEDB021D_impl*
+end;//TvcmDockPanel.SetDockBounds
+
+procedure TvcmDockPanel.CreateToolbar;
+//#UC START# *5028E59700E9_5028DEDB021D_var*
+//#UC END# *5028E59700E9_5028DEDB021D_var*
+begin
+//#UC START# *5028E59700E9_5028DEDB021D_impl*
+ if not Assigned(f_pnlToolbar) then
+ begin
+  f_pnlToolbar := TvcmToolbarDockPanel.Make(Self, TvcmDockDef(f_ToolbarDock));
+  with f_pnlToolbar do
+  begin
+   Parent := Self;
+   BevelOuter := bvNone;
+   Align := alRight;
+   BorderStyle := bsNone;
+  {$IfDef Nemesis}
+   Color := cGarant2011BackColor;
+  {$EndIf}
+  end;
+ end;
+ if not Assigned(f_ToolBar) then
+ begin
+  f_ToolBar := TToolBar.Create(Self);
+  with f_ToolBar do
+  begin
+   Parent := f_pnlToolbar;
+   Wrapable := False;
+   AutoSize := True;
+   Flat := True;
+   EdgeInner := TEdgeStyle(esNone);
+   EdgeOuter := TEdgeStyle(esNone);
+   ShowHint := True;
+  end;
+ end;
+//#UC END# *5028E59700E9_5028DEDB021D_impl*
+end;//TvcmDockPanel.CreateToolbar
+
+procedure TvcmDockPanel.UpdateToolbarSize;
+//#UC START# *5028E59F005F_5028DEDB021D_var*
+var
+ l_AddWidth: Integer;
+ l_ButtonWidth: Integer;
+ l_Index: Integer;
+//#UC END# *5028E59F005F_5028DEDB021D_var*
+begin
+//#UC START# *5028E59F005F_5028DEDB021D_impl*
+ with f_Toolbar do
+ begin
+  l_ButtonWidth := 0;
+  for l_Index := Pred(f_Toolbar.ControlCount) downto 0 do
+   with Controls[l_Index] do
+    if Visible then
+    begin
+     Left := l_ButtonWidth;
+     Inc(l_ButtonWidth, ButtonWidth);
+    end;
+  l_AddWidth := 0;
+  (* Левая граница *)
+  if ebLeft in EdgeBorders then
+   l_AddWidth := l_AddWidth + 1;
+  (* Правая граница *)
+  if ebRight in EdgeBorders then
+   l_AddWidth := l_AddWidth + 1;
+  (* У левой и у правой кнопки граница на 1 пиксель больше *)
+  if ButtonCount > 1 then
+   l_AddWidth := 2;
+  f_pnlToolbar.Width := l_ButtonWidth + l_AddWidth;
+ end;
+//#UC END# *5028E59F005F_5028DEDB021D_impl*
+end;//TvcmDockPanel.UpdateToolbarSize
+
+procedure TvcmDockPanel.WMSize(var Message: TWMSize);
+//#UC START# *5028E6C80331_5028DEDB021D_var*
+var
+ l_OldWidth,
+ l_OldHeight: Integer;
+//#UC END# *5028E6C80331_5028DEDB021D_var*
+begin
+//#UC START# *5028E6C80331_5028DEDB021D_impl*
+ l_OldWidth := Width;
+ l_OldHeight := Height;
+ inherited;
+ if Parent is TForm then
+  case (Parent as TForm).BorderStyle of
+   bsDialog,
+   bsSingle:
+    case Align of
+     alTop,
+     alBottom:
+       if Height <> (*l_OldHeight*) f_PrevHeight then
+       begin
+        // При размере шрифтов в 125% l_OldHeight бывает равен Height
+        // (http://mdp.garant.ru/pages/viewpage.action?pageId=446825181)
+        (*Parent.Height := Parent.Height + (l_OldHeight - Height);*)
+        Parent.Height := Parent.Height - (f_PrevHeight - Height);
+        f_PrevHeight := Height;
+       end;
+     alLeft,
+     alRight:
+      if Width <> (*l_OldWidth*) f_PrevWidth then
+      begin
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=446825181
+       (*Parent.Width := Parent.Width + (l_OldWidth - Width);*)
+       Parent.Width := Parent.Width - (f_PrevWidth - Width);
+       f_PrevWidth := Width;
+      end;
+    end;
+  end;
+//#UC END# *5028E6C80331_5028DEDB021D_impl*
+end;//TvcmDockPanel.WMSize
+
+procedure TvcmDockPanel.WMEraseBkgnd(var Message: TWMEraseBkgnd);
+//#UC START# *5028E6ED005E_5028DEDB021D_var*
+var
+ lR: TRect;
+//#UC END# *5028E6ED005E_5028DEDB021D_var*
+begin
+//#UC START# *5028E6ED005E_5028DEDB021D_impl*
+ Message.Result := 1;//не прочищаем фон
+ if Assigned(ToolbarDock) then
+ begin
+  lR := ClientRect;
+  with Canvas do
+  begin
+   Pen.Color := clBtnShadow;
+   case ToolbarDock.Position of
+    dpTop: 
+     begin
+      MoveTo(lR.Left, Pred(lR.Bottom));
+      LineTo(lR.Right, Pred(lR.Bottom));
+     end;
+    dpBottom: 
+     begin
+      MoveTo(lR.Left, lR.Top);
+      LineTo(lR.Right, lR.Top);
+     end;
+    dpRight: 
+     begin
+      MoveTo(lR.Left, lR.Top);
+      LineTo(lR.Left, lR.Bottom);
+     end;
+    dpLeft: 
+     begin
+      MoveTo(Pred(lR.Right), lR.Top);
+      LineTo(Pred(lR.Right), lR.Bottom);
+     end;
+   end;// case
+  end;// with Canvas
+ end;// if Assigned
+//#UC END# *5028E6ED005E_5028DEDB021D_impl*
+end;//TvcmDockPanel.WMEraseBkgnd
+
+procedure TvcmDockPanel.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_5028DEDB021D_var*
+//#UC END# *479731C50290_5028DEDB021D_var*
+begin
+//#UC START# *479731C50290_5028DEDB021D_impl*
+ vcmFree(f_ImageList);
+ inherited;
+//#UC END# *479731C50290_5028DEDB021D_impl*
+end;//TvcmDockPanel.Cleanup
+
+constructor TvcmDockPanel.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_5028DEDB021D_var*
+//#UC END# *47D1602000C6_5028DEDB021D_var*
+begin
+//#UC START# *47D1602000C6_5028DEDB021D_impl*
+ inherited Create(AOwner);
+ BevelOuter := bvNone;
+ Width := 0;
+ Height := 0;
+ f_pnlDock := TPanel.Create(Self);
+ with f_pnlDock do
+ begin
+  Parent := Self;
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;
+//#UC END# *47D1602000C6_5028DEDB021D_impl*
+end;//TvcmDockPanel.Create
+
+{$If NOT Defined(NoVCL)}
+procedure TvcmDockPanel.Click;
+//#UC START# *4F88469E0021_5028DEDB021D_var*
+//#UC END# *4F88469E0021_5028DEDB021D_var*
+begin
+//#UC START# *4F88469E0021_5028DEDB021D_impl*
+ inherited;
+//#UC END# *4F88469E0021_5028DEDB021D_impl*
+end;//TvcmDockPanel.Click
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TvcmDockPanel.AlignControls(AControl: TControl;
+ var Rect: TRect);
+//#UC START# *5028E66702B0_5028DEDB021D_var*
+ // http: //mdp.garant.ru/pages/viewpage.action?pageId=319489610&focusedCommentId=326767566#comment-326767566
+var
+ l_Rect: TRect;
+//#UC END# *5028E66702B0_5028DEDB021D_var*
+begin
+//#UC START# *5028E66702B0_5028DEDB021D_impl*
+ CopyRect(l_Rect, Rect);
+ if Assigned(ToolbarDock) then
+  case ToolbarDock.Position of
+   dpTop: Dec(Rect.Bottom);
+   dpBottom: Inc(Rect.Top);
+   dpLeft: Dec(Rect.Right);
+   dpRight: Inc(Rect.Left);
+  end;
+ inherited AlignControls(AControl, Rect);
+ CopyRect(Rect, l_Rect);
+//#UC END# *5028E66702B0_5028DEDB021D_impl*
+end;//TvcmDockPanel.AlignControls
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvcmDockPanelButton.pm_SetLink(const aValue: IvcmFormHandler);
 //#UC START# *52A9948401B1_5028E443024Eset_var*
@@ -1315,7 +1205,27 @@ begin
 //#UC END# *52A9948401B1_5028E443024Eset_impl*
 end;//TvcmDockPanelButton.pm_SetLink
 
+class function TvcmDockPanelButton.Make(aOwner: TComponent;
+ const aLink: IvcmFormHandler;
+ aDockPanel: TvcmDockPanel;
+ const aName: AnsiString): TvcmDockPanelButton;
+//#UC START# *5028EA1900C1_5028E443024E_var*
+//#UC END# *5028EA1900C1_5028E443024E_var*
+begin
+//#UC START# *5028EA1900C1_5028E443024E_impl*
+ Result := Create(aOwner);
+ with Result do
+ begin
+  Name := aName;
+  DockPanel := aDockPanel;
+  Link := aLink;
+  Alignment := taCenter;
+ end;//with Result
+//#UC END# *5028EA1900C1_5028E443024E_impl*
+end;//TvcmDockPanelButton.Make
+
 procedure TvcmDockPanelButton.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5028E443024E_var*
 //#UC END# *479731C50290_5028E443024E_var*
 begin
@@ -1327,7 +1237,7 @@ begin
 end;//TvcmDockPanelButton.Cleanup
 
 procedure TvcmDockPanelButton.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4F884378016A_5028E443024E_var*
 //#UC END# *4F884378016A_5028E443024E_var*
 begin
@@ -1349,7 +1259,20 @@ begin
 //#UC END# *4F884378016A_5028E443024E_impl*
 end;//TvcmDockPanelButton.Notification
 
-{$If not defined(NoVCL)}
+constructor TvcmToolbar.Create(anOwner: TComponent;
+ aDock: TvcmDockDef);
+//#UC START# *5028A7DE0329_5028A4C0019B_var*
+//#UC END# *5028A7DE0329_5028A4C0019B_var*
+begin
+//#UC START# *5028A7DE0329_5028A4C0019B_impl*
+ inherited Create(anOwner);
+ f_DockDef := aDock;
+ if (f_DockDef <> nil) then
+  f_Pos := f_DockDef.Pos;
+//#UC END# *5028A7DE0329_5028A4C0019B_impl*
+end;//TvcmToolbar.Create
+
+{$If NOT Defined(NoVCL)}
 procedure TvcmToolbar.RequestAlign;
 //#UC START# *5022104B03A6_5028A4C0019B_var*
 //#UC END# *5022104B03A6_5028A4C0019B_var*
@@ -1363,9 +1286,9 @@ begin
  inherited;
 //#UC END# *5022104B03A6_5028A4C0019B_impl*
 end;//TvcmToolbar.RequestAlign
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmToolbar.BeginUpdate;
 //#UC START# *5028A78000B6_5028A4C0019B_var*
 //#UC END# *5028A78000B6_5028A4C0019B_var*
@@ -1374,9 +1297,9 @@ begin
  inherited;
 //#UC END# *5028A78000B6_5028A4C0019B_impl*
 end;//TvcmToolbar.BeginUpdate
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmToolbar.EndUpdate;
 //#UC START# *5028A78B015A_5028A4C0019B_var*
 //#UC END# *5028A78B015A_5028A4C0019B_var*
@@ -1385,9 +1308,9 @@ begin
  inherited;
 //#UC END# *5028A78B015A_5028A4C0019B_impl*
 end;//TvcmToolbar.EndUpdate
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 function TvcmToolbar.NeedActivateMainForm: Boolean;
 //#UC START# *552E0FD5016D_5028A4C0019B_var*
 //#UC END# *552E0FD5016D_5028A4C0019B_var*
@@ -1398,9 +1321,9 @@ begin
   Result := Result and (GetActiveWindow <> Application.MainForm.Handle);
 //#UC END# *552E0FD5016D_5028A4C0019B_impl*
 end;//TvcmToolbar.NeedActivateMainForm
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 procedure TvcmToolbar.ActivateMainForm;
 //#UC START# *552E10010067_5028A4C0019B_var*
 //#UC END# *552E10010067_5028A4C0019B_var*
@@ -1411,45 +1334,44 @@ begin
  inherited;
 //#UC END# *552E10010067_5028A4C0019B_impl*
 end;//TvcmToolbar.ActivateMainForm
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 //#UC START# *5028A4C0019Bimpl*
 //#UC END# *5028A4C0019Bimpl*
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmDockDefPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmDockDefPrim);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmToolbarDef
+ {* Регистрация TvcmDockDefPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmToolbarDef);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmDockPanel
- TtfwClassRef.Register(TvcmDockPanel);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmDockDef
- TtfwClassRef.Register(TvcmDockDef);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmSeparatorDef
- TtfwClassRef.Register(TvcmSeparatorDef);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmToolbarDockPanel
+ {* Регистрация TvcmToolbarDef }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmToolbarDockPanel);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmDockPanelButton
+ {* Регистрация TvcmToolbarDockPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmDockDef);
+ {* Регистрация TvcmDockDef }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmSeparatorDef);
+ {* Регистрация TvcmSeparatorDef }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmDockPanel);
+ {* Регистрация TvcmDockPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmDockPanelButton);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmToolbar
+ {* Регистрация TvcmDockPanelButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmToolbar);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmToolbar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_evTextParaConst;
+unit evTextParaConst;
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_evTextParaConst.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\evTextParaConst.pas"
 // Стереотип: "Interfaces"
 // Элемент модели: "evTextParaConst" MUID: (480F77890296)
 

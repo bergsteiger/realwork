@@ -13,7 +13,7 @@
   private
    f_CurrentNode: INodeBase;
    f_dsContentsRef: IvcmFormDataSourceRef;
-    {* Поле для свойства dsContentsRef }
+    {* Ссылка на "список толкований" }
   protected
    function pm_GetCurrentNode: INodeBase;
    procedure pm_SetCurrentNode(const aValue: INodeBase);

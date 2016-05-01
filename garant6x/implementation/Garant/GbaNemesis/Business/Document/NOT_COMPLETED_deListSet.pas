@@ -23,7 +23,7 @@ type
  TdeListSet = class(TdeDocumentList, IdeDocumentListSet)
   private
    f_List_SynchroView_Form: TList_SynchroView_Areas;
-    {* Поле для свойства List_SynchroView_Form }
+    {* Форма синхронного просмотра }
   protected
    function pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
    procedure AssignClonned(aClone: TdeDocumentList); override;

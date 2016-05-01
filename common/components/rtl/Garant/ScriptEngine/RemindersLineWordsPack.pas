@@ -32,10 +32,6 @@ uses
 ;
 
 type
- TvgRemindersLineFriend = {abstract} class(TvgRemindersLine)
-  {* Друг для TvgRemindersLine }
- end;//TvgRemindersLineFriend
-
  TkwPopRemindersLineClientToScreen = {final} class(TtfwClassLike)
   {* Слово скрипта pop:RemindersLine:ClientToScreen
 *Тип результата:* TPoint
@@ -263,6 +259,10 @@ INTEGER VAR l_Integer
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRemindersLineWidth
+
+ TvgRemindersLineFriend = {abstract} class(TvgRemindersLine)
+  {* Друг к классу TvgRemindersLine }
+ end;//TvgRemindersLineFriend
 
 function TkwPopRemindersLineClientToScreen.ClientToScreen(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine;
