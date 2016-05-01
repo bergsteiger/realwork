@@ -75,25 +75,6 @@ ref; // ME_88066E5D0414_ME_6186CACBB9C1 IC
 
 ref; // ME_6186CACBB9C1 Il3ScreenService
 
-: ME_0F1173251453
- CONST UID '0F1173251453'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3ScreenService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_556EE57803CD // Tl3ScreenService
- ;
- : Target ME_6186CACBB9C1 // Il3ScreenService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_0F1173251453 Alien
-
 : ME_556EE5D60314
  CONST UID '556EE5D60314'
  CONST Name 'IC'
@@ -132,10 +113,6 @@ ref; // ME_88066E5D0414_ME_556EE57803CD IC
    Seq: ( ME_430D5008738D // Ml3ScreenService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_0F1173251453 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_556EE5D60314 // IC
  )
@@ -158,6 +135,10 @@ ref; // ME_88066E5D0414_ME_556EE57803CD IC
  CONST extprop:rc:SelfName 'ScreenService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ScreenService'
+ : Facet ME_6186CACBB9C1 // Il3ScreenService
+ ;
+ : Mixin ME_430D5008738D // Ml3ScreenService
+ ;
 
 ref; // ME_556EE57803CD Tl3ScreenService
 

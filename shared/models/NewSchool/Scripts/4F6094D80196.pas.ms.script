@@ -1104,31 +1104,6 @@ ref; // ME_552E413F010E SpinEditWordsPack
 
 FORWARD ME_552E47C10290
 
-: ME_4B686C2C3878
- CONST UID '4B686C2C3878'
- CONST Name 'TvtCustomListerFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TvtCustomLister' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_552E47C10290 // ListerWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_515062D301C4' '4B97E7FD006C.pas.ms.script' // TvtCustomLister
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'ListerFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4B686C2C3878 TvtCustomListerFriend
-
 FORWARD ME_552E482B0030
 
 FORWARD ME_EFDA6E4429D8
@@ -1954,8 +1929,7 @@ ref; // ME_46A5AA4B003C_ME_552E47C10290 Invalidate
  )
  ; // Implemented
  : Children
-   Seq: ( ME_4B686C2C3878 // TvtCustomListerFriend
- ME_3601E7023043 // pop_Lister_SelectWithShift
+   Seq: ( ME_3601E7023043 // pop_Lister_SelectWithShift
  ME_94BB02952F38 // pop_Lister_GetSelected
  ME_0BB474851F7E // pop_Lister_FooterCaption
  ME_AC4C8A615B0D // pop_Lister_Current
@@ -2845,7 +2819,8 @@ ref; // ME_552E49070307 PageControlWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects

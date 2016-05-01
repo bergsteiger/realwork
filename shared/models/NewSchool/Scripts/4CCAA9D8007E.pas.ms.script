@@ -5373,63 +5373,6 @@ ref; // ME_4CCAA9E50274 Filters$FP
 
 FORWARD ME_53B533CE01B6
 
-FORWARD ME_1FDB698BC58C
-
-: ME_3A5978096207
- CONST UID '3A5978096207'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1FDB698BC58C // TInsFilterNodeWordsPackResNameGetter
- ;
-
-ref; // ME_3A5978096207 RegAxiom
-
-: ME_55B7A3AF0359_ME_1FDB698BC58C
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_1FDB698BC58C ResName
-
-: ME_1FDB698BC58C
- CONST UID '1FDB698BC58C'
- CONST Name 'TInsFilterNodeWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53B533CE01B6 // InsFilterNodeWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_3A5978096207 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_1FDB698BC58C // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'InsFilterNodeWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_1FDB698BC58C TInsFilterNodeWordsPackResNameGetter
-
 FORWARD ME_FC607A3EC90D
 
 FORWARD ME_6994BC623F48
@@ -6302,8 +6245,7 @@ ref; // ME_4FD9E3F900B3_ME_53B533CE01B6 ID
  )
  ; // Implemented
  : Children
-   Seq: ( ME_1FDB698BC58C // TInsFilterNodeWordsPackResNameGetter
- ME_81D0AC689E19 // FilterNode_AutoApplied
+   Seq: ( ME_81D0AC689E19 // FilterNode_AutoApplied
  ME_3EAB6B490CA4 // FilterNode_IsUsed
  ME_2F875C7C1CA3 // FilterNode_IsDeleted
  ME_008D699CFE74 // FilterNode_IsChangeable
@@ -6593,7 +6535,8 @@ ref; // ME_571E1AF302D6 FiltersProcessingWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
  WL 'ME_456F02A50196' '456F02A50196.pas.ms.script' // BaseTreeSupport
  WL 'ME_45EEA48F011F' '45EEA48F011F.pas.ms.script' // Filters
  WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
@@ -6647,7 +6590,6 @@ ref; // ME_571E1AF302D6 FiltersProcessingWordsPack
  WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine

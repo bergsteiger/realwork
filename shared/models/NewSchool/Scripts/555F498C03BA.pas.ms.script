@@ -116,25 +116,6 @@ ref; // ME_555F49FD0175 EtalonNeedsXE
 
 ref; // ME_555F4A16032F EtalonNeeds64
 
-: ME_398AECDF6266
- CONST UID '398AECDF6266'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3EtalonsService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_555F49A0015B // Tl3EtalonsService
- ;
- : Target ME_196A761AE947 // Il3EtalonsService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_398AECDF6266 Alien
-
 : ME_555F49A0015B
  CONST UID '555F49A0015B'
  CONST Name 'Tl3EtalonsService'
@@ -158,7 +139,6 @@ ref; // ME_398AECDF6266 Alien
  ME_555F49DE0060 // EtalonNeedsOSName
  ME_555F49FD0175 // EtalonNeedsXE
  ME_555F4A16032F // EtalonNeeds64
- ME_398AECDF6266 // Alien
  )
  ; // Attributes
  : Children
@@ -175,6 +155,10 @@ ref; // ME_398AECDF6266 Alien
  CONST extprop:rc:SelfName 'EtalonsService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3EtalonsService'
+ : Facet ME_196A761AE947 // Il3EtalonsService
+ ;
+ : Mixin ME_2B5260926DBC // Ml3EtalonsService
+ ;
 
 ref; // ME_555F49A0015B Tl3EtalonsService
 

@@ -16918,25 +16918,6 @@ ref; // ME_2627E933260B_ME_1E74B0CF4425 StartupComplete
 
 ref; // ME_1E74B0CF4425 If1StartupCompletedService
 
-: ME_E9AE57C09E06
- CONST UID 'E9AE57C09E06'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса If1StartupCompletedService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_55B0CFA90241 // Tf1StartupCompletedService
- ;
- : Target ME_1E74B0CF4425 // If1StartupCompletedService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_E9AE57C09E06 Alien
-
 : ME_55B0DDC00044
  CONST UID '55B0DDC00044'
  CONST Name 'StartupComplete'
@@ -16973,10 +16954,6 @@ ref; // ME_2627E933260B_ME_55B0CFA90241 StartupComplete
    Seq: ( ME_3044CBAC1F5E // Mf1StartupCompletedService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_E9AE57C09E06 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_55B0DDC00044 // StartupComplete
  )
@@ -16999,6 +16976,10 @@ ref; // ME_2627E933260B_ME_55B0CFA90241 StartupComplete
  CONST extprop:rc:SelfName 'f1StartupCompletedService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'f1StartupCompletedService'
+ : Facet ME_1E74B0CF4425 // If1StartupCompletedService
+ ;
+ : Mixin ME_3044CBAC1F5E // Mf1StartupCompletedService
+ ;
 
 ref; // ME_55B0CFA90241 Tf1StartupCompletedService
 
@@ -17146,7 +17127,8 @@ ref; // ME_9B1AA5731794 LogoKeywordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467C0CAA02AB' '467C0CAA02AB.pas.ms.script' // l3InternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas

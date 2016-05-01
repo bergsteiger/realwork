@@ -695,6 +695,8 @@ var
    try
     Result := PlaceVCMContainer(aPrevContainer, l_Container, l_OpenKind,
      aNeedSwitchTab, aOpenLast, aOpenAfter);
+    if ((Result <> nil) and aNeedSwitchTab) and (not Result.AsForm.VCLWinControl.Visible) then
+     Result.AsForm.VCLWinControl.Visible := True;
    finally
     l_Container := nil;
    end;//try..finally

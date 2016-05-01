@@ -767,6 +767,7 @@ PROCEDURE "Проверить наличие RTF-файла и сверить эталон" STRING IN aDocName
 	[ g_ExportDirectory '\' aDocName '\' ] strings:Cat >>> l_PictureDirName
 	@ ( "Проверить наличие в каталоге графических файлов для R {(l_PictureDirName)}" )  l_PictureDirName ProcessSubDirs
 ;	*/
+
 PROCEDURE "Сравнить с эталоном RTF" STRING IN aDocName
 	"Проверить наличие RTF-файла и сверить эталон {(aDocName)}"
 	 // "Проверить наличие каталога для RTF-файла {(aDocName)}"
@@ -886,6 +887,15 @@ PROCEDURE "Выставить галочку в чекбоксе" OBJECT IN aValue
 	"Отметить чекбокс {(aValue)}"	
 ;
 
+PROCEDURE "Выбрать в выпадающем списке значение индекса" STRING IN aComboBoxName STRING IN aClassName INTEGER IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {(aComboBoxName)}" >>> l_Combobox
+	l_Combobox ЯВЛЯЕТСЯ aClassName ?ASSURE [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ]
+	aValue l_Combobox pop:ComboBox:SetItemIndex
+	"Обработать сообщения"
+;
+
 PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку'" STRING IN aFindString IN aCheckBoxName
 	 	'Ctrl+F' key
 	 TRY
@@ -904,3 +914,33 @@ PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку'" STRING IN aFindSt
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
 	 END
 ;
+
+PROCEDURE "Поиск со специсимволами по координатам" INTEGER IN aX INTEGER IN aY
+		"Вызвать из меню дочернего окна {('Поиск/Найти')}"
+  	TRY
+		OBJECT VAR l_Control 
+		"Контрол по имени {("Спецсимволы")}" >>> l_Control
+		THREAD ( 500 SLEEP
+			"Установить курсор мыши по координатам {(aX aY)} относительно контрола {(l_Control)}"
+			"Клик левой кнопкой мыши" 
+    		)	
+		l_Control pop:Control:Click
+	 	"Обработать сообщения"	
+ 		"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 	
+;
+
+PROCEDURE "Поиск текста из предыдущего поиска"
+	 	"Вызвать из меню дочернего окна {('Поиск/Найти')}"
+	 TRY
+		"Выбрать в выпадающем списке {('STextComboBox')}{('TvtComboBox')} значение индекса {(1)}"
+	 	 "Обработать сообщения"
+	  	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
+;
+
+

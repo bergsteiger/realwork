@@ -823,22 +823,6 @@ ref; // ME_4941654603E7 TsdsCommonDiction
 
 ref; // ME_4B191DB40260 f_CurrentNode
 
-: ME_B32F861D7ACE
- CONST UID 'B32F861D7ACE'
- CONST Name 'f_dsContentsRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsContentsRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4936B78E0024 // dCommonDiction
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_B32F861D7ACE f_dsContentsRef
-
 FORWARD ME_4B191CC700CE
 
 : ME_4B191CCF033B
@@ -904,6 +888,7 @@ ref; // ME_49527BB50018_ME_4936B78E0024 CurrentNode
  : Original WL 'ME_AB0AA05AFA56' '492540AF02CD.pas.ms.script' // dsContentsRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_AB0AA05AFA56_ME_4936B78E0024 dsContentsRef
 
@@ -939,7 +924,6 @@ ref; // ME_4B16B8CF0307_ME_4936B78E0024 AssignData
  ; // Implements
  : Attributes
    Seq: ( ME_4B191DB40260 // f_CurrentNode
- ME_B32F861D7ACE // f_dsContentsRef
  )
  ; // Attributes
  : Operations
@@ -1342,7 +1326,8 @@ ref; // ME_4D7A7ADE0122 TdsChild
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
  WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces

@@ -2352,22 +2352,6 @@ ref; // ME_47F3778403D9_ME_49414F880240 MakeData
 
 ref; // ME_49414F880240 TsdsMedicFirmDocument
 
-: ME_36B7DBB9E7EE
- CONST UID '36B7DBB9E7EE'
- CONST Name 'f_dsDrugListRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsDrugListRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493965B600E9 // dMedicFirmDocument
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_36B7DBB9E7EE f_dsDrugListRef
-
 : ME_4B1929CA01BE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2392,6 +2376,7 @@ ref; // ME_4B1929D8016C
  : Original WL 'ME_9FEBA868EC20' '491D7C9603B2.pas.ms.script' // dsDrugListRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_9FEBA868EC20_ME_493965B600E9 dsDrugListRef
 
@@ -2419,10 +2404,6 @@ ref; // ME_4B16B8CF0307_ME_493965B600E9 AssignData
    Seq: ( WL 'ME_4939260B019C' '491D7C9603B2.pas.ms.script' // IdMedicFirmDocument
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_36B7DBB9E7EE // f_dsDrugListRef
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_9FEBA868EC20_ME_493965B600E9 // dsDrugListRef
  )
@@ -2462,54 +2443,6 @@ ref; // ME_493965B600E9 dMedicFirmDocument
  ;
 
 ref; // ME_4B22184C032E IvcmRealData
-
-: ME_00D1BB9727CE
- CONST UID '00D1BB9727CE'
- CONST Name 'f_dsSynchroViewRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsSynchroViewRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493A66C50034 // TdMedicFirmList
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_00D1BB9727CE f_dsSynchroViewRef
-
-: ME_6BDBCA6C6481
- CONST UID '6BDBCA6C6481'
- CONST Name 'f_MedicFirmList_SynchroView_Form'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MedicFirmList_SynchroView_Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493A66C50034 // TdMedicFirmList
- ;
- : Target WL 'ME_127F0A440BEB' '491D7C9603B2.pas.ms.script' // TMedicFirmList_SynchroView_Areas
- ;
-
-ref; // ME_6BDBCA6C6481 f_MedicFirmList_SynchroView_Form
-
-: ME_B788752D7E1C
- CONST UID 'B788752D7E1C'
- CONST Name 'f_dsFirmListRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsFirmListRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493A66C50034 // TdMedicFirmList
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_B788752D7E1C f_dsFirmListRef
 
 FORWARD ME_4B1923BF0331
 
@@ -2569,6 +2502,7 @@ ref; // ME_4B19243903E1
  : Original WL 'ME_2A46ABCE9C2A' '491D7C9603B2.pas.ms.script' // dsSynchroViewRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_2A46ABCE9C2A_ME_493A66C50034 dsSynchroViewRef
 
@@ -2576,6 +2510,7 @@ ref; // ME_2A46ABCE9C2A_ME_493A66C50034 dsSynchroViewRef
  : Original WL 'ME_9B8E07D2C1BA' '491D7C9603B2.pas.ms.script' // MedicFirmList_SynchroView_Form
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_9B8E07D2C1BA_ME_493A66C50034 MedicFirmList_SynchroView_Form
 
@@ -2583,6 +2518,7 @@ ref; // ME_9B8E07D2C1BA_ME_493A66C50034 MedicFirmList_SynchroView_Form
  : Original WL 'ME_DD81AF5E2804' '491D7C9603B2.pas.ms.script' // dsFirmListRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_DD81AF5E2804_ME_493A66C50034 dsFirmListRef
 
@@ -2618,9 +2554,6 @@ ref; // ME_4B16B8CF0307_ME_493A66C50034 AssignData
  ; // Implements
  : Attributes
    Seq: ( ME_4B22184C032E // IvcmRealData
- ME_00D1BB9727CE // f_dsSynchroViewRef
- ME_6BDBCA6C6481 // f_MedicFirmList_SynchroView_Form
- ME_B788752D7E1C // f_dsFirmListRef
  )
  ; // Attributes
  : Operations
@@ -3213,7 +3146,8 @@ ref; // ME_561F6D380330 TdeMedicFirmList
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
  WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
  WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree

@@ -25417,6 +25417,23 @@ ref; // ME_552BA4440070 DoIt
 
 ref; // ME_552BA42B0337 SetReadOnly
 
+: ME_5722121600CB
+ CONST UID '5722121600CB'
+ CONST Name 'TreePanelResize'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4B990F100126 // TddAppConfiguration
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ref; // ME_5722121600CB TreePanelResize
+
 : ME_479731C50290_ME_4B990F100126
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -25572,6 +25589,7 @@ ref; // ME_49BFC98902FF_ME_4B990F100126 BeforeRelease
  ME_5214ACE103D9 // ShowNodeDialog
  ME_544635CC0079 // DialogCloseQuery
  ME_552BA42B0337 // SetReadOnly
+ ME_5722121600CB // TreePanelResize
  )
  ; // Operations
  : Overridden
@@ -26101,6 +26119,27 @@ ref; // ME_53EB1F860348
 
 ref; // ME_54D35D1A0096 
 
+: ME_572207E7013E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B990EF000AA // ddAppConfig
+ ;
+ : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
+ ;
+ CONST "ifdef" 'nemesis'
+
+ref; // ME_572207E7013E 
+
+: ME_5722123B0103
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B990EF000AA // ddAppConfig
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_5722123B0103 
+
 : ME_4B990EF000AA
  CONST UID '4B990EF000AA'
  CONST Name 'ddAppConfig'
@@ -26154,6 +26193,8 @@ ref; // ME_54D35D1A0096
  ME_52271631021D // ddAppConfigTypes
  ME_53EB1F860348 // multimon
  ME_54D35D1A0096 // l3Nodes
+ ME_572207E7013E // TvtSizeablePanel
+ ME_5722123B0103 // afwFacade
  )
  ; // Dependencies
  CONST "no hands" true
@@ -27169,10 +27210,12 @@ ref; // ME_DF1A3014EEBC TstevStylesPrintAndExportFontSizeItem
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47877A6F000A' '47877A6F000A.pas.ms.script' // Visual
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation

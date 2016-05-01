@@ -1945,54 +1945,6 @@ ref; // ME_49255F4302EE TdsAttributes
 
 ref; // ME_4958968201A7 TnsDocInfoHAFMacroReplacer
 
-: ME_F73948DCAAF8
- CONST UID 'F73948DCAAF8'
- CONST Name 'f_dsDocumentRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsDocumentRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E2202E6 // dBaseDocument
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_F73948DCAAF8 f_dsDocumentRef
-
-: ME_96E8841B52DD
- CONST UID '96E8841B52DD'
- CONST Name 'f_HasDocument'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E2202E6 // dBaseDocument
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_96E8841B52DD f_HasDocument
-
-: ME_728A1E0A0843
- CONST UID '728A1E0A0843'
- CONST Name 'f_DocInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DocInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E2202E6 // dBaseDocument
- ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_728A1E0A0843 f_DocInfo
-
 : ME_4B194237033D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2017,6 +1969,7 @@ ref; // ME_4B19424B0341
  : Original WL 'ME_2C233EE5B42C' '491B305A0096.pas.ms.script' // dsDocumentRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_2C233EE5B42C_ME_47EB3E2202E6 dsDocumentRef
 
@@ -2024,6 +1977,7 @@ ref; // ME_2C233EE5B42C_ME_47EB3E2202E6 dsDocumentRef
  : Original WL 'ME_77EA326510B8' '491B305A0096.pas.ms.script' // HasDocument
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_77EA326510B8_ME_47EB3E2202E6 HasDocument
 
@@ -2031,6 +1985,7 @@ ref; // ME_77EA326510B8_ME_47EB3E2202E6 HasDocument
  : Original WL 'ME_CEA3A9CB4068' '491B305A0096.pas.ms.script' // DocInfo
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_CEA3A9CB4068_ME_47EB3E2202E6 DocInfo
 
@@ -2065,12 +2020,6 @@ ref; // ME_4B16B8CF0307_ME_47EB3E2202E6 AssignData
    Seq: ( WL 'ME_47EB3BD9015F' '491B305A0096.pas.ms.script' // IdBaseDocument
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_F73948DCAAF8 // f_dsDocumentRef
- ME_96E8841B52DD // f_HasDocument
- ME_728A1E0A0843 // f_DocInfo
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_2C233EE5B42C_ME_47EB3E2202E6 // dsDocumentRef
  ME_77EA326510B8_ME_47EB3E2202E6 // HasDocument
@@ -2360,38 +2309,6 @@ ref; // ME_493D4E4D0146 TbsUserCRListInfo
 
 FORWARD ME_47F085A9004C
 
-: ME_849AF339A882
- CONST UID '849AF339A882'
- CONST Name 'f_dsAttributesRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsAttributesRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F085A9004C // dBaseDocumentWithAttributes
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_849AF339A882 f_dsAttributesRef
-
-: ME_E13970A855C3
- CONST UID 'E13970A855C3'
- CONST Name 'f_HasAttributes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasAttributes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F085A9004C // dBaseDocumentWithAttributes
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_E13970A855C3 f_HasAttributes
-
 : ME_4B18134E01F8
  CONST UID '4B18134E01F8'
  CONST Name 'DoResetBooleans'
@@ -2433,6 +2350,7 @@ ref; // ME_4939245D0171_ME_47F085A9004C ResetBooleans
  : Original WL 'ME_958F281A6FD6' '4D1B85BF03E4.pas.ms.script' // dsAttributesRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_958F281A6FD6_ME_47F085A9004C dsAttributesRef
 
@@ -2440,6 +2358,7 @@ ref; // ME_958F281A6FD6_ME_47F085A9004C dsAttributesRef
  : Original WL 'ME_E1561B99CC62' '4D1B85BF03E4.pas.ms.script' // HasAttributes
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_E1561B99CC62_ME_47F085A9004C HasAttributes
 
@@ -2468,11 +2387,6 @@ ref; // ME_4B16B8CF0307_ME_47F085A9004C AssignData
    Seq: ( WL 'ME_47F085420325' '4D1B85BF03E4.pas.ms.script' // IdBaseDocumentWithAttributes
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_849AF339A882 // f_dsAttributesRef
- ME_E13970A855C3 // f_HasAttributes
- )
- ; // Attributes
  : Operations
    Seq: ( ME_4B18134E01F8 // DoResetBooleans
  )
@@ -2613,326 +2527,6 @@ ref; // ME_4B1812B903AF f_RespType
 
 ref; // ME_4B1812C100CD f_CorrType
 
-: ME_6E29203836AC
- CONST UID '6E29203836AC'
- CONST Name 'f_dsSimilarDocumentsToFragmentRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsSimilarDocumentsToFragmentRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_6E29203836AC f_dsSimilarDocumentsToFragmentRef
-
-: ME_EC9C774C6DE7
- CONST UID 'EC9C774C6DE7'
- CONST Name 'f_IsUnderControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства IsUnderControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_EC9C774C6DE7 f_IsUnderControl
-
-: ME_3DA40B51C101
- CONST UID '3DA40B51C101'
- CONST Name 'f_dsAnnotationRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsAnnotationRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_3DA40B51C101 f_dsAnnotationRef
-
-: ME_126B677B4401
- CONST UID '126B677B4401'
- CONST Name 'f_FlashData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FlashData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_45ED932A0044' '45ED922F00A4.pas.ms.script' // ExternalObject
- ;
-
-ref; // ME_126B677B4401 f_FlashData
-
-: ME_8DD62CFA5A70
- CONST UID '8DD62CFA5A70'
- CONST Name 'f_dsCorrespondentsRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsCorrespondentsRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_8DD62CFA5A70 f_dsCorrespondentsRef
-
-: ME_B80B85D2519A
- CONST UID 'B80B85D2519A'
- CONST Name 'f_HasTranslation'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasTranslation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_B80B85D2519A f_HasTranslation
-
-: ME_D647653A4A3B
- CONST UID 'D647653A4A3B'
- CONST Name 'f_HasSimilarDocuments'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasSimilarDocuments' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_D647653A4A3B f_HasSimilarDocuments
-
-: ME_DFE86E03B35B
- CONST UID 'DFE86E03B35B'
- CONST Name 'f_dsRelatedDocRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsRelatedDocRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_DFE86E03B35B f_dsRelatedDocRef
-
-: ME_4033D8C7D83C
- CONST UID '4033D8C7D83C'
- CONST Name 'f_dsUserCR2Ref'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsUserCR2Ref' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_4033D8C7D83C f_dsUserCR2Ref
-
-: ME_63112E7C1B7D
- CONST UID '63112E7C1B7D'
- CONST Name 'f_HasAnnotation'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasAnnotation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_63112E7C1B7D f_HasAnnotation
-
-: ME_19778941D3C8
- CONST UID '19778941D3C8'
- CONST Name 'f_HasChronology'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasChronology' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_19778941D3C8 f_HasChronology
-
-: ME_5A6B683AA685
- CONST UID '5A6B683AA685'
- CONST Name 'f_HasCorrespondents'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasCorrespondents' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_5A6B683AA685 f_HasCorrespondents
-
-: ME_038AB3066871
- CONST UID '038AB3066871'
- CONST Name 'f_HasRelatedDoc'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasRelatedDoc' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_038AB3066871 f_HasRelatedDoc
-
-: ME_00625B992DAC
- CONST UID '00625B992DAC'
- CONST Name 'f_dsRespondentsRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsRespondentsRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_00625B992DAC f_dsRespondentsRef
-
-: ME_7B77A0D35192
- CONST UID '7B77A0D35192'
- CONST Name 'f_dsChronologyRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsChronologyRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_7B77A0D35192 f_dsChronologyRef
-
-: ME_C6ED01F51DFF
- CONST UID 'C6ED01F51DFF'
- CONST Name 'f_dsDocumentWithFlashRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsDocumentWithFlashRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_C6ED01F51DFF f_dsDocumentWithFlashRef
-
-: ME_6046971542CF
- CONST UID '6046971542CF'
- CONST Name 'f_HasRespondents'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasRespondents' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_6046971542CF f_HasRespondents
-
-: ME_594C6D66D5C4
- CONST UID '594C6D66D5C4'
- CONST Name 'f_dsTranslationRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsTranslationRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_594C6D66D5C4 f_dsTranslationRef
-
-: ME_E20E3BF4C342
- CONST UID 'E20E3BF4C342'
- CONST Name 'f_dsSimilarDocumentsRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsSimilarDocumentsRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_E20E3BF4C342 f_dsSimilarDocumentsRef
-
-: ME_AACD60E17DCE
- CONST UID 'AACD60E17DCE'
- CONST Name 'f_dsUserCR1Ref'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsUserCR1Ref' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493D4E010178 // dDocInfo
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_AACD60E17DCE f_dsUserCR1Ref
-
 : ME_4B18117903E5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2977,6 +2571,7 @@ ref; // ME_4B1817F40029
  : Original WL 'ME_04CD377DE4D3' '4D1B7B830045.pas.ms.script' // dsSimilarDocumentsToFragmentRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_04CD377DE4D3_ME_493D4E010178 dsSimilarDocumentsToFragmentRef
 
@@ -2984,6 +2579,7 @@ ref; // ME_04CD377DE4D3_ME_493D4E010178 dsSimilarDocumentsToFragmentRef
  : Original WL 'ME_09E3D10967EC' '4D1B7B830045.pas.ms.script' // IsUnderControl
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_09E3D10967EC_ME_493D4E010178 IsUnderControl
 
@@ -2991,6 +2587,7 @@ ref; // ME_09E3D10967EC_ME_493D4E010178 IsUnderControl
  : Original WL 'ME_0FDAEE3892EB' '4D1B7B830045.pas.ms.script' // dsAnnotationRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_0FDAEE3892EB_ME_493D4E010178 dsAnnotationRef
 
@@ -2998,6 +2595,7 @@ ref; // ME_0FDAEE3892EB_ME_493D4E010178 dsAnnotationRef
  : Original WL 'ME_3561F2BAF64C' '4D1B7B830045.pas.ms.script' // FlashData
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_3561F2BAF64C_ME_493D4E010178 FlashData
 
@@ -3005,6 +2603,7 @@ ref; // ME_3561F2BAF64C_ME_493D4E010178 FlashData
  : Original WL 'ME_37162BB4A02F' '4D1B7B830045.pas.ms.script' // dsCorrespondentsRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_37162BB4A02F_ME_493D4E010178 dsCorrespondentsRef
 
@@ -3012,6 +2611,7 @@ ref; // ME_37162BB4A02F_ME_493D4E010178 dsCorrespondentsRef
  : Original WL 'ME_386DA8B0B24E' '4D1B7B830045.pas.ms.script' // HasTranslation
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_386DA8B0B24E_ME_493D4E010178 HasTranslation
 
@@ -3019,6 +2619,7 @@ ref; // ME_386DA8B0B24E_ME_493D4E010178 HasTranslation
  : Original WL 'ME_38A4EB8BFEB0' '4D1B7B830045.pas.ms.script' // HasSimilarDocuments
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_38A4EB8BFEB0_ME_493D4E010178 HasSimilarDocuments
 
@@ -3026,6 +2627,7 @@ ref; // ME_38A4EB8BFEB0_ME_493D4E010178 HasSimilarDocuments
  : Original WL 'ME_3CBE4373050B' '4D1B7B830045.pas.ms.script' // dsRelatedDocRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_3CBE4373050B_ME_493D4E010178 dsRelatedDocRef
 
@@ -3068,6 +2670,7 @@ ref; // ME_495285A503C4_ME_493D4E010178 UserCRListInfo
  : Original WL 'ME_4F5735E5EA84' '4D1B7B830045.pas.ms.script' // dsUserCR2Ref
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_4F5735E5EA84_ME_493D4E010178 dsUserCR2Ref
 
@@ -3075,6 +2678,7 @@ ref; // ME_4F5735E5EA84_ME_493D4E010178 dsUserCR2Ref
  : Original WL 'ME_5BA1E1B8EF77' '4D1B7B830045.pas.ms.script' // HasAnnotation
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_5BA1E1B8EF77_ME_493D4E010178 HasAnnotation
 
@@ -3082,6 +2686,7 @@ ref; // ME_5BA1E1B8EF77_ME_493D4E010178 HasAnnotation
  : Original WL 'ME_638373ED1616' '4D1B7B830045.pas.ms.script' // HasChronology
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_638373ED1616_ME_493D4E010178 HasChronology
 
@@ -3089,6 +2694,7 @@ ref; // ME_638373ED1616_ME_493D4E010178 HasChronology
  : Original WL 'ME_82DD1F33FCBB' '4D1B7B830045.pas.ms.script' // HasCorrespondents
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_82DD1F33FCBB_ME_493D4E010178 HasCorrespondents
 
@@ -3096,6 +2702,7 @@ ref; // ME_82DD1F33FCBB_ME_493D4E010178 HasCorrespondents
  : Original WL 'ME_888536F26197' '4D1B7B830045.pas.ms.script' // HasRelatedDoc
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_888536F26197_ME_493D4E010178 HasRelatedDoc
 
@@ -3103,6 +2710,7 @@ ref; // ME_888536F26197_ME_493D4E010178 HasRelatedDoc
  : Original WL 'ME_8DD9C2AE3DFA' '4D1B7B830045.pas.ms.script' // dsRespondentsRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_8DD9C2AE3DFA_ME_493D4E010178 dsRespondentsRef
 
@@ -3110,6 +2718,7 @@ ref; // ME_8DD9C2AE3DFA_ME_493D4E010178 dsRespondentsRef
  : Original WL 'ME_B2A2CF0FB989' '4D1B7B830045.pas.ms.script' // dsChronologyRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_B2A2CF0FB989_ME_493D4E010178 dsChronologyRef
 
@@ -3117,6 +2726,7 @@ ref; // ME_B2A2CF0FB989_ME_493D4E010178 dsChronologyRef
  : Original WL 'ME_CB72B7119954' '4D1B7B830045.pas.ms.script' // dsDocumentWithFlashRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_CB72B7119954_ME_493D4E010178 dsDocumentWithFlashRef
 
@@ -3124,6 +2734,7 @@ ref; // ME_CB72B7119954_ME_493D4E010178 dsDocumentWithFlashRef
  : Original WL 'ME_D9A0B62E9A86' '4D1B7B830045.pas.ms.script' // HasRespondents
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_D9A0B62E9A86_ME_493D4E010178 HasRespondents
 
@@ -3131,6 +2742,7 @@ ref; // ME_D9A0B62E9A86_ME_493D4E010178 HasRespondents
  : Original WL 'ME_ECA6B53155C1' '4D1B7B830045.pas.ms.script' // dsTranslationRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_ECA6B53155C1_ME_493D4E010178 dsTranslationRef
 
@@ -3138,6 +2750,7 @@ ref; // ME_ECA6B53155C1_ME_493D4E010178 dsTranslationRef
  : Original WL 'ME_ECDDF80BA223' '4D1B7B830045.pas.ms.script' // dsSimilarDocumentsRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_ECDDF80BA223_ME_493D4E010178 dsSimilarDocumentsRef
 
@@ -3145,6 +2758,7 @@ ref; // ME_ECDDF80BA223_ME_493D4E010178 dsSimilarDocumentsRef
  : Original WL 'ME_F86E7A026616' '4D1B7B830045.pas.ms.script' // dsUserCR1Ref
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_F86E7A026616_ME_493D4E010178 dsUserCR1Ref
 
@@ -3196,26 +2810,6 @@ ref; // ME_4B18134E01F8_ME_493D4E010178 DoResetBooleans
  ME_4B18129602C3 // f_CorrList
  ME_4B1812B903AF // f_RespType
  ME_4B1812C100CD // f_CorrType
- ME_6E29203836AC // f_dsSimilarDocumentsToFragmentRef
- ME_EC9C774C6DE7 // f_IsUnderControl
- ME_3DA40B51C101 // f_dsAnnotationRef
- ME_126B677B4401 // f_FlashData
- ME_8DD62CFA5A70 // f_dsCorrespondentsRef
- ME_B80B85D2519A // f_HasTranslation
- ME_D647653A4A3B // f_HasSimilarDocuments
- ME_DFE86E03B35B // f_dsRelatedDocRef
- ME_4033D8C7D83C // f_dsUserCR2Ref
- ME_63112E7C1B7D // f_HasAnnotation
- ME_19778941D3C8 // f_HasChronology
- ME_5A6B683AA685 // f_HasCorrespondents
- ME_038AB3066871 // f_HasRelatedDoc
- ME_00625B992DAC // f_dsRespondentsRef
- ME_7B77A0D35192 // f_dsChronologyRef
- ME_C6ED01F51DFF // f_dsDocumentWithFlashRef
- ME_6046971542CF // f_HasRespondents
- ME_594C6D66D5C4 // f_dsTranslationRef
- ME_E20E3BF4C342 // f_dsSimilarDocumentsRef
- ME_AACD60E17DCE // f_dsUserCR1Ref
  )
  ; // Attributes
  : Implemented
@@ -3775,22 +3369,6 @@ ref; // ME_492FF76202CA TdeDocumentList
 
 FORWARD ME_4926AE3900B9
 
-: ME_AD5B4DB98FFD
- CONST UID 'AD5B4DB98FFD'
- CONST Name 'f_List_SynchroView_Form'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства List_SynchroView_Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4926AE3900B9 // TdeListSet
- ;
- : Target WL 'ME_9FD1376BB752' '4D1B444C015E.pas.ms.script' // TList_SynchroView_Areas
- ;
-
-ref; // ME_AD5B4DB98FFD f_List_SynchroView_Form
-
 FORWARD ME_4B1F7C63023F
 
 : ME_569DDC080000
@@ -4077,6 +3655,7 @@ ref; // ME_4B1F7CAA0008 Make
  : Original WL 'ME_715D27A37B98' '4D1B444C015E.pas.ms.script' // List_SynchroView_Form
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_715D27A37B98_ME_4926AE3900B9 List_SynchroView_Form
 
@@ -4104,10 +3683,6 @@ ref; // ME_4B1F7AE80158_ME_4926AE3900B9 AssignClonned
    Seq: ( WL 'ME_4B1D2633034D' '4D1B444C015E.pas.ms.script' // IdeDocumentListSet
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_AD5B4DB98FFD // f_List_SynchroView_Form
- )
- ; // Attributes
  : Operations
    Seq: ( ME_4B1F7C63023F // Create
  ME_4B1F7CAA0008 // Make
@@ -5356,7 +4931,8 @@ ref; // ME_54FECC970155 TnsDataExchangeRealization
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
  WL 'ME_456EA56002BF' '456EA56002BF.pas.ms.script' // BaseTypes
  WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
  WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document

@@ -14,8 +14,6 @@
 //: TestResults::Class
 implementation @ <<TestResults>>
 //? –езультаты теста
-//> ScriptKeywordsDocumentation::Class
-
 //= SimpleClass::Class
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,116 +96,14 @@ implementation @ <<TestResults>>
 //	Result := '-%f_cut_prefix(%f_N(%S),Release)';\
  'Result := ''-'
  [%f] cut_prefix %( [%f] N %( %S )% %, 'Release' )% ''';'
-//	)\
-)% ) 
-//	[{%S{needs script keywords documentation}=true}\
- if ( ( %S get_up ( 'needs script keywords documentation' ) ) %==  true ) then
- begin
-//	%S%f_add_class(%SU_KeywordsDocumentation,ScriptKeywordsDocumentation,ќписание слов тестовой машины,KeywordsDocumentation_Inst)\
-  %S %f add_class %( %S |U '_KeywordsDocumentation' %, 'ScriptKeywordsDocumentation' %, 'ќписание слов тестовой машины' %, 'KeywordsDocumentation_Inst' )% 
-//	%{KeywordsDocumentation_Inst}%f_set_documentation(ќписание слов тестовой машины дл€ "%f_N(%P%P)")\
-  ( get_global_var ( 'KeywordsDocumentation_Inst' ) %f set_documentation %( 'ќписание слов тестовой машины дл€ "'
-  [%f] N %( %P ->P  )% )% ) 
-
-//	%f_clear_list(WasSpelledToKeywordsDocumentation_LIST)\
-  [%f] clear_list %( 'WasSpelledToKeywordsDocumentation_LIST' )% 
-//	%f_DoSpellKeywordsDocumentation(%P%P,%{KeywordsDocumentation_Inst})\
-  [%f] DoSpellKeywordsDocumentation %( %P ->P  %, ( get_global_var ( 'KeywordsDocumentation_Inst' ) ) )% 
-
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_del_var(WasSpelledToKeywordsDocumentation)>\
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_del_var(WasSpelledToKeywordsDocumentation1)>\
-
-
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(WasSpelledToKeywordsDocumentation,"")>\
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(WasSpelledToKeywordsDocumentation1,"")>\
-
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(_WasSpelled,"")>\
-  ( get_global_var ( 'WasSpelledToKeywordsDocumentation_LIST' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-     %C %f set_var %( '_WasSpelled' %, '' )% 
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%f_set_var(_WasSpelled1,"")>\
-  ( get_global_var ( 'WasSpelledToKeywordsDocumentation_LIST' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-     %C %f set_var %( '_WasSpelled1' %, '' )% 
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
-
-
-
-//	%{WasSpelledToKeywordsDocumentation_LIST}<%C%%f_del_var(WasSpelledTo)>\
-
-// - Ќ≈Ћ№«я это делать, т.к. WasSpelledTo нам ѕќ“ќћ понадобитс€
-//	%f_clear_list(WasSpelledToKeywordsDocumentation_LIST)\
-  [%f] clear_list %( 'WasSpelledToKeywordsDocumentation_LIST' )% 
-//	]
- end // if
-
-//f _DoSpellKeywordsDocumentation
+//	)
+)% ) //#UC END# *4B2A19E3038Bfor4B7BFBB103E2*
 ; // DoSpell
-
-end. // <<TestResults>>
-
-: DoSpellKeywordsDocumentation OBJECT IN %S
-//	[{%S%{_WasSpelled1}N!=true}\
- if ( ( %S ( get_object_var ( '_WasSpelled1' ) |N )  ) %!=  true ) then
- begin
-//	%S%f_set_var(_WasSpelled1,"true")\
-  %S %f set_var %( '_WasSpelled1' %, true )% 
-//	[{%S%{WasSpelledToKeywordsDocumentation1}N!=true}\
-
-//	%S%f_set_var(WasSpelledToKeywordsDocumentation1,"true")\
-//	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
-  [%f] add_to_list %( 'WasSpelledToKeywordsDocumentation_LIST' %, 'S' )% 
-//	%S#f_SpellKeywordsDocumentation(%1)\
-  %S %?f SpellKeywordsDocumentation %( %1 )% 
-//	<%f_DoSpellKeywordsDocumentation(%D,%1)>
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%D
-  begin
-   OBJECT IN %D
-   if true then
-   begin
-    [%f] DoSpellKeywordsDocumentation %( %D %, %1 )% 
-    ++! l_Counter
-   end // if
-  end // for D
-//	]
- end // if
-//#UC END# *4B2A19E3038Bfor4B7BFBB103E2*
-; // DoSpellKeywordsDocumentation
 
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
 // »м€ типа
 //%f _pas_TypeName
-implementation @ <<TestResults>>
 : pas_TypeName OBJECT IN %S
 //#UC START# *4947F8AD02A1for4B7BFBB103E2*
 //	T%f_N(%S)

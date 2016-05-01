@@ -375,29 +375,16 @@ f _base_class_collect
 	]\
 
 
-//	%f_clear_list(PROPS_FOR_FIELDS)\
-
-//	<{}{%C#f_IsProp()=true}\
-//	%f_add_to_list(PROPS_FOR_FIELDS,C)\
-//	>\
-
-//	%{PROPS_FOR_FIELDS}<{}{}{%C}\
-//	%f_DoSpellField(%C)\
-//	>\
-
-//	%f_clear_list(PROPS_FOR_FIELDS)\
-
+	[{%S#f_UseNewGenRec()!=true}\
 	<{}{%o{needs field}=true&%t_interface(%o%P)=true}{%o}\
 	%f_SpellFieldPrim(%o,%S)\
 	>\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	[{%S%f_NeedCleanupFields()=true}\
 
 	[{"%{l3UnknownPrim.ClearFields}N"=""}%f_find_element(5000565C019C,l3UnknownPrim.ClearFields)]\
 
 	%S%f_add_override(%{l3UnknownPrim.ClearFields}U)\
-	[{%S#f_UseNewGenRec()!=true}\
 	%{l3UnknownPrim.ClearFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.ClearFields},%S)_var,\
 	 {-}\
 	)\
@@ -420,12 +407,11 @@ f _base_class_collect
 	>\
 	 inherited;\
 	)\
-	]\
 
 	]\
-	]\
-
 	%f_SpellFriends(%S)\
+
+	]\
 
 	%S%[inherited]\
 

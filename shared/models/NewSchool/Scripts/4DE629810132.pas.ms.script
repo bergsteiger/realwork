@@ -3535,63 +3535,6 @@ ref; // ME_4DB0614603C8_ME_4E0A095C0324 GetWordNameForRegister
 
 ref; // ME_4E0A095C0324 TkwArchiNewDocument
 
-FORWARD ME_BB908F7F3619
-
-: ME_AEE3AA426D6E
- CONST UID 'AEE3AA426D6E'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BB908F7F3619 // TarchiDocEditorWindowWordsPackResNameGetter
- ;
-
-ref; // ME_AEE3AA426D6E RegAxiom
-
-: ME_55B7A3AF0359_ME_BB908F7F3619
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_BB908F7F3619 ResName
-
-: ME_BB908F7F3619
- CONST UID 'BB908F7F3619'
- CONST Name 'TarchiDocEditorWindowWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B664E00149 // archiDocEditorWindowWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_AEE3AA426D6E // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_BB908F7F3619 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'archiDocEditorWindowWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_BB908F7F3619 TarchiDocEditorWindowWordsPackResNameGetter
-
 FORWARD ME_55B6651703CB
 
 FORWARD ME_632EECFCBB72
@@ -3826,8 +3769,7 @@ ref; // ME_0936F83112BC
  )
  ; // Operations
  : Children
-   Seq: ( ME_BB908F7F3619 // TarchiDocEditorWindowWordsPackResNameGetter
- ME_1E0CF5C9A3AF // DocEditorWindow_IsNeedSaveDocument
+   Seq: ( ME_1E0CF5C9A3AF // DocEditorWindow_IsNeedSaveDocument
  )
  ; // Children
  : Dependencies
@@ -3888,7 +3830,8 @@ ref; // ME_55B664E00149 archiDocEditorWindowWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas

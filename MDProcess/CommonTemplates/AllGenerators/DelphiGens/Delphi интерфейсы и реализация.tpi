@@ -2415,6 +2415,18 @@ f _NeedFinalize
 	]\
 	]\
 
+	[{"%S%{Facet}U"!=""}\
+	[\
+	 : Facet %S%{Facet}#f_pas_script_Reference() ;
+	]\
+	]\
+
+	[{"%S%{Mixin}U"!=""}\
+	[\
+	 : Mixin %S%{Mixin}#f_pas_script_Reference() ;
+	]\
+	]\
+
 	[{"%S%{Speller}U"!=""}\
 	[\
 	 : Speller %S%{Speller}#f_pas_script_Reference() ;
@@ -2439,7 +2451,7 @@ f _NeedFinalize
 	]\
 	]\
 
-	[{%S#f_IsTarget()=true}\
+	[{%S#f_IsTarget()=true|%SS=TestLibrary|%SS=TestUnit}\
 	[\
 	 CONST Version %SA
 	]\
@@ -2807,6 +2819,14 @@ f _IsConstants
 	<%R#f_pas_script_GenerateIncludeOrForward()>\
 	<%E#f_pas_script_GenerateIncludeOrForward()>\
 	<%e#f_pas_script_GenerateIncludeOrForward()>\
+
+	[{"%S%{Facet}U"!=""}\
+	%S%{Facet}#f_pas_script_GenerateIncludeOrForward()\
+	]\
+
+	[{"%S%{Mixin}U"!=""}\
+	%S%{Mixin}#f_pas_script_GenerateIncludeOrForward()\
+	]\
 
 	[{"%S%{Speller}U"!=""}\
 	%S%{Speller}#f_pas_script_GenerateIncludeOrForward()\

@@ -69,12 +69,6 @@ a f
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ”наследованна€ реализаци€
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor5502BABC0193*
-	%S%[inherited]
-//#UC END# *4B2A19E3038Bfor5502BABC0193*
-
 // перекрытие базового стереотипа ServicePrim::Class
 %f _BeforeClassSpell
 //#UC START# *5502C6A200F5for5502BABC0193*
@@ -125,6 +119,7 @@ a f
 	%f_addR(%S,%S%{Mixin})\
 	%f_addR(%S%{Facet},%S%{Mixin})\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
 
 	%{Attr_Inst}%f_set_link_type(ref)\
@@ -134,7 +129,6 @@ a f
 	%{Attr_Inst}%f_set_abstraction_type(final)\
 	%{Attr_Inst}%f_set_documentation(¬нешн€€ реализаци€ сервиса %S%{Facet}N)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_var,\
 	 {-}\
 	)\

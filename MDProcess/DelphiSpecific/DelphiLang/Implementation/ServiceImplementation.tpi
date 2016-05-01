@@ -30,22 +30,12 @@ a f
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ”наследованна€ реализаци€
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor5502BADD01CB*
-	%S%[inherited]
-//#UC END# *4B2A19E3038Bfor5502BADD01CB*
-
 // перекрытие базового стереотипа ServicePrim::Class
 %f _BeforeClassSpell
 //#UC START# *5502C6A200F5for5502BADD01CB*
 	<{}{%CC=Dependency&%CS=implements}\
 	%C%T#f_CheckOrMakeFacet()\
 	%C%T#f_CheckFacet()\
-
-//	%f_warning(%C%TN)\
-//	%f_warning(%C%T%{Facet}N)\
-//	%f_warning(%C%T%{Facet}U)\
 
 	[{"%C%T%{Facet}N"!=""}\
 	%S%f_make_accessable(%C%T%{Facet}U)\

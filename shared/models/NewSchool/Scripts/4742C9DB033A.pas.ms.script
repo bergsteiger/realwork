@@ -2478,25 +2478,6 @@ ref; // ME_0E139AD7F468 Im3StorageService
 
 ref; // ME_5551C8D40161 f_UseSplitted
 
-: ME_944CA7C746EB
- CONST UID '944CA7C746EB'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Im3StorageService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5551C8670144 // Tm3StorageService
- ;
- : Target ME_0E139AD7F468 // Im3StorageService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_944CA7C746EB Alien
-
 : ME_5551C89E0016
  CONST UID '5551C89E0016'
  CONST Name 'UseSplitted'
@@ -2577,7 +2558,6 @@ ref; // ME_47A042E100E2_ME_5551C8670144 InitFields
  ; // Implements
  : Attributes
    Seq: ( ME_5551C8D40161 // f_UseSplitted
- ME_944CA7C746EB // Alien
  )
  ; // Attributes
  : Operations
@@ -2608,6 +2588,10 @@ ref; // ME_47A042E100E2_ME_5551C8670144 InitFields
  CONST extprop:rc:SelfName 'm3StorageService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'm3StorageService'
+ : Facet ME_0E139AD7F468 // Im3StorageService
+ ;
+ : Mixin ME_F187BA65AC5B // Mm3StorageService
+ ;
 
 ref; // ME_5551C8670144 Tm3StorageService
 
@@ -4462,7 +4446,8 @@ ref; // ME_555C88FF0236 Tm3DBFiler
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_4720831F012D' '4720831F012D.pas.ms.script' // m3DBInterfaces

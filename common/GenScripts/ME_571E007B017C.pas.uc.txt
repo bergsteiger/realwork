@@ -1,0 +1,33 @@
+//#UC START# *4E92F1190105_4E92F0D00100_impl*
+ Result := (Pointer(aL1) = Pointer(aL2));
+ if not Result then
+ begin
+  if (aL1 = nil) or (aL2 = nil) then
+   Exit;
+  if aL1.Count = aL2.Count then
+  begin
+   if aOrderIsImportant then
+   begin
+    for I := 0 to Pred(aL1.Count) do
+    begin
+     Result := aL1.Items[I] = aL2.Items[I];
+     if not Result then
+      Exit;
+    end;
+   end
+   else
+   begin
+    for I := 0 to Pred(aL1.Count) do
+    begin
+     Result := aL1.IndexOf(aL2.Items[I]) >= 0;
+     if not Result then
+      Exit;
+    end;
+   end;
+  end;
+ end;
+//#UC END# *4E92F1190105_4E92F0D00100_impl*
+//#UC START# *4E92F1190105_4E92F0D00100_var*
+var
+ I: Integer;
+//#UC END# *4E92F1190105_4E92F0D00100_var*

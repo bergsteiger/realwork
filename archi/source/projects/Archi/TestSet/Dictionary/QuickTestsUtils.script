@@ -1458,15 +1458,6 @@ PROCEDURE "Выбрать в выпадающем списке 'Цвет шрифта' значение" INTEGER IN aValue
 	"Обработать сообщения"
 ;
 
-PROCEDURE "Выбрать в выпадающем списке значение индекса" STRING IN aComboBoxName STRING IN aClassName INTEGER IN aValue
-	OBJECT VAR l_Combobox
-	INTEGER VAR l_Index
-	"Контрол по имени {(aComboBoxName)}" >>> l_Combobox
-	l_Combobox ЯВЛЯЕТСЯ aClassName ?ASSURE [ 'В фокусе не комбобокс, а ' l_Combobox pop:object:ClassName ' !' ]
-	aValue l_Combobox pop:ComboBox:SetItemIndex
-	"Обработать сообщения"
-;
-
 PROCEDURE "Выбрать в выпадающем списке строковое значение" STRING IN aComboBoxName STRING IN aClassName STRING IN aValue
 	OBJECT VAR l_Combobox
 	INTEGER VAR l_Index
@@ -1595,11 +1586,5 @@ PROCEDURE "Поиск текста c учетом чекбокса" STRING IN aFindString IN aCheckBoxNam
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
 	 END
 ;
-
-// Поиск текста c CheckBox 'Выставить галочку'
-/* PROCEDURE "Убедиться, что контрол класса" OBJECT IN aControl STRING IN aClass
- 	aControl ЯВЛЯЕТСЯ aClass [ 'Фокус на контроле, который относится к другому классу: ' aControl pop:object:ClassName ', а не: ' aClass ] strings:Cat ASSERTS
-; */
-
 
 

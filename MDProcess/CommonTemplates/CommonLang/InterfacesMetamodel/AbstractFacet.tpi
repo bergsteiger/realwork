@@ -496,6 +496,7 @@ p debug tie log:b=false ? Ќужно ли генерить код логировани€ вызовов tie-методов 
 p dll export:b=true ? определ€ет что данный атрибут будет экспортироватьс€ наружу компоненты
 p force use const arg:b=false ? ≈сли у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаютс€ как in, при этом реализаци€ неконстантной версии не генеритьс€ автоматически через вызов константной реализации - разрабочтик должен написать реализацию самосто€тельно.
 p is default:b=false ? определ€ем атрибут по-умолчанию
+p needs field:tribool=undefined ? 
 p pm:b=false ? выводит методы дл€ доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - дл€ переходного периода переноса исходников на модель
 
 // √енераторы
@@ -588,6 +589,7 @@ R
 	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Ќужно ли генерить код логировани€ вызовов tie-методов доступа к атрибуту
 	][{"%S{force use const arg}"!="%S{!force use const arg}"}%f_up_prefix(%S) *force use const arg* = *%S{force use const arg}* - ≈сли у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаютс€ как in, при этом реализаци€ неконстантной версии не генеритьс€ автоматически через вызов константной реализации - разрабочтик должен написать реализацию самосто€тельно.
 	][{"%S{calling conventions}"!="%S{!calling conventions}"}%f_up_prefix(%S) *calling conventions* = *%S{calling conventions}* - —оглашени€ о вызове
+	][{"%S{needs field}"!="%S{!needs field}"}%f_up_prefix(%S) *needs field* = *%S{needs field}*
 	]
 
 

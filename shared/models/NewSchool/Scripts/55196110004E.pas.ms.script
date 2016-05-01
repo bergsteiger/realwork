@@ -228,25 +228,6 @@ ref; // ME_A44911B9A95D_ME_12F09FF9D80E IterateF
 
 ref; // ME_12F09FF9D80E IIterateableService
 
-: ME_507494232C0A
- CONST UID '507494232C0A'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса IIterateableService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5519611903CF // TIterateableService
- ;
- : Target ME_12F09FF9D80E // IIterateableService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_507494232C0A Alien
-
 FORWARD ME_551961AE0005
 
 : ME_551982C90396
@@ -326,10 +307,6 @@ ref; // ME_A44911B9A95D_ME_5519611903CF IterateF
    Seq: ( ME_27F5F6C291D9 // MIterateableService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_507494232C0A // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_551961AE0005 // Iterate
  )
@@ -352,6 +329,10 @@ ref; // ME_A44911B9A95D_ME_5519611903CF IterateF
  CONST extprop:rc:SelfName 'IterateableService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'IterateableService'
+ : Facet ME_12F09FF9D80E // IIterateableService
+ ;
+ : Mixin ME_27F5F6C291D9 // MIterateableService
+ ;
 
 ref; // ME_5519611903CF TIterateableService
 
@@ -453,7 +434,8 @@ ref; // ME_5519612B01D3 TIterateableServiceProvider
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  )
  ; // Depends

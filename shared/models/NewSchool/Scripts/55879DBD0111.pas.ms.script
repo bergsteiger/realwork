@@ -89,25 +89,6 @@ ref; // ME_D2E4642CC7BC_ME_824B0D4B2322 IsPopupControlWindow
 
 ref; // ME_824B0D4B2322 Il3PopupControlService
 
-: ME_896C42BFD042
- CONST UID '896C42BFD042'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3PopupControlService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_55879E12008D // Tl3PopupControlService
- ;
- : Target ME_824B0D4B2322 // Il3PopupControlService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_896C42BFD042 Alien
-
 : ME_5587A30D0297
  CONST Name 'aControlWnd'
  CONST Class class_Parameter
@@ -159,10 +140,6 @@ ref; // ME_D2E4642CC7BC_ME_55879E12008D IsPopupControlWindow
    Seq: ( ME_9432F7C1A797 // Ml3PopupControlService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_896C42BFD042 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_55879E4401FC // IsPopupControlWindow
  )
@@ -185,6 +162,10 @@ ref; // ME_D2E4642CC7BC_ME_55879E12008D IsPopupControlWindow
  CONST extprop:rc:SelfName 'PopupControlService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3PopupControlService'
+ : Facet ME_824B0D4B2322 // Il3PopupControlService
+ ;
+ : Mixin ME_9432F7C1A797 // Ml3PopupControlService
+ ;
 
 ref; // ME_55879E12008D Tl3PopupControlService
 

@@ -196,6 +196,10 @@ var
 //#UC END# *4B30EC67025Acit*
 //#UC START# *4B30EC67025Aimpl*
 //#UC END# *4B30EC67025Aimpl*
+//#UC START# *4B30EC67025Aimpl_uses*
+//#UC END# *4B30EC67025Aimpl_uses*
+//#UC START# *4B30EC67025Aintf_uses*
+//#UC END# *4B30EC67025Aintf_uses*
 //#UC START# *4B30EC67025Apubl*
   published
    property Strings; 
@@ -240,11 +244,6 @@ var
 //#UC END# *4F8845840032_52A9ABFF02E0_impl*
 //#UC START# *4F8845840032_52A9ABFF02E0_var*
 //#UC END# *4F8845840032_52A9ABFF02E0_var*
-//#UC START# *5000565C019C_552BADA90096_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5000565C019C_552BADA90096_impl*
-//#UC START# *5000565C019C_552BADA90096_var*
-//#UC END# *5000565C019C_552BADA90096_var*
 //#UC START# *50477A430157_52A08A9E0275_impl*
  Result := False;
 //#UC END# *50477A430157_52A08A9E0275_impl*
@@ -1121,13 +1120,14 @@ var
  begin
   f_PopupForm := TvcmEntityForm(l_Form);
   f_Popup.Items.Clear;
-  vcmMakeEntitiesMenus(f_Popup.Items,
-                       TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
-                       [vcm_ooShowInContextMenu],
-                       not (vcm_moEntitesInContextMenu in MenuOptions),
-                       vcm_icExternal,
-                       nil,
-                       CheckPopup);
+  if (f_PopupForm.GetEntitiesDefIterator <> nil) then
+   vcmMakeEntitiesMenus(f_Popup.Items,
+                        TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
+                        [vcm_ooShowInContextMenu],
+                        not (vcm_moEntitesInContextMenu in MenuOptions),
+                        vcm_icExternal,
+                        nil,
+                        CheckPopup);
  end;//l_Form is TvcmEntityForm
 //#UC END# *52A8362B00B7_4B30EC81021A_impl*
 //#UC START# *52A8362B00B7_4B30EC81021A_var*
@@ -2646,9 +2646,6 @@ var
 //#UC START# *52AB0BD60025*
  vcmFree(g_InternalButton);
 //#UC END# *52AB0BD60025*
-//#UC START# *5D1E4E326FB5_552BADA90096_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5D1E4E326FB5_552BADA90096_impl*
 //#UC START# *5D1E4E326FB5_552BADA90096_var*
 //#UC END# *5D1E4E326FB5_552BADA90096_var*
 //#UC START# *9CBAC5378D28_55019B3B011B_impl*

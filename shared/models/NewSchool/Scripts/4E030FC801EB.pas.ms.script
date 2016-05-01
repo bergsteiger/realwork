@@ -300,25 +300,6 @@ FORWARD ME_553F7345032E
 
 FORWARD ME_553F8EA30300
 
-: ME_2B30BC6D52E8
- CONST UID '2B30BC6D52E8'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3BatchService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target ME_4FB9430ADD7C // Il3BatchService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_2B30BC6D52E8 Alien
-
 : ME_5507FDED0373
  CONST UID '5507FDED0373'
  CONST Name 'IsBatchMode'
@@ -547,10 +528,6 @@ ref; // ME_FE46A80B1DA3_ME_5507FDD203E1 LeaveBatchMode
  ME_61A12D8261F1 // Ml3BatchService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_2B30BC6D52E8 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5507FDED0373 // IsBatchMode
  ME_55099B480169 // EnterBatchMode
@@ -596,6 +573,10 @@ ref; // ME_FE46A80B1DA3_ME_5507FDD203E1 LeaveBatchMode
  CONST extprop:rc:SelfName 'BatchService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3BatchService'
+ : Facet ME_4FB9430ADD7C // Il3BatchService
+ ;
+ : Mixin ME_61A12D8261F1 // Ml3BatchService
+ ;
 
 ref; // ME_5507FDD203E1 Tl3BatchService
 
@@ -1089,25 +1070,6 @@ ref; // ME_553F8EA30300_ME_09072C2825F1 ExecuteCurrentModalWorker
 
 ref; // ME_09072C2825F1 Il3ModalService
 
-: ME_4EF13673BB19
- CONST UID '4EF13673BB19'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3ModalService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_553F71BE03E0 // Tl3ModalService
- ;
- : Target ME_09072C2825F1 // Il3ModalService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_4EF13673BB19 Alien
-
 : ME_553F7345032E_ME_553F71BE03E0
  : Original ME_553F7345032E // HasModalWorker
  ;
@@ -1138,10 +1100,6 @@ ref; // ME_553F8EA30300_ME_553F71BE03E0 ExecuteCurrentModalWorker
    Seq: ( ME_553F84500218 // Ml3ModalService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_4EF13673BB19 // Alien
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_553F7345032E_ME_553F71BE03E0 // HasModalWorker
  ME_553F8EA30300_ME_553F71BE03E0 // ExecuteCurrentModalWorker
@@ -1162,6 +1120,10 @@ ref; // ME_553F8EA30300_ME_553F71BE03E0 ExecuteCurrentModalWorker
  CONST extprop:rc:SelfName 'ModalService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ModalService'
+ : Facet ME_09072C2825F1 // Il3ModalService
+ ;
+ : Mixin ME_553F84500218 // Ml3ModalService
+ ;
 
 ref; // ME_553F71BE03E0 Tl3ModalService
 
@@ -1182,7 +1144,8 @@ ref; // ME_553F71BE03E0 Tl3ModalService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4F7338A800A7' '4F7338A800A7.pas.ms.script' // ScriptEngineCore

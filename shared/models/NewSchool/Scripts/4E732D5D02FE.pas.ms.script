@@ -4,7 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4E732D5D02FE
 
-FORWARD ME_4E732D7F0082
+FORWARD ME_572318050295
 
 FORWARD ME_4E733DD801B0
 
@@ -40,7 +40,7 @@ ref; // ME_5110D719014A hfoHyperlink
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4E732D7F0082 // TvtHideField
+ : Parent ME_572318050295 // vtHideFieldTypes
  ;
  : Attributes
    Seq: ( ME_5110D711023B // hfoCanHide
@@ -50,6 +50,146 @@ ref; // ME_5110D719014A hfoHyperlink
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E733DD801B0 ThfOption
+
+: ME_5110D73500ED
+ CONST UID '5110D73500ED'
+ CONST Name 'ThfOptions'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_572318050295 // vtHideFieldTypes
+ ;
+ : Inherits
+   Seq: ( ME_4E733DD801B0 // ThfOption
+ )
+ ; // Inherits
+
+ref; // ME_5110D73500ED ThfOptions
+
+: ME_572318050295
+ CONST UID '572318050295'
+ CONST Name 'vtHideFieldTypes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E732D5D02FE // HideFields
+ ;
+ : Children
+   Seq: ( ME_4E733DD801B0 // ThfOption
+ ME_5110D73500ED // ThfOptions
+ )
+ ; // Children
+ CONST "no hands" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldTypes.pas'
+ CONST extprop:rc:SelfName 'HideFieldTypes'
+
+ref; // ME_572318050295 vtHideFieldTypes
+
+FORWARD ME_5110ED94010E
+
+: ME_5110EE260146
+ CONST UID '5110EE260146'
+ CONST Name 'g_HideFieldCount'
+ CONST Class class_Attribute
+ %SUMMARY 'дл€ присвоени€ уникальных имен компонентам, дл€ назначени€ обработчиков событий на форме' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5110ED94010E // vtHideFieldUtils
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5110EE260146 g_HideFieldCount
+
+FORWARD ME_5110EDE70381
+
+: ME_5110EE0B0228
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5110EE0B0228 aName
+
+: ME_5110EE0801B0
+ CONST UID '5110EE0801B0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5110EDE70381 // MakeName
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5110EE0B0228 // aName
+ )
+ ; // Parameters
+
+ref; // ME_5110EE0801B0 DoIt
+
+: ME_5110EDE70381
+ CONST UID '5110EDE70381'
+ CONST Name 'MakeName'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5110ED94010E // vtHideFieldUtils
+ ;
+ : Operations
+   Seq: ( ME_5110EE0801B0 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5110EDE70381 MakeName
+
+: ME_5111175C03A9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5110ED94010E // vtHideFieldUtils
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_5111175C03A9 
+
+: ME_5110ED94010E
+ CONST UID '5110ED94010E'
+ CONST Name 'vtHideFieldUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E732D5D02FE // HideFields
+ ;
+ : Attributes
+   Seq: ( ME_5110EE260146 // g_HideFieldCount
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5110EDE70381 // MakeName
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_5111175C03A9 // SysUtils
+ )
+ ; // Dependencies
+ CONST "no hands" false
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldUtils.pas'
+ CONST extprop:rc:SelfName 'HideFieldUtils'
+
+ref; // ME_5110ED94010E vtHideFieldUtils
+
+FORWARD ME_4E732D7F0082
 
 FORWARD ME_4E733DE40275
 
@@ -95,23 +235,6 @@ ref; // ME_5110D70102C2 hfsShow
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4E733DE40275 ThfState
-
-: ME_5110D73500ED
- CONST UID '5110D73500ED'
- CONST Name 'ThfOptions'
- CONST Class class_Class
- : Stereotype st_SetOf ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E732D7F0082 // TvtHideField
- ;
- : Inherits
-   Seq: ( ME_4E733DD801B0 // ThfOption
- )
- ; // Inherits
-
-ref; // ME_5110D73500ED ThfOptions
 
 FORWARD ME_5110D7EB0086
 
@@ -1736,6 +1859,41 @@ ref; // ME_51126C35039C cstidState
 
 ref; // ME_51126C220257 nscHideFieldConsts
 
+: ME_572318C60327
+ CONST UID '572318C60327'
+ CONST Name 'ThfOption'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E732D7F0082 // TvtHideField
+ ;
+ : Inherits
+   Seq: ( ME_4E733DD801B0 // ThfOption
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_572318C60327 ThfOption
+
+: ME_5723191C0182
+ CONST UID '5723191C0182'
+ CONST Name 'ThfOptions'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E732D7F0082 // TvtHideField
+ ;
+ : Inherits
+   Seq: ( ME_5110D73500ED // ThfOptions
+ )
+ ; // Inherits
+
+ref; // ME_5723191C0182 ThfOptions
+
 : ME_5110D98B0247
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1745,8 +1903,6 @@ ref; // ME_51126C220257 nscHideFieldConsts
  ;
 
 ref; // ME_5110D98B0247 
-
-FORWARD ME_5110ED94010E
 
 : ME_5110EDDB015F
  CONST Class class_Dependency
@@ -1898,6 +2054,16 @@ ref; // ME_51113412033A
 
 ref; // ME_511134DF01E9 
 
+: ME_57231810030A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E732D7F0082 // TvtHideField
+ ;
+ : Target ME_572318050295 // vtHideFieldTypes
+ ;
+
+ref; // ME_57231810030A 
+
 : ME_4E732D7F0082
  CONST UID '4E732D7F0082'
  CONST Name 'TvtHideField'
@@ -1913,12 +2079,12 @@ ref; // ME_511134DF01E9
  )
  ; // Inherits
  : Children
-   Seq: ( ME_4E733DD801B0 // ThfOption
- ME_4E733DE40275 // ThfState
- ME_5110D73500ED // ThfOptions
+   Seq: ( ME_4E733DE40275 // ThfState
  ME_5110D7EB0086 // ThfValidateStateEvent
  ME_5110D81C0041 // ThfCommandEvent
  ME_4E732D8B0291 // TvtCustomHideField
+ ME_572318C60327 // ThfOption
+ ME_5723191C0182 // ThfOptions
  )
  ; // Children
  : Constants
@@ -1944,6 +2110,7 @@ ref; // ME_511134DF01E9
  ME_511133D3012B // ActionCodes
  ME_51113412033A // Tl3SRect
  ME_511134DF01E9 // Forms
+ ME_57231810030A // vtHideFieldTypes
  )
  ; // Dependencies
  CONST "base wnd class" 'CWnd'
@@ -1959,104 +2126,6 @@ ref; // ME_511134DF01E9
 
 ref; // ME_4E732D7F0082 TvtHideField
 
-: ME_5110EE260146
- CONST UID '5110EE260146'
- CONST Name 'g_HideFieldCount'
- CONST Class class_Attribute
- %SUMMARY 'дл€ присвоени€ уникальных имен компонентам, дл€ назначени€ обработчиков событий на форме' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5110ED94010E // vtHideFieldUtils
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5110EE260146 g_HideFieldCount
-
-FORWARD ME_5110EDE70381
-
-: ME_5110EE0B0228
- CONST Name 'aName'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5110EE0B0228 aName
-
-: ME_5110EE0801B0
- CONST UID '5110EE0801B0'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5110EDE70381 // MakeName
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_5110EE0B0228 // aName
- )
- ; // Parameters
-
-ref; // ME_5110EE0801B0 DoIt
-
-: ME_5110EDE70381
- CONST UID '5110EDE70381'
- CONST Name 'MakeName'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5110ED94010E // vtHideFieldUtils
- ;
- : Operations
-   Seq: ( ME_5110EE0801B0 // DoIt
- )
- ; // Operations
-
-ref; // ME_5110EDE70381 MakeName
-
-: ME_5111175C03A9
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5110ED94010E // vtHideFieldUtils
- ;
- : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
- ;
-
-ref; // ME_5111175C03A9 
-
-: ME_5110ED94010E
- CONST UID '5110ED94010E'
- CONST Name 'vtHideFieldUtils'
- CONST Class class_Class
- : Stereotype st_UtilityPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E732D5D02FE // HideFields
- ;
- : Attributes
-   Seq: ( ME_5110EE260146 // g_HideFieldCount
- )
- ; // Attributes
- : Operations
-   Seq: ( ME_5110EDE70381 // MakeName
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_5111175C03A9 // SysUtils
- )
- ; // Dependencies
- CONST "no hands" false
- CONST intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldUtils.pas'
- CONST extprop:rc:SelfName 'HideFieldUtils'
-
-ref; // ME_5110ED94010E vtHideFieldUtils
-
 : ME_4E732D5D02FE
  CONST UID '4E732D5D02FE'
  CONST Name 'HideFields'
@@ -2067,12 +2136,14 @@ ref; // ME_5110ED94010E vtHideFieldUtils
  : Parent WL 'ME_467A75D90346' '467A75D90346.pas.ms.script' // VT
  ;
  : Children
-   Seq: ( ME_4E732D7F0082 // TvtHideField
+   Seq: ( ME_572318050295 // vtHideFieldTypes
  ME_5110ED94010E // vtHideFieldUtils
+ ME_4E732D7F0082 // TvtHideField
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
  WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units

@@ -6,38 +6,6 @@ FORWARD ME_4A9FCCDB035B
 
 FORWARD ME_47F07A9F0098
 
-: ME_F16477FCB5D8
- CONST UID 'F16477FCB5D8'
- CONST Name 'f_dsDrugInternationalNameSynonimsRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsDrugInternationalNameSynonimsRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F07A9F0098 // dBaseDrugDocument
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_F16477FCB5D8 f_dsDrugInternationalNameSynonimsRef
-
-: ME_9651F8DE866D
- CONST UID '9651F8DE866D'
- CONST Name 'f_HasDrugInternationalNameSynonims'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HasDrugInternationalNameSynonims' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F07A9F0098 // dBaseDrugDocument
- ;
- : Target WL 'ME_491BF08F035F' '4678193C009C.pas.ms.script' // Tl3Bool
- ;
-
-ref; // ME_9651F8DE866D f_HasDrugInternationalNameSynonims
-
 : ME_47F07C1E0213
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -82,6 +50,7 @@ ref; // ME_4B192EE702B0
  : Original WL 'ME_64B8F5213895' '491D7C9603B2.pas.ms.script' // dsDrugInternationalNameSynonimsRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_64B8F5213895_ME_47F07A9F0098 dsDrugInternationalNameSynonimsRef
 
@@ -89,6 +58,7 @@ ref; // ME_64B8F5213895_ME_47F07A9F0098 dsDrugInternationalNameSynonimsRef
  : Original WL 'ME_B07FE8A09521' '491D7C9603B2.pas.ms.script' // HasDrugInternationalNameSynonims
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_B07FE8A09521_ME_47F07A9F0098 HasDrugInternationalNameSynonims
 
@@ -123,11 +93,6 @@ ref; // ME_4B18134E01F8_ME_47F07A9F0098 DoResetBooleans
    Seq: ( WL 'ME_47F076DD0260' '491D7C9603B2.pas.ms.script' // IdBaseDrugDocument
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_F16477FCB5D8 // f_dsDrugInternationalNameSynonimsRef
- ME_9651F8DE866D // f_HasDrugInternationalNameSynonims
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_64B8F5213895_ME_47F07A9F0098 // dsDrugInternationalNameSynonimsRef
  ME_B07FE8A09521_ME_47F07A9F0098 // HasDrugInternationalNameSynonims
@@ -202,86 +167,6 @@ ref; // ME_47F37FDA00B9 f_List
 
 ref; // ME_4B220E3B03E3 IvcmRealData
 
-: ME_33F42E619E35
- CONST UID '33F42E619E35'
- CONST Name 'f_dsFiltersRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsFiltersRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E410033 // TdDrugList
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_33F42E619E35 f_dsFiltersRef
-
-: ME_0A39BEC6397D
- CONST UID '0A39BEC6397D'
- CONST Name 'f_dsDrugListRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsDrugListRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E410033 // TdDrugList
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_0A39BEC6397D f_dsDrugListRef
-
-: ME_40ED9868BC14
- CONST UID '40ED9868BC14'
- CONST Name 'f_dsListInfoRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsListInfoRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E410033 // TdDrugList
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_40ED9868BC14 f_dsListInfoRef
-
-: ME_95B6DCC3B158
- CONST UID '95B6DCC3B158'
- CONST Name 'f_dsSynchroViewRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsSynchroViewRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E410033 // TdDrugList
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_95B6DCC3B158 f_dsSynchroViewRef
-
-: ME_486F199E3EEB
- CONST UID '486F199E3EEB'
- CONST Name 'f_DrugList_SynchroView_Form'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DrugList_SynchroView_Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EB3E410033 // TdDrugList
- ;
- : Target WL 'ME_EDFE395C8EE0' '491D7C9603B2.pas.ms.script' // TDrugList_SynchroView_Areas
- ;
-
-ref; // ME_486F199E3EEB f_DrugList_SynchroView_Form
-
 : ME_494176F40163
  CONST UID '494176F40163'
  CONST Name 'Make'
@@ -313,6 +198,7 @@ ref; // ME_47EB5C780228
  : Original WL 'ME_0048137F6167' '491D7C9603B2.pas.ms.script' // dsFiltersRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_0048137F6167_ME_47EB3E410033 dsFiltersRef
 
@@ -320,6 +206,7 @@ ref; // ME_0048137F6167_ME_47EB3E410033 dsFiltersRef
  : Original WL 'ME_38AF3FCA8739' '491D7C9603B2.pas.ms.script' // dsDrugListRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_38AF3FCA8739_ME_47EB3E410033 dsDrugListRef
 
@@ -341,6 +228,7 @@ ref; // ME_47FF3A4C03E7_ME_47EB3E410033 NodeForPositioning
  : Original WL 'ME_6DCE2C2DE35F' '491D7C9603B2.pas.ms.script' // dsListInfoRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_6DCE2C2DE35F_ME_47EB3E410033 dsListInfoRef
 
@@ -348,6 +236,7 @@ ref; // ME_6DCE2C2DE35F_ME_47EB3E410033 dsListInfoRef
  : Original WL 'ME_8C15EA0B7407' '491D7C9603B2.pas.ms.script' // dsSynchroViewRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_8C15EA0B7407_ME_47EB3E410033 dsSynchroViewRef
 
@@ -355,6 +244,7 @@ ref; // ME_8C15EA0B7407_ME_47EB3E410033 dsSynchroViewRef
  : Original WL 'ME_B53EF7286977' '491D7C9603B2.pas.ms.script' // DrugList_SynchroView_Form
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_B53EF7286977_ME_47EB3E410033 DrugList_SynchroView_Form
 
@@ -393,11 +283,6 @@ ref; // ME_4B16B8CF0307_ME_47EB3E410033 AssignData
    Seq: ( ME_47FF3A7E02A7 // f_NodeForPositioning
  ME_47F37FDA00B9 // f_List
  ME_4B220E3B03E3 // IvcmRealData
- ME_33F42E619E35 // f_dsFiltersRef
- ME_0A39BEC6397D // f_dsDrugListRef
- ME_40ED9868BC14 // f_dsListInfoRef
- ME_95B6DCC3B158 // f_dsSynchroViewRef
- ME_486F199E3EEB // f_DrugList_SynchroView_Form
  )
  ; // Attributes
  : Operations
@@ -465,22 +350,6 @@ ref; // ME_4B1937860328 f_ContentsTree
 
 ref; // ME_4B220E4E01FC IvcmRealData
 
-: ME_D71094880F78
- CONST UID 'D71094880F78'
- CONST Name 'f_dsContentsRef'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства dsContentsRef' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47F4CCAD037F // TdDrugDocument
- ;
- : Target WL 'ME_47EB514C0336' '4982BE090383.pas.ms.script' // IvcmFormDataSourceRef
- ;
-
-ref; // ME_D71094880F78 f_dsContentsRef
-
 FORWARD ME_4B1936C003CB
 
 : ME_4B1936C70313
@@ -539,6 +408,7 @@ ref; // ME_4B1937CC013D
  : Original WL 'ME_3A7D008F28B6' '491D7C9603B2.pas.ms.script' // dsContentsRef
  ;
  CONST OpKind opkind_Implemented
+ CONST "needs field" true
  CONST "pm" true
 ref; // ME_3A7D008F28B6_ME_47F4CCAD037F dsContentsRef
 
@@ -583,7 +453,6 @@ ref; // ME_4B16B8CF0307_ME_47F4CCAD037F AssignData
  : Attributes
    Seq: ( ME_4B1937860328 // f_ContentsTree
  ME_4B220E4E01FC // IvcmRealData
- ME_D71094880F78 // f_dsContentsRef
  )
  ; // Attributes
  : Operations
@@ -632,7 +501,8 @@ ref; // ME_47F4CCAD037F TdDrugDocument
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_45700BFD0251' '45700BFD0251.pas.ms.script' // DynamicDocList
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils

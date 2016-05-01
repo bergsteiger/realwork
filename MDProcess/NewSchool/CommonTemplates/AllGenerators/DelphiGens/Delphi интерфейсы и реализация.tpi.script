@@ -6155,82 +6155,6 @@ implementation @ "Delphi интерфейсы и реализация"
 ; // NeedsKeywordDocumentation
 
 
-// Создаёт документацию к словам скрипта
-//%f _SpellKeywordsDocumentation
-: SpellKeywordsDocumentation OBJECT IN %S
-// параметры: aSummoner: MDAClass = %1
-//#UC START# *4F30B8A403DFfor470F151302FD*
-//	[{%S%{_WasSpelled}N!=1}\
- if ( ( %S ( get_object_var ( '_WasSpelled' ) |N )  ) %!= 1 ) then
- begin
-//	[{%SS!=Requirements&%SS!=Constants&%SS!=TestLibrary}\
-  if ( ( %S |S ) %!= 'Requirements' AND 
-    ( ( %S |S ) %!= 'Constants'  ) AND 
-    ( ( %S |S ) %!= 'TestLibrary'  ) ) then
-  begin
-//	%S%f_set_var(_WasSpelled,"1")\
-   %S %f set_var %( '_WasSpelled' %, 1 )% 
-//	[{%S%{WasSpelledToKeywordsDocumentation}N!=true}\
-
-//	%S%f_set_var(WasSpelledToKeywordsDocumentation,"true")\
-//	%f_add_to_list(WasSpelledToKeywordsDocumentation_LIST,S)\
-   [%f] add_to_list %( 'WasSpelledToKeywordsDocumentation_LIST' %, 'S' )% 
-//	<{}{%CC=Class|%CC=Category}\
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if ( ( %C |C ) %== 'Class' OR 
-     ( ( %C |C ) %== 'Category'  ) ) then
-    begin
-//	[{%C#f_IsMethod()!=true}\
-     if ( ( %C %?f IsMethod %( )% ) %!=  true ) then
-     begin
-//	%C#f_SpellKeywordsDocumentation(%1)\
-      %C %?f SpellKeywordsDocumentation %( %1 )% 
-//	]\
-     end // if
-//	>\
-
-     ++! l_Counter
-    end // if
-   end // for C
-
-// - тут итерируем ТОЛЬКО по классам и категориям, не заходя внутрь методов,
-
-//   операций и связей, так наверное памяти СИЛЬНО меньше тратиться должно,
-
-//   до и по времени побыстрее должно быть
-//	%S%f_DoSpellKeywordDocumentation(%1)\
-   %S %f DoSpellKeywordDocumentation %( %1 )% 
-//	]\
-  end // if
-//	]
- end // if
-//#UC END# *4F30B8A403DFfor470F151302FD*
-; // SpellKeywordsDocumentation
-
-
-//%f _ScriptKeywordDocumentationName
-: ScriptKeywordDocumentationName OBJECT IN %S
-// возвращаемый результат: a-string
-//#UC START# *4F30B8E60385for470F151302FD*
-//	%f_N(%S)
- [%f] N %( %S )% 
-//#UC END# *4F30B8E60385for470F151302FD*
-; // ScriptKeywordDocumentationName
-
-
-// Выводит документацию для СЛОВА скрипта, которое представляет данный эелемент
-//%f _DoSpellKeywordDocumentation
-: DoSpellKeywordDocumentation OBJECT IN %S
-// параметры: aSummoner: MDAClass = %1
-//#UC START# *4F30D27300BAfor470F151302FD*
-// - специально ничего не делаем
-//#UC END# *4F30D27300BAfor470F151302FD*
-; // DoSpellKeywordDocumentation
-
-
 //%f _IsUnit
 : IsUnit OBJECT IN %S
 // возвращаемый результат: boolean
@@ -7363,6 +7287,36 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{"%S%{Facet}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Facet' ) |U )  ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Facet %S%{Facet}#f_pas_script_Reference() ;
+   ' : Facet '
+   %S ( get_object_var ( 'Facet' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S%{Mixin}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Mixin' ) |U )  ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Mixin %S%{Mixin}#f_pas_script_Reference() ;
+   ' : Mixin '
+   %S ( get_object_var ( 'Mixin' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
 //	[{"%S%{Speller}U"!=""}\
  if ( ( %S ( get_object_var ( 'Speller' ) |U )  ) %!= '' ) then
  begin
@@ -7423,6 +7377,22 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{%S#f_IsTarget()=true|%SS=TestLibrary|%SS=TestUnit}\
+ if ( ( %S %?f IsTarget %( )% ) %==  true OR 
+   ( ( %S |S ) %== 'TestLibrary'  ) OR 
+   ( ( %S |S ) %== 'TestUnit'  ) ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST Version %SA
+   ' CONST Version '
+   %S |A 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
 //	
 //	ref; // %S%f_pas_script_Name() %SN\n
  'ref; // '
@@ -8496,6 +8466,22 @@ implementation @ "Delphi интерфейсы и реализация"
    ++! l_Counter
   end // if
  end // for e
+
+//	[{"%S%{Facet}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Facet' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{Facet}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'Facet' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+ end // if
+
+//	[{"%S%{Mixin}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Mixin' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{Mixin}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'Mixin' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+ end // if
 
 //	[{"%S%{Speller}U"!=""}\
  if ( ( %S ( get_object_var ( 'Speller' ) |U )  ) %!= '' ) then

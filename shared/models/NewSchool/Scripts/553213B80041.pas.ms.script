@@ -2470,25 +2470,6 @@ ref; // ME_F550802110EC_ME_D7B11E9421DB CloseAll
 
 ref; // ME_D7B11E9421DB Il3TabbedContainersDispatcher
 
-: ME_A9A33F4A790D
- CONST UID 'A9A33F4A790D'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3TabbedContainersDispatcher' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_553213D902E0 // Tl3TabbedContainersDispatcher
- ;
- : Target ME_D7B11E9421DB // Il3TabbedContainersDispatcher
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_A9A33F4A790D Alien
-
 : ME_55321AF901DE
  CONST Name 'aListener'
  CONST Class class_Parameter
@@ -3320,10 +3301,6 @@ ref; // ME_F550802110EC_ME_553213D902E0 CloseAll
    Seq: ( ME_553886F600CF // Ml3TabbedContainersDispatcher
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_A9A33F4A790D // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_553214A00141 // Subscribe
  ME_553214B300E5 // Unsubscribe
@@ -3413,6 +3390,10 @@ ref; // ME_F550802110EC_ME_553213D902E0 CloseAll
  CONST extprop:rc:SelfName 'TabbedContainersDispatcher'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3TabbedContainersDispatcher'
+ : Facet ME_D7B11E9421DB // Il3TabbedContainersDispatcher
+ ;
+ : Mixin ME_553886F600CF // Ml3TabbedContainersDispatcher
+ ;
 
 ref; // ME_553213D902E0 Tl3TabbedContainersDispatcher
 
@@ -3430,7 +3411,8 @@ ref; // ME_553213D902E0 Tl3TabbedContainersDispatcher
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

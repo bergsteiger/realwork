@@ -6,88 +6,6 @@ FORWARD ME_54EC8C220105
 
 FORWARD ME_54EC8C7C011E
 
-FORWARD ME_D1FD416FEE23
-
-: ME_048EAD54E5A1
- CONST UID '048EAD54E5A1'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D1FD416FEE23 // TvtComboBoxWordsPackResNameGetter
- ;
-
-ref; // ME_048EAD54E5A1 RegAxiom
-
-: ME_55B7A3AF0359_ME_D1FD416FEE23
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_D1FD416FEE23 ResName
-
-: ME_D1FD416FEE23
- CONST UID 'D1FD416FEE23'
- CONST Name 'TvtComboBoxWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_048EAD54E5A1 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_D1FD416FEE23 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'ComboBoxWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_D1FD416FEE23 TvtComboBoxWordsPackResNameGetter
-
-: ME_81A2C60331A0
- CONST UID '81A2C60331A0'
- CONST Name 'TCustomComboBoxFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TCustomComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'ComboBoxFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_81A2C60331A0 TCustomComboBoxFriend
-
 FORWARD ME_55B7A59500C7
 
 FORWARD ME_D4660B294082
@@ -2199,9 +2117,7 @@ ref; // ME_C09CC5CA04B9
  )
  ; // Operations
  : Children
-   Seq: ( ME_D1FD416FEE23 // TvtComboBoxWordsPackResNameGetter
- ME_81A2C60331A0 // TCustomComboBoxFriend
- ME_B7676CD1AAB3 // pop_ComboBox_DropDown
+   Seq: ( ME_B7676CD1AAB3 // pop_ComboBox_DropDown
  ME_731890DC5F90 // pop_ComboBox_GetItemIndex
  ME_697C86093610 // pop_ComboBox_IndexOf
  ME_E94AE4FC3D32 // pop_ComboBox_SelectItem
@@ -2254,7 +2170,8 @@ ref; // ME_54EC8C7C011E vtComboBoxWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo

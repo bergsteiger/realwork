@@ -2536,8 +2536,9 @@ implementation @ :: <<MDAGenerator>> <<Operation>> ;
   end // for C
  end // if
  NOP
-//	[{%TN!=void}
- if ( ( %T |N ) %!= 'void' ) then
+//	[{%TN!=void&"%TN"!=""}
+ if ( ( %T |N ) %!= 'void' AND 
+   ( ( %T |N ) %!= ''  ) ) then
  begin
   #13#10
 

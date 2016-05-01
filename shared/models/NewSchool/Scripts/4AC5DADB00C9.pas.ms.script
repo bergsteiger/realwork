@@ -4989,31 +4989,6 @@ ref; // ME_556464D20231 cButtonHeight
 
 ref; // ME_556464A3026C TDblClickPopupCalendar Const
 
-: ME_85C4A351AC4D
- CONST UID '85C4A351AC4D'
- CONST Name 'TvtCalendarPanelFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TvtCalendarPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_4AA8AB7B038F // TvtDateEdit
- ;
- : Inherits
-   Seq: ( ME_5562DB5D0259 // TvtCalendarPanel
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'CalendarPanelFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_85C4A351AC4D TvtCalendarPanelFriend
-
 : ME_556452780136
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -5168,7 +5143,6 @@ ref; // ME_55670AFA0153
  ME_5562DE9702A4 // TDblClickPopupCalendar
  ME_5562E38F0396 // TodayPadPresent
  ME_5564521702CC // TFoo
- ME_85C4A351AC4D // TvtCalendarPanelFriend
  )
  ; // Children
  : Constants
@@ -5259,7 +5233,8 @@ ref; // ME_4AC5DAE50246 TvtDblClickDateEdit
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation

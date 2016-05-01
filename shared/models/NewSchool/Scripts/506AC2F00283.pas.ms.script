@@ -6,88 +6,6 @@ FORWARD ME_506AC2F00283
 
 FORWARD ME_506AC306014F
 
-FORWARD ME_905837D55EDD
-
-: ME_2E64C01D2E63
- CONST UID '2E64C01D2E63'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_905837D55EDD // TVGSceneWordsPackResNameGetter
- ;
-
-ref; // ME_2E64C01D2E63 RegAxiom
-
-: ME_55B7A3AF0359_ME_905837D55EDD
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_905837D55EDD ResName
-
-: ME_905837D55EDD
- CONST UID '905837D55EDD'
- CONST Name 'TVGSceneWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_506AC306014F // VGSceneWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_2E64C01D2E63 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_905837D55EDD // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'VGSceneWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_905837D55EDD TVGSceneWordsPackResNameGetter
-
-: ME_39FDC381B6E8
- CONST UID '39FDC381B6E8'
- CONST Name 'TvgVisualObjectFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TvgVisualObject' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_506AC306014F // VGSceneWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4D49562A01B7' '4CFCE51A00B0.pas.ms.script' // TvgVisualObject
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'VisualObjectFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_39FDC381B6E8 TvgVisualObjectFriend
-
 FORWARD ME_551D4CAA00E9
 
 FORWARD ME_99CDF025D5A5
@@ -2639,9 +2557,7 @@ ref; // ME_C311A03FEB0F
  )
  ; // Operations
  : Children
-   Seq: ( ME_905837D55EDD // TVGSceneWordsPackResNameGetter
- ME_39FDC381B6E8 // TvgVisualObjectFriend
- ME_89C786B088C6 // vg_control_Visible
+   Seq: ( ME_89C786B088C6 // vg_control_Visible
  ME_05A703B5907E // vg_control_Height
  ME_6D438B9C5A14 // vg_control_Width
  ME_0ED393F18084 // vg_control_Left
@@ -2969,63 +2885,6 @@ ref; // ME_551D5363005B
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\VGSceneAndWinControlPack.pas'
 
 ref; // ME_551D4A0E03DD VGSceneAndWinControlPack
-
-FORWARD ME_4797480437D2
-
-: ME_8AE6DD92C505
- CONST UID '8AE6DD92C505'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4797480437D2 // TVGComboBoxPackResNameGetter
- ;
-
-ref; // ME_8AE6DD92C505 RegAxiom
-
-: ME_55B7A3AF0359_ME_4797480437D2
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_4797480437D2 ResName
-
-: ME_4797480437D2
- CONST UID '4797480437D2'
- CONST Name 'TVGComboBoxPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_551D4B5B02FF // VGComboBoxPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_8AE6DD92C505 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_4797480437D2 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'VGComboBoxPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4797480437D2 TVGComboBoxPackResNameGetter
 
 FORWARD ME_551D4BD8016D
 
@@ -3918,8 +3777,7 @@ ref; // ME_7B15BCFFD9FF
  )
  ; // Operations
  : Children
-   Seq: ( ME_4797480437D2 // TVGComboBoxPackResNameGetter
- ME_3D1B97A2F7D1 // vg_ComboBox_GetText
+   Seq: ( ME_3D1B97A2F7D1 // vg_ComboBox_GetText
  ME_6AF76187796E // vg_ComboBox_ItemHeight
  ME_E6401AA7CFD9 // vg_ComboBox_ItemIndex
  ME_F404139FE541 // vg_ComboBox_GetItem
@@ -3955,13 +3813,13 @@ ref; // ME_551D4B5B02FF VGComboBoxPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.pas.ms.script' // Impl
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

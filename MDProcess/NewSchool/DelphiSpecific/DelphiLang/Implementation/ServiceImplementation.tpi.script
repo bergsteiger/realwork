@@ -33,20 +33,10 @@ implementation @ <<ServiceImplementation>>
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ”наследованна€ реализаци€
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
-//%f _DoSpell
-; // st_space_key
-
-: DoSpell OBJECT IN %S
-//#UC START# *4B2A19E3038Bfor5502BADD01CB*
-//	%S%[inherited]
- inherited
-//#UC END# *4B2A19E3038Bfor5502BADD01CB*
-; // DoSpell
-
-
 // перекрытие базового стереотипа ServicePrim::Class
 //%f _BeforeClassSpell
+; // st_space_key
+
 : BeforeClassSpell OBJECT IN %S
 //#UC START# *5502C6A200F5for5502BADD01CB*
 //	<{}{%CC=Dependency&%CS=implements}\
@@ -61,14 +51,6 @@ implementation @ <<ServiceImplementation>>
    %C ->T %?f CheckOrMakeFacet %( )%  
 //	%C%T#f_CheckFacet()\
    %C ->T %?f CheckFacet %( )%  
-
-
-//	%f_warning(%C%TN)\
-
-//	%f_warning(%C%T%{Facet}N)\
-
-//	%f_warning(%C%T%{Facet}U)\
-
 
 //	[{"%C%T%{Facet}N"!=""}\
    if ( ( %C ->T ( get_object_var ( 'Facet' ) |N )   ) %!= '' ) then

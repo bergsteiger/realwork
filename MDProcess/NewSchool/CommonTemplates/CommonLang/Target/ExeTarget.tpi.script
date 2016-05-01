@@ -138,55 +138,37 @@ implementation @ <<ExeTarget>>
 //	[{%SS=VCMTestTarget}{\
   if ( ( %S |S ) %== 'VCMTestTarget' ) then
   begin
+//	[{%S#f_UseNewGenRec()!=true}\
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	[{<{}{%D#f_IsVCMGUI()=true&%D{F1Like}=false}{C}>=0}{\
-   if ( 
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%D
-    begin
-     OBJECT IN %D
-     if ( ( %D %?f IsVCMGUI %( )% ) %==  true AND 
-      ( ( %D get_up ( 'F1Like' ) ) %==  false  ) ) then
+    if ( 
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%D
      begin
+      OBJECT IN %D
+      if ( ( %D %?f IsVCMGUI %( )% ) %==  true AND 
+       ( ( %D get_up ( 'F1Like' ) ) %==  false  ) ) then
+      begin
 
-      ++! l_Counter
-     end // if
-    end // for D
-    l_Counter
-    %== 0 ) then
-   begin
+       ++! l_Counter
+      end // if
+     end // for D
+     l_Counter
+     %== 0 ) then
+    begin
 //	[{"%{TF1AutoTestSuite}N"=""}%f_find_element(TF1AutoTestSuite,TF1AutoTestSuite)]\
-    if ( ( ( get_global_var ( 'TF1AutoTestSuite' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( 'TF1AutoTestSuite' %, 'TF1AutoTestSuite' )% 
-    end // if
+     if ( ( ( get_global_var ( 'TF1AutoTestSuite' ) |N ) ) %== '' ) then
+     begin
+      [%f] find_element %( 'TF1AutoTestSuite' %, 'TF1AutoTestSuite' )% 
+     end // if
 //	%S%f_make_accessable(%{TF1AutoTestSuite}U)\
-    %S %f make_accessable %( ( get_global_var ( 'TF1AutoTestSuite' ) |U ) )% 
+     %S %f make_accessable %( ( get_global_var ( 'TF1AutoTestSuite' ) |U ) )% 
 //	%f_addCDep(%S,%{TF1AutoTestSuite})\
-    [%f] addCDep %( %S %, ( get_global_var ( 'TF1AutoTestSuite' ) ) )% 
+     [%f] addCDep %( %S %, ( get_global_var ( 'TF1AutoTestSuite' ) ) )% 
 //	]\
-   end // if
-   else
-   begin
-//	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
-    if ( ( ( get_global_var ( 'TAutoTestsSuite' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( 'TAutoTestsSuite' %, 'TAutoTestsSuite' )% 
     end // if
-//	%S%f_make_accessable(%{TAutoTestsSuite}U)\
-    %S %f make_accessable %( ( get_global_var ( 'TAutoTestsSuite' ) |U ) )% 
-//	%f_addCDep(%S,%{TAutoTestsSuite})\
-    [%f] addCDep %( %S %, ( get_global_var ( 'TAutoTestsSuite' ) ) )% 
-//	}\
-   end // else
-//	]\
-  end // if
-  else
-  begin
-//	[{%S{is insider test}!=true}\
-   if ( ( %S get_up ( 'is insider test' ) ) %!=  true ) then
-   begin
-//	[{%S{no scripts}!=true}\
-    if ( ( %S get_up ( 'no scripts' ) ) %!=  true ) then
+    else
     begin
 //	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
      if ( ( ( get_global_var ( 'TAutoTestsSuite' ) |N ) ) %== '' ) then
@@ -197,15 +179,43 @@ implementation @ <<ExeTarget>>
      %S %f make_accessable %( ( get_global_var ( 'TAutoTestsSuite' ) |U ) )% 
 //	%f_addCDep(%S,%{TAutoTestsSuite})\
      [%f] addCDep %( %S %, ( get_global_var ( 'TAutoTestsSuite' ) ) )% 
-//	[{"%{TtfwScriptEngineEX}N"=""}%f_find_element(TtfwScriptEngineEX,TtfwScriptEngineEX)]\
-     if ( ( ( get_global_var ( 'TtfwScriptEngineEX' ) |N ) ) %== '' ) then
+//	}\
+    end // else
+//	]\
+   end // if
+//	]\
+  end // if
+  else
+  begin
+//	[{%S{is insider test}!=true}\
+   if ( ( %S get_up ( 'is insider test' ) ) %!=  true ) then
+   begin
+//	[{%S{no scripts}!=true}\
+    if ( ( %S get_up ( 'no scripts' ) ) %!=  true ) then
+    begin
+//	[{%S#f_UseNewGenRec()!=true}\
+     if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
      begin
-      [%f] find_element %( 'TtfwScriptEngineEX' %, 'TtfwScriptEngineEX' )% 
-     end // if
+//	[{"%{TAutoTestsSuite}N"=""}%f_find_element(TAutoTestsSuite,TAutoTestsSuite)]\
+      if ( ( ( get_global_var ( 'TAutoTestsSuite' ) |N ) ) %== '' ) then
+      begin
+       [%f] find_element %( 'TAutoTestsSuite' %, 'TAutoTestsSuite' )% 
+      end // if
+//	%S%f_make_accessable(%{TAutoTestsSuite}U)\
+      %S %f make_accessable %( ( get_global_var ( 'TAutoTestsSuite' ) |U ) )% 
+//	%f_addCDep(%S,%{TAutoTestsSuite})\
+      [%f] addCDep %( %S %, ( get_global_var ( 'TAutoTestsSuite' ) ) )% 
+//	[{"%{TtfwScriptEngineEX}N"=""}%f_find_element(TtfwScriptEngineEX,TtfwScriptEngineEX)]\
+      if ( ( ( get_global_var ( 'TtfwScriptEngineEX' ) |N ) ) %== '' ) then
+      begin
+       [%f] find_element %( 'TtfwScriptEngineEX' %, 'TtfwScriptEngineEX' )% 
+      end // if
 //	%S%f_make_accessable(%{TtfwScriptEngineEX}U)\
-     %S %f make_accessable %( ( get_global_var ( 'TtfwScriptEngineEX' ) |U ) )% 
+      %S %f make_accessable %( ( get_global_var ( 'TtfwScriptEngineEX' ) |U ) )% 
 //	%f_addCDep(%S,%{TtfwScriptEngineEX})\
-     [%f] addCDep %( %S %, ( get_global_var ( 'TtfwScriptEngineEX' ) ) )% 
+      [%f] addCDep %( %S %, ( get_global_var ( 'TtfwScriptEngineEX' ) ) )% 
+//	]\
+     end // if
 //	]\
     end // if
 //	]\
@@ -214,78 +224,83 @@ implementation @ <<ExeTarget>>
   end // else
 
 
-//	[{"%{Exception}N"=""}%f_find_element(4787A405013D,Exception)]\
-  if ( ( ( get_global_var ( 'Exception' ) |N ) ) %== '' ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
-   [%f] find_element %( '4787A405013D' %, 'Exception' )% 
-  end // if
+//	[{"%{Exception}N"=""}%f_find_element(4787A405013D,Exception)]\
+   if ( ( ( get_global_var ( 'Exception' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '4787A405013D' %, 'Exception' )% 
+   end // if
 //	%S%f_make_accessable(%{Exception}U)\
-  %S %f make_accessable %( ( get_global_var ( 'Exception' ) |U ) )% 
+   %S %f make_accessable %( ( get_global_var ( 'Exception' ) |U ) )% 
 //	%f_addCDep(%S,%{Exception})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'Exception' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'Exception' ) ) )% 
 
 //	[{"%{l3Base}N"=""}%f_find_element(4773D64E036C,l3Base)]\
-  if ( ( ( get_global_var ( 'l3Base' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '4773D64E036C' %, 'l3Base' )% 
-  end // if
+   if ( ( ( get_global_var ( 'l3Base' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '4773D64E036C' %, 'l3Base' )% 
+   end // if
 //	%S%f_make_accessable(%{l3Base}U)\
-  %S %f make_accessable %( ( get_global_var ( 'l3Base' ) |U ) )% 
+   %S %f make_accessable %( ( get_global_var ( 'l3Base' ) |U ) )% 
 //	%f_addCDep(%S,%{l3Base})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'l3Base' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'l3Base' ) ) )% 
 
 //	[{"%{TKBridge}N"=""}%f_find_element(TKBridge,TKBridge)]\
-  if ( ( ( get_global_var ( 'TKBridge' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'TKBridge' %, 'TKBridge' )% 
-  end // if
+   if ( ( ( get_global_var ( 'TKBridge' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'TKBridge' %, 'TKBridge' )% 
+   end // if
 //	%S%f_make_accessable(%{TKBridge}U)\
-  %S %f make_accessable %( ( get_global_var ( 'TKBridge' ) |U ) )% 
+   %S %f make_accessable %( ( get_global_var ( 'TKBridge' ) |U ) )% 
 //	%f_addCDep(%S,%{TKBridge})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'TKBridge' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'TKBridge' ) ) )% 
 
 //	[{"%{KTestRunner}N"=""}%f_find_element(KTestRunner,KTestRunner)]\
-  if ( ( ( get_global_var ( 'KTestRunner' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'KTestRunner' %, 'KTestRunner' )% 
-  end // if
+   if ( ( ( get_global_var ( 'KTestRunner' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'KTestRunner' %, 'KTestRunner' )% 
+   end // if
 //	%S%f_make_accessable(%{KTestRunner}U)\
-  %S %f make_accessable %( ( get_global_var ( 'KTestRunner' ) |U ) )% 
+   %S %f make_accessable %( ( get_global_var ( 'KTestRunner' ) |U ) )% 
 //	%f_addCDep(%S,%{KTestRunner})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'KTestRunner' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'KTestRunner' ) ) )% 
 
 //	[{"%{TextTestRunner}N"=""}%f_find_element(TextTestRunner,TextTestRunner)]\
-  if ( ( ( get_global_var ( 'TextTestRunner' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'TextTestRunner' %, 'TextTestRunner' )% 
-  end // if
+   if ( ( ( get_global_var ( 'TextTestRunner' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'TextTestRunner' %, 'TextTestRunner' )% 
+   end // if
 //	%S%f_make_accessable(%{TextTestRunner}U)\
-  %S %f make_accessable %( ( get_global_var ( 'TextTestRunner' ) |U ) )% 
+   %S %f make_accessable %( ( get_global_var ( 'TextTestRunner' ) |U ) )% 
 //	%f_addCDep(%S,%{TextTestRunner})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'TextTestRunner' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'TextTestRunner' ) ) )% 
 
 //	[{"%{GUITestRunner}N"=""}%f_find_element(GUITestRunner,GUITestRunner)]\
-  if ( ( ( get_global_var ( 'GUITestRunner' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'GUITestRunner' %, 'GUITestRunner' )% 
-  end // if
+   if ( ( ( get_global_var ( 'GUITestRunner' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'GUITestRunner' %, 'GUITestRunner' )% 
+   end // if
 //	%S%f_make_accessable(%{GUITestRunner}U)\
-  %S %f make_accessable %( ( get_global_var ( 'GUITestRunner' ) |U ) )% 
+   %S %f make_accessable %( ( get_global_var ( 'GUITestRunner' ) |U ) )% 
 //	%f_addCDep(%S,%{GUITestRunner})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'GUITestRunner' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'GUITestRunner' ) ) )% 
 
 //	[{%S{no scripts}!=true}\
-  if ( ( %S get_up ( 'no scripts' ) ) %!=  true ) then
-  begin
-//	[{"%{TvcmInsiderTest}N"=""}%f_find_element(TvcmInsiderTest,TvcmInsiderTest)]\
-   if ( ( ( get_global_var ( 'TvcmInsiderTest' ) |N ) ) %== '' ) then
+   if ( ( %S get_up ( 'no scripts' ) ) %!=  true ) then
    begin
-    [%f] find_element %( 'TvcmInsiderTest' %, 'TvcmInsiderTest' )% 
-   end // if
+//	[{"%{TvcmInsiderTest}N"=""}%f_find_element(TvcmInsiderTest,TvcmInsiderTest)]\
+    if ( ( ( get_global_var ( 'TvcmInsiderTest' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( 'TvcmInsiderTest' %, 'TvcmInsiderTest' )% 
+    end // if
 //	%S%f_make_accessable(%{TvcmInsiderTest}U)\
-   %S %f make_accessable %( ( get_global_var ( 'TvcmInsiderTest' ) |U ) )% 
+    %S %f make_accessable %( ( get_global_var ( 'TvcmInsiderTest' ) |U ) )% 
 //	%f_addCDep(%S,%{TvcmInsiderTest})\
-   [%f] addCDep %( %S %, ( get_global_var ( 'TvcmInsiderTest' ) ) )% 
+    [%f] addCDep %( %S %, ( get_global_var ( 'TvcmInsiderTest' ) ) )% 
+//	]\
+   end // if
 //	]\
   end // if
 //	]

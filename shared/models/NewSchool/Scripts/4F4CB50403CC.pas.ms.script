@@ -100,63 +100,6 @@ ref; // ME_4F4CB625027A TkwEditorFromStackWord
 
 FORWARD ME_4F4CB68801E0
 
-FORWARD ME_89CE586D099A
-
-: ME_7E52978F2727
- CONST UID '7E52978F2727'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_89CE586D099A // TEditorFromStackKeyWordsPackResNameGetter
- ;
-
-ref; // ME_7E52978F2727 RegAxiom
-
-: ME_55B7A3AF0359_ME_89CE586D099A
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_89CE586D099A ResName
-
-: ME_89CE586D099A
- CONST UID '89CE586D099A'
- CONST Name 'TEditorFromStackKeyWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4CB68801E0 // EditorFromStackKeyWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_7E52978F2727 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_89CE586D099A // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'EditorFromStackKeyWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_89CE586D099A TEditorFromStackKeyWordsPackResNameGetter
-
 FORWARD ME_55D5F6BB01C5
 
 FORWARD ME_E878A5785856
@@ -3794,8 +3737,7 @@ ref; // ME_4C220AAC34D3
  )
  ; // Operations
  : Children
-   Seq: ( ME_89CE586D099A // TEditorFromStackKeyWordsPackResNameGetter
- ME_57E2F8D45E5B // pop_Editor_ScrollBottom
+   Seq: ( ME_57E2F8D45E5B // pop_Editor_ScrollBottom
  ME_984121B2A39C // pop_Editor_ScrollLineUp
  ME_6EFB94FBB9D0 // pop_Editor_ScrollLineDown
  ME_C6DBF363488D // pop_Editor_ScrollTo
@@ -8529,63 +8471,6 @@ ref; // ME_A9721353002F
 
 ref; // ME_55B782940096 vtComboTreeWordsPack
 
-FORWARD ME_D2EC9F607FB9
-
-: ME_F1976D5CBB13
- CONST UID 'F1976D5CBB13'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D2EC9F607FB9 // TTevCustomEditorWordsPackResNameGetter
- ;
-
-ref; // ME_F1976D5CBB13 RegAxiom
-
-: ME_55B7A3AF0359_ME_D2EC9F607FB9
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_D2EC9F607FB9 ResName
-
-: ME_D2EC9F607FB9
- CONST UID 'D2EC9F607FB9'
- CONST Name 'TTevCustomEditorWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55E46D4F03AE // TevCustomEditorWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_F1976D5CBB13 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_D2EC9F607FB9 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'TevCustomEditorWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_D2EC9F607FB9 TTevCustomEditorWordsPackResNameGetter
-
 FORWARD ME_55E46D7201BC
 
 FORWARD ME_2A65ED70712B
@@ -10847,8 +10732,7 @@ ref; // ME_0E7D711D251C
  )
  ; // Operations
  : Children
-   Seq: ( ME_D2EC9F607FB9 // TTevCustomEditorWordsPackResNameGetter
- ME_A1BCB5D9397E // pop_Editor_InsertTable
+   Seq: ( ME_A1BCB5D9397E // pop_Editor_InsertTable
  ME_FD58A4635AC9 // pop_Editor_InsertRow
  ME_9A0327B85C97 // pop_Editor_DeleteRow
  ME_16C269694050 // pop_Editor_InsertColumn
@@ -15182,7 +15066,8 @@ ref; // ME_55E5A6200262 IedTableWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
@@ -15229,7 +15114,6 @@ ref; // ME_55E5A6200262 IedTableWordsPack
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_54EDDC8A013D' '54EDDC8A013D.pas.ms.script' // SchemaWords
  WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

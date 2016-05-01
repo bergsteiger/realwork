@@ -850,63 +850,6 @@ ref; // ME_4DAEEDE10285_ME_54255FED0328 DoDoIt
 
 ref; // ME_54255FED0328 dialogs_LockDocument_SetSkipMode
 
-FORWARD ME_83014FAE4406
-
-: ME_431A0C41817E
- CONST UID '431A0C41817E'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_83014FAE4406 // TAttributeExplorerWordsPackResNameGetter
- ;
-
-ref; // ME_431A0C41817E RegAxiom
-
-: ME_55B7A3AF0359_ME_83014FAE4406
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_83014FAE4406 ResName
-
-: ME_83014FAE4406
- CONST UID '83014FAE4406'
- CONST Name 'TAttributeExplorerWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_553109700297 // AttributeExplorerWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_431A0C41817E // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_83014FAE4406 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'AttributeExplorerWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_83014FAE4406 TAttributeExplorerWordsPackResNameGetter
-
 FORWARD ME_553109D90010
 
 FORWARD ME_986AD64514D6
@@ -1182,8 +1125,7 @@ ref; // ME_A50038E87D68
  )
  ; // Operations
  : Children
-   Seq: ( ME_83014FAE4406 // TAttributeExplorerWordsPackResNameGetter
- ME_50112451BECA // AttrExplorer_GotoOnAttrNode
+   Seq: ( ME_50112451BECA // AttrExplorer_GotoOnAttrNode
  )
  ; // Children
  : Dependencies
@@ -1279,7 +1221,8 @@ ref; // ME_56A09E250064 ClearConfig
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
@@ -1297,7 +1240,6 @@ ref; // ME_56A09E250064 ClearConfig
  WL 'ME_4F8D7381019D' '4F8D7381019D.pas.ms.script' // Frames
  WL 'ME_503F8FD000A1' '503F8FD000A1.pas.ms.script' // vtOutlinerWords
  WL 'ME_50598FD9019C' '50598FD9019C.pas.ms.script' // PipeOut
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

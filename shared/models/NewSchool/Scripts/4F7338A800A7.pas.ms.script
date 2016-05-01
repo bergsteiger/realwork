@@ -1061,25 +1061,6 @@ ref; // ME_BA3808340B4E_ME_DAC1F2DB132D LeaveScript
 
 ref; // ME_DAC1F2DB132D Il3ScriptService
 
-: ME_6BE52CB3FAAA
- CONST UID '6BE52CB3FAAA'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3ScriptService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5509AA5400EA // Tl3ScriptService
- ;
- : Target ME_DAC1F2DB132D // Il3ScriptService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_6BE52CB3FAAA Alien
-
 : ME_5509AA71018F
  CONST UID '5509AA71018F'
  CONST Name 'EnterScript'
@@ -1134,10 +1115,6 @@ ref; // ME_BA3808340B4E_ME_5509AA5400EA LeaveScript
    Seq: ( ME_EC920DB7EE66 // Ml3ScriptService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_6BE52CB3FAAA // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5509AA71018F // EnterScript
  ME_5509AA7D0270 // LeaveScript
@@ -1162,6 +1139,10 @@ ref; // ME_BA3808340B4E_ME_5509AA5400EA LeaveScript
  CONST extprop:rc:SelfName 'ScriptService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ScriptService'
+ : Facet ME_DAC1F2DB132D // Il3ScriptService
+ ;
+ : Mixin ME_EC920DB7EE66 // Ml3ScriptService
+ ;
 
 ref; // ME_5509AA5400EA Tl3ScriptService
 

@@ -243,25 +243,6 @@ ref; // ME_9F46A5A9DAF5_ME_4EE7B78D5AA0 GetReader
 
 ref; // ME_4EE7B78D5AA0 Ik2EVDReaderService
 
-: ME_59EA6D934673
- CONST UID '59EA6D934673'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Ik2EVDReaderService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_555DB43B00BD // Tk2EVDReaderService
- ;
- : Target ME_4EE7B78D5AA0 // Ik2EVDReaderService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_59EA6D934673 Alien
-
 : ME_555DB53301DC
  CONST UID '555DB53301DC'
  CONST Name 'GetReader'
@@ -343,10 +324,6 @@ ref; // ME_9F46A5A9DAF5_ME_555DB43B00BD GetReader
    Seq: ( ME_30860C64BDA8 // Mk2EVDReaderService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_59EA6D934673 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_555DB53301DC // GetReader
  ME_55701A7A01B4 // MakeReader
@@ -371,6 +348,10 @@ ref; // ME_9F46A5A9DAF5_ME_555DB43B00BD GetReader
  CONST extprop:rc:SelfName 'EVDReaderService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'k2EVDReaderService'
+ : Facet ME_4EE7B78D5AA0 // Ik2EVDReaderService
+ ;
+ : Mixin ME_30860C64BDA8 // Mk2EVDReaderService
+ ;
 
 ref; // ME_555DB43B00BD Tk2EVDReaderService
 
@@ -481,25 +462,6 @@ ref; // ME_F7BF6A35E2B1_ME_45A65DABCE57 MakeWriter
 
 ref; // ME_45A65DABCE57 Ik2EVDWriterService
 
-: ME_2233968BE6D1
- CONST UID '2233968BE6D1'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Ik2EVDWriterService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_555DCEA8017E // Tk2EVDWriterService
- ;
- : Target ME_45A65DABCE57 // Ik2EVDWriterService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_2233968BE6D1 Alien
-
 : ME_555DCEC1021B
  CONST UID '555DCEC1021B'
  CONST Name 'GetWriter'
@@ -571,10 +533,6 @@ ref; // ME_F7BF6A35E2B1_ME_555DCEA8017E MakeWriter
    Seq: ( ME_57767888A990 // Mk2EVDWriterService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_2233968BE6D1 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_555DCEC1021B // GetWriter
  ME_55701AE20388 // MakeWriter
@@ -599,6 +557,10 @@ ref; // ME_F7BF6A35E2B1_ME_555DCEA8017E MakeWriter
  CONST extprop:rc:SelfName 'EVDWriterService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'k2EVDWriterService'
+ : Facet ME_45A65DABCE57 // Ik2EVDWriterService
+ ;
+ : Mixin ME_57767888A990 // Mk2EVDWriterService
+ ;
 
 ref; // ME_555DCEA8017E Tk2EVDWriterService
 
@@ -620,7 +582,8 @@ ref; // ME_555DCEA8017E Tk2EVDWriterService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

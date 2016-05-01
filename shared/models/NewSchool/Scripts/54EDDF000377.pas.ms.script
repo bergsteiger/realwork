@@ -6,63 +6,6 @@ FORWARD ME_54EDDF000377
 
 FORWARD ME_54EDDF9700B3
 
-FORWARD ME_B6DC8B9D2ADE
-
-: ME_B84EA924617F
- CONST UID 'B84EA924617F'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B6DC8B9D2ADE // TevParaWordsPackResNameGetter
- ;
-
-ref; // ME_B84EA924617F RegAxiom
-
-: ME_55B7A3AF0359_ME_B6DC8B9D2ADE
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_B6DC8B9D2ADE ResName
-
-: ME_B6DC8B9D2ADE
- CONST UID 'B6DC8B9D2ADE'
- CONST Name 'TevParaWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EDDF9700B3 // evParaWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_B84EA924617F // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_B6DC8B9D2ADE // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'ParaWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_B6DC8B9D2ADE TevParaWordsPackResNameGetter
-
 FORWARD ME_5530ED2E028D
 
 FORWARD ME_813358A7CF85
@@ -2930,8 +2873,7 @@ ref; // ME_53B52B130172_ME_54EDDF9700B3 DateTimeW
  )
  ; // Implemented
  : Children
-   Seq: ( ME_B6DC8B9D2ADE // TevParaWordsPackResNameGetter
- ME_73A41501B720 // Para_BoolA
+   Seq: ( ME_73A41501B720 // Para_BoolA
  ME_7DB044DC9B24 // Para_BoolW
  ME_8E4CB03D8918 // Para_GetParent
  ME_1F1556695E5E // Para_GetType
@@ -2978,7 +2920,8 @@ ref; // ME_54EDDF9700B3 evParaWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
@@ -2990,7 +2933,6 @@ ref; // ME_54EDDF9700B3 evParaWordsPack
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

@@ -100,13 +100,18 @@ implementation @ <<ScriptKeywordsPack>>
 //	%f_SpellScriptFramework(%S)\
  [%f] SpellScriptFramework %( %S )% 
 
-//	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
- if ( ( ( get_global_var ( 'TypeInfoExt' ) |N ) ) %== '' ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-  [%f] find_element %( '55153C2C036F' %, 'TypeInfoExt' )% 
- end // if
+//	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
+  if ( ( ( get_global_var ( 'TypeInfoExt' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '55153C2C036F' %, 'TypeInfoExt' )% 
+  end // if
 //	%f_addCDep(%S,%{TypeInfoExt})\
- [%f] addCDep %( %S %, ( get_global_var ( 'TypeInfoExt' ) ) )% 
+  [%f] addCDep %( %S %, ( get_global_var ( 'TypeInfoExt' ) ) )% 
+//	]\
+ end // if
 
 //	%f_clear_list(PROPS)\
  [%f] clear_list %( 'PROPS' )% 
@@ -268,13 +273,19 @@ implementation @ <<ScriptKeywordsPack>>
  begin
 
 
-//	[{"%{TtfwTypeRegistrator}N"=""}%f_find_element(5527F8330362,TtfwTypeRegistrator)]\
-  if ( ( ( get_global_var ( 'TtfwTypeRegistrator' ) |N ) ) %== '' ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
-   [%f] find_element %( '5527F8330362' %, 'TtfwTypeRegistrator' )% 
-  end // if
+//	[{"%{TtfwTypeRegistrator}N"=""}%f_find_element(5527F8330362,TtfwTypeRegistrator)]\
+   if ( ( ( get_global_var ( 'TtfwTypeRegistrator' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '5527F8330362' %, 'TtfwTypeRegistrator' )% 
+   end // if
 //	%f_addCDep(%S,%{TtfwTypeRegistrator})\
-  [%f] addCDep %( %S %, ( get_global_var ( 'TtfwTypeRegistrator' ) ) )% 
+   [%f] addCDep %( %S %, ( get_global_var ( 'TtfwTypeRegistrator' ) ) )% 
+//	]\
+  end // if
+
 
 //	%{PARAMS}<{}{}{%C}\
   ( get_global_var ( 'PARAMS' ) ) 
@@ -1050,16 +1061,20 @@ end. // <<ScriptKeywordsPack>>
 //	}\
  end // else
 
-//	[{"%{SysUtils}N"=""}%f_find_element(47877EB202FB,SysUtils)]\
- if ( ( ( get_global_var ( 'SysUtils' ) |N ) ) %== '' ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-  [%f] find_element %( '47877EB202FB' %, 'SysUtils' )% 
- end // if
-
+//	[{"%{SysUtils}N"=""}%f_find_element(47877EB202FB,SysUtils)]\
+  if ( ( ( get_global_var ( 'SysUtils' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '47877EB202FB' %, 'SysUtils' )% 
+  end // if
 //	%{Class_Inst}%f_make_accessable(%{SysUtils}U)\
- ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'SysUtils' ) |U ) )% ) 
+  ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'SysUtils' ) |U ) )% ) 
 //	%f_addCDep(%{Class_Inst},%{SysUtils})\
- [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'SysUtils' ) ) )% 
+  [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'SysUtils' ) ) )% 
+//	]\
+ end // if
 
 //	[{""=""}\
  if ( '' %== '' ) then

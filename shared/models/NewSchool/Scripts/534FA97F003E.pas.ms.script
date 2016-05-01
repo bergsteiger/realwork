@@ -2918,32 +2918,6 @@ ref; // ME_BBD01A2872C6
 
 ref; // ME_534FA99B02BB ReminderWordsPack
 
-: ME_EA750BB5E3DF
- CONST UID 'EA750BB5E3DF'
- CONST Name 'TvgRemindersLineFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TvgRemindersLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- )
- ; // Inherits
- CONST "ifndef" 'NoVGScene'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'RemindersLineFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_EA750BB5E3DF TvgRemindersLineFriend
-
 FORWARD ME_5500582C0070
 
 FORWARD ME_49A3CD754B3E
@@ -4892,8 +4866,7 @@ ref; // ME_2DB5871F8286
  )
  ; // Operations
  : Children
-   Seq: ( ME_EA750BB5E3DF // TvgRemindersLineFriend
- ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
+   Seq: ( ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
  ME_1F4F64719530 // pop_RemindersLine_AbsTop
@@ -4934,7 +4907,8 @@ ref; // ME_550057160010 RemindersLineWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation

@@ -92,25 +92,6 @@ ref; // ME_30F5EA5AF6DF_ME_BDE9EFF83116 VersionInfo
 
 ref; // ME_BDE9EFF83116 Il3VersionInfoService
 
-: ME_213C1435C00A
- CONST UID '213C1435C00A'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3VersionInfoService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_55DDCF7C004A // Tl3VersionInfoService
- ;
- : Target ME_BDE9EFF83116 // Il3VersionInfoService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_213C1435C00A Alien
-
 : ME_55DDCFBE0096
  CONST UID '55DDCFBE0096'
  CONST Name 'VersionInfo'
@@ -169,10 +150,6 @@ ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
    Seq: ( ME_9F707534EAE2 // Ml3VersionInfoService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_213C1435C00A // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_55DDCFBE0096 // VersionInfo
  )
@@ -200,6 +177,10 @@ ref; // ME_30F5EA5AF6DF_ME_55DDCF7C004A VersionInfo
  CONST extprop:rc:SelfName 'VersionInfoService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3VersionInfoService'
+ : Facet ME_BDE9EFF83116 // Il3VersionInfoService
+ ;
+ : Mixin ME_9F707534EAE2 // Ml3VersionInfoService
+ ;
 
 ref; // ME_55DDCF7C004A Tl3VersionInfoService
 

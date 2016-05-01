@@ -72,7 +72,7 @@ STRING elem_func IfDefStr
 46. Убрать NOT_COMPLETED_ у dfm etc.
 48. Заменить ! на .Not.
 50. ( .NotInArray: - убрать скобки, скобки выводить в MACRO.
-51. Перенести PROGRAM XXX из Generation в DailyTest Auto.
+51. Перенести PROGRAM XXX из Generation в DailyTest Auto. Базовые тесты перенести к ежедневным базовым тестам.
 52. .Predicate ! заменить на .Not: .Predicate - .IsMixIn ! => .Not: .IsMixIn. Учесть необходимость скобок.
 53. Self .Abstraction at_abstract != заменить на Self .Abstraction .NEQ at_abstract - MACRO, а не <>
 54. Self .Abstraction at_abstract == заменить на Self .Abstraction .EQ at_abstract - MACRO, а не =
@@ -114,11 +114,18 @@ M:\NewSchool\Scripts\4AA9196700EB.pas.ms.script
 M:\NewSchool\Scripts\4CC97BDA02DF.pas.ms.script
 M:\NewSchool\Scripts\4F6B66140294.pas.ms.script
 M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
-63. SysUtils убрать из генерации ScriptKeywordsPack.
 64. Выделить Shared Delphi Lib For F1 и Shared Delphi Lib For Archi.
 66. Определения предметной области - поставить UseNewGen. Проверив, что там нет форм.
 67. Также поставить UseNewGen другим "базовым" пакетам.
 68. Расставить NoSpell. Где возможно.
 70. Удалить модель Intranet.
-71. TPrimListForm.ClearFields; сделать f_SearchContext := nil;
-72.  
+72. Удалить модели labs.
+73. Заменить .filter> ( .IsEvdSchemaElement ! ) на .filter> .Not: .IsEvdSchemaElement , где .Not: - макрос. См. 48 и 52.
+74. При генерации элемента запускать генерацию для всех входящих связей.
+75. Сделать слово PROTOTYPE - аналог FORWARD, но с полной сигнатурой и копированием WordInfo и словаря.
+76. Заменить .Target на mapToTarget.
+79. Сделать array:CopyNoElementDuplicates. Прикрутить к IntfUses и ImplUses. Не забыть .map> .UnitProducer.
+80. Сделать array:CopyNoTypeDuplicates.
+81. Self SWAP .SomeMethodImplementsThisIterator ! и Self SWAP .ImplementMethod заменить на .SelfSwap: .ImplementMethod
+87. Убрать Inline, но чуть позже.
+88. 

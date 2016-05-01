@@ -1226,6 +1226,13 @@ var
    {$IFNDEF Nemesis}
    (aForm as TForm).OnCloseQuery := DialogCloseQuery;
    {$ENDIF Nemesis}
+   {$ifdef Nemesis}
+   l_Panel := TvtSizeablePanel.Create(aForm);
+   l_Panel.Parent := aForm;
+   l_Panel.Align := alLeft;
+   l_Panel.SizeableSides := [szRight];
+   l_Panel.SplitterBevel := bvRaised;
+   {$endif}
    l_Tree := TTreeFrame.Create(aForm);
    l_Tree.Align := alLeft;
    f_WorkFrame := TWorkFrame.Create(aForm);
@@ -1248,13 +1255,24 @@ var
    end
    else
     f_ButtonsPanel := nil;
-   l_Tree.Parent := aForm;
    if f_ButtonsPanel <> nil then
    begin
     f_ButtonsPanel.Parent := aForm;
     //TButtonsFrame(f_ButtonsPanel).OnHelpContextChange := TTreeFrame(l_Tree).HelpContextChange;
    end;
+   {$ifdef Nemesis}
+   l_Tree.Parent := l_Panel;//aForm;
+   l_Tree.Align := alClient;
+   l_Panel.BevelOuter := bvNone;
+   l_Panel.Constraints.MinWidth := l_Tree.Width;
+   l_Panel.Constraints.MaxWidth := l_Tree.Width * 2;
+   l_Panel.Width := afw.Settings.LoadInteger('SettingsForm_Tree_Width', l_Tree.Width);
+   l_Panel.OnResize := TreePanelResize;
+
+   f_WorkFrame.Align := alClient;
+   {$else}
    l_Tree.Parent := aForm;
+   {$endif}
    f_WorkFrame.Parent := aForm;
    CalculateConstants(l_Tree, f_WorkFrame, f_ButtonsPanel);
    AdjustFormSize(aForm, aOptions);
@@ -1275,6 +1293,9 @@ var
 //#UC START# *5214AB33027F_4B990F100126_var*
 var
  l_Tree: TFrame;
+{$ifdef Nemesis}
+ l_Panel: TvtSizeablePanel;
+{$endif}
 //#UC END# *5214AB33027F_4B990F100126_var*
 //#UC START# *5214AB510002_4B990F100126_impl*
  repeat

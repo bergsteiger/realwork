@@ -377,25 +377,6 @@ ref; // ME_CB784FFDCCE4_ME_95B86FA902A2 UnregisterBaseSearcherProvider
 
 ref; // ME_95B86FA902A2 InsBaseSearchService
 
-: ME_C4A0C6DDC674
- CONST UID 'C4A0C6DDC674'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса InsBaseSearchService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_563875050317 // TnsBaseSearchService
- ;
- : Target ME_95B86FA902A2 // InsBaseSearchService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_C4A0C6DDC674 Alien
-
 : ME_5638754F0166
  CONST Name 'aEntityForm'
  CONST Class class_Parameter
@@ -730,10 +711,6 @@ ref; // ME_CB784FFDCCE4_ME_563875050317 UnregisterBaseSearcherProvider
    Seq: ( ME_A7888A84DDDB // MnsBaseSearchService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_C4A0C6DDC674 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5638753D025D // GetBaseSearcher
  ME_563875610245 // UnregisterBaseSearcherProvider
@@ -775,6 +752,10 @@ ref; // ME_CB784FFDCCE4_ME_563875050317 UnregisterBaseSearcherProvider
  CONST extprop:rc:SelfName 'BaseSearchService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'nsBaseSearchService'
+ : Facet ME_95B86FA902A2 // InsBaseSearchService
+ ;
+ : Mixin ME_A7888A84DDDB // MnsBaseSearchService
+ ;
 
 ref; // ME_563875050317 TnsBaseSearchService
 
@@ -792,7 +773,8 @@ ref; // ME_563875050317 TnsBaseSearchService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4A9F98B901A5' '4A9F98B901A5.pas.ms.script' // BaseSearchInterfaces
  )

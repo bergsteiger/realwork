@@ -133,16 +133,6 @@ implementation @ <<Service>>
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ”наследованна€ реализаци€
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
-//%f _DoSpell
-: DoSpell OBJECT IN %S
-//#UC START# *4B2A19E3038Bfor5502BABC0193*
-//	%S%[inherited]
- inherited
-//#UC END# *4B2A19E3038Bfor5502BABC0193*
-; // DoSpell
-
-
 // перекрытие базового стереотипа ServicePrim::Class
 //%f _BeforeClassSpell
 : BeforeClassSpell OBJECT IN %S
@@ -330,28 +320,28 @@ implementation @ <<Service>>
 //	%f_addR(%S%{Facet},%S%{Mixin})\
  [%f] addR %( %S ( get_object_var ( 'Facet' ) )  %, %S ( get_object_var ( 'Mixin' ) )  )% 
 
-//	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
- %S %f add_attribute %( %S |U '_'
- %S ( get_object_var ( 'Facet' ) |U )  '_Alien' %, 'writeonly' %, 'Alien : '
- %S ( get_object_var ( 'Facet' ) |U )  %, 'Attr_Inst' )% 
-
-//	%{Attr_Inst}%f_set_link_type(ref)\
- ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
-//	%{Attr_Inst}%f_set_up(pm,true)\
- ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
-//	%{Attr_Inst}%f_set_up(needs field,true)\
- ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
-//	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
- ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
-//	%{Attr_Inst}%f_set_abstraction_type(final)\
- ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'final' )% ) 
-//	%{Attr_Inst}%f_set_documentation(¬нешн€€ реализаци€ сервиса %S%{Facet}N)\
- ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( '¬нешн€€ реализаци€ сервиса '
- %S ( get_object_var ( 'Facet' ) |N )  )% ) 
-
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
+  %S %f add_attribute %( %S |U '_'
+  %S ( get_object_var ( 'Facet' ) |U )  '_Alien' %, 'writeonly' %, 'Alien : '
+  %S ( get_object_var ( 'Facet' ) |U )  %, 'Attr_Inst' )% 
+
+//	%{Attr_Inst}%f_set_link_type(ref)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Attr_Inst}%f_set_abstraction_type(final)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Attr_Inst}%f_set_documentation(¬нешн€€ реализаци€ сервиса %S%{Facet}N)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( '¬нешн€€ реализаци€ сервиса '
+  %S ( get_object_var ( 'Facet' ) |N )  )% ) 
+
 //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_var,\
   ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_var' %, 

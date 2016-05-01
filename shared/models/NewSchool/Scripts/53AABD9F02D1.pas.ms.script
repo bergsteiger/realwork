@@ -136,25 +136,6 @@ ref; // ME_DC1A5D24B383_ME_D8B97AFBE40F IsVisitedDocumentLink
 
 ref; // ME_D8B97AFBE40F IevCustomStyleManager
 
-: ME_43E2805BD14B
- CONST UID '43E2805BD14B'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса IevCustomStyleManager' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_53AABE1F0383 // TevCustomStyleManager
- ;
- : Target ME_D8B97AFBE40F // IevCustomStyleManager
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_43E2805BD14B Alien
-
 : ME_5549E18D025A
  CONST Name 'aSeg'
  CONST Class class_Parameter
@@ -249,10 +230,6 @@ ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
    Seq: ( ME_BA57CFD34717 // MevCustomStyleManager
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_43E2805BD14B // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5549E17B01C5 // IsAbolishedDocumentLink
  ME_5549E1DA0063 // IsVisitedDocumentLink
@@ -277,6 +254,10 @@ ref; // ME_DC1A5D24B383_ME_53AABE1F0383 IsVisitedDocumentLink
  CONST extprop:rc:SelfName 'StyleManager'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'evCustomStyleManager'
+ : Facet ME_D8B97AFBE40F // IevCustomStyleManager
+ ;
+ : Mixin ME_BA57CFD34717 // MevCustomStyleManager
+ ;
 
 ref; // ME_53AABE1F0383 TevCustomStyleManager
 

@@ -4049,31 +4049,6 @@ FORWARD ME_4857EFDA01E5
 
 FORWARD ME_55522B5101D3
 
-: ME_3BD7F4F77D13
- CONST UID '3BD7F4F77D13'
- CONST Name 'Tk2DictionaryFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для Tk2Dictionary' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- : Inherits
-   Seq: ( WL 'ME_4860AF86034F' '467FC43F01F9.pas.ms.script' // Tk2Dictionary
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'DictionaryFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_3BD7F4F77D13 Tk2DictionaryFriend
-
 : ME_55522BCE00BC
  CONST UID '55522BCE00BC'
  CONST Name 'ForExport'
@@ -4423,10 +4398,6 @@ ref; // ME_47A042E100E2_ME_55522B5101D3 InitFields
    Seq: ( ME_47A042E100E2_ME_55522B5101D3 // InitFields
  )
  ; // Overridden
- : Children
-   Seq: ( ME_3BD7F4F77D13 // Tk2DictionaryFriend
- )
- ; // Children
  : Dependencies
    Seq: ( ME_55522E5B0139 // Tk2Dictionary
  )
@@ -6311,7 +6282,8 @@ ref; // ME_C9ADD4944F97 evStylesPrintAndExportFontSizeSettingRes
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces

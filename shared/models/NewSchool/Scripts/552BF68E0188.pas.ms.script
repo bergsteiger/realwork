@@ -95,25 +95,6 @@ ref; // ME_A18BB0B1A222_ME_DA0E680BD126 CleanAutolinkFilter
 
 ref; // ME_DA0E680BD126 Il3AutolinkService
 
-: ME_1FA886C84E47
- CONST UID '1FA886C84E47'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3AutolinkService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_552BF69B039B // Tl3AutolinkService
- ;
- : Target ME_DA0E680BD126 // Il3AutolinkService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_1FA886C84E47 Alien
-
 : ME_552BF6BD0156
  CONST UID '552BF6BD0156'
  CONST Name 'GetAutolinkFilter'
@@ -170,10 +151,6 @@ ref; // ME_A18BB0B1A222_ME_552BF69B039B CleanAutolinkFilter
    Seq: ( ME_EBF65282559B // Ml3AutolinkService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_1FA886C84E47 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_552BF6BD0156 // GetAutolinkFilter
  ME_552BF6FF02A9 // CleanAutolinkFilter
@@ -202,6 +179,10 @@ ref; // ME_A18BB0B1A222_ME_552BF69B039B CleanAutolinkFilter
  CONST extprop:rc:SelfName 'AutolinkService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3AutolinkService'
+ : Facet ME_DA0E680BD126 // Il3AutolinkService
+ ;
+ : Mixin ME_EBF65282559B // Ml3AutolinkService
+ ;
 
 ref; // ME_552BF69B039B Tl3AutolinkService
 
@@ -219,7 +200,8 @@ ref; // ME_552BF69B039B Tl3AutolinkService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  )
  ; // Depends
 

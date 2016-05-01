@@ -2038,6 +2038,7 @@ implementation @ :: <<AbstractFacet>> <<property>> ;
 //p dll export:b=true ? определяет что данный атрибут будет экспортироваться наружу компоненты
 //p force use const arg:b=false ? Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.
 //p is default:b=false ? определяем атрибут по-умолчанию
+//p needs field:tribool=undefined ? 
 //p pm:b=false ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
 
 // Генераторы
@@ -2252,6 +2253,12 @@ implementation @ :: <<AbstractFacet>> <<property>> ;
  begin
   [%f] up_prefix %( %S )% ' *calling conventions* = *'
   %S get_up ( 'calling conventions' ) '* - Соглашения о вызове'
+//	][{"%S{needs field}"!="%S{!needs field}"}%f_up_prefix(%S) *needs field* = *%S{needs field}*
+ end // if
+ if ( ( %S get_up ( 'needs field' ) ) %!= ( %S get_up_def ( 'needs field' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs field* = *'
+  %S get_up ( 'needs field' ) '*'
 //	]
  end // if
 

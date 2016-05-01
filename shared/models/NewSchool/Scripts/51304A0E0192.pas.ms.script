@@ -6,63 +6,6 @@ FORWARD ME_51304A0E0192
 
 FORWARD ME_51304A1F02AD
 
-FORWARD ME_56D015564877
-
-: ME_F9AE119BF2CD
- CONST UID 'F9AE119BF2CD'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56D015564877 // TkwKeyWordsPackResNameGetter
- ;
-
-ref; // ME_F9AE119BF2CD RegAxiom
-
-: ME_55B7A3AF0359_ME_56D015564877
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_56D015564877 ResName
-
-: ME_56D015564877
- CONST UID '56D015564877'
- CONST Name 'TkwKeyWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51304A1F02AD // kwKeyWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_F9AE119BF2CD // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_56D015564877 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'KeyWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_56D015564877 TkwKeyWordsPackResNameGetter
-
 FORWARD ME_55C9F42D0261
 
 FORWARD ME_8CDAC59949AC
@@ -757,8 +700,7 @@ ref; // ME_8EE038A72456
  )
  ; // Operations
  : Children
-   Seq: ( ME_56D015564877 // TkwKeyWordsPackResNameGetter
- ME_0200DD1E29D8 // GUITestRunner_push_DUnitForm
+   Seq: ( ME_0200DD1E29D8 // GUITestRunner_push_DUnitForm
  ME_D7892D333B1E // pop_GUITestRunner_NodeToTest
  ME_6F1D31444115 // DeleteEtalons
  )
@@ -780,63 +722,6 @@ ref; // ME_8EE038A72456
  CONST extprop:rc:SelfName 'KeyWordsPack'
 
 ref; // ME_51304A1F02AD kwKeyWordsPack
-
-FORWARD ME_5BD9647988E7
-
-: ME_4A9E4C6A2A60
- CONST UID '4A9E4C6A2A60'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5BD9647988E7 // TITestWordsPackResNameGetter
- ;
-
-ref; // ME_4A9E4C6A2A60 RegAxiom
-
-: ME_55B7A3AF0359_ME_5BD9647988E7
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_5BD9647988E7 ResName
-
-: ME_5BD9647988E7
- CONST UID '5BD9647988E7'
- CONST Name 'TITestWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C9F202036D // ITestWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_4A9E4C6A2A60 // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_5BD9647988E7 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'ITestWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5BD9647988E7 TITestWordsPackResNameGetter
 
 FORWARD ME_890E66847F95
 
@@ -1831,8 +1716,7 @@ ref; // ME_51B1DD5F0080_ME_55C9F202036D ClearEtalons
  )
  ; // Implemented
  : Children
-   Seq: ( ME_5BD9647988E7 // TITestWordsPackResNameGetter
- ME_E6DE6CAD7EFE // pop_Test_Name
+   Seq: ( ME_E6DE6CAD7EFE // pop_Test_Name
  ME_1CEB5B8AA2E5 // pop_Test_Enabled
  ME_4638C704D78B // pop_Test_SubFolder
  ME_719F0EEEAFD0 // pop_Test_HasScriptChildren
@@ -1851,63 +1735,6 @@ ref; // ME_51B1DD5F0080_ME_55C9F202036D ClearEtalons
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\ITestWordsPack.pas'
 
 ref; // ME_55C9F202036D ITestWordsPack
-
-FORWARD ME_CE36BAE2E068
-
-: ME_A507A250637C
- CONST UID 'A507A250637C'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CE36BAE2E068 // TTTreeNodeForTestsWordsPackResNameGetter
- ;
-
-ref; // ME_A507A250637C RegAxiom
-
-: ME_55B7A3AF0359_ME_CE36BAE2E068
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_CE36BAE2E068 ResName
-
-: ME_CE36BAE2E068
- CONST UID 'CE36BAE2E068'
- CONST Name 'TTTreeNodeForTestsWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C9F3800372 // TTreeNodeForTestsWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_A507A250637C // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_CE36BAE2E068 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'TTreeNodeForTestsWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_CE36BAE2E068 TTTreeNodeForTestsWordsPackResNameGetter
 
 FORWARD ME_55C9F3B6011B
 
@@ -2142,8 +1969,7 @@ ref; // ME_55C9F97C0252
  )
  ; // Operations
  : Children
-   Seq: ( ME_CE36BAE2E068 // TTTreeNodeForTestsWordsPackResNameGetter
- ME_565CDF98FF94 // pop_TreeNode_IsNodeFolder
+   Seq: ( ME_565CDF98FF94 // pop_TreeNode_IsNodeFolder
  )
  ; // Children
  : Dependencies
@@ -2175,7 +2001,8 @@ ref; // ME_55C9F3800372 TTreeNodeForTestsWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
@@ -2184,7 +2011,6 @@ ref; // ME_55C9F3800372 TTreeNodeForTestsWordsPack
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_51309A4A02FB' '51309A4A02FB.pas.ms.script' // Tests Res Common
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

@@ -1262,37 +1262,26 @@ implementation @ <<SimpleClass>>
  end // if
 
 
-//	%f_clear_list(PROPS_FOR_FIELDS)\
-
-//	<{}{%C#f_IsProp()=true}\
-//	%f_add_to_list(PROPS_FOR_FIELDS,C)\
-//	>\
-
-//	%{PROPS_FOR_FIELDS}<{}{}{%C}\
-//	%f_DoSpellField(%C)\
-//	>\
-
-//	%f_clear_list(PROPS_FOR_FIELDS)\
-
-//	<{}{%o{needs field}=true&%t_interface(%o%P)=true}{%o}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%o
- begin
-  OBJECT IN %o
-  if ( ( %o get_up ( 'needs field' ) ) %==  true AND 
-   ( ( [%t] interface %( %o ->P  )% ) %==  true  ) ) then
-  begin
-//	%f_SpellFieldPrim(%o,%S)\
-   [%f] SpellFieldPrim %( %o %, %S )% 
-//	>\
-
-   ++! l_Counter
-  end // if
- end // for o
-
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	<{}{%o{needs field}=true&%t_interface(%o%P)=true}{%o}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if ( ( %o get_up ( 'needs field' ) ) %==  true AND 
+    ( ( [%t] interface %( %o ->P  )% ) %==  true  ) ) then
+   begin
+//	%f_SpellFieldPrim(%o,%S)\
+    [%f] SpellFieldPrim %( %o %, %S )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for o
+
+
 //	[{%S%f_NeedCleanupFields()=true}\
   if ( ( %S %f NeedCleanupFields %( )% ) %==  true ) then
   begin
@@ -1307,98 +1296,93 @@ implementation @ <<SimpleClass>>
 
 //	%S%f_add_override(%{l3UnknownPrim.ClearFields}U)\
    %S %f add_override %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) |U ) )% 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{l3UnknownPrim.ClearFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.ClearFields},%S)_var,\
-    ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_var' %, 
+   ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_var' %, 
 //	 {-}\
-    ' {-}'
+   ' {-}'
 //	)\
 )% ) //	%{l3UnknownPrim.ClearFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.ClearFields},%S)_impl,\
-    ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_impl' %, 
+   ( get_global_var ( 'l3UnknownPrim.ClearFields' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'l3UnknownPrim.ClearFields' ) ) %, %S )% '_impl' %, 
 //	<{}{%C#f_IsFieldForCleanup()=true}\
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C %?f IsFieldForCleanup %( )% ) %==  true ) then
     begin
-     OBJECT IN %C
-     if ( ( %C %?f IsFieldForCleanup %( )% ) %==  true ) then
-     begin
 //	 \
-      ' '
+     ' '
 //	[{%C%T#f_IsStruct()=true}{\
-      if ( ( %C ->T %?f IsStruct %( )%  ) %==  true ) then
-      begin
+     if ( ( %C ->T %?f IsStruct %( )%  ) %==  true ) then
+     begin
 //	Finalize(%C%f_pas_AttrName());\
-       'Finalize('
-       %C %f pas_AttrName %( )% ');'
+      'Finalize('
+      %C %f pas_AttrName %( )% ');'
 //	]\n\
+     end // if
+     else
+     begin
+//	[{"%C%{clearViaProperty}N"!=""}{\
+      if ( ( %C ( get_object_var ( 'clearViaProperty' ) |N )  ) %!= '' ) then
+      begin
+//	[%C%{clearViaProperty}#f_open_ifdef()\n ]\
+       if NOT-EMPTY
+       begin
+        %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_open_ifdef()'#13#10' ' 
+       end // if
+       NOP
+//	%C%{clearViaProperty}N := nil;\
+       %C ( get_object_var ( 'clearViaProperty' ) |N )  ' := nil;'
+//	[\n %C%{clearViaProperty}#f_close_ifdef()]\
+       if NOT-EMPTY
+       begin
+        #13#10' '
+        %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_close_ifdef()' 
+       end // if
+       NOP
+//	]\
       end // if
       else
       begin
-//	[{"%C%{clearViaProperty}N"!=""}{\
-       if ( ( %C ( get_object_var ( 'clearViaProperty' ) |N )  ) %!= '' ) then
-       begin
-//	[%C%{clearViaProperty}#f_open_ifdef()\n ]\
-        if NOT-EMPTY
-        begin
-         %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_open_ifdef()'#13#10' ' 
-        end // if
-        NOP
-//	%C%{clearViaProperty}N := nil;\
-        %C ( get_object_var ( 'clearViaProperty' ) |N )  ' := nil;'
-//	[\n %C%{clearViaProperty}#f_close_ifdef()]\
-        if NOT-EMPTY
-        begin
-         #13#10' '
-         %C ( get_object_var ( 'clearViaProperty' ) )  out_indent 'f_close_ifdef()' 
-        end // if
-        NOP
-//	]\
-       end // if
-       else
-       begin
 //	[%C#f_open_ifdef()\n ]\
-        if NOT-EMPTY
-        begin
-         %C %?f open_ifdef %( )% #13#10' ' 
-        end // if
-        NOP
+       if NOT-EMPTY
+       begin
+        %C %?f open_ifdef %( )% #13#10' ' 
+       end // if
+       NOP
 //	%C%f_pas_AttrName() := nil;\
-        %C %f pas_AttrName %( )% ' := nil;'
+       %C %f pas_AttrName %( )% ' := nil;'
 //	[\n %C#f_close_ifdef()]\
-        if NOT-EMPTY
-        begin
-         #13#10' '
-         %C %?f close_ifdef %( )% 
-        end // if
-        NOP
-//	}\
-       end // else
+       if NOT-EMPTY
+       begin
+        #13#10' '
+        %C %?f close_ifdef %( )% 
+       end // if
+       NOP
 //	}\
       end // else
-      #13#10
+//	}\
+     end // else
+     #13#10
 //	>\
 
-      ++! l_Counter
-     end // if
-    end // for C
+     ++! l_Counter
+    end // if
+   end // for C
 //	 inherited;\
-    ' inherited;'
+   ' inherited;'
 //	)\
-)% ) //	]\
-   end // if
-
+)% ) 
 
 //	]\
   end // if
+//	%f_SpellFriends(%S)\
+  [%f] SpellFriends %( %S )% 
+
 //	]\
  end // if
-
-//	%f_SpellFriends(%S)\
- [%f] SpellFriends %( %S )% 
 
 //	%S%[inherited]\
  inherited
@@ -1536,89 +1520,89 @@ end. // <<SimpleClass>>
 //	[{%S{needs script}=true}\
  if ( ( %S get_up ( 'needs script' ) ) %==  true ) then
  begin
-//	%S%f_add_class(%SU_ResNameGetter,SimpleClass,T%f_pas_FileName(%S)ResNameGetter,Class_Inst)\
-  %S %f add_class %( %S |U '_ResNameGetter' %, 'SimpleClass' %, 'T'
-  [%f] pas_FileName %( %S )% 'ResNameGetter' %, 'Class_Inst' )% 
-//	%{Class_Inst}%f_set_documentation(Регистрация скриптованой аксиоматики)\
-  ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 'Регистрация скриптованой аксиоматики' )% ) 
-//	%{Class_Inst}%f_set_abstraction_type(final)\
-  ( get_global_var ( 'Class_Inst' ) %f set_abstraction_type %( 'final' )% ) 
-//	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
-  ( get_global_var ( 'Class_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	[{"%{TtfwAxiomaticsResNameGetter}N"=""}%f_find_element(TtfwAxiomaticsResNameGetter,TtfwAxiomaticsResNameGetter)]\
-  if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'TtfwAxiomaticsResNameGetter' %, 'TtfwAxiomaticsResNameGetter' )% 
-  end // if
-//	%f_addG(%{Class_Inst},%{TtfwAxiomaticsResNameGetter})\
-  [%f] addG %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TtfwAxiomaticsResNameGetter' ) ) )% 
-//	%{Class_Inst}%f_set_up(need UC,true)\
-  ( get_global_var ( 'Class_Inst' ) %f set_up %( 'need UC' %, true )% ) 
-
 //	[{%S#f_UseNewGenRec()!=true}\
   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
   begin
+//	%S%f_add_class(%SU_ResNameGetter,SimpleClass,T%f_pas_FileName(%S)ResNameGetter,Class_Inst)\
+   %S %f add_class %( %S |U '_ResNameGetter' %, 'SimpleClass' %, 'T'
+   [%f] pas_FileName %( %S )% 'ResNameGetter' %, 'Class_Inst' )% 
+//	%{Class_Inst}%f_set_documentation(Регистрация скриптованой аксиоматики)\
+   ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 'Регистрация скриптованой аксиоматики' )% ) 
+//	%{Class_Inst}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Class_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
+   ( get_global_var ( 'Class_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	[{"%{TtfwAxiomaticsResNameGetter}N"=""}%f_find_element(TtfwAxiomaticsResNameGetter,TtfwAxiomaticsResNameGetter)]\
+   if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( 'TtfwAxiomaticsResNameGetter' %, 'TtfwAxiomaticsResNameGetter' )% 
+   end // if
+//	%f_addG(%{Class_Inst},%{TtfwAxiomaticsResNameGetter})\
+   [%f] addG %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TtfwAxiomaticsResNameGetter' ) ) )% 
+//	%{Class_Inst}%f_set_up(need UC,true)\
+   ( get_global_var ( 'Class_Inst' ) %f set_up %( 'need UC' %, true )% ) 
+
+//	[{%S#f_UseNewGenRec()!=true}\
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	%{Class_Inst}%f_set_uc_content(intf.pas,impl,\
-   ( get_global_var ( 'Class_Inst' ) %f set_uc_content %( 'intf.pas' %, 'impl' %, 
+    ( get_global_var ( 'Class_Inst' ) %f set_uc_content %( 'intf.pas' %, 'impl' %, 
 //	 \{$R %f_pas_FileName(%S).res}\
-   ' {$R '
-   [%f] pas_FileName %( %S )% '.res}'
+    ' {$R '
+    [%f] pas_FileName %( %S )% '.res}'
 //	)\
 )% ) //	]\
-  end // if
+   end // if
 
 
 //	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Reg,ini,RegAxiom (),Reg_Instance)\
-  ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_Reg' %, 'ini' %, 'RegAxiom ()' %, 'Reg_Instance' )% ) 
+   ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_Reg' %, 'ini' %, 'RegAxiom ()' %, 'Reg_Instance' )% ) 
 //	%{Reg_Instance}%f_set_documentation(Регистрация скриптованой аксиоматики)\
-  ( get_global_var ( 'Reg_Instance' ) %f set_documentation %( 'Регистрация скриптованой аксиоматики' )% ) 
+   ( get_global_var ( 'Reg_Instance' ) %f set_documentation %( 'Регистрация скриптованой аксиоматики' )% ) 
 //	%{Reg_Instance}%f_set_abstraction_type(final)\
-  ( get_global_var ( 'Reg_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+   ( get_global_var ( 'Reg_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
-  ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+   ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 
 //	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
+   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   begin
 //	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
-   ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+    ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 %f_pas_TypeName(%{Class_Inst}).Register;\
-   ' '
-   [%f] pas_TypeName %( ( get_global_var ( 'Class_Inst' ) ) )% '.Register;'
+    ' '
+    [%f] pas_TypeName %( ( get_global_var ( 'Class_Inst' ) ) )% '.Register;'
 //	)\
-)% ) //	]\
-  end // if
-
+)% ) 
 
 //	[{"%{TtfwAxiomaticsResNameGetter.ResName}N"=""}%f_find_element(55B7A3AF0359,TtfwAxiomaticsResNameGetter.ResName)]\
-  if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '55B7A3AF0359' %, 'TtfwAxiomaticsResNameGetter.ResName' )% 
-  end // if
+    if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( '55B7A3AF0359' %, 'TtfwAxiomaticsResNameGetter.ResName' )% 
+    end // if
 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
 //	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_var,\
-   ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_impl,\
-   ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := '%f_pas_FileName(%S)';\
-   ' Result := '''
-   [%f] pas_FileName %( %S )% ''';'
+    ' Result := '''
+    [%f] pas_FileName %( %S )% ''';'
 //	)\
 )% ) //	]\
+   end // if
+
+
+//	]\
   end // if
-
-
 //	]
  end // if
 
@@ -1626,93 +1610,99 @@ end. // <<SimpleClass>>
 ; // SpellScriptFramework
 
 : SpellFriends OBJECT IN %S
-//	%f_clear_list(FRIENDS)\
- [%f] clear_list %( 'FRIENDS' )% 
-//	<{}{%CS=friend&%CC=Dependency&%C%T#f_IsSimpleClass()=true}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-  OBJECT IN %C
-  if ( ( %C |S ) %== 'friend' AND 
-   ( ( %C |C ) %== 'Dependency'  ) AND 
-   ( ( %C ->T %?f IsSimpleClass %( )%  ) %==  true  ) ) then
-  begin
-//	%f_add_to_list(FRIENDS,C%T)\
-   [%f] add_to_list %( 'FRIENDS' %, 'C'
-   %T )% 
-//	>\
-
-   ++! l_Counter
-  end // if
- end // for C
-
-//	%{FRIENDS}<{}{}{%C}\
- ( get_global_var ( 'FRIENDS' ) ) 
- bind ( 
-  OBJECT VAR %S
+//	%f_clear_list(FRIENDS)\
+  [%f] clear_list %( 'FRIENDS' )% 
+//	<{}{%CS=friend&%CC=Dependency&%C%T#f_IsSimpleClass()=true}\
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
    OBJECT IN %C
-   if true then
+   if ( ( %C |S ) %== 'friend' AND 
+    ( ( %C |C ) %== 'Dependency'  ) AND 
+    ( ( %C ->T %?f IsSimpleClass %( )%  ) %==  true  ) ) then
    begin
-//	%f_set_var(FRIEND_NAME,"%f_pas_TypeName(%C)Friend")\
-    [%f] set_var %( 'FRIEND_NAME' %, [%f] pas_TypeName %( %C )% 'Friend' )% 
-//	[{%1<{}{%CC=Class&"%CN"="%{FRIEND_NAME}N"}{C}>=0}\
-    if ( ( %1
-     bind ( 
-      OBJECT VAR %S
-      INTEGER VAR l_Counter l_Counter := 0
-      for %S%C
-      begin
-       OBJECT IN %C
-       if ( ( %C |C ) %== 'Class' AND 
-        ( ( %C |N ) %== ( ( get_global_var ( 'FRIEND_NAME' ) |N ) )  ) ) then
-       begin
-
-        ++! l_Counter
-       end // if
-      end // for C
-      l_Counter
-
-     ) // bind
- )      %== 0 ) then
-    begin
-//	%1%f_add_class(%1U_%CU_Friend,SimpleClass,%{FRIEND_NAME}N,Class_Inst)\
-     %1 %f add_class %( %1 |U '_'
-     %C |U '_Friend' %, 'SimpleClass' %, ( get_global_var ( 'FRIEND_NAME' ) |N ) %, 'Class_Inst' )% 
-//	%f_addG(%{Class_Inst},%C)\
-     [%f] addG %( ( get_global_var ( 'Class_Inst' ) ) %, %C )% 
-//	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
-     ( get_global_var ( 'Class_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	%{Class_Inst}%f_set_abstraction_type(abstract)\
-     ( get_global_var ( 'Class_Inst' ) %f set_abstraction_type %( 'abstract' )% ) 
-//	%{Class_Inst}%f_set_documentation(Друг для %f_pas_TypeName(%C))\
-     ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 'Друг для '
-     [%f] pas_TypeName %( %C )% )% ) 
-//	%{Class_Inst}%f_set_up(is_friend,true)\
-     ( get_global_var ( 'Class_Inst' ) %f set_up %( 'is_friend' %, true )% ) 
-//	%{Class_Inst}%f_set_up(register in scripts,false)\
-     ( get_global_var ( 'Class_Inst' ) %f set_up %( 'register in scripts' %, false )% ) 
-//	%{Class_Inst}%f_set_implement_select_type(include)\
-     ( get_global_var ( 'Class_Inst' ) %f set_implement_select_type %( 'include' )% ) 
-//	%{Class_Inst}%f_set_up(ifdef,%C{ifdef})\
-     ( get_global_var ( 'Class_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
-//	%{Class_Inst}%f_set_up(ifndef,%C{ifndef})\
-     ( get_global_var ( 'Class_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
-//	]\
-    end // if
-//	%f_set_var(FRIEND_NAME,"")\
-    [%f] set_var %( 'FRIEND_NAME' %, '' )% 
+//	%f_add_to_list(FRIENDS,C%T)\
+    [%f] add_to_list %( 'FRIENDS' %, 'C'
+    %T )% 
 //	>\
 
     ++! l_Counter
    end // if
   end // for C
 
- ) // bind
-//	%f_clear_list(FRIENDS)
- [%f] clear_list %( 'FRIENDS' )% 
+
+//	%{FRIENDS}<{}{}{%C}\
+  ( get_global_var ( 'FRIENDS' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+//	%f_set_var(FRIEND_NAME,"%f_pas_TypeName(%C)Friend")\
+     [%f] set_var %( 'FRIEND_NAME' %, [%f] pas_TypeName %( %C )% 'Friend' )% 
+//	[{%1<{}{%CC=Class&"%CN"="%{FRIEND_NAME}N"}{C}>=0}\
+     if ( ( %1
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C |C ) %== 'Class' AND 
+         ( ( %C |N ) %== ( ( get_global_var ( 'FRIEND_NAME' ) |N ) )  ) ) then
+        begin
+
+         ++! l_Counter
+        end // if
+       end // for C
+       l_Counter
+
+      ) // bind
+ )       %== 0 ) then
+     begin
+//	%1%f_add_class(%1U_%CU_Friend,SimpleClass,%{FRIEND_NAME}N,Class_Inst)\
+      %1 %f add_class %( %1 |U '_'
+      %C |U '_Friend' %, 'SimpleClass' %, ( get_global_var ( 'FRIEND_NAME' ) |N ) %, 'Class_Inst' )% 
+//	%f_addG(%{Class_Inst},%C)\
+      [%f] addG %( ( get_global_var ( 'Class_Inst' ) ) %, %C )% 
+//	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
+      ( get_global_var ( 'Class_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Class_Inst}%f_set_abstraction_type(abstract)\
+      ( get_global_var ( 'Class_Inst' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Class_Inst}%f_set_documentation(Друг для %f_pas_TypeName(%C))\
+      ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 'Друг для '
+      [%f] pas_TypeName %( %C )% )% ) 
+//	%{Class_Inst}%f_set_up(is_friend,true)\
+      ( get_global_var ( 'Class_Inst' ) %f set_up %( 'is_friend' %, true )% ) 
+//	%{Class_Inst}%f_set_up(register in scripts,false)\
+      ( get_global_var ( 'Class_Inst' ) %f set_up %( 'register in scripts' %, false )% ) 
+//	%{Class_Inst}%f_set_implement_select_type(include)\
+      ( get_global_var ( 'Class_Inst' ) %f set_implement_select_type %( 'include' )% ) 
+//	%{Class_Inst}%f_set_up(ifdef,%C{ifdef})\
+      ( get_global_var ( 'Class_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
+//	%{Class_Inst}%f_set_up(ifndef,%C{ifndef})\
+      ( get_global_var ( 'Class_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+//	]\
+     end // if
+//	%f_set_var(FRIEND_NAME,"")\
+     [%f] set_var %( 'FRIEND_NAME' %, '' )% 
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+//	%f_clear_list(FRIENDS)\
+  [%f] clear_list %( 'FRIENDS' )% 
+//	]
+ end // if
 
 //f _SpellRegisterInEngine
 ; // SpellFriends

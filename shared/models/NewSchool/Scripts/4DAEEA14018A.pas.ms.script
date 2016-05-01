@@ -5300,25 +5300,6 @@ ref; // ME_5DBF5C8E6606_ME_CB29B8784B5F DebugScriptCaller
 
 ref; // ME_CB29B8784B5F ItfwDebugService
 
-: ME_CD3AD81C8E83
- CONST UID 'CD3AD81C8E83'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса ItfwDebugService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_56F557030356 // TtfwDebugService
- ;
- : Target ME_CB29B8784B5F // ItfwDebugService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_CD3AD81C8E83 Alien
-
 : ME_56F557410186
  CONST UID '56F557410186'
  CONST Name 'DebugScriptCaller'
@@ -5357,10 +5338,6 @@ ref; // ME_5DBF5C8E6606_ME_56F557030356 DebugScriptCaller
    Seq: ( ME_A92FB72B3275 // MtfwDebugService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_CD3AD81C8E83 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_56F557410186 // DebugScriptCaller
  )
@@ -5383,6 +5360,10 @@ ref; // ME_5DBF5C8E6606_ME_56F557030356 DebugScriptCaller
  CONST extprop:rc:SelfName 'DebugService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'tfwDebugService'
+ : Facet ME_CB29B8784B5F // ItfwDebugService
+ ;
+ : Mixin ME_A92FB72B3275 // MtfwDebugService
+ ;
 
 ref; // ME_56F557030356 TtfwDebugService
 
@@ -5433,7 +5414,8 @@ ref; // ME_56F557030356 TtfwDebugService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars

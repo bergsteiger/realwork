@@ -95,25 +95,6 @@ ref; // ME_FFCD4B7E45D8_ME_0BEB6CFDB3DA FreeManager
 
 ref; // ME_0BEB6CFDB3DA Il3MenuManagerHelper
 
-: ME_11A29D4E6B77
- CONST UID '11A29D4E6B77'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3MenuManagerHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_550199070251 // Tl3MenuManagerHelper
- ;
- : Target ME_0BEB6CFDB3DA // Il3MenuManagerHelper
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_11A29D4E6B77 Alien
-
 : ME_5506A8670291
  CONST UID '5506A8670291'
  CONST Name 'CreateManager'
@@ -170,10 +151,6 @@ ref; // ME_FFCD4B7E45D8_ME_550199070251 FreeManager
    Seq: ( ME_513A59658F12 // Ml3MenuManagerHelper
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_11A29D4E6B77 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5506A8670291 // CreateManager
  ME_5506A87D008E // FreeManager
@@ -198,6 +175,10 @@ ref; // ME_FFCD4B7E45D8_ME_550199070251 FreeManager
  CONST extprop:rc:SelfName 'MenuManagerHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3MenuManagerHelper'
+ : Facet ME_0BEB6CFDB3DA // Il3MenuManagerHelper
+ ;
+ : Mixin ME_513A59658F12 // Ml3MenuManagerHelper
+ ;
 
 ref; // ME_550199070251 Tl3MenuManagerHelper
 
@@ -270,25 +251,6 @@ ref; // ME_CA1F3F463873_ME_0DC9B60865A3 ClearHistory
 
 ref; // ME_0DC9B60865A3 Il3DispatcherHelper
 
-: ME_C08C1B480486
- CONST UID 'C08C1B480486'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3DispatcherHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5501A3AE02AA // Tl3DispatcherHelper
- ;
- : Target ME_0DC9B60865A3 // Il3DispatcherHelper
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_C08C1B480486 Alien
-
 : ME_55069D5903C8
  CONST UID '55069D5903C8'
  CONST Name 'ClearHistory'
@@ -325,10 +287,6 @@ ref; // ME_CA1F3F463873_ME_5501A3AE02AA ClearHistory
    Seq: ( ME_1FB1A07FEA18 // Ml3DispatcherHelper
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_C08C1B480486 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_55069D5903C8 // ClearHistory
  )
@@ -351,6 +309,10 @@ ref; // ME_CA1F3F463873_ME_5501A3AE02AA ClearHistory
  CONST extprop:rc:SelfName 'DispatcherHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3DispatcherHelper'
+ : Facet ME_0DC9B60865A3 // Il3DispatcherHelper
+ ;
+ : Mixin ME_1FB1A07FEA18 // Ml3DispatcherHelper
+ ;
 
 ref; // ME_5501A3AE02AA Tl3DispatcherHelper
 
@@ -369,7 +331,8 @@ ref; // ME_5501A3AE02AA Tl3DispatcherHelper
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends

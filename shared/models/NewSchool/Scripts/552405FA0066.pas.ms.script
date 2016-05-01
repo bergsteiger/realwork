@@ -189,25 +189,6 @@ ref; // ME_86EACEE128F2_ME_08CD0EC72A0A SetPDF4Etalon
 
 ref; // ME_08CD0EC72A0A Il3PicturePathService
 
-: ME_2983196312EE
- CONST UID '2983196312EE'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3PicturePathService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_552406830331 // Tl3PicturePathService
- ;
- : Target ME_08CD0EC72A0A // Il3PicturePathService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_2983196312EE Alien
-
 : ME_552406A6022B
  CONST Name 'aValue'
  CONST Class class_Parameter
@@ -350,10 +331,6 @@ ref; // ME_86EACEE128F2_ME_552406830331 SetPDF4Etalon
    Seq: ( ME_1AB4F93DAE7F // Ml3PicturePathService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_2983196312EE // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5524069502F4 // SetEnableSave
  ME_552406BA0045 // SetPDF4Etalon
@@ -386,6 +363,10 @@ ref; // ME_86EACEE128F2_ME_552406830331 SetPDF4Etalon
  CONST extprop:rc:SelfName 'PicturePathService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3PicturePathService'
+ : Facet ME_08CD0EC72A0A // Il3PicturePathService
+ ;
+ : Mixin ME_1AB4F93DAE7F // Ml3PicturePathService
+ ;
 
 ref; // ME_552406830331 Tl3PicturePathService
 
@@ -403,7 +384,8 @@ ref; // ME_552406830331 Tl3PicturePathService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends

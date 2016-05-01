@@ -6,88 +6,6 @@ FORWARD ME_503F8FD000A1
 
 FORWARD ME_503F914E00EF
 
-FORWARD ME_B62FFB5F75B4
-
-: ME_E3DE7216FDBC
- CONST UID 'E3DE7216FDBC'
- CONST Name 'RegAxiom'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B62FFB5F75B4 // TvtOutlinerWordsPackResNameGetter
- ;
-
-ref; // ME_E3DE7216FDBC RegAxiom
-
-: ME_55B7A3AF0359_ME_B62FFB5F75B4
- : Original WL 'ME_55B7A3AF0359' '55B7A3160128.pas.ms.script' // ResName
- ;
- CONST OpKind opkind_Implemented
- CONST "is static" true
-ref; // ME_55B7A3AF0359_ME_B62FFB5F75B4 ResName
-
-: ME_B62FFB5F75B4
- CONST UID 'B62FFB5F75B4'
- CONST Name 'TvtOutlinerWordsPackResNameGetter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Регистрация скриптованой аксиоматики' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_503F914E00EF // vtOutlinerWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55B7A33101AF' '55B7A3160128.pas.ms.script' // TtfwAxiomaticsResNameGetter
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_E3DE7216FDBC // RegAxiom
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_55B7A3AF0359_ME_B62FFB5F75B4 // ResName
- )
- ; // Implemented
- CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'OutlinerWordsPackResNameGetter'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_B62FFB5F75B4 TvtOutlinerWordsPackResNameGetter
-
-: ME_370A083EC4A4
- CONST UID '370A083EC4A4'
- CONST Name 'TvtCustomOutlinerFriend'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Друг для TvtCustomOutliner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- : Parent ME_503F914E00EF // vtOutlinerWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4CFFBEEA0109' '4B97E7FD006C.pas.ms.script' // TvtCustomOutliner
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" false
- CONST extprop:rc:SelfName 'OutlinerFriend'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_370A083EC4A4 TvtCustomOutlinerFriend
-
 FORWARD ME_552FEA840365
 
 FORWARD ME_A4D880DBCC97
@@ -3804,9 +3722,7 @@ ref; // ME_46A5AA4B003C_ME_503F914E00EF Invalidate
  )
  ; // Implemented
  : Children
-   Seq: ( ME_B62FFB5F75B4 // TvtOutlinerWordsPackResNameGetter
- ME_370A083EC4A4 // TvtCustomOutlinerFriend
- ME_3A8F612BD250 // tree_CheckFlag
+   Seq: ( ME_3A8F612BD250 // tree_CheckFlag
  ME_DCC8D602858A // tree_CollapseAll
  ME_24EBB16818DB // tree_CurrentNode_IsExpanded
  ME_88EA9B4D8249 // tree_DeleteAllChildren
@@ -3869,7 +3785,8 @@ ref; // ME_503F914E00EF vtOutlinerWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
@@ -3883,7 +3800,6 @@ ref; // ME_503F914E00EF vtOutlinerWordsPack
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

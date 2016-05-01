@@ -8109,25 +8109,6 @@ ref; // ME_F75B4443B80B_ME_7CDAE66D12BB TaskGotErrorStatus
 
 ref; // ME_7CDAE66D12BB IcsTaskChangeHelper
 
-: ME_7FB9A4A45F1E
- CONST UID '7FB9A4A45F1E'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса IcsTaskChangeHelper' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5583BE960064 // TcsTaskChangeHelper
- ;
- : Target ME_7CDAE66D12BB // IcsTaskChangeHelper
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_7FB9A4A45F1E Alien
-
 : ME_5583BFE00181
  CONST UID '5583BFE00181'
  CONST Name 'TaskGotErrorStatus'
@@ -8164,10 +8145,6 @@ ref; // ME_F75B4443B80B_ME_5583BE960064 TaskGotErrorStatus
    Seq: ( ME_5E793B4475C3 // McsTaskChangeHelper
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_7FB9A4A45F1E // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_5583BFE00181 // TaskGotErrorStatus
  )
@@ -8190,6 +8167,10 @@ ref; // ME_F75B4443B80B_ME_5583BE960064 TaskGotErrorStatus
  CONST extprop:rc:SelfName 'csTaskChangeHelper'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csTaskChangeHelper'
+ : Facet ME_7CDAE66D12BB // IcsTaskChangeHelper
+ ;
+ : Mixin ME_5E793B4475C3 // McsTaskChangeHelper
+ ;
 
 ref; // ME_5583BE960064 TcsTaskChangeHelper
 
@@ -8758,7 +8739,8 @@ ref; // ME_57065CCE0306 TcsSchedulerProxyTask
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types

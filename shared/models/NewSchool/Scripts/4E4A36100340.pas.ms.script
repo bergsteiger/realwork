@@ -319,6 +319,81 @@ ref; // ME_527A05B201BA DoIt
 
 ref; // ME_527A05660188 CreateTestBaseArchive
 
+FORWARD ME_57205539007D
+
+: ME_5720559403D7
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ ;
+
+ref; // ME_5720559403D7 aFileName
+
+: ME_57205595000E
+ CONST Name 'aDirName'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ ;
+
+ref; // ME_57205595000E aDirName
+
+: ME_57205595003D
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ ;
+
+ref; // ME_57205595003D aMessage
+
+: ME_57205595007B
+ CONST Name 'aFileMask'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_483C2FA400B1' '4AB0C3C60310.pas.ms.script' // AnsiString
+ ;
+
+ref; // ME_57205595007B aFileMask
+
+: ME_5720555C0065
+ CONST UID '5720555C0065'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57205539007D // arUnackFileFromArchive
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5720559403D7 // aFileName
+ ME_57205595000E // aDirName
+ ME_57205595003D // aMessage
+ ME_57205595007B // aFileMask
+ )
+ ; // Parameters
+
+ref; // ME_5720555C0065 DoIt
+
+: ME_57205539007D
+ CONST UID '57205539007D'
+ CONST Name 'arUnackFileFromArchive'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4A364200F7 // arDBUtils
+ ;
+ : Operations
+   Seq: ( ME_5720555C0065 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_57205539007D arUnackFileFromArchive
+
 : ME_4E4A364200F7
  CONST UID '4E4A364200F7'
  CONST Name 'arDBUtils'
@@ -332,6 +407,7 @@ ref; // ME_527A05660188 CreateTestBaseArchive
  : Operations
    Seq: ( ME_4E4A366801E7 // arUnackBaseFromArchive
  ME_527A05660188 // CreateTestBaseArchive
+ ME_57205539007D // arUnackFileFromArchive
  )
  ; // Operations
  : Constants
@@ -358,7 +434,8 @@ ref; // ME_4E4A364200F7 arDBUtils
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win

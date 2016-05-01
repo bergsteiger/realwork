@@ -735,25 +735,6 @@ ref; // ME_F550802110EC_ME_31E98986F011 CloseAll
 
 ref; // ME_31E98986F011 IvcmTabbedContainersService
 
-: ME_53AF9D0D053A
- CONST UID '53AF9D0D053A'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса IvcmTabbedContainersService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5538940C00DD // TvcmTabbedContainersService
- ;
- : Target ME_31E98986F011 // IvcmTabbedContainersService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_53AF9D0D053A Alien
-
 : ME_5538BD7D01B5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -992,10 +973,6 @@ ref; // ME_F550802110EC_ME_5538940C00DD CloseAll
    Seq: ( ME_5538B7640154 // MvcmTabbedContainersService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_53AF9D0D053A // Alien
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_02157F96E465_ME_5538940C00DD // GetTabIcon
  ME_06D14140190A_ME_5538940C00DD // IsInBF
@@ -1055,6 +1032,10 @@ ref; // ME_F550802110EC_ME_5538940C00DD CloseAll
  CONST extprop:rc:SelfName 'TabbedContainersService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'vcmTabbedContainersService'
+ : Facet ME_31E98986F011 // IvcmTabbedContainersService
+ ;
+ : Mixin ME_5538B7640154 // MvcmTabbedContainersService
+ ;
 
 ref; // ME_5538940C00DD TvcmTabbedContainersService
 
@@ -1285,25 +1266,6 @@ ref; // ME_A872A2AAB575_ME_5E9754328486 IsInBF
 
 ref; // ME_5E9754328486 IvcmHistoryService
 
-: ME_64681A7E247B
- CONST UID '64681A7E247B'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса IvcmHistoryService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_559BA19C0076 // TvcmHistoryService
- ;
- : Target ME_5E9754328486 // IvcmHistoryService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_64681A7E247B Alien
-
 : ME_559BA32202BC
  CONST Name 'aForm'
  CONST Class class_Parameter
@@ -1505,10 +1467,6 @@ ref; // ME_A872A2AAB575_ME_559BA19C0076 IsInBF
    Seq: ( ME_401DD96F3E52 // MvcmHistoryService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_64681A7E247B // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_559BA1B80327 // GetFormHistory
  ME_559BA3270003 // SaveFormState
@@ -1544,6 +1502,10 @@ ref; // ME_A872A2AAB575_ME_559BA19C0076 IsInBF
  CONST extprop:rc:SelfName 'HistoryService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'vcmHistoryService'
+ : Facet ME_5E9754328486 // IvcmHistoryService
+ ;
+ : Mixin ME_401DD96F3E52 // MvcmHistoryService
+ ;
 
 ref; // ME_559BA19C0076 TvcmHistoryService
 
@@ -1562,7 +1524,8 @@ ref; // ME_559BA19C0076 TvcmHistoryService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects

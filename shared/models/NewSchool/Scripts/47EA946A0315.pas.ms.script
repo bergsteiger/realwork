@@ -1195,25 +1195,6 @@ ref; // ME_9B9F43B530B0_ME_5422B5BB63D5 HandleException
 
 ref; // ME_5422B5BB63D5 Il3ExceptionHandler
 
-: ME_0A2B705603DC
- CONST UID '0A2B705603DC'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3ExceptionHandler' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_5589239300B6 // Tl3ExceptionHandler
- ;
- : Target ME_5422B5BB63D5 // Il3ExceptionHandler
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_0A2B705603DC Alien
-
 : ME_558923C60279
  CONST Name 'Sender'
  CONST Class class_Parameter
@@ -1263,10 +1244,6 @@ ref; // ME_9B9F43B530B0_ME_5589239300B6 HandleException
    Seq: ( ME_65F2D0983F0E // Ml3ExceptionHandler
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_0A2B705603DC // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_558923B00366 // HandleException
  )
@@ -1289,6 +1266,10 @@ ref; // ME_9B9F43B530B0_ME_5589239300B6 HandleException
  CONST extprop:rc:SelfName 'ExceptionHandler'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ExceptionHandler'
+ : Facet ME_5422B5BB63D5 // Il3ExceptionHandler
+ ;
+ : Mixin ME_65F2D0983F0E // Ml3ExceptionHandler
+ ;
 
 ref; // ME_5589239300B6 Tl3ExceptionHandler
 
@@ -1363,25 +1344,6 @@ ref; // ME_ECCF31CF8A24_ME_9FC6401FC34F Enabled
 
 ref; // ME_9FC6401FC34F Il3ProcessingEnabledService
 
-: ME_9744634201B3
- CONST UID '9744634201B3'
- CONST Name 'Alien'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_writeonly::Attribute ;
- %SUMMARY '¬нешн€€ реализаци€ сервиса Il3ProcessingEnabledService' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_ref
- : Parent ME_561CEB90011D // Tl3ProcessingEnabledService
- ;
- : Target ME_9FC6401FC34F // Il3ProcessingEnabledService
- ;
- CONST "needs field" true
- CONST "pm" true
-
-ref; // ME_9744634201B3 Alien
-
 : ME_561CEBC40218
  CONST UID '561CEBC40218'
  CONST Name 'Enabled'
@@ -1420,10 +1382,6 @@ ref; // ME_ECCF31CF8A24_ME_561CEB90011D Enabled
    Seq: ( ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_9744634201B3 // Alien
- )
- ; // Attributes
  : Operations
    Seq: ( ME_561CEBC40218 // Enabled
  )
@@ -1446,6 +1404,10 @@ ref; // ME_ECCF31CF8A24_ME_561CEB90011D Enabled
  CONST extprop:rc:SelfName 'ProcessingEnabledService'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'l3ProcessingEnabledService'
+ : Facet ME_9FC6401FC34F // Il3ProcessingEnabledService
+ ;
+ : Mixin ME_B1AE2A9747C4 // Ml3ProcessingEnabledService
+ ;
 
 ref; // ME_561CEB90011D Tl3ProcessingEnabledService
 
@@ -1470,7 +1432,8 @@ ref; // ME_561CEB90011D Tl3ProcessingEnabledService
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
