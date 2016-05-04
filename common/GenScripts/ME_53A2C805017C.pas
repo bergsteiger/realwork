@@ -52,9 +52,9 @@ type
     read f_Items;
  end;//Tl3MultiThreadIntegerList
 
-function L2IntegerIteratorForEachFAction(anAction: pointer): IntegerIterator_ForEachF_Action;
+function L2IntegerIteratorForEachFAction(anAction: Pointer): IntegerIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForEachF }
-function L2IntegerIteratorForOneFAction(anAction: pointer): IntegerIterator_ForOneF_Action;
+function L2IntegerIteratorForOneFAction(anAction: Pointer): IntegerIterator_ForOneF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForOneF }
 
 implementation
@@ -65,13 +65,13 @@ uses
  , SysUtils
 ;
 
-function L2IntegerIteratorForEachFAction(anAction: pointer): IntegerIterator_ForEachF_Action;
+function L2IntegerIteratorForEachFAction(anAction: Pointer): IntegerIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForEachF }
 asm
  jmp l3LocalStub
 end;//L2IntegerIteratorForEachFAction
 
-function L2IntegerIteratorForOneFAction(anAction: pointer): IntegerIterator_ForOneF_Action;
+function L2IntegerIteratorForOneFAction(anAction: Pointer): IntegerIterator_ForOneF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForOneF }
 asm
  jmp l3LocalStub

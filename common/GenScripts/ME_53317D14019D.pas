@@ -1170,11 +1170,11 @@ type
   rHi: Integer;
  end;//Tk2In64Converter
 
-function L2Mk2ChildrenIterateChildrenFAction(anAction: pointer): Mk2Children_IterateChildrenF_Action;
+function L2Mk2ChildrenIterateChildrenFAction(anAction: Pointer): Mk2Children_IterateChildrenF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenF }
-function L2Mk2ChildrenIterateChildrenBackAction(anAction: pointer): Mk2Children_IterateChildrenBack_Action;
+function L2Mk2ChildrenIterateChildrenBackAction(anAction: Pointer): Mk2Children_IterateChildrenBack_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenBack }
-function L2Ml3TagHolderIteratePropertiesAction(anAction: pointer): Ml3TagHolder_IterateProperties_Action;
+function L2Ml3TagHolderIteratePropertiesAction(anAction: Pointer): Ml3TagHolder_IterateProperties_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3TagHolder.IterateProperties }
 function Supports(anObject: Tl3VariantPrim;
  const aGUID: TGUID;
@@ -1195,19 +1195,19 @@ uses
 var g_Tl3NullTag: Tl3NullTag = nil;
  {* Экземпляр синглетона Tl3NullTag }
 
-function L2Mk2ChildrenIterateChildrenFAction(anAction: pointer): Mk2Children_IterateChildrenF_Action;
+function L2Mk2ChildrenIterateChildrenFAction(anAction: Pointer): Mk2Children_IterateChildrenF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenF }
 asm
  jmp l3LocalStub
 end;//L2Mk2ChildrenIterateChildrenFAction
 
-function L2Mk2ChildrenIterateChildrenBackAction(anAction: pointer): Mk2Children_IterateChildrenBack_Action;
+function L2Mk2ChildrenIterateChildrenBackAction(anAction: Pointer): Mk2Children_IterateChildrenBack_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenBack }
 asm
  jmp l3LocalStub
 end;//L2Mk2ChildrenIterateChildrenBackAction
 
-function L2Ml3TagHolderIteratePropertiesAction(anAction: pointer): Ml3TagHolder_IterateProperties_Action;
+function L2Ml3TagHolderIteratePropertiesAction(anAction: Pointer): Ml3TagHolder_IterateProperties_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3TagHolder.IterateProperties }
 asm
  jmp l3LocalStub

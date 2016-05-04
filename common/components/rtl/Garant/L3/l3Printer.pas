@@ -103,6 +103,13 @@ type
    DeviceMode: THandle;
  end;//THackPrinter
 
+ THackPrinterDevice = {final} class
+  private
+   Driver: AnsiString;
+   Device: AnsiString;
+   Port: AnsiString;
+ end;//THackPrinterDevice
+
 {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
