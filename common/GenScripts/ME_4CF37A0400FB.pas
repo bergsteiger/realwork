@@ -147,7 +147,7 @@ var l_WasSomeHyperlinkHidden: Boolean;
 
  function DoIt(anItem: Tl3Variant;
   anIndex: Integer): Boolean;
-  {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из FillTemplateFields }
+  {* Подитеративная функция для вызова IterateChildrenF из FillTemplateFields }
 
   procedure FillText(const aText: Tl3WString);
   //#UC START# *4CF3B096018E__var*
