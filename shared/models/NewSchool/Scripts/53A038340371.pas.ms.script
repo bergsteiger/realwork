@@ -69,110 +69,6 @@ FORWARD ME_53A2C805017C
 
 FORWARD ME_53A2C8780191
 
-FORWARD ME_C0317DCE40E8
-
-: ME_517B62F42214
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_517B62F42214 anItem
-
-: ME_BE0388B0389E
- CONST UID 'BE0388B0389E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для IntegerIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_C0317DCE40E8 // IntegerIterator_ForEachF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_517B62F42214 // anItem
- )
- ; // Parameters
-
-ref; // ME_BE0388B0389E DoIt
-
-: ME_C0317DCE40E8
- CONST UID 'C0317DCE40E8'
- CONST Name 'IntegerIterator_ForEachF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для IntegerIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53A2C8780191 // IntegerIterator
- ;
- : Operations
-   Seq: ( ME_BE0388B0389E // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_C0317DCE40E8 IntegerIterator_ForEachF_Action
-
-FORWARD ME_7FE78F40464A
-
-: ME_7FD7319CCAC0
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_7FD7319CCAC0 anItem
-
-: ME_42242E23437D
- CONST UID '42242E23437D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для IntegerIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_7FE78F40464A // IntegerIterator_ForOneF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_7FD7319CCAC0 // anItem
- )
- ; // Parameters
-
-ref; // ME_42242E23437D DoIt
-
-: ME_7FE78F40464A
- CONST UID '7FE78F40464A'
- CONST Name 'IntegerIterator_ForOneF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для IntegerIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53A2C8780191 // IntegerIterator
- ;
- : Operations
-   Seq: ( ME_42242E23437D // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_7FE78F40464A IntegerIterator_ForOneF_Action
-
-FORWARD ME_515D88A4C630
-
 FORWARD ME_53A2C89B0302
 
 : ME_53A2C8A503C1
@@ -189,17 +85,6 @@ FORWARD ME_53A2C89B0302
 
 ref; // ME_53A2C8A503C1 
 
-: ME_4A0F11524CCB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53A2C89B0302 // ForEachF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_4A0F11524CCB 
-
 : ME_53A2C89B0302
  CONST UID '53A2C89B0302'
  CONST Name 'ForEachF'
@@ -214,21 +99,10 @@ ref; // ME_4A0F11524CCB
    Seq: ( ME_53A2C8A503C1 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_4A0F11524CCB // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'IntegerIterator_ForEachF_Action'
- : Action ME_C0317DCE40E8 // IntegerIterator_ForEachF_Action
- ;
- : Stub ME_515D88A4C630 // L2_IntegerIterator_ForEachF_Action
- ;
 
 ref; // ME_53A2C89B0302 ForEachF
-
-FORWARD ME_C4539B2244A5
 
 FORWARD ME_53A84EAD0005
 
@@ -261,17 +135,6 @@ ref; // ME_53A84EBC0078
 
 ref; // ME_53A84EC102C8 anIndex
 
-: ME_133E5ABFCD5C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53A84EAD0005 // ForOneF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_133E5ABFCD5C 
-
 : ME_53A84EAD0005
  CONST UID '53A84EAD0005'
  CONST Name 'ForOneF'
@@ -287,85 +150,10 @@ ref; // ME_133E5ABFCD5C
  ME_53A84EC102C8 // anIndex
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_133E5ABFCD5C // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'IntegerIterator_ForOneF_Action'
- : Action ME_7FE78F40464A // IntegerIterator_ForOneF_Action
- ;
- : Stub ME_C4539B2244A5 // L2_IntegerIterator_ForOneF_Action
- ;
 
 ref; // ME_53A84EAD0005 ForOneF
-
-: ME_3D8735D2807A
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_3D8735D2807A anAction
-
-: ME_515D88A4C630
- CONST UID '515D88A4C630'
- CONST Name 'L2_IntegerIterator_ForEachF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53A2C8780191 // IntegerIterator
- ;
- : Target ME_C0317DCE40E8 // IntegerIterator_ForEachF_Action
- ;
- : Parameters
-   Seq: ( ME_3D8735D2807A // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_515D88A4C630 L2_IntegerIterator_ForEachF_Action
-
-: ME_D084232C20B7
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_D084232C20B7 anAction
-
-: ME_C4539B2244A5
- CONST UID 'C4539B2244A5'
- CONST Name 'L2_IntegerIterator_ForOneF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53A2C8780191 // IntegerIterator
- ;
- : Target ME_7FE78F40464A // IntegerIterator_ForOneF_Action
- ;
- : Parameters
-   Seq: ( ME_D084232C20B7 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_C4539B2244A5 L2_IntegerIterator_ForOneF_Action
 
 : ME_53A2C8780191
  CONST UID '53A2C8780191'
@@ -380,15 +168,8 @@ ref; // ME_C4539B2244A5 L2_IntegerIterator_ForOneF_Action
  : Operations
    Seq: ( ME_53A2C89B0302 // ForEachF
  ME_53A84EAD0005 // ForOneF
- ME_515D88A4C630 // L2_IntegerIterator_ForEachF_Action
- ME_C4539B2244A5 // L2_IntegerIterator_ForOneF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_C0317DCE40E8 // IntegerIterator_ForEachF_Action
- ME_7FE78F40464A // IntegerIterator_ForOneF_Action
- )
- ; // Children
 
 ref; // ME_53A2C8780191 IntegerIterator
 

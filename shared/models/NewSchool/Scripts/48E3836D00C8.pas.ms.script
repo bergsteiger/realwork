@@ -3377,57 +3377,6 @@ ref; // ME_4BBCB1060196 TedRangePart
 
 FORWARD ME_48E38399034C
 
-FORWARD ME_6BDD1FD9EE50
-
-: ME_F3276BB9BA3F
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4BBC8A3903BE // IedLeafParagraph
- ;
-
-ref; // ME_F3276BB9BA3F anItem
-
-: ME_E0B9B681F94C
- CONST UID 'E0B9B681F94C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для IedRange.IterateLeafParagraphs' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_F3276BB9BA3F // anItem
- )
- ; // Parameters
-
-ref; // ME_E0B9B681F94C DoIt
-
-: ME_6BDD1FD9EE50
- CONST UID '6BDD1FD9EE50'
- CONST Name 'IedRange_IterateLeafParagraphs_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для IedRange.IterateLeafParagraphs' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_48E38399034C // IedRange
- ;
- : Operations
-   Seq: ( ME_E0B9B681F94C // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_6BDD1FD9EE50 IedRange_IterateLeafParagraphs_Action
-
 : ME_4BBCB16B01A8
  CONST UID '4BBCB16B01A8'
  CONST Name 'Paragraph'
@@ -3567,8 +3516,6 @@ ref; // ME_4BBCB24A0106 Part
 
 ref; // ME_4BBCB28E02E6 Document
 
-FORWARD ME_D5CE63D07241
-
 FORWARD ME_4BBDD4900292
 
 : ME_4BBDD4E20330
@@ -3625,17 +3572,6 @@ ref; // ME_4BBDD4F403D2 anOpCode
 
 ref; // ME_4BBDD4A600D7 
 
-: ME_777C6C653BE9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BBDD4900292 // IterateLeafParagraphs
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_777C6C653BE9 
-
 : ME_4BBDD4900292
  CONST UID '4BBDD4900292'
  CONST Name 'IterateLeafParagraphs'
@@ -3653,17 +3589,8 @@ ref; // ME_777C6C653BE9
  ME_4BBDD4A600D7 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_777C6C653BE9 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'IedRange_IterateLeafParagraphs_Action'
- : Action ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
- ;
- : Stub ME_D5CE63D07241 // L2_IedRange_IterateLeafParagraphs_Action
- ;
 
 ref; // ME_4BBDD4900292 IterateLeafParagraphs
 
@@ -4014,39 +3941,6 @@ ref; // ME_4BBCB42502AC ChildrenOnly
 
 ref; // ME_4BBCB3FE033D Save
 
-: ME_C7F873D6A21D
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_C7F873D6A21D anAction
-
-: ME_D5CE63D07241
- CONST UID 'D5CE63D07241'
- CONST Name 'L2_IedRange_IterateLeafParagraphs_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_48E38399034C // IedRange
- ;
- : Target ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
- ;
- : Parameters
-   Seq: ( ME_C7F873D6A21D // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_D5CE63D07241 L2_IedRange_IterateLeafParagraphs_Action
-
 : ME_48E38399034C
  CONST UID '48E38399034C'
  CONST GUID 'A3735617-00AF-44F5-9D1A-1AEB1E5242C7'
@@ -4081,13 +3975,8 @@ ref; // ME_D5CE63D07241 L2_IedRange_IterateLeafParagraphs_Action
  ME_4BBCB3D20184 // InsertParaBreak
  ME_4BBCB3EB003D // DeleteChar
  ME_4BBCB3FE033D // Save
- ME_D5CE63D07241 // L2_IedRange_IterateLeafParagraphs_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_6BDD1FD9EE50 // IedRange_IterateLeafParagraphs_Action
- )
- ; // Children
  : Injected
    Seq: ( WL 'ME_8D26E625F960' '4F4CB50403CC.pas.ms.script' // IedRange
  )

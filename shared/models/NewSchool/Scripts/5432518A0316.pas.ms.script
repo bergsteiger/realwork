@@ -662,59 +662,6 @@ FORWARD ME_55377C5F0162
 
 FORWARD ME_55C85FDE026E
 
-FORWARD ME_87A62F2A445F
-
-: ME_BD200B2AC50D
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_55377C5F0162 // IdaFieldDescription
- ;
-
-ref; // ME_BD200B2AC50D anItem
-
-: ME_D54837905E1D
- CONST UID 'D54837905E1D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для daTableDescriptionIterator.IterateFieldsF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_87A62F2A445F // daTableDescriptionIterator_IterateFieldsF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_BD200B2AC50D // anItem
- )
- ; // Parameters
-
-ref; // ME_D54837905E1D DoIt
-
-: ME_87A62F2A445F
- CONST UID '87A62F2A445F'
- CONST Name 'daTableDescriptionIterator_IterateFieldsF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для daTableDescriptionIterator.IterateFieldsF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55C85FDE026E // daTableDescriptionIterator
- ;
- : Operations
-   Seq: ( ME_D54837905E1D // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_87A62F2A445F daTableDescriptionIterator_IterateFieldsF_Action
-
-FORWARD ME_9F41A4B5AA68
-
 FORWARD ME_55C860390259
 
 : ME_55C8606000B4
@@ -731,17 +678,6 @@ FORWARD ME_55C860390259
 
 ref; // ME_55C8606000B4 
 
-: ME_97427C0BAF08
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55C860390259 // IterateFieldsF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_97427C0BAF08 
-
 : ME_55C860390259
  CONST UID '55C860390259'
  CONST Name 'IterateFieldsF'
@@ -756,52 +692,10 @@ ref; // ME_97427C0BAF08
    Seq: ( ME_55C8606000B4 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_97427C0BAF08 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'daTableDescriptionIterator_IterateFieldsF_Action'
- : Action ME_87A62F2A445F // daTableDescriptionIterator_IterateFieldsF_Action
- ;
- : Stub ME_9F41A4B5AA68 // L2_daTableDescriptionIterator_IterateFieldsF_Action
- ;
 
 ref; // ME_55C860390259 IterateFieldsF
-
-: ME_CF0725362932
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_CF0725362932 anAction
-
-: ME_9F41A4B5AA68
- CONST UID '9F41A4B5AA68'
- CONST Name 'L2_daTableDescriptionIterator_IterateFieldsF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55C85FDE026E // daTableDescriptionIterator
- ;
- : Target ME_87A62F2A445F // daTableDescriptionIterator_IterateFieldsF_Action
- ;
- : Parameters
-   Seq: ( ME_CF0725362932 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_9F41A4B5AA68 L2_daTableDescriptionIterator_IterateFieldsF_Action
 
 : ME_55C85FDE026E
  CONST UID '55C85FDE026E'
@@ -815,13 +709,8 @@ ref; // ME_9F41A4B5AA68 L2_daTableDescriptionIterator_IterateFieldsF_Action
  ;
  : Operations
    Seq: ( ME_55C860390259 // IterateFieldsF
- ME_9F41A4B5AA68 // L2_daTableDescriptionIterator_IterateFieldsF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_87A62F2A445F // daTableDescriptionIterator_IterateFieldsF_Action
- )
- ; // Children
  : Forwarded
    Seq: ( ME_55377C5F0162 // IdaFieldDescription
  )
@@ -2846,59 +2735,6 @@ FORWARD ME_5551DC5C020D
 
 FORWARD ME_564085CE0183
 
-FORWARD ME_23BC8DBA878C
-
-: ME_343F8E962578
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5551DC5C020D // IdaCondition
- ;
-
-ref; // ME_343F8E962578 anItem
-
-: ME_FB11D0037952
- CONST UID 'FB11D0037952'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для daConditionIterator.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_23BC8DBA878C // daConditionIterator_Iterate_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_343F8E962578 // anItem
- )
- ; // Parameters
-
-ref; // ME_FB11D0037952 DoIt
-
-: ME_23BC8DBA878C
- CONST UID '23BC8DBA878C'
- CONST Name 'daConditionIterator_Iterate_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для daConditionIterator.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_564085CE0183 // daConditionIterator
- ;
- : Operations
-   Seq: ( ME_FB11D0037952 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_23BC8DBA878C daConditionIterator_Iterate_Action
-
-FORWARD ME_6549CF5E2426
-
 FORWARD ME_564089E3039B
 
 : ME_564089EC0301
@@ -2915,17 +2751,6 @@ FORWARD ME_564089E3039B
 
 ref; // ME_564089EC0301 
 
-: ME_E40D862AD50B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_564089E3039B // Iterate
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_E40D862AD50B 
-
 : ME_564089E3039B
  CONST UID '564089E3039B'
  CONST Name 'Iterate'
@@ -2940,52 +2765,10 @@ ref; // ME_E40D862AD50B
    Seq: ( ME_564089EC0301 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_E40D862AD50B // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'daConditionIterator_Iterate_Action'
- : Action ME_23BC8DBA878C // daConditionIterator_Iterate_Action
- ;
- : Stub ME_6549CF5E2426 // L2_daConditionIterator_Iterate_Action
- ;
 
 ref; // ME_564089E3039B Iterate
-
-: ME_015179414137
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_015179414137 anAction
-
-: ME_6549CF5E2426
- CONST UID '6549CF5E2426'
- CONST Name 'L2_daConditionIterator_Iterate_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daConditionIterator.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_564085CE0183 // daConditionIterator
- ;
- : Target ME_23BC8DBA878C // daConditionIterator_Iterate_Action
- ;
- : Parameters
-   Seq: ( ME_015179414137 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_6549CF5E2426 L2_daConditionIterator_Iterate_Action
 
 : ME_564085CE0183
  CONST UID '564085CE0183'
@@ -2999,13 +2782,8 @@ ref; // ME_6549CF5E2426 L2_daConditionIterator_Iterate_Action
  ;
  : Operations
    Seq: ( ME_564089E3039B // Iterate
- ME_6549CF5E2426 // L2_daConditionIterator_Iterate_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_23BC8DBA878C // daConditionIterator_Iterate_Action
- )
- ; // Children
  : Forwarded
    Seq: ( ME_5551DC5C020D // IdaCondition
  )
@@ -3371,210 +3149,36 @@ ref; // ME_555351F500BC Field
 
 ref; // ME_555351BE026E IdaFieldFromTable
 
-FORWARD ME_5628D14000F6
+FORWARD ME_5729DCE2003D
 
-: ME_5715DEF20209
- CONST UID '5715DEF20209'
- CONST Name 'AllUsers'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Все пользователи системы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
- : Target WL 'ME_515413200198' '47913B47006E.pas.ms.script' // Tl3StringDataList
- ;
- CONST "pm" false
-
-ref; // ME_5715DEF20209 AllUsers
-
-: ME_5715DF0D03C2
- CONST UID '5715DF0D03C2'
- CONST Name 'AllGroups'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
- : Target WL 'ME_515413200198' '47913B47006E.pas.ms.script' // Tl3StringDataList
- ;
- CONST "pm" false
-
-ref; // ME_5715DF0D03C2 AllGroups
-
-: ME_5628D23B037F
- CONST Name 'aLogin'
+: ME_5729DD00020F
+ CONST Name 'aStream'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
  ;
 
-ref; // ME_5628D23B037F aLogin
+ref; // ME_5729DD00020F aStream
 
-: ME_5628D23B039E
- CONST Name 'aPassword'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5628D23B039E aPassword
-
-: ME_5628D23B03AE
- CONST Name 'RequireAdminRights'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_5628D23B03AE RequireAdminRights
-
-: ME_5628D23B03BD
- CONST Name 'theUserID'
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_5628D23B03BD theUserID
-
-: ME_5628D14D0151
- CONST UID '5628D14D0151'
- CONST Name 'CheckPassword'
+: ME_5729DCF300FC
+ CONST UID '5729DCF300FC'
+ CONST Name 'Save'
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
- : Target WL 'ME_551BE28600E9' '5432448401BC.pas.ms.script' // TdaLoginError
+ : Parent ME_5729DCE2003D // IdaArchiUser
  ;
  : Parameters
-   Seq: ( ME_5628D23B037F // aLogin
- ME_5628D23B039E // aPassword
- ME_5628D23B03AE // RequireAdminRights
- ME_5628D23B03BD // theUserID
+   Seq: ( ME_5729DD00020F // aStream
  )
  ; // Parameters
 
-ref; // ME_5628D14D0151 CheckPassword
+ref; // ME_5729DCF300FC Save
 
-: ME_56EA99550202
- CONST Name 'anUserID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_56EA99550202 anUserID
-
-: ME_56EA993D0218
- CONST UID '56EA993D0218'
- CONST Name 'IsUserAdmin'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_56EA99550202 // anUserID
- )
- ; // Parameters
-
-ref; // ME_56EA993D0218 IsUserAdmin
-
-: ME_5718B5E00246
- CONST Name 'anUserID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_5718B5E00246 anUserID
-
-: ME_5718B5CF0399
- CONST UID '5718B5CF0399'
- CONST Name 'GetUserName'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_5718B5E00246 // anUserID
- )
- ; // Parameters
-
-ref; // ME_5718B5CF0399 GetUserName
-
-: ME_5720A450024B
- CONST Name 'aGroupId'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_5720A450024B aGroupId
-
-: ME_5720A450026A
- CONST Name 'aImportPriority'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_571DB8E5025A' '5432448401BC.pas.ms.script' // TdaPriority
- ;
-
-ref; // ME_5720A450026A aImportPriority
-
-: ME_5720A450027A
- CONST Name 'aExportPriority'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_571DB8E5025A' '5432448401BC.pas.ms.script' // TdaPriority
- ;
-
-ref; // ME_5720A450027A aExportPriority
-
-: ME_571DCFB50217
- CONST UID '571DCFB50217'
- CONST Name 'GetUserPriorities'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_5720A450024B // aGroupId
- ME_5720A450026A // aImportPriority
- ME_5720A450027A // aExportPriority
- )
- ; // Parameters
-
-ref; // ME_571DCFB50217 GetUserPriorities
-
-: ME_5721F5E60367
- CONST UID '5721F5E60367'
- CONST Name 'ReSortUserList'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_5628D14000F6 // IdaUserManager
- ;
-
-ref; // ME_5721F5E60367 ReSortUserList
-
-: ME_5628D14000F6
- CONST UID '5628D14000F6'
- CONST GUID '43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3'
- CONST Name 'IdaUserManager'
+: ME_5729DCE2003D
+ CONST UID '5729DCE2003D'
+ CONST GUID 'A56BF40C-4A4B-495E-A991-952C94ADBF66'
+ CONST Name 'IdaArchiUser'
  CONST Class class_Class
  : Stereotype st_Facet ;
  CONST Kind kind_NormalClass
@@ -3582,23 +3186,14 @@ ref; // ME_5721F5E60367 ReSortUserList
  CONST Abstraction at_regular
  : Parent ME_5432518A0316 // daInterfaces
  ;
- : Attributes
-   Seq: ( ME_5715DEF20209 // AllUsers
- ME_5715DF0D03C2 // AllGroups
- )
- ; // Attributes
  : Operations
-   Seq: ( ME_5628D14D0151 // CheckPassword
- ME_56EA993D0218 // IsUserAdmin
- ME_5718B5CF0399 // GetUserName
- ME_571DCFB50217 // GetUserPriorities
- ME_5721F5E60367 // ReSortUserList
+   Seq: ( ME_5729DCF300FC // Save
  )
  ; // Operations
- CONST extprop:rc:SelfName 'daUserManager'
+ CONST extprop:rc:SelfName 'daArchiUser'
  CONST extprop:rc:isAcceptableForScripts true
 
-ref; // ME_5628D14000F6 IdaUserManager
+ref; // ME_5729DCE2003D IdaArchiUser
 
 FORWARD ME_5680EE9A00EC
 
@@ -4404,6 +3999,729 @@ ref; // ME_564318160268_ME_5666D0D8031A BuildSQLValue
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5666D0D8031A IdaFunction
+
+FORWARD ME_5729DD09013E
+
+FORWARD ME_5729DD530330
+
+: ME_5729DDA700F3
+ CONST UID '5729DDA700F3'
+ CONST Class class_Attribute
+ : Stereotype st_element_type::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_5729DD530330 // IterateArchiUsersF
+ ;
+ : Target ME_5729DCE2003D // IdaArchiUser
+ ;
+
+ref; // ME_5729DDA700F3 
+
+: ME_5729DD530330
+ CONST UID '5729DD530330'
+ CONST Name 'IterateArchiUsersF'
+ CONST Class class_Class
+ : Stereotype st_facetiterator ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5729DD09013E // ArchiUsersIterator
+ ;
+ : Attributes
+   Seq: ( ME_5729DDA700F3 // 
+ )
+ ; // Attributes
+ CONST "needs index" false
+ CONST "needs result" false
+
+ref; // ME_5729DD530330 IterateArchiUsersF
+
+: ME_5729DD09013E
+ CONST UID '5729DD09013E'
+ CONST Name 'ArchiUsersIterator'
+ CONST Class class_Class
+ : Stereotype st_PureMixIn ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Operations
+   Seq: ( ME_5729DD530330 // IterateArchiUsersF
+ )
+ ; // Operations
+
+ref; // ME_5729DD09013E ArchiUsersIterator
+
+FORWARD ME_56BC63EF028D
+
+: ME_56D822ED0393
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_56D822ED0393 aFamilyID
+
+: ME_56D822ED03C2
+ CONST Name 'aKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56D822ED03C2 aKey
+
+: ME_56D822EE0019
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
+ ;
+
+ref; // ME_56D822EE0019 anID
+
+: ME_56BC642200D0
+ CONST UID '56BC642200D0'
+ CONST Name 'RegisterFreeExtObjID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56D822ED0393 // aFamilyID
+ ME_56D822ED03C2 // aKey
+ ME_56D822EE0019 // anID
+ )
+ ; // Parameters
+
+ref; // ME_56BC642200D0 RegisterFreeExtObjID
+
+: ME_56D822E60025
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_56D822E60025 aFamilyID
+
+: ME_56D822E60054
+ CONST Name 'aKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56D822E60054 aKey
+
+: ME_56D822E60083
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
+ ;
+
+ref; // ME_56D822E60083 anID
+
+: ME_56BC6437030F
+ CONST UID '56BC6437030F'
+ CONST Name 'RegisterFreeExtDocID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56D822E60025 // aFamilyID
+ ME_56D822E60054 // aKey
+ ME_56D822E60083 // anID
+ )
+ ; // Parameters
+
+ref; // ME_56BC6437030F RegisterFreeExtDocID
+
+: ME_56EBDDD90005
+ CONST Name 'aSessionID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+
+ref; // ME_56EBDDD90005 aSessionID
+
+: ME_56EBDD7002F8
+ CONST UID '56EBDD7002F8'
+ CONST Name 'SetAlienJournalData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
+ ;
+ : Parameters
+   Seq: ( ME_56EBDDD90005 // aSessionID
+ )
+ ; // Parameters
+
+ref; // ME_56EBDD7002F8 SetAlienJournalData
+
+: ME_56BC63EF028D
+ CONST UID '56BC63EF028D'
+ CONST GUID '603EDD09-200D-48A3-A7AC-E58665C5439E'
+ CONST Name 'IdaComboAccessDataProviderHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56BC642200D0 // RegisterFreeExtObjID
+ ME_56BC6437030F // RegisterFreeExtDocID
+ ME_56EBDD7002F8 // SetAlienJournalData
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'daComboAccessDataProviderHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56BC63EF028D IdaComboAccessDataProviderHelper
+
+FORWARD ME_56C193DB0058
+
+: ME_56EBE34A0249
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_56EBE34A0249 anUserID
+
+: ME_56EBE34A0259
+ CONST Name 'aSessionID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+
+ref; // ME_56EBE34A0259 aSessionID
+
+: ME_56E2A25501A6
+ CONST UID '56E2A25501A6'
+ CONST Name 'SetAlienData'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
+ ;
+ : Parameters
+   Seq: ( ME_56EBE34A0249 // anUserID
+ ME_56EBE34A0259 // aSessionID
+ )
+ ; // Parameters
+
+ref; // ME_56E2A25501A6 SetAlienData
+
+: ME_56E2A7EF01EB
+ CONST Name 'aOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_553F86E201D2' '5432448401BC.pas.ms.script' // TdaJournalOperation
+ ;
+
+ref; // ME_56E2A7EF01EB aOperation
+
+: ME_56E2A7EF0239
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_56E2A7EF0239 aFamilyID
+
+: ME_56E2A7EF0287
+ CONST Name 'aExtID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_56E2A7EF0287 aExtID
+
+: ME_56E2A7EF02D5
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_56E2A7EF02D5 aData
+
+: ME_56E2A7DB03CE
+ CONST UID '56E2A7DB03CE'
+ CONST Name 'LogAlienEvent'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
+ ;
+ : Parameters
+   Seq: ( ME_56E2A7EF01EB // aOperation
+ ME_56E2A7EF0239 // aFamilyID
+ ME_56E2A7EF0287 // aExtID
+ ME_56E2A7EF02D5 // aData
+ )
+ ; // Parameters
+
+ref; // ME_56E2A7DB03CE LogAlienEvent
+
+: ME_56E2B58802E1
+ CONST Name 'FromDate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
+ ;
+
+ref; // ME_56E2B58802E1 FromDate
+
+: ME_56E2B5880320
+ CONST Name 'ToDate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
+ ;
+
+ref; // ME_56E2B5880320 ToDate
+
+: ME_56E2B588034F
+ CONST Name 'aDocID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
+ ;
+
+ref; // ME_56E2B588034F aDocID
+
+: ME_56E2B588038D
+ CONST Name 'UserOrGroupID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_56E2B588038D UserOrGroupID
+
+: ME_56E2B58803BC
+ CONST Name 'UserGr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56E2B58803BC UserGr
+
+: ME_56E2B57C01FA
+ CONST UID '56E2B57C01FA'
+ CONST Name 'MakeAlienResultSet'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
+ ;
+ : Target ME_558BDCD00086 // IdaResultSet
+ ;
+ : Parameters
+   Seq: ( ME_56E2B58802E1 // FromDate
+ ME_56E2B5880320 // ToDate
+ ME_56E2B588034F // aDocID
+ ME_56E2B588038D // UserOrGroupID
+ ME_56E2B58803BC // UserGr
+ )
+ ; // Parameters
+
+ref; // ME_56E2B57C01FA MakeAlienResultSet
+
+: ME_56C193DB0058
+ CONST UID '56C193DB0058'
+ CONST GUID '9C5AF6B0-E3D5-419F-9136-E0280619B32D'
+ CONST Name 'IdaComboAccessJournalHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56E2A25501A6 // SetAlienData
+ ME_56E2A7DB03CE // LogAlienEvent
+ ME_56E2B57C01FA // MakeAlienResultSet
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'daComboAccessJournalHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56C193DB0058 IdaComboAccessJournalHelper
+
+FORWARD ME_56E153570073
+
+: ME_56E1532C0068
+ CONST Name 'aParamDesc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5555ADD202AB // IdaParamDescription
+ ;
+
+ref; // ME_56E1532C0068 aParamDesc
+
+: ME_56E152F4011D
+ CONST UID '56E152F4011D'
+ CONST Name 'AddParam'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56E153570073 // IdaComboAccessQueryHelper
+ ;
+ : Target ME_55559D5700AC // IdaParam
+ ;
+ : Parameters
+   Seq: ( ME_56E1532C0068 // aParamDesc
+ )
+ ; // Parameters
+
+ref; // ME_56E152F4011D AddParam
+
+: ME_56E153570073
+ CONST UID '56E153570073'
+ CONST GUID 'DE5DF01D-A926-43A4-8A09-6614873CA019'
+ CONST Name 'IdaComboAccessQueryHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56E152F4011D // AddParam
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'daComboAccessQueryHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56E153570073 IdaComboAccessQueryHelper
+
+FORWARD ME_5549D23F016E
+
+: ME_5549D2510373
+ CONST UID '5549D2510373'
+ CONST Name 'BlankSession'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5549D23F016E // SessionConst
+ ;
+ : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+ CONST Value '-1'
+ : ValueType WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '-1'
+
+ref; // ME_5549D2510373 BlankSession
+
+: ME_5549D23F016E
+ CONST UID '5549D23F016E'
+ CONST Name 'SessionConst'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Attributes
+   Seq: ( ME_5549D2510373 // BlankSession
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_5549D23F016E SessionConst
+
+FORWARD ME_5628D14000F6
+
+: ME_5715DEF20209
+ CONST UID '5715DEF20209'
+ CONST Name 'AllUsers'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Все пользователи системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_515413200198' '47913B47006E.pas.ms.script' // Tl3StringDataList
+ ;
+ CONST "pm" false
+
+ref; // ME_5715DEF20209 AllUsers
+
+: ME_5715DF0D03C2
+ CONST UID '5715DF0D03C2'
+ CONST Name 'AllGroups'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_515413200198' '47913B47006E.pas.ms.script' // Tl3StringDataList
+ ;
+ CONST "pm" false
+
+ref; // ME_5715DF0D03C2 AllGroups
+
+: ME_5729C59E00D5
+ CONST UID '5729C59E00D5'
+ CONST Name 'ArchiUsersCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" false
+
+ref; // ME_5729C59E00D5 ArchiUsersCount
+
+: ME_5628D23B037F
+ CONST Name 'aLogin'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5628D23B037F aLogin
+
+: ME_5628D23B039E
+ CONST Name 'aPassword'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5628D23B039E aPassword
+
+: ME_5628D23B03AE
+ CONST Name 'RequireAdminRights'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5628D23B03AE RequireAdminRights
+
+: ME_5628D23B03BD
+ CONST Name 'theUserID'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5628D23B03BD theUserID
+
+: ME_5628D14D0151
+ CONST UID '5628D14D0151'
+ CONST Name 'CheckPassword'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_551BE28600E9' '5432448401BC.pas.ms.script' // TdaLoginError
+ ;
+ : Parameters
+   Seq: ( ME_5628D23B037F // aLogin
+ ME_5628D23B039E // aPassword
+ ME_5628D23B03AE // RequireAdminRights
+ ME_5628D23B03BD // theUserID
+ )
+ ; // Parameters
+
+ref; // ME_5628D14D0151 CheckPassword
+
+: ME_56EA99550202
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_56EA99550202 anUserID
+
+: ME_56EA993D0218
+ CONST UID '56EA993D0218'
+ CONST Name 'IsUserAdmin'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56EA99550202 // anUserID
+ )
+ ; // Parameters
+
+ref; // ME_56EA993D0218 IsUserAdmin
+
+: ME_5718B5E00246
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5718B5E00246 anUserID
+
+: ME_5718B5CF0399
+ CONST UID '5718B5CF0399'
+ CONST Name 'GetUserName'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5718B5E00246 // anUserID
+ )
+ ; // Parameters
+
+ref; // ME_5718B5CF0399 GetUserName
+
+: ME_5720A450024B
+ CONST Name 'aGroupId'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5720A450024B aGroupId
+
+: ME_5720A450026A
+ CONST Name 'aImportPriority'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_571DB8E5025A' '5432448401BC.pas.ms.script' // TdaPriority
+ ;
+
+ref; // ME_5720A450026A aImportPriority
+
+: ME_5720A450027A
+ CONST Name 'aExportPriority'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_571DB8E5025A' '5432448401BC.pas.ms.script' // TdaPriority
+ ;
+
+ref; // ME_5720A450027A aExportPriority
+
+: ME_571DCFB50217
+ CONST UID '571DCFB50217'
+ CONST Name 'GetUserPriorities'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_5720A450024B // aGroupId
+ ME_5720A450026A // aImportPriority
+ ME_5720A450027A // aExportPriority
+ )
+ ; // Parameters
+
+ref; // ME_571DCFB50217 GetUserPriorities
+
+: ME_5721F5E60367
+ CONST UID '5721F5E60367'
+ CONST Name 'ReSortUserList'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+
+ref; // ME_5721F5E60367 ReSortUserList
+
+: ME_5729DD530330_ME_5628D14000F6
+ : Original ME_5729DD530330 // IterateArchiUsersF
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" false
+ CONST "needs result" false
+ref; // ME_5729DD530330_ME_5628D14000F6 IterateArchiUsersF
+
+: ME_5628D14000F6
+ CONST UID '5628D14000F6'
+ CONST GUID '43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3'
+ CONST Name 'IdaUserManager'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Implements
+   Seq: ( ME_5729DD09013E // ArchiUsersIterator
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5715DEF20209 // AllUsers
+ ME_5715DF0D03C2 // AllGroups
+ ME_5729C59E00D5 // ArchiUsersCount
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5628D14D0151 // CheckPassword
+ ME_56EA993D0218 // IsUserAdmin
+ ME_5718B5CF0399 // GetUserName
+ ME_571DCFB50217 // GetUserPriorities
+ ME_5721F5E60367 // ReSortUserList
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5729DD530330_ME_5628D14000F6 // IterateArchiUsersF
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'daUserManager'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5628D14000F6 IdaUserManager
 
 FORWARD ME_54EDC87C00B5
 
@@ -5334,413 +5652,6 @@ ref; // ME_56F0F6180156 HasJournal
 
 ref; // ME_54EDC87C00B5 IdaDataProvider
 
-FORWARD ME_56BC63EF028D
-
-: ME_56D822ED0393
- CONST Name 'aFamilyID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
- ;
-
-ref; // ME_56D822ED0393 aFamilyID
-
-: ME_56D822ED03C2
- CONST Name 'aKey'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_56D822ED03C2 aKey
-
-: ME_56D822EE0019
- CONST Name 'anID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
- ;
-
-ref; // ME_56D822EE0019 anID
-
-: ME_56BC642200D0
- CONST UID '56BC642200D0'
- CONST Name 'RegisterFreeExtObjID'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_56D822ED0393 // aFamilyID
- ME_56D822ED03C2 // aKey
- ME_56D822EE0019 // anID
- )
- ; // Parameters
-
-ref; // ME_56BC642200D0 RegisterFreeExtObjID
-
-: ME_56D822E60025
- CONST Name 'aFamilyID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
- ;
-
-ref; // ME_56D822E60025 aFamilyID
-
-: ME_56D822E60054
- CONST Name 'aKey'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_56D822E60054 aKey
-
-: ME_56D822E60083
- CONST Name 'anID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
- ;
-
-ref; // ME_56D822E60083 anID
-
-: ME_56BC6437030F
- CONST UID '56BC6437030F'
- CONST Name 'RegisterFreeExtDocID'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_56D822E60025 // aFamilyID
- ME_56D822E60054 // aKey
- ME_56D822E60083 // anID
- )
- ; // Parameters
-
-ref; // ME_56BC6437030F RegisterFreeExtDocID
-
-: ME_56EBDDD90005
- CONST Name 'aSessionID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
- ;
-
-ref; // ME_56EBDDD90005 aSessionID
-
-: ME_56EBDD7002F8
- CONST UID '56EBDD7002F8'
- CONST Name 'SetAlienJournalData'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
- ;
- : Parameters
-   Seq: ( ME_56EBDDD90005 // aSessionID
- )
- ; // Parameters
-
-ref; // ME_56EBDD7002F8 SetAlienJournalData
-
-: ME_56BC63EF028D
- CONST UID '56BC63EF028D'
- CONST GUID '603EDD09-200D-48A3-A7AC-E58665C5439E'
- CONST Name 'IdaComboAccessDataProviderHelper'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5432518A0316 // daInterfaces
- ;
- : Operations
-   Seq: ( ME_56BC642200D0 // RegisterFreeExtObjID
- ME_56BC6437030F // RegisterFreeExtDocID
- ME_56EBDD7002F8 // SetAlienJournalData
- )
- ; // Operations
- CONST extprop:rc:SelfName 'daComboAccessDataProviderHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_56BC63EF028D IdaComboAccessDataProviderHelper
-
-FORWARD ME_56C193DB0058
-
-: ME_56EBE34A0249
- CONST Name 'anUserID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_56EBE34A0249 anUserID
-
-: ME_56EBE34A0259
- CONST Name 'aSessionID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
- ;
-
-ref; // ME_56EBE34A0259 aSessionID
-
-: ME_56E2A25501A6
- CONST UID '56E2A25501A6'
- CONST Name 'SetAlienData'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
- ;
- : Parameters
-   Seq: ( ME_56EBE34A0249 // anUserID
- ME_56EBE34A0259 // aSessionID
- )
- ; // Parameters
-
-ref; // ME_56E2A25501A6 SetAlienData
-
-: ME_56E2A7EF01EB
- CONST Name 'aOperation'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_553F86E201D2' '5432448401BC.pas.ms.script' // TdaJournalOperation
- ;
-
-ref; // ME_56E2A7EF01EB aOperation
-
-: ME_56E2A7EF0239
- CONST Name 'aFamilyID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
- ;
-
-ref; // ME_56E2A7EF0239 aFamilyID
-
-: ME_56E2A7EF0287
- CONST Name 'aExtID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_56E2A7EF0287 aExtID
-
-: ME_56E2A7EF02D5
- CONST Name 'aData'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_56E2A7EF02D5 aData
-
-: ME_56E2A7DB03CE
- CONST UID '56E2A7DB03CE'
- CONST Name 'LogAlienEvent'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
- ;
- : Parameters
-   Seq: ( ME_56E2A7EF01EB // aOperation
- ME_56E2A7EF0239 // aFamilyID
- ME_56E2A7EF0287 // aExtID
- ME_56E2A7EF02D5 // aData
- )
- ; // Parameters
-
-ref; // ME_56E2A7DB03CE LogAlienEvent
-
-: ME_56E2B58802E1
- CONST Name 'FromDate'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
- ;
-
-ref; // ME_56E2B58802E1 FromDate
-
-: ME_56E2B5880320
- CONST Name 'ToDate'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
- ;
-
-ref; // ME_56E2B5880320 ToDate
-
-: ME_56E2B588034F
- CONST Name 'aDocID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
- ;
-
-ref; // ME_56E2B588034F aDocID
-
-: ME_56E2B588038D
- CONST Name 'UserOrGroupID'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_56E2B588038D UserOrGroupID
-
-: ME_56E2B58803BC
- CONST Name 'UserGr'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_56E2B58803BC UserGr
-
-: ME_56E2B57C01FA
- CONST UID '56E2B57C01FA'
- CONST Name 'MakeAlienResultSet'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56C193DB0058 // IdaComboAccessJournalHelper
- ;
- : Target ME_558BDCD00086 // IdaResultSet
- ;
- : Parameters
-   Seq: ( ME_56E2B58802E1 // FromDate
- ME_56E2B5880320 // ToDate
- ME_56E2B588034F // aDocID
- ME_56E2B588038D // UserOrGroupID
- ME_56E2B58803BC // UserGr
- )
- ; // Parameters
-
-ref; // ME_56E2B57C01FA MakeAlienResultSet
-
-: ME_56C193DB0058
- CONST UID '56C193DB0058'
- CONST GUID '9C5AF6B0-E3D5-419F-9136-E0280619B32D'
- CONST Name 'IdaComboAccessJournalHelper'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5432518A0316 // daInterfaces
- ;
- : Operations
-   Seq: ( ME_56E2A25501A6 // SetAlienData
- ME_56E2A7DB03CE // LogAlienEvent
- ME_56E2B57C01FA // MakeAlienResultSet
- )
- ; // Operations
- CONST extprop:rc:SelfName 'daComboAccessJournalHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_56C193DB0058 IdaComboAccessJournalHelper
-
-FORWARD ME_56E153570073
-
-: ME_56E1532C0068
- CONST Name 'aParamDesc'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5555ADD202AB // IdaParamDescription
- ;
-
-ref; // ME_56E1532C0068 aParamDesc
-
-: ME_56E152F4011D
- CONST UID '56E152F4011D'
- CONST Name 'AddParam'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_56E153570073 // IdaComboAccessQueryHelper
- ;
- : Target ME_55559D5700AC // IdaParam
- ;
- : Parameters
-   Seq: ( ME_56E1532C0068 // aParamDesc
- )
- ; // Parameters
-
-ref; // ME_56E152F4011D AddParam
-
-: ME_56E153570073
- CONST UID '56E153570073'
- CONST GUID 'DE5DF01D-A926-43A4-8A09-6614873CA019'
- CONST Name 'IdaComboAccessQueryHelper'
- CONST Class class_Class
- : Stereotype st_Facet ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5432518A0316 // daInterfaces
- ;
- : Operations
-   Seq: ( ME_56E152F4011D // AddParam
- )
- ; // Operations
- CONST extprop:rc:SelfName 'daComboAccessQueryHelper'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_56E153570073 IdaComboAccessQueryHelper
-
-FORWARD ME_5549D23F016E
-
-: ME_5549D2510373
- CONST UID '5549D2510373'
- CONST Name 'BlankSession'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5549D23F016E // SessionConst
- ;
- : Target WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
- ;
- CONST Value '-1'
- : ValueType WL 'ME_5549D14D035E' '5432448401BC.pas.ms.script' // TdaSessionID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '-1'
-
-ref; // ME_5549D2510373 BlankSession
-
-: ME_5549D23F016E
- CONST UID '5549D23F016E'
- CONST Name 'SessionConst'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5432518A0316 // daInterfaces
- ;
- : Attributes
-   Seq: ( ME_5549D2510373 // BlankSession
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_5549D23F016E SessionConst
-
 : ME_5432518A0316
  CONST UID '5432518A0316'
  CONST Name 'daInterfaces'
@@ -5772,17 +5683,19 @@ ref; // ME_5549D23F016E SessionConst
  ME_5666C55000A5 // IdaQuery
  ME_55A63E0A00E7 // IdaResultBuffer
  ME_555351BE026E // IdaFieldFromTable
- ME_5628D14000F6 // IdaUserManager
+ ME_5729DCE2003D // IdaArchiUser
  ME_5680EE9A00EC // IdaSortField
  ME_563AF9F5022A // IdaAtomicCondition
  ME_5549C4060117 // IdaTabledQuery
  ME_565EB00B0038 // PIdaLongProcessSubscriber
  ME_554C78BD038C // IdaTableQueryFactory
  ME_5666D0D8031A // IdaFunction
- ME_54EDC87C00B5 // IdaDataProvider
+ ME_5729DD09013E // ArchiUsersIterator
  ME_56BC63EF028D // IdaComboAccessDataProviderHelper
  ME_56C193DB0058 // IdaComboAccessJournalHelper
  ME_56E153570073 // IdaComboAccessQueryHelper
+ ME_5628D14000F6 // IdaUserManager
+ ME_54EDC87C00B5 // IdaDataProvider
  )
  ; // Children
  : Constants
@@ -5800,6 +5713,7 @@ ref; // ME_5549D23F016E SessionConst
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B990EDE031A' '4B990EDE031A.pas.ms.script' // AppConfig
  WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes

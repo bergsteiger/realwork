@@ -1219,59 +1219,6 @@ FORWARD ME_551AA9BD01EE
 
 FORWARD ME_8F612712D29F
 
-FORWARD ME_29DCAB941EB5
-
-: ME_EEA66CD23213
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
-
-ref; // ME_EEA66CD23213 anItem
-
-: ME_41DE64DA5AB2
- CONST UID '41DE64DA5AB2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_EEA66CD23213 // anItem
- )
- ; // Parameters
-
-ref; // ME_41DE64DA5AB2 DoIt
-
-: ME_29DCAB941EB5
- CONST UID '29DCAB941EB5'
- CONST Name 'Ml3IterateComponentParents_IterateF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Ml3IterateComponentParents.IterateF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_8F612712D29F // Ml3IterateComponentParents
- ;
- : Operations
-   Seq: ( ME_41DE64DA5AB2 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_29DCAB941EB5 Ml3IterateComponentParents_IterateF_Action
-
-FORWARD ME_40223A2E3EEA
-
 FORWARD ME_3410F441967F
 
 : ME_24C2D2F69431
@@ -1316,17 +1263,6 @@ ref; // ME_C55E2E29D333
 
 ref; // ME_C4546DACFBEA 
 
-: ME_D01235270F76
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3410F441967F // IterateF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_D01235270F76 
-
 : ME_3410F441967F
  CONST UID '3410F441967F'
  CONST Name 'IterateF'
@@ -1345,51 +1281,12 @@ ref; // ME_D01235270F76
  ; // Attributes
  : Dependencies
    Seq: ( ME_C4546DACFBEA // Controls
- ME_D01235270F76 // l3LocalStub
  )
  ; // Dependencies
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
- CONST extprop:pas:TypeName 'Ml3IterateComponentParents_IterateF_Action'
- : Action ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
- ;
- : Stub ME_40223A2E3EEA // L2_Ml3IterateComponentParents_IterateF_Action
- ;
 
 ref; // ME_3410F441967F IterateF
-
-: ME_C3947A7CDC61
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_C3947A7CDC61 anAction
-
-: ME_40223A2E3EEA
- CONST UID '40223A2E3EEA'
- CONST Name 'L2_Ml3IterateComponentParents_IterateF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_8F612712D29F // Ml3IterateComponentParents
- ;
- : Target ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
- ;
- : Parameters
-   Seq: ( ME_C3947A7CDC61 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_40223A2E3EEA L2_Ml3IterateComponentParents_IterateF_Action
 
 : ME_8F612712D29F
  CONST UID '8F612712D29F'
@@ -1405,13 +1302,8 @@ ref; // ME_40223A2E3EEA L2_Ml3IterateComponentParents_IterateF_Action
  ;
  : Operations
    Seq: ( ME_3410F441967F // IterateF
- ME_40223A2E3EEA // L2_Ml3IterateComponentParents_IterateF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_29DCAB941EB5 // Ml3IterateComponentParents_IterateF_Action
- )
- ; // Children
 
 ref; // ME_8F612712D29F Ml3IterateComponentParents
 
@@ -1513,8 +1405,6 @@ ref; // ME_551C4D0802D4
  ; // Dependencies
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
- : Stub ME_40223A2E3EEA // L2_Ml3IterateComponentParents_IterateF_Action
- ;
 
 ref; // ME_551AAAFB036B Iterate
 

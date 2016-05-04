@@ -101,7 +101,13 @@ p force overload:b=false ? Определяет, что метод перегружен
 	%1%f_set_up(iterator func name,%{Action_Inst}N)\
 
 	[{"%{Action_Inst}D"=""|%{Action_Inst}D=undefined}\
-	%{Action_Inst}%f_set_documentation(Подитеративная функция для вызова %1%T%{Stub}%f_pas_MethodName() из %SN)\
+	%{Action_Inst}%f_set_documentation(Подитеративная функция для вызова \
+	[{"%1%T%{Stub}N"=""}{\
+	%1%T%{Stub}%f_pas_MethodName()\
+	}\
+	%1%T%f_pas_MethodName()\
+	]\
+	 из %SN)\
 	]\
 
 	%f_set_var(ITEM_TYPE,"")\

@@ -708,121 +708,6 @@ ref; // ME_5417FCC40029 Tm3StorageType
 
 FORWARD ME_5452559202F8
 
-FORWARD ME_5B09CB435ECF
-
-: ME_BFDD6CF5252C
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_47208CA50237 // Tm3StoreInfo
- ;
-
-ref; // ME_BFDD6CF5252C anItem
-
-: ME_BFDD6CF5252D
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_BFDD6CF5252D anIndex
-
-: ME_B8C501E401AF
- CONST UID 'B8C501E401AF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Mm3StorageIterators.IterateIndexedF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5B09CB435ECF // Mm3StorageIterators_IterateIndexedF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_BFDD6CF5252C // anItem
- ME_BFDD6CF5252D // anIndex
- )
- ; // Parameters
-
-ref; // ME_B8C501E401AF DoIt
-
-: ME_5B09CB435ECF
- CONST UID '5B09CB435ECF'
- CONST Name 'Mm3StorageIterators_IterateIndexedF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Mm3StorageIterators.IterateIndexedF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5452559202F8 // Mm3StorageIterators
- ;
- : Operations
-   Seq: ( ME_B8C501E401AF // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_5B09CB435ECF Mm3StorageIterators_IterateIndexedF_Action
-
-FORWARD ME_6F56602BABCE
-
-: ME_B589DE1FC94D
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5451F4E50226 // Tm3StorageElementInfo
- ;
-
-ref; // ME_B589DE1FC94D anItem
-
-: ME_4EFECD1B925F
- CONST UID '4EFECD1B925F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Mm3StorageIterators.IterateAllF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_6F56602BABCE // Mm3StorageIterators_IterateAllF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_B589DE1FC94D // anItem
- )
- ; // Parameters
-
-ref; // ME_4EFECD1B925F DoIt
-
-: ME_6F56602BABCE
- CONST UID '6F56602BABCE'
- CONST Name 'Mm3StorageIterators_IterateAllF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Mm3StorageIterators.IterateAllF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5452559202F8 // Mm3StorageIterators
- ;
- : Operations
-   Seq: ( ME_4EFECD1B925F // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_6F56602BABCE Mm3StorageIterators_IterateAllF_Action
-
-FORWARD ME_A338D876186E
-
 FORWARD ME_545255C003CB
 
 : ME_545255CC0357
@@ -839,17 +724,6 @@ FORWARD ME_545255C003CB
 
 ref; // ME_545255CC0357 
 
-: ME_7C36F0E338DA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_545255C003CB // IterateIndexedF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_7C36F0E338DA 
-
 : ME_545255C003CB
  CONST UID '545255C003CB'
  CONST Name 'IterateIndexedF'
@@ -864,21 +738,10 @@ ref; // ME_7C36F0E338DA
    Seq: ( ME_545255CC0357 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_7C36F0E338DA // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" false
- CONST extprop:pas:TypeName 'Mm3StorageIterators_IterateIndexedF_Action'
- : Action ME_5B09CB435ECF // Mm3StorageIterators_IterateIndexedF_Action
- ;
- : Stub ME_A338D876186E // L2_Mm3StorageIterators_IterateIndexedF_Action
- ;
 
 ref; // ME_545255C003CB IterateIndexedF
-
-FORWARD ME_E58B82056D89
 
 FORWARD ME_54525E3A02BF
 
@@ -896,17 +759,6 @@ FORWARD ME_54525E3A02BF
 
 ref; // ME_54525E430248 
 
-: ME_F65A348C45D9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54525E3A02BF // IterateAllF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_F65A348C45D9 
-
 : ME_54525E3A02BF
  CONST UID '54525E3A02BF'
  CONST Name 'IterateAllF'
@@ -921,85 +773,10 @@ ref; // ME_F65A348C45D9
    Seq: ( ME_54525E430248 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_F65A348C45D9 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'Mm3StorageIterators_IterateAllF_Action'
- : Action ME_6F56602BABCE // Mm3StorageIterators_IterateAllF_Action
- ;
- : Stub ME_E58B82056D89 // L2_Mm3StorageIterators_IterateAllF_Action
- ;
 
 ref; // ME_54525E3A02BF IterateAllF
-
-: ME_641A0B03F8CC
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_641A0B03F8CC anAction
-
-: ME_A338D876186E
- CONST UID 'A338D876186E'
- CONST Name 'L2_Mm3StorageIterators_IterateIndexedF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateIndexedF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5452559202F8 // Mm3StorageIterators
- ;
- : Target ME_5B09CB435ECF // Mm3StorageIterators_IterateIndexedF_Action
- ;
- : Parameters
-   Seq: ( ME_641A0B03F8CC // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_A338D876186E L2_Mm3StorageIterators_IterateIndexedF_Action
-
-: ME_8F5BDFA9FB1C
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_8F5BDFA9FB1C anAction
-
-: ME_E58B82056D89
- CONST UID 'E58B82056D89'
- CONST Name 'L2_Mm3StorageIterators_IterateAllF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateAllF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5452559202F8 // Mm3StorageIterators
- ;
- : Target ME_6F56602BABCE // Mm3StorageIterators_IterateAllF_Action
- ;
- : Parameters
-   Seq: ( ME_8F5BDFA9FB1C // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_E58B82056D89 L2_Mm3StorageIterators_IterateAllF_Action
 
 : ME_5452559202F8
  CONST UID '5452559202F8'
@@ -1014,15 +791,8 @@ ref; // ME_E58B82056D89 L2_Mm3StorageIterators_IterateAllF_Action
  : Operations
    Seq: ( ME_545255C003CB // IterateIndexedF
  ME_54525E3A02BF // IterateAllF
- ME_A338D876186E // L2_Mm3StorageIterators_IterateIndexedF_Action
- ME_E58B82056D89 // L2_Mm3StorageIterators_IterateAllF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_5B09CB435ECF // Mm3StorageIterators_IterateIndexedF_Action
- ME_6F56602BABCE // Mm3StorageIterators_IterateAllF_Action
- )
- ; // Children
 
 ref; // ME_5452559202F8 Mm3StorageIterators
 
@@ -2107,7 +1877,6 @@ ref; // ME_542E5D380067 Im3StorageHolder
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
- WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )

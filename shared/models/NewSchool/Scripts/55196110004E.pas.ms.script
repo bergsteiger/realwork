@@ -8,59 +8,6 @@ FORWARD ME_5519611903CF
 
 FORWARD ME_27F5F6C291D9
 
-FORWARD ME_8CF4FD6A38DB
-
-: ME_79C6E357FC43
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
-
-ref; // ME_79C6E357FC43 anItem
-
-: ME_67B46DD3EFE7
- CONST UID '67B46DD3EFE7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для MIterateableService.IterateF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_79C6E357FC43 // anItem
- )
- ; // Parameters
-
-ref; // ME_67B46DD3EFE7 DoIt
-
-: ME_8CF4FD6A38DB
- CONST UID '8CF4FD6A38DB'
- CONST Name 'MIterateableService_IterateF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для MIterateableService.IterateF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_27F5F6C291D9 // MIterateableService
- ;
- : Operations
-   Seq: ( ME_67B46DD3EFE7 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_8CF4FD6A38DB MIterateableService_IterateF_Action
-
-FORWARD ME_7DFBEBFE2750
-
 FORWARD ME_A44911B9A95D
 
 : ME_FAFE12FA42D6
@@ -94,17 +41,6 @@ ref; // ME_FAFE12FA42D6 anOwner
 
 ref; // ME_19E1315B1849 
 
-: ME_ED177688C611
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A44911B9A95D // IterateF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_ED177688C611 
-
 : ME_A44911B9A95D
  CONST UID 'A44911B9A95D'
  CONST Name 'IterateF'
@@ -121,52 +57,10 @@ ref; // ME_ED177688C611
  ME_19E1315B1849 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_ED177688C611 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
- CONST extprop:pas:TypeName 'MIterateableService_IterateF_Action'
- : Action ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
- ;
- : Stub ME_7DFBEBFE2750 // L2_MIterateableService_IterateF_Action
- ;
 
 ref; // ME_A44911B9A95D IterateF
-
-: ME_EFCE213E71C2
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_EFCE213E71C2 anAction
-
-: ME_7DFBEBFE2750
- CONST UID '7DFBEBFE2750'
- CONST Name 'L2_MIterateableService_IterateF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для MIterateableService.IterateF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_27F5F6C291D9 // MIterateableService
- ;
- : Target ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
- ;
- : Parameters
-   Seq: ( ME_EFCE213E71C2 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_7DFBEBFE2750 L2_MIterateableService_IterateF_Action
 
 : ME_27F5F6C291D9
  CONST UID '27F5F6C291D9'
@@ -182,13 +76,8 @@ ref; // ME_7DFBEBFE2750 L2_MIterateableService_IterateF_Action
  ;
  : Operations
    Seq: ( ME_A44911B9A95D // IterateF
- ME_7DFBEBFE2750 // L2_MIterateableService_IterateF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_8CF4FD6A38DB // MIterateableService_IterateF_Action
- )
- ; // Children
 
 ref; // ME_27F5F6C291D9 MIterateableService
 
@@ -276,8 +165,6 @@ ref; // ME_551961D80264
  ; // Attributes
  CONST "needs index" 'undefined'
  CONST "needs result" 'undefined'
- : Stub ME_7DFBEBFE2750 // L2_MIterateableService_IterateF_Action
- ;
 
 ref; // ME_551961AE0005 Iterate
 
@@ -434,8 +321,7 @@ ref; // ME_5519612B01D3 TIterateableServiceProvider
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  )
  ; // Depends

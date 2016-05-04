@@ -7822,59 +7822,6 @@ ref; // ME_4CD017E001C0 IqaReqPrim
 
 FORWARD ME_4E81A28E00E5
 
-FORWARD ME_CA3DDEAD7C24
-
-: ME_E1030E920659
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_47CD6644026F // IevReq
- ;
-
-ref; // ME_E1030E920659 anItem
-
-: ME_580B64CF7449
- CONST UID '580B64CF7449'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для IevReqIterator.DoReq' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_E1030E920659 // anItem
- )
- ; // Parameters
-
-ref; // ME_580B64CF7449 DoIt
-
-: ME_CA3DDEAD7C24
- CONST UID 'CA3DDEAD7C24'
- CONST Name 'IevReqIterator_DoReq_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для IevReqIterator.DoReq' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E81A28E00E5 // IevReqIterator
- ;
- : Operations
-   Seq: ( ME_580B64CF7449 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_CA3DDEAD7C24 IevReqIterator_DoReq_Action
-
-FORWARD ME_EFEE8C98D8FB
-
 FORWARD ME_4E81A119033D
 
 : ME_4E82BAF50019
@@ -7891,17 +7838,6 @@ FORWARD ME_4E81A119033D
 
 ref; // ME_4E82BAF50019 
 
-: ME_426F27EE2CAB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E81A119033D // DoReq
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_426F27EE2CAB 
-
 : ME_4E81A119033D
  CONST UID '4E81A119033D'
  CONST Name 'DoReq'
@@ -7916,52 +7852,10 @@ ref; // ME_426F27EE2CAB
    Seq: ( ME_4E82BAF50019 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_426F27EE2CAB // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" true
- CONST extprop:pas:TypeName 'IevReqIterator_DoReq_Action'
- : Action ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
- ;
- : Stub ME_EFEE8C98D8FB // L2_IevReqIterator_DoReq_Action
- ;
 
 ref; // ME_4E81A119033D DoReq
-
-: ME_1441DC2C49B7
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_1441DC2C49B7 anAction
-
-: ME_EFEE8C98D8FB
- CONST UID 'EFEE8C98D8FB'
- CONST Name 'L2_IevReqIterator_DoReq_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IevReqIterator.DoReq' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4E81A28E00E5 // IevReqIterator
- ;
- : Target ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
- ;
- : Parameters
-   Seq: ( ME_1441DC2C49B7 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_EFEE8C98D8FB L2_IevReqIterator_DoReq_Action
 
 : ME_4E81A28E00E5
  CONST UID '4E81A28E00E5'
@@ -7976,13 +7870,8 @@ ref; // ME_EFEE8C98D8FB L2_IevReqIterator_DoReq_Action
  ;
  : Operations
    Seq: ( ME_4E81A119033D // DoReq
- ME_EFEE8C98D8FB // L2_IevReqIterator_DoReq_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_CA3DDEAD7C24 // IevReqIterator_DoReq_Action
- )
- ; // Children
  CONST extprop:rc:SelfName 'ReqIterator'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -8035,7 +7924,6 @@ ref; // ME_4E81A28E00E5 IevReqIterator
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
- WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

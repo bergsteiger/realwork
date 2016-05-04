@@ -1727,70 +1727,6 @@ ref; // ME_469F893F01AB Tk2Variant
 
 FORWARD ME_531F0A600173
 
-FORWARD ME_40B6BB79A03A
-
-: ME_88E1CFFF6E07
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
- ;
-
-ref; // ME_88E1CFFF6E07 anItem
-
-: ME_88E1CFFF6E08
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_88E1CFFF6E08 anIndex
-
-: ME_C4761D1A4387
- CONST UID 'C4761D1A4387'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Mk2InterfaceFactory.IterateCursors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_88E1CFFF6E07 // anItem
- ME_88E1CFFF6E08 // anIndex
- )
- ; // Parameters
-
-ref; // ME_C4761D1A4387 DoIt
-
-: ME_40B6BB79A03A
- CONST UID '40B6BB79A03A'
- CONST Name 'Mk2InterfaceFactory_IterateCursors_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Mk2InterfaceFactory.IterateCursors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_531F0A600173 // Mk2InterfaceFactory
- ;
- : Operations
-   Seq: ( ME_C4761D1A4387 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_40B6BB79A03A Mk2InterfaceFactory_IterateCursors_Action
-
-FORWARD ME_951123C1569A
-
 FORWARD ME_4BCC45AA02CE
 
 : ME_4BCC45BE0137
@@ -1807,17 +1743,6 @@ FORWARD ME_4BCC45AA02CE
 
 ref; // ME_4BCC45BE0137 
 
-: ME_7805A241A87C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BCC45AA02CE // IterateCursors
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_7805A241A87C 
-
 : ME_4BCC45AA02CE
  CONST UID '4BCC45AA02CE'
  CONST Name 'IterateCursors'
@@ -1832,52 +1757,10 @@ ref; // ME_7805A241A87C
    Seq: ( ME_4BCC45BE0137 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_7805A241A87C // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" false
- CONST extprop:pas:TypeName 'Mk2InterfaceFactory_IterateCursors_Action'
- : Action ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
- ;
- : Stub ME_951123C1569A // L2_Mk2InterfaceFactory_IterateCursors_Action
- ;
 
 ref; // ME_4BCC45AA02CE IterateCursors
-
-: ME_8302C0F13388
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_8302C0F13388 anAction
-
-: ME_951123C1569A
- CONST UID '951123C1569A'
- CONST Name 'L2_Mk2InterfaceFactory_IterateCursors_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2InterfaceFactory.IterateCursors' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_531F0A600173 // Mk2InterfaceFactory
- ;
- : Target ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
- ;
- : Parameters
-   Seq: ( ME_8302C0F13388 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_951123C1569A L2_Mk2InterfaceFactory_IterateCursors_Action
 
 : ME_531F0A600173
  CONST UID '531F0A600173'
@@ -1891,13 +1774,8 @@ ref; // ME_951123C1569A L2_Mk2InterfaceFactory_IterateCursors_Action
  ;
  : Operations
    Seq: ( ME_4BCC45AA02CE // IterateCursors
- ME_951123C1569A // L2_Mk2InterfaceFactory_IterateCursors_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_40B6BB79A03A // Mk2InterfaceFactory_IterateCursors_Action
- )
- ; // Children
 
 ref; // ME_531F0A600173 Mk2InterfaceFactory
 

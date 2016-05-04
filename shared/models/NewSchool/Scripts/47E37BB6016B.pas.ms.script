@@ -92,70 +92,6 @@ ref; // ME_47E37C150366 Ik2TagListPrim
 
 FORWARD ME_47E38876005D
 
-FORWARD ME_1C407FA911E9
-
-: ME_01082ECE1AC7
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
- ;
-
-ref; // ME_01082ECE1AC7 anItem
-
-: ME_01082ECE1AC8
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_01082ECE1AC8 anIndex
-
-: ME_4EEAAEBB16DD
- CONST UID '4EEAAEBB16DD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Ik2TagList.ForEach' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1C407FA911E9 // Ik2TagList_ForEach_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_01082ECE1AC7 // anItem
- ME_01082ECE1AC8 // anIndex
- )
- ; // Parameters
-
-ref; // ME_4EEAAEBB16DD DoIt
-
-: ME_1C407FA911E9
- CONST UID '1C407FA911E9'
- CONST Name 'Ik2TagList_ForEach_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Ik2TagList.ForEach' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_47E38876005D // Ik2TagList
- ;
- : Operations
-   Seq: ( ME_4EEAAEBB16DD // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_1C407FA911E9 Ik2TagList_ForEach_Action
-
-FORWARD ME_C388E11BB806
-
 FORWARD ME_4BB0841A0071
 
 : ME_4BB0842202EE
@@ -172,17 +108,6 @@ FORWARD ME_4BB0841A0071
 
 ref; // ME_4BB0842202EE 
 
-: ME_A1F87FABDDAD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BB0841A0071 // ForEach
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_A1F87FABDDAD 
-
 : ME_4BB0841A0071
  CONST UID '4BB0841A0071'
  CONST Name 'ForEach'
@@ -198,52 +123,10 @@ ref; // ME_A1F87FABDDAD
    Seq: ( ME_4BB0842202EE // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_A1F87FABDDAD // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" true
- CONST extprop:pas:TypeName 'Ik2TagList_ForEach_Action'
- : Action ME_1C407FA911E9 // Ik2TagList_ForEach_Action
- ;
- : Stub ME_C388E11BB806 // L2_Ik2TagList_ForEach_Action
- ;
 
 ref; // ME_4BB0841A0071 ForEach
-
-: ME_FA7A9E0AE77E
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_FA7A9E0AE77E anAction
-
-: ME_C388E11BB806
- CONST UID 'C388E11BB806'
- CONST Name 'L2_Ik2TagList_ForEach_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ik2TagList.ForEach' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_47E38876005D // Ik2TagList
- ;
- : Target ME_1C407FA911E9 // Ik2TagList_ForEach_Action
- ;
- : Parameters
-   Seq: ( ME_FA7A9E0AE77E // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_C388E11BB806 L2_Ik2TagList_ForEach_Action
 
 : ME_47D8233603DD_ME_47E38876005D
  : Original WL 'ME_47D8233603DD' '47D810610398.pas.ms.script' // First
@@ -298,7 +181,6 @@ ref; // ME_4BB08B8902F2_ME_47E38876005D Count
  ; // Inherits
  : Operations
    Seq: ( ME_4BB0841A0071 // ForEach
- ME_C388E11BB806 // L2_Ik2TagList_ForEach_Action
  )
  ; // Operations
  : Implemented
@@ -309,10 +191,6 @@ ref; // ME_4BB08B8902F2_ME_47E38876005D Count
  ME_4BB08B8902F2_ME_47E38876005D // Count
  )
  ; // Implemented
- : Children
-   Seq: ( ME_1C407FA911E9 // Ik2TagList_ForEach_Action
- )
- ; // Children
  CONST extprop:rc:SelfName 'TagList'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -334,8 +212,7 @@ ref; // ME_47E38876005D Ik2TagList
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+   Seq: ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D810610398' '47D810610398.pas.ms.script' // l3PureMixIns
  )

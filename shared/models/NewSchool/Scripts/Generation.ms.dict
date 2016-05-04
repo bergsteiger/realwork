@@ -410,6 +410,12 @@ BOOLEAN elem_func IsMixInParamType
  @SELF
 ; // g_MixInParamTypes
   
+BOOLEAN elem_func IsIterator
+ Self .IsStereotype st_Iterator >>> Result
+; // IsIterator
+
+FORWARD .IteratorAction
+
 STRING elem_func TypeName
  Cached:
  (
@@ -420,6 +426,8 @@ STRING elem_func TypeName
     Self
    ( Self .IsOpenArray )
     ( [ 'array of ' Self .FirstAttribute .Target call.me ] strings:Cat )
+   ( Self .IsIterator )
+    ( Self .IteratorAction call.me )
    DEFAULT  
     (
      STRING VAR l_ExtName
@@ -1599,10 +1607,6 @@ ModelElement elem_func FirstOperation
  >>> Result
 ; // FirstOperation
 
-BOOLEAN elem_func IsIterator
- Self .IsStereotype st_Iterator >>> Result
-; // IsIterator
-
 BOOLEAN elem_func IsFacetIterator
  Self .IsStereotype st_facetiterator >>> Result
 ; // IsFacetIterator
@@ -2009,7 +2013,8 @@ INTERFACE elem_func CastMethod
  (
   VAR l_TypeName
   Self .TypeName >>> l_TypeName
-  'As_' l_TypeName Cat Self MakeFunction: ( IN aMade
+  'As_' l_TypeName Cat Self MakeFunction: ( 
+    IN aMade
    aMade -> %SUM := ( 'Метод приведения нашего интерфейса к ' l_TypeName Cat )
    aMade -> Visibility := ProtectedAccess
    aMade ->^ cVarUserCodeName ^:= cEmptyUserCode
@@ -2019,9 +2024,14 @@ INTERFACE elem_func CastMethod
  >>> Result
 ; // CastMethod
 
+BOOLEAN elem_func IsStaticOp
+ Self .IsStereotype st_static::Operation
+ >>> Result
+; // IsStaticOp
+
 BOOLEAN elem_func IsStaticMethod
  RULES
-  ( Self .IsStereotype st_static::Operation )
+  ( Self .IsStaticOp )
    true
   ( Self .UPisTrue "is static" ) 
    true
@@ -2243,12 +2253,151 @@ MACRO MakeProcedure:
  'MakeFunction:' Ctx:Parser:PushSymbol
 ; // MakeProcedure:
 
+BOOLEAN elem_func IsResultType
+ Self .IsStereotype st_result_type::Attribute
+ >>> Result
+; // IsResultType
+
+BOOLEAN elem_func IsElementType
+ Self .IsStereotype st_element_type::Attribute
+ >>> Result
+; // IsElementType
+
+BOOLEAN elem_func IsIndexType
+ Self .IsStereotype st_index_type::Attribute
+ >>> Result
+; // IsIndexType
+
+BOOLEAN elem_func IsServiceIterator
+ Self .IsStereotype st_serviceiterator >>> Result
+; // IsServiceIterator
+
+INTERFACE elem_func ItemParam
+ Cached:
+ (
+  'anItem' Self MakeParam
+ ) >>> Result
+; // ItemParam
+
+INTERFACE elem_func IndexParam
+ Cached:
+ (
+  'anIndex' Self MakeParam
+ ) >>> Result
+; // IndexParam
+
+ModelElement elem_func IteratorAction
+ Cached:
+ (
+  VAR l_Action
+  Self .Action >>> l_Action
+  RULES
+   ( l_Action .IsNotNil )
+    l_Action
+   DEFAULT
+    begin
+     [ Self .Parent .Name '_' Self .Name '_Action' ] strings:Cat 
+     nil
+     MakeFunction: (
+       IN aMade
+      aMade -> UID := ( Self .UID '_Action' Cat )  
+      aMade -> Parent := ( Self .Parent .WeakRef ) 
+      aMade -> Stereotype := st_Function
+      aMade -> %SUM := ( [ 
+       'Тип подитеративной функции для ' Self .Parent .Name '.' Self .Name
+       ] strings:Cat 
+      )
+      //aMade -> Parameters := [ GarantModel::Pointer .ActionParamPrim ]
+      aMade -> Visibility := PublicAccess
+      aMade -> Operations := [
+       'DoIt' GarantModel::Boolean MakeFunction: (
+         IN aMadeOp
+        aMadeOp -> Parameters := [ 
+         Self .Attributes
+         .filter> .IsElementType
+         .map> .Target
+         .FirstElement
+         .ItemParam
+         
+         if ( Self .UPisTrue "needs index" ) then
+         begin
+          VAR l_IndexType
+          Self .Attributes
+          .filter> .IsIndexType
+          .map> .Target
+          .FirstElement >>> l_IndexType
+          
+          if ( l_IndexType .IsNil ) then
+          begin
+           GarantModel::Integer >>> l_IndexType
+          end // ( l_IndexType .IsNil )
+          
+          l_IndexType .IndexParam
+         end // ( Self .UPisTrue "needs index" )
+        ] // aMadeOp -> Parameters
+       ) // 'DoIt' GarantModel::Boolean MakeFunction: 
+      ] // aMade -> Operations
+     ) // MakeFunction: 
+    end // DEFAULT
+  ; // RULES  
+ ) >>> Result
+; // IteratorAction
+
+INTERFACE elem_func ActionParamPrim
+ Cached:
+ (
+  'anAction' Self MakeParam
+ ) >>> Result
+; // ActionParamPrim
+
 INTERFACE elem_func ActionParam
  Cached:
  (
-  'anAction' Self .Action MakeParam
+  Self .IteratorAction .ActionParamPrim
  ) >>> Result
 ; // ActionParam
+
+INTERFACE elem_func LocalStub
+ Cached:
+ (
+  [ 'L2_' Self .Parent .Name '_' Self .Name '_Action' ] strings:Cat Self .IteratorAction MakeFunction: (
+    IN aMade
+   aMade -> UID := ( Self .UID '_Stub' Cat )  
+   aMade -> Parent := ( Self .Parent .WeakRef ) 
+   aMade -> Stereotype := st_static::Operation
+   aMade -> %SUM := ( [ 
+    'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для ' Self .Parent .Name '.' Self .Name
+    ] strings:Cat 
+   )
+   aMade -> Parameters := [ GarantModel::Pointer .ActionParamPrim ]
+   aMade -> Visibility := PublicAccess
+   aMade -> 'extprop:isGlobal' := true
+   aMade -> 'extprop:isAsm' := true
+  ) // MakeFunction: 
+ ) >>> Result
+; // LocalStub
+
+ModelElement elem_func IteratorStub
+ Self .Stub >>> Result
+ if ( Result .IsNil ) then
+ begin
+  RULES
+   ( Self .IsServiceIterator )
+    begin
+     VAR l_MixIn
+     Self .Parent .MixIn >>> l_MixIn
+     l_MixIn .Operations
+     .filter> .IsIterator
+     .filter> ( .IsServiceIterator ! )
+     .filter> ( .Name Self .Name 'F' Cat ?== )
+     .FirstElement 
+     call.me >>> Result
+    end // ( Self .IsServiceIterator )
+   DEFAULT
+    ( Self .LocalStub >>> Result )
+  ; // RULES  
+ end // ( Result .IsNil )
+; // IteratorStub
 
 BOOLEAN elem_func IsInParam
  Self .IsStereotype st_in::Attribute >>> Result
@@ -3020,7 +3169,20 @@ BOOLEAN elem_func WritesField
 ; // elem_func WritesField
 
 BOOLEAN elem_func IsOverride
- Self .IsControlOverride >>> Result
+ RULES
+  ( Self .IsControlOverride )
+   true
+  ( Self .IsIterator )
+   RULES
+    ( Self .MainAncestor .IsNil )
+     false
+    DEFAULT
+     true 
+   ; // RULES 
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result
 ; // IsOverride
 
 BOOLEAN elem_func NeedsField
@@ -3089,7 +3251,6 @@ elem_iterator Fields
     .join> ( 
      Self .Implemented 
      .filter> .IsProperty
-     //.filter> ( .Name Msg true )
      .filter> ( .Parent .IsInterface ) 
     ) // .join>
     .filter> .NeedsField
@@ -3687,7 +3848,7 @@ elem_proc MethodUserCode
  
  BOOLEAN elem_func IsSingletonExists
   Self .Name 'Exists' ==
-  AND ( Self .IsStereotype st_static::Operation )
+  AND ( Self .IsStaticOp )
   AND ( l_Implementor .IsSingleton )
   >>> Result
  ; // IsSingletonExists
@@ -4346,11 +4507,6 @@ BOOLEAN elem_func IsConstructorsHolder
  >>> Result
 ; // IsConstructorsHolder
 
-BOOLEAN elem_func IsResultType
- Self .IsStereotype st_result_type::Attribute
- >>> Result
-; // IsResultType
-
 ModelElement elem_func MethodType
  Cached:
  (
@@ -4381,10 +4537,11 @@ ModelElement elem_func MethodType
         VAR l_Type
         Self .Attributes 
         .filter> .IsResultType
+        .map> .Target
         .FirstElement >>> l_Type
         RULES
          ( l_Type .IsNotNil )
-          ( l_Type .Target )
+          l_Type
          DEFAULT
           GarantModel::Integer
         ; // RULES  
@@ -5431,46 +5588,13 @@ elem_iterator ChildrenEx
    end // ( l_Children l_ClassName .HasModelElementWithName ! )
   end // ( Self .UPisTrue "needs script" )
   
-/*
-f _SpellScriptFramework
-	[{%S{needs script}=true}\
-	%S%f_add_class(%SU_ResNameGetter,SimpleClass,T%f_pas_FileName(%S)ResNameGetter,Class_Inst)\
-	%{Class_Inst}%f_set_documentation(Регистрация скриптованой аксиоматики)\
-	%{Class_Inst}%f_set_abstraction_type(final)\
-	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
-	[{"%{TtfwAxiomaticsResNameGetter}N"=""}%f_find_element(TtfwAxiomaticsResNameGetter,TtfwAxiomaticsResNameGetter)]\
-	%f_addG(%{Class_Inst},%{TtfwAxiomaticsResNameGetter})\
-	%{Class_Inst}%f_set_up(need UC,true)\
-
-	[{%S#f_UseNewGenRec()!=true}\
-	%{Class_Inst}%f_set_uc_content(intf.pas,impl,\
-	 \{$R %f_pas_FileName(%S).res}\
-	)\
-	]\
-
-	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Reg,ini,RegAxiom (),Reg_Instance)\
-	%{Reg_Instance}%f_set_documentation(Регистрация скриптованой аксиоматики)\
-	%{Reg_Instance}%f_set_abstraction_type(final)\
-	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
-
-	[{%S#f_UseNewGenRec()!=true}\
-	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
-	 %f_pas_TypeName(%{Class_Inst}).Register;\
-	)\
-
-	[{"%{TtfwAxiomaticsResNameGetter.ResName}N"=""}%f_find_element(55B7A3AF0359,TtfwAxiomaticsResNameGetter.ResName)]\
-
-	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_var,\
-	 {-}\
-	)\
-
-	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_impl,\
-	 Result := '%f_pas_FileName(%S)';\
-	)\
-	]\
-
-	]
-*/ 
+  .joinWithLambded> (
+  Self .Operations
+  .filter> .IsIterator
+  .filter> ( .IsServiceIterator ! )
+  .filter> ( .IsOverride ! )
+  .filter> ( l_Children SWAP .IteratorAction .Name .HasModelElementWithName ! )
+  ) ( .ToArray: .IteratorAction )
   
   array:Copy
  )
@@ -5929,9 +6053,102 @@ elem_iterator UsesInDependencies
  >>> Result
 ; // UsesInDependencies
 
+BOOLEAN elem_func IsFactoryInTie
+ ( Self .IsFactory )
+ AND ( Self .InTie )
+ >>> Result
+; // IsFactoryInTie
+
+INTERFACE elem_func InstanceFreeMethod
+ Cached:
+ (
+  VAR l_TypeName
+  Self .TypeName >>> l_TypeName
+  l_TypeName 'Free' Cat MakeProcedure: ( IN aMade
+   aMade -> %SUM := ( 'Метод освобождения экземпляра синглетона ' l_TypeName Cat )
+   aMade -> Visibility := PrivateAccess
+   aMade -> "ifdef" := ( Self .IfDefStr )
+   aMade -> "ifndef" := ( Self .IfNDefStr )
+   aMade ->^ cVarUserCodeName ^:= cEmptyUserCode
+   aMade ->^ cImplementationUserCodeName ^:= [ 
+    if ( Self .HasFactory ) then
+    begin
+     ' IUnknown(' 'g_' l_TypeName ') := nil;' 
+    end
+    else
+    begin
+     ' l3Free(' 'g_' l_TypeName ');' 
+    end // ( Self .HasFactory )
+   ]
+  ) 
+ )
+ >>> Result
+; // InstanceFreeMethod
+
+elem_iterator GlobalOperationsPrim
+ Cached:
+ (
+  RULES
+   ( Self .IsInterface )
+    ( 
+     Self .Operations 
+     .filter> .IsStaticMethod
+     .filter> ( .IsFactoryInTie ! )
+    ) 
+   ( Self .IsRecord )
+    ( 
+     Self .Operations 
+     .filter> .IsConstructor
+    ) 
+   ( Self .IsUtilityPack )
+    ( Self .Operations )
+   ( Self .IsClassOrMixIn ) 
+    (
+     if ( Self .IsSingleton ) then
+     begin
+      [ Self .InstanceFreeMethod ]
+     end // ( Self .IsSingleton )
+     else
+      [empty]
+    )
+   DEFAULT
+    [empty]
+  ; // RULES
+  
+  VAR l_Operations
+  array:Copy >>> l_Operations
+  l_Operations
+  
+  .joinWithLambded> (
+  Self .Operations
+  .filter> .IsIterator
+  .filter> ( .IsServiceIterator ! )
+  .filter> ( .IsOverride ! )
+  .filter> ( l_Operations SWAP .LocalStub .Name .HasModelElementWithName ! )
+  ) ( .ToArray: .LocalStub )
+ )
+ >>> Result
+; // GlobalOperationsPrim
+
+elem_iterator GlobalOperations
+ Self .GlobalOperationsPrim
+ .filter> ( .IsIni ! )
+ .filter> ( .IsFini ! )
+ .filter> ( .IsKeyWord ! )
+ .filter> ( .IsGlobalKeyWord ! )
+ >>> Result
+; // GlobalOperations
+
 elem_iterator OperationsUsed
  [empty]
  .joinWithLambded> ( Self .Operations ) .UsesInDependencies
+ 
+ .joinWithLambded> (
+  Self .GlobalOperations
+  .filter> .IsStaticOp
+  .filter> ( .UPisTrue 'extprop:isAsm' )
+ ) ( DROP ToArray: GarantModel::l3LocalStub )
+ 
  .joinWithLambded> ( Self .Operations ) call.me
  >>> Result
 ; // OperationsUsed
@@ -6093,6 +6310,7 @@ elem_iterator Used
   begin
    .join> ToArray: GarantModel::TestFrameWork 
   end // ( Self .IsTestCase )  
+  
  )
  >>> Result
 ; // Used
@@ -6253,12 +6471,12 @@ elem_iterator ImplUses
   RULES
    ( Self .IsTestTarget )
     begin
-     .join> ToArray: GarantModel::SysUtils 
-     .join> ToArray: GarantModel::l3Base 
-     .join> ToArray: GarantModel::TKBridge 
-     .join> ToArray: GarantModel::KTestRunner 
-     .join> ToArray: GarantModel::TextTestRunner 
-     .join> ToArray: GarantModel::GUITestRunner 
+     .join> ToArray: GarantModel::SysUtils
+     .join> ToArray: GarantModel::l3Base
+     .join> ToArray: GarantModel::TKBridge
+     .join> ToArray: GarantModel::KTestRunner
+     .join> ToArray: GarantModel::TextTestRunner
+     .join> ToArray: GarantModel::GUITestRunner
      if ( Self .UPisTrue "no scripts" ! ) then
      begin
       .join> ToArray: GarantModel::TvcmInsiderTest 
@@ -6622,6 +6840,8 @@ OUTABLE elem_func MethodKeyword
      [
      RULES
       ( Self .ParentIsInterface )
+       ()
+      ( Self .UPisTrue 'extprop:isGlobal' )
        ()
       ( Self .IsStaticMethod )
        'class '
@@ -7194,19 +7414,19 @@ elem_proc MethodInterfaceEx
    (
     NormalCall
     if ( 'F' Self .Name EndsStr ! )
-     if ( Self .MainAncestor .IsNil ) then
+     if ( Self .IsOverride ! ) then
      begin
       ( Self .AsIteratorFDo: ( aPrefix aOverload aOfObject aBody .MethodInterfacePrim ) )
-     end // ( Self .MainAncestor .IsNil )
+     end // ( Self .IsOverride ! )
    ) // ( Self .IsIterator )
   ( Self .IsMethodAndImplementsIterator )
    (
     NormalCall
     if ( 'F' Self .Name EndsStr ! )
-     //if ( Self .MainAncestor .IsNil ) then
+     //if ( Self .IsOverride ! ) then
      begin
       ( Self .AsIteratorFDo: ( aPrefix aOverload aOfObject aBody .MethodInterfacePrim ) )
-     end // ( Self .MainAncestor .IsNil )
+     end // ( Self .IsOverride ! )
    ) // ( Self .IsIterator )
   DEFAULT
    NormalCall 
@@ -7283,32 +7503,6 @@ elem_iterator InterfaceProperties
  ) 
  >>> Result
 ; // InterfaceProperties
-
-INTERFACE elem_func InstanceFreeMethod
- Cached:
- (
-  VAR l_TypeName
-  Self .TypeName >>> l_TypeName
-  l_TypeName 'Free' Cat MakeProcedure: ( IN aMade
-   aMade -> %SUM := ( 'Метод освобождения экземпляра синглетона ' l_TypeName Cat )
-   aMade -> Visibility := PrivateAccess
-   aMade -> "ifdef" := ( Self .IfDefStr )
-   aMade -> "ifndef" := ( Self .IfNDefStr )
-   aMade ->^ cVarUserCodeName ^:= cEmptyUserCode
-   aMade ->^ cImplementationUserCodeName ^:= [ 
-    if ( Self .HasFactory ) then
-    begin
-     ' IUnknown(' 'g_' l_TypeName ') := nil;' 
-    end
-    else
-    begin
-     ' l3Free(' 'g_' l_TypeName ');' 
-    end // ( Self .HasFactory )
-   ]
-  ) 
- )
- >>> Result
-; // InstanceFreeMethod
 
 INTERFACE elem_func InstanceMethod
  Cached:
@@ -7412,10 +7606,6 @@ BOOLEAN elem_func NeedsFakeMethod
  )
  >>> Result
 ; // NeedsFakeMethod
-
-BOOLEAN elem_func IsServiceIterator
- Self .IsStereotype st_serviceiterator >>> Result
-; // IsServiceIterator
 
 BOOLEAN elem_func IsSettingsHolder
  Self .IsStereotype st_SettingsHolder
@@ -9263,54 +9453,6 @@ elem_proc OutDefinitionsSection:
 
 ; // OutDefinitionsSection:
 
-BOOLEAN elem_func IsFactoryInTie
- ( Self .IsFactory )
- AND ( Self .InTie )
- >>> Result
-; // IsFactoryInTie
-
-elem_iterator GlobalOperationsPrim
- Cached:
- (
-  RULES
-   ( Self .IsInterface )
-    ( 
-     Self .Operations 
-     .filter> .IsStaticMethod
-     .filter> ( .IsFactoryInTie ! )
-    ) 
-   ( Self .IsRecord )
-    ( 
-     Self .Operations 
-     .filter> .IsConstructor
-    ) 
-   ( Self .IsUtilityPack )
-    ( Self .Operations )
-   ( Self .IsClassOrMixIn ) 
-    (
-     if ( Self .IsSingleton ) then
-     begin
-      [ Self .InstanceFreeMethod ]
-     end // ( Self .IsSingleton )
-     else
-      [empty]
-    )
-   DEFAULT
-    [empty]
-  ; // RULES
- )
- >>> Result
-; // GlobalOperationsPrim
-
-elem_iterator GlobalOperations
- Self .GlobalOperationsPrim
- .filter> ( .IsIni ! )
- .filter> ( .IsFini ! )
- .filter> ( .IsKeyWord ! )
- .filter> ( .IsGlobalKeyWord ! )
- >>> Result
-; // GlobalOperations
-
 elem_iterator GlobalOperationsForOverload
  RULES
   ( ( Self .IsStaticObject ) AND ( Self .IsConstructorsHolder ) )
@@ -9477,7 +9619,7 @@ elem_proc MethodBody
        'F'
        
       '('
-      l_Target .Stub .MethodName
+      l_Target .IteratorStub .MethodName
       '('
       '@'
       

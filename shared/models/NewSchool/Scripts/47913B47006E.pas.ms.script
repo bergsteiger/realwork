@@ -18619,130 +18619,6 @@ FORWARD ME_5346BD53015A
 
 FORWARD ME_4A422BA20187
 
-FORWARD ME_AEC167467465
-
-: ME_01006A5C51A4
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_532031160122 // Tl3Variant
- ;
-
-ref; // ME_01006A5C51A4 anItem
-
-: ME_01006A5C51A5
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_01006A5C51A5 anIndex
-
-: ME_7252EE8BE2C8
- CONST UID '7252EE8BE2C8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Mk2Children.IterateChildrenF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_AEC167467465 // Mk2Children_IterateChildrenF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_01006A5C51A4 // anItem
- ME_01006A5C51A5 // anIndex
- )
- ; // Parameters
-
-ref; // ME_7252EE8BE2C8 DoIt
-
-: ME_AEC167467465
- CONST UID 'AEC167467465'
- CONST Name 'Mk2Children_IterateChildrenF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Mk2Children.IterateChildrenF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A422BA20187 // Mk2Children
- ;
- : Operations
-   Seq: ( ME_7252EE8BE2C8 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_AEC167467465 Mk2Children_IterateChildrenF_Action
-
-FORWARD ME_2A115C68C983
-
-: ME_7338C454DDFA
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_532031160122 // Tl3Variant
- ;
-
-ref; // ME_7338C454DDFA anItem
-
-: ME_7338C454DDFB
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_7338C454DDFB anIndex
-
-: ME_AC669F562A6A
- CONST UID 'AC669F562A6A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Mk2Children.IterateChildrenBack' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_2A115C68C983 // Mk2Children_IterateChildrenBack_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_7338C454DDFA // anItem
- ME_7338C454DDFB // anIndex
- )
- ; // Parameters
-
-ref; // ME_AC669F562A6A DoIt
-
-: ME_2A115C68C983
- CONST UID '2A115C68C983'
- CONST Name 'Mk2Children_IterateChildrenBack_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Mk2Children.IterateChildrenBack' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A422BA20187 // Mk2Children
- ;
- : Operations
-   Seq: ( ME_AC669F562A6A // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_2A115C68C983 Mk2Children_IterateChildrenBack_Action
-
 : ME_4A42356B0022
  CONST UID '4A42356B0022'
  CONST Name 'ChildrenCount'
@@ -18812,8 +18688,6 @@ ref; // ME_47613B8303CC Child
  CONST "pm" false
 
 ref; // ME_4A6039AA0172 ChildrenCapacity
-
-FORWARD ME_636A51AE3431
 
 FORWARD ME_4BB21F9D022F
 
@@ -18888,17 +18762,6 @@ ref; // ME_4BB2201C03E0 aLoadedOnly
 
 ref; // ME_533C278A0126 
 
-: ME_A79858FD4059
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BB21F9D022F // IterateChildrenF
- ;
- : Target ME_4BA7BE3B0114 // l3LocalStub
- ;
-
-ref; // ME_A79858FD4059 
-
 : ME_4BB21F9D022F
  CONST UID '4BB21F9D022F'
  CONST Name 'IterateChildrenF'
@@ -18916,21 +18779,10 @@ ref; // ME_A79858FD4059
  ME_533C278A0126 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_A79858FD4059 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" true
- CONST extprop:pas:TypeName 'Mk2Children_IterateChildrenF_Action'
- : Action ME_AEC167467465 // Mk2Children_IterateChildrenF_Action
- ;
- : Stub ME_636A51AE3431 // L2_Mk2Children_IterateChildrenF_Action
- ;
 
 ref; // ME_4BB21F9D022F IterateChildrenF
-
-FORWARD ME_F4101475F5EA
 
 FORWARD ME_4BBF49EB0260
 
@@ -19005,17 +18857,6 @@ ref; // ME_4BBF4A2D00B9 aLoadedOnly
 
 ref; // ME_533C279900B6 
 
-: ME_1B01785FE946
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BBF49EB0260 // IterateChildrenBack
- ;
- : Target ME_4BA7BE3B0114 // l3LocalStub
- ;
-
-ref; // ME_1B01785FE946 
-
 : ME_4BBF49EB0260
  CONST UID '4BBF49EB0260'
  CONST Name 'IterateChildrenBack'
@@ -19033,17 +18874,8 @@ ref; // ME_1B01785FE946
  ME_533C279900B6 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_1B01785FE946 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" true
- CONST extprop:pas:TypeName 'Mk2Children_IterateChildrenBack_Action'
- : Action ME_2A115C68C983 // Mk2Children_IterateChildrenBack_Action
- ;
- : Stub ME_F4101475F5EA // L2_Mk2Children_IterateChildrenBack_Action
- ;
 
 ref; // ME_4BBF49EB0260 IterateChildrenBack
 
@@ -19216,72 +19048,6 @@ ref; // ME_4A423F0B028E anOp
 
 ref; // ME_4A423F0002E2 DeleteChild
 
-: ME_F6861F2BB452
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_F6861F2BB452 anAction
-
-: ME_636A51AE3431
- CONST UID '636A51AE3431'
- CONST Name 'L2_Mk2Children_IterateChildrenF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A422BA20187 // Mk2Children
- ;
- : Target ME_AEC167467465 // Mk2Children_IterateChildrenF_Action
- ;
- : Parameters
-   Seq: ( ME_F6861F2BB452 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_636A51AE3431 L2_Mk2Children_IterateChildrenF_Action
-
-: ME_9B0BEB22959B
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_9B0BEB22959B anAction
-
-: ME_F4101475F5EA
- CONST UID 'F4101475F5EA'
- CONST Name 'L2_Mk2Children_IterateChildrenBack_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenBack' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A422BA20187 // Mk2Children
- ;
- : Target ME_2A115C68C983 // Mk2Children_IterateChildrenBack_Action
- ;
- : Parameters
-   Seq: ( ME_9B0BEB22959B // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_F4101475F5EA L2_Mk2Children_IterateChildrenBack_Action
-
 : ME_4A422BA20187
  CONST UID '4A422BA20187'
  CONST Name 'Mk2Children'
@@ -19306,15 +19072,8 @@ ref; // ME_F4101475F5EA L2_Mk2Children_IterateChildrenBack_Action
  ME_4A423EC900C2 // DeleteChild
  ME_4A423ECE03A6 // DeleteChild
  ME_4A423F0002E2 // DeleteChild
- ME_636A51AE3431 // L2_Mk2Children_IterateChildrenF_Action
- ME_F4101475F5EA // L2_Mk2Children_IterateChildrenBack_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_AEC167467465 // Mk2Children_IterateChildrenF_Action
- ME_2A115C68C983 // Mk2Children_IterateChildrenBack_Action
- )
- ; // Children
  : Forwarded
    Seq: ( ME_5346BD53015A // Il3TagRef
  )
@@ -21235,68 +20994,6 @@ ref; // ME_5331A06F028A Tl3VariantDef
 
 FORWARD ME_533195590225
 
-FORWARD ME_43F74A063C92
-
-: ME_29B1CEB4A94E
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_532031160122 // Tl3Variant
- ;
-
-ref; // ME_29B1CEB4A94E anItem
-
-: ME_29B1CEB4A94F
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_5331A06F028A // Tl3VariantDef
- ;
-
-ref; // ME_29B1CEB4A94F anIndex
-
-: ME_91901A879346
- CONST UID '91901A879346'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для Ml3TagHolder.IterateProperties' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_43F74A063C92 // Ml3TagHolder_IterateProperties_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_29B1CEB4A94E // anItem
- ME_29B1CEB4A94F // anIndex
- )
- ; // Parameters
-
-ref; // ME_91901A879346 DoIt
-
-: ME_43F74A063C92
- CONST UID '43F74A063C92'
- CONST Name 'Ml3TagHolder_IterateProperties_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для Ml3TagHolder.IterateProperties' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_533195590225 // Ml3TagHolder
- ;
- : Operations
-   Seq: ( ME_91901A879346 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_43F74A063C92 Ml3TagHolder_IterateProperties_Action
-
 FORWARD ME_533195830003
 
 : ME_533195830005
@@ -21348,8 +21045,6 @@ ref; // ME_533195830006 aContext
 
 ref; // ME_533195830003 AttrW
 
-FORWARD ME_E04E7A6DC28E
-
 FORWARD ME_4BC31A730293
 
 : ME_4BC31AAD034E
@@ -21397,17 +21092,6 @@ ref; // ME_4BC31A9300B8
 
 ref; // ME_5332E63B005D 
 
-: ME_1239E2346D28
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BC31A730293 // IterateProperties
- ;
- : Target ME_4BA7BE3B0114 // l3LocalStub
- ;
-
-ref; // ME_1239E2346D28 
-
 : ME_4BC31A730293
  CONST UID '4BC31A730293'
  CONST Name 'IterateProperties'
@@ -21425,52 +21109,10 @@ ref; // ME_1239E2346D28
  ME_5332E63B005D // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_1239E2346D28 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" false
- CONST extprop:pas:TypeName 'Ml3TagHolder_IterateProperties_Action'
- : Action ME_43F74A063C92 // Ml3TagHolder_IterateProperties_Action
- ;
- : Stub ME_E04E7A6DC28E // L2_Ml3TagHolder_IterateProperties_Action
- ;
 
 ref; // ME_4BC31A730293 IterateProperties
-
-: ME_02D5A894388E
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_02D5A894388E anAction
-
-: ME_E04E7A6DC28E
- CONST UID 'E04E7A6DC28E'
- CONST Name 'L2_Ml3TagHolder_IterateProperties_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3TagHolder.IterateProperties' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_533195590225 // Ml3TagHolder
- ;
- : Target ME_43F74A063C92 // Ml3TagHolder_IterateProperties_Action
- ;
- : Parameters
-   Seq: ( ME_02D5A894388E // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_E04E7A6DC28E L2_Ml3TagHolder_IterateProperties_Action
 
 : ME_533195590225
  CONST UID '533195590225'
@@ -21488,13 +21130,8 @@ ref; // ME_E04E7A6DC28E L2_Ml3TagHolder_IterateProperties_Action
  ; // Attributes
  : Operations
    Seq: ( ME_4BC31A730293 // IterateProperties
- ME_E04E7A6DC28E // L2_Ml3TagHolder_IterateProperties_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_43F74A063C92 // Ml3TagHolder_IterateProperties_Action
- )
- ; // Children
 
 ref; // ME_533195590225 Ml3TagHolder
 

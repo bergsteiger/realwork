@@ -1212,11 +1212,13 @@ var
       l_SubHandle := l_Para.AsObject.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub),
        k2_tiChildren, k2_tiByIndex, 0]).IntA[k2_tiHandle];
       if (l_SubHandle <= 0) then
-       if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      begin
+       if evInBlock(l_Para.AsObject, ev_bvkRight, l_Block) then
        begin
         l_SubHandle := l_Block.IntA[k2_tiHandle];
         l_Block.BoolA[k2_tiCollapsed] := False;
        end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      end; // if (l_SubHandle <= 0) then
       if (l_SubHandle > 0) then
       begin
        l_Addr := TevAddress_C(-1, l_SubHandle);

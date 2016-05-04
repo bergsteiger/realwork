@@ -1696,6 +1696,7 @@ f _NeedFinalize
 // Реализация Spell'а для итератора
 %f _IteratorSpell
 //#UC START# *4BA884DD00A7for470F151302FD*
+	[{%S#f_UseNewGenRec()!=true}\
 	[{%SC!=Class|%Cx=true}\
 	[{%S#f_IsOverride()!=true}\
 //	- это чтобы C++ не сломать
@@ -1752,6 +1753,7 @@ f _NeedFinalize
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_impl,\
 	\tjmp l3LocalStub\
 	)\
+	]\
 
 	]\
 	]

@@ -4144,110 +4144,6 @@ ref; // ME_5559A50B0336 TvcmFormSetContainerMapItem
 
 FORWARD ME_55E04C2803D7
 
-FORWARD ME_4D1F9B9A2769
-
-: ME_A142CEFA969F
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
- ;
-
-ref; // ME_A142CEFA969F anItem
-
-: ME_6FE27CEEF269
- CONST UID '6FE27CEEF269'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для TvcmFormSetContainerMapIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4D1F9B9A2769 // TvcmFormSetContainerMapIterator_ForEachF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_A142CEFA969F // anItem
- )
- ; // Parameters
-
-ref; // ME_6FE27CEEF269 DoIt
-
-: ME_4D1F9B9A2769
- CONST UID '4D1F9B9A2769'
- CONST Name 'TvcmFormSetContainerMapIterator_ForEachF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для TvcmFormSetContainerMapIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
- ;
- : Operations
-   Seq: ( ME_6FE27CEEF269 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_4D1F9B9A2769 TvcmFormSetContainerMapIterator_ForEachF_Action
-
-FORWARD ME_826B7AF7B4F3
-
-: ME_BE1A82CEFAA0
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
- ;
-
-ref; // ME_BE1A82CEFAA0 anItem
-
-: ME_060A32835C70
- CONST UID '060A32835C70'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для TvcmFormSetContainerMapIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_826B7AF7B4F3 // TvcmFormSetContainerMapIterator_ForOneF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_BE1A82CEFAA0 // anItem
- )
- ; // Parameters
-
-ref; // ME_060A32835C70 DoIt
-
-: ME_826B7AF7B4F3
- CONST UID '826B7AF7B4F3'
- CONST Name 'TvcmFormSetContainerMapIterator_ForOneF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для TvcmFormSetContainerMapIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
- ;
- : Operations
-   Seq: ( ME_060A32835C70 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_826B7AF7B4F3 TvcmFormSetContainerMapIterator_ForOneF_Action
-
-FORWARD ME_BF8B26DE510C
-
 FORWARD ME_55E04C9E0301
 
 : ME_55E3F276015B
@@ -4279,17 +4175,6 @@ ref; // ME_55E3F276015B aContainer
 
 ref; // ME_55E04CBE0242 
 
-: ME_7F225DD5502B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E04C9E0301 // ForEachF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_7F225DD5502B 
-
 : ME_55E04C9E0301
  CONST UID '55E04C9E0301'
  CONST Name 'ForEachF'
@@ -4305,21 +4190,10 @@ ref; // ME_7F225DD5502B
  ME_55E04CBE0242 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_7F225DD5502B // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'TvcmFormSetContainerMapIterator_ForEachF_Action'
- : Action ME_4D1F9B9A2769 // TvcmFormSetContainerMapIterator_ForEachF_Action
- ;
- : Stub ME_BF8B26DE510C // L2_TvcmFormSetContainerMapIterator_ForEachF_Action
- ;
 
 ref; // ME_55E04C9E0301 ForEachF
-
-FORWARD ME_0FFAAF2A41F5
 
 FORWARD ME_55E04CAE01EA
 
@@ -4367,17 +4241,6 @@ ref; // ME_55E04CC90002
 
 ref; // ME_55E04CCF02E2 anIndex
 
-: ME_E6984D331EC4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E04CAE01EA // ForOneF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_E6984D331EC4 
-
 : ME_55E04CAE01EA
  CONST UID '55E04CAE01EA'
  CONST Name 'ForOneF'
@@ -4394,85 +4257,10 @@ ref; // ME_E6984D331EC4
  ME_55E04CCF02E2 // anIndex
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_E6984D331EC4 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'TvcmFormSetContainerMapIterator_ForOneF_Action'
- : Action ME_826B7AF7B4F3 // TvcmFormSetContainerMapIterator_ForOneF_Action
- ;
- : Stub ME_0FFAAF2A41F5 // L2_TvcmFormSetContainerMapIterator_ForOneF_Action
- ;
 
 ref; // ME_55E04CAE01EA ForOneF
-
-: ME_619BF6AD34A1
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_619BF6AD34A1 anAction
-
-: ME_BF8B26DE510C
- CONST UID 'BF8B26DE510C'
- CONST Name 'L2_TvcmFormSetContainerMapIterator_ForEachF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для TvcmFormSetContainerMapIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
- ;
- : Target ME_4D1F9B9A2769 // TvcmFormSetContainerMapIterator_ForEachF_Action
- ;
- : Parameters
-   Seq: ( ME_619BF6AD34A1 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_BF8B26DE510C L2_TvcmFormSetContainerMapIterator_ForEachF_Action
-
-: ME_DF88FEC10C0A
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_DF88FEC10C0A anAction
-
-: ME_0FFAAF2A41F5
- CONST UID '0FFAAF2A41F5'
- CONST Name 'L2_TvcmFormSetContainerMapIterator_ForOneF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для TvcmFormSetContainerMapIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55E04C2803D7 // TvcmFormSetContainerMapIterator
- ;
- : Target ME_826B7AF7B4F3 // TvcmFormSetContainerMapIterator_ForOneF_Action
- ;
- : Parameters
-   Seq: ( ME_DF88FEC10C0A // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_0FFAAF2A41F5 L2_TvcmFormSetContainerMapIterator_ForOneF_Action
 
 : ME_55E04C2803D7
  CONST UID '55E04C2803D7'
@@ -4487,15 +4275,8 @@ ref; // ME_0FFAAF2A41F5 L2_TvcmFormSetContainerMapIterator_ForOneF_Action
  : Operations
    Seq: ( ME_55E04C9E0301 // ForEachF
  ME_55E04CAE01EA // ForOneF
- ME_BF8B26DE510C // L2_TvcmFormSetContainerMapIterator_ForEachF_Action
- ME_0FFAAF2A41F5 // L2_TvcmFormSetContainerMapIterator_ForOneF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_4D1F9B9A2769 // TvcmFormSetContainerMapIterator_ForEachF_Action
- ME_826B7AF7B4F3 // TvcmFormSetContainerMapIterator_ForOneF_Action
- )
- ; // Children
 
 ref; // ME_55E04C2803D7 TvcmFormSetContainerMapIterator
 

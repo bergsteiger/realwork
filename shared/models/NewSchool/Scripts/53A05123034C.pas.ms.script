@@ -579,7 +579,7 @@ ref; // ME_065668AC89AF DoIt
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Подитеративная функция для вызова  из DoSave' ;
+ %SUMMARY 'Подитеративная функция для вызова ForEachF из DoSave' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Parent ME_53A04A0F017D // DoSave
@@ -903,7 +903,7 @@ ref; // ME_21A589E337F9 DoIt
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Подитеративная функция для вызова  из ActiveTaskCount' ;
+ %SUMMARY 'Подитеративная функция для вызова ForEachF из ActiveTaskCount' ;
  CONST Visibility ProtectedAccess
  CONST Abstraction at_final
  : Parent ME_53A049770398 // ActiveTaskCount
@@ -1057,7 +1057,7 @@ ref; // ME_D378C85C5A61 DoIt
  CONST Class class_Class
  : Stereotype st_localmethod ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Подитеративная функция для вызова  из FindTask' ;
+ %SUMMARY 'Подитеративная функция для вызова ForEachF из FindTask' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Parent ME_53A049B30045 // FindTask
@@ -1516,161 +1516,6 @@ ref; // ME_53A19980030C TalcuNotSortedTaskList
 
 FORWARD ME_53A051A703D1
 
-FORWARD ME_F73FEF69984E
-
-: ME_8676EECFC4D6
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
- ;
-
-ref; // ME_8676EECFC4D6 anItem
-
-: ME_B015213D6DDB
- CONST UID 'B015213D6DDB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для alcuTasksIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F73FEF69984E // alcuTasksIterator_ForEachF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_8676EECFC4D6 // anItem
- )
- ; // Parameters
-
-ref; // ME_B015213D6DDB DoIt
-
-: ME_F73FEF69984E
- CONST UID 'F73FEF69984E'
- CONST Name 'alcuTasksIterator_ForEachF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для alcuTasksIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53A04CD30052 // alcuTasksIterator
- ;
- : Operations
-   Seq: ( ME_B015213D6DDB // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_F73FEF69984E alcuTasksIterator_ForEachF_Action
-
-FORWARD ME_57BF98542D45
-
-: ME_F10F0FE6BF4E
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
- ;
-
-ref; // ME_F10F0FE6BF4E anItem
-
-: ME_95689D4B4894
- CONST UID '95689D4B4894'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для alcuTasksIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_57BF98542D45 // alcuTasksIterator_ForOneF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_F10F0FE6BF4E // anItem
- )
- ; // Parameters
-
-ref; // ME_95689D4B4894 DoIt
-
-: ME_57BF98542D45
- CONST UID '57BF98542D45'
- CONST Name 'alcuTasksIterator_ForOneF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для alcuTasksIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53A04CD30052 // alcuTasksIterator
- ;
- : Operations
-   Seq: ( ME_95689D4B4894 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_57BF98542D45 alcuTasksIterator_ForOneF_Action
-
-FORWARD ME_740BF1179927
-
-: ME_BEB8AB0E1A8B
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_52F8C2BF0110' '52F8C298005C.pas.ms.script' // TddProcessTask
- ;
-
-ref; // ME_BEB8AB0E1A8B anItem
-
-: ME_F68E7C68281C
- CONST UID 'F68E7C68281C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для alcuTasksIterator.ForOneByIDF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_740BF1179927 // alcuTasksIterator_ForOneByIDF_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_BEB8AB0E1A8B // anItem
- )
- ; // Parameters
-
-ref; // ME_F68E7C68281C DoIt
-
-: ME_740BF1179927
- CONST UID '740BF1179927'
- CONST Name 'alcuTasksIterator_ForOneByIDF_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для alcuTasksIterator.ForOneByIDF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53A04CD30052 // alcuTasksIterator
- ;
- : Operations
-   Seq: ( ME_F68E7C68281C // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_740BF1179927 alcuTasksIterator_ForOneByIDF_Action
-
-FORWARD ME_3B98ABC99B8E
-
 : ME_53A0466502D8
  CONST UID '53A0466502D8'
  CONST Class class_Attribute
@@ -1684,17 +1529,6 @@ FORWARD ME_3B98ABC99B8E
  ;
 
 ref; // ME_53A0466502D8 
-
-: ME_D5003A01944A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53A04652024A // ForEachF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_D5003A01944A 
 
 : ME_53A04652024A
  CONST UID '53A04652024A'
@@ -1710,21 +1544,10 @@ ref; // ME_D5003A01944A
    Seq: ( ME_53A0466502D8 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_D5003A01944A // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'alcuTasksIterator_ForEachF_Action'
- : Action ME_F73FEF69984E // alcuTasksIterator_ForEachF_Action
- ;
- : Stub ME_3B98ABC99B8E // L2_alcuTasksIterator_ForEachF_Action
- ;
 
 ref; // ME_53A04652024A ForEachF
-
-FORWARD ME_DB9D8FC14CA7
 
 FORWARD ME_53A199A802C9
 
@@ -1757,17 +1580,6 @@ ref; // ME_53A199C503CC anIndex
 
 ref; // ME_53A199BA0063 
 
-: ME_C06DA668AE96
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53A199A802C9 // ForOneF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_C06DA668AE96 
-
 : ME_53A199A802C9
  CONST UID '53A199A802C9'
  CONST Name 'ForOneF'
@@ -1783,21 +1595,10 @@ ref; // ME_C06DA668AE96
  ME_53A199BA0063 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_C06DA668AE96 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" false
- CONST extprop:pas:TypeName 'alcuTasksIterator_ForOneF_Action'
- : Action ME_57BF98542D45 // alcuTasksIterator_ForOneF_Action
- ;
- : Stub ME_DB9D8FC14CA7 // L2_alcuTasksIterator_ForOneF_Action
- ;
 
 ref; // ME_53A199A802C9 ForOneF
-
-FORWARD ME_4E54F59BCF11
 
 FORWARD ME_546B5A73038A
 
@@ -1844,17 +1645,6 @@ ref; // ME_546B5A8E0370
 
 ref; // ME_546C9BF3018B 
 
-: ME_81154B630AD4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_546B5A73038A // ForOneByIDF
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_81154B630AD4 
-
 : ME_546B5A73038A
  CONST UID '546B5A73038A'
  CONST Name 'ForOneByIDF'
@@ -1871,118 +1661,10 @@ ref; // ME_81154B630AD4
  ME_546C9BF3018B // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_81154B630AD4 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" false
  CONST "needs result" true
- CONST extprop:pas:TypeName 'alcuTasksIterator_ForOneByIDF_Action'
- : Action ME_740BF1179927 // alcuTasksIterator_ForOneByIDF_Action
- ;
- : Stub ME_4E54F59BCF11 // L2_alcuTasksIterator_ForOneByIDF_Action
- ;
 
 ref; // ME_546B5A73038A ForOneByIDF
-
-: ME_B011D7685BA5
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_B011D7685BA5 anAction
-
-: ME_3B98ABC99B8E
- CONST UID '3B98ABC99B8E'
- CONST Name 'L2_alcuTasksIterator_ForEachF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForEachF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53A04CD30052 // alcuTasksIterator
- ;
- : Target ME_F73FEF69984E // alcuTasksIterator_ForEachF_Action
- ;
- : Parameters
-   Seq: ( ME_B011D7685BA5 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_3B98ABC99B8E L2_alcuTasksIterator_ForEachF_Action
-
-: ME_9C8F667E1C5B
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_9C8F667E1C5B anAction
-
-: ME_DB9D8FC14CA7
- CONST UID 'DB9D8FC14CA7'
- CONST Name 'L2_alcuTasksIterator_ForOneF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForOneF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53A04CD30052 // alcuTasksIterator
- ;
- : Target ME_57BF98542D45 // alcuTasksIterator_ForOneF_Action
- ;
- : Parameters
-   Seq: ( ME_9C8F667E1C5B // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_DB9D8FC14CA7 L2_alcuTasksIterator_ForOneF_Action
-
-: ME_B0D2CEF7C16D
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_B0D2CEF7C16D anAction
-
-: ME_4E54F59BCF11
- CONST UID '4E54F59BCF11'
- CONST Name 'L2_alcuTasksIterator_ForOneByIDF_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForOneByIDF' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53A04CD30052 // alcuTasksIterator
- ;
- : Target ME_740BF1179927 // alcuTasksIterator_ForOneByIDF_Action
- ;
- : Parameters
-   Seq: ( ME_B0D2CEF7C16D // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_4E54F59BCF11 L2_alcuTasksIterator_ForOneByIDF_Action
 
 : ME_53A04CD30052
  CONST UID '53A04CD30052'
@@ -1998,17 +1680,8 @@ ref; // ME_4E54F59BCF11 L2_alcuTasksIterator_ForOneByIDF_Action
    Seq: ( ME_53A04652024A // ForEachF
  ME_53A199A802C9 // ForOneF
  ME_546B5A73038A // ForOneByIDF
- ME_3B98ABC99B8E // L2_alcuTasksIterator_ForEachF_Action
- ME_DB9D8FC14CA7 // L2_alcuTasksIterator_ForOneF_Action
- ME_4E54F59BCF11 // L2_alcuTasksIterator_ForOneByIDF_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_F73FEF69984E // alcuTasksIterator_ForEachF_Action
- ME_57BF98542D45 // alcuTasksIterator_ForOneF_Action
- ME_740BF1179927 // alcuTasksIterator_ForOneByIDF_Action
- )
- ; // Children
 
 ref; // ME_53A04CD30052 alcuTasksIterator
 

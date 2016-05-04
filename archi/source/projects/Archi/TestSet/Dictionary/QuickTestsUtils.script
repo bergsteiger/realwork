@@ -38,41 +38,6 @@ TevEditor TYPE Редактор
  'Enter' key
 ;
 
-PROCEDURE "Поиск гиперссылки" STRING IN aFindString
-	 'Ctrl+S' key
-	 TRY
-	  "Набить текст {(aFindString)}"
-	  "Обработать сообщения"
-	  "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
-	 FINALLY
-	  "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
-	 END 
-;
-
-// Поиск текста 'Ctrl+F'
-PROCEDURE "Поиск текста" STRING IN aFindString
-	 'Ctrl+F' key
-	 TRY
-	  "Набить текст {(aFindString)}"
-	  "Обработать сообщения"
-	  "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
-	 FINALLY
-	  "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
-	 END 
-;
-
-// Поиск текста 'Ctrl+T'
-PROCEDURE "Поиск текста 'Ctrl+T'" STRING IN aFindString
-	 'Ctrl+T' key
-	 TRY
-	  "Набить текст {(aFindString)}"
-	  "Обработать сообщения"
-	  "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
-	 FINALLY
-	  "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
-	 END 
-;
-
 PROCEDURE "Перерисовать и сравнить с эталоном в редакторе" OBJECT IN anEditor
 	anEditor pop:editor:RepaintAndCheckWithEtalon     
 ;
@@ -1586,5 +1551,10 @@ PROCEDURE "Поиск текста c учетом чекбокса" STRING IN aFindString IN aCheckBoxNam
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
 	 END
 ;
+
+PROCEDURE "Выбрать в выпадающем списке шаблон c значением индекса" INTEGER IN aValue
+	"Выбрать в выпадающем списке {('cbSavedTemplates')} {('TComboBox')} значение индекса  {(aValue)}"
+;
+
 
 

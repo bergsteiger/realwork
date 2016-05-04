@@ -4915,70 +4915,6 @@ ref; // ME_47C5B50E0118 InevLocation
 
 FORWARD ME_4BAA26B90171
 
-FORWARD ME_E01D642C6186
-
-: ME_9F1FCCF9480F
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_47C5B54401B2 // InevRange
- ;
-
-ref; // ME_9F1FCCF9480F anItem
-
-: ME_9F1FCCF94810
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_9F1FCCF94810 anIndex
-
-: ME_4AAE9977AA57
- CONST UID '4AAE9977AA57'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для InevRangePrim.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_E01D642C6186 // InevRangePrim_Iterate_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_9F1FCCF9480F // anItem
- ME_9F1FCCF94810 // anIndex
- )
- ; // Parameters
-
-ref; // ME_4AAE9977AA57 DoIt
-
-: ME_E01D642C6186
- CONST UID 'E01D642C6186'
- CONST Name 'InevRangePrim_Iterate_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для InevRangePrim.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BAA26B90171 // InevRangePrim
- ;
- : Operations
-   Seq: ( ME_4AAE9977AA57 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_E01D642C6186 InevRangePrim_Iterate_Action
-
-FORWARD ME_FDEA5EFCA48B
-
 FORWARD ME_4BA8DE8C03D8
 
 : ME_4BAA46C50167
@@ -5014,17 +4950,6 @@ ref; // ME_4BAA46C50167 aStart
 
 ref; // ME_4BAA309A006C 
 
-: ME_0A9CF9D25787
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BA8DE8C03D8 // Iterate
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_0A9CF9D25787 
-
 : ME_4BA8DE8C03D8
  CONST UID '4BA8DE8C03D8'
  CONST Name 'Iterate'
@@ -5041,52 +4966,10 @@ ref; // ME_0A9CF9D25787
  ME_4BAA309A006C // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_0A9CF9D25787 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" true
- CONST extprop:pas:TypeName 'InevRangePrim_Iterate_Action'
- : Action ME_E01D642C6186 // InevRangePrim_Iterate_Action
- ;
- : Stub ME_FDEA5EFCA48B // L2_InevRangePrim_Iterate_Action
- ;
 
 ref; // ME_4BA8DE8C03D8 Iterate
-
-: ME_9A673CBDB686
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_9A673CBDB686 anAction
-
-: ME_FDEA5EFCA48B
- CONST UID 'FDEA5EFCA48B'
- CONST Name 'L2_InevRangePrim_Iterate_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4BAA26B90171 // InevRangePrim
- ;
- : Target ME_E01D642C6186 // InevRangePrim_Iterate_Action
- ;
- : Parameters
-   Seq: ( ME_9A673CBDB686 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_FDEA5EFCA48B L2_InevRangePrim_Iterate_Action
 
 : ME_47C5B55D00B4_ME_4BAA26B90171
  : Original ME_47C5B55D00B4 // Range
@@ -5145,7 +5028,6 @@ ref; // ME_4A5C6DB4014D_ME_4BAA26B90171 AsPoint
  ; // Inherits
  : Operations
    Seq: ( ME_4BA8DE8C03D8 // Iterate
- ME_FDEA5EFCA48B // L2_InevRangePrim_Iterate_Action
  )
  ; // Operations
  : Implemented
@@ -5157,10 +5039,6 @@ ref; // ME_4A5C6DB4014D_ME_4BAA26B90171 AsPoint
  ME_4A5C6DB4014D_ME_4BAA26B90171 // AsPoint
  )
  ; // Implemented
- : Children
-   Seq: ( ME_E01D642C6186 // InevRangePrim_Iterate_Action
- )
- ; // Children
  CONST extprop:rc:SelfName 'RangePrim'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -22022,68 +21900,6 @@ ref; // ME_4BB08B8902F2_ME_47C5224F02E3 Count
 
 ref; // ME_47C5224F02E3 InevParas
 
-FORWARD ME_187BC567FD47
-
-: ME_83AC9A818A26
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_47C520D80305 // InevPara
- ;
-
-ref; // ME_83AC9A818A26 anItem
-
-: ME_83AC9A818A27
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_83AC9A818A27 anIndex
-
-: ME_DBF59573DBF5
- CONST UID 'DBF59573DBF5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для InevParaList.IteratePara' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_187BC567FD47 // InevParaList_IteratePara_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_83AC9A818A26 // anItem
- ME_83AC9A818A27 // anIndex
- )
- ; // Parameters
-
-ref; // ME_DBF59573DBF5 DoIt
-
-: ME_187BC567FD47
- CONST UID '187BC567FD47'
- CONST Name 'InevParaList_IteratePara_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для InevParaList.IteratePara' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_47C6A6570369 // InevParaList
- ;
- : Operations
-   Seq: ( ME_DBF59573DBF5 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_187BC567FD47 InevParaList_IteratePara_Action
-
 : ME_47C6AC870058
  CONST UID '47C6AC870058'
  CONST Name 'ParaCount'
@@ -22137,8 +21953,6 @@ ref; // ME_47C6ACAD0294 anIndex
  CONST "pm" true
 
 ref; // ME_47C6AC9F01DF Para
-
-FORWARD ME_47D591C48B89
 
 FORWARD ME_4BB0751F00A4
 
@@ -22213,17 +22027,6 @@ ref; // ME_4BB0755E0217 aLoadedOnly
 
 ref; // ME_4BB0752E01BD 
 
-: ME_17281E6F2899
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BB0751F00A4 // IteratePara
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_17281E6F2899 
-
 : ME_4BB0751F00A4
  CONST UID '4BB0751F00A4'
  CONST Name 'IteratePara'
@@ -22241,17 +22044,8 @@ ref; // ME_17281E6F2899
  ME_4BB0752E01BD // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_17281E6F2899 // l3LocalStub
- )
- ; // Dependencies
  CONST "needs index" true
  CONST "needs result" true
- CONST extprop:pas:TypeName 'InevParaList_IteratePara_Action'
- : Action ME_187BC567FD47 // InevParaList_IteratePara_Action
- ;
- : Stub ME_47D591C48B89 // L2_InevParaList_IteratePara_Action
- ;
 
 ref; // ME_4BB0751F00A4 IteratePara
 
@@ -22312,39 +22106,6 @@ ref; // ME_47C6AC130151 GetParas
  ;
 
 ref; // ME_47C6AC79001C Modify
-
-: ME_253E8D7C332B
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_253E8D7C332B anAction
-
-: ME_47D591C48B89
- CONST UID '47D591C48B89'
- CONST Name 'L2_InevParaList_IteratePara_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevParaList.IteratePara' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_47C6A6570369 // InevParaList
- ;
- : Target ME_187BC567FD47 // InevParaList_IteratePara_Action
- ;
- : Parameters
-   Seq: ( ME_253E8D7C332B // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_47D591C48B89 L2_InevParaList_IteratePara_Action
 
 : ME_47612ACF0081_ME_47C6A6570369
  : Original WL 'ME_47612ACF0081' '47913B47006E.pas.ms.script' // Box
@@ -22997,7 +22758,6 @@ ref; // ME_53B52B130172_ME_47C6A6570369 DateTimeW
    Seq: ( ME_4BB0751F00A4 // IteratePara
  ME_47C6AC130151 // GetParas
  ME_47C6AC79001C // Modify
- ME_47D591C48B89 // L2_InevParaList_IteratePara_Action
  )
  ; // Operations
  : Implemented
@@ -23105,7 +22865,6 @@ ref; // ME_53B52B130172_ME_47C6A6570369 DateTimeW
  ME_4F6AF396026A // TevInsertParaFlags
  ME_47C6AC60023C // InevParaListModify
  ME_47C5224F02E3 // InevParas
- ME_187BC567FD47 // InevParaList_IteratePara_Action
  )
  ; // Children
  CONST extprop:rc:SelfName 'ParaList'
@@ -23598,68 +23357,6 @@ ref; // ME_49E8A4810291 BasePrimitives
 
 FORWARD ME_47C6B7A6039D
 
-FORWARD ME_CB1C1CC6E0B2
-
-: ME_0EE61FEFE2B7
- CONST Name 'anItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_47C6B03200AF // IevSub
- ;
-
-ref; // ME_0EE61FEFE2B7 anItem
-
-: ME_0EE61FEFE2B8
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
-
-ref; // ME_0EE61FEFE2B8 anIndex
-
-: ME_0A52F3B91ED4
- CONST UID '0A52F3B91ED4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Тип подитеративной функции для InevSubList.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CB1C1CC6E0B2 // InevSubList_Iterate_Action
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- : Parameters
-   Seq: ( ME_0EE61FEFE2B7 // anItem
- ME_0EE61FEFE2B8 // anIndex
- )
- ; // Parameters
-
-ref; // ME_0A52F3B91ED4 DoIt
-
-: ME_CB1C1CC6E0B2
- CONST UID 'CB1C1CC6E0B2'
- CONST Name 'InevSubList_Iterate_Action'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Тип подитеративной функции для InevSubList.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_47C6A79702F3 // InevSubList
- ;
- : Operations
-   Seq: ( ME_0A52F3B91ED4 // DoIt
- )
- ; // Operations
- CONST "of object" false
-
-ref; // ME_CB1C1CC6E0B2 InevSubList_Iterate_Action
-
 FORWARD ME_47C6C87C0275
 
 : ME_47C6C89101F7
@@ -23892,8 +23589,6 @@ ref; // ME_47C6C9AB01CA aLayerID
 
 ref; // ME_47C6C98400A2 BlockEx
 
-FORWARD ME_125C9AF60DC1
-
 FORWARD ME_4BB07BFC00F8
 
 : ME_4BB07C14024D
@@ -23948,17 +23643,6 @@ ref; // ME_4BB07C2A0283 aMessage
 
 ref; // ME_4BB07C050274 
 
-: ME_95A859FE9602
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BB07BFC00F8 // Iterate
- ;
- : Target WL 'ME_4BA7BE3B0114' '47913B47006E.pas.ms.script' // l3LocalStub
- ;
-
-ref; // ME_95A859FE9602 
-
 : ME_4BB07BFC00F8
  CONST UID '4BB07BFC00F8'
  CONST Name 'Iterate'
@@ -23976,53 +23660,11 @@ ref; // ME_95A859FE9602
  ME_4BB07C050274 // 
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_95A859FE9602 // l3LocalStub
- )
- ; // Dependencies
  CONST "force usage" true
  CONST "needs index" true
  CONST "needs result" true
- CONST extprop:pas:TypeName 'InevSubList_Iterate_Action'
- : Action ME_CB1C1CC6E0B2 // InevSubList_Iterate_Action
- ;
- : Stub ME_125C9AF60DC1 // L2_InevSubList_Iterate_Action
- ;
 
 ref; // ME_4BB07BFC00F8 Iterate
-
-: ME_074BC09BC015
- CONST Name 'anAction'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_3ECB343C024C' '3DBFDB23006E.pas.ms.script' // pointer
- ;
-
-ref; // ME_074BC09BC015 anAction
-
-: ME_125C9AF60DC1
- CONST UID '125C9AF60DC1'
- CONST Name 'L2_InevSubList_Iterate_Action'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevSubList.Iterate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_47C6A79702F3 // InevSubList
- ;
- : Target ME_CB1C1CC6E0B2 // InevSubList_Iterate_Action
- ;
- : Parameters
-   Seq: ( ME_074BC09BC015 // anAction
- )
- ; // Parameters
- CONST extprop:isGlobal true
- CONST extprop:isAsm true
- CONST extprop:pas:Value 'nil'
-
-ref; // ME_125C9AF60DC1 L2_InevSubList_Iterate_Action
 
 : ME_47C6A79702F3
  CONST UID '47C6A79702F3'
@@ -24047,13 +23689,8 @@ ref; // ME_125C9AF60DC1 L2_InevSubList_Iterate_Action
  ; // Attributes
  : Operations
    Seq: ( ME_4BB07BFC00F8 // Iterate
- ME_125C9AF60DC1 // L2_InevSubList_Iterate_Action
  )
  ; // Operations
- : Children
-   Seq: ( ME_CB1C1CC6E0B2 // InevSubList_Iterate_Action
- )
- ; // Children
  : Forwarded
    Seq: ( ME_47C6B7A6039D // IevDocumentPart
  )
