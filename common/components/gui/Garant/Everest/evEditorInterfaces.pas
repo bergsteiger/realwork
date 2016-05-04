@@ -632,7 +632,7 @@ const
  edGridFrame = [Low(TedFramePartIndex) .. High(TedFramePartIndex)];
  edBoxFrame = [Low(TedNeighbourIndex) .. High(TedNeighbourIndex)];
 
-function L2IedRangeIterateLeafParagraphsAction(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
+function L2IedRangeIterateLeafParagraphsAction(anAction: Pointer): IedRange_IterateLeafParagraphs_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs }
 
 implementation
@@ -642,7 +642,7 @@ uses
  , l3Base
 ;
 
-function L2IedRangeIterateLeafParagraphsAction(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
+function L2IedRangeIterateLeafParagraphsAction(anAction: Pointer): IedRange_IterateLeafParagraphs_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs }
 asm
  jmp l3LocalStub

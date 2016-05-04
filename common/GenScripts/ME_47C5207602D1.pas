@@ -2489,11 +2489,11 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
 
 function TevPair_C(aStart: Integer;
  aFinish: Integer): TevPair;
-function L2InevRangePrimIterateAction(anAction: pointer): InevRangePrim_Iterate_Action;
+function L2InevRangePrimIterateAction(anAction: Pointer): InevRangePrim_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate }
-function L2InevParaListIterateParaAction(anAction: pointer): InevParaList_IteratePara_Action;
+function L2InevParaListIterateParaAction(anAction: Pointer): InevParaList_IteratePara_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevParaList.IteratePara }
-function L2InevSubListIterateAction(anAction: pointer): InevSubList_Iterate_Action;
+function L2InevSubListIterateAction(anAction: Pointer): InevSubList_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevSubList.Iterate }
 function TevContentsRec_C(aLevel6: Integer = MaxInt-1;
  aCompareContentsLevel: Integer = 0): TevContentsRec;
@@ -2518,19 +2518,19 @@ begin
 //#UC END# *49E60C23017A_47C68B3B022A_impl*
 end;//TevPair_C
 
-function L2InevRangePrimIterateAction(anAction: pointer): InevRangePrim_Iterate_Action;
+function L2InevRangePrimIterateAction(anAction: Pointer): InevRangePrim_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate }
 asm
  jmp l3LocalStub
 end;//L2InevRangePrimIterateAction
 
-function L2InevParaListIterateParaAction(anAction: pointer): InevParaList_IteratePara_Action;
+function L2InevParaListIterateParaAction(anAction: Pointer): InevParaList_IteratePara_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevParaList.IteratePara }
 asm
  jmp l3LocalStub
 end;//L2InevParaListIterateParaAction
 
-function L2InevSubListIterateAction(anAction: pointer): InevSubList_Iterate_Action;
+function L2InevSubListIterateAction(anAction: Pointer): InevSubList_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevSubList.Iterate }
 asm
  jmp l3LocalStub

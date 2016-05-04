@@ -776,7 +776,7 @@ type
   function DoReqF(anAction: IevReqIterator_DoReq_Action): Integer;
  end;//IevReqIterator
 
-function L2IevReqIteratorDoReqAction(anAction: pointer): IevReqIterator_DoReq_Action;
+function L2IevReqIteratorDoReqAction(anAction: Pointer): IevReqIterator_DoReq_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IevReqIterator.DoReq }
 
 implementation
@@ -786,7 +786,7 @@ uses
  , l3Base
 ;
 
-function L2IevReqIteratorDoReqAction(anAction: pointer): IevReqIterator_DoReq_Action;
+function L2IevReqIteratorDoReqAction(anAction: Pointer): IevReqIterator_DoReq_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IevReqIterator.DoReq }
 asm
  jmp l3LocalStub
