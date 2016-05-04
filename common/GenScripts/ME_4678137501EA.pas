@@ -167,7 +167,7 @@ type
 
  Tl3Variant = l3Variant.Tl3Variant;
 
-function L2Mk2InterfaceFactoryIterateCursorsAction(anAction: pointer): Mk2InterfaceFactory_IterateCursors_Action;
+function L2Mk2InterfaceFactoryIterateCursorsAction(anAction: Pointer): Mk2InterfaceFactory_IterateCursors_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2InterfaceFactory.IterateCursors }
 
 implementation
@@ -177,7 +177,7 @@ uses
  , l3Base
 ;
 
-function L2Mk2InterfaceFactoryIterateCursorsAction(anAction: pointer): Mk2InterfaceFactory_IterateCursors_Action;
+function L2Mk2InterfaceFactoryIterateCursorsAction(anAction: Pointer): Mk2InterfaceFactory_IterateCursors_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2InterfaceFactory.IterateCursors }
 asm
  jmp l3LocalStub

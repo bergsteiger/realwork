@@ -349,17 +349,14 @@ var
    lntDocActive,
    lntDocPreActive,
    lntDocAbolished,
-   lntRedaction,
-   lntAAC:
-    begin
-     l_Level := aNode.GetLevelFor(pm_GetSimpleTree.RootNode);
-     if (not aOnlyFirstLevel or (l_Level = 1)) and Supports(aNode, INodeBase, l_Node) then
-      l_Node.SetFlag(cExportFlag, True);
-     if l_Level > 1 then
-      MarkNodeForExport(FindParentDocNode(aNode), aOnlyFirstLevel);
-    end;
-   else
-    Assert(False);
+   lntRedaction:
+   begin
+    l_Level := aNode.GetLevelFor(pm_GetSimpleTree.RootNode);
+    if (not aOnlyFirstLevel or (l_Level = 1)) and Supports(aNode, INodeBase, l_Node) then
+     l_Node.SetFlag(cExportFlag, True);
+    if l_Level > 1 then
+     MarkNodeForExport(FindParentDocNode(aNode), aOnlyFirstLevel);
+   end;
   end;//case ListNodeType(aNode) of
  end;//if Assigned(aNode) then
 //#UC END# *47F9BFED004F_47E9EDC602B2_impl*

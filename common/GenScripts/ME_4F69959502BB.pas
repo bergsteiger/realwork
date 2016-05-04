@@ -70,7 +70,7 @@ var l_Value: Boolean;
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
-   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
+   {* Подитеративная функция для вызова DoReq из CallIterator }
   //#UC START# *07D78AC0F47E__var*
   //#UC END# *07D78AC0F47E__var*
   begin

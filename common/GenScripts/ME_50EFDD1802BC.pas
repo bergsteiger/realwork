@@ -58,7 +58,7 @@ var l_LogicOp: Integer;
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
-   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
+   {* Подитеративная функция для вызова DoReq из CallIterator }
   //#UC START# *2B70B2B2422D__var*
   var
    l_F : IevEditorControlField;
