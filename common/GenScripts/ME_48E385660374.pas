@@ -202,11 +202,11 @@ var l_OpPack: InevOp;
 
   function BlockAction(const anItem: InevRange;
    anIndex: Integer): Boolean;
-   {* Подитеративная функция для вызова L2InevRangePrimIterateAction из IterateRange }
+   {* Подитеративная функция для вызова Iterate из IterateRange }
 
    function DoIt(const anItem: InevRange;
     anIndex: Integer): Boolean;
-    {* Подитеративная функция для вызова L2InevRangePrimIterateAction из BlockAction }
+    {* Подитеративная функция для вызова Iterate из BlockAction }
    //#UC START# *1B9BCE274A0B__var*
    //#UC END# *1B9BCE274A0B__var*
    begin

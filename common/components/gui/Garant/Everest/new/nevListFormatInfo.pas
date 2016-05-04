@@ -106,7 +106,7 @@ var l_Vert: Boolean;
 
   function DoIt(const anItem: InevPara;
    anIndex: Integer): Boolean;
-   {* Подитеративная функция для вызова L2InevParaListIterateParaAction из RecalcVert }
+   {* Подитеративная функция для вызова IteratePara из RecalcVert }
   //#UC START# *9598BBF73723__var*
   var
    PW    : Integer;
@@ -143,7 +143,7 @@ var l_Vert: Boolean;
 
   function DoIt(const anItem: InevPara;
    anIndex: Integer): Boolean;
-   {* Подитеративная функция для вызова L2InevParaListIterateParaAction из RecalcHorz }
+   {* Подитеративная функция для вызова IteratePara из RecalcHorz }
   //#UC START# *998D2E0A65D4__var*
   //#UC END# *998D2E0A65D4__var*
   begin

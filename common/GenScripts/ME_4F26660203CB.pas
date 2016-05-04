@@ -35,12 +35,12 @@ procedure TevCustomTextFormatterModelPart.ValidateStyles(aPara: Tl3Variant);
 
  function DoIt(anItem: Tl3Variant;
   anIndex: Integer): Boolean;
-  {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из ValidateStyles }
+  {* Подитеративная функция для вызова IterateChildrenF из ValidateStyles }
  var l_Layer: Tl3Variant;
 
   function DoIt(anItem: Tl3Variant;
    anIndex: Integer): Boolean;
-   {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из DoIt }
+   {* Подитеративная функция для вызова IterateChildrenF из DoIt }
   //#UC START# *87A18881C23B__var*
   //#UC END# *87A18881C23B__var*
   begin
