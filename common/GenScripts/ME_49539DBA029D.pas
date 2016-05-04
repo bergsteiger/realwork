@@ -2230,7 +2230,7 @@ var l_PositionList: IPositionList absolute Result;
 
   function DoIt(const anItem: InevRange;
    anIndex: Integer): Boolean;
-   {* Подитеративная функция для вызова L2InevRangePrimIterateAction из CollectParas }
+   {* Подитеративная функция для вызова Iterate из CollectParas }
 
    function CorrectPara(const aPara: InevObject): Boolean;
    //#UC START# *4F981D29027B__var*

@@ -348,7 +348,7 @@ procedure TExTextOptionsForm.SetReminderOpParams(const aParams: IvcmTestParamsPr
 
    function DoIt(anItem: Tl3Variant;
     anIndex: Integer): Boolean;
-    {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из MergeText }
+    {* Подитеративная функция для вызова IterateChildrenF из MergeText }
    //#UC START# *66C7C35BA1A6__var*
    //#UC END# *66C7C35BA1A6__var*
    begin
