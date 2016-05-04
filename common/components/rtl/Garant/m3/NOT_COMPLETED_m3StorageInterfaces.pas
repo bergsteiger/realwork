@@ -198,9 +198,9 @@ function Tm3StoreInfo_C(aPosition: Int64;
  aType: Tm3StoreType): Tm3StoreInfo;
 function Tm3StorageElementInfo_C(const anInfo: Tm3StoreInfo;
  const aName: Tl3WString): Tm3StorageElementInfo;
-function L2Mm3StorageIteratorsIterateIndexedFAction(anAction: pointer): Mm3StorageIterators_IterateIndexedF_Action;
+function L2Mm3StorageIteratorsIterateIndexedFAction(anAction: Pointer): Mm3StorageIterators_IterateIndexedF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateIndexedF }
-function L2Mm3StorageIteratorsIterateAllFAction(anAction: pointer): Mm3StorageIterators_IterateAllF_Action;
+function L2Mm3StorageIteratorsIterateAllFAction(anAction: Pointer): Mm3StorageIterators_IterateAllF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateAllF }
 function Tm3Store_C(const aStream: IStream): Tm3Store; overload;
 function Tm3Store_C(const aStorage: Im3IndexedStorage): Tm3Store; overload;
@@ -241,13 +241,13 @@ begin
 //#UC END# *5451F57B0181_5451F4E50226_impl*
 end;//Tm3StorageElementInfo_C
 
-function L2Mm3StorageIteratorsIterateIndexedFAction(anAction: pointer): Mm3StorageIterators_IterateIndexedF_Action;
+function L2Mm3StorageIteratorsIterateIndexedFAction(anAction: Pointer): Mm3StorageIterators_IterateIndexedF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateIndexedF }
 asm
  jmp l3LocalStub
 end;//L2Mm3StorageIteratorsIterateIndexedFAction
 
-function L2Mm3StorageIteratorsIterateAllFAction(anAction: pointer): Mm3StorageIterators_IterateAllF_Action;
+function L2Mm3StorageIteratorsIterateAllFAction(anAction: Pointer): Mm3StorageIterators_IterateAllF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mm3StorageIterators.IterateAllF }
 asm
  jmp l3LocalStub
