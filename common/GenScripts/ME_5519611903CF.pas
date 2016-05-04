@@ -53,7 +53,7 @@ type
     {* Внешняя реализация сервиса IIterateableService }
  end;//TIterateableService
 
-function L2MIterateableServiceIterateFAction(anAction: pointer): MIterateableService_IterateF_Action;
+function L2MIterateableServiceIterateFAction(anAction: Pointer): MIterateableService_IterateF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для MIterateableService.IterateF }
 
 implementation
@@ -67,7 +67,7 @@ uses
 var g_TIterateableService: TIterateableService = nil;
  {* Экземпляр синглетона TIterateableService }
 
-function L2MIterateableServiceIterateFAction(anAction: pointer): MIterateableService_IterateF_Action;
+function L2MIterateableServiceIterateFAction(anAction: Pointer): MIterateableService_IterateF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для MIterateableService.IterateF }
 asm
  jmp l3LocalStub
