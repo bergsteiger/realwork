@@ -35,6 +35,7 @@ type
     var aImportPriority: TdaPriority;
     var aExportPriority: TdaPriority): Boolean;
    procedure ReSortUserList;
+   function Get_ArchiUsersCount: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -42,6 +43,7 @@ type
     const aPGManager: IdaUserManager); reintroduce;
    class function Make(const aHTManager: IdaUserManager;
     const aPGManager: IdaUserManager): IdaUserManager; reintroduce;
+   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
  end;//TcaUserManager
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
@@ -51,6 +53,7 @@ implementation
 uses
  l3ImplUses
  , l3ListUtils
+ , l3Base
 ;
 
 constructor TcaUserManager.Create(const aHTManager: IdaUserManager;
@@ -152,6 +155,25 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5721F5E60367_56C428E4014A_impl*
 end;//TcaUserManager.ReSortUserList
+
+function TcaUserManager.Get_ArchiUsersCount: Integer;
+//#UC START# *5729C59E00D5_56C428E4014Aget_var*
+//#UC END# *5729C59E00D5_56C428E4014Aget_var*
+begin
+//#UC START# *5729C59E00D5_56C428E4014Aget_impl*
+ Result := f_HTManager.ArchiUsersCount;
+ Assert(Result = f_PGManager.ArchiUsersCount);
+//#UC END# *5729C59E00D5_56C428E4014Aget_impl*
+end;//TcaUserManager.Get_ArchiUsersCount
+
+procedure TcaUserManager.IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+//#UC START# *5729DD530330_56C428E4014A_var*
+//#UC END# *5729DD530330_56C428E4014A_var*
+begin
+//#UC START# *5729DD530330_56C428E4014A_impl*
+ f_HTManager.ForEachF(anAction);
+//#UC END# *5729DD530330_56C428E4014A_impl*
+end;//TcaUserManager.IterateArchiUsersF
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

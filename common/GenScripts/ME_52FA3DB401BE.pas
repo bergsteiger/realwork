@@ -228,7 +228,7 @@ var l_Writer: TevdNativeWriter;
  procedure DoSave;
 
   function DoIt(anItem: TddProcessTask): Boolean;
-   {* Подитеративная функция для вызова  из DoSave }
+   {* Подитеративная функция для вызова ForEachF из DoSave }
   //#UC START# *FD19BDB28F10__var*
   //#UC END# *FD19BDB28F10__var*
   begin
@@ -331,7 +331,7 @@ function TalcuTaskList.ActiveTaskCount(EnabledTypes: TcsTaskTypes): Integer;
 var l_Result: Integer absolute Result;
 
  function DoIt(anItem: TddProcessTask): Boolean;
-  {* Подитеративная функция для вызова  из ActiveTaskCount }
+  {* Подитеративная функция для вызова ForEachF из ActiveTaskCount }
  //#UC START# *53A057D502C1__var*
  //#UC END# *53A057D502C1__var*
  begin
@@ -356,7 +356,7 @@ end;//TalcuTaskList.ActiveTaskCount
 function TalcuTaskList.FindTask(aTaskType: TcsTaskType): TddProcessTask;
 
  function DoIt(anItem: TddProcessTask): Boolean;
-  {* Подитеративная функция для вызова  из FindTask }
+  {* Подитеративная функция для вызова ForEachF из FindTask }
  //#UC START# *590637D17394__var*
  //#UC END# *590637D17394__var*
  begin

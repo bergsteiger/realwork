@@ -48,7 +48,7 @@ end;//TServiceTest.DoIt
 procedure TServiceTest.DoIter;
 
  function DoIt(anItem: TComponent): Boolean;
-  {* Подитеративная функция для вызова L2MIterateableServiceIterateFAction из DoIter }
+  {* Подитеративная функция для вызова Iterate из DoIter }
  //#UC START# *6211A607D3EF__var*
  //#UC END# *6211A607D3EF__var*
  begin

@@ -49,11 +49,13 @@ type
     var aImportPriority: TdaPriority;
     var aExportPriority: TdaPriority): Boolean;
    procedure ReSortUserList;
+   function Get_ArchiUsersCount: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
    constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory): IdaUserManager; reintroduce;
+   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
  end;//TpgUserManager
 {$IfEnd} // Defined(UsePostgres)
 
@@ -346,6 +348,27 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5721F5E60367_5629FC88034B_impl*
 end;//TpgUserManager.ReSortUserList
+
+function TpgUserManager.Get_ArchiUsersCount: Integer;
+//#UC START# *5729C59E00D5_5629FC88034Bget_var*
+//#UC END# *5729C59E00D5_5629FC88034Bget_var*
+begin
+//#UC START# *5729C59E00D5_5629FC88034Bget_impl*
+ Result := 0;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *5729C59E00D5_5629FC88034Bget_impl*
+end;//TpgUserManager.Get_ArchiUsersCount
+
+procedure TpgUserManager.IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+//#UC START# *5729DD530330_5629FC88034B_var*
+//#UC END# *5729DD530330_5629FC88034B_var*
+begin
+//#UC START# *5729DD530330_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *5729DD530330_5629FC88034B_impl*
+end;//TpgUserManager.IterateArchiUsersF
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

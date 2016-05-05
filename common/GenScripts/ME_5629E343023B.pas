@@ -31,9 +31,11 @@ type
     var aImportPriority: TdaPriority;
     var aExportPriority: TdaPriority): Boolean;
    procedure ReSortUserList;
+   function Get_ArchiUsersCount: Integer;
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
+   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
  end;//ThtUserManager
 
 implementation
@@ -46,6 +48,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Serv
  {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
 ;
 
 constructor ThtUserManager.Create;
@@ -148,5 +151,29 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5721F5E60367_5629E343023B_impl*
 end;//ThtUserManager.ReSortUserList
+
+function ThtUserManager.Get_ArchiUsersCount: Integer;
+//#UC START# *5729C59E00D5_5629E343023Bget_var*
+//#UC END# *5729C59E00D5_5629E343023Bget_var*
+begin
+//#UC START# *5729C59E00D5_5629E343023Bget_impl*
+ Result := dt_User.UserManager.xxxGetArchiUsersCount;
+//#UC END# *5729C59E00D5_5629E343023Bget_impl*
+end;//ThtUserManager.Get_ArchiUsersCount
+
+procedure ThtUserManager.IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+//#UC START# *5729DD530330_5629E343023B_var*
+var
+ Hack : Pointer absolute anAction;
+//#UC END# *5729DD530330_5629E343023B_var*
+begin
+//#UC START# *5729DD530330_5629E343023B_impl*
+ try
+  dt_User.UserManager.xxxIterateArchiUsers(anAction);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *5729DD530330_5629E343023B_impl*
+end;//ThtUserManager.IterateArchiUsersF
 
 end.

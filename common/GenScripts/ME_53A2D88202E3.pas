@@ -50,7 +50,7 @@ type
     read pm_GetCount;
  end;//TcsMessageRecepientList
 
-function L2csMessageRecepientIteratorForEachFAction(anAction: pointer): csMessageRecepientIterator_ForEachF_Action;
+function L2csMessageRecepientIteratorForEachFAction(anAction: Pointer): csMessageRecepientIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для csMessageRecepientIterator.ForEachF }
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -63,7 +63,7 @@ uses
  , SysUtils
 ;
 
-function L2csMessageRecepientIteratorForEachFAction(anAction: pointer): csMessageRecepientIterator_ForEachF_Action;
+function L2csMessageRecepientIteratorForEachFAction(anAction: Pointer): csMessageRecepientIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для csMessageRecepientIterator.ForEachF }
 asm
  jmp l3LocalStub

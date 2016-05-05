@@ -280,7 +280,7 @@ procedure Tl3ComponentInfoHelper.FormatObjectInfo(anObject: TObject;
  out aResult: AnsiString);
 
  function DoIt(anItem: TComponent): Boolean;
-  {* Подитеративная функция для вызова L2Ml3IterateComponentParentsIterateFAction из FormatObjectInfo }
+  {* Подитеративная функция для вызова Iterate из FormatObjectInfo }
  //#UC START# *C7EBA2EF89A6__var*
  //#UC END# *C7EBA2EF89A6__var*
  begin

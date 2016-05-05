@@ -51,7 +51,7 @@ type
     read pm_GetCount;
  end;//TddClientMessageSortableList
 
-function L2ddClientMessageIteratorForEachFAction(anAction: pointer): ddClientMessageIterator_ForEachF_Action;
+function L2ddClientMessageIteratorForEachFAction(anAction: Pointer): ddClientMessageIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для ddClientMessageIterator.ForEachF }
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -64,7 +64,7 @@ uses
  , SysUtils
 ;
 
-function L2ddClientMessageIteratorForEachFAction(anAction: pointer): ddClientMessageIterator_ForEachF_Action;
+function L2ddClientMessageIteratorForEachFAction(anAction: Pointer): ddClientMessageIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для ddClientMessageIterator.ForEachF }
 asm
  jmp l3LocalStub

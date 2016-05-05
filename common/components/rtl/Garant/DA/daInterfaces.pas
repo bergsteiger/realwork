@@ -16,6 +16,7 @@ uses
  , evdTaskTypes
  , ddAppConfig
  , l3Date
+ , Classes
  , l3DatLst
  , l3Languages
 ;
@@ -408,26 +409,10 @@ type
    read Get_Field;
  end;//IdaFieldFromTable
 
- IdaUserManager = interface
-  ['{43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3}']
-  function Get_AllUsers: Tl3StringDataList;
-  function Get_AllGroups: Tl3StringDataList;
-  function CheckPassword(const aLogin: AnsiString;
-   const aPassword: AnsiString;
-   RequireAdminRights: Boolean;
-   out theUserID: TdaUserID): TdaLoginError;
-  function IsUserAdmin(anUserID: TdaUserID): Boolean;
-  function GetUserName(anUserID: TdaUserID): AnsiString;
-  function GetUserPriorities(aGroupId: TdaUserID;
-   var aImportPriority: TdaPriority;
-   var aExportPriority: TdaPriority): Boolean;
-  procedure ReSortUserList;
-  property AllUsers: Tl3StringDataList
-   read Get_AllUsers;
-   {* Все пользователи системы }
-  property AllGroups: Tl3StringDataList
-   read Get_AllGroups;
- end;//IdaUserManager
+ IdaArchiUser = interface
+  ['{A56BF40C-4A4B-495E-A991-952C94ADBF66}']
+  procedure Save(aStream: TStream);
+ end;//IdaArchiUser
 
  IdaSortField = interface
   ['{9416DE56-ABBE-4945-B6C7-BBBBC4584860}']
@@ -489,6 +474,71 @@ type
   ['{6EA115C8-7CB5-491C-B44C-F9D45EE48050}']
   procedure Execute;
  end;//IdaFunction
+
+ ArchiUsersIterator_IterateArchiUsersF_Action = function(const anItem: IdaArchiUser): Boolean;
+  {* Тип подитеративной функции для ArchiUsersIterator.IterateArchiUsersF }
+
+ (*
+ ArchiUsersIterator = interface
+  procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+ end;//ArchiUsersIterator
+ *)
+
+ IdaComboAccessDataProviderHelper = interface
+  ['{603EDD09-200D-48A3-A7AC-E58665C5439E}']
+  function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
+   const aKey: AnsiString;
+   anID: TdaDocID): Boolean;
+  function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
+   const aKey: AnsiString;
+   anID: TdaDocID): Boolean;
+  procedure SetAlienJournalData(aSessionID: TdaSessionID);
+ end;//IdaComboAccessDataProviderHelper
+
+ IdaComboAccessJournalHelper = interface
+  ['{9C5AF6B0-E3D5-419F-9136-E0280619B32D}']
+  procedure SetAlienData(anUserID: TdaUserID;
+   aSessionID: TdaSessionID);
+  procedure LogAlienEvent(aOperation: TdaJournalOperation;
+   aFamilyID: TdaFamilyID;
+   aExtID: LongInt;
+   aData: LongInt);
+  function MakeAlienResultSet(const FromDate: TStDate;
+   const ToDate: TStDate;
+   aDocID: TdaDocID;
+   UserOrGroupID: TdaUserID;
+   UserGr: Boolean): IdaResultSet;
+ end;//IdaComboAccessJournalHelper
+
+ IdaComboAccessQueryHelper = interface
+  ['{DE5DF01D-A926-43A4-8A09-6614873CA019}']
+  function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
+ end;//IdaComboAccessQueryHelper
+
+ IdaUserManager = interface
+  ['{43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3}']
+  function Get_AllUsers: Tl3StringDataList;
+  function Get_AllGroups: Tl3StringDataList;
+  function Get_ArchiUsersCount: Integer;
+  function CheckPassword(const aLogin: AnsiString;
+   const aPassword: AnsiString;
+   RequireAdminRights: Boolean;
+   out theUserID: TdaUserID): TdaLoginError;
+  function IsUserAdmin(anUserID: TdaUserID): Boolean;
+  function GetUserName(anUserID: TdaUserID): AnsiString;
+  function GetUserPriorities(aGroupId: TdaUserID;
+   var aImportPriority: TdaPriority;
+   var aExportPriority: TdaPriority): Boolean;
+  procedure ReSortUserList;
+  procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+  property AllUsers: Tl3StringDataList
+   read Get_AllUsers;
+   {* Все пользователи системы }
+  property AllGroups: Tl3StringDataList
+   read Get_AllGroups;
+  property ArchiUsersCount: Integer
+   read Get_ArchiUsersCount;
+ end;//IdaUserManager
 
  IdaDataProvider = interface
   ['{CB4A320D-C320-42C5-AD66-8C45A9DD91AC}']
@@ -561,41 +611,12 @@ type
    read Get_TextBase;
  end;//IdaDataProvider
 
- IdaComboAccessDataProviderHelper = interface
-  ['{603EDD09-200D-48A3-A7AC-E58665C5439E}']
-  function RegisterFreeExtObjID(aFamilyID: TdaFamilyID;
-   const aKey: AnsiString;
-   anID: TdaDocID): Boolean;
-  function RegisterFreeExtDocID(aFamilyID: TdaFamilyID;
-   const aKey: AnsiString;
-   anID: TdaDocID): Boolean;
-  procedure SetAlienJournalData(aSessionID: TdaSessionID);
- end;//IdaComboAccessDataProviderHelper
-
- IdaComboAccessJournalHelper = interface
-  ['{9C5AF6B0-E3D5-419F-9136-E0280619B32D}']
-  procedure SetAlienData(anUserID: TdaUserID;
-   aSessionID: TdaSessionID);
-  procedure LogAlienEvent(aOperation: TdaJournalOperation;
-   aFamilyID: TdaFamilyID;
-   aExtID: LongInt;
-   aData: LongInt);
-  function MakeAlienResultSet(const FromDate: TStDate;
-   const ToDate: TStDate;
-   aDocID: TdaDocID;
-   UserOrGroupID: TdaUserID;
-   UserGr: Boolean): IdaResultSet;
- end;//IdaComboAccessJournalHelper
-
- IdaComboAccessQueryHelper = interface
-  ['{DE5DF01D-A926-43A4-8A09-6614873CA019}']
-  function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
- end;//IdaComboAccessQueryHelper
-
-function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
+function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: Pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
-function L2daConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;
+function L2daConditionIteratorIterateAction(anAction: Pointer): daConditionIterator_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daConditionIterator.Iterate }
+function L2ArchiUsersIteratorIterateArchiUsersFAction(anAction: Pointer): ArchiUsersIterator_IterateArchiUsersF_Action;
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для ArchiUsersIterator.IterateArchiUsersF }
 
 implementation
 
@@ -604,16 +625,22 @@ uses
  , l3Base
 ;
 
-function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
+function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: Pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
 asm
  jmp l3LocalStub
 end;//L2daTableDescriptionIteratorIterateFieldsFAction
 
-function L2daConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;
+function L2daConditionIteratorIterateAction(anAction: Pointer): daConditionIterator_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daConditionIterator.Iterate }
 asm
  jmp l3LocalStub
 end;//L2daConditionIteratorIterateAction
+
+function L2ArchiUsersIteratorIterateArchiUsersFAction(anAction: Pointer): ArchiUsersIterator_IterateArchiUsersF_Action;
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для ArchiUsersIterator.IterateArchiUsersF }
+asm
+ jmp l3LocalStub
+end;//L2ArchiUsersIteratorIterateArchiUsersFAction
 
 end.

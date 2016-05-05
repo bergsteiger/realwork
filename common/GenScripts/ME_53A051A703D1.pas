@@ -69,11 +69,11 @@ type
     read pm_GetCount;
  end;//TalcuTaskListBase
 
-function L2alcuTasksIteratorForEachFAction(anAction: pointer): alcuTasksIterator_ForEachF_Action;
+function L2alcuTasksIteratorForEachFAction(anAction: Pointer): alcuTasksIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForEachF }
-function L2alcuTasksIteratorForOneFAction(anAction: pointer): alcuTasksIterator_ForOneF_Action;
+function L2alcuTasksIteratorForOneFAction(anAction: Pointer): alcuTasksIterator_ForOneF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForOneF }
-function L2alcuTasksIteratorForOneByIDFAction(anAction: pointer): alcuTasksIterator_ForOneByIDF_Action;
+function L2alcuTasksIteratorForOneByIDFAction(anAction: Pointer): alcuTasksIterator_ForOneByIDF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForOneByIDF }
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
@@ -87,19 +87,19 @@ uses
  , l3Types
 ;
 
-function L2alcuTasksIteratorForEachFAction(anAction: pointer): alcuTasksIterator_ForEachF_Action;
+function L2alcuTasksIteratorForEachFAction(anAction: Pointer): alcuTasksIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForEachF }
 asm
  jmp l3LocalStub
 end;//L2alcuTasksIteratorForEachFAction
 
-function L2alcuTasksIteratorForOneFAction(anAction: pointer): alcuTasksIterator_ForOneF_Action;
+function L2alcuTasksIteratorForOneFAction(anAction: Pointer): alcuTasksIterator_ForOneF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForOneF }
 asm
  jmp l3LocalStub
 end;//L2alcuTasksIteratorForOneFAction
 
-function L2alcuTasksIteratorForOneByIDFAction(anAction: pointer): alcuTasksIterator_ForOneByIDF_Action;
+function L2alcuTasksIteratorForOneByIDFAction(anAction: Pointer): alcuTasksIterator_ForOneByIDF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для alcuTasksIterator.ForOneByIDF }
 asm
  jmp l3LocalStub
