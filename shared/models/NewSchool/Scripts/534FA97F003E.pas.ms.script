@@ -8,84 +8,13 @@ FORWARD ME_534FA99B02BB
 
 FORWARD ME_5500482D01F1
 
-FORWARD ME_F2A8E1383778
-
 FORWARD ME_1C5F9BBE1179
-
-: ME_A4FC7DA13279
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A4FC7DA13279 aCtx
-
-: ME_A4FC7DA1327A
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_A4FC7DA1327A aReminder
-
-: ME_F2A8E1383778
- CONST UID 'F2A8E1383778'
- CONST Name 'Click'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Click' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C5F9BBE1179 // pop_Reminder_Click
- ;
- : Parameters
-   Seq: ( ME_A4FC7DA13279 // aCtx
- ME_A4FC7DA1327A // aReminder
- )
- ; // Parameters
- : SpelledFor ME_5500482D01F1 // Click
- ;
-
-ref; // ME_F2A8E1383778 Click
-
-: ME_612C9A46AC70
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1C5F9BBE1179 // pop_Reminder_Click
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_612C9A46AC70 
 
 : ME_4DAEEDE10285_ME_1C5F9BBE1179
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_1C5F9BBE1179 DoDoIt
-
-: ME_551544E2001A_ME_1C5F9BBE1179
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_1C5F9BBE1179 GetResultTypeInfo
-
-: ME_559687E6025A_ME_1C5F9BBE1179
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_1C5F9BBE1179 GetAllParamsCount
-
-: ME_5617F4D00243_ME_1C5F9BBE1179
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_1C5F9BBE1179 ParamsTypes
 
 : ME_1C5F9BBE1179
  CONST UID '1C5F9BBE1179'
@@ -94,7 +23,7 @@ ref; // ME_5617F4D00243_ME_1C5F9BBE1179 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Click'#13#10'*Пример:*'#13#10'{code}'#13#10' aReminder pop:Reminder:Click'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Click' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -103,29 +32,11 @@ ref; // ME_5617F4D00243_ME_1C5F9BBE1179 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F2A8E1383778 // Click
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_1C5F9BBE1179 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_1C5F9BBE1179 // GetResultTypeInfo
- ME_559687E6025A_ME_1C5F9BBE1179 // GetAllParamsCount
- ME_5617F4D00243_ME_1C5F9BBE1179 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_612C9A46AC70 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Click'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderClick'
  CONST extprop:rc:SelfName 'PopReminderClick'
  CONST extprop:rc:isAcceptableForScripts true
@@ -133,102 +44,18 @@ ref; // ME_5617F4D00243_ME_1C5F9BBE1179 ParamsTypes
  ;
  : SpelledFor ME_5500482D01F1 // Click
  ;
- : Stub ME_F2A8E1383778 // Click
- ;
 
 ref; // ME_1C5F9BBE1179 pop_Reminder_Click
 
 FORWARD ME_55004A3A0131
 
-FORWARD ME_2ABDE4AD9F20
-
 FORWARD ME_0442CDEB32BC
-
-: ME_73FB4B53747A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_73FB4B53747A aCtx
-
-: ME_73FB4B53747B
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_73FB4B53747B aReminder
-
-: ME_73FB4B53747C
- CONST Name 'aDelta'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_73FB4B53747C aDelta
-
-: ME_2ABDE4AD9F20
- CONST UID '2ABDE4AD9F20'
- CONST Name 'Move'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Move' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0442CDEB32BC // pop_Reminder_Move
- ;
- : Parameters
-   Seq: ( ME_73FB4B53747A // aCtx
- ME_73FB4B53747B // aReminder
- ME_73FB4B53747C // aDelta
- )
- ; // Parameters
- : SpelledFor ME_55004A3A0131 // Move
- ;
-
-ref; // ME_2ABDE4AD9F20 Move
-
-: ME_89EDC3EAAA56
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0442CDEB32BC // pop_Reminder_Move
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_89EDC3EAAA56 
 
 : ME_4DAEEDE10285_ME_0442CDEB32BC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0442CDEB32BC DoDoIt
-
-: ME_551544E2001A_ME_0442CDEB32BC
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0442CDEB32BC GetResultTypeInfo
-
-: ME_559687E6025A_ME_0442CDEB32BC
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0442CDEB32BC GetAllParamsCount
-
-: ME_5617F4D00243_ME_0442CDEB32BC
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0442CDEB32BC ParamsTypes
 
 : ME_0442CDEB32BC
  CONST UID '0442CDEB32BC'
@@ -237,7 +64,7 @@ ref; // ME_5617F4D00243_ME_0442CDEB32BC ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Move'#13#10'*Пример:*'#13#10'{code}'#13#10' aDelta aReminder pop:Reminder:Move'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Move' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -246,29 +73,11 @@ ref; // ME_5617F4D00243_ME_0442CDEB32BC ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2ABDE4AD9F20 // Move
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0442CDEB32BC // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_0442CDEB32BC // GetResultTypeInfo
- ME_559687E6025A_ME_0442CDEB32BC // GetAllParamsCount
- ME_5617F4D00243_ME_0442CDEB32BC // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_89EDC3EAAA56 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Move'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderMove'
  CONST extprop:rc:SelfName 'PopReminderMove'
  CONST extprop:rc:isAcceptableForScripts true
@@ -276,93 +85,18 @@ ref; // ME_5617F4D00243_ME_0442CDEB32BC ParamsTypes
  ;
  : SpelledFor ME_55004A3A0131 // Move
  ;
- : Stub ME_2ABDE4AD9F20 // Move
- ;
 
 ref; // ME_0442CDEB32BC pop_Reminder_Move
 
 FORWARD ME_55004A7901B4
 
-FORWARD ME_963C245EE80F
-
 FORWARD ME_649B596A6C75
-
-: ME_4A444BF95BDD
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_4A444BF95BDD aCtx
-
-: ME_4A444BF95BDE
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_4A444BF95BDE aReminder
-
-: ME_963C245EE80F
- CONST UID '963C245EE80F'
- CONST Name 'FindEditor'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:FindEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_649B596A6C75 // pop_Reminder_FindEditor
- ;
- : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
- : Parameters
-   Seq: ( ME_4A444BF95BDD // aCtx
- ME_4A444BF95BDE // aReminder
- )
- ; // Parameters
- : SpelledFor ME_55004A7901B4 // FindEditor
- ;
-
-ref; // ME_963C245EE80F FindEditor
-
-: ME_3AC7E431B57A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_649B596A6C75 // pop_Reminder_FindEditor
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_3AC7E431B57A 
 
 : ME_4DAEEDE10285_ME_649B596A6C75
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_649B596A6C75 DoDoIt
-
-: ME_551544E2001A_ME_649B596A6C75
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_649B596A6C75 GetResultTypeInfo
-
-: ME_559687E6025A_ME_649B596A6C75
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_649B596A6C75 GetAllParamsCount
-
-: ME_5617F4D00243_ME_649B596A6C75
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_649B596A6C75 ParamsTypes
 
 : ME_649B596A6C75
  CONST UID '649B596A6C75'
@@ -371,7 +105,7 @@ ref; // ME_5617F4D00243_ME_649B596A6C75 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:FindEditor'#13#10'*Тип результата:* TComponent'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TComponent'#13#10' aReminder pop:Reminder:FindEditor >>> l_TComponent'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:FindEditor' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -380,29 +114,11 @@ ref; // ME_5617F4D00243_ME_649B596A6C75 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_963C245EE80F // FindEditor
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_649B596A6C75 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_649B596A6C75 // GetResultTypeInfo
- ME_559687E6025A_ME_649B596A6C75 // GetAllParamsCount
- ME_5617F4D00243_ME_649B596A6C75 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_3AC7E431B57A // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:FindEditor'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderFindEditor'
  CONST extprop:rc:SelfName 'PopReminderFindEditor'
  CONST extprop:rc:isAcceptableForScripts true
@@ -410,93 +126,18 @@ ref; // ME_5617F4D00243_ME_649B596A6C75 ParamsTypes
  ;
  : SpelledFor ME_55004A7901B4 // FindEditor
  ;
- : Stub ME_963C245EE80F // FindEditor
- ;
 
 ref; // ME_649B596A6C75 pop_Reminder_FindEditor
 
 FORWARD ME_55004A9B02E5
 
-FORWARD ME_BC5BE2E8AB9C
-
 FORWARD ME_C1FAEFF176B2
-
-: ME_5135917856D0
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5135917856D0 aCtx
-
-: ME_5135917856D1
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_5135917856D1 aReminder
-
-: ME_BC5BE2E8AB9C
- CONST UID 'BC5BE2E8AB9C'
- CONST Name 'GetPopupMenu'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:GetPopupMenu' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
- ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
- : Parameters
-   Seq: ( ME_5135917856D0 // aCtx
- ME_5135917856D1 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_55004A9B02E5 // GetPopupMenu
- ;
-
-ref; // ME_BC5BE2E8AB9C GetPopupMenu
-
-: ME_A82F507D99DC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_A82F507D99DC 
 
 : ME_4DAEEDE10285_ME_C1FAEFF176B2
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C1FAEFF176B2 DoDoIt
-
-: ME_551544E2001A_ME_C1FAEFF176B2
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_C1FAEFF176B2 GetResultTypeInfo
-
-: ME_559687E6025A_ME_C1FAEFF176B2
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_C1FAEFF176B2 GetAllParamsCount
-
-: ME_5617F4D00243_ME_C1FAEFF176B2
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_C1FAEFF176B2 ParamsTypes
 
 : ME_C1FAEFF176B2
  CONST UID 'C1FAEFF176B2'
@@ -505,7 +146,7 @@ ref; // ME_5617F4D00243_ME_C1FAEFF176B2 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:GetPopupMenu'#13#10'*Тип результата:* TMenuItem'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TMenuItem'#13#10' aReminder pop:Reminder:GetPopupMenu >>> l_TMenuItem'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:GetPopupMenu' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -514,29 +155,11 @@ ref; // ME_5617F4D00243_ME_C1FAEFF176B2 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BC5BE2E8AB9C // GetPopupMenu
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_C1FAEFF176B2 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_C1FAEFF176B2 // GetResultTypeInfo
- ME_559687E6025A_ME_C1FAEFF176B2 // GetAllParamsCount
- ME_5617F4D00243_ME_C1FAEFF176B2 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A82F507D99DC // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:GetPopupMenu'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderGetPopupMenu'
  CONST extprop:rc:SelfName 'PopReminderGetPopupMenu'
  CONST extprop:rc:isAcceptableForScripts true
@@ -544,99 +167,18 @@ ref; // ME_5617F4D00243_ME_C1FAEFF176B2 ParamsTypes
  ;
  : SpelledFor ME_55004A9B02E5 // GetPopupMenu
  ;
- : Stub ME_BC5BE2E8AB9C // GetPopupMenu
- ;
 
 ref; // ME_C1FAEFF176B2 pop_Reminder_GetPopupMenu
 
 FORWARD ME_C1A312713560
 
-FORWARD ME_5CFFEF151E73
-
 FORWARD ME_A580AA2892B6
-
-: ME_2F50D5F0FF2A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_2F50D5F0FF2A aCtx
-
-: ME_2F50D5F0FF2B
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_2F50D5F0FF2B aReminder
-
-: ME_5CFFEF151E73
- CONST UID '5CFFEF151E73'
- CONST Name 'ImageIndex'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:ImageIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A580AA2892B6 // pop_Reminder_ImageIndex
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_2F50D5F0FF2A // aCtx
- ME_2F50D5F0FF2B // aReminder
- )
- ; // Parameters
- : SpelledFor ME_C1A312713560 // ImageIndex
- ;
-
-ref; // ME_5CFFEF151E73 ImageIndex
-
-: ME_A5362E978898
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A580AA2892B6 // pop_Reminder_ImageIndex
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_A5362E978898 
 
 : ME_4DAEEDE10285_ME_A580AA2892B6
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A580AA2892B6 DoDoIt
-
-: ME_52D00B00031A_ME_A580AA2892B6
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_A580AA2892B6 SetValuePrim
-
-: ME_551544E2001A_ME_A580AA2892B6
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_A580AA2892B6 GetResultTypeInfo
-
-: ME_559687E6025A_ME_A580AA2892B6
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_A580AA2892B6 GetAllParamsCount
-
-: ME_5617F4D00243_ME_A580AA2892B6
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_A580AA2892B6 ParamsTypes
 
 : ME_A580AA2892B6
  CONST UID 'A580AA2892B6'
@@ -645,7 +187,7 @@ ref; // ME_5617F4D00243_ME_A580AA2892B6 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:ImageIndex'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aReminder pop:Reminder:ImageIndex >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:ImageIndex' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -654,30 +196,11 @@ ref; // ME_5617F4D00243_ME_A580AA2892B6 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5CFFEF151E73 // ImageIndex
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_A580AA2892B6 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_A580AA2892B6 // SetValuePrim
- ME_551544E2001A_ME_A580AA2892B6 // GetResultTypeInfo
- ME_559687E6025A_ME_A580AA2892B6 // GetAllParamsCount
- ME_5617F4D00243_ME_A580AA2892B6 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A5362E978898 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:ImageIndex'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderImageIndex'
  CONST extprop:rc:SelfName 'PopReminderImageIndex'
  CONST extprop:rc:isAcceptableForScripts true
@@ -685,99 +208,18 @@ ref; // ME_5617F4D00243_ME_A580AA2892B6 ParamsTypes
  ;
  : SpelledFor ME_C1A312713560 // ImageIndex
  ;
- : Stub ME_5CFFEF151E73 // ImageIndex
- ;
 
 ref; // ME_A580AA2892B6 pop_Reminder_ImageIndex
 
 FORWARD ME_87F5BE791240
 
-FORWARD ME_2AADE74ECABD
-
 FORWARD ME_03823097F08B
-
-: ME_B0DC0CAA9A29
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B0DC0CAA9A29 aCtx
-
-: ME_B0DC0CAA9A2A
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_B0DC0CAA9A2A aReminder
-
-: ME_2AADE74ECABD
- CONST UID '2AADE74ECABD'
- CONST Name 'UserType'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:UserType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_03823097F08B // pop_Reminder_UserType
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_B0DC0CAA9A29 // aCtx
- ME_B0DC0CAA9A2A // aReminder
- )
- ; // Parameters
- : SpelledFor ME_87F5BE791240 // UserType
- ;
-
-ref; // ME_2AADE74ECABD UserType
-
-: ME_00A5173BE380
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_03823097F08B // pop_Reminder_UserType
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_00A5173BE380 
 
 : ME_4DAEEDE10285_ME_03823097F08B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_03823097F08B DoDoIt
-
-: ME_52D00B00031A_ME_03823097F08B
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_03823097F08B SetValuePrim
-
-: ME_551544E2001A_ME_03823097F08B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_03823097F08B GetResultTypeInfo
-
-: ME_559687E6025A_ME_03823097F08B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_03823097F08B GetAllParamsCount
-
-: ME_5617F4D00243_ME_03823097F08B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_03823097F08B ParamsTypes
 
 : ME_03823097F08B
  CONST UID '03823097F08B'
@@ -786,7 +228,7 @@ ref; // ME_5617F4D00243_ME_03823097F08B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:UserType'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aReminder pop:Reminder:UserType >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:UserType' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -795,30 +237,11 @@ ref; // ME_5617F4D00243_ME_03823097F08B ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2AADE74ECABD // UserType
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_03823097F08B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_03823097F08B // SetValuePrim
- ME_551544E2001A_ME_03823097F08B // GetResultTypeInfo
- ME_559687E6025A_ME_03823097F08B // GetAllParamsCount
- ME_5617F4D00243_ME_03823097F08B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_00A5173BE380 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:UserType'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderUserType'
  CONST extprop:rc:SelfName 'PopReminderUserType'
  CONST extprop:rc:isAcceptableForScripts true
@@ -826,99 +249,18 @@ ref; // ME_5617F4D00243_ME_03823097F08B ParamsTypes
  ;
  : SpelledFor ME_87F5BE791240 // UserType
  ;
- : Stub ME_2AADE74ECABD // UserType
- ;
 
 ref; // ME_03823097F08B pop_Reminder_UserType
 
 FORWARD ME_C9DABDBEC583
 
-FORWARD ME_17481393F146
-
 FORWARD ME_B5B73476616C
-
-: ME_020D3D343A72
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_020D3D343A72 aCtx
-
-: ME_020D3D343A73
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_020D3D343A73 aReminder
-
-: ME_17481393F146
- CONST UID '17481393F146'
- CONST Name 'IsBaloonVisible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:IsBaloonVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B5B73476616C // pop_Reminder_IsBaloonVisible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_020D3D343A72 // aCtx
- ME_020D3D343A73 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_C9DABDBEC583 // IsBaloonVisible
- ;
-
-ref; // ME_17481393F146 IsBaloonVisible
-
-: ME_62BE1629BFF2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B5B73476616C // pop_Reminder_IsBaloonVisible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_62BE1629BFF2 
 
 : ME_4DAEEDE10285_ME_B5B73476616C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B5B73476616C DoDoIt
-
-: ME_52D00B00031A_ME_B5B73476616C
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_B5B73476616C SetValuePrim
-
-: ME_551544E2001A_ME_B5B73476616C
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B5B73476616C GetResultTypeInfo
-
-: ME_559687E6025A_ME_B5B73476616C
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B5B73476616C GetAllParamsCount
-
-: ME_5617F4D00243_ME_B5B73476616C
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B5B73476616C ParamsTypes
 
 : ME_B5B73476616C
  CONST UID 'B5B73476616C'
@@ -927,7 +269,7 @@ ref; // ME_5617F4D00243_ME_B5B73476616C ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:IsBaloonVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aReminder pop:Reminder:IsBaloonVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:IsBaloonVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -936,30 +278,11 @@ ref; // ME_5617F4D00243_ME_B5B73476616C ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_17481393F146 // IsBaloonVisible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B5B73476616C // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_B5B73476616C // SetValuePrim
- ME_551544E2001A_ME_B5B73476616C // GetResultTypeInfo
- ME_559687E6025A_ME_B5B73476616C // GetAllParamsCount
- ME_5617F4D00243_ME_B5B73476616C // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_62BE1629BFF2 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:IsBaloonVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderIsBaloonVisible'
  CONST extprop:rc:SelfName 'PopReminderIsBaloonVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -967,99 +290,18 @@ ref; // ME_5617F4D00243_ME_B5B73476616C ParamsTypes
  ;
  : SpelledFor ME_C9DABDBEC583 // IsBaloonVisible
  ;
- : Stub ME_17481393F146 // IsBaloonVisible
- ;
 
 ref; // ME_B5B73476616C pop_Reminder_IsBaloonVisible
 
 FORWARD ME_6805FFA6DE0C
 
-FORWARD ME_51D228A026B4
-
 FORWARD ME_86556B367D77
-
-: ME_745B1E2044C3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_745B1E2044C3 aCtx
-
-: ME_745B1E2044C4
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_745B1E2044C4 aReminder
-
-: ME_51D228A026B4
- CONST UID '51D228A026B4'
- CONST Name 'Visible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Visible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_86556B367D77 // pop_Reminder_Visible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_745B1E2044C3 // aCtx
- ME_745B1E2044C4 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_6805FFA6DE0C // Visible
- ;
-
-ref; // ME_51D228A026B4 Visible
-
-: ME_5D1820316B42
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_86556B367D77 // pop_Reminder_Visible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_5D1820316B42 
 
 : ME_4DAEEDE10285_ME_86556B367D77
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_86556B367D77 DoDoIt
-
-: ME_52D00B00031A_ME_86556B367D77
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_86556B367D77 SetValuePrim
-
-: ME_551544E2001A_ME_86556B367D77
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_86556B367D77 GetResultTypeInfo
-
-: ME_559687E6025A_ME_86556B367D77
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_86556B367D77 GetAllParamsCount
-
-: ME_5617F4D00243_ME_86556B367D77
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_86556B367D77 ParamsTypes
 
 : ME_86556B367D77
  CONST UID '86556B367D77'
@@ -1068,7 +310,7 @@ ref; // ME_5617F4D00243_ME_86556B367D77 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Visible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aReminder pop:Reminder:Visible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Visible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1077,30 +319,11 @@ ref; // ME_5617F4D00243_ME_86556B367D77 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_51D228A026B4 // Visible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_86556B367D77 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_86556B367D77 // SetValuePrim
- ME_551544E2001A_ME_86556B367D77 // GetResultTypeInfo
- ME_559687E6025A_ME_86556B367D77 // GetAllParamsCount
- ME_5617F4D00243_ME_86556B367D77 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5D1820316B42 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Visible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderVisible'
  CONST extprop:rc:SelfName 'PopReminderVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1108,99 +331,18 @@ ref; // ME_5617F4D00243_ME_86556B367D77 ParamsTypes
  ;
  : SpelledFor ME_6805FFA6DE0C // Visible
  ;
- : Stub ME_51D228A026B4 // Visible
- ;
 
 ref; // ME_86556B367D77 pop_Reminder_Visible
 
 FORWARD ME_70CB88304E9B
 
-FORWARD ME_EEDF43F40E05
-
 FORWARD ME_53BA7E6BD35A
-
-: ME_D84E0D7EB986
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D84E0D7EB986 aCtx
-
-: ME_D84E0D7EB987
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_D84E0D7EB987 aReminder
-
-: ME_EEDF43F40E05
- CONST UID 'EEDF43F40E05'
- CONST Name 'Name'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53BA7E6BD35A // pop_Reminder_Name
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_D84E0D7EB986 // aCtx
- ME_D84E0D7EB987 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_70CB88304E9B // Name
- ;
-
-ref; // ME_EEDF43F40E05 Name
-
-: ME_81F9022613C1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53BA7E6BD35A // pop_Reminder_Name
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_81F9022613C1 
 
 : ME_4DAEEDE10285_ME_53BA7E6BD35A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_53BA7E6BD35A DoDoIt
-
-: ME_52D00B00031A_ME_53BA7E6BD35A
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_53BA7E6BD35A SetValuePrim
-
-: ME_551544E2001A_ME_53BA7E6BD35A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_53BA7E6BD35A GetResultTypeInfo
-
-: ME_559687E6025A_ME_53BA7E6BD35A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_53BA7E6BD35A GetAllParamsCount
-
-: ME_5617F4D00243_ME_53BA7E6BD35A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_53BA7E6BD35A ParamsTypes
 
 : ME_53BA7E6BD35A
  CONST UID '53BA7E6BD35A'
@@ -1209,7 +351,7 @@ ref; // ME_5617F4D00243_ME_53BA7E6BD35A ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Name'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aReminder pop:Reminder:Name >>> l_String'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Name' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1218,30 +360,11 @@ ref; // ME_5617F4D00243_ME_53BA7E6BD35A ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EEDF43F40E05 // Name
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_53BA7E6BD35A // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_53BA7E6BD35A // SetValuePrim
- ME_551544E2001A_ME_53BA7E6BD35A // GetResultTypeInfo
- ME_559687E6025A_ME_53BA7E6BD35A // GetAllParamsCount
- ME_5617F4D00243_ME_53BA7E6BD35A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_81F9022613C1 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Name'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderName'
  CONST extprop:rc:SelfName 'PopReminderName'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1249,99 +372,18 @@ ref; // ME_5617F4D00243_ME_53BA7E6BD35A ParamsTypes
  ;
  : SpelledFor ME_70CB88304E9B // Name
  ;
- : Stub ME_EEDF43F40E05 // Name
- ;
 
 ref; // ME_53BA7E6BD35A pop_Reminder_Name
 
 FORWARD ME_37548DB9FC4C
 
-FORWARD ME_5223957A2E07
-
 FORWARD ME_41F02D480F88
-
-: ME_D4B82B9EA2B3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D4B82B9EA2B3 aCtx
-
-: ME_D4B82B9EA2B4
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_D4B82B9EA2B4 aReminder
-
-: ME_5223957A2E07
- CONST UID '5223957A2E07'
- CONST Name 'Flash'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Flash' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_41F02D480F88 // pop_Reminder_Flash
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_D4B82B9EA2B3 // aCtx
- ME_D4B82B9EA2B4 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_37548DB9FC4C // Flash
- ;
-
-ref; // ME_5223957A2E07 Flash
-
-: ME_8A45B0D89D72
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_41F02D480F88 // pop_Reminder_Flash
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_8A45B0D89D72 
 
 : ME_4DAEEDE10285_ME_41F02D480F88
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_41F02D480F88 DoDoIt
-
-: ME_52D00B00031A_ME_41F02D480F88
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_41F02D480F88 SetValuePrim
-
-: ME_551544E2001A_ME_41F02D480F88
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_41F02D480F88 GetResultTypeInfo
-
-: ME_559687E6025A_ME_41F02D480F88
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_41F02D480F88 GetAllParamsCount
-
-: ME_5617F4D00243_ME_41F02D480F88
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_41F02D480F88 ParamsTypes
 
 : ME_41F02D480F88
  CONST UID '41F02D480F88'
@@ -1350,7 +392,7 @@ ref; // ME_5617F4D00243_ME_41F02D480F88 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Flash'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aReminder pop:Reminder:Flash >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Flash' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1359,30 +401,11 @@ ref; // ME_5617F4D00243_ME_41F02D480F88 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5223957A2E07 // Flash
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_41F02D480F88 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_41F02D480F88 // SetValuePrim
- ME_551544E2001A_ME_41F02D480F88 // GetResultTypeInfo
- ME_559687E6025A_ME_41F02D480F88 // GetAllParamsCount
- ME_5617F4D00243_ME_41F02D480F88 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8A45B0D89D72 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Flash'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderFlash'
  CONST extprop:rc:SelfName 'PopReminderFlash'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1390,99 +413,18 @@ ref; // ME_5617F4D00243_ME_41F02D480F88 ParamsTypes
  ;
  : SpelledFor ME_37548DB9FC4C // Flash
  ;
- : Stub ME_5223957A2E07 // Flash
- ;
 
 ref; // ME_41F02D480F88 pop_Reminder_Flash
 
 FORWARD ME_963DF9269ADB
 
-FORWARD ME_C4047A8567A8
-
 FORWARD ME_4910B3AB2F0F
-
-: ME_8C6E34E5A95E
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8C6E34E5A95E aCtx
-
-: ME_8C6E34E5A95F
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_8C6E34E5A95F aReminder
-
-: ME_C4047A8567A8
- CONST UID 'C4047A8567A8'
- CONST Name 'TextBackColor'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:TextBackColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4910B3AB2F0F // pop_Reminder_TextBackColor
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_8C6E34E5A95E // aCtx
- ME_8C6E34E5A95F // aReminder
- )
- ; // Parameters
- : SpelledFor ME_963DF9269ADB // TextBackColor
- ;
-
-ref; // ME_C4047A8567A8 TextBackColor
-
-: ME_5A07B4393B14
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4910B3AB2F0F // pop_Reminder_TextBackColor
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_5A07B4393B14 
 
 : ME_4DAEEDE10285_ME_4910B3AB2F0F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4910B3AB2F0F DoDoIt
-
-: ME_52D00B00031A_ME_4910B3AB2F0F
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_4910B3AB2F0F SetValuePrim
-
-: ME_551544E2001A_ME_4910B3AB2F0F
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_4910B3AB2F0F GetResultTypeInfo
-
-: ME_559687E6025A_ME_4910B3AB2F0F
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_4910B3AB2F0F GetAllParamsCount
-
-: ME_5617F4D00243_ME_4910B3AB2F0F
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_4910B3AB2F0F ParamsTypes
 
 : ME_4910B3AB2F0F
  CONST UID '4910B3AB2F0F'
@@ -1491,7 +433,7 @@ ref; // ME_5617F4D00243_ME_4910B3AB2F0F ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:TextBackColor'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aReminder pop:Reminder:TextBackColor >>> l_String'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:TextBackColor' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1500,30 +442,11 @@ ref; // ME_5617F4D00243_ME_4910B3AB2F0F ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C4047A8567A8 // TextBackColor
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4910B3AB2F0F // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_4910B3AB2F0F // SetValuePrim
- ME_551544E2001A_ME_4910B3AB2F0F // GetResultTypeInfo
- ME_559687E6025A_ME_4910B3AB2F0F // GetAllParamsCount
- ME_5617F4D00243_ME_4910B3AB2F0F // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5A07B4393B14 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:TextBackColor'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderTextBackColor'
  CONST extprop:rc:SelfName 'PopReminderTextBackColor'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1531,99 +454,18 @@ ref; // ME_5617F4D00243_ME_4910B3AB2F0F ParamsTypes
  ;
  : SpelledFor ME_963DF9269ADB // TextBackColor
  ;
- : Stub ME_C4047A8567A8 // TextBackColor
- ;
 
 ref; // ME_4910B3AB2F0F pop_Reminder_TextBackColor
 
 FORWARD ME_96216B659E7A
 
-FORWARD ME_5FAB78F3A8B1
-
 FORWARD ME_01DFD9EDE9C7
-
-: ME_5DD706A71917
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5DD706A71917 aCtx
-
-: ME_5DD706A71918
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_5DD706A71918 aReminder
-
-: ME_5FAB78F3A8B1
- CONST UID '5FAB78F3A8B1'
- CONST Name 'ShowHint'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:ShowHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_5DD706A71917 // aCtx
- ME_5DD706A71918 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_96216B659E7A // ShowHint
- ;
-
-ref; // ME_5FAB78F3A8B1 ShowHint
-
-: ME_F1F7467B1D61
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_01DFD9EDE9C7 // pop_Reminder_ShowHint
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_F1F7467B1D61 
 
 : ME_4DAEEDE10285_ME_01DFD9EDE9C7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_01DFD9EDE9C7 DoDoIt
-
-: ME_52D00B00031A_ME_01DFD9EDE9C7
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_01DFD9EDE9C7 SetValuePrim
-
-: ME_551544E2001A_ME_01DFD9EDE9C7
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_01DFD9EDE9C7 GetResultTypeInfo
-
-: ME_559687E6025A_ME_01DFD9EDE9C7
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_01DFD9EDE9C7 GetAllParamsCount
-
-: ME_5617F4D00243_ME_01DFD9EDE9C7
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_01DFD9EDE9C7 ParamsTypes
 
 : ME_01DFD9EDE9C7
  CONST UID '01DFD9EDE9C7'
@@ -1632,7 +474,7 @@ ref; // ME_5617F4D00243_ME_01DFD9EDE9C7 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:ShowHint'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aReminder pop:Reminder:ShowHint >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:ShowHint' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1641,30 +483,11 @@ ref; // ME_5617F4D00243_ME_01DFD9EDE9C7 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5FAB78F3A8B1 // ShowHint
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_01DFD9EDE9C7 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_01DFD9EDE9C7 // SetValuePrim
- ME_551544E2001A_ME_01DFD9EDE9C7 // GetResultTypeInfo
- ME_559687E6025A_ME_01DFD9EDE9C7 // GetAllParamsCount
- ME_5617F4D00243_ME_01DFD9EDE9C7 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_F1F7467B1D61 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:ShowHint'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderShowHint'
  CONST extprop:rc:SelfName 'PopReminderShowHint'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1672,99 +495,18 @@ ref; // ME_5617F4D00243_ME_01DFD9EDE9C7 ParamsTypes
  ;
  : SpelledFor ME_96216B659E7A // ShowHint
  ;
- : Stub ME_5FAB78F3A8B1 // ShowHint
- ;
 
 ref; // ME_01DFD9EDE9C7 pop_Reminder_ShowHint
 
 FORWARD ME_F266CCD7EA5A
 
-FORWARD ME_87E221BFC87E
-
 FORWARD ME_D817B4A59BC2
-
-: ME_CDFCAF1432B3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_CDFCAF1432B3 aCtx
-
-: ME_CDFCAF1432B4
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_CDFCAF1432B4 aReminder
-
-: ME_87E221BFC87E
- CONST UID '87E221BFC87E'
- CONST Name 'Caption'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Caption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D817B4A59BC2 // pop_Reminder_Caption
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Parameters
-   Seq: ( ME_CDFCAF1432B3 // aCtx
- ME_CDFCAF1432B4 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_F266CCD7EA5A // Caption
- ;
-
-ref; // ME_87E221BFC87E Caption
-
-: ME_486F851D5BB6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D817B4A59BC2 // pop_Reminder_Caption
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_486F851D5BB6 
 
 : ME_4DAEEDE10285_ME_D817B4A59BC2
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D817B4A59BC2 DoDoIt
-
-: ME_52D00B00031A_ME_D817B4A59BC2
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_D817B4A59BC2 SetValuePrim
-
-: ME_551544E2001A_ME_D817B4A59BC2
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_D817B4A59BC2 GetResultTypeInfo
-
-: ME_559687E6025A_ME_D817B4A59BC2
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_D817B4A59BC2 GetAllParamsCount
-
-: ME_5617F4D00243_ME_D817B4A59BC2
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_D817B4A59BC2 ParamsTypes
 
 : ME_D817B4A59BC2
  CONST UID 'D817B4A59BC2'
@@ -1773,7 +515,7 @@ ref; // ME_5617F4D00243_ME_D817B4A59BC2 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Caption'#13#10'*Тип результата:* Il3CString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Il3CString'#13#10' aReminder pop:Reminder:Caption >>> l_Il3CString'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Caption' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1782,30 +524,11 @@ ref; // ME_5617F4D00243_ME_D817B4A59BC2 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_87E221BFC87E // Caption
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_D817B4A59BC2 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_D817B4A59BC2 // SetValuePrim
- ME_551544E2001A_ME_D817B4A59BC2 // GetResultTypeInfo
- ME_559687E6025A_ME_D817B4A59BC2 // GetAllParamsCount
- ME_5617F4D00243_ME_D817B4A59BC2 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_486F851D5BB6 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Caption'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderCaption'
  CONST extprop:rc:SelfName 'PopReminderCaption'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1813,99 +536,18 @@ ref; // ME_5617F4D00243_ME_D817B4A59BC2 ParamsTypes
  ;
  : SpelledFor ME_F266CCD7EA5A // Caption
  ;
- : Stub ME_87E221BFC87E // Caption
- ;
 
 ref; // ME_D817B4A59BC2 pop_Reminder_Caption
 
 FORWARD ME_4F400F407364
 
-FORWARD ME_34D2B1DAA1D5
-
 FORWARD ME_3D456BE889E3
-
-: ME_E7851A23A2B9
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E7851A23A2B9 aCtx
-
-: ME_E7851A23A2BA
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_E7851A23A2BA aReminder
-
-: ME_34D2B1DAA1D5
- CONST UID '34D2B1DAA1D5'
- CONST Name 'Hint'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:Hint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_3D456BE889E3 // pop_Reminder_Hint
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Parameters
-   Seq: ( ME_E7851A23A2B9 // aCtx
- ME_E7851A23A2BA // aReminder
- )
- ; // Parameters
- : SpelledFor ME_4F400F407364 // Hint
- ;
-
-ref; // ME_34D2B1DAA1D5 Hint
-
-: ME_72B25C344721
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3D456BE889E3 // pop_Reminder_Hint
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_72B25C344721 
 
 : ME_4DAEEDE10285_ME_3D456BE889E3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_3D456BE889E3 DoDoIt
-
-: ME_52D00B00031A_ME_3D456BE889E3
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_3D456BE889E3 SetValuePrim
-
-: ME_551544E2001A_ME_3D456BE889E3
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_3D456BE889E3 GetResultTypeInfo
-
-: ME_559687E6025A_ME_3D456BE889E3
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_3D456BE889E3 GetAllParamsCount
-
-: ME_5617F4D00243_ME_3D456BE889E3
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_3D456BE889E3 ParamsTypes
 
 : ME_3D456BE889E3
  CONST UID '3D456BE889E3'
@@ -1914,7 +556,7 @@ ref; // ME_5617F4D00243_ME_3D456BE889E3 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:Hint'#13#10'*Тип результата:* Il3CString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Il3CString'#13#10' aReminder pop:Reminder:Hint >>> l_Il3CString'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:Hint' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -1923,30 +565,11 @@ ref; // ME_5617F4D00243_ME_3D456BE889E3 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_34D2B1DAA1D5 // Hint
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_3D456BE889E3 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_3D456BE889E3 // SetValuePrim
- ME_551544E2001A_ME_3D456BE889E3 // GetResultTypeInfo
- ME_559687E6025A_ME_3D456BE889E3 // GetAllParamsCount
- ME_5617F4D00243_ME_3D456BE889E3 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_72B25C344721 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:Hint'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderHint'
  CONST extprop:rc:SelfName 'PopReminderHint'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1954,99 +577,18 @@ ref; // ME_5617F4D00243_ME_3D456BE889E3 ParamsTypes
  ;
  : SpelledFor ME_4F400F407364 // Hint
  ;
- : Stub ME_34D2B1DAA1D5 // Hint
- ;
 
 ref; // ME_3D456BE889E3 pop_Reminder_Hint
 
 FORWARD ME_C46E09B84480
 
-FORWARD ME_59E14B85260B
-
 FORWARD ME_27F1AE8E8012
-
-: ME_FA370549573F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_FA370549573F aCtx
-
-: ME_FA3705495740
- CONST Name 'aReminder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_FA3705495740 aReminder
-
-: ME_59E14B85260B
- CONST UID '59E14B85260B'
- CONST Name 'PopupForm'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Reminder:PopupForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_27F1AE8E8012 // pop_Reminder_PopupForm
- ;
- : Target WL 'ME_4D9058880214' '4D90513F009C.pas.ms.script' // TvtPopupFormModelPart
- ;
- : Parameters
-   Seq: ( ME_FA370549573F // aCtx
- ME_FA3705495740 // aReminder
- )
- ; // Parameters
- : SpelledFor ME_C46E09B84480 // PopupForm
- ;
-
-ref; // ME_59E14B85260B PopupForm
-
-: ME_35BA00D74F5A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_27F1AE8E8012 // pop_Reminder_PopupForm
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_35BA00D74F5A 
 
 : ME_4DAEEDE10285_ME_27F1AE8E8012
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_27F1AE8E8012 DoDoIt
-
-: ME_52D00B00031A_ME_27F1AE8E8012
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_27F1AE8E8012 SetValuePrim
-
-: ME_551544E2001A_ME_27F1AE8E8012
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_27F1AE8E8012 GetResultTypeInfo
-
-: ME_559687E6025A_ME_27F1AE8E8012
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_27F1AE8E8012 GetAllParamsCount
-
-: ME_5617F4D00243_ME_27F1AE8E8012
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_27F1AE8E8012 ParamsTypes
 
 : ME_27F1AE8E8012
  CONST UID '27F1AE8E8012'
@@ -2055,7 +597,7 @@ ref; // ME_5617F4D00243_ME_27F1AE8E8012 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Reminder:PopupForm'#13#10'*Тип результата:* TvtPopupFormModelPart'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPopupFormModelPart'#13#10' aReminder pop:Reminder:PopupForm >>> l_TvtPopupFormModelPart'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Reminder:PopupForm' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
@@ -2064,38 +606,17 @@ ref; // ME_5617F4D00243_ME_27F1AE8E8012 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_59E14B85260B // PopupForm
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_27F1AE8E8012 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_27F1AE8E8012 // SetValuePrim
- ME_551544E2001A_ME_27F1AE8E8012 // GetResultTypeInfo
- ME_559687E6025A_ME_27F1AE8E8012 // GetAllParamsCount
- ME_5617F4D00243_ME_27F1AE8E8012 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_35BA00D74F5A // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Reminder:PopupForm'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopReminderPopupForm'
  CONST extprop:rc:SelfName 'PopReminderPopupForm'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
  ;
  : SpelledFor ME_C46E09B84480 // PopupForm
- ;
- : Stub ME_59E14B85260B // PopupForm
  ;
 
 ref; // ME_27F1AE8E8012 pop_Reminder_PopupForm
@@ -2144,7 +665,6 @@ ref; // ME_55004753008E UserType
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_550047F201E5 IsBaloonVisible
 
@@ -2208,7 +728,6 @@ ref; // ME_55004875002D Flash
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_550048F80073 TextBackColor
 
@@ -2285,8 +804,6 @@ ref; // ME_550049B10042 PopupForm
  CONST Abstraction at_final
  : Parent ME_534FA99B02BB // ReminderWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  : Speller ME_1C5F9BBE1179 // pop_Reminder_Click
  ;
@@ -2315,9 +832,6 @@ ref; // ME_55004A510180 aDelta
    Seq: ( ME_55004A510180 // aDelta
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_0442CDEB32BC // pop_Reminder_Move
  ;
 
@@ -2334,9 +848,6 @@ ref; // ME_55004A3A0131 Move
  ;
  : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_649B596A6C75 // pop_Reminder_FindEditor
  ;
 
@@ -2353,9 +864,6 @@ ref; // ME_55004A7901B4 FindEditor
  ;
  : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_C1FAEFF176B2 // pop_Reminder_GetPopupMenu
  ;
 
@@ -2373,8 +881,6 @@ ref; // ME_55004A9B02E5 GetPopupMenu
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ImageIndex'
@@ -2395,8 +901,6 @@ ref; // ME_C1A312713560 ImageIndex
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'UserType'
@@ -2417,9 +921,6 @@ ref; // ME_87F5BE791240 UserType
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsBaloonVisible'
  : Speller ME_B5B73476616C // pop_Reminder_IsBaloonVisible
@@ -2439,8 +940,6 @@ ref; // ME_C9DABDBEC583 IsBaloonVisible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Visible'
@@ -2461,8 +960,6 @@ ref; // ME_6805FFA6DE0C Visible
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Name'
@@ -2483,8 +980,6 @@ ref; // ME_70CB88304E9B Name
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Flash'
@@ -2505,9 +1000,6 @@ ref; // ME_37548DB9FC4C Flash
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'TextBackColor'
  : Speller ME_4910B3AB2F0F // pop_Reminder_TextBackColor
@@ -2527,8 +1019,6 @@ ref; // ME_963DF9269ADB TextBackColor
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ShowHint'
@@ -2549,8 +1039,6 @@ ref; // ME_96216B659E7A ShowHint
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Caption'
@@ -2571,8 +1059,6 @@ ref; // ME_F266CCD7EA5A Caption
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Hint'
@@ -2593,8 +1079,6 @@ ref; // ME_4F400F407364 Hint
  ;
  : Target WL 'ME_4D9058880214' '4D90513F009C.pas.ms.script' // TvtPopupFormModelPart
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'PopupForm'
@@ -2602,166 +1086,6 @@ ref; // ME_4F400F407364 Hint
  ;
 
 ref; // ME_C46E09B84480 PopupForm
-
-: ME_CB39C315EE56
- CONST UID 'CB39C315EE56'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_CB39C315EE56 Reg_Type_TtfwContext
-
-: ME_364DD005F4F5
- CONST UID '364DD005F4F5'
- CONST Name 'Reg_Type_TvgReminder'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvgReminder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_364DD005F4F5 Reg_Type_TvgReminder
-
-: ME_15EF77D703CB
- CONST UID '15EF77D703CB'
- CONST Name 'Reg_Type_TPoint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TPoint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_15EF77D703CB Reg_Type_TPoint
-
-: ME_8FBB30ABCAD5
- CONST UID '8FBB30ABCAD5'
- CONST Name 'Reg_Type_TComponent'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TComponent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
-
-ref; // ME_8FBB30ABCAD5 Reg_Type_TComponent
-
-: ME_7C72B16C3199
- CONST UID '7C72B16C3199'
- CONST Name 'Reg_Type_TMenuItem'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TMenuItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_7C72B16C3199 Reg_Type_TMenuItem
-
-: ME_4B57F7839AB7
- CONST UID '4B57F7839AB7'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_4B57F7839AB7 Reg_Type_Integer
-
-: ME_D2885CC4DA22
- CONST UID 'D2885CC4DA22'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_D2885CC4DA22 Reg_Type_Boolean
-
-: ME_61B2435EAD06
- CONST UID '61B2435EAD06'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_61B2435EAD06 Reg_Type_String
-
-: ME_4875E7034B13
- CONST UID '4875E7034B13'
- CONST Name 'Reg_Type_Il3CString'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Il3CString' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_4875E7034B13 Reg_Type_Il3CString
-
-: ME_9846C600A9FD
- CONST UID '9846C600A9FD'
- CONST Name 'Reg_Type_TvtPopupFormModelPart'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtPopupFormModelPart' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_534FA99B02BB // ReminderWordsPack
- ;
- : SpelledFor WL 'ME_4D9058880214' '4D90513F009C.pas.ms.script' // TvtPopupFormModelPart
- ;
-
-ref; // ME_9846C600A9FD Reg_Type_TvtPopupFormModelPart
 
 : ME_54EC5757010F
  CONST Class class_Dependency
@@ -2870,16 +1194,6 @@ ref; // ME_BBD01A2872C6
  ME_F266CCD7EA5A // Caption
  ME_4F400F407364 // Hint
  ME_C46E09B84480 // PopupForm
- ME_CB39C315EE56 // Reg_Type_TtfwContext
- ME_364DD005F4F5 // Reg_Type_TvgReminder
- ME_15EF77D703CB // Reg_Type_TPoint
- ME_8FBB30ABCAD5 // Reg_Type_TComponent
- ME_7C72B16C3199 // Reg_Type_TMenuItem
- ME_4B57F7839AB7 // Reg_Type_Integer
- ME_D2885CC4DA22 // Reg_Type_Boolean
- ME_61B2435EAD06 // Reg_Type_String
- ME_4875E7034B13 // Reg_Type_Il3CString
- ME_9846C600A9FD // Reg_Type_TvtPopupFormModelPart
  )
  ; // Operations
  : Children
@@ -2910,107 +1224,19 @@ ref; // ME_BBD01A2872C6
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ReminderWordsPack.pas'
 
 ref; // ME_534FA99B02BB ReminderWordsPack
 
 FORWARD ME_5500582C0070
 
-FORWARD ME_49A3CD754B3E
-
 FORWARD ME_9653AE4CDED4
-
-: ME_FE2596F02361
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_FE2596F02361 aCtx
-
-: ME_FE2596F02362
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_FE2596F02362 aRemindersLine
-
-: ME_FE2596F02363
- CONST Name 'aPoint'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_FE2596F02363 aPoint
-
-: ME_49A3CD754B3E
- CONST UID '49A3CD754B3E'
- CONST Name 'ClientToScreen'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:ClientToScreen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
- ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
- : Parameters
-   Seq: ( ME_FE2596F02361 // aCtx
- ME_FE2596F02362 // aRemindersLine
- ME_FE2596F02363 // aPoint
- )
- ; // Parameters
- : SpelledFor ME_5500582C0070 // ClientToScreen
- ;
-
-ref; // ME_49A3CD754B3E ClientToScreen
-
-: ME_0D45DC6BBB77
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_0D45DC6BBB77 
 
 : ME_4DAEEDE10285_ME_9653AE4CDED4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_9653AE4CDED4 DoDoIt
-
-: ME_551544E2001A_ME_9653AE4CDED4
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_9653AE4CDED4 GetResultTypeInfo
-
-: ME_559687E6025A_ME_9653AE4CDED4
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_9653AE4CDED4 GetAllParamsCount
-
-: ME_5617F4D00243_ME_9653AE4CDED4
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_9653AE4CDED4 ParamsTypes
 
 : ME_9653AE4CDED4
  CONST UID '9653AE4CDED4'
@@ -3019,7 +1245,7 @@ ref; // ME_5617F4D00243_ME_9653AE4CDED4 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:ClientToScreen'#13#10'*Тип результата:* TPoint'#13#10'*Пример:*'#13#10'{code}'#13#10'VAR l_TPoint'#13#10' aPoint aRemindersLine pop:RemindersLine:ClientToScreen >>> l_TPoint'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:ClientToScreen' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3028,29 +1254,11 @@ ref; // ME_5617F4D00243_ME_9653AE4CDED4 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_49A3CD754B3E // ClientToScreen
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_9653AE4CDED4 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_9653AE4CDED4 // GetResultTypeInfo
- ME_559687E6025A_ME_9653AE4CDED4 // GetAllParamsCount
- ME_5617F4D00243_ME_9653AE4CDED4 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0D45DC6BBB77 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:ClientToScreen'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineClientToScreen'
  CONST extprop:rc:SelfName 'PopRemindersLineClientToScreen'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3058,104 +1266,18 @@ ref; // ME_5617F4D00243_ME_9653AE4CDED4 ParamsTypes
  ;
  : SpelledFor ME_5500582C0070 // ClientToScreen
  ;
- : Stub ME_49A3CD754B3E // ClientToScreen
- ;
 
 ref; // ME_9653AE4CDED4 pop_RemindersLine_ClientToScreen
 
 FORWARD ME_550058BD036F
 
-FORWARD ME_E8E2745918DB
-
 FORWARD ME_FF04F6E03205
-
-: ME_C00F467E86E7
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C00F467E86E7 aCtx
-
-: ME_C00F467E86E8
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_C00F467E86E8 aRemindersLine
-
-: ME_C00F467E86E9
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C00F467E86E9 anIndex
-
-: ME_E8E2745918DB
- CONST UID 'E8E2745918DB'
- CONST Name 'GetReminder'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:GetReminder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FF04F6E03205 // pop_RemindersLine_GetReminder
- ;
- : Target WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
- : Parameters
-   Seq: ( ME_C00F467E86E7 // aCtx
- ME_C00F467E86E8 // aRemindersLine
- ME_C00F467E86E9 // anIndex
- )
- ; // Parameters
- : SpelledFor ME_550058BD036F // GetReminder
- ;
-
-ref; // ME_E8E2745918DB GetReminder
-
-: ME_C40BEA332E7B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FF04F6E03205 // pop_RemindersLine_GetReminder
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_C40BEA332E7B 
 
 : ME_4DAEEDE10285_ME_FF04F6E03205
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FF04F6E03205 DoDoIt
-
-: ME_551544E2001A_ME_FF04F6E03205
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_FF04F6E03205 GetResultTypeInfo
-
-: ME_559687E6025A_ME_FF04F6E03205
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_FF04F6E03205 GetAllParamsCount
-
-: ME_5617F4D00243_ME_FF04F6E03205
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_FF04F6E03205 ParamsTypes
 
 : ME_FF04F6E03205
  CONST UID 'FF04F6E03205'
@@ -3164,7 +1286,7 @@ ref; // ME_5617F4D00243_ME_FF04F6E03205 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:GetReminder'#13#10'*Тип результата:* TvgReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvgReminder'#13#10' anIndex aRemindersLine pop:RemindersLine:GetReminder >>> l_TvgReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:GetReminder' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3173,29 +1295,11 @@ ref; // ME_5617F4D00243_ME_FF04F6E03205 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E8E2745918DB // GetReminder
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_FF04F6E03205 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_FF04F6E03205 // GetResultTypeInfo
- ME_559687E6025A_ME_FF04F6E03205 // GetAllParamsCount
- ME_5617F4D00243_ME_FF04F6E03205 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C40BEA332E7B // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:GetReminder'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineGetReminder'
  CONST extprop:rc:SelfName 'PopRemindersLineGetReminder'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3203,99 +1307,18 @@ ref; // ME_5617F4D00243_ME_FF04F6E03205 ParamsTypes
  ;
  : SpelledFor ME_550058BD036F // GetReminder
  ;
- : Stub ME_E8E2745918DB // GetReminder
- ;
 
 ref; // ME_FF04F6E03205 pop_RemindersLine_GetReminder
 
 FORWARD ME_0641D684732E
 
-FORWARD ME_098686462F4C
-
 FORWARD ME_F126CBF8C36E
-
-: ME_C1238B3602B2
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C1238B3602B2 aCtx
-
-: ME_C1238B3602B3
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_C1238B3602B3 aRemindersLine
-
-: ME_098686462F4C
- CONST UID '098686462F4C'
- CONST Name 'AbsLeft'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:AbsLeft' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_C1238B3602B2 // aCtx
- ME_C1238B3602B3 // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_0641D684732E // AbsLeft
- ;
-
-ref; // ME_098686462F4C AbsLeft
-
-: ME_DEB7A21671E3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F126CBF8C36E // pop_RemindersLine_AbsLeft
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DEB7A21671E3 
 
 : ME_4DAEEDE10285_ME_F126CBF8C36E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F126CBF8C36E DoDoIt
-
-: ME_52D00B00031A_ME_F126CBF8C36E
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_F126CBF8C36E SetValuePrim
-
-: ME_551544E2001A_ME_F126CBF8C36E
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F126CBF8C36E GetResultTypeInfo
-
-: ME_559687E6025A_ME_F126CBF8C36E
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F126CBF8C36E GetAllParamsCount
-
-: ME_5617F4D00243_ME_F126CBF8C36E
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F126CBF8C36E ParamsTypes
 
 : ME_F126CBF8C36E
  CONST UID 'F126CBF8C36E'
@@ -3304,7 +1327,7 @@ ref; // ME_5617F4D00243_ME_F126CBF8C36E ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:AbsLeft'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:AbsLeft >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:AbsLeft' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3313,30 +1336,11 @@ ref; // ME_5617F4D00243_ME_F126CBF8C36E ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_098686462F4C // AbsLeft
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F126CBF8C36E // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_F126CBF8C36E // SetValuePrim
- ME_551544E2001A_ME_F126CBF8C36E // GetResultTypeInfo
- ME_559687E6025A_ME_F126CBF8C36E // GetAllParamsCount
- ME_5617F4D00243_ME_F126CBF8C36E // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DEB7A21671E3 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:AbsLeft'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineAbsLeft'
  CONST extprop:rc:SelfName 'PopRemindersLineAbsLeft'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3344,99 +1348,18 @@ ref; // ME_5617F4D00243_ME_F126CBF8C36E ParamsTypes
  ;
  : SpelledFor ME_0641D684732E // AbsLeft
  ;
- : Stub ME_098686462F4C // AbsLeft
- ;
 
 ref; // ME_F126CBF8C36E pop_RemindersLine_AbsLeft
 
 FORWARD ME_1FF1E3F5AC48
 
-FORWARD ME_0D9680EB1A19
-
 FORWARD ME_1F4F64719530
-
-: ME_9865D6D874D8
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9865D6D874D8 aCtx
-
-: ME_9865D6D874D9
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_9865D6D874D9 aRemindersLine
-
-: ME_0D9680EB1A19
- CONST UID '0D9680EB1A19'
- CONST Name 'AbsTop'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:AbsTop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1F4F64719530 // pop_RemindersLine_AbsTop
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_9865D6D874D8 // aCtx
- ME_9865D6D874D9 // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_1FF1E3F5AC48 // AbsTop
- ;
-
-ref; // ME_0D9680EB1A19 AbsTop
-
-: ME_D175E3129B42
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1F4F64719530 // pop_RemindersLine_AbsTop
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_D175E3129B42 
 
 : ME_4DAEEDE10285_ME_1F4F64719530
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_1F4F64719530 DoDoIt
-
-: ME_52D00B00031A_ME_1F4F64719530
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_1F4F64719530 SetValuePrim
-
-: ME_551544E2001A_ME_1F4F64719530
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_1F4F64719530 GetResultTypeInfo
-
-: ME_559687E6025A_ME_1F4F64719530
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_1F4F64719530 GetAllParamsCount
-
-: ME_5617F4D00243_ME_1F4F64719530
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_1F4F64719530 ParamsTypes
 
 : ME_1F4F64719530
  CONST UID '1F4F64719530'
@@ -3445,7 +1368,7 @@ ref; // ME_5617F4D00243_ME_1F4F64719530 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:AbsTop'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:AbsTop >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:AbsTop' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3454,30 +1377,11 @@ ref; // ME_5617F4D00243_ME_1F4F64719530 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0D9680EB1A19 // AbsTop
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_1F4F64719530 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_1F4F64719530 // SetValuePrim
- ME_551544E2001A_ME_1F4F64719530 // GetResultTypeInfo
- ME_559687E6025A_ME_1F4F64719530 // GetAllParamsCount
- ME_5617F4D00243_ME_1F4F64719530 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D175E3129B42 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:AbsTop'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineAbsTop'
  CONST extprop:rc:SelfName 'PopRemindersLineAbsTop'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3485,99 +1389,18 @@ ref; // ME_5617F4D00243_ME_1F4F64719530 ParamsTypes
  ;
  : SpelledFor ME_1FF1E3F5AC48 // AbsTop
  ;
- : Stub ME_0D9680EB1A19 // AbsTop
- ;
 
 ref; // ME_1F4F64719530 pop_RemindersLine_AbsTop
 
 FORWARD ME_062BCA81F7FC
 
-FORWARD ME_8837FD9CBC1A
-
 FORWARD ME_445623FA8275
-
-: ME_0D4C8D38AF38
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_0D4C8D38AF38 aCtx
-
-: ME_0D4C8D38AF39
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_0D4C8D38AF39 aRemindersLine
-
-: ME_8837FD9CBC1A
- CONST UID '8837FD9CBC1A'
- CONST Name 'Count'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_445623FA8275 // pop_RemindersLine_Count
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_0D4C8D38AF38 // aCtx
- ME_0D4C8D38AF39 // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_062BCA81F7FC // Count
- ;
-
-ref; // ME_8837FD9CBC1A Count
-
-: ME_DC4E5B42C0AD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_445623FA8275 // pop_RemindersLine_Count
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DC4E5B42C0AD 
 
 : ME_4DAEEDE10285_ME_445623FA8275
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_445623FA8275 DoDoIt
-
-: ME_52D00B00031A_ME_445623FA8275
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_445623FA8275 SetValuePrim
-
-: ME_551544E2001A_ME_445623FA8275
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_445623FA8275 GetResultTypeInfo
-
-: ME_559687E6025A_ME_445623FA8275
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_445623FA8275 GetAllParamsCount
-
-: ME_5617F4D00243_ME_445623FA8275
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_445623FA8275 ParamsTypes
 
 : ME_445623FA8275
  CONST UID '445623FA8275'
@@ -3586,7 +1409,7 @@ ref; // ME_5617F4D00243_ME_445623FA8275 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:Count'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:Count >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:Count' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3595,30 +1418,11 @@ ref; // ME_5617F4D00243_ME_445623FA8275 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8837FD9CBC1A // Count
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_445623FA8275 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_445623FA8275 // SetValuePrim
- ME_551544E2001A_ME_445623FA8275 // GetResultTypeInfo
- ME_559687E6025A_ME_445623FA8275 // GetAllParamsCount
- ME_5617F4D00243_ME_445623FA8275 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DC4E5B42C0AD // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Count'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineCount'
  CONST extprop:rc:SelfName 'PopRemindersLineCount'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3626,99 +1430,18 @@ ref; // ME_5617F4D00243_ME_445623FA8275 ParamsTypes
  ;
  : SpelledFor ME_062BCA81F7FC // Count
  ;
- : Stub ME_8837FD9CBC1A // Count
- ;
 
 ref; // ME_445623FA8275 pop_RemindersLine_Count
 
 FORWARD ME_B8B536109782
 
-FORWARD ME_90CD34A37938
-
 FORWARD ME_760507B09407
-
-: ME_E5CAA18A5A8A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E5CAA18A5A8A aCtx
-
-: ME_E5CAA18A5A8B
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_E5CAA18A5A8B aRemindersLine
-
-: ME_90CD34A37938
- CONST UID '90CD34A37938'
- CONST Name 'Height'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Height' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_760507B09407 // pop_RemindersLine_Height
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_E5CAA18A5A8A // aCtx
- ME_E5CAA18A5A8B // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_B8B536109782 // Height
- ;
-
-ref; // ME_90CD34A37938 Height
-
-: ME_81AE0BC693C8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_760507B09407 // pop_RemindersLine_Height
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_81AE0BC693C8 
 
 : ME_4DAEEDE10285_ME_760507B09407
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_760507B09407 DoDoIt
-
-: ME_52D00B00031A_ME_760507B09407
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_760507B09407 SetValuePrim
-
-: ME_551544E2001A_ME_760507B09407
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_760507B09407 GetResultTypeInfo
-
-: ME_559687E6025A_ME_760507B09407
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_760507B09407 GetAllParamsCount
-
-: ME_5617F4D00243_ME_760507B09407
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_760507B09407 ParamsTypes
 
 : ME_760507B09407
  CONST UID '760507B09407'
@@ -3727,7 +1450,7 @@ ref; // ME_5617F4D00243_ME_760507B09407 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:Height'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:Height >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:Height' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3736,30 +1459,11 @@ ref; // ME_5617F4D00243_ME_760507B09407 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_90CD34A37938 // Height
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_760507B09407 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_760507B09407 // SetValuePrim
- ME_551544E2001A_ME_760507B09407 // GetResultTypeInfo
- ME_559687E6025A_ME_760507B09407 // GetAllParamsCount
- ME_5617F4D00243_ME_760507B09407 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_81AE0BC693C8 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Height'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineHeight'
  CONST extprop:rc:SelfName 'PopRemindersLineHeight'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3767,99 +1471,18 @@ ref; // ME_5617F4D00243_ME_760507B09407 ParamsTypes
  ;
  : SpelledFor ME_B8B536109782 // Height
  ;
- : Stub ME_90CD34A37938 // Height
- ;
 
 ref; // ME_760507B09407 pop_RemindersLine_Height
 
 FORWARD ME_104C1ED229FA
 
-FORWARD ME_CE96AE07E93B
-
 FORWARD ME_52CD5A5422A8
-
-: ME_D2A846CDF2DE
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D2A846CDF2DE aCtx
-
-: ME_D2A846CDF2DF
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_D2A846CDF2DF aRemindersLine
-
-: ME_CE96AE07E93B
- CONST UID 'CE96AE07E93B'
- CONST Name 'Left'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Left' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52CD5A5422A8 // pop_RemindersLine_Left
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_D2A846CDF2DE // aCtx
- ME_D2A846CDF2DF // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_104C1ED229FA // Left
- ;
-
-ref; // ME_CE96AE07E93B Left
-
-: ME_51E7CD17495B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52CD5A5422A8 // pop_RemindersLine_Left
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_51E7CD17495B 
 
 : ME_4DAEEDE10285_ME_52CD5A5422A8
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_52CD5A5422A8 DoDoIt
-
-: ME_52D00B00031A_ME_52CD5A5422A8
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_52CD5A5422A8 SetValuePrim
-
-: ME_551544E2001A_ME_52CD5A5422A8
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_52CD5A5422A8 GetResultTypeInfo
-
-: ME_559687E6025A_ME_52CD5A5422A8
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_52CD5A5422A8 GetAllParamsCount
-
-: ME_5617F4D00243_ME_52CD5A5422A8
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_52CD5A5422A8 ParamsTypes
 
 : ME_52CD5A5422A8
  CONST UID '52CD5A5422A8'
@@ -3868,7 +1491,7 @@ ref; // ME_5617F4D00243_ME_52CD5A5422A8 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:Left'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:Left >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:Left' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -3877,30 +1500,11 @@ ref; // ME_5617F4D00243_ME_52CD5A5422A8 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CE96AE07E93B // Left
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52CD5A5422A8 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_52CD5A5422A8 // SetValuePrim
- ME_551544E2001A_ME_52CD5A5422A8 // GetResultTypeInfo
- ME_559687E6025A_ME_52CD5A5422A8 // GetAllParamsCount
- ME_5617F4D00243_ME_52CD5A5422A8 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_51E7CD17495B // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Left'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineLeft'
  CONST extprop:rc:SelfName 'PopRemindersLineLeft'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3908,99 +1512,18 @@ ref; // ME_5617F4D00243_ME_52CD5A5422A8 ParamsTypes
  ;
  : SpelledFor ME_104C1ED229FA // Left
  ;
- : Stub ME_CE96AE07E93B // Left
- ;
 
 ref; // ME_52CD5A5422A8 pop_RemindersLine_Left
 
 FORWARD ME_3722BD8B8F28
 
-FORWARD ME_E071319A2497
-
 FORWARD ME_E47F2394242D
-
-: ME_125E9D706503
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_125E9D706503 aCtx
-
-: ME_125E9D706504
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_125E9D706504 aRemindersLine
-
-: ME_E071319A2497
- CONST UID 'E071319A2497'
- CONST Name 'Top'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Top' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E47F2394242D // pop_RemindersLine_Top
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_125E9D706503 // aCtx
- ME_125E9D706504 // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_3722BD8B8F28 // Top
- ;
-
-ref; // ME_E071319A2497 Top
-
-: ME_D4AAD45C7E84
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E47F2394242D // pop_RemindersLine_Top
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_D4AAD45C7E84 
 
 : ME_4DAEEDE10285_ME_E47F2394242D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E47F2394242D DoDoIt
-
-: ME_52D00B00031A_ME_E47F2394242D
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_E47F2394242D SetValuePrim
-
-: ME_551544E2001A_ME_E47F2394242D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E47F2394242D GetResultTypeInfo
-
-: ME_559687E6025A_ME_E47F2394242D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E47F2394242D GetAllParamsCount
-
-: ME_5617F4D00243_ME_E47F2394242D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E47F2394242D ParamsTypes
 
 : ME_E47F2394242D
  CONST UID 'E47F2394242D'
@@ -4009,7 +1532,7 @@ ref; // ME_5617F4D00243_ME_E47F2394242D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:Top'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:Top >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:Top' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -4018,30 +1541,11 @@ ref; // ME_5617F4D00243_ME_E47F2394242D ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E071319A2497 // Top
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_E47F2394242D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_E47F2394242D // SetValuePrim
- ME_551544E2001A_ME_E47F2394242D // GetResultTypeInfo
- ME_559687E6025A_ME_E47F2394242D // GetAllParamsCount
- ME_5617F4D00243_ME_E47F2394242D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D4AAD45C7E84 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Top'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineTop'
  CONST extprop:rc:SelfName 'PopRemindersLineTop'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4049,99 +1553,18 @@ ref; // ME_5617F4D00243_ME_E47F2394242D ParamsTypes
  ;
  : SpelledFor ME_3722BD8B8F28 // Top
  ;
- : Stub ME_E071319A2497 // Top
- ;
 
 ref; // ME_E47F2394242D pop_RemindersLine_Top
 
 FORWARD ME_E53E3CB7238C
 
-FORWARD ME_F41481B972B5
-
 FORWARD ME_002E70A99E5D
-
-: ME_6B220A87F3B6
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6B220A87F3B6 aCtx
-
-: ME_6B220A87F3B7
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_6B220A87F3B7 aRemindersLine
-
-: ME_F41481B972B5
- CONST UID 'F41481B972B5'
- CONST Name 'Visible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Visible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_002E70A99E5D // pop_RemindersLine_Visible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_6B220A87F3B6 // aCtx
- ME_6B220A87F3B7 // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_E53E3CB7238C // Visible
- ;
-
-ref; // ME_F41481B972B5 Visible
-
-: ME_18491A567023
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_002E70A99E5D // pop_RemindersLine_Visible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_18491A567023 
 
 : ME_4DAEEDE10285_ME_002E70A99E5D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_002E70A99E5D DoDoIt
-
-: ME_52D00B00031A_ME_002E70A99E5D
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_002E70A99E5D SetValuePrim
-
-: ME_551544E2001A_ME_002E70A99E5D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_002E70A99E5D GetResultTypeInfo
-
-: ME_559687E6025A_ME_002E70A99E5D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_002E70A99E5D GetAllParamsCount
-
-: ME_5617F4D00243_ME_002E70A99E5D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_002E70A99E5D ParamsTypes
 
 : ME_002E70A99E5D
  CONST UID '002E70A99E5D'
@@ -4150,7 +1573,7 @@ ref; // ME_5617F4D00243_ME_002E70A99E5D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:Visible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aRemindersLine pop:RemindersLine:Visible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:Visible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -4159,30 +1582,11 @@ ref; // ME_5617F4D00243_ME_002E70A99E5D ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F41481B972B5 // Visible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_002E70A99E5D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_002E70A99E5D // SetValuePrim
- ME_551544E2001A_ME_002E70A99E5D // GetResultTypeInfo
- ME_559687E6025A_ME_002E70A99E5D // GetAllParamsCount
- ME_5617F4D00243_ME_002E70A99E5D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_18491A567023 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Visible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineVisible'
  CONST extprop:rc:SelfName 'PopRemindersLineVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4190,99 +1594,18 @@ ref; // ME_5617F4D00243_ME_002E70A99E5D ParamsTypes
  ;
  : SpelledFor ME_E53E3CB7238C // Visible
  ;
- : Stub ME_F41481B972B5 // Visible
- ;
 
 ref; // ME_002E70A99E5D pop_RemindersLine_Visible
 
 FORWARD ME_B1192E4F770A
 
-FORWARD ME_F370C7CB88F6
-
 FORWARD ME_ECE9F55BFC1D
-
-: ME_58C7D422C423
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_58C7D422C423 aCtx
-
-: ME_58C7D422C424
- CONST Name 'aRemindersLine'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_58C7D422C424 aRemindersLine
-
-: ME_F370C7CB88F6
- CONST UID 'F370C7CB88F6'
- CONST Name 'Width'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RemindersLine:Width' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_ECE9F55BFC1D // pop_RemindersLine_Width
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_58C7D422C423 // aCtx
- ME_58C7D422C424 // aRemindersLine
- )
- ; // Parameters
- : SpelledFor ME_B1192E4F770A // Width
- ;
-
-ref; // ME_F370C7CB88F6 Width
-
-: ME_90CD8255979C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ECE9F55BFC1D // pop_RemindersLine_Width
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_90CD8255979C 
 
 : ME_4DAEEDE10285_ME_ECE9F55BFC1D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_ECE9F55BFC1D DoDoIt
-
-: ME_52D00B00031A_ME_ECE9F55BFC1D
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_ECE9F55BFC1D SetValuePrim
-
-: ME_551544E2001A_ME_ECE9F55BFC1D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_ECE9F55BFC1D GetResultTypeInfo
-
-: ME_559687E6025A_ME_ECE9F55BFC1D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_ECE9F55BFC1D GetAllParamsCount
-
-: ME_5617F4D00243_ME_ECE9F55BFC1D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_ECE9F55BFC1D ParamsTypes
 
 : ME_ECE9F55BFC1D
  CONST UID 'ECE9F55BFC1D'
@@ -4291,7 +1614,7 @@ ref; // ME_5617F4D00243_ME_ECE9F55BFC1D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RemindersLine:Width'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRemindersLine pop:RemindersLine:Width >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RemindersLine:Width' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_550057160010 // RemindersLineWordsPack
@@ -4300,38 +1623,17 @@ ref; // ME_5617F4D00243_ME_ECE9F55BFC1D ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F370C7CB88F6 // Width
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_ECE9F55BFC1D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_ECE9F55BFC1D // SetValuePrim
- ME_551544E2001A_ME_ECE9F55BFC1D // GetResultTypeInfo
- ME_559687E6025A_ME_ECE9F55BFC1D // GetAllParamsCount
- ME_5617F4D00243_ME_ECE9F55BFC1D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_90CD8255979C // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RemindersLine:Width'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRemindersLineWidth'
  CONST extprop:rc:SelfName 'PopRemindersLineWidth'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
  ;
  : SpelledFor ME_B1192E4F770A // Width
- ;
- : Stub ME_F370C7CB88F6 // Width
  ;
 
 ref; // ME_ECE9F55BFC1D pop_RemindersLine_Width
@@ -4444,7 +1746,6 @@ ref; // ME_55005938018E Top
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_55005964029E Visible
 
@@ -4488,9 +1789,6 @@ ref; // ME_5500583800CF aPoint
    Seq: ( ME_5500583800CF // aPoint
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_9653AE4CDED4 // pop_RemindersLine_ClientToScreen
  ;
 
@@ -4520,9 +1818,6 @@ ref; // ME_550058E602AE anIndex
    Seq: ( ME_550058E602AE // anIndex
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_FF04F6E03205 // pop_RemindersLine_GetReminder
  ;
 
@@ -4540,8 +1835,6 @@ ref; // ME_550058BD036F GetReminder
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'AbsLeft'
@@ -4562,8 +1855,6 @@ ref; // ME_0641D684732E AbsLeft
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'AbsTop'
@@ -4584,8 +1875,6 @@ ref; // ME_1FF1E3F5AC48 AbsTop
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Count'
@@ -4606,8 +1895,6 @@ ref; // ME_062BCA81F7FC Count
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Height'
@@ -4628,8 +1915,6 @@ ref; // ME_B8B536109782 Height
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Left'
@@ -4650,8 +1935,6 @@ ref; // ME_104C1ED229FA Left
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Top'
@@ -4672,9 +1955,6 @@ ref; // ME_3722BD8B8F28 Top
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Visible'
  : Speller ME_002E70A99E5D // pop_RemindersLine_Visible
@@ -4694,8 +1974,6 @@ ref; // ME_E53E3CB7238C Visible
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Width'
@@ -4703,102 +1981,6 @@ ref; // ME_E53E3CB7238C Visible
  ;
 
 ref; // ME_B1192E4F770A Width
-
-: ME_EE212DDD9A8B
- CONST UID 'EE212DDD9A8B'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_EE212DDD9A8B Reg_Type_TtfwContext
-
-: ME_4138E434A184
- CONST UID '4138E434A184'
- CONST Name 'Reg_Type_TvgRemindersLine'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvgRemindersLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : SpelledFor WL 'ME_532322D901A3' '53288DFA03A7.pas.ms.script' // TvgRemindersLine
- ;
-
-ref; // ME_4138E434A184 Reg_Type_TvgRemindersLine
-
-: ME_F6CBDCE65679
- CONST UID 'F6CBDCE65679'
- CONST Name 'Reg_Type_TPoint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TPoint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : SpelledFor WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_F6CBDCE65679 Reg_Type_TPoint
-
-: ME_12397D2C23CA
- CONST UID '12397D2C23CA'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_12397D2C23CA Reg_Type_Integer
-
-: ME_0C186C0F8896
- CONST UID '0C186C0F8896'
- CONST Name 'Reg_Type_TvgReminder'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvgReminder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : SpelledFor WL 'ME_532973740186' '53288DFA03A7.pas.ms.script' // TvgReminder
- ;
-
-ref; // ME_0C186C0F8896 Reg_Type_TvgReminder
-
-: ME_A03124C980DE
- CONST UID 'A03124C980DE'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_550057160010 // RemindersLineWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_A03124C980DE Reg_Type_Boolean
 
 : ME_5500586700F8
  CONST Class class_Dependency
@@ -4857,12 +2039,6 @@ ref; // ME_2DB5871F8286
  ME_3722BD8B8F28 // Top
  ME_E53E3CB7238C // Visible
  ME_B1192E4F770A // Width
- ME_EE212DDD9A8B // Reg_Type_TtfwContext
- ME_4138E434A184 // Reg_Type_TvgRemindersLine
- ME_F6CBDCE65679 // Reg_Type_TPoint
- ME_12397D2C23CA // Reg_Type_Integer
- ME_0C186C0F8896 // Reg_Type_TvgReminder
- ME_A03124C980DE // Reg_Type_Boolean
  )
  ; // Operations
  : Children
@@ -4884,10 +2060,6 @@ ref; // ME_2DB5871F8286
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RemindersLineWordsPack.pas'
 
 ref; // ME_550057160010 RemindersLineWordsPack
@@ -4910,7 +2082,6 @@ ref; // ME_550057160010 RemindersLineWordsPack
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

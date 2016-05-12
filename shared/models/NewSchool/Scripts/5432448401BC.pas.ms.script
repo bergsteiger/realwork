@@ -2775,6 +2775,47 @@ ref; // ME_571DB99300C7 prHighest
 
 ref; // ME_571DB8E5025A TdaPriority
 
+FORWARD ME_57330A8D03D6
+
+: ME_57330A9B03B0
+ CONST UID '57330A9B03B0'
+ CONST Name 'cDeprecatedDicts'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_57330A8D03D6 // DeprecatedDicts
+ ;
+ : Target ME_5593AC1101CA // TdaDictionaryTypeSet
+ ;
+ CONST Value '[da_dlNewClasses_Deprecated]'
+ : ValueType ME_5593AC1101CA // TdaDictionaryTypeSet
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '[da_dlNewClasses_Deprecated]'
+
+ref; // ME_57330A9B03B0 cDeprecatedDicts
+
+: ME_57330A8D03D6
+ CONST UID '57330A8D03D6'
+ CONST Name 'DeprecatedDicts'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432448401BC // daTypes
+ ;
+ : Attributes
+   Seq: ( ME_57330A9B03B0 // cDeprecatedDicts
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_57330A8D03D6 DeprecatedDicts
+
 : ME_5432448401BC
  CONST UID '5432448401BC'
  CONST Name 'daTypes'
@@ -2822,6 +2863,10 @@ ref; // ME_571DB8E5025A TdaPriority
  ME_571DB8E5025A // TdaPriority
  )
  ; // Children
+ : Constants
+   Seq: ( ME_57330A8D03D6 // DeprecatedDicts
+ )
+ ; // Constants
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
@@ -2830,7 +2875,6 @@ ref; // ME_571DB8E5025A TdaPriority
  )
  ; // Depends
  CONST "is namespace" true
- CONST "no hands" false
  CONST intf.pas:Path 'common\components\rtl\Garant\DA\daTypes.pas'
 
 ref; // ME_5432448401BC daTypes

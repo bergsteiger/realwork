@@ -83,10 +83,7 @@ ref; // ME_479731C50290_ME_47CD0E4E001F Cleanup
    Seq: ( ME_479731C50290_ME_47CD0E4E001F // Cleanup
  )
  ; // Overridden
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorForm.pas'
  CONST extprop:rc:SelfName 'NavigatorForm'
  CONST extprop:rc:isAcceptableForScripts true
@@ -150,10 +147,7 @@ ref; // ME_47B99D4503A2_ME_47CD131703C6 CompareExistingItems
  ME_47B99D4503A2_ME_47CD131703C6 // CompareExistingItems
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorFormListPrimPrim.pas'
  CONST extprop:rc:SelfName 'NavigatorFormListPrimPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -298,10 +292,6 @@ ref; // ME_47B9BAFD01F4_ME_47D68267011D CompareItemWithData
    Seq: ( ME_47D67F4A01EA // TvtFormHandlerID
  )
  ; // Children
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorFormListPrim.pas'
  CONST extprop:rc:SelfName 'NavigatorFormListPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -647,10 +637,6 @@ FORWARD ME_4C8A252E01C2
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npObject'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -943,11 +929,6 @@ ref; // ME_52B9907000E3 TnpDrawSplitterTypes
    Seq: ( WL 'ME_48BBE37E00A2' '467BA8C8017E.pas.ms.script' // TafwCustomCommonControl
  )
  ; // Inherits
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npCustomControl'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -984,11 +965,6 @@ ref; // ME_476A5BBD03D9_ME_52B9922001E1 ControlIsPanel
    Seq: ( ME_476A5BBD03D9_ME_52B9922001E1 // ControlIsPanel
  )
  ; // Implemented
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npCustomPanel'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1092,10 +1068,6 @@ ref; // ME_52B9AE5B02F8 OnStateChanged
    Seq: ( ME_52B9AE5B02F8 // OnStateChanged
  )
  ; // Attributes
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npChangeLink'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1555,11 +1527,6 @@ ref; // ME_52B9A85201C2_ME_52B99259019E DoActivePrevPage
    Seq: ( ME_52BAD1C40174 // TvtNavigatorPrim
  )
  ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npPageControl'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1705,11 +1672,6 @@ ref; // ME_52B9B0560033 WMEraseBkgnd
    Seq: ( ME_52B9AF0A027C // TnpSurface
  )
  ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npContainerSurface'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1973,11 +1935,6 @@ ref; // ME_5028A60300AD_ME_52B9AF0A027C Paint
  ME_52BABCB3015C // TnpHeaderPrim
  )
  ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npSurface'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -2064,6 +2021,20 @@ ref; // ME_52BAB05F0215 IsMouseDown
  ;
 
 ref; // ME_52BC4CAF0314 f_Surface
+
+: ME_572C450F0190
+ CONST UID '572C450F0190'
+ CONST Name 'f_LastMovingPoint'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52B9B0AA0105 // TnpSplitter
+ ;
+ : Target WL 'ME_46A104F4028B' '4AB0C3F60375.pas.ms.script' // TPoint
+ ;
+
+ref; // ME_572C450F0190 f_LastMovingPoint
 
 FORWARD ME_52BABB100388
 
@@ -2536,6 +2507,7 @@ ref; // ME_5028A60300AD_ME_52B9B0AA0105 Paint
  ME_52BAB02F021D // HideButtonHint
  ME_52BAB05F0215 // IsMouseDown
  ME_52BC4CAF0314 // f_Surface
+ ME_572C450F0190 // f_LastMovingPoint
  )
  ; // Attributes
  : Operations
@@ -2563,10 +2535,6 @@ ref; // ME_5028A60300AD_ME_52B9B0AA0105 Paint
  ME_5028A60300AD_ME_52B9B0AA0105 // Paint
  )
  ; // Overridden
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
  CONST "register in scripts" true
  CONST extprop:rc:SelfName 'npSplitter'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3252,11 +3220,6 @@ ref; // ME_508F957E0283_ME_52BABCB3015C AdjustClientRect
    Seq: ( ME_52BAC22601F8 // TnpButton
  )
  ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npHeaderPrim'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -3527,11 +3490,6 @@ ref; // ME_52BAC31903DB WMMouseMove
    Seq: ( ME_52B990B001E1 // TnpButtonType
  )
  ; // Children
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npButton'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -4211,11 +4169,6 @@ ref; // ME_4F9007B20376_ME_52BACEF001CB CreateNew
    Seq: ( ME_52BD70B7032A // RvtNavigator
  )
  ; // Forwarded
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npFloatingWindow'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -5410,6 +5363,20 @@ ref; // ME_551BD4FD03A2 f_PageDeactivated
  CONST "ifdef" 'Nemesis'
 
 ref; // ME_552669DF0373 f_ParentMainForm
+
+: ME_572C5CC0004D
+ CONST UID '572C5CC0004D'
+ CONST Name 'f_SizeNormalLoaded'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52BAD1C40174 // TvtNavigatorPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_572C5CC0004D f_SizeNormalLoaded
 
 FORWARD ME_52BD5F51022B
 
@@ -8334,6 +8301,7 @@ ref; // ME_52BC2B9401F3_ME_52BAD1C40174 AfterDestroyCalled
  ME_52CED0F20285 // NavigatorOnForm
  ME_551BD4FD03A2 // f_PageDeactivated
  ME_552669DF0373 // f_ParentMainForm
+ ME_572C5CC0004D // f_SizeNormalLoaded
  )
  ; // Attributes
  : Operations
@@ -8456,10 +8424,6 @@ ref; // ME_52BC2B9401F3_ME_52BAD1C40174 AfterDestroyCalled
  ME_52BC2B9401F3_ME_52BAD1C40174 // AfterDestroyCalled
  )
  ; // Overridden
- CONST "base wnd class" 'CWnd'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
  CONST "register in scripts" true
  CONST extprop:rc:SelfName 'NavigatorPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8499,12 +8463,7 @@ ref; // ME_52BD70B7032A RvtNavigator
    Seq: ( ME_52BABCB3015C // TnpHeaderPrim
  )
  ; // Inherits
- CONST "base wnd class" 'CWnd'
  CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'npHeader'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -9762,12 +9721,8 @@ ref; // ME_331B8E210DA6
  ME_331B8E210DA6 // Tl3MessageID
  )
  ; // Dependencies
- CONST "base wnd class" 'CWnd'
  CONST "need UC" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtNavigator.pas'
  CONST extprop:rc:SelfName 'Navigator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9789,10 +9744,6 @@ ref; // ME_4C8A252E01C2 TvtNavigator
    Seq: ( ME_47D68267011D // TvtNavigatorFormListPrim
  )
  ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorFormList.pas'
  CONST extprop:rc:SelfName 'NavigatorFormList'
@@ -9949,10 +9900,6 @@ ref; // ME_4F61F57501B6 Create
  ME_4F61F57501B6 // Create
  )
  ; // Operations
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\npControls.pas'
  CONST extprop:rc:SelfName 'npControls'
  CONST extprop:rc:isAcceptableForScripts true
@@ -10258,10 +10205,6 @@ ref; // ME_47B99D4503A2_ME_4F61DE50034C CompareExistingItems
  ME_47B99D4503A2_ME_4F61DE50034C // CompareExistingItems
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\npControlsListPrim.pas'
  CONST extprop:rc:SelfName 'npControlsListPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -10400,10 +10343,6 @@ ref; // ME_4F61E080034B UnReg
  ME_4F61E080034B // UnReg
  )
  ; // Operations
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\npNavigatorListPrim.pas'
  CONST extprop:rc:SelfName 'npNavigatorListPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -10472,10 +10411,6 @@ ref; // ME_47A042E100E2_ME_4F61FEEB00A5 InitFields
    Seq: ( ME_4F6727D9004F // Tl3ListenersManager
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VT\npNavigatorListCBT.pas'
  CONST extprop:rc:SelfName 'npNavigatorListCBT'
  CONST extprop:rc:isAcceptableForScripts true
@@ -10498,10 +10433,6 @@ ref; // ME_4F61FEEB00A5 TnpNavigatorListCBT
    Seq: ( ME_4F61DE50034C // TnpControlsListPrim
  )
  ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST intf.pas:Path 'common\components\gui\Garant\VT\npControlsList.pas'
  CONST extprop:rc:SelfName 'npControlsList'
@@ -10589,10 +10520,6 @@ ref; // ME_47A042E100E2_ME_4F61E03003CF InitFields
  ME_4F6AE23503A8 // Msg Codes
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST intf.pas:Path 'common\components\gui\Garant\VT\npNavigatorList.pas'
  CONST extprop:rc:SelfName 'npNavigatorList'
@@ -10612,7 +10539,6 @@ ref; // ME_4F61E03003CF TnpNavigatorList
  : Parent ME_47CD07B900E0 // vtNavigator
  ;
  CONST "finished" false
- CONST "no hands" false
  CONST intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtNavigatorUtils.pas'
  CONST extprop:rc:SelfName 'NavigatorUtils'
 

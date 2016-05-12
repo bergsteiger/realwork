@@ -72,10 +72,8 @@ FORWARD ME_4F6B3E7E01C9
    Seq: ( ME_4F6B3E7E01C9 // ChildZonePanel
  )
  ; // Inherits
- CONST "CanClose" 'undefined'
  CONST "MergeBottomTollbarWithContainer" false
  CONST "MergeTopTollbarWithContainer" false
- CONST "Need UC" 'undefined'
  CONST "ZoneType" 'Child'
 
 ref; // ME_4F6B3E8D030E ChildZone
@@ -96,7 +94,6 @@ FORWARD ME_4F6B3F1401A7
    Seq: ( ME_4F6B3F1401A7 // ParentZonePanel
  )
  ; // Inherits
- CONST "CanClose" 'undefined'
  CONST "MergeBottomTollbarWithContainer" false
  CONST "MergeTopTollbarWithContainer" false
  CONST "Need UC" true
@@ -120,10 +117,8 @@ FORWARD ME_4F7B111C0282
    Seq: ( ME_4F7B111C0282 // BaseSearchPanel
  )
  ; // Inherits
- CONST "CanClose" 'undefined'
  CONST "MergeBottomTollbarWithContainer" false
  CONST "MergeTopTollbarWithContainer" false
- CONST "Need UC" 'undefined'
  CONST "ZoneType" 'Main'
 
 ref; // ME_4F7B11F703E0 BaseSeachZone
@@ -157,7 +152,6 @@ ref; // ME_4F950D330160 HasRightNavigator
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -182,7 +176,6 @@ FORWARD ME_4F6B47190328
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -203,7 +196,6 @@ ref; // ME_4F6B3F1401A7 ParentZonePanel
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -229,7 +221,6 @@ ref; // ME_4F6B3E7E01C9 ChildZonePanel
  )
  ; // Attributes
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -250,7 +241,6 @@ ref; // ME_4F6B47190328 MainZone
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" true
 
@@ -271,7 +261,6 @@ ref; // ME_4F7B111C0282 BaseSearchPanel
  )
  ; // Inherits
  CONST "ControlClass" 'TnscNavigator'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -311,7 +300,6 @@ ref; // ME_4F95323901CA
  ; // Attributes
  CONST "ControlClass" 'TnscNavigator'
  CONST "ifdef" 'HasRightNavigator'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -339,7 +327,6 @@ ref; // ME_4F6B38BE03C7 RightNavigator
  )
  ; // Attributes
  CONST "ControlClass" 'TvtPanel'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -2122,12 +2109,7 @@ ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
  ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\MainPrim_Form.pas'
@@ -2137,6 +2119,21 @@ ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
  CONST extprop:pas:UnitName 'MainPrim_Form'
 
 ref; // ME_4F6B382E00D9 MainPrim
+
+: ME_650B0533A23A
+ CONST UID '650B0533A23A'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация F1Like' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6B607F027E // F1Like
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_650B0533A23A Ini_Reg_Class
 
 : ME_4F6B60940381
  CONST Class class_Dependency
@@ -2168,6 +2165,17 @@ ref; // ME_4F6B6DE30202
 
 ref; // ME_4F7993C500C2 
 
+: ME_948F9E11928F
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F6B607F027E // F1Like
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_948F9E11928F 
+
 : ME_4F6AF5F00058_ME_4F6B607F027E
  : Original WL 'ME_4F6AF5F00058' '50883A2E00B3.pas.ms.script' // MakeResources
  ;
@@ -2189,6 +2197,10 @@ ref; // ME_4F6AF5F00058_ME_4F6B607F027E MakeResources
    Seq: ( WL 'ME_4ADDCE970294' '4954C0500033.pas.ms.script' // OfficeLike
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_650B0533A23A // Ini_Reg_Class
+ )
+ ; // Operations
  : Overridden
    Seq: ( ME_4F6AF5F00058_ME_4F6B607F027E // MakeResources
  )
@@ -2201,12 +2213,9 @@ ref; // ME_4F6AF5F00058_ME_4F6B607F027E MakeResources
    Seq: ( ME_4F6B60940381 // TasksPanelMenu
  ME_4F6B6DE30202 // ParentAndChild
  ME_4F7993C500C2 // vtStdRes
+ ME_948F9E11928F // TtfwClassRef
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\F1LikeRes.pas'
  CONST extprop:pas:TypeName 'TF1LikeRes'
  CONST extprop:rc:SelfName 'F1LikeRes'
@@ -2239,7 +2248,6 @@ ref; // ME_4F6B607F027E F1Like
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
@@ -2263,7 +2271,6 @@ ref; // ME_4F6B607F027E F1Like
  WL 'ME_4C8DD8970344' '4C8DD8970344.pas.ms.script' // View
  WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.pas.ms.script' // TasksPanel
  WL 'ME_4D4927B5008B' '4D4927B5008B.pas.ms.script' // VT$Core
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  WL 'ME_4E1447600037' '4E1447600037.pas.ms.script' // Common
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain

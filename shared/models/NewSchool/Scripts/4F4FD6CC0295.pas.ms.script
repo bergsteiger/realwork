@@ -126,10 +126,6 @@ ref; // ME_4F4FD85F033A CreateWrite
    Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_4F4FD88C01B2 MakeRead
 
@@ -151,10 +147,6 @@ ref; // ME_4F4FD88C01B2 MakeRead
    Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_4F4FD89C00DB MakeWrite
 
@@ -219,10 +211,6 @@ ref; // ME_570E70230377 CreateAppend
    Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_570E7037029C MakeAppend
 
@@ -369,97 +357,12 @@ ref; // ME_479731C50290_ME_4F4FD77B03CC Cleanup
  ME_4F4FD9E7017E // l3String
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'File'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4F4FD77B03CC TtfwFile
 
 FORWARD ME_55B5FB4B0008
-
-FORWARD ME_1138E576E816
-
-FORWARD ME_E10DA0D7493D
-
-: ME_B8B6FBF3069E
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B8B6FBF3069E aCtx
-
-: ME_B8B6FBF3069F
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_B8B6FBF3069F aName
-
-: ME_1138E576E816
- CONST UID '1138E576E816'
- CONST Name 'OpenRead'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:OpenRead' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E10DA0D7493D // File_OpenRead
- ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
- : Parameters
-   Seq: ( ME_B8B6FBF3069E // aCtx
- ME_B8B6FBF3069F // aName
- )
- ; // Parameters
- : SpelledFor ME_55B5FB4B0008 // OpenRead
- ;
-
-ref; // ME_1138E576E816 OpenRead
-
-: ME_DA2F4444C8AB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E10DA0D7493D // File_OpenRead
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DA2F4444C8AB 
-
-: ME_4DAEEDE10285_ME_E10DA0D7493D
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_E10DA0D7493D DoDoIt
-
-: ME_551544E2001A_ME_E10DA0D7493D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E10DA0D7493D GetResultTypeInfo
-
-: ME_559687E6025A_ME_E10DA0D7493D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E10DA0D7493D GetAllParamsCount
-
-: ME_5617F4D00243_ME_E10DA0D7493D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E10DA0D7493D ParamsTypes
 
 : ME_E10DA0D7493D
  CONST UID 'E10DA0D7493D'
@@ -468,38 +371,12 @@ ref; // ME_5617F4D00243_ME_E10DA0D7493D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:OpenRead'#13#10'*Тип результата:* ItfwFile'#13#10'*Пример:*'#13#10'{code}'#13#10'FILE VAR l_ItfwFile'#13#10' aName File:OpenRead >>> l_ItfwFile'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:OpenRead' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_1138E576E816 // OpenRead
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_E10DA0D7493D // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_E10DA0D7493D // GetResultTypeInfo
- ME_559687E6025A_ME_E10DA0D7493D // GetAllParamsCount
- ME_5617F4D00243_ME_E10DA0D7493D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DA2F4444C8AB // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:OpenRead'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileOpenRead'
  CONST extprop:rc:SelfName 'FileOpenRead'
  CONST extprop:rc:isAcceptableForScripts true
@@ -507,93 +384,10 @@ ref; // ME_5617F4D00243_ME_E10DA0D7493D ParamsTypes
  ;
  : SpelledFor ME_55B5FB4B0008 // OpenRead
  ;
- : Stub ME_1138E576E816 // OpenRead
- ;
 
 ref; // ME_E10DA0D7493D File_OpenRead
 
 FORWARD ME_55B5FB780316
-
-FORWARD ME_C3A7BCE24C3B
-
-FORWARD ME_1CA3472F7177
-
-: ME_D450B1FC58F0
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D450B1FC58F0 aCtx
-
-: ME_D450B1FC58F1
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_D450B1FC58F1 aName
-
-: ME_C3A7BCE24C3B
- CONST UID 'C3A7BCE24C3B'
- CONST Name 'OpenWrite'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:OpenWrite' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1CA3472F7177 // File_OpenWrite
- ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
- : Parameters
-   Seq: ( ME_D450B1FC58F0 // aCtx
- ME_D450B1FC58F1 // aName
- )
- ; // Parameters
- : SpelledFor ME_55B5FB780316 // OpenWrite
- ;
-
-ref; // ME_C3A7BCE24C3B OpenWrite
-
-: ME_D78640103B79
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1CA3472F7177 // File_OpenWrite
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_D78640103B79 
-
-: ME_4DAEEDE10285_ME_1CA3472F7177
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_1CA3472F7177 DoDoIt
-
-: ME_551544E2001A_ME_1CA3472F7177
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_1CA3472F7177 GetResultTypeInfo
-
-: ME_559687E6025A_ME_1CA3472F7177
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_1CA3472F7177 GetAllParamsCount
-
-: ME_5617F4D00243_ME_1CA3472F7177
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_1CA3472F7177 ParamsTypes
 
 : ME_1CA3472F7177
  CONST UID '1CA3472F7177'
@@ -602,38 +396,12 @@ ref; // ME_5617F4D00243_ME_1CA3472F7177 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:OpenWrite'#13#10'*Тип результата:* ItfwFile'#13#10'*Пример:*'#13#10'{code}'#13#10'FILE VAR l_ItfwFile'#13#10' aName File:OpenWrite >>> l_ItfwFile'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:OpenWrite' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_C3A7BCE24C3B // OpenWrite
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_1CA3472F7177 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_1CA3472F7177 // GetResultTypeInfo
- ME_559687E6025A_ME_1CA3472F7177 // GetAllParamsCount
- ME_5617F4D00243_ME_1CA3472F7177 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D78640103B79 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:OpenWrite'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileOpenWrite'
  CONST extprop:rc:SelfName 'FileOpenWrite'
  CONST extprop:rc:isAcceptableForScripts true
@@ -641,93 +409,18 @@ ref; // ME_5617F4D00243_ME_1CA3472F7177 ParamsTypes
  ;
  : SpelledFor ME_55B5FB780316 // OpenWrite
  ;
- : Stub ME_C3A7BCE24C3B // OpenWrite
- ;
 
 ref; // ME_1CA3472F7177 File_OpenWrite
 
 FORWARD ME_55B5FB9E01EF
 
-FORWARD ME_509E2E3CFD11
-
 FORWARD ME_2B33C78BBAB9
-
-: ME_536F545A5ADB
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_536F545A5ADB aCtx
-
-: ME_536F545A5ADC
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_536F545A5ADC aFile
-
-: ME_509E2E3CFD11
- CONST UID '509E2E3CFD11'
- CONST Name 'EOF'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:EOF' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2B33C78BBAB9 // File_EOF
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_536F545A5ADB // aCtx
- ME_536F545A5ADC // aFile
- )
- ; // Parameters
- : SpelledFor ME_55B5FB9E01EF // EOF
- ;
-
-ref; // ME_509E2E3CFD11 EOF
-
-: ME_FA0D4E5D6CB0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2B33C78BBAB9 // File_EOF
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_FA0D4E5D6CB0 
 
 : ME_4DAEEDE10285_ME_2B33C78BBAB9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2B33C78BBAB9 DoDoIt
-
-: ME_551544E2001A_ME_2B33C78BBAB9
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_2B33C78BBAB9 GetResultTypeInfo
-
-: ME_559687E6025A_ME_2B33C78BBAB9
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_2B33C78BBAB9 GetAllParamsCount
-
-: ME_5617F4D00243_ME_2B33C78BBAB9
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_2B33C78BBAB9 ParamsTypes
 
 : ME_2B33C78BBAB9
  CONST UID '2B33C78BBAB9'
@@ -736,7 +429,7 @@ ref; // ME_5617F4D00243_ME_2B33C78BBAB9 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:EOF'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aFile File:EOF >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:EOF' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -745,29 +438,11 @@ ref; // ME_5617F4D00243_ME_2B33C78BBAB9 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_509E2E3CFD11 // EOF
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_2B33C78BBAB9 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_2B33C78BBAB9 // GetResultTypeInfo
- ME_559687E6025A_ME_2B33C78BBAB9 // GetAllParamsCount
- ME_5617F4D00243_ME_2B33C78BBAB9 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_FA0D4E5D6CB0 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:EOF'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileEOF'
  CONST extprop:rc:SelfName 'FileEOF'
  CONST extprop:rc:isAcceptableForScripts true
@@ -775,93 +450,18 @@ ref; // ME_5617F4D00243_ME_2B33C78BBAB9 ParamsTypes
  ;
  : SpelledFor ME_55B5FB9E01EF // EOF
  ;
- : Stub ME_509E2E3CFD11 // EOF
- ;
 
 ref; // ME_2B33C78BBAB9 File_EOF
 
 FORWARD ME_55B5FBE20353
 
-FORWARD ME_47F929C35E76
-
 FORWARD ME_324E0BCF3B98
-
-: ME_A1668C8AE965
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A1668C8AE965 aCtx
-
-: ME_A1668C8AE966
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_A1668C8AE966 aFile
-
-: ME_47F929C35E76
- CONST UID '47F929C35E76'
- CONST Name 'ReadLn'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:ReadLn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_324E0BCF3B98 // File_ReadLn
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Parameters
-   Seq: ( ME_A1668C8AE965 // aCtx
- ME_A1668C8AE966 // aFile
- )
- ; // Parameters
- : SpelledFor ME_55B5FBE20353 // ReadLn
- ;
-
-ref; // ME_47F929C35E76 ReadLn
-
-: ME_9B653BF052AF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_324E0BCF3B98 // File_ReadLn
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_9B653BF052AF 
 
 : ME_4DAEEDE10285_ME_324E0BCF3B98
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_324E0BCF3B98 DoDoIt
-
-: ME_551544E2001A_ME_324E0BCF3B98
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_324E0BCF3B98 GetResultTypeInfo
-
-: ME_559687E6025A_ME_324E0BCF3B98
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_324E0BCF3B98 GetAllParamsCount
-
-: ME_5617F4D00243_ME_324E0BCF3B98
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_324E0BCF3B98 ParamsTypes
 
 : ME_324E0BCF3B98
  CONST UID '324E0BCF3B98'
@@ -870,7 +470,7 @@ ref; // ME_5617F4D00243_ME_324E0BCF3B98 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:ReadLn'#13#10'*Тип результата:* Il3CString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Il3CString'#13#10' aFile File:ReadLn >>> l_Il3CString'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:ReadLn' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -879,29 +479,11 @@ ref; // ME_5617F4D00243_ME_324E0BCF3B98 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_47F929C35E76 // ReadLn
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_324E0BCF3B98 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_324E0BCF3B98 // GetResultTypeInfo
- ME_559687E6025A_ME_324E0BCF3B98 // GetAllParamsCount
- ME_5617F4D00243_ME_324E0BCF3B98 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9B653BF052AF // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:ReadLn'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileReadLn'
  CONST extprop:rc:SelfName 'FileReadLn'
  CONST extprop:rc:isAcceptableForScripts true
@@ -909,102 +491,18 @@ ref; // ME_5617F4D00243_ME_324E0BCF3B98 ParamsTypes
  ;
  : SpelledFor ME_55B5FBE20353 // ReadLn
  ;
- : Stub ME_47F929C35E76 // ReadLn
- ;
 
 ref; // ME_324E0BCF3B98 File_ReadLn
 
 FORWARD ME_55B5FBFE02E9
 
-FORWARD ME_7E6964328B7F
-
 FORWARD ME_D6A86D931B42
-
-: ME_42BE65FA8BC7
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_42BE65FA8BC7 aCtx
-
-: ME_42BE65FA8BC8
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_42BE65FA8BC8 aFile
-
-: ME_42BE65FA8BC9
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_42BE65FA8BC9 aValue
-
-: ME_7E6964328B7F
- CONST UID '7E6964328B7F'
- CONST Name 'WriteLn'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:WriteLn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D6A86D931B42 // File_WriteLn
- ;
- : Parameters
-   Seq: ( ME_42BE65FA8BC7 // aCtx
- ME_42BE65FA8BC8 // aFile
- ME_42BE65FA8BC9 // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B5FBFE02E9 // WriteLn
- ;
-
-ref; // ME_7E6964328B7F WriteLn
-
-: ME_0A8C7ABDABD9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D6A86D931B42 // File_WriteLn
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_0A8C7ABDABD9 
 
 : ME_4DAEEDE10285_ME_D6A86D931B42
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D6A86D931B42 DoDoIt
-
-: ME_551544E2001A_ME_D6A86D931B42
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_D6A86D931B42 GetResultTypeInfo
-
-: ME_559687E6025A_ME_D6A86D931B42
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_D6A86D931B42 GetAllParamsCount
-
-: ME_5617F4D00243_ME_D6A86D931B42
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_D6A86D931B42 ParamsTypes
 
 : ME_D6A86D931B42
  CONST UID 'D6A86D931B42'
@@ -1013,7 +511,7 @@ ref; // ME_5617F4D00243_ME_D6A86D931B42 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:WriteLn'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aFile File:WriteLn'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:WriteLn' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1022,29 +520,11 @@ ref; // ME_5617F4D00243_ME_D6A86D931B42 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7E6964328B7F // WriteLn
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_D6A86D931B42 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_D6A86D931B42 // GetResultTypeInfo
- ME_559687E6025A_ME_D6A86D931B42 // GetAllParamsCount
- ME_5617F4D00243_ME_D6A86D931B42 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0A8C7ABDABD9 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:WriteLn'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileWriteLn'
  CONST extprop:rc:SelfName 'FileWriteLn'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1052,102 +532,18 @@ ref; // ME_5617F4D00243_ME_D6A86D931B42 ParamsTypes
  ;
  : SpelledFor ME_55B5FBFE02E9 // WriteLn
  ;
- : Stub ME_7E6964328B7F // WriteLn
- ;
 
 ref; // ME_D6A86D931B42 File_WriteLn
 
 FORWARD ME_55B5FC1C0184
 
-FORWARD ME_8B2200CCBE22
-
 FORWARD ME_B530B64F8857
-
-: ME_7174A32E8AFB
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7174A32E8AFB aCtx
-
-: ME_7174A32E8AFC
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_7174A32E8AFC aFile
-
-: ME_7174A32E8AFD
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
- ;
-
-ref; // ME_7174A32E8AFD aValue
-
-: ME_8B2200CCBE22
- CONST UID '8B2200CCBE22'
- CONST Name 'WriteChar'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:WriteChar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B530B64F8857 // File_WriteChar
- ;
- : Parameters
-   Seq: ( ME_7174A32E8AFB // aCtx
- ME_7174A32E8AFC // aFile
- ME_7174A32E8AFD // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B5FC1C0184 // WriteChar
- ;
-
-ref; // ME_8B2200CCBE22 WriteChar
-
-: ME_2183B0DFB559
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B530B64F8857 // File_WriteChar
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_2183B0DFB559 
 
 : ME_4DAEEDE10285_ME_B530B64F8857
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B530B64F8857 DoDoIt
-
-: ME_551544E2001A_ME_B530B64F8857
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B530B64F8857 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B530B64F8857
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B530B64F8857 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B530B64F8857
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B530B64F8857 ParamsTypes
 
 : ME_B530B64F8857
  CONST UID 'B530B64F8857'
@@ -1156,7 +552,7 @@ ref; // ME_5617F4D00243_ME_B530B64F8857 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:WriteChar'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aFile File:WriteChar'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:WriteChar' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1165,29 +561,11 @@ ref; // ME_5617F4D00243_ME_B530B64F8857 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8B2200CCBE22 // WriteChar
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B530B64F8857 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_B530B64F8857 // GetResultTypeInfo
- ME_559687E6025A_ME_B530B64F8857 // GetAllParamsCount
- ME_5617F4D00243_ME_B530B64F8857 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2183B0DFB559 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:WriteChar'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileWriteChar'
  CONST extprop:rc:SelfName 'FileWriteChar'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1195,102 +573,18 @@ ref; // ME_5617F4D00243_ME_B530B64F8857 ParamsTypes
  ;
  : SpelledFor ME_55B5FC1C0184 // WriteChar
  ;
- : Stub ME_8B2200CCBE22 // WriteChar
- ;
 
 ref; // ME_B530B64F8857 File_WriteChar
 
 FORWARD ME_55B5FC500169
 
-FORWARD ME_BF1D3E215CF5
-
 FORWARD ME_0016E31D4F5B
-
-: ME_8390B94E0508
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8390B94E0508 aCtx
-
-: ME_8390B94E0509
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_8390B94E0509 aFile
-
-: ME_8390B94E050A
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_8390B94E050A aValue
-
-: ME_BF1D3E215CF5
- CONST UID 'BF1D3E215CF5'
- CONST Name 'WriteStr'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:WriteStr' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0016E31D4F5B // File_WriteStr
- ;
- : Parameters
-   Seq: ( ME_8390B94E0508 // aCtx
- ME_8390B94E0509 // aFile
- ME_8390B94E050A // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B5FC500169 // WriteStr
- ;
-
-ref; // ME_BF1D3E215CF5 WriteStr
-
-: ME_4660DD87C1F2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0016E31D4F5B // File_WriteStr
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_4660DD87C1F2 
 
 : ME_4DAEEDE10285_ME_0016E31D4F5B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0016E31D4F5B DoDoIt
-
-: ME_551544E2001A_ME_0016E31D4F5B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0016E31D4F5B GetResultTypeInfo
-
-: ME_559687E6025A_ME_0016E31D4F5B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0016E31D4F5B GetAllParamsCount
-
-: ME_5617F4D00243_ME_0016E31D4F5B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0016E31D4F5B ParamsTypes
 
 : ME_0016E31D4F5B
  CONST UID '0016E31D4F5B'
@@ -1299,7 +593,7 @@ ref; // ME_5617F4D00243_ME_0016E31D4F5B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:WriteStr'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aFile File:WriteStr'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:WriteStr' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1308,29 +602,11 @@ ref; // ME_5617F4D00243_ME_0016E31D4F5B ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BF1D3E215CF5 // WriteStr
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0016E31D4F5B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_0016E31D4F5B // GetResultTypeInfo
- ME_559687E6025A_ME_0016E31D4F5B // GetAllParamsCount
- ME_5617F4D00243_ME_0016E31D4F5B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4660DD87C1F2 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:WriteStr'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileWriteStr'
  CONST extprop:rc:SelfName 'FileWriteStr'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1338,108 +614,10 @@ ref; // ME_5617F4D00243_ME_0016E31D4F5B ParamsTypes
  ;
  : SpelledFor ME_55B5FC500169 // WriteStr
  ;
- : Stub ME_BF1D3E215CF5 // WriteStr
- ;
 
 ref; // ME_0016E31D4F5B File_WriteStr
 
 FORWARD ME_55B6044A038E
-
-FORWARD ME_B66526463736
-
-FORWARD ME_4D96B2094588
-
-: ME_8B8FC4E2CDED
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8B8FC4E2CDED aCtx
-
-: ME_8B8FC4E2CDEE
- CONST Name 'aWord'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_8B8FC4E2CDEE aWord
-
-: ME_8B8FC4E2CDEF
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_8B8FC4E2CDEF aFile
-
-: ME_B66526463736
- CONST UID 'B66526463736'
- CONST Name 'ReadLines'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:ReadLines' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D96B2094588 // File_ReadLines
- ;
- : Parameters
-   Seq: ( ME_8B8FC4E2CDED // aCtx
- ME_8B8FC4E2CDEE // aWord
- ME_8B8FC4E2CDEF // aFile
- )
- ; // Parameters
- : SpelledFor ME_55B6044A038E // ReadLines
- ;
-
-ref; // ME_B66526463736 ReadLines
-
-: ME_41F39B2C65D6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D96B2094588 // File_ReadLines
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_41F39B2C65D6 
-
-: ME_52E9282B0271_ME_4D96B2094588
- : Original WL 'ME_52E9282B0271' '4DAF19F600C5.pas.ms.script' // RightParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52E9282B0271_ME_4D96B2094588 RightParamsCount
-
-: ME_5512949D0048_ME_4D96B2094588
- : Original WL 'ME_5512949D0048' '54F079B5035C.pas.ms.script' // DoRun
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5512949D0048_ME_4D96B2094588 DoRun
-
-: ME_551544E2001A_ME_4D96B2094588
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_4D96B2094588 GetResultTypeInfo
-
-: ME_559687E6025A_ME_4D96B2094588
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_4D96B2094588 GetAllParamsCount
-
-: ME_5617F4D00243_ME_4D96B2094588
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_4D96B2094588 ParamsTypes
 
 : ME_4D96B2094588
  CONST UID '4D96B2094588'
@@ -1448,7 +626,7 @@ ref; // ME_5617F4D00243_ME_4D96B2094588 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:ReadLines'#13#10'*Пример:*'#13#10'{code}'#13#10' aFile File:ReadLines aWord'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:ReadLines' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1457,27 +635,7 @@ ref; // ME_5617F4D00243_ME_4D96B2094588 ParamsTypes
    Seq: ( WL 'ME_5512E4070106' '54F079B5035C.pas.ms.script' // TtfwWordWorkerEx
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B66526463736 // ReadLines
- )
- ; // Operations
- : Overridden
-   Seq: ( ME_52E9282B0271_ME_4D96B2094588 // RightParamsCount
- ME_5512949D0048_ME_4D96B2094588 // DoRun
- ME_551544E2001A_ME_4D96B2094588 // GetResultTypeInfo
- ME_559687E6025A_ME_4D96B2094588 // GetAllParamsCount
- ME_5617F4D00243_ME_4D96B2094588 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_41F39B2C65D6 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:ReadLines'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileReadLines'
  CONST extprop:rc:SelfName 'FileReadLines'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1485,102 +643,18 @@ ref; // ME_5617F4D00243_ME_4D96B2094588 ParamsTypes
  ;
  : SpelledFor ME_55B6044A038E // ReadLines
  ;
- : Stub ME_B66526463736 // ReadLines
- ;
 
 ref; // ME_4D96B2094588 File_ReadLines
 
 FORWARD ME_55B60993020B
 
-FORWARD ME_EA5DBDC19650
-
 FORWARD ME_12D9E8420555
-
-: ME_83D187EE5D49
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_83D187EE5D49 aCtx
-
-: ME_83D187EE5D4A
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_83D187EE5D4A aFile
-
-: ME_83D187EE5D4B
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_83D187EE5D4B aValue
-
-: ME_EA5DBDC19650
- CONST UID 'EA5DBDC19650'
- CONST Name 'WriteWStr'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:WriteWStr' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_12D9E8420555 // File_WriteWStr
- ;
- : Parameters
-   Seq: ( ME_83D187EE5D49 // aCtx
- ME_83D187EE5D4A // aFile
- ME_83D187EE5D4B // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B60993020B // WriteWStr
- ;
-
-ref; // ME_EA5DBDC19650 WriteWStr
-
-: ME_F2613BFACA9A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_12D9E8420555 // File_WriteWStr
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_F2613BFACA9A 
 
 : ME_4DAEEDE10285_ME_12D9E8420555
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_12D9E8420555 DoDoIt
-
-: ME_551544E2001A_ME_12D9E8420555
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_12D9E8420555 GetResultTypeInfo
-
-: ME_559687E6025A_ME_12D9E8420555
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_12D9E8420555 GetAllParamsCount
-
-: ME_5617F4D00243_ME_12D9E8420555
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_12D9E8420555 ParamsTypes
 
 : ME_12D9E8420555
  CONST UID '12D9E8420555'
@@ -1589,7 +663,7 @@ ref; // ME_5617F4D00243_ME_12D9E8420555 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:WriteWStr'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aFile File:WriteWStr'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:WriteWStr' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1598,29 +672,11 @@ ref; // ME_5617F4D00243_ME_12D9E8420555 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EA5DBDC19650 // WriteWStr
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_12D9E8420555 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_12D9E8420555 // GetResultTypeInfo
- ME_559687E6025A_ME_12D9E8420555 // GetAllParamsCount
- ME_5617F4D00243_ME_12D9E8420555 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_F2613BFACA9A // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:WriteWStr'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileWriteWStr'
  CONST extprop:rc:SelfName 'FileWriteWStr'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1628,93 +684,18 @@ ref; // ME_5617F4D00243_ME_12D9E8420555 ParamsTypes
  ;
  : SpelledFor ME_55B60993020B // WriteWStr
  ;
- : Stub ME_EA5DBDC19650 // WriteWStr
- ;
 
 ref; // ME_12D9E8420555 File_WriteWStr
 
 FORWARD ME_55B618940267
 
-FORWARD ME_062B42A458F5
-
 FORWARD ME_6F89E50D4B41
-
-: ME_8312DD87CC94
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8312DD87CC94 aCtx
-
-: ME_8312DD87CC95
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_8312DD87CC95 aFile
-
-: ME_062B42A458F5
- CONST UID '062B42A458F5'
- CONST Name 'ReadWStrLn'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:ReadWStrLn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_6F89E50D4B41 // File_ReadWStrLn
- ;
- : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
- ;
- : Parameters
-   Seq: ( ME_8312DD87CC94 // aCtx
- ME_8312DD87CC95 // aFile
- )
- ; // Parameters
- : SpelledFor ME_55B618940267 // ReadWStrLn
- ;
-
-ref; // ME_062B42A458F5 ReadWStrLn
-
-: ME_A8EBF4BBFD3C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_6F89E50D4B41 // File_ReadWStrLn
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_A8EBF4BBFD3C 
 
 : ME_4DAEEDE10285_ME_6F89E50D4B41
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_6F89E50D4B41 DoDoIt
-
-: ME_551544E2001A_ME_6F89E50D4B41
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_6F89E50D4B41 GetResultTypeInfo
-
-: ME_559687E6025A_ME_6F89E50D4B41
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_6F89E50D4B41 GetAllParamsCount
-
-: ME_5617F4D00243_ME_6F89E50D4B41
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_6F89E50D4B41 ParamsTypes
 
 : ME_6F89E50D4B41
  CONST UID '6F89E50D4B41'
@@ -1723,7 +704,7 @@ ref; // ME_5617F4D00243_ME_6F89E50D4B41 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:ReadWStrLn'#13#10'*Тип результата:* Tl3PCharLen'#13#10'*Пример:*'#13#10'{code}'#13#10'W-STRING VAR l_Tl3PCharLen'#13#10' aFile File:ReadWStrLn >>> l_Tl3PCharLen'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:ReadWStrLn' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1732,29 +713,11 @@ ref; // ME_5617F4D00243_ME_6F89E50D4B41 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_062B42A458F5 // ReadWStrLn
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_6F89E50D4B41 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_6F89E50D4B41 // GetResultTypeInfo
- ME_559687E6025A_ME_6F89E50D4B41 // GetAllParamsCount
- ME_5617F4D00243_ME_6F89E50D4B41 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A8EBF4BBFD3C // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:ReadWStrLn'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileReadWStrLn'
  CONST extprop:rc:SelfName 'FileReadWStrLn'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1762,102 +725,18 @@ ref; // ME_5617F4D00243_ME_6F89E50D4B41 ParamsTypes
  ;
  : SpelledFor ME_55B618940267 // ReadWStrLn
  ;
- : Stub ME_062B42A458F5 // ReadWStrLn
- ;
 
 ref; // ME_6F89E50D4B41 File_ReadWStrLn
 
 FORWARD ME_55B618AB03C3
 
-FORWARD ME_5BB0C2B29FB4
-
 FORWARD ME_2C287EC9B0C3
-
-: ME_C5FC34AACDA1
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C5FC34AACDA1 aCtx
-
-: ME_C5FC34AACDA2
- CONST Name 'aFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_C5FC34AACDA2 aFile
-
-: ME_C5FC34AACDA3
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_C5FC34AACDA3 aValue
-
-: ME_5BB0C2B29FB4
- CONST UID '5BB0C2B29FB4'
- CONST Name 'WriteWStrLn'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:WriteWStrLn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2C287EC9B0C3 // File_WriteWStrLn
- ;
- : Parameters
-   Seq: ( ME_C5FC34AACDA1 // aCtx
- ME_C5FC34AACDA2 // aFile
- ME_C5FC34AACDA3 // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B618AB03C3 // WriteWStrLn
- ;
-
-ref; // ME_5BB0C2B29FB4 WriteWStrLn
-
-: ME_51629A10E3FD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2C287EC9B0C3 // File_WriteWStrLn
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_51629A10E3FD 
 
 : ME_4DAEEDE10285_ME_2C287EC9B0C3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2C287EC9B0C3 DoDoIt
-
-: ME_551544E2001A_ME_2C287EC9B0C3
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_2C287EC9B0C3 GetResultTypeInfo
-
-: ME_559687E6025A_ME_2C287EC9B0C3
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_2C287EC9B0C3 GetAllParamsCount
-
-: ME_5617F4D00243_ME_2C287EC9B0C3
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_2C287EC9B0C3 ParamsTypes
 
 : ME_2C287EC9B0C3
  CONST UID '2C287EC9B0C3'
@@ -1866,7 +745,7 @@ ref; // ME_5617F4D00243_ME_2C287EC9B0C3 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:WriteWStrLn'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aFile File:WriteWStrLn'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:WriteWStrLn' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
@@ -1875,29 +754,11 @@ ref; // ME_5617F4D00243_ME_2C287EC9B0C3 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5BB0C2B29FB4 // WriteWStrLn
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_2C287EC9B0C3 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_2C287EC9B0C3 // GetResultTypeInfo
- ME_559687E6025A_ME_2C287EC9B0C3 // GetAllParamsCount
- ME_5617F4D00243_ME_2C287EC9B0C3 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_51629A10E3FD // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:WriteWStrLn'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileWriteWStrLn'
  CONST extprop:rc:SelfName 'FileWriteWStrLn'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1905,93 +766,10 @@ ref; // ME_5617F4D00243_ME_2C287EC9B0C3 ParamsTypes
  ;
  : SpelledFor ME_55B618AB03C3 // WriteWStrLn
  ;
- : Stub ME_5BB0C2B29FB4 // WriteWStrLn
- ;
 
 ref; // ME_2C287EC9B0C3 File_WriteWStrLn
 
 FORWARD ME_570E700201A7
-
-FORWARD ME_B8708CE49928
-
-FORWARD ME_7185464C1BEA
-
-: ME_F1A894DA09CA
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F1A894DA09CA aCtx
-
-: ME_F1A894DA09CB
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_F1A894DA09CB aName
-
-: ME_B8708CE49928
- CONST UID 'B8708CE49928'
- CONST Name 'OpenAppend'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта File:OpenAppend' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7185464C1BEA // File_OpenAppend
- ;
- : Target WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
- : Parameters
-   Seq: ( ME_F1A894DA09CA // aCtx
- ME_F1A894DA09CB // aName
- )
- ; // Parameters
- : SpelledFor ME_570E700201A7 // OpenAppend
- ;
-
-ref; // ME_B8708CE49928 OpenAppend
-
-: ME_5C9EE7F42843
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7185464C1BEA // File_OpenAppend
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_5C9EE7F42843 
-
-: ME_4DAEEDE10285_ME_7185464C1BEA
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_7185464C1BEA DoDoIt
-
-: ME_551544E2001A_ME_7185464C1BEA
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_7185464C1BEA GetResultTypeInfo
-
-: ME_559687E6025A_ME_7185464C1BEA
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_7185464C1BEA GetAllParamsCount
-
-: ME_5617F4D00243_ME_7185464C1BEA
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_7185464C1BEA ParamsTypes
 
 : ME_7185464C1BEA
  CONST UID '7185464C1BEA'
@@ -2000,38 +778,12 @@ ref; // ME_5617F4D00243_ME_7185464C1BEA ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта File:OpenAppend'#13#10'*Тип результата:* ItfwFile'#13#10'*Пример:*'#13#10'{code}'#13#10'FILE VAR l_ItfwFile'#13#10' aName File:OpenAppend >>> l_ItfwFile'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта File:OpenAppend' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_B8708CE49928 // OpenAppend
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_7185464C1BEA // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_7185464C1BEA // GetResultTypeInfo
- ME_559687E6025A_ME_7185464C1BEA // GetAllParamsCount
- ME_5617F4D00243_ME_7185464C1BEA // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5C9EE7F42843 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'File:OpenAppend'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFileOpenAppend'
  CONST extprop:rc:SelfName 'FileOpenAppend'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2039,1439 +791,8 @@ ref; // ME_5617F4D00243_ME_7185464C1BEA ParamsTypes
  ;
  : SpelledFor ME_570E700201A7 // OpenAppend
  ;
- : Stub ME_B8708CE49928 // OpenAppend
- ;
 
 ref; // ME_7185464C1BEA File_OpenAppend
-
-FORWARD ME_55B6047F005B
-
-FORWARD ME_8A54E0B1468F
-
-FORWARD ME_01A4D246A0C9
-
-: ME_6367E0F07BF8
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6367E0F07BF8 aCtx
-
-: ME_6367E0F07BF9
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_6367E0F07BF9 aName
-
-: ME_8A54E0B1468F
- CONST UID '8A54E0B1468F'
- CONST Name 'DeleteFile'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта DeleteFile' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_01A4D246A0C9 // DeleteFile
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_6367E0F07BF8 // aCtx
- ME_6367E0F07BF9 // aName
- )
- ; // Parameters
- : SpelledFor ME_55B6047F005B // DeleteFile
- ;
-
-ref; // ME_8A54E0B1468F DeleteFile
-
-: ME_6491797EB48C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_01A4D246A0C9 // DeleteFile
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_6491797EB48C 
-
-: ME_4DAEEDE10285_ME_01A4D246A0C9
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_01A4D246A0C9 DoDoIt
-
-: ME_551544E2001A_ME_01A4D246A0C9
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_01A4D246A0C9 GetResultTypeInfo
-
-: ME_559687E6025A_ME_01A4D246A0C9
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_01A4D246A0C9 GetAllParamsCount
-
-: ME_5617F4D00243_ME_01A4D246A0C9
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_01A4D246A0C9 ParamsTypes
-
-: ME_01A4D246A0C9
- CONST UID '01A4D246A0C9'
- CONST Name 'DeleteFile'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта DeleteFile'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aName DeleteFile >>> l_Boolean'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_8A54E0B1468F // DeleteFile
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_01A4D246A0C9 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_01A4D246A0C9 // GetResultTypeInfo
- ME_559687E6025A_ME_01A4D246A0C9 // GetAllParamsCount
- ME_5617F4D00243_ME_01A4D246A0C9 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_6491797EB48C // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'DeleteFile'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwDeleteFile'
- CONST extprop:rc:SelfName 'DeleteFile'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B6047F005B // DeleteFile
- ;
- : Stub ME_8A54E0B1468F // DeleteFile
- ;
-
-ref; // ME_01A4D246A0C9 DeleteFile
-
-FORWARD ME_55B6049F0019
-
-FORWARD ME_4B30612C1E84
-
-FORWARD ME_269C162F0F47
-
-: ME_A70341D2C9A9
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A70341D2C9A9 aCtx
-
-: ME_A70341D2C9AA
- CONST Name 'aNewName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_A70341D2C9AA aNewName
-
-: ME_A70341D2C9AB
- CONST Name 'anOldName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_A70341D2C9AB anOldName
-
-: ME_4B30612C1E84
- CONST UID '4B30612C1E84'
- CONST Name 'RenameFile'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта RenameFile' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_269C162F0F47 // RenameFile
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_A70341D2C9A9 // aCtx
- ME_A70341D2C9AA // aNewName
- ME_A70341D2C9AB // anOldName
- )
- ; // Parameters
- : SpelledFor ME_55B6049F0019 // RenameFile
- ;
-
-ref; // ME_4B30612C1E84 RenameFile
-
-: ME_7BC9D919B191
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_269C162F0F47 // RenameFile
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_7BC9D919B191 
-
-: ME_4DAEEDE10285_ME_269C162F0F47
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_269C162F0F47 DoDoIt
-
-: ME_551544E2001A_ME_269C162F0F47
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_269C162F0F47 GetResultTypeInfo
-
-: ME_559687E6025A_ME_269C162F0F47
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_269C162F0F47 GetAllParamsCount
-
-: ME_5617F4D00243_ME_269C162F0F47
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_269C162F0F47 ParamsTypes
-
-: ME_269C162F0F47
- CONST UID '269C162F0F47'
- CONST Name 'RenameFile'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта RenameFile'#13#10'{panel}RenameFile - переименовывает файл.'#13#10'*Формат:* aOldFileName aNewFileName RenameFile'#13#10'* aNewFileName - новое имя файла.'#13#10'* aOldFileName - старое имя файла.'#13#10'В стек помещается результат операции: true - если успешно, false - если переименование не получилось.{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' anOldName aNewName RenameFile >>> l_Boolean'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_4B30612C1E84 // RenameFile
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_269C162F0F47 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_269C162F0F47 // GetResultTypeInfo
- ME_559687E6025A_ME_269C162F0F47 // GetAllParamsCount
- ME_5617F4D00243_ME_269C162F0F47 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7BC9D919B191 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'RenameFile'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwRenameFile'
- CONST extprop:rc:SelfName 'RenameFile'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B6049F0019 // RenameFile
- ;
- : Stub ME_4B30612C1E84 // RenameFile
- ;
-
-ref; // ME_269C162F0F47 RenameFile
-
-FORWARD ME_55B604FC0108
-
-FORWARD ME_B545E742BFBB
-
-FORWARD ME_5478B1531C0E
-
-: ME_C9C84373C900
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C9C84373C900 aCtx
-
-: ME_C9C84373C901
- CONST Name 'aSourceDir'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_C9C84373C901 aSourceDir
-
-: ME_C9C84373C902
- CONST Name 'aDestDir'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_C9C84373C902 aDestDir
-
-: ME_C9C84373C903
- CONST Name 'aFileMask'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_C9C84373C903 aFileMask
-
-: ME_B545E742BFBB
- CONST UID 'B545E742BFBB'
- CONST Name 'CopyFilesByMask'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта CopyFilesByMask' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5478B1531C0E // CopyFilesByMask
- ;
- : Parameters
-   Seq: ( ME_C9C84373C900 // aCtx
- ME_C9C84373C901 // aSourceDir
- ME_C9C84373C902 // aDestDir
- ME_C9C84373C903 // aFileMask
- )
- ; // Parameters
- : SpelledFor ME_55B604FC0108 // CopyFilesByMask
- ;
-
-ref; // ME_B545E742BFBB CopyFilesByMask
-
-: ME_B4D46FB8EBA9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5478B1531C0E // CopyFilesByMask
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_B4D46FB8EBA9 
-
-: ME_4DAEEDE10285_ME_5478B1531C0E
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_5478B1531C0E DoDoIt
-
-: ME_551544E2001A_ME_5478B1531C0E
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_5478B1531C0E GetResultTypeInfo
-
-: ME_559687E6025A_ME_5478B1531C0E
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_5478B1531C0E GetAllParamsCount
-
-: ME_5617F4D00243_ME_5478B1531C0E
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_5478B1531C0E ParamsTypes
-
-: ME_5478B1531C0E
- CONST UID '5478B1531C0E'
- CONST Name 'CopyFilesByMask'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта CopyFilesByMask'#13#10'{panel}CopyFilesByMask- копирует файлы по маске..'#13#10'*Формат:* '#13#10'{code}'#13#10' aFileMask aDestDir aSourceDir  CopyFilesByMask'#13#10'{code}'#13#10'* aSourceDir - директория откуда копируем.'#13#10'* aDestDir - директория куда копируем.'#13#10'* aFileMask - маска, по которой копируем файлы.'#13#10'Результат слово не возвращает. Если появляется ошибка, то будет Exception{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aFileMask aDestDir aSourceDir CopyFilesByMask'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_B545E742BFBB // CopyFilesByMask
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_5478B1531C0E // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_5478B1531C0E // GetResultTypeInfo
- ME_559687E6025A_ME_5478B1531C0E // GetAllParamsCount
- ME_5617F4D00243_ME_5478B1531C0E // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_B4D46FB8EBA9 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'CopyFilesByMask'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwCopyFilesByMask'
- CONST extprop:rc:SelfName 'CopyFilesByMask'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B604FC0108 // CopyFilesByMask
- ;
- : Stub ME_B545E742BFBB // CopyFilesByMask
- ;
-
-ref; // ME_5478B1531C0E CopyFilesByMask
-
-FORWARD ME_55B605890120
-
-FORWARD ME_7B442954EEE8
-
-FORWARD ME_C4E46637B80B
-
-: ME_96B63225E863
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_96B63225E863 aCtx
-
-: ME_96B63225E864
- CONST Name 'aSourceFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_96B63225E864 aSourceFile
-
-: ME_96B63225E865
- CONST Name 'aDestFile'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_96B63225E865 aDestFile
-
-: ME_96B63225E866
- CONST Name 'aCopyMode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_96B63225E866 aCopyMode
-
-: ME_7B442954EEE8
- CONST UID '7B442954EEE8'
- CONST Name 'CopyFile'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта CopyFile' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C4E46637B80B // CopyFile
- ;
- : Parameters
-   Seq: ( ME_96B63225E863 // aCtx
- ME_96B63225E864 // aSourceFile
- ME_96B63225E865 // aDestFile
- ME_96B63225E866 // aCopyMode
- )
- ; // Parameters
- : SpelledFor ME_55B605890120 // CopyFile
- ;
-
-ref; // ME_7B442954EEE8 CopyFile
-
-: ME_473DC1787774
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C4E46637B80B // CopyFile
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_473DC1787774 
-
-: ME_4DAEEDE10285_ME_C4E46637B80B
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_C4E46637B80B DoDoIt
-
-: ME_551544E2001A_ME_C4E46637B80B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_C4E46637B80B GetResultTypeInfo
-
-: ME_559687E6025A_ME_C4E46637B80B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_C4E46637B80B GetAllParamsCount
-
-: ME_5617F4D00243_ME_C4E46637B80B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_C4E46637B80B ParamsTypes
-
-: ME_C4E46637B80B
- CONST UID 'C4E46637B80B'
- CONST Name 'CopyFile'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта CopyFile'#13#10'{panel}CopyFile - копирует файл.'#13#10'*Формат:*  aCopyMode aDestFile aSourceFile CopyFile'#13#10'* aSourceFile - имя исходного файла'#13#10'* aDestFile - имя файла, куда копируем'#13#10'* aCopyMode - режим копирования файла.'#13#10'Результат слово не возвращает. Если появляется ошибка, то будет Exception{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aCopyMode aDestFile aSourceFile CopyFile'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_7B442954EEE8 // CopyFile
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_C4E46637B80B // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_C4E46637B80B // GetResultTypeInfo
- ME_559687E6025A_ME_C4E46637B80B // GetAllParamsCount
- ME_5617F4D00243_ME_C4E46637B80B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_473DC1787774 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'CopyFile'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwCopyFile'
- CONST extprop:rc:SelfName 'CopyFile'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B605890120 // CopyFile
- ;
- : Stub ME_7B442954EEE8 // CopyFile
- ;
-
-ref; // ME_C4E46637B80B CopyFile
-
-FORWARD ME_55B606A70227
-
-FORWARD ME_4475F8181332
-
-FORWARD ME_C77B92459A8E
-
-: ME_64D500CD433D
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_64D500CD433D aCtx
-
-: ME_64D500CD433E
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_64D500CD433E aName
-
-: ME_4475F8181332
- CONST UID '4475F8181332'
- CONST Name 'PureDir'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта PureDir' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C77B92459A8E // PureDir
- ;
- : Parameters
-   Seq: ( ME_64D500CD433D // aCtx
- ME_64D500CD433E // aName
- )
- ; // Parameters
- : SpelledFor ME_55B606A70227 // PureDir
- ;
-
-ref; // ME_4475F8181332 PureDir
-
-: ME_CD8A4E319BA6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C77B92459A8E // PureDir
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_CD8A4E319BA6 
-
-: ME_4DAEEDE10285_ME_C77B92459A8E
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_C77B92459A8E DoDoIt
-
-: ME_551544E2001A_ME_C77B92459A8E
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_C77B92459A8E GetResultTypeInfo
-
-: ME_559687E6025A_ME_C77B92459A8E
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_C77B92459A8E GetAllParamsCount
-
-: ME_5617F4D00243_ME_C77B92459A8E
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_C77B92459A8E ParamsTypes
-
-: ME_C77B92459A8E
- CONST UID 'C77B92459A8E'
- CONST Name 'PureDir'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта PureDir'#13#10'{panel}PureDir - очищает директорию.'#13#10'*Формат:* aDirName PureDir'#13#10'* aDirName  - имя директории.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aName PureDir'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_4475F8181332 // PureDir
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_C77B92459A8E // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_C77B92459A8E // GetResultTypeInfo
- ME_559687E6025A_ME_C77B92459A8E // GetAllParamsCount
- ME_5617F4D00243_ME_C77B92459A8E // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_CD8A4E319BA6 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'PureDir'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwPureDir'
- CONST extprop:rc:SelfName 'PureDir'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B606A70227 // PureDir
- ;
- : Stub ME_4475F8181332 // PureDir
- ;
-
-ref; // ME_C77B92459A8E PureDir
-
-FORWARD ME_55B606F1003D
-
-FORWARD ME_4757446F5D1B
-
-FORWARD ME_E5B04DD6635F
-
-: ME_5288ACAB44AB
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5288ACAB44AB aCtx
-
-: ME_5288ACAB44AC
- CONST Name 'aDirName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5288ACAB44AC aDirName
-
-: ME_5288ACAB44AD
- CONST Name 'aMask'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5288ACAB44AD aMask
-
-: ME_4757446F5D1B
- CONST UID '4757446F5D1B'
- CONST Name 'DeleteFilesByMask'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта DeleteFilesByMask' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E5B04DD6635F // DeleteFilesByMask
- ;
- : Parameters
-   Seq: ( ME_5288ACAB44AB // aCtx
- ME_5288ACAB44AC // aDirName
- ME_5288ACAB44AD // aMask
- )
- ; // Parameters
- : SpelledFor ME_55B606F1003D // DeleteFilesByMask
- ;
-
-ref; // ME_4757446F5D1B DeleteFilesByMask
-
-: ME_0432A33426A2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E5B04DD6635F // DeleteFilesByMask
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_0432A33426A2 
-
-: ME_4DAEEDE10285_ME_E5B04DD6635F
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_E5B04DD6635F DoDoIt
-
-: ME_551544E2001A_ME_E5B04DD6635F
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E5B04DD6635F GetResultTypeInfo
-
-: ME_559687E6025A_ME_E5B04DD6635F
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E5B04DD6635F GetAllParamsCount
-
-: ME_5617F4D00243_ME_E5B04DD6635F
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E5B04DD6635F ParamsTypes
-
-: ME_E5B04DD6635F
- CONST UID 'E5B04DD6635F'
- CONST Name 'DeleteFilesByMask'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта DeleteFilesByMask'#13#10'{panel}DeleteFilesByMask - очищает директорию.'#13#10'*Формат:* aMask aDirName DeleteFilesByMask'#13#10'* aDirName  - имя директории.'#13#10'* aMask - маска, по которой отбираются файлы.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aMask aDirName DeleteFilesByMask'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_4757446F5D1B // DeleteFilesByMask
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_E5B04DD6635F // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_E5B04DD6635F // GetResultTypeInfo
- ME_559687E6025A_ME_E5B04DD6635F // GetAllParamsCount
- ME_5617F4D00243_ME_E5B04DD6635F // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0432A33426A2 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'DeleteFilesByMask'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwDeleteFilesByMask'
- CONST extprop:rc:SelfName 'DeleteFilesByMask'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B606F1003D // DeleteFilesByMask
- ;
- : Stub ME_4757446F5D1B // DeleteFilesByMask
- ;
-
-ref; // ME_E5B04DD6635F DeleteFilesByMask
-
-FORWARD ME_55B6075302CC
-
-FORWARD ME_332776E818ED
-
-FORWARD ME_F43FC392309A
-
-: ME_ECB4CE5CDC7B
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_ECB4CE5CDC7B aCtx
-
-: ME_ECB4CE5CDC7C
- CONST Name 'aDirName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_ECB4CE5CDC7C aDirName
-
-: ME_ECB4CE5CDC7D
- CONST Name 'aFileMask'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_ECB4CE5CDC7D aFileMask
-
-: ME_ECB4CE5CDC7E
- CONST Name 'aProc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_ECB4CE5CDC7E aProc
-
-: ME_332776E818ED
- CONST UID '332776E818ED'
- CONST Name 'ProcessFilesWithMask'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта ProcessFilesWithMask' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F43FC392309A // ProcessFilesWithMask
- ;
- : Parameters
-   Seq: ( ME_ECB4CE5CDC7B // aCtx
- ME_ECB4CE5CDC7C // aDirName
- ME_ECB4CE5CDC7D // aFileMask
- ME_ECB4CE5CDC7E // aProc
- )
- ; // Parameters
- : SpelledFor ME_55B6075302CC // ProcessFilesWithMask
- ;
-
-ref; // ME_332776E818ED ProcessFilesWithMask
-
-: ME_48F7700880E9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F43FC392309A // ProcessFilesWithMask
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_48F7700880E9 
-
-: ME_4DAEEDE10285_ME_F43FC392309A
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_F43FC392309A DoDoIt
-
-: ME_551544E2001A_ME_F43FC392309A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F43FC392309A GetResultTypeInfo
-
-: ME_559687E6025A_ME_F43FC392309A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F43FC392309A GetAllParamsCount
-
-: ME_5617F4D00243_ME_F43FC392309A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F43FC392309A ParamsTypes
-
-: ME_F43FC392309A
- CONST UID 'F43FC392309A'
- CONST Name 'ProcessFilesWithMask'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта ProcessFilesWithMask'#13#10'{panel}ProcessFilesWithMask - перебирает файлы по маске в заданной директории и вызывает для каждого найденного функцию.'#13#10'*Формат:*'#13#10'aProc aFileMask aDirName ProcessFilesWithMask'#13#10'* aProc - функция, которая вызывается для каждого файла. В стек при вызове помещается имя файла.'#13#10'* aFileMask - маска, по которой отбираются файлы, например ''*.script'''#13#10'* aDirName - путь, по которому ищутся файлы.'#13#10'*Пример:*'#13#10'{code}'#13#10': PrintFileName'#13#10' .'#13#10';'#13#10''#13#10'@ PrintFileName ''*.script'' ''w:\archi\source\projects\Archi\TestSet\Scripts\'' ProcessFilesWithMask'#13#10'{code}'#13#10'В результате будет создан файл с имя_скрипта.prn с именами файлов с полными путями.'#13#10'*Примечание:* Если ни один файл не найден, то функция не будет вызвана ни разу. Ни дирректории, ни ссылки на файлы, ни имена дисков в поиск не попадают. Поиск во вложенных директориях не прозводится. Имя файла передается с полным путем.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aProc aFileMask aDirName ProcessFilesWithMask'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_332776E818ED // ProcessFilesWithMask
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_F43FC392309A // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_F43FC392309A // GetResultTypeInfo
- ME_559687E6025A_ME_F43FC392309A // GetAllParamsCount
- ME_5617F4D00243_ME_F43FC392309A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_48F7700880E9 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'ProcessFilesWithMask'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwProcessFilesWithMask'
- CONST extprop:rc:SelfName 'ProcessFilesWithMask'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B6075302CC // ProcessFilesWithMask
- ;
- : Stub ME_332776E818ED // ProcessFilesWithMask
- ;
-
-ref; // ME_F43FC392309A ProcessFilesWithMask
-
-FORWARD ME_55B607D400E0
-
-FORWARD ME_3A2CA042D20F
-
-FORWARD ME_4D6340E72B1A
-
-: ME_FD3C5A811403
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_FD3C5A811403 aCtx
-
-: ME_FD3C5A811404
- CONST Name 'aDirName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_FD3C5A811404 aDirName
-
-: ME_FD3C5A811405
- CONST Name 'aProc'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_FD3C5A811405 aProc
-
-: ME_3A2CA042D20F
- CONST UID '3A2CA042D20F'
- CONST Name 'ProcessSubDirs'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта ProcessSubDirs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6340E72B1A // ProcessSubDirs
- ;
- : Parameters
-   Seq: ( ME_FD3C5A811403 // aCtx
- ME_FD3C5A811404 // aDirName
- ME_FD3C5A811405 // aProc
- )
- ; // Parameters
- : SpelledFor ME_55B607D400E0 // ProcessSubDirs
- ;
-
-ref; // ME_3A2CA042D20F ProcessSubDirs
-
-: ME_C7E895303B46
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6340E72B1A // ProcessSubDirs
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_C7E895303B46 
-
-: ME_4DAEEDE10285_ME_4D6340E72B1A
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_4D6340E72B1A DoDoIt
-
-: ME_551544E2001A_ME_4D6340E72B1A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_4D6340E72B1A GetResultTypeInfo
-
-: ME_559687E6025A_ME_4D6340E72B1A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_4D6340E72B1A GetAllParamsCount
-
-: ME_5617F4D00243_ME_4D6340E72B1A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_4D6340E72B1A ParamsTypes
-
-: ME_4D6340E72B1A
- CONST UID '4D6340E72B1A'
- CONST Name 'ProcessSubDirs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта ProcessSubDirs'#13#10'{panel}ProcessSubDirs - перебирает директории в заданной директории и вызывает для каждого найденного функцию.'#13#10'*Формат:*'#13#10'aProc aDirName ProcessSubDirs'#13#10'* aProc - функция, которая вызывается для каждой директории. В стек при вызове помещается имя директории.'#13#10'* aDirName - путь, по которому ищутся директории.'#13#10'*Пример:*'#13#10'{code}'#13#10': PrintFileName'#13#10' .'#13#10';'#13#10''#13#10'@ PrintFileName ''w:\archi\source\projects\Archi\TestSet\'' ProcessSubDirs'#13#10'{code}'#13#10'В результате будет создан файл с имя_скрипта.prn с именами директорий с полными путями.'#13#10'*Примечание:* Если ни одна директория  не найдена, то функция не будет вызвана ни разу.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aProc aDirName ProcessSubDirs'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_3A2CA042D20F // ProcessSubDirs
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_4D6340E72B1A // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_4D6340E72B1A // GetResultTypeInfo
- ME_559687E6025A_ME_4D6340E72B1A // GetAllParamsCount
- ME_5617F4D00243_ME_4D6340E72B1A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C7E895303B46 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'ProcessSubDirs'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwProcessSubDirs'
- CONST extprop:rc:SelfName 'ProcessSubDirs'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_55B607D400E0 // ProcessSubDirs
- ;
- : Stub ME_3A2CA042D20F // ProcessSubDirs
- ;
-
-ref; // ME_4D6340E72B1A ProcessSubDirs
-
-FORWARD ME_56420DAD0276
-
-FORWARD ME_DEA5A01CE3B1
-
-FORWARD ME_E2551B3D7813
-
-: ME_14289ECCD221
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_14289ECCD221 aCtx
-
-: ME_14289ECCD222
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_14289ECCD222 aFileName
-
-: ME_DEA5A01CE3B1
- CONST UID 'DEA5A01CE3B1'
- CONST Name 'FileSize'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта FileSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E2551B3D7813 // FileSize
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_14289ECCD221 // aCtx
- ME_14289ECCD222 // aFileName
- )
- ; // Parameters
- : SpelledFor ME_56420DAD0276 // FileSize
- ;
-
-ref; // ME_DEA5A01CE3B1 FileSize
-
-: ME_6EB9C2F22284
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E2551B3D7813 // FileSize
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_6EB9C2F22284 
-
-: ME_4DAEEDE10285_ME_E2551B3D7813
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_E2551B3D7813 DoDoIt
-
-: ME_551544E2001A_ME_E2551B3D7813
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E2551B3D7813 GetResultTypeInfo
-
-: ME_559687E6025A_ME_E2551B3D7813
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E2551B3D7813 GetAllParamsCount
-
-: ME_5617F4D00243_ME_E2551B3D7813
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E2551B3D7813 ParamsTypes
-
-: ME_E2551B3D7813
- CONST UID 'E2551B3D7813'
- CONST Name 'FileSize'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта FileSize'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aFileName FileSize >>> l_Integer'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_DEA5A01CE3B1 // FileSize
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_E2551B3D7813 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_E2551B3D7813 // GetResultTypeInfo
- ME_559687E6025A_ME_E2551B3D7813 // GetAllParamsCount
- ME_5617F4D00243_ME_E2551B3D7813 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_6EB9C2F22284 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'FileSize'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwFileSize'
- CONST extprop:rc:SelfName 'FileSize'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_56420DAD0276 // FileSize
- ;
- : Stub ME_DEA5A01CE3B1 // FileSize
- ;
-
-ref; // ME_E2551B3D7813 FileSize
-
-FORWARD ME_56420DEC002D
-
-FORWARD ME_6C5EFAFC54B2
-
-FORWARD ME_CF832D7F4CA1
-
-: ME_C84F463EC8FA
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C84F463EC8FA aCtx
-
-: ME_C84F463EC8FB
- CONST Name 'aFile1'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_C84F463EC8FB aFile1
-
-: ME_C84F463EC8FC
- CONST Name 'aFile2'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_C84F463EC8FC aFile2
-
-: ME_C84F463EC8FD
- CONST Name 'aHeaderBegin'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_C84F463EC8FD aHeaderBegin
-
-: ME_6C5EFAFC54B2
- CONST UID '6C5EFAFC54B2'
- CONST Name 'CompareFiles'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта CompareFiles' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CF832D7F4CA1 // CompareFiles
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_C84F463EC8FA // aCtx
- ME_C84F463EC8FB // aFile1
- ME_C84F463EC8FC // aFile2
- ME_C84F463EC8FD // aHeaderBegin
- )
- ; // Parameters
- : SpelledFor ME_56420DEC002D // CompareFiles
- ;
-
-ref; // ME_6C5EFAFC54B2 CompareFiles
-
-: ME_93558C1AEA85
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CF832D7F4CA1 // CompareFiles
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_93558C1AEA85 
-
-: ME_4DAEEDE10285_ME_CF832D7F4CA1
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_CF832D7F4CA1 DoDoIt
-
-: ME_551544E2001A_ME_CF832D7F4CA1
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_CF832D7F4CA1 GetResultTypeInfo
-
-: ME_559687E6025A_ME_CF832D7F4CA1
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_CF832D7F4CA1 GetAllParamsCount
-
-: ME_5617F4D00243_ME_CF832D7F4CA1
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_CF832D7F4CA1 ParamsTypes
-
-: ME_CF832D7F4CA1
- CONST UID 'CF832D7F4CA1'
- CONST Name 'CompareFiles'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта CompareFiles'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aHeaderBegin aFile2 aFile1 CompareFiles >>> l_Boolean'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_6C5EFAFC54B2 // CompareFiles
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_CF832D7F4CA1 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_CF832D7F4CA1 // GetResultTypeInfo
- ME_559687E6025A_ME_CF832D7F4CA1 // GetAllParamsCount
- ME_5617F4D00243_ME_CF832D7F4CA1 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_93558C1AEA85 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'CompareFiles'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwCompareFiles'
- CONST extprop:rc:SelfName 'CompareFiles'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_56420DEC002D // CompareFiles
- ;
- : Stub ME_6C5EFAFC54B2 // CompareFiles
- ;
-
-ref; // ME_CF832D7F4CA1 CompareFiles
 
 : ME_55B5FB5F0397
  CONST Name 'aName'
@@ -3495,9 +816,6 @@ ref; // ME_55B5FB5F0397 aName
    Seq: ( ME_55B5FB5F0397 // aName
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_E10DA0D7493D // File_OpenRead
  ;
 
@@ -3525,9 +843,6 @@ ref; // ME_55B5FB8200DD aName
    Seq: ( ME_55B5FB8200DD // aName
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_1CA3472F7177 // File_OpenWrite
  ;
 
@@ -3544,9 +859,6 @@ ref; // ME_55B5FB780316 OpenWrite
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_2B33C78BBAB9 // File_EOF
  ;
 
@@ -3563,9 +875,6 @@ ref; // ME_55B5FB9E01EF EOF
  ;
  : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_324E0BCF3B98 // File_ReadLn
  ;
 
@@ -3593,9 +902,6 @@ ref; // ME_55B5FC080154 aValue
    Seq: ( ME_55B5FC080154 // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_D6A86D931B42 // File_WriteLn
  ;
 
@@ -3623,9 +929,6 @@ ref; // ME_55B5FC220390 aValue
    Seq: ( ME_55B5FC220390 // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_B530B64F8857 // File_WriteChar
  ;
 
@@ -3653,9 +956,6 @@ ref; // ME_55B5FC5A007D aValue
    Seq: ( ME_55B5FC5A007D // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_0016E31D4F5B // File_WriteStr
  ;
 
@@ -3671,9 +971,6 @@ ref; // ME_55B5FC500169 WriteStr
  : Parent ME_4F4FD7EA00EB // FileProcessingPack
  ;
  CONST "SupressNextImmediate" 'None'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_4D96B2094588 // File_ReadLines
  ;
 
@@ -3703,8 +1000,6 @@ ref; // ME_55B6048C02D6 aName
    Seq: ( ME_55B6048C02D6 // aName
  )
  ; // Parameters
- : Speller ME_01A4D246A0C9 // DeleteFile
- ;
 
 ref; // ME_55B6047F005B DeleteFile
 
@@ -3743,8 +1038,6 @@ ref; // ME_55B604D3017B anOldName
  ME_55B604D3017B // anOldName
  )
  ; // Parameters
- : Speller ME_269C162F0F47 // RenameFile
- ;
 
 ref; // ME_55B6049F0019 RenameFile
 
@@ -3791,8 +1084,6 @@ ref; // ME_55B6055E03AE aFileMask
  ME_55B6055E03AE // aFileMask
  )
  ; // Parameters
- : Speller ME_5478B1531C0E // CopyFilesByMask
- ;
 
 ref; // ME_55B604FC0108 CopyFilesByMask
 
@@ -3839,8 +1130,6 @@ ref; // ME_55B605E30140 aCopyMode
  ME_55B605E30140 // aCopyMode
  )
  ; // Parameters
- : Speller ME_C4E46637B80B // CopyFile
- ;
 
 ref; // ME_55B605890120 CopyFile
 
@@ -3867,8 +1156,6 @@ ref; // ME_55B606CD001A aName
    Seq: ( ME_55B606CD001A // aName
  )
  ; // Parameters
- : Speller ME_C77B92459A8E // PureDir
- ;
 
 ref; // ME_55B606A70227 PureDir
 
@@ -3905,8 +1192,6 @@ ref; // ME_55B6071B0092 aMask
  ME_55B6071B0092 // aMask
  )
  ; // Parameters
- : Speller ME_E5B04DD6635F // DeleteFilesByMask
- ;
 
 ref; // ME_55B606F1003D DeleteFilesByMask
 
@@ -3953,8 +1238,6 @@ ref; // ME_55B607B10103 aProc
  ME_55B607B10103 // aProc
  )
  ; // Parameters
- : Speller ME_F43FC392309A // ProcessFilesWithMask
- ;
 
 ref; // ME_55B6075302CC ProcessFilesWithMask
 
@@ -3991,8 +1274,6 @@ ref; // ME_55B608020035 aProc
  ME_55B608020035 // aProc
  )
  ; // Parameters
- : Speller ME_4D6340E72B1A // ProcessSubDirs
- ;
 
 ref; // ME_55B607D400E0 ProcessSubDirs
 
@@ -4018,9 +1299,6 @@ ref; // ME_55B609A3029D aValue
    Seq: ( ME_55B609A3029D // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_12D9E8420555 // File_WriteWStr
  ;
 
@@ -4037,9 +1315,6 @@ ref; // ME_55B60993020B WriteWStr
  ;
  : Target WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_6F89E50D4B41 // File_ReadWStrLn
  ;
 
@@ -4067,9 +1342,6 @@ ref; // ME_55B618BA0311 aValue
    Seq: ( ME_55B618BA0311 // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_2C287EC9B0C3 // File_WriteWStrLn
  ;
 
@@ -4099,8 +1371,6 @@ ref; // ME_56420DC20183 aFileName
    Seq: ( ME_56420DC20183 // aFileName
  )
  ; // Parameters
- : Speller ME_E2551B3D7813 // FileSize
- ;
 
 ref; // ME_56420DAD0276 FileSize
 
@@ -4148,8 +1418,6 @@ ref; // ME_56420E36015C aHeaderBegin
  ME_56420E36015C // aHeaderBegin
  )
  ; // Parameters
- : Speller ME_CF832D7F4CA1 // CompareFiles
- ;
 
 ref; // ME_56420DEC002D CompareFiles
 
@@ -4175,173 +1443,10 @@ ref; // ME_570E700B014F aName
    Seq: ( ME_570E700B014F // aName
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_7185464C1BEA // File_OpenAppend
  ;
 
 ref; // ME_570E700201A7 OpenAppend
-
-: ME_BB97D362E6D9
- CONST UID 'BB97D362E6D9'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_BB97D362E6D9 Reg_Type_TtfwContext
-
-: ME_01B218FC8731
- CONST UID '01B218FC8731'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_01B218FC8731 Reg_Type_String
-
-: ME_863CD57592B9
- CONST UID '863CD57592B9'
- CONST Name 'Reg_Type_ItfwFile'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа ItfwFile' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_4F4E4E7101D6' '4DAF19F600C5.pas.ms.script' // ItfwFile
- ;
-
-ref; // ME_863CD57592B9 Reg_Type_ItfwFile
-
-: ME_0E41E9619769
- CONST UID '0E41E9619769'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_0E41E9619769 Reg_Type_Boolean
-
-: ME_2A323C40F54A
- CONST UID '2A323C40F54A'
- CONST Name 'Reg_Type_Il3CString'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Il3CString' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_2A323C40F54A Reg_Type_Il3CString
-
-: ME_6B1A465A25A2
- CONST UID '6B1A465A25A2'
- CONST Name 'Reg_Type_Char'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Char' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
- ;
-
-ref; // ME_6B1A465A25A2 Reg_Type_Char
-
-: ME_6BBE0D172FE8
- CONST UID '6BBE0D172FE8'
- CONST Name 'Reg_Type_TtfwWord'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_6BBE0D172FE8 Reg_Type_TtfwWord
-
-: ME_12229A4119F2
- CONST UID '12229A4119F2'
- CONST Name 'Reg_Type_TtfwStackValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwStackValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_12229A4119F2 Reg_Type_TtfwStackValue
-
-: ME_4B781ED1D278
- CONST UID '4B781ED1D278'
- CONST Name 'Reg_Type_Tl3PCharLen'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Tl3PCharLen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_47209E670266' '4678193C009C.pas.ms.script' // Tl3PCharLen
- ;
-
-ref; // ME_4B781ED1D278 Reg_Type_Tl3PCharLen
-
-: ME_A7A3BE0B4503
- CONST UID 'A7A3BE0B4503'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F4FD7EA00EB // FileProcessingPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_A7A3BE0B4503 Reg_Type_Integer
 
 : ME_55B5FAD602C0
  CONST Class class_Dependency
@@ -4534,16 +1639,6 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  ME_56420DAD0276 // FileSize
  ME_56420DEC002D // CompareFiles
  ME_570E700201A7 // OpenAppend
- ME_BB97D362E6D9 // Reg_Type_TtfwContext
- ME_01B218FC8731 // Reg_Type_String
- ME_863CD57592B9 // Reg_Type_ItfwFile
- ME_0E41E9619769 // Reg_Type_Boolean
- ME_2A323C40F54A // Reg_Type_Il3CString
- ME_6B1A465A25A2 // Reg_Type_Char
- ME_6BBE0D172FE8 // Reg_Type_TtfwWord
- ME_12229A4119F2 // Reg_Type_TtfwStackValue
- ME_4B781ED1D278 // Reg_Type_Tl3PCharLen
- ME_A7A3BE0B4503 // Reg_Type_Integer
  )
  ; // Operations
  : Implemented
@@ -4572,16 +1667,6 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  ME_6F89E50D4B41 // File_ReadWStrLn
  ME_2C287EC9B0C3 // File_WriteWStrLn
  ME_7185464C1BEA // File_OpenAppend
- ME_01A4D246A0C9 // DeleteFile
- ME_269C162F0F47 // RenameFile
- ME_5478B1531C0E // CopyFilesByMask
- ME_C4E46637B80B // CopyFile
- ME_C77B92459A8E // PureDir
- ME_E5B04DD6635F // DeleteFilesByMask
- ME_F43FC392309A // ProcessFilesWithMask
- ME_4D6340E72B1A // ProcessSubDirs
- ME_E2551B3D7813 // FileSize
- ME_CF832D7F4CA1 // CompareFiles
  )
  ; // Children
  : Dependencies
@@ -4598,9 +1683,6 @@ ref; // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" true
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
 
@@ -4623,12 +1705,10 @@ ref; // ME_4F4FD7EA00EB FileProcessingPack
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
  WL 'ME_55BF153300A4' '55BF153300A4.pas.ms.script' // tfwTypeInfo

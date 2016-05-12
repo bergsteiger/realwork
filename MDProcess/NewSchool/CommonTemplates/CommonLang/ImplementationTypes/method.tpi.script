@@ -193,9 +193,23 @@ implementation @ <<method>>
  if ( ( ( get_global_var ( 'Action_Inst' ) |D ) ) %== '' OR 
    ( ( ( get_global_var ( 'Action_Inst' ) |D ) ) %== 'undefined'  ) ) then
  begin
-//	%{Action_Inst}%f_set_documentation(Подитеративная функция для вызова %1%T%{Stub}%f_pas_MethodName() из %SN)\
+//	%{Action_Inst}%f_set_documentation(Подитеративная функция для вызова \
   ( get_global_var ( 'Action_Inst' ) %f set_documentation %( 'Подитеративная функция для вызова '
-  %1 ->T ( get_object_var ( 'Stub' ) %f pas_MethodName %( )% )   ' из '
+//	[{"%1%T%{Stub}N"=""}{\
+  if ( ( %1 ->T ( get_object_var ( 'Stub' ) |N )   ) %== '' ) then
+  begin
+//	%1%T%f_pas_MethodName()\
+   %1 ->T %f pas_MethodName %( )%  
+//	]\
+  end // if
+  else
+  begin
+//	%1%T%{Stub}%f_pas_MethodName()\
+   %1 ->T ( get_object_var ( 'Stub' ) %f pas_MethodName %( )% )   
+//	}\
+  end // else
+//	 из %SN)\
+  ' из '
   %S |N )% ) 
 //	]\
  end // if
@@ -290,9 +304,24 @@ implementation @ <<method>>
    [%f] pas_TypeName %( %1 ->T ->P   )% '.Instance.'
 //	]\
   end // if
-//	%1%T%f_pas_MethodName("f")(%1%T%{Stub}%f_pas_MethodName()(@%{Action_Inst}%f_pas_MethodName())\
+//	%1%T%f_pas_MethodName("f")(\
   %1 ->T %f pas_MethodName %( 'f' )%  '('
-  %1 ->T ( get_object_var ( 'Stub' ) %f pas_MethodName %( )% )   '(@'
+//	[{"%1%T%{Stub}N"=""}{\
+  if ( ( %1 ->T ( get_object_var ( 'Stub' ) |N )   ) %== '' ) then
+  begin
+//	L2%f_N(%1%T%P)%f_N(%1%T)Action\
+   'L2'
+   [%f] N %( %1 ->T ->P   )% [%f] N %( %1 ->T  )% 'Action'
+//	]\
+  end // if
+  else
+  begin
+//	%1%T%{Stub}%f_pas_MethodName()\
+   %1 ->T ( get_object_var ( 'Stub' ) %f pas_MethodName %( )% )   
+//	}\
+  end // else
+//	(@%{Action_Inst}%f_pas_MethodName())\
+  '(@'
   ( get_global_var ( 'Action_Inst' ) %f pas_MethodName %( )% ) ')'
 //	[{%1{iterator needs params}=true&%1%T<{}{%CS=in}{C}>!=0}\
   if ( ( %1 get_up ( 'iterator needs params' ) ) %==  true AND 

@@ -1,3 +1,79 @@
+//#UC START# *1108E304B00C_B46C6A433AAC_impl*
+ Result := aScrollingWinControl.HorzScrollBar.IsScrollBarVisible;
+//#UC END# *1108E304B00C_B46C6A433AAC_impl*
+//#UC START# *1108E304B00C_B46C6A433AAC_var*
+//#UC END# *1108E304B00C_B46C6A433AAC_var*
+//#UC START# *1108E304B00C_F808620CE3AB_impl*
+ if (aControl Is TScrollingWinControl) then
+  Result := TScrollingWinControl(aControl).HorzScrollBar.IsScrollBarVisible
+ else
+ begin
+  with l_PageInfo do
+  begin
+   cbSize := SizeOf(l_PageInfo);
+   fMask := SIF_ALL;
+  end;//with l_ScrollInfo
+  if GetScrollInfo(aControl.Handle, SB_HORZ, l_PageInfo) then
+  begin
+   l_PageMax := l_PageInfo.nPage;
+   l_RangeMax := l_PageInfo.nMax;
+   Result := l_RangeMax > l_PageMax;
+  end
+  else
+  begin
+   l_Err := GetLastError;
+   if l_Err = 1447 then  // 1447: Окно не имеет полос прокрутки.
+    Result := False
+   else
+    RunnerAssert(False, 'Ошибка при вызове GetScrollInfo. Код ошибки: ' + IntToStr(l_Err), aCtx);
+  end;
+ end;//aControl Is TScrollingWinControl
+//#UC END# *1108E304B00C_F808620CE3AB_impl*
+//#UC START# *1108E304B00C_F808620CE3AB_var*
+var
+ l_PageMax: Integer;
+ l_RangeMax: Integer;
+ l_Err: Integer;
+ l_PageInfo: TScrollInfo;
+//#UC END# *1108E304B00C_F808620CE3AB_var*
+//#UC START# *2316871D91AF_0E188022DACF_impl*
+ Result := aScrollingWinControl.VertScrollBar.IsScrollBarVisible;
+//#UC END# *2316871D91AF_0E188022DACF_impl*
+//#UC START# *2316871D91AF_0E188022DACF_var*
+//#UC END# *2316871D91AF_0E188022DACF_var*
+//#UC START# *2316871D91AF_D64D3C18264A_impl*
+ if (aControl Is TScrollingWinControl) then
+  Result := TScrollingWinControl(aControl).VertScrollBar.IsScrollBarVisible
+ else
+ begin
+  with l_PageInfo do
+  begin
+   cbSize := SizeOf(l_PageInfo);
+   fMask := SIF_ALL;
+  end;//with l_ScrollInfo
+  if GetScrollInfo(aControl.Handle, SB_VERT, l_PageInfo) then
+  begin
+   l_PageMax := l_PageInfo.nPage;
+   l_RangeMax := l_PageInfo.nMax;
+   Result := l_RangeMax > l_PageMax;
+  end
+  else
+  begin
+   l_Err := GetLastError;
+   if l_Err = 1447 then  // 1447: Окно не имеет полос прокрутки.
+    Result := False
+   else
+    RunnerAssert(False, 'Ошибка при вызове GetScrollInfo. Код ошибки: ' + IntToStr(l_Err), aCtx);
+  end;
+ end;//aControl Is TScrollingWinControl
+//#UC END# *2316871D91AF_D64D3C18264A_impl*
+//#UC START# *2316871D91AF_D64D3C18264A_var*
+var
+ l_PageMax: Integer;
+ l_RangeMax: Integer;
+ l_Err: Integer;
+ l_PageInfo: TScrollInfo;
+//#UC END# *2316871D91AF_D64D3C18264A_var*
 //#UC START# *770305E8A083_F808620CE3AB_impl*
  if (aControl Is TScrollingWinControl) then
   Result := TScrollingWinControl(aControl).HorzScrollBar.IsScrollBarVisible

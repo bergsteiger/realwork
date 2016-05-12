@@ -4,6 +4,34 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4CC979AB0180
 
+FORWARD ME_4CC97A9F0310
+
+: ME_36A827ED30AC
+ CONST UID '36A827ED30AC'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация BaseSearch$UC' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4CC97A9F0310 // BaseSearch$UC
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_36A827ED30AC Ini_Reg_Class
+
+: ME_02255828C6C6
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CC97A9F0310 // BaseSearch$UC
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_02255828C6C6 
+
 : ME_4CC97A9F0310
  CONST UID '4CC97A9F0310'
  CONST Name 'BaseSearch'
@@ -23,10 +51,14 @@ FORWARD ME_4CC979AB0180
    Seq: ( WL 'ME_484407B70220' '484407720166.pas.ms.script' // Базовый поиск
  )
  ; // Implements
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
+ : Operations
+   Seq: ( ME_36A827ED30AC // Ini_Reg_Class
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_02255828C6C6 // TtfwClassRef
+ )
+ ; // Dependencies
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moBaseSearch.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST extprop:pas:TypeName 'Tmo_BaseSearch'

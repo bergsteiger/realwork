@@ -771,6 +771,20 @@ PROCEDURE "Вызвать вставку шаблона и указать номер ссылающегося топика" STRING I
 	)
 ;
 
+PROCEDURE "Вызвать вставку шаблона и указать номер ссылающегося саба" STRING IN aNumSub  
+	@ ( "Вызвать вставку шаблона" ) MODAL ( 
+		"Набить текст {(aNumSub)}"
+		"Нажать Enter"
+	)
+;
+
+PROCEDURE "Вызвать вставку шаблона и указать имя ссылающегося топика/саба" STRING IN aNаmеTopic 
+	@ ( "Вызвать вставку шаблона" ) MODAL ( 
+		"Набить текст {(aNаmеTopic)}"
+		"Нажать Enter"
+	)
+;
+
 PROCEDURE "Вызвать вставку шаблона, указать номер ссылающегося топика и номер саба ссылающегося саба" STRING IN aNumTopic STRING IN aNumSub  
 	@ ( "Вызвать вставку шаблона и указать номер ссылающегося топика {(aNumTopic)}" ) MODAL ( 
 		"Набить текст {(aNumSub)}"
@@ -1525,7 +1539,7 @@ PROCEDURE "Выбрать группу 'Точка начала'"
 
 // Поиск текста c RadioGroup
 PROCEDURE "Поиск текста в 'Точка начала'" STRING IN aFindString IN aIndexRadioGroup
-	 	'Ctrl+F' key
+	 	"Вызывать окно поиска"
  		aIndexRadioGroup "Выбрать группу 'Точка начала'"
 	 TRY
 	 	"Набить текст {(aFindString)}"
@@ -1538,7 +1552,7 @@ PROCEDURE "Поиск текста в 'Точка начала'" STRING IN aFindString IN aIndexRadioGr
 
 // Поиск текста c CheckBox
 PROCEDURE "Поиск текста c учетом чекбокса" STRING IN aFindString IN aCheckBoxName
-	 	'Ctrl+F' key
+	 	"Вызывать окно поиска"
 	 TRY
 	 	"Набить текст {(aFindString)}"
 		
@@ -1555,6 +1569,5 @@ PROCEDURE "Поиск текста c учетом чекбокса" STRING IN aFindString IN aCheckBoxNam
 PROCEDURE "Выбрать в выпадающем списке шаблон c значением индекса" INTEGER IN aValue
 	"Выбрать в выпадающем списке {('cbSavedTemplates')} {('TComboBox')} значение индекса  {(aValue)}"
 ;
-
 
 

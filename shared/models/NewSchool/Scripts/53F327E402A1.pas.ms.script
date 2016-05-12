@@ -1954,6 +1954,34 @@ ref; // ME_57186B7D031F Начало поиска
 
 ref; // ME_57186CB300D4 Использование текста из предыдущего поиска
 
+: ME_5732E3C3027B
+ CONST UID '5732E3C3027B'
+ CONST Name 'Несколько опций поиска'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'При поиске можно задавать различные сочетания опций поиска. '#13#10'Поддерживаются следующие сочетания:'#13#10'* "Учитывать регистр" - со всеми, кроме "Со словоформами"'#13#10'* "Со словоформами" - ни с одной из опций.'#13#10'* Остальные опции сочетаются только с опцией"Учитывать регистр"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_5732E3C3027B Несколько опций поиска
+
+: ME_5732E66F0014
+ CONST UID '5732E66F0014'
+ CONST Name 'Сочетания спецсимволов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Спецсимволы могут применяться не только по одному, но и в различных сочетаниях. Например, ^# ^$' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5715D02202C0 // Поиск текста
+ ;
+
+ref; // ME_5732E66F0014 Сочетания спецсимволов
+
 : ME_5715D02202C0
  CONST UID '5715D02202C0'
  CONST Name 'Поиск текста'
@@ -1975,6 +2003,8 @@ ref; // ME_57186CB300D4 Использование текста из предыдущего поиска
  ME_57186B560280 // Параметры области поиска
  ME_57186B7D031F // Начало поиска
  ME_57186CB300D4 // Использование текста из предыдущего поиска
+ ME_5732E3C3027B // Несколько опций поиска
+ ME_5732E66F0014 // Сочетания спецсимволов
  )
  ; // Children
 

@@ -8,86 +8,13 @@ FORWARD ME_54EC8F930357
 
 FORWARD ME_552FAF500391
 
-FORWARD ME_974085042BA3
-
 FORWARD ME_4E9CC5473030
-
-: ME_D13698D43F7F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D13698D43F7F aCtx
-
-: ME_D13698D43F80
- CONST Name 'aFlash'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4981A4AE0282' '4981A49103DD.pas.ms.script' // TvtShockwaveFlashEx
- ;
-
-ref; // ME_D13698D43F80 aFlash
-
-: ME_974085042BA3
- CONST UID '974085042BA3'
- CONST Name 'GetFrame'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:flash:GetFrame' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E9CC5473030 // pop_Flash_GetFrame
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_D13698D43F7F // aCtx
- ME_D13698D43F80 // aFlash
- )
- ; // Parameters
- : SpelledFor ME_552FAF500391 // GetFrame
- ;
-
-ref; // ME_974085042BA3 GetFrame
-
-: ME_75545AFBFBB4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E9CC5473030 // pop_Flash_GetFrame
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_75545AFBFBB4 
 
 : ME_4DAEEDE10285_ME_4E9CC5473030
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4E9CC5473030 DoDoIt
-
-: ME_551544E2001A_ME_4E9CC5473030
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_4E9CC5473030 GetResultTypeInfo
-
-: ME_559687E6025A_ME_4E9CC5473030
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_4E9CC5473030 GetAllParamsCount
-
-: ME_5617F4D00243_ME_4E9CC5473030
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_4E9CC5473030 ParamsTypes
 
 : ME_4E9CC5473030
  CONST UID '4E9CC5473030'
@@ -96,7 +23,7 @@ ref; // ME_5617F4D00243_ME_4E9CC5473030 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:flash:GetFrame'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aFlash pop:flash:GetFrame >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:flash:GetFrame' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8F930357 // vtFlashWordsPack
@@ -105,37 +32,17 @@ ref; // ME_5617F4D00243_ME_4E9CC5473030 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_974085042BA3 // GetFrame
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4E9CC5473030 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_4E9CC5473030 // GetResultTypeInfo
- ME_559687E6025A_ME_4E9CC5473030 // GetAllParamsCount
- ME_5617F4D00243_ME_4E9CC5473030 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_75545AFBFBB4 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:flash:GetFrame'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopFlashGetFrame'
  CONST extprop:rc:SelfName 'PopFlashGetFrame'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4981A4AE0282' '4981A49103DD.pas.ms.script' // TvtShockwaveFlashEx
  ;
  : SpelledFor ME_552FAF500391 // GetFrame
- ;
- : Stub ME_974085042BA3 // GetFrame
  ;
 
 ref; // ME_4E9CC5473030 pop_Flash_GetFrame
@@ -152,61 +59,10 @@ ref; // ME_4E9CC5473030 pop_Flash_GetFrame
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  CONST "NameForScript" 'pop:flash:GetFrame'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_4E9CC5473030 // pop_Flash_GetFrame
  ;
 
 ref; // ME_552FAF500391 GetFrame
-
-: ME_F94C6BC3E467
- CONST UID 'F94C6BC3E467'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8F930357 // vtFlashWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F94C6BC3E467 Reg_Type_TtfwContext
-
-: ME_7DA28929FFA1
- CONST UID '7DA28929FFA1'
- CONST Name 'Reg_Type_TvtShockwaveFlashEx'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtShockwaveFlashEx' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8F930357 // vtFlashWordsPack
- ;
- : SpelledFor WL 'ME_4981A4AE0282' '4981A49103DD.pas.ms.script' // TvtShockwaveFlashEx
- ;
-
-ref; // ME_7DA28929FFA1 Reg_Type_TvtShockwaveFlashEx
-
-: ME_2B1D7EBFA0E8
- CONST UID '2B1D7EBFA0E8'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8F930357 // vtFlashWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_2B1D7EBFA0E8 Reg_Type_Integer
 
 : ME_7440CAD05A63
  CONST IsSummoned true
@@ -235,9 +91,6 @@ ref; // ME_7440CAD05A63
  ; // Inherits
  : Operations
    Seq: ( ME_552FAF500391 // GetFrame
- ME_F94C6BC3E467 // Reg_Type_TtfwContext
- ME_7DA28929FFA1 // Reg_Type_TvtShockwaveFlashEx
- ME_2B1D7EBFA0E8 // Reg_Type_Integer
  )
  ; // Operations
  : Children
@@ -249,10 +102,6 @@ ref; // ME_7440CAD05A63
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtFlashWordsPack.pas'
  CONST extprop:rc:SelfName 'FlashWordsPack'
 
@@ -272,11 +121,8 @@ ref; // ME_54EC8F930357 vtFlashWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
- WL 'ME_4981A49103DD' '4981A49103DD.pas.ms.script' // Flash
+   Seq: ( WL 'ME_4981A49103DD' '4981A49103DD.pas.ms.script' // Flash
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends

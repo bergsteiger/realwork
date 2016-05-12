@@ -41,6 +41,126 @@ var
  l_Ow    : TComponent;
  l_C     : TComponent;
 //#UC END# *4724A104EB0C_8969D4FAAB14_var*
+//#UC START# *551D4CAA00E9_89C786B088C6_impl*
+ Result := aVisualObject.CheckParentVisible
+//#UC END# *551D4CAA00E9_89C786B088C6_impl*
+//#UC START# *551D4CAA00E9_89C786B088C6_var*
+//#UC END# *551D4CAA00E9_89C786B088C6_var*
+//#UC START# *551D4CCD0130_05A703B5907E_impl*
+ Result := Round(aVisualObject.Height);
+//#UC END# *551D4CCD0130_05A703B5907E_impl*
+//#UC START# *551D4CCD0130_05A703B5907E_var*
+//#UC END# *551D4CCD0130_05A703B5907E_var*
+//#UC START# *551D4CF10224_6D438B9C5A14_impl*
+ Result := Round(aVisualObject.Width)
+//#UC END# *551D4CF10224_6D438B9C5A14_impl*
+//#UC START# *551D4CF10224_6D438B9C5A14_var*
+//#UC END# *551D4CF10224_6D438B9C5A14_var*
+//#UC START# *551D4CFE03AD_0ED393F18084_impl*
+ Result := Round(aVisualObject.Position.X)
+//#UC END# *551D4CFE03AD_0ED393F18084_impl*
+//#UC START# *551D4CFE03AD_0ED393F18084_var*
+//#UC END# *551D4CFE03AD_0ED393F18084_var*
+//#UC START# *551D4D1002FD_E4BF70016043_impl*
+ Result := Round(aVisualObject.Position.Y)
+//#UC END# *551D4D1002FD_E4BF70016043_impl*
+//#UC START# *551D4D1002FD_E4BF70016043_var*
+//#UC END# *551D4D1002FD_E4BF70016043_var*
+//#UC START# *551D4D2101E1_20CB200689C7_impl*
+ Result := aVisualObject.Enabled
+//#UC END# *551D4D2101E1_20CB200689C7_impl*
+//#UC START# *551D4D2101E1_20CB200689C7_var*
+//#UC END# *551D4D2101E1_20CB200689C7_var*
+//#UC START# *551D4D30029E_F80A519316B5_impl*
+ Result := aVisualObject.Name
+//#UC END# *551D4D30029E_F80A519316B5_impl*
+//#UC START# *551D4D30029E_F80A519316B5_var*
+//#UC END# *551D4D30029E_F80A519316B5_var*
+//#UC START# *551D4D56027F_E94B273F03D9_impl*
+ with TvgVisualObjectFriend(aVisualObject) do
+ begin
+  MouseDown(mbLeft, [], 0, 0);
+  MouseUp(mbLeft, [], 0, 0);
+ end;//with TvgVisualObjectFriend(aVisualObject)
+//#UC END# *551D4D56027F_E94B273F03D9_impl*
+//#UC START# *551D4D56027F_E94B273F03D9_var*
+//#UC END# *551D4D56027F_E94B273F03D9_var*
+//#UC START# *551D4D910121_8969D4FAAB14_impl*
+ l_Count := 0;
+ l_Ow := aVisualObject.Owner;
+ for l_Index := 0 to Pred(l_Ow.ComponentCount) do
+ begin
+  l_C := l_Ow.Components[l_Index];
+  if l_C.InheritsFrom(aVisualObject.ClassType) then
+   Inc(l_Count);
+ end;//for l_Index
+ Result := l_Count;
+//#UC END# *551D4D910121_8969D4FAAB14_impl*
+//#UC START# *551D4D910121_8969D4FAAB14_var*
+var
+ l_Count : Integer;
+ l_Index : Integer;
+ l_Ow    : TComponent;
+ l_C     : TComponent;
+//#UC END# *551D4D910121_8969D4FAAB14_var*
+//#UC START# *551D4DB90078_D3F9471133D7_impl*
+ Result := (aVisualObject As TvgRadioButton).IsChecked;
+//#UC END# *551D4DB90078_D3F9471133D7_impl*
+//#UC START# *551D4DB90078_D3F9471133D7_var*
+//#UC END# *551D4DB90078_D3F9471133D7_var*
+//#UC START# *551D4DC601EC_5389853B1E01_impl*
+ (aVisualObject As TvgRadioButton).IsChecked := aValue;
+//#UC END# *551D4DC601EC_5389853B1E01_impl*
+//#UC START# *551D4DC601EC_5389853B1E01_var*
+//#UC END# *551D4DC601EC_5389853B1E01_var*
+//#UC START# *551D4DEF0359_0B0F33EAEBDF_impl*
+ l_Left := aVisualObject.Position.X;
+ l_Obj := aVisualObject;
+ while Assigned(l_Obj.Parent) {and (anObject.Parent <> anObject.Scene)} do
+ begin
+  l_Obj := l_Obj.Parent;
+  if l_Obj is TvgVisualObject then
+   l_Left := TvgVisualObject(l_Obj).Position.X + l_Left;
+ end;
+ Result := Round(l_Left);
+//#UC END# *551D4DEF0359_0B0F33EAEBDF_impl*
+//#UC START# *551D4DEF0359_0B0F33EAEBDF_var*
+var
+ l_Left: Single;
+ l_Obj: TvgObject;
+//#UC END# *551D4DEF0359_0B0F33EAEBDF_var*
+//#UC START# *551D4E00011A_FFE6E88470A5_impl*
+ l_Top := aVisualObject.Position.Y;
+ l_Obj := aVisualObject;
+ while Assigned(l_Obj.Parent) {and (anObject.Parent <> anObject.Scene)} do
+ begin
+  l_Obj := l_Obj.Parent;
+  if l_Obj is TvgVisualObject then
+   l_Top := TvgVisualObject(l_Obj).Position.Y + l_Top;
+ end;
+ Result := Round(l_Top);
+//#UC END# *551D4E00011A_FFE6E88470A5_impl*
+//#UC START# *551D4E00011A_FFE6E88470A5_var*
+var
+ l_Top: Single;
+ l_Obj: TvgObject;
+//#UC END# *551D4E00011A_FFE6E88470A5_var*
+//#UC START# *551D4E320027_E3230FB2D73B_impl*
+ Result := aVisualObject.Scene.GetSceneControl;
+//#UC END# *551D4E320027_E3230FB2D73B_impl*
+//#UC START# *551D4E320027_E3230FB2D73B_var*
+//#UC END# *551D4E320027_E3230FB2D73B_var*
+//#UC START# *551D538A00B4_BD648FBA9D21_impl*
+ if (aVisualObject is TvgTextControl) then
+  Result := TvgTextControl(aVisualObject).Text
+ else
+ if (aVisualObject is TvgText) then
+  Result := TvgText(aVisualObject).Text
+ else
+  Result := '';
+//#UC END# *551D538A00B4_BD648FBA9D21_impl*
+//#UC START# *551D538A00B4_BD648FBA9D21_var*
+//#UC END# *551D538A00B4_BD648FBA9D21_var*
 //#UC START# *68ABF3A0E921_6D438B9C5A14_impl*
  Result := Round(aVisualObject.Width)
 //#UC END# *68ABF3A0E921_6D438B9C5A14_impl*

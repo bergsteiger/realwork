@@ -890,6 +890,10 @@ BOOLEAN FUNCTION "Чекбокс отмечен?" OBJECT IN aCheckBox
   'Checked' aCheckBox pop:object:GetOrdProp РАВНО 1 >>> Result
 ;
 
+BOOLEAN FUNCTION "Чекбокс не отмечен?" OBJECT IN aCheckBox
+  'Checked' aCheckBox pop:object:GetOrdProp РАВНО 0 >>> Result
+;
+
 PROCEDURE "Отметить чекбокс" OBJECT IN aCheckBox
 	1 'Checked' aCheckBox pop:object:SetOrdProp 
 ;
@@ -1000,4 +1004,71 @@ PROCEDURE "Поиск текста из предыдущего поиска"
 	 END 
 ;
 
+PROCEDURE "Перейти на 'пункт 2' с нажатым Alt - гиперссылка на предыдущую редакцию"
+		1 раз ( "Нажать вниз" )
+		6 раз ( "Нажать вправо" )
+		"Нажать 'Alt+Enter'"
+;
 
+
+PROCEDURE "Проверка 'Чекбокс уже отмечен!' 'Выбранные опции сочетаются!'" OBJECT IN aFirstCheckBoxResult OBJECT IN aSecondCheckBoxResult
+	"Чекбокс {(aFirstCheckBoxResult)} отмечен?" ?ASSURE 'Чекбокс уже отмечен!'
+	"Чекбокс {(aSecondCheckBoxResult)} отмечен?" ?ASSURE 'Выбранные опции сочетаются!'
+;
+
+// 2 чекбокса без поиска текста
+PROCEDURE "Открыть окно поиска c учетом чекбокса 'Учитывать регистр и выставить галочку' с проверкой" STRING IN aCheckBoxName
+	 	"Вызывать окно поиска"
+	 TRY
+		OBJECT VAR l_Control
+		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		
+		OBJECT VAR l_FirstCheckBoxResult
+
+		"Найти контрол {(aCheckBoxName)} на форме {(l_Control)}"  >>> l_FirstCheckBoxResult
+		Если ( "Чекбокс {(l_FirstCheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_FirstCheckBoxResult)}" )
+
+		OBJECT VAR l_SecondCheckBoxResult
+
+		"Найти контрол {("Учитывать регистр")} на форме {(l_Control)}"  >>> l_SecondCheckBoxResult
+		Если ( "Чекбокс {(l_SecondCheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_SecondCheckBoxResult)}" )
+		
+		"Обработать сообщения"
+
+		"Проверка 'Чекбокс уже отмечен!' {(l_FirstCheckBoxResult)}  'Выбранные опции сочетаются!' {(l_SecondCheckBoxResult)}"
+		
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;
+
+
+PROCEDURE "Проверка 'Чекбокс не отмечен!' 'Выбранные опции не сочетаются!'" OBJECT IN aFirstCheckBoxResult OBJECT IN aSecondCheckBoxResult
+	"Чекбокс {(aFirstCheckBoxResult)} отмечен?" ! ?ASSURE 'Чекбокс не отмечен!'
+	"Чекбокс {(aSecondCheckBoxResult)} отмечен?" ?ASSURE 'Выбранные опции не сочетаются!'
+;
+
+PROCEDURE "Открыть окно поиска c учетом чекбокса 'Выставить галочку' и проверить несколько опций поиска" STRING IN aCheckBoxName
+	 	"Вызывать окно поиска"
+	 TRY
+		OBJECT VAR l_Control 
+		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+
+		OBJECT VAR l_FirstCheckBoxResult
+
+		"Найти контрол {(aCheckBoxName)} на форме {(l_Control)}"  >>> l_FirstCheckBoxResult
+		Если ( "Чекбокс {(l_FirstCheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_FirstCheckBoxResult)}")
+
+		OBJECT VAR l_SecondCheckBoxResult
+		
+		"Найти контрол {("Учитывать регистр")} на форме {(l_Control)}"  >>> l_SecondCheckBoxResult
+		Если ( "Чекбокс {(l_SecondCheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_SecondCheckBoxResult)}")
+		
+		"Обработать сообщения"
+
+		"Проверка 'Чекбокс не отмечен!' {(l_FirstCheckBoxResult)} 'Выбранные опции не сочетаются!' {(l_SecondCheckBoxResult)}"
+
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;

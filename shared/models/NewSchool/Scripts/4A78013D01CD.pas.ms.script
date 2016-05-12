@@ -58,12 +58,7 @@ ref; // ME_E7A648EB3658
  ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsMain_Form.pas'
@@ -73,6 +68,21 @@ ref; // ME_E7A648EB3658
  CONST extprop:pas:UnitName 'ShellAndMonitoringsMain_Form'
 
 ref; // ME_4AAA43F601F7 ShellAndMonitoringsMain
+
+: ME_80E6FB178A48
+ CONST UID '80E6FB178A48'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация ShellAndMonitorings' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AAA42BF0267 // ShellAndMonitorings
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_80E6FB178A48 Ini_Reg_Class
 
 : ME_4AAA42EF025A
  CONST Class class_Dependency
@@ -94,6 +104,17 @@ ref; // ME_4AAA42EF025A
 
 ref; // ME_54F8582001BD 
 
+: ME_17C30076620B
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AAA42BF0267 // ShellAndMonitorings
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_17C30076620B 
+
 : ME_4AAA42BF0267
  CONST UID '4AAA42BF0267'
  CONST Name 'ShellAndMonitorings'
@@ -108,6 +129,10 @@ ref; // ME_54F8582001BD
    Seq: ( WL 'ME_4A92BBDF0126' '4986ECDF01F4.pas.ms.script' // PrimF1
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_80E6FB178A48 // Ini_Reg_Class
+ )
+ ; // Operations
  : Children
    Seq: ( ME_4AAA43F601F7 // ShellAndMonitoringsMain
  )
@@ -115,12 +140,9 @@ ref; // ME_54F8582001BD
  : Dependencies
    Seq: ( ME_4AAA42EF025A // CommonSearch$UC
  ME_54F8582001BD // TtasSaveLoadRealization
+ ME_17C30076620B // TtfwClassRef
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsRes.pas'
  CONST extprop:pas:TypeName 'TShellAndMonitoringsRes'
  CONST extprop:rc:SelfName 'ShellAndMonitoringsRes'
@@ -162,7 +184,6 @@ ref; // ME_4AAA42BF0267 ShellAndMonitorings
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_46A0E6C5023A' '46A0E6C5023A.pas.ms.script' // ActiveX
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3

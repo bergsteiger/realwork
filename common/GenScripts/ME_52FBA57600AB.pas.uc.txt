@@ -1,0 +1,168 @@
+//#UC START# *57234C5B02CA_57234C2903E3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57234C5B02CA_57234C2903E3_impl*
+//#UC START# *57234C5B02CA_57234C2903E3_var*
+//#UC END# *57234C5B02CA_57234C2903E3_var*
+//#UC START# *57234C6E01C3_57234C2903E3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57234C6E01C3_57234C2903E3_impl*
+//#UC START# *57234C6E01C3_57234C2903E3_var*
+//#UC END# *57234C6E01C3_57234C2903E3_var*
+//#UC START# *5729DCF300FC_52FBA57600AB_impl*
+ with aStream do
+ begin
+  Write(f_ID, SizeOf(f_ID));
+  Write(f_ImportPriority, SizeOf(f_ImportPriority));
+  WriteString(aStream, f_IP);
+  Write(f_LoginDate, SizeOf(f_LoginDate));
+  WriteString(aStream, f_LoginName);
+  WriteString(aStream, f_Password);
+  WriteString(aStream, f_UserName);
+ end; // aStream
+//#UC END# *5729DCF300FC_52FBA57600AB_impl*
+//#UC START# *5729DCF300FC_52FBA57600AB_var*
+//#UC END# *5729DCF300FC_52FBA57600AB_var*
+//#UC START# *572B08330098_52FBA57600AB_impl*
+ with aStream do
+ begin
+  Read(f_ID, SizeOf(f_ID));
+  Read(f_ImportPriority, SizeOf(f_ImportPriority));
+  ReadString(aStream, f_IP);
+  Read(f_LoginDate, SizeOf(f_LoginDate));
+  ReadString(aStream, f_LoginName);
+  ReadString(aStream, f_Password);
+  ReadString(aStream, f_UserName);
+ end; // aStream
+//#UC END# *572B08330098_52FBA57600AB_impl*
+//#UC START# *572B08330098_52FBA57600AB_var*
+//#UC END# *572B08330098_52FBA57600AB_var*
+//#UC START# *572B1204035B_52FBA57600ABget_impl*
+ Result := f_ID;
+//#UC END# *572B1204035B_52FBA57600ABget_impl*
+//#UC START# *572B1204035B_52FBA57600ABget_var*
+//#UC END# *572B1204035B_52FBA57600ABget_var*
+//#UC START# *572B1204035B_52FBA57600ABset_impl*
+ f_ID := aValue;
+//#UC END# *572B1204035B_52FBA57600ABset_impl*
+//#UC START# *572B1204035B_52FBA57600ABset_var*
+//#UC END# *572B1204035B_52FBA57600ABset_var*
+//#UC START# *572B121B01DF_52FBA57600ABget_impl*
+ Result := f_Active;
+//#UC END# *572B121B01DF_52FBA57600ABget_impl*
+//#UC START# *572B121B01DF_52FBA57600ABget_var*
+//#UC END# *572B121B01DF_52FBA57600ABget_var*
+//#UC START# *572B121B01DF_52FBA57600ABset_impl*
+ f_Active := aValue;
+//#UC END# *572B121B01DF_52FBA57600ABset_impl*
+//#UC START# *572B121B01DF_52FBA57600ABset_var*
+//#UC END# *572B121B01DF_52FBA57600ABset_var*
+//#UC START# *572B123002B7_52FBA57600ABget_impl*
+ Result := f_HasAdminRights;
+//#UC END# *572B123002B7_52FBA57600ABget_impl*
+//#UC START# *572B123002B7_52FBA57600ABget_var*
+//#UC END# *572B123002B7_52FBA57600ABget_var*
+//#UC START# *572B123002B7_52FBA57600ABset_impl*
+ f_HasAdminRights := aValue;
+//#UC END# *572B123002B7_52FBA57600ABset_impl*
+//#UC START# *572B123002B7_52FBA57600ABset_var*
+//#UC END# *572B123002B7_52FBA57600ABset_var*
+//#UC START# *572B12420088_52FBA57600ABget_impl*
+ if f_ExportPriority = cPriorityNeedCalc then
+ begin
+  Assert(Assigned(f_CalcPriorityCallBack));
+  f_CalcPriorityCallBack(f_ID, f_ExportPriority, f_ImportPriority);
+ end;
+
+ Result := f_ExportPriority;
+//#UC END# *572B12420088_52FBA57600ABget_impl*
+//#UC START# *572B12420088_52FBA57600ABget_var*
+//#UC END# *572B12420088_52FBA57600ABget_var*
+//#UC START# *572B12420088_52FBA57600ABset_impl*
+ f_ExportPriority := aValue;
+//#UC END# *572B12420088_52FBA57600ABset_impl*
+//#UC START# *572B12420088_52FBA57600ABset_var*
+//#UC END# *572B12420088_52FBA57600ABset_var*
+//#UC START# *572B125E006C_52FBA57600ABget_impl*
+ if f_ImportPriority = cPriorityNeedCalc then
+ begin
+  Assert(Assigned(f_CalcPriorityCallBack));
+  f_CalcPriorityCallBack(f_ID, f_ExportPriority, f_ImportPriority);
+ end;
+
+ Result := f_ImportPriority;
+//#UC END# *572B125E006C_52FBA57600ABget_impl*
+//#UC START# *572B125E006C_52FBA57600ABget_var*
+//#UC END# *572B125E006C_52FBA57600ABget_var*
+//#UC START# *572B125E006C_52FBA57600ABset_impl*
+ f_ImportPriority := aValue;
+//#UC END# *572B125E006C_52FBA57600ABset_impl*
+//#UC START# *572B125E006C_52FBA57600ABset_var*
+//#UC END# *572B125E006C_52FBA57600ABset_var*
+//#UC START# *572B126D0341_52FBA57600ABget_impl*
+ Result := f_IP;
+//#UC END# *572B126D0341_52FBA57600ABget_impl*
+//#UC START# *572B126D0341_52FBA57600ABget_var*
+//#UC END# *572B126D0341_52FBA57600ABget_var*
+//#UC START# *572B126D0341_52FBA57600ABset_impl*
+ f_IP := aValue;
+//#UC END# *572B126D0341_52FBA57600ABset_impl*
+//#UC START# *572B126D0341_52FBA57600ABset_var*
+//#UC END# *572B126D0341_52FBA57600ABset_var*
+//#UC START# *572B127D0098_52FBA57600ABget_impl*
+ Result := f_LoginDate;
+//#UC END# *572B127D0098_52FBA57600ABget_impl*
+//#UC START# *572B127D0098_52FBA57600ABget_var*
+//#UC END# *572B127D0098_52FBA57600ABget_var*
+//#UC START# *572B127D0098_52FBA57600ABset_impl*
+ f_LoginDate := aValue;
+//#UC END# *572B127D0098_52FBA57600ABset_impl*
+//#UC START# *572B127D0098_52FBA57600ABset_var*
+//#UC END# *572B127D0098_52FBA57600ABset_var*
+//#UC START# *572B128D015A_52FBA57600ABget_impl*
+ Result := f_LoginName;
+//#UC END# *572B128D015A_52FBA57600ABget_impl*
+//#UC START# *572B128D015A_52FBA57600ABget_var*
+//#UC END# *572B128D015A_52FBA57600ABget_var*
+//#UC START# *572B128D015A_52FBA57600ABset_impl*
+ f_LoginName := aValue;
+//#UC END# *572B128D015A_52FBA57600ABset_impl*
+//#UC START# *572B128D015A_52FBA57600ABset_var*
+//#UC END# *572B128D015A_52FBA57600ABset_var*
+//#UC START# *572B129D021B_52FBA57600ABget_impl*
+ Result := f_Password;
+//#UC END# *572B129D021B_52FBA57600ABget_impl*
+//#UC START# *572B129D021B_52FBA57600ABget_var*
+//#UC END# *572B129D021B_52FBA57600ABget_var*
+//#UC START# *572B129D021B_52FBA57600ABset_impl*
+ f_Password := aValue;
+//#UC END# *572B129D021B_52FBA57600ABset_impl*
+//#UC START# *572B129D021B_52FBA57600ABset_var*
+//#UC END# *572B129D021B_52FBA57600ABset_var*
+//#UC START# *572B12AE028C_52FBA57600ABget_impl*
+ Result := f_UserName;
+//#UC END# *572B12AE028C_52FBA57600ABget_impl*
+//#UC START# *572B12AE028C_52FBA57600ABget_var*
+//#UC END# *572B12AE028C_52FBA57600ABget_var*
+//#UC START# *572B12AE028C_52FBA57600ABset_impl*
+ f_UserName := aValue;
+//#UC END# *572B12AE028C_52FBA57600ABset_impl*
+//#UC START# *572B12AE028C_52FBA57600ABset_var*
+//#UC END# *572B12AE028C_52FBA57600ABset_var*
+//#UC START# *572B1324003C_52FBA57600AB_impl*
+ inherited Create;
+ f_CalcPriorityCallBack := aCalcPriorityCallback;
+ f_ExportPriority := cPriorityNeedCalc;
+ f_ImportPriority := cPriorityNeedCalc;
+//#UC END# *572B1324003C_52FBA57600AB_impl*
+//#UC START# *572B1324003C_52FBA57600AB_var*
+//#UC END# *572B1324003C_52FBA57600AB_var*
+//#UC START# *572B22B0011C_52FBA57600ABget_impl*
+ Result := Get_ExportPriority;
+//#UC END# *572B22B0011C_52FBA57600ABget_impl*
+//#UC START# *572B22B0011C_52FBA57600ABget_var*
+//#UC END# *572B22B0011C_52FBA57600ABget_var*
+//#UC START# *572B22BF003A_52FBA57600ABget_impl*
+ Result := Get_ImportPriority;
+//#UC END# *572B22BF003A_52FBA57600ABget_impl*
+//#UC START# *572B22BF003A_52FBA57600ABget_var*
+//#UC END# *572B22BF003A_52FBA57600ABget_var*

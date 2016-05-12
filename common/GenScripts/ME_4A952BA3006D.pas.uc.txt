@@ -169,6 +169,35 @@ var
 //#UC END# *49803F5503AA_4A952BA3006D_impl*
 //#UC START# *49803F5503AA_4A952BA3006D_var*
 //#UC END# *49803F5503AA_4A952BA3006D_var*
+//#UC START# *49806ED503D5_4A952BA3006D_impl*
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+ Assert(l_BaseSearcher <> nil);
+ theState := TMainFormState.Make(l_BaseSearcher.MakeState, l_InnerState);
+//#UC END# *49806ED503D5_4A952BA3006D_impl*
+//#UC START# *49806ED503D5_4A952BA3006D_var*
+var
+ l_InnerState: IvcmBase;
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *49806ED503D5_4A952BA3006D_var*
+//#UC START# *49807428008C_4A952BA3006D_impl*
+ if Supports(aState, IMainFormState, l_MainFormState) then
+ begin
+  l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  Assert(l_BaseSearcher <> nil);
+  l_BaseSearcher.AssignState(l_MainFormState.BaseSearcherState);
+  l_InnerState := l_MainFormState.InnerState;
+ end
+ else
+  l_InnerState := aState;
+ Result := inherited DoLoadState(l_InnerState, aStateType);
+//#UC END# *49807428008C_4A952BA3006D_impl*
+//#UC START# *49807428008C_4A952BA3006D_var*
+var
+ l_MainFormState: IMainFormState;
+ l_InnerState: IvcmBase;
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *49807428008C_4A952BA3006D_var*
 //#UC START# *49FFFE5B033A_4A952BA3006D_impl*
  if Supports(BaseSearcher, InsBaseSearchQueryDataProcessor, l_QueryLoader) then
   l_QueryLoader.RequestCheckFragmentsCount;
@@ -293,7 +322,7 @@ var
    GC_OPEN_CONSULT:
     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
    GC_PRIME:
-    TdmStdRes.OpenNewsLine(True)
+    TdmStdRes.OpenNewsLine(True);
    else
     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
   end;//case aCommand
@@ -837,3 +866,20 @@ var
 //#UC END# *5631AC7700D9_4A952BA3006Dget_impl*
 //#UC START# *5631AC7700D9_4A952BA3006Dget_var*
 //#UC END# *5631AC7700D9_4A952BA3006Dget_var*
+//#UC START# *5729DEC300A8_5729DF4D0159get_impl*
+ Result := f_BaseSearcherState;
+//#UC END# *5729DEC300A8_5729DF4D0159get_impl*
+//#UC START# *5729DEC300A8_5729DF4D0159get_var*
+//#UC END# *5729DEC300A8_5729DF4D0159get_var*
+//#UC START# *5729DFB7006F_5729DF4D0159get_impl*
+ Result := f_InnerState;
+//#UC END# *5729DFB7006F_5729DF4D0159get_impl*
+//#UC START# *5729DFB7006F_5729DF4D0159get_var*
+//#UC END# *5729DFB7006F_5729DF4D0159get_var*
+//#UC START# *5729DFC3021F_5729DF4D0159_impl*
+ inherited Create;
+ f_BaseSearcherState := aBaseSearcherState;
+ f_InnerState := aInnerState;
+//#UC END# *5729DFC3021F_5729DF4D0159_impl*
+//#UC START# *5729DFC3021F_5729DF4D0159_var*
+//#UC END# *5729DFC3021F_5729DF4D0159_var*

@@ -8,86 +8,13 @@ FORWARD ME_54E5FA20024D
 
 FORWARD ME_552FB05F003F
 
-FORWARD ME_4A3348F91BD7
-
 FORWARD ME_A0AE99A180FB
-
-: ME_F0605429CB7E
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F0605429CB7E aCtx
-
-: ME_F0605429CB7F
- CONST Name 'aHideField'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E732D8B0291' '4E732D5D02FE.pas.ms.script' // TvtCustomHideField
- ;
-
-ref; // ME_F0605429CB7F aHideField
-
-: ME_4A3348F91BD7
- CONST UID '4A3348F91BD7'
- CONST Name 'IsExpanded'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:HideField:IsExpanded' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A0AE99A180FB // pop_HideField_IsExpanded
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_F0605429CB7E // aCtx
- ME_F0605429CB7F // aHideField
- )
- ; // Parameters
- : SpelledFor ME_552FB05F003F // IsExpanded
- ;
-
-ref; // ME_4A3348F91BD7 IsExpanded
-
-: ME_8FFD342045F6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A0AE99A180FB // pop_HideField_IsExpanded
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_8FFD342045F6 
 
 : ME_4DAEEDE10285_ME_A0AE99A180FB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A0AE99A180FB DoDoIt
-
-: ME_551544E2001A_ME_A0AE99A180FB
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_A0AE99A180FB GetResultTypeInfo
-
-: ME_559687E6025A_ME_A0AE99A180FB
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_A0AE99A180FB GetAllParamsCount
-
-: ME_5617F4D00243_ME_A0AE99A180FB
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_A0AE99A180FB ParamsTypes
 
 : ME_A0AE99A180FB
  CONST UID 'A0AE99A180FB'
@@ -96,7 +23,7 @@ ref; // ME_5617F4D00243_ME_A0AE99A180FB ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:HideField:IsExpanded'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aHideField pop:HideField:IsExpanded >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:HideField:IsExpanded' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54E5FA20024D // vtHideFieldWords
@@ -105,29 +32,11 @@ ref; // ME_5617F4D00243_ME_A0AE99A180FB ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4A3348F91BD7 // IsExpanded
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_A0AE99A180FB // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_A0AE99A180FB // GetResultTypeInfo
- ME_559687E6025A_ME_A0AE99A180FB // GetAllParamsCount
- ME_5617F4D00243_ME_A0AE99A180FB // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8FFD342045F6 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:HideField:IsExpanded'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopHideFieldIsExpanded'
  CONST extprop:rc:SelfName 'PopHideFieldIsExpanded'
  CONST extprop:rc:isAcceptableForScripts true
@@ -135,102 +44,18 @@ ref; // ME_5617F4D00243_ME_A0AE99A180FB ParamsTypes
  ;
  : SpelledFor ME_552FB05F003F // IsExpanded
  ;
- : Stub ME_4A3348F91BD7 // IsExpanded
- ;
 
 ref; // ME_A0AE99A180FB pop_HideField_IsExpanded
 
 FORWARD ME_552FB071025A
 
-FORWARD ME_438029106CF0
-
 FORWARD ME_D92EF59DAD00
-
-: ME_7DA1ECBD9576
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7DA1ECBD9576 aCtx
-
-: ME_7DA1ECBD9577
- CONST Name 'aHideField'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E732D8B0291' '4E732D5D02FE.pas.ms.script' // TvtCustomHideField
- ;
-
-ref; // ME_7DA1ECBD9577 aHideField
-
-: ME_7DA1ECBD9578
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_7DA1ECBD9578 aValue
-
-: ME_438029106CF0
- CONST UID '438029106CF0'
- CONST Name 'SetExpanded'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:HideField:SetExpanded' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D92EF59DAD00 // pop_HideField_SetExpanded
- ;
- : Parameters
-   Seq: ( ME_7DA1ECBD9576 // aCtx
- ME_7DA1ECBD9577 // aHideField
- ME_7DA1ECBD9578 // aValue
- )
- ; // Parameters
- : SpelledFor ME_552FB071025A // SetExpanded
- ;
-
-ref; // ME_438029106CF0 SetExpanded
-
-: ME_B8BD46DED8F9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D92EF59DAD00 // pop_HideField_SetExpanded
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_B8BD46DED8F9 
 
 : ME_4DAEEDE10285_ME_D92EF59DAD00
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D92EF59DAD00 DoDoIt
-
-: ME_551544E2001A_ME_D92EF59DAD00
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_D92EF59DAD00 GetResultTypeInfo
-
-: ME_559687E6025A_ME_D92EF59DAD00
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_D92EF59DAD00 GetAllParamsCount
-
-: ME_5617F4D00243_ME_D92EF59DAD00
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_D92EF59DAD00 ParamsTypes
 
 : ME_D92EF59DAD00
  CONST UID 'D92EF59DAD00'
@@ -239,7 +64,7 @@ ref; // ME_5617F4D00243_ME_D92EF59DAD00 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:HideField:SetExpanded'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aHideField pop:HideField:SetExpanded'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:HideField:SetExpanded' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54E5FA20024D // vtHideFieldWords
@@ -248,29 +73,11 @@ ref; // ME_5617F4D00243_ME_D92EF59DAD00 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_438029106CF0 // SetExpanded
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_D92EF59DAD00 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_D92EF59DAD00 // GetResultTypeInfo
- ME_559687E6025A_ME_D92EF59DAD00 // GetAllParamsCount
- ME_5617F4D00243_ME_D92EF59DAD00 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_B8BD46DED8F9 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:HideField:SetExpanded'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopHideFieldSetExpanded'
  CONST extprop:rc:SelfName 'PopHideFieldSetExpanded'
  CONST extprop:rc:isAcceptableForScripts true
@@ -278,93 +85,18 @@ ref; // ME_5617F4D00243_ME_D92EF59DAD00 ParamsTypes
  ;
  : SpelledFor ME_552FB071025A // SetExpanded
  ;
- : Stub ME_438029106CF0 // SetExpanded
- ;
 
 ref; // ME_D92EF59DAD00 pop_HideField_SetExpanded
 
 FORWARD ME_552FB09D0396
 
-FORWARD ME_8FFF95B683E4
-
 FORWARD ME_D34E3A240E95
-
-: ME_9B1D266EE8B1
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9B1D266EE8B1 aCtx
-
-: ME_9B1D266EE8B2
- CONST Name 'aHideField'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E732D8B0291' '4E732D5D02FE.pas.ms.script' // TvtCustomHideField
- ;
-
-ref; // ME_9B1D266EE8B2 aHideField
-
-: ME_8FFF95B683E4
- CONST UID '8FFF95B683E4'
- CONST Name 'GetCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:HideField:GetCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D34E3A240E95 // pop_HideField_GetCaption
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_9B1D266EE8B1 // aCtx
- ME_9B1D266EE8B2 // aHideField
- )
- ; // Parameters
- : SpelledFor ME_552FB09D0396 // GetCaption
- ;
-
-ref; // ME_8FFF95B683E4 GetCaption
-
-: ME_3FEDA0AFCDE1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D34E3A240E95 // pop_HideField_GetCaption
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_3FEDA0AFCDE1 
 
 : ME_4DAEEDE10285_ME_D34E3A240E95
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D34E3A240E95 DoDoIt
-
-: ME_551544E2001A_ME_D34E3A240E95
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_D34E3A240E95 GetResultTypeInfo
-
-: ME_559687E6025A_ME_D34E3A240E95
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_D34E3A240E95 GetAllParamsCount
-
-: ME_5617F4D00243_ME_D34E3A240E95
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_D34E3A240E95 ParamsTypes
 
 : ME_D34E3A240E95
  CONST UID 'D34E3A240E95'
@@ -373,7 +105,7 @@ ref; // ME_5617F4D00243_ME_D34E3A240E95 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:HideField:GetCaption'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aHideField pop:HideField:GetCaption >>> l_String'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:HideField:GetCaption' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54E5FA20024D // vtHideFieldWords
@@ -382,37 +114,17 @@ ref; // ME_5617F4D00243_ME_D34E3A240E95 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8FFF95B683E4 // GetCaption
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_D34E3A240E95 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_D34E3A240E95 // GetResultTypeInfo
- ME_559687E6025A_ME_D34E3A240E95 // GetAllParamsCount
- ME_5617F4D00243_ME_D34E3A240E95 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_3FEDA0AFCDE1 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:HideField:GetCaption'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopHideFieldGetCaption'
  CONST extprop:rc:SelfName 'PopHideFieldGetCaption'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4E732D8B0291' '4E732D5D02FE.pas.ms.script' // TvtCustomHideField
  ;
  : SpelledFor ME_552FB09D0396 // GetCaption
- ;
- : Stub ME_8FFF95B683E4 // GetCaption
  ;
 
 ref; // ME_D34E3A240E95 pop_HideField_GetCaption
@@ -428,9 +140,6 @@ ref; // ME_D34E3A240E95 pop_HideField_GetCaption
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_A0AE99A180FB // pop_HideField_IsExpanded
  ;
 
@@ -458,9 +167,6 @@ ref; // ME_552FB08101AA aValue
    Seq: ( ME_552FB08101AA // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_D92EF59DAD00 // pop_HideField_SetExpanded
  ;
 
@@ -477,77 +183,10 @@ ref; // ME_552FB071025A SetExpanded
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_D34E3A240E95 // pop_HideField_GetCaption
  ;
 
 ref; // ME_552FB09D0396 GetCaption
-
-: ME_2AEE754849F8
- CONST UID '2AEE754849F8'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E5FA20024D // vtHideFieldWords
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_2AEE754849F8 Reg_Type_TtfwContext
-
-: ME_3205223C510B
- CONST UID '3205223C510B'
- CONST Name 'Reg_Type_TvtCustomHideField'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtCustomHideField' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E5FA20024D // vtHideFieldWords
- ;
- : SpelledFor WL 'ME_4E732D8B0291' '4E732D5D02FE.pas.ms.script' // TvtCustomHideField
- ;
-
-ref; // ME_3205223C510B Reg_Type_TvtCustomHideField
-
-: ME_456CCAA3072B
- CONST UID '456CCAA3072B'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E5FA20024D // vtHideFieldWords
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_456CCAA3072B Reg_Type_Boolean
-
-: ME_E4BFF04BFF9E
- CONST UID 'E4BFF04BFF9E'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54E5FA20024D // vtHideFieldWords
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_E4BFF04BFF9E Reg_Type_String
 
 : ME_0ECF0561A8DE
  CONST IsSummoned true
@@ -578,10 +217,6 @@ ref; // ME_0ECF0561A8DE
    Seq: ( ME_552FB05F003F // IsExpanded
  ME_552FB071025A // SetExpanded
  ME_552FB09D0396 // GetCaption
- ME_2AEE754849F8 // Reg_Type_TtfwContext
- ME_3205223C510B // Reg_Type_TvtCustomHideField
- ME_456CCAA3072B // Reg_Type_Boolean
- ME_E4BFF04BFF9E // Reg_Type_String
  )
  ; // Operations
  : Children
@@ -595,10 +230,6 @@ ref; // ME_0ECF0561A8DE
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtHideFieldWords.pas'
  CONST extprop:rc:SelfName 'HideFieldWords'
 
@@ -619,7 +250,6 @@ ref; // ME_54E5FA20024D vtHideFieldWords
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4E732D5D02FE' '4E732D5D02FE.pas.ms.script' // HideFields

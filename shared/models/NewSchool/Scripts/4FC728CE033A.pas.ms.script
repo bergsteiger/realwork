@@ -8,84 +8,13 @@ FORWARD ME_4FC7292F02EA
 
 FORWARD ME_552E558F0367
 
-FORWARD ME_FE880101357B
-
 FORWARD ME_639406FE8331
-
-: ME_FA56F17A8077
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_FA56F17A8077 aCtx
-
-: ME_FA56F17A8078
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_FA56F17A8078 aMenuItem
-
-: ME_FE880101357B
- CONST UID 'FE880101357B'
- CONST Name 'Click'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:Click' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_639406FE8331 // MenuItem_Click
- ;
- : Parameters
-   Seq: ( ME_FA56F17A8077 // aCtx
- ME_FA56F17A8078 // aMenuItem
- )
- ; // Parameters
- : SpelledFor ME_552E558F0367 // Click
- ;
-
-ref; // ME_FE880101357B Click
-
-: ME_32723ABA0DF8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_639406FE8331 // MenuItem_Click
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_32723ABA0DF8 
 
 : ME_4DAEEDE10285_ME_639406FE8331
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_639406FE8331 DoDoIt
-
-: ME_551544E2001A_ME_639406FE8331
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_639406FE8331 GetResultTypeInfo
-
-: ME_559687E6025A_ME_639406FE8331
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_639406FE8331 GetAllParamsCount
-
-: ME_5617F4D00243_ME_639406FE8331
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_639406FE8331 ParamsTypes
 
 : ME_639406FE8331
  CONST UID '639406FE8331'
@@ -94,7 +23,7 @@ ref; // ME_5617F4D00243_ME_639406FE8331 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:Click'#13#10'*Пример:*'#13#10'{code}'#13#10' aMenuItem menuitem:Click'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:Click' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -103,29 +32,11 @@ ref; // ME_5617F4D00243_ME_639406FE8331 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_FE880101357B // Click
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_639406FE8331 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_639406FE8331 // GetResultTypeInfo
- ME_559687E6025A_ME_639406FE8331 // GetAllParamsCount
- ME_5617F4D00243_ME_639406FE8331 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_32723ABA0DF8 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:Click'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemClick'
  CONST extprop:rc:SelfName 'MenuItemClick'
  CONST extprop:rc:isAcceptableForScripts true
@@ -133,104 +44,18 @@ ref; // ME_5617F4D00243_ME_639406FE8331 ParamsTypes
  ;
  : SpelledFor ME_552E558F0367 // Click
  ;
- : Stub ME_FE880101357B // Click
- ;
 
 ref; // ME_639406FE8331 MenuItem_Click
 
 FORWARD ME_552E570E0302
 
-FORWARD ME_E7D62A88975C
-
 FORWARD ME_89C28B4155A9
-
-: ME_535AADCABBB0
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_535AADCABBB0 aCtx
-
-: ME_535AADCABBB1
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_535AADCABBB1 aMenuItem
-
-: ME_535AADCABBB2
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_535AADCABBB2 anIndex
-
-: ME_E7D62A88975C
- CONST UID 'E7D62A88975C'
- CONST Name 'GetItem'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:GetItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_89C28B4155A9 // MenuItem_GetItem
- ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
- : Parameters
-   Seq: ( ME_535AADCABBB0 // aCtx
- ME_535AADCABBB1 // aMenuItem
- ME_535AADCABBB2 // anIndex
- )
- ; // Parameters
- : SpelledFor ME_552E570E0302 // GetItem
- ;
-
-ref; // ME_E7D62A88975C GetItem
-
-: ME_34DF7CED5394
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_89C28B4155A9 // MenuItem_GetItem
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_34DF7CED5394 
 
 : ME_4DAEEDE10285_ME_89C28B4155A9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_89C28B4155A9 DoDoIt
-
-: ME_551544E2001A_ME_89C28B4155A9
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_89C28B4155A9 GetResultTypeInfo
-
-: ME_559687E6025A_ME_89C28B4155A9
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_89C28B4155A9 GetAllParamsCount
-
-: ME_5617F4D00243_ME_89C28B4155A9
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_89C28B4155A9 ParamsTypes
 
 : ME_89C28B4155A9
  CONST UID '89C28B4155A9'
@@ -239,7 +64,7 @@ ref; // ME_5617F4D00243_ME_89C28B4155A9 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:GetItem'#13#10'*Тип результата:* TMenuItem'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TMenuItem'#13#10' anIndex aMenuItem menuitem:GetItem >>> l_TMenuItem'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:GetItem' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -248,29 +73,11 @@ ref; // ME_5617F4D00243_ME_89C28B4155A9 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E7D62A88975C // GetItem
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_89C28B4155A9 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_89C28B4155A9 // GetResultTypeInfo
- ME_559687E6025A_ME_89C28B4155A9 // GetAllParamsCount
- ME_5617F4D00243_ME_89C28B4155A9 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_34DF7CED5394 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:GetItem'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemGetItem'
  CONST extprop:rc:SelfName 'MenuItemGetItem'
  CONST extprop:rc:isAcceptableForScripts true
@@ -278,93 +85,18 @@ ref; // ME_5617F4D00243_ME_89C28B4155A9 ParamsTypes
  ;
  : SpelledFor ME_552E570E0302 // GetItem
  ;
- : Stub ME_E7D62A88975C // GetItem
- ;
 
 ref; // ME_89C28B4155A9 MenuItem_GetItem
 
 FORWARD ME_552E57E00346
 
-FORWARD ME_F09CA18F756D
-
 FORWARD ME_F44EDB26B480
-
-: ME_13B3E636188A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_13B3E636188A aCtx
-
-: ME_13B3E636188B
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_13B3E636188B aMenuItem
-
-: ME_F09CA18F756D
- CONST UID 'F09CA18F756D'
- CONST Name 'GetMenuHeight'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:GetMenuHeight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F44EDB26B480 // MenuItem_GetMenuHeight
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_13B3E636188A // aCtx
- ME_13B3E636188B // aMenuItem
- )
- ; // Parameters
- : SpelledFor ME_552E57E00346 // GetMenuHeight
- ;
-
-ref; // ME_F09CA18F756D GetMenuHeight
-
-: ME_7963D0D72F01
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F44EDB26B480 // MenuItem_GetMenuHeight
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_7963D0D72F01 
 
 : ME_4DAEEDE10285_ME_F44EDB26B480
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F44EDB26B480 DoDoIt
-
-: ME_551544E2001A_ME_F44EDB26B480
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F44EDB26B480 GetResultTypeInfo
-
-: ME_559687E6025A_ME_F44EDB26B480
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F44EDB26B480 GetAllParamsCount
-
-: ME_5617F4D00243_ME_F44EDB26B480
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F44EDB26B480 ParamsTypes
 
 : ME_F44EDB26B480
  CONST UID 'F44EDB26B480'
@@ -373,7 +105,7 @@ ref; // ME_5617F4D00243_ME_F44EDB26B480 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:GetMenuHeight'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aMenuItem menuitem:GetMenuHeight >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:GetMenuHeight' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -382,29 +114,11 @@ ref; // ME_5617F4D00243_ME_F44EDB26B480 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F09CA18F756D // GetMenuHeight
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F44EDB26B480 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_F44EDB26B480 // GetResultTypeInfo
- ME_559687E6025A_ME_F44EDB26B480 // GetAllParamsCount
- ME_5617F4D00243_ME_F44EDB26B480 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7963D0D72F01 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:GetMenuHeight'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemGetMenuHeight'
  CONST extprop:rc:SelfName 'MenuItemGetMenuHeight'
  CONST extprop:rc:isAcceptableForScripts true
@@ -412,99 +126,18 @@ ref; // ME_5617F4D00243_ME_F44EDB26B480 ParamsTypes
  ;
  : SpelledFor ME_552E57E00346 // GetMenuHeight
  ;
- : Stub ME_F09CA18F756D // GetMenuHeight
- ;
 
 ref; // ME_F44EDB26B480 MenuItem_GetMenuHeight
 
 FORWARD ME_B03A697EEDD5
 
-FORWARD ME_03C94E0DC3DE
-
 FORWARD ME_8BC1AB992E7A
-
-: ME_323A71E5BA3A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_323A71E5BA3A aCtx
-
-: ME_323A71E5BA3B
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_323A71E5BA3B aMenuItem
-
-: ME_03C94E0DC3DE
- CONST UID '03C94E0DC3DE'
- CONST Name 'Caption'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:GetCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8BC1AB992E7A // MenuItem_Caption
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_323A71E5BA3A // aCtx
- ME_323A71E5BA3B // aMenuItem
- )
- ; // Parameters
- : SpelledFor ME_B03A697EEDD5 // Caption
- ;
-
-ref; // ME_03C94E0DC3DE Caption
-
-: ME_759C0C5D5DA6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8BC1AB992E7A // MenuItem_Caption
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_759C0C5D5DA6 
 
 : ME_4DAEEDE10285_ME_8BC1AB992E7A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8BC1AB992E7A DoDoIt
-
-: ME_52D00B00031A_ME_8BC1AB992E7A
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_8BC1AB992E7A SetValuePrim
-
-: ME_551544E2001A_ME_8BC1AB992E7A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_8BC1AB992E7A GetResultTypeInfo
-
-: ME_559687E6025A_ME_8BC1AB992E7A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_8BC1AB992E7A GetAllParamsCount
-
-: ME_5617F4D00243_ME_8BC1AB992E7A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_8BC1AB992E7A ParamsTypes
 
 : ME_8BC1AB992E7A
  CONST UID '8BC1AB992E7A'
@@ -513,7 +146,7 @@ ref; // ME_5617F4D00243_ME_8BC1AB992E7A ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:GetCaption'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aMenuItem menuitem:GetCaption >>> l_String'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:GetCaption' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -522,30 +155,11 @@ ref; // ME_5617F4D00243_ME_8BC1AB992E7A ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_03C94E0DC3DE // Caption
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_8BC1AB992E7A // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_8BC1AB992E7A // SetValuePrim
- ME_551544E2001A_ME_8BC1AB992E7A // GetResultTypeInfo
- ME_559687E6025A_ME_8BC1AB992E7A // GetAllParamsCount
- ME_5617F4D00243_ME_8BC1AB992E7A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_759C0C5D5DA6 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:GetCaption'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemCaption'
  CONST extprop:rc:SelfName 'MenuItemCaption'
  CONST extprop:rc:isAcceptableForScripts true
@@ -553,99 +167,18 @@ ref; // ME_5617F4D00243_ME_8BC1AB992E7A ParamsTypes
  ;
  : SpelledFor ME_B03A697EEDD5 // Caption
  ;
- : Stub ME_03C94E0DC3DE // Caption
- ;
 
 ref; // ME_8BC1AB992E7A MenuItem_Caption
 
 FORWARD ME_015379F55E06
 
-FORWARD ME_CA20A0E7C888
-
 FORWARD ME_E34D149B8718
-
-: ME_6EDC7E3F356E
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6EDC7E3F356E aCtx
-
-: ME_6EDC7E3F356F
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_6EDC7E3F356F aMenuItem
-
-: ME_CA20A0E7C888
- CONST UID 'CA20A0E7C888'
- CONST Name 'Count'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:GetCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E34D149B8718 // MenuItem_Count
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_6EDC7E3F356E // aCtx
- ME_6EDC7E3F356F // aMenuItem
- )
- ; // Parameters
- : SpelledFor ME_015379F55E06 // Count
- ;
-
-ref; // ME_CA20A0E7C888 Count
-
-: ME_110ADDCFA792
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E34D149B8718 // MenuItem_Count
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_110ADDCFA792 
 
 : ME_4DAEEDE10285_ME_E34D149B8718
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E34D149B8718 DoDoIt
-
-: ME_52D00B00031A_ME_E34D149B8718
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_E34D149B8718 SetValuePrim
-
-: ME_551544E2001A_ME_E34D149B8718
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E34D149B8718 GetResultTypeInfo
-
-: ME_559687E6025A_ME_E34D149B8718
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E34D149B8718 GetAllParamsCount
-
-: ME_5617F4D00243_ME_E34D149B8718
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E34D149B8718 ParamsTypes
 
 : ME_E34D149B8718
  CONST UID 'E34D149B8718'
@@ -654,7 +187,7 @@ ref; // ME_5617F4D00243_ME_E34D149B8718 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:GetCount'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aMenuItem menuitem:GetCount >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:GetCount' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -663,30 +196,11 @@ ref; // ME_5617F4D00243_ME_E34D149B8718 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CA20A0E7C888 // Count
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_E34D149B8718 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_E34D149B8718 // SetValuePrim
- ME_551544E2001A_ME_E34D149B8718 // GetResultTypeInfo
- ME_559687E6025A_ME_E34D149B8718 // GetAllParamsCount
- ME_5617F4D00243_ME_E34D149B8718 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_110ADDCFA792 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:GetCount'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemCount'
  CONST extprop:rc:SelfName 'MenuItemCount'
  CONST extprop:rc:isAcceptableForScripts true
@@ -694,99 +208,18 @@ ref; // ME_5617F4D00243_ME_E34D149B8718 ParamsTypes
  ;
  : SpelledFor ME_015379F55E06 // Count
  ;
- : Stub ME_CA20A0E7C888 // Count
- ;
 
 ref; // ME_E34D149B8718 MenuItem_Count
 
 FORWARD ME_D1AE2F605348
 
-FORWARD ME_D753B3DC40BE
-
 FORWARD ME_BDC4E91C886F
-
-: ME_DCF39D62F388
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_DCF39D62F388 aCtx
-
-: ME_DCF39D62F389
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_DCF39D62F389 aMenuItem
-
-: ME_D753B3DC40BE
- CONST UID 'D753B3DC40BE'
- CONST Name 'Enabled'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:IsEnabled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BDC4E91C886F // MenuItem_Enabled
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_DCF39D62F388 // aCtx
- ME_DCF39D62F389 // aMenuItem
- )
- ; // Parameters
- : SpelledFor ME_D1AE2F605348 // Enabled
- ;
-
-ref; // ME_D753B3DC40BE Enabled
-
-: ME_6413F1B86A9D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BDC4E91C886F // MenuItem_Enabled
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_6413F1B86A9D 
 
 : ME_4DAEEDE10285_ME_BDC4E91C886F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BDC4E91C886F DoDoIt
-
-: ME_52D00B00031A_ME_BDC4E91C886F
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_BDC4E91C886F SetValuePrim
-
-: ME_551544E2001A_ME_BDC4E91C886F
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_BDC4E91C886F GetResultTypeInfo
-
-: ME_559687E6025A_ME_BDC4E91C886F
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_BDC4E91C886F GetAllParamsCount
-
-: ME_5617F4D00243_ME_BDC4E91C886F
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_BDC4E91C886F ParamsTypes
 
 : ME_BDC4E91C886F
  CONST UID 'BDC4E91C886F'
@@ -795,7 +228,7 @@ ref; // ME_5617F4D00243_ME_BDC4E91C886F ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:IsEnabled'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aMenuItem menuitem:IsEnabled >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:IsEnabled' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -804,30 +237,11 @@ ref; // ME_5617F4D00243_ME_BDC4E91C886F ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D753B3DC40BE // Enabled
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_BDC4E91C886F // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_BDC4E91C886F // SetValuePrim
- ME_551544E2001A_ME_BDC4E91C886F // GetResultTypeInfo
- ME_559687E6025A_ME_BDC4E91C886F // GetAllParamsCount
- ME_5617F4D00243_ME_BDC4E91C886F // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_6413F1B86A9D // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:IsEnabled'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemEnabled'
  CONST extprop:rc:SelfName 'MenuItemEnabled'
  CONST extprop:rc:isAcceptableForScripts true
@@ -835,99 +249,18 @@ ref; // ME_5617F4D00243_ME_BDC4E91C886F ParamsTypes
  ;
  : SpelledFor ME_D1AE2F605348 // Enabled
  ;
- : Stub ME_D753B3DC40BE // Enabled
- ;
 
 ref; // ME_BDC4E91C886F MenuItem_Enabled
 
 FORWARD ME_8ACA5326C039
 
-FORWARD ME_D9ABAB31B79C
-
 FORWARD ME_5633D99495D3
-
-: ME_8B6FE07C0541
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8B6FE07C0541 aCtx
-
-: ME_8B6FE07C0542
- CONST Name 'aMenuItem'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_8B6FE07C0542 aMenuItem
-
-: ME_D9ABAB31B79C
- CONST UID 'D9ABAB31B79C'
- CONST Name 'Visible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта menuitem:IsVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5633D99495D3 // MenuItem_Visible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_8B6FE07C0541 // aCtx
- ME_8B6FE07C0542 // aMenuItem
- )
- ; // Parameters
- : SpelledFor ME_8ACA5326C039 // Visible
- ;
-
-ref; // ME_D9ABAB31B79C Visible
-
-: ME_4A52914D7F6A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5633D99495D3 // MenuItem_Visible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_4A52914D7F6A 
 
 : ME_4DAEEDE10285_ME_5633D99495D3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5633D99495D3 DoDoIt
-
-: ME_52D00B00031A_ME_5633D99495D3
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_5633D99495D3 SetValuePrim
-
-: ME_551544E2001A_ME_5633D99495D3
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_5633D99495D3 GetResultTypeInfo
-
-: ME_559687E6025A_ME_5633D99495D3
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_5633D99495D3 GetAllParamsCount
-
-: ME_5617F4D00243_ME_5633D99495D3
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_5633D99495D3 ParamsTypes
 
 : ME_5633D99495D3
  CONST UID '5633D99495D3'
@@ -936,7 +269,7 @@ ref; // ME_5617F4D00243_ME_5633D99495D3 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта menuitem:IsVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aMenuItem menuitem:IsVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта menuitem:IsVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4FC7292F02EA // MenuWordsPack
@@ -945,38 +278,17 @@ ref; // ME_5617F4D00243_ME_5633D99495D3 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D9ABAB31B79C // Visible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_5633D99495D3 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_5633D99495D3 // SetValuePrim
- ME_551544E2001A_ME_5633D99495D3 // GetResultTypeInfo
- ME_559687E6025A_ME_5633D99495D3 // GetAllParamsCount
- ME_5617F4D00243_ME_5633D99495D3 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4A52914D7F6A // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'menuitem:IsVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMenuItemVisible'
  CONST extprop:rc:SelfName 'MenuItemVisible'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
  ;
  : SpelledFor ME_8ACA5326C039 // Visible
- ;
- : Stub ME_D9ABAB31B79C // Visible
  ;
 
 ref; // ME_5633D99495D3 MenuItem_Visible
@@ -1059,8 +371,6 @@ ref; // ME_552E58270191 Visible
  : Parent ME_4FC7292F02EA // MenuWordsPack
  ;
  CONST "NameForScript" 'menuitem:Click'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  : Speller ME_639406FE8331 // MenuItem_Click
  ;
@@ -1092,9 +402,6 @@ ref; // ME_552E572C02EA anIndex
  )
  ; // Parameters
  CONST "NameForScript" 'menuitem:GetItem'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_89C28B4155A9 // MenuItem_GetItem
  ;
 
@@ -1112,9 +419,6 @@ ref; // ME_552E570E0302 GetItem
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  CONST "NameForScript" 'menuitem:GetMenuHeight'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_F44EDB26B480 // MenuItem_GetMenuHeight
  ;
 
@@ -1133,8 +437,6 @@ ref; // ME_552E57E00346 GetMenuHeight
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
  CONST "NameForScript" 'menuitem:GetCaption'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Caption'
@@ -1156,8 +458,6 @@ ref; // ME_B03A697EEDD5 Caption
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  CONST "NameForScript" 'menuitem:GetCount'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Count'
@@ -1179,8 +479,6 @@ ref; // ME_015379F55E06 Count
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  CONST "NameForScript" 'menuitem:IsEnabled'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Enabled'
@@ -1202,8 +500,6 @@ ref; // ME_D1AE2F605348 Enabled
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  CONST "NameForScript" 'menuitem:IsVisible'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Visible'
@@ -1211,86 +507,6 @@ ref; // ME_D1AE2F605348 Enabled
  ;
 
 ref; // ME_8ACA5326C039 Visible
-
-: ME_29EEB1F11140
- CONST UID '29EEB1F11140'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_29EEB1F11140 Reg_Type_TtfwContext
-
-: ME_36AB6CCB74FD
- CONST UID '36AB6CCB74FD'
- CONST Name 'Reg_Type_TMenuItem'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TMenuItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : SpelledFor WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
- ;
-
-ref; // ME_36AB6CCB74FD Reg_Type_TMenuItem
-
-: ME_5DA4F614CCAA
- CONST UID '5DA4F614CCAA'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5DA4F614CCAA Reg_Type_Integer
-
-: ME_3A9EAE32FFB1
- CONST UID '3A9EAE32FFB1'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_3A9EAE32FFB1 Reg_Type_String
-
-: ME_64DD64263BE4
- CONST UID '64DD64263BE4'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FC7292F02EA // MenuWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_64DD64263BE4 Reg_Type_Boolean
 
 : ME_552E57D00109
  CONST Class class_Dependency
@@ -1372,11 +588,6 @@ ref; // ME_6978466606D9
  ME_015379F55E06 // Count
  ME_D1AE2F605348 // Enabled
  ME_8ACA5326C039 // Visible
- ME_29EEB1F11140 // Reg_Type_TtfwContext
- ME_36AB6CCB74FD // Reg_Type_TMenuItem
- ME_5DA4F614CCAA // Reg_Type_Integer
- ME_3A9EAE32FFB1 // Reg_Type_String
- ME_64DD64263BE4 // Reg_Type_Boolean
  )
  ; // Operations
  : Children
@@ -1398,9 +609,6 @@ ref; // ME_6978466606D9
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" true
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\MenuWordsPack.pas'
 

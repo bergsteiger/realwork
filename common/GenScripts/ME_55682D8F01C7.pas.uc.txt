@@ -160,6 +160,397 @@ var
 //#UC END# *53DA3FC40405_0E02A0729BA6_impl*
 //#UC START# *53DA3FC40405_0E02A0729BA6_var*
 //#UC END# *53DA3FC40405_0E02A0729BA6_var*
+//#UC START# *55682E07017A_0093B3082714_impl*
+ Result := l3Starts(aSubStr, aString, false);
+//#UC END# *55682E07017A_0093B3082714_impl*
+//#UC START# *55682E07017A_0093B3082714_var*
+//#UC END# *55682E07017A_0093B3082714_var*
+//#UC START# *55682E2503B9_9996D7566EDE_impl*
+ Result := l3Starts(aSubStr, aString, true);
+//#UC END# *55682E2503B9_9996D7566EDE_impl*
+//#UC START# *55682E2503B9_9996D7566EDE_var*
+//#UC END# *55682E2503B9_9996D7566EDE_var*
+//#UC START# *55682E4401ED_397C461D6C30_impl*
+ Result := l3Ends(aSubStr, aString, false);
+//#UC END# *55682E4401ED_397C461D6C30_impl*
+//#UC START# *55682E4401ED_397C461D6C30_var*
+//#UC END# *55682E4401ED_397C461D6C30_var*
+//#UC START# *55682E4F033B_8997C15C6CA8_impl*
+ Result := l3Ends(aSubStr, aString, true);
+//#UC END# *55682E4F033B_8997C15C6CA8_impl*
+//#UC START# *55682E4F033B_8997C15C6CA8_var*
+//#UC END# *55682E4F033B_8997C15C6CA8_var*
+//#UC START# *55682E5E01E1_2309401B7CC1_impl*
+ Result := l3Same(aString, anOther, false);
+//#UC END# *55682E5E01E1_2309401B7CC1_impl*
+//#UC START# *55682E5E01E1_2309401B7CC1_var*
+//#UC END# *55682E5E01E1_2309401B7CC1_var*
+//#UC START# *55682E72033C_9FC28ACB9AA1_impl*
+ Result := l3Same(aString, anOther, true);
+//#UC END# *55682E72033C_9FC28ACB9AA1_impl*
+//#UC START# *55682E72033C_9FC28ACB9AA1_var*
+//#UC END# *55682E72033C_9FC28ACB9AA1_var*
+//#UC START# *55682E84007F_C670925F6482_impl*
+ Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString));
+//#UC END# *55682E84007F_C670925F6482_impl*
+//#UC START# *55682E84007F_C670925F6482_var*
+//#UC END# *55682E84007F_C670925F6482_var*
+//#UC START# *55682E9700FE_0E02A0729BA6_impl*
+ Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString), l3_siCaseUnsensitive);
+//#UC END# *55682E9700FE_0E02A0729BA6_impl*
+//#UC START# *55682E9700FE_0E02A0729BA6_var*
+//#UC END# *55682E9700FE_0E02A0729BA6_var*
+//#UC START# *55682EA703B4_09008856C703_impl*
+ Result := SysUtils.StrToInt(l3Str(aString));
+//#UC END# *55682EA703B4_09008856C703_impl*
+//#UC START# *55682EA703B4_09008856C703_var*
+//#UC END# *55682EA703B4_09008856C703_var*
+//#UC START# *5568365E0395_DD57CECF347C_impl*
+ Result := TtfwCStringFactory.Cat(anOther, aString);
+//#UC END# *5568365E0395_DD57CECF347C_impl*
+//#UC START# *5568365E0395_DD57CECF347C_var*
+//#UC END# *5568365E0395_DD57CECF347C_var*
+//#UC START# *556840910148_5F306006344B_impl*
+ l_S1 := l3PCharLen(aDelims);
+ l_S2 := l3PCharLen(aString);
+ if l3IsNil(l_S1) then
+  Result := l3IsNil(l_S2)
+  // - любая непустая не может состоять ТОЛЬКО из символов пустого множества 
+ else
+ if (l_S1.SLen = 1) then
+  Result := l3AllCharsInCharSet(l_S2, [l_S1.S[0]])
+ else
+ begin
+  l_C := [];
+  for l_Index := 0 to Pred(l_S1.SLen) do
+   l_C := l_C + [l_S1.S[l_Index]];
+  Result := l3AllCharsInCharSet(l_S2, l_C);
+ end;//l_S1.SLen = 1
+//#UC END# *556840910148_5F306006344B_impl*
+//#UC START# *556840910148_5F306006344B_var*
+var
+ l_S1 : Tl3WString;
+ l_S2 : Tl3WString;
+ l_C : TChars;
+ l_Index : Integer;
+//#UC END# *556840910148_5F306006344B_var*
+//#UC START# *5568411F01E1_2256016890B3_impl*
+ l_S1 := l3PCharLen(aDelims);
+ l_S2 := l3PCharLen(aString);
+ if l3IsNil(l_S1) then
+  Result := true
+  // - любая строка содержит символы из пустого множества, считаем так
+ else
+ if (l_S1.SLen = 1) then
+  Result := l3CharSetPresent(l_S2, [l_S1.S[0]])
+ else
+ begin
+  l_C := [];
+  for l_Index := 0 to Pred(l_S1.SLen) do
+   l_C := l_C + [l_S1.S[l_Index]];
+  Result := l3CharSetPresent(l_S2, l_C);
+ end;//l_S1.SLen = 1
+//#UC END# *5568411F01E1_2256016890B3_impl*
+//#UC START# *5568411F01E1_2256016890B3_var*
+var
+ l_S1 : Tl3WString;
+ l_S2 : Tl3WString;
+ l_C : TChars;
+ l_Index : Integer;
+//#UC END# *5568411F01E1_2256016890B3_var*
+//#UC START# *5568417001D5_851E99BEB53B_impl*
+ Result := l3Pos(anOther, aString);
+//#UC END# *5568417001D5_851E99BEB53B_impl*
+//#UC START# *5568417001D5_851E99BEB53B_var*
+//#UC END# *5568417001D5_851E99BEB53B_var*
+//#UC START# *556841C601CF_24901BF384F4_impl*
+ Result := l3PosEx(anOther, aString, aPos);
+//#UC END# *556841C601CF_24901BF384F4_impl*
+//#UC START# *556841C601CF_24901BF384F4_var*
+//#UC END# *556841C601CF_24901BF384F4_var*
+//#UC START# *5568423E01F3_AA63BC1F51EC_impl*
+ l_Len := l3Len(aString);
+ if (l_Len = 1) then
+  l3Split(anOther, l3Char(aString, 0), Result, theTail)
+ else
+  l3Split(anOther, aString, Result, theTail);
+(* if (l_Len = 1) then
+  l3Split(anOther, l3Char(aString, 0), l_P, l_S)
+ else
+  l3Split(anOther, aString, l_P, l_S);
+ aCtx.rEngine.PushString(l_P);
+ aCtx.rEngine.PushString(l_S);*)
+//#UC END# *5568423E01F3_AA63BC1F51EC_impl*
+//#UC START# *5568423E01F3_AA63BC1F51EC_var*
+var
+(* l_P : Il3CString;
+ l_S : Il3CString;*)
+ l_Len : Integer;
+//#UC END# *5568423E01F3_AA63BC1F51EC_var*
+//#UC START# *5568520B03B5_8CA688C2805E_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [rfReplaceAll])
+//#UC END# *5568520B03B5_8CA688C2805E_impl*
+//#UC START# *5568520B03B5_8CA688C2805E_var*
+//#UC END# *5568520B03B5_8CA688C2805E_var*
+//#UC START# *5568523F03BE_FF1E0A42BBEF_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [{rfReplaceAll}])
+//#UC END# *5568523F03BE_FF1E0A42BBEF_impl*
+//#UC START# *5568523F03BE_FF1E0A42BBEF_var*
+//#UC END# *5568523F03BE_FF1E0A42BBEF_var*
+//#UC START# *556852510081_6F240EDBC3AE_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [rfReplaceAll, rfIgnoreCase])
+//#UC END# *556852510081_6F240EDBC3AE_impl*
+//#UC START# *556852510081_6F240EDBC3AE_var*
+//#UC END# *556852510081_6F240EDBC3AE_var*
+//#UC START# *5568525F008C_0527F8C9DF24_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [{rfReplaceAll,} rfIgnoreCase])
+//#UC END# *5568525F008C_0527F8C9DF24_impl*
+//#UC START# *5568525F008C_0527F8C9DF24_var*
+//#UC END# *5568525F008C_0527F8C9DF24_var*
+//#UC START# *55685FAB0248_9597582C9BD4_impl*
+ Result := aString.AsWStr.S[anIndex];
+//#UC END# *55685FAB0248_9597582C9BD4_impl*
+//#UC START# *55685FAB0248_9597582C9BD4_var*
+//#UC END# *55685FAB0248_9597582C9BD4_var*
+//#UC START# *55685FD801DF_6CAF85926E0C_impl*
+ Result := aString.AsWStr.SCodePage;
+//#UC END# *55685FD801DF_6CAF85926E0C_impl*
+//#UC START# *55685FD801DF_6CAF85926E0C_var*
+//#UC END# *55685FD801DF_6CAF85926E0C_var*
+//#UC START# *55685FF101AC_0BA6E62BEF84_impl*
+ if (aString = nil) then
+  Result := 0
+ else
+  Result := aString.AsWStr.SLen;
+//#UC END# *55685FF101AC_0BA6E62BEF84_impl*
+//#UC START# *55685FF101AC_0BA6E62BEF84_var*
+//#UC END# *55685FF101AC_0BA6E62BEF84_var*
+//#UC START# *556860130209_CA33F456975C_impl*
+ RunnerAssert(aString.AsWStr.SLen = 1, 'Длина строки должна равняться 1', aCtx);
+ Result := aString.AsWStr.S[0];
+//#UC END# *556860130209_CA33F456975C_impl*
+//#UC START# *556860130209_CA33F456975C_var*
+//#UC END# *556860130209_CA33F456975C_var*
+//#UC START# *556866CA0045_4C3CAF64FEF3_impl*
+ Result := TtfwCStringFactory.C(aChar);
+//#UC END# *556866CA0045_4C3CAF64FEF3_impl*
+//#UC START# *556866CA0045_4C3CAF64FEF3_var*
+//#UC END# *556866CA0045_4C3CAF64FEF3_var*
+//#UC START# *55686F4301AB_55686F4301AB_Word_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ Dec(l_P.SLen);
+ Assert(l_P.SLen >= 0);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *55686F4301AB_55686F4301AB_Word_impl*
+//#UC START# *55686F4301AB_55686F4301AB_Word_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *55686F4301AB_55686F4301AB_Word_var*
+//#UC START# *55686F4301AB_5B249AD9723E_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ Dec(l_P.SLen);
+ Assert(l_P.SLen >= 0);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *55686F4301AB_5B249AD9723E_impl*
+//#UC START# *55686F4301AB_5B249AD9723E_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *55686F4301AB_5B249AD9723E_var*
+//#UC START# *55686F75015A_55686F75015A_Word_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ l_P.Shift(+1);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *55686F75015A_55686F75015A_Word_impl*
+//#UC START# *55686F75015A_55686F75015A_Word_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *55686F75015A_55686F75015A_Word_var*
+//#UC START# *55686F75015A_FF4D82AA3241_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ l_P.Shift(+1);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *55686F75015A_FF4D82AA3241_impl*
+//#UC START# *55686F75015A_FF4D82AA3241_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *55686F75015A_FF4D82AA3241_var*
+//#UC START# *55686F9A037E_55686F9A037E_Word_impl*
+ l_V := aVar.GetValue(aCtx).AsString;
+ Tl3WString(l_P) := l3PCharLen(l_V);
+ l_WS := l3PCharLen(aDelim);
+ Assert(not l3IsNil(l_WS));
+ Assert(l_P.SLen >= 0);
+ Assert(l3IsAnsi(l_P.SCodePage));
+ if (l_WS.SLen = 1) then
+ begin
+  l_Found := ev_lpRScan(l_WS.S[0], l_P.S, l_P.SLen);
+  if (l_Found = nil) then
+  begin
+   Result := TtfwCStringFactory.C(l_P);
+   aVar.SetValue(TtfwCStringFactoryEx.ViewOf(''), aCtx);
+  end//l_Found = nil
+  else
+  begin
+   Result := TtfwCStringFactory.C(l3Copy(l_P, l_Found - l_P.S + 1));
+   aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l3PCharLen(l_P.S, l_Found - l_P.S, l_P.SCodePage)), aCtx);
+  end;//l_Found = nil
+ end//l_WS.SLen = 1
+ else
+ begin
+  //l3Split(l_V, aDelim, l_Pref, l_Suff);
+  //aCtx.rEngine.PushString(l_Pref);
+  //aVar.Value := TtfwStackValue_C(l_Suff);
+  Assert(false, 'Пока не реализовано');
+  Result := nil;
+ end;//l_WS.SLen = 1
+//#UC END# *55686F9A037E_55686F9A037E_Word_impl*
+//#UC START# *55686F9A037E_55686F9A037E_Word_var*
+var
+ l_V : Il3CString;
+ l_P : Tl3PCharLen;
+ l_WS : Tl3WString;
+ l_Found : PAnsiChar;
+
+ //l_Pref : Il3CString;
+ //l_Suff : Il3CString;
+//#UC END# *55686F9A037E_55686F9A037E_Word_var*
+//#UC START# *55686F9A037E_D442EF995DFF_impl*
+ l_V := aVar.GetValue(aCtx).AsString;
+ Tl3WString(l_P) := l3PCharLen(l_V);
+ l_WS := l3PCharLen(aDelim);
+ Assert(not l3IsNil(l_WS));
+ Assert(l_P.SLen >= 0);
+ Assert(l3IsAnsi(l_P.SCodePage));
+ if (l_WS.SLen = 1) then
+ begin
+  l_Found := ev_lpRScan(l_WS.S[0], l_P.S, l_P.SLen);
+  if (l_Found = nil) then
+  begin
+   Result := TtfwCStringFactory.C(l_P);
+   aVar.SetValue(TtfwCStringFactoryEx.ViewOf(''), aCtx);
+  end//l_Found = nil
+  else
+  begin
+   Result := TtfwCStringFactory.C(l3Copy(l_P, l_Found - l_P.S + 1));
+   aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l3PCharLen(l_P.S, l_Found - l_P.S, l_P.SCodePage)), aCtx);
+  end;//l_Found = nil
+ end//l_WS.SLen = 1
+ else
+ begin
+  //l3Split(l_V, aDelim, l_Pref, l_Suff);
+  //aCtx.rEngine.PushString(l_Pref);
+  //aVar.Value := TtfwStackValue_C(l_Suff);
+  Assert(false, 'Пока не реализовано');
+  Result := nil;
+ end;//l_WS.SLen = 1
+//#UC END# *55686F9A037E_D442EF995DFF_impl*
+//#UC START# *55686F9A037E_D442EF995DFF_var*
+var
+ l_V : Il3CString;
+ l_P : Tl3PCharLen;
+ l_WS : Tl3WString;
+ l_Found : PAnsiChar;
+
+ //l_Pref : Il3CString;
+ //l_Suff : Il3CString;
+//#UC END# *55686F9A037E_D442EF995DFF_var*
+//#UC START# *55686FC6020D_55686FC6020D_Word_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ l_P.Shift(aNum);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *55686FC6020D_55686FC6020D_Word_impl*
+//#UC START# *55686FC6020D_55686FC6020D_Word_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *55686FC6020D_55686FC6020D_Word_var*
+//#UC START# *55686FC6020D_E1736F173AD3_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ l_P.Shift(aNum);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *55686FC6020D_E1736F173AD3_impl*
+//#UC START# *55686FC6020D_E1736F173AD3_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *55686FC6020D_E1736F173AD3_var*
+//#UC START# *55686FEE03A7_55686FEE03A7_Word_impl*
+ l_V := aVar.GetValue(aCtx).AsString;
+ Tl3WString(l_P) := l3PCharLen(l_V);
+ l_WS := l3PCharLen(aDelim);
+ Assert(not l3IsNil(l_WS));
+ Assert(l_P.SLen >= 0);
+ if (l_WS.SLen = 1) then
+ begin
+  l_Rest := l3FindChar(l_WS.S[0], l_P);
+  if not l3IsNil(l_P) then
+   if (l_P.S[l_P.SLen - 1] = l_WS.S[0]) then
+    Dec(l_P.SLen);
+  Result := TtfwCStringFactory.C(l_P);
+  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_Rest), aCtx);
+ end//l_WS.SLen = 1
+ else
+ begin
+  l3Split(l_V, aDelim, l_Pref, l_Suff);
+  Result := l_Pref;
+  aVar.SetValue(TtfwStackValue_C(l_Suff), aCtx);
+  //Assert(false, 'Пока не реализовано');
+ end;//l_WS.SLen = 1
+//#UC END# *55686FEE03A7_55686FEE03A7_Word_impl*
+//#UC START# *55686FEE03A7_55686FEE03A7_Word_var*
+var
+ l_V : Il3CString;
+ l_P : Tl3PCharLen;
+ l_WS : Tl3WString;
+ l_Rest : Tl3WString;
+
+ l_Pref : Il3CString;
+ l_Suff : Il3CString;
+//#UC END# *55686FEE03A7_55686FEE03A7_Word_var*
+//#UC START# *55686FEE03A7_BF0C6B892128_impl*
+ l_V := aVar.GetValue(aCtx).AsString;
+ Tl3WString(l_P) := l3PCharLen(l_V);
+ l_WS := l3PCharLen(aDelim);
+ Assert(not l3IsNil(l_WS));
+ Assert(l_P.SLen >= 0);
+ if (l_WS.SLen = 1) then
+ begin
+  l_Rest := l3FindChar(l_WS.S[0], l_P);
+  if not l3IsNil(l_P) then
+   if (l_P.S[l_P.SLen - 1] = l_WS.S[0]) then
+    Dec(l_P.SLen);
+  Result := TtfwCStringFactory.C(l_P);
+  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_Rest), aCtx);
+ end//l_WS.SLen = 1
+ else
+ begin
+  l3Split(l_V, aDelim, l_Pref, l_Suff);
+  Result := l_Pref;
+  aVar.SetValue(TtfwStackValue_C(l_Suff), aCtx);
+  //Assert(false, 'Пока не реализовано');
+ end;//l_WS.SLen = 1
+//#UC END# *55686FEE03A7_BF0C6B892128_impl*
+//#UC START# *55686FEE03A7_BF0C6B892128_var*
+var
+ l_V : Il3CString;
+ l_P : Tl3PCharLen;
+ l_WS : Tl3WString;
+ l_Rest : Tl3WString;
+
+ l_Pref : Il3CString;
+ l_Suff : Il3CString;
+//#UC END# *55686FEE03A7_BF0C6B892128_var*
+//#UC START# *55687BBF0087_355A8C3D70FA_impl*
+ Result := TtfwCStringFactory.C(ev_psFixLen('', aCount, l3Char(aString, 0)));
+//#UC END# *55687BBF0087_355A8C3D70FA_impl*
+//#UC START# *55687BBF0087_355A8C3D70FA_var*
+//#UC END# *55687BBF0087_355A8C3D70FA_var*
 //#UC START# *55CDF40C03D4_56F3EEE50232_impl*
  EtfwCheck.Fail('Массив неизменяемый');
 //#UC END# *55CDF40C03D4_56F3EEE50232_impl*
@@ -170,12 +561,143 @@ var
 //#UC END# *55E849210175_56F3EEE50232_impl*
 //#UC START# *55E849210175_56F3EEE50232_var*
 //#UC END# *55E849210175_56F3EEE50232_var*
+//#UC START# *5603F5980215_5603F5980215_Word_impl*
+ Tl3WString(l_P) := aVar.GetValue(aCtx).AsString.AsWStr;
+ Result := l_P.S^;
+ l_P.Shift(+1);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *5603F5980215_5603F5980215_Word_impl*
+//#UC START# *5603F5980215_5603F5980215_Word_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *5603F5980215_5603F5980215_Word_var*
+//#UC START# *5603F5980215_6014F0D564E4_impl*
+ Tl3WString(l_P) := aVar.GetValue(aCtx).AsString.AsWStr;
+ Result := l_P.S^;
+ l_P.Shift(+1);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *5603F5980215_6014F0D564E4_impl*
+//#UC START# *5603F5980215_6014F0D564E4_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *5603F5980215_6014F0D564E4_var*
+//#UC START# *5603F61302F1_F3116B965978_impl*
+ l_P := l3PCharLen(aString);
+ l_P.Shift(+1);
+ Result := TtfwCStringFactory.ViewOf(l_P);
+//#UC END# *5603F61302F1_F3116B965978_impl*
+//#UC START# *5603F61302F1_F3116B965978_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *5603F61302F1_F3116B965978_var*
+//#UC START# *5603F655014B_EFB7A59A9041_impl*
+ l_P := l3PCharLen(aString);
+ l_P.Shift(aDelta);
+ Result := TtfwCStringFactory.ViewOf(l_P);
+//#UC END# *5603F655014B_EFB7A59A9041_impl*
+//#UC START# *5603F655014B_EFB7A59A9041_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *5603F655014B_EFB7A59A9041_var*
+//#UC START# *5603F68D018F_4E9A5EC5FAC6_impl*
+ if l3IsNil(aString) then
+  Result := #0
+ else
+  Result := aString.AsWStr.S[0];
+//#UC END# *5603F68D018F_4E9A5EC5FAC6_impl*
+//#UC START# *5603F68D018F_4E9A5EC5FAC6_var*
+//#UC END# *5603F68D018F_4E9A5EC5FAC6_var*
+//#UC START# *569E3511013C_95D9D233CD72_impl*
+ Result := TtfwCStringFactory.C(l3Trim(aString));
+//#UC END# *569E3511013C_95D9D233CD72_impl*
+//#UC START# *569E3511013C_95D9D233CD72_var*
+//#UC END# *569E3511013C_95D9D233CD72_var*
+//#UC START# *569E3529023A_2D2FC66E49DD_impl*
+ Result := TtfwCStringFactory.C(l3LTrim(aString));
+//#UC END# *569E3529023A_2D2FC66E49DD_impl*
+//#UC START# *569E3529023A_2D2FC66E49DD_var*
+//#UC END# *569E3529023A_2D2FC66E49DD_var*
+//#UC START# *569E353501BE_807D7A8440DD_impl*
+ Result := TtfwCStringFactory.C(l3RTrim(aString, cc_WhiteSpace));
+//#UC END# *569E353501BE_807D7A8440DD_impl*
+//#UC START# *569E353501BE_807D7A8440DD_var*
+//#UC END# *569E353501BE_807D7A8440DD_var*
+//#UC START# *569E3542031A_D5F09D866A34_impl*
+ Result := TtfwCStringFactory.C(l3DeleteDoubleSpace(aString));
+//#UC END# *569E3542031A_D5F09D866A34_impl*
+//#UC START# *569E3542031A_D5F09D866A34_var*
+//#UC END# *569E3542031A_D5F09D866A34_var*
+//#UC START# *569E355C01F2_30A1EAD7A5D9_impl*
+ Result := TtfwCStringFactory.C(l3DeleteSerias(aString, l3Char(aChar, 0))); 
+//#UC END# *569E355C01F2_30A1EAD7A5D9_impl*
+//#UC START# *569E355C01F2_30A1EAD7A5D9_var*
+//#UC END# *569E355C01F2_30A1EAD7A5D9_var*
+//#UC START# *569E357D015D_2E3FD122E430_impl*
+ Result := TtfwCStringFactory.C(l3Copy(aString, aPos, aLength));
+//#UC END# *569E357D015D_2E3FD122E430_impl*
+//#UC START# *569E357D015D_2E3FD122E430_var*
+//#UC END# *569E357D015D_2E3FD122E430_var*
+//#UC START# *56AB7AC10249_B79BEA825961_impl*
+ Result := l3Lower(aString);
+//#UC END# *56AB7AC10249_B79BEA825961_impl*
+//#UC START# *56AB7AC10249_B79BEA825961_var*
+//#UC END# *56AB7AC10249_B79BEA825961_var*
+//#UC START# *56AB7AD00352_8BA4B632B802_impl*
+ Result := l3Upper(aString);
+//#UC END# *56AB7AD00352_8BA4B632B802_impl*
+//#UC START# *56AB7AD00352_8BA4B632B802_var*
+//#UC END# *56AB7AD00352_8BA4B632B802_var*
+//#UC START# *56F3E6A203DB_F137872D0D02_impl*
+ Result := TtfwCStringFactory.ToUnicode(aString);
+//#UC END# *56F3E6A203DB_F137872D0D02_impl*
+//#UC START# *56F3E6A203DB_F137872D0D02_var*
+//#UC END# *56F3E6A203DB_F137872D0D02_var*
+//#UC START# *56F3E6BE0100_58C52E8D04B3_impl*
+ Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
+//#UC END# *56F3E6BE0100_58C52E8D04B3_impl*
+//#UC START# *56F3E6BE0100_58C52E8D04B3_var*
+//#UC END# *56F3E6BE0100_58C52E8D04B3_var*
+//#UC START# *56F3E6D102C5_15AF617143C8_impl*
+ Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
+//#UC END# *56F3E6D102C5_15AF617143C8_impl*
+//#UC START# *56F3E6D102C5_15AF617143C8_var*
+//#UC END# *56F3E6D102C5_15AF617143C8_var*
+//#UC START# *56F3E8880129_01887D1A0952_impl*
+ Result := TtfwHash16Table.Make;
+//#UC END# *56F3E8880129_01887D1A0952_impl*
+//#UC START# *56F3E8880129_01887D1A0952_var*
+//#UC END# *56F3E8880129_01887D1A0952_var*
+//#UC START# *56F3E8880129_56F3E8880129_Word_impl*
+ Result := TtfwHash16Table.Make;
+//#UC END# *56F3E8880129_56F3E8880129_Word_impl*
+//#UC START# *56F3E8880129_56F3E8880129_Word_var*
+//#UC END# *56F3E8880129_56F3E8880129_Word_var*
 //#UC START# *56F3EF17004C_56F3EEE50232_impl*
  inherited Create;
  f_String := aString;
 //#UC END# *56F3EF17004C_56F3EEE50232_impl*
 //#UC START# *56F3EF17004C_56F3EEE50232_var*
 //#UC END# *56F3EF17004C_56F3EEE50232_var*
+//#UC START# *56F3EF7C0205_AE2A1F9F2367_impl*
+ Result := TtfwStringIterator.Make(aString);
+//#UC END# *56F3EF7C0205_AE2A1F9F2367_impl*
+//#UC START# *56F3EF7C0205_AE2A1F9F2367_var*
+//#UC END# *56F3EF7C0205_AE2A1F9F2367_var*
+//#UC START# *56F40BBA029D_B0A153973998_impl*
+ Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
+//#UC END# *56F40BBA029D_B0A153973998_impl*
+//#UC START# *56F40BBA029D_B0A153973998_var*
+//#UC END# *56F40BBA029D_B0A153973998_var*
+//#UC START# *56F40BD3026A_A91467BC2C27_impl*
+ Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
+//#UC END# *56F40BD3026A_A91467BC2C27_impl*
+//#UC START# *56F40BD3026A_A91467BC2C27_var*
+//#UC END# *56F40BD3026A_A91467BC2C27_var*
+//#UC START# *5718A63E039C_FDCE9825C3FB_impl*
+ Result := l3Transliterate(l3Str(aString));
+//#UC END# *5718A63E039C_FDCE9825C3FB_impl*
+//#UC START# *5718A63E039C_FDCE9825C3FB_var*
+//#UC END# *5718A63E039C_FDCE9825C3FB_var*
 //#UC START# *5A085B77B272_AE2A1F9F2367_impl*
  Result := TtfwStringIterator.Make(aString);
 //#UC END# *5A085B77B272_AE2A1F9F2367_impl*

@@ -6,204 +6,6 @@ FORWARD ME_552D07E00278
 
 FORWARD ME_552CF9C50052
 
-FORWARD ME_552BE03C03E2
-
-FORWARD ME_F9D10A107F51
-
-FORWARD ME_115E7EFB89B4
-
-: ME_6C2D99FB7DB6
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6C2D99FB7DB6 aCtx
-
-: ME_F9D10A107F51
- CONST UID 'F9D10A107F51'
- CONST Name 'filter_AutolinkFilter'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта filter:AutolinkFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_115E7EFB89B4 // filter_AutolinkFilter
- ;
- : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
- : Parameters
-   Seq: ( ME_6C2D99FB7DB6 // aCtx
- )
- ; // Parameters
- : SpelledFor ME_552BE03C03E2 // filter_AutolinkFilter
- ;
-
-ref; // ME_F9D10A107F51 filter_AutolinkFilter
-
-: ME_E21A0D95749E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_115E7EFB89B4 // filter_AutolinkFilter
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E21A0D95749E 
-
-: ME_4DAEEDE10285_ME_115E7EFB89B4
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_115E7EFB89B4 DoDoIt
-
-: ME_551544E2001A_ME_115E7EFB89B4
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_115E7EFB89B4 GetResultTypeInfo
-
-: ME_559687E6025A_ME_115E7EFB89B4
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_115E7EFB89B4 GetAllParamsCount
-
-: ME_5617F4D00243_ME_115E7EFB89B4
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_115E7EFB89B4 ParamsTypes
-
-: ME_115E7EFB89B4
- CONST UID '115E7EFB89B4'
- CONST Name 'filter_AutolinkFilter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта filter:AutolinkFilter'#13#10'{panel}Создаёт на стеке фильтр TddAutolinkFilter (в виде Ik2TagGenerator).{panel}'#13#10'*Тип результата:* Ik2TagGenerator'#13#10'*Пример:*'#13#10'{code}'#13#10'INTERFACE VAR l_Ik2TagGenerator'#13#10' filter:AutolinkFilter >>> l_Ik2TagGenerator'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_F9D10A107F51 // filter_AutolinkFilter
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_115E7EFB89B4 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_115E7EFB89B4 // GetResultTypeInfo
- ME_559687E6025A_ME_115E7EFB89B4 // GetAllParamsCount
- ME_5617F4D00243_ME_115E7EFB89B4 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E21A0D95749E // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'filter:AutolinkFilter'
- CONST "ifdef" 'Archi'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwFilterAutolinkFilter'
- CONST extprop:rc:SelfName 'FilterAutolinkFilter'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_552BE03C03E2 // filter_AutolinkFilter
- ;
- : Stub ME_F9D10A107F51 // filter_AutolinkFilter
- ;
-
-ref; // ME_115E7EFB89B4 filter_AutolinkFilter
-
-FORWARD ME_552BE009014C
-
-FORWARD ME_30FF429786F9
-
-: ME_8A710273B1FE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_30FF429786F9 // filter_CleanAutolinkFilter
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_8A710273B1FE 
-
-: ME_4DAEEDE10285_ME_30FF429786F9
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_30FF429786F9 DoDoIt
-
-: ME_551544E2001A_ME_30FF429786F9
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_30FF429786F9 GetResultTypeInfo
-
-: ME_559687E6025A_ME_30FF429786F9
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_30FF429786F9 GetAllParamsCount
-
-: ME_30FF429786F9
- CONST UID '30FF429786F9'
- CONST Name 'filter_CleanAutolinkFilter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта filter:CleanAutolinkFilter'#13#10'{panel}Поскольку TddAutolinkFilter создаётся один на всё приложение, от него нужно отрезать Generator после использования. А иначе цепочка сохранится и будет мешать другим тестам.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' filter:CleanAutolinkFilter'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_30FF429786F9 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_30FF429786F9 // GetResultTypeInfo
- ME_559687E6025A_ME_30FF429786F9 // GetAllParamsCount
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8A710273B1FE // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'filter:CleanAutolinkFilter'
- CONST "ifdef" 'Archi'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwFilterCleanAutolinkFilter'
- CONST extprop:rc:SelfName 'FilterCleanAutolinkFilter'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_552BE009014C // filter_CleanAutolinkFilter
- ;
-
-ref; // ME_30FF429786F9 filter_CleanAutolinkFilter
-
 : ME_552BE03C03E2
  CONST UID '552BE03C03E2'
  CONST Name 'filter_AutolinkFilter'
@@ -217,8 +19,6 @@ ref; // ME_30FF429786F9 filter_CleanAutolinkFilter
  : Target WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
  ;
  CONST "ifdef" 'Archi'
- : Speller ME_115E7EFB89B4 // filter_AutolinkFilter
- ;
 
 ref; // ME_552BE03C03E2 filter_AutolinkFilter
 
@@ -233,42 +33,8 @@ ref; // ME_552BE03C03E2 filter_AutolinkFilter
  : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
  ;
  CONST "ifdef" 'Archi'
- : Speller ME_30FF429786F9 // filter_CleanAutolinkFilter
- ;
 
 ref; // ME_552BE009014C filter_CleanAutolinkFilter
-
-: ME_F7C39F10FC99
- CONST UID 'F7C39F10FC99'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F7C39F10FC99 Reg_Type_TtfwContext
-
-: ME_CBDC0324AA0C
- CONST UID 'CBDC0324AA0C'
- CONST Name 'Reg_Type_Ik2TagGenerator'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Ik2TagGenerator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552CF9C50052 // AutolinkFilterWordsPack
- ;
- : SpelledFor WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
-
-ref; // ME_CBDC0324AA0C Reg_Type_Ik2TagGenerator
 
 : ME_552CFA0300CA
  CONST Class class_Dependency
@@ -303,15 +69,8 @@ ref; // ME_552CFA080079
  : Operations
    Seq: ( ME_552BE03C03E2 // filter_AutolinkFilter
  ME_552BE009014C // filter_CleanAutolinkFilter
- ME_F7C39F10FC99 // Reg_Type_TtfwContext
- ME_CBDC0324AA0C // Reg_Type_Ik2TagGenerator
  )
  ; // Operations
- : Children
-   Seq: ( ME_115E7EFB89B4 // filter_AutolinkFilter
- ME_30FF429786F9 // filter_CleanAutolinkFilter
- )
- ; // Children
  : Dependencies
    Seq: ( ME_552CFA0300CA // Tl3AutolinkService
  ME_552CFA080079 // Tl3AutolinkService
@@ -319,10 +78,6 @@ ref; // ME_552CFA080079
  ; // Dependencies
  CONST "ifdef" 'Archi'
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\AutolinkFilterWordsPack.pas'
 
 ref; // ME_552CF9C50052 AutolinkFilterWordsPack
@@ -342,11 +97,8 @@ ref; // ME_552CF9C50052 AutolinkFilterWordsPack
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_552BF68E0188' '552BF68E0188.pas.ms.script' // AutoLink
- WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'

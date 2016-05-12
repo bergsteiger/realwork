@@ -131,10 +131,6 @@ ref; // ME_5571AFFA026F
  ME_5571AFFA026F // TtfwTypeModifier
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumRegistrator.pas'
  CONST extprop:rc:SelfName 'EnumRegistrator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -205,10 +201,6 @@ ref; // ME_47B99D4503A2_ME_53C7ED350038 CompareExistingItems
  ME_47B99D4503A2_ME_53C7ED350038 // CompareExistingItems
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRTTITypeInfoList.pas'
  CONST extprop:rc:SelfName 'RTTITypeInfoList'
  CONST extprop:rc:isAcceptableForScripts true
@@ -230,10 +222,6 @@ ref; // ME_53C7ED350038 TtfwRTTITypeInfoList
    Seq: ( ME_53C7ED350038 // TtfwRTTITypeInfoList
  )
  ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRegisteredEnums.pas'
  CONST extprop:rc:SelfName 'RegisteredEnums'
@@ -369,10 +357,6 @@ ref; // ME_551544E2001A_ME_553128CE018D GetResultTypeInfo
  ME_553132DA02B0 // TtfwStringToEnumValue
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIntegerToEnumName.pas'
  CONST extprop:rc:SelfName 'IntegerToEnumName'
  CONST extprop:rc:isAcceptableForScripts true
@@ -494,10 +478,6 @@ ref; // ME_551544E2001A_ME_553132CA032A GetResultTypeInfo
    Seq: ( ME_5531332002CF // SysUtils
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStringToEnumValue.pas'
  CONST extprop:rc:SelfName 'StringToEnumValue'
  CONST extprop:rc:isAcceptableForScripts true
@@ -684,16 +664,156 @@ ref; // ME_52CFC11603C8_ME_55C0D99E0109 ResultTypeInfo
    Seq: ( ME_52CFC11603C8_ME_55C0D99E0109 // ResultTypeInfo
  )
  ; // Overridden
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwEnumConstantRegistrator.pas'
  CONST extprop:rc:SelfName 'EnumConstantRegistrator'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'tfwEnumConstantRegistrator'
 
 ref; // ME_55C0D99E0109 TtfwEnumConstantRegistrator
+
+FORWARD ME_5731ECF2038D
+
+FORWARD ME_5731ED2B01E9
+
+: ME_5731ED440015
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4767749802D1' '4767743E00E5.pas.ms.script' // PTypeInfo
+ ;
+
+ref; // ME_5731ED440015 aType
+
+: ME_5731ED3D0091
+ CONST UID '5731ED3D0091'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5731ED2B01E9 // RegisterType
+ ;
+ : Parameters
+   Seq: ( ME_5731ED440015 // aType
+ )
+ ; // Parameters
+
+ref; // ME_5731ED3D0091 DoIt
+
+: ME_5731ED2B01E9
+ CONST UID '5731ED2B01E9'
+ CONST Name 'RegisterType'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5731ECF2038D // TtfwTypesForRegister
+ ;
+ : Operations
+   Seq: ( ME_5731ED3D0091 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_5731ED2B01E9 RegisterType
+
+: ME_5731ECF2038D
+ CONST UID '5731ECF2038D'
+ CONST Name 'TtfwTypesForRegister'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   Seq: ( ME_53C7ED350038 // TtfwRTTITypeInfoList
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_5731ED2B01E9 // RegisterType
+ )
+ ; // Operations
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwTypesForRegister.pas'
+ CONST extprop:rc:SelfName 'TypesForRegister'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwTypesForRegister'
+
+ref; // ME_5731ECF2038D TtfwTypesForRegister
+
+FORWARD ME_5732F2B10311
+
+FORWARD ME_5732F2E2031F
+
+: ME_5732F2F7029A
+ CONST Name 'aClass'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
+ ;
+
+ref; // ME_5732F2F7029A aClass
+
+: ME_5732F2EF0207
+ CONST UID '5732F2EF0207'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5732F2E2031F // RegisterClass
+ ;
+ : Parameters
+   Seq: ( ME_5732F2F7029A // aClass
+ )
+ ; // Parameters
+
+ref; // ME_5732F2EF0207 DoIt
+
+: ME_5732F2E2031F
+ CONST UID '5732F2E2031F'
+ CONST Name 'RegisterClass'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5732F2B10311 // TtfwClassesForRegister
+ ;
+ : Operations
+   Seq: ( ME_5732F2EF0207 // DoIt
+ )
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_5732F2E2031F RegisterClass
+
+: ME_5732F2B10311
+ CONST UID '5732F2B10311'
+ CONST Name 'TtfwClassesForRegister'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53C7C3100231 // ConstantsRegistration
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4773DC1E01B4' '47913B47006E.pas.ms.script' // Tl3ClassList
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_5732F2E2031F // RegisterClass
+ )
+ ; // Operations
+ CONST "singleton" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwClassesForRegister.pas'
+ CONST extprop:rc:SelfName 'ClassesForRegister'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'tfwClassesForRegister'
+
+ref; // ME_5732F2B10311 TtfwClassesForRegister
 
 : ME_53C7C3100231
  CONST UID '53C7C3100231'
@@ -711,6 +831,8 @@ ref; // ME_55C0D99E0109 TtfwEnumConstantRegistrator
  ME_553128CE018D // TtfwIntegerToEnumName
  ME_553132CA032A // TtfwStringToEnumValue
  ME_55C0D99E0109 // TtfwEnumConstantRegistrator
+ ME_5731ECF2038D // TtfwTypesForRegister
+ ME_5732F2B10311 // TtfwClassesForRegister
  )
  ; // Children
  : Depends

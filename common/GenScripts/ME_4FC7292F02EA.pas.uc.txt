@@ -1,3 +1,32 @@
+//#UC START# *552E570E0302_89C28B4155A9_impl*
+ Result := aMenuItem.Items[anIndex];
+ Result.InitiateAction;
+//#UC END# *552E570E0302_89C28B4155A9_impl*
+//#UC START# *552E570E0302_89C28B4155A9_var*
+//#UC END# *552E570E0302_89C28B4155A9_var*
+//#UC START# *552E57E00346_F44EDB26B480_impl*
+ l_TotalHeight := 0;
+ l_Canvas := TControlCanvas.Create;
+ try
+  l_Canvas.Handle := Tl3ScreenService.Instance.IC.DC;
+  l_Canvas.Font := Screen.MenuFont;
+  for I := 0 to aMenuItem.Count - 1 do
+  begin
+   l_Height := 0;
+   TMenuItemFriend(aMenuItem.Items[I]).MeasureItem(l_Canvas, l_Width, l_Height);
+   l_TotalHeight := l_TotalHeight + l_Height;
+  end;//for I
+ finally
+  FreeAndNil(l_Canvas);
+ end;//try..finally
+ Result := l_TotalHeight;
+//#UC END# *552E57E00346_F44EDB26B480_impl*
+//#UC START# *552E57E00346_F44EDB26B480_var*
+var
+ I: Integer;
+ l_Width, l_Height, l_TotalHeight: Integer;
+ l_Canvas: TControlCanvas;
+//#UC END# *552E57E00346_F44EDB26B480_var*
 //#UC START# *B4809E50CD0Fci*
 //#UC END# *B4809E50CD0Fci*
 //#UC START# *B4809E50CD0Fcit*

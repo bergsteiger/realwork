@@ -4,7 +4,127 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_47F2170002B2
 
-FORWARD ME_4A6854C70390
+FORWARD ME_4D4161F5012E
+
+FORWARD ME_4D41621B01DE
+
+: ME_4D416242028A
+ CONST UID '4D416242028A'
+ CONST Name 'rIl3CString'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4D41621B01DE // TnsStringPair
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4D416242028A rIl3CString
+
+: ME_4D4162630190
+ CONST UID '4D4162630190'
+ CONST Name 'rIString'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4D41621B01DE // TnsStringPair
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_4D4162630190 rIString
+
+: ME_4D41621B01DE
+ CONST UID '4D41621B01DE'
+ CONST Name 'TnsStringPair'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D4161F5012E // nsTypesNew
+ ;
+ : Attributes
+   Seq: ( ME_4D416242028A // rIl3CString
+ ME_4D4162630190 // rIString
+ )
+ ; // Attributes
+
+ref; // ME_4D41621B01DE TnsStringPair
+
+FORWARD ME_573359B1010D
+
+: ME_573359C502E9
+ CONST UID '573359C502E9'
+ CONST Name 'LLO_AND'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573359B1010D // TListLogicOperation
+ ;
+
+ref; // ME_573359C502E9 LLO_AND
+
+: ME_573359D30114
+ CONST UID '573359D30114'
+ CONST Name 'LLO_OR'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573359B1010D // TListLogicOperation
+ ;
+
+ref; // ME_573359D30114 LLO_OR
+
+: ME_573359DA0251
+ CONST UID '573359DA0251'
+ CONST Name 'LLO_AND_NOT'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573359B1010D // TListLogicOperation
+ ;
+
+ref; // ME_573359DA0251 LLO_AND_NOT
+
+: ME_573359F900FF
+ CONST UID '573359F900FF'
+ CONST Name 'LLO_NONE'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573359B1010D // TListLogicOperation
+ ;
+
+ref; // ME_573359F900FF LLO_NONE
+
+: ME_573359B1010D
+ CONST UID '573359B1010D'
+ CONST Name 'TListLogicOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D4161F5012E // nsTypesNew
+ ;
+ : Attributes
+   Seq: ( ME_573359C502E9 // LLO_AND
+ ME_573359D30114 // LLO_OR
+ ME_573359DA0251 // LLO_AND_NOT
+ ME_573359F900FF // LLO_NONE
+ )
+ ; // Attributes
+ CONST "register in scripts" true
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_573359B1010D TListLogicOperation
 
 FORWARD ME_47F21723038D
 
@@ -80,6 +200,18 @@ ref; // ME_4A2000D20208 ns_ffEvd
 
 ref; // ME_4A2000D8036E ns_ffNull
 
+: ME_57335B4B01D5
+ CONST UID '57335B4B01D5'
+ CONST Name 'ns_ffPDF'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47F21723038D // TnsFileFormat
+ ;
+
+ref; // ME_57335B4B01D5 ns_ffPDF
+
 : ME_47F21723038D
  CONST UID '47F21723038D'
  CONST Name 'TnsFileFormat'
@@ -89,7 +221,7 @@ ref; // ME_4A2000D8036E ns_ffNull
  %SUMMARY '- форматы файла.' ;
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
+ : Parent ME_4D4161F5012E // nsTypesNew
  ;
  : Attributes
    Seq: ( ME_4A2000B20292 // ns_ffRTF
@@ -98,583 +230,17 @@ ref; // ME_4A2000D8036E ns_ffNull
  ME_4A2000CB03DC // ns_ffXML
  ME_4A2000D20208 // ns_ffEvd
  ME_4A2000D8036E // ns_ffNull
+ ME_57335B4B01D5 // ns_ffPDF
  )
  ; // Attributes
+ CONST "register in scripts" true
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_47F21723038D TnsFileFormat
 
-FORWARD ME_47F244C1009A
-
-: ME_47F2488F02D0
- CONST UID '47F2488F02D0'
- CONST Name 'nne_ResetChildrenCount'
- CONST Class class_Attribute
- %SUMMARY '- событие сброса детей.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_47F244C1009A // TreeConstants
- ;
- CONST Value 1000
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value 1000
-
-ref; // ME_47F2488F02D0 nne_ResetChildrenCount
-
-: ME_47F244C1009A
- CONST UID '47F244C1009A'
- CONST Name 'TreeConstants'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для работы с деревом' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Attributes
-   Seq: ( ME_47F2488F02D0 // nne_ResetChildrenCount
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_47F244C1009A TreeConstants
-
-: ME_47F2791D019A
- CONST UID '47F2791D019A'
- CONST Name 'TListLogicOperation'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Логические операции со списком.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_47F2791D019A TListLogicOperation
-
-: ME_48FF569700F6
- CONST UID '48FF569700F6'
- CONST Name 'StringRoutines'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST "spell names" false
-
-ref; // ME_48FF569700F6 StringRoutines
-
-FORWARD ME_48FF63BC0129
-
-: ME_48FF63C500E2
- CONST UID '48FF63C500E2'
- CONST Name 'rtsNone'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_48FF63BC0129 // TnsResetTreeStatus
- ;
-
-ref; // ME_48FF63C500E2 rtsNone
-
-: ME_48FF63CD00F0
- CONST UID '48FF63CD00F0'
- CONST Name 'rtsRoot'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_48FF63BC0129 // TnsResetTreeStatus
- ;
-
-ref; // ME_48FF63CD00F0 rtsRoot
-
-: ME_48FF63D501AF
- CONST UID '48FF63D501AF'
- CONST Name 'rtsFullRoot'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_48FF63BC0129 // TnsResetTreeStatus
- ;
-
-ref; // ME_48FF63D501AF rtsFullRoot
-
-: ME_48FF63DF00B1
- CONST UID '48FF63DF00B1'
- CONST Name 'rtsOneLevel'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_48FF63BC0129 // TnsResetTreeStatus
- ;
-
-ref; // ME_48FF63DF00B1 rtsOneLevel
-
-: ME_48FF63BC0129
- CONST UID '48FF63BC0129'
- CONST Name 'TnsResetTreeStatus'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Attributes
-   Seq: ( ME_48FF63C500E2 // rtsNone
- ME_48FF63CD00F0 // rtsRoot
- ME_48FF63D501AF // rtsFullRoot
- ME_48FF63DF00B1 // rtsOneLevel
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_48FF63BC0129 TnsResetTreeStatus
-
-FORWARD ME_490200F300DD
-
-: ME_490201000142
- CONST UID '490201000142'
- CONST Name 'ns_ftNone'
- CONST Class class_Attribute
- %SUMMARY 'никаких дополнительных фильтров' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_490200F300DD // TnsFilterType
- ;
-
-ref; // ME_490201000142 ns_ftNone
-
-: ME_4902010A0055
- CONST UID '4902010A0055'
- CONST Name 'ns_ftTrim'
- CONST Class class_Attribute
- %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр ITrimFilter' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_490200F300DD // TnsFilterType
- ;
-
-ref; // ME_4902010A0055 ns_ftTrim
-
-: ME_490201130195
- CONST UID '490201130195'
- CONST Name 'ns_ftTrimLeaf'
- CONST Class class_Attribute
- %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр ITrimLeafFilter' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_490200F300DD // TnsFilterType
- ;
-
-ref; // ME_490201130195 ns_ftTrimLeaf
-
-: ME_4902011E0151
- CONST UID '4902011E0151'
- CONST Name 'ns_ftBlocks'
- CONST Class class_Attribute
- %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр IBlocksFilter' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_490200F300DD // TnsFilterType
- ;
-
-ref; // ME_4902011E0151 ns_ftBlocks
-
-: ME_4A8BE3F00024
- CONST UID '4A8BE3F00024'
- CONST Name 'ns_ftInpharm'
- CONST Class class_Attribute
- %SUMMARY 'Для фильтрации узла инфарама' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_490200F300DD // TnsFilterType
- ;
-
-ref; // ME_4A8BE3F00024 ns_ftInpharm
-
-: ME_490200F300DD
- CONST UID '490200F300DD'
- CONST Name 'TnsFilterType'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- %SUMMARY 'дополнительный тип фильтрации для деревьев атрибутов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Attributes
-   Seq: ( ME_490201000142 // ns_ftNone
- ME_4902010A0055 // ns_ftTrim
- ME_490201130195 // ns_ftTrimLeaf
- ME_4902011E0151 // ns_ftBlocks
- ME_4A8BE3F00024 // ns_ftInpharm
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_490200F300DD TnsFilterType
-
-: ME_490B011B02DB
- CONST UID '490B011B02DB'
- CONST Name 'TnsNavigatorItemParams'
- CONST Class class_Class
- : Stereotype st_Struct ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
-
-ref; // ME_490B011B02DB TnsNavigatorItemParams
-
-: ME_490C3BB20118
- CONST UID '490C3BB20118'
- CONST Name 'TnsMedicMainMenuNodeType'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_490C3BB20118 TnsMedicMainMenuNodeType
-
-: ME_491C0E4503A2
- CONST UID '491C0E4503A2'
- CONST Name 'DateTimeRoutines'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST "spell names" false
-
-ref; // ME_491C0E4503A2 DateTimeRoutines
-
-: ME_4921865D0256
- CONST UID '4921865D0256'
- CONST Name 'TWarningType'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4921865D0256 TWarningType
-
-: ME_4921866C01A1
- CONST UID '4921866C01A1'
- CONST Name 'TWarningTypeSet'
- CONST Class class_Class
- : Stereotype st_SetOf ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Inherits
-   Seq: ( ME_4921865D0256 // TWarningType
- )
- ; // Inherits
-
-ref; // ME_4921866C01A1 TWarningTypeSet
-
-FORWARD ME_49522F6C0324
-
-: ME_49522F770385
- CONST UID '49522F770385'
- CONST Name 'ekDisk'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49522F6C0324 // TnsExportKind
- ;
-
-ref; // ME_49522F770385 ekDisk
-
-: ME_49522F7F018B
- CONST UID '49522F7F018B'
- CONST Name 'ekShell'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49522F6C0324 // TnsExportKind
- ;
-
-ref; // ME_49522F7F018B ekShell
-
-: ME_49522F860033
- CONST UID '49522F860033'
- CONST Name 'ekEMail'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49522F6C0324 // TnsExportKind
- ;
-
-ref; // ME_49522F860033 ekEMail
-
-: ME_49522F6C0324
- CONST UID '49522F6C0324'
- CONST Name 'TnsExportKind'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Attributes
-   Seq: ( ME_49522F770385 // ekDisk
- ME_49522F7F018B // ekShell
- ME_49522F860033 // ekEMail
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_49522F6C0324 TnsExportKind
-
-: ME_4988427E020A
- CONST UID '4988427E020A'
- CONST Name 'DocPosTypeToEdtSubType Etc'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST "spell names" false
-
-ref; // ME_4988427E020A DocPosTypeToEdtSubType Etc
-
-: ME_498C7D1A035D
- CONST UID '498C7D1A035D'
- CONST Name 'TnsLongProcessType'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_498C7D1A035D TnsLongProcessType
-
-: ME_4AA11E600367
- CONST UID '4AA11E600367'
- CONST Name 'ETryOpenMissingDocument'
- CONST Class class_Class
- : Stereotype st_Exception ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
-
-ref; // ME_4AA11E600367 ETryOpenMissingDocument
-
-: ME_4AE7093402CF
- CONST UID '4AE7093402CF'
- CONST Name 'TnsDeleteResult'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4AE7093402CF TnsDeleteResult
-
-: ME_4AE7370403CB
- CONST UID '4AE7370403CB'
- CONST Name 'TnsChangeRedactionType'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4AE7370403CB TnsChangeRedactionType
-
-: ME_4AE9E3B40320
- CONST UID '4AE9E3B40320'
- CONST Name 'TnsShowSynchroForm'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4AE9E3B40320 TnsShowSynchroForm
-
-FORWARD ME_53A4046B00C7
-
-: ME_53A404710299
- CONST UID '53A404710299'
- CONST Name 'okInCurrentTab'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
- ;
-
-ref; // ME_53A404710299 okInCurrentTab
-
-: ME_53A4047C017A
- CONST UID '53A4047C017A'
- CONST Name 'okInNewTab'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
- ;
-
-ref; // ME_53A4047C017A okInNewTab
-
-: ME_53A4048D000E
- CONST UID '53A4048D000E'
- CONST Name 'okInNewWindow'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
- ;
-
-ref; // ME_53A4048D000E okInNewWindow
-
-: ME_53A4046B00C7
- CONST UID '53A4046B00C7'
- CONST Name 'TnsDocumentAndLinkOpenKind'
- CONST Class class_Class
- : Stereotype st_Enum ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Attributes
-   Seq: ( ME_53A404710299 // okInCurrentTab
- ME_53A4047C017A // okInNewTab
- ME_53A4048D000E // okInNewWindow
- )
- ; // Attributes
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_53A4046B00C7 TnsDocumentAndLinkOpenKind
-
-: ME_4AAF9718001D
- CONST UID '4AAF9718001D'
- CONST Name 'nsAStr'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:SelfName 'AStr'
-
-ref; // ME_4AAF9718001D nsAStr
-
-: ME_4AB882990057
- CONST UID '4AB882990057'
- CONST Name 'nsCStr'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:SelfName 'CStr'
-
-ref; // ME_4AB882990057 nsCStr
-
-: ME_4ADEE542029C
- CONST UID '4ADEE542029C'
- CONST Name 'nsWStr'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:SelfName 'WStr'
-
-ref; // ME_4ADEE542029C nsWStr
-
-: ME_4CF4DE5F0071
- CONST UID '4CF4DE5F0071'
- CONST Name 'nsEStr'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A6854C70390 // nsTypes
- ;
- CONST extprop:rc:SelfName 'EStr'
-
-ref; // ME_4CF4DE5F0071 nsEStr
-
-FORWARD ME_4D4161F5012E
-
-: ME_4D4162C70077
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6854C70390 // nsTypes
- ;
- : Target ME_4D4161F5012E // nsTypesNew
- ;
-
-ref; // ME_4D4162C70077 
-
-: ME_4A6854C70390
- CONST UID '4A6854C70390'
- CONST Name 'nsTypes'
+: ME_4D4161F5012E
+ CONST UID '4D4161F5012E'
+ CONST Name 'nsTypesNew'
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -682,48 +248,19 @@ ref; // ME_4D4162C70077
  CONST Abstraction at_final
  : Parent ME_47F2170002B2 // nsTypes
  ;
- : Operations
-   Seq: ( ME_4AAF9718001D // nsAStr
- ME_4AB882990057 // nsCStr
- ME_4ADEE542029C // nsWStr
- ME_4CF4DE5F0071 // nsEStr
- )
- ; // Operations
  : Children
-   Seq: ( ME_47F21723038D // TnsFileFormat
- ME_47F2791D019A // TListLogicOperation
- ME_48FF63BC0129 // TnsResetTreeStatus
- ME_490200F300DD // TnsFilterType
- ME_490B011B02DB // TnsNavigatorItemParams
- ME_490C3BB20118 // TnsMedicMainMenuNodeType
- ME_4921865D0256 // TWarningType
- ME_4921866C01A1 // TWarningTypeSet
- ME_49522F6C0324 // TnsExportKind
- ME_498C7D1A035D // TnsLongProcessType
- ME_4AA11E600367 // ETryOpenMissingDocument
- ME_4AE7093402CF // TnsDeleteResult
- ME_4AE7370403CB // TnsChangeRedactionType
- ME_4AE9E3B40320 // TnsShowSynchroForm
- ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+   Seq: ( ME_4D41621B01DE // TnsStringPair
+ ME_573359B1010D // TListLogicOperation
+ ME_47F21723038D // TnsFileFormat
  )
  ; // Children
- : Constants
-   Seq: ( ME_47F244C1009A // TreeConstants
- ME_48FF569700F6 // StringRoutines
- ME_491C0E4503A2 // DateTimeRoutines
- ME_4988427E020A // DocPosTypeToEdtSubType Etc
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_4D4162C70077 // nsTypesNew
- )
- ; // Dependencies
- CONST "finished" false
- CONST "no hands" false
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\NOT_FINISHED_nsTypes.pas'
- CONST extprop:rc:SelfName 'Types'
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '27.11.2011 15:16'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas'
+ CONST extprop:rc:SelfName 'TypesNew'
 
-ref; // ME_4A6854C70390 nsTypes
+ref; // ME_4D4161F5012E nsTypesNew
 
 FORWARD ME_4BA763B0004B
 
@@ -1218,7 +755,6 @@ ref; // ME_4C066F3901CE
  ME_4C066F3901CE // l3Bits
  )
  ; // Dependencies
- CONST "not treat as record for XE4" 'undefined'
  CONST extprop:rc:SelfName 'bsDocPos'
 
 ref; // ME_491B329F0330 TbsDocPos
@@ -1246,57 +782,599 @@ ref; // ME_491B329F0330 TbsDocPos
 
 ref; // ME_4BA763B0004B bsTypesNew
 
-FORWARD ME_4D41621B01DE
+FORWARD ME_4A6854C70390
 
-: ME_4D416242028A
- CONST UID '4D416242028A'
- CONST Name 'rIl3CString'
+FORWARD ME_47F244C1009A
+
+: ME_47F2488F02D0
+ CONST UID '47F2488F02D0'
+ CONST Name 'nne_ResetChildrenCount'
+ CONST Class class_Attribute
+ %SUMMARY '- событие сброса детей.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_47F244C1009A // TreeConstants
+ ;
+ CONST Value 1000
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 1000
+
+ref; // ME_47F2488F02D0 nne_ResetChildrenCount
+
+: ME_47F244C1009A
+ CONST UID '47F244C1009A'
+ CONST Name 'TreeConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для работы с деревом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Attributes
+   Seq: ( ME_47F2488F02D0 // nne_ResetChildrenCount
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_47F244C1009A TreeConstants
+
+: ME_47F2791D019A
+ CONST UID '47F2791D019A'
+ CONST Name 'TListLogicOperation'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Логические операции со списком.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Inherits
+   Seq: ( ME_573359B1010D // TListLogicOperation
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_47F2791D019A TListLogicOperation
+
+: ME_48FF569700F6
+ CONST UID '48FF569700F6'
+ CONST Name 'StringRoutines'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST "spell names" false
+
+ref; // ME_48FF569700F6 StringRoutines
+
+FORWARD ME_48FF63BC0129
+
+: ME_48FF63C500E2
+ CONST UID '48FF63C500E2'
+ CONST Name 'rtsNone'
  CONST Class class_Attribute
  CONST Visibility PublicAccess
- CONST Abstraction at_final
+ CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D41621B01DE // TnsStringPair
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ : Parent ME_48FF63BC0129 // TnsResetTreeStatus
  ;
 
-ref; // ME_4D416242028A rIl3CString
+ref; // ME_48FF63C500E2 rtsNone
 
-: ME_4D4162630190
- CONST UID '4D4162630190'
- CONST Name 'rIString'
+: ME_48FF63CD00F0
+ CONST UID '48FF63CD00F0'
+ CONST Name 'rtsRoot'
  CONST Class class_Attribute
  CONST Visibility PublicAccess
- CONST Abstraction at_final
+ CONST Abstraction at_regular
  CONST LinkType lt_agr
- : Parent ME_4D41621B01DE // TnsStringPair
- ;
- : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ : Parent ME_48FF63BC0129 // TnsResetTreeStatus
  ;
 
-ref; // ME_4D4162630190 rIString
+ref; // ME_48FF63CD00F0 rtsRoot
 
-: ME_4D41621B01DE
- CONST UID '4D41621B01DE'
- CONST Name 'TnsStringPair'
+: ME_48FF63D501AF
+ CONST UID '48FF63D501AF'
+ CONST Name 'rtsFullRoot'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48FF63BC0129 // TnsResetTreeStatus
+ ;
+
+ref; // ME_48FF63D501AF rtsFullRoot
+
+: ME_48FF63DF00B1
+ CONST UID '48FF63DF00B1'
+ CONST Name 'rtsOneLevel'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_48FF63BC0129 // TnsResetTreeStatus
+ ;
+
+ref; // ME_48FF63DF00B1 rtsOneLevel
+
+: ME_48FF63BC0129
+ CONST UID '48FF63BC0129'
+ CONST Name 'TnsResetTreeStatus'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Attributes
+   Seq: ( ME_48FF63C500E2 // rtsNone
+ ME_48FF63CD00F0 // rtsRoot
+ ME_48FF63D501AF // rtsFullRoot
+ ME_48FF63DF00B1 // rtsOneLevel
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_48FF63BC0129 TnsResetTreeStatus
+
+FORWARD ME_490200F300DD
+
+: ME_490201000142
+ CONST UID '490201000142'
+ CONST Name 'ns_ftNone'
+ CONST Class class_Attribute
+ %SUMMARY 'никаких дополнительных фильтров' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490200F300DD // TnsFilterType
+ ;
+
+ref; // ME_490201000142 ns_ftNone
+
+: ME_4902010A0055
+ CONST UID '4902010A0055'
+ CONST Name 'ns_ftTrim'
+ CONST Class class_Attribute
+ %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр ITrimFilter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490200F300DD // TnsFilterType
+ ;
+
+ref; // ME_4902010A0055 ns_ftTrim
+
+: ME_490201130195
+ CONST UID '490201130195'
+ CONST Name 'ns_ftTrimLeaf'
+ CONST Class class_Attribute
+ %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр ITrimLeafFilter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490200F300DD // TnsFilterType
+ ;
+
+ref; // ME_490201130195 ns_ftTrimLeaf
+
+: ME_4902011E0151
+ CONST UID '4902011E0151'
+ CONST Name 'ns_ftBlocks'
+ CONST Class class_Attribute
+ %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр IBlocksFilter' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490200F300DD // TnsFilterType
+ ;
+
+ref; // ME_4902011E0151 ns_ftBlocks
+
+: ME_4A8BE3F00024
+ CONST UID '4A8BE3F00024'
+ CONST Name 'ns_ftInpharm'
+ CONST Class class_Attribute
+ %SUMMARY 'Для фильтрации узла инфарама' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_490200F300DD // TnsFilterType
+ ;
+
+ref; // ME_4A8BE3F00024 ns_ftInpharm
+
+: ME_490200F300DD
+ CONST UID '490200F300DD'
+ CONST Name 'TnsFilterType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'дополнительный тип фильтрации для деревьев атрибутов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Attributes
+   Seq: ( ME_490201000142 // ns_ftNone
+ ME_4902010A0055 // ns_ftTrim
+ ME_490201130195 // ns_ftTrimLeaf
+ ME_4902011E0151 // ns_ftBlocks
+ ME_4A8BE3F00024 // ns_ftInpharm
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_490200F300DD TnsFilterType
+
+: ME_490B011B02DB
+ CONST UID '490B011B02DB'
+ CONST Name 'TnsNavigatorItemParams'
  CONST Class class_Class
  : Stereotype st_Struct ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
- : Parent ME_4D4161F5012E // nsTypesNew
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+
+ref; // ME_490B011B02DB TnsNavigatorItemParams
+
+: ME_490C3BB20118
+ CONST UID '490C3BB20118'
+ CONST Name 'TnsMedicMainMenuNodeType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_490C3BB20118 TnsMedicMainMenuNodeType
+
+: ME_491C0E4503A2
+ CONST UID '491C0E4503A2'
+ CONST Name 'DateTimeRoutines'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST "spell names" false
+
+ref; // ME_491C0E4503A2 DateTimeRoutines
+
+: ME_4921865D0256
+ CONST UID '4921865D0256'
+ CONST Name 'TWarningType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4921865D0256 TWarningType
+
+: ME_4921866C01A1
+ CONST UID '4921866C01A1'
+ CONST Name 'TWarningTypeSet'
+ CONST Class class_Class
+ : Stereotype st_SetOf ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Inherits
+   Seq: ( ME_4921865D0256 // TWarningType
+ )
+ ; // Inherits
+
+ref; // ME_4921866C01A1 TWarningTypeSet
+
+FORWARD ME_49522F6C0324
+
+: ME_49522F770385
+ CONST UID '49522F770385'
+ CONST Name 'ekDisk'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49522F6C0324 // TnsExportKind
+ ;
+
+ref; // ME_49522F770385 ekDisk
+
+: ME_49522F7F018B
+ CONST UID '49522F7F018B'
+ CONST Name 'ekShell'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49522F6C0324 // TnsExportKind
+ ;
+
+ref; // ME_49522F7F018B ekShell
+
+: ME_49522F860033
+ CONST UID '49522F860033'
+ CONST Name 'ekEMail'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49522F6C0324 // TnsExportKind
+ ;
+
+ref; // ME_49522F860033 ekEMail
+
+: ME_49522F6C0324
+ CONST UID '49522F6C0324'
+ CONST Name 'TnsExportKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
  ;
  : Attributes
-   Seq: ( ME_4D416242028A // rIl3CString
- ME_4D4162630190 // rIString
+   Seq: ( ME_49522F770385 // ekDisk
+ ME_49522F7F018B // ekShell
+ ME_49522F860033 // ekEMail
  )
  ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
 
-ref; // ME_4D41621B01DE TnsStringPair
+ref; // ME_49522F6C0324 TnsExportKind
 
-: ME_4D4161F5012E
- CONST UID '4D4161F5012E'
- CONST Name 'nsTypesNew'
+: ME_4988427E020A
+ CONST UID '4988427E020A'
+ CONST Name 'DocPosTypeToEdtSubType Etc'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST "spell names" false
+
+ref; // ME_4988427E020A DocPosTypeToEdtSubType Etc
+
+: ME_498C7D1A035D
+ CONST UID '498C7D1A035D'
+ CONST Name 'TnsLongProcessType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_498C7D1A035D TnsLongProcessType
+
+: ME_4AA11E600367
+ CONST UID '4AA11E600367'
+ CONST Name 'ETryOpenMissingDocument'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+
+ref; // ME_4AA11E600367 ETryOpenMissingDocument
+
+: ME_4AE7093402CF
+ CONST UID '4AE7093402CF'
+ CONST Name 'TnsDeleteResult'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AE7093402CF TnsDeleteResult
+
+: ME_4AE7370403CB
+ CONST UID '4AE7370403CB'
+ CONST Name 'TnsChangeRedactionType'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AE7370403CB TnsChangeRedactionType
+
+: ME_4AE9E3B40320
+ CONST UID '4AE9E3B40320'
+ CONST Name 'TnsShowSynchroForm'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4AE9E3B40320 TnsShowSynchroForm
+
+FORWARD ME_53A4046B00C7
+
+: ME_53A404710299
+ CONST UID '53A404710299'
+ CONST Name 'okInCurrentTab'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ;
+
+ref; // ME_53A404710299 okInCurrentTab
+
+: ME_53A4047C017A
+ CONST UID '53A4047C017A'
+ CONST Name 'okInNewTab'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ;
+
+ref; // ME_53A4047C017A okInNewTab
+
+: ME_53A4048D000E
+ CONST UID '53A4048D000E'
+ CONST Name 'okInNewWindow'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ;
+
+ref; // ME_53A4048D000E okInNewWindow
+
+: ME_53A4046B00C7
+ CONST UID '53A4046B00C7'
+ CONST Name 'TnsDocumentAndLinkOpenKind'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Attributes
+   Seq: ( ME_53A404710299 // okInCurrentTab
+ ME_53A4047C017A // okInNewTab
+ ME_53A4048D000E // okInNewWindow
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_53A4046B00C7 TnsDocumentAndLinkOpenKind
+
+: ME_57335B010093
+ CONST UID '57335B010093'
+ CONST Name 'TnsFileFormat'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Inherits
+   Seq: ( ME_47F21723038D // TnsFileFormat
+ )
+ ; // Inherits
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_57335B010093 TnsFileFormat
+
+: ME_4AAF9718001D
+ CONST UID '4AAF9718001D'
+ CONST Name 'nsAStr'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:SelfName 'AStr'
+
+ref; // ME_4AAF9718001D nsAStr
+
+: ME_4AB882990057
+ CONST UID '4AB882990057'
+ CONST Name 'nsCStr'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:SelfName 'CStr'
+
+ref; // ME_4AB882990057 nsCStr
+
+: ME_4ADEE542029C
+ CONST UID '4ADEE542029C'
+ CONST Name 'nsWStr'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:SelfName 'WStr'
+
+ref; // ME_4ADEE542029C nsWStr
+
+: ME_4CF4DE5F0071
+ CONST UID '4CF4DE5F0071'
+ CONST Name 'nsEStr'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ CONST extprop:rc:SelfName 'EStr'
+
+ref; // ME_4CF4DE5F0071 nsEStr
+
+: ME_4D4162C70077
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A6854C70390 // nsTypes
+ ;
+ : Target ME_4D4161F5012E // nsTypesNew
+ ;
+
+ref; // ME_4D4162C70077 
+
+: ME_4A6854C70390
+ CONST UID '4A6854C70390'
+ CONST Name 'nsTypes'
  CONST Class class_Class
  : Stereotype st_UtilityPack ;
  CONST Kind kind_NormalClass
@@ -1304,17 +1382,47 @@ ref; // ME_4D41621B01DE TnsStringPair
  CONST Abstraction at_final
  : Parent ME_47F2170002B2 // nsTypes
  ;
+ : Operations
+   Seq: ( ME_4AAF9718001D // nsAStr
+ ME_4AB882990057 // nsCStr
+ ME_4ADEE542029C // nsWStr
+ ME_4CF4DE5F0071 // nsEStr
+ )
+ ; // Operations
  : Children
-   Seq: ( ME_4D41621B01DE // TnsStringPair
+   Seq: ( ME_47F2791D019A // TListLogicOperation
+ ME_48FF63BC0129 // TnsResetTreeStatus
+ ME_490200F300DD // TnsFilterType
+ ME_490B011B02DB // TnsNavigatorItemParams
+ ME_490C3BB20118 // TnsMedicMainMenuNodeType
+ ME_4921865D0256 // TWarningType
+ ME_4921866C01A1 // TWarningTypeSet
+ ME_49522F6C0324 // TnsExportKind
+ ME_498C7D1A035D // TnsLongProcessType
+ ME_4AA11E600367 // ETryOpenMissingDocument
+ ME_4AE7093402CF // TnsDeleteResult
+ ME_4AE7370403CB // TnsChangeRedactionType
+ ME_4AE9E3B40320 // TnsShowSynchroForm
+ ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ME_57335B010093 // TnsFileFormat
  )
  ; // Children
- CONST "author" 'Люлин А.В.'
- CONST "no hands" true
- CONST "started" '27.11.2011 15:16'
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas'
- CONST extprop:rc:SelfName 'TypesNew'
+ : Constants
+   Seq: ( ME_47F244C1009A // TreeConstants
+ ME_48FF569700F6 // StringRoutines
+ ME_491C0E4503A2 // DateTimeRoutines
+ ME_4988427E020A // DocPosTypeToEdtSubType Etc
+ )
+ ; // Constants
+ : Dependencies
+   Seq: ( ME_4D4162C70077 // nsTypesNew
+ )
+ ; // Dependencies
+ CONST "finished" false
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\NOT_FINISHED_nsTypes.pas'
+ CONST extprop:rc:SelfName 'Types'
 
-ref; // ME_4D4161F5012E nsTypesNew
+ref; // ME_4A6854C70390 nsTypes
 
 : ME_47F2170002B2
  CONST UID '47F2170002B2'
@@ -1327,9 +1435,9 @@ ref; // ME_4D4161F5012E nsTypesNew
  : Parent WL 'ME_47E9EEC60260' '47E9EEC60260.pas.ms.script' // Model
  ;
  : Children
-   Seq: ( ME_4A6854C70390 // nsTypes
+   Seq: ( ME_4D4161F5012E // nsTypesNew
  ME_4BA763B0004B // bsTypesNew
- ME_4D4161F5012E // nsTypesNew
+ ME_4A6854C70390 // nsTypes
  )
  ; // Children
  : Depends

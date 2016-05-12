@@ -8,84 +8,13 @@ FORWARD ME_55C8CD3401D2
 
 FORWARD ME_55C8CD470049
 
-FORWARD ME_29B068DE5F56
-
 FORWARD ME_2975C5F7A803
-
-: ME_75C2AC4E2D67
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_75C2AC4E2D67 aCtx
-
-: ME_75C2AC4E2D68
- CONST Name 'aTextSearchDlg'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
- ;
-
-ref; // ME_75C2AC4E2D68 aTextSearchDlg
-
-: ME_29B068DE5F56
- CONST UID '29B068DE5F56'
- CONST Name 'Fake'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:TextSearchDlg:Fake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
- ;
- : Parameters
-   Seq: ( ME_75C2AC4E2D67 // aCtx
- ME_75C2AC4E2D68 // aTextSearchDlg
- )
- ; // Parameters
- : SpelledFor ME_55C8CD470049 // Fake
- ;
-
-ref; // ME_29B068DE5F56 Fake
-
-: ME_171B75256B40
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2975C5F7A803 // pop_TextSearchDlg_Fake
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_171B75256B40 
 
 : ME_4DAEEDE10285_ME_2975C5F7A803
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2975C5F7A803 DoDoIt
-
-: ME_551544E2001A_ME_2975C5F7A803
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_2975C5F7A803 GetResultTypeInfo
-
-: ME_559687E6025A_ME_2975C5F7A803
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_2975C5F7A803 GetAllParamsCount
-
-: ME_5617F4D00243_ME_2975C5F7A803
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_2975C5F7A803 ParamsTypes
 
 : ME_2975C5F7A803
  CONST UID '2975C5F7A803'
@@ -94,7 +23,7 @@ ref; // ME_5617F4D00243_ME_2975C5F7A803 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:TextSearchDlg:Fake'#13#10'{panel}Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aTextSearchDlg pop:TextSearchDlg:Fake'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:TextSearchDlg:Fake' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
@@ -103,37 +32,17 @@ ref; // ME_5617F4D00243_ME_2975C5F7A803 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_29B068DE5F56 // Fake
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_2975C5F7A803 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_2975C5F7A803 // GetResultTypeInfo
- ME_559687E6025A_ME_2975C5F7A803 // GetAllParamsCount
- ME_5617F4D00243_ME_2975C5F7A803 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_171B75256B40 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:TextSearchDlg:Fake'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopTextSearchDlgFake'
  CONST extprop:rc:SelfName 'PopTextSearchDlgFake'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
  ;
  : SpelledFor ME_55C8CD470049 // Fake
- ;
- : Stub ME_29B068DE5F56 // Fake
  ;
 
 ref; // ME_2975C5F7A803 pop_TextSearchDlg_Fake
@@ -148,45 +57,10 @@ ref; // ME_2975C5F7A803 pop_TextSearchDlg_Fake
  CONST Abstraction at_final
  : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_2975C5F7A803 // pop_TextSearchDlg_Fake
  ;
 
 ref; // ME_55C8CD470049 Fake
-
-: ME_BA75BC7D6A12
- CONST UID 'BA75BC7D6A12'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_BA75BC7D6A12 Reg_Type_TtfwContext
-
-: ME_68F09BD88C06
- CONST UID '68F09BD88C06'
- CONST Name 'Reg_Type_TTextSearchDlg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TTextSearchDlg' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CD3401D2 // TTextSearchDlgWordsPack
- ;
- : SpelledFor WL 'ME_4F8D61A100A6' '4DFB501A00F4.pas.ms.script' // TTextSearchDlg
- ;
-
-ref; // ME_68F09BD88C06 Reg_Type_TTextSearchDlg
 
 : ME_B635813BC831
  CONST IsSummoned true
@@ -215,8 +89,6 @@ ref; // ME_B635813BC831
  ; // Inherits
  : Operations
    Seq: ( ME_55C8CD470049 // Fake
- ME_BA75BC7D6A12 // Reg_Type_TtfwContext
- ME_68F09BD88C06 // Reg_Type_TTextSearchDlg
  )
  ; // Operations
  : Children
@@ -228,10 +100,6 @@ ref; // ME_B635813BC831
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas'
 
 ref; // ME_55C8CD3401D2 TTextSearchDlgWordsPack
@@ -240,84 +108,13 @@ FORWARD ME_55C8CD820269
 
 FORWARD ME_55C8CE120197
 
-FORWARD ME_C4A5B2BD74DF
-
 FORWARD ME_0BE0E0D34519
-
-: ME_CCEF7C600E68
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_CCEF7C600E68 aCtx
-
-: ME_CCEF7C600E69
- CONST Name 'aTableConvParamDialog'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
- ;
-
-ref; // ME_CCEF7C600E69 aTableConvParamDialog
-
-: ME_C4A5B2BD74DF
- CONST UID 'C4A5B2BD74DF'
- CONST Name 'Fake'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:TableConvParamDialog:Fake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
- ;
- : Parameters
-   Seq: ( ME_CCEF7C600E68 // aCtx
- ME_CCEF7C600E69 // aTableConvParamDialog
- )
- ; // Parameters
- : SpelledFor ME_55C8CE120197 // Fake
- ;
-
-ref; // ME_C4A5B2BD74DF Fake
-
-: ME_FDACA3F26325
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_FDACA3F26325 
 
 : ME_4DAEEDE10285_ME_0BE0E0D34519
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0BE0E0D34519 DoDoIt
-
-: ME_551544E2001A_ME_0BE0E0D34519
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0BE0E0D34519 GetResultTypeInfo
-
-: ME_559687E6025A_ME_0BE0E0D34519
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0BE0E0D34519 GetAllParamsCount
-
-: ME_5617F4D00243_ME_0BE0E0D34519
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0BE0E0D34519 ParamsTypes
 
 : ME_0BE0E0D34519
  CONST UID '0BE0E0D34519'
@@ -326,7 +123,7 @@ ref; // ME_5617F4D00243_ME_0BE0E0D34519 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:TableConvParamDialog:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aTableConvParamDialog pop:TableConvParamDialog:Fake'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:TableConvParamDialog:Fake' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
@@ -335,37 +132,17 @@ ref; // ME_5617F4D00243_ME_0BE0E0D34519 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C4A5B2BD74DF // Fake
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0BE0E0D34519 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_0BE0E0D34519 // GetResultTypeInfo
- ME_559687E6025A_ME_0BE0E0D34519 // GetAllParamsCount
- ME_5617F4D00243_ME_0BE0E0D34519 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_FDACA3F26325 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:TableConvParamDialog:Fake'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopTableConvParamDialogFake'
  CONST extprop:rc:SelfName 'PopTableConvParamDialogFake'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
  ;
  : SpelledFor ME_55C8CE120197 // Fake
- ;
- : Stub ME_C4A5B2BD74DF // Fake
  ;
 
 ref; // ME_0BE0E0D34519 pop_TableConvParamDialog_Fake
@@ -379,45 +156,10 @@ ref; // ME_0BE0E0D34519 pop_TableConvParamDialog_Fake
  CONST Abstraction at_final
  : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_0BE0E0D34519 // pop_TableConvParamDialog_Fake
  ;
 
 ref; // ME_55C8CE120197 Fake
-
-: ME_50B9DA9A1A76
- CONST UID '50B9DA9A1A76'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_50B9DA9A1A76 Reg_Type_TtfwContext
-
-: ME_97F812200F63
- CONST UID '97F812200F63'
- CONST Name 'Reg_Type_TTableConvParamDialog'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TTableConvParamDialog' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CD820269 // TTableConvParamDialogWordsPack
- ;
- : SpelledFor WL 'ME_4F683ACF03C5' '4DFB501A00F4.pas.ms.script' // TTableConvParamDialog
- ;
-
-ref; // ME_97F812200F63 Reg_Type_TTableConvParamDialog
 
 : ME_5AA0F37EE8AF
  CONST IsSummoned true
@@ -446,8 +188,6 @@ ref; // ME_5AA0F37EE8AF
  ; // Inherits
  : Operations
    Seq: ( ME_55C8CE120197 // Fake
- ME_50B9DA9A1A76 // Reg_Type_TtfwContext
- ME_97F812200F63 // Reg_Type_TTableConvParamDialog
  )
  ; // Operations
  : Children
@@ -459,10 +199,6 @@ ref; // ME_5AA0F37EE8AF
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TTableConvParamDialogWordsPack.pas'
 
 ref; // ME_55C8CD820269 TTableConvParamDialogWordsPack
@@ -471,84 +207,13 @@ FORWARD ME_55C8CD9D0010
 
 FORWARD ME_55C8CE1E0042
 
-FORWARD ME_BEDAA2A137B4
-
 FORWARD ME_744BF601F735
-
-: ME_06CFCAE9B9B3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_06CFCAE9B9B3 aCtx
-
-: ME_06CFCAE9B9B4
- CONST Name 'aNewSubDlg'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
- ;
-
-ref; // ME_06CFCAE9B9B4 aNewSubDlg
-
-: ME_BEDAA2A137B4
- CONST UID 'BEDAA2A137B4'
- CONST Name 'Fake'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:NewSubDlg:Fake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
- ;
- : Parameters
-   Seq: ( ME_06CFCAE9B9B3 // aCtx
- ME_06CFCAE9B9B4 // aNewSubDlg
- )
- ; // Parameters
- : SpelledFor ME_55C8CE1E0042 // Fake
- ;
-
-ref; // ME_BEDAA2A137B4 Fake
-
-: ME_702F9B137E3E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_744BF601F735 // pop_NewSubDlg_Fake
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_702F9B137E3E 
 
 : ME_4DAEEDE10285_ME_744BF601F735
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_744BF601F735 DoDoIt
-
-: ME_551544E2001A_ME_744BF601F735
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_744BF601F735 GetResultTypeInfo
-
-: ME_559687E6025A_ME_744BF601F735
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_744BF601F735 GetAllParamsCount
-
-: ME_5617F4D00243_ME_744BF601F735
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_744BF601F735 ParamsTypes
 
 : ME_744BF601F735
  CONST UID '744BF601F735'
@@ -557,7 +222,7 @@ ref; // ME_5617F4D00243_ME_744BF601F735 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:NewSubDlg:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aNewSubDlg pop:NewSubDlg:Fake'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:NewSubDlg:Fake' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
@@ -566,37 +231,17 @@ ref; // ME_5617F4D00243_ME_744BF601F735 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BEDAA2A137B4 // Fake
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_744BF601F735 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_744BF601F735 // GetResultTypeInfo
- ME_559687E6025A_ME_744BF601F735 // GetAllParamsCount
- ME_5617F4D00243_ME_744BF601F735 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_702F9B137E3E // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:NewSubDlg:Fake'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopNewSubDlgFake'
  CONST extprop:rc:SelfName 'PopNewSubDlgFake'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
  ;
  : SpelledFor ME_55C8CE1E0042 // Fake
- ;
- : Stub ME_BEDAA2A137B4 // Fake
  ;
 
 ref; // ME_744BF601F735 pop_NewSubDlg_Fake
@@ -610,45 +255,10 @@ ref; // ME_744BF601F735 pop_NewSubDlg_Fake
  CONST Abstraction at_final
  : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_744BF601F735 // pop_NewSubDlg_Fake
  ;
 
 ref; // ME_55C8CE1E0042 Fake
-
-: ME_A53F3BDA9BD9
- CONST UID 'A53F3BDA9BD9'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A53F3BDA9BD9 Reg_Type_TtfwContext
-
-: ME_BAF9632D7120
- CONST UID 'BAF9632D7120'
- CONST Name 'Reg_Type_TNewSubDlg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TNewSubDlg' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CD9D0010 // TNewSubDlgWordsPack
- ;
- : SpelledFor WL 'ME_4DFB50A6024F' '4DFB501A00F4.pas.ms.script' // TNewSubDlg
- ;
-
-ref; // ME_BAF9632D7120 Reg_Type_TNewSubDlg
 
 : ME_5F59C5A74A6C
  CONST IsSummoned true
@@ -677,8 +287,6 @@ ref; // ME_5F59C5A74A6C
  ; // Inherits
  : Operations
    Seq: ( ME_55C8CE1E0042 // Fake
- ME_A53F3BDA9BD9 // Reg_Type_TtfwContext
- ME_BAF9632D7120 // Reg_Type_TNewSubDlg
  )
  ; // Operations
  : Children
@@ -690,10 +298,6 @@ ref; // ME_5F59C5A74A6C
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas'
 
 ref; // ME_55C8CD9D0010 TNewSubDlgWordsPack
@@ -702,84 +306,13 @@ FORWARD ME_55C8CDB30208
 
 FORWARD ME_55C8CE2102C9
 
-FORWARD ME_66B7B716E7E4
-
 FORWARD ME_B3D7A1E7CA69
-
-: ME_4CEE1CC6C5E2
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_4CEE1CC6C5E2 aCtx
-
-: ME_4CEE1CC6C5E3
- CONST Name 'aSpellCheckDlg'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
- ;
-
-ref; // ME_4CEE1CC6C5E3 aSpellCheckDlg
-
-: ME_66B7B716E7E4
- CONST UID '66B7B716E7E4'
- CONST Name 'Fake'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:SpellCheckDlg:Fake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
- ;
- : Parameters
-   Seq: ( ME_4CEE1CC6C5E2 // aCtx
- ME_4CEE1CC6C5E3 // aSpellCheckDlg
- )
- ; // Parameters
- : SpelledFor ME_55C8CE2102C9 // Fake
- ;
-
-ref; // ME_66B7B716E7E4 Fake
-
-: ME_1250E486A51B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_1250E486A51B 
 
 : ME_4DAEEDE10285_ME_B3D7A1E7CA69
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B3D7A1E7CA69 DoDoIt
-
-: ME_551544E2001A_ME_B3D7A1E7CA69
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B3D7A1E7CA69 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B3D7A1E7CA69
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B3D7A1E7CA69 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B3D7A1E7CA69
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B3D7A1E7CA69 ParamsTypes
 
 : ME_B3D7A1E7CA69
  CONST UID 'B3D7A1E7CA69'
@@ -788,7 +321,7 @@ ref; // ME_5617F4D00243_ME_B3D7A1E7CA69 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:SpellCheckDlg:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aSpellCheckDlg pop:SpellCheckDlg:Fake'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:SpellCheckDlg:Fake' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
@@ -797,37 +330,17 @@ ref; // ME_5617F4D00243_ME_B3D7A1E7CA69 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_66B7B716E7E4 // Fake
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B3D7A1E7CA69 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_B3D7A1E7CA69 // GetResultTypeInfo
- ME_559687E6025A_ME_B3D7A1E7CA69 // GetAllParamsCount
- ME_5617F4D00243_ME_B3D7A1E7CA69 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_1250E486A51B // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:SpellCheckDlg:Fake'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopSpellCheckDlgFake'
  CONST extprop:rc:SelfName 'PopSpellCheckDlgFake'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
  ;
  : SpelledFor ME_55C8CE2102C9 // Fake
- ;
- : Stub ME_66B7B716E7E4 // Fake
  ;
 
 ref; // ME_B3D7A1E7CA69 pop_SpellCheckDlg_Fake
@@ -841,45 +354,10 @@ ref; // ME_B3D7A1E7CA69 pop_SpellCheckDlg_Fake
  CONST Abstraction at_final
  : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_B3D7A1E7CA69 // pop_SpellCheckDlg_Fake
  ;
 
 ref; // ME_55C8CE2102C9 Fake
-
-: ME_8752D0A7346B
- CONST UID '8752D0A7346B'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8752D0A7346B Reg_Type_TtfwContext
-
-: ME_2C8151C474D9
- CONST UID '2C8151C474D9'
- CONST Name 'Reg_Type_TSpellCheckDlg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TSpellCheckDlg' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CDB30208 // TSpellCheckDlgWordsPack
- ;
- : SpelledFor WL 'ME_4F22A92D007F' '4DFB501A00F4.pas.ms.script' // TSpellCheckDlg
- ;
-
-ref; // ME_2C8151C474D9 Reg_Type_TSpellCheckDlg
 
 : ME_4105AC7A06B5
  CONST IsSummoned true
@@ -908,8 +386,6 @@ ref; // ME_4105AC7A06B5
  ; // Inherits
  : Operations
    Seq: ( ME_55C8CE2102C9 // Fake
- ME_8752D0A7346B // Reg_Type_TtfwContext
- ME_2C8151C474D9 // Reg_Type_TSpellCheckDlg
  )
  ; // Operations
  : Children
@@ -921,10 +397,6 @@ ref; // ME_4105AC7A06B5
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TSpellCheckDlgWordsPack.pas'
 
 ref; // ME_55C8CDB30208 TSpellCheckDlgWordsPack
@@ -933,84 +405,13 @@ FORWARD ME_55C8CDD703B3
 
 FORWARD ME_55C8CE2502B9
 
-FORWARD ME_CD007FA5CC23
-
 FORWARD ME_DF6A0ECD8244
-
-: ME_C8EC8DA88259
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C8EC8DA88259 aCtx
-
-: ME_C8EC8DA8825A
- CONST Name 'aPicSizeEditDlg'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
- ;
-
-ref; // ME_C8EC8DA8825A aPicSizeEditDlg
-
-: ME_CD007FA5CC23
- CONST UID 'CD007FA5CC23'
- CONST Name 'Fake'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:PicSizeEditDlg:Fake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
- ;
- : Parameters
-   Seq: ( ME_C8EC8DA88259 // aCtx
- ME_C8EC8DA8825A // aPicSizeEditDlg
- )
- ; // Parameters
- : SpelledFor ME_55C8CE2502B9 // Fake
- ;
-
-ref; // ME_CD007FA5CC23 Fake
-
-: ME_B56CECC468CE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_B56CECC468CE 
 
 : ME_4DAEEDE10285_ME_DF6A0ECD8244
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_DF6A0ECD8244 DoDoIt
-
-: ME_551544E2001A_ME_DF6A0ECD8244
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_DF6A0ECD8244 GetResultTypeInfo
-
-: ME_559687E6025A_ME_DF6A0ECD8244
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_DF6A0ECD8244 GetAllParamsCount
-
-: ME_5617F4D00243_ME_DF6A0ECD8244
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_DF6A0ECD8244 ParamsTypes
 
 : ME_DF6A0ECD8244
  CONST UID 'DF6A0ECD8244'
@@ -1019,7 +420,7 @@ ref; // ME_5617F4D00243_ME_DF6A0ECD8244 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:PicSizeEditDlg:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aPicSizeEditDlg pop:PicSizeEditDlg:Fake'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:PicSizeEditDlg:Fake' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
@@ -1028,37 +429,17 @@ ref; // ME_5617F4D00243_ME_DF6A0ECD8244 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CD007FA5CC23 // Fake
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_DF6A0ECD8244 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_DF6A0ECD8244 // GetResultTypeInfo
- ME_559687E6025A_ME_DF6A0ECD8244 // GetAllParamsCount
- ME_5617F4D00243_ME_DF6A0ECD8244 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_B56CECC468CE // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:PicSizeEditDlg:Fake'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopPicSizeEditDlgFake'
  CONST extprop:rc:SelfName 'PopPicSizeEditDlgFake'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
  ;
  : SpelledFor ME_55C8CE2502B9 // Fake
- ;
- : Stub ME_CD007FA5CC23 // Fake
  ;
 
 ref; // ME_DF6A0ECD8244 pop_PicSizeEditDlg_Fake
@@ -1072,45 +453,10 @@ ref; // ME_DF6A0ECD8244 pop_PicSizeEditDlg_Fake
  CONST Abstraction at_final
  : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_DF6A0ECD8244 // pop_PicSizeEditDlg_Fake
  ;
 
 ref; // ME_55C8CE2502B9 Fake
-
-: ME_42F3A015821C
- CONST UID '42F3A015821C'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_42F3A015821C Reg_Type_TtfwContext
-
-: ME_ECF06C3449EC
- CONST UID 'ECF06C3449EC'
- CONST Name 'Reg_Type_TPicSizeEditDlg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TPicSizeEditDlg' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CDD703B3 // TPicSizeEditDlgWordsPack
- ;
- : SpelledFor WL 'ME_4F5760C202E6' '4DFB501A00F4.pas.ms.script' // TPicSizeEditDlg
- ;
-
-ref; // ME_ECF06C3449EC Reg_Type_TPicSizeEditDlg
 
 : ME_0174C6E9DBC9
  CONST IsSummoned true
@@ -1139,8 +485,6 @@ ref; // ME_0174C6E9DBC9
  ; // Inherits
  : Operations
    Seq: ( ME_55C8CE2502B9 // Fake
- ME_42F3A015821C // Reg_Type_TtfwContext
- ME_ECF06C3449EC // Reg_Type_TPicSizeEditDlg
  )
  ; // Operations
  : Children
@@ -1152,10 +496,6 @@ ref; // ME_0174C6E9DBC9
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas'
 
 ref; // ME_55C8CDD703B3 TPicSizeEditDlgWordsPack
@@ -1164,84 +504,13 @@ FORWARD ME_55C8CDFC039B
 
 FORWARD ME_55C8CE280375
 
-FORWARD ME_F9F482E814E0
-
 FORWARD ME_1C9135EF778B
-
-: ME_3D92261C98AF
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_3D92261C98AF aCtx
-
-: ME_3D92261C98B0
- CONST Name 'aExprEditor'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
- ;
-
-ref; // ME_3D92261C98B0 aExprEditor
-
-: ME_F9F482E814E0
- CONST UID 'F9F482E814E0'
- CONST Name 'Fake'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ExprEditor:Fake' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
- ;
- : Parameters
-   Seq: ( ME_3D92261C98AF // aCtx
- ME_3D92261C98B0 // aExprEditor
- )
- ; // Parameters
- : SpelledFor ME_55C8CE280375 // Fake
- ;
-
-ref; // ME_F9F482E814E0 Fake
-
-: ME_9B17CF9B1FE7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1C9135EF778B // pop_ExprEditor_Fake
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_9B17CF9B1FE7 
 
 : ME_4DAEEDE10285_ME_1C9135EF778B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_1C9135EF778B DoDoIt
-
-: ME_551544E2001A_ME_1C9135EF778B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_1C9135EF778B GetResultTypeInfo
-
-: ME_559687E6025A_ME_1C9135EF778B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_1C9135EF778B GetAllParamsCount
-
-: ME_5617F4D00243_ME_1C9135EF778B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_1C9135EF778B ParamsTypes
 
 : ME_1C9135EF778B
  CONST UID '1C9135EF778B'
@@ -1250,7 +519,7 @@ ref; // ME_5617F4D00243_ME_1C9135EF778B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ExprEditor:Fake'#13#10'*Пример:*'#13#10'{code}'#13#10' aExprEditor pop:ExprEditor:Fake'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ExprEditor:Fake' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55C8CDFC039B // TExprEditorWordsPack
@@ -1259,37 +528,17 @@ ref; // ME_5617F4D00243_ME_1C9135EF778B ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F9F482E814E0 // Fake
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_1C9135EF778B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_1C9135EF778B // GetResultTypeInfo
- ME_559687E6025A_ME_1C9135EF778B // GetAllParamsCount
- ME_5617F4D00243_ME_1C9135EF778B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9B17CF9B1FE7 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ExprEditor:Fake'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopExprEditorFake'
  CONST extprop:rc:SelfName 'PopExprEditorFake'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
  ;
  : SpelledFor ME_55C8CE280375 // Fake
- ;
- : Stub ME_F9F482E814E0 // Fake
  ;
 
 ref; // ME_1C9135EF778B pop_ExprEditor_Fake
@@ -1303,45 +552,10 @@ ref; // ME_1C9135EF778B pop_ExprEditor_Fake
  CONST Abstraction at_final
  : Parent ME_55C8CDFC039B // TExprEditorWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_1C9135EF778B // pop_ExprEditor_Fake
  ;
 
 ref; // ME_55C8CE280375 Fake
-
-: ME_CFA3EB53C7A6
- CONST UID 'CFA3EB53C7A6'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CDFC039B // TExprEditorWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_CFA3EB53C7A6 Reg_Type_TtfwContext
-
-: ME_8C9F98DEC8B9
- CONST UID '8C9F98DEC8B9'
- CONST Name 'Reg_Type_TExprEditor'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TExprEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55C8CDFC039B // TExprEditorWordsPack
- ;
- : SpelledFor WL 'ME_4F57640C0241' '4DFB501A00F4.pas.ms.script' // TExprEditor
- ;
-
-ref; // ME_8C9F98DEC8B9 Reg_Type_TExprEditor
 
 : ME_A0ABE8C2982C
  CONST IsSummoned true
@@ -1370,8 +584,6 @@ ref; // ME_A0ABE8C2982C
  ; // Inherits
  : Operations
    Seq: ( ME_55C8CE280375 // Fake
- ME_CFA3EB53C7A6 // Reg_Type_TtfwContext
- ME_8C9F98DEC8B9 // Reg_Type_TExprEditor
  )
  ; // Operations
  : Children
@@ -1383,10 +595,6 @@ ref; // ME_A0ABE8C2982C
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas'
 
 ref; // ME_55C8CDFC039B TExprEditorWordsPack
@@ -1411,8 +619,6 @@ ref; // ME_55C8CDFC039B TExprEditorWordsPack
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4DFB501A00F4' '4DFB501A00F4.pas.ms.script' // CommonDialogs
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )

@@ -8,92 +8,13 @@ FORWARD ME_5190B264037C
 
 FORWARD ME_69F0C68E7956
 
-FORWARD ME_7040B1F6FD7B
-
 FORWARD ME_B42B6353E972
-
-: ME_BB8DB8F1029A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_BB8DB8F1029A aCtx
-
-: ME_BB8DB8F1029B
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_BB8DB8F1029B aFont
-
-: ME_7040B1F6FD7B
- CONST UID '7040B1F6FD7B'
- CONST Name 'Color'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:Color' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B42B6353E972 // Font_Color
- ;
- : Target WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
- ;
- : Parameters
-   Seq: ( ME_BB8DB8F1029A // aCtx
- ME_BB8DB8F1029B // aFont
- )
- ; // Parameters
- : SpelledFor ME_69F0C68E7956 // Color
- ;
-
-ref; // ME_7040B1F6FD7B Color
-
-: ME_10D607BCA0FF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B42B6353E972 // Font_Color
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_10D607BCA0FF 
 
 : ME_4DAEEDE10285_ME_B42B6353E972
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B42B6353E972 DoDoIt
-
-: ME_52D00B00031A_ME_B42B6353E972
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_B42B6353E972 SetValuePrim
-
-: ME_551544E2001A_ME_B42B6353E972
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B42B6353E972 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B42B6353E972
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B42B6353E972 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B42B6353E972
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
 
 : ME_B42B6353E972
  CONST UID 'B42B6353E972'
@@ -102,7 +23,7 @@ ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:Color'#13#10'*Тип результата:* Tl3Color'#13#10'*Пример:*'#13#10'{code}'#13#10'TColor VAR l_Tl3Color'#13#10' aFont Font:Color >>> l_Tl3Color'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:Color' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -111,30 +32,11 @@ ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7040B1F6FD7B // Color
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B42B6353E972 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_B42B6353E972 // SetValuePrim
- ME_551544E2001A_ME_B42B6353E972 // GetResultTypeInfo
- ME_559687E6025A_ME_B42B6353E972 // GetAllParamsCount
- ME_5617F4D00243_ME_B42B6353E972 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_10D607BCA0FF // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:Color'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontColor'
  CONST extprop:rc:SelfName 'FontColor'
  CONST extprop:rc:isAcceptableForScripts true
@@ -142,99 +44,18 @@ ref; // ME_5617F4D00243_ME_B42B6353E972 ParamsTypes
  ;
  : SpelledFor ME_69F0C68E7956 // Color
  ;
- : Stub ME_7040B1F6FD7B // Color
- ;
 
 ref; // ME_B42B6353E972 Font_Color
 
 FORWARD ME_F9B0C6DC0985
 
-FORWARD ME_85B9473C71C2
-
 FORWARD ME_ADDA8C159EED
-
-: ME_A96546F8CA27
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A96546F8CA27 aCtx
-
-: ME_A96546F8CA28
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_A96546F8CA28 aFont
-
-: ME_85B9473C71C2
- CONST UID '85B9473C71C2'
- CONST Name 'BackColor'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:BackColor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_ADDA8C159EED // Font_BackColor
- ;
- : Target WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
- ;
- : Parameters
-   Seq: ( ME_A96546F8CA27 // aCtx
- ME_A96546F8CA28 // aFont
- )
- ; // Parameters
- : SpelledFor ME_F9B0C6DC0985 // BackColor
- ;
-
-ref; // ME_85B9473C71C2 BackColor
-
-: ME_EA23D7A2EF10
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_ADDA8C159EED // Font_BackColor
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_EA23D7A2EF10 
 
 : ME_4DAEEDE10285_ME_ADDA8C159EED
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_ADDA8C159EED DoDoIt
-
-: ME_52D00B00031A_ME_ADDA8C159EED
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_ADDA8C159EED SetValuePrim
-
-: ME_551544E2001A_ME_ADDA8C159EED
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_ADDA8C159EED GetResultTypeInfo
-
-: ME_559687E6025A_ME_ADDA8C159EED
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_ADDA8C159EED GetAllParamsCount
-
-: ME_5617F4D00243_ME_ADDA8C159EED
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
 
 : ME_ADDA8C159EED
  CONST UID 'ADDA8C159EED'
@@ -243,7 +64,7 @@ ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:BackColor'#13#10'*Тип результата:* Tl3Color'#13#10'*Пример:*'#13#10'{code}'#13#10'TColor VAR l_Tl3Color'#13#10' aFont Font:BackColor >>> l_Tl3Color'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:BackColor' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -252,30 +73,11 @@ ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_85B9473C71C2 // BackColor
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_ADDA8C159EED // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_ADDA8C159EED // SetValuePrim
- ME_551544E2001A_ME_ADDA8C159EED // GetResultTypeInfo
- ME_559687E6025A_ME_ADDA8C159EED // GetAllParamsCount
- ME_5617F4D00243_ME_ADDA8C159EED // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_EA23D7A2EF10 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:BackColor'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontBackColor'
  CONST extprop:rc:SelfName 'FontBackColor'
  CONST extprop:rc:isAcceptableForScripts true
@@ -283,99 +85,18 @@ ref; // ME_5617F4D00243_ME_ADDA8C159EED ParamsTypes
  ;
  : SpelledFor ME_F9B0C6DC0985 // BackColor
  ;
- : Stub ME_85B9473C71C2 // BackColor
- ;
 
 ref; // ME_ADDA8C159EED Font_BackColor
 
 FORWARD ME_42937118B88F
 
-FORWARD ME_F4864359618B
-
 FORWARD ME_6426AF77D4E5
-
-: ME_056882B046AD
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_056882B046AD aCtx
-
-: ME_056882B046AE
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_056882B046AE aFont
-
-: ME_F4864359618B
- CONST UID 'F4864359618B'
- CONST Name 'IsBold'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:IsBold' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_6426AF77D4E5 // Font_IsBold
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_056882B046AD // aCtx
- ME_056882B046AE // aFont
- )
- ; // Parameters
- : SpelledFor ME_42937118B88F // IsBold
- ;
-
-ref; // ME_F4864359618B IsBold
-
-: ME_1E09FCD099AA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_6426AF77D4E5 // Font_IsBold
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_1E09FCD099AA 
 
 : ME_4DAEEDE10285_ME_6426AF77D4E5
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_6426AF77D4E5 DoDoIt
-
-: ME_52D00B00031A_ME_6426AF77D4E5
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_6426AF77D4E5 SetValuePrim
-
-: ME_551544E2001A_ME_6426AF77D4E5
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_6426AF77D4E5 GetResultTypeInfo
-
-: ME_559687E6025A_ME_6426AF77D4E5
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_6426AF77D4E5 GetAllParamsCount
-
-: ME_5617F4D00243_ME_6426AF77D4E5
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
 
 : ME_6426AF77D4E5
  CONST UID '6426AF77D4E5'
@@ -384,7 +105,7 @@ ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:IsBold'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aFont Font:IsBold >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:IsBold' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -393,30 +114,11 @@ ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F4864359618B // IsBold
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_6426AF77D4E5 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_6426AF77D4E5 // SetValuePrim
- ME_551544E2001A_ME_6426AF77D4E5 // GetResultTypeInfo
- ME_559687E6025A_ME_6426AF77D4E5 // GetAllParamsCount
- ME_5617F4D00243_ME_6426AF77D4E5 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_1E09FCD099AA // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:IsBold'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontIsBold'
  CONST extprop:rc:SelfName 'FontIsBold'
  CONST extprop:rc:isAcceptableForScripts true
@@ -424,99 +126,18 @@ ref; // ME_5617F4D00243_ME_6426AF77D4E5 ParamsTypes
  ;
  : SpelledFor ME_42937118B88F // IsBold
  ;
- : Stub ME_F4864359618B // IsBold
- ;
 
 ref; // ME_6426AF77D4E5 Font_IsBold
 
 FORWARD ME_451C4035B290
 
-FORWARD ME_3EC3A4D3FAB3
-
 FORWARD ME_FAD60EB55765
-
-: ME_E03BB8AF9D83
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E03BB8AF9D83 aCtx
-
-: ME_E03BB8AF9D84
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_E03BB8AF9D84 aFont
-
-: ME_3EC3A4D3FAB3
- CONST UID '3EC3A4D3FAB3'
- CONST Name 'IsItalic'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:IsItalic' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FAD60EB55765 // Font_IsItalic
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_E03BB8AF9D83 // aCtx
- ME_E03BB8AF9D84 // aFont
- )
- ; // Parameters
- : SpelledFor ME_451C4035B290 // IsItalic
- ;
-
-ref; // ME_3EC3A4D3FAB3 IsItalic
-
-: ME_95E947FCF90C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FAD60EB55765 // Font_IsItalic
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_95E947FCF90C 
 
 : ME_4DAEEDE10285_ME_FAD60EB55765
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FAD60EB55765 DoDoIt
-
-: ME_52D00B00031A_ME_FAD60EB55765
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_FAD60EB55765 SetValuePrim
-
-: ME_551544E2001A_ME_FAD60EB55765
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_FAD60EB55765 GetResultTypeInfo
-
-: ME_559687E6025A_ME_FAD60EB55765
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_FAD60EB55765 GetAllParamsCount
-
-: ME_5617F4D00243_ME_FAD60EB55765
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
 
 : ME_FAD60EB55765
  CONST UID 'FAD60EB55765'
@@ -525,7 +146,7 @@ ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:IsItalic'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aFont Font:IsItalic >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:IsItalic' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -534,30 +155,11 @@ ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3EC3A4D3FAB3 // IsItalic
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_FAD60EB55765 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_FAD60EB55765 // SetValuePrim
- ME_551544E2001A_ME_FAD60EB55765 // GetResultTypeInfo
- ME_559687E6025A_ME_FAD60EB55765 // GetAllParamsCount
- ME_5617F4D00243_ME_FAD60EB55765 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_95E947FCF90C // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:IsItalic'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontIsItalic'
  CONST extprop:rc:SelfName 'FontIsItalic'
  CONST extprop:rc:isAcceptableForScripts true
@@ -565,99 +167,18 @@ ref; // ME_5617F4D00243_ME_FAD60EB55765 ParamsTypes
  ;
  : SpelledFor ME_451C4035B290 // IsItalic
  ;
- : Stub ME_3EC3A4D3FAB3 // IsItalic
- ;
 
 ref; // ME_FAD60EB55765 Font_IsItalic
 
 FORWARD ME_6B90D10D9839
 
-FORWARD ME_F84904DE8371
-
 FORWARD ME_0A56585439B0
-
-: ME_F6ABCBC7D9D4
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F6ABCBC7D9D4 aCtx
-
-: ME_F6ABCBC7D9D5
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_F6ABCBC7D9D5 aFont
-
-: ME_F84904DE8371
- CONST UID 'F84904DE8371'
- CONST Name 'IsUnderline'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:IsUnderline' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0A56585439B0 // Font_IsUnderline
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_F6ABCBC7D9D4 // aCtx
- ME_F6ABCBC7D9D5 // aFont
- )
- ; // Parameters
- : SpelledFor ME_6B90D10D9839 // IsUnderline
- ;
-
-ref; // ME_F84904DE8371 IsUnderline
-
-: ME_E48C49C2C8DF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0A56585439B0 // Font_IsUnderline
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E48C49C2C8DF 
 
 : ME_4DAEEDE10285_ME_0A56585439B0
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0A56585439B0 DoDoIt
-
-: ME_52D00B00031A_ME_0A56585439B0
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_0A56585439B0 SetValuePrim
-
-: ME_551544E2001A_ME_0A56585439B0
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0A56585439B0 GetResultTypeInfo
-
-: ME_559687E6025A_ME_0A56585439B0
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0A56585439B0 GetAllParamsCount
-
-: ME_5617F4D00243_ME_0A56585439B0
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
 
 : ME_0A56585439B0
  CONST UID '0A56585439B0'
@@ -666,7 +187,7 @@ ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:IsUnderline'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aFont Font:IsUnderline >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:IsUnderline' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -675,30 +196,11 @@ ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F84904DE8371 // IsUnderline
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0A56585439B0 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_0A56585439B0 // SetValuePrim
- ME_551544E2001A_ME_0A56585439B0 // GetResultTypeInfo
- ME_559687E6025A_ME_0A56585439B0 // GetAllParamsCount
- ME_5617F4D00243_ME_0A56585439B0 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E48C49C2C8DF // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:IsUnderline'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontIsUnderline'
  CONST extprop:rc:SelfName 'FontIsUnderline'
  CONST extprop:rc:isAcceptableForScripts true
@@ -706,99 +208,18 @@ ref; // ME_5617F4D00243_ME_0A56585439B0 ParamsTypes
  ;
  : SpelledFor ME_6B90D10D9839 // IsUnderline
  ;
- : Stub ME_F84904DE8371 // IsUnderline
- ;
 
 ref; // ME_0A56585439B0 Font_IsUnderline
 
 FORWARD ME_07EFCC131FBD
 
-FORWARD ME_56B18ED23F7B
-
 FORWARD ME_48690441DF69
-
-: ME_7D295733CEEC
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7D295733CEEC aCtx
-
-: ME_7D295733CEED
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_7D295733CEED aFont
-
-: ME_56B18ED23F7B
- CONST UID '56B18ED23F7B'
- CONST Name 'IsStrikeOut'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:IsStrikeOut' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_48690441DF69 // Font_IsStrikeOut
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_7D295733CEEC // aCtx
- ME_7D295733CEED // aFont
- )
- ; // Parameters
- : SpelledFor ME_07EFCC131FBD // IsStrikeOut
- ;
-
-ref; // ME_56B18ED23F7B IsStrikeOut
-
-: ME_885647D387E7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48690441DF69 // Font_IsStrikeOut
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_885647D387E7 
 
 : ME_4DAEEDE10285_ME_48690441DF69
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_48690441DF69 DoDoIt
-
-: ME_52D00B00031A_ME_48690441DF69
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_48690441DF69 SetValuePrim
-
-: ME_551544E2001A_ME_48690441DF69
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_48690441DF69 GetResultTypeInfo
-
-: ME_559687E6025A_ME_48690441DF69
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_48690441DF69 GetAllParamsCount
-
-: ME_5617F4D00243_ME_48690441DF69
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
 
 : ME_48690441DF69
  CONST UID '48690441DF69'
@@ -807,7 +228,7 @@ ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:IsStrikeOut'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aFont Font:IsStrikeOut >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:IsStrikeOut' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -816,30 +237,11 @@ ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_56B18ED23F7B // IsStrikeOut
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_48690441DF69 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_48690441DF69 // SetValuePrim
- ME_551544E2001A_ME_48690441DF69 // GetResultTypeInfo
- ME_559687E6025A_ME_48690441DF69 // GetAllParamsCount
- ME_5617F4D00243_ME_48690441DF69 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_885647D387E7 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:IsStrikeOut'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontIsStrikeOut'
  CONST extprop:rc:SelfName 'FontIsStrikeOut'
  CONST extprop:rc:isAcceptableForScripts true
@@ -847,99 +249,18 @@ ref; // ME_5617F4D00243_ME_48690441DF69 ParamsTypes
  ;
  : SpelledFor ME_07EFCC131FBD // IsStrikeOut
  ;
- : Stub ME_56B18ED23F7B // IsStrikeOut
- ;
 
 ref; // ME_48690441DF69 Font_IsStrikeOut
 
 FORWARD ME_F619DAD50B87
 
-FORWARD ME_5822CA56AAFA
-
 FORWARD ME_7A73CF636A32
-
-: ME_E9C0BF37D400
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E9C0BF37D400 aCtx
-
-: ME_E9C0BF37D401
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_E9C0BF37D401 aFont
-
-: ME_5822CA56AAFA
- CONST UID '5822CA56AAFA'
- CONST Name 'Name'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:Name' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7A73CF636A32 // Font_Name
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_E9C0BF37D400 // aCtx
- ME_E9C0BF37D401 // aFont
- )
- ; // Parameters
- : SpelledFor ME_F619DAD50B87 // Name
- ;
-
-ref; // ME_5822CA56AAFA Name
-
-: ME_51A878C2ECF5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7A73CF636A32 // Font_Name
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_51A878C2ECF5 
 
 : ME_4DAEEDE10285_ME_7A73CF636A32
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_7A73CF636A32 DoDoIt
-
-: ME_52D00B00031A_ME_7A73CF636A32
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_7A73CF636A32 SetValuePrim
-
-: ME_551544E2001A_ME_7A73CF636A32
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_7A73CF636A32 GetResultTypeInfo
-
-: ME_559687E6025A_ME_7A73CF636A32
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_7A73CF636A32 GetAllParamsCount
-
-: ME_5617F4D00243_ME_7A73CF636A32
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
 
 : ME_7A73CF636A32
  CONST UID '7A73CF636A32'
@@ -948,7 +269,7 @@ ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:Name'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aFont Font:Name >>> l_String'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:Name' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -957,30 +278,11 @@ ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5822CA56AAFA // Name
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_7A73CF636A32 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_7A73CF636A32 // SetValuePrim
- ME_551544E2001A_ME_7A73CF636A32 // GetResultTypeInfo
- ME_559687E6025A_ME_7A73CF636A32 // GetAllParamsCount
- ME_5617F4D00243_ME_7A73CF636A32 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_51A878C2ECF5 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:Name'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontName'
  CONST extprop:rc:SelfName 'FontName'
  CONST extprop:rc:isAcceptableForScripts true
@@ -988,99 +290,18 @@ ref; // ME_5617F4D00243_ME_7A73CF636A32 ParamsTypes
  ;
  : SpelledFor ME_F619DAD50B87 // Name
  ;
- : Stub ME_5822CA56AAFA // Name
- ;
 
 ref; // ME_7A73CF636A32 Font_Name
 
 FORWARD ME_B6BEEE7F8558
 
-FORWARD ME_88C29661A1A9
-
 FORWARD ME_F76B0EA46A07
-
-: ME_D42DB2C00077
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D42DB2C00077 aCtx
-
-: ME_D42DB2C00078
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_D42DB2C00078 aFont
-
-: ME_88C29661A1A9
- CONST UID '88C29661A1A9'
- CONST Name 'Size'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Font:Size' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F76B0EA46A07 // Font_Size
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_D42DB2C00077 // aCtx
- ME_D42DB2C00078 // aFont
- )
- ; // Parameters
- : SpelledFor ME_B6BEEE7F8558 // Size
- ;
-
-ref; // ME_88C29661A1A9 Size
-
-: ME_12C9A959F14F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F76B0EA46A07 // Font_Size
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_12C9A959F14F 
 
 : ME_4DAEEDE10285_ME_F76B0EA46A07
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F76B0EA46A07 DoDoIt
-
-: ME_52D00B00031A_ME_F76B0EA46A07
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_F76B0EA46A07 SetValuePrim
-
-: ME_551544E2001A_ME_F76B0EA46A07
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F76B0EA46A07 GetResultTypeInfo
-
-: ME_559687E6025A_ME_F76B0EA46A07
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F76B0EA46A07 GetAllParamsCount
-
-: ME_5617F4D00243_ME_F76B0EA46A07
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F76B0EA46A07 ParamsTypes
 
 : ME_F76B0EA46A07
  CONST UID 'F76B0EA46A07'
@@ -1089,7 +310,7 @@ ref; // ME_5617F4D00243_ME_F76B0EA46A07 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Font:Size'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aFont Font:Size >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Font:Size' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_5190B264037C // FontWordsPack
@@ -1098,38 +319,17 @@ ref; // ME_5617F4D00243_ME_F76B0EA46A07 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_88C29661A1A9 // Size
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F76B0EA46A07 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_F76B0EA46A07 // SetValuePrim
- ME_551544E2001A_ME_F76B0EA46A07 // GetResultTypeInfo
- ME_559687E6025A_ME_F76B0EA46A07 // GetAllParamsCount
- ME_5617F4D00243_ME_F76B0EA46A07 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_12C9A959F14F // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Font:Size'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwFontSize'
  CONST extprop:rc:SelfName 'FontSize'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
  ;
  : SpelledFor ME_B6BEEE7F8558 // Size
- ;
- : Stub ME_88C29661A1A9 // Size
  ;
 
 ref; // ME_F76B0EA46A07 Font_Size
@@ -1146,7 +346,6 @@ ref; // ME_F76B0EA46A07 Font_Size
  ;
  : Target WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F27CA0030 Color
 
@@ -1162,7 +361,6 @@ ref; // ME_556F27CA0030 Color
  ;
  : Target WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F27D901F0 BackColor
 
@@ -1178,7 +376,6 @@ ref; // ME_556F27D901F0 BackColor
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F27FE01C0 IsBold
 
@@ -1194,7 +391,6 @@ ref; // ME_556F27FE01C0 IsBold
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F280F0160 IsItalic
 
@@ -1210,7 +406,6 @@ ref; // ME_556F280F0160 IsItalic
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F281A0381 IsUnderline
 
@@ -1226,7 +421,6 @@ ref; // ME_556F281A0381 IsUnderline
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F282902E9 IsStrikeOut
 
@@ -1242,7 +436,6 @@ ref; // ME_556F282902E9 IsStrikeOut
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F2856019F Name
 
@@ -1258,7 +451,6 @@ ref; // ME_556F2856019F Name
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_556F2867022F Size
 
@@ -1274,9 +466,6 @@ ref; // ME_556F2867022F Size
  ;
  : Target WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Color'
  : Speller ME_B42B6353E972 // Font_Color
@@ -1296,9 +485,6 @@ ref; // ME_69F0C68E7956 Color
  ;
  : Target WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'BackColor'
  : Speller ME_ADDA8C159EED // Font_BackColor
@@ -1318,9 +504,6 @@ ref; // ME_F9B0C6DC0985 BackColor
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsBold'
  : Speller ME_6426AF77D4E5 // Font_IsBold
@@ -1340,9 +523,6 @@ ref; // ME_42937118B88F IsBold
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsItalic'
  : Speller ME_FAD60EB55765 // Font_IsItalic
@@ -1362,9 +542,6 @@ ref; // ME_451C4035B290 IsItalic
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsUnderline'
  : Speller ME_0A56585439B0 // Font_IsUnderline
@@ -1384,9 +561,6 @@ ref; // ME_6B90D10D9839 IsUnderline
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsStrikeOut'
  : Speller ME_48690441DF69 // Font_IsStrikeOut
@@ -1406,9 +580,6 @@ ref; // ME_07EFCC131FBD IsStrikeOut
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Name'
  : Speller ME_7A73CF636A32 // Font_Name
@@ -1428,111 +599,12 @@ ref; // ME_F619DAD50B87 Name
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Size'
  : Speller ME_F76B0EA46A07 // Font_Size
  ;
 
 ref; // ME_B6BEEE7F8558 Size
-
-: ME_B2258C08045C
- CONST UID 'B2258C08045C'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B2258C08045C Reg_Type_TtfwContext
-
-: ME_1459AED2A6E8
- CONST UID '1459AED2A6E8'
- CONST Name 'Reg_Type_Il3FontInfo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Il3FontInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : SpelledFor WL 'ME_46A60B17028B' '4677FBA70343.pas.ms.script' // Il3FontInfo
- ;
-
-ref; // ME_1459AED2A6E8 Reg_Type_Il3FontInfo
-
-: ME_2A9AE7F23D93
- CONST UID '2A9AE7F23D93'
- CONST Name 'Reg_Type_Tl3Color'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Tl3Color' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : SpelledFor WL 'ME_47703C1700DF' '46A5E026007E.pas.ms.script' // Tl3Color
- ;
-
-ref; // ME_2A9AE7F23D93 Reg_Type_Tl3Color
-
-: ME_E338E023099C
- CONST UID 'E338E023099C'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_E338E023099C Reg_Type_Boolean
-
-: ME_AEA60866D2B0
- CONST UID 'AEA60866D2B0'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_AEA60866D2B0 Reg_Type_String
-
-: ME_C10242DFCC38
- CONST UID 'C10242DFCC38'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5190B264037C // FontWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C10242DFCC38 Reg_Type_Integer
 
 : ME_99FA010D15B4
  CONST IsSummoned true
@@ -1649,12 +721,6 @@ ref; // ME_46A60F89031E_ME_5190B264037C Index
  ME_07EFCC131FBD // IsStrikeOut
  ME_F619DAD50B87 // Name
  ME_B6BEEE7F8558 // Size
- ME_B2258C08045C // Reg_Type_TtfwContext
- ME_1459AED2A6E8 // Reg_Type_Il3FontInfo
- ME_2A9AE7F23D93 // Reg_Type_Tl3Color
- ME_E338E023099C // Reg_Type_Boolean
- ME_AEA60866D2B0 // Reg_Type_String
- ME_C10242DFCC38 // Reg_Type_Integer
  )
  ; // Operations
  : Implemented
@@ -1686,9 +752,6 @@ ref; // ME_46A60F89031E_ME_5190B264037C Index
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" true
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\FontWordsPack.pas'
 
@@ -1708,10 +771,8 @@ ref; // ME_5190B264037C FontWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping

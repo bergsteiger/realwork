@@ -8,95 +8,13 @@ FORWARD ME_54EC8C7C011E
 
 FORWARD ME_55B7A59500C7
 
-FORWARD ME_D4660B294082
-
 FORWARD ME_B7676CD1AAB3
-
-: ME_E1CE64B76EE8
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E1CE64B76EE8 aCtx
-
-: ME_E1CE64B76EE9
- CONST Name 'aComboBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_E1CE64B76EE9 aComboBox
-
-: ME_E1CE64B76EEA
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_E1CE64B76EEA aValue
-
-: ME_D4660B294082
- CONST UID 'D4660B294082'
- CONST Name 'DropDown'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboBox:DropDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B7676CD1AAB3 // pop_ComboBox_DropDown
- ;
- : Parameters
-   Seq: ( ME_E1CE64B76EE8 // aCtx
- ME_E1CE64B76EE9 // aComboBox
- ME_E1CE64B76EEA // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B7A59500C7 // DropDown
- ;
-
-ref; // ME_D4660B294082 DropDown
-
-: ME_893685CBB0C8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B7676CD1AAB3 // pop_ComboBox_DropDown
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_893685CBB0C8 
 
 : ME_4DAEEDE10285_ME_B7676CD1AAB3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B7676CD1AAB3 DoDoIt
-
-: ME_551544E2001A_ME_B7676CD1AAB3
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B7676CD1AAB3 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B7676CD1AAB3
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B7676CD1AAB3 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B7676CD1AAB3
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B7676CD1AAB3 ParamsTypes
 
 : ME_B7676CD1AAB3
  CONST UID 'B7676CD1AAB3'
@@ -105,7 +23,7 @@ ref; // ME_5617F4D00243_ME_B7676CD1AAB3 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboBox:DropDown'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aComboBox pop:ComboBox:DropDown'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboBox:DropDown' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -114,29 +32,11 @@ ref; // ME_5617F4D00243_ME_B7676CD1AAB3 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D4660B294082 // DropDown
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B7676CD1AAB3 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_B7676CD1AAB3 // GetResultTypeInfo
- ME_559687E6025A_ME_B7676CD1AAB3 // GetAllParamsCount
- ME_5617F4D00243_ME_B7676CD1AAB3 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_893685CBB0C8 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboBox:DropDown'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboBoxDropDown'
  CONST extprop:rc:SelfName 'PopComboBoxDropDown'
  CONST extprop:rc:isAcceptableForScripts true
@@ -144,93 +44,18 @@ ref; // ME_5617F4D00243_ME_B7676CD1AAB3 ParamsTypes
  ;
  : SpelledFor ME_55B7A59500C7 // DropDown
  ;
- : Stub ME_D4660B294082 // DropDown
- ;
 
 ref; // ME_B7676CD1AAB3 pop_ComboBox_DropDown
 
 FORWARD ME_55B7A5B502F8
 
-FORWARD ME_0DE7BD329B92
-
 FORWARD ME_731890DC5F90
-
-: ME_5BA69E8BE3BA
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5BA69E8BE3BA aCtx
-
-: ME_5BA69E8BE3BB
- CONST Name 'aComboBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_5BA69E8BE3BB aComboBox
-
-: ME_0DE7BD329B92
- CONST UID '0DE7BD329B92'
- CONST Name 'GetItemIndex'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboBox:GetItemIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_731890DC5F90 // pop_ComboBox_GetItemIndex
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_5BA69E8BE3BA // aCtx
- ME_5BA69E8BE3BB // aComboBox
- )
- ; // Parameters
- : SpelledFor ME_55B7A5B502F8 // GetItemIndex
- ;
-
-ref; // ME_0DE7BD329B92 GetItemIndex
-
-: ME_77EFCE143E40
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_731890DC5F90 // pop_ComboBox_GetItemIndex
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_77EFCE143E40 
 
 : ME_4DAEEDE10285_ME_731890DC5F90
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_731890DC5F90 DoDoIt
-
-: ME_551544E2001A_ME_731890DC5F90
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_731890DC5F90 GetResultTypeInfo
-
-: ME_559687E6025A_ME_731890DC5F90
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_731890DC5F90 GetAllParamsCount
-
-: ME_5617F4D00243_ME_731890DC5F90
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_731890DC5F90 ParamsTypes
 
 : ME_731890DC5F90
  CONST UID '731890DC5F90'
@@ -239,7 +64,7 @@ ref; // ME_5617F4D00243_ME_731890DC5F90 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboBox:GetItemIndex'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aComboBox pop:ComboBox:GetItemIndex >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboBox:GetItemIndex' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -248,29 +73,11 @@ ref; // ME_5617F4D00243_ME_731890DC5F90 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0DE7BD329B92 // GetItemIndex
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_731890DC5F90 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_731890DC5F90 // GetResultTypeInfo
- ME_559687E6025A_ME_731890DC5F90 // GetAllParamsCount
- ME_5617F4D00243_ME_731890DC5F90 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_77EFCE143E40 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboBox:GetItemIndex'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboBoxGetItemIndex'
  CONST extprop:rc:SelfName 'PopComboBoxGetItemIndex'
  CONST extprop:rc:isAcceptableForScripts true
@@ -278,104 +85,18 @@ ref; // ME_5617F4D00243_ME_731890DC5F90 ParamsTypes
  ;
  : SpelledFor ME_55B7A5B502F8 // GetItemIndex
  ;
- : Stub ME_0DE7BD329B92 // GetItemIndex
- ;
 
 ref; // ME_731890DC5F90 pop_ComboBox_GetItemIndex
 
 FORWARD ME_55B7A5CD03A9
 
-FORWARD ME_56A99D643C95
-
 FORWARD ME_697C86093610
-
-: ME_2630CF029070
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_2630CF029070 aCtx
-
-: ME_2630CF029071
- CONST Name 'aComboBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_2630CF029071 aComboBox
-
-: ME_2630CF029072
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_2630CF029072 aString
-
-: ME_56A99D643C95
- CONST UID '56A99D643C95'
- CONST Name 'IndexOf'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboBox:IndexOf' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_697C86093610 // pop_ComboBox_IndexOf
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_2630CF029070 // aCtx
- ME_2630CF029071 // aComboBox
- ME_2630CF029072 // aString
- )
- ; // Parameters
- : SpelledFor ME_55B7A5CD03A9 // IndexOf
- ;
-
-ref; // ME_56A99D643C95 IndexOf
-
-: ME_DF5AC4220109
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_697C86093610 // pop_ComboBox_IndexOf
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DF5AC4220109 
 
 : ME_4DAEEDE10285_ME_697C86093610
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_697C86093610 DoDoIt
-
-: ME_551544E2001A_ME_697C86093610
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_697C86093610 GetResultTypeInfo
-
-: ME_559687E6025A_ME_697C86093610
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_697C86093610 GetAllParamsCount
-
-: ME_5617F4D00243_ME_697C86093610
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_697C86093610 ParamsTypes
 
 : ME_697C86093610
  CONST UID '697C86093610'
@@ -384,7 +105,7 @@ ref; // ME_5617F4D00243_ME_697C86093610 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboBox:IndexOf'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aString aComboBox pop:ComboBox:IndexOf >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboBox:IndexOf' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -393,29 +114,11 @@ ref; // ME_5617F4D00243_ME_697C86093610 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_56A99D643C95 // IndexOf
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_697C86093610 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_697C86093610 // GetResultTypeInfo
- ME_559687E6025A_ME_697C86093610 // GetAllParamsCount
- ME_5617F4D00243_ME_697C86093610 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DF5AC4220109 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboBox:IndexOf'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboBoxIndexOf'
  CONST extprop:rc:SelfName 'PopComboBoxIndexOf'
  CONST extprop:rc:isAcceptableForScripts true
@@ -423,102 +126,18 @@ ref; // ME_5617F4D00243_ME_697C86093610 ParamsTypes
  ;
  : SpelledFor ME_55B7A5CD03A9 // IndexOf
  ;
- : Stub ME_56A99D643C95 // IndexOf
- ;
 
 ref; // ME_697C86093610 pop_ComboBox_IndexOf
 
 FORWARD ME_55B7A5FB0027
 
-FORWARD ME_BC0BF0E96B69
-
 FORWARD ME_E94AE4FC3D32
-
-: ME_EFB56440A216
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_EFB56440A216 aCtx
-
-: ME_EFB56440A217
- CONST Name 'aComboBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_EFB56440A217 aComboBox
-
-: ME_EFB56440A218
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_EFB56440A218 aString
-
-: ME_BC0BF0E96B69
- CONST UID 'BC0BF0E96B69'
- CONST Name 'SelectItem'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboBox:SelectItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E94AE4FC3D32 // pop_ComboBox_SelectItem
- ;
- : Parameters
-   Seq: ( ME_EFB56440A216 // aCtx
- ME_EFB56440A217 // aComboBox
- ME_EFB56440A218 // aString
- )
- ; // Parameters
- : SpelledFor ME_55B7A5FB0027 // SelectItem
- ;
-
-ref; // ME_BC0BF0E96B69 SelectItem
-
-: ME_C7E6A4522756
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E94AE4FC3D32 // pop_ComboBox_SelectItem
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_C7E6A4522756 
 
 : ME_4DAEEDE10285_ME_E94AE4FC3D32
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E94AE4FC3D32 DoDoIt
-
-: ME_551544E2001A_ME_E94AE4FC3D32
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E94AE4FC3D32 GetResultTypeInfo
-
-: ME_559687E6025A_ME_E94AE4FC3D32
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E94AE4FC3D32 GetAllParamsCount
-
-: ME_5617F4D00243_ME_E94AE4FC3D32
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E94AE4FC3D32 ParamsTypes
 
 : ME_E94AE4FC3D32
  CONST UID 'E94AE4FC3D32'
@@ -527,7 +146,7 @@ ref; // ME_5617F4D00243_ME_E94AE4FC3D32 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboBox:SelectItem'#13#10'*Пример:*'#13#10'{code}'#13#10' aString aComboBox pop:ComboBox:SelectItem'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboBox:SelectItem' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -536,29 +155,11 @@ ref; // ME_5617F4D00243_ME_E94AE4FC3D32 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BC0BF0E96B69 // SelectItem
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_E94AE4FC3D32 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_E94AE4FC3D32 // GetResultTypeInfo
- ME_559687E6025A_ME_E94AE4FC3D32 // GetAllParamsCount
- ME_5617F4D00243_ME_E94AE4FC3D32 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C7E6A4522756 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboBox:SelectItem'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboBoxSelectItem'
  CONST extprop:rc:SelfName 'PopComboBoxSelectItem'
  CONST extprop:rc:isAcceptableForScripts true
@@ -566,102 +167,18 @@ ref; // ME_5617F4D00243_ME_E94AE4FC3D32 ParamsTypes
  ;
  : SpelledFor ME_55B7A5FB0027 // SelectItem
  ;
- : Stub ME_BC0BF0E96B69 // SelectItem
- ;
 
 ref; // ME_E94AE4FC3D32 pop_ComboBox_SelectItem
 
 FORWARD ME_55B7A6200240
 
-FORWARD ME_589DC0B1C0D3
-
 FORWARD ME_DF10F6F55A61
-
-: ME_1B4351BFBE75
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_1B4351BFBE75 aCtx
-
-: ME_1B4351BFBE76
- CONST Name 'aComboBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_1B4351BFBE76 aComboBox
-
-: ME_1B4351BFBE77
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_1B4351BFBE77 anIndex
-
-: ME_589DC0B1C0D3
- CONST UID '589DC0B1C0D3'
- CONST Name 'SetItemIndex'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboBox:SetItemIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_DF10F6F55A61 // pop_ComboBox_SetItemIndex
- ;
- : Parameters
-   Seq: ( ME_1B4351BFBE75 // aCtx
- ME_1B4351BFBE76 // aComboBox
- ME_1B4351BFBE77 // anIndex
- )
- ; // Parameters
- : SpelledFor ME_55B7A6200240 // SetItemIndex
- ;
-
-ref; // ME_589DC0B1C0D3 SetItemIndex
-
-: ME_105E0A8AE0F8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DF10F6F55A61 // pop_ComboBox_SetItemIndex
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_105E0A8AE0F8 
 
 : ME_4DAEEDE10285_ME_DF10F6F55A61
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_DF10F6F55A61 DoDoIt
-
-: ME_551544E2001A_ME_DF10F6F55A61
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_DF10F6F55A61 GetResultTypeInfo
-
-: ME_559687E6025A_ME_DF10F6F55A61
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_DF10F6F55A61 GetAllParamsCount
-
-: ME_5617F4D00243_ME_DF10F6F55A61
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_DF10F6F55A61 ParamsTypes
 
 : ME_DF10F6F55A61
  CONST UID 'DF10F6F55A61'
@@ -670,7 +187,7 @@ ref; // ME_5617F4D00243_ME_DF10F6F55A61 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboBox:SetItemIndex'#13#10'*Пример:*'#13#10'{code}'#13#10' anIndex aComboBox pop:ComboBox:SetItemIndex'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboBox:SetItemIndex' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -679,29 +196,11 @@ ref; // ME_5617F4D00243_ME_DF10F6F55A61 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_589DC0B1C0D3 // SetItemIndex
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_DF10F6F55A61 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_DF10F6F55A61 // GetResultTypeInfo
- ME_559687E6025A_ME_DF10F6F55A61 // GetAllParamsCount
- ME_5617F4D00243_ME_DF10F6F55A61 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_105E0A8AE0F8 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboBox:SetItemIndex'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboBoxSetItemIndex'
  CONST extprop:rc:SelfName 'PopComboBoxSetItemIndex'
  CONST extprop:rc:isAcceptableForScripts true
@@ -709,102 +208,18 @@ ref; // ME_5617F4D00243_ME_DF10F6F55A61 ParamsTypes
  ;
  : SpelledFor ME_55B7A6200240 // SetItemIndex
  ;
- : Stub ME_589DC0B1C0D3 // SetItemIndex
- ;
 
 ref; // ME_DF10F6F55A61 pop_ComboBox_SetItemIndex
 
 FORWARD ME_55B7A69E02F1
 
-FORWARD ME_414096239FD4
-
 FORWARD ME_F4F78563FAA5
-
-: ME_F61D2C4059C3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F61D2C4059C3 aCtx
-
-: ME_F61D2C4059C4
- CONST Name 'aComboBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_F61D2C4059C4 aComboBox
-
-: ME_F61D2C4059C5
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_F61D2C4059C5 aFileName
-
-: ME_414096239FD4
- CONST UID '414096239FD4'
- CONST Name 'SaveItems'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboBox:SaveItems' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4F78563FAA5 // pop_ComboBox_SaveItems
- ;
- : Parameters
-   Seq: ( ME_F61D2C4059C3 // aCtx
- ME_F61D2C4059C4 // aComboBox
- ME_F61D2C4059C5 // aFileName
- )
- ; // Parameters
- : SpelledFor ME_55B7A69E02F1 // SaveItems
- ;
-
-ref; // ME_414096239FD4 SaveItems
-
-: ME_EF861BCCF71E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F4F78563FAA5 // pop_ComboBox_SaveItems
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_EF861BCCF71E 
 
 : ME_4DAEEDE10285_ME_F4F78563FAA5
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F4F78563FAA5 DoDoIt
-
-: ME_551544E2001A_ME_F4F78563FAA5
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F4F78563FAA5 GetResultTypeInfo
-
-: ME_559687E6025A_ME_F4F78563FAA5
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F4F78563FAA5 GetAllParamsCount
-
-: ME_5617F4D00243_ME_F4F78563FAA5
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F4F78563FAA5 ParamsTypes
 
 : ME_F4F78563FAA5
  CONST UID 'F4F78563FAA5'
@@ -813,7 +228,7 @@ ref; // ME_5617F4D00243_ME_F4F78563FAA5 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboBox:SaveItems'#13#10'{panel}*Формат:* имя_файла  контрол pop:ComboBox:SaveItems '#13#10'*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.'#13#10'*Пример:*'#13#10'{code}'#13#10'''MyList.cmbx'' ''StyleComboBox'' byname:control:push pop:ComboBox:SaveItems'#13#10'{code} '#13#10'*Результат:* Сохраняет содержимое комбобокса ''StyleComboBox'' в  файл  ''MyList.cmbx'' и сравнивает с эталоном.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aFileName aComboBox pop:ComboBox:SaveItems'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboBox:SaveItems' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -822,29 +237,11 @@ ref; // ME_5617F4D00243_ME_F4F78563FAA5 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_414096239FD4 // SaveItems
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F4F78563FAA5 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_F4F78563FAA5 // GetResultTypeInfo
- ME_559687E6025A_ME_F4F78563FAA5 // GetAllParamsCount
- ME_5617F4D00243_ME_F4F78563FAA5 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_EF861BCCF71E // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboBox:SaveItems'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboBoxSaveItems'
  CONST extprop:rc:SelfName 'PopComboBoxSaveItems'
  CONST extprop:rc:isAcceptableForScripts true
@@ -852,100 +249,16 @@ ref; // ME_5617F4D00243_ME_F4F78563FAA5 ParamsTypes
  ;
  : SpelledFor ME_55B7A69E02F1 // SaveItems
  ;
- : Stub ME_414096239FD4 // SaveItems
- ;
 
 ref; // ME_F4F78563FAA5 pop_ComboBox_SaveItems
 
-FORWARD ME_BB9DD9C656EE
-
 FORWARD ME_CBB40EABEDB6
-
-: ME_A647F9E92716
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A647F9E92716 aCtx
-
-: ME_A647F9E92717
- CONST Name 'aComboTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_A647F9E92717 aComboTree
-
-: ME_A647F9E92718
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_A647F9E92718 aValue
-
-: ME_BB9DD9C656EE
- CONST UID 'BB9DD9C656EE'
- CONST Name 'DropDown'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboTree:DropDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CBB40EABEDB6 // pop_ComboTree_DropDown
- ;
- : Parameters
-   Seq: ( ME_A647F9E92716 // aCtx
- ME_A647F9E92717 // aComboTree
- ME_A647F9E92718 // aValue
- )
- ; // Parameters
- : SpelledFor ME_55B7A59500C7 // DropDown
- ;
-
-ref; // ME_BB9DD9C656EE DropDown
-
-: ME_9CE2006A5E5F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CBB40EABEDB6 // pop_ComboTree_DropDown
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_9CE2006A5E5F 
 
 : ME_4DAEEDE10285_ME_CBB40EABEDB6
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CBB40EABEDB6 DoDoIt
-
-: ME_551544E2001A_ME_CBB40EABEDB6
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_CBB40EABEDB6 GetResultTypeInfo
-
-: ME_559687E6025A_ME_CBB40EABEDB6
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_CBB40EABEDB6 GetAllParamsCount
-
-: ME_5617F4D00243_ME_CBB40EABEDB6
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_CBB40EABEDB6 ParamsTypes
 
 : ME_CBB40EABEDB6
  CONST UID 'CBB40EABEDB6'
@@ -954,7 +267,7 @@ ref; // ME_5617F4D00243_ME_CBB40EABEDB6 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboTree:DropDown'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aComboTree pop:ComboTree:DropDown'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboTree:DropDown' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -963,29 +276,11 @@ ref; // ME_5617F4D00243_ME_CBB40EABEDB6 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BB9DD9C656EE // DropDown
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_CBB40EABEDB6 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_CBB40EABEDB6 // GetResultTypeInfo
- ME_559687E6025A_ME_CBB40EABEDB6 // GetAllParamsCount
- ME_5617F4D00243_ME_CBB40EABEDB6 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9CE2006A5E5F // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboTree:DropDown'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboTreeDropDown'
  CONST extprop:rc:SelfName 'PopComboTreeDropDown'
  CONST extprop:rc:isAcceptableForScripts true
@@ -993,91 +288,16 @@ ref; // ME_5617F4D00243_ME_CBB40EABEDB6 ParamsTypes
  ;
  : SpelledFor ME_55B7A59500C7 // DropDown
  ;
- : Stub ME_BB9DD9C656EE // DropDown
- ;
 
 ref; // ME_CBB40EABEDB6 pop_ComboTree_DropDown
 
-FORWARD ME_1C4FCF6402FE
-
 FORWARD ME_FDB2008A1DAA
-
-: ME_9A0114FCAF06
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9A0114FCAF06 aCtx
-
-: ME_9A0114FCAF07
- CONST Name 'aComboTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_9A0114FCAF07 aComboTree
-
-: ME_1C4FCF6402FE
- CONST UID '1C4FCF6402FE'
- CONST Name 'GetItemIndex'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboTree:GetItemIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FDB2008A1DAA // pop_ComboTree_GetItemIndex
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_9A0114FCAF06 // aCtx
- ME_9A0114FCAF07 // aComboTree
- )
- ; // Parameters
- : SpelledFor ME_55B7A5B502F8 // GetItemIndex
- ;
-
-ref; // ME_1C4FCF6402FE GetItemIndex
-
-: ME_0692EE4DBE47
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FDB2008A1DAA // pop_ComboTree_GetItemIndex
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_0692EE4DBE47 
 
 : ME_4DAEEDE10285_ME_FDB2008A1DAA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FDB2008A1DAA DoDoIt
-
-: ME_551544E2001A_ME_FDB2008A1DAA
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_FDB2008A1DAA GetResultTypeInfo
-
-: ME_559687E6025A_ME_FDB2008A1DAA
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_FDB2008A1DAA GetAllParamsCount
-
-: ME_5617F4D00243_ME_FDB2008A1DAA
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_FDB2008A1DAA ParamsTypes
 
 : ME_FDB2008A1DAA
  CONST UID 'FDB2008A1DAA'
@@ -1086,7 +306,7 @@ ref; // ME_5617F4D00243_ME_FDB2008A1DAA ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboTree:GetItemIndex'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aComboTree pop:ComboTree:GetItemIndex >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboTree:GetItemIndex' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -1095,29 +315,11 @@ ref; // ME_5617F4D00243_ME_FDB2008A1DAA ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1C4FCF6402FE // GetItemIndex
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_FDB2008A1DAA // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_FDB2008A1DAA // GetResultTypeInfo
- ME_559687E6025A_ME_FDB2008A1DAA // GetAllParamsCount
- ME_5617F4D00243_ME_FDB2008A1DAA // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0692EE4DBE47 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboTree:GetItemIndex'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboTreeGetItemIndex'
  CONST extprop:rc:SelfName 'PopComboTreeGetItemIndex'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1125,102 +327,16 @@ ref; // ME_5617F4D00243_ME_FDB2008A1DAA ParamsTypes
  ;
  : SpelledFor ME_55B7A5B502F8 // GetItemIndex
  ;
- : Stub ME_1C4FCF6402FE // GetItemIndex
- ;
 
 ref; // ME_FDB2008A1DAA pop_ComboTree_GetItemIndex
 
-FORWARD ME_6E676C6B7B53
-
 FORWARD ME_C0C842FB1A8C
-
-: ME_8E24A670F3D7
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8E24A670F3D7 aCtx
-
-: ME_8E24A670F3D8
- CONST Name 'aComboTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_8E24A670F3D8 aComboTree
-
-: ME_8E24A670F3D9
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_8E24A670F3D9 aString
-
-: ME_6E676C6B7B53
- CONST UID '6E676C6B7B53'
- CONST Name 'IndexOf'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboTree:IndexOf' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C0C842FB1A8C // pop_ComboTree_IndexOf
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_8E24A670F3D7 // aCtx
- ME_8E24A670F3D8 // aComboTree
- ME_8E24A670F3D9 // aString
- )
- ; // Parameters
- : SpelledFor ME_55B7A5CD03A9 // IndexOf
- ;
-
-ref; // ME_6E676C6B7B53 IndexOf
-
-: ME_6CA13254F3D1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C0C842FB1A8C // pop_ComboTree_IndexOf
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_6CA13254F3D1 
 
 : ME_4DAEEDE10285_ME_C0C842FB1A8C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_C0C842FB1A8C DoDoIt
-
-: ME_551544E2001A_ME_C0C842FB1A8C
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_C0C842FB1A8C GetResultTypeInfo
-
-: ME_559687E6025A_ME_C0C842FB1A8C
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_C0C842FB1A8C GetAllParamsCount
-
-: ME_5617F4D00243_ME_C0C842FB1A8C
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_C0C842FB1A8C ParamsTypes
 
 : ME_C0C842FB1A8C
  CONST UID 'C0C842FB1A8C'
@@ -1229,7 +345,7 @@ ref; // ME_5617F4D00243_ME_C0C842FB1A8C ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboTree:IndexOf'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aString aComboTree pop:ComboTree:IndexOf >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboTree:IndexOf' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -1238,29 +354,11 @@ ref; // ME_5617F4D00243_ME_C0C842FB1A8C ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6E676C6B7B53 // IndexOf
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_C0C842FB1A8C // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_C0C842FB1A8C // GetResultTypeInfo
- ME_559687E6025A_ME_C0C842FB1A8C // GetAllParamsCount
- ME_5617F4D00243_ME_C0C842FB1A8C // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_6CA13254F3D1 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboTree:IndexOf'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboTreeIndexOf'
  CONST extprop:rc:SelfName 'PopComboTreeIndexOf'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1268,100 +366,16 @@ ref; // ME_5617F4D00243_ME_C0C842FB1A8C ParamsTypes
  ;
  : SpelledFor ME_55B7A5CD03A9 // IndexOf
  ;
- : Stub ME_6E676C6B7B53 // IndexOf
- ;
 
 ref; // ME_C0C842FB1A8C pop_ComboTree_IndexOf
 
-FORWARD ME_8E1C1B564723
-
 FORWARD ME_B5A21C7BEE37
-
-: ME_3EDAC8FB59B9
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_3EDAC8FB59B9 aCtx
-
-: ME_3EDAC8FB59BA
- CONST Name 'aComboTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_3EDAC8FB59BA aComboTree
-
-: ME_3EDAC8FB59BB
- CONST Name 'aString'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_3EDAC8FB59BB aString
-
-: ME_8E1C1B564723
- CONST UID '8E1C1B564723'
- CONST Name 'SelectItem'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboTree:SelectItem' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B5A21C7BEE37 // pop_ComboTree_SelectItem
- ;
- : Parameters
-   Seq: ( ME_3EDAC8FB59B9 // aCtx
- ME_3EDAC8FB59BA // aComboTree
- ME_3EDAC8FB59BB // aString
- )
- ; // Parameters
- : SpelledFor ME_55B7A5FB0027 // SelectItem
- ;
-
-ref; // ME_8E1C1B564723 SelectItem
-
-: ME_5D77E32ABD80
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B5A21C7BEE37 // pop_ComboTree_SelectItem
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_5D77E32ABD80 
 
 : ME_4DAEEDE10285_ME_B5A21C7BEE37
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B5A21C7BEE37 DoDoIt
-
-: ME_551544E2001A_ME_B5A21C7BEE37
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B5A21C7BEE37 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B5A21C7BEE37
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B5A21C7BEE37 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B5A21C7BEE37
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B5A21C7BEE37 ParamsTypes
 
 : ME_B5A21C7BEE37
  CONST UID 'B5A21C7BEE37'
@@ -1370,7 +384,7 @@ ref; // ME_5617F4D00243_ME_B5A21C7BEE37 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboTree:SelectItem'#13#10'*Пример:*'#13#10'{code}'#13#10' aString aComboTree pop:ComboTree:SelectItem'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboTree:SelectItem' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -1379,29 +393,11 @@ ref; // ME_5617F4D00243_ME_B5A21C7BEE37 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8E1C1B564723 // SelectItem
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B5A21C7BEE37 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_B5A21C7BEE37 // GetResultTypeInfo
- ME_559687E6025A_ME_B5A21C7BEE37 // GetAllParamsCount
- ME_5617F4D00243_ME_B5A21C7BEE37 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5D77E32ABD80 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboTree:SelectItem'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboTreeSelectItem'
  CONST extprop:rc:SelfName 'PopComboTreeSelectItem'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1409,100 +405,16 @@ ref; // ME_5617F4D00243_ME_B5A21C7BEE37 ParamsTypes
  ;
  : SpelledFor ME_55B7A5FB0027 // SelectItem
  ;
- : Stub ME_8E1C1B564723 // SelectItem
- ;
 
 ref; // ME_B5A21C7BEE37 pop_ComboTree_SelectItem
 
-FORWARD ME_6A72CBA7686D
-
 FORWARD ME_8C448529271A
-
-: ME_D657CF765B92
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D657CF765B92 aCtx
-
-: ME_D657CF765B93
- CONST Name 'aComboTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_D657CF765B93 aComboTree
-
-: ME_D657CF765B94
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_D657CF765B94 anIndex
-
-: ME_6A72CBA7686D
- CONST UID '6A72CBA7686D'
- CONST Name 'SetItemIndex'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboTree:SetItemIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8C448529271A // pop_ComboTree_SetItemIndex
- ;
- : Parameters
-   Seq: ( ME_D657CF765B92 // aCtx
- ME_D657CF765B93 // aComboTree
- ME_D657CF765B94 // anIndex
- )
- ; // Parameters
- : SpelledFor ME_55B7A6200240 // SetItemIndex
- ;
-
-ref; // ME_6A72CBA7686D SetItemIndex
-
-: ME_2E1DA2B88E10
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8C448529271A // pop_ComboTree_SetItemIndex
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_2E1DA2B88E10 
 
 : ME_4DAEEDE10285_ME_8C448529271A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8C448529271A DoDoIt
-
-: ME_551544E2001A_ME_8C448529271A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_8C448529271A GetResultTypeInfo
-
-: ME_559687E6025A_ME_8C448529271A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_8C448529271A GetAllParamsCount
-
-: ME_5617F4D00243_ME_8C448529271A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_8C448529271A ParamsTypes
 
 : ME_8C448529271A
  CONST UID '8C448529271A'
@@ -1511,7 +423,7 @@ ref; // ME_5617F4D00243_ME_8C448529271A ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboTree:SetItemIndex'#13#10'*Пример:*'#13#10'{code}'#13#10' anIndex aComboTree pop:ComboTree:SetItemIndex'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboTree:SetItemIndex' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -1520,29 +432,11 @@ ref; // ME_5617F4D00243_ME_8C448529271A ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6A72CBA7686D // SetItemIndex
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_8C448529271A // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_8C448529271A // GetResultTypeInfo
- ME_559687E6025A_ME_8C448529271A // GetAllParamsCount
- ME_5617F4D00243_ME_8C448529271A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2E1DA2B88E10 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboTree:SetItemIndex'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboTreeSetItemIndex'
  CONST extprop:rc:SelfName 'PopComboTreeSetItemIndex'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1550,100 +444,16 @@ ref; // ME_5617F4D00243_ME_8C448529271A ParamsTypes
  ;
  : SpelledFor ME_55B7A6200240 // SetItemIndex
  ;
- : Stub ME_6A72CBA7686D // SetItemIndex
- ;
 
 ref; // ME_8C448529271A pop_ComboTree_SetItemIndex
 
-FORWARD ME_1F4D33D465E4
-
 FORWARD ME_957FA5E0E3AB
-
-: ME_91AA30DA98ED
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_91AA30DA98ED aCtx
-
-: ME_91AA30DA98EE
- CONST Name 'aComboTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_91AA30DA98EE aComboTree
-
-: ME_91AA30DA98EF
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_91AA30DA98EF aFileName
-
-: ME_1F4D33D465E4
- CONST UID '1F4D33D465E4'
- CONST Name 'SaveItems'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ComboTree:SaveItems' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_957FA5E0E3AB // pop_ComboTree_SaveItems
- ;
- : Parameters
-   Seq: ( ME_91AA30DA98ED // aCtx
- ME_91AA30DA98EE // aComboTree
- ME_91AA30DA98EF // aFileName
- )
- ; // Parameters
- : SpelledFor ME_55B7A69E02F1 // SaveItems
- ;
-
-ref; // ME_1F4D33D465E4 SaveItems
-
-: ME_74B39109A1FD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_957FA5E0E3AB // pop_ComboTree_SaveItems
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_74B39109A1FD 
 
 : ME_4DAEEDE10285_ME_957FA5E0E3AB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_957FA5E0E3AB DoDoIt
-
-: ME_551544E2001A_ME_957FA5E0E3AB
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_957FA5E0E3AB GetResultTypeInfo
-
-: ME_559687E6025A_ME_957FA5E0E3AB
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_957FA5E0E3AB GetAllParamsCount
-
-: ME_5617F4D00243_ME_957FA5E0E3AB
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_957FA5E0E3AB ParamsTypes
 
 : ME_957FA5E0E3AB
  CONST UID '957FA5E0E3AB'
@@ -1652,7 +462,7 @@ ref; // ME_5617F4D00243_ME_957FA5E0E3AB ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ComboTree:SaveItems'#13#10'{panel}*Формат:* имя_файла  контрол pop:ComboBox:SaveItems '#13#10'*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.'#13#10'*Пример:*'#13#10'{code}'#13#10'''MyList.cmbx'' ''StyleComboBox'' byname:control:push pop:ComboBox:SaveItems'#13#10'{code} '#13#10'*Результат:* Сохраняет содержимое комбобокса ''StyleComboBox'' в  файл  ''MyList.cmbx'' и сравнивает с эталоном.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aFileName aComboTree pop:ComboTree:SaveItems'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ComboTree:SaveItems' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
@@ -1661,37 +471,17 @@ ref; // ME_5617F4D00243_ME_957FA5E0E3AB ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1F4D33D465E4 // SaveItems
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_957FA5E0E3AB // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_957FA5E0E3AB // GetResultTypeInfo
- ME_559687E6025A_ME_957FA5E0E3AB // GetAllParamsCount
- ME_5617F4D00243_ME_957FA5E0E3AB // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_74B39109A1FD // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ComboTree:SaveItems'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopComboTreeSaveItems'
  CONST extprop:rc:SelfName 'PopComboTreeSaveItems'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
  ;
  : SpelledFor ME_55B7A69E02F1 // SaveItems
- ;
- : Stub ME_1F4D33D465E4 // SaveItems
  ;
 
 ref; // ME_957FA5E0E3AB pop_ComboTree_SaveItems
@@ -1718,9 +508,6 @@ ref; // ME_55B7A5A10341 aValue
    Seq: ( ME_55B7A5A10341 // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_CBB40EABEDB6 // pop_ComboTree_DropDown
  ;
 
@@ -1737,9 +524,6 @@ ref; // ME_55B7A59500C7 DropDown
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_FDB2008A1DAA // pop_ComboTree_GetItemIndex
  ;
 
@@ -1769,9 +553,6 @@ ref; // ME_55B7A5D6038F aString
    Seq: ( ME_55B7A5D6038F // aString
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_C0C842FB1A8C // pop_ComboTree_IndexOf
  ;
 
@@ -1799,9 +580,6 @@ ref; // ME_55B7A603020A aString
    Seq: ( ME_55B7A603020A // aString
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_B5A21C7BEE37 // pop_ComboTree_SelectItem
  ;
 
@@ -1829,9 +607,6 @@ ref; // ME_55B7A629012C anIndex
    Seq: ( ME_55B7A629012C // anIndex
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_8C448529271A // pop_ComboTree_SetItemIndex
  ;
 
@@ -1860,109 +635,10 @@ ref; // ME_55B7A6C201F2 aFileName
    Seq: ( ME_55B7A6C201F2 // aFileName
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_957FA5E0E3AB // pop_ComboTree_SaveItems
  ;
 
 ref; // ME_55B7A69E02F1 SaveItems
-
-: ME_54EFDA5DDD94
- CONST UID '54EFDA5DDD94'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_54EFDA5DDD94 Reg_Type_TtfwContext
-
-: ME_2A9DE6683E11
- CONST UID '2A9DE6683E11'
- CONST Name 'Reg_Type_TCustomComboBox'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TCustomComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : SpelledFor WL 'ME_5049DA2A035D' '4799D29F033F.pas.ms.script' // TCustomComboBox
- ;
-
-ref; // ME_2A9DE6683E11 Reg_Type_TCustomComboBox
-
-: ME_1AA4509B8842
- CONST UID '1AA4509B8842'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_1AA4509B8842 Reg_Type_Boolean
-
-: ME_5D0134469F9D
- CONST UID '5D0134469F9D'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5D0134469F9D Reg_Type_Integer
-
-: ME_DADF6AE7514B
- CONST UID 'DADF6AE7514B'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_DADF6AE7514B Reg_Type_String
-
-: ME_3B1A7BA786E8
- CONST UID '3B1A7BA786E8'
- CONST Name 'Reg_Type_TvtComboTree'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtComboTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EC8C7C011E // vtComboBoxWordsPack
- ;
- : SpelledFor WL 'ME_55B780E60398' '48297E42011A.pas.ms.script' // TvtComboTree
- ;
-
-ref; // ME_3B1A7BA786E8 Reg_Type_TvtComboTree
 
 : ME_54EC8CDF0284
  CONST Class class_Dependency
@@ -2108,12 +784,6 @@ ref; // ME_C09CC5CA04B9
  ME_55B7A5FB0027 // SelectItem
  ME_55B7A6200240 // SetItemIndex
  ME_55B7A69E02F1 // SaveItems
- ME_54EFDA5DDD94 // Reg_Type_TtfwContext
- ME_2A9DE6683E11 // Reg_Type_TCustomComboBox
- ME_1AA4509B8842 // Reg_Type_Boolean
- ME_5D0134469F9D // Reg_Type_Integer
- ME_DADF6AE7514B // Reg_Type_String
- ME_3B1A7BA786E8 // Reg_Type_TvtComboTree
  )
  ; // Operations
  : Children
@@ -2148,9 +818,6 @@ ref; // ME_C09CC5CA04B9
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas'
  CONST extprop:rc:SelfName 'ComboBoxWordsPack'
 
@@ -2174,13 +841,11 @@ ref; // ME_54EC8C7C011E vtComboBoxWordsPack
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_48297E42011A' '48297E42011A.pas.ms.script' // ComboTree
  WL 'ME_4A83EE0E0002' '4A83EE0E0002.pas.ms.script' // Combos
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )

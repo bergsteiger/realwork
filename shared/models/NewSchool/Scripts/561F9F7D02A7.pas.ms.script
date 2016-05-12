@@ -20,6 +20,22 @@ FORWARD ME_561F9F7D02A7
 
 ref; // ME_561F9F9400BC TtfwClassRef
 
+: ME_572C98D2039D
+ CONST UID '572C98D2039D'
+ CONST Name 'TtfwTypeRegistrator'
+ CONST Class class_Class
+ : Stereotype st_ClassProxy ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_561F9F7D02A7 // ScriptEngine
+ ;
+ CONST extprop:rc:SelfName 'TypeRegistrator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'TtfwTypeRegistrator_Proxy'
+
+ref; // ME_572C98D2039D TtfwTypeRegistrator
+
 : ME_561F9F7D02A7
  CONST UID '561F9F7D02A7'
  CONST Name 'ScriptEngine'
@@ -31,6 +47,7 @@ ref; // ME_561F9F9400BC TtfwClassRef
  ;
  : Children
    Seq: ( ME_561F9F9400BC // TtfwClassRef
+ ME_572C98D2039D // TtfwTypeRegistrator
  )
  ; // Children
  CONST "UseNewGen" true

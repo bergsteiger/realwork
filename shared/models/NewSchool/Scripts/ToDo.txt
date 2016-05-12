@@ -1,19 +1,3 @@
-7. Почистить, там многое не нужно:
- tfw_wmVirtual = tfwScriptingTypes.tfw_wmVirtual;
- tfw_wmAbstract = tfwScriptingTypes.tfw_wmAbstract;
- tfw_wmFinal = tfwScriptingTypes.tfw_wmFinal;
- tfw_wmSummoned = tfwScriptingTypes.tfw_wmSummoned;
- tfw_wmOverride = tfwScriptingTypes.tfw_wmOverride;
- tfw_wmRealize = tfwScriptingTypes.tfw_wmRealize;
- tfw_wmRedefinition = tfwScriptingTypes.tfw_wmRedefinition;
- tfw_wmRedefineable = tfwScriptingTypes.tfw_wmRedefineable;
- tfw_wmSealed = tfwScriptingTypes.tfw_wmSealed;
- tfw_wmRightWordRef = tfwScriptingTypes.tfw_wmRightWordRef;
- tfw_wmLeftWordRef = tfwScriptingTypes.tfw_wmLeftWordRef;
- tfw_wmImmediate = tfwScriptingTypes.tfw_wmImmediate;
- tfw_wmInline = tfwScriptingTypes.tfw_wmInline;
- tfw_wmTreatUnknownAsString = tfwScriptingTypes.tfw_wmTreatUnknownAsString;
- tfw_wmCaller = tfwScriptingTypes.tfw_wmCaller;
 9. Убить Array:Count.
 10. Убить Array:Clear.
 11. Это надо переделать на итератор:
@@ -125,4 +109,169 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
 80. Сделать array:CopyNoTypeDuplicates.
 81. Self SWAP .SomeMethodImplementsThisIterator ! и Self SWAP .ImplementMethod заменить на .SelfSwap: .ImplementMethod
 87. Убрать Inline, но чуть позже.
-88. 
+89. (+) Начать переносить _DoSpell от ScriptKeywordsPack в новый генератор. Для начала тех у кого все операции mapped = true.
+91. dftDocument - почему-то долго генерируется.
+92. CrossSegments и eeConst - из ca.cmd два раза в лог выводятся. А также - l3Variants.
+94. Удалить TestModel.
+95. Удалить TestMPHF.
+97. TtfwContext убрать под UseNewGen.
+98. Вычистить 'undefined' из ms.pas.script.
+99. Вычистить ParamsCount и ParamsTypes для 0. Оно там уже считай вычислено.
+ Вот тут:
+    ( GarantModel::TtfwWord.GetAllParamsCount .UID IsUID ) // GetAllParamsCount
+     Code:
+       ( 
+        [ 
+         ' Result := '
+         l_Op .Parameters 
+         .filterOutParam>
+         .CountIt
+         l_Op .HasSelf ? ( 1 + )
+         l_Op .IsVarWorker ? ( 1 + )
+         ';' 
+        ] .Out 
+       ) // ( l_Key cImplementationUserCodeSuffix == )
+101. Разобраться с файлами, которые не сгенерировались из Shared/External. набить их руками.
+ : Target WL 'ME_4503D60201A5' '4503D5DC0290.pas.ms.script' // Object
+ WL 'ME_4503D5DC0290' '4503D5DC0290.pas.ms.script' // omg
+104. Не регистрировать типы в примесях, например EParameterNotExists. W:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas
+ А ещё лучше - перерисовать этот Exception в отдельный UtilityPack.
+105. OperationFactory := TatOperationFactory.Create; - вообще-то бывают синглетоны.
+107. Поставить TPersistent - register in scripts. И посмотреть, что получится.
+108. Определить raises для keyword. И эти исключения тоже регистрировать. Например ListError для Array.
+109. Изжить TtfwScriptEngineEx. А нужную аксиоматику типа USES etc привязать к TtfwScriptEngine.
+110. Сделать IncludePrim (DoInclude, InclideDictionary). НЕ Immediate. Чтобы звать из блоков EXECUTE ([EXECUTE]). Чтобы съэмулировать ifdef.
+139. TLogicOperation опубликовать в скрипты.
+140. Перенести в новый генератор:
+	[{%Gx!=true}\
+	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
+	%S%f_make_accessable(%{TtfwRegisterableWord}U)\
+	%f_addG(%S,%{TtfwRegisterableWord})\
+        ]\
+ - Для начала для [{%S#f_is_virtual()=true}.        
+141. Убрать Exports.script оставить только Exports.ms.dict.
+142. VCMWordsPack поставить NeedsScript и перенести туда ANYUSERTYPE. А также:
+  {$IfNDef NoVCM}
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['vcm:History:DeleteBackItem'],
+  [
+   'WordAlias history:DeleteBackItem vcm:History:DeleteBackItem'
+  ]);
+
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['vcm:History:DeleteForwardItem'],
+  [
+   'WordAlias history:DeleteForwardItem vcm:History:DeleteForwardItem'
+  ]);
+143. SearchModuleWordsPack поставить needs script и перенести туда:
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['моп::Поиск_Поиск_лекарственных_средств', 'Ok', 'history:DeleteBackItem'],
+  [
+   'PROCEDURE RunInpharmSearch OBJECT IN aProc',
+   ' // - запускает поиск по КЗ Инфарма',
+   ' моп::Поиск_Поиск_лекарственных_средств',
+   ' aProc DO',
+   ' Ok',
+   ' OnTest',
+   ' history:DeleteBackItem',
+   ' // - удаляем предыдущий элемент истории (КЗ)',
+   '; // RunInpharmSearch'
+
+  ]);
+
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['ППР_Prim'],
+  [
+   'PROCEDURE ППР',
+   ' ППР_Prim',
+   ' OnTest',
+   '; // ППР'
+  ]);
+
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['ППС_Стандартная_Prim'],
+  [
+   'PROCEDURE "ППС Стандартная"',
+   ' ППС_Стандартная_Prim',
+   ' OnTest',
+   '; // "ППС Стандартная"'
+  ]);
+
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['ППС_Преемственная_Prim'],
+  [
+   'PROCEDURE "ППС Преемственная"',
+   ' ППС_Преемственная_Prim',
+   ' OnTest',
+   '; // "ППС Преемственная"'
+  ]);
+
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['ППР', 'Ok', 'history:DeleteBackItem', 'class::TevQueryCardEditor', 'focused:control:push'],
+  [
+   'PROCEDURE RunSearch OBJECT IN aProc',
+   ' // - запускает поиск по КЗ ППР',
+   ' vcm:Dispatcher:Lock',
+   ' TRY',
+   '  ППР',
+   '  OBJECT VAR l_QC',
+   '  focused:control:push >>> l_QC',
+   '  l_QC IS class::TevQueryCardEditor',
+   '   ?ASSURE ''Фокус не в КЗ''',
+   '  aProc DO',
+   '  Ok',
+   '  OnTest',
+   '  history:DeleteBackItem',
+   '  // - удаляем предыдущий элемент истории (КЗ)',
+   ' FINALLY',
+   '  vcm:Dispatcher:Unlock',
+   ' END',
+   '; // RunSearch'
+  ]);
+
+  CompileScriptToAxiomaticsIfDefined(theNewContext.rPrev^,
+  ['моп::Мониторинги_Обзор_изменений_законодательства', 'моп::Инфарм_Основное_меню_ИнФарм', 'Ok',
+   'history:DeleteBackItem', 'history:DeleteForwardItem',
+   'class::TevQueryCardEditor', 'focused:control:push',
+   'wait:Choice', 'waited:?',
+   'оп::История_Назад'],
+  [
+   'PROCEDURE RunLegislationReviewSearch OBJECT IN aProc',
+   ' // - запускает поиск по КЗ ОИЗ',
+   ' vcm:Dispatcher:Lock',
+   ' TRY',
+   '  моп::Мониторинги_Обзор_изменений_законодательства',
+   '  OBJECT VAR l_QC',
+   '  BOOLEAN VAR l_NotFound',
+   '  l_NotFound := false',
+   '  focused:control:push >>> l_QC',
+   '  l_QC IS class::TevQueryCardEditor ?ASSURE ''Фокус не в КЗ''',
+   '  aProc DO',
+   '  2 wait:Choice',
+   '  TRY',
+   '   Ok',
+   '   OnTest',
+   '  FINALLY',
+   '   TRY',
+   '    waited:? ?ASSURE ''Не дождались выбора''',
+   '    true >>> l_NotFound',
+   '   EXCEPT',
+   '    DROP',
+   '    false >>> l_NotFound',
+   '   END',
+   '   if l_NotFound then (',
+   '    оп::История_Назад',
+   '    OnTest',
+   '    history:DeleteForwardItem',
+   '   )',
+   '   else',
+   '    history:DeleteBackItem',
+   '  END',         
+   ' FINALLY',
+   '  vcm:Dispatcher:Unlock',
+   ' END',
+   '; // RunLegislationReviewSearch'
+  ]);
+  
+145. Удалить NeedsKeywordDocumentation.
+146. 

@@ -80,29 +80,27 @@ implementation @ <<ScriptKeywordsPack>>
 
 : DoSpell OBJECT IN %S
 //#UC START# *4B2A19E3038Bfor4F2C15C90252*
-//	%S%f_set_implement_select_type(include)\
-//	%f_warning(%SN)\
-
-//	[{%S{noRegistrator}!=true}\
- if ( ( %S get_up ( 'noRegistrator' ) ) %!=  true ) then
- begin
-//	[{"%S{no class name}"="true"|"%S{no_pop}"="true"}\
-  if ( ( %S get_up ( 'no class name' ) ) %== true OR 
-    ( ( %S get_up ( 'no_pop' ) ) %== true  ) ) then
-  begin
-//	%S%f_set_up(needs script,true)\
-   %S %f set_up %( 'needs script' %, true )% 
-//	]\
-  end // if
-//	]\
- end // if
-
-//	%f_SpellScriptFramework(%S)\
- [%f] SpellScriptFramework %( %S )% 
-
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	[{%S{noRegistrator}!=true}\
+  if ( ( %S get_up ( 'noRegistrator' ) ) %!=  true ) then
+  begin
+//	[{"%S{no class name}"="true"|"%S{no_pop}"="true"}\
+   if ( ( %S get_up ( 'no class name' ) ) %== true OR 
+     ( ( %S get_up ( 'no_pop' ) ) %== true  ) ) then
+   begin
+//	%S%f_set_up(needs script,true)\
+    %S %f set_up %( 'needs script' %, true )% 
+//	]\
+   end // if
+//	]\
+  end // if
+
+
+//	%f_SpellScriptFramework(%S)\
+  [%f] SpellScriptFramework %( %S )% 
+
 //	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
   if ( ( ( get_global_var ( 'TypeInfoExt' ) |N ) ) %== '' ) then
   begin
@@ -147,7 +145,6 @@ implementation @ <<ScriptKeywordsPack>>
 //	%1%f_add_operation(%1U_%CU_get,keyword,\
     %1 %f add_operation %( %1 |U '_'
     %C |U '_get' %, 'keyword' %, 
-//	[{%CS!=readonly}Get]\
 //	%CN (): %C%TU,Op_Instance)\
     %C |N ' (): '
     %C ->T |U  %, 'Op_Instance' )% 
@@ -156,22 +153,6 @@ implementation @ <<ScriptKeywordsPack>>
 
 //	%f_TuneGS(%{Op_Instance},%C)\
     [%f] TuneGS %( ( get_global_var ( 'Op_Instance' ) ) %, %C )% 
-//	%{Op_Instance}%f_set_up(is_setter,false)\
-    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'is_setter' %, false )% ) 
-
-
-//	[{%CS!=readonly}\
-
-//	%1%f_add_operation(%1U_%CU_set,keyword,Set%CN (aValue : %C%TU),Op_Instance)\
-
-//	%{Op_Instance}%f_set_up(NameForScript,%C{NameForScript})\
-
-//	%f_TuneGS(%{Op_Instance},%C)\
-
-//	%{Op_Instance}%f_set_up(is_setter,true)\
-
-//	]\
-
 
 //	>\
 
@@ -223,72 +204,34 @@ implementation @ <<ScriptKeywordsPack>>
 //	%f_clear_list(KEYS)\
  [%f] clear_list %( 'KEYS' )% 
 
-//	%S<{}{%C#f_IsGlobalKeyword()=true}\
- %S
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C %?f IsGlobalKeyword %( )% ) %==  true ) then
-   begin
-//	%f_add_to_list(KEYS,C)\
-    [%f] add_to_list %( 'KEYS' %, 'C' )% 
-//	>\
-
-    ++! l_Counter
-   end // if
-  end // for C
-
- ) // bind
- 
-//	%f_set_var(GEN,"")\
- [%f] set_var %( 'GEN' %, '' )% 
-//	%{KEYS}<{}{}{%C}\
- ( get_global_var ( 'KEYS' ) ) 
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if true then
-   begin
-//	%f_SpellWordByOp(%1,%C)\
-    [%f] SpellWordByOp %( %1 %, %C )% 
-//	>\
-
-    ++! l_Counter
-   end // if
-  end // for C
-
- ) // bind
-
-//	%f_clear_list(KEYS)\
- [%f] clear_list %( 'KEYS' )% 
-
-//	[{%f_is_empty(PARAMS)=false}\
- if ( ( [%f] is_empty %( 'PARAMS' )% ) %==  false ) then
- begin
-
-
 //	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
-//	[{"%{TtfwTypeRegistrator}N"=""}%f_find_element(5527F8330362,TtfwTypeRegistrator)]\
-   if ( ( ( get_global_var ( 'TtfwTypeRegistrator' ) |N ) ) %== '' ) then
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
+//	%S<{}{%C#f_IsGlobalKeyword()=true}\
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
    begin
-    [%f] find_element %( '5527F8330362' %, 'TtfwTypeRegistrator' )% 
-   end // if
-//	%f_addCDep(%S,%{TtfwTypeRegistrator})\
-   [%f] addCDep %( %S %, ( get_global_var ( 'TtfwTypeRegistrator' ) ) )% 
-//	]\
-  end // if
+    OBJECT IN %C
+    if ( ( %C %?f IsGlobalKeyword %( )% ) %==  true ) then
+    begin
+//	%f_add_to_list(KEYS,C)\
+     [%f] add_to_list %( 'KEYS' %, 'C' )% 
+//	>\
 
+     ++! l_Counter
+    end // if
+   end // for C
 
-//	%{PARAMS}<{}{}{%C}\
-  ( get_global_var ( 'PARAMS' ) ) 
+  ) // bind
+ 
+
+//	%f_set_var(GEN,"")\
+  [%f] set_var %( 'GEN' %, '' )% 
+//	%{KEYS}<{}{}{%C}\
+  ( get_global_var ( 'KEYS' ) ) 
   bind ( 
    OBJECT VAR %S
    INTEGER VAR l_Counter l_Counter := 0
@@ -297,37 +240,8 @@ implementation @ <<ScriptKeywordsPack>>
     OBJECT IN %C
     if true then
     begin
-
-
-//	%1%f_add_operation(%1U_%CU_RegType,ini,Reg_Type_%CN (),Reg_Instance)\
-     %1 %f add_operation %( %1 |U '_'
-     %C |U '_RegType' %, 'ini' %, 'Reg_Type_'
-     %C |N ' ()' %, 'Reg_Instance' )% 
-//	%{Reg_Instance}%f_set_documentation(Регистрация типа %CN)\
-     ( get_global_var ( 'Reg_Instance' ) %f set_documentation %( 'Регистрация типа '
-     %C |N )% ) 
-//	%{Reg_Instance}%f_set_abstraction_type(final)\
-     ( get_global_var ( 'Reg_Instance' ) %f set_abstraction_type %( 'final' )% ) 
-//	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
-     ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	%{Reg_Instance}%f_set_var(SpelledFor,C)\
-     ( get_global_var ( 'Reg_Instance' ) %f set_var %( 'SpelledFor' %, 'C' )% ) 
-
-
-//	%f_warning(%CN)\
-
-
-//	[{%S#f_UseNewGenRec()!=true}\
-     if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-     begin
-//	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
-      ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
-//	 TtfwTypeRegistrator.RegisterType(%t_TypeInfo(%C));\
-      ' TtfwTypeRegistrator.RegisterType('
-      [%t] TypeInfo %( %C )% ');'
-//	)\
-)% ) //	]\
-     end // if
+//	%f_SpellWordByOp(%1,%C)\
+     [%f] SpellWordByOp %( %1 %, %C )% 
 //	>\
 
      ++! l_Counter
@@ -335,6 +249,65 @@ implementation @ <<ScriptKeywordsPack>>
    end // for C
 
   ) // bind
+
+
+//	%f_clear_list(KEYS)\
+  [%f] clear_list %( 'KEYS' )% 
+
+//	[{%f_is_empty(PARAMS)=false}\
+  if ( ( [%f] is_empty %( 'PARAMS' )% ) %==  false ) then
+  begin
+
+
+//	[{"%{TtfwTypeRegistrator}N"=""}%f_find_element(5527F8330362,TtfwTypeRegistrator)]\
+   if ( ( ( get_global_var ( 'TtfwTypeRegistrator' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '5527F8330362' %, 'TtfwTypeRegistrator' )% 
+   end // if
+//	%f_addCDep(%S,%{TtfwTypeRegistrator})\
+   [%f] addCDep %( %S %, ( get_global_var ( 'TtfwTypeRegistrator' ) ) )% 
+
+//	%{PARAMS}<{}{}{%C}\
+   ( get_global_var ( 'PARAMS' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+
+
+//	%1%f_add_operation(%1U_%CU_RegType,ini,Reg_Type_%CN (),Reg_Instance)\
+      %1 %f add_operation %( %1 |U '_'
+      %C |U '_RegType' %, 'ini' %, 'Reg_Type_'
+      %C |N ' ()' %, 'Reg_Instance' )% 
+//	%{Reg_Instance}%f_set_documentation(Регистрация типа %CN)\
+      ( get_global_var ( 'Reg_Instance' ) %f set_documentation %( 'Регистрация типа '
+      %C |N )% ) 
+//	%{Reg_Instance}%f_set_abstraction_type(final)\
+      ( get_global_var ( 'Reg_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
+      ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Reg_Instance}%f_set_var(SpelledFor,C)\
+      ( get_global_var ( 'Reg_Instance' ) %f set_var %( 'SpelledFor' %, 'C' )% ) 
+
+//	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
+      ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+//	 TtfwTypeRegistrator.RegisterType(%t_TypeInfo(%C));\
+      ' TtfwTypeRegistrator.RegisterType('
+      [%t] TypeInfo %( %C )% ');'
+//	)\
+)% ) //	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+//	]\
+  end // if
 //	]\
  end // if
 
@@ -375,28 +348,6 @@ end. // <<ScriptKeywordsPack>>
 //	%f_addCDep(%S,%1,"injects")\
   [%f] addCDep %( %S %, %1 %, 'injects' )% 
 // - иньекция
-
-//	[{%t_simple_class(%1)=true&%S{noRegistrator}!=true}\
-
-//	%S%f_add_class(%SU_%1U_Reg,SimpleClass,%f_pas_TypeName(%1)RegistratorFor%f_N(%S),Reg_Inst)\
-
-//	%f_addG(%{Reg_Inst},%1)\
-
-//	%{Reg_Inst}%f_set_documentation(Регистратор для %f_pas_TypeName(%1))\
-
-//	%{Reg_Inst}%f_set_abstraction_type(abstract)\
-
-//	%{Reg_Inst}%f_set_visibility_type(PrivateAccess)\
-
-//	%{Reg_Inst}%f_set_up(register in scripts,true)\
-
-//	%{Reg_Inst}%f_set_up(is_friend,true)\
-
-//	%{Reg_Inst}%f_set_implement_select_type(include)\
-
-//	]\
-
-// - регистратор
 //	]\
  end // if
 
@@ -455,8 +406,6 @@ end. // <<ScriptKeywordsPack>>
 //	[{%SN!=void}\
  if ( ( %S |N ) %!= 'void' ) then
  begin
-
-//	%f_warning(%SN)\
 //	[{%f_exists_in_list(PARAMS,S)!=true}\
   if ( ( [%f] exists_in_list %( 'PARAMS' %, 'S' )% ) %!=  true ) then
   begin
@@ -605,183 +554,89 @@ end. // <<ScriptKeywordsPack>>
 //	}\
  end // else
 
-//	%{Class_Inst}%f_set_documentation(Слово скрипта %f_loc_GetNameForScript(%{Class_Inst})[\n\{panel\}%1D\{panel\}]
- ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 'Слово скрипта '
- [%f] loc_GetNameForScript %( ( get_global_var ( 'Class_Inst' ) ) )% if NOT-EMPTY
- begin
-  #13#10'{panel}'
-  %1 |D '{panel}' 
- end // if
- NOP
+//	%{Class_Inst}%f_set_documentation(\
+ ( get_global_var ( 'Class_Inst' ) %f set_documentation %( 
+//	Слово скрипта %f_loc_GetNameForScript(%{Class_Inst})\
+ 'Слово скрипта '
+ [%f] loc_GetNameForScript %( ( get_global_var ( 'Class_Inst' ) ) )% 
+//	[\n\{panel\}%1D\{panel\}]
+
 
 
 //	%f_set_var(RES,"")\
- [%f] set_var %( 'RES' %, '' )% 
+
 //	[{%1%TN!=void}%f_set_var(RES,1%T)]\
- if ( ( %1 ->T |N  ) %!= 'void' ) then
- begin
-  [%f] set_var %( 'RES' %, 1 %T )% 
- end // if
+
 //	[{%1#f_IsCreator()=true&"%{GEN}N"!=""}%f_set_var(RES,{GEN})]\
- if ( ( %1 %?f IsCreator %( )% ) %==  true AND 
-   ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
- begin
-  [%f] set_var %( 'RES' %, '{GEN}' )% 
- end // if
+
 
 
 //	[{"%{RES}N"!=""}*Тип результата:* %{RES}N\n]\
- if ( ( ( get_global_var ( 'RES' ) |N ) ) %!= '' ) then
- begin
-  '*Тип результата:* '
-  ( get_global_var ( 'RES' ) |N ) #13#10 
- end // if
-//	*Пример:*
- '*Пример:*'
-//	\{code\}
- '{code}'
-//	%1<{}{%CS=out}{%C}[%t_EngineType(%C%T) ]VAR l_%CN\n>\
- %1
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C |S ) %== 'out' ) then
-   begin
-    if NOT-EMPTY
-    begin
-     [%t] EngineType %( %C ->T  )% ' ' 
-    end // if
-    NOP
-    'VAR l_'
-    %C |N #13#10 
-    ++! l_Counter
-   end // if
-  end // for C
 
- ) // bind
- //	[{"%{RES}N"!=""}[%t_EngineType(%{RES}) ]VAR l_%{RES}N\n]\
- if ( ( ( get_global_var ( 'RES' ) |N ) ) %!= '' ) then
- begin
-  if NOT-EMPTY
-  begin
-   [%t] EngineType %( ( get_global_var ( 'RES' ) ) )% ' ' 
-  end // if
-  NOP
-  'VAR l_'
-  ( get_global_var ( 'RES' ) |N ) #13#10 
- end // if
+//	*Пример:*
+
+//	\{code\}
+
+//	%1<{}{%CS=out}{%C}[%t_EngineType(%C%T) ]VAR l_%CN\n>\
+
+//	[{"%{RES}N"!=""}[%t_EngineType(%{RES}) ]VAR l_%{RES}N\n]\
+
 
 
 //	 %1<{}{%CS!=out}{%Cr}%CN >[{%1#f_IsCreator()!=true&"%{GEN}N"!=""}a%t_SelfName(%{GEN}) ]%f_loc_GetNameForScript(%{Class_Inst})\
- ' '
- %1
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for downto %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C |S ) %!= 'out' ) then
-   begin
-    %C |N ' ' 
-    ++! l_Counter
-   end // if
-  end // for C
 
- ) // bind
-  if ( ( %1 %?f IsCreator %( )% ) %!=  true AND 
-   ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
- begin
-  'a'
-  [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ' ' 
- end // if
- [%f] loc_GetNameForScript %( ( get_global_var ( 'Class_Inst' ) ) )% 
+
 
 //	[{%1#f_IsVarWorker()=true}\
- if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
- begin
+
 //	 [{%1#f_IsWordWorker()=true}{aVar}aWord]\
-  ' '
-  if ( ( %1 %?f IsWordWorker %( )% ) %==  true ) then
-  begin
-   'aWord' 
-  end // if
-  else
-  begin
-   'aVar' 
-  end // else
+
 //	]\
- end // if
+
 
 
 //	%1<{}{%CS=out}{%C} \>\>\> l_%CN>\
- %1
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C |S ) %== 'out' ) then
-   begin
-    ' >>> l_'
-    %C |N 
-    ++! l_Counter
-   end // if
-  end // for C
 
- ) // bind
- //	[{"%{RES}N"!=""} \>\>\> l_%{RES}N]\
- if ( ( ( get_global_var ( 'RES' ) |N ) ) %!= '' ) then
- begin
-  ' >>> l_'
-  ( get_global_var ( 'RES' ) |N ) 
- end // if
+//	[{"%{RES}N"!=""} \>\>\> l_%{RES}N]\
+
 //	\n\
- #13#10
+
 //	\{code\} \
- '{code} '
 //	)\
-)% ) //	%{Class_Inst}%f_set_abstraction_type(final)\
+)% ) 
+//	%{Class_Inst}%f_set_abstraction_type(final)\
  ( get_global_var ( 'Class_Inst' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
  ( get_global_var ( 'Class_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 
-//	[{"%{TtfwContext}N"=""}%f_find_element(4DB0091E033E,TtfwContext)]\
- if ( ( ( get_global_var ( 'TtfwContext' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( '4DB0091E033E' %, 'TtfwContext' )% 
- end // if
-
-//	%{Class_Inst}%f_make_accessable(%{TtfwContext}U)\
- ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwContext' ) |U ) )% ) 
-
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	[{"%{TtfwContext}N"=""}%f_find_element(4DB0091E033E,TtfwContext)]\
+  if ( ( ( get_global_var ( 'TtfwContext' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '4DB0091E033E' %, 'TtfwContext' )% 
+  end // if
+
+
+//	%{Class_Inst}%f_make_accessable(%{TtfwContext}U)\
+  ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwContext' ) |U ) )% ) 
+
 //	%f_addCDep(%{Class_Inst},%{TtfwContext})\
   [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TtfwContext' ) ) )% 
-//	]\
- end // if
 
 //	[{%1{SupressNextImmediate}!=None&"%1{SupressNextImmediate}"!=""}\
- if ( ( %1 get_up ( 'SupressNextImmediate' ) ) %!= 'None' AND 
-   ( ( %1 get_up ( 'SupressNextImmediate' ) ) %!= ''  ) ) then
- begin
+  if ( ( %1 get_up ( 'SupressNextImmediate' ) ) %!= 'None' AND 
+    ( ( %1 get_up ( 'SupressNextImmediate' ) ) %!= ''  ) ) then
+  begin
 //	[{"%{TtfwCompilingWord.SupressNextImmediate}N"=""}%f_find_element(4F3AB3B101FC,TtfwCompilingWord.SupressNextImmediate)]\
-  if ( ( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '4F3AB3B101FC' %, 'TtfwCompilingWord.SupressNextImmediate' )% 
-  end // if
+   if ( ( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '4F3AB3B101FC' %, 'TtfwCompilingWord.SupressNextImmediate' )% 
+   end // if
 //	%{Class_Inst}%f_add_override(%{TtfwCompilingWord.SupressNextImmediate}U)\
-  ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) |U ) )% ) 
+   ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
 //	%{TtfwCompilingWord.SupressNextImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwCompilingWord.SupressNextImmediate},%{Class_Inst})_var,\
    ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) %f set_uc_content %( 'intf.pas' %, '_'
    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwCompilingWord.SupressNextImmediate' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
@@ -801,28 +656,22 @@ end. // <<ScriptKeywordsPack>>
   end // if
 
 
-//	]\
- end // if
-
 //	[{"%{TTypeInfo}N"=""}%f_find_element(4767748503B5,TTypeInfo)]\
- if ( ( ( get_global_var ( 'TTypeInfo' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( '4767748503B5' %, 'TTypeInfo' )% 
- end // if
+  if ( ( ( get_global_var ( 'TTypeInfo' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '4767748503B5' %, 'TTypeInfo' )% 
+  end // if
 //	%f_addCDep(%{Class_Inst},%{TTypeInfo})\
- [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TTypeInfo' ) ) )% 
+  [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TTypeInfo' ) ) )% 
 
 //	[{"%{TtfwWord.GetResultTypeInfo}N"=""}%f_find_element(551544E2001A,TtfwWord.GetResultTypeInfo)]\
- if ( ( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( '551544E2001A' %, 'TtfwWord.GetResultTypeInfo' )% 
- end // if
+  if ( ( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '551544E2001A' %, 'TtfwWord.GetResultTypeInfo' )% 
+  end // if
 //	%{Class_Inst}%f_add_override(%{TtfwWord.GetResultTypeInfo}U)\
- ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) |U ) )% ) 
+  ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
- begin
 //	%{TtfwWord.GetResultTypeInfo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetResultTypeInfo},%{Class_Inst})_var,\
   ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) %f set_uc_content %( 'intf.pas' %, '_'
   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetResultTypeInfo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
@@ -851,219 +700,222 @@ end. // <<ScriptKeywordsPack>>
 //	}\
   end // else
 //	)\
-)% ) //	]\
- end // if
+)% ) 
 
 //	%f_set_var(Op_Instance,"")\
- [%f] set_var %( 'Op_Instance' %, '' )% 
+  [%f] set_var %( 'Op_Instance' %, '' )% 
 
 //	%f_set_var(NeedOp,"false")\
- [%f] set_var %( 'NeedOp' %, false )% 
+  [%f] set_var %( 'NeedOp' %, false )% 
 
 //	[{%1{mapped}=true}\
- if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
- begin
+  if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
+  begin
 //	%f_set_var(NeedOp,"true")\
-  [%f] set_var %( 'NeedOp' %, true )% 
+   [%f] set_var %( 'NeedOp' %, true )% 
 //	]\
- end // if
+  end // if
+
 
 //	[{"%{GEN}N"!=""}\
- if ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= '' ) then
- begin
+  if ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= '' ) then
+  begin
 //	%f_set_var(NeedOp,"true")\
-  [%f] set_var %( 'NeedOp' %, true )% 
+   [%f] set_var %( 'NeedOp' %, true )% 
 //	]\
- end // if
+  end // if
 
-//	[{%1#f_IsVarWorker()=true}\
- if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
- begin
-//	%f_set_var(NeedOp,"true")\
-  [%f] set_var %( 'NeedOp' %, true )% 
-//	]\
- end // if
 
-//	[{%1<{}{}{%CC}>!=0}\
- if ( ( %1
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-
-     ++! l_Counter
-    end // if
-   end // for C
-   l_Counter
-
-  ) // bind
- )   %!= 0 ) then
- begin
-//	%f_set_var(NeedOp,"true")\
-  [%f] set_var %( 'NeedOp' %, true )% 
-//	]\
- end // if
-
-//	[{%1%TN!=void}\
- if ( ( %1 ->T |N  ) %!= 'void' ) then
- begin
-//	%f_set_var(NeedOp,"true")\
-  [%f] set_var %( 'NeedOp' %, true )% 
-//	]\
- end // if
-
-//	[{%{NeedOp}N=true}\
- if ( ( ( get_global_var ( 'NeedOp' ) |N ) ) %==  true ) then
- begin
-//	%{Class_Inst}%f_add_operation(%{Class_Inst}U_%1U_op,,\
-  ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_'
-  %1 |U '_op' %, '' %, 
-//	%f_N(%1) (\
-  [%f] N %( %1 )% ' ('
-//	aCtx: %{TtfwContext}U\
-  'aCtx: '
-  ( get_global_var ( 'TtfwContext' ) |U ) 
 //	[{%1#f_IsVarWorker()=true}\
   if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
   begin
+//	%f_set_var(NeedOp,"true")\
+   [%f] set_var %( 'NeedOp' %, true )% 
+//	]\
+  end // if
+
+
+//	[{%1<{}{}{%CC}>!=0}\
+  if ( ( %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+
+      ++! l_Counter
+     end // if
+    end // for C
+    l_Counter
+
+   ) // bind
+ )    %!= 0 ) then
+  begin
+//	%f_set_var(NeedOp,"true")\
+   [%f] set_var %( 'NeedOp' %, true )% 
+//	]\
+  end // if
+
+
+//	[{%1%TN!=void}\
+  if ( ( %1 ->T |N  ) %!= 'void' ) then
+  begin
+//	%f_set_var(NeedOp,"true")\
+   [%f] set_var %( 'NeedOp' %, true )% 
+//	]\
+  end // if
+
+
+//	[{%{NeedOp}N=true}\
+  if ( ( ( get_global_var ( 'NeedOp' ) |N ) ) %==  true ) then
+  begin
+//	%{Class_Inst}%f_add_operation(%{Class_Inst}U_%1U_op,,\
+   ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_'
+   %1 |U '_op' %, '' %, 
+//	%f_N(%1) (\
+   [%f] N %( %1 )% ' ('
+//	aCtx: %{TtfwContext}U\
+   'aCtx: '
+   ( get_global_var ( 'TtfwContext' ) |U ) 
+//	[{%1#f_IsVarWorker()=true}\
+   if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
+   begin
 //	[{"%{TtfwWord}N"=""}%f_find_element(4DAEED140007,TtfwWord)]\
-   if ( ( ( get_global_var ( 'TtfwWord' ) |N ) ) %== '' ) then
-   begin
-    [%f] find_element %( '4DAEED140007' %, 'TtfwWord' )% 
-   end // if
+    if ( ( ( get_global_var ( 'TtfwWord' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( '4DAEED140007' %, 'TtfwWord' )% 
+    end // if
 //	, [{%1#f_IsWordWorker()=true}{aVar}aWord]: %{TtfwWord}U \
-   ', '
-   if ( ( %1 %?f IsWordWorker %( )% ) %==  true ) then
+    ', '
+    if ( ( %1 %?f IsWordWorker %( )% ) %==  true ) then
+    begin
+     'aWord' 
+    end // if
+    else
+    begin
+     'aVar' 
+    end // else
+    ': '
+    ( get_global_var ( 'TtfwWord' ) |U ) ' '
+//	]\
+   end // if
+//	[{%1#f_IsCreator()!=true&"%{GEN}N"!=""}, \
+   if ( ( %1 %?f IsCreator %( )% ) %!=  true AND 
+     ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
    begin
-    'aWord' 
+    ', '
+//	a%t_SelfName(%{GEN}): %{GEN}U \
+    'a'
+    [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
+    ( get_global_var ( 'GEN' ) |U ) ' '
+//	]\
+   end // if
+//	%1<{}{}{%C},%CS %CN:%C%TU>)\
+   %1
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      ','
+      %C |S ' '
+      %C |N ':'
+      %C ->T |U  
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+    ')'
+//	[{%1#f_IsCreator()=true&"%{GEN}N"!=""}{\
+   if ( ( %1 %?f IsCreator %( )% ) %==  true AND 
+     ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
+   begin
+//	 : %{GEN}U\
+    ' : '
+    ( get_global_var ( 'GEN' ) |U ) 
+//	]\
    end // if
    else
    begin
-    'aVar' 
-   end // else
-   ': '
-   ( get_global_var ( 'TtfwWord' ) |U ) ' '
-//	]\
-  end // if
-//	[{%1#f_IsCreator()!=true&"%{GEN}N"!=""}, \
-  if ( ( %1 %?f IsCreator %( )% ) %!=  true AND 
-    ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
-  begin
-   ', '
-//	a%t_SelfName(%{GEN}): %{GEN}U \
-   'a'
-   [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
-   ( get_global_var ( 'GEN' ) |U ) ' '
-//	]\
-  end // if
-//	%1<{}{}{%C},%CS %CN:%C%TU>)\
-  %1
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
+//	[{%1%TN!=void} : %1%TU]\
+    if ( ( %1 ->T |N  ) %!= 'void' ) then
     begin
-     ','
-     %C |S ' '
-     %C |N ':'
-     %C ->T |U  
-     ++! l_Counter
+     ' : '
+     %1 ->T |U  
     end // if
-   end // for C
+//	}\
+   end // else
+//	,Op_Instance)\
+%,    'Op_Instance' )% ) 
 
-  ) // bind
-   ')'
-//	[{%1#f_IsCreator()=true&"%{GEN}N"!=""}{\
-  if ( ( %1 %?f IsCreator %( )% ) %==  true AND 
-    ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= ''  ) ) then
+//	%{Op_Instance}%f_set_var(SpelledFor,1)\
+   ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, 1 )% ) 
+//	%{Class_Inst}%f_set_var(Stub,{Op_Instance})\
+   ( get_global_var ( 'Class_Inst' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% ) 
+
+//	%{Op_Instance}%f_set_documentation(Реализация слова скрипта %f_loc_GetNameForScript(%{Class_Inst}))\
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Реализация слова скрипта '
+   [%f] loc_GetNameForScript %( ( get_global_var ( 'Class_Inst' ) ) )% )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+
+//	%{Op_Instance}<{}{}{%C}%f_AddParamToRegister(%C%T)>\
+   ( get_global_var ( 'Op_Instance' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+      [%f] AddParamToRegister %( %C ->T  )% 
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+//	%f_AddParamToRegister(%{Op_Instance}%T)\
+   [%f] AddParamToRegister %( ( get_global_var ( 'Op_Instance' )  ->T ) )% 
+
+//	]\
+  end // if
+
+
+//	[{%1#f_IsVarWorker()=true}{\
+  if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
   begin
-//	 : %{GEN}U\
-   ' : '
-   ( get_global_var ( 'GEN' ) |U ) 
+//	[{"%{TtfwAnonimousWord.DoRun}N"=""}%f_find_element(5512949D0048,TtfwAnonimousWord.DoRun)]\
+   if ( ( ( get_global_var ( 'TtfwAnonimousWord.DoRun' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '5512949D0048' %, 'TtfwAnonimousWord.DoRun' )% 
+   end // if
+//	%f_set_var(MyDo,{TtfwAnonimousWord.DoRun})\
+   [%f] set_var %( 'MyDo' %, '{TtfwAnonimousWord.DoRun}' )% 
 //	]\
   end // if
   else
   begin
-//	[{%1%TN!=void} : %1%TU]\
-   if ( ( %1 ->T |N  ) %!= 'void' ) then
+//	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
+   if ( ( ( get_global_var ( 'TtfwWord.DoDoIt' ) |N ) ) %== '' ) then
    begin
-    ' : '
-    %1 ->T |U  
+    [%f] find_element %( '4DAEEDE10285' %, 'TtfwWord.DoDoIt' )% 
    end // if
+//	%f_set_var(MyDo,{TtfwWord.DoDoIt})\
+   [%f] set_var %( 'MyDo' %, '{TtfwWord.DoDoIt}' )% 
 //	}\
   end // else
-//	,Op_Instance)\
-%,   'Op_Instance' )% ) 
 
-//	%{Op_Instance}%f_set_var(SpelledFor,1)\
-  ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, 1 )% ) 
-//	%{Class_Inst}%f_set_var(Stub,{Op_Instance})\
-  ( get_global_var ( 'Class_Inst' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% ) 
 
-//	%{Op_Instance}%f_set_documentation(Реализация слова скрипта %f_loc_GetNameForScript(%{Class_Inst}))\
-  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Реализация слова скрипта '
-  [%f] loc_GetNameForScript %( ( get_global_var ( 'Class_Inst' ) ) )% )% ) 
-//	%{Op_Instance}%f_set_abstraction_type(final)\
-  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
-//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-
-//	%{Op_Instance}<{}{}{%C}%f_AddParamToRegister(%C%T)>\
-  ( get_global_var ( 'Op_Instance' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-     [%f] AddParamToRegister %( %C ->T  )% 
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
-//	%f_AddParamToRegister(%{Op_Instance}%T)\
-  [%f] AddParamToRegister %( ( get_global_var ( 'Op_Instance' )  ->T ) )% 
-
-//	]\
- end // if
-
-//	[{%1#f_IsVarWorker()=true}{\
- if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
- begin
-//	[{"%{TtfwAnonimousWord.DoRun}N"=""}%f_find_element(5512949D0048,TtfwAnonimousWord.DoRun)]\
-  if ( ( ( get_global_var ( 'TtfwAnonimousWord.DoRun' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '5512949D0048' %, 'TtfwAnonimousWord.DoRun' )% 
-  end // if
-//	%f_set_var(MyDo,{TtfwAnonimousWord.DoRun})\
-  [%f] set_var %( 'MyDo' %, '{TtfwAnonimousWord.DoRun}' )% 
-//	]\
- end // if
- else
- begin
-//	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
-  if ( ( ( get_global_var ( 'TtfwWord.DoDoIt' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '4DAEEDE10285' %, 'TtfwWord.DoDoIt' )% 
-  end // if
-//	%f_set_var(MyDo,{TtfwWord.DoDoIt})\
-  [%f] set_var %( 'MyDo' %, '{TtfwWord.DoDoIt}' )% 
-//	}\
- end // else
-
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
- begin
 //	[{"%{SysUtils}N"=""}%f_find_element(47877EB202FB,SysUtils)]\
   if ( ( ( get_global_var ( 'SysUtils' ) |N ) ) %== '' ) then
   begin
@@ -1073,14 +925,7 @@ end. // <<ScriptKeywordsPack>>
   ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'SysUtils' ) |U ) )% ) 
 //	%f_addCDep(%{Class_Inst},%{SysUtils})\
   [%f] addCDep %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'SysUtils' ) ) )% 
-//	]\
- end // if
 
-//	[{""=""}\
- if ( '' %== '' ) then
- begin
-
-// - специально так хитро закомментировано
 //	[{"%{TtfwWord.GetAllParamsCount}N"=""}%f_find_element(559687E6025A,TtfwWord.GetAllParamsCount)]\
   if ( ( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) |N ) ) %== '' ) then
   begin
@@ -1091,60 +936,55 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.GetAllParamsCount}U)\
   ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
 //	%{TtfwWord.GetAllParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetAllParamsCount},%{Class_Inst})_var,\
-   ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+  ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+  ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwWord.GetAllParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetAllParamsCount},%{Class_Inst})_impl,\
-   ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+  ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+  [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.GetAllParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := %1<{}{%CS!=out}{%CC}>\
-   ' Result := '
-   %1
-   bind ( 
-    OBJECT VAR %S
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
-    begin
-     OBJECT IN %C
-     if ( ( %C |S ) %!= 'out' ) then
-     begin
-
-      ++! l_Counter
-     end // if
-    end // for C
-    l_Counter
-
-   ) // bind
- //	[{"%{GEN}N"!=""}\
-   if ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= '' ) then
+  ' Result := '
+  %1
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
    begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'out' ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for C
+   l_Counter
+
+  ) // bind
+ //	[{"%{GEN}N"!=""}\
+  if ( ( ( get_global_var ( 'GEN' ) |N ) ) %!= '' ) then
+  begin
 //	 + 1\
-    ' + 1'
+   ' + 1'
 //	]\
-   end // if
+  end // if
 
 
 //	[{%1#f_IsVarWorker()=true}\
-   if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
-   begin
+  if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
+  begin
 //	 + 1\
-    ' + 1'
+   ' + 1'
 //	]\
-   end // if
-//	;\
-   ';'
-//	)\
-)% ) //	]\
   end // if
-
+//	;\
+  ';'
+//	)\
+)% ) 
 
 //	[{%1#f_IsVarWorker()=true}\
   if ( ( %1 %?f IsVarWorker %( )% ) %==  true ) then
@@ -1159,28 +999,21 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.RightParamsCount}U)\
    ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_var,\
-    ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-    ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_impl,\
-    ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwWord.RightParamsCount' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.RightParamsCount' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := 1;\
-    ' Result := 1;'
+   ' Result := 1;'
 //	)\
 )% ) //	]\
-   end // if
-
-
-//	]\
   end // if
 
 
@@ -1197,69 +1030,32 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwClassLike.BindParams}U)\
    ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwClassLike.BindParams' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_var,\
-    ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-    ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_impl,\
-    ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwClassLike.BindParams' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwClassLike.BindParams' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := true;\
-    ' Result := true;'
+   ' Result := true;'
 //	)\
 )% ) //	]\
-   end // if
-
-
-
-//	[{"%{TtfwWord.LeftWordRefParamsCount}N"=""}%f_find_element(53E4914101D2,TtfwWord.LeftWordRefParamsCount)]\
-
-
-
-//	%{Class_Inst}%f_add_override(%{TtfwWord.LeftWordRefParamsCount}U)\
-
-
-
-//	%{TtfwWord.LeftWordRefParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftWordRefParamsCount},%{Class_Inst})_var,\
-
-//	 {-}\
-
-//	)\
-
-
-
-//	%{TtfwWord.LeftWordRefParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftWordRefParamsCount},%{Class_Inst})_impl,\
-
-//	 Result := GetAllParamsCount(aCtx) - RightParamsCount(aCtx);\
-
-//	)\
-
-
-//	]\
   end // if
-//	]\
- end // if
+
 
 //	%{Class_Inst}%f_add_override(%{MyDo}U)\
- ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'MyDo' ) |U ) )% ) 
+  ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'MyDo' ) |U ) )% ) 
 
-//	[{%{NeedOp}N=true}{\
- if ( ( ( get_global_var ( 'NeedOp' ) |N ) ) %==  true ) then
- begin
-
-
-//	[{""=""}\
-  if ( '' %== '' ) then
+//	[{%{NeedOp}N=true}\
+  if ( ( ( get_global_var ( 'NeedOp' ) |N ) ) %==  true ) then
   begin
 
-// - специально так хитро закомментировано
+
 //	[{"%{TtfwWord.LeftParamsTypes}N"=""}%f_find_element(5617F4D00243,TtfwWord.LeftParamsTypes)]\
    if ( ( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) |N ) ) %== '' ) then
    begin
@@ -1270,52 +1066,42 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.LeftParamsTypes}U)\
    ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_var,\
-    ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-    ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_impl,\
-    ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.LeftParamsTypes' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := OpenTypesToTypes(\[%{Op_Instance}<{, }{%CS!=out}{+%C}%t_TypeInfo(%C%T)>\]);\
-    ' Result := OpenTypesToTypes(['
-    ( get_global_var ( 'Op_Instance' ) ) 
-    bind ( 
-     OBJECT VAR %S
-     INTEGER VAR l_Counter l_Counter := 0
-     for %S%C
+   ' Result := OpenTypesToTypes(['
+   ( get_global_var ( 'Op_Instance' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |S ) %!= 'out' ) then
      begin
-      OBJECT IN %C
-      if ( ( %C |S ) %!= 'out' ) then
+      if ( l_Counter >0 ) then ( ', ' )
+      if ( l_Counter >0 ) then
       begin
-       if ( l_Counter >0 ) then ( ', ' )
-       if ( l_Counter >0 ) then
-       begin
-        [%t] TypeInfo %( %C ->T  )% 
-       end
-       ++! l_Counter
-      end // if
-     end // for C
+       [%t] TypeInfo %( %C ->T  )% 
+      end
+      ++! l_Counter
+     end // if
+    end // for C
 
-    ) // bind
-    ']);'
+   ) // bind
+   ']);'
 //	)\
-)% ) //	]\
-   end // if
-//	]\
-  end // if
+)% ) 
 
-
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
 //	%{MyDo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{MyDo},%{Class_Inst})_var,\
    ( get_global_var ( 'MyDo' ) %f set_uc_content %( 'intf.pas' %, '_'
    [%f] pas_MethodOwnerID %( ( get_global_var ( 'MyDo' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
@@ -1496,8 +1282,6 @@ end. // <<ScriptKeywordsPack>>
      OBJECT IN %C
      if true then
      begin
-
-//	%f_warning(%CS %CN)\
 //	[{%CS=out}\
       if ( ( %C |S ) %== 'out' ) then
       begin
@@ -1515,18 +1299,13 @@ end. // <<ScriptKeywordsPack>>
 
    ) // bind
 //	)\
-)% ) //	]\
-  end // if
-
+)% ) 
 
 //	[{%1{mapped}=true}\
-  if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
-  begin
-
-
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+   if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
    begin
+
+
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_var,\
     ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
     [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
@@ -1557,57 +1336,46 @@ end. // <<ScriptKeywordsPack>>
     begin
      ( get_global_var ( 'Op_Instance' ) |N ) 
     end // else
-//	[{%1{is_setter}=true}{\
-    if ( ( %1 get_up ( 'is_setter' ) ) %==  true ) then
+//	[{%1<{}{}{C%C}>!=0}\
+    if ( ( %1
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if true then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %!= 0 ) then
     begin
-//	 := aValue\
-     ' := aValue'
+//	(%1<{, }{}%CN>)\
+     '('
+     %1
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if true then
+       begin
+        if ( l_Counter >0 ) then ( ', ' )
+        %C |N 
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+      ')'
 //	]\
     end // if
-    else
-    begin
-//	[{%1<{}{}{C%C}>!=0}\
-     if ( ( %1
-      bind ( 
-       OBJECT VAR %S
-       INTEGER VAR l_Counter l_Counter := 0
-       for %S%C
-       begin
-        OBJECT IN %C
-        if true then
-        begin
-
-         ++! l_Counter
-        end // if
-       end // for C
-       l_Counter
-
-      ) // bind
- )       %!= 0 ) then
-     begin
-//	(%1<{, }{}%CN>)\
-      '('
-      %1
-      bind ( 
-       OBJECT VAR %S
-       INTEGER VAR l_Counter l_Counter := 0
-       for %S%C
-       begin
-        OBJECT IN %C
-        if true then
-        begin
-         if ( l_Counter >0 ) then ( ', ' )
-         %C |N 
-         ++! l_Counter
-        end // if
-       end // for C
-
-      ) // bind
-       ')'
-//	]\
-     end // if
-//	}\
-    end // else
 //	;\
     ';'
 //	)\
@@ -1615,16 +1383,9 @@ end. // <<ScriptKeywordsPack>>
    end // if
 
 
-//	]\
-  end // if
-
-
 //	[{"%1{prop_stereo}"!=""|"%1{lvalue}"="true"}\
-  if ( ( %1 get_up ( 'prop_stereo' ) ) %!= '' OR 
-    ( ( %1 get_up ( 'lvalue' ) ) %== true  ) ) then
-  begin
-//	[{%1{is_setter}!=true}\
-   if ( ( %1 get_up ( 'is_setter' ) ) %!=  true ) then
+   if ( ( %1 get_up ( 'prop_stereo' ) ) %!= '' OR 
+     ( ( %1 get_up ( 'lvalue' ) ) %== true  ) ) then
    begin
 
 
@@ -1692,91 +1453,166 @@ end. // <<ScriptKeywordsPack>>
 //	%{Class_Inst}%f_add_override(%{TtfwWord.SetValue}U)\
     ( get_global_var ( 'Class_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.SetValue' ) |U ) )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-    if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-    begin
 //	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_var,\
-     ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
-     [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	[{"%1{prop_stereo}"="readonly"}{\
-     if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
-     begin
+    if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
+    begin
 //	 {-}\
-      ' {-}'
+     ' {-}'
 //	]\
-     end // if
-     else
-     begin
+    end // if
+    else
+    begin
 //	var
-      'var'
+     'var'
 //	 l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN});\
-      ' l_'
-      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
-      [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ';'
+     ' l_'
+     [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
+     [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ';'
 //	%1<{}{}{%C}\n l_%CN : %f_pas_TypeName(%C%T);>\
-      %1
-      bind ( 
-       OBJECT VAR %S
-       INTEGER VAR l_Counter l_Counter := 0
-       for %S%C
+     %1
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if true then
        begin
-        OBJECT IN %C
-        if true then
-        begin
-         #13#10' l_'
-         %C |N ' : '
-         [%f] pas_TypeName %( %C ->T  )% ';' 
-         ++! l_Counter
-        end // if
-       end // for C
+        #13#10' l_'
+        %C |N ' : '
+        [%f] pas_TypeName %( %C ->T  )% ';' 
+        ++! l_Counter
+       end // if
+      end // for C
 
-      ) // bind
+     ) // bind
  //	}\
-     end // else
+    end // else
 //	)\
 )% ) 
 
 //	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_impl,\
-     ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
-     [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'TtfwWord.SetValue' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwWord.SetValue' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	[{"%1{prop_stereo}"="readonly"}{\
-     if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
-     begin
+    if ( ( %1 get_up ( 'prop_stereo' ) ) %== 'readonly' ) then
+    begin
 //	 RunnerError('Нельзя присваивать значение readonly свойству %1{prop_name}'%f_comma(%S) aCtx);\
-      ' RunnerError(''Нельзя присваивать значение readonly свойству '
-      %1 get_up ( 'prop_name' ) ''''
-      [%f] comma %( %S )% ' aCtx);'
+     ' RunnerError(''Нельзя присваивать значение readonly свойству '
+     %1 get_up ( 'prop_name' ) ''''
+     [%f] comma %( %S )% ' aCtx);'
+//	]\
+    end // if
+    else
+    begin
+//	 try
+     ' try'
+//	  l_%t_SelfName(%{GEN}) := %t_CastSig(%{GEN})(aCtx.rEngine.%f_PopSig(%{GEN}));
+     '  l_'
+     [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ' := '
+     [%t] CastSig %( ( get_global_var ( 'GEN' ) ) )% '(aCtx.rEngine.'
+     [%f] PopSig %( ( get_global_var ( 'GEN' ) ) )% ');'
+//	 except
+     ' except'
+//	  on E: Exception do
+     '  on E: Exception do'
+//	  begin
+     '  begin'
+//	   RunnerError('Ошибка при получении параметра l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN}) : ' + E.Message, aCtx);
+     '   RunnerError(''Ошибка при получении параметра l_'
+     [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
+     [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ' : '' + E.Message, aCtx);'
+//	   Exit;
+     '   Exit;'
+//	  end;//on E: Exception
+     '  end;//on E: Exception'
+//	 end;//try..except
+     ' end;//try..except'
+
+
+//	%1<{}{}{%C}\
+     %1
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if true then
+       begin
+//	[{%CS!=out}\
+        if ( ( %C |S ) %!= 'out' ) then
+        begin
+//	 try
+         ' try'
+//	  l_%CN := \
+         '  l_'
+         %C |N ' := '
+//	[{"%t_CastSig(%C%T)"=""}{\
+         if ( ( [%t] CastSig %( %C ->T  )% ) %== '' ) then
+         begin
+//	aCtx.rEngine.%f_PopSig(%C%T,%C)\
+          'aCtx.rEngine.'
+          [%f] PopSig %( %C ->T  %, %C )% 
+//	]\
+         end // if
+         else
+         begin
+//	%t_CastSig(%C%T)\
+          [%t] CastSig %( %C ->T  )% 
+//	(aCtx.rEngine.%f_PopSig(%C%T,%C))\
+          '(aCtx.rEngine.'
+          [%f] PopSig %( %C ->T  %, %C )% ')'
+//	}\
+         end // else
+//	;
+         ';'
+//	 except
+         ' except'
+//	  on E: Exception do
+         '  on E: Exception do'
+//	  begin
+         '  begin'
+//	   RunnerError('Ошибка при получении параметра %CN: %f_pas_TypeName(%C%T) : ' + E.Message, aCtx);
+         '   RunnerError(''Ошибка при получении параметра '
+         %C |N ': '
+         [%f] pas_TypeName %( %C ->T  )% ' : '' + E.Message, aCtx);'
+//	   Exit;
+         '   Exit;'
+//	  end;//on E: Exception
+         '  end;//on E: Exception'
+//	 end;//try..except
+         ' end;//try..except'
+//	]\
+        end // if
+//	>\
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+ 
+
+//	[{%1{mapped}=true}{\
+     if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
+     begin
+//	 l_%t_SelfName(%{GEN}).%1{prop_name} := %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T));\
+      ' l_'
+      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% '.'
+      %1 get_up ( 'prop_name' ) ' := '
+      [%t] CastValue %( %1 ->T  )% '(aValue'
+      [%t] TypeValue %( %1 ->T  )% ');'
 //	]\
      end // if
      else
      begin
-//	 try
-      ' try'
-//	  l_%t_SelfName(%{GEN}) := %t_CastSig(%{GEN})(aCtx.rEngine.%f_PopSig(%{GEN}));
-      '  l_'
-      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ' := '
-      [%t] CastSig %( ( get_global_var ( 'GEN' ) ) )% '(aCtx.rEngine.'
-      [%f] PopSig %( ( get_global_var ( 'GEN' ) ) )% ');'
-//	 except
-      ' except'
-//	  on E: Exception do
-      '  on E: Exception do'
-//	  begin
-      '  begin'
-//	   RunnerError('Ошибка при получении параметра l_%t_SelfName(%{GEN}): %f_pas_TypeName(%{GEN}) : ' + E.Message, aCtx);
-      '   RunnerError(''Ошибка при получении параметра l_'
-      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% ': '
-      [%f] pas_TypeName %( ( get_global_var ( 'GEN' ) ) )% ' : '' + E.Message, aCtx);'
-//	   Exit;
-      '   Exit;'
-//	  end;//on E: Exception
-      '  end;//on E: Exception'
-//	 end;//try..except
-      ' end;//try..except'
-
-
-//	%1<{}{}{%C}\
-      %1
+//	 DoSetValue(l_%t_SelfName(%{GEN})%1<{}{}{%C}%f_comma(%S) l_%CN>%f_comma(%S) %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T)));\
+      ' DoSetValue(l_'
+      [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% %1
       bind ( 
        OBJECT VAR %S
        INTEGER VAR l_Counter l_Counter := 0
@@ -1785,115 +1621,31 @@ end. // <<ScriptKeywordsPack>>
         OBJECT IN %C
         if true then
         begin
-//	[{%CS!=out}\
-         if ( ( %C |S ) %!= 'out' ) then
-         begin
-//	 try
-          ' try'
-//	  l_%CN := \
-          '  l_'
-          %C |N ' := '
-//	[{"%t_CastSig(%C%T)"=""}{\
-          if ( ( [%t] CastSig %( %C ->T  )% ) %== '' ) then
-          begin
-//	aCtx.rEngine.%f_PopSig(%C%T,%C)\
-           'aCtx.rEngine.'
-           [%f] PopSig %( %C ->T  %, %C )% 
-//	]\
-          end // if
-          else
-          begin
-//	%t_CastSig(%C%T)\
-           [%t] CastSig %( %C ->T  )% 
-//	(aCtx.rEngine.%f_PopSig(%C%T,%C))\
-           '(aCtx.rEngine.'
-           [%f] PopSig %( %C ->T  %, %C )% ')'
-//	}\
-          end // else
-//	;
-          ';'
-//	 except
-          ' except'
-//	  on E: Exception do
-          '  on E: Exception do'
-//	  begin
-          '  begin'
-//	   RunnerError('Ошибка при получении параметра %CN: %f_pas_TypeName(%C%T) : ' + E.Message, aCtx);
-          '   RunnerError(''Ошибка при получении параметра '
-          %C |N ': '
-          [%f] pas_TypeName %( %C ->T  )% ' : '' + E.Message, aCtx);'
-//	   Exit;
-          '   Exit;'
-//	  end;//on E: Exception
-          '  end;//on E: Exception'
-//	 end;//try..except
-          ' end;//try..except'
-//	]\
-         end // if
-//	>\
-
+         [%f] comma %( %S )% ' l_'
+         %C |N 
          ++! l_Counter
         end // if
        end // for C
 
       ) // bind
- 
-
-//	[{%1{mapped}=true}{\
-      if ( ( %1 get_up ( 'mapped' ) ) %==  true ) then
-      begin
-//	 l_%t_SelfName(%{GEN}).%1{prop_name} := %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T));\
-       ' l_'
-       [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% '.'
-       %1 get_up ( 'prop_name' ) ' := '
-       [%t] CastValue %( %1 ->T  )% '(aValue'
-       [%t] TypeValue %( %1 ->T  )% ');'
-//	]\
-      end // if
-      else
-      begin
-//	 DoSetValue(l_%t_SelfName(%{GEN})%1<{}{}{%C}%f_comma(%S) l_%CN>%f_comma(%S) %t_CastValue(%1%T)(aValue%t_TypeValue(%1%T)));\
-       ' DoSetValue(l_'
-       [%t] SelfName %( ( get_global_var ( 'GEN' ) ) )% %1
-       bind ( 
-        OBJECT VAR %S
-        INTEGER VAR l_Counter l_Counter := 0
-        for %S%C
-        begin
-         OBJECT IN %C
-         if true then
-         begin
-          [%f] comma %( %S )% ' l_'
-          %C |N 
-          ++! l_Counter
-         end // if
-        end // for C
-
-       ) // bind
-        [%f] comma %( %S )% ' '
-       [%t] CastValue %( %1 ->T  )% '(aValue'
-       [%t] TypeValue %( %1 ->T  )% '));'
-//	}\
-      end // else
+       [%f] comma %( %S )% ' '
+      [%t] CastValue %( %1 ->T  )% '(aValue'
+      [%t] TypeValue %( %1 ->T  )% '));'
 //	}\
      end // else
+//	}\
+    end // else
 //	)\
 )% ) //	]\
-    end // if
-
-
-//	]\
    end // if
+
+
 //	]\
   end // if
 
 
 //	]
  end // if
- else
- begin
-//	}\
- end // else
 
 
 //t _TypeInfo

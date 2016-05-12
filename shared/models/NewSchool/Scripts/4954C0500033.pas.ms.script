@@ -273,12 +273,7 @@ ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
  ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas'
@@ -288,6 +283,21 @@ ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
  CONST extprop:pas:UnitName 'OfficeLikeMain_Form'
 
 ref; // ME_4ADDD3030251 OfficeLikeMain
+
+: ME_6FC10F344ACC
+ CONST UID '6FC10F344ACC'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация OfficeLike' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4ADDCE970294 // OfficeLike
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_6FC10F344ACC Ini_Reg_Class
 
 : ME_4C8E34A2037E
  CONST Class class_Dependency
@@ -319,6 +329,17 @@ ref; // ME_51E69AC400CF
 
 ref; // ME_51E69B74019F 
 
+: ME_0AFF87DEE5BC
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4ADDCE970294 // OfficeLike
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_0AFF87DEE5BC 
+
 : ME_4ADDCE970294
  CONST UID '4ADDCE970294'
  CONST Name 'OfficeLike'
@@ -333,6 +354,10 @@ ref; // ME_51E69B74019F
    Seq: ( WL 'ME_4AB22E140136' '50883A2E00B3.pas.ms.script' // TvcmApplication
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_6FC10F344ACC // Ini_Reg_Class
+ )
+ ; // Operations
  : Children
    Seq: ( ME_4ADDD3030251 // OfficeLikeMain
  )
@@ -341,12 +366,9 @@ ref; // ME_51E69B74019F
    Seq: ( ME_4C8E34A2037E // ToolbarMenu
  ME_51E69AC400CF // TvcmBaseOperationsCollectionItem
  ME_51E69B74019F // IvcmOperationDef
+ ME_0AFF87DEE5BC // TtfwClassRef
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeRes.pas'
  CONST extprop:pas:TypeName 'TOfficeLikeRes'
  CONST extprop:rc:SelfName 'OfficeLikeRes'

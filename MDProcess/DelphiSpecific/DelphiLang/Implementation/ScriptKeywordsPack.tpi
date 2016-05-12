@@ -50,9 +50,7 @@ p ifndef:s=NoScripts ?
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor4F2C15C90252*
-//	%S%f_set_implement_select_type(include)\
-//	%f_warning(%SN)\
-
+	[{%S#f_UseNewGenRec()!=true}\
 	[{%S{noRegistrator}!=true}\
 	[{"%S{no class name}"="true"|"%S{no_pop}"="true"}\
 	%S%f_set_up(needs script,true)\
@@ -61,7 +59,6 @@ p ifndef:s=NoScripts ?
 
 	%f_SpellScriptFramework(%S)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
 	%f_addCDep(%S,%{TypeInfoExt})\
 	]\
@@ -75,19 +72,10 @@ p ifndef:s=NoScripts ?
 	%{PROPS}<{}{}{%C}\
 
 	%1%f_add_operation(%1U_%CU_get,keyword,\
-//	[{%CS!=readonly}Get]\
 	%CN (): %C%TU,Op_Instance)\
 	%{Op_Instance}%f_set_up(NameForScript,%C{NameForScript})\
 
 	%f_TuneGS(%{Op_Instance},%C)\
-	%{Op_Instance}%f_set_up(is_setter,false)\
-
-//	[{%CS!=readonly}\
-//	%1%f_add_operation(%1U_%CU_set,keyword,Set%CN (aValue : %C%TU),Op_Instance)\
-//	%{Op_Instance}%f_set_up(NameForScript,%C{NameForScript})\
-//	%f_TuneGS(%{Op_Instance},%C)\
-//	%{Op_Instance}%f_set_up(is_setter,true)\
-//	]\
 
 	>\
 
@@ -107,6 +95,7 @@ p ifndef:s=NoScripts ?
 
 	%f_clear_list(KEYS)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%S<{}{%C#f_IsGlobalKeyword()=true}\
 	%f_add_to_list(KEYS,C)\
 	>\
@@ -120,10 +109,8 @@ p ifndef:s=NoScripts ?
 
 	[{%f_is_empty(PARAMS)=false}\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{TtfwTypeRegistrator}N"=""}%f_find_element(5527F8330362,TtfwTypeRegistrator)]\
 	%f_addCDep(%S,%{TtfwTypeRegistrator})\
-	]\
 
 	%{PARAMS}<{}{}{%C}\
 
@@ -133,14 +120,11 @@ p ifndef:s=NoScripts ?
 	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
 	%{Reg_Instance}%f_set_var(SpelledFor,C)\
 
-//	%f_warning(%CN)\
-
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
 	 TtfwTypeRegistrator.RegisterType(%t_TypeInfo(%C));\
 	)\
-	]\
 	>\
+	]\
 	]\
 
 	%f_clear_list(PARAMS)\
@@ -160,17 +144,6 @@ f _SpellWordsForParent
 	[{%2N=true}\
 	%f_addCDep(%S,%1,"injects")\
 // - иньекция
-//	[{%t_simple_class(%1)=true&%S{noRegistrator}!=true}\
-//	%S%f_add_class(%SU_%1U_Reg,SimpleClass,%f_pas_TypeName(%1)RegistratorFor%f_N(%S),Reg_Inst)\
-//	%f_addG(%{Reg_Inst},%1)\
-//	%{Reg_Inst}%f_set_documentation(Регистратор для %f_pas_TypeName(%1))\
-//	%{Reg_Inst}%f_set_abstraction_type(abstract)\
-//	%{Reg_Inst}%f_set_visibility_type(PrivateAccess)\
-//	%{Reg_Inst}%f_set_up(register in scripts,true)\
-//	%{Reg_Inst}%f_set_up(is_friend,true)\
-//	%{Reg_Inst}%f_set_implement_select_type(include)\
-//	]\
-// - регистратор
 	]\
 
 	%f_clear_list(KEYS)\
@@ -188,7 +161,6 @@ f _SpellWordsForParent
 
 f _AddParamToRegister
 	[{%SN!=void}\
-//	%f_warning(%SN)\
 	[{%f_exists_in_list(PARAMS,S)!=true}\
 	%f_add_to_list(PARAMS,S)\
 	]\
@@ -243,45 +215,46 @@ f _SpellWordByOp
 	%{Class_Inst}%f_set_up(NameForScript,%f_str_replace(%{Class_Inst}N,_,:))\
 	]\
 
-	%{Class_Inst}%f_set_documentation(Слово скрипта %f_loc_GetNameForScript(%{Class_Inst})[\n\{panel\}%1D\{panel\}]
+	%{Class_Inst}%f_set_documentation(\
+	Слово скрипта %f_loc_GetNameForScript(%{Class_Inst})\
+//	[\n\{panel\}%1D\{panel\}]
 
-	%f_set_var(RES,"")\
-	[{%1%TN!=void}%f_set_var(RES,1%T)]\
-	[{%1#f_IsCreator()=true&"%{GEN}N"!=""}%f_set_var(RES,{GEN})]\
+//	%f_set_var(RES,"")\
+//	[{%1%TN!=void}%f_set_var(RES,1%T)]\
+//	[{%1#f_IsCreator()=true&"%{GEN}N"!=""}%f_set_var(RES,{GEN})]\
 
-	[{"%{RES}N"!=""}*Тип результата:* %{RES}N\n]\
-	*Пример:*
-	\{code\}
-	%1<{}{%CS=out}{%C}[%t_EngineType(%C%T) ]VAR l_%CN\n>\
-	[{"%{RES}N"!=""}[%t_EngineType(%{RES}) ]VAR l_%{RES}N\n]\
+//	[{"%{RES}N"!=""}*Тип результата:* %{RES}N\n]\
+//	*Пример:*
+//	\{code\}
+//	%1<{}{%CS=out}{%C}[%t_EngineType(%C%T) ]VAR l_%CN\n>\
+//	[{"%{RES}N"!=""}[%t_EngineType(%{RES}) ]VAR l_%{RES}N\n]\
 
-	 %1<{}{%CS!=out}{%Cr}%CN >[{%1#f_IsCreator()!=true&"%{GEN}N"!=""}a%t_SelfName(%{GEN}) ]%f_loc_GetNameForScript(%{Class_Inst})\
+//	 %1<{}{%CS!=out}{%Cr}%CN >[{%1#f_IsCreator()!=true&"%{GEN}N"!=""}a%t_SelfName(%{GEN}) ]%f_loc_GetNameForScript(%{Class_Inst})\
 
-	[{%1#f_IsVarWorker()=true}\
-	 [{%1#f_IsWordWorker()=true}{aVar}aWord]\
-	]\
+//	[{%1#f_IsVarWorker()=true}\
+//	 [{%1#f_IsWordWorker()=true}{aVar}aWord]\
+//	]\
 
-	%1<{}{%CS=out}{%C} \>\>\> l_%CN>\
-	[{"%{RES}N"!=""} \>\>\> l_%{RES}N]\
-	\n\
-	\{code\} \
+//	%1<{}{%CS=out}{%C} \>\>\> l_%CN>\
+//	[{"%{RES}N"!=""} \>\>\> l_%{RES}N]\
+//	\n\
+//	\{code\} \
 	)\
+
 	%{Class_Inst}%f_set_abstraction_type(final)\
 	%{Class_Inst}%f_set_visibility_type(PrivateAccess)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{TtfwContext}N"=""}%f_find_element(4DB0091E033E,TtfwContext)]\
 
 	%{Class_Inst}%f_make_accessable(%{TtfwContext}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%f_addCDep(%{Class_Inst},%{TtfwContext})\
-	]\
 
 	[{%1{SupressNextImmediate}!=None&"%1{SupressNextImmediate}"!=""}\
 	[{"%{TtfwCompilingWord.SupressNextImmediate}N"=""}%f_find_element(4F3AB3B101FC,TtfwCompilingWord.SupressNextImmediate)]\
 	%{Class_Inst}%f_add_override(%{TtfwCompilingWord.SupressNextImmediate}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwCompilingWord.SupressNextImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwCompilingWord.SupressNextImmediate},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -291,15 +264,12 @@ f _SpellWordByOp
 	)\
 	]\
 
-	]\
-
 	[{"%{TTypeInfo}N"=""}%f_find_element(4767748503B5,TTypeInfo)]\
 	%f_addCDep(%{Class_Inst},%{TTypeInfo})\
 
 	[{"%{TtfwWord.GetResultTypeInfo}N"=""}%f_find_element(551544E2001A,TtfwWord.GetResultTypeInfo)]\
 	%{Class_Inst}%f_add_override(%{TtfwWord.GetResultTypeInfo}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.GetResultTypeInfo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetResultTypeInfo},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -311,7 +281,6 @@ f _SpellWordByOp
 	 Result := %t_TypeInfo(%{GEN});\
 	]\
 	)\
-	]\
 
 	%f_set_var(Op_Instance,"")\
 
@@ -376,19 +345,14 @@ f _SpellWordByOp
 	%f_set_var(MyDo,{TtfwAnonimousWord.DoRun})\
 	]\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	[{"%{SysUtils}N"=""}%f_find_element(47877EB202FB,SysUtils)]\
 	%{Class_Inst}%f_make_accessable(%{SysUtils}U)\
 	%f_addCDep(%{Class_Inst},%{SysUtils})\
-	]\
 
-	[{""=""}\
-// - специально так хитро закомментировано
 	[{"%{TtfwWord.GetAllParamsCount}N"=""}%f_find_element(559687E6025A,TtfwWord.GetAllParamsCount)]\
 
 	%{Class_Inst}%f_add_override(%{TtfwWord.GetAllParamsCount}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.GetAllParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetAllParamsCount},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -404,14 +368,12 @@ f _SpellWordByOp
 	]\
 	;\
 	)\
-	]\
 
 	[{%1#f_IsVarWorker()=true}\
 	[{"%{TtfwWord.RightParamsCount}N"=""}%f_find_element(52E9282B0271,TtfwWord.RightParamsCount)]\
 
 	%{Class_Inst}%f_add_override(%{TtfwWord.RightParamsCount}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -421,14 +383,11 @@ f _SpellWordByOp
 	)\
 	]\
 
-	]\
-
 	[{%1{bind params}=true}\
 	[{"%{TtfwClassLike.BindParams}N"=""}%f_find_element(5617C8A30023,TtfwClassLike.BindParams)]\
 
 	%{Class_Inst}%f_add_override(%{TtfwClassLike.BindParams}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -438,33 +397,14 @@ f _SpellWordByOp
 	)\
 	]\
 
-//	[{"%{TtfwWord.LeftWordRefParamsCount}N"=""}%f_find_element(53E4914101D2,TtfwWord.LeftWordRefParamsCount)]\
-
-//	%{Class_Inst}%f_add_override(%{TtfwWord.LeftWordRefParamsCount}U)\
-
-//	%{TtfwWord.LeftWordRefParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftWordRefParamsCount},%{Class_Inst})_var,\
-//	 {-}\
-//	)\
-
-//	%{TtfwWord.LeftWordRefParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftWordRefParamsCount},%{Class_Inst})_impl,\
-//	 Result := GetAllParamsCount(aCtx) - RightParamsCount(aCtx);\
-//	)\
-
-	]\
-	]\
-
 	%{Class_Inst}%f_add_override(%{MyDo}U)\
 
-	[{%{NeedOp}N=true}{\
-	}\
+	[{%{NeedOp}N=true}\
 
-	[{""=""}\
-// - специально так хитро закомментировано
 	[{"%{TtfwWord.LeftParamsTypes}N"=""}%f_find_element(5617F4D00243,TtfwWord.LeftParamsTypes)]\
 
 	%{Class_Inst}%f_add_override(%{TtfwWord.LeftParamsTypes}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -472,10 +412,7 @@ f _SpellWordByOp
 	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_impl,\
 	 Result := OpenTypesToTypes(\[%{Op_Instance}<{, }{%CS!=out}{+%C}%t_TypeInfo(%C%T)>\]);\
 	)\
-	]\
-	]\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{MyDo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{MyDo},%{Class_Inst})_var,\
 	 {-}\
 	[{%{Op_Instance}<{}{}{+%CC}>!=0}\
@@ -517,17 +454,14 @@ f _SpellWordByOp
 	]\
 	;\
 	%{Op_Instance}<{}{}{%Cr}\
-//	%f_warning(%CS %CN)\
 	[{%CS=out}\
 	\n aCtx.rEngine.%t_PushSig(%C%T)(l_%CN%t_PushType(%C%T));\
 	]\
 	>\
 	)\
-	]\
 
 	[{%1{mapped}=true}\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -536,21 +470,14 @@ f _SpellWordByOp
 	 [{%{Op_Instance}%TN!=void}Result := ]\
 	a%t_SelfName(%{GEN}).\
 	[{}{%{Op_Instance}N}%1{prop_name}]\
-	[{%1{is_setter}=true}{\
 	[{%1<{}{}{C%C}>!=0}\
 	(%1<{, }{}%CN>)\
-	]\
-	}\
-	 := aValue\
 	]\
 	;\
 	)\
 	]\
 
-	]\
-
 	[{"%1{prop_stereo}"!=""|"%1{lvalue}"="true"}\
-	[{%1{is_setter}!=true}\
 
 	[{%1{mapped}=true|"%1{prop_stereo}"="readonly"}{\
 	%{Class_Inst}%f_add_operation(%{Class_Inst}U_%1U_DoSetValue,static,\
@@ -566,7 +493,6 @@ f _SpellWordByOp
 	[{"%{TtfwWord.SetValue}N"=""}%f_find_element(52D00B00031A,TtfwWord.SetValue)]\
 	%{Class_Inst}%f_add_override(%{TtfwWord.SetValue}U)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_var,\
 	[{"%1{prop_stereo}"="readonly"}{\
 	var
@@ -621,7 +547,6 @@ f _SpellWordByOp
 	)\
 	]\
 
-	]\
 	]\
 
 	]

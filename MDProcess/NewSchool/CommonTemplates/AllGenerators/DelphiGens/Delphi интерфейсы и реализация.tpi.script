@@ -5199,40 +5199,43 @@ implementation @ "Delphi интерфейсы и реализация"
 //%f _IteratorSpell
 : IteratorSpell OBJECT IN %S
 //#UC START# *4BA884DD00A7for470F151302FD*
-//	[{%SC!=Class|%Cx=true}\
- if ( ( %S |C ) %!= 'Class' OR 
-   ( ( %C |x ) %==  true  ) ) then
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
-//	[{%S#f_IsOverride()!=true}\
-  if ( ( %S %?f IsOverride %( )% ) %!=  true ) then
+//	[{%SC!=Class|%Cx=true}\
+  if ( ( %S |C ) %!= 'Class' OR 
+    ( ( %C |x ) %==  true  ) ) then
   begin
+//	[{%S#f_IsOverride()!=true}\
+   if ( ( %S %?f IsOverride %( )% ) %!=  true ) then
+   begin
 
 //	- это чтобы C++ не сломать
 
 
 //	[{%SC=Class}{\
-   if ( ( %S |C ) %== 'Class' ) then
-   begin
-//	<{}{%CS=element type}%f_set_var(ELEMENT_TYPE,C%T)>\
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%C
+    if ( ( %S |C ) %== 'Class' ) then
     begin
-     OBJECT IN %C
-     if ( ( %C |S ) %== 'element type' ) then
+//	<{}{%CS=element type}%f_set_var(ELEMENT_TYPE,C%T)>\
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
      begin
-      [%f] set_var %( 'ELEMENT_TYPE' %, 'C'
-      %T )% 
-      ++! l_Counter
-     end // if
-    end // for C
+      OBJECT IN %C
+      if ( ( %C |S ) %== 'element type' ) then
+      begin
+       [%f] set_var %( 'ELEMENT_TYPE' %, 'C'
+       %T )% 
+       ++! l_Counter
+      end // if
+     end // for C
 //	]\
-   end // if
-   else
-   begin
+    end // if
+    else
+    begin
 //	%f_set_var(ELEMENT_TYPE,T)\
-    [%f] set_var %( 'ELEMENT_TYPE' %, 'T' )% 
+     [%f] set_var %( 'ELEMENT_TYPE' %, 'T' )% 
 //	}\
-   end // else
+    end // else
 
 
 
@@ -5246,117 +5249,119 @@ implementation @ "Delphi интерфейсы и реализация"
 
 
 //	%P%f_add_class(%SU_Action,Function,%PN_%f_N(%S)_Action,Action_Inst)\
-   %P %f add_class %( %S |U '_Action' %, 'Function' %, %P |N '_'
-   [%f] N %( %S )% '_Action' %, 'Action_Inst' )% 
+    %P %f add_class %( %S |U '_Action' %, 'Function' %, %P |N '_'
+    [%f] N %( %S )% '_Action' %, 'Action_Inst' )% 
 //	%{Action_Inst}%f_set_visibility_type(PublicAccess)\
-   ( get_global_var ( 'Action_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+    ( get_global_var ( 'Action_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
 //	%{Action_Inst}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
-   ( get_global_var ( 'Action_Inst' ) %f set_documentation %( 'Тип подитеративной функции для '
-   %P |N '.'
-   [%f] N %( %S )% )% ) 
+    ( get_global_var ( 'Action_Inst' ) %f set_documentation %( 'Тип подитеративной функции для '
+    %P |N '.'
+    [%f] N %( %S )% )% ) 
 //	%{Action_Inst}%f_add_operation(%SU_Action_Sig,,\
-   ( get_global_var ( 'Action_Inst' ) %f add_operation %( %S |U '_Action_Sig' %, '' %, 
+    ( get_global_var ( 'Action_Inst' ) %f add_operation %( %S |U '_Action_Sig' %, '' %, 
 //	DoIt (anItem: \
-   'DoIt (anItem: '
+    'DoIt (anItem: '
 
 //	[{"%{ELEMENT_TYPE}S"="ImpurityParamType"}{\
 //	%{ELEMENT_TYPE}U\
-   ( get_global_var ( 'ELEMENT_TYPE' ) |U ) 
+    ( get_global_var ( 'ELEMENT_TYPE' ) |U ) 
 //	}\
 
 //	%{%{ELEMENT_TYPE}N}U\
 
 //	]\
 //	[{%S{needs index}=true}\
-   if ( ( %S get_up ( 'needs index' ) ) %==  true ) then
-   begin
+    if ( ( %S get_up ( 'needs index' ) ) %==  true ) then
+    begin
 //	, anIndex: [{}{long}<{}{%CS=index type}%C%TU>]\
-    ', anIndex: '
-    if NOT-EMPTY
-    begin
-     INTEGER VAR l_Counter l_Counter := 0
-     for %S%C
+     ', anIndex: '
+     if NOT-EMPTY
      begin
-      OBJECT IN %C
-      if ( ( %C |S ) %== 'index type' ) then
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
       begin
-       %C ->T |U  
-       ++! l_Counter
-      end // if
-     end // for C
-    end // if
-    NOP
-    else
-    begin
-     'long' 
-    end // else
+       OBJECT IN %C
+       if ( ( %C |S ) %== 'index type' ) then
+       begin
+        %C ->T |U  
+        ++! l_Counter
+       end // if
+      end // for C
+     end // if
+     NOP
+     else
+     begin
+      'long' 
+     end // else
 //	]\
-   end // if
+    end // if
 //	): boolean,Op_Instance\
-   '): boolean' %, 'Op_Instance'
+    '): boolean' %, 'Op_Instance'
 //	)\
 )% ) //	%{Op_Instance}%f_set_documentation(Тип подитеративной функции для %PN.%f_N(%S))\
-   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Тип подитеративной функции для '
-   %P |N '.'
-   [%f] N %( %S )% )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Тип подитеративной функции для '
+    %P |N '.'
+    [%f] N %( %S )% )% ) 
 //	%S%f_set_var(Action,{Action_Inst})\
-   %S %f set_var %( 'Action' %, '{Action_Inst}' )% 
+    %S %f set_var %( 'Action' %, '{Action_Inst}' )% 
 
 //	%P%f_add_operation(%SU_Stub,static,L2_%PN_%f_N(%S)_Action (anAction: pointer): %{Action_Inst}U,Op_Instance)
-   %P %f add_operation %( %S |U '_Stub' %, 'static' %, 'L2_'
-   %P |N '_'
-   [%f] N %( %S )% '_Action (anAction: pointer): '
-   ( get_global_var ( 'Action_Inst' ) |U ) %, 'Op_Instance' )% 
+    %P %f add_operation %( %S |U '_Stub' %, 'static' %, 'L2_'
+    %P |N '_'
+    [%f] N %( %S )% '_Action (anAction: pointer): '
+    ( get_global_var ( 'Action_Inst' ) |U ) %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_documentation(Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для %PN.%f_N(%S))\
-   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для '
-   %P |N '.'
-   [%f] N %( %S )% )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для '
+    %P |N '.'
+    [%f] N %( %S )% )% ) 
 //	%{Op_Instance}%f_set_up(isGlobal,true)\
-   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isGlobal' %, true )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isGlobal' %, true )% ) 
 //	%{Op_Instance}%f_set_up(isAsm,true)\
-   ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isAsm' %, true )% ) 
+    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'isAsm' %, true )% ) 
 
 //	%S%f_set_var(Stub,{Op_Instance})\
-   %S %f set_var %( 'Stub' %, '{Op_Instance}' )% 
+    %S %f set_var %( 'Stub' %, '{Op_Instance}' )% 
 
 //	[{"%S%{SPELLER}N"!=""}\
-   if ( ( %S ( get_object_var ( 'SPELLER' ) |N )  ) %!= '' ) then
-   begin
+    if ( ( %S ( get_object_var ( 'SPELLER' ) |N )  ) %!= '' ) then
+    begin
 //	%S%{SPELLER}%f_set_var(Stub,{Op_Instance})\
-    %S ( get_object_var ( 'SPELLER' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% )  
+     %S ( get_object_var ( 'SPELLER' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% )  
 //	]\
-   end // if
+    end // if
 
 
 //	[{"%{l3LocalStub}N"=""}%f_find_element(l3LocalStub,l3LocalStub)]\
-   if ( ( ( get_global_var ( 'l3LocalStub' ) |N ) ) %== '' ) then
-   begin
-    [%f] find_element %( 'l3LocalStub' %, 'l3LocalStub' )% 
-   end // if
+    if ( ( ( get_global_var ( 'l3LocalStub' ) |N ) ) %== '' ) then
+    begin
+     [%f] find_element %( 'l3LocalStub' %, 'l3LocalStub' )% 
+    end // if
 //	%P%f_make_accessable(%{l3LocalStub}U)\
-   %P %f make_accessable %( ( get_global_var ( 'l3LocalStub' ) |U ) )% 
+    %P %f make_accessable %( ( get_global_var ( 'l3LocalStub' ) |U ) )% 
 //	[{%SC=Class}\
-   if ( ( %S |C ) %== 'Class' ) then
-   begin
+    if ( ( %S |C ) %== 'Class' ) then
+    begin
 //	%f_addCDep(%S,%{l3LocalStub})\
-    [%f] addCDep %( %S %, ( get_global_var ( 'l3LocalStub' ) ) )% 
+     [%f] addCDep %( %S %, ( get_global_var ( 'l3LocalStub' ) ) )% 
 //	]\
-   end // if
+    end // if
 
 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%P)_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, %P )% '_impl' %, 
 //	\tjmp l3LocalStub\
-   #9'jmp l3LocalStub'
+    #9'jmp l3LocalStub'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 //	]\
   end // if
@@ -7182,15 +7187,21 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
-//	[\
- if NOT-EMPTY
+//	[{"%S#f_NeedsOwnType()"!=""&%S#f_NeedsOwnType()!=false}\
+ if ( ( %S %?f NeedsOwnType %( )% ) %!= '' AND 
+   ( ( %S %?f NeedsOwnType %( )% ) %!=  false  ) ) then
  begin
-//	 CONST extprop:evd:NeedsOwnType '%S#f_NeedsOwnType()'
-  ' CONST extprop:evd:NeedsOwnType '''
-  %S %?f NeedsOwnType %( )% '''
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
+   ' CONST extprop:evd:NeedsOwnType '
+   [%f] out_val %( %S %?f NeedsOwnType %( )% )% 
+//	]\
+  end // if
+  NOP
 //	]\
  end // if
- NOP
 
 //	[{"%S{isGlobal}"!=""}\
  if ( ( %S get_up ( 'isGlobal' ) ) %!= '' ) then
@@ -8122,8 +8133,524 @@ end. // "Delphi интерфейсы и реализация"
                                                                   end // if
                                                                   else
                                                                   begin
+//	[{"%1N"="register in scripts"&"%2N"="undefined"}{\
+                                                                   if ( ( %1 |N ) %== 'register in scripts' AND 
+                                                                     ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                   begin
+//	true\
+                                                                     true 
+//	]\
+                                                                   end // if
+                                                                   else
+                                                                   begin
+//	[{"%1N"="no hands"&"%2N"="false"}{\
+                                                                    if ( ( %1 |N ) %== 'no hands' AND 
+                                                                      ( ( %2 |N ) %== false  ) ) then
+                                                                    begin
+//	true\
+                                                                      true 
+//	]\
+                                                                    end // if
+                                                                    else
+                                                                    begin
+//	[{"%1N"="needs script"&"%2N"="undefined"}{\
+                                                                     if ( ( %1 |N ) %== 'needs script' AND 
+                                                                       ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                     begin
+//	true\
+                                                                       true 
+//	]\
+                                                                     end // if
+                                                                     else
+                                                                     begin
+//	[{"%1N"="needs InstanceR"&"%2N"="undefined"}{\
+                                                                      if ( ( %1 |N ) %== 'needs InstanceR' AND 
+                                                                        ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                      begin
+//	true\
+                                                                        true 
+//	]\
+                                                                      end // if
+                                                                      else
+                                                                      begin
+//	[{"%1N"="base wnd class"&"%2N"="CWnd"}{\
+                                                                       if ( ( %1 |N ) %== 'base wnd class' AND 
+                                                                         ( ( %2 |N ) %== 'CWnd'  ) ) then
+                                                                       begin
+//	true\
+                                                                         true 
+//	]\
+                                                                       end // if
+                                                                       else
+                                                                       begin
+//	[{"%1N"="need UC in project"&"%2N"="false"}{\
+                                                                        if ( ( %1 |N ) %== 'need UC in project' AND 
+                                                                          ( ( %2 |N ) %== false  ) ) then
+                                                                        begin
+//	true\
+                                                                          true 
+//	]\
+                                                                        end // if
+                                                                        else
+                                                                        begin
+//	[{"%1N"="old format"&"%2N"="false"}{\
+                                                                         if ( ( %1 |N ) %== 'old format' AND 
+                                                                           ( ( %2 |N ) %== false  ) ) then
+                                                                         begin
+//	true\
+                                                                           true 
+//	]\
+                                                                         end // if
+                                                                         else
+                                                                         begin
+//	[{"%1N"="console"&"%2N"="false"}{\
+                                                                          if ( ( %1 |N ) %== 'console' AND 
+                                                                            ( ( %2 |N ) %== false  ) ) then
+                                                                          begin
+//	true\
+                                                                            true 
+//	]\
+                                                                          end // if
+                                                                          else
+                                                                          begin
+//	[{"%1N"="CONFIG_UC"&"%2N"="false"}{\
+                                                                           if ( ( %1 |N ) %== 'CONFIG_UC' AND 
+                                                                             ( ( %2 |N ) %== false  ) ) then
+                                                                           begin
+//	true\
+                                                                             true 
+//	]\
+                                                                           end // if
+                                                                           else
+                                                                           begin
+//	[{"%1N"="is insider test"&"%2N"="false"}{\
+                                                                            if ( ( %1 |N ) %== 'is insider test' AND 
+                                                                              ( ( %2 |N ) %== false  ) ) then
+                                                                            begin
+//	true\
+                                                                              true 
+//	]\
+                                                                            end // if
+                                                                            else
+                                                                            begin
+//	[{"%1N"="no scripts"&"%2N"="undefined"}{\
+                                                                             if ( ( %1 |N ) %== 'no scripts' AND 
+                                                                               ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                             begin
+//	true\
+                                                                               true 
+//	]\
+                                                                             end // if
+                                                                             else
+                                                                             begin
+//	[{"%1N"="bind params"&"%2N"="undefined"}{\
+                                                                              if ( ( %1 |N ) %== 'bind params' AND 
+                                                                                ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                              begin
+//	true\
+                                                                                true 
+//	]\
+                                                                              end // if
+                                                                              else
+                                                                              begin
+//	[{"%1N"="lvalue"&"%2N"="undefined"}{\
+                                                                               if ( ( %1 |N ) %== 'lvalue' AND 
+                                                                                 ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                               begin
+//	true\
+                                                                                 true 
+//	]\
+                                                                               end // if
+                                                                               else
+                                                                               begin
+//	[{"%1N"="mapped"&"%2N"="undefined"}{\
+                                                                                if ( ( %1 |N ) %== 'mapped' AND 
+                                                                                  ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                begin
+//	true\
+                                                                                  true 
+//	]\
+                                                                                end // if
+                                                                                else
+                                                                                begin
+//	[{"%1N"="not treat as record for XE4"&"%2N"="undefined"}{\
+                                                                                 if ( ( %1 |N ) %== 'not treat as record for XE4' AND 
+                                                                                   ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                 begin
+//	true\
+                                                                                   true 
+//	]\
+                                                                                 end // if
+                                                                                 else
+                                                                                 begin
+//	[{"%1N"="need AfterCreate"&"%2N"="undefined"}{\
+                                                                                  if ( ( %1 |N ) %== 'need AfterCreate' AND 
+                                                                                    ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                  begin
+//	true\
+                                                                                    true 
+//	]\
+                                                                                  end // if
+                                                                                  else
+                                                                                  begin
+//	[{"%1N"="need Aggregate"&"%2N"="undefined"}{\
+                                                                                   if ( ( %1 |N ) %== 'need Aggregate' AND 
+                                                                                     ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                   begin
+//	true\
+                                                                                     true 
+//	]\
+                                                                                   end // if
+                                                                                   else
+                                                                                   begin
+//	[{"%1N"="check nil"&"%2N"="false"}{\
+                                                                                    if ( ( %1 |N ) %== 'check nil' AND 
+                                                                                      ( ( %2 |N ) %== false  ) ) then
+                                                                                    begin
+//	true\
+                                                                                      true 
+//	]\
+                                                                                    end // if
+                                                                                    else
+                                                                                    begin
+//	[{"%1N"="need As"&"%2N"="false"}{\
+                                                                                     if ( ( %1 |N ) %== 'need As' AND 
+                                                                                       ( ( %2 |N ) %== false  ) ) then
+                                                                                     begin
+//	true\
+                                                                                       true 
+//	]\
+                                                                                     end // if
+                                                                                     else
+                                                                                     begin
+//	[{"%1N"="Need UC"&"%2N"="undefined"}{\
+                                                                                      if ( ( %1 |N ) %== 'Need UC' AND 
+                                                                                        ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                      begin
+//	true\
+                                                                                        true 
+//	]\
+                                                                                      end // if
+                                                                                      else
+                                                                                      begin
+//	[{"%1N"="CanClose"&"%2N"="undefined"}{\
+                                                                                       if ( ( %1 |N ) %== 'CanClose' AND 
+                                                                                         ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                       begin
+//	true\
+                                                                                         true 
+//	]\
+                                                                                       end // if
+                                                                                       else
+                                                                                       begin
+//	[{"%1N"="CanHaveToolbars"&"%2N"="undefined"}{\
+                                                                                        if ( ( %1 |N ) %== 'CanHaveToolbars' AND 
+                                                                                          ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                        begin
+//	true\
+                                                                                          true 
+//	]\
+                                                                                        end // if
+                                                                                        else
+                                                                                        begin
+//	[{"%1N"="NeedOnQueryMaximized"&"%2N"="false"}{\
+                                                                                         if ( ( %1 |N ) %== 'NeedOnQueryMaximized' AND 
+                                                                                           ( ( %2 |N ) %== false  ) ) then
+                                                                                         begin
+//	true\
+                                                                                           true 
+//	]\
+                                                                                         end // if
+                                                                                         else
+                                                                                         begin
+//	[{"%1N"="NeedOnQueryOpen"&"%2N"="false"}{\
+                                                                                          if ( ( %1 |N ) %== 'NeedOnQueryOpen' AND 
+                                                                                            ( ( %2 |N ) %== false  ) ) then
+                                                                                          begin
+//	true\
+                                                                                            true 
+//	]\
+                                                                                          end // if
+                                                                                          else
+                                                                                          begin
+//	[{"%1N"="NeedOnQueryClose"&"%2N"="false"}{\
+                                                                                           if ( ( %1 |N ) %== 'NeedOnQueryClose' AND 
+                                                                                             ( ( %2 |N ) %== false  ) ) then
+                                                                                           begin
+//	true\
+                                                                                             true 
+//	]\
+                                                                                           end // if
+                                                                                           else
+                                                                                           begin
+//	[{"%1N"="VisibleToUser"&"%2N"="true"}{\
+                                                                                            if ( ( %1 |N ) %== 'VisibleToUser' AND 
+                                                                                              ( ( %2 |N ) %== true  ) ) then
+                                                                                            begin
+//	true\
+                                                                                              true 
+//	]\
+                                                                                            end // if
+                                                                                            else
+                                                                                            begin
+//	[{"%1N"="needs processor"&"%2N"="undefined"}{\
+                                                                                             if ( ( %1 |N ) %== 'needs processor' AND 
+                                                                                               ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                             begin
+//	true\
+                                                                                               true 
+//	]\
+                                                                                             end // if
+                                                                                             else
+                                                                                             begin
+//	[{"%1N"="reflectable"&"%2N"="undefined"}{\
+                                                                                              if ( ( %1 |N ) %== 'reflectable' AND 
+                                                                                                ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                              begin
+//	true\
+                                                                                                true 
+//	]\
+                                                                                              end // if
+                                                                                              else
+                                                                                              begin
+//	[{"%1N"="Need Has"&"%2N"="undefined"}{\
+                                                                                               if ( ( %1 |N ) %== 'Need Has' AND 
+                                                                                                 ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                               begin
+//	true\
+                                                                                                 true 
+//	]\
+                                                                                               end // if
+                                                                                               else
+                                                                                               begin
+//	[{"%1N"="is reference"&"%2N"="undefined"}{\
+                                                                                                if ( ( %1 |N ) %== 'is reference' AND 
+                                                                                                  ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                begin
+//	true\
+                                                                                                  true 
+//	]\
+                                                                                                end // if
+                                                                                                else
+                                                                                                begin
+//	[{"%1N"="required"&"%2N"="undefined"}{\
+                                                                                                 if ( ( %1 |N ) %== 'required' AND 
+                                                                                                   ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                 begin
+//	true\
+                                                                                                   true 
+//	]\
+                                                                                                 end // if
+                                                                                                 else
+                                                                                                 begin
+//	[{"%1N"="no_pop"&"%2N"="undefined"}{\
+                                                                                                  if ( ( %1 |N ) %== 'no_pop' AND 
+                                                                                                    ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                  begin
+//	true\
+                                                                                                    true 
+//	]\
+                                                                                                  end // if
+                                                                                                  else
+                                                                                                  begin
+//	[{"%1N"="no class name"&"%2N"="undefined"}{\
+                                                                                                   if ( ( %1 |N ) %== 'no class name' AND 
+                                                                                                     ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                   begin
+//	true\
+                                                                                                     true 
+//	]\
+                                                                                                   end // if
+                                                                                                   else
+                                                                                                   begin
+//	[{"%1N"="Parented"&"%2N"="undefined"}{\
+                                                                                                    if ( ( %1 |N ) %== 'Parented' AND 
+                                                                                                      ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                    begin
+//	true\
+                                                                                                      true 
+//	]\
+                                                                                                    end // if
+                                                                                                    else
+                                                                                                    begin
+//	[{"%1N"="SmallTag"&"%2N"="undefined"}{\
+                                                                                                     if ( ( %1 |N ) %== 'SmallTag' AND 
+                                                                                                       ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                     begin
+//	true\
+                                                                                                       true 
+//	]\
+                                                                                                     end // if
+                                                                                                     else
+                                                                                                     begin
+//	[{"%1N"="HasAfterChangeTrigger"&"%2N"="undefined"}{\
+                                                                                                      if ( ( %1 |N ) %== 'HasAfterChangeTrigger' AND 
+                                                                                                        ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                      begin
+//	true\
+                                                                                                        true 
+//	]\
+                                                                                                      end // if
+                                                                                                      else
+                                                                                                      begin
+//	[{"%1N"="NeedMarkModified"&"%2N"="undefined"}{\
+                                                                                                       if ( ( %1 |N ) %== 'NeedMarkModified' AND 
+                                                                                                         ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                       begin
+//	true\
+                                                                                                         true 
+//	]\
+                                                                                                       end // if
+                                                                                                       else
+                                                                                                       begin
+//	[{"%1N"="stored"&"%2N"="undefined"}{\
+                                                                                                        if ( ( %1 |N ) %== 'stored' AND 
+                                                                                                          ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                        begin
+//	true\
+                                                                                                          true 
+//	]\
+                                                                                                        end // if
+                                                                                                        else
+                                                                                                        begin
+//	[{"%1N"="HasBeforeChangeTrigger"&"%2N"="false"}{\
+                                                                                                         if ( ( %1 |N ) %== 'HasBeforeChangeTrigger' AND 
+                                                                                                           ( ( %2 |N ) %== false  ) ) then
+                                                                                                         begin
+//	true\
+                                                                                                           true 
+//	]\
+                                                                                                         end // if
+                                                                                                         else
+                                                                                                         begin
+//	[{"%1N"="HasStoredTrigger"&"%2N"="false"}{\
+                                                                                                          if ( ( %1 |N ) %== 'HasStoredTrigger' AND 
+                                                                                                            ( ( %2 |N ) %== false  ) ) then
+                                                                                                          begin
+//	true\
+                                                                                                            true 
+//	]\
+                                                                                                          end // if
+                                                                                                          else
+                                                                                                          begin
+//	[{"%1N"="Implementation"&"%2N"="undef"}{\
+                                                                                                           if ( ( %1 |N ) %== 'Implementation' AND 
+                                                                                                             ( ( %2 |N ) %== 'undef'  ) ) then
+                                                                                                           begin
+//	true\
+                                                                                                             true 
+//	]\
+                                                                                                           end // if
+                                                                                                           else
+                                                                                                           begin
+//	[{"%1N"="ReadOnly"&"%2N"="undefined"}{\
+                                                                                                            if ( ( %1 |N ) %== 'ReadOnly' AND 
+                                                                                                              ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                            begin
+//	true\
+                                                                                                              true 
+//	]\
+                                                                                                            end // if
+                                                                                                            else
+                                                                                                            begin
+//	[{"%1N"="need Caption"&"%2N"="undefined"}{\
+                                                                                                             if ( ( %1 |N ) %== 'need Caption' AND 
+                                                                                                               ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                                                             begin
+//	true\
+                                                                                                               true 
+//	]\
+                                                                                                             end // if
+                                                                                                             else
+                                                                                                             begin
 //	false\
-                                                                    false 
+                                                                                                               false 
+//	}\
+                                                                                                             end // else
+//	}\
+                                                                                                            end // else
+//	}\
+                                                                                                           end // else
+//	}\
+                                                                                                          end // else
+//	}\
+                                                                                                         end // else
+//	}\
+                                                                                                        end // else
+//	}\
+                                                                                                       end // else
+//	}\
+                                                                                                      end // else
+//	}\
+                                                                                                     end // else
+//	}\
+                                                                                                    end // else
+//	}\
+                                                                                                   end // else
+//	}\
+                                                                                                  end // else
+//	}\
+                                                                                                 end // else
+//	}\
+                                                                                                end // else
+//	}\
+                                                                                               end // else
+//	}\
+                                                                                              end // else
+//	}\
+                                                                                             end // else
+//	}\
+                                                                                            end // else
+//	}\
+                                                                                           end // else
+//	}\
+                                                                                          end // else
+//	}\
+                                                                                         end // else
+//	}\
+                                                                                        end // else
+//	}\
+                                                                                       end // else
+//	}\
+                                                                                      end // else
+//	}\
+                                                                                     end // else
+//	}\
+                                                                                    end // else
+//	}\
+                                                                                   end // else
+//	}\
+                                                                                  end // else
+//	}\
+                                                                                 end // else
+//	}\
+                                                                                end // else
+//	}\
+                                                                               end // else
+//	}\
+                                                                              end // else
+//	}\
+                                                                             end // else
+//	}\
+                                                                            end // else
+//	}\
+                                                                           end // else
+//	}\
+                                                                          end // else
+//	}\
+                                                                         end // else
+//	}\
+                                                                        end // else
+//	}\
+                                                                       end // else
+//	}\
+                                                                      end // else
+//	}\
+                                                                     end // else
+//	}\
+                                                                    end // else
+//	}\
+                                                                   end // else
 //	}\
                                                                   end // else
 //	}\
@@ -8256,12 +8783,6 @@ end. // "Delphi интерфейсы и реализация"
   end // else
 //	}\
  end // else
-//	%f_warning(%1N)\
-//	%f_warning(%S{%1N})\
-//	[{"%S{%1N}"="%S{!%1N}"{\
-//	false\
-//	true\
-//	]
 
 //f _IsConstants
 ; // is_default_up_value

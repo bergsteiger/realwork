@@ -74,10 +74,6 @@ ref; // ME_551544E2001A_ME_52EB991C028F GetResultTypeInfo
  ME_52EB9E7A02EC // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'CompiledArray'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -114,10 +110,6 @@ ref; // ME_52EB8FE403DE
  )
  ; // Dependencies
  CONST "NameForScript" ']'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwCloseArray'
  CONST extprop:rc:SelfName 'CloseArray'
  CONST extprop:rc:isAcceptableForScripts true
@@ -200,10 +192,6 @@ ref; // ME_4DBAEE0D028D_ME_4F5037E30231 CompiledWordClass
  )
  ; // Dependencies
  CONST "NameForScript" '['
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwOpenArray'
  CONST extprop:rc:SelfName 'OpenArray'
  CONST extprop:rc:isAcceptableForScripts true
@@ -212,84 +200,13 @@ ref; // ME_4F5037E30231 OpenArray
 
 FORWARD ME_551012E802AF
 
-FORWARD ME_428D1CC30289
-
 FORWARD ME_878FE88B604D
-
-: ME_6546C301B9B1
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6546C301B9B1 aCtx
-
-: ME_6546C301B9B2
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_6546C301B9B2 aArray
-
-: ME_428D1CC30289
- CONST UID '428D1CC30289'
- CONST Name 'Clear'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Clear' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_878FE88B604D // Array_Clear
- ;
- : Parameters
-   Seq: ( ME_6546C301B9B1 // aCtx
- ME_6546C301B9B2 // aArray
- )
- ; // Parameters
- : SpelledFor ME_551012E802AF // Clear
- ;
-
-ref; // ME_428D1CC30289 Clear
-
-: ME_0E504A162F2D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_878FE88B604D // Array_Clear
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_0E504A162F2D 
 
 : ME_4DAEEDE10285_ME_878FE88B604D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_878FE88B604D DoDoIt
-
-: ME_551544E2001A_ME_878FE88B604D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_878FE88B604D GetResultTypeInfo
-
-: ME_559687E6025A_ME_878FE88B604D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_878FE88B604D GetAllParamsCount
-
-: ME_5617F4D00243_ME_878FE88B604D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_878FE88B604D ParamsTypes
 
 : ME_878FE88B604D
  CONST UID '878FE88B604D'
@@ -298,7 +215,7 @@ ref; // ME_5617F4D00243_ME_878FE88B604D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Clear'#13#10'*Пример:*'#13#10'{code}'#13#10' aArray Array:Clear'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Clear' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -307,29 +224,11 @@ ref; // ME_5617F4D00243_ME_878FE88B604D ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_428D1CC30289 // Clear
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_878FE88B604D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_878FE88B604D // GetResultTypeInfo
- ME_559687E6025A_ME_878FE88B604D // GetAllParamsCount
- ME_5617F4D00243_ME_878FE88B604D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0E504A162F2D // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Clear'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayClear'
  CONST extprop:rc:SelfName 'ArrayClear'
  CONST extprop:rc:isAcceptableForScripts true
@@ -337,166 +236,18 @@ ref; // ME_5617F4D00243_ME_878FE88B604D ParamsTypes
  ;
  : SpelledFor ME_551012E802AF // Clear
  ;
- : Stub ME_428D1CC30289 // Clear
- ;
 
 ref; // ME_878FE88B604D Array_Clear
 
 FORWARD ME_551012F603D4
 
-FORWARD ME_66E011EC054E
-
 FORWARD ME_E14E90E5EF2D
-
-: ME_AA3679225344
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_AA3679225344 aCtx
-
-: ME_AA3679225345
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_AA3679225345 aArray
-
-: ME_AA3679225346
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_AA3679225346 anIndex
-
-: ME_66E011EC054E
- CONST UID '66E011EC054E'
- CONST Name 'Item'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Item' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E14E90E5EF2D // Array_Item
- ;
- : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
- : Parameters
-   Seq: ( ME_AA3679225344 // aCtx
- ME_AA3679225345 // aArray
- ME_AA3679225346 // anIndex
- )
- ; // Parameters
- : SpelledFor ME_551012F603D4 // Item
- ;
-
-ref; // ME_66E011EC054E Item
-
-: ME_B57897A30704
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_B57897A30704 aArray
-
-: ME_B57897A30705
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B57897A30705 anIndex
-
-: ME_B57897A30706
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_B57897A30706 aValue
-
-: ME_2550EECFAAC1
- CONST UID '2550EECFAAC1'
- CONST Name 'DoSetValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Метод установки значения свойства Item' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_E14E90E5EF2D // Array_Item
- ;
- : Parameters
-   Seq: ( ME_B57897A30704 // aArray
- ME_B57897A30705 // anIndex
- ME_B57897A30706 // aValue
- )
- ; // Parameters
-
-ref; // ME_2550EECFAAC1 DoSetValue
-
-: ME_5641B659C0F3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E14E90E5EF2D // Array_Item
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_5641B659C0F3 
 
 : ME_4DAEEDE10285_ME_E14E90E5EF2D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E14E90E5EF2D DoDoIt
-
-: ME_52D00B00031A_ME_E14E90E5EF2D
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_E14E90E5EF2D SetValuePrim
-
-: ME_551544E2001A_ME_E14E90E5EF2D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E14E90E5EF2D GetResultTypeInfo
-
-: ME_559687E6025A_ME_E14E90E5EF2D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E14E90E5EF2D GetAllParamsCount
-
-: ME_5617C8A30023_ME_E14E90E5EF2D
- : Original WL 'ME_5617C8A30023' '55CCADD2013D.pas.ms.script' // BindParams
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617C8A30023_ME_E14E90E5EF2D BindParams
-
-: ME_5617F4D00243_ME_E14E90E5EF2D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E14E90E5EF2D ParamsTypes
 
 : ME_E14E90E5EF2D
  CONST UID 'E14E90E5EF2D'
@@ -505,7 +256,7 @@ ref; // ME_5617F4D00243_ME_E14E90E5EF2D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Item'#13#10'*Тип результата:* TtfwStackValue'#13#10'*Пример:*'#13#10'{code}'#13#10'VAR l_TtfwStackValue'#13#10' anIndex aArray Array:Item >>> l_TtfwStackValue'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Item' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -514,32 +265,11 @@ ref; // ME_5617F4D00243_ME_E14E90E5EF2D ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_66E011EC054E // Item
- ME_2550EECFAAC1 // DoSetValue
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_E14E90E5EF2D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_E14E90E5EF2D // SetValuePrim
- ME_551544E2001A_ME_E14E90E5EF2D // GetResultTypeInfo
- ME_559687E6025A_ME_E14E90E5EF2D // GetAllParamsCount
- ME_5617C8A30023_ME_E14E90E5EF2D // BindParams
- ME_5617F4D00243_ME_E14E90E5EF2D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5641B659C0F3 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Item'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayItem'
  CONST extprop:rc:SelfName 'ArrayItem'
  CONST extprop:rc:isAcceptableForScripts true
@@ -547,93 +277,18 @@ ref; // ME_5617F4D00243_ME_E14E90E5EF2D ParamsTypes
  ;
  : SpelledFor ME_551012F603D4 // Item
  ;
- : Stub ME_66E011EC054E // Item
- ;
 
 ref; // ME_E14E90E5EF2D Array_Item
 
 FORWARD ME_5510147F0057
 
-FORWARD ME_155569C67894
-
 FORWARD ME_68189B4B7D71
-
-: ME_9F9B5E9AD1CD
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9F9B5E9AD1CD aCtx
-
-: ME_9F9B5E9AD1CE
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_9F9B5E9AD1CE aArray
-
-: ME_155569C67894
- CONST UID '155569C67894'
- CONST Name 'Reverted'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Reverted' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_68189B4B7D71 // Array_Reverted
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_9F9B5E9AD1CD // aCtx
- ME_9F9B5E9AD1CE // aArray
- )
- ; // Parameters
- : SpelledFor ME_5510147F0057 // Reverted
- ;
-
-ref; // ME_155569C67894 Reverted
-
-: ME_CCFDFE779613
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_68189B4B7D71 // Array_Reverted
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_CCFDFE779613 
 
 : ME_4DAEEDE10285_ME_68189B4B7D71
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_68189B4B7D71 DoDoIt
-
-: ME_551544E2001A_ME_68189B4B7D71
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_68189B4B7D71 GetResultTypeInfo
-
-: ME_559687E6025A_ME_68189B4B7D71
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_68189B4B7D71 GetAllParamsCount
-
-: ME_5617F4D00243_ME_68189B4B7D71
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_68189B4B7D71 ParamsTypes
 
 : ME_68189B4B7D71
  CONST UID '68189B4B7D71'
@@ -642,7 +297,7 @@ ref; // ME_5617F4D00243_ME_68189B4B7D71 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Reverted'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aArray Array:Reverted >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Reverted' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -651,29 +306,11 @@ ref; // ME_5617F4D00243_ME_68189B4B7D71 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_155569C67894 // Reverted
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_68189B4B7D71 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_68189B4B7D71 // GetResultTypeInfo
- ME_559687E6025A_ME_68189B4B7D71 // GetAllParamsCount
- ME_5617F4D00243_ME_68189B4B7D71 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_CCFDFE779613 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Reverted'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayReverted'
  CONST extprop:rc:SelfName 'ArrayReverted'
  CONST extprop:rc:isAcceptableForScripts true
@@ -681,104 +318,18 @@ ref; // ME_5617F4D00243_ME_68189B4B7D71 ParamsTypes
  ;
  : SpelledFor ME_5510147F0057 // Reverted
  ;
- : Stub ME_155569C67894 // Reverted
- ;
 
 ref; // ME_68189B4B7D71 Array_Reverted
 
 FORWARD ME_55101ABC0102
 
-FORWARD ME_781431CE844D
-
 FORWARD ME_BE2AD2FE44CF
-
-: ME_A561AECA3AD9
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_A561AECA3AD9 aCtx
-
-: ME_A561AECA3ADA
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_A561AECA3ADA aArray
-
-: ME_A561AECA3ADB
- CONST Name 'aLambda'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_A561AECA3ADB aLambda
-
-: ME_781431CE844D
- CONST UID '781431CE844D'
- CONST Name 'Filter'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Filter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BE2AD2FE44CF // Array_Filter
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_A561AECA3AD9 // aCtx
- ME_A561AECA3ADA // aArray
- ME_A561AECA3ADB // aLambda
- )
- ; // Parameters
- : SpelledFor ME_55101ABC0102 // Filter
- ;
-
-ref; // ME_781431CE844D Filter
-
-: ME_57B476B0CA13
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BE2AD2FE44CF // Array_Filter
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_57B476B0CA13 
 
 : ME_4DAEEDE10285_ME_BE2AD2FE44CF
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BE2AD2FE44CF DoDoIt
-
-: ME_551544E2001A_ME_BE2AD2FE44CF
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_BE2AD2FE44CF GetResultTypeInfo
-
-: ME_559687E6025A_ME_BE2AD2FE44CF
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_BE2AD2FE44CF GetAllParamsCount
-
-: ME_5617F4D00243_ME_BE2AD2FE44CF
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_BE2AD2FE44CF ParamsTypes
 
 : ME_BE2AD2FE44CF
  CONST UID 'BE2AD2FE44CF'
@@ -787,7 +338,7 @@ ref; // ME_5617F4D00243_ME_BE2AD2FE44CF ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Filter'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda aArray Array:Filter >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Filter' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -796,29 +347,11 @@ ref; // ME_5617F4D00243_ME_BE2AD2FE44CF ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_781431CE844D // Filter
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_BE2AD2FE44CF // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_BE2AD2FE44CF // GetResultTypeInfo
- ME_559687E6025A_ME_BE2AD2FE44CF // GetAllParamsCount
- ME_5617F4D00243_ME_BE2AD2FE44CF // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_57B476B0CA13 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Filter'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayFilter'
  CONST extprop:rc:SelfName 'ArrayFilter'
  CONST extprop:rc:isAcceptableForScripts true
@@ -826,104 +359,18 @@ ref; // ME_5617F4D00243_ME_BE2AD2FE44CF ParamsTypes
  ;
  : SpelledFor ME_55101ABC0102 // Filter
  ;
- : Stub ME_781431CE844D // Filter
- ;
 
 ref; // ME_BE2AD2FE44CF Array_Filter
 
 FORWARD ME_55101AE0033E
 
-FORWARD ME_7FA64661B5E5
-
 FORWARD ME_4D82A8E4E72B
-
-: ME_DD1DB5AAA84F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_DD1DB5AAA84F aCtx
-
-: ME_DD1DB5AAA850
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_DD1DB5AAA850 aArray
-
-: ME_DD1DB5AAA851
- CONST Name 'aLambda'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_DD1DB5AAA851 aLambda
-
-: ME_7FA64661B5E5
- CONST UID '7FA64661B5E5'
- CONST Name 'Map'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Map' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D82A8E4E72B // Array_Map
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_DD1DB5AAA84F // aCtx
- ME_DD1DB5AAA850 // aArray
- ME_DD1DB5AAA851 // aLambda
- )
- ; // Parameters
- : SpelledFor ME_55101AE0033E // Map
- ;
-
-ref; // ME_7FA64661B5E5 Map
-
-: ME_9E57B9E8914C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D82A8E4E72B // Array_Map
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_9E57B9E8914C 
 
 : ME_4DAEEDE10285_ME_4D82A8E4E72B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_4D82A8E4E72B DoDoIt
-
-: ME_551544E2001A_ME_4D82A8E4E72B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_4D82A8E4E72B GetResultTypeInfo
-
-: ME_559687E6025A_ME_4D82A8E4E72B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_4D82A8E4E72B GetAllParamsCount
-
-: ME_5617F4D00243_ME_4D82A8E4E72B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_4D82A8E4E72B ParamsTypes
 
 : ME_4D82A8E4E72B
  CONST UID '4D82A8E4E72B'
@@ -932,7 +379,7 @@ ref; // ME_5617F4D00243_ME_4D82A8E4E72B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Map'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda aArray Array:Map >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Map' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -941,29 +388,11 @@ ref; // ME_5617F4D00243_ME_4D82A8E4E72B ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7FA64661B5E5 // Map
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_4D82A8E4E72B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_4D82A8E4E72B // GetResultTypeInfo
- ME_559687E6025A_ME_4D82A8E4E72B // GetAllParamsCount
- ME_5617F4D00243_ME_4D82A8E4E72B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9E57B9E8914C // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Map'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayMap'
  CONST extprop:rc:SelfName 'ArrayMap'
  CONST extprop:rc:isAcceptableForScripts true
@@ -971,102 +400,18 @@ ref; // ME_5617F4D00243_ME_4D82A8E4E72B ParamsTypes
  ;
  : SpelledFor ME_55101AE0033E // Map
  ;
- : Stub ME_7FA64661B5E5 // Map
- ;
 
 ref; // ME_4D82A8E4E72B Array_Map
 
 FORWARD ME_55101BDF0235
 
-FORWARD ME_78836988FFF5
-
 FORWARD ME_67F9FD4545C9
-
-: ME_E795974E33B4
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E795974E33B4 aCtx
-
-: ME_E795974E33B5
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_E795974E33B5 aArray
-
-: ME_E795974E33B6
- CONST Name 'aLambda'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_E795974E33B6 aLambda
-
-: ME_78836988FFF5
- CONST UID '78836988FFF5'
- CONST Name 'Iterate'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Iterate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_67F9FD4545C9 // Array_Iterate
- ;
- : Parameters
-   Seq: ( ME_E795974E33B4 // aCtx
- ME_E795974E33B5 // aArray
- ME_E795974E33B6 // aLambda
- )
- ; // Parameters
- : SpelledFor ME_55101BDF0235 // Iterate
- ;
-
-ref; // ME_78836988FFF5 Iterate
-
-: ME_09B141698594
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_67F9FD4545C9 // Array_Iterate
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_09B141698594 
 
 : ME_4DAEEDE10285_ME_67F9FD4545C9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_67F9FD4545C9 DoDoIt
-
-: ME_551544E2001A_ME_67F9FD4545C9
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_67F9FD4545C9 GetResultTypeInfo
-
-: ME_559687E6025A_ME_67F9FD4545C9
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_67F9FD4545C9 GetAllParamsCount
-
-: ME_5617F4D00243_ME_67F9FD4545C9
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_67F9FD4545C9 ParamsTypes
 
 : ME_67F9FD4545C9
  CONST UID '67F9FD4545C9'
@@ -1075,7 +420,7 @@ ref; // ME_5617F4D00243_ME_67F9FD4545C9 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Iterate'#13#10'*Пример:*'#13#10'{code}'#13#10' aLambda aArray Array:Iterate'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Iterate' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -1084,29 +429,11 @@ ref; // ME_5617F4D00243_ME_67F9FD4545C9 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_78836988FFF5 // Iterate
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_67F9FD4545C9 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_67F9FD4545C9 // GetResultTypeInfo
- ME_559687E6025A_ME_67F9FD4545C9 // GetAllParamsCount
- ME_5617F4D00243_ME_67F9FD4545C9 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_09B141698594 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Iterate'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayIterate'
  CONST extprop:rc:SelfName 'ArrayIterate'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1114,102 +441,18 @@ ref; // ME_5617F4D00243_ME_67F9FD4545C9 ParamsTypes
  ;
  : SpelledFor ME_55101BDF0235 // Iterate
  ;
- : Stub ME_78836988FFF5 // Iterate
- ;
 
 ref; // ME_67F9FD4545C9 Array_Iterate
 
 FORWARD ME_55102B2B02D9
 
-FORWARD ME_4A28BF387B4A
-
 FORWARD ME_A57E4097FCC5
-
-: ME_277574C28F8A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_277574C28F8A aCtx
-
-: ME_277574C28F8B
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_277574C28F8B aArray
-
-: ME_277574C28F8C
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_277574C28F8C aValue
-
-: ME_4A28BF387B4A
- CONST UID '4A28BF387B4A'
- CONST Name 'Add'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Add' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A57E4097FCC5 // Array_Add
- ;
- : Parameters
-   Seq: ( ME_277574C28F8A // aCtx
- ME_277574C28F8B // aArray
- ME_277574C28F8C // aValue
- )
- ; // Parameters
- : SpelledFor ME_55102B2B02D9 // Add
- ;
-
-ref; // ME_4A28BF387B4A Add
-
-: ME_AAA85F9D1C60
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A57E4097FCC5 // Array_Add
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_AAA85F9D1C60 
 
 : ME_4DAEEDE10285_ME_A57E4097FCC5
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A57E4097FCC5 DoDoIt
-
-: ME_551544E2001A_ME_A57E4097FCC5
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_A57E4097FCC5 GetResultTypeInfo
-
-: ME_559687E6025A_ME_A57E4097FCC5
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_A57E4097FCC5 GetAllParamsCount
-
-: ME_5617F4D00243_ME_A57E4097FCC5
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_A57E4097FCC5 ParamsTypes
 
 : ME_A57E4097FCC5
  CONST UID 'A57E4097FCC5'
@@ -1218,7 +461,7 @@ ref; // ME_5617F4D00243_ME_A57E4097FCC5 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Add'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aArray Array:Add'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Add' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -1227,29 +470,11 @@ ref; // ME_5617F4D00243_ME_A57E4097FCC5 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4A28BF387B4A // Add
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_A57E4097FCC5 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_A57E4097FCC5 // GetResultTypeInfo
- ME_559687E6025A_ME_A57E4097FCC5 // GetAllParamsCount
- ME_5617F4D00243_ME_A57E4097FCC5 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_AAA85F9D1C60 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Add'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayAdd'
  CONST extprop:rc:SelfName 'ArrayAdd'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1257,93 +482,10 @@ ref; // ME_5617F4D00243_ME_A57E4097FCC5 ParamsTypes
  ;
  : SpelledFor ME_55102B2B02D9 // Add
  ;
- : Stub ME_4A28BF387B4A // Add
- ;
 
 ref; // ME_A57E4097FCC5 Array_Add
 
 FORWARD ME_551038F0003A
-
-FORWARD ME_D84558AB12E8
-
-FORWARD ME_AC4DA64FB94F
-
-: ME_425D9907C90F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_425D9907C90F aCtx
-
-: ME_425D9907C910
- CONST Name 'aLambda'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_425D9907C910 aLambda
-
-: ME_D84558AB12E8
- CONST UID 'D84558AB12E8'
- CONST Name 'FunctorToIterator'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:FunctorToIterator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_AC4DA64FB94F // Array_FunctorToIterator
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_425D9907C90F // aCtx
- ME_425D9907C910 // aLambda
- )
- ; // Parameters
- : SpelledFor ME_551038F0003A // FunctorToIterator
- ;
-
-ref; // ME_D84558AB12E8 FunctorToIterator
-
-: ME_176ACCF7B251
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AC4DA64FB94F // Array_FunctorToIterator
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_176ACCF7B251 
-
-: ME_4DAEEDE10285_ME_AC4DA64FB94F
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_AC4DA64FB94F DoDoIt
-
-: ME_551544E2001A_ME_AC4DA64FB94F
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_AC4DA64FB94F GetResultTypeInfo
-
-: ME_559687E6025A_ME_AC4DA64FB94F
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_AC4DA64FB94F GetAllParamsCount
-
-: ME_5617F4D00243_ME_AC4DA64FB94F
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_AC4DA64FB94F ParamsTypes
 
 : ME_AC4DA64FB94F
  CONST UID 'AC4DA64FB94F'
@@ -1352,38 +494,12 @@ ref; // ME_5617F4D00243_ME_AC4DA64FB94F ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:FunctorToIterator'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda Array:FunctorToIterator >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:FunctorToIterator' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
  ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_D84558AB12E8 // FunctorToIterator
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_AC4DA64FB94F // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_AC4DA64FB94F // GetResultTypeInfo
- ME_559687E6025A_ME_AC4DA64FB94F // GetAllParamsCount
- ME_5617F4D00243_ME_AC4DA64FB94F // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_176ACCF7B251 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:FunctorToIterator'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayFunctorToIterator'
  CONST extprop:rc:SelfName 'ArrayFunctorToIterator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1391,104 +507,18 @@ ref; // ME_5617F4D00243_ME_AC4DA64FB94F ParamsTypes
  ;
  : SpelledFor ME_551038F0003A // FunctorToIterator
  ;
- : Stub ME_D84558AB12E8 // FunctorToIterator
- ;
 
 ref; // ME_AC4DA64FB94F Array_FunctorToIterator
 
 FORWARD ME_55E02C110223
 
-FORWARD ME_AE1CCBE76617
-
 FORWARD ME_F83E51FB5EAA
-
-: ME_58C674E7BDFB
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_58C674E7BDFB aCtx
-
-: ME_58C674E7BDFC
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_58C674E7BDFC aArray
-
-: ME_58C674E7BDFD
- CONST Name 'anOther'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_58C674E7BDFD anOther
-
-: ME_AE1CCBE76617
- CONST UID 'AE1CCBE76617'
- CONST Name 'Join'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Join' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F83E51FB5EAA // Array_Join
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_58C674E7BDFB // aCtx
- ME_58C674E7BDFC // aArray
- ME_58C674E7BDFD // anOther
- )
- ; // Parameters
- : SpelledFor ME_55E02C110223 // Join
- ;
-
-ref; // ME_AE1CCBE76617 Join
-
-: ME_D0000B7679FE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F83E51FB5EAA // Array_Join
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_D0000B7679FE 
 
 : ME_4DAEEDE10285_ME_F83E51FB5EAA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F83E51FB5EAA DoDoIt
-
-: ME_551544E2001A_ME_F83E51FB5EAA
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F83E51FB5EAA GetResultTypeInfo
-
-: ME_559687E6025A_ME_F83E51FB5EAA
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F83E51FB5EAA GetAllParamsCount
-
-: ME_5617F4D00243_ME_F83E51FB5EAA
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F83E51FB5EAA ParamsTypes
 
 : ME_F83E51FB5EAA
  CONST UID 'F83E51FB5EAA'
@@ -1497,7 +527,7 @@ ref; // ME_5617F4D00243_ME_F83E51FB5EAA ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Join'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' anOther aArray Array:Join >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Join' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -1506,29 +536,11 @@ ref; // ME_5617F4D00243_ME_F83E51FB5EAA ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AE1CCBE76617 // Join
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F83E51FB5EAA // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_F83E51FB5EAA // GetResultTypeInfo
- ME_559687E6025A_ME_F83E51FB5EAA // GetAllParamsCount
- ME_5617F4D00243_ME_F83E51FB5EAA // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D0000B7679FE // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Join'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayJoin'
  CONST extprop:rc:SelfName 'ArrayJoin'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1536,104 +548,18 @@ ref; // ME_5617F4D00243_ME_F83E51FB5EAA ParamsTypes
  ;
  : SpelledFor ME_55E02C110223 // Join
  ;
- : Stub ME_AE1CCBE76617 // Join
- ;
 
 ref; // ME_F83E51FB5EAA Array_Join
 
 FORWARD ME_55E0410603CA
 
-FORWARD ME_3CA55B4BDAA5
-
 FORWARD ME_BD92B7361A83
-
-: ME_557C688BC323
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_557C688BC323 aCtx
-
-: ME_557C688BC324
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_557C688BC324 aArray
-
-: ME_557C688BC325
- CONST Name 'aLambda'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_557C688BC325 aLambda
-
-: ME_3CA55B4BDAA5
- CONST UID '3CA55B4BDAA5'
- CONST Name 'Trunc'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Trunc' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BD92B7361A83 // Array_Trunc
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_557C688BC323 // aCtx
- ME_557C688BC324 // aArray
- ME_557C688BC325 // aLambda
- )
- ; // Parameters
- : SpelledFor ME_55E0410603CA // Trunc
- ;
-
-ref; // ME_3CA55B4BDAA5 Trunc
-
-: ME_EB24DBBD9139
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BD92B7361A83 // Array_Trunc
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_EB24DBBD9139 
 
 : ME_4DAEEDE10285_ME_BD92B7361A83
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BD92B7361A83 DoDoIt
-
-: ME_551544E2001A_ME_BD92B7361A83
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_BD92B7361A83 GetResultTypeInfo
-
-: ME_559687E6025A_ME_BD92B7361A83
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_BD92B7361A83 GetAllParamsCount
-
-: ME_5617F4D00243_ME_BD92B7361A83
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_BD92B7361A83 ParamsTypes
 
 : ME_BD92B7361A83
  CONST UID 'BD92B7361A83'
@@ -1642,7 +568,7 @@ ref; // ME_5617F4D00243_ME_BD92B7361A83 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Trunc'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda aArray Array:Trunc >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Trunc' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -1651,29 +577,11 @@ ref; // ME_5617F4D00243_ME_BD92B7361A83 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3CA55B4BDAA5 // Trunc
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_BD92B7361A83 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_BD92B7361A83 // GetResultTypeInfo
- ME_559687E6025A_ME_BD92B7361A83 // GetAllParamsCount
- ME_5617F4D00243_ME_BD92B7361A83 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_EB24DBBD9139 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Trunc'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayTrunc'
  CONST extprop:rc:SelfName 'ArrayTrunc'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1681,104 +589,18 @@ ref; // ME_5617F4D00243_ME_BD92B7361A83 ParamsTypes
  ;
  : SpelledFor ME_55E0410603CA // Trunc
  ;
- : Stub ME_3CA55B4BDAA5 // Trunc
- ;
 
 ref; // ME_BD92B7361A83 Array_Trunc
 
 FORWARD ME_55E59002038C
 
-FORWARD ME_A24C2DBFCDED
-
 FORWARD ME_2892AD069398
-
-: ME_3576BB448C42
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_3576BB448C42 aCtx
-
-: ME_3576BB448C43
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_3576BB448C43 aArray
-
-: ME_3576BB448C44
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_3576BB448C44 aCount
-
-: ME_A24C2DBFCDED
- CONST UID 'A24C2DBFCDED'
- CONST Name 'Slice'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Slice' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2892AD069398 // Array_Slice
- ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
- : Parameters
-   Seq: ( ME_3576BB448C42 // aCtx
- ME_3576BB448C43 // aArray
- ME_3576BB448C44 // aCount
- )
- ; // Parameters
- : SpelledFor ME_55E59002038C // Slice
- ;
-
-ref; // ME_A24C2DBFCDED Slice
-
-: ME_CAF6395DCAC3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2892AD069398 // Array_Slice
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_CAF6395DCAC3 
 
 : ME_4DAEEDE10285_ME_2892AD069398
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2892AD069398 DoDoIt
-
-: ME_551544E2001A_ME_2892AD069398
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_2892AD069398 GetResultTypeInfo
-
-: ME_559687E6025A_ME_2892AD069398
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_2892AD069398 GetAllParamsCount
-
-: ME_5617F4D00243_ME_2892AD069398
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_2892AD069398 ParamsTypes
 
 : ME_2892AD069398
  CONST UID '2892AD069398'
@@ -1787,7 +609,7 @@ ref; // ME_5617F4D00243_ME_2892AD069398 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Slice'#13#10'{panel}Возвращает итератор, который выдаёт наборы элементов по aCount штук{panel}'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aCount aArray Array:Slice >>> l_ItfwValueList'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Slice' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -1796,29 +618,11 @@ ref; // ME_5617F4D00243_ME_2892AD069398 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A24C2DBFCDED // Slice
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_2892AD069398 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_2892AD069398 // GetResultTypeInfo
- ME_559687E6025A_ME_2892AD069398 // GetAllParamsCount
- ME_5617F4D00243_ME_2892AD069398 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_CAF6395DCAC3 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Slice'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArraySlice'
  CONST extprop:rc:SelfName 'ArraySlice'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1826,99 +630,18 @@ ref; // ME_5617F4D00243_ME_2892AD069398 ParamsTypes
  ;
  : SpelledFor ME_55E59002038C // Slice
  ;
- : Stub ME_A24C2DBFCDED // Slice
- ;
 
 ref; // ME_2892AD069398 Array_Slice
 
 FORWARD ME_044C5FFA728B
 
-FORWARD ME_87ED8662D31C
-
 FORWARD ME_F4E1D8EB306A
-
-: ME_6F61D18493C3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6F61D18493C3 aCtx
-
-: ME_6F61D18493C4
- CONST Name 'aArray'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_6F61D18493C4 aArray
-
-: ME_87ED8662D31C
- CONST UID '87ED8662D31C'
- CONST Name 'Count'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Array:Count' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4E1D8EB306A // Array_Count
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_6F61D18493C3 // aCtx
- ME_6F61D18493C4 // aArray
- )
- ; // Parameters
- : SpelledFor ME_044C5FFA728B // Count
- ;
-
-ref; // ME_87ED8662D31C Count
-
-: ME_626464DED683
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F4E1D8EB306A // Array_Count
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_626464DED683 
 
 : ME_4DAEEDE10285_ME_F4E1D8EB306A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F4E1D8EB306A DoDoIt
-
-: ME_52D00B00031A_ME_F4E1D8EB306A
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_F4E1D8EB306A SetValuePrim
-
-: ME_551544E2001A_ME_F4E1D8EB306A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F4E1D8EB306A GetResultTypeInfo
-
-: ME_559687E6025A_ME_F4E1D8EB306A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F4E1D8EB306A GetAllParamsCount
-
-: ME_5617F4D00243_ME_F4E1D8EB306A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F4E1D8EB306A ParamsTypes
 
 : ME_F4E1D8EB306A
  CONST UID 'F4E1D8EB306A'
@@ -1927,7 +650,7 @@ ref; // ME_5617F4D00243_ME_F4E1D8EB306A ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Array:Count'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aArray Array:Count >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Array:Count' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
@@ -1936,38 +659,17 @@ ref; // ME_5617F4D00243_ME_F4E1D8EB306A ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_87ED8662D31C // Count
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F4E1D8EB306A // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_F4E1D8EB306A // SetValuePrim
- ME_551544E2001A_ME_F4E1D8EB306A // GetResultTypeInfo
- ME_559687E6025A_ME_F4E1D8EB306A // GetAllParamsCount
- ME_5617F4D00243_ME_F4E1D8EB306A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_626464DED683 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Array:Count'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwArrayCount'
  CONST extprop:rc:SelfName 'ArrayCount'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  ;
  : SpelledFor ME_044C5FFA728B // Count
- ;
- : Stub ME_87ED8662D31C // Count
  ;
 
 ref; // ME_F4E1D8EB306A Array_Count
@@ -1984,7 +686,6 @@ ref; // ME_F4E1D8EB306A Array_Count
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_5510142301A5 Count
 
@@ -1997,9 +698,6 @@ ref; // ME_5510142301A5 Count
  CONST Abstraction at_final
  : Parent ME_4F50313101D1 // ArrayProcessingPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_878FE88B604D // Array_Clear
  ;
 
@@ -2031,7 +729,6 @@ ref; // ME_551013270376 anIndex
  ; // Parameters
  CONST "bind params" true
  CONST "lvalue" true
- CONST "mapped" 'undefined'
  : Speller ME_E14E90E5EF2D // Array_Item
  ;
 
@@ -2048,9 +745,6 @@ ref; // ME_551012F603D4 Item
  ;
  : Target WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_68189B4B7D71 // Array_Reverted
  ;
 
@@ -2080,9 +774,6 @@ ref; // ME_55101AD90248 aLambda
    Seq: ( ME_55101AD90248 // aLambda
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_BE2AD2FE44CF // Array_Filter
  ;
 
@@ -2112,9 +803,6 @@ ref; // ME_55101AEF00E8 aLambda
    Seq: ( ME_55101AEF00E8 // aLambda
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_4D82A8E4E72B // Array_Map
  ;
 
@@ -2142,9 +830,6 @@ ref; // ME_55101BFA02C7 aLambda
    Seq: ( ME_55101BFA02C7 // aLambda
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_67F9FD4545C9 // Array_Iterate
  ;
 
@@ -2172,8 +857,6 @@ ref; // ME_55102B3B019B aValue
    Seq: ( ME_55102B3B019B // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  : Speller ME_A57E4097FCC5 // Array_Add
  ;
@@ -2202,9 +885,6 @@ ref; // ME_55103908002A aLambda
    Seq: ( ME_55103908002A // aLambda
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_AC4DA64FB94F // Array_FunctorToIterator
  ;
 
@@ -2234,9 +914,6 @@ ref; // ME_55E02C1E02E2 anOther
    Seq: ( ME_55E02C1E02E2 // anOther
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_F83E51FB5EAA // Array_Join
  ;
 
@@ -2266,9 +943,6 @@ ref; // ME_55E0410D00BE aLambda
    Seq: ( ME_55E0410D00BE // aLambda
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_BD92B7361A83 // Array_Trunc
  ;
 
@@ -2299,9 +973,6 @@ ref; // ME_55E5902F0237 aCount
    Seq: ( ME_55E5902F0237 // aCount
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_2892AD069398 // Array_Slice
  ;
 
@@ -2319,95 +990,12 @@ ref; // ME_55E59002038C Slice
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Count'
  : Speller ME_F4E1D8EB306A // Array_Count
  ;
 
 ref; // ME_044C5FFA728B Count
-
-: ME_572ABCD87400
- CONST UID '572ABCD87400'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F50313101D1 // ArrayProcessingPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_572ABCD87400 Reg_Type_TtfwContext
-
-: ME_7DE0F62648AB
- CONST UID '7DE0F62648AB'
- CONST Name 'Reg_Type_ItfwValueList'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа ItfwValueList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F50313101D1 // ArrayProcessingPack
- ;
- : SpelledFor WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
- ;
-
-ref; // ME_7DE0F62648AB Reg_Type_ItfwValueList
-
-: ME_2C2541E16FC7
- CONST UID '2C2541E16FC7'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F50313101D1 // ArrayProcessingPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_2C2541E16FC7 Reg_Type_Integer
-
-: ME_75611B00AA7E
- CONST UID '75611B00AA7E'
- CONST Name 'Reg_Type_TtfwStackValue'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwStackValue' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F50313101D1 // ArrayProcessingPack
- ;
- : SpelledFor WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_75611B00AA7E Reg_Type_TtfwStackValue
-
-: ME_8BC236B9941D
- CONST UID '8BC236B9941D'
- CONST Name 'Reg_Type_TtfwWord'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F50313101D1 // ArrayProcessingPack
- ;
- : SpelledFor WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_8BC236B9941D Reg_Type_TtfwWord
 
 : ME_4F5037F302A5
  CONST Class class_Dependency
@@ -2622,11 +1210,6 @@ ref; // ME_55E849210175_ME_4F50313101D1 ItemsCountInSlice
  ME_55E0410603CA // Trunc
  ME_55E59002038C // Slice
  ME_044C5FFA728B // Count
- ME_572ABCD87400 // Reg_Type_TtfwContext
- ME_7DE0F62648AB // Reg_Type_ItfwValueList
- ME_2C2541E16FC7 // Reg_Type_Integer
- ME_75611B00AA7E // Reg_Type_TtfwStackValue
- ME_8BC236B9941D // Reg_Type_TtfwWord
  )
  ; // Operations
  : Implemented
@@ -2674,8 +1257,6 @@ ref; // ME_55E849210175_ME_4F50313101D1 ItemsCountInSlice
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas'
 
@@ -2758,10 +1339,6 @@ ref; // ME_52E2710E03D9 Create
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_52E27222008A Make
 
@@ -3051,10 +1628,6 @@ ref; // ME_47A6FEE600FC_ME_52E270AE02EA IsCacheable
    Seq: ( ME_47A6FEE600FC_ME_52E270AE02EA // IsCacheable
  )
  ; // Overridden
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  CONST extprop:rc:SelfName 'ArrayView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3093,10 +1666,6 @@ ref; // ME_52E666F6036E_ME_52E271D60114 DoForEachBack
  ME_52E666F6036E_ME_52E271D60114 // DoForEachBack
  )
  ; // Overridden
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas'
  CONST extprop:rc:SelfName 'RevertedArrayView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3267,10 +1836,6 @@ ref; // ME_47A6FEE600FC_ME_52EA8AD102B0 IsCacheable
    Seq: ( ME_52EA8AF401E8 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'TwoLambdas'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -3380,10 +1945,6 @@ ref; // ME_52E6671B033F Create
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_52E66739020A Make
 
@@ -3486,10 +2047,6 @@ ref; // ME_52E666F6036E_ME_52E666BC0270 DoForEachBack
    Seq: ( ME_52E66CC20315 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwLambdedArrayView.pas'
  CONST extprop:rc:SelfName 'LambdedArrayView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3523,10 +2080,6 @@ ref; // ME_4DAEEDE10285_ME_52EA87EA0325 DoDoIt
    Seq: ( ME_4DAEEDE10285_ME_52EA87EA0325 // DoDoIt
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'MapLambda'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -3560,10 +2113,6 @@ ref; // ME_52EA8EE702FA_ME_52E6733C0163 TwoLabdasClass
    Seq: ( ME_52EA87EA0325 // TtfwMapLambda
  )
  ; // Children
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMappedArrayView.pas'
  CONST extprop:rc:SelfName 'MappedArrayView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3597,10 +2146,6 @@ ref; // ME_4DAEEDE10285_ME_52EA87C200D8 DoDoIt
    Seq: ( ME_4DAEEDE10285_ME_52EA87C200D8 // DoDoIt
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'FilterLambda'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -3634,10 +2179,6 @@ ref; // ME_52EA8EE702FA_ME_52E6752A0047 TwoLabdasClass
    Seq: ( ME_52EA87C200D8 // TtfwFilterLambda
  )
  ; // Children
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas'
  CONST extprop:rc:SelfName 'FilteredArrayView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3760,10 +2301,6 @@ ref; // ME_479731C50290_ME_52EB8C930076 Cleanup
    Seq: ( ME_52EB8D1F0204 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'ArrayCollector'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -3844,10 +2381,6 @@ ref; // ME_52EB870B01E6 Create
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_52EB872502FE Make
 
@@ -3948,10 +2481,6 @@ ref; // ME_479731C50290_ME_52EB863801C3 Cleanup
  ME_52EB8C6701FC // TtfwArray
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIteratorFromFunctor.pas'
  CONST extprop:rc:SelfName 'IteratorFromFunctor'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4058,10 +2587,6 @@ ref; // ME_55E02B8D02E1 Create
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_55E02BC80035 Make
 
@@ -4124,10 +2649,6 @@ ref; // ME_55E849210175_ME_55E02B5D0129 ItemsCountInSlice
  ME_55E849210175_ME_55E02B5D0129 // ItemsCountInSlice
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwJoinIterator.pas'
  CONST extprop:rc:SelfName 'JoinIterator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4161,10 +2682,6 @@ ref; // ME_4DAEEDE10285_ME_55E0417101EC DoDoIt
    Seq: ( ME_4DAEEDE10285_ME_55E0417101EC // DoDoIt
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'TruncLambda'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -4198,10 +2715,6 @@ ref; // ME_52EA8EE702FA_ME_55E0413800EA TwoLabdasClass
    Seq: ( ME_55E0417101EC // TtfwTruncLambda
  )
  ; // Children
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwTruncatedArrayView.pas'
  CONST extprop:rc:SelfName 'TruncatedArrayView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4367,10 +2880,6 @@ ref; // ME_47A6FEE600FC_ME_55E59111027A IsCacheable
    Seq: ( ME_55E592500375 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'SliceLambda'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -4461,10 +2970,6 @@ ref; // ME_55E590D1008A Create
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_55E590F002BA Make
 
@@ -4519,10 +3024,6 @@ ref; // ME_55E84F5F00ED_ME_55E5904F02A5 GetItemsCountInSlice
    Seq: ( ME_55E59111027A // TtfwSliceLambda
  )
  ; // Children
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwSliceView.pas'
  CONST extprop:rc:SelfName 'SliceView'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4638,10 +3139,6 @@ ref; // ME_479731C50290_ME_55ED4AE00282 Cleanup
    Seq: ( ME_55ED4B5C0329 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMembersIteratorPrim.pas'
  CONST extprop:rc:SelfName 'MembersIteratorPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4689,10 +3186,6 @@ ref; // ME_479731C50290_ME_52E7D66E02FF Cleanup
    Seq: ( ME_52E7D73800CE // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCodeIterator.pas'
  CONST extprop:rc:SelfName 'CodeIterator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4720,10 +3213,6 @@ FORWARD ME_52E29F1A037E
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_52E29FF60123 Make
 
@@ -4804,10 +3293,6 @@ ref; // ME_479731C50290_ME_52E29F1A037E Cleanup
    Seq: ( ME_52E29FB101E4 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwMembersIterator.pas'
  CONST extprop:rc:SelfName 'MembersIterator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4835,10 +3320,6 @@ FORWARD ME_55ED4BC100BB
    Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.pas.ms.script' // ItfwValueList
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_55ED4BEE00BC Make
 
@@ -4895,10 +3376,6 @@ ref; // ME_55E849210175_ME_55ED4BC100BB ItemsCountInSlice
  ME_55E849210175_ME_55ED4BC100BB // ItemsCountInSlice
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas'
  CONST extprop:rc:SelfName 'KeywordsIterator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4934,7 +3411,6 @@ ref; // ME_55ED4BC100BB TtfwKeywordsIterator
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces

@@ -23,6 +23,11 @@
 //#UC END# *51D27A48038E_56BB14F503A0_impl*
 //#UC START# *51D27A48038E_56BB14F503A0_var*
 //#UC END# *51D27A48038E_56BB14F503A0_var*
+//#UC START# *51D27DFA0308_56BB14F503A0_impl*
+
+//#UC END# *51D27DFA0308_56BB14F503A0_impl*
+//#UC START# *51D27DFA0308_56BB14F503A0_var*
+//#UC END# *51D27DFA0308_56BB14F503A0_var*
 //#UC START# *51D27EC50388_56BB14F503A0_impl*
  inherited ApplyProperty(propType, What, Value, aState);
  case propType of
@@ -552,3 +557,219 @@ var
 //#UC END# *56D81BA40350_56BB14F503A0_impl*
 //#UC START# *56D81BA40350_56BB14F503A0_var*
 //#UC END# *56D81BA40350_56BB14F503A0_var*
+//#UC START# *572C58C602AF_56BB14F503A0_impl*
+
+//#UC END# *572C58C602AF_56BB14F503A0_impl*
+//#UC START# *572C58C602AF_56BB14F503A0_var*
+//#UC END# *572C58C602AF_56BB14F503A0_var*
+//#UC START# *572C60C800BD_56BB14F503A0_impl*
+ f_EmptyParaCount := 0;
+ if f_LastCell = nil then Exit;
+ CheckCellWidth;
+ f_LastCell := nil;
+ f_Table.LastRow.Closed := True;
+ f_Table.Closed := True;
+ f_Table := nil;
+ f_LastRow := nil;
+ PopTransferMode(dd_tmNone);
+//#UC END# *572C60C800BD_56BB14F503A0_impl*
+//#UC START# *572C60C800BD_56BB14F503A0_var*
+//#UC END# *572C60C800BD_56BB14F503A0_var*
+//#UC START# *572C60F301A0_56BB14F503A0_impl*
+ if (TextBuffer.Len = 0) and (f_Table <> nil) then
+  if (f_TransferMode <> dd_tmColumn) then
+  begin
+   if (aPAP.xaFirst = propUndefined) and (aPAP.xaLeft = propUndefined) then
+    Inc(f_EmptyParaCount)
+   else
+    f_EmptyParaCount := 0;
+   if (f_EmptyParaCount > 2) then
+    CloseTable;
+  end // if (f_Table <> nil) then
+  else
+   if (aPAP.xaFirst = propUndefined) and (aPAP.xaLeft = propUndefined) then
+    Inc(f_EmptyParaCount);
+//#UC END# *572C60F301A0_56BB14F503A0_impl*
+//#UC START# *572C60F301A0_56BB14F503A0_var*
+//#UC END# *572C60F301A0_56BB14F503A0_var*
+//#UC START# *572C61230202_56BB14F503A0_impl*
+ if f_LastCell.Props.CellOffset = 0 then
+ begin
+  f_LastCell.Props.CellOffset := f_SectProp.xaPage - f_SectProp.xaLeft - f_SectProp.xaRight;
+  f_LastCell.Props.OffsetType := dd_otByPage;
+ end;
+//#UC END# *572C61230202_56BB14F503A0_impl*
+//#UC START# *572C61230202_56BB14F503A0_var*
+//#UC END# *572C61230202_56BB14F503A0_var*
+//#UC START# *572C614401A8_56BB14F503A0_impl*
+ if f_StartRow > -1 then
+  Result := f_Table.Rows[f_StartRow].CurColumn
+ else
+  Result := -1; 
+//#UC END# *572C614401A8_56BB14F503A0_impl*
+//#UC START# *572C614401A8_56BB14F503A0_var*
+//#UC END# *572C614401A8_56BB14F503A0_var*
+//#UC START# *572C617603AE_56BB14F503A0_impl*
+ f_TabIndex := 0;
+ f_EmptyParaCount := 0;
+ f_ClearColumnOffset := False;
+//#UC END# *572C617603AE_56BB14F503A0_impl*
+//#UC START# *572C617603AE_56BB14F503A0_var*
+//#UC END# *572C617603AE_56BB14F503A0_var*
+//#UC START# *572C61990328_56BB14F503A0_impl*
+ Result := False;
+ l_RowIndex := f_Table.RowIndex(f_LastRow);
+ if (l_RowIndex < (f_Table.RowCount - 1)) and (f_LastRow.CurColumn > 0) then
+  Result := True;
+//#UC END# *572C61990328_56BB14F503A0_impl*
+//#UC START# *572C61990328_56BB14F503A0_var*
+var
+ l_RowIndex: Integer;
+//#UC END# *572C61990328_56BB14F503A0_var*
+//#UC START# *572C61C30037_56BB14F503A0_impl*
+ if not TextBuffer.Empty then
+  if f_SpacesCount >= cnSpaces2Tab then
+  begin
+   Cells2Tabs(aState);
+   TextBuffer.RTrim;
+   ParseSymbol(Ord(cc_Tab), propCHP, aState);
+  end; // if TextBuffer.RTrimLen > cnSpaces2Tab then
+ f_SpacesCount := 0;
+//#UC END# *572C61C30037_56BB14F503A0_impl*
+//#UC START# *572C61C30037_56BB14F503A0_var*
+const
+ cnSpaces2Tab = 5;
+//#UC END# *572C61C30037_56BB14F503A0_var*
+//#UC START# *572C61E90325_56BB14F503A0_impl*
+ if (f_LastRow.CellCount > 1) and (f_LastRow.CurColumn = 0) and (aState.PAP.TabList.Count = 0) then
+ begin
+  l_ColOffset := ColumnOffset(0);
+  if f_LastRow.LastCell.Props.CellOffset = l_ColOffset then
+  begin
+   l_Offset := 0;                             
+   for i := 0 to f_LastRow.CellCount - 1 do
+   begin
+    l_Cell := f_LastRow.Cells[i];
+    l_Offset := l_Cell.Props.CellOffset;
+    if l_Offset = l_ColOffset then Break;
+    lp_AddTab(l_Offset);
+   end; // while l_Offset <> l_ColOffset do
+  end; // if f_LastRow.LastCell.Props.CellOffset = l_ColOffset then
+ end; // if (f_LastRow.CurColumn = 0) and (aState.PAP.TabList.Count = 0) then
+//#UC END# *572C61E90325_56BB14F503A0_impl*
+//#UC START# *572C61E90325_56BB14F503A0_var*
+
+ procedure lp_AddTab(aTabPos: Integer);
+ var
+  l_Tab: TddTab;
+ begin
+  l_Tab := TddTab.Create;
+  try
+   l_Tab.TabPos := aTabPos;
+   aState.PAP.TabList.Add(l_Tab);
+  finally
+   FreeAndNil(l_Tab);
+  end;
+ end;
+
+var
+ i          : Integer;
+ l_Cell     : TddTableCell;
+ l_Offset   : Integer;
+ l_ColOffset: Integer;
+//#UC END# *572C61E90325_56BB14F503A0_var*
+//#UC START# *572C62180157_56BB14F503A0_impl*
+ Result := False;
+ if NeedNewCell(aState) then
+ begin
+  Result := True;
+  f_InAddingCell := True;
+  try
+   ClosePara(aSymbol, aState);
+   AddNewCellByTab(aState);
+  finally
+   f_InAddingCell := False;
+  end;
+ end // if NeedNewCell then
+//#UC END# *572C62180157_56BB14F503A0_impl*
+//#UC START# *572C62180157_56BB14F503A0_var*
+//#UC END# *572C62180157_56BB14F503A0_var*
+//#UC START# *572C624C03B4_56BB14F503A0_impl*
+ PushTransferMode;
+ if f_TransferMode = dd_tmColumn then
+  ParseSymbol(aSymbol, propPAP, aState); // Закрываем параграф.
+//#UC END# *572C624C03B4_56BB14F503A0_impl*
+//#UC START# *572C624C03B4_56BB14F503A0_var*
+//#UC END# *572C624C03B4_56BB14F503A0_var*
+//#UC START# *572C627400F5_56BB14F503A0_impl*
+ f_PrevTransferMode := f_TransferMode;
+ f_TransferMode := aMode;
+//#UC END# *572C627400F5_56BB14F503A0_impl*
+//#UC START# *572C627400F5_56BB14F503A0_var*
+//#UC END# *572C627400F5_56BB14F503A0_var*
+//#UC START# *572C62B102DA_56BB14F503A0_impl*
+ if f_TransferMode = dd_tmBreak then
+  f_TransferMode := f_PrevTransferMode;
+ f_PrevTransferMode := dd_tmNone;
+//#UC END# *572C62B102DA_56BB14F503A0_impl*
+//#UC START# *572C62B102DA_56BB14F503A0_var*
+//#UC END# *572C62B102DA_56BB14F503A0_var*
+//#UC START# *572C62D3018A_56BB14F503A0_impl*
+ Result := (f_LastCell <> nil) and not f_LastCell.IsCellEmpty;
+ if not Result then
+  if (f_EmptyParaCount > 0) then
+   Result := not lp_LastColumnEmpty;
+//#UC END# *572C62D3018A_56BB14F503A0_impl*
+//#UC START# *572C62D3018A_56BB14F503A0_var*
+
+  function lp_OnlyColumns: Boolean;
+  var
+   i: Integer;
+  begin
+   Result := f_ColCount >= f_LastRow.CellCount;
+   if Result then
+    for i := 0 to f_LastRow.CellCount - 1 do
+     if f_LastRow.Cells[i].Props.OffsetType <> dd_otByColumn then
+     begin
+      Result := False;
+      Break;
+     end; // if f_LastRow.Cells[i].Props.OffsetType <> dd_ByColumn then
+  end;
+
+  function lp_LastColumnEmpty: Boolean;
+  var
+   l_Offset    : Integer;
+   l_PrevOffset: Integer;
+  begin
+   Result := f_LastRow.CellCount = 0;
+   if not Result then
+    if f_LastRow.CellCount = 1 then
+     Result := f_LastCell.IsCellEmpty and (ColumnOffset(0) = f_LastCell.Props.CellOffset) and (aPAP.xaLeft <> propUndefined)
+    else
+     if f_LastRow.CellCount > 1 then
+     begin
+      Result := False;
+      if (f_LastRow.CurColumn > 0) and (f_LastCell <> nil) then
+      begin
+       if lp_OnlyColumns then
+        Result := f_LastCell.IsCellEmpty // И ячейка колонки пустая...
+       else
+       begin
+        l_Offset := ColumnOffset(f_LastRow.CurColumn);
+        l_PrevOffset := ColumnOffset(f_LastRow.CurColumn - 1);
+        // В колонку не навставляли еще ячеек...
+        if (l_Offset = f_LastCell.Props.CellOffset) and (l_PrevOffset = f_LastRow.Cells[f_LastRow.CellCount - 2].Props.CellOffset) then
+         Result := f_LastCell.IsCellEmpty; // И ячейка колонки пустая...
+       end;
+      end; // if f_LastRow.CurColumn > 0 then
+     end; // if Result then
+  end;
+
+//#UC END# *572C62D3018A_56BB14F503A0_var*
+//#UC START# *572C62FA035D_56BB14F503A0_impl*
+ if f_LastCell <> nil then
+  if f_LastCell.LastTextPara.Text.Last in cc_Digits then
+   ClosePara(Ord(cc_Tab), aState);
+//#UC END# *572C62FA035D_56BB14F503A0_impl*
+//#UC START# *572C62FA035D_56BB14F503A0_var*
+//#UC END# *572C62FA035D_56BB14F503A0_var*

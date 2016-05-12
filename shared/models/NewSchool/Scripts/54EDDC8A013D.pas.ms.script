@@ -8,181 +8,6 @@ FORWARD ME_54EDDCAC016A
 
 FORWARD ME_53C7C38A011C
 
-: ME_54EDDCB700FF
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_53C7C38A011C // TkwRegisterSchema
- ;
-
-ref; // ME_54EDDCB700FF 
-
-FORWARD ME_4DCA8B9D033E
-
-: ME_54EDDCB80217
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_4DCA8B9D033E // StyleTable_SaveToFile
- ;
-
-ref; // ME_54EDDCB80217 
-
-FORWARD ME_4E68CC1B01C9
-
-: ME_54EDDCB90312
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_4E68CC1B01C9 // StyleTable_Changing
- ;
-
-ref; // ME_54EDDCB90312 
-
-FORWARD ME_4E68CC460163
-
-: ME_54EDDCBC0011
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_4E68CC460163 // StyleTable_Changed
- ;
-
-ref; // ME_54EDDCBC0011 
-
-: ME_54EDDE8F00BB
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target WL 'ME_4B28D63A00EC' '4829D7D50156.pas.ms.script' // TevCustomEditorWindowPrim
- ;
-
-ref; // ME_54EDDE8F00BB 
-
-FORWARD ME_52DEAB2F00A1
-
-: ME_54F46DD601D5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ;
-
-ref; // ME_54F46DD601D5 
-
-FORWARD ME_4FF436880055
-
-: ME_552D191E0228
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_4FF436880055 // CF_HTML
- ;
-
-ref; // ME_552D191E0228 
-
-FORWARD ME_4FF436960135
-
-: ME_552D19230220
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_4FF436960135 // CF_XML
- ;
-
-ref; // ME_552D19230220 
-
-FORWARD ME_5052EB1003B3
-
-: ME_552D192700A9
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_5052EB1003B3 // CF_EVEREST
- ;
-
-ref; // ME_552D192700A9 
-
-FORWARD ME_5291E204016B
-
-: ME_552D192A0320
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_5291E204016B // CF_RTF
- ;
-
-ref; // ME_552D192A0320 
-
-FORWARD ME_52E11B1F02E7
-
-: ME_552D192E0349
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_52E11B1F02E7 // CF_EVERESTBIN
- ;
-
-ref; // ME_552D192E0349 
-
-FORWARD ME_5548AB5A0050
-
-: ME_5548AB640115
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54EDDCAC016A // evSchemaWordsPack
- ;
- : Target ME_5548AB5A0050 // CF_PDF
- ;
-
-ref; // ME_5548AB640115 
-
-: ME_54EDDCAC016A
- CONST UID '54EDDCAC016A'
- CONST Name 'evSchemaWordsPack'
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Dependencies
-   Seq: ( ME_54EDDCB700FF // TkwRegisterSchema
- ME_54EDDCB80217 // StyleTable_SaveToFile
- ME_54EDDCB90312 // StyleTable_Changing
- ME_54EDDCBC0011 // StyleTable_Changed
- ME_54EDDE8F00BB // TevCustomEditorWindowPrim
- ME_54F46DD601D5 // EvdBin2EvdTxt
- ME_552D191E0228 // CF_HTML
- ME_552D19230220 // CF_XML
- ME_552D192700A9 // CF_EVEREST
- ME_552D192A0320 // CF_RTF
- ME_552D192E0349 // CF_EVERESTBIN
- ME_5548AB640115 // CF_PDF
- )
- ; // Dependencies
- CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas'
- CONST extprop:rc:SelfName 'SchemaWordsPack'
-
-ref; // ME_54EDDCAC016A evSchemaWordsPack
-
 FORWARD ME_53C7C3DC0014
 
 : ME_53C7DADF010B
@@ -402,647 +227,370 @@ ref; // ME_53C7C3B90110 Ini
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
+ CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
  ;
  : Operations
    Seq: ( ME_53C7C3DC0014 // RegisterSchema
  ME_53C7C3B90110 // Ini
  )
  ; // Operations
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRegisterSchema.pas'
  CONST extprop:rc:SelfName 'RegisterSchema'
  CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwRegisterSchema'
 
 ref; // ME_53C7C38A011C TkwRegisterSchema
 
-: ME_4DCA8C110043
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DCA8B9D033E // StyleTable_SaveToFile
- ;
- : Target WL 'ME_4857EFDA01E5' '47ECB2870309.pas.ms.script' // evStyleInterfaceEx
- ;
-
-ref; // ME_4DCA8C110043 
-
-: ME_4DCA8C440259
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DCA8B9D033E // StyleTable_SaveToFile
- ;
- : Target WL 'ME_495230C40219' '47913B47006E.pas.ms.script' // Tl3NamedTextStream
- ;
-
-ref; // ME_4DCA8C440259 
-
-: ME_4DCA8C870351
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DCA8B9D033E // StyleTable_SaveToFile
- ;
- : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
- ;
-
-ref; // ME_4DCA8C870351 
-
-: ME_4DCA8C9E00FB
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DCA8B9D033E // StyleTable_SaveToFile
- ;
- : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
- ;
-
-ref; // ME_4DCA8C9E00FB 
-
-: ME_4DAEEDE10285_ME_4DCA8B9D033E
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_4DCA8B9D033E DoDoIt
-
-: ME_4DB0614603C8_ME_4DCA8B9D033E
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4DCA8B9D033E GetWordNameForRegister
-
-: ME_4DCA8B9D033E
- CONST UID '4DCA8B9D033E'
- CONST Name 'StyleTable_SaveToFile'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_4DCA8B9D033E // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4DCA8B9D033E // GetWordNameForRegister
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4DCA8C110043 // evStyleInterfaceEx
- ME_4DCA8C440259 // Tl3NamedTextStream
- ME_4DCA8C870351 // Tl3FileMode
- ME_4DCA8C9E00FB // FreeAndNil
- )
- ; // Dependencies
- CONST "author" 'Ëþëèí À.Â.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" true
- CONST "register in scripts" 'undefined'
- CONST "started" '11.05.2011 17:14'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStyleTableSaveToFile.pas'
- CONST extprop:pas:TypeName 'TkwStyleTableSaveToFile'
- CONST extprop:rc:SelfName 'StyleTableSaveToFile'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwStyleTableSaveToFile'
-
-ref; // ME_4DCA8B9D033E StyleTable_SaveToFile
-
-: ME_4E68CCF50200
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E68CC1B01C9 // StyleTable_Changing
- ;
- : Target WL 'ME_47ECB297037D' '47ECB2870309.pas.ms.script' // evStyleTableSpy
- ;
-
-ref; // ME_4E68CCF50200 
-
-: ME_4DAEEDE10285_ME_4E68CC1B01C9
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_4E68CC1B01C9 DoDoIt
-
-: ME_4DB0614603C8_ME_4E68CC1B01C9
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4E68CC1B01C9 GetWordNameForRegister
-
-: ME_4E68CC1B01C9
- CONST UID '4E68CC1B01C9'
- CONST Name 'StyleTable_Changing'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_4E68CC1B01C9 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4E68CC1B01C9 // GetWordNameForRegister
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4E68CCF50200 // evStyleTableSpy
- )
- ; // Dependencies
- CONST "author" 'Ëþëèí À.Â.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" true
- CONST "register in scripts" 'undefined'
- CONST "started" '08.09.2011 18:07'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStyleTableChanging.pas'
- CONST extprop:pas:TypeName 'TkwStyleTableChanging'
- CONST extprop:rc:SelfName 'StyleTableChanging'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwStyleTableChanging'
-
-ref; // ME_4E68CC1B01C9 StyleTable_Changing
-
-: ME_4E68CCE90252
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E68CC460163 // StyleTable_Changed
- ;
- : Target WL 'ME_47ECB297037D' '47ECB2870309.pas.ms.script' // evStyleTableSpy
- ;
-
-ref; // ME_4E68CCE90252 
-
-: ME_4DAEEDE10285_ME_4E68CC460163
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_4E68CC460163 DoDoIt
-
-: ME_4DB0614603C8_ME_4E68CC460163
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4E68CC460163 GetWordNameForRegister
-
-: ME_4E68CC460163
- CONST UID '4E68CC460163'
- CONST Name 'StyleTable_Changed'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_4E68CC460163 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4E68CC460163 // GetWordNameForRegister
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4E68CCE90252 // evStyleTableSpy
- )
- ; // Dependencies
- CONST "author" 'Ëþëèí À.Â.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" true
- CONST "register in scripts" 'undefined'
- CONST "started" '08.09.2011 18:08'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwStyleTableChanged.pas'
- CONST extprop:pas:TypeName 'TkwStyleTableChanged'
- CONST extprop:rc:SelfName 'StyleTableChanged'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwStyleTableChanged'
-
-ref; // ME_4E68CC460163 StyleTable_Changed
-
-: ME_52E1462D0065
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ;
- : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
- ;
-
-ref; // ME_52E1462D0065 
-
-: ME_52E1466700DE
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ;
- : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
- ;
-
-ref; // ME_52E1466700DE 
-
-: ME_52E1467E0154
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ;
- : Target WL 'ME_499D47A502DE' '47913B47006E.pas.ms.script' // Tl3ConstMemoryStream
- ;
-
-ref; // ME_52E1467E0154 
-
-: ME_52E146B10169
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ;
- : Target WL 'ME_4C1B2A94015D' '482D6E13011F.pas.ms.script' // evEvdRd
- ;
-
-ref; // ME_52E146B10169 
-
-: ME_52E146DC00F7
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ;
- : Target WL 'ME_483D7C55027A' '47ECB8BD00A8.pas.ms.script' // TevdNativeWriter
- ;
-
-ref; // ME_52E146DC00F7 
-
-: ME_4DAEEDE10285_ME_52DEAB2F00A1
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_52DEAB2F00A1 DoDoIt
-
-: ME_52DEAB2F00A1
- CONST UID '52DEAB2F00A1'
- CONST Name 'EvdBin2EvdTxt'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( WL 'ME_4DD0CE0E02AA' '54F0744B0141.pas.ms.script' // TtfwSysUtilsWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_52DEAB2F00A1 // DoDoIt
- )
- ; // Implemented
- : Dependencies
-   Seq: ( ME_52E1462D0065 // Tl3CustomFiler
- ME_52E1466700DE // Tl3WString
- ME_52E1467E0154 // Tl3ConstMemoryStream
- ME_52E146B10169 // evEvdRd
- ME_52E146DC00F7 // TevdNativeWriter
- )
- ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEvdBin2EvdTxt.pas'
- CONST extprop:pas:TypeName 'TkwEvdBin2EvdTxt'
- CONST extprop:rc:SelfName 'EvdBin2EvdTxt'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwEvdBin2EvdTxt'
-
-ref; // ME_52DEAB2F00A1 EvdBin2EvdTxt
-
-FORWARD ME_5052EB370166
-
-FORWARD ME_54D231000227
-
-: ME_54D2311702ED
- CONST UID '54D2311702ED'
- CONST Name 'DoIt'
+: ME_5731A85502C3
+ CONST UID '5731A85502C3'
+ CONST Name 'CF_PDF'
  CONST Class class_Operation
- CONST Visibility PrivateAccess
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
  CONST Abstraction at_final
- : Parent ME_54D231000227 // GetFormat
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
  ;
- : Target WL 'ME_47F0C76F0397' '47C695A10172.pas.ms.script' // TevFormat
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
-ref; // ME_54D2311702ED DoIt
+ref; // ME_5731A85502C3 CF_PDF
 
-: ME_54D231000227
- CONST UID '54D231000227'
- CONST Name 'GetFormat'
- CONST Class class_Class
- : Stereotype st_abstractmethod ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent ME_5052EB370166 // TtfwClipboardFormatWord
+: ME_5731A87401CE
+ CONST UID '5731A87401CE'
+ CONST Name 'CF_HTML'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
  ;
- : Operations
-   Seq: ( ME_54D2311702ED // DoIt
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5731A87401CE CF_HTML
+
+: ME_5731A8840004
+ CONST UID '5731A8840004'
+ CONST Name 'CF_XML'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5731A8840004 CF_XML
+
+: ME_5731A891035F
+ CONST UID '5731A891035F'
+ CONST Name 'CF_EVEREST'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5731A891035F CF_EVEREST
+
+: ME_5731A8A201E3
+ CONST UID '5731A8A201E3'
+ CONST Name 'CF_RTF'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5731A8A201E3 CF_RTF
+
+: ME_5731A8B30033
+ CONST UID '5731A8B30033'
+ CONST Name 'CF_EVERESTBIN'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5731A8B30033 CF_EVERESTBIN
+
+: ME_5731CA8500B0
+ CONST UID '5731CA8500B0'
+ CONST Name 'StyleTable_Changed'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+
+ref; // ME_5731CA8500B0 StyleTable_Changed
+
+: ME_5731CA920303
+ CONST UID '5731CA920303'
+ CONST Name 'StyleTable_Changing'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+
+ref; // ME_5731CA920303 StyleTable_Changing
+
+: ME_5731CAAB0145
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_5731CAAB0145 aData
+
+: ME_5731CAA20015
+ CONST UID '5731CAA20015'
+ CONST Name 'EvdBin2EvdTxt'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ : Parameters
+   Seq: ( ME_5731CAAB0145 // aData
  )
- ; // Operations
+ ; // Parameters
 
-ref; // ME_54D231000227 GetFormat
+ref; // ME_5731CAA20015 EvdBin2EvdTxt
 
-: ME_5052EBA303C8
+: ME_5731CACE0084
+ CONST Name 'aFileName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5731CACE0084 aFileName
+
+: ME_5731CABE014E
+ CONST UID '5731CABE014E'
+ CONST Name 'StyleTable_SaveToFile'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Parameters
+   Seq: ( ME_5731CACE0084 // aFileName
+ )
+ ; // Parameters
+
+ref; // ME_5731CABE014E StyleTable_SaveToFile
+
+: ME_54EDDCB700FF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
- : Parent ME_5052EB370166 // TtfwClipboardFormatWord
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target ME_53C7C38A011C // TkwRegisterSchema
+ ;
+
+ref; // ME_54EDDCB700FF 
+
+: ME_54EDDE8F00BB
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_4B28D63A00EC' '4829D7D50156.pas.ms.script' // TevCustomEditorWindowPrim
+ ;
+
+ref; // ME_54EDDE8F00BB 
+
+: ME_5731A83F02A5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
  ;
  : Target WL 'ME_483E708900B4' '47C695A10172.pas.ms.script' // Clipboard Formats
  ;
 
-ref; // ME_5052EBA303C8 
+ref; // ME_5731A83F02A5 
 
-: ME_4DAEEDE10285_ME_5052EB370166
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+: ME_5731BC560091
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
  ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_5052EB370166 DoDoIt
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
 
-: ME_5052EB370166
- CONST UID '5052EB370166'
- CONST Name 'TtfwClipboardFormatWord'
+ref; // ME_5731BC560091 
+
+: ME_5731BCB302BF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_47A0679D00E4' '47913B47006E.pas.ms.script' // Tl3CustomFiler
+ ;
+
+ref; // ME_5731BCB302BF 
+
+: ME_5731BCB700B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_5731BCB700B3 
+
+: ME_5731BCBA022C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_499D47A502DE' '47913B47006E.pas.ms.script' // Tl3ConstMemoryStream
+ ;
+
+ref; // ME_5731BCBA022C 
+
+: ME_5731BCBD03B4
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_4C1B2A94015D' '482D6E13011F.pas.ms.script' // evEvdRd
+ ;
+
+ref; // ME_5731BCBD03B4 
+
+: ME_5731BCC10210
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_483D7C55027A' '47ECB8BD00A8.pas.ms.script' // TevdNativeWriter
+ ;
+
+ref; // ME_5731BCC10210 
+
+: ME_5731BCDF0123
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_47ECB297037D' '47ECB2870309.pas.ms.script' // evStyleTableSpy
+ ;
+
+ref; // ME_5731BCDF0123 
+
+: ME_5731BD8103C0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_4857EFDA01E5' '47ECB2870309.pas.ms.script' // evStyleInterfaceEx
+ ;
+
+ref; // ME_5731BD8103C0 
+
+: ME_5731BD87024C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_495230C40219' '47913B47006E.pas.ms.script' // Tl3NamedTextStream
+ ;
+
+ref; // ME_5731BD87024C 
+
+: ME_5731BD8D018C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_48F4BE400154' '4678193C009C.pas.ms.script' // Tl3FileMode
+ ;
+
+ref; // ME_5731BD8D018C 
+
+: ME_5731E1F201EC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54EDDCAC016A // evSchemaWordsPack
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_5731E1F201EC 
+
+: ME_54EDDCAC016A
+ CONST UID '54EDDCAC016A'
+ CONST Name 'evSchemaWordsPack'
  CONST Class class_Class
- : Stereotype st_SimpleClass ;
+ : Stereotype st_ScriptKeywordsPack ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
- CONST Abstraction at_abstract
+ CONST Abstraction at_final
  : Parent ME_54EDDC8A013D // SchemaWords
  ;
- : Inherits
-   Seq: ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
- )
- ; // Inherits
  : Operations
-   Seq: ( ME_54D231000227 // GetFormat
+   Seq: ( ME_5731A85502C3 // CF_PDF
+ ME_5731A87401CE // CF_HTML
+ ME_5731A8840004 // CF_XML
+ ME_5731A891035F // CF_EVEREST
+ ME_5731A8A201E3 // CF_RTF
+ ME_5731A8B30033 // CF_EVERESTBIN
+ ME_5731CA8500B0 // StyleTable_Changed
+ ME_5731CA920303 // StyleTable_Changing
+ ME_5731CAA20015 // EvdBin2EvdTxt
+ ME_5731CABE014E // StyleTable_SaveToFile
  )
  ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_5052EB370166 // DoDoIt
+ : Children
+   Seq: ( ME_53C7C38A011C // TkwRegisterSchema
  )
- ; // Implemented
+ ; // Children
  : Dependencies
-   Seq: ( ME_5052EBA303C8 // Clipboard Formats
+   Seq: ( ME_54EDDCB700FF // TkwRegisterSchema
+ ME_54EDDE8F00BB // TevCustomEditorWindowPrim
+ ME_5731A83F02A5 // Clipboard Formats
+ ME_5731BC560091 // SysUtils
+ ME_5731BCB302BF // Tl3CustomFiler
+ ME_5731BCB700B3 // Tl3WString
+ ME_5731BCBA022C // Tl3ConstMemoryStream
+ ME_5731BCBD03B4 // evEvdRd
+ ME_5731BCC10210 // TevdNativeWriter
+ ME_5731BCDF0123 // evStyleTableSpy
+ ME_5731BD8103C0 // evStyleInterfaceEx
+ ME_5731BD87024C // Tl3NamedTextStream
+ ME_5731BD8D018C // Tl3FileMode
+ ME_5731E1F201EC // l3String
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwClipboardFormatWord.pas'
- CONST extprop:rc:SelfName 'ClipboardFormatWord'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'tfwClipboardFormatWord'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas'
+ CONST extprop:rc:SelfName 'SchemaWordsPack'
 
-ref; // ME_5052EB370166 TtfwClipboardFormatWord
-
-: ME_54D231000227_ME_4FF436960135
- : Original ME_54D231000227 // GetFormat
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54D231000227_ME_4FF436960135 GetFormat
-
-: ME_4FF436960135
- CONST UID '4FF436960135'
- CONST Name 'CF_XML'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_54D231000227_ME_4FF436960135 // GetFormat
- )
- ; // Implemented
- CONST "NameForScript" 'CF_XML'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFXML.pas'
- CONST extprop:pas:TypeName 'TkwCFXML'
- CONST extprop:rc:SelfName 'CFXML'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwCFXML'
-
-ref; // ME_4FF436960135 CF_XML
-
-: ME_54D231000227_ME_5052EB1003B3
- : Original ME_54D231000227 // GetFormat
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54D231000227_ME_5052EB1003B3 GetFormat
-
-: ME_5052EB1003B3
- CONST UID '5052EB1003B3'
- CONST Name 'CF_EVEREST'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_54D231000227_ME_5052EB1003B3 // GetFormat
- )
- ; // Implemented
- CONST "NameForScript" 'CF_EVEREST'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFEVEREST.pas'
- CONST extprop:pas:TypeName 'TkwCFEVEREST'
- CONST extprop:rc:SelfName 'CFEVEREST'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwCFEVEREST'
-
-ref; // ME_5052EB1003B3 CF_EVEREST
-
-: ME_54D231000227_ME_5291E204016B
- : Original ME_54D231000227 // GetFormat
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54D231000227_ME_5291E204016B GetFormat
-
-: ME_5291E204016B
- CONST UID '5291E204016B'
- CONST Name 'CF_RTF'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_54D231000227_ME_5291E204016B // GetFormat
- )
- ; // Implemented
- CONST "NameForScript" 'CF_RTF'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFRTF.pas'
- CONST extprop:pas:TypeName 'TkwCFRTF'
- CONST extprop:rc:SelfName 'CFRTF'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwCFRTF'
-
-ref; // ME_5291E204016B CF_RTF
-
-: ME_54D231000227_ME_52E11B1F02E7
- : Original ME_54D231000227 // GetFormat
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54D231000227_ME_52E11B1F02E7 GetFormat
-
-: ME_52E11B1F02E7
- CONST UID '52E11B1F02E7'
- CONST Name 'CF_EVERESTBIN'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_54D231000227_ME_52E11B1F02E7 // GetFormat
- )
- ; // Implemented
- CONST "NameForScript" 'CF_EVERESTBIN'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFEVERESTBIN.pas'
- CONST extprop:pas:TypeName 'TkwCFEVERESTBIN'
- CONST extprop:rc:SelfName 'CFEVERESTBIN'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwCFEVERESTBIN'
-
-ref; // ME_52E11B1F02E7 CF_EVERESTBIN
-
-: ME_54D231000227_ME_4FF436880055
- : Original ME_54D231000227 // GetFormat
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54D231000227_ME_4FF436880055 GetFormat
-
-: ME_4FF436880055
- CONST UID '4FF436880055'
- CONST Name 'CF_HTML'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_54D231000227_ME_4FF436880055 // GetFormat
- )
- ; // Implemented
- CONST "NameForScript" 'CF_HTML'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFHTML.pas'
- CONST extprop:pas:TypeName 'TkwCFHTML'
- CONST extprop:rc:SelfName 'CFHTML'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwCFHTML'
-
-ref; // ME_4FF436880055 CF_HTML
-
-: ME_54D231000227_ME_5548AB5A0050
- : Original ME_54D231000227 // GetFormat
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_54D231000227_ME_5548AB5A0050 GetFormat
-
-: ME_5548AB5A0050
- CONST UID '5548AB5A0050'
- CONST Name 'CF_PDF'
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EDDC8A013D // SchemaWords
- ;
- : Inherits
-   Seq: ( ME_5052EB370166 // TtfwClipboardFormatWord
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_54D231000227_ME_5548AB5A0050 // GetFormat
- )
- ; // Implemented
- CONST "NameForScript" 'CF_PDF'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCFPDF.pas'
- CONST extprop:pas:TypeName 'TkwCFPDF'
- CONST extprop:rc:SelfName 'CFPDF'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'kwCFPDF'
-
-ref; // ME_5548AB5A0050 CF_PDF
+ref; // ME_54EDDCAC016A evSchemaWordsPack
 
 : ME_54EDDC8A013D
  CONST UID '54EDDC8A013D'
@@ -1055,18 +603,6 @@ ref; // ME_5548AB5A0050 CF_PDF
  ;
  : Children
    Seq: ( ME_54EDDCAC016A // evSchemaWordsPack
- ME_53C7C38A011C // TkwRegisterSchema
- ME_4DCA8B9D033E // StyleTable_SaveToFile
- ME_4E68CC1B01C9 // StyleTable_Changing
- ME_4E68CC460163 // StyleTable_Changed
- ME_52DEAB2F00A1 // EvdBin2EvdTxt
- ME_5052EB370166 // TtfwClipboardFormatWord
- ME_4FF436960135 // CF_XML
- ME_5052EB1003B3 // CF_EVEREST
- ME_5291E204016B // CF_RTF
- ME_52E11B1F02E7 // CF_EVERESTBIN
- ME_4FF436880055 // CF_HTML
- ME_5548AB5A0050 // CF_PDF
  )
  ; // Children
  : Depends
@@ -1090,7 +626,7 @@ ref; // ME_5548AB5A0050 CF_PDF
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_53A963DD0356' '53A963DD0356.pas.ms.script' // TagAttributes
  WL 'ME_53C7C3100231' '53C7C3100231.pas.ms.script' // ConstantsRegistration
- WL 'ME_54F0744B0141' '54F0744B0141.pas.ms.script' // WordsTemplates
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'

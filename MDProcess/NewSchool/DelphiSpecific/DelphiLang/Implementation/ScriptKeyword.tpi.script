@@ -73,24 +73,25 @@ implementation @ <<ScriptKeyword>>
 //	%S%[inherited]\
  inherited
 
-//	[{%Gx!=true}\
- if ( ( %G |x ) %!=  true ) then
- begin
-//	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
-  if ( ( ( get_global_var ( 'TtfwRegisterableWord' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '53EDC0E701BC' %, 'TtfwRegisterableWord' )% 
-  end // if
-//	%S%f_make_accessable(%{TtfwRegisterableWord}U)\
-  %S %f make_accessable %( ( get_global_var ( 'TtfwRegisterableWord' ) |U ) )% 
-//	%f_addG(%S,%{TtfwRegisterableWord})\
-  [%f] addG %( %S %, ( get_global_var ( 'TtfwRegisterableWord' ) ) )% 
-//	]\
- end // if
-
 //	[{%S#f_UseNewGenRec()!=true}{\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	[{%Gx!=true}\
+  if ( ( %G |x ) %!=  true ) then
+  begin
+//	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
+   if ( ( ( get_global_var ( 'TtfwRegisterableWord' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '53EDC0E701BC' %, 'TtfwRegisterableWord' )% 
+   end // if
+//	%S%f_make_accessable(%{TtfwRegisterableWord}U)\
+   %S %f make_accessable %( ( get_global_var ( 'TtfwRegisterableWord' ) |U ) )% 
+//	%f_addG(%S,%{TtfwRegisterableWord})\
+   [%f] addG %( %S %, ( get_global_var ( 'TtfwRegisterableWord' ) ) )% 
+//	]\
+  end // if
+
+
 //	[{%S%f_IsMixIn()!=true}\
   if ( ( %S %f IsMixIn %( )% ) %!=  true ) then
   begin

@@ -4,117 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_52FBA554014B
 
-FORWARD ME_52FBA55F0289
-
-: ME_52FBA57600AB
- CONST UID '52FBA57600AB'
- CONST Name 'TArchiUser'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_52FBA55F0289 // dt_UserTypes
- ;
- : Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:rc:SelfName 'ArchiUser'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_52FBA57600AB TArchiUser
-
-: ME_52FBA55F0289
- CONST UID '52FBA55F0289'
- CONST Name 'dt_UserTypes'
- CONST Class class_Class
- : Stereotype st_UtilityPack ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52FBA554014B // Users
- ;
- : Children
-   Seq: ( ME_52FBA57600AB // TArchiUser
- )
- ; // Children
- CONST "finished" false
- CONST "no hands" false
- CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_UserTypes.pas'
-
-ref; // ME_52FBA55F0289 dt_UserTypes
-
-FORWARD ME_52FBA7D00393
-
-: ME_52FBA7D90378
- CONST UID '52FBA7D90378'
- CONST Name 'ItemType'
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_agr
- : Parent ME_52FBA7D00393 // TArchiUserList
- ;
- : Target ME_52FBA57600AB // TArchiUser
- ;
-
-ref; // ME_52FBA7D90378 ItemType
-
-: ME_47B2C42A0163_ME_52FBA7D00393
- : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
- ;
- CONST OpKind opkind_Implemented
- CONST "ifdef" 'l3Items_NeedsAssignItem'
- CONST "ifndef" 'l3Items_NoSort'
-ref; // ME_47B2C42A0163_ME_52FBA7D00393 AssignItem
-
-: ME_47B99D4503A2_ME_52FBA7D00393
- : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_47B99D4503A2_ME_52FBA7D00393 CompareExistingItems
-
-: ME_52FBA7D00393
- CONST UID '52FBA7D00393'
- CONST Name 'TArchiUserList'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_52FBA554014B // Users
- ;
- : Inherits
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
- WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_52FBA7D90378 // ItemType
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_47B2C42A0163_ME_52FBA7D00393 // AssignItem
- ME_47B99D4503A2_ME_52FBA7D00393 // CompareExistingItems
- )
- ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\DT\ArchiUserList.pas'
- CONST extprop:rc:SelfName 'ArchiUserList'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'ArchiUserList'
-
-ref; // ME_52FBA7D00393 TArchiUserList
-
 FORWARD ME_53CD0E83039E
 
 : ME_53CD0EC701F6
@@ -128,10 +17,6 @@ FORWARD ME_53CD0E83039E
  : Parent ME_53CD0E83039E // dt_User
  ;
  CONST "finished" false
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST extprop:rc:SelfName 'UserManager'
  CONST extprop:rc:isAcceptableForScripts true
@@ -171,7 +56,6 @@ ref; // ME_559399F10324 UserManager
  )
  ; // Children
  CONST "finished" false
- CONST "no hands" false
  CONST intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_User.pas'
 
 ref; // ME_53CD0E83039E dt_User
@@ -186,13 +70,14 @@ ref; // ME_53CD0E83039E dt_User
  : Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.pas.ms.script' // DT
  ;
  : Children
-   Seq: ( ME_52FBA55F0289 // dt_UserTypes
- ME_52FBA7D00393 // TArchiUserList
- ME_53CD0E83039E // dt_User
+   Seq: ( ME_53CD0E83039E // dt_User
  )
  ; // Children
  : Depends
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4F6843C101D1' '4F6843C101D1.pas.ms.script' // ddCommon
+ WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
  )
  ; // Depends
 

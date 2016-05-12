@@ -6,6 +6,21 @@ FORWARD ME_4AA640DC0166
 
 FORWARD ME_4AA641D100B7
 
+: ME_CD69BD26CB21
+ CONST UID 'CD69BD26CB21'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Search$UC' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AA641D100B7 // Search$UC
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_CD69BD26CB21 Ini_Reg_Class
+
 : ME_4CC98C1A01FC
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -15,6 +30,17 @@ FORWARD ME_4AA641D100B7
  ;
 
 ref; // ME_4CC98C1A01FC 
+
+: ME_A773946C7277
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AA641D100B7 // Search$UC
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_A773946C7277 
 
 : ME_4AA641D100B7
  CONST UID '4AA641D100B7'
@@ -35,15 +61,17 @@ ref; // ME_4CC98C1A01FC
    Seq: ( WL 'ME_484CE381033D' '484407720166.pas.ms.script' // Параметрический поиск
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_CD69BD26CB21 // Ini_Reg_Class
+ )
+ ; // Operations
  : Dependencies
    Seq: ( ME_4CC98C1A01FC // Базовый поиск
+ ME_A773946C7277 // TtfwClassRef
  )
  ; // Dependencies
  CONST "author" 'Тучнин Д.А.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "started" '2003/07/21 16:33:57'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moSearch.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'

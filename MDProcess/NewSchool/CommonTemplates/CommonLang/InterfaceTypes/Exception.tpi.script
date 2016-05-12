@@ -45,6 +45,7 @@ implementation @ <<Exception>>
 //p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
 //p is_runtime:b=false ? Для Java определяет что исключение будет типа run-time
 //p force what:b=false ? Принудительно генерить реадизацию метода возвращающего информацию об исключении
+//p register in scripts:tribool=undefined ? 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
@@ -76,6 +77,12 @@ implementation @ <<Exception>>
  begin
   [%f] up_prefix %( %S )% ' *force what* = *'
   %S get_up ( 'force what' ) '* - Принудительно генерить реадизацию метода возвращающего информацию об исключении'
+//	][{"%S{register in scripts}"!="%S{!register in scripts}"}%f_up_prefix(%S) *register in scripts* = *%S{register in scripts}*
+ end // if
+ if ( ( %S get_up ( 'register in scripts' ) ) %!= ( %S get_up_def ( 'register in scripts' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *register in scripts* = *'
+  %S get_up ( 'register in scripts' ) '*'
 //	]
  end // if
 

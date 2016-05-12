@@ -750,12 +750,7 @@ ref; // ME_4F71FA8102BF_ME_4A92BD85004D ActivateDefKeyboardLayout
  ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimMain_Form.pas'
@@ -911,10 +906,6 @@ ref; // ME_4B13A1F202D9_ME_4B14F1AB03A0 DoFireLog
    Seq: ( ME_4B14F2600146 // LogEvent
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST extprop:rc:SelfName 'UserOperationEvent'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1162,12 +1153,8 @@ ref; // ME_4C8A27DA0087_ME_4C8A210E018C HelpTopics
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '10.09.2010 16:14'
@@ -1844,6 +1831,21 @@ ref; // ME_0D5D5AF3B5F0 Init_Str_FullVersionMessage
 
 ref; // ME_EBD4FD5C9075 Init_Str_NemesisTitle
 
+: ME_1A7392D6A9A4
+ CONST UID '1A7392D6A9A4'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimF1' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A92BBDF0126 // PrimF1
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_1A7392D6A9A4 Ini_Reg_Class
+
 : ME_4AA0EBB2013E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2044,6 +2046,16 @@ ref; // ME_53EDD87902B2
 
 ref; // ME_55B0CFFC0075 
 
+: ME_572D08EB011B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A92BBDF0126 // PrimF1
+ ;
+ : Target WL 'ME_540EE24702BC' '540EE231015D.pas.ms.script' // Tl3ExceptionsLog
+ ;
+
+ref; // ME_572D08EB011B 
+
 : ME_8796A2466152
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2065,6 +2077,17 @@ ref; // ME_8796A2466152
  ;
 
 ref; // ME_87AA42EC7B6B 
+
+: ME_CFA2A9DF95B9
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A92BBDF0126 // PrimF1
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_CFA2A9DF95B9 
 
 : ME_4F6AF5860291_ME_4A92BBDF0126
  : Original WL 'ME_4F6AF5860291' '50883A2E00B3.pas.ms.script' // Runner
@@ -2107,6 +2130,7 @@ ref; // ME_4F6AF5F00058_ME_4A92BBDF0126 MakeResources
  ME_655CD8539C73 // Init_Str_ApplicationLoading
  ME_0D5D5AF3B5F0 // Init_Str_FullVersionMessage
  ME_EBD4FD5C9075 // Init_Str_NemesisTitle
+ ME_1A7392D6A9A4 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -2148,14 +2172,12 @@ ref; // ME_4F6AF5F00058_ME_4A92BBDF0126 MakeResources
  ME_4F799D410066 // Logo
  ME_53EDD87902B2 // nsAppTitleData
  ME_55B0CFFC0075 // Tf1StartupCompletedService
+ ME_572D08EB011B // Tl3ExceptionsLog
  ME_8796A2466152 // Tl3StringIDEx
  ME_87AA42EC7B6B // Tl3MessageID
+ ME_CFA2A9DF95B9 // TtfwClassRef
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas'
  CONST extprop:pas:TypeName 'TPrimF1Res'
  CONST extprop:rc:SelfName 'PrimF1Res'
@@ -2239,7 +2261,6 @@ ref; // ME_4A92BBDF0126 PrimF1
  WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.pas.ms.script' // TasksPanel
  WL 'ME_4CEBA36A00AA' '4CEBA36A00AA.pas.ms.script' // f1DocumentTagsImplementation
  WL 'ME_4D4927B5008B' '4D4927B5008B.pas.ms.script' // VT$Core
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
  WL 'ME_4E1447600037' '4E1447600037.pas.ms.script' // Common
  WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
@@ -2250,10 +2271,12 @@ ref; // ME_4A92BBDF0126 PrimF1
  WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
  WL 'ME_4F6B66F8001B' '4F6B66F8001B.pas.ms.script' // FormDefinitions
  WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
+ WL 'ME_515AC89F01E1' '515AC89F01E1.pas.ms.script' // L3$Basic Concepts
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_525FBBB20170' '525FBBB20170.pas.ms.script' // Gradient
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_53AC08AA02C7' '53AC08AA02C7.pas.ms.script' // CustomStyle
+ WL 'ME_540EE231015D' '540EE231015D.pas.ms.script' // Logging
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55082F190334' '55082F190334.pas.ms.script' // Implementation

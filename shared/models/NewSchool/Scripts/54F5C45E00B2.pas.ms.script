@@ -8,95 +8,13 @@ FORWARD ME_54F5C4B203BD
 
 FORWARD ME_54FEEA730358
 
-FORWARD ME_D86EEEFC03D7
-
 FORWARD ME_207CDF6BFC46
-
-: ME_F63C20D29252
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F63C20D29252 aCtx
-
-: ME_F63C20D29253
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_F63C20D29253 aControl
-
-: ME_F63C20D29254
- CONST Name 'aPoint'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_F63C20D29254 aPoint
-
-: ME_D86EEEFC03D7
- CONST UID 'D86EEEFC03D7'
- CONST Name 'MouseLeftClick'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:MouseLeftClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_207CDF6BFC46 // pop_Control_MouseLeftClick
- ;
- : Parameters
-   Seq: ( ME_F63C20D29252 // aCtx
- ME_F63C20D29253 // aControl
- ME_F63C20D29254 // aPoint
- )
- ; // Parameters
- : SpelledFor ME_54FEEA730358 // MouseLeftClick
- ;
-
-ref; // ME_D86EEEFC03D7 MouseLeftClick
-
-: ME_AA10E3C6398F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_207CDF6BFC46 // pop_Control_MouseLeftClick
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_AA10E3C6398F 
 
 : ME_4DAEEDE10285_ME_207CDF6BFC46
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_207CDF6BFC46 DoDoIt
-
-: ME_551544E2001A_ME_207CDF6BFC46
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_207CDF6BFC46 GetResultTypeInfo
-
-: ME_559687E6025A_ME_207CDF6BFC46
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_207CDF6BFC46 GetAllParamsCount
-
-: ME_5617F4D00243_ME_207CDF6BFC46
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_207CDF6BFC46 ParamsTypes
 
 : ME_207CDF6BFC46
  CONST UID '207CDF6BFC46'
@@ -105,7 +23,7 @@ ref; // ME_5617F4D00243_ME_207CDF6BFC46 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:MouseLeftClick'#13#10'*Пример:*'#13#10'{code}'#13#10' aPoint aControl pop:Control:MouseLeftClick'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:MouseLeftClick' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -114,29 +32,11 @@ ref; // ME_5617F4D00243_ME_207CDF6BFC46 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D86EEEFC03D7 // MouseLeftClick
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_207CDF6BFC46 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_207CDF6BFC46 // GetResultTypeInfo
- ME_559687E6025A_ME_207CDF6BFC46 // GetAllParamsCount
- ME_5617F4D00243_ME_207CDF6BFC46 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_AA10E3C6398F // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:MouseLeftClick'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlMouseLeftClick'
  CONST extprop:rc:SelfName 'PopControlMouseLeftClick'
  CONST extprop:rc:isAcceptableForScripts true
@@ -144,102 +44,18 @@ ref; // ME_5617F4D00243_ME_207CDF6BFC46 ParamsTypes
  ;
  : SpelledFor ME_54FEEA730358 // MouseLeftClick
  ;
- : Stub ME_D86EEEFC03D7 // MouseLeftClick
- ;
 
 ref; // ME_207CDF6BFC46 pop_Control_MouseLeftClick
 
 FORWARD ME_54FEEA9100DE
 
-FORWARD ME_0EBF330C06BD
-
 FORWARD ME_652B805E6BDC
-
-: ME_D513C3F6F666
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D513C3F6F666 aCtx
-
-: ME_D513C3F6F667
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_D513C3F6F667 aControl
-
-: ME_D513C3F6F668
- CONST Name 'aPoint'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_D513C3F6F668 aPoint
-
-: ME_0EBF330C06BD
- CONST UID '0EBF330C06BD'
- CONST Name 'MouseMiddleClick'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:MouseMiddleClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_652B805E6BDC // pop_Control_MouseMiddleClick
- ;
- : Parameters
-   Seq: ( ME_D513C3F6F666 // aCtx
- ME_D513C3F6F667 // aControl
- ME_D513C3F6F668 // aPoint
- )
- ; // Parameters
- : SpelledFor ME_54FEEA9100DE // MouseMiddleClick
- ;
-
-ref; // ME_0EBF330C06BD MouseMiddleClick
-
-: ME_20240B187279
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_652B805E6BDC // pop_Control_MouseMiddleClick
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_20240B187279 
 
 : ME_4DAEEDE10285_ME_652B805E6BDC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_652B805E6BDC DoDoIt
-
-: ME_551544E2001A_ME_652B805E6BDC
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_652B805E6BDC GetResultTypeInfo
-
-: ME_559687E6025A_ME_652B805E6BDC
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_652B805E6BDC GetAllParamsCount
-
-: ME_5617F4D00243_ME_652B805E6BDC
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_652B805E6BDC ParamsTypes
 
 : ME_652B805E6BDC
  CONST UID '652B805E6BDC'
@@ -248,7 +64,7 @@ ref; // ME_5617F4D00243_ME_652B805E6BDC ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:MouseMiddleClick'#13#10'*Пример:*'#13#10'{code}'#13#10' aPoint aControl pop:Control:MouseMiddleClick'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:MouseMiddleClick' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -257,29 +73,11 @@ ref; // ME_5617F4D00243_ME_652B805E6BDC ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0EBF330C06BD // MouseMiddleClick
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_652B805E6BDC // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_652B805E6BDC // GetResultTypeInfo
- ME_559687E6025A_ME_652B805E6BDC // GetAllParamsCount
- ME_5617F4D00243_ME_652B805E6BDC // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_20240B187279 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:MouseMiddleClick'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlMouseMiddleClick'
  CONST extprop:rc:SelfName 'PopControlMouseMiddleClick'
  CONST extprop:rc:isAcceptableForScripts true
@@ -287,102 +85,18 @@ ref; // ME_5617F4D00243_ME_652B805E6BDC ParamsTypes
  ;
  : SpelledFor ME_54FEEA9100DE // MouseMiddleClick
  ;
- : Stub ME_0EBF330C06BD // MouseMiddleClick
- ;
 
 ref; // ME_652B805E6BDC pop_Control_MouseMiddleClick
 
 FORWARD ME_54FEEA9F0254
 
-FORWARD ME_700C331C0034
-
 FORWARD ME_01A83C03B567
-
-: ME_C763480B03EF
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C763480B03EF aCtx
-
-: ME_C763480B03F0
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_C763480B03F0 aControl
-
-: ME_C763480B03F1
- CONST Name 'aPoint'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_C763480B03F1 aPoint
-
-: ME_700C331C0034
- CONST UID '700C331C0034'
- CONST Name 'MouseRightClick'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:MouseRightClick' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_01A83C03B567 // pop_Control_MouseRightClick
- ;
- : Parameters
-   Seq: ( ME_C763480B03EF // aCtx
- ME_C763480B03F0 // aControl
- ME_C763480B03F1 // aPoint
- )
- ; // Parameters
- : SpelledFor ME_54FEEA9F0254 // MouseRightClick
- ;
-
-ref; // ME_700C331C0034 MouseRightClick
-
-: ME_FA4FDD0587FD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_01A83C03B567 // pop_Control_MouseRightClick
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_FA4FDD0587FD 
 
 : ME_4DAEEDE10285_ME_01A83C03B567
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_01A83C03B567 DoDoIt
-
-: ME_551544E2001A_ME_01A83C03B567
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_01A83C03B567 GetResultTypeInfo
-
-: ME_559687E6025A_ME_01A83C03B567
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_01A83C03B567 GetAllParamsCount
-
-: ME_5617F4D00243_ME_01A83C03B567
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_01A83C03B567 ParamsTypes
 
 : ME_01A83C03B567
  CONST UID '01A83C03B567'
@@ -391,7 +105,7 @@ ref; // ME_5617F4D00243_ME_01A83C03B567 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:MouseRightClick'#13#10'*Пример:*'#13#10'{code}'#13#10' aPoint aControl pop:Control:MouseRightClick'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:MouseRightClick' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -400,29 +114,11 @@ ref; // ME_5617F4D00243_ME_01A83C03B567 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_700C331C0034 // MouseRightClick
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_01A83C03B567 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_01A83C03B567 // GetResultTypeInfo
- ME_559687E6025A_ME_01A83C03B567 // GetAllParamsCount
- ME_5617F4D00243_ME_01A83C03B567 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_FA4FDD0587FD // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:MouseRightClick'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlMouseRightClick'
  CONST extprop:rc:SelfName 'PopControlMouseRightClick'
  CONST extprop:rc:isAcceptableForScripts true
@@ -430,104 +126,18 @@ ref; // ME_5617F4D00243_ME_01A83C03B567 ParamsTypes
  ;
  : SpelledFor ME_54FEEA9F0254 // MouseRightClick
  ;
- : Stub ME_700C331C0034 // MouseRightClick
- ;
 
 ref; // ME_01A83C03B567 pop_Control_MouseRightClick
 
 FORWARD ME_54FEFD260127
 
-FORWARD ME_50D08C92A338
-
 FORWARD ME_89E1228A3BE4
-
-: ME_B99AEA2044F2
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B99AEA2044F2 aCtx
-
-: ME_B99AEA2044F3
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_B99AEA2044F3 aControl
-
-: ME_B99AEA2044F4
- CONST Name 'aName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_B99AEA2044F4 aName
-
-: ME_50D08C92A338
- CONST UID '50D08C92A338'
- CONST Name 'FindControlByName'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:FindControlByName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_89E1228A3BE4 // pop_Control_FindControlByName
- ;
- : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
- : Parameters
-   Seq: ( ME_B99AEA2044F2 // aCtx
- ME_B99AEA2044F3 // aControl
- ME_B99AEA2044F4 // aName
- )
- ; // Parameters
- : SpelledFor ME_54FEFD260127 // FindControlByName
- ;
-
-ref; // ME_50D08C92A338 FindControlByName
-
-: ME_45AEF7A32FFA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_89E1228A3BE4 // pop_Control_FindControlByName
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_45AEF7A32FFA 
 
 : ME_4DAEEDE10285_ME_89E1228A3BE4
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_89E1228A3BE4 DoDoIt
-
-: ME_551544E2001A_ME_89E1228A3BE4
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_89E1228A3BE4 GetResultTypeInfo
-
-: ME_559687E6025A_ME_89E1228A3BE4
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_89E1228A3BE4 GetAllParamsCount
-
-: ME_5617F4D00243_ME_89E1228A3BE4
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_89E1228A3BE4 ParamsTypes
 
 : ME_89E1228A3BE4
  CONST UID '89E1228A3BE4'
@@ -536,7 +146,7 @@ ref; // ME_5617F4D00243_ME_89E1228A3BE4 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:FindControlByName'#13#10'*Тип результата:* TComponent'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TComponent'#13#10' aName aControl pop:Control:FindControlByName >>> l_TComponent'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:FindControlByName' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -545,29 +155,11 @@ ref; // ME_5617F4D00243_ME_89E1228A3BE4 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_50D08C92A338 // FindControlByName
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_89E1228A3BE4 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_89E1228A3BE4 // GetResultTypeInfo
- ME_559687E6025A_ME_89E1228A3BE4 // GetAllParamsCount
- ME_5617F4D00243_ME_89E1228A3BE4 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_45AEF7A32FFA // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:FindControlByName'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlFindControlByName'
  CONST extprop:rc:SelfName 'PopControlFindControlByName'
  CONST extprop:rc:isAcceptableForScripts true
@@ -575,104 +167,18 @@ ref; // ME_5617F4D00243_ME_89E1228A3BE4 ParamsTypes
  ;
  : SpelledFor ME_54FEFD260127 // FindControlByName
  ;
- : Stub ME_50D08C92A338 // FindControlByName
- ;
 
 ref; // ME_89E1228A3BE4 pop_Control_FindControlByName
 
 FORWARD ME_54FEFD3E00BB
 
-FORWARD ME_F53158879374
-
 FORWARD ME_0EDEBD14C685
-
-: ME_F541170BAC04
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F541170BAC04 aCtx
-
-: ME_F541170BAC05
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_F541170BAC05 aControl
-
-: ME_F541170BAC06
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_F541170BAC06 anIndex
-
-: ME_F53158879374
- CONST UID 'F53158879374'
- CONST Name 'GetControl'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:GetControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0EDEBD14C685 // pop_Control_GetControl
- ;
- : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ;
- : Parameters
-   Seq: ( ME_F541170BAC04 // aCtx
- ME_F541170BAC05 // aControl
- ME_F541170BAC06 // anIndex
- )
- ; // Parameters
- : SpelledFor ME_54FEFD3E00BB // GetControl
- ;
-
-ref; // ME_F53158879374 GetControl
-
-: ME_7FD332FF08BA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0EDEBD14C685 // pop_Control_GetControl
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_7FD332FF08BA 
 
 : ME_4DAEEDE10285_ME_0EDEBD14C685
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0EDEBD14C685 DoDoIt
-
-: ME_551544E2001A_ME_0EDEBD14C685
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0EDEBD14C685 GetResultTypeInfo
-
-: ME_559687E6025A_ME_0EDEBD14C685
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0EDEBD14C685 GetAllParamsCount
-
-: ME_5617F4D00243_ME_0EDEBD14C685
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0EDEBD14C685 ParamsTypes
 
 : ME_0EDEBD14C685
  CONST UID '0EDEBD14C685'
@@ -681,7 +187,7 @@ ref; // ME_5617F4D00243_ME_0EDEBD14C685 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:GetControl'#13#10'*Тип результата:* TControl'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TControl'#13#10' anIndex aControl pop:Control:GetControl >>> l_TControl'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:GetControl' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -690,29 +196,11 @@ ref; // ME_5617F4D00243_ME_0EDEBD14C685 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F53158879374 // GetControl
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0EDEBD14C685 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_0EDEBD14C685 // GetResultTypeInfo
- ME_559687E6025A_ME_0EDEBD14C685 // GetAllParamsCount
- ME_5617F4D00243_ME_0EDEBD14C685 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7FD332FF08BA // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:GetControl'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlGetControl'
  CONST extprop:rc:SelfName 'PopControlGetControl'
  CONST extprop:rc:isAcceptableForScripts true
@@ -720,91 +208,18 @@ ref; // ME_5617F4D00243_ME_0EDEBD14C685 ParamsTypes
  ;
  : SpelledFor ME_54FEFD3E00BB // GetControl
  ;
- : Stub ME_F53158879374 // GetControl
- ;
 
 ref; // ME_0EDEBD14C685 pop_Control_GetControl
 
 FORWARD ME_54FEFDD7023D
 
-FORWARD ME_2F3D3440A024
-
 FORWARD ME_60259FDDB2DC
-
-: ME_E1C6F842BDCF
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E1C6F842BDCF aCtx
-
-: ME_E1C6F842BDD0
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_E1C6F842BDD0 aControl
-
-: ME_2F3D3440A024
- CONST UID '2F3D3440A024'
- CONST Name 'MouseWheelUp'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:MouseWheelUp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_60259FDDB2DC // pop_Control_MouseWheelUp
- ;
- : Parameters
-   Seq: ( ME_E1C6F842BDCF // aCtx
- ME_E1C6F842BDD0 // aControl
- )
- ; // Parameters
- : SpelledFor ME_54FEFDD7023D // MouseWheelUp
- ;
-
-ref; // ME_2F3D3440A024 MouseWheelUp
-
-: ME_71C0E44D89C4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_60259FDDB2DC // pop_Control_MouseWheelUp
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_71C0E44D89C4 
 
 : ME_4DAEEDE10285_ME_60259FDDB2DC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_60259FDDB2DC DoDoIt
-
-: ME_551544E2001A_ME_60259FDDB2DC
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_60259FDDB2DC GetResultTypeInfo
-
-: ME_559687E6025A_ME_60259FDDB2DC
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_60259FDDB2DC GetAllParamsCount
-
-: ME_5617F4D00243_ME_60259FDDB2DC
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_60259FDDB2DC ParamsTypes
 
 : ME_60259FDDB2DC
  CONST UID '60259FDDB2DC'
@@ -813,7 +228,7 @@ ref; // ME_5617F4D00243_ME_60259FDDB2DC ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:MouseWheelUp'#13#10'*Пример:*'#13#10'{code}'#13#10' aControl pop:Control:MouseWheelUp'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:MouseWheelUp' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -822,29 +237,11 @@ ref; // ME_5617F4D00243_ME_60259FDDB2DC ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2F3D3440A024 // MouseWheelUp
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_60259FDDB2DC // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_60259FDDB2DC // GetResultTypeInfo
- ME_559687E6025A_ME_60259FDDB2DC // GetAllParamsCount
- ME_5617F4D00243_ME_60259FDDB2DC // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_71C0E44D89C4 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:MouseWheelUp'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlMouseWheelUp'
  CONST extprop:rc:SelfName 'PopControlMouseWheelUp'
  CONST extprop:rc:isAcceptableForScripts true
@@ -852,91 +249,18 @@ ref; // ME_5617F4D00243_ME_60259FDDB2DC ParamsTypes
  ;
  : SpelledFor ME_54FEFDD7023D // MouseWheelUp
  ;
- : Stub ME_2F3D3440A024 // MouseWheelUp
- ;
 
 ref; // ME_60259FDDB2DC pop_Control_MouseWheelUp
 
 FORWARD ME_54FEFDDD0359
 
-FORWARD ME_31CD1215C543
-
 FORWARD ME_5676987B6AD8
-
-: ME_159FD1815D34
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_159FD1815D34 aCtx
-
-: ME_159FD1815D35
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_159FD1815D35 aControl
-
-: ME_31CD1215C543
- CONST UID '31CD1215C543'
- CONST Name 'MouseWheelDown'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:MouseWheelDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5676987B6AD8 // pop_Control_MouseWheelDown
- ;
- : Parameters
-   Seq: ( ME_159FD1815D34 // aCtx
- ME_159FD1815D35 // aControl
- )
- ; // Parameters
- : SpelledFor ME_54FEFDDD0359 // MouseWheelDown
- ;
-
-ref; // ME_31CD1215C543 MouseWheelDown
-
-: ME_DDE5F46CDCFD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5676987B6AD8 // pop_Control_MouseWheelDown
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DDE5F46CDCFD 
 
 : ME_4DAEEDE10285_ME_5676987B6AD8
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_5676987B6AD8 DoDoIt
-
-: ME_551544E2001A_ME_5676987B6AD8
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_5676987B6AD8 GetResultTypeInfo
-
-: ME_559687E6025A_ME_5676987B6AD8
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_5676987B6AD8 GetAllParamsCount
-
-: ME_5617F4D00243_ME_5676987B6AD8
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_5676987B6AD8 ParamsTypes
 
 : ME_5676987B6AD8
  CONST UID '5676987B6AD8'
@@ -945,7 +269,7 @@ ref; // ME_5617F4D00243_ME_5676987B6AD8 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:MouseWheelDown'#13#10'*Пример:*'#13#10'{code}'#13#10' aControl pop:Control:MouseWheelDown'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:MouseWheelDown' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -954,29 +278,11 @@ ref; // ME_5617F4D00243_ME_5676987B6AD8 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_31CD1215C543 // MouseWheelDown
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_5676987B6AD8 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_5676987B6AD8 // GetResultTypeInfo
- ME_559687E6025A_ME_5676987B6AD8 // GetAllParamsCount
- ME_5617F4D00243_ME_5676987B6AD8 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DDE5F46CDCFD // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:MouseWheelDown'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlMouseWheelDown'
  CONST extprop:rc:SelfName 'PopControlMouseWheelDown'
  CONST extprop:rc:isAcceptableForScripts true
@@ -984,93 +290,18 @@ ref; // ME_5617F4D00243_ME_5676987B6AD8 ParamsTypes
  ;
  : SpelledFor ME_54FEFDDD0359 // MouseWheelDown
  ;
- : Stub ME_31CD1215C543 // MouseWheelDown
- ;
 
 ref; // ME_5676987B6AD8 pop_Control_MouseWheelDown
 
 FORWARD ME_54FEFE270305
 
-FORWARD ME_E30431C2D5CE
-
 FORWARD ME_52E34524FDF7
-
-: ME_B37437A5CEE8
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B37437A5CEE8 aCtx
-
-: ME_B37437A5CEE9
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_B37437A5CEE9 aControl
-
-: ME_E30431C2D5CE
- CONST UID 'E30431C2D5CE'
- CONST Name 'SetFocus'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:SetFocus' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52E34524FDF7 // pop_Control_SetFocus
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_B37437A5CEE8 // aCtx
- ME_B37437A5CEE9 // aControl
- )
- ; // Parameters
- : SpelledFor ME_54FEFE270305 // SetFocus
- ;
-
-ref; // ME_E30431C2D5CE SetFocus
-
-: ME_7A9FD452F29A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52E34524FDF7 // pop_Control_SetFocus
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_7A9FD452F29A 
 
 : ME_4DAEEDE10285_ME_52E34524FDF7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_52E34524FDF7 DoDoIt
-
-: ME_551544E2001A_ME_52E34524FDF7
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_52E34524FDF7 GetResultTypeInfo
-
-: ME_559687E6025A_ME_52E34524FDF7
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_52E34524FDF7 GetAllParamsCount
-
-: ME_5617F4D00243_ME_52E34524FDF7
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_52E34524FDF7 ParamsTypes
 
 : ME_52E34524FDF7
  CONST UID '52E34524FDF7'
@@ -1079,7 +310,7 @@ ref; // ME_5617F4D00243_ME_52E34524FDF7 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:SetFocus'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aControl pop:Control:SetFocus >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:SetFocus' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -1088,29 +319,11 @@ ref; // ME_5617F4D00243_ME_52E34524FDF7 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E30431C2D5CE // SetFocus
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_52E34524FDF7 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_52E34524FDF7 // GetResultTypeInfo
- ME_559687E6025A_ME_52E34524FDF7 // GetAllParamsCount
- ME_5617F4D00243_ME_52E34524FDF7 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7A9FD452F29A // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:SetFocus'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlSetFocus'
  CONST extprop:rc:SelfName 'PopControlSetFocus'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1118,113 +331,18 @@ ref; // ME_5617F4D00243_ME_52E34524FDF7 ParamsTypes
  ;
  : SpelledFor ME_54FEFE270305 // SetFocus
  ;
- : Stub ME_E30431C2D5CE // SetFocus
- ;
 
 ref; // ME_52E34524FDF7 pop_Control_SetFocus
 
 FORWARD ME_550002F503A0
 
-FORWARD ME_E69FBA5A5B0F
-
 FORWARD ME_7A8A3BB834BD
-
-: ME_72F7E4508858
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_72F7E4508858 aCtx
-
-: ME_72F7E4508859
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_72F7E4508859 aControl
-
-: ME_72F7E450885A
- CONST Name 'aDelta'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_72F7E450885A aDelta
-
-: ME_72F7E450885B
- CONST Name 'aPoint'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_72F7E450885B aPoint
-
-: ME_E69FBA5A5B0F
- CONST UID 'E69FBA5A5B0F'
- CONST Name 'MouseLeftDragAndDrop'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:MouseLeftDragAndDrop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7A8A3BB834BD // pop_Control_MouseLeftDragAndDrop
- ;
- : Parameters
-   Seq: ( ME_72F7E4508858 // aCtx
- ME_72F7E4508859 // aControl
- ME_72F7E450885A // aDelta
- ME_72F7E450885B // aPoint
- )
- ; // Parameters
- : SpelledFor ME_550002F503A0 // MouseLeftDragAndDrop
- ;
-
-ref; // ME_E69FBA5A5B0F MouseLeftDragAndDrop
-
-: ME_E52B313E1721
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_7A8A3BB834BD // pop_Control_MouseLeftDragAndDrop
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E52B313E1721 
 
 : ME_4DAEEDE10285_ME_7A8A3BB834BD
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_7A8A3BB834BD DoDoIt
-
-: ME_551544E2001A_ME_7A8A3BB834BD
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_7A8A3BB834BD GetResultTypeInfo
-
-: ME_559687E6025A_ME_7A8A3BB834BD
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_7A8A3BB834BD GetAllParamsCount
-
-: ME_5617F4D00243_ME_7A8A3BB834BD
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_7A8A3BB834BD ParamsTypes
 
 : ME_7A8A3BB834BD
  CONST UID '7A8A3BB834BD'
@@ -1233,7 +351,7 @@ ref; // ME_5617F4D00243_ME_7A8A3BB834BD ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:MouseLeftDragAndDrop'#13#10'*Пример:*'#13#10'{code}'#13#10' aPoint aDelta aControl pop:Control:MouseLeftDragAndDrop'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:MouseLeftDragAndDrop' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -1242,29 +360,11 @@ ref; // ME_5617F4D00243_ME_7A8A3BB834BD ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E69FBA5A5B0F // MouseLeftDragAndDrop
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_7A8A3BB834BD // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_7A8A3BB834BD // GetResultTypeInfo
- ME_559687E6025A_ME_7A8A3BB834BD // GetAllParamsCount
- ME_5617F4D00243_ME_7A8A3BB834BD // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E52B313E1721 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:MouseLeftDragAndDrop'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlMouseLeftDragAndDrop'
  CONST extprop:rc:SelfName 'PopControlMouseLeftDragAndDrop'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1272,99 +372,18 @@ ref; // ME_5617F4D00243_ME_7A8A3BB834BD ParamsTypes
  ;
  : SpelledFor ME_550002F503A0 // MouseLeftDragAndDrop
  ;
- : Stub ME_E69FBA5A5B0F // MouseLeftDragAndDrop
- ;
 
 ref; // ME_7A8A3BB834BD pop_Control_MouseLeftDragAndDrop
 
 FORWARD ME_F357130C59F0
 
-FORWARD ME_15126CA3381C
-
 FORWARD ME_8E3044782C31
-
-: ME_6FDF223B3A33
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6FDF223B3A33 aCtx
-
-: ME_6FDF223B3A34
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_6FDF223B3A34 aControl
-
-: ME_15126CA3381C
- CONST UID '15126CA3381C'
- CONST Name 'ControlCount'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:ControlCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8E3044782C31 // pop_Control_ControlCount
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_6FDF223B3A33 // aCtx
- ME_6FDF223B3A34 // aControl
- )
- ; // Parameters
- : SpelledFor ME_F357130C59F0 // ControlCount
- ;
-
-ref; // ME_15126CA3381C ControlCount
-
-: ME_D0C7319942CE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8E3044782C31 // pop_Control_ControlCount
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_D0C7319942CE 
 
 : ME_4DAEEDE10285_ME_8E3044782C31
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8E3044782C31 DoDoIt
-
-: ME_52D00B00031A_ME_8E3044782C31
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_8E3044782C31 SetValuePrim
-
-: ME_551544E2001A_ME_8E3044782C31
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_8E3044782C31 GetResultTypeInfo
-
-: ME_559687E6025A_ME_8E3044782C31
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_8E3044782C31 GetAllParamsCount
-
-: ME_5617F4D00243_ME_8E3044782C31
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_8E3044782C31 ParamsTypes
 
 : ME_8E3044782C31
  CONST UID '8E3044782C31'
@@ -1373,7 +392,7 @@ ref; // ME_5617F4D00243_ME_8E3044782C31 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:ControlCount'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aControl pop:Control:ControlCount >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:ControlCount' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -1382,30 +401,11 @@ ref; // ME_5617F4D00243_ME_8E3044782C31 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_15126CA3381C // ControlCount
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_8E3044782C31 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_8E3044782C31 // SetValuePrim
- ME_551544E2001A_ME_8E3044782C31 // GetResultTypeInfo
- ME_559687E6025A_ME_8E3044782C31 // GetAllParamsCount
- ME_5617F4D00243_ME_8E3044782C31 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D0C7319942CE // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:ControlCount'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlControlCount'
  CONST extprop:rc:SelfName 'PopControlControlCount'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1413,99 +413,18 @@ ref; // ME_5617F4D00243_ME_8E3044782C31 ParamsTypes
  ;
  : SpelledFor ME_F357130C59F0 // ControlCount
  ;
- : Stub ME_15126CA3381C // ControlCount
- ;
 
 ref; // ME_8E3044782C31 pop_Control_ControlCount
 
 FORWARD ME_9CC11428A75A
 
-FORWARD ME_532C0148B0EB
-
 FORWARD ME_3CF2D3C5A0DB
-
-: ME_51CAAFE209D4
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_51CAAFE209D4 aCtx
-
-: ME_51CAAFE209D5
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_51CAAFE209D5 aControl
-
-: ME_532C0148B0EB
- CONST UID '532C0148B0EB'
- CONST Name 'Handle'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:Handle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_3CF2D3C5A0DB // pop_Control_Handle
- ;
- : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
- : Parameters
-   Seq: ( ME_51CAAFE209D4 // aCtx
- ME_51CAAFE209D5 // aControl
- )
- ; // Parameters
- : SpelledFor ME_9CC11428A75A // Handle
- ;
-
-ref; // ME_532C0148B0EB Handle
-
-: ME_A8091104CA52
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3CF2D3C5A0DB // pop_Control_Handle
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_A8091104CA52 
 
 : ME_4DAEEDE10285_ME_3CF2D3C5A0DB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_3CF2D3C5A0DB DoDoIt
-
-: ME_52D00B00031A_ME_3CF2D3C5A0DB
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_3CF2D3C5A0DB SetValuePrim
-
-: ME_551544E2001A_ME_3CF2D3C5A0DB
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_3CF2D3C5A0DB GetResultTypeInfo
-
-: ME_559687E6025A_ME_3CF2D3C5A0DB
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_3CF2D3C5A0DB GetAllParamsCount
-
-: ME_5617F4D00243_ME_3CF2D3C5A0DB
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_3CF2D3C5A0DB ParamsTypes
 
 : ME_3CF2D3C5A0DB
  CONST UID '3CF2D3C5A0DB'
@@ -1514,7 +433,7 @@ ref; // ME_5617F4D00243_ME_3CF2D3C5A0DB ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:Handle'#13#10'*Тип результата:* Cardinal'#13#10'*Пример:*'#13#10'{code}'#13#10'CARDINAL VAR l_Cardinal'#13#10' aControl pop:Control:Handle >>> l_Cardinal'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:Handle' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -1523,30 +442,11 @@ ref; // ME_5617F4D00243_ME_3CF2D3C5A0DB ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_532C0148B0EB // Handle
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_3CF2D3C5A0DB // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_3CF2D3C5A0DB // SetValuePrim
- ME_551544E2001A_ME_3CF2D3C5A0DB // GetResultTypeInfo
- ME_559687E6025A_ME_3CF2D3C5A0DB // GetAllParamsCount
- ME_5617F4D00243_ME_3CF2D3C5A0DB // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A8091104CA52 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:Handle'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlHandle'
  CONST extprop:rc:SelfName 'PopControlHandle'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1554,99 +454,18 @@ ref; // ME_5617F4D00243_ME_3CF2D3C5A0DB ParamsTypes
  ;
  : SpelledFor ME_9CC11428A75A // Handle
  ;
- : Stub ME_532C0148B0EB // Handle
- ;
 
 ref; // ME_3CF2D3C5A0DB pop_Control_Handle
 
 FORWARD ME_B25A07CAFEC3
 
-FORWARD ME_5F41D8EA1D19
-
 FORWARD ME_171FB83EF557
-
-: ME_8806BFD38707
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8806BFD38707 aCtx
-
-: ME_8806BFD38708
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_8806BFD38708 aControl
-
-: ME_5F41D8EA1D19
- CONST UID '5F41D8EA1D19'
- CONST Name 'Focused'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:Focused' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_171FB83EF557 // pop_Control_Focused
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_8806BFD38707 // aCtx
- ME_8806BFD38708 // aControl
- )
- ; // Parameters
- : SpelledFor ME_B25A07CAFEC3 // Focused
- ;
-
-ref; // ME_5F41D8EA1D19 Focused
-
-: ME_8B3E862B8EC7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_171FB83EF557 // pop_Control_Focused
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_8B3E862B8EC7 
 
 : ME_4DAEEDE10285_ME_171FB83EF557
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_171FB83EF557 DoDoIt
-
-: ME_52D00B00031A_ME_171FB83EF557
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_171FB83EF557 SetValuePrim
-
-: ME_551544E2001A_ME_171FB83EF557
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_171FB83EF557 GetResultTypeInfo
-
-: ME_559687E6025A_ME_171FB83EF557
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_171FB83EF557 GetAllParamsCount
-
-: ME_5617F4D00243_ME_171FB83EF557
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_171FB83EF557 ParamsTypes
 
 : ME_171FB83EF557
  CONST UID '171FB83EF557'
@@ -1655,7 +474,7 @@ ref; // ME_5617F4D00243_ME_171FB83EF557 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:Focused'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aControl pop:Control:Focused >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:Focused' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -1664,30 +483,11 @@ ref; // ME_5617F4D00243_ME_171FB83EF557 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5F41D8EA1D19 // Focused
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_171FB83EF557 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_171FB83EF557 // SetValuePrim
- ME_551544E2001A_ME_171FB83EF557 // GetResultTypeInfo
- ME_559687E6025A_ME_171FB83EF557 // GetAllParamsCount
- ME_5617F4D00243_ME_171FB83EF557 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8B3E862B8EC7 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:Focused'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlFocused'
  CONST extprop:rc:SelfName 'PopControlFocused'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1695,99 +495,18 @@ ref; // ME_5617F4D00243_ME_171FB83EF557 ParamsTypes
  ;
  : SpelledFor ME_B25A07CAFEC3 // Focused
  ;
- : Stub ME_5F41D8EA1D19 // Focused
- ;
 
 ref; // ME_171FB83EF557 pop_Control_Focused
 
 FORWARD ME_54ADDE19FDB9
 
-FORWARD ME_B0AD1D898340
-
 FORWARD ME_8BEC198C8027
-
-: ME_2E39E05D80F2
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_2E39E05D80F2 aCtx
-
-: ME_2E39E05D80F3
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_2E39E05D80F3 aControl
-
-: ME_B0AD1D898340
- CONST UID 'B0AD1D898340'
- CONST Name 'CanFocus'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:CanFocus' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8BEC198C8027 // pop_Control_CanFocus
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_2E39E05D80F2 // aCtx
- ME_2E39E05D80F3 // aControl
- )
- ; // Parameters
- : SpelledFor ME_54ADDE19FDB9 // CanFocus
- ;
-
-ref; // ME_B0AD1D898340 CanFocus
-
-: ME_281447C20F61
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8BEC198C8027 // pop_Control_CanFocus
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_281447C20F61 
 
 : ME_4DAEEDE10285_ME_8BEC198C8027
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8BEC198C8027 DoDoIt
-
-: ME_52D00B00031A_ME_8BEC198C8027
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_8BEC198C8027 SetValuePrim
-
-: ME_551544E2001A_ME_8BEC198C8027
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_8BEC198C8027 GetResultTypeInfo
-
-: ME_559687E6025A_ME_8BEC198C8027
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_8BEC198C8027 GetAllParamsCount
-
-: ME_5617F4D00243_ME_8BEC198C8027
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_8BEC198C8027 ParamsTypes
 
 : ME_8BEC198C8027
  CONST UID '8BEC198C8027'
@@ -1796,7 +515,7 @@ ref; // ME_5617F4D00243_ME_8BEC198C8027 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:CanFocus'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aControl pop:Control:CanFocus >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:CanFocus' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
@@ -1805,38 +524,17 @@ ref; // ME_5617F4D00243_ME_8BEC198C8027 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B0AD1D898340 // CanFocus
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_8BEC198C8027 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_8BEC198C8027 // SetValuePrim
- ME_551544E2001A_ME_8BEC198C8027 // GetResultTypeInfo
- ME_559687E6025A_ME_8BEC198C8027 // GetAllParamsCount
- ME_5617F4D00243_ME_8BEC198C8027 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_281447C20F61 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:CanFocus'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlCanFocus'
  CONST extprop:rc:SelfName 'PopControlCanFocus'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
  ;
  : SpelledFor ME_54ADDE19FDB9 // CanFocus
- ;
- : Stub ME_B0AD1D898340 // CanFocus
  ;
 
 ref; // ME_8BEC198C8027 pop_Control_CanFocus
@@ -1927,9 +625,6 @@ ref; // ME_54FEEA85011B aPoint
    Seq: ( ME_54FEEA85011B // aPoint
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_207CDF6BFC46 // pop_Control_MouseLeftClick
  ;
 
@@ -1957,9 +652,6 @@ ref; // ME_54FEEA9A0123 aPoint
    Seq: ( ME_54FEEA9A0123 // aPoint
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_652B805E6BDC // pop_Control_MouseMiddleClick
  ;
 
@@ -1987,9 +679,6 @@ ref; // ME_54FEEAA901AB aPoint
    Seq: ( ME_54FEEAA901AB // aPoint
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_01A83C03B567 // pop_Control_MouseRightClick
  ;
 
@@ -2019,9 +708,6 @@ ref; // ME_54FEFD3700BA aName
    Seq: ( ME_54FEFD3700BA // aName
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_89E1228A3BE4 // pop_Control_FindControlByName
  ;
 
@@ -2051,9 +737,6 @@ ref; // ME_54FEFD60010A anIndex
    Seq: ( ME_54FEFD60010A // anIndex
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_0EDEBD14C685 // pop_Control_GetControl
  ;
 
@@ -2068,9 +751,6 @@ ref; // ME_54FEFD3E00BB GetControl
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_60259FDDB2DC // pop_Control_MouseWheelUp
  ;
 
@@ -2085,9 +765,6 @@ ref; // ME_54FEFDD7023D MouseWheelUp
  CONST Abstraction at_final
  : Parent ME_54F5C4B203BD // WinControlsProcessingPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_5676987B6AD8 // pop_Control_MouseWheelDown
  ;
 
@@ -2104,9 +781,6 @@ ref; // ME_54FEFDDD0359 MouseWheelDown
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_52E34524FDF7 // pop_Control_SetFocus
  ;
 
@@ -2144,9 +818,6 @@ ref; // ME_5500033302C7 aPoint
  ME_5500033302C7 // aPoint
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_7A8A3BB834BD // pop_Control_MouseLeftDragAndDrop
  ;
 
@@ -2164,8 +835,6 @@ ref; // ME_550002F503A0 MouseLeftDragAndDrop
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ControlCount'
@@ -2186,8 +855,6 @@ ref; // ME_F357130C59F0 ControlCount
  ;
  : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Handle'
@@ -2208,8 +875,6 @@ ref; // ME_9CC11428A75A Handle
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Focused'
@@ -2230,8 +895,6 @@ ref; // ME_B25A07CAFEC3 Focused
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'CanFocus'
@@ -2239,150 +902,6 @@ ref; // ME_B25A07CAFEC3 Focused
  ;
 
 ref; // ME_54ADDE19FDB9 CanFocus
-
-: ME_89F3347E4859
- CONST UID '89F3347E4859'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_89F3347E4859 Reg_Type_TtfwContext
-
-: ME_0A75BD66BB43
- CONST UID '0A75BD66BB43'
- CONST Name 'Reg_Type_TWinControl'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TWinControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_0A75BD66BB43 Reg_Type_TWinControl
-
-: ME_459327738623
- CONST UID '459327738623'
- CONST Name 'Reg_Type_TPoint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TPoint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
- ;
-
-ref; // ME_459327738623 Reg_Type_TPoint
-
-: ME_DA3F294172CD
- CONST UID 'DA3F294172CD'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_DA3F294172CD Reg_Type_String
-
-: ME_9F272DFE469B
- CONST UID '9F272DFE469B'
- CONST Name 'Reg_Type_TComponent'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TComponent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
-
-ref; // ME_9F272DFE469B Reg_Type_TComponent
-
-: ME_365E774DAA53
- CONST UID '365E774DAA53'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_365E774DAA53 Reg_Type_Integer
-
-: ME_4DBA3DE65130
- CONST UID '4DBA3DE65130'
- CONST Name 'Reg_Type_TControl'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
- ;
-
-ref; // ME_4DBA3DE65130 Reg_Type_TControl
-
-: ME_3F278A2BD3C3
- CONST UID '3F278A2BD3C3'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_3F278A2BD3C3 Reg_Type_Boolean
-
-: ME_EEF6A2E1BC01
- CONST UID 'EEF6A2E1BC01'
- CONST Name 'Reg_Type_Cardinal'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Cardinal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5C4B203BD // WinControlsProcessingPack
- ;
- : SpelledFor WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
- ;
-
-ref; // ME_EEF6A2E1BC01 Reg_Type_Cardinal
 
 : ME_54F5C57F0158
  CONST Class class_Dependency
@@ -2460,15 +979,6 @@ ref; // ME_B7FFBF53E9EE
  ME_9CC11428A75A // Handle
  ME_B25A07CAFEC3 // Focused
  ME_54ADDE19FDB9 // CanFocus
- ME_89F3347E4859 // Reg_Type_TtfwContext
- ME_0A75BD66BB43 // Reg_Type_TWinControl
- ME_459327738623 // Reg_Type_TPoint
- ME_DA3F294172CD // Reg_Type_String
- ME_9F272DFE469B // Reg_Type_TComponent
- ME_365E774DAA53 // Reg_Type_Integer
- ME_4DBA3DE65130 // Reg_Type_TControl
- ME_3F278A2BD3C3 // Reg_Type_Boolean
- ME_EEF6A2E1BC01 // Reg_Type_Cardinal
  )
  ; // Operations
  : Children
@@ -2495,10 +1005,6 @@ ref; // ME_B7FFBF53E9EE
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas'
 
 ref; // ME_54F5C4B203BD WinControlsProcessingPack

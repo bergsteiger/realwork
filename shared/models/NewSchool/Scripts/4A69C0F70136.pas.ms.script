@@ -6,6 +6,21 @@ FORWARD ME_4A69C0F70136
 
 FORWARD ME_4A96B6E00382
 
+: ME_CB3F4BE93355
+ CONST UID 'CB3F4BE93355'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Folders$UC' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A96B6E00382 // Folders$UC
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_CB3F4BE93355 Ini_Reg_Class
+
 : ME_4A9BBD950162
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -66,6 +81,17 @@ ref; // ME_4ABCFA1A017A
 
 ref; // ME_4CBEBBAB0150 
 
+: ME_B2C509725037
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A96B6E00382 // Folders$UC
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_B2C509725037 
+
 : ME_4A96B6E00382
  CONST UID '4A96B6E00382'
  CONST Name 'Folders'
@@ -87,6 +113,10 @@ ref; // ME_4CBEBBAB0150
  WL 'ME_484E5B8902BA' '484900780017.pas.ms.script' // Документы на контроле
  )
  ; // Implements
+ : Operations
+   Seq: ( ME_CB3F4BE93355 // Ini_Reg_Class
+ )
+ ; // Operations
  : Dependencies
    Seq: ( ME_4A9BBD950162 // Сравнение редакций документов
  ME_4A9BBF2902B4 // Просмотр документа
@@ -94,13 +124,11 @@ ref; // ME_4CBEBBAB0150
  ME_4ABCEF8D03B9 // ПРАЙМ
  ME_4ABCFA1A017A // Консультации
  ME_4CBEBBAB0150 // Фильтрация сохраненными запросами
+ ME_B2C509725037 // TtfwClassRef
  )
  ; // Dependencies
  CONST "author" 'Тучнин Д.А.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "started" '2003/08/06 08:30:27'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'

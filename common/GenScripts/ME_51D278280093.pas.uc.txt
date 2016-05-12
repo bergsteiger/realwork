@@ -1601,3 +1601,58 @@ var
 var
  l_TextPara : TddTextParagraph;
 //#UC END# *56C5946F0006_51D278280093_var*
+//#UC START# *572C58C602AF_51D278280093_impl*
+
+//#UC END# *572C58C602AF_51D278280093_impl*
+//#UC START# *572C58C602AF_51D278280093_var*
+//#UC END# *572C58C602AF_51D278280093_var*
+//#UC START# *573427280365_51D278280093_impl*
+ l_LastAtom := f_LastShape;
+ if (l_LastAtom = nil) or not (l_LastAtom is TddRTFShape) then
+  lp_AddShape
+ else
+  begin
+   l_Shape := l_LastAtom as TddRTFShape;
+   if l_Shape.Closed or (l_Shape.Left <> aPAP.PosX) or (l_Shape.Top <> aPAP.PosY) then
+    lp_AddShape
+   else
+   begin
+    Result := l_Shape.LastPara;
+    if (Result = nil) or Result.Closed then
+     Result := l_Shape.AddTextPara;
+   end;
+  end;
+//#UC END# *573427280365_51D278280093_impl*
+//#UC START# *573427280365_51D278280093_var*
+
+ procedure lp_AddShape;
+
+  function lp_ClearUndef(aValue: Integer): Integer;
+  begin
+   if aValue = propUndefined then
+    Result := 0
+   else
+    Result := aValue;
+  end;
+
+ var
+  l_Shape: TddRTFShape;
+ begin
+  l_Shape := TddRTFShape.Create(Self);
+  try
+   l_Shape.Left := aPAP.PosX;
+   l_Shape.Top := aPAP.PosY;
+   l_Shape.Right := l_Shape.Left + lp_ClearUndef(aPAP.AbsW);
+   l_Shape.Bottom := l_Shape.Top + lp_ClearUndef(aPAP.AbsH);
+   Result := l_Shape.AddTextPara;
+   f_LastShape := l_Shape;
+   SimpleAddShape(l_Shape);
+  finally
+   FreeAndNil(l_Shape);
+  end;
+ end;
+
+var
+ l_Shape   : TddRTFShape;
+ l_LastAtom: TddDocumentAtom;
+//#UC END# *573427280365_51D278280093_var*

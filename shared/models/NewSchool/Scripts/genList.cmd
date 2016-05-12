@@ -1,0 +1,1 @@
+call cal.cmd "-list:%~1"

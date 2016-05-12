@@ -97,22 +97,8 @@ ref; // ME_53CCF63B0139 Create
    Seq: ( WL 'ME_53CCB9880360' '53CCB94A02A5.pas.ms.script' // IalcuAsyncSubmitterManager
  )
  ; // Implements
- CONST "check nil" false
- CONST "need AfterCreate" 'undefined'
- CONST "need Aggregate" 'undefined'
- CONST "need As" false
 
 ref; // ME_53CCF6A902D8 Make
-
-: ME_53CD0AA003B5
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53CCC324034B // TalcuAsyncSubmitterManager
- ;
- : Target WL 'ME_52FBA57600AB' '52FBA554014B.pas.ms.script' // TArchiUser
- ;
-
-ref; // ME_53CD0AA003B5 
 
 : ME_53CD0F330252
  CONST Class class_Dependency
@@ -173,6 +159,16 @@ ref; // ME_53D0BBF001E8
  ;
 
 ref; // ME_5406A86C037B 
+
+: ME_573441CE0049
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ : Target WL 'ME_5729DCE2003D' '5432518A0316.pas.ms.script' // IdaArchiUser
+ ;
+
+ref; // ME_573441CE0049 
 
 : ME_53CCB9F20088_ME_53CCC324034B
  : Original WL 'ME_53CCB9F20088' '53CCB94A02A5.pas.ms.script' // ServerHostName
@@ -267,19 +263,15 @@ ref; // ME_479731C50290_ME_53CCC324034B Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53CD0AA003B5 // TArchiUser
- ME_53CD0F330252 // TUserManager
+   Seq: ( ME_53CD0F330252 // TUserManager
  ME_53CD21C3003D // FreeAndNil
  ME_53CF9518031E // TCsNotificationType
  ME_53D0BBEB002C // PLong
  ME_53D0BBF001E8 // l3L2IA
  ME_5406A86C037B // UserIsService
+ ME_573441CE0049 // IdaArchiUser
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas'
  CONST extprop:rc:SelfName 'alcuAsyncSubmitterManager'
  CONST extprop:rc:isAcceptableForScripts true
@@ -398,10 +390,6 @@ ref; // ME_479731C50290_ME_53D0ACC8010F Cleanup
    Seq: ( ME_53D0B5890219 // FreeAndNil
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'alcuTaskExecutionCounter'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -460,10 +448,6 @@ ref; // ME_47B99D4503A2_ME_53D0AC2C0288 CompareExistingItems
  ME_47B99D4503A2_ME_53D0AC2C0288 // CompareExistingItems
  )
  ; // Implemented
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'alcuTaskExecutingList'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -504,7 +488,6 @@ ref; // ME_53D0B85603AE PalcuTaskExecutionCounter
  ME_53D0B85603AE // PalcuTaskExecutionCounter
  )
  ; // Children
- CONST "no hands" false
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuTaskExecutingList.pas'
 
 ref; // ME_53D0ABFF01D1 alcuTaskExecutingList
@@ -534,6 +517,7 @@ ref; // ME_53D0ABFF01D1 alcuTaskExecutingList
  WL 'ME_52FBA554014B' '52FBA554014B.pas.ms.script' // Users
  WL 'ME_53CCB94A02A5' '53CCB94A02A5.pas.ms.script' // alcuServerAsyncExecutionInterfaces
  WL 'ME_53CCCA40004C' '53CCCA40004C.pas.ms.script' // BaseEngine
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
  WL 'ME_54F85B2500FB' '54F85B2500FB.pas.ms.script' // Provider
  )
  ; // Depends

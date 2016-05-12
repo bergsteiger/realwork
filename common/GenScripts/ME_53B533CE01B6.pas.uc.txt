@@ -1,5 +1,10 @@
 //#UC START# **
 //#UC END# **
+//#UC START# *0B8C389F0B1C_3EAB6B490CA4_impl*
+ Result := aFilterNode.UsedStatus;
+//#UC END# *0B8C389F0B1C_3EAB6B490CA4_impl*
+//#UC START# *0B8C389F0B1C_3EAB6B490CA4_var*
+//#UC END# *0B8C389F0B1C_3EAB6B490CA4_var*
 //#UC START# *1FDB698BC58Cci*
 //#UC END# *1FDB698BC58Cci*
 //#UC START# *1FDB698BC58Ccit*
@@ -39,6 +44,24 @@ var
 //#UC END# *9653DAAB38C3_2F875C7C1CA3_impl*
 //#UC START# *9653DAAB38C3_2F875C7C1CA3_var*
 //#UC END# *9653DAAB38C3_2F875C7C1CA3_var*
+//#UC START# *B12C875B9E52_2F875C7C1CA3_impl*
+ Result := aFilterNode.DeletedStatus;
+//#UC END# *B12C875B9E52_2F875C7C1CA3_impl*
+//#UC START# *B12C875B9E52_2F875C7C1CA3_var*
+//#UC END# *B12C875B9E52_2F875C7C1CA3_var*
+//#UC START# *CA5586C3178F_008D699CFE74_impl*
+ Supports(aFilterNode, IFilterFromQuery, l_F);
+ RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
+ try
+  Result := l_F.GetChangeable;
+ finally
+  l_F := nil;
+ end;//try..finally
+//#UC END# *CA5586C3178F_008D699CFE74_impl*
+//#UC START# *CA5586C3178F_008D699CFE74_var*
+var
+ l_F: IFilterFromQuery;
+//#UC END# *CA5586C3178F_008D699CFE74_var*
 //#UC START# *ci*
 //#UC END# *ci*
 //#UC START# *cit*

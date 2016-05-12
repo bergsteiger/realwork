@@ -198,10 +198,6 @@ ref; // ME_4EE1DC8903BB_ME_CAB6A29B7B9E GetInteger
  ; // Overridden
  CONST "NameForScript" 'тип_формы::utMainWindow'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_FormUserType_utMainWindow'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -226,14 +222,8 @@ ref; // ME_CAB6A29B7B9E Tkw_FormUserType_utMainWindow
    Seq: ( ME_D6C27321B7C0 // utMainWindowConstants
  )
  ; // Constants
- CONST "CanClose" 'undefined'
- CONST "CanHaveToolbars" 'undefined'
  CONST "ImageIndex" '-1'
- CONST "NeedOnQueryClose" false
- CONST "NeedOnQueryMaximized" false
- CONST "NeedOnQueryOpen" false
  CONST "SettingsCaption" 'Главная панель инструментов'
- CONST "VisibleToUser" true
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NemesisMain_utMainWindow_UserType.pas'
  CONST extprop:pas:UnitName 'NemesisMain_utMainWindow_UserType'
@@ -1666,12 +1656,8 @@ ref; // ME_5566C7BD037F_ME_4958D2EA00CC DoOpenNew
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '29.12.2008 16:25'
@@ -1969,7 +1955,6 @@ ref; // ME_4C8A4584039B_ME_4F7DC4FD0315 HideReminder
  )
  ; // Implemented
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -1990,7 +1975,6 @@ ref; // ME_4F7DC4FD0315 ControlledChangingWarning
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -2016,7 +2000,6 @@ ref; // ME_4F7DC53901C2 remUnreadConsultations
  )
  ; // Attributes
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -3078,12 +3061,8 @@ ref; // ME_546464260137_ME_4C8A29700261 DoInitContainedForm
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '10.09.2010 16:50'
@@ -3096,6 +3075,219 @@ ref; // ME_546464260137_ME_4C8A29700261 DoInitContainedForm
 ref; // ME_4C8A29700261 MainOptions
 
 FORWARD ME_4A952BA3006D
+
+FORWARD ME_5729DEAB0191
+
+: ME_5729DEC300A8
+ CONST UID '5729DEC300A8'
+ CONST Name 'BaseSearcherState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5729DEAB0191 // IMainFormState
+ ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+ CONST "pm" false
+
+ref; // ME_5729DEC300A8 BaseSearcherState
+
+: ME_5729DFB7006F
+ CONST UID '5729DFB7006F'
+ CONST Name 'InnerState'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5729DEAB0191 // IMainFormState
+ ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+ CONST "pm" false
+
+ref; // ME_5729DFB7006F InnerState
+
+: ME_5729DEAB0191
+ CONST UID '5729DEAB0191'
+ CONST GUID '91AB783F-E890-4E0B-B4BF-7641733FCD57'
+ CONST Name 'IMainFormState'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A952BA3006D // Main
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_5729DEC300A8 // BaseSearcherState
+ ME_5729DFB7006F // InnerState
+ )
+ ; // Attributes
+ CONST extprop:rc:SelfName 'MainFormState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5729DEAB0191 IMainFormState
+
+FORWARD ME_5729DF4D0159
+
+: ME_5729DF9202FD
+ CONST UID '5729DF9202FD'
+ CONST Name 'f_BaseSearcherState'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5729DF4D0159 // TMainFormState
+ ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729DF9202FD f_BaseSearcherState
+
+: ME_5729DFA90231
+ CONST UID '5729DFA90231'
+ CONST Name 'f_InnerState'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5729DF4D0159 // TMainFormState
+ ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5729DFA90231 f_InnerState
+
+: ME_5729DFDB0114
+ CONST Name 'aBaseSearcherState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729DFDB0114 aBaseSearcherState
+
+: ME_5729DFDB013C
+ CONST Name 'aInnerState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5729DFDB013C aInnerState
+
+: ME_5729DFC3021F
+ CONST UID '5729DFC3021F'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5729DF4D0159 // TMainFormState
+ ;
+ : Parameters
+   Seq: ( ME_5729DFDB0114 // aBaseSearcherState
+ ME_5729DFDB013C // aInnerState
+ )
+ ; // Parameters
+
+ref; // ME_5729DFC3021F Create
+
+: ME_5729DFE800CD
+ CONST Name 'aBaseSearcherState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729DFE800CD aBaseSearcherState
+
+: ME_5729DFE800F8
+ CONST Name 'aInnerState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_5729DFE800F8 aInnerState
+
+: ME_5729DFE00278
+ CONST UID '5729DFE00278'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5729DF4D0159 // TMainFormState
+ ;
+ : Target ME_5729DEAB0191 // IMainFormState
+ ;
+ : Parameters
+   Seq: ( ME_5729DFE800CD // aBaseSearcherState
+ ME_5729DFE800F8 // aInnerState
+ )
+ ; // Parameters
+
+ref; // ME_5729DFE00278 Make
+
+: ME_5729DEC300A8_ME_5729DF4D0159
+ : Original ME_5729DEC300A8 // BaseSearcherState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5729DEC300A8_ME_5729DF4D0159 BaseSearcherState
+
+: ME_5729DFB7006F_ME_5729DF4D0159
+ : Original ME_5729DFB7006F // InnerState
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5729DFB7006F_ME_5729DF4D0159 InnerState
+
+: ME_5729DF4D0159
+ CONST UID '5729DF4D0159'
+ CONST Name 'TMainFormState'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A952BA3006D // Main
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( ME_5729DEAB0191 // IMainFormState
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5729DF9202FD // f_BaseSearcherState
+ ME_5729DFA90231 // f_InnerState
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5729DFC3021F // Create
+ ME_5729DFE00278 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5729DEC300A8_ME_5729DF4D0159 // BaseSearcherState
+ ME_5729DFB7006F_ME_5729DF4D0159 // InnerState
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'MainFormState'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5729DF4D0159 TMainFormState
 
 : ME_4F8818DB0029
  CONST UID '4F8818DB0029'
@@ -4267,6 +4459,16 @@ ref; // ME_5534E8B401F6
 
 ref; // ME_5631C05300C4 
 
+: ME_5729E0330278
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A952BA3006D // Main
+ ;
+ : Target WL 'ME_5433905403C7' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherInitialState
+ ;
+
+ref; // ME_5729E0330278 
+
 : ME_784B8EE79B88
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -4473,6 +4675,18 @@ ref; // ME_4958F46C003B_ME_4A952BA3006D StartSettingsEdit
  CONST OpKind opkind_Overridden
 ref; // ME_49803F5503AA_ME_4A952BA3006D DoInit
 
+: ME_49806ED503D5_ME_4A952BA3006D
+ : Original WL 'ME_49806ED503D5' '4AADF9450143.pas.ms.script' // DoSaveState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49806ED503D5_ME_4A952BA3006D DoSaveState
+
+: ME_49807428008C_ME_4A952BA3006D
+ : Original WL 'ME_49807428008C' '4AADF9450143.pas.ms.script' // DoLoadState
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49807428008C_ME_4A952BA3006D DoLoadState
+
 : ME_5000565C019C_ME_4A952BA3006D
  : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
  ;
@@ -4588,11 +4802,18 @@ ref; // ME_54327E120331_ME_4A952BA3006D DoInitFromPrevContainer
  ME_4958BE910345_ME_4A952BA3006D // UserSettingsChanged
  ME_4958F46C003B_ME_4A952BA3006D // StartSettingsEdit
  ME_49803F5503AA_ME_4A952BA3006D // DoInit
+ ME_49806ED503D5_ME_4A952BA3006D // DoSaveState
+ ME_49807428008C_ME_4A952BA3006D // DoLoadState
  ME_5000565C019C_ME_4A952BA3006D // ClearFields
  ME_538C374A00B7_ME_4A952BA3006D // ReleaseResources
  ME_54327E120331_ME_4A952BA3006D // DoInitFromPrevContainer
  )
  ; // Overridden
+ : Children
+   Seq: ( ME_5729DEAB0191 // IMainFormState
+ ME_5729DF4D0159 // TMainFormState
+ )
+ ; // Children
  : Dependencies
    Seq: ( ME_4F86CBC6039E // Windows
  ME_4F86CC0901DD // afwFacade
@@ -4636,17 +4857,13 @@ ref; // ME_54327E120331_ME_4A952BA3006D DoInitFromPrevContainer
  ME_54FEB6150149 // TnsContextHistoryKind
  ME_5534E8B401F6 // vcmTabbedContainerFormDispatcher
  ME_5631C05300C4 // TnsBaseSearchService
+ ME_5729E0330278 // InsBaseSearcherInitialState
  ME_784B8EE79B88 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Main_Form.pas'
@@ -4675,10 +4892,8 @@ FORWARD ME_4F7DC58F01A7
    Seq: ( ME_4F7DC58F01A7 // RemindersLine
  )
  ; // Inherits
- CONST "CanClose" 'undefined'
  CONST "MergeBottomTollbarWithContainer" false
  CONST "MergeTopTollbarWithContainer" false
- CONST "Need UC" 'undefined'
  CONST "ZoneType" 'Reminder'
 
 ref; // ME_4F7DC6A801BA RemindersZone
@@ -4960,7 +5175,6 @@ ref; // ME_5F23F6D3D5D1 LCImplReminders' Hints
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -4981,7 +5195,6 @@ ref; // ME_4F7DC5620193 remOnlineDead
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -5002,7 +5215,6 @@ ref; // ME_4F7DC54C038D remNewChatMessages
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -5023,7 +5235,6 @@ ref; // ME_4F7DC52402D9 TrialModeWarning
  )
  ; // Inherits
  CONST "ControlClass" 'none'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -5856,12 +6067,7 @@ ref; // ME_537C9007038A_ME_4F7DAC14027A BecomeInvisible
  ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainWithReminders_Form.pas'
@@ -6057,13 +6263,8 @@ FORWARD ME_D36CC9FAFC0E
  ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
  CONST "form name prefix" 'ns'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainWindow_Form.pas'
@@ -6106,10 +6307,6 @@ ref; // ME_4DDFD2EA0116_ME_72FE1DC0EE59 GetString
  ; // Overridden
  CONST "NameForScript" 'форма::MainWindow'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_MainWindow'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4AA7EA010274 // MainWindow
@@ -6181,10 +6378,6 @@ ref; // ME_52A086150180_ME_AB4A15F921A5 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::remOnlineDead'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_remOnlineDead'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC5620193 // remOnlineDead
@@ -6221,10 +6414,6 @@ ref; // ME_4DAEEDE10285_ME_4E63B3135977 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::remOnlineDead:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_remOnlineDead_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC5620193 // remOnlineDead
@@ -6296,10 +6485,6 @@ ref; // ME_52A086150180_ME_AFC7A7C4233D RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::remNewChatMessages'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_remNewChatMessages'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC54C038D // remNewChatMessages
@@ -6336,10 +6521,6 @@ ref; // ME_4DAEEDE10285_ME_DB49A40311F8 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::remNewChatMessages:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_remNewChatMessages_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC54C038D // remNewChatMessages
@@ -6411,10 +6592,6 @@ ref; // ME_52A086150180_ME_B1737C5744CF RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::TrialModeWarning'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_TrialModeWarning'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC52402D9 // TrialModeWarning
@@ -6451,10 +6628,6 @@ ref; // ME_4DAEEDE10285_ME_4120D270D0BD DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::TrialModeWarning:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_TrialModeWarning_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC52402D9 // TrialModeWarning
@@ -6526,10 +6699,6 @@ ref; // ME_52A086150180_ME_1A8910E8C94E RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::OldBaseWarning'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_OldBaseWarning'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC51002CE // OldBaseWarning
@@ -6566,10 +6735,6 @@ ref; // ME_4DAEEDE10285_ME_C3153D515BC1 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::OldBaseWarning:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_OldBaseWarning_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC51002CE // OldBaseWarning
@@ -6641,10 +6806,6 @@ ref; // ME_52A086150180_ME_B9F3FE698E1F RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::RemindersLine'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_RemindersLine'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_535E8A4D017F // RemindersLine
@@ -6681,10 +6842,6 @@ ref; // ME_4DAEEDE10285_ME_B71018F2B69F DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::RemindersLine:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_RemindersLine_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_535E8A4D017F // RemindersLine
@@ -6756,10 +6913,6 @@ ref; // ME_52A086150180_ME_8F0A49D2D240 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::ControlledChangingWarning'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ControlledChangingWarning'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC4FD0315 // ControlledChangingWarning
@@ -6796,10 +6949,6 @@ ref; // ME_4DAEEDE10285_ME_AA323CFBD8F6 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ControlledChangingWarning:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ControlledChangingWarning_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC4FD0315 // ControlledChangingWarning
@@ -6871,10 +7020,6 @@ ref; // ME_52A086150180_ME_21221F006E08 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::remUnreadConsultations'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_remUnreadConsultations'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC53901C2 // remUnreadConsultations
@@ -6911,10 +7056,6 @@ ref; // ME_4DAEEDE10285_ME_C64E5121DF64 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::remUnreadConsultations:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_remUnreadConsultations_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4F7DC53901C2 // remUnreadConsultations
@@ -6986,10 +7127,6 @@ ref; // ME_52A086150180_ME_7C7A033423DC RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::StatusBar'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_StatusBar'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B3FA8015C' '4F6B660100D5.pas.ms.script' // StatusBar
@@ -7026,10 +7163,6 @@ ref; // ME_4DAEEDE10285_ME_B079F69E067C DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::StatusBar:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_StatusBar_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B3FA8015C' '4F6B660100D5.pas.ms.script' // StatusBar
@@ -7101,10 +7234,6 @@ ref; // ME_52A086150180_ME_0B37DDF00B84 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::ClientZone'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ClientZone'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B46AE004A' '4F6B660100D5.pas.ms.script' // ClientZone
@@ -7141,10 +7270,6 @@ ref; // ME_4DAEEDE10285_ME_B0FF44E4117C DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ClientZone:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ClientZone_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B46AE004A' '4F6B660100D5.pas.ms.script' // ClientZone
@@ -7216,10 +7341,6 @@ ref; // ME_52A086150180_ME_7D1BC65DEA30 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::MainZone'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_MainZone'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B47190328' '4F6B660100D5.pas.ms.script' // MainZone
@@ -7256,10 +7377,6 @@ ref; // ME_4DAEEDE10285_ME_EB04F361D359 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::MainZone:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_MainZone_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B47190328' '4F6B660100D5.pas.ms.script' // MainZone
@@ -7331,10 +7448,6 @@ ref; // ME_52A086150180_ME_CA8695A16AEE RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::ParentZonePanel'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ParentZonePanel'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B3F1401A7' '4F6B660100D5.pas.ms.script' // ParentZonePanel
@@ -7371,10 +7484,6 @@ ref; // ME_4DAEEDE10285_ME_8F3B829CF950 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ParentZonePanel:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ParentZonePanel_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B3F1401A7' '4F6B660100D5.pas.ms.script' // ParentZonePanel
@@ -7446,10 +7555,6 @@ ref; // ME_52A086150180_ME_BA7D0C360FE3 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::ChildZonePanel'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ChildZonePanel'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B3E7E01C9' '4F6B660100D5.pas.ms.script' // ChildZonePanel
@@ -7486,10 +7591,6 @@ ref; // ME_4DAEEDE10285_ME_E7483D80701D DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::ChildZonePanel:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_ChildZonePanel_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B3E7E01C9' '4F6B660100D5.pas.ms.script' // ChildZonePanel
@@ -7561,10 +7662,6 @@ ref; // ME_52A086150180_ME_6B745C2439A7 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::BaseSearchPanel'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_BaseSearchPanel'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F7B111C0282' '4F6B660100D5.pas.ms.script' // BaseSearchPanel
@@ -7601,10 +7698,6 @@ ref; // ME_4DAEEDE10285_ME_DBFA41D8454E DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::BaseSearchPanel:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_BaseSearchPanel_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F7B111C0282' '4F6B660100D5.pas.ms.script' // BaseSearchPanel
@@ -7676,10 +7769,6 @@ ref; // ME_52A086150180_ME_54302734B5CA RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::LeftNavigator'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_LeftNavigator'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B38AA020C' '4F6B660100D5.pas.ms.script' // LeftNavigator
@@ -7716,10 +7805,6 @@ ref; // ME_4DAEEDE10285_ME_49F076E7C957 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::LeftNavigator:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_LeftNavigator_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B38AA020C' '4F6B660100D5.pas.ms.script' // LeftNavigator
@@ -7792,10 +7877,6 @@ ref; // ME_52A086150180_ME_9A4C6C4DD8BB RegisterInEngine
  ; // Dependencies
  CONST "NameForScript" 'контрол::RightNavigator'
  CONST "ifdef" 'HasRightNavigator'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_RightNavigator'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B38BE03C7' '4F6B660100D5.pas.ms.script' // RightNavigator
@@ -7833,10 +7914,6 @@ ref; // ME_4DAEEDE10285_ME_32A188482973 DoDoIt
  ; // Overridden
  CONST "NameForScript" 'контрол::RightNavigator:push'
  CONST "ifdef" 'HasRightNavigator'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_MainWindow_Control_RightNavigator_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor WL 'ME_4F6B38BE03C7' '4F6B660100D5.pas.ms.script' // RightNavigator
@@ -7846,92 +7923,13 @@ ref; // ME_32A188482973 Tkw_MainWindow_Control_RightNavigator_Push
 
 FORWARD ME_D0455449024D
 
-FORWARD ME_1C5A33F09604
-
 FORWARD ME_82B2BCF3102B
-
-: ME_CA99A5C14AEC
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_CA99A5C14AEC aCtx
-
-: ME_CA99A5C14AED
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_CA99A5C14AED aMainWindow
-
-: ME_1C5A33F09604
- CONST UID '1C5A33F09604'
- CONST Name 'remOnlineDead'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.remOnlineDead' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_82B2BCF3102B // MainWindow_remOnlineDead
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
- : Parameters
-   Seq: ( ME_CA99A5C14AEC // aCtx
- ME_CA99A5C14AED // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_D0455449024D // remOnlineDead
- ;
-
-ref; // ME_1C5A33F09604 remOnlineDead
-
-: ME_94D66C6E9645
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_82B2BCF3102B // MainWindow_remOnlineDead
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_94D66C6E9645 
 
 : ME_4DAEEDE10285_ME_82B2BCF3102B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_82B2BCF3102B DoDoIt
-
-: ME_52D00B00031A_ME_82B2BCF3102B
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_82B2BCF3102B SetValuePrim
-
-: ME_551544E2001A_ME_82B2BCF3102B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_82B2BCF3102B GetResultTypeInfo
-
-: ME_559687E6025A_ME_82B2BCF3102B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_82B2BCF3102B GetAllParamsCount
-
-: ME_5617F4D00243_ME_82B2BCF3102B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_82B2BCF3102B ParamsTypes
 
 : ME_82B2BCF3102B
  CONST UID '82B2BCF3102B'
@@ -7940,7 +7938,7 @@ ref; // ME_5617F4D00243_ME_82B2BCF3102B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.remOnlineDead'#13#10'{panel}Контрол remOnlineDead формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscReminder'#13#10' aMainWindow .TnsMainWindow.remOnlineDead >>> l_TnscReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.remOnlineDead' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -7949,30 +7947,11 @@ ref; // ME_5617F4D00243_ME_82B2BCF3102B ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1C5A33F09604 // remOnlineDead
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_82B2BCF3102B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_82B2BCF3102B // SetValuePrim
- ME_551544E2001A_ME_82B2BCF3102B // GetResultTypeInfo
- ME_559687E6025A_ME_82B2BCF3102B // GetAllParamsCount
- ME_5617F4D00243_ME_82B2BCF3102B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_94D66C6E9645 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.remOnlineDead'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowRemOnlineDead'
  CONST extprop:rc:SelfName 'MainWindowRemOnlineDead'
  CONST extprop:rc:isAcceptableForScripts true
@@ -7980,99 +7959,18 @@ ref; // ME_5617F4D00243_ME_82B2BCF3102B ParamsTypes
  ;
  : SpelledFor ME_D0455449024D // remOnlineDead
  ;
- : Stub ME_1C5A33F09604 // remOnlineDead
- ;
 
 ref; // ME_82B2BCF3102B MainWindow_remOnlineDead
 
 FORWARD ME_337E8DA08CA4
 
-FORWARD ME_F6B99AF78964
-
 FORWARD ME_F316F76D2AFC
-
-: ME_4759BE342221
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_4759BE342221 aCtx
-
-: ME_4759BE342222
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_4759BE342222 aMainWindow
-
-: ME_F6B99AF78964
- CONST UID 'F6B99AF78964'
- CONST Name 'remNewChatMessages'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.remNewChatMessages' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F316F76D2AFC // MainWindow_remNewChatMessages
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
- : Parameters
-   Seq: ( ME_4759BE342221 // aCtx
- ME_4759BE342222 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_337E8DA08CA4 // remNewChatMessages
- ;
-
-ref; // ME_F6B99AF78964 remNewChatMessages
-
-: ME_81FC67F99A77
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F316F76D2AFC // MainWindow_remNewChatMessages
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_81FC67F99A77 
 
 : ME_4DAEEDE10285_ME_F316F76D2AFC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F316F76D2AFC DoDoIt
-
-: ME_52D00B00031A_ME_F316F76D2AFC
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_F316F76D2AFC SetValuePrim
-
-: ME_551544E2001A_ME_F316F76D2AFC
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F316F76D2AFC GetResultTypeInfo
-
-: ME_559687E6025A_ME_F316F76D2AFC
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F316F76D2AFC GetAllParamsCount
-
-: ME_5617F4D00243_ME_F316F76D2AFC
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F316F76D2AFC ParamsTypes
 
 : ME_F316F76D2AFC
  CONST UID 'F316F76D2AFC'
@@ -8081,7 +7979,7 @@ ref; // ME_5617F4D00243_ME_F316F76D2AFC ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.remNewChatMessages'#13#10'{panel}Контрол remNewChatMessages формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscReminder'#13#10' aMainWindow .TnsMainWindow.remNewChatMessages >>> l_TnscReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.remNewChatMessages' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8090,30 +7988,11 @@ ref; // ME_5617F4D00243_ME_F316F76D2AFC ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F6B99AF78964 // remNewChatMessages
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F316F76D2AFC // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_F316F76D2AFC // SetValuePrim
- ME_551544E2001A_ME_F316F76D2AFC // GetResultTypeInfo
- ME_559687E6025A_ME_F316F76D2AFC // GetAllParamsCount
- ME_5617F4D00243_ME_F316F76D2AFC // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_81FC67F99A77 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.remNewChatMessages'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowRemNewChatMessages'
  CONST extprop:rc:SelfName 'MainWindowRemNewChatMessages'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8121,99 +8000,18 @@ ref; // ME_5617F4D00243_ME_F316F76D2AFC ParamsTypes
  ;
  : SpelledFor ME_337E8DA08CA4 // remNewChatMessages
  ;
- : Stub ME_F6B99AF78964 // remNewChatMessages
- ;
 
 ref; // ME_F316F76D2AFC MainWindow_remNewChatMessages
 
 FORWARD ME_1333F642A3A7
 
-FORWARD ME_0B1B7A5F10C8
-
 FORWARD ME_116178A120B3
-
-: ME_7A2E65583DB3
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7A2E65583DB3 aCtx
-
-: ME_7A2E65583DB4
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_7A2E65583DB4 aMainWindow
-
-: ME_0B1B7A5F10C8
- CONST UID '0B1B7A5F10C8'
- CONST Name 'TrialModeWarning'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.TrialModeWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_116178A120B3 // MainWindow_TrialModeWarning
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
- : Parameters
-   Seq: ( ME_7A2E65583DB3 // aCtx
- ME_7A2E65583DB4 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_1333F642A3A7 // TrialModeWarning
- ;
-
-ref; // ME_0B1B7A5F10C8 TrialModeWarning
-
-: ME_2794A290A2A5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_116178A120B3 // MainWindow_TrialModeWarning
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_2794A290A2A5 
 
 : ME_4DAEEDE10285_ME_116178A120B3
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_116178A120B3 DoDoIt
-
-: ME_52D00B00031A_ME_116178A120B3
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_116178A120B3 SetValuePrim
-
-: ME_551544E2001A_ME_116178A120B3
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_116178A120B3 GetResultTypeInfo
-
-: ME_559687E6025A_ME_116178A120B3
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_116178A120B3 GetAllParamsCount
-
-: ME_5617F4D00243_ME_116178A120B3
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_116178A120B3 ParamsTypes
 
 : ME_116178A120B3
  CONST UID '116178A120B3'
@@ -8222,7 +8020,7 @@ ref; // ME_5617F4D00243_ME_116178A120B3 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.TrialModeWarning'#13#10'{panel}Контрол TrialModeWarning формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscReminder'#13#10' aMainWindow .TnsMainWindow.TrialModeWarning >>> l_TnscReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.TrialModeWarning' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8231,30 +8029,11 @@ ref; // ME_5617F4D00243_ME_116178A120B3 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0B1B7A5F10C8 // TrialModeWarning
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_116178A120B3 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_116178A120B3 // SetValuePrim
- ME_551544E2001A_ME_116178A120B3 // GetResultTypeInfo
- ME_559687E6025A_ME_116178A120B3 // GetAllParamsCount
- ME_5617F4D00243_ME_116178A120B3 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2794A290A2A5 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.TrialModeWarning'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowTrialModeWarning'
  CONST extprop:rc:SelfName 'MainWindowTrialModeWarning'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8262,99 +8041,18 @@ ref; // ME_5617F4D00243_ME_116178A120B3 ParamsTypes
  ;
  : SpelledFor ME_1333F642A3A7 // TrialModeWarning
  ;
- : Stub ME_0B1B7A5F10C8 // TrialModeWarning
- ;
 
 ref; // ME_116178A120B3 MainWindow_TrialModeWarning
 
 FORWARD ME_E63F32BFD6E1
 
-FORWARD ME_482F7F78FAC4
-
 FORWARD ME_59D50D49582B
-
-: ME_92F5A993DAA0
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_92F5A993DAA0 aCtx
-
-: ME_92F5A993DAA1
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_92F5A993DAA1 aMainWindow
-
-: ME_482F7F78FAC4
- CONST UID '482F7F78FAC4'
- CONST Name 'OldBaseWarning'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.OldBaseWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_59D50D49582B // MainWindow_OldBaseWarning
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
- : Parameters
-   Seq: ( ME_92F5A993DAA0 // aCtx
- ME_92F5A993DAA1 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_E63F32BFD6E1 // OldBaseWarning
- ;
-
-ref; // ME_482F7F78FAC4 OldBaseWarning
-
-: ME_4F5014A95BC3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_59D50D49582B // MainWindow_OldBaseWarning
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_4F5014A95BC3 
 
 : ME_4DAEEDE10285_ME_59D50D49582B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_59D50D49582B DoDoIt
-
-: ME_52D00B00031A_ME_59D50D49582B
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_59D50D49582B SetValuePrim
-
-: ME_551544E2001A_ME_59D50D49582B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_59D50D49582B GetResultTypeInfo
-
-: ME_559687E6025A_ME_59D50D49582B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_59D50D49582B GetAllParamsCount
-
-: ME_5617F4D00243_ME_59D50D49582B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_59D50D49582B ParamsTypes
 
 : ME_59D50D49582B
  CONST UID '59D50D49582B'
@@ -8363,7 +8061,7 @@ ref; // ME_5617F4D00243_ME_59D50D49582B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.OldBaseWarning'#13#10'{panel}Контрол OldBaseWarning формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscReminder'#13#10' aMainWindow .TnsMainWindow.OldBaseWarning >>> l_TnscReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.OldBaseWarning' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8372,30 +8070,11 @@ ref; // ME_5617F4D00243_ME_59D50D49582B ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_482F7F78FAC4 // OldBaseWarning
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_59D50D49582B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_59D50D49582B // SetValuePrim
- ME_551544E2001A_ME_59D50D49582B // GetResultTypeInfo
- ME_559687E6025A_ME_59D50D49582B // GetAllParamsCount
- ME_5617F4D00243_ME_59D50D49582B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4F5014A95BC3 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.OldBaseWarning'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowOldBaseWarning'
  CONST extprop:rc:SelfName 'MainWindowOldBaseWarning'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8403,99 +8082,18 @@ ref; // ME_5617F4D00243_ME_59D50D49582B ParamsTypes
  ;
  : SpelledFor ME_E63F32BFD6E1 // OldBaseWarning
  ;
- : Stub ME_482F7F78FAC4 // OldBaseWarning
- ;
 
 ref; // ME_59D50D49582B MainWindow_OldBaseWarning
 
 FORWARD ME_32A9F8710D6B
 
-FORWARD ME_F8AED6F6CFD7
-
 FORWARD ME_3F3A50436E8F
-
-: ME_048306129894
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_048306129894 aCtx
-
-: ME_048306129895
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_048306129895 aMainWindow
-
-: ME_F8AED6F6CFD7
- CONST UID 'F8AED6F6CFD7'
- CONST Name 'RemindersLine'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.RemindersLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_3F3A50436E8F // MainWindow_RemindersLine
- ;
- : Target WL 'ME_4DA8339901A7' '4C52A6610123.pas.ms.script' // TnscRemindersLine
- ;
- : Parameters
-   Seq: ( ME_048306129894 // aCtx
- ME_048306129895 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_32A9F8710D6B // RemindersLine
- ;
-
-ref; // ME_F8AED6F6CFD7 RemindersLine
-
-: ME_52A5B8FF7971
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_3F3A50436E8F // MainWindow_RemindersLine
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_52A5B8FF7971 
 
 : ME_4DAEEDE10285_ME_3F3A50436E8F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_3F3A50436E8F DoDoIt
-
-: ME_52D00B00031A_ME_3F3A50436E8F
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_3F3A50436E8F SetValuePrim
-
-: ME_551544E2001A_ME_3F3A50436E8F
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_3F3A50436E8F GetResultTypeInfo
-
-: ME_559687E6025A_ME_3F3A50436E8F
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_3F3A50436E8F GetAllParamsCount
-
-: ME_5617F4D00243_ME_3F3A50436E8F
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_3F3A50436E8F ParamsTypes
 
 : ME_3F3A50436E8F
  CONST UID '3F3A50436E8F'
@@ -8504,7 +8102,7 @@ ref; // ME_5617F4D00243_ME_3F3A50436E8F ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.RemindersLine'#13#10'{panel}Контрол RemindersLine формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscRemindersLine'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscRemindersLine'#13#10' aMainWindow .TnsMainWindow.RemindersLine >>> l_TnscRemindersLine'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.RemindersLine' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8513,30 +8111,11 @@ ref; // ME_5617F4D00243_ME_3F3A50436E8F ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F8AED6F6CFD7 // RemindersLine
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_3F3A50436E8F // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_3F3A50436E8F // SetValuePrim
- ME_551544E2001A_ME_3F3A50436E8F // GetResultTypeInfo
- ME_559687E6025A_ME_3F3A50436E8F // GetAllParamsCount
- ME_5617F4D00243_ME_3F3A50436E8F // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_52A5B8FF7971 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.RemindersLine'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowRemindersLine'
  CONST extprop:rc:SelfName 'MainWindowRemindersLine'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8544,99 +8123,18 @@ ref; // ME_5617F4D00243_ME_3F3A50436E8F ParamsTypes
  ;
  : SpelledFor ME_32A9F8710D6B // RemindersLine
  ;
- : Stub ME_F8AED6F6CFD7 // RemindersLine
- ;
 
 ref; // ME_3F3A50436E8F MainWindow_RemindersLine
 
 FORWARD ME_7861F3F6418F
 
-FORWARD ME_5A562B6AB425
-
 FORWARD ME_FCB9DBB9A96D
-
-: ME_7118BC8EF661
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7118BC8EF661 aCtx
-
-: ME_7118BC8EF662
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_7118BC8EF662 aMainWindow
-
-: ME_5A562B6AB425
- CONST UID '5A562B6AB425'
- CONST Name 'ControlledChangingWarning'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.ControlledChangingWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FCB9DBB9A96D // MainWindow_ControlledChangingWarning
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
- : Parameters
-   Seq: ( ME_7118BC8EF661 // aCtx
- ME_7118BC8EF662 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_7861F3F6418F // ControlledChangingWarning
- ;
-
-ref; // ME_5A562B6AB425 ControlledChangingWarning
-
-: ME_DDEB50A55B73
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FCB9DBB9A96D // MainWindow_ControlledChangingWarning
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DDEB50A55B73 
 
 : ME_4DAEEDE10285_ME_FCB9DBB9A96D
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FCB9DBB9A96D DoDoIt
-
-: ME_52D00B00031A_ME_FCB9DBB9A96D
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_FCB9DBB9A96D SetValuePrim
-
-: ME_551544E2001A_ME_FCB9DBB9A96D
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_FCB9DBB9A96D GetResultTypeInfo
-
-: ME_559687E6025A_ME_FCB9DBB9A96D
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_FCB9DBB9A96D GetAllParamsCount
-
-: ME_5617F4D00243_ME_FCB9DBB9A96D
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_FCB9DBB9A96D ParamsTypes
 
 : ME_FCB9DBB9A96D
  CONST UID 'FCB9DBB9A96D'
@@ -8645,7 +8143,7 @@ ref; // ME_5617F4D00243_ME_FCB9DBB9A96D ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.ControlledChangingWarning'#13#10'{panel}Контрол ControlledChangingWarning формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscReminder'#13#10' aMainWindow .TnsMainWindow.ControlledChangingWarning >>> l_TnscReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.ControlledChangingWarning' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8654,30 +8152,11 @@ ref; // ME_5617F4D00243_ME_FCB9DBB9A96D ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5A562B6AB425 // ControlledChangingWarning
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_FCB9DBB9A96D // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_FCB9DBB9A96D // SetValuePrim
- ME_551544E2001A_ME_FCB9DBB9A96D // GetResultTypeInfo
- ME_559687E6025A_ME_FCB9DBB9A96D // GetAllParamsCount
- ME_5617F4D00243_ME_FCB9DBB9A96D // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DDEB50A55B73 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.ControlledChangingWarning'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowControlledChangingWarning'
  CONST extprop:rc:SelfName 'MainWindowControlledChangingWarning'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8685,99 +8164,18 @@ ref; // ME_5617F4D00243_ME_FCB9DBB9A96D ParamsTypes
  ;
  : SpelledFor ME_7861F3F6418F // ControlledChangingWarning
  ;
- : Stub ME_5A562B6AB425 // ControlledChangingWarning
- ;
 
 ref; // ME_FCB9DBB9A96D MainWindow_ControlledChangingWarning
 
 FORWARD ME_D62083514DA8
 
-FORWARD ME_5AC6608233EB
-
 FORWARD ME_797CD35061B7
-
-: ME_5B6E57973536
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5B6E57973536 aCtx
-
-: ME_5B6E57973537
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_5B6E57973537 aMainWindow
-
-: ME_5AC6608233EB
- CONST UID '5AC6608233EB'
- CONST Name 'remUnreadConsultations'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.remUnreadConsultations' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_797CD35061B7 // MainWindow_remUnreadConsultations
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
- : Parameters
-   Seq: ( ME_5B6E57973536 // aCtx
- ME_5B6E57973537 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_D62083514DA8 // remUnreadConsultations
- ;
-
-ref; // ME_5AC6608233EB remUnreadConsultations
-
-: ME_E811E2B6BCE6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_797CD35061B7 // MainWindow_remUnreadConsultations
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E811E2B6BCE6 
 
 : ME_4DAEEDE10285_ME_797CD35061B7
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_797CD35061B7 DoDoIt
-
-: ME_52D00B00031A_ME_797CD35061B7
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_797CD35061B7 SetValuePrim
-
-: ME_551544E2001A_ME_797CD35061B7
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_797CD35061B7 GetResultTypeInfo
-
-: ME_559687E6025A_ME_797CD35061B7
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_797CD35061B7 GetAllParamsCount
-
-: ME_5617F4D00243_ME_797CD35061B7
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_797CD35061B7 ParamsTypes
 
 : ME_797CD35061B7
  CONST UID '797CD35061B7'
@@ -8786,7 +8184,7 @@ ref; // ME_5617F4D00243_ME_797CD35061B7 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.remUnreadConsultations'#13#10'{panel}Контрол remUnreadConsultations формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscReminder'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscReminder'#13#10' aMainWindow .TnsMainWindow.remUnreadConsultations >>> l_TnscReminder'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.remUnreadConsultations' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8795,30 +8193,11 @@ ref; // ME_5617F4D00243_ME_797CD35061B7 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5AC6608233EB // remUnreadConsultations
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_797CD35061B7 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_797CD35061B7 // SetValuePrim
- ME_551544E2001A_ME_797CD35061B7 // GetResultTypeInfo
- ME_559687E6025A_ME_797CD35061B7 // GetAllParamsCount
- ME_5617F4D00243_ME_797CD35061B7 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E811E2B6BCE6 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.remUnreadConsultations'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowRemUnreadConsultations'
  CONST extprop:rc:SelfName 'MainWindowRemUnreadConsultations'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8826,99 +8205,18 @@ ref; // ME_5617F4D00243_ME_797CD35061B7 ParamsTypes
  ;
  : SpelledFor ME_D62083514DA8 // remUnreadConsultations
  ;
- : Stub ME_5AC6608233EB // remUnreadConsultations
- ;
 
 ref; // ME_797CD35061B7 MainWindow_remUnreadConsultations
 
 FORWARD ME_87AAC7E891EB
 
-FORWARD ME_7D34C7D8B1E6
-
 FORWARD ME_CE0BB644ECC0
-
-: ME_2749BA219CBF
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_2749BA219CBF aCtx
-
-: ME_2749BA219CC0
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_2749BA219CC0 aMainWindow
-
-: ME_7D34C7D8B1E6
- CONST UID '7D34C7D8B1E6'
- CONST Name 'StatusBar'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.StatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CE0BB644ECC0 // MainWindow_StatusBar
- ;
- : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
- ;
- : Parameters
-   Seq: ( ME_2749BA219CBF // aCtx
- ME_2749BA219CC0 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_87AAC7E891EB // StatusBar
- ;
-
-ref; // ME_7D34C7D8B1E6 StatusBar
-
-: ME_8FECF767D163
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CE0BB644ECC0 // MainWindow_StatusBar
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_8FECF767D163 
 
 : ME_4DAEEDE10285_ME_CE0BB644ECC0
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CE0BB644ECC0 DoDoIt
-
-: ME_52D00B00031A_ME_CE0BB644ECC0
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_CE0BB644ECC0 SetValuePrim
-
-: ME_551544E2001A_ME_CE0BB644ECC0
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_CE0BB644ECC0 GetResultTypeInfo
-
-: ME_559687E6025A_ME_CE0BB644ECC0
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_CE0BB644ECC0 GetAllParamsCount
-
-: ME_5617F4D00243_ME_CE0BB644ECC0
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_CE0BB644ECC0 ParamsTypes
 
 : ME_CE0BB644ECC0
  CONST UID 'CE0BB644ECC0'
@@ -8927,7 +8225,7 @@ ref; // ME_5617F4D00243_ME_CE0BB644ECC0 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.StatusBar'#13#10'{panel}Контрол StatusBar формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscStatusBar'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscStatusBar'#13#10' aMainWindow .TnsMainWindow.StatusBar >>> l_TnscStatusBar'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.StatusBar' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -8936,30 +8234,11 @@ ref; // ME_5617F4D00243_ME_CE0BB644ECC0 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7D34C7D8B1E6 // StatusBar
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_CE0BB644ECC0 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_CE0BB644ECC0 // SetValuePrim
- ME_551544E2001A_ME_CE0BB644ECC0 // GetResultTypeInfo
- ME_559687E6025A_ME_CE0BB644ECC0 // GetAllParamsCount
- ME_5617F4D00243_ME_CE0BB644ECC0 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_8FECF767D163 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.StatusBar'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowStatusBar'
  CONST extprop:rc:SelfName 'MainWindowStatusBar'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8967,99 +8246,18 @@ ref; // ME_5617F4D00243_ME_CE0BB644ECC0 ParamsTypes
  ;
  : SpelledFor ME_87AAC7E891EB // StatusBar
  ;
- : Stub ME_7D34C7D8B1E6 // StatusBar
- ;
 
 ref; // ME_CE0BB644ECC0 MainWindow_StatusBar
 
 FORWARD ME_9F442CC62F01
 
-FORWARD ME_94BE93BDD48E
-
 FORWARD ME_FE6607BEAD6E
-
-: ME_D10175F59D90
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D10175F59D90 aCtx
-
-: ME_D10175F59D91
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_D10175F59D91 aMainWindow
-
-: ME_94BE93BDD48E
- CONST UID '94BE93BDD48E'
- CONST Name 'ClientZone'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.ClientZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FE6607BEAD6E // MainWindow_ClientZone
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- : Parameters
-   Seq: ( ME_D10175F59D90 // aCtx
- ME_D10175F59D91 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_9F442CC62F01 // ClientZone
- ;
-
-ref; // ME_94BE93BDD48E ClientZone
-
-: ME_2351FDE6C20E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FE6607BEAD6E // MainWindow_ClientZone
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_2351FDE6C20E 
 
 : ME_4DAEEDE10285_ME_FE6607BEAD6E
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_FE6607BEAD6E DoDoIt
-
-: ME_52D00B00031A_ME_FE6607BEAD6E
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_FE6607BEAD6E SetValuePrim
-
-: ME_551544E2001A_ME_FE6607BEAD6E
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_FE6607BEAD6E GetResultTypeInfo
-
-: ME_559687E6025A_ME_FE6607BEAD6E
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_FE6607BEAD6E GetAllParamsCount
-
-: ME_5617F4D00243_ME_FE6607BEAD6E
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_FE6607BEAD6E ParamsTypes
 
 : ME_FE6607BEAD6E
  CONST UID 'FE6607BEAD6E'
@@ -9068,7 +8266,7 @@ ref; // ME_5617F4D00243_ME_FE6607BEAD6E ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.ClientZone'#13#10'{panel}Контрол ClientZone формы TnsMainWindow{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMainWindow .TnsMainWindow.ClientZone >>> l_TvtPanel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.ClientZone' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9077,30 +8275,11 @@ ref; // ME_5617F4D00243_ME_FE6607BEAD6E ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_94BE93BDD48E // ClientZone
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_FE6607BEAD6E // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_FE6607BEAD6E // SetValuePrim
- ME_551544E2001A_ME_FE6607BEAD6E // GetResultTypeInfo
- ME_559687E6025A_ME_FE6607BEAD6E // GetAllParamsCount
- ME_5617F4D00243_ME_FE6607BEAD6E // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2351FDE6C20E // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.ClientZone'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowClientZone'
  CONST extprop:rc:SelfName 'MainWindowClientZone'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9108,99 +8287,18 @@ ref; // ME_5617F4D00243_ME_FE6607BEAD6E ParamsTypes
  ;
  : SpelledFor ME_9F442CC62F01 // ClientZone
  ;
- : Stub ME_94BE93BDD48E // ClientZone
- ;
 
 ref; // ME_FE6607BEAD6E MainWindow_ClientZone
 
 FORWARD ME_B8F9A59D47C3
 
-FORWARD ME_ABD85089DCD3
-
 FORWARD ME_A864C41E05F1
-
-: ME_511AE6573D55
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_511AE6573D55 aCtx
-
-: ME_511AE6573D56
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_511AE6573D56 aMainWindow
-
-: ME_ABD85089DCD3
- CONST UID 'ABD85089DCD3'
- CONST Name 'MainZone'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.MainZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A864C41E05F1 // MainWindow_MainZone
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
- : Parameters
-   Seq: ( ME_511AE6573D55 // aCtx
- ME_511AE6573D56 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_B8F9A59D47C3 // MainZone
- ;
-
-ref; // ME_ABD85089DCD3 MainZone
-
-: ME_28A04A073CA4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A864C41E05F1 // MainWindow_MainZone
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_28A04A073CA4 
 
 : ME_4DAEEDE10285_ME_A864C41E05F1
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_A864C41E05F1 DoDoIt
-
-: ME_52D00B00031A_ME_A864C41E05F1
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_A864C41E05F1 SetValuePrim
-
-: ME_551544E2001A_ME_A864C41E05F1
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_A864C41E05F1 GetResultTypeInfo
-
-: ME_559687E6025A_ME_A864C41E05F1
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_A864C41E05F1 GetAllParamsCount
-
-: ME_5617F4D00243_ME_A864C41E05F1
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_A864C41E05F1 ParamsTypes
 
 : ME_A864C41E05F1
  CONST UID 'A864C41E05F1'
@@ -9209,7 +8307,7 @@ ref; // ME_5617F4D00243_ME_A864C41E05F1 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.MainZone'#13#10'{panel}Контрол MainZone формы TnsMainWindow{panel}'#13#10'*Тип результата:* TvtProportionalPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtProportionalPanel'#13#10' aMainWindow .TnsMainWindow.MainZone >>> l_TvtProportionalPanel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.MainZone' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9218,30 +8316,11 @@ ref; // ME_5617F4D00243_ME_A864C41E05F1 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_ABD85089DCD3 // MainZone
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_A864C41E05F1 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_A864C41E05F1 // SetValuePrim
- ME_551544E2001A_ME_A864C41E05F1 // GetResultTypeInfo
- ME_559687E6025A_ME_A864C41E05F1 // GetAllParamsCount
- ME_5617F4D00243_ME_A864C41E05F1 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_28A04A073CA4 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.MainZone'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowMainZone'
  CONST extprop:rc:SelfName 'MainWindowMainZone'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9249,99 +8328,18 @@ ref; // ME_5617F4D00243_ME_A864C41E05F1 ParamsTypes
  ;
  : SpelledFor ME_B8F9A59D47C3 // MainZone
  ;
- : Stub ME_ABD85089DCD3 // MainZone
- ;
 
 ref; // ME_A864C41E05F1 MainWindow_MainZone
 
 FORWARD ME_A1E7DF97292E
 
-FORWARD ME_7FBB821426B4
-
 FORWARD ME_42983EB4E606
-
-: ME_EB7BC71F9850
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_EB7BC71F9850 aCtx
-
-: ME_EB7BC71F9851
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_EB7BC71F9851 aMainWindow
-
-: ME_7FBB821426B4
- CONST UID '7FBB821426B4'
- CONST Name 'ParentZonePanel'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.ParentZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_42983EB4E606 // MainWindow_ParentZonePanel
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- : Parameters
-   Seq: ( ME_EB7BC71F9850 // aCtx
- ME_EB7BC71F9851 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_A1E7DF97292E // ParentZonePanel
- ;
-
-ref; // ME_7FBB821426B4 ParentZonePanel
-
-: ME_E938A60B4D85
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_42983EB4E606 // MainWindow_ParentZonePanel
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E938A60B4D85 
 
 : ME_4DAEEDE10285_ME_42983EB4E606
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_42983EB4E606 DoDoIt
-
-: ME_52D00B00031A_ME_42983EB4E606
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_42983EB4E606 SetValuePrim
-
-: ME_551544E2001A_ME_42983EB4E606
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_42983EB4E606 GetResultTypeInfo
-
-: ME_559687E6025A_ME_42983EB4E606
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_42983EB4E606 GetAllParamsCount
-
-: ME_5617F4D00243_ME_42983EB4E606
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_42983EB4E606 ParamsTypes
 
 : ME_42983EB4E606
  CONST UID '42983EB4E606'
@@ -9350,7 +8348,7 @@ ref; // ME_5617F4D00243_ME_42983EB4E606 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.ParentZonePanel'#13#10'{panel}Контрол ParentZonePanel формы TnsMainWindow{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMainWindow .TnsMainWindow.ParentZonePanel >>> l_TvtPanel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.ParentZonePanel' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9359,30 +8357,11 @@ ref; // ME_5617F4D00243_ME_42983EB4E606 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7FBB821426B4 // ParentZonePanel
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_42983EB4E606 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_42983EB4E606 // SetValuePrim
- ME_551544E2001A_ME_42983EB4E606 // GetResultTypeInfo
- ME_559687E6025A_ME_42983EB4E606 // GetAllParamsCount
- ME_5617F4D00243_ME_42983EB4E606 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E938A60B4D85 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.ParentZonePanel'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowParentZonePanel'
  CONST extprop:rc:SelfName 'MainWindowParentZonePanel'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9390,99 +8369,18 @@ ref; // ME_5617F4D00243_ME_42983EB4E606 ParamsTypes
  ;
  : SpelledFor ME_A1E7DF97292E // ParentZonePanel
  ;
- : Stub ME_7FBB821426B4 // ParentZonePanel
- ;
 
 ref; // ME_42983EB4E606 MainWindow_ParentZonePanel
 
 FORWARD ME_D7486BCB224D
 
-FORWARD ME_35D0EA46C2E7
-
 FORWARD ME_815BB0E77000
-
-: ME_DA4A3EE302D1
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_DA4A3EE302D1 aCtx
-
-: ME_DA4A3EE302D2
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_DA4A3EE302D2 aMainWindow
-
-: ME_35D0EA46C2E7
- CONST UID '35D0EA46C2E7'
- CONST Name 'ChildZonePanel'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.ChildZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_815BB0E77000 // MainWindow_ChildZonePanel
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
- : Parameters
-   Seq: ( ME_DA4A3EE302D1 // aCtx
- ME_DA4A3EE302D2 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_D7486BCB224D // ChildZonePanel
- ;
-
-ref; // ME_35D0EA46C2E7 ChildZonePanel
-
-: ME_46A4EF7751E7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_815BB0E77000 // MainWindow_ChildZonePanel
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_46A4EF7751E7 
 
 : ME_4DAEEDE10285_ME_815BB0E77000
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_815BB0E77000 DoDoIt
-
-: ME_52D00B00031A_ME_815BB0E77000
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_815BB0E77000 SetValuePrim
-
-: ME_551544E2001A_ME_815BB0E77000
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_815BB0E77000 GetResultTypeInfo
-
-: ME_559687E6025A_ME_815BB0E77000
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_815BB0E77000 GetAllParamsCount
-
-: ME_5617F4D00243_ME_815BB0E77000
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_815BB0E77000 ParamsTypes
 
 : ME_815BB0E77000
  CONST UID '815BB0E77000'
@@ -9491,7 +8389,7 @@ ref; // ME_5617F4D00243_ME_815BB0E77000 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.ChildZonePanel'#13#10'{panel}Контрол ChildZonePanel формы TnsMainWindow{panel}'#13#10'*Тип результата:* TvtSizeablePanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtSizeablePanel'#13#10' aMainWindow .TnsMainWindow.ChildZonePanel >>> l_TvtSizeablePanel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.ChildZonePanel' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9500,30 +8398,11 @@ ref; // ME_5617F4D00243_ME_815BB0E77000 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_35D0EA46C2E7 // ChildZonePanel
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_815BB0E77000 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_815BB0E77000 // SetValuePrim
- ME_551544E2001A_ME_815BB0E77000 // GetResultTypeInfo
- ME_559687E6025A_ME_815BB0E77000 // GetAllParamsCount
- ME_5617F4D00243_ME_815BB0E77000 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_46A4EF7751E7 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.ChildZonePanel'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowChildZonePanel'
  CONST extprop:rc:SelfName 'MainWindowChildZonePanel'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9531,99 +8410,18 @@ ref; // ME_5617F4D00243_ME_815BB0E77000 ParamsTypes
  ;
  : SpelledFor ME_D7486BCB224D // ChildZonePanel
  ;
- : Stub ME_35D0EA46C2E7 // ChildZonePanel
- ;
 
 ref; // ME_815BB0E77000 MainWindow_ChildZonePanel
 
 FORWARD ME_6A38BA664517
 
-FORWARD ME_6C03BAF08409
-
 FORWARD ME_0BBD18013246
-
-: ME_5496CF7DD31A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5496CF7DD31A aCtx
-
-: ME_5496CF7DD31B
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_5496CF7DD31B aMainWindow
-
-: ME_6C03BAF08409
- CONST UID '6C03BAF08409'
- CONST Name 'BaseSearchPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.BaseSearchPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0BBD18013246 // MainWindow_BaseSearchPanel
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- : Parameters
-   Seq: ( ME_5496CF7DD31A // aCtx
- ME_5496CF7DD31B // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_6A38BA664517 // BaseSearchPanel
- ;
-
-ref; // ME_6C03BAF08409 BaseSearchPanel
-
-: ME_E7C26CBBD8A4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0BBD18013246 // MainWindow_BaseSearchPanel
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E7C26CBBD8A4 
 
 : ME_4DAEEDE10285_ME_0BBD18013246
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0BBD18013246 DoDoIt
-
-: ME_52D00B00031A_ME_0BBD18013246
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_0BBD18013246 SetValuePrim
-
-: ME_551544E2001A_ME_0BBD18013246
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0BBD18013246 GetResultTypeInfo
-
-: ME_559687E6025A_ME_0BBD18013246
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0BBD18013246 GetAllParamsCount
-
-: ME_5617F4D00243_ME_0BBD18013246
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0BBD18013246 ParamsTypes
 
 : ME_0BBD18013246
  CONST UID '0BBD18013246'
@@ -9632,7 +8430,7 @@ ref; // ME_5617F4D00243_ME_0BBD18013246 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.BaseSearchPanel'#13#10'{panel}Контрол BaseSearchPanel формы TnsMainWindow{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMainWindow .TnsMainWindow.BaseSearchPanel >>> l_TvtPanel'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.BaseSearchPanel' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9641,30 +8439,11 @@ ref; // ME_5617F4D00243_ME_0BBD18013246 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6C03BAF08409 // BaseSearchPanel
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0BBD18013246 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_0BBD18013246 // SetValuePrim
- ME_551544E2001A_ME_0BBD18013246 // GetResultTypeInfo
- ME_559687E6025A_ME_0BBD18013246 // GetAllParamsCount
- ME_5617F4D00243_ME_0BBD18013246 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E7C26CBBD8A4 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.BaseSearchPanel'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowBaseSearchPanel'
  CONST extprop:rc:SelfName 'MainWindowBaseSearchPanel'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9672,99 +8451,18 @@ ref; // ME_5617F4D00243_ME_0BBD18013246 ParamsTypes
  ;
  : SpelledFor ME_6A38BA664517 // BaseSearchPanel
  ;
- : Stub ME_6C03BAF08409 // BaseSearchPanel
- ;
 
 ref; // ME_0BBD18013246 MainWindow_BaseSearchPanel
 
 FORWARD ME_5DF6E765615A
 
-FORWARD ME_44132250FA6E
-
 FORWARD ME_BDCC906B453B
-
-: ME_3599AA1661A7
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_3599AA1661A7 aCtx
-
-: ME_3599AA1661A8
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_3599AA1661A8 aMainWindow
-
-: ME_44132250FA6E
- CONST UID '44132250FA6E'
- CONST Name 'LeftNavigator'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.LeftNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BDCC906B453B // MainWindow_LeftNavigator
- ;
- : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
- ;
- : Parameters
-   Seq: ( ME_3599AA1661A7 // aCtx
- ME_3599AA1661A8 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_5DF6E765615A // LeftNavigator
- ;
-
-ref; // ME_44132250FA6E LeftNavigator
-
-: ME_E0D06B4E1C8B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BDCC906B453B // MainWindow_LeftNavigator
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_E0D06B4E1C8B 
 
 : ME_4DAEEDE10285_ME_BDCC906B453B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_BDCC906B453B DoDoIt
-
-: ME_52D00B00031A_ME_BDCC906B453B
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_BDCC906B453B SetValuePrim
-
-: ME_551544E2001A_ME_BDCC906B453B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_BDCC906B453B GetResultTypeInfo
-
-: ME_559687E6025A_ME_BDCC906B453B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_BDCC906B453B GetAllParamsCount
-
-: ME_5617F4D00243_ME_BDCC906B453B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_BDCC906B453B ParamsTypes
 
 : ME_BDCC906B453B
  CONST UID 'BDCC906B453B'
@@ -9773,7 +8471,7 @@ ref; // ME_5617F4D00243_ME_BDCC906B453B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.LeftNavigator'#13#10'{panel}Контрол LeftNavigator формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscNavigator'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscNavigator'#13#10' aMainWindow .TnsMainWindow.LeftNavigator >>> l_TnscNavigator'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.LeftNavigator' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9782,30 +8480,11 @@ ref; // ME_5617F4D00243_ME_BDCC906B453B ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_44132250FA6E // LeftNavigator
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_BDCC906B453B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_BDCC906B453B // SetValuePrim
- ME_551544E2001A_ME_BDCC906B453B // GetResultTypeInfo
- ME_559687E6025A_ME_BDCC906B453B // GetAllParamsCount
- ME_5617F4D00243_ME_BDCC906B453B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E0D06B4E1C8B // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.LeftNavigator'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowLeftNavigator'
  CONST extprop:rc:SelfName 'MainWindowLeftNavigator'
  CONST extprop:rc:isAcceptableForScripts true
@@ -9813,99 +8492,18 @@ ref; // ME_5617F4D00243_ME_BDCC906B453B ParamsTypes
  ;
  : SpelledFor ME_5DF6E765615A // LeftNavigator
  ;
- : Stub ME_44132250FA6E // LeftNavigator
- ;
 
 ref; // ME_BDCC906B453B MainWindow_LeftNavigator
 
 FORWARD ME_F9343DB4ACE9
 
-FORWARD ME_A3B067FF2276
-
 FORWARD ME_E38152ED8F57
-
-: ME_BA83049C92CF
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_BA83049C92CF aCtx
-
-: ME_BA83049C92D0
- CONST Name 'aMainWindow'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_BA83049C92D0 aMainWindow
-
-: ME_A3B067FF2276
- CONST UID 'A3B067FF2276'
- CONST Name 'RightNavigator'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TnsMainWindow.RightNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E38152ED8F57 // MainWindow_RightNavigator
- ;
- : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
- ;
- : Parameters
-   Seq: ( ME_BA83049C92CF // aCtx
- ME_BA83049C92D0 // aMainWindow
- )
- ; // Parameters
- : SpelledFor ME_F9343DB4ACE9 // RightNavigator
- ;
-
-ref; // ME_A3B067FF2276 RightNavigator
-
-: ME_EC34B75D50F3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E38152ED8F57 // MainWindow_RightNavigator
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_EC34B75D50F3 
 
 : ME_4DAEEDE10285_ME_E38152ED8F57
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E38152ED8F57 DoDoIt
-
-: ME_52D00B00031A_ME_E38152ED8F57
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_E38152ED8F57 SetValuePrim
-
-: ME_551544E2001A_ME_E38152ED8F57
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E38152ED8F57 GetResultTypeInfo
-
-: ME_559687E6025A_ME_E38152ED8F57
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E38152ED8F57 GetAllParamsCount
-
-: ME_5617F4D00243_ME_E38152ED8F57
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E38152ED8F57 ParamsTypes
 
 : ME_E38152ED8F57
  CONST UID 'E38152ED8F57'
@@ -9914,7 +8512,7 @@ ref; // ME_5617F4D00243_ME_E38152ED8F57 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TnsMainWindow.RightNavigator'#13#10'{panel}Контрол RightNavigator формы TnsMainWindow{panel}'#13#10'*Тип результата:* TnscNavigator'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscNavigator'#13#10' aMainWindow .TnsMainWindow.RightNavigator >>> l_TnscNavigator'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TnsMainWindow.RightNavigator' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_293F188416C6 // MainWindowKeywordsPack
@@ -9923,39 +8521,18 @@ ref; // ME_5617F4D00243_ME_E38152ED8F57 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A3B067FF2276 // RightNavigator
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_E38152ED8F57 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_E38152ED8F57 // SetValuePrim
- ME_551544E2001A_ME_E38152ED8F57 // GetResultTypeInfo
- ME_559687E6025A_ME_E38152ED8F57 // GetAllParamsCount
- ME_5617F4D00243_ME_E38152ED8F57 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_EC34B75D50F3 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TnsMainWindow.RightNavigator'
  CONST "ifdef" 'HasRightNavigator'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwMainWindowRightNavigator'
  CONST extprop:rc:SelfName 'MainWindowRightNavigator'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller ME_4AA7EA010274 // MainWindow
  ;
  : SpelledFor ME_F9343DB4ACE9 // RightNavigator
- ;
- : Stub ME_A3B067FF2276 // RightNavigator
  ;
 
 ref; // ME_E38152ED8F57 MainWindow_RightNavigator
@@ -10260,8 +8837,6 @@ ref; // ME_7277467CF231 RightNavigator
  : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
  ;
  CONST "NameForScript" '.TnsMainWindow.remOnlineDead'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'remOnlineDead'
@@ -10284,8 +8859,6 @@ ref; // ME_D0455449024D remOnlineDead
  : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
  ;
  CONST "NameForScript" '.TnsMainWindow.remNewChatMessages'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'remNewChatMessages'
@@ -10308,8 +8881,6 @@ ref; // ME_337E8DA08CA4 remNewChatMessages
  : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
  ;
  CONST "NameForScript" '.TnsMainWindow.TrialModeWarning'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'TrialModeWarning'
@@ -10332,8 +8903,6 @@ ref; // ME_1333F642A3A7 TrialModeWarning
  : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
  ;
  CONST "NameForScript" '.TnsMainWindow.OldBaseWarning'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'OldBaseWarning'
@@ -10356,8 +8925,6 @@ ref; // ME_E63F32BFD6E1 OldBaseWarning
  : Target WL 'ME_4DA8339901A7' '4C52A6610123.pas.ms.script' // TnscRemindersLine
  ;
  CONST "NameForScript" '.TnsMainWindow.RemindersLine'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'RemindersLine'
@@ -10380,8 +8947,6 @@ ref; // ME_32A9F8710D6B RemindersLine
  : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
  ;
  CONST "NameForScript" '.TnsMainWindow.ControlledChangingWarning'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ControlledChangingWarning'
@@ -10404,8 +8969,6 @@ ref; // ME_7861F3F6418F ControlledChangingWarning
  : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
  ;
  CONST "NameForScript" '.TnsMainWindow.remUnreadConsultations'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'remUnreadConsultations'
@@ -10428,8 +8991,6 @@ ref; // ME_D62083514DA8 remUnreadConsultations
  : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
  ;
  CONST "NameForScript" '.TnsMainWindow.StatusBar'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'StatusBar'
@@ -10452,8 +9013,6 @@ ref; // ME_87AAC7E891EB StatusBar
  : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  ;
  CONST "NameForScript" '.TnsMainWindow.ClientZone'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ClientZone'
@@ -10476,8 +9035,6 @@ ref; // ME_9F442CC62F01 ClientZone
  : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
  ;
  CONST "NameForScript" '.TnsMainWindow.MainZone'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'MainZone'
@@ -10500,8 +9057,6 @@ ref; // ME_B8F9A59D47C3 MainZone
  : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  ;
  CONST "NameForScript" '.TnsMainWindow.ParentZonePanel'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ParentZonePanel'
@@ -10524,8 +9079,6 @@ ref; // ME_A1E7DF97292E ParentZonePanel
  : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
  ;
  CONST "NameForScript" '.TnsMainWindow.ChildZonePanel'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'ChildZonePanel'
@@ -10548,8 +9101,6 @@ ref; // ME_D7486BCB224D ChildZonePanel
  : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  ;
  CONST "NameForScript" '.TnsMainWindow.BaseSearchPanel'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'BaseSearchPanel'
@@ -10572,8 +9123,6 @@ ref; // ME_6A38BA664517 BaseSearchPanel
  : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
  ;
  CONST "NameForScript" '.TnsMainWindow.LeftNavigator'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'LeftNavigator'
@@ -10596,9 +9145,7 @@ ref; // ME_5DF6E765615A LeftNavigator
  : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
  ;
  CONST "NameForScript" '.TnsMainWindow.RightNavigator'
- CONST "bind params" 'undefined'
  CONST "ifdef" 'HasRightNavigator'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'RightNavigator'
@@ -10606,150 +9153,6 @@ ref; // ME_5DF6E765615A LeftNavigator
  ;
 
 ref; // ME_F9343DB4ACE9 RightNavigator
-
-: ME_040D35F62E07
- CONST UID '040D35F62E07'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_040D35F62E07 Reg_Type_TtfwContext
-
-: ME_CF05DA685FF4
- CONST UID 'CF05DA685FF4'
- CONST Name 'Reg_Type_MainWindow'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа MainWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor ME_4AA7EA010274 // MainWindow
- ;
-
-ref; // ME_CF05DA685FF4 Reg_Type_MainWindow
-
-: ME_8D3D479735C0
- CONST UID '8D3D479735C0'
- CONST Name 'Reg_Type_TnscReminder'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TnscReminder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
-
-ref; // ME_8D3D479735C0 Reg_Type_TnscReminder
-
-: ME_3994074C4F3D
- CONST UID '3994074C4F3D'
- CONST Name 'Reg_Type_TnscRemindersLine'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TnscRemindersLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4DA8339901A7' '4C52A6610123.pas.ms.script' // TnscRemindersLine
- ;
-
-ref; // ME_3994074C4F3D Reg_Type_TnscRemindersLine
-
-: ME_0CFCA043D21C
- CONST UID '0CFCA043D21C'
- CONST Name 'Reg_Type_TnscStatusBar'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TnscStatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
- ;
-
-ref; // ME_0CFCA043D21C Reg_Type_TnscStatusBar
-
-: ME_E8A735C50CC1
- CONST UID 'E8A735C50CC1'
- CONST Name 'Reg_Type_TvtPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_E8A735C50CC1 Reg_Type_TvtPanel
-
-: ME_A11556305B22
- CONST UID 'A11556305B22'
- CONST Name 'Reg_Type_TvtProportionalPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtProportionalPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_A11556305B22 Reg_Type_TvtProportionalPanel
-
-: ME_9103B6A4C10E
- CONST UID '9103B6A4C10E'
- CONST Name 'Reg_Type_TvtSizeablePanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvtSizeablePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_9103B6A4C10E Reg_Type_TvtSizeablePanel
-
-: ME_7D4ADE83D511
- CONST UID '7D4ADE83D511'
- CONST Name 'Reg_Type_TnscNavigator'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TnscNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_293F188416C6 // MainWindowKeywordsPack
- ;
- : SpelledFor WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
- ;
-
-ref; // ME_7D4ADE83D511 Reg_Type_TnscNavigator
 
 : ME_D36CC9FAFC0E
  CONST IsSummoned true
@@ -10812,15 +9215,6 @@ ref; // ME_D36CC9FAFC0E
  ME_6A38BA664517 // BaseSearchPanel
  ME_5DF6E765615A // LeftNavigator
  ME_F9343DB4ACE9 // RightNavigator
- ME_040D35F62E07 // Reg_Type_TtfwContext
- ME_CF05DA685FF4 // Reg_Type_MainWindow
- ME_8D3D479735C0 // Reg_Type_TnscReminder
- ME_3994074C4F3D // Reg_Type_TnscRemindersLine
- ME_0CFCA043D21C // Reg_Type_TnscStatusBar
- ME_E8A735C50CC1 // Reg_Type_TvtPanel
- ME_A11556305B22 // Reg_Type_TvtProportionalPanel
- ME_9103B6A4C10E // Reg_Type_TvtSizeablePanel
- ME_7D4ADE83D511 // Reg_Type_TnscNavigator
  )
  ; // Operations
  : Children
@@ -10878,9 +9272,6 @@ ref; // ME_D36CC9FAFC0E
  ; // Dependencies
  CONST "UseNewGen" true
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainWindowKeywordsPack.pas'
 
@@ -10944,6 +9335,21 @@ ref; // ME_4AA8AF9700CB
  CONST "is static" true
 
 ref; // ME_4AA8AC090381 BeforeCorrectDate
+
+: ME_8D777386EF2C
+ CONST UID '8D777386EF2C'
+ CONST Name 'Ini_Reg_Class'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimNemesis' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4A925AFF01BA // PrimNemesis
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_8D777386EF2C Ini_Reg_Class
 
 : ME_4AA7C2FD0185
  CONST Class class_Dependency
@@ -11175,6 +9581,17 @@ ref; // ME_5518EE0101BF
 
 ref; // ME_556489D2014B 
 
+: ME_628F6265FF78
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_628F6265FF78 
+
 : ME_4AA7C28A0113_ME_4A925AFF01BA
  : Original WL 'ME_4AA7C28A0113' '4986ECDF01F4.pas.ms.script' // RunOtherProcesses
  ;
@@ -11217,6 +9634,7 @@ ref; // ME_4AC4A69D03B7_ME_4A925AFF01BA OpenQuery
  ; // Inherits
  : Operations
    Seq: ( ME_4AA8AC090381 // BeforeCorrectDate
+ ME_8D777386EF2C // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -11259,13 +9677,11 @@ ref; // ME_4AC4A69D03B7_ME_4A925AFF01BA OpenQuery
  ME_54915CC6021C // TvgRemindersLineTabbedContainerNotificationProxy
  ME_5518EE0101BF // TChromeLikeTabSetParams
  ME_556489D2014B // vtDateEditRes
+ ME_628F6265FF78 // TtfwClassRef
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas'
  CONST extprop:pas:TypeName 'TPrimNemesisRes'
  CONST extprop:rc:SelfName 'PrimNemesisRes'
@@ -11314,7 +9730,6 @@ ref; // ME_4A925AFF01BA PrimNemesis
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_46837A08002C' '46837A08002C.pas.ms.script' // nsQueryInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
@@ -11376,7 +9791,6 @@ ref; // ME_4A925AFF01BA PrimNemesis
  WL 'ME_4BD856E802F9' '4BD856E802F9.pas.ms.script' // FormDefinitions
  WL 'ME_4C52A6610123' '4C52A6610123.pas.ms.script' // Reminders
  WL 'ME_4D7A0528021A' '4D7A0528021A.pas.ms.script' // PrimBaseSearchInterfaces
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4DC00FC302B7' '4DC00FC302B7.pas.ms.script' // MainWindowInterfaces
  WL 'ME_4DC01054023C' '4DC01054023C.pas.ms.script' // MainWindowControllers
  WL 'ME_4DC010B802AF' '4DC010B802AF.pas.ms.script' // MainWindowControllersRealization

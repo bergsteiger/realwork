@@ -8,92 +8,13 @@ FORWARD ME_54DCB28C0273
 
 FORWARD ME_0EFBF9F4DAD0
 
-FORWARD ME_4A1ADA6890A6
-
 FORWARD ME_B6E9E8EFCE95
-
-: ME_7C3D9D6D3C13
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_7C3D9D6D3C13 aCtx
-
-: ME_7C3D9D6D3C14
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_7C3D9D6D3C14 aForm
-
-: ME_4A1ADA6890A6
- CONST UID '4A1ADA6890A6'
- CONST Name 'IsFloatingStateAndParentNotVisible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Form:IsFloatingStateAndParentNotVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B6E9E8EFCE95 // pop_Form_IsFloatingStateAndParentNotVisible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_7C3D9D6D3C13 // aCtx
- ME_7C3D9D6D3C14 // aForm
- )
- ; // Parameters
- : SpelledFor ME_0EFBF9F4DAD0 // IsFloatingStateAndParentNotVisible
- ;
-
-ref; // ME_4A1ADA6890A6 IsFloatingStateAndParentNotVisible
-
-: ME_6019EADB2D64
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B6E9E8EFCE95 // pop_Form_IsFloatingStateAndParentNotVisible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_6019EADB2D64 
 
 : ME_4DAEEDE10285_ME_B6E9E8EFCE95
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B6E9E8EFCE95 DoDoIt
-
-: ME_52D00B00031A_ME_B6E9E8EFCE95
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_B6E9E8EFCE95 SetValuePrim
-
-: ME_551544E2001A_ME_B6E9E8EFCE95
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B6E9E8EFCE95 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B6E9E8EFCE95
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B6E9E8EFCE95 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B6E9E8EFCE95
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B6E9E8EFCE95 ParamsTypes
 
 : ME_B6E9E8EFCE95
  CONST UID 'B6E9E8EFCE95'
@@ -102,7 +23,7 @@ ref; // ME_5617F4D00243_ME_B6E9E8EFCE95 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aForm pop:Form:IsFloatingStateAndParentNotVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
@@ -111,30 +32,11 @@ ref; // ME_5617F4D00243_ME_B6E9E8EFCE95 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4A1ADA6890A6 // IsFloatingStateAndParentNotVisible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B6E9E8EFCE95 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_B6E9E8EFCE95 // SetValuePrim
- ME_551544E2001A_ME_B6E9E8EFCE95 // GetResultTypeInfo
- ME_559687E6025A_ME_B6E9E8EFCE95 // GetAllParamsCount
- ME_5617F4D00243_ME_B6E9E8EFCE95 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_6019EADB2D64 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Form:IsFloatingStateAndParentNotVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopFormIsFloatingStateAndParentNotVisible'
  CONST extprop:rc:SelfName 'PopFormIsFloatingStateAndParentNotVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -142,99 +44,18 @@ ref; // ME_5617F4D00243_ME_B6E9E8EFCE95 ParamsTypes
  ;
  : SpelledFor ME_0EFBF9F4DAD0 // IsFloatingStateAndParentNotVisible
  ;
- : Stub ME_4A1ADA6890A6 // IsFloatingStateAndParentNotVisible
- ;
 
 ref; // ME_B6E9E8EFCE95 pop_Form_IsFloatingStateAndParentNotVisible
 
 FORWARD ME_67DFF55F21F5
 
-FORWARD ME_1605D41D08A0
-
 FORWARD ME_E5D04ADC6C87
-
-: ME_8C5F0C1ED788
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_8C5F0C1ED788 aCtx
-
-: ME_8C5F0C1ED789
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_8C5F0C1ED789 aForm
-
-: ME_1605D41D08A0
- CONST UID '1605D41D08A0'
- CONST Name 'IsFloatingState'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Form:IsFloatingState' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E5D04ADC6C87 // pop_Form_IsFloatingState
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_8C5F0C1ED788 // aCtx
- ME_8C5F0C1ED789 // aForm
- )
- ; // Parameters
- : SpelledFor ME_67DFF55F21F5 // IsFloatingState
- ;
-
-ref; // ME_1605D41D08A0 IsFloatingState
-
-: ME_DF184E75AEDE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E5D04ADC6C87 // pop_Form_IsFloatingState
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_DF184E75AEDE 
 
 : ME_4DAEEDE10285_ME_E5D04ADC6C87
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_E5D04ADC6C87 DoDoIt
-
-: ME_52D00B00031A_ME_E5D04ADC6C87
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_E5D04ADC6C87 SetValuePrim
-
-: ME_551544E2001A_ME_E5D04ADC6C87
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_E5D04ADC6C87 GetResultTypeInfo
-
-: ME_559687E6025A_ME_E5D04ADC6C87
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_E5D04ADC6C87 GetAllParamsCount
-
-: ME_5617F4D00243_ME_E5D04ADC6C87
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_E5D04ADC6C87 ParamsTypes
 
 : ME_E5D04ADC6C87
  CONST UID 'E5D04ADC6C87'
@@ -243,7 +64,7 @@ ref; // ME_5617F4D00243_ME_E5D04ADC6C87 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Form:IsFloatingState'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aForm pop:Form:IsFloatingState >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Form:IsFloatingState' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
@@ -252,30 +73,11 @@ ref; // ME_5617F4D00243_ME_E5D04ADC6C87 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1605D41D08A0 // IsFloatingState
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_E5D04ADC6C87 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_E5D04ADC6C87 // SetValuePrim
- ME_551544E2001A_ME_E5D04ADC6C87 // GetResultTypeInfo
- ME_559687E6025A_ME_E5D04ADC6C87 // GetAllParamsCount
- ME_5617F4D00243_ME_E5D04ADC6C87 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DF184E75AEDE // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Form:IsFloatingState'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopFormIsFloatingState'
  CONST extprop:rc:SelfName 'PopFormIsFloatingState'
  CONST extprop:rc:isAcceptableForScripts true
@@ -283,99 +85,18 @@ ref; // ME_5617F4D00243_ME_E5D04ADC6C87 ParamsTypes
  ;
  : SpelledFor ME_67DFF55F21F5 // IsFloatingState
  ;
- : Stub ME_1605D41D08A0 // IsFloatingState
- ;
 
 ref; // ME_E5D04ADC6C87 pop_Form_IsFloatingState
 
 FORWARD ME_CED1A3F7A547
 
-FORWARD ME_6E48299F798F
-
 FORWARD ME_F96A7A339D27
-
-: ME_328A54F8C26F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_328A54F8C26F aCtx
-
-: ME_328A54F8C270
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_328A54F8C270 aForm
-
-: ME_6E48299F798F
- CONST UID '6E48299F798F'
- CONST Name 'UserType'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Form:UserType' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F96A7A339D27 // pop_Form_UserType
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_328A54F8C26F // aCtx
- ME_328A54F8C270 // aForm
- )
- ; // Parameters
- : SpelledFor ME_CED1A3F7A547 // UserType
- ;
-
-ref; // ME_6E48299F798F UserType
-
-: ME_22138A782CD9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F96A7A339D27 // pop_Form_UserType
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_22138A782CD9 
 
 : ME_4DAEEDE10285_ME_F96A7A339D27
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F96A7A339D27 DoDoIt
-
-: ME_52D00B00031A_ME_F96A7A339D27
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_F96A7A339D27 SetValuePrim
-
-: ME_551544E2001A_ME_F96A7A339D27
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F96A7A339D27 GetResultTypeInfo
-
-: ME_559687E6025A_ME_F96A7A339D27
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F96A7A339D27 GetAllParamsCount
-
-: ME_5617F4D00243_ME_F96A7A339D27
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F96A7A339D27 ParamsTypes
 
 : ME_F96A7A339D27
  CONST UID 'F96A7A339D27'
@@ -384,7 +105,7 @@ ref; // ME_5617F4D00243_ME_F96A7A339D27 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Form:UserType'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aForm pop:Form:UserType >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Form:UserType' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
@@ -393,30 +114,11 @@ ref; // ME_5617F4D00243_ME_F96A7A339D27 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6E48299F798F // UserType
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F96A7A339D27 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_F96A7A339D27 // SetValuePrim
- ME_551544E2001A_ME_F96A7A339D27 // GetResultTypeInfo
- ME_559687E6025A_ME_F96A7A339D27 // GetAllParamsCount
- ME_5617F4D00243_ME_F96A7A339D27 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_22138A782CD9 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Form:UserType'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopFormUserType'
  CONST extprop:rc:SelfName 'PopFormUserType'
  CONST extprop:rc:isAcceptableForScripts true
@@ -424,99 +126,18 @@ ref; // ME_5617F4D00243_ME_F96A7A339D27 ParamsTypes
  ;
  : SpelledFor ME_CED1A3F7A547 // UserType
  ;
- : Stub ME_6E48299F798F // UserType
- ;
 
 ref; // ME_F96A7A339D27 pop_Form_UserType
 
 FORWARD ME_27D13BB1D318
 
-FORWARD ME_C723C4FA73E4
-
 FORWARD ME_B0B047C68F92
-
-: ME_F865A5194A6D
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F865A5194A6D aCtx
-
-: ME_F865A5194A6E
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_F865A5194A6E aForm
-
-: ME_C723C4FA73E4
- CONST UID 'C723C4FA73E4'
- CONST Name 'FormID'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Form:FormID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B0B047C68F92 // pop_Form_FormID
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- : Parameters
-   Seq: ( ME_F865A5194A6D // aCtx
- ME_F865A5194A6E // aForm
- )
- ; // Parameters
- : SpelledFor ME_27D13BB1D318 // FormID
- ;
-
-ref; // ME_C723C4FA73E4 FormID
-
-: ME_14975AAC4405
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B0B047C68F92 // pop_Form_FormID
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_14975AAC4405 
 
 : ME_4DAEEDE10285_ME_B0B047C68F92
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B0B047C68F92 DoDoIt
-
-: ME_52D00B00031A_ME_B0B047C68F92
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_B0B047C68F92 SetValuePrim
-
-: ME_551544E2001A_ME_B0B047C68F92
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B0B047C68F92 GetResultTypeInfo
-
-: ME_559687E6025A_ME_B0B047C68F92
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B0B047C68F92 GetAllParamsCount
-
-: ME_5617F4D00243_ME_B0B047C68F92
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B0B047C68F92 ParamsTypes
 
 : ME_B0B047C68F92
  CONST UID 'B0B047C68F92'
@@ -525,7 +146,7 @@ ref; // ME_5617F4D00243_ME_B0B047C68F92 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Form:FormID'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aForm pop:Form:FormID >>> l_String'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Form:FormID' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
@@ -534,38 +155,17 @@ ref; // ME_5617F4D00243_ME_B0B047C68F92 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C723C4FA73E4 // FormID
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B0B047C68F92 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_B0B047C68F92 // SetValuePrim
- ME_551544E2001A_ME_B0B047C68F92 // GetResultTypeInfo
- ME_559687E6025A_ME_B0B047C68F92 // GetAllParamsCount
- ME_5617F4D00243_ME_B0B047C68F92 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_14975AAC4405 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Form:FormID'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopFormFormID'
  CONST extprop:rc:SelfName 'PopFormFormID'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
  ;
  : SpelledFor ME_27D13BB1D318 // FormID
- ;
- : Stub ME_C723C4FA73E4 // FormID
  ;
 
 ref; // ME_B0B047C68F92 pop_Form_FormID
@@ -630,7 +230,6 @@ ref; // ME_55003BCE02C3 UserType
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_55003BED00FC FormID
 
@@ -646,8 +245,6 @@ ref; // ME_55003BED00FC FormID
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsFloatingStateAndParentNotVisible'
@@ -668,8 +265,6 @@ ref; // ME_0EFBF9F4DAD0 IsFloatingStateAndParentNotVisible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsFloatingState'
@@ -690,8 +285,6 @@ ref; // ME_67DFF55F21F5 IsFloatingState
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'UserType'
@@ -712,95 +305,12 @@ ref; // ME_CED1A3F7A547 UserType
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'FormID'
  : Speller ME_B0B047C68F92 // pop_Form_FormID
  ;
 
 ref; // ME_27D13BB1D318 FormID
-
-: ME_792269323959
- CONST UID '792269323959'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_792269323959 Reg_Type_TtfwContext
-
-: ME_2F6B46B1F42F
- CONST UID '2F6B46B1F42F'
- CONST Name 'Reg_Type_TvcmEntityForm'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvcmEntityForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
- ;
- : SpelledFor WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
- ;
-
-ref; // ME_2F6B46B1F42F Reg_Type_TvcmEntityForm
-
-: ME_78FFD5CE59F6
- CONST UID '78FFD5CE59F6'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_78FFD5CE59F6 Reg_Type_Boolean
-
-: ME_AFBED06269C4
- CONST UID 'AFBED06269C4'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_AFBED06269C4 Reg_Type_Integer
-
-: ME_1DA5CA2746E0
- CONST UID '1DA5CA2746E0'
- CONST Name 'Reg_Type_String'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа String' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54DCB28C0273 // VCMFormsProcessingPack
- ;
- : SpelledFor WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_1DA5CA2746E0 Reg_Type_String
 
 : ME_54DCB3050025
  CONST Class class_Dependency
@@ -849,11 +359,6 @@ ref; // ME_EDECAAF14C01
  ME_67DFF55F21F5 // IsFloatingState
  ME_CED1A3F7A547 // UserType
  ME_27D13BB1D318 // FormID
- ME_792269323959 // Reg_Type_TtfwContext
- ME_2F6B46B1F42F // Reg_Type_TvcmEntityForm
- ME_78FFD5CE59F6 // Reg_Type_Boolean
- ME_AFBED06269C4 // Reg_Type_Integer
- ME_1DA5CA2746E0 // Reg_Type_String
  )
  ; // Operations
  : Children
@@ -869,517 +374,11 @@ ref; // ME_EDECAAF14C01
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\VCMFormsProcessingPack.pas'
 
 ref; // ME_54DCB28C0273 VCMFormsProcessingPack
 
 FORWARD ME_552BAE9B027D
-
-FORWARD ME_552BAF1E0177
-
-FORWARD ME_3E6A2A4DD8C9
-
-FORWARD ME_4463E51B5CE8
-
-: ME_6A681DEE22E0
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_6A681DEE22E0 aCtx
-
-: ME_6A681DEE22E1
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
- ;
-
-ref; // ME_6A681DEE22E1 aValue
-
-: ME_3E6A2A4DD8C9
- CONST UID '3E6A2A4DD8C9'
- CONST Name 'vcm_Toolbar_SetGlyphSize'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта vcm:Toolbar:SetGlyphSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4463E51B5CE8 // vcm_Toolbar_SetGlyphSize
- ;
- : Parameters
-   Seq: ( ME_6A681DEE22E0 // aCtx
- ME_6A681DEE22E1 // aValue
- )
- ; // Parameters
- : SpelledFor ME_552BAF1E0177 // vcm_Toolbar_SetGlyphSize
- ;
-
-ref; // ME_3E6A2A4DD8C9 vcm_Toolbar_SetGlyphSize
-
-: ME_72FA2C5AD8C8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4463E51B5CE8 // vcm_Toolbar_SetGlyphSize
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_72FA2C5AD8C8 
-
-: ME_4DAEEDE10285_ME_4463E51B5CE8
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_4463E51B5CE8 DoDoIt
-
-: ME_551544E2001A_ME_4463E51B5CE8
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_4463E51B5CE8 GetResultTypeInfo
-
-: ME_559687E6025A_ME_4463E51B5CE8
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_4463E51B5CE8 GetAllParamsCount
-
-: ME_5617F4D00243_ME_4463E51B5CE8
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_4463E51B5CE8 ParamsTypes
-
-: ME_4463E51B5CE8
- CONST UID '4463E51B5CE8'
- CONST Name 'vcm_Toolbar_SetGlyphSize'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта vcm:Toolbar:SetGlyphSize'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue vcm:Toolbar:SetGlyphSize'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_3E6A2A4DD8C9 // vcm_Toolbar_SetGlyphSize
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_4463E51B5CE8 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_4463E51B5CE8 // GetResultTypeInfo
- ME_559687E6025A_ME_4463E51B5CE8 // GetAllParamsCount
- ME_5617F4D00243_ME_4463E51B5CE8 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_72FA2C5AD8C8 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'vcm:Toolbar:SetGlyphSize'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwVcmToolbarSetGlyphSize'
- CONST extprop:rc:SelfName 'VcmToolbarSetGlyphSize'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_552BAF1E0177 // vcm_Toolbar_SetGlyphSize
- ;
- : Stub ME_3E6A2A4DD8C9 // vcm_Toolbar_SetGlyphSize
- ;
-
-ref; // ME_4463E51B5CE8 vcm_Toolbar_SetGlyphSize
-
-FORWARD ME_552BBC51039D
-
-FORWARD ME_0D29944D7496
-
-FORWARD ME_CB878D8D1F92
-
-: ME_CAF433D2B7B1
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_CAF433D2B7B1 aCtx
-
-: ME_0D29944D7496
- CONST UID '0D29944D7496'
- CONST Name 'vcm_Toolbar_GetGlyphSize'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта vcm:Toolbar:GetGlyphSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CB878D8D1F92 // vcm_Toolbar_GetGlyphSize
- ;
- : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
- ;
- : Parameters
-   Seq: ( ME_CAF433D2B7B1 // aCtx
- )
- ; // Parameters
- : SpelledFor ME_552BBC51039D // vcm_Toolbar_GetGlyphSize
- ;
-
-ref; // ME_0D29944D7496 vcm_Toolbar_GetGlyphSize
-
-: ME_980FA4AC194B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CB878D8D1F92 // vcm_Toolbar_GetGlyphSize
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_980FA4AC194B 
-
-: ME_4DAEEDE10285_ME_CB878D8D1F92
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_CB878D8D1F92 DoDoIt
-
-: ME_551544E2001A_ME_CB878D8D1F92
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_CB878D8D1F92 GetResultTypeInfo
-
-: ME_559687E6025A_ME_CB878D8D1F92
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_CB878D8D1F92 GetAllParamsCount
-
-: ME_5617F4D00243_ME_CB878D8D1F92
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_CB878D8D1F92 ParamsTypes
-
-: ME_CB878D8D1F92
- CONST UID 'CB878D8D1F92'
- CONST Name 'vcm_Toolbar_GetGlyphSize'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта vcm:Toolbar:GetGlyphSize'#13#10'*Тип результата:* TvcmGlyphSize'#13#10'*Пример:*'#13#10'{code}'#13#10'TvcmGlyphSize VAR l_TvcmGlyphSize'#13#10' vcm:Toolbar:GetGlyphSize >>> l_TvcmGlyphSize'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_0D29944D7496 // vcm_Toolbar_GetGlyphSize
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_CB878D8D1F92 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_CB878D8D1F92 // GetResultTypeInfo
- ME_559687E6025A_ME_CB878D8D1F92 // GetAllParamsCount
- ME_5617F4D00243_ME_CB878D8D1F92 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_980FA4AC194B // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'vcm:Toolbar:GetGlyphSize'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwVcmToolbarGetGlyphSize'
- CONST extprop:rc:SelfName 'VcmToolbarGetGlyphSize'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_552BBC51039D // vcm_Toolbar_GetGlyphSize
- ;
- : Stub ME_0D29944D7496 // vcm_Toolbar_GetGlyphSize
- ;
-
-ref; // ME_CB878D8D1F92 vcm_Toolbar_GetGlyphSize
-
-FORWARD ME_552BC39B031D
-
-FORWARD ME_5358A0B19EFE
-
-FORWARD ME_8FA6E0CDB066
-
-: ME_DCC428AF6D4B
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_DCC428AF6D4B aCtx
-
-: ME_5358A0B19EFE
- CONST UID '5358A0B19EFE'
- CONST Name 'vcm_Toolbar_GetGlyphColorDepth'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта vcm:Toolbar:GetGlyphColorDepth' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8FA6E0CDB066 // vcm_Toolbar_GetGlyphColorDepth
- ;
- : Target WL 'ME_52A08EFE0261' '4AADF9450143.pas.ms.script' // TvcmGlyphColordepth
- ;
- : Parameters
-   Seq: ( ME_DCC428AF6D4B // aCtx
- )
- ; // Parameters
- : SpelledFor ME_552BC39B031D // vcm_Toolbar_GetGlyphColorDepth
- ;
-
-ref; // ME_5358A0B19EFE vcm_Toolbar_GetGlyphColorDepth
-
-: ME_C197CC050913
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8FA6E0CDB066 // vcm_Toolbar_GetGlyphColorDepth
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_C197CC050913 
-
-: ME_4DAEEDE10285_ME_8FA6E0CDB066
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_8FA6E0CDB066 DoDoIt
-
-: ME_551544E2001A_ME_8FA6E0CDB066
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_8FA6E0CDB066 GetResultTypeInfo
-
-: ME_559687E6025A_ME_8FA6E0CDB066
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_8FA6E0CDB066 GetAllParamsCount
-
-: ME_5617F4D00243_ME_8FA6E0CDB066
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_8FA6E0CDB066 ParamsTypes
-
-: ME_8FA6E0CDB066
- CONST UID '8FA6E0CDB066'
- CONST Name 'vcm_Toolbar_GetGlyphColorDepth'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта vcm:Toolbar:GetGlyphColorDepth'#13#10'*Тип результата:* TvcmGlyphColordepth'#13#10'*Пример:*'#13#10'{code}'#13#10'TvcmGlyphColordepth VAR l_TvcmGlyphColordepth'#13#10' vcm:Toolbar:GetGlyphColorDepth >>> l_TvcmGlyphColordepth'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_5358A0B19EFE // vcm_Toolbar_GetGlyphColorDepth
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_8FA6E0CDB066 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_8FA6E0CDB066 // GetResultTypeInfo
- ME_559687E6025A_ME_8FA6E0CDB066 // GetAllParamsCount
- ME_5617F4D00243_ME_8FA6E0CDB066 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C197CC050913 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'vcm:Toolbar:GetGlyphColorDepth'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwVcmToolbarGetGlyphColorDepth'
- CONST extprop:rc:SelfName 'VcmToolbarGetGlyphColorDepth'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_552BC39B031D // vcm_Toolbar_GetGlyphColorDepth
- ;
- : Stub ME_5358A0B19EFE // vcm_Toolbar_GetGlyphColorDepth
- ;
-
-ref; // ME_8FA6E0CDB066 vcm_Toolbar_GetGlyphColorDepth
-
-FORWARD ME_552BC3BA003E
-
-FORWARD ME_47BBC580F855
-
-FORWARD ME_2E579942A814
-
-: ME_AB47EA9C951F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_AB47EA9C951F aCtx
-
-: ME_AB47EA9C9520
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_52A08EFE0261' '4AADF9450143.pas.ms.script' // TvcmGlyphColordepth
- ;
-
-ref; // ME_AB47EA9C9520 aValue
-
-: ME_47BBC580F855
- CONST UID '47BBC580F855'
- CONST Name 'vcm_Toolbar_SetGlyphColorDepth'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта vcm:Toolbar:SetGlyphColorDepth' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2E579942A814 // vcm_Toolbar_SetGlyphColorDepth
- ;
- : Parameters
-   Seq: ( ME_AB47EA9C951F // aCtx
- ME_AB47EA9C9520 // aValue
- )
- ; // Parameters
- : SpelledFor ME_552BC3BA003E // vcm_Toolbar_SetGlyphColorDepth
- ;
-
-ref; // ME_47BBC580F855 vcm_Toolbar_SetGlyphColorDepth
-
-: ME_A5ACE23163E0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2E579942A814 // vcm_Toolbar_SetGlyphColorDepth
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_A5ACE23163E0 
-
-: ME_4DAEEDE10285_ME_2E579942A814
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_2E579942A814 DoDoIt
-
-: ME_551544E2001A_ME_2E579942A814
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_2E579942A814 GetResultTypeInfo
-
-: ME_559687E6025A_ME_2E579942A814
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_2E579942A814 GetAllParamsCount
-
-: ME_5617F4D00243_ME_2E579942A814
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_2E579942A814 ParamsTypes
-
-: ME_2E579942A814
- CONST UID '2E579942A814'
- CONST Name 'vcm_Toolbar_SetGlyphColorDepth'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта vcm:Toolbar:SetGlyphColorDepth'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue vcm:Toolbar:SetGlyphColorDepth'#13#10'{code} ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_561BAC4B0005' '55CCADD2013D.pas.ms.script' // TtfwGlobalKeyWord
- )
- ; // Inherits
- : Operations
-   Seq: ( ME_47BBC580F855 // vcm_Toolbar_SetGlyphColorDepth
- )
- ; // Operations
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_2E579942A814 // DoDoIt
- )
- ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_2E579942A814 // GetResultTypeInfo
- ME_559687E6025A_ME_2E579942A814 // GetAllParamsCount
- ME_5617F4D00243_ME_2E579942A814 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A5ACE23163E0 // TTypeInfo
- )
- ; // Dependencies
- CONST "NameForScript" 'vcm:Toolbar:SetGlyphColorDepth'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST extprop:pas:TypeName 'TkwVcmToolbarSetGlyphColorDepth'
- CONST extprop:rc:SelfName 'VcmToolbarSetGlyphColorDepth'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_552BC3BA003E // vcm_Toolbar_SetGlyphColorDepth
- ;
- : Stub ME_47BBC580F855 // vcm_Toolbar_SetGlyphColorDepth
- ;
-
-ref; // ME_2E579942A814 vcm_Toolbar_SetGlyphColorDepth
 
 : ME_552BAF3902F6
  CONST Name 'aValue'
@@ -1403,8 +402,6 @@ ref; // ME_552BAF3902F6 aValue
    Seq: ( ME_552BAF3902F6 // aValue
  )
  ; // Parameters
- : Speller ME_4463E51B5CE8 // vcm_Toolbar_SetGlyphSize
- ;
 
 ref; // ME_552BAF1E0177 vcm_Toolbar_SetGlyphSize
 
@@ -1419,8 +416,6 @@ ref; // ME_552BAF1E0177 vcm_Toolbar_SetGlyphSize
  ;
  : Target WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
  ;
- : Speller ME_CB878D8D1F92 // vcm_Toolbar_GetGlyphSize
- ;
 
 ref; // ME_552BBC51039D vcm_Toolbar_GetGlyphSize
 
@@ -1434,8 +429,6 @@ ref; // ME_552BBC51039D vcm_Toolbar_GetGlyphSize
  : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
  ;
  : Target WL 'ME_52A08EFE0261' '4AADF9450143.pas.ms.script' // TvcmGlyphColordepth
- ;
- : Speller ME_8FA6E0CDB066 // vcm_Toolbar_GetGlyphColorDepth
  ;
 
 ref; // ME_552BC39B031D vcm_Toolbar_GetGlyphColorDepth
@@ -1462,58 +455,8 @@ ref; // ME_552BC3C80358 aValue
    Seq: ( ME_552BC3C80358 // aValue
  )
  ; // Parameters
- : Speller ME_2E579942A814 // vcm_Toolbar_SetGlyphColorDepth
- ;
 
 ref; // ME_552BC3BA003E vcm_Toolbar_SetGlyphColorDepth
-
-: ME_FB294CD5A00D
- CONST UID 'FB294CD5A00D'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_FB294CD5A00D Reg_Type_TtfwContext
-
-: ME_05737AE6A5ED
- CONST UID '05737AE6A5ED'
- CONST Name 'Reg_Type_TvcmGlyphSize'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvcmGlyphSize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : SpelledFor WL 'ME_4B977802001D' '4B8E967100D5.pas.ms.script' // TvcmGlyphSize
- ;
-
-ref; // ME_05737AE6A5ED Reg_Type_TvcmGlyphSize
-
-: ME_4C11E006644D
- CONST UID '4C11E006644D'
- CONST Name 'Reg_Type_TvcmGlyphColordepth'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TvcmGlyphColordepth' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552BAE9B027D // VCMApllicationSettingsPack
- ;
- : SpelledFor WL 'ME_52A08EFE0261' '4AADF9450143.pas.ms.script' // TvcmGlyphColordepth
- ;
-
-ref; // ME_4C11E006644D Reg_Type_TvcmGlyphColordepth
 
 : ME_552BAEC9028F
  CONST Class class_Dependency
@@ -1550,28 +493,14 @@ ref; // ME_552BAECF03A7
  ME_552BBC51039D // vcm_Toolbar_GetGlyphSize
  ME_552BC39B031D // vcm_Toolbar_GetGlyphColorDepth
  ME_552BC3BA003E // vcm_Toolbar_SetGlyphColorDepth
- ME_FB294CD5A00D // Reg_Type_TtfwContext
- ME_05737AE6A5ED // Reg_Type_TvcmGlyphSize
- ME_4C11E006644D // Reg_Type_TvcmGlyphColordepth
  )
  ; // Operations
- : Children
-   Seq: ( ME_4463E51B5CE8 // vcm_Toolbar_SetGlyphSize
- ME_CB878D8D1F92 // vcm_Toolbar_GetGlyphSize
- ME_8FA6E0CDB066 // vcm_Toolbar_GetGlyphColorDepth
- ME_2E579942A814 // vcm_Toolbar_SetGlyphColorDepth
- )
- ; // Children
  : Dependencies
    Seq: ( ME_552BAEC9028F // TvcmToolbarGlyphService
  ME_552BAECF03A7 // TvcmToolbarGlyphService
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\VCMApllicationSettingsPack.pas'
 
 ref; // ME_552BAE9B027D VCMApllicationSettingsPack
@@ -1592,7 +521,6 @@ ref; // ME_552BAE9B027D VCMApllicationSettingsPack
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B8E967100D5' '4B8E967100D5.pas.ms.script' // vcmL10nImpl

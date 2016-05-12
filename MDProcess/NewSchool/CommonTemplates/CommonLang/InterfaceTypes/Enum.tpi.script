@@ -39,6 +39,7 @@ implementation @ <<Enum>>
 // ѕользовательские свойства
 
 //p force usage:b=false ? €вно определ€ет, что элемент будет кем-то использован (нужно дл€ проверки)
+//p register in scripts:tribool=undefined ? 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ‘ункции стереотипа
@@ -58,6 +59,12 @@ implementation @ <<Enum>>
  begin
   [%f] up_prefix %( %S )% ' *force usage* = *'
   %S get_up ( 'force usage' ) '* - €вно определ€ет, что элемент будет кем-то использован (нужно дл€ проверки)'
+//	][{"%S{register in scripts}"!="%S{!register in scripts}"}%f_up_prefix(%S) *register in scripts* = *%S{register in scripts}*
+ end // if
+ if ( ( %S get_up ( 'register in scripts' ) ) %!= ( %S get_up_def ( 'register in scripts' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *register in scripts* = *'
+  %S get_up ( 'register in scripts' ) '*'
 //	]
  end // if
 

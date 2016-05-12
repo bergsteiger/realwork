@@ -8,92 +8,13 @@ FORWARD ME_54F58770000F
 
 FORWARD ME_68E703E52F93
 
-FORWARD ME_E20F0AC32CE1
-
 FORWARD ME_8E50130D7478
-
-: ME_D807E60777C4
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D807E60777C4 aCtx
-
-: ME_D807E60777C5
- CONST Name 'aRadioGroup'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_5034B74700CF' '4799D29F033F.pas.ms.script' // TRadioGroup
- ;
-
-ref; // ME_D807E60777C5 aRadioGroup
-
-: ME_E20F0AC32CE1
- CONST UID 'E20F0AC32CE1'
- CONST Name 'ItemIndex'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RadioGroup:ItemIndex' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_8E50130D7478 // pop_RadioGroup_ItemIndex
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_D807E60777C4 // aCtx
- ME_D807E60777C5 // aRadioGroup
- )
- ; // Parameters
- : SpelledFor ME_68E703E52F93 // ItemIndex
- ;
-
-ref; // ME_E20F0AC32CE1 ItemIndex
-
-: ME_800529D7D0F0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_8E50130D7478 // pop_RadioGroup_ItemIndex
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_800529D7D0F0 
 
 : ME_4DAEEDE10285_ME_8E50130D7478
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_8E50130D7478 DoDoIt
-
-: ME_52D00B00031A_ME_8E50130D7478
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_8E50130D7478 SetValuePrim
-
-: ME_551544E2001A_ME_8E50130D7478
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_8E50130D7478 GetResultTypeInfo
-
-: ME_559687E6025A_ME_8E50130D7478
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_8E50130D7478 GetAllParamsCount
-
-: ME_5617F4D00243_ME_8E50130D7478
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_8E50130D7478 ParamsTypes
 
 : ME_8E50130D7478
  CONST UID '8E50130D7478'
@@ -102,7 +23,7 @@ ref; // ME_5617F4D00243_ME_8E50130D7478 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RadioGroup:ItemIndex'#13#10'{panel}Индекс элемента{panel}'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aRadioGroup pop:RadioGroup:ItemIndex >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RadioGroup:ItemIndex' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F58770000F // RadioGroupWordsPack
@@ -111,38 +32,17 @@ ref; // ME_5617F4D00243_ME_8E50130D7478 ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E20F0AC32CE1 // ItemIndex
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_8E50130D7478 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_8E50130D7478 // SetValuePrim
- ME_551544E2001A_ME_8E50130D7478 // GetResultTypeInfo
- ME_559687E6025A_ME_8E50130D7478 // GetAllParamsCount
- ME_5617F4D00243_ME_8E50130D7478 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_800529D7D0F0 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RadioGroup:ItemIndex'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRadioGroupItemIndex'
  CONST extprop:rc:SelfName 'PopRadioGroupItemIndex'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_5034B74700CF' '4799D29F033F.pas.ms.script' // TRadioGroup
  ;
  : SpelledFor ME_68E703E52F93 // ItemIndex
- ;
- : Stub ME_E20F0AC32CE1 // ItemIndex
  ;
 
 ref; // ME_8E50130D7478 pop_RadioGroup_ItemIndex
@@ -177,8 +77,6 @@ ref; // ME_54F86E0C00C7 ItemIndex
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'property'
  CONST extprop:prop_name 'ItemIndex'
@@ -186,54 +84,6 @@ ref; // ME_54F86E0C00C7 ItemIndex
  ;
 
 ref; // ME_68E703E52F93 ItemIndex
-
-: ME_9FB523F7AD46
- CONST UID '9FB523F7AD46'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F58770000F // RadioGroupWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9FB523F7AD46 Reg_Type_TtfwContext
-
-: ME_E96A0AF398E6
- CONST UID 'E96A0AF398E6'
- CONST Name 'Reg_Type_TRadioGroup'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TRadioGroup' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F58770000F // RadioGroupWordsPack
- ;
- : SpelledFor WL 'ME_5034B74700CF' '4799D29F033F.pas.ms.script' // TRadioGroup
- ;
-
-ref; // ME_E96A0AF398E6 Reg_Type_TRadioGroup
-
-: ME_F85C77FAE408
- CONST UID 'F85C77FAE408'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F58770000F // RadioGroupWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_F85C77FAE408 Reg_Type_Integer
 
 : ME_95C892F6232F
  CONST IsSummoned true
@@ -266,9 +116,6 @@ ref; // ME_95C892F6232F
  ; // Attributes
  : Operations
    Seq: ( ME_68E703E52F93 // ItemIndex
- ME_9FB523F7AD46 // Reg_Type_TtfwContext
- ME_E96A0AF398E6 // Reg_Type_TRadioGroup
- ME_F85C77FAE408 // Reg_Type_Integer
  )
  ; // Operations
  : Children
@@ -280,10 +127,6 @@ ref; // ME_95C892F6232F
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RadioGroupWordsPack.pas'
 
 ref; // ME_54F58770000F RadioGroupWordsPack
@@ -292,92 +135,13 @@ FORWARD ME_54F5881101AC
 
 FORWARD ME_2316871D91AF
 
-FORWARD ME_9B30ABE39DA1
-
 FORWARD ME_D64D3C18264A
-
-: ME_DF446031319E
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_DF446031319E aCtx
-
-: ME_DF446031319F
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_DF446031319F aControl
-
-: ME_9B30ABE39DA1
- CONST UID '9B30ABE39DA1'
- CONST Name 'VScrollerVisible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:VScrollerVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D64D3C18264A // pop_Control_VScrollerVisible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_DF446031319E // aCtx
- ME_DF446031319F // aControl
- )
- ; // Parameters
- : SpelledFor ME_2316871D91AF // VScrollerVisible
- ;
-
-ref; // ME_9B30ABE39DA1 VScrollerVisible
-
-: ME_267F9D9BA7EB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D64D3C18264A // pop_Control_VScrollerVisible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_267F9D9BA7EB 
 
 : ME_4DAEEDE10285_ME_D64D3C18264A
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_D64D3C18264A DoDoIt
-
-: ME_52D00B00031A_ME_D64D3C18264A
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_D64D3C18264A SetValuePrim
-
-: ME_551544E2001A_ME_D64D3C18264A
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_D64D3C18264A GetResultTypeInfo
-
-: ME_559687E6025A_ME_D64D3C18264A
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_D64D3C18264A GetAllParamsCount
-
-: ME_5617F4D00243_ME_D64D3C18264A
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_D64D3C18264A ParamsTypes
 
 : ME_D64D3C18264A
  CONST UID 'D64D3C18264A'
@@ -386,7 +150,7 @@ ref; // ME_5617F4D00243_ME_D64D3C18264A ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:VScrollerVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aControl pop:Control:VScrollerVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:VScrollerVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
@@ -395,30 +159,11 @@ ref; // ME_5617F4D00243_ME_D64D3C18264A ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9B30ABE39DA1 // VScrollerVisible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_D64D3C18264A // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_D64D3C18264A // SetValuePrim
- ME_551544E2001A_ME_D64D3C18264A // GetResultTypeInfo
- ME_559687E6025A_ME_D64D3C18264A // GetAllParamsCount
- ME_5617F4D00243_ME_D64D3C18264A // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_267F9D9BA7EB // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:VScrollerVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlVScrollerVisible'
  CONST extprop:rc:SelfName 'PopControlVScrollerVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -426,99 +171,18 @@ ref; // ME_5617F4D00243_ME_D64D3C18264A ParamsTypes
  ;
  : SpelledFor ME_2316871D91AF // VScrollerVisible
  ;
- : Stub ME_9B30ABE39DA1 // VScrollerVisible
- ;
 
 ref; // ME_D64D3C18264A pop_Control_VScrollerVisible
 
 FORWARD ME_1108E304B00C
 
-FORWARD ME_770305E8A083
-
 FORWARD ME_F808620CE3AB
-
-: ME_5DB6F000843A
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5DB6F000843A aCtx
-
-: ME_5DB6F000843B
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_5DB6F000843B aControl
-
-: ME_770305E8A083
- CONST UID '770305E8A083'
- CONST Name 'HScrollerVisible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:Control:HScrollerVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F808620CE3AB // pop_Control_HScrollerVisible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_5DB6F000843A // aCtx
- ME_5DB6F000843B // aControl
- )
- ; // Parameters
- : SpelledFor ME_1108E304B00C // HScrollerVisible
- ;
-
-ref; // ME_770305E8A083 HScrollerVisible
-
-: ME_ECE8B4931442
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F808620CE3AB // pop_Control_HScrollerVisible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_ECE8B4931442 
 
 : ME_4DAEEDE10285_ME_F808620CE3AB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_F808620CE3AB DoDoIt
-
-: ME_52D00B00031A_ME_F808620CE3AB
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_F808620CE3AB SetValuePrim
-
-: ME_551544E2001A_ME_F808620CE3AB
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_F808620CE3AB GetResultTypeInfo
-
-: ME_559687E6025A_ME_F808620CE3AB
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_F808620CE3AB GetAllParamsCount
-
-: ME_5617F4D00243_ME_F808620CE3AB
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_F808620CE3AB ParamsTypes
 
 : ME_F808620CE3AB
  CONST UID 'F808620CE3AB'
@@ -527,7 +191,7 @@ ref; // ME_5617F4D00243_ME_F808620CE3AB ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:Control:HScrollerVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aControl pop:Control:HScrollerVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:Control:HScrollerVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
@@ -536,30 +200,11 @@ ref; // ME_5617F4D00243_ME_F808620CE3AB ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_770305E8A083 // HScrollerVisible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_F808620CE3AB // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_F808620CE3AB // SetValuePrim
- ME_551544E2001A_ME_F808620CE3AB // GetResultTypeInfo
- ME_559687E6025A_ME_F808620CE3AB // GetAllParamsCount
- ME_5617F4D00243_ME_F808620CE3AB // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_ECE8B4931442 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:Control:HScrollerVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopControlHScrollerVisible'
  CONST extprop:rc:SelfName 'PopControlHScrollerVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -567,97 +212,16 @@ ref; // ME_5617F4D00243_ME_F808620CE3AB ParamsTypes
  ;
  : SpelledFor ME_1108E304B00C // HScrollerVisible
  ;
- : Stub ME_770305E8A083 // HScrollerVisible
- ;
 
 ref; // ME_F808620CE3AB pop_Control_HScrollerVisible
 
-FORWARD ME_EC3279A91E15
-
 FORWARD ME_0E188022DACF
-
-: ME_B3AFC9A80AD9
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B3AFC9A80AD9 aCtx
-
-: ME_B3AFC9A80ADA
- CONST Name 'aScrollingWinControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_495259490229' '4799D29F033F.pas.ms.script' // TScrollingWinControl
- ;
-
-ref; // ME_B3AFC9A80ADA aScrollingWinControl
-
-: ME_EC3279A91E15
- CONST UID 'EC3279A91E15'
- CONST Name 'VScrollerVisible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ScrollingWinControl:VScrollerVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0E188022DACF // pop_ScrollingWinControl_VScrollerVisible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_B3AFC9A80AD9 // aCtx
- ME_B3AFC9A80ADA // aScrollingWinControl
- )
- ; // Parameters
- : SpelledFor ME_2316871D91AF // VScrollerVisible
- ;
-
-ref; // ME_EC3279A91E15 VScrollerVisible
-
-: ME_0FDBA62B6E02
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0E188022DACF // pop_ScrollingWinControl_VScrollerVisible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_0FDBA62B6E02 
 
 : ME_4DAEEDE10285_ME_0E188022DACF
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_0E188022DACF DoDoIt
-
-: ME_52D00B00031A_ME_0E188022DACF
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_0E188022DACF SetValuePrim
-
-: ME_551544E2001A_ME_0E188022DACF
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_0E188022DACF GetResultTypeInfo
-
-: ME_559687E6025A_ME_0E188022DACF
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_0E188022DACF GetAllParamsCount
-
-: ME_5617F4D00243_ME_0E188022DACF
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_0E188022DACF ParamsTypes
 
 : ME_0E188022DACF
  CONST UID '0E188022DACF'
@@ -666,7 +230,7 @@ ref; // ME_5617F4D00243_ME_0E188022DACF ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ScrollingWinControl:VScrollerVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aScrollingWinControl pop:ScrollingWinControl:VScrollerVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ScrollingWinControl:VScrollerVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
@@ -675,30 +239,11 @@ ref; // ME_5617F4D00243_ME_0E188022DACF ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EC3279A91E15 // VScrollerVisible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_0E188022DACF // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_0E188022DACF // SetValuePrim
- ME_551544E2001A_ME_0E188022DACF // GetResultTypeInfo
- ME_559687E6025A_ME_0E188022DACF // GetAllParamsCount
- ME_5617F4D00243_ME_0E188022DACF // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0FDBA62B6E02 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ScrollingWinControl:VScrollerVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopScrollingWinControlVScrollerVisible'
  CONST extprop:rc:SelfName 'PopScrollingWinControlVScrollerVisible'
  CONST extprop:rc:isAcceptableForScripts true
@@ -706,97 +251,16 @@ ref; // ME_5617F4D00243_ME_0E188022DACF ParamsTypes
  ;
  : SpelledFor ME_2316871D91AF // VScrollerVisible
  ;
- : Stub ME_EC3279A91E15 // VScrollerVisible
- ;
 
 ref; // ME_0E188022DACF pop_ScrollingWinControl_VScrollerVisible
 
-FORWARD ME_C1B1B2C96DB6
-
 FORWARD ME_B46C6A433AAC
-
-: ME_AAA55A151D47
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_AAA55A151D47 aCtx
-
-: ME_AAA55A151D48
- CONST Name 'aScrollingWinControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_495259490229' '4799D29F033F.pas.ms.script' // TScrollingWinControl
- ;
-
-ref; // ME_AAA55A151D48 aScrollingWinControl
-
-: ME_C1B1B2C96DB6
- CONST UID 'C1B1B2C96DB6'
- CONST Name 'HScrollerVisible'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:ScrollingWinControl:HScrollerVisible' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B46C6A433AAC // pop_ScrollingWinControl_HScrollerVisible
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_AAA55A151D47 // aCtx
- ME_AAA55A151D48 // aScrollingWinControl
- )
- ; // Parameters
- : SpelledFor ME_1108E304B00C // HScrollerVisible
- ;
-
-ref; // ME_C1B1B2C96DB6 HScrollerVisible
-
-: ME_566C7E224A01
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B46C6A433AAC // pop_ScrollingWinControl_HScrollerVisible
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_566C7E224A01 
 
 : ME_4DAEEDE10285_ME_B46C6A433AAC
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_B46C6A433AAC DoDoIt
-
-: ME_52D00B00031A_ME_B46C6A433AAC
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_B46C6A433AAC SetValuePrim
-
-: ME_551544E2001A_ME_B46C6A433AAC
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_B46C6A433AAC GetResultTypeInfo
-
-: ME_559687E6025A_ME_B46C6A433AAC
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_B46C6A433AAC GetAllParamsCount
-
-: ME_5617F4D00243_ME_B46C6A433AAC
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_B46C6A433AAC ParamsTypes
 
 : ME_B46C6A433AAC
  CONST UID 'B46C6A433AAC'
@@ -805,7 +269,7 @@ ref; // ME_5617F4D00243_ME_B46C6A433AAC ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:ScrollingWinControl:HScrollerVisible'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aScrollingWinControl pop:ScrollingWinControl:HScrollerVisible >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:ScrollingWinControl:HScrollerVisible' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
@@ -814,38 +278,17 @@ ref; // ME_5617F4D00243_ME_B46C6A433AAC ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C1B1B2C96DB6 // HScrollerVisible
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_B46C6A433AAC // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_B46C6A433AAC // SetValuePrim
- ME_551544E2001A_ME_B46C6A433AAC // GetResultTypeInfo
- ME_559687E6025A_ME_B46C6A433AAC // GetAllParamsCount
- ME_5617F4D00243_ME_B46C6A433AAC // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_566C7E224A01 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:ScrollingWinControl:HScrollerVisible'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopScrollingWinControlHScrollerVisible'
  CONST extprop:rc:SelfName 'PopScrollingWinControlHScrollerVisible'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_495259490229' '4799D29F033F.pas.ms.script' // TScrollingWinControl
  ;
  : SpelledFor ME_1108E304B00C // HScrollerVisible
- ;
- : Stub ME_C1B1B2C96DB6 // HScrollerVisible
  ;
 
 ref; // ME_B46C6A433AAC pop_ScrollingWinControl_HScrollerVisible
@@ -862,7 +305,6 @@ ref; // ME_B46C6A433AAC pop_ScrollingWinControl_HScrollerVisible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_54F878D80349 VScrollerVisible
 
@@ -878,7 +320,6 @@ ref; // ME_54F878D80349 VScrollerVisible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "mapped" 'undefined'
 
 ref; // ME_54F878EC0363 HScrollerVisible
 
@@ -894,9 +335,6 @@ ref; // ME_54F878EC0363 HScrollerVisible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'VScrollerVisible'
  : Speller ME_0E188022DACF // pop_ScrollingWinControl_VScrollerVisible
@@ -916,79 +354,12 @@ ref; // ME_2316871D91AF VScrollerVisible
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'HScrollerVisible'
  : Speller ME_B46C6A433AAC // pop_ScrollingWinControl_HScrollerVisible
  ;
 
 ref; // ME_1108E304B00C HScrollerVisible
-
-: ME_9283087D3665
- CONST UID '9283087D3665'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_9283087D3665 Reg_Type_TtfwContext
-
-: ME_587DB41EE47A
- CONST UID '587DB41EE47A'
- CONST Name 'Reg_Type_TWinControl'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TWinControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
- ;
- : SpelledFor WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
- ;
-
-ref; // ME_587DB41EE47A Reg_Type_TWinControl
-
-: ME_0F1ECC92FF99
- CONST UID '0F1ECC92FF99'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_0F1ECC92FF99 Reg_Type_Boolean
-
-: ME_A1F38F7C2590
- CONST UID 'A1F38F7C2590'
- CONST Name 'Reg_Type_TScrollingWinControl'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TScrollingWinControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54F5881101AC // ScrollingWinControlWordsPack
- ;
- : SpelledFor WL 'ME_495259490229' '4799D29F033F.pas.ms.script' // TScrollingWinControl
- ;
-
-ref; // ME_A1F38F7C2590 Reg_Type_TScrollingWinControl
 
 : ME_54F86B4A0153
  CONST Class class_Dependency
@@ -1045,10 +416,6 @@ ref; // ME_16979FEE75D0
  : Operations
    Seq: ( ME_2316871D91AF // VScrollerVisible
  ME_1108E304B00C // HScrollerVisible
- ME_9283087D3665 // Reg_Type_TtfwContext
- ME_587DB41EE47A // Reg_Type_TWinControl
- ME_0F1ECC92FF99 // Reg_Type_Boolean
- ME_A1F38F7C2590 // Reg_Type_TScrollingWinControl
  )
  ; // Operations
  : Children
@@ -1065,10 +432,6 @@ ref; // ME_16979FEE75D0
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScrollingWinControlWordsPack.pas'
 
 ref; // ME_54F5881101AC ScrollingWinControlWordsPack
@@ -1105,10 +468,6 @@ ref; // ME_C0793C45D868
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\PanelProcessingPack.pas'
 
 ref; // ME_54F5D17A03B9 PanelProcessingPack
@@ -1117,97 +476,13 @@ FORWARD ME_552D23C300F1
 
 FORWARD ME_552D24400252
 
-FORWARD ME_5C7C4E6C6645
-
 FORWARD ME_61EE94402745
-
-: ME_32621B9BF42D
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_32621B9BF42D aCtx
-
-: ME_32621B9BF42E
- CONST Name 'aCheckListBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
- ;
-
-ref; // ME_32621B9BF42E aCheckListBox
-
-: ME_32621B9BF42F
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_32621B9BF42F anIndex
-
-: ME_5C7C4E6C6645
- CONST UID '5C7C4E6C6645'
- CONST Name 'GetChecked'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:CheckListBox:GetChecked' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_61EE94402745 // pop_CheckListBox_GetChecked
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_32621B9BF42D // aCtx
- ME_32621B9BF42E // aCheckListBox
- ME_32621B9BF42F // anIndex
- )
- ; // Parameters
- : SpelledFor ME_552D24400252 // GetChecked
- ;
-
-ref; // ME_5C7C4E6C6645 GetChecked
-
-: ME_B2B32F277750
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_61EE94402745 // pop_CheckListBox_GetChecked
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_B2B32F277750 
 
 : ME_4DAEEDE10285_ME_61EE94402745
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_61EE94402745 DoDoIt
-
-: ME_551544E2001A_ME_61EE94402745
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_61EE94402745 GetResultTypeInfo
-
-: ME_559687E6025A_ME_61EE94402745
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_61EE94402745 GetAllParamsCount
-
-: ME_5617F4D00243_ME_61EE94402745
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_61EE94402745 ParamsTypes
 
 : ME_61EE94402745
  CONST UID '61EE94402745'
@@ -1216,7 +491,7 @@ ref; // ME_5617F4D00243_ME_61EE94402745 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:CheckListBox:GetChecked'#13#10'{panel}anIndex aCheckBoxList pop:CheckListBox:GetChecked'#13#10'anIndex - индекс CheckBox''а'#13#10'aCheckBoxList  - контрол'#13#10'Возвращает True, если элемент помечен и False - если нет.{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' anIndex aCheckListBox pop:CheckListBox:GetChecked >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:CheckListBox:GetChecked' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
@@ -1225,29 +500,11 @@ ref; // ME_5617F4D00243_ME_61EE94402745 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5C7C4E6C6645 // GetChecked
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_61EE94402745 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_61EE94402745 // GetResultTypeInfo
- ME_559687E6025A_ME_61EE94402745 // GetAllParamsCount
- ME_5617F4D00243_ME_61EE94402745 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_B2B32F277750 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:CheckListBox:GetChecked'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopCheckListBoxGetChecked'
  CONST extprop:rc:SelfName 'PopCheckListBoxGetChecked'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1255,113 +512,18 @@ ref; // ME_5617F4D00243_ME_61EE94402745 ParamsTypes
  ;
  : SpelledFor ME_552D24400252 // GetChecked
  ;
- : Stub ME_5C7C4E6C6645 // GetChecked
- ;
 
 ref; // ME_61EE94402745 pop_CheckListBox_GetChecked
 
 FORWARD ME_552D24650138
 
-FORWARD ME_AEDB5415872F
-
 FORWARD ME_CA2863D28A34
-
-: ME_C7693873D917
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_C7693873D917 aCtx
-
-: ME_C7693873D918
- CONST Name 'aCheckListBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
- ;
-
-ref; // ME_C7693873D918 aCheckListBox
-
-: ME_C7693873D919
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C7693873D919 anIndex
-
-: ME_C7693873D91A
- CONST Name 'aValue'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_C7693873D91A aValue
-
-: ME_AEDB5415872F
- CONST UID 'AEDB5415872F'
- CONST Name 'SetChecked'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:CheckListBox:SetChecked' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CA2863D28A34 // pop_CheckListBox_SetChecked
- ;
- : Parameters
-   Seq: ( ME_C7693873D917 // aCtx
- ME_C7693873D918 // aCheckListBox
- ME_C7693873D919 // anIndex
- ME_C7693873D91A // aValue
- )
- ; // Parameters
- : SpelledFor ME_552D24650138 // SetChecked
- ;
-
-ref; // ME_AEDB5415872F SetChecked
-
-: ME_6ADF95C9EBB6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CA2863D28A34 // pop_CheckListBox_SetChecked
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_6ADF95C9EBB6 
 
 : ME_4DAEEDE10285_ME_CA2863D28A34
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CA2863D28A34 DoDoIt
-
-: ME_551544E2001A_ME_CA2863D28A34
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_CA2863D28A34 GetResultTypeInfo
-
-: ME_559687E6025A_ME_CA2863D28A34
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_CA2863D28A34 GetAllParamsCount
-
-: ME_5617F4D00243_ME_CA2863D28A34
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_CA2863D28A34 ParamsTypes
 
 : ME_CA2863D28A34
  CONST UID 'CA2863D28A34'
@@ -1370,7 +532,7 @@ ref; // ME_5617F4D00243_ME_CA2863D28A34 ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:CheckListBox:SetChecked'#13#10'{panel}aValue anIndex aCheckBoxList pop:CheckListBox:SetChecked'#13#10'anIndex - индекс CheckBox''а'#13#10'aCheckBoxList  - контрол'#13#10'Помечает элемент, если aValue = True и сбрасывает пометку, если aValue = False{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue anIndex aCheckListBox pop:CheckListBox:SetChecked'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:CheckListBox:SetChecked' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
@@ -1379,29 +541,11 @@ ref; // ME_5617F4D00243_ME_CA2863D28A34 ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AEDB5415872F // SetChecked
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_CA2863D28A34 // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_CA2863D28A34 // GetResultTypeInfo
- ME_559687E6025A_ME_CA2863D28A34 // GetAllParamsCount
- ME_5617F4D00243_ME_CA2863D28A34 // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_6ADF95C9EBB6 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:CheckListBox:SetChecked'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopCheckListBoxSetChecked'
  CONST extprop:rc:SelfName 'PopCheckListBoxSetChecked'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1409,91 +553,18 @@ ref; // ME_5617F4D00243_ME_CA2863D28A34 ParamsTypes
  ;
  : SpelledFor ME_552D24650138 // SetChecked
  ;
- : Stub ME_AEDB5415872F // SetChecked
- ;
 
 ref; // ME_CA2863D28A34 pop_CheckListBox_SetChecked
 
 FORWARD ME_552D24A702F3
 
-FORWARD ME_9D7C5A3CC63F
-
 FORWARD ME_CC902BB857AE
-
-: ME_20C854D57D7E
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_20C854D57D7E aCtx
-
-: ME_20C854D57D7F
- CONST Name 'aCheckListBox'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
- ;
-
-ref; // ME_20C854D57D7F aCheckListBox
-
-: ME_9D7C5A3CC63F
- CONST UID '9D7C5A3CC63F'
- CONST Name 'UncheckAll'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:CheckListBox:UncheckAll' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_CC902BB857AE // pop_CheckListBox_UncheckAll
- ;
- : Parameters
-   Seq: ( ME_20C854D57D7E // aCtx
- ME_20C854D57D7F // aCheckListBox
- )
- ; // Parameters
- : SpelledFor ME_552D24A702F3 // UncheckAll
- ;
-
-ref; // ME_9D7C5A3CC63F UncheckAll
-
-: ME_643A72BED21D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_CC902BB857AE // pop_CheckListBox_UncheckAll
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_643A72BED21D 
 
 : ME_4DAEEDE10285_ME_CC902BB857AE
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_CC902BB857AE DoDoIt
-
-: ME_551544E2001A_ME_CC902BB857AE
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_CC902BB857AE GetResultTypeInfo
-
-: ME_559687E6025A_ME_CC902BB857AE
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_CC902BB857AE GetAllParamsCount
-
-: ME_5617F4D00243_ME_CC902BB857AE
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_CC902BB857AE ParamsTypes
 
 : ME_CC902BB857AE
  CONST UID 'CC902BB857AE'
@@ -1502,7 +573,7 @@ ref; // ME_5617F4D00243_ME_CC902BB857AE ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:CheckListBox:UncheckAll'#13#10'{panel}aCheckBoxList pop:CheckListBox:UncheckAll'#13#10'Сбрасыват пометки у всех пунктов контрола.{panel}'#13#10'*Пример:*'#13#10'{code}'#13#10' aCheckListBox pop:CheckListBox:UncheckAll'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:CheckListBox:UncheckAll' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
@@ -1511,37 +582,17 @@ ref; // ME_5617F4D00243_ME_CC902BB857AE ParamsTypes
    Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9D7C5A3CC63F // UncheckAll
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_CC902BB857AE // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_551544E2001A_ME_CC902BB857AE // GetResultTypeInfo
- ME_559687E6025A_ME_CC902BB857AE // GetAllParamsCount
- ME_5617F4D00243_ME_CC902BB857AE // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_643A72BED21D // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:CheckListBox:UncheckAll'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopCheckListBoxUncheckAll'
  CONST extprop:rc:SelfName 'PopCheckListBoxUncheckAll'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
  ;
  : SpelledFor ME_552D24A702F3 // UncheckAll
- ;
- : Stub ME_9D7C5A3CC63F // UncheckAll
  ;
 
 ref; // ME_CC902BB857AE pop_CheckListBox_UncheckAll
@@ -1571,9 +622,6 @@ ref; // ME_552D245001D2 anIndex
    Seq: ( ME_552D245001D2 // anIndex
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_61EE94402745 // pop_CheckListBox_GetChecked
  ;
 
@@ -1612,9 +660,6 @@ ref; // ME_552D24820061 aValue
  ME_552D24820061 // aValue
  )
  ; // Parameters
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_CA2863D28A34 // pop_CheckListBox_SetChecked
  ;
 
@@ -1630,77 +675,10 @@ ref; // ME_552D24650138 SetChecked
  CONST Abstraction at_final
  : Parent ME_552D23C300F1 // CheckListBoxWordsPack
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
- CONST "mapped" 'undefined'
  : Speller ME_CC902BB857AE // pop_CheckListBox_UncheckAll
  ;
 
 ref; // ME_552D24A702F3 UncheckAll
-
-: ME_F3586F2699C4
- CONST UID 'F3586F2699C4'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552D23C300F1 // CheckListBoxWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F3586F2699C4 Reg_Type_TtfwContext
-
-: ME_90436DB2B425
- CONST UID '90436DB2B425'
- CONST Name 'Reg_Type_TCheckListBox'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TCheckListBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552D23C300F1 // CheckListBoxWordsPack
- ;
- : SpelledFor WL 'ME_51F24E890269' '4799D29F033F.pas.ms.script' // TCheckListBox
- ;
-
-ref; // ME_90436DB2B425 Reg_Type_TCheckListBox
-
-: ME_B8E94565C646
- CONST UID 'B8E94565C646'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552D23C300F1 // CheckListBoxWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B8E94565C646 Reg_Type_Integer
-
-: ME_E38AC0597B99
- CONST UID 'E38AC0597B99'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552D23C300F1 // CheckListBoxWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_E38AC0597B99 Reg_Type_Boolean
 
 : ME_DAFA93F50119
  CONST IsSummoned true
@@ -1731,10 +709,6 @@ ref; // ME_DAFA93F50119
    Seq: ( ME_552D24400252 // GetChecked
  ME_552D24650138 // SetChecked
  ME_552D24A702F3 // UncheckAll
- ME_F3586F2699C4 // Reg_Type_TtfwContext
- ME_90436DB2B425 // Reg_Type_TCheckListBox
- ME_B8E94565C646 // Reg_Type_Integer
- ME_E38AC0597B99 // Reg_Type_Boolean
  )
  ; // Operations
  : Children
@@ -1748,10 +722,6 @@ ref; // ME_DAFA93F50119
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
 
 ref; // ME_552D23C300F1 CheckListBoxWordsPack
@@ -1760,92 +730,13 @@ FORWARD ME_552E3DE40071
 
 FORWARD ME_A3B59E36022B
 
-FORWARD ME_0B811F8AAF5C
-
 FORWARD ME_06BAC463482F
-
-: ME_3BADAA90F842
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_3BADAA90F842 aCtx
-
-: ME_3BADAA90F843
- CONST Name 'aRadioButton'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
- ;
-
-ref; // ME_3BADAA90F843 aRadioButton
-
-: ME_0B811F8AAF5C
- CONST UID '0B811F8AAF5C'
- CONST Name 'Checked'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта pop:RadioButton:Checked' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_06BAC463482F // pop_RadioButton_Checked
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_3BADAA90F842 // aCtx
- ME_3BADAA90F843 // aRadioButton
- )
- ; // Parameters
- : SpelledFor ME_A3B59E36022B // Checked
- ;
-
-ref; // ME_0B811F8AAF5C Checked
-
-: ME_48FC0C23F6D0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_06BAC463482F // pop_RadioButton_Checked
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_48FC0C23F6D0 
 
 : ME_4DAEEDE10285_ME_06BAC463482F
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_06BAC463482F DoDoIt
-
-: ME_52D00B00031A_ME_06BAC463482F
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_06BAC463482F SetValuePrim
-
-: ME_551544E2001A_ME_06BAC463482F
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_06BAC463482F GetResultTypeInfo
-
-: ME_559687E6025A_ME_06BAC463482F
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_06BAC463482F GetAllParamsCount
-
-: ME_5617F4D00243_ME_06BAC463482F
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_06BAC463482F ParamsTypes
 
 : ME_06BAC463482F
  CONST UID '06BAC463482F'
@@ -1854,7 +745,7 @@ ref; // ME_5617F4D00243_ME_06BAC463482F ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта pop:RadioButton:Checked'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aRadioButton pop:RadioButton:Checked >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта pop:RadioButton:Checked' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_552E3DE40071 // RadioButtonWordsPack
@@ -1863,38 +754,17 @@ ref; // ME_5617F4D00243_ME_06BAC463482F ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0B811F8AAF5C // Checked
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_06BAC463482F // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_06BAC463482F // SetValuePrim
- ME_551544E2001A_ME_06BAC463482F // GetResultTypeInfo
- ME_559687E6025A_ME_06BAC463482F // GetAllParamsCount
- ME_5617F4D00243_ME_06BAC463482F // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_48FC0C23F6D0 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'pop:RadioButton:Checked'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwPopRadioButtonChecked'
  CONST extprop:rc:SelfName 'PopRadioButtonChecked'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
  ;
  : SpelledFor ME_A3B59E36022B // Checked
- ;
- : Stub ME_0B811F8AAF5C // Checked
  ;
 
 ref; // ME_06BAC463482F pop_RadioButton_Checked
@@ -1927,8 +797,6 @@ ref; // ME_552E3E30024F Checked
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'property'
  CONST extprop:prop_name 'Checked'
@@ -1936,54 +804,6 @@ ref; // ME_552E3E30024F Checked
  ;
 
 ref; // ME_A3B59E36022B Checked
-
-: ME_5EAE79403B92
- CONST UID '5EAE79403B92'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552E3DE40071 // RadioButtonWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5EAE79403B92 Reg_Type_TtfwContext
-
-: ME_9AB816CFDDB7
- CONST UID '9AB816CFDDB7'
- CONST Name 'Reg_Type_TRadioButton'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TRadioButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552E3DE40071 // RadioButtonWordsPack
- ;
- : SpelledFor WL 'ME_4F69BC9C014A' '4799D29F033F.pas.ms.script' // TRadioButton
- ;
-
-ref; // ME_9AB816CFDDB7 Reg_Type_TRadioButton
-
-: ME_2D67F2F48AE2
- CONST UID '2D67F2F48AE2'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_552E3DE40071 // RadioButtonWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_2D67F2F48AE2 Reg_Type_Boolean
 
 : ME_EEE2819C03E3
  CONST IsSummoned true
@@ -2016,9 +836,6 @@ ref; // ME_EEE2819C03E3
  ; // Attributes
  : Operations
    Seq: ( ME_A3B59E36022B // Checked
- ME_5EAE79403B92 // Reg_Type_TtfwContext
- ME_9AB816CFDDB7 // Reg_Type_TRadioButton
- ME_2D67F2F48AE2 // Reg_Type_Boolean
  )
  ; // Operations
  : Children
@@ -2030,10 +847,6 @@ ref; // ME_EEE2819C03E3
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
- CONST "no_pop" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
 
 ref; // ME_552E3DE40071 RadioButtonWordsPack

@@ -268,6 +268,34 @@ ref; // ME_3BF436DB2D18 aContainer
 
 ref; // ME_130AF2617571 RegisterBaseSearchView
 
+: ME_6CCF3E792418
+ CONST Name 'aContainer'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_6CCF3E792418 aContainer
+
+: ME_48C239B7B9E8
+ CONST UID '48C239B7B9E8'
+ CONST Name 'GetBaseSearchView'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ : Target WL 'ME_56D42F1903CF' '4A9F98B901A5.pas.ms.script' // InsBaseSearchView
+ ;
+ : Parameters
+   Seq: ( ME_6CCF3E792418 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_48C239B7B9E8 GetBaseSearchView
+
 : ME_A7888A84DDDB
  CONST UID 'A7888A84DDDB'
  CONST Name 'MnsBaseSearchService'
@@ -289,6 +317,7 @@ ref; // ME_130AF2617571 RegisterBaseSearchView
  ME_3ABD99A8B9EE // GetBaseSearchModel
  ME_29D9062E385E // GetBaseSearchController
  ME_130AF2617571 // RegisterBaseSearchView
+ ME_48C239B7B9E8 // GetBaseSearchView
  )
  ; // Operations
 
@@ -313,6 +342,12 @@ ref; // ME_29D9062E385E_ME_95B86FA902A2 GetBaseSearchController
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_3ABD99A8B9EE_ME_95B86FA902A2 GetBaseSearchModel
+
+: ME_48C239B7B9E8_ME_95B86FA902A2
+ : Original ME_48C239B7B9E8 // GetBaseSearchView
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48C239B7B9E8_ME_95B86FA902A2 GetBaseSearchView
 
 : ME_4923CA8F0CFB_ME_95B86FA902A2
  : Original ME_4923CA8F0CFB // GetBaseSearcher
@@ -365,6 +400,7 @@ ref; // ME_CB784FFDCCE4_ME_95B86FA902A2 UnregisterBaseSearcherProvider
    Seq: ( ME_130AF2617571_ME_95B86FA902A2 // RegisterBaseSearchView
  ME_29D9062E385E_ME_95B86FA902A2 // GetBaseSearchController
  ME_3ABD99A8B9EE_ME_95B86FA902A2 // GetBaseSearchModel
+ ME_48C239B7B9E8_ME_95B86FA902A2 // GetBaseSearchView
  ME_4923CA8F0CFB_ME_95B86FA902A2 // GetBaseSearcher
  ME_5434702F7752_ME_95B86FA902A2 // OpenBaseSearch
  ME_5E9BD918F50B_ME_95B86FA902A2 // GetBaseSearchWindow
@@ -625,6 +661,33 @@ ref; // ME_570623ED020E aContainer
 
 ref; // ME_570623BB029C RegisterBaseSearchView
 
+: ME_57077EC60068
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_57077EC60068 aContainer
+
+: ME_57077EAC03CA
+ CONST UID '57077EAC03CA'
+ CONST Name 'GetBaseSearchView'
+ CONST Class class_Operation
+ : Stereotype st_responsibility::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_563875050317 // TnsBaseSearchService
+ ;
+ : Target WL 'ME_56D42F1903CF' '4A9F98B901A5.pas.ms.script' // InsBaseSearchView
+ ;
+ : Parameters
+   Seq: ( ME_57077EC60068 // aContainer
+ )
+ ; // Parameters
+
+ref; // ME_57077EAC03CA GetBaseSearchView
+
 : ME_563875E103DB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -662,6 +725,12 @@ ref; // ME_29D9062E385E_ME_563875050317 GetBaseSearchController
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_3ABD99A8B9EE_ME_563875050317 GetBaseSearchModel
+
+: ME_48C239B7B9E8_ME_563875050317
+ : Original ME_48C239B7B9E8 // GetBaseSearchView
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_48C239B7B9E8_ME_563875050317 GetBaseSearchView
 
 : ME_4923CA8F0CFB_ME_563875050317
  : Original ME_4923CA8F0CFB // GetBaseSearcher
@@ -720,12 +789,14 @@ ref; // ME_CB784FFDCCE4_ME_563875050317 UnregisterBaseSearcherProvider
  ME_570623790185 // GetBaseSearchModel
  ME_5706239C01A7 // GetBaseSearchController
  ME_570623BB029C // RegisterBaseSearchView
+ ME_57077EAC03CA // GetBaseSearchView
  )
  ; // Operations
  : Implemented
    Seq: ( ME_130AF2617571_ME_563875050317 // RegisterBaseSearchView
  ME_29D9062E385E_ME_563875050317 // GetBaseSearchController
  ME_3ABD99A8B9EE_ME_563875050317 // GetBaseSearchModel
+ ME_48C239B7B9E8_ME_563875050317 // GetBaseSearchView
  ME_4923CA8F0CFB_ME_563875050317 // GetBaseSearcher
  ME_5434702F7752_ME_563875050317 // OpenBaseSearch
  ME_5E9BD918F50B_ME_563875050317 // GetBaseSearchWindow
@@ -743,10 +814,6 @@ ref; // ME_CB784FFDCCE4_ME_563875050317 UnregisterBaseSearcherProvider
  ME_563875EC005F // IvcmContainer
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchService.pas'
  CONST extprop:rc:SelfName 'BaseSearchService'

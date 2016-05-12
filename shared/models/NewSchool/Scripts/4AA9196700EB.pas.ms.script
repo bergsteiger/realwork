@@ -103,10 +103,6 @@ ref; // ME_4EE1DC8903BB_ME_89846AB44F41 GetInteger
  ; // Overridden
  CONST "NameForScript" 'тип_формы::MyPostingList'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_FormUserType_MyPostingList'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -132,12 +128,7 @@ ref; // ME_89846AB44F41 Tkw_FormUserType_MyPostingList
  )
  ; // Constants
  CONST "CanClose" false
- CONST "CanHaveToolbars" 'undefined'
  CONST "ImageIndex" 145
- CONST "NeedOnQueryClose" false
- CONST "NeedOnQueryMaximized" false
- CONST "NeedOnQueryOpen" false
- CONST "VisibleToUser" true
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_MyPostingList_UserType.pas'
  CONST extprop:pas:UnitName 'PrimPostingsList_MyPostingList_UserType'
@@ -408,7 +399,6 @@ ref; // ME_477243870072_ME_4C84F2B3000F RootChanged
  )
  ; // Implemented
  CONST "ControlClass" 'TeeTreeView'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -1330,12 +1320,8 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '15.09.2009 18:14'
@@ -1679,12 +1665,8 @@ ref; // ME_4C84EE1D0024_ME_4DF789BF02EF ptEditPosting
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '14.06.2011 20:18'
@@ -1780,13 +1762,8 @@ FORWARD ME_1F56928356FC
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
  CONST "form name prefix" 'en'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '15.09.2009 18:15'
@@ -1831,10 +1808,6 @@ ref; // ME_4DDFD2EA0116_ME_B32E48C9C5F6 GetString
  ; // Overridden
  CONST "NameForScript" 'форма::PostingsList'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_PostingsList'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4AAFA16202D3 // PostingsList
@@ -1906,10 +1879,6 @@ ref; // ME_52A086150180_ME_9246E180CAF0 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::tvPostings'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_PostingsList_Control_tvPostings'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4C84F2B3000F // tvPostings
@@ -1946,10 +1915,6 @@ ref; // ME_4DAEEDE10285_ME_7241BE7680A1 DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::tvPostings:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_PostingsList_Control_tvPostings_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4C84F2B3000F // tvPostings
@@ -1959,92 +1924,13 @@ ref; // ME_7241BE7680A1 Tkw_PostingsList_Control_tvPostings_Push
 
 FORWARD ME_CE1AA7EF42F8
 
-FORWARD ME_002683D39CEF
-
 FORWARD ME_901756EC93AA
-
-: ME_5E0E70EA535F
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5E0E70EA535F aCtx
-
-: ME_5E0E70EA5360
- CONST Name 'aenPostingsList'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4AAFA16202D3 // PostingsList
- ;
-
-ref; // ME_5E0E70EA5360 aenPostingsList
-
-: ME_002683D39CEF
- CONST UID '002683D39CEF'
- CONST Name 'tvPostings'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TenPostingsList.tvPostings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_901756EC93AA // enPostingsList_tvPostings
- ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
- : Parameters
-   Seq: ( ME_5E0E70EA535F // aCtx
- ME_5E0E70EA5360 // aenPostingsList
- )
- ; // Parameters
- : SpelledFor ME_CE1AA7EF42F8 // tvPostings
- ;
-
-ref; // ME_002683D39CEF tvPostings
-
-: ME_65C18DF9BBDE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_901756EC93AA // enPostingsList_tvPostings
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_65C18DF9BBDE 
 
 : ME_4DAEEDE10285_ME_901756EC93AA
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_901756EC93AA DoDoIt
-
-: ME_52D00B00031A_ME_901756EC93AA
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_901756EC93AA SetValuePrim
-
-: ME_551544E2001A_ME_901756EC93AA
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_901756EC93AA GetResultTypeInfo
-
-: ME_559687E6025A_ME_901756EC93AA
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_901756EC93AA GetAllParamsCount
-
-: ME_5617F4D00243_ME_901756EC93AA
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_901756EC93AA ParamsTypes
 
 : ME_901756EC93AA
  CONST UID '901756EC93AA'
@@ -2053,7 +1939,7 @@ ref; // ME_5617F4D00243_ME_901756EC93AA ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TenPostingsList.tvPostings'#13#10'{panel}Контрол tvPostings формы TenPostingsList{panel}'#13#10'*Тип результата:* TeeTreeView'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TeeTreeView'#13#10' aenPostingsList .TenPostingsList.tvPostings >>> l_TeeTreeView'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TenPostingsList.tvPostings' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_1C12379D921C // PostingsListKeywordsPack
@@ -2062,38 +1948,17 @@ ref; // ME_5617F4D00243_ME_901756EC93AA ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_002683D39CEF // tvPostings
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_901756EC93AA // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_901756EC93AA // SetValuePrim
- ME_551544E2001A_ME_901756EC93AA // GetResultTypeInfo
- ME_559687E6025A_ME_901756EC93AA // GetAllParamsCount
- ME_5617F4D00243_ME_901756EC93AA // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_65C18DF9BBDE // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TenPostingsList.tvPostings'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwEnPostingsListTvPostings'
  CONST extprop:rc:SelfName 'EnPostingsListTvPostings'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller ME_4AAFA16202D3 // PostingsList
  ;
  : SpelledFor ME_CE1AA7EF42F8 // tvPostings
- ;
- : Stub ME_002683D39CEF // tvPostings
  ;
 
 ref; // ME_901756EC93AA enPostingsList_tvPostings
@@ -2131,8 +1996,6 @@ ref; // ME_A47A28A49282 tvPostings
  : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
  ;
  CONST "NameForScript" '.TenPostingsList.tvPostings'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'tvPostings'
@@ -2140,54 +2003,6 @@ ref; // ME_A47A28A49282 tvPostings
  ;
 
 ref; // ME_CE1AA7EF42F8 tvPostings
-
-: ME_B775FB8DAB8F
- CONST UID 'B775FB8DAB8F'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_B775FB8DAB8F Reg_Type_TtfwContext
-
-: ME_528C126903F0
- CONST UID '528C126903F0'
- CONST Name 'Reg_Type_PostingsList'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа PostingsList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : SpelledFor ME_4AAFA16202D3 // PostingsList
- ;
-
-ref; // ME_528C126903F0 Reg_Type_PostingsList
-
-: ME_354D110F9A1A
- CONST UID '354D110F9A1A'
- CONST Name 'Reg_Type_TeeTreeView'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TeeTreeView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : SpelledFor WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
-
-ref; // ME_354D110F9A1A Reg_Type_TeeTreeView
 
 : ME_1F56928356FC
  CONST IsSummoned true
@@ -2237,9 +2052,6 @@ ref; // ME_4BDAF7B803CF_ME_1C12379D921C Wrap
  ; // Attributes
  : Operations
    Seq: ( ME_CE1AA7EF42F8 // tvPostings
- ME_B775FB8DAB8F // Reg_Type_TtfwContext
- ME_528C126903F0 // Reg_Type_PostingsList
- ME_354D110F9A1A // Reg_Type_TeeTreeView
  )
  ; // Operations
  : Implemented
@@ -2259,9 +2071,6 @@ ref; // ME_4BDAF7B803CF_ME_1C12379D921C Wrap
  ; // Dependencies
  CONST "UseNewGen" true
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\PostingsListKeywordsPack.pas'
 
@@ -3235,10 +3044,7 @@ ref; // ME_E2BFE5F0DA18
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "started" '10.09.2009 19:22'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas'
  CONST extprop:pas:TypeName 'TCommonPostModule'
@@ -3298,10 +3104,6 @@ ref; // ME_4DB079E00084_ME_08BD36053A81 GetModuleOperationCode
  ; // Dependencies
  CONST "NameForScript" 'моп::Файл_Экспортировать_все_индивидуальные_ленты_в_файл'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\kw_CommonPost_opSavePostList.pas'
  CONST extprop:rc:SelfName '_CommonPost_opSavePostList'
  CONST extprop:rc:isAcceptableForScripts true
@@ -3337,7 +3139,6 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_46837A08002C' '46837A08002C.pas.ms.script' // nsQueryInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
@@ -3368,7 +3169,6 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_4BD98A8C0110' '4BD98A8C0110.pas.ms.script' // FormDefinitions
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4C84EDB403D2' '4C84EDB403D2.pas.ms.script' // Strange
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords

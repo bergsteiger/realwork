@@ -86,10 +86,6 @@ ref; // ME_49E4883E0176_ME_5720F31301A0 DoWritePara
  ME_572110FD010E // TextPara
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName 'dTextCodePageChanger'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -124,16 +120,34 @@ ref; // ME_4C07BCBE01F2_ME_5720F28E0343 SetFilters
    Seq: ( ME_5720F31301A0 // TevdTextCodePageChanger
  )
  ; // Children
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K622402617.pas'
  CONST extprop:pas:TypeName 'TK622402617'
  CONST extprop:rc:SelfName 'K622402617'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5720F28E0343 K622402617
+
+: ME_57342D1B03C8
+ CONST UID '57342D1B03C8'
+ CONST Name 'K622840683'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{Requestlink:622840683}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5720F26D03C1 // 8.0
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C971C2203DD' '4BACDED003CE.pas.ms.script' // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K622840683.pas'
+ CONST extprop:pas:TypeName 'TK622840683'
+ CONST extprop:rc:SelfName 'K622840683'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_57342D1B03C8 K622840683
 
 : ME_5720F26D03C1
  CONST UID '5720F26D03C1'
@@ -146,6 +160,7 @@ ref; // ME_5720F28E0343 K622402617
  ;
  : Children
    Seq: ( ME_5720F28E0343 // K622402617
+ ME_57342D1B03C8 // K622840683
  )
  ; // Children
  : Depends
@@ -153,10 +168,11 @@ ref; // ME_5720F28E0343 K622402617
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
  WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_4BACDED003CE' '4BACDED003CE.pas.ms.script' // RTF
  WL 'ME_4C07B59F0382' '4C07B59F0382.pas.ms.script' // EVD
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )
  ; // Depends
- CONST Version 0
+ CONST Version 2
 
 ref; // ME_5720F26D03C1 8.0

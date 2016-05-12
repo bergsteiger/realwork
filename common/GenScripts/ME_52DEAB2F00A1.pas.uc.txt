@@ -25,22 +25,22 @@
        l_EverestReader.Execute;
        aCtx.rEngine.PushString(l_OutStream as Il3CString);
       finally
-       l3Free(l_EverestWriter);
+       FreeAndNil(l_EverestWriter);
       end;
      finally
-      l3Free(l_EverestReader);
+      FreeAndNil(l_EverestReader);
      end;
     finally
-     l3Free(l_OutFiler);
+     FreeAndNil(l_OutFiler);
     end;
    finally
-    l3Free(l_InFiler);
+    FreeAndNil(l_InFiler);
    end;
   finally
-   l3Free(l_OutStream);
+   FreeAndNil(l_OutStream);
   end;
  finally
-  l3Free(l_InStream);
+  FreeAndNil(l_InStream);
  end;
  {$ENDIF EverestLite}
 //#UC END# *4DAEEDE10285_52DEAB2F00A1_impl*

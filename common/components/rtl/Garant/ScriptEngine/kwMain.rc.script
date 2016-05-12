@@ -274,12 +274,12 @@ VOID IMMEDIATE OPERATOR then
 
 BOOLEAN FUNCTION NotValid IN %S
  if ( %S IsVoid ) then
-  ( true >>> Result )
+  ( True >>> Result )
  else
  if ( %S IsNil ) then
-  ( true >>> Result )
+  ( True >>> Result )
  else 
-  ( false >>> Result )
+  ( False >>> Result )
 ; // NotValid
 
 STRING FUNCTION |N
@@ -326,6 +326,9 @@ IMMEDIATE OPERATOR WordAlias
  ^ LINK IN aCode
  aCode aName |N Define
 ; // WordAlias
+
+WordAlias true True
+WordAlias false False
 
 WordAlias pop:object:IsNil IsNil
 WordAlias pop:object:Inherits pop:Object:Inherits

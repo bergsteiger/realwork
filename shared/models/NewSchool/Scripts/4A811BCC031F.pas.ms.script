@@ -103,10 +103,6 @@ ref; // ME_4EE1DC8903BB_ME_ED6BA4A365F7 GetInteger
  ; // Overridden
  CONST "NameForScript" 'тип_формы::utWorkJournal'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_FormUserType_utWorkJournal'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -131,13 +127,7 @@ ref; // ME_ED6BA4A365F7 Tkw_FormUserType_utWorkJournal
    Seq: ( ME_C58AE6F9A3D3 // utWorkJournalConstants
  )
  ; // Constants
- CONST "CanClose" 'undefined'
- CONST "CanHaveToolbars" 'undefined'
  CONST "ImageIndex" 128
- CONST "NeedOnQueryClose" false
- CONST "NeedOnQueryMaximized" false
- CONST "NeedOnQueryOpen" false
- CONST "VisibleToUser" true
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_utWorkJournal_UserType.pas'
  CONST extprop:pas:UnitName 'PrimWorkJournal_utWorkJournal_UserType'
@@ -385,7 +375,6 @@ ref; // ME_4C7D0C7B0185_ME_4C3F30AF012E Copy
  )
  ; // Implemented
  CONST "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
- CONST "need Caption" 'undefined'
  CONST "pm" true
  CONST "put to dfm" false
 
@@ -1026,12 +1015,8 @@ ref; // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '27.04.2010 16:22'
@@ -1132,12 +1117,8 @@ ref; // ME_4C3F342E02AF_ME_4CC7E19400DE ExecuteQuery
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
  CONST "no hands" true
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST "started" '27.10.2010 12:24'
@@ -1304,12 +1285,7 @@ FORWARD ME_CC8BA3F9FE5F
  ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
- CONST "base wnd class" 'CWnd'
  CONST "finished dfm" true
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST "resizeable" false
  CONST "restrict form def" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\WorkJournal_Form.pas'
@@ -1353,10 +1329,6 @@ ref; // ME_4DDFD2EA0116_ME_228AAA176ABA GetString
  ; // Overridden
  CONST "NameForScript" 'форма::WorkJournal'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_WorkJournal'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4A811C620210 // WorkJournal
@@ -1428,10 +1400,6 @@ ref; // ME_52A086150180_ME_E8E6940573D8 RegisterInEngine
  )
  ; // Dependencies
  CONST "NameForScript" 'контрол::JournalTree'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_WorkJournal_Control_JournalTree'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4C3F30AF012E // JournalTree
@@ -1468,10 +1436,6 @@ ref; // ME_4DAEEDE10285_ME_C5BABF360A3C DoDoIt
  )
  ; // Overridden
  CONST "NameForScript" 'контрол::JournalTree:push'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_WorkJournal_Control_JournalTree_Push'
  CONST extprop:rc:isAcceptableForScripts true
  : SpelledFor ME_4C3F30AF012E // JournalTree
@@ -1481,92 +1445,13 @@ ref; // ME_C5BABF360A3C Tkw_WorkJournal_Control_JournalTree_Push
 
 FORWARD ME_731B853F98CE
 
-FORWARD ME_0880E186193F
-
 FORWARD ME_2FB40EF219EB
-
-: ME_749D0933E4E6
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_749D0933E4E6 aCtx
-
-: ME_749D0933E4E7
- CONST Name 'aWorkJournalForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4A811C620210 // WorkJournal
- ;
-
-ref; // ME_749D0933E4E7 aWorkJournalForm
-
-: ME_0880E186193F
- CONST UID '0880E186193F'
- CONST Name 'JournalTree'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта .TWorkJournalForm.JournalTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2FB40EF219EB // WorkJournalForm_JournalTree
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
- : Parameters
-   Seq: ( ME_749D0933E4E6 // aCtx
- ME_749D0933E4E7 // aWorkJournalForm
- )
- ; // Parameters
- : SpelledFor ME_731B853F98CE // JournalTree
- ;
-
-ref; // ME_0880E186193F JournalTree
-
-: ME_B888854082C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_2FB40EF219EB // WorkJournalForm_JournalTree
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_B888854082C9 
 
 : ME_4DAEEDE10285_ME_2FB40EF219EB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_2FB40EF219EB DoDoIt
-
-: ME_52D00B00031A_ME_2FB40EF219EB
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_2FB40EF219EB SetValuePrim
-
-: ME_551544E2001A_ME_2FB40EF219EB
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_2FB40EF219EB GetResultTypeInfo
-
-: ME_559687E6025A_ME_2FB40EF219EB
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_2FB40EF219EB GetAllParamsCount
-
-: ME_5617F4D00243_ME_2FB40EF219EB
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_2FB40EF219EB ParamsTypes
 
 : ME_2FB40EF219EB
  CONST UID '2FB40EF219EB'
@@ -1575,7 +1460,7 @@ ref; // ME_5617F4D00243_ME_2FB40EF219EB ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TWorkJournalForm.JournalTree'#13#10'{panel}Контрол JournalTree формы TWorkJournalForm{panel}'#13#10'*Тип результата:* TnscTreeViewWithAdapterDragDrop'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscTreeViewWithAdapterDragDrop'#13#10' aWorkJournalForm .TWorkJournalForm.JournalTree >>> l_TnscTreeViewWithAdapterDragDrop'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта .TWorkJournalForm.JournalTree' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
@@ -1584,38 +1469,17 @@ ref; // ME_5617F4D00243_ME_2FB40EF219EB ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0880E186193F // JournalTree
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_2FB40EF219EB // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_2FB40EF219EB // SetValuePrim
- ME_551544E2001A_ME_2FB40EF219EB // GetResultTypeInfo
- ME_559687E6025A_ME_2FB40EF219EB // GetAllParamsCount
- ME_5617F4D00243_ME_2FB40EF219EB // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_B888854082C9 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" '.TWorkJournalForm.JournalTree'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwWorkJournalFormJournalTree'
  CONST extprop:rc:SelfName 'WorkJournalFormJournalTree'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller ME_4A811C620210 // WorkJournal
  ;
  : SpelledFor ME_731B853F98CE // JournalTree
- ;
- : Stub ME_0880E186193F // JournalTree
  ;
 
 ref; // ME_2FB40EF219EB WorkJournalForm_JournalTree
@@ -1653,8 +1517,6 @@ ref; // ME_84E78E81C2CE JournalTree
  : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
  ;
  CONST "NameForScript" '.TWorkJournalForm.JournalTree'
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'JournalTree'
@@ -1662,54 +1524,6 @@ ref; // ME_84E78E81C2CE JournalTree
  ;
 
 ref; // ME_731B853F98CE JournalTree
-
-: ME_D753A82BDA12
- CONST UID 'D753A82BDA12'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_D753A82BDA12 Reg_Type_TtfwContext
-
-: ME_81D47DB7B16B
- CONST UID '81D47DB7B16B'
- CONST Name 'Reg_Type_WorkJournal'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа WorkJournal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : SpelledFor ME_4A811C620210 // WorkJournal
- ;
-
-ref; // ME_81D47DB7B16B Reg_Type_WorkJournal
-
-: ME_C986EF62105B
- CONST UID 'C986EF62105B'
- CONST Name 'Reg_Type_TnscTreeViewWithAdapterDragDrop'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TnscTreeViewWithAdapterDragDrop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : SpelledFor WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_C986EF62105B Reg_Type_TnscTreeViewWithAdapterDragDrop
 
 : ME_CC8BA3F9FE5F
  CONST IsSummoned true
@@ -1774,9 +1588,6 @@ ref; // ME_4C7D0CC90052_ME_B772BF700C99 Delete
  ; // Attributes
  : Operations
    Seq: ( ME_731B853F98CE // JournalTree
- ME_D753A82BDA12 // Reg_Type_TtfwContext
- ME_81D47DB7B16B // Reg_Type_WorkJournal
- ME_C986EF62105B // Reg_Type_TnscTreeViewWithAdapterDragDrop
  )
  ; // Operations
  : Implemented
@@ -1797,9 +1608,6 @@ ref; // ME_4C7D0CC90052_ME_B772BF700C99 Delete
  ; // Dependencies
  CONST "UseNewGen" true
  CONST "ifndef" 'NoScripts'
- CONST "needs script" 'undefined'
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\WorkJournalKeywordsPack.pas'
 
@@ -1926,10 +1734,6 @@ ref; // ME_3204EEE6F3FE
  ME_3204EEE6F3FE // Tkw_WorkJournal_opOpenJournal
  )
  ; // Dependencies
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\BaseWorkJournal_Module.pas'
  CONST extprop:pas:TypeName 'TBaseWorkJournalModule'
  CONST extprop:rc:SelfName 'BaseWorkJournalModule'
@@ -1988,10 +1792,6 @@ ref; // ME_4DB079E00084_ME_AD86DC9C7EF5 GetModuleOperationCode
  ; // Dependencies
  CONST "NameForScript" 'моп::Журнал_работы_OpenJournal'
  CONST "ifndef" 'NoScripts'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\kw_WorkJournal_opOpenJournal.pas'
  CONST extprop:rc:SelfName '_WorkJournal_opOpenJournal'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2025,7 +1825,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47D036150077' '47D036150077.pas.ms.script' // l3ControlsTypes
@@ -2048,7 +1847,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4C3F34640373' '4C3F34640373.pas.ms.script' // Strange
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords

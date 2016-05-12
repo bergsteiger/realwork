@@ -18,6 +18,172 @@
 //#UC END# *53CF58CDEE72_DCC8D602858A_impl*
 //#UC START# *53CF58CDEE72_DCC8D602858A_var*
 //#UC END# *53CF58CDEE72_DCC8D602858A_var*
+//#UC START# *552FEA840365_3A8F612BD250_impl*
+ Result := l3TestMask(aTree.CTree.CNodes[aNodeID].Flags, aFlag);
+//#UC END# *552FEA840365_3A8F612BD250_impl*
+//#UC START# *552FEA840365_3A8F612BD250_var*
+//#UC END# *552FEA840365_3A8F612BD250_var*
+//#UC START# *552FEAD4014B_DCC8D602858A_impl*
+ aTree.TreeStruct.RootNode.ExpandCollapseAll(False);
+//#UC END# *552FEAD4014B_DCC8D602858A_impl*
+//#UC START# *552FEAD4014B_DCC8D602858A_var*
+//#UC END# *552FEAD4014B_DCC8D602858A_var*
+//#UC START# *552FEAF60072_24EBB16818DB_impl*
+ Result := aTree.TreeStruct.IsExpanded(aTree.GetCurrentNode);
+//#UC END# *552FEAF60072_24EBB16818DB_impl*
+//#UC START# *552FEAF60072_24EBB16818DB_var*
+//#UC END# *552FEAF60072_24EBB16818DB_var*
+//#UC START# *552FEB150182_88EA9B4D8249_impl*
+ l_Current := aTree.CurrentCNode;
+ while l_Current.HasChild do
+ begin
+  l_Node := l_Current.Child;
+  l_Node.Delete;
+ end; // while l_Current.HasChld do
+//#UC END# *552FEB150182_88EA9B4D8249_impl*
+//#UC START# *552FEB150182_88EA9B4D8249_var*
+var
+ l_Node   : Il3SimpleNode;
+ l_Current: Il3SimpleNode;
+//#UC END# *552FEB150182_88EA9B4D8249_var*
+//#UC START# *552FEB5A0289_11D7E325A602_impl*
+ aTree.TreeStruct.RootNode.ExpandCollapseAll(True);
+//#UC END# *552FEB5A0289_11D7E325A602_impl*
+//#UC START# *552FEB5A0289_11D7E325A602_var*
+//#UC END# *552FEB5A0289_11D7E325A602_var*
+//#UC START# *552FEB8A0123_6EB6AE69700F_impl*
+ Result := aTree.GetCurrentNode;
+//#UC END# *552FEB8A0123_6EB6AE69700F_impl*
+//#UC START# *552FEB8A0123_6EB6AE69700F_var*
+//#UC END# *552FEB8A0123_6EB6AE69700F_var*
+//#UC START# *552FEBB50243_E66BB4447886_impl*
+ Result := aTree.TreeStruct.Nodes[anIndex];
+//#UC END# *552FEBB50243_E66BB4447886_impl*
+//#UC START# *552FEBB50243_E66BB4447886_var*
+//#UC END# *552FEBB50243_E66BB4447886_var*
+//#UC START# *552FEBDB031D_6AA86FBC7A2F_impl*
+ Result := aTree.TreeStruct.CountView;
+//#UC END# *552FEBDB031D_6AA86FBC7A2F_impl*
+//#UC START# *552FEBDB031D_6AA86FBC7A2F_var*
+//#UC END# *552FEBDB031D_6AA86FBC7A2F_var*
+//#UC START# *552FEBFF016C_57DF7C56BA33_impl*
+ try
+  aTree.IterateF(l3L2NA(@DoItem), 0);
+ except
+  on EtfwBreakIterator do ;
+ end;//try..except
+//#UC END# *552FEBFF016C_57DF7C56BA33_impl*
+//#UC START# *552FEBFF016C_57DF7C56BA33_var*
+
+ function DoItem(const aNode: Il3Node): Boolean;
+ begin//DoItem
+  Result := false;
+  aCtx.rEngine.PushIntf(aNode, TypeInfo(Il3Node));
+  aLambda.DoIt(aCtx);
+ end;//DoItem
+ 
+//#UC END# *552FEBFF016C_57DF7C56BA33_var*
+//#UC START# *552FEC260349_B4D43BCE4979_impl*
+ l_S := aCtx.rCaller.ResolveOutputFilePath(aFileName);
+ l_S := ChangeFileExt(l_S, '.tree');
+ l_F := Tl3CustomDosFiler.Make(l_S, l3_fmWrite, false);
+ try
+  l_F.Open;
+  aTree.CTree.CRootNode.IterateF(l3L2NA(@lp_IterateNode), imExpandOnly);
+  l_F.Close;
+ finally
+  FreeAndNil(l_F);
+ end;//try..finally
+//#UC END# *552FEC260349_B4D43BCE4979_impl*
+//#UC START# *552FEC260349_B4D43BCE4979_var*
+var
+ l_F : Tl3CustomDosFiler;
+ 
+ function lp_IterateNode(const aCurNode : Il3Node) : Boolean;
+ var
+  i       : Integer;
+  l_CStr  : Il3CString;
+  l_Name  : AnsiString;
+  l_Level : Integer;
+ begin
+  Result := false;
+  l_Name  := '';
+  with aTree.CTree do
+  begin
+   if not aTree.CTree.IsExpanded(aCurNode.ParentNode) then Exit;
+   l_Level := GetLevel(aCurNode);
+   if ShowRoot then Dec(l_Level);
+  end; // with aTreeControl.CTree do
+  for i := l_Level downto 2 do
+   l_Name := l_Name + '  ';
+  l_CStr := l3CStr(aCurNode.Text);
+  l3DeleteChars(l_CStr, [cc_SoftEnter, cc_HardEnter, cc_SoftSpace]);
+  l_Name := Format('%s%s - Flags: %d', [l_Name, l3Str(l_CStr), aCurNode.Flags]);
+  l_F.WriteLn(l_Name);
+ end;
+
+var
+ l_S : AnsiString;
+//#UC END# *552FEC260349_B4D43BCE4979_var*
+//#UC START# *552FF5F001F8_015D1248A6CF_impl*
+ Result := aTree.GetNode(anIndex).ThisChildrenCount;
+//#UC END# *552FF5F001F8_015D1248A6CF_impl*
+//#UC START# *552FF5F001F8_015D1248A6CF_var*
+//#UC END# *552FF5F001F8_015D1248A6CF_var*
+//#UC START# *552FF61301F5_B776D637E7D3_impl*
+ aTree.ExpandNode(aTree.GetNode(anIndex), True);
+//#UC END# *552FF61301F5_B776D637E7D3_impl*
+//#UC START# *552FF61301F5_B776D637E7D3_var*
+//#UC END# *552FF61301F5_B776D637E7D3_var*
+//#UC START# *552FF6740129_62AE36AC72B7_impl*
+ with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
+  Result := (Bottom - Top);
+//#UC END# *552FF6740129_62AE36AC72B7_impl*
+//#UC START# *552FF6740129_62AE36AC72B7_var*
+//#UC END# *552FF6740129_62AE36AC72B7_var*
+//#UC START# *552FF69A0228_A8F9DB23E07A_impl*
+ if Assigned(aTree.OnGetItemImage) then
+  Result := aTree.OnGetItemImage(aTree, anIndex, l_IL)
+ else
+  Result := vtItemWithoutImage;
+//#UC END# *552FF69A0228_A8F9DB23E07A_impl*
+//#UC START# *552FF69A0228_A8F9DB23E07A_var*
+var
+ l_IL: TCustomImageList;
+//#UC END# *552FF69A0228_A8F9DB23E07A_var*
+//#UC START# *552FF6CC0186_6CAA56491F95_impl*
+ with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
+  Result := Left;
+//#UC END# *552FF6CC0186_6CAA56491F95_impl*
+//#UC START# *552FF6CC0186_6CAA56491F95_var*
+//#UC END# *552FF6CC0186_6CAA56491F95_var*
+//#UC START# *552FF6F802D9_5F6D76A66CAD_impl*
+ with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
+  Result := Top;
+//#UC END# *552FF6F802D9_5F6D76A66CAD_impl*
+//#UC START# *552FF6F802D9_5F6D76A66CAD_var*
+//#UC END# *552FF6F802D9_5F6D76A66CAD_var*
+//#UC START# *552FF71D00BE_645DA96C0332_impl*
+ with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
+  Result := (Right - Left);
+//#UC END# *552FF71D00BE_645DA96C0332_impl*
+//#UC START# *552FF71D00BE_645DA96C0332_var*
+//#UC END# *552FF71D00BE_645DA96C0332_var*
+//#UC START# *552FF745039F_5AEA5F2D19AB_impl*
+ Result := aTree.Selected[anIndex];
+//#UC END# *552FF745039F_5AEA5F2D19AB_impl*
+//#UC START# *552FF745039F_5AEA5F2D19AB_var*
+//#UC END# *552FF745039F_5AEA5F2D19AB_var*
+//#UC START# *552FF76C0114_017A97801F00_impl*
+ aTree.Selected[anIndex] := aValue;
+//#UC END# *552FF76C0114_017A97801F00_impl*
+//#UC START# *552FF76C0114_017A97801F00_var*
+//#UC END# *552FF76C0114_017A97801F00_var*
+//#UC START# *5530E0B20024_9749EACE054F_impl*
+ aTree.ExpandNode(aTree.GetNode(anIndex), false);
+//#UC END# *5530E0B20024_9749EACE054F_impl*
+//#UC START# *5530E0B20024_9749EACE054F_var*
+//#UC END# *5530E0B20024_9749EACE054F_var*
 //#UC START# *5E6EA88E41A6_24EBB16818DB_impl*
  Result := aTree.TreeStruct.IsExpanded(aTree.GetCurrentNode);
 //#UC END# *5E6EA88E41A6_24EBB16818DB_impl*

@@ -8,92 +8,13 @@ FORWARD ME_54EF449A0213
 
 FORWARD ME_28E83A98DA41
 
-FORWARD ME_13DEAD421A35
-
 FORWARD ME_45751BDD834B
-
-: ME_E0D99E0EFA45
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E0D99E0EFA45 aCtx
-
-: ME_E0D99E0EFA46
- CONST Name 'aNode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_E0D99E0EFA46 aNode
-
-: ME_13DEAD421A35
- CONST UID '13DEAD421A35'
- CONST Name 'IsFirst'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Node:IsFirst' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_45751BDD834B // Node_IsFirst
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_E0D99E0EFA45 // aCtx
- ME_E0D99E0EFA46 // aNode
- )
- ; // Parameters
- : SpelledFor ME_28E83A98DA41 // IsFirst
- ;
-
-ref; // ME_13DEAD421A35 IsFirst
-
-: ME_D0024091F276
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_45751BDD834B // Node_IsFirst
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_D0024091F276 
 
 : ME_4DAEEDE10285_ME_45751BDD834B
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_45751BDD834B DoDoIt
-
-: ME_52D00B00031A_ME_45751BDD834B
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_45751BDD834B SetValuePrim
-
-: ME_551544E2001A_ME_45751BDD834B
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_45751BDD834B GetResultTypeInfo
-
-: ME_559687E6025A_ME_45751BDD834B
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_45751BDD834B GetAllParamsCount
-
-: ME_5617F4D00243_ME_45751BDD834B
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_45751BDD834B ParamsTypes
 
 : ME_45751BDD834B
  CONST UID '45751BDD834B'
@@ -102,7 +23,7 @@ ref; // ME_5617F4D00243_ME_45751BDD834B ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Node:IsFirst'#13#10'{panel}Узел первый?{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aNode Node:IsFirst >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Node:IsFirst' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
@@ -111,30 +32,11 @@ ref; // ME_5617F4D00243_ME_45751BDD834B ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_13DEAD421A35 // IsFirst
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_45751BDD834B // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_45751BDD834B // SetValuePrim
- ME_551544E2001A_ME_45751BDD834B // GetResultTypeInfo
- ME_559687E6025A_ME_45751BDD834B // GetAllParamsCount
- ME_5617F4D00243_ME_45751BDD834B // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D0024091F276 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Node:IsFirst'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwNodeIsFirst'
  CONST extprop:rc:SelfName 'NodeIsFirst'
  CONST extprop:rc:isAcceptableForScripts true
@@ -142,99 +44,18 @@ ref; // ME_5617F4D00243_ME_45751BDD834B ParamsTypes
  ;
  : SpelledFor ME_28E83A98DA41 // IsFirst
  ;
- : Stub ME_13DEAD421A35 // IsFirst
- ;
 
 ref; // ME_45751BDD834B Node_IsFirst
 
 FORWARD ME_F4B48E1A7036
 
-FORWARD ME_CED6FFACFE06
-
 FORWARD ME_97BDCC1D1FFB
-
-: ME_5C27F9493D46
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_5C27F9493D46 aCtx
-
-: ME_5C27F9493D47
- CONST Name 'aNode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_5C27F9493D47 aNode
-
-: ME_CED6FFACFE06
- CONST UID 'CED6FFACFE06'
- CONST Name 'IsLast'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Node:IsLast' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_97BDCC1D1FFB // Node_IsLast
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_5C27F9493D46 // aCtx
- ME_5C27F9493D47 // aNode
- )
- ; // Parameters
- : SpelledFor ME_F4B48E1A7036 // IsLast
- ;
-
-ref; // ME_CED6FFACFE06 IsLast
-
-: ME_7CE4F522A652
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_97BDCC1D1FFB // Node_IsLast
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_7CE4F522A652 
 
 : ME_4DAEEDE10285_ME_97BDCC1D1FFB
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_97BDCC1D1FFB DoDoIt
-
-: ME_52D00B00031A_ME_97BDCC1D1FFB
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_97BDCC1D1FFB SetValuePrim
-
-: ME_551544E2001A_ME_97BDCC1D1FFB
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_97BDCC1D1FFB GetResultTypeInfo
-
-: ME_559687E6025A_ME_97BDCC1D1FFB
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_97BDCC1D1FFB GetAllParamsCount
-
-: ME_5617F4D00243_ME_97BDCC1D1FFB
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_97BDCC1D1FFB ParamsTypes
 
 : ME_97BDCC1D1FFB
  CONST UID '97BDCC1D1FFB'
@@ -243,7 +64,7 @@ ref; // ME_5617F4D00243_ME_97BDCC1D1FFB ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Node:IsLast'#13#10'{panel}Узел последний?{panel}'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aNode Node:IsLast >>> l_Boolean'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Node:IsLast' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
@@ -252,30 +73,11 @@ ref; // ME_5617F4D00243_ME_97BDCC1D1FFB ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CED6FFACFE06 // IsLast
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_97BDCC1D1FFB // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_97BDCC1D1FFB // SetValuePrim
- ME_551544E2001A_ME_97BDCC1D1FFB // GetResultTypeInfo
- ME_559687E6025A_ME_97BDCC1D1FFB // GetAllParamsCount
- ME_5617F4D00243_ME_97BDCC1D1FFB // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7CE4F522A652 // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Node:IsLast'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwNodeIsLast'
  CONST extprop:rc:SelfName 'NodeIsLast'
  CONST extprop:rc:isAcceptableForScripts true
@@ -283,99 +85,18 @@ ref; // ME_5617F4D00243_ME_97BDCC1D1FFB ParamsTypes
  ;
  : SpelledFor ME_F4B48E1A7036 // IsLast
  ;
- : Stub ME_CED6FFACFE06 // IsLast
- ;
 
 ref; // ME_97BDCC1D1FFB Node_IsLast
 
 FORWARD ME_EAF97A7DA286
 
-FORWARD ME_5AC32421B6A5
-
 FORWARD ME_DA2D728F699C
-
-: ME_E77431681819
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E77431681819 aCtx
-
-: ME_E7743168181A
- CONST Name 'aNode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_E7743168181A aNode
-
-: ME_5AC32421B6A5
- CONST UID '5AC32421B6A5'
- CONST Name 'Flags'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Node:Flags' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_DA2D728F699C // Node_Flags
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_E77431681819 // aCtx
- ME_E7743168181A // aNode
- )
- ; // Parameters
- : SpelledFor ME_EAF97A7DA286 // Flags
- ;
-
-ref; // ME_5AC32421B6A5 Flags
-
-: ME_35CB366B896B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_DA2D728F699C // Node_Flags
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_35CB366B896B 
 
 : ME_4DAEEDE10285_ME_DA2D728F699C
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_DA2D728F699C DoDoIt
-
-: ME_52D00B00031A_ME_DA2D728F699C
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_DA2D728F699C SetValuePrim
-
-: ME_551544E2001A_ME_DA2D728F699C
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_DA2D728F699C GetResultTypeInfo
-
-: ME_559687E6025A_ME_DA2D728F699C
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_DA2D728F699C GetAllParamsCount
-
-: ME_5617F4D00243_ME_DA2D728F699C
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_DA2D728F699C ParamsTypes
 
 : ME_DA2D728F699C
  CONST UID 'DA2D728F699C'
@@ -384,7 +105,7 @@ ref; // ME_5617F4D00243_ME_DA2D728F699C ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Node:Flags'#13#10'{panel}Флаги узла{panel}'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aNode Node:Flags >>> l_Integer'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Node:Flags' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
@@ -393,30 +114,11 @@ ref; // ME_5617F4D00243_ME_DA2D728F699C ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5AC32421B6A5 // Flags
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_DA2D728F699C // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_DA2D728F699C // SetValuePrim
- ME_551544E2001A_ME_DA2D728F699C // GetResultTypeInfo
- ME_559687E6025A_ME_DA2D728F699C // GetAllParamsCount
- ME_5617F4D00243_ME_DA2D728F699C // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_35CB366B896B // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Node:Flags'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwNodeFlags'
  CONST extprop:rc:SelfName 'NodeFlags'
  CONST extprop:rc:isAcceptableForScripts true
@@ -424,99 +126,18 @@ ref; // ME_5617F4D00243_ME_DA2D728F699C ParamsTypes
  ;
  : SpelledFor ME_EAF97A7DA286 // Flags
  ;
- : Stub ME_5AC32421B6A5 // Flags
- ;
 
 ref; // ME_DA2D728F699C Node_Flags
 
 FORWARD ME_D385122C0424
 
-FORWARD ME_64ACB0166C73
-
 FORWARD ME_70C4D26A03EF
-
-: ME_E4519D0409E0
- CONST Name 'aCtx'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_E4519D0409E0 aCtx
-
-: ME_E4519D0409E1
- CONST Name 'aNode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_E4519D0409E1 aNode
-
-: ME_64ACB0166C73
- CONST UID '64ACB0166C73'
- CONST Name 'Text'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Реализация слова скрипта Node:Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_70C4D26A03EF // Node_Text
- ;
- : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
- ;
- : Parameters
-   Seq: ( ME_E4519D0409E0 // aCtx
- ME_E4519D0409E1 // aNode
- )
- ; // Parameters
- : SpelledFor ME_D385122C0424 // Text
- ;
-
-ref; // ME_64ACB0166C73 Text
-
-: ME_C1AD5F4D0D0C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_70C4D26A03EF // Node_Text
- ;
- : Target WL 'ME_4767748503B5' '4767743E00E5.pas.ms.script' // TTypeInfo
- ;
-
-ref; // ME_C1AD5F4D0D0C 
 
 : ME_4DAEEDE10285_ME_70C4D26A03EF
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_4DAEEDE10285_ME_70C4D26A03EF DoDoIt
-
-: ME_52D00B00031A_ME_70C4D26A03EF
- : Original WL 'ME_52D00B00031A' '4DAF19F600C5.pas.ms.script' // SetValuePrim
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_52D00B00031A_ME_70C4D26A03EF SetValuePrim
-
-: ME_551544E2001A_ME_70C4D26A03EF
- : Original WL 'ME_551544E2001A' '4DAF19F600C5.pas.ms.script' // GetResultTypeInfo
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_551544E2001A_ME_70C4D26A03EF GetResultTypeInfo
-
-: ME_559687E6025A_ME_70C4D26A03EF
- : Original WL 'ME_559687E6025A' '4DAF19F600C5.pas.ms.script' // GetAllParamsCount
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_559687E6025A_ME_70C4D26A03EF GetAllParamsCount
-
-: ME_5617F4D00243_ME_70C4D26A03EF
- : Original WL 'ME_5617F4D00243' '4DAF19F600C5.pas.ms.script' // ParamsTypes
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5617F4D00243_ME_70C4D26A03EF ParamsTypes
 
 : ME_70C4D26A03EF
  CONST UID '70C4D26A03EF'
@@ -525,7 +146,7 @@ ref; // ME_5617F4D00243_ME_70C4D26A03EF ParamsTypes
  CONST Class class_Class
  : Stereotype st_ScriptKeyword ;
  CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта Node:Text'#13#10'{panel}Текст узла{panel}'#13#10'*Тип результата:* Tl3WString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Tl3WString'#13#10' aNode Node:Text >>> l_Tl3WString'#13#10'{code} ' ;
+ %SUMMARY 'Слово скрипта Node:Text' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
@@ -534,38 +155,17 @@ ref; // ME_5617F4D00243_ME_70C4D26A03EF ParamsTypes
    Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_64ACB0166C73 // Text
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4DAEEDE10285_ME_70C4D26A03EF // DoDoIt
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_52D00B00031A_ME_70C4D26A03EF // SetValuePrim
- ME_551544E2001A_ME_70C4D26A03EF // GetResultTypeInfo
- ME_559687E6025A_ME_70C4D26A03EF // GetAllParamsCount
- ME_5617F4D00243_ME_70C4D26A03EF // ParamsTypes
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C1AD5F4D0D0C // TTypeInfo
- )
- ; // Dependencies
  CONST "NameForScript" 'Node:Text'
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
  CONST extprop:pas:TypeName 'TkwNodeText'
  CONST extprop:rc:SelfName 'NodeText'
  CONST extprop:rc:isAcceptableForScripts true
  : Speller WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
  ;
  : SpelledFor ME_D385122C0424 // Text
- ;
- : Stub ME_64ACB0166C73 // Text
  ;
 
 ref; // ME_70C4D26A03EF Node_Text
@@ -651,8 +251,6 @@ ref; // ME_54F88F19036A Text
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsFirst'
@@ -674,8 +272,6 @@ ref; // ME_28E83A98DA41 IsFirst
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'IsLast'
@@ -697,8 +293,6 @@ ref; // ME_F4B48E1A7036 IsLast
  ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Flags'
@@ -720,8 +314,6 @@ ref; // ME_EAF97A7DA286 Flags
  ;
  : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
  ;
- CONST "bind params" 'undefined'
- CONST "lvalue" 'undefined'
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'Text'
@@ -729,86 +321,6 @@ ref; // ME_EAF97A7DA286 Flags
  ;
 
 ref; // ME_D385122C0424 Text
-
-: ME_FFEA42D80CDE
- CONST UID 'FFEA42D80CDE'
- CONST Name 'Reg_Type_TtfwContext'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа TtfwContext' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : SpelledFor WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_FFEA42D80CDE Reg_Type_TtfwContext
-
-: ME_430A2384C595
- CONST UID '430A2384C595'
- CONST Name 'Reg_Type_Il3SimpleNode'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Il3SimpleNode' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : SpelledFor WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_430A2384C595 Reg_Type_Il3SimpleNode
-
-: ME_0B353C0C0D8F
- CONST UID '0B353C0C0D8F'
- CONST Name 'Reg_Type_Boolean'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Boolean' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : SpelledFor WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_0B353C0C0D8F Reg_Type_Boolean
-
-: ME_A142F415EB34
- CONST UID 'A142F415EB34'
- CONST Name 'Reg_Type_Integer'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Integer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : SpelledFor WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_A142F415EB34 Reg_Type_Integer
-
-: ME_89351C5549F8
- CONST UID '89351C5549F8'
- CONST Name 'Reg_Type_Tl3WString'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация типа Tl3WString' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : SpelledFor WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
- ;
-
-ref; // ME_89351C5549F8 Reg_Type_Tl3WString
 
 : ME_3D9666E90F19
  CONST IsSummoned true
@@ -994,11 +506,6 @@ ref; // ME_47B5759A03C0_ME_54EF449A0213 Prev
  ME_F4B48E1A7036 // IsLast
  ME_EAF97A7DA286 // Flags
  ME_D385122C0424 // Text
- ME_FFEA42D80CDE // Reg_Type_TtfwContext
- ME_430A2384C595 // Reg_Type_Il3SimpleNode
- ME_0B353C0C0D8F // Reg_Type_Boolean
- ME_A142F415EB34 // Reg_Type_Integer
- ME_89351C5549F8 // Reg_Type_Tl3WString
  )
  ; // Operations
  : Implemented
@@ -1039,9 +546,6 @@ ref; // ME_47B5759A03C0_ME_54EF449A0213 Prev
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
- CONST "needs script" true
- CONST "no class name" 'undefined'
- CONST "no hands" false
  CONST "no_pop" true
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\l3NodesKeyWordsPack.pas'
  CONST extprop:rc:SelfName 'NodesKeyWordsPack'
@@ -1063,13 +567,10 @@ ref; // ME_54EF449A0213 l3NodesKeyWordsPack
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
- WL 'ME_4767743E00E5' '4767743E00E5.pas.ms.script' // TypInfo
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )

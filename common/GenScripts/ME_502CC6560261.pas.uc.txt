@@ -610,12 +610,12 @@ var
  l_Cell : TevCell;
 //#UC END# *502CCBA80063_502CC6560261_var*
 //#UC START# *5112045801FF_502CC6560261_impl*
- Result := ed_None;
+ Result := ed_ctNone;
  if IsEmptyCell then
   if IsFrameEmpty then
-   Result := ed_EmptyAndNotFramed
+   Result := ed_ctEmptyAndNotFramed
   else
-   Result := ed_Empty
+   Result := ed_ctEmpty
  else
  if TagInst.ChildrenCount = 1 then
  begin
@@ -625,18 +625,18 @@ var
    l_ValueStr := l_Child.StrA[k2_tiText];
    if TryStrToInt(l_ValueStr, l_Value) then
    begin
-    Result := ed_Integer;
+    Result := ed_ctInteger;
     Exit;
    end; // if TryStrToInt(l_Child.StrA[k2_tiText], l_Value) then
    if Pos('____', l_ValueStr) > 0 then
    begin
-    Result := ed_HasFormLine;
+    Result := ed_ctHasFormLine;
     Exit;
    end; // if Pos('____', l_Child.StrA[k2_tiText]) > 0 then
    // Пока так - времянка:
    l_WasPoint := False;
    l_Count := Length(l_ValueStr);
-   Result := ed_Number;
+   Result := ed_ctNumber;
    for i := 1 to l_Count do
    begin
     l_Char := l_ValueStr[i];
@@ -644,7 +644,7 @@ var
     begin
      if not (l_Char in ['1'..'9']) then // Должно начинаться с 1.
      begin
-      Result := ed_None;
+      Result := ed_ctNone;
       Break;
      end // if i = 1 then
     end // if i = 1 then
@@ -652,36 +652,36 @@ var
     begin
      if l_WasPoint and (l_Char = '.') then // Избегаем двойных точек
      begin
-      Result := ed_None;
+      Result := ed_ctNone;
       Break;
      end;
      l_WasPoint := l_Char = '.';
      if not l_WasPoint and not (l_Char in ['0'..'9']) then
      begin
-      Result := ed_None;
+      Result := ed_ctNone;
       Break;
      end; // if not l_WasPoint and not (l_Char in ['0'..'9'])then
     end;
    end; // for i := 1 to l_Count do
-   if Result = ed_Number then
+   if Result = ed_ctNumber then
    begin
     if l_WasPoint then
      Exit
     else
-     Result := ed_None;
+     Result := ed_ctNone;
    end; // if IsEmptyStr(l_ValueStr, ['0'..'9', '.']) then
   end; // if l_Child.IsKindOf(k2_typTextPara) then
   if Length(l_ValueStr) < 10 then
-   Result := ed_SmallText
+   Result := ed_ctSmallText
   else
-   Result := ed_Text;
+   Result := ed_ctText;
  end // if TagInst.ChildrenCount = 1 then
  else
   if TagInst.ChildrenCount > 1 then
-   Result := ed_Text;
- if Result = ed_Empty then
+   Result := ed_ctText;
+ if Result = ed_ctEmpty then
   if pm_GetWidth <= evCellWidthEpsilon then
-   Result := ed_NeedDelete;
+   Result := ed_ctNeedDelete;
 //#UC END# *5112045801FF_502CC6560261_impl*
 //#UC START# *5112045801FF_502CC6560261_var*
 var
