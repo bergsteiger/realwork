@@ -35,11 +35,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -449,14 +449,7 @@ type
  end;//Tkw_StartupTips_Control_CloseButton_Push
 
  TkwEfStartupTipsTopPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.TopPanel
-[panel]Контрол TopPanel формы TefStartupTips[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aefStartupTips .TefStartupTips.TopPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TefStartupTips.TopPanel }
   private
    function TopPanel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtPanel;
@@ -465,22 +458,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsTopPanel
 
  TkwEfStartupTipsTitlePaintBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.TitlePaintBox
-[panel]Контрол TitlePaintBox формы TefStartupTips[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aefStartupTips .TefStartupTips.TitlePaintBox >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TefStartupTips.TitlePaintBox }
   private
    function TitlePaintBox(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TPaintBox;
@@ -489,22 +475,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsTitlePaintBox
 
  TkwEfStartupTipsTitleLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.TitleLabel
-[panel]Контрол TitleLabel формы TefStartupTips[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefStartupTips .TefStartupTips.TitleLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefStartupTips.TitleLabel }
   private
    function TitleLabel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtLabel;
@@ -513,22 +492,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsTitleLabel
 
  TkwEfStartupTipsBottomPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.BottomPanel
-[panel]Контрол BottomPanel формы TefStartupTips[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aefStartupTips .TefStartupTips.BottomPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TefStartupTips.BottomPanel }
   private
    function BottomPanel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtPanel;
@@ -537,22 +509,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsBottomPanel
 
  TkwEfStartupTipsHintPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.HintPanel
-[panel]Контрол HintPanel формы TefStartupTips[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aefStartupTips .TefStartupTips.HintPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TefStartupTips.HintPanel }
   private
    function HintPanel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtPanel;
@@ -561,22 +526,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsHintPanel
 
  TkwEfStartupTipsTipLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.TipLabel
-[panel]Контрол TipLabel формы TefStartupTips[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefStartupTips .TefStartupTips.TipLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefStartupTips.TipLabel }
   private
    function TipLabel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtLabel;
@@ -585,22 +543,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsTipLabel
 
  TkwEfStartupTipsDetailLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.DetailLabel
-[panel]Контрол DetailLabel формы TefStartupTips[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aefStartupTips .TefStartupTips.DetailLabel >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TefStartupTips.DetailLabel }
   private
    function DetailLabel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtFocusLabel;
@@ -609,22 +560,15 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsDetailLabel
 
  TkwEfStartupTipsShowCheckBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.ShowCheckBox
-[panel]Контрол ShowCheckBox формы TefStartupTips[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aefStartupTips .TefStartupTips.ShowCheckBox >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TefStartupTips.ShowCheckBox }
   private
    function ShowCheckBox(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtCheckBox;
@@ -633,22 +577,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsShowCheckBox
 
  TkwEfStartupTipsWwwPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.wwwPanel
-[panel]Контрол wwwPanel формы TefStartupTips[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aefStartupTips .TefStartupTips.wwwPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TefStartupTips.wwwPanel }
   private
    function wwwPanel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtPanel;
@@ -657,22 +594,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsWwwPanel
 
  TkwEfStartupTipsWwwPaintBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.wwwPaintBox
-[panel]Контрол wwwPaintBox формы TefStartupTips[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aefStartupTips .TefStartupTips.wwwPaintBox >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TefStartupTips.wwwPaintBox }
   private
    function wwwPaintBox(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TPaintBox;
@@ -681,22 +611,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsWwwPaintBox
 
  TkwEfStartupTipsWwwLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.wwwLabel
-[panel]Контрол wwwLabel формы TefStartupTips[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aefStartupTips .TefStartupTips.wwwLabel >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TefStartupTips.wwwLabel }
   private
    function wwwLabel(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TvtFocusLabel;
@@ -705,22 +628,15 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsWwwLabel
 
  TkwEfStartupTipsNextButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.NextButton
-[panel]Контрол NextButton формы TefStartupTips[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aefStartupTips .TefStartupTips.NextButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TefStartupTips.NextButton }
   private
    function NextButton(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TElPopupButton;
@@ -729,22 +645,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsNextButton
 
  TkwEfStartupTipsPrevButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.PrevButton
-[panel]Контрол PrevButton формы TefStartupTips[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aefStartupTips .TefStartupTips.PrevButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TefStartupTips.PrevButton }
   private
    function PrevButton(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TElPopupButton;
@@ -753,22 +662,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsPrevButton
 
  TkwEfStartupTipsCloseButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefStartupTips.CloseButton
-[panel]Контрол CloseButton формы TefStartupTips[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aefStartupTips .TefStartupTips.CloseButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TefStartupTips.CloseButton }
   private
    function CloseButton(const aCtx: TtfwContext;
     aefStartupTips: TefStartupTips): TElPopupButton;
@@ -777,11 +679,11 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfStartupTipsCloseButton
 
 function Tkw_Form_StartupTips.GetString: AnsiString;
@@ -1194,11 +1096,10 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTopPanel.DoDoIt
 
-procedure TkwEfStartupTipsTopPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsTopPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
-end;//TkwEfStartupTipsTopPanel.SetValuePrim
+ Result := '.TefStartupTips.TopPanel';
+end;//TkwEfStartupTipsTopPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1215,10 +1116,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTopPanel.ParamsTypes
 
-class function TkwEfStartupTipsTopPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsTopPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.TopPanel';
-end;//TkwEfStartupTipsTopPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
+end;//TkwEfStartupTipsTopPanel.SetValuePrim
 
 function TkwEfStartupTipsTitlePaintBox.TitlePaintBox(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TPaintBox;
@@ -1242,11 +1144,10 @@ begin
  aCtx.rEngine.PushObj(TitlePaintBox(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTitlePaintBox.DoDoIt
 
-procedure TkwEfStartupTipsTitlePaintBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TitlePaintBox', aCtx);
-end;//TkwEfStartupTipsTitlePaintBox.SetValuePrim
+ Result := '.TefStartupTips.TitlePaintBox';
+end;//TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister
 
 function TkwEfStartupTipsTitlePaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1263,10 +1164,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTitlePaintBox.ParamsTypes
 
-class function TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsTitlePaintBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.TitlePaintBox';
-end;//TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TitlePaintBox', aCtx);
+end;//TkwEfStartupTipsTitlePaintBox.SetValuePrim
 
 function TkwEfStartupTipsTitleLabel.TitleLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtLabel;
@@ -1290,11 +1192,10 @@ begin
  aCtx.rEngine.PushObj(TitleLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTitleLabel.DoDoIt
 
-procedure TkwEfStartupTipsTitleLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsTitleLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TitleLabel', aCtx);
-end;//TkwEfStartupTipsTitleLabel.SetValuePrim
+ Result := '.TefStartupTips.TitleLabel';
+end;//TkwEfStartupTipsTitleLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsTitleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1311,10 +1212,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTitleLabel.ParamsTypes
 
-class function TkwEfStartupTipsTitleLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsTitleLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.TitleLabel';
-end;//TkwEfStartupTipsTitleLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TitleLabel', aCtx);
+end;//TkwEfStartupTipsTitleLabel.SetValuePrim
 
 function TkwEfStartupTipsBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtPanel;
@@ -1338,11 +1240,10 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsBottomPanel.DoDoIt
 
-procedure TkwEfStartupTipsBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsBottomPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
-end;//TkwEfStartupTipsBottomPanel.SetValuePrim
+ Result := '.TefStartupTips.BottomPanel';
+end;//TkwEfStartupTipsBottomPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1359,10 +1260,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsBottomPanel.ParamsTypes
 
-class function TkwEfStartupTipsBottomPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.BottomPanel';
-end;//TkwEfStartupTipsBottomPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
+end;//TkwEfStartupTipsBottomPanel.SetValuePrim
 
 function TkwEfStartupTipsHintPanel.HintPanel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtPanel;
@@ -1386,11 +1288,10 @@ begin
  aCtx.rEngine.PushObj(HintPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsHintPanel.DoDoIt
 
-procedure TkwEfStartupTipsHintPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsHintPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HintPanel', aCtx);
-end;//TkwEfStartupTipsHintPanel.SetValuePrim
+ Result := '.TefStartupTips.HintPanel';
+end;//TkwEfStartupTipsHintPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsHintPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1407,10 +1308,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsHintPanel.ParamsTypes
 
-class function TkwEfStartupTipsHintPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsHintPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.HintPanel';
-end;//TkwEfStartupTipsHintPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HintPanel', aCtx);
+end;//TkwEfStartupTipsHintPanel.SetValuePrim
 
 function TkwEfStartupTipsTipLabel.TipLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtLabel;
@@ -1434,11 +1336,10 @@ begin
  aCtx.rEngine.PushObj(TipLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsTipLabel.DoDoIt
 
-procedure TkwEfStartupTipsTipLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsTipLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TipLabel', aCtx);
-end;//TkwEfStartupTipsTipLabel.SetValuePrim
+ Result := '.TefStartupTips.TipLabel';
+end;//TkwEfStartupTipsTipLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsTipLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1455,10 +1356,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsTipLabel.ParamsTypes
 
-class function TkwEfStartupTipsTipLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsTipLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.TipLabel';
-end;//TkwEfStartupTipsTipLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TipLabel', aCtx);
+end;//TkwEfStartupTipsTipLabel.SetValuePrim
 
 function TkwEfStartupTipsDetailLabel.DetailLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtFocusLabel;
@@ -1482,11 +1384,10 @@ begin
  aCtx.rEngine.PushObj(DetailLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsDetailLabel.DoDoIt
 
-procedure TkwEfStartupTipsDetailLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsDetailLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству DetailLabel', aCtx);
-end;//TkwEfStartupTipsDetailLabel.SetValuePrim
+ Result := '.TefStartupTips.DetailLabel';
+end;//TkwEfStartupTipsDetailLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsDetailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1503,10 +1404,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsDetailLabel.ParamsTypes
 
-class function TkwEfStartupTipsDetailLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsDetailLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.DetailLabel';
-end;//TkwEfStartupTipsDetailLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству DetailLabel', aCtx);
+end;//TkwEfStartupTipsDetailLabel.SetValuePrim
 
 function TkwEfStartupTipsShowCheckBox.ShowCheckBox(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtCheckBox;
@@ -1530,11 +1432,10 @@ begin
  aCtx.rEngine.PushObj(ShowCheckBox(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsShowCheckBox.DoDoIt
 
-procedure TkwEfStartupTipsShowCheckBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsShowCheckBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShowCheckBox', aCtx);
-end;//TkwEfStartupTipsShowCheckBox.SetValuePrim
+ Result := '.TefStartupTips.ShowCheckBox';
+end;//TkwEfStartupTipsShowCheckBox.GetWordNameForRegister
 
 function TkwEfStartupTipsShowCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1551,10 +1452,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsShowCheckBox.ParamsTypes
 
-class function TkwEfStartupTipsShowCheckBox.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsShowCheckBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.ShowCheckBox';
-end;//TkwEfStartupTipsShowCheckBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShowCheckBox', aCtx);
+end;//TkwEfStartupTipsShowCheckBox.SetValuePrim
 
 function TkwEfStartupTipsWwwPanel.wwwPanel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtPanel;
@@ -1578,11 +1480,10 @@ begin
  aCtx.rEngine.PushObj(wwwPanel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsWwwPanel.DoDoIt
 
-procedure TkwEfStartupTipsWwwPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsWwwPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству wwwPanel', aCtx);
-end;//TkwEfStartupTipsWwwPanel.SetValuePrim
+ Result := '.TefStartupTips.wwwPanel';
+end;//TkwEfStartupTipsWwwPanel.GetWordNameForRegister
 
 function TkwEfStartupTipsWwwPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1599,10 +1500,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsWwwPanel.ParamsTypes
 
-class function TkwEfStartupTipsWwwPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsWwwPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.wwwPanel';
-end;//TkwEfStartupTipsWwwPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству wwwPanel', aCtx);
+end;//TkwEfStartupTipsWwwPanel.SetValuePrim
 
 function TkwEfStartupTipsWwwPaintBox.wwwPaintBox(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TPaintBox;
@@ -1626,11 +1528,10 @@ begin
  aCtx.rEngine.PushObj(wwwPaintBox(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsWwwPaintBox.DoDoIt
 
-procedure TkwEfStartupTipsWwwPaintBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству wwwPaintBox', aCtx);
-end;//TkwEfStartupTipsWwwPaintBox.SetValuePrim
+ Result := '.TefStartupTips.wwwPaintBox';
+end;//TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister
 
 function TkwEfStartupTipsWwwPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1647,10 +1548,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsWwwPaintBox.ParamsTypes
 
-class function TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsWwwPaintBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.wwwPaintBox';
-end;//TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству wwwPaintBox', aCtx);
+end;//TkwEfStartupTipsWwwPaintBox.SetValuePrim
 
 function TkwEfStartupTipsWwwLabel.wwwLabel(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TvtFocusLabel;
@@ -1674,11 +1576,10 @@ begin
  aCtx.rEngine.PushObj(wwwLabel(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsWwwLabel.DoDoIt
 
-procedure TkwEfStartupTipsWwwLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsWwwLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству wwwLabel', aCtx);
-end;//TkwEfStartupTipsWwwLabel.SetValuePrim
+ Result := '.TefStartupTips.wwwLabel';
+end;//TkwEfStartupTipsWwwLabel.GetWordNameForRegister
 
 function TkwEfStartupTipsWwwLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1695,10 +1596,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsWwwLabel.ParamsTypes
 
-class function TkwEfStartupTipsWwwLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsWwwLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.wwwLabel';
-end;//TkwEfStartupTipsWwwLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству wwwLabel', aCtx);
+end;//TkwEfStartupTipsWwwLabel.SetValuePrim
 
 function TkwEfStartupTipsNextButton.NextButton(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TElPopupButton;
@@ -1722,11 +1624,10 @@ begin
  aCtx.rEngine.PushObj(NextButton(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsNextButton.DoDoIt
 
-procedure TkwEfStartupTipsNextButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsNextButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NextButton', aCtx);
-end;//TkwEfStartupTipsNextButton.SetValuePrim
+ Result := '.TefStartupTips.NextButton';
+end;//TkwEfStartupTipsNextButton.GetWordNameForRegister
 
 function TkwEfStartupTipsNextButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1743,10 +1644,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsNextButton.ParamsTypes
 
-class function TkwEfStartupTipsNextButton.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsNextButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.NextButton';
-end;//TkwEfStartupTipsNextButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NextButton', aCtx);
+end;//TkwEfStartupTipsNextButton.SetValuePrim
 
 function TkwEfStartupTipsPrevButton.PrevButton(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TElPopupButton;
@@ -1770,11 +1672,10 @@ begin
  aCtx.rEngine.PushObj(PrevButton(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsPrevButton.DoDoIt
 
-procedure TkwEfStartupTipsPrevButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsPrevButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству PrevButton', aCtx);
-end;//TkwEfStartupTipsPrevButton.SetValuePrim
+ Result := '.TefStartupTips.PrevButton';
+end;//TkwEfStartupTipsPrevButton.GetWordNameForRegister
 
 function TkwEfStartupTipsPrevButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1791,10 +1692,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsPrevButton.ParamsTypes
 
-class function TkwEfStartupTipsPrevButton.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsPrevButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.PrevButton';
-end;//TkwEfStartupTipsPrevButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству PrevButton', aCtx);
+end;//TkwEfStartupTipsPrevButton.SetValuePrim
 
 function TkwEfStartupTipsCloseButton.CloseButton(const aCtx: TtfwContext;
  aefStartupTips: TefStartupTips): TElPopupButton;
@@ -1818,11 +1720,10 @@ begin
  aCtx.rEngine.PushObj(CloseButton(aCtx, l_aefStartupTips));
 end;//TkwEfStartupTipsCloseButton.DoDoIt
 
-procedure TkwEfStartupTipsCloseButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfStartupTipsCloseButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CloseButton', aCtx);
-end;//TkwEfStartupTipsCloseButton.SetValuePrim
+ Result := '.TefStartupTips.CloseButton';
+end;//TkwEfStartupTipsCloseButton.GetWordNameForRegister
 
 function TkwEfStartupTipsCloseButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1839,10 +1740,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefStartupTips)]);
 end;//TkwEfStartupTipsCloseButton.ParamsTypes
 
-class function TkwEfStartupTipsCloseButton.GetWordNameForRegister: AnsiString;
+procedure TkwEfStartupTipsCloseButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefStartupTips.CloseButton';
-end;//TkwEfStartupTipsCloseButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CloseButton', aCtx);
+end;//TkwEfStartupTipsCloseButton.SetValuePrim
 
 initialization
  Tkw_Form_StartupTips.RegisterInEngine;
@@ -1931,10 +1833,8 @@ initialization
  {* Регистрация efStartupTips_PrevButton }
  TkwEfStartupTipsCloseButton.RegisterInEngine;
  {* Регистрация efStartupTips_CloseButton }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefStartupTips));
- {* Регистрация типа StartupTips }
+ {* Регистрация типа TefStartupTips }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPaintBox));

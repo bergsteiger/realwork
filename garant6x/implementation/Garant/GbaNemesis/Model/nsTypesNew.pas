@@ -20,10 +20,41 @@ type
   rIString: IString;
  end;//TnsStringPair
 
+ TListLogicOperation = (
+  LLO_AND
+  , LLO_OR
+  , LLO_AND_NOT
+  , LLO_NONE
+ );//TListLogicOperation
+
+ TnsFileFormat = (
+  {* - форматы файла. }
+  ns_ffRTF
+  , ns_ffTxt
+  , ns_ffHTML
+  , ns_ffXML
+  , ns_ffEvd
+  , ns_ffNull
+  , ns_ffPDF
+ );//TnsFileFormat
+
 implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TListLogicOperation));
+ {* Регистрация типа TListLogicOperation }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnsFileFormat));
+ {* Регистрация типа TnsFileFormat }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -20,8 +20,8 @@ type
  TkwIniRecGetZoom = class(TtfwRegisterableWord)
   {* IniRec:GetZoom }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwIniRecGetZoom
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -33,6 +33,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwIniRecGetZoom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IniRec:GetZoom';
+end;//TkwIniRecGetZoom.GetWordNameForRegister
+
 procedure TkwIniRecGetZoom.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E8307CE0359_var*
 //#UC END# *4DAEEDE10285_4E8307CE0359_var*
@@ -41,11 +46,6 @@ begin
  aCtx.rEngine.PushInt(ArIniRecGetZoom);
 //#UC END# *4DAEEDE10285_4E8307CE0359_impl*
 end;//TkwIniRecGetZoom.DoDoIt
-
-class function TkwIniRecGetZoom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IniRec:GetZoom';
-end;//TkwIniRecGetZoom.GetWordNameForRegister
 
 initialization
  TkwIniRecGetZoom.RegisterInEngine;

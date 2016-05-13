@@ -33,8 +33,8 @@ type
 ;
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwKey
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -49,6 +49,11 @@ uses
  , Messages
  , l3MessagesService
 ;
+
+class function TkwKey.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'key';
+end;//TkwKey.GetWordNameForRegister
 
 procedure TkwKey.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB1A01E01F4_var*
@@ -154,11 +159,6 @@ begin
  {$EndIf  NoVCL}
 //#UC END# *4DAEEDE10285_4DB1A01E01F4_impl*
 end;//TkwKey.DoDoIt
-
-class function TkwKey.GetWordNameForRegister: AnsiString;
-begin
- Result := 'key';
-end;//TkwKey.GetWordNameForRegister
 
 initialization
  TkwKey.RegisterInEngine;

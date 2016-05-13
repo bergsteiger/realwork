@@ -28,7 +28,16 @@ uses
  {$If NOT Defined(NoScripts)}
  , vcmTabbedMenuWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmBaseMenuForChromeLike);
+ {* Регистрация TvcmBaseMenuForChromeLike }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

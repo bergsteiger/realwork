@@ -10,7 +10,25 @@ interface
 
 uses
  l3IntfUses
+ , nsTypesNew
 ;
+
+const
+ {* Алиасы для значений nsTypesNew.TListLogicOperation }
+ LLO_AND = nsTypesNew.LLO_AND;
+ LLO_OR = nsTypesNew.LLO_OR;
+ LLO_AND_NOT = nsTypesNew.LLO_AND_NOT;
+ LLO_NONE = nsTypesNew.LLO_NONE;
+
+const
+ {* Алиасы для значений nsTypesNew.TnsFileFormat }
+ ns_ffRTF = nsTypesNew.ns_ffRTF;
+ ns_ffTxt = nsTypesNew.ns_ffTxt;
+ ns_ffHTML = nsTypesNew.ns_ffHTML;
+ ns_ffXML = nsTypesNew.ns_ffXML;
+ ns_ffEvd = nsTypesNew.ns_ffEvd;
+ ns_ffNull = nsTypesNew.ns_ffNull;
+ ns_ffPDF = nsTypesNew.ns_ffPDF;
 
 const
  {* Константы для работы с деревом }
@@ -18,19 +36,8 @@ const
   {* - событие сброса детей. }
 
 type
- TnsFileFormat = (
-  {* - форматы файла. }
-  ns_ffRTF
-  , ns_ffTxt
-  , ns_ffHTML
-  , ns_ffXML
-  , ns_ffEvd
-  , ns_ffNull
- );//TnsFileFormat
-
- TListLogicOperation = (
+ TListLogicOperation = nsTypesNew.TListLogicOperation;
   {* Логические операции со списком. }
- );//TListLogicOperation
 
  TnsResetTreeStatus = (
   rtsNone
@@ -91,6 +98,8 @@ type
   , okInNewWindow
  );//TnsDocumentAndLinkOpenKind
 
+ TnsFileFormat = nsTypesNew.TnsFileFormat;
+
 procedure nsAStr;
 procedure nsCStr;
 procedure nsWStr;
@@ -100,7 +109,6 @@ implementation
 
 uses
  l3ImplUses
- , nsTypesNew
 ;
 
 procedure nsAStr;

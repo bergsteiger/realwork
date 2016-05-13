@@ -40,6 +40,9 @@ implementation
 uses
  l3ImplUses
  , l3FilerRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function Tl3CustomFiler.DoOpen: Boolean;
@@ -59,5 +62,19 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *555C88B703E7_47A0679D00E4_impl*
 end;//Tl3CustomFiler.DoClose
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Tl3CustomFiler);
+ {* Регистрация Tl3CustomFiler }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Tl3CustomDosFiler);
+ {* Регистрация Tl3CustomDosFiler }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Tl3DOSFiler);
+ {* Регистрация Tl3DOSFiler }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1591,6 +1591,9 @@ uses
  l3ImplUses
  , l3Math
  , l3MinMax
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function Tl3_Point_C(aX: Integer;
@@ -1970,5 +1973,15 @@ begin
  Bottom := evZoom(Z, Bottom);
 end;
 //#UC END# *46A498630097impl*
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Tl3LinePartDrawType));
+ {* Регистрация типа Tl3LinePartDrawType }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Il3IntegerList));
+ {* Регистрация типа Il3IntegerList }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

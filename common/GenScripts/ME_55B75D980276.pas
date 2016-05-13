@@ -20,58 +20,46 @@ implementation
 uses
  l3ImplUses
  , tfwGlobalKeyWord
- , tfwScriptingInterfaces
  , TypInfo
+ , tfwScriptingInterfaces
  , nsLoggingTestService
  , nsCachedEventsProcessor
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwLoggingStartListening = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта logging:StartListening
-*Пример:*
-[code]
- logging:StartListening
-[code]  }
+  {* Слово скрипта logging:StartListening }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwLoggingStartListening
 
  TkwLoggingFinishListening = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта logging:FinishListening
-*Пример:*
-[code]
- logging:FinishListening
-[code]  }
+  {* Слово скрипта logging:FinishListening }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwLoggingFinishListening
 
  TkwLoggingGetLogRecords = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта logging:GetLogRecords
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- logging:GetLogRecords >>> l_String
-[code]  }
+  {* Слово скрипта logging:GetLogRecords }
   private
    function logging_GetLogRecords(const aCtx: TtfwContext): AnsiString;
     {* Реализация слова скрипта logging:GetLogRecords }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -79,27 +67,20 @@ STRING VAR l_String
  end;//TkwLoggingGetLogRecords
 
  TkwLoggingWriteCachedEvents = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта logging:WriteCachedEvents
-*Пример:*
-[code]
- logging:WriteCachedEvents
-[code]  }
+  {* Слово скрипта logging:WriteCachedEvents }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwLoggingWriteCachedEvents
 
-procedure TkwLoggingStartListening.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_66D69322DA0D_var*
-//#UC END# *4DAEEDE10285_66D69322DA0D_var*
+class function TkwLoggingStartListening.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_66D69322DA0D_impl*
- TnsLoggingTestService.Instance.StartListening;
-//#UC END# *4DAEEDE10285_66D69322DA0D_impl*
-end;//TkwLoggingStartListening.DoDoIt
+ Result := 'logging:StartListening';
+end;//TkwLoggingStartListening.GetWordNameForRegister
 
 function TkwLoggingStartListening.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -111,19 +92,24 @@ begin
  Result := 0;
 end;//TkwLoggingStartListening.GetAllParamsCount
 
-class function TkwLoggingStartListening.GetWordNameForRegister: AnsiString;
+function TkwLoggingStartListening.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'logging:StartListening';
-end;//TkwLoggingStartListening.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwLoggingStartListening.ParamsTypes
 
-procedure TkwLoggingFinishListening.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_961A18770456_var*
-//#UC END# *4DAEEDE10285_961A18770456_var*
+procedure TkwLoggingStartListening.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_55B75DC003BF_Word_var*
+//#UC END# *4DAEEDE10285_55B75DC003BF_Word_var*
 begin
-//#UC START# *4DAEEDE10285_961A18770456_impl*
- TnsLoggingTestService.Instance.StopListening;
-//#UC END# *4DAEEDE10285_961A18770456_impl*
-end;//TkwLoggingFinishListening.DoDoIt
+//#UC START# *4DAEEDE10285_55B75DC003BF_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_55B75DC003BF_Word_impl*
+end;//TkwLoggingStartListening.DoDoIt
+
+class function TkwLoggingFinishListening.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'logging:FinishListening';
+end;//TkwLoggingFinishListening.GetWordNameForRegister
 
 function TkwLoggingFinishListening.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -135,25 +121,34 @@ begin
  Result := 0;
 end;//TkwLoggingFinishListening.GetAllParamsCount
 
-class function TkwLoggingFinishListening.GetWordNameForRegister: AnsiString;
+function TkwLoggingFinishListening.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'logging:FinishListening';
-end;//TkwLoggingFinishListening.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwLoggingFinishListening.ParamsTypes
+
+procedure TkwLoggingFinishListening.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_55B75DD7013D_Word_var*
+//#UC END# *4DAEEDE10285_55B75DD7013D_Word_var*
+begin
+//#UC START# *4DAEEDE10285_55B75DD7013D_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_55B75DD7013D_Word_impl*
+end;//TkwLoggingFinishListening.DoDoIt
 
 function TkwLoggingGetLogRecords.logging_GetLogRecords(const aCtx: TtfwContext): AnsiString;
  {* Реализация слова скрипта logging:GetLogRecords }
-//#UC START# *E7318C288828_4FDD3D4A4771_var*
-//#UC END# *E7318C288828_4FDD3D4A4771_var*
+//#UC START# *55B75E0E039F_55B75E0E039F_Word_var*
+//#UC END# *55B75E0E039F_55B75E0E039F_Word_var*
 begin
-//#UC START# *E7318C288828_4FDD3D4A4771_impl*
+//#UC START# *55B75E0E039F_55B75E0E039F_Word_impl*
  Result := TnsLoggingTestService.Instance.GetLogStrings;
-//#UC END# *E7318C288828_4FDD3D4A4771_impl*
+//#UC END# *55B75E0E039F_55B75E0E039F_Word_impl*
 end;//TkwLoggingGetLogRecords.logging_GetLogRecords
 
-procedure TkwLoggingGetLogRecords.DoDoIt(const aCtx: TtfwContext);
+class function TkwLoggingGetLogRecords.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushString(logging_GetLogRecords(aCtx));
-end;//TkwLoggingGetLogRecords.DoDoIt
+ Result := 'logging:GetLogRecords';
+end;//TkwLoggingGetLogRecords.GetWordNameForRegister
 
 function TkwLoggingGetLogRecords.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -170,20 +165,15 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwLoggingGetLogRecords.ParamsTypes
 
-class function TkwLoggingGetLogRecords.GetWordNameForRegister: AnsiString;
+procedure TkwLoggingGetLogRecords.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'logging:GetLogRecords';
-end;//TkwLoggingGetLogRecords.GetWordNameForRegister
+ aCtx.rEngine.PushString(logging_GetLogRecords(aCtx));
+end;//TkwLoggingGetLogRecords.DoDoIt
 
-procedure TkwLoggingWriteCachedEvents.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_03C2482A3269_var*
-//#UC END# *4DAEEDE10285_03C2482A3269_var*
+class function TkwLoggingWriteCachedEvents.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_03C2482A3269_impl*
- if TnsCachedEventsProcessor.Exists then
-  TnsCachedEventsProcessor.Make.ForceWriteCache;
-//#UC END# *4DAEEDE10285_03C2482A3269_impl*
-end;//TkwLoggingWriteCachedEvents.DoDoIt
+ Result := 'logging:WriteCachedEvents';
+end;//TkwLoggingWriteCachedEvents.GetWordNameForRegister
 
 function TkwLoggingWriteCachedEvents.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -195,10 +185,19 @@ begin
  Result := 0;
 end;//TkwLoggingWriteCachedEvents.GetAllParamsCount
 
-class function TkwLoggingWriteCachedEvents.GetWordNameForRegister: AnsiString;
+function TkwLoggingWriteCachedEvents.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'logging:WriteCachedEvents';
-end;//TkwLoggingWriteCachedEvents.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwLoggingWriteCachedEvents.ParamsTypes
+
+procedure TkwLoggingWriteCachedEvents.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_56D4147C0385_Word_var*
+//#UC END# *4DAEEDE10285_56D4147C0385_Word_var*
+begin
+//#UC START# *4DAEEDE10285_56D4147C0385_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_56D4147C0385_Word_impl*
+end;//TkwLoggingWriteCachedEvents.DoDoIt
 
 initialization
  TkwLoggingStartListening.RegisterInEngine;
@@ -209,10 +208,8 @@ initialization
  {* Регистрация logging_GetLogRecords }
  TkwLoggingWriteCachedEvents.RegisterInEngine;
  {* Регистрация logging_WriteCachedEvents }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

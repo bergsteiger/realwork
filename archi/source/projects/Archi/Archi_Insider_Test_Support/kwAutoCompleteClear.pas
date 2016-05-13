@@ -21,8 +21,8 @@ type
  TkwAutoCompleteClear = {final} class(TtfwRegisterableWord)
   {* Очищает данные автозамены. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwAutoCompleteClear
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -36,6 +36,11 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
+class function TkwAutoCompleteClear.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'AutoComplete:Clear';
+end;//TkwAutoCompleteClear.GetWordNameForRegister
+
 procedure TkwAutoCompleteClear.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53CD0A6A03DF_var*
 //#UC END# *4DAEEDE10285_53CD0A6A03DF_var*
@@ -45,11 +50,6 @@ begin
   AutoComplete.ClearDataAndSave;
 //#UC END# *4DAEEDE10285_53CD0A6A03DF_impl*
 end;//TkwAutoCompleteClear.DoDoIt
-
-class function TkwAutoCompleteClear.GetWordNameForRegister: AnsiString;
-begin
- Result := 'AutoComplete:Clear';
-end;//TkwAutoCompleteClear.GetWordNameForRegister
 
 initialization
  TkwAutoCompleteClear.RegisterInEngine;

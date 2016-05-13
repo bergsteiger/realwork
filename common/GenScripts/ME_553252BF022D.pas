@@ -25,19 +25,13 @@ uses
  , TypInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopFormFormStyle = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:form:FormStyle
-*Тип результата:* TFormStyle
-*Пример:*
-[code]
-TFormStyle VAR l_TFormStyle
- aForm pop:form:FormStyle >>> l_TFormStyle
-[code]  }
+  {* Слово скрипта pop:form:FormStyle }
   private
    function pop_form_FormStyle(const aCtx: TtfwContext;
     aForm: TCustomForm): TFormStyle;
@@ -60,12 +54,12 @@ TFormStyle VAR l_TFormStyle
 function TkwPopFormFormStyle.pop_form_FormStyle(const aCtx: TtfwContext;
  aForm: TCustomForm): TFormStyle;
  {* Реализация слова скрипта pop:form:FormStyle }
-//#UC START# *BCF4960E4290_3ADE91F9FA16_var*
-//#UC END# *BCF4960E4290_3ADE91F9FA16_var*
+//#UC START# *553252FA01E0_3ADE91F9FA16_var*
+//#UC END# *553252FA01E0_3ADE91F9FA16_var*
 begin
-//#UC START# *BCF4960E4290_3ADE91F9FA16_impl*
+//#UC START# *553252FA01E0_3ADE91F9FA16_impl*
  Result := TForm(aForm).FormStyle;
-//#UC END# *BCF4960E4290_3ADE91F9FA16_impl*
+//#UC END# *553252FA01E0_3ADE91F9FA16_impl*
 end;//TkwPopFormFormStyle.pop_form_FormStyle
 
 procedure TkwPopFormFormStyle.DoDoIt(const aCtx: TtfwContext);
@@ -83,6 +77,11 @@ begin
  aCtx.rEngine.PushInt(Ord(pop_form_FormStyle(aCtx, l_aForm)));
 end;//TkwPopFormFormStyle.DoDoIt
 
+class function TkwPopFormFormStyle.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:form:FormStyle';
+end;//TkwPopFormFormStyle.GetWordNameForRegister
+
 function TkwPopFormFormStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TFormStyle);
@@ -98,11 +97,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomForm)]);
 end;//TkwPopFormFormStyle.ParamsTypes
 
-class function TkwPopFormFormStyle.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:form:FormStyle';
-end;//TkwPopFormFormStyle.GetWordNameForRegister
-
 class function TCustomFormProcessingPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'CustomFormProcessingPack';
@@ -115,8 +109,6 @@ initialization
  {* Регистрация pop_form_FormStyle }
  TCustomFormProcessingPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomForm));
  {* Регистрация типа TCustomForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TFormStyle));

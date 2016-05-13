@@ -29,8 +29,8 @@ aFileName SearchWin:SaveDocumentList
 [code]
 Сохраняет список документов в файл aFileName. Аналоична команде "Сохранить как..." в окне выборке. Окно выборки должно быть активно. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwSearchWinSaveDocumentList
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -41,6 +41,11 @@ uses
  l3ImplUses
  , arArchiTestAdapter2
 ;
+
+class function TkwSearchWinSaveDocumentList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SearchWin:SaveDocumentList';
+end;//TkwSearchWinSaveDocumentList.GetWordNameForRegister
 
 procedure TkwSearchWinSaveDocumentList.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_537076040297_var*
@@ -55,11 +60,6 @@ begin
  AcSaveDocAs(l_FileName);
 //#UC END# *4DAEEDE10285_537076040297_impl*
 end;//TkwSearchWinSaveDocumentList.DoDoIt
-
-class function TkwSearchWinSaveDocumentList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SearchWin:SaveDocumentList';
-end;//TkwSearchWinSaveDocumentList.GetWordNameForRegister
 
 initialization
  TkwSearchWinSaveDocumentList.RegisterInEngine;

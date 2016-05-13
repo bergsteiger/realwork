@@ -43,6 +43,9 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TvcmMainMenuAction.Create(anOwner: TComponent;
@@ -89,6 +92,12 @@ begin
  SetParams(l_Params);
 //#UC END# *47E766E10053_47E7652402FF_impl*
 end;//TvcmMainMenuAction.DoUpdate
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmMainMenuAction);
+ {* Регистрация TvcmMainMenuAction }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

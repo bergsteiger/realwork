@@ -19,8 +19,8 @@ uses
 type
  TkwMouseSetCursorPosition = class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMouseSetCursorPosition
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -31,6 +31,11 @@ uses
  l3ImplUses
  , Windows
 ;
+
+class function TkwMouseSetCursorPosition.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'mouse:SetCursorPosition';
+end;//TkwMouseSetCursorPosition.GetWordNameForRegister
 
 procedure TkwMouseSetCursorPosition.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EF0939D025E_var*
@@ -46,11 +51,6 @@ begin
  Windows.SetCursorPos(X, Y);
 //#UC END# *4DAEEDE10285_4EF0939D025E_impl*
 end;//TkwMouseSetCursorPosition.DoDoIt
-
-class function TkwMouseSetCursorPosition.GetWordNameForRegister: AnsiString;
-begin
- Result := 'mouse:SetCursorPosition';
-end;//TkwMouseSetCursorPosition.GetWordNameForRegister
 
 initialization
  TkwMouseSetCursorPosition.RegisterInEngine;

@@ -28,6 +28,9 @@ implementation
 uses
  l3ImplUses
  , nscCustomChatMemoContainer
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TnscCustomChatMemoTextSource.DoMakeDocumentContainer: InevDocumentContainer;
@@ -38,6 +41,12 @@ begin
  Result := TnscCustomChatMemoContainer.Make;
 //#UC END# *482D9A030221_4A8BB2760229_impl*
 end;//TnscCustomChatMemoTextSource.DoMakeDocumentContainer
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscCustomChatMemoTextSource);
+ {* Регистрация TnscCustomChatMemoTextSource }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 
 end.

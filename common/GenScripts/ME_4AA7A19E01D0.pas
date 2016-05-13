@@ -35,7 +35,7 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , nsTypes
+ , nsTypesNew
  , PrimMedicListSynchroView_mlsfMedicFirm_UserType
  , afwInterfaces
  , DynamicDocListUnit
@@ -47,6 +47,7 @@ uses
  , FoldersDomainInterfaces
  , FiltersUnit
  , DocumentAndListInterfaces
+ , nsTypes
  , bsTypesNew
  , DocumentUserTypes_dftMedicFirmSynchroView_UserType
  , ListUserTypes_lftProducedDrugsSynchroForm_UserType

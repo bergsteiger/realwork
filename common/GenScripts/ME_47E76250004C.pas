@@ -69,6 +69,9 @@ uses
  , ContainedActionsWordspack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , ActionListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
 ;
@@ -270,6 +273,20 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *508F99970386_508F9823023D_impl*
 end;//TActionLink.SetVisible
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TContainedAction);
+ {* Регистрация TContainedAction }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TCustomAction);
+ {* Регистрация TCustomAction }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TAction);
+ {* Регистрация TAction }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.

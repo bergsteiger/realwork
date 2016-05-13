@@ -26,22 +26,13 @@ uses
  , tfwPropertyLike
  , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopListerSelectWithShift = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Lister:SelectWithShift
-[panel]*Формат:* 
-[code]
-aFinishID aLister pop:Lister:SelectWithShift
-[code] 
-*Описание:* Выделяет несколько элементов от текущего до aFinishID у контролов TvtCustomListner и их потомков (TvtOutliner и т.п.). Полный аналог выделения с пощью Shift мышью.[panel]
-*Пример:*
-[code]
- aFinish aLister pop:Lister:SelectWithShift
-[code]  }
+  {* Слово скрипта pop:Lister:SelectWithShift }
   private
    procedure SelectWithShift(const aCtx: TtfwContext;
     aLister: TvtCustomLister;
@@ -57,13 +48,7 @@ aFinishID aLister pop:Lister:SelectWithShift
  end;//TkwPopListerSelectWithShift
 
  TkwPopListerGetSelected = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Lister:GetSelected
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anIndex aLister pop:Lister:GetSelected >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Lister:GetSelected }
   private
    function GetSelected(const aCtx: TtfwContext;
     aLister: TvtCustomLister;
@@ -79,13 +64,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopListerGetSelected
 
  TkwPopListerFooterCaption = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Lister:FooterCaption
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aLister pop:Lister:FooterCaption >>> l_String
-[code]  }
+  {* Слово скрипта pop:Lister:FooterCaption }
   private
    function FooterCaption(const aCtx: TtfwContext;
     aLister: TvtCustomLister): AnsiString;
@@ -100,13 +79,7 @@ STRING VAR l_String
  end;//TkwPopListerFooterCaption
 
  TkwPopListerCurrent = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Lister:Current
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aLister pop:Lister:Current >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Lister:Current }
   private
    function Current(const aCtx: TtfwContext;
     aLister: TvtCustomLister): Integer;
@@ -115,11 +88,11 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopListerCurrent
 
  TvtCustomListerFriend = {abstract} class(TvtCustomLister)
@@ -130,12 +103,12 @@ procedure TkwPopListerSelectWithShift.SelectWithShift(const aCtx: TtfwContext;
  aLister: TvtCustomLister;
  aFinish: Integer);
  {* Реализация слова скрипта pop:Lister:SelectWithShift }
-//#UC START# *EFDA6E4429D8_3601E7023043_var*
-//#UC END# *EFDA6E4429D8_3601E7023043_var*
+//#UC START# *552E482B0030_3601E7023043_var*
+//#UC END# *552E482B0030_3601E7023043_var*
 begin
-//#UC START# *EFDA6E4429D8_3601E7023043_impl*
+//#UC START# *552E482B0030_3601E7023043_impl*
  aLister.SelectItems(aFinish);
-//#UC END# *EFDA6E4429D8_3601E7023043_impl*
+//#UC END# *552E482B0030_3601E7023043_impl*
 end;//TkwPopListerSelectWithShift.SelectWithShift
 
 procedure TkwPopListerSelectWithShift.DoDoIt(const aCtx: TtfwContext);
@@ -163,6 +136,11 @@ begin
  SelectWithShift(aCtx, l_aLister, l_aFinish);
 end;//TkwPopListerSelectWithShift.DoDoIt
 
+class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:SelectWithShift';
+end;//TkwPopListerSelectWithShift.GetWordNameForRegister
+
 function TkwPopListerSelectWithShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -178,21 +156,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
 end;//TkwPopListerSelectWithShift.ParamsTypes
 
-class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:SelectWithShift';
-end;//TkwPopListerSelectWithShift.GetWordNameForRegister
-
 function TkwPopListerGetSelected.GetSelected(const aCtx: TtfwContext;
  aLister: TvtCustomLister;
  anIndex: Integer): Boolean;
  {* Реализация слова скрипта pop:Lister:GetSelected }
-//#UC START# *542EE0AE8385_94BB02952F38_var*
-//#UC END# *542EE0AE8385_94BB02952F38_var*
+//#UC START# *552E485701AB_94BB02952F38_var*
+//#UC END# *552E485701AB_94BB02952F38_var*
 begin
-//#UC START# *542EE0AE8385_94BB02952F38_impl*
+//#UC START# *552E485701AB_94BB02952F38_impl*
  Result := aLister.Selected[anIndex];
-//#UC END# *542EE0AE8385_94BB02952F38_impl*
+//#UC END# *552E485701AB_94BB02952F38_impl*
 end;//TkwPopListerGetSelected.GetSelected
 
 procedure TkwPopListerGetSelected.DoDoIt(const aCtx: TtfwContext);
@@ -220,6 +193,11 @@ begin
  aCtx.rEngine.PushBool(GetSelected(aCtx, l_aLister, l_anIndex));
 end;//TkwPopListerGetSelected.DoDoIt
 
+class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:GetSelected';
+end;//TkwPopListerGetSelected.GetWordNameForRegister
+
 function TkwPopListerGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -235,20 +213,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
 end;//TkwPopListerGetSelected.ParamsTypes
 
-class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:GetSelected';
-end;//TkwPopListerGetSelected.GetWordNameForRegister
-
 function TkwPopListerFooterCaption.FooterCaption(const aCtx: TtfwContext;
  aLister: TvtCustomLister): AnsiString;
  {* Реализация слова скрипта pop:Lister:FooterCaption }
-//#UC START# *D04F3C7D1449_0BB474851F7E_var*
-//#UC END# *D04F3C7D1449_0BB474851F7E_var*
+//#UC START# *552E48AF00FD_0BB474851F7E_var*
+//#UC END# *552E48AF00FD_0BB474851F7E_var*
 begin
-//#UC START# *D04F3C7D1449_0BB474851F7E_impl*
+//#UC START# *552E48AF00FD_0BB474851F7E_impl*
  Result := TvtCustomListerFriend(aLister).FooterCaption;
-//#UC END# *D04F3C7D1449_0BB474851F7E_impl*
+//#UC END# *552E48AF00FD_0BB474851F7E_impl*
 end;//TkwPopListerFooterCaption.FooterCaption
 
 procedure TkwPopListerFooterCaption.DoDoIt(const aCtx: TtfwContext);
@@ -266,6 +239,11 @@ begin
  aCtx.rEngine.PushString(FooterCaption(aCtx, l_aLister));
 end;//TkwPopListerFooterCaption.DoDoIt
 
+class function TkwPopListerFooterCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:FooterCaption';
+end;//TkwPopListerFooterCaption.GetWordNameForRegister
+
 function TkwPopListerFooterCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -280,11 +258,6 @@ function TkwPopListerFooterCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerFooterCaption.ParamsTypes
-
-class function TkwPopListerFooterCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:FooterCaption';
-end;//TkwPopListerFooterCaption.GetWordNameForRegister
 
 function TkwPopListerCurrent.Current(const aCtx: TtfwContext;
  aLister: TvtCustomLister): Integer;
@@ -308,11 +281,10 @@ begin
  aCtx.rEngine.PushInt(Current(aCtx, l_aLister));
 end;//TkwPopListerCurrent.DoDoIt
 
-procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopListerCurrent.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Current', aCtx);
-end;//TkwPopListerCurrent.SetValuePrim
+ Result := 'pop:Lister:Current';
+end;//TkwPopListerCurrent.GetWordNameForRegister
 
 function TkwPopListerCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -329,10 +301,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerCurrent.ParamsTypes
 
-class function TkwPopListerCurrent.GetWordNameForRegister: AnsiString;
+procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Lister:Current';
-end;//TkwPopListerCurrent.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Current', aCtx);
+end;//TkwPopListerCurrent.SetValuePrim
 
 initialization
  TkwPopListerSelectWithShift.RegisterInEngine;
@@ -343,16 +316,14 @@ initialization
  {* Регистрация pop_Lister_FooterCaption }
  TkwPopListerCurrent.RegisterInEngine;
  {* Регистрация pop_Lister_Current }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCustomLister));
  {* Регистрация типа TvtCustomLister }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

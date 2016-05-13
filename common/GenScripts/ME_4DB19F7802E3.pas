@@ -33,8 +33,8 @@ type
 ;
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwEmitString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -49,6 +49,11 @@ uses
  , l3Chars
  , l3Interfaces
 ;
+
+class function TkwEmitString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'emitstring';
+end;//TkwEmitString.GetWordNameForRegister
 
 procedure TkwEmitString.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB19F7802E3_var*
@@ -84,11 +89,6 @@ begin
  end;//try..finally
 //#UC END# *4DAEEDE10285_4DB19F7802E3_impl*
 end;//TkwEmitString.DoDoIt
-
-class function TkwEmitString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'emitstring';
-end;//TkwEmitString.GetWordNameForRegister
 
 initialization
  TkwEmitString.RegisterInEngine;

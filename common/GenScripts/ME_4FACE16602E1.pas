@@ -21,8 +21,8 @@ uses
  , ddRowProperty
  , ddParagraphProperty
  , ddPicture
- , k2Interfaces
  , ddCustomDestination
+ , k2Interfaces
  , l3ProtoObject
 ;
 

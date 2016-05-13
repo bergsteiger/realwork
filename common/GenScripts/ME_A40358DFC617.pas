@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -138,14 +138,7 @@ type
  end;//Tkw_DocNumberQuery_Control_cbInternal_Push
 
  TkwDocNumberQueryFormLabel1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDocNumberQueryForm.Label1
-[panel]Контрол Label1 формы TDocNumberQueryForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aDocNumberQueryForm .TDocNumberQueryForm.Label1 >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TDocNumberQueryForm.Label1 }
   private
    function Label1(const aCtx: TtfwContext;
     aDocNumberQueryForm: TDocNumberQueryForm): TvtLabel;
@@ -154,22 +147,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDocNumberQueryFormLabel1
 
  TkwDocNumberQueryFormEdNumber = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDocNumberQueryForm.edNumber
-[panel]Контрол edNumber формы TDocNumberQueryForm[panel]
-*Тип результата:* TnscComboBox
-*Пример:*
-[code]
-OBJECT VAR l_TnscComboBox
- aDocNumberQueryForm .TDocNumberQueryForm.edNumber >>> l_TnscComboBox
-[code]  }
+  {* Слово скрипта .TDocNumberQueryForm.edNumber }
   private
    function edNumber(const aCtx: TtfwContext;
     aDocNumberQueryForm: TDocNumberQueryForm): TnscComboBox;
@@ -178,22 +164,15 @@ OBJECT VAR l_TnscComboBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDocNumberQueryFormEdNumber
 
  TkwDocNumberQueryFormCbInternal = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDocNumberQueryForm.cbInternal
-[panel]Контрол cbInternal формы TDocNumberQueryForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aDocNumberQueryForm .TDocNumberQueryForm.cbInternal >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TDocNumberQueryForm.cbInternal }
   private
    function cbInternal(const aCtx: TtfwContext;
     aDocNumberQueryForm: TDocNumberQueryForm): TvtCheckBox;
@@ -202,11 +181,11 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDocNumberQueryFormCbInternal
 
 function Tkw_Form_DocNumberQuery.GetString: AnsiString;
@@ -322,11 +301,10 @@ begin
  aCtx.rEngine.PushObj(Label1(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormLabel1.DoDoIt
 
-procedure TkwDocNumberQueryFormLabel1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDocNumberQueryFormLabel1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
-end;//TkwDocNumberQueryFormLabel1.SetValuePrim
+ Result := '.TDocNumberQueryForm.Label1';
+end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
 
 function TkwDocNumberQueryFormLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -343,10 +321,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormLabel1.ParamsTypes
 
-class function TkwDocNumberQueryFormLabel1.GetWordNameForRegister: AnsiString;
+procedure TkwDocNumberQueryFormLabel1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDocNumberQueryForm.Label1';
-end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
+end;//TkwDocNumberQueryFormLabel1.SetValuePrim
 
 function TkwDocNumberQueryFormEdNumber.edNumber(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TnscComboBox;
@@ -370,11 +349,10 @@ begin
  aCtx.rEngine.PushObj(edNumber(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormEdNumber.DoDoIt
 
-procedure TkwDocNumberQueryFormEdNumber.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDocNumberQueryFormEdNumber.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edNumber', aCtx);
-end;//TkwDocNumberQueryFormEdNumber.SetValuePrim
+ Result := '.TDocNumberQueryForm.edNumber';
+end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
 
 function TkwDocNumberQueryFormEdNumber.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -391,10 +369,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormEdNumber.ParamsTypes
 
-class function TkwDocNumberQueryFormEdNumber.GetWordNameForRegister: AnsiString;
+procedure TkwDocNumberQueryFormEdNumber.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDocNumberQueryForm.edNumber';
-end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edNumber', aCtx);
+end;//TkwDocNumberQueryFormEdNumber.SetValuePrim
 
 function TkwDocNumberQueryFormCbInternal.cbInternal(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TvtCheckBox;
@@ -418,11 +397,10 @@ begin
  aCtx.rEngine.PushObj(cbInternal(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormCbInternal.DoDoIt
 
-procedure TkwDocNumberQueryFormCbInternal.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDocNumberQueryFormCbInternal.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству cbInternal', aCtx);
-end;//TkwDocNumberQueryFormCbInternal.SetValuePrim
+ Result := '.TDocNumberQueryForm.cbInternal';
+end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
 
 function TkwDocNumberQueryFormCbInternal.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -439,10 +417,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormCbInternal.ParamsTypes
 
-class function TkwDocNumberQueryFormCbInternal.GetWordNameForRegister: AnsiString;
+procedure TkwDocNumberQueryFormCbInternal.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDocNumberQueryForm.cbInternal';
-end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству cbInternal', aCtx);
+end;//TkwDocNumberQueryFormCbInternal.SetValuePrim
 
 initialization
  Tkw_Form_DocNumberQuery.RegisterInEngine;
@@ -465,10 +444,8 @@ initialization
  {* Регистрация DocNumberQueryForm_edNumber }
  TkwDocNumberQueryFormCbInternal.RegisterInEngine;
  {* Регистрация DocNumberQueryForm_cbInternal }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TDocNumberQueryForm));
- {* Регистрация типа DocNumberQuery }
+ {* Регистрация типа TDocNumberQueryForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));
  {* Регистрация типа TvtLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboBox));

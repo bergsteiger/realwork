@@ -327,10 +327,22 @@ type
   , prHighest = 2
  );//TdaPriority
 
+const
+ cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];
+
 implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EdaError));
+ {* Регистрация типа EdaError }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

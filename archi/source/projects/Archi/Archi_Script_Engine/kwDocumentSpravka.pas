@@ -25,10 +25,10 @@ type
  )
   protected
    {$If NOT Defined(NoScripts)}
-   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
    {$IfEnd} // NOT Defined(NoScripts)
    {$If NOT Defined(NoScripts)}
-   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
    {$IfEnd} // NOT Defined(NoScripts)
  end;//TkwDocumentSpravka
 
@@ -45,6 +45,11 @@ uses
 ;
 
 {$If NOT Defined(NoScripts)}
+class function TkwDocumentSpravka.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'оп::Документ_Справка_к_документу';
+end;//TkwDocumentSpravka.GetWordNameForRegister
+
 procedure TkwDocumentSpravka.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E5C937F00B2_var*
 //#UC END# *4DAEEDE10285_4E5C937F00B2_var*
@@ -54,11 +59,6 @@ begin
   (MainForm.ActiveMDIChild as TDocEditorWindow).acPageSprv.Execute;
 //#UC END# *4DAEEDE10285_4E5C937F00B2_impl*
 end;//TkwDocumentSpravka.DoDoIt
-
-class function TkwDocumentSpravka.GetWordNameForRegister: AnsiString;
-begin
- Result := 'оп::Документ_Справка_к_документу';
-end;//TkwDocumentSpravka.GetWordNameForRegister
 
 initialization
  TkwDocumentSpravka.RegisterInEngine;

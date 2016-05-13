@@ -18,8 +18,8 @@ uses
  , nevBase
  , l3Interfaces
  , l3Types
- , evTypes
  , l3Variant
+ , evTypes
  , l3Core
  , k2ToolPrim
 ;

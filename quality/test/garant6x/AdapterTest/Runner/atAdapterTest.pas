@@ -45,6 +45,9 @@ uses
  , atLogger
  , atXMLScenarioGenerator
  , atScenarioPlayer
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TatAdapterTest.Init: Boolean;
@@ -153,5 +156,11 @@ begin
   inherited;
 //#UC END# *48077504027E_4AC3488802F7_impl*
 end;//TatAdapterTest.Destroy
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ECantCreateScenario));
+ {* Регистрация типа ECantCreateScenario }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

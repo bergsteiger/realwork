@@ -17,8 +17,8 @@ uses
 type
  TkwIsPreviewInProgress = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwIsPreviewInProgress
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -30,6 +30,11 @@ uses
  , EverestLiteAdapter
 ;
 
+class function TkwIsPreviewInProgress.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsPreviewInProgress';
+end;//TkwIsPreviewInProgress.GetWordNameForRegister
+
 procedure TkwIsPreviewInProgress.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5321724703A5_var*
 //#UC END# *4DAEEDE10285_5321724703A5_var*
@@ -38,11 +43,6 @@ begin
  aCtx.rEngine.PushBool(IsPreviewInProcess);
 //#UC END# *4DAEEDE10285_5321724703A5_impl*
 end;//TkwIsPreviewInProgress.DoDoIt
-
-class function TkwIsPreviewInProgress.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsPreviewInProgress';
-end;//TkwIsPreviewInProgress.GetWordNameForRegister
 
 initialization
  TkwIsPreviewInProgress.RegisterInEngine;

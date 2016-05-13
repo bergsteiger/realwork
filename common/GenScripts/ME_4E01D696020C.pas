@@ -138,6 +138,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , vcmMessageQueuePrim
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 var g_TvcmHugeMessageDlgWithWikiImpl: TvcmHugeMessageDlgWithWikiImpl = nil;
@@ -743,6 +746,18 @@ begin
 end;//TvcmHugeMessageDlgWithWikiImpl.Exists
 
 initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EvcmDialogHasChoices));
+ {* Регистрация типа EvcmDialogHasChoices }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EvcmInvalidWaitedButton));
+ {* Регистрация типа EvcmInvalidWaitedButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EvcmUnwaitedDialog));
+ {* Регистрация типа EvcmUnwaitedDialog }
+{$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoVCL)}
  Tl3HugeMessageDlgWithWikiHelper.Instance.Alien := TvcmHugeMessageDlgWithWikiImpl.Instance;
 {$IfEnd} // NOT Defined(NoVCL)

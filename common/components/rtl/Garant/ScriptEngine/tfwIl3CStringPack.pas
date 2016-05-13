@@ -35,7 +35,7 @@ uses
  , m2HasLib
  , tfwHash16Table
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -58,13 +58,7 @@ type
  end;//TtfwStringIterator
 
  TkwStartsStr = {final} class(TtfwClassLike)
-  {* Слово скрипта StartsStr
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString StartsStr >>> l_Boolean
-[code]  }
+  {* Слово скрипта StartsStr }
   private
    function StartsStr(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -80,13 +74,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwStartsStr
 
  TkwStartsText = {final} class(TtfwClassLike)
-  {* Слово скрипта StartsText
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString StartsText >>> l_Boolean
-[code]  }
+  {* Слово скрипта StartsText }
   private
    function StartsText(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -102,13 +90,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwStartsText
 
  TkwEndsStr = {final} class(TtfwClassLike)
-  {* Слово скрипта EndsStr
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString EndsStr >>> l_Boolean
-[code]  }
+  {* Слово скрипта EndsStr }
   private
    function EndsStr(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -124,13 +106,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwEndsStr
 
  TkwEndsText = {final} class(TtfwClassLike)
-  {* Слово скрипта EndsText
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString EndsText >>> l_Boolean
-[code]  }
+  {* Слово скрипта EndsText }
   private
    function EndsText(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -146,13 +122,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwEndsText
 
  TkwSameStr = {final} class(TtfwClassLike)
-  {* Слово скрипта SameStr
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOther aString SameStr >>> l_Boolean
-[code]  }
+  {* Слово скрипта SameStr }
   private
    function SameStr(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -168,13 +138,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwSameStr
 
  TkwSameText = {final} class(TtfwClassLike)
-  {* Слово скрипта SameText
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOther aString SameText >>> l_Boolean
-[code]  }
+  {* Слово скрипта SameText }
   private
    function SameText(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -190,13 +154,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwSameText
 
  TkwCompareStr = {final} class(TtfwClassLike)
-  {* Слово скрипта CompareStr
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aString CompareStr >>> l_Integer
-[code]  }
+  {* Слово скрипта CompareStr }
   private
    function CompareStr(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -212,13 +170,7 @@ INTEGER VAR l_Integer
  end;//TkwCompareStr
 
  TkwCompareText = {final} class(TtfwClassLike)
-  {* Слово скрипта CompareText
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aString CompareText >>> l_Integer
-[code]  }
+  {* Слово скрипта CompareText }
   private
    function CompareText(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -234,13 +186,7 @@ INTEGER VAR l_Integer
  end;//TkwCompareText
 
  TkwStrToInt = {final} class(TtfwClassLike)
-  {* Слово скрипта StrToInt
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString StrToInt >>> l_Integer
-[code]  }
+  {* Слово скрипта StrToInt }
   private
    function StrToInt(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -255,13 +201,7 @@ INTEGER VAR l_Integer
  end;//TkwStrToInt
 
  TkwCat = {final} class(TtfwClassLike)
-  {* Слово скрипта Cat
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- anOther aString Cat >>> l_Il3CString
-[code]  }
+  {* Слово скрипта Cat }
   private
    function Cat(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -277,14 +217,7 @@ STRING VAR l_Il3CString
  end;//TkwCat
 
  TkwStringConsistsOf = {final} class(TtfwClassLike)
-  {* Слово скрипта string:ConsistsOf
-[panel]Проверяет, что строка aString состоит ТОЛЬКО из символов строки aDelims[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDelims aString string:ConsistsOf >>> l_Boolean
-[code]  }
+  {* Слово скрипта string:ConsistsOf }
   private
    function string_ConsistsOf(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -300,14 +233,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwStringConsistsOf
 
  TkwStringHasAnyOf = {final} class(TtfwClassLike)
-  {* Слово скрипта string:HasAnyOf
-[panel]Проверяет, что строка aString содержит хотя бы один символ из aDelims[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDelims aString string:HasAnyOf >>> l_Boolean
-[code]  }
+  {* Слово скрипта string:HasAnyOf }
   private
    function string_HasAnyOf(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -323,14 +249,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwStringHasAnyOf
 
  TkwStringPos = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Pos
-[panel]'мама рыла яму' 'ры' string:Pos .[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aString string:Pos >>> l_Integer
-[code]  }
+  {* Слово скрипта string:Pos }
   private
    function string_Pos(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -346,14 +265,7 @@ INTEGER VAR l_Integer
  end;//TkwStringPos
 
  TkwStringPosEx = {final} class(TtfwClassLike)
-  {* Слово скрипта string:PosEx
-[panel]6 'мама рыла рыло' 'ры' string:PosEx .[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aPos anOther aString string:PosEx >>> l_Integer
-[code]  }
+  {* Слово скрипта string:PosEx }
   private
    function string_PosEx(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -370,22 +282,7 @@ INTEGER VAR l_Integer
  end;//TkwStringPosEx
 
  TkwStringSplit = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Split
-[panel]Разделяет строку на две по заданному разделителю.
-
-Пример:
-[code]
-'ABC:DEF' ':' string:Split
-[code]
-Получаем на стеке:
-'ABC' ':DEF'[panel]
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_theTail
-STRING VAR l_Il3CString
- anOther aString string:Split >>> l_theTail >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:Split }
   private
    function string_Split(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -402,13 +299,7 @@ STRING VAR l_Il3CString
  end;//TkwStringSplit
 
  TkwStringReplace = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Replace
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString string:Replace >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:Replace }
   private
    function string_Replace(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -425,13 +316,7 @@ STRING VAR l_Il3CString
  end;//TkwStringReplace
 
  TkwStringReplaceFirst = {final} class(TtfwClassLike)
-  {* Слово скрипта string:ReplaceFirst
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString string:ReplaceFirst >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:ReplaceFirst }
   private
    function string_ReplaceFirst(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -448,13 +333,7 @@ STRING VAR l_Il3CString
  end;//TkwStringReplaceFirst
 
  TkwTextReplace = {final} class(TtfwClassLike)
-  {* Слово скрипта text:Replace
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString text:Replace >>> l_Il3CString
-[code]  }
+  {* Слово скрипта text:Replace }
   private
    function text_Replace(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -471,13 +350,7 @@ STRING VAR l_Il3CString
  end;//TkwTextReplace
 
  TkwTextReplaceFirst = {final} class(TtfwClassLike)
-  {* Слово скрипта text:ReplaceFirst
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString text:ReplaceFirst >>> l_Il3CString
-[code]  }
+  {* Слово скрипта text:ReplaceFirst }
   private
    function text_ReplaceFirst(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -494,13 +367,7 @@ STRING VAR l_Il3CString
  end;//TkwTextReplaceFirst
 
  TkwStringChar = {final} class(TtfwClassLike)
-  {* Слово скрипта string:[i]
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- anIndex aString string:[i] >>> l_Char
-[code]  }
+  {* Слово скрипта string:[i] }
   private
    function string_Char(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -516,13 +383,7 @@ CHAR VAR l_Char
  end;//TkwStringChar
 
  TkwStringCodePage = {final} class(TtfwClassLike)
-  {* Слово скрипта string:CodePage
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:CodePage >>> l_Integer
-[code]  }
+  {* Слово скрипта string:CodePage }
   private
    function string_CodePage(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -537,13 +398,7 @@ INTEGER VAR l_Integer
  end;//TkwStringCodePage
 
  TkwStringLen = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Len
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:Len >>> l_Integer
-[code]  }
+  {* Слово скрипта string:Len }
   private
    function string_Len(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -558,13 +413,7 @@ INTEGER VAR l_Integer
  end;//TkwStringLen
 
  TkwStringToChar = {final} class(TtfwClassLike)
-  {* Слово скрипта string:ToChar
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- aString string:ToChar >>> l_Char
-[code]  }
+  {* Слово скрипта string:ToChar }
   private
    function string_ToChar(const aCtx: TtfwContext;
     const aString: Il3CString): AnsiChar;
@@ -579,20 +428,14 @@ CHAR VAR l_Char
  end;//TkwStringToChar
 
  TkwCharToString = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта char:ToString
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aChar char:ToString >>> l_Il3CString
-[code]  }
+  {* Слово скрипта char:ToString }
   private
    function char_ToString(const aCtx: TtfwContext;
     aChar: AnsiChar): Il3CString;
     {* Реализация слова скрипта char:ToString }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -600,14 +443,7 @@ STRING VAR l_Il3CString
  end;//TkwCharToString
 
  TkwCharDupe = {final} class(TtfwClassLike)
-  {* Слово скрипта char:Dupe
-[panel]Размножаем символ столько раз, сколько указано[panel]
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aCount aString char:Dupe >>> l_Il3CString
-[code]  }
+  {* Слово скрипта char:Dupe }
   private
    function char_Dupe(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -623,13 +459,7 @@ STRING VAR l_Il3CString
  end;//TkwCharDupe
 
  TkwStringInc = {final} class(TtfwClassLike)
-  {* Слово скрипта string:++
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:++ >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:++ }
   private
    function string_Inc(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -644,13 +474,7 @@ STRING VAR l_Il3CString
  end;//TkwStringInc
 
  TkwStringShift = {final} class(TtfwClassLike)
-  {* Слово скрипта string:+
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aDelta aString string:+ >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:+ }
   private
    function string_Shift(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -666,13 +490,7 @@ STRING VAR l_Il3CString
  end;//TkwStringShift
 
  TkwStringFirstChar = {final} class(TtfwClassLike)
-  {* Слово скрипта string:[]
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- aString string:[] >>> l_Char
-[code]  }
+  {* Слово скрипта string:[] }
   private
    function string_FirstChar(const aCtx: TtfwContext;
     const aString: Il3CString): AnsiChar;
@@ -687,13 +505,7 @@ CHAR VAR l_Char
  end;//TkwStringFirstChar
 
  TkwStringTrim = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Trim
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:Trim >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:Trim }
   private
    function string_Trim(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -708,13 +520,7 @@ STRING VAR l_Il3CString
  end;//TkwStringTrim
 
  TkwStringTrimLeft = {final} class(TtfwClassLike)
-  {* Слово скрипта string:TrimLeft
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:TrimLeft >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:TrimLeft }
   private
    function string_TrimLeft(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -729,13 +535,7 @@ STRING VAR l_Il3CString
  end;//TkwStringTrimLeft
 
  TkwStringTrimRight = {final} class(TtfwClassLike)
-  {* Слово скрипта string:TrimRight
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:TrimRight >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:TrimRight }
   private
    function string_TrimRight(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -750,13 +550,7 @@ STRING VAR l_Il3CString
  end;//TkwStringTrimRight
 
  TkwStringDeleteDoubleSpaces = {final} class(TtfwClassLike)
-  {* Слово скрипта string:DeleteDoubleSpaces
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:DeleteDoubleSpaces >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:DeleteDoubleSpaces }
   private
    function string_DeleteDoubleSpaces(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -771,13 +565,7 @@ STRING VAR l_Il3CString
  end;//TkwStringDeleteDoubleSpaces
 
  TkwStringDeleteDoubleChars = {final} class(TtfwClassLike)
-  {* Слово скрипта string:DeleteDoubleChars
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aChar aString string:DeleteDoubleChars >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:DeleteDoubleChars }
   private
    function string_DeleteDoubleChars(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -793,13 +581,7 @@ STRING VAR l_Il3CString
  end;//TkwStringDeleteDoubleChars
 
  TkwStringSubstring = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Substring
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aLength aPos aString string:Substring >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:Substring }
   private
    function string_Substring(const aCtx: TtfwContext;
     const aString: Il3CString;
@@ -816,13 +598,7 @@ STRING VAR l_Il3CString
  end;//TkwStringSubstring
 
  TkwStringLower = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Lower
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:Lower >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:Lower }
   private
    function string_Lower(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -837,13 +613,7 @@ STRING VAR l_Il3CString
  end;//TkwStringLower
 
  TkwStringUpper = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Upper
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:Upper >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:Upper }
   private
    function string_Upper(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -858,13 +628,7 @@ STRING VAR l_Il3CString
  end;//TkwStringUpper
 
  TkwStringToUnicode = {final} class(TtfwClassLike)
-  {* Слово скрипта string:ToUnicode
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:ToUnicode >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:ToUnicode }
   private
    function string_ToUnicode(const aCtx: TtfwContext;
     const aString: Il3CString): Il3CString;
@@ -879,13 +643,7 @@ STRING VAR l_Il3CString
  end;//TkwStringToUnicode
 
  TkwStringHash = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Hash
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:Hash >>> l_Integer
-[code]  }
+  {* Слово скрипта string:Hash }
   private
    function string_Hash(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -900,13 +658,7 @@ INTEGER VAR l_Integer
  end;//TkwStringHash
 
  TkwStringSmallHash = {final} class(TtfwClassLike)
-  {* Слово скрипта string:SmallHash
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:SmallHash >>> l_Integer
-[code]  }
+  {* Слово скрипта string:SmallHash }
   private
    function string_SmallHash(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -921,13 +673,7 @@ INTEGER VAR l_Integer
  end;//TkwStringSmallHash
 
  TkwStringIterator = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Iterator
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aString string:Iterator >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта string:Iterator }
   private
    function string_Iterator(const aCtx: TtfwContext;
     const aString: Il3CString): ItfwValueList;
@@ -942,13 +688,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwStringIterator
 
  TkwStringHashNew = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Hash:New
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:Hash:New >>> l_Integer
-[code]  }
+  {* Слово скрипта string:Hash:New }
   private
    function string_Hash_New(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -963,13 +703,7 @@ INTEGER VAR l_Integer
  end;//TkwStringHashNew
 
  TkwStringSmallHashNew = {final} class(TtfwClassLike)
-  {* Слово скрипта string:SmallHash:New
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:SmallHash:New >>> l_Integer
-[code]  }
+  {* Слово скрипта string:SmallHash:New }
   private
    function string_SmallHash_New(const aCtx: TtfwContext;
     const aString: Il3CString): Integer;
@@ -984,13 +718,7 @@ INTEGER VAR l_Integer
  end;//TkwStringSmallHashNew
 
  TkwStringTransliterate = {final} class(TtfwClassLike)
-  {* Слово скрипта string:Transliterate
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aString string:Transliterate >>> l_String
-[code]  }
+  {* Слово скрипта string:Transliterate }
   private
    function string_Transliterate(const aCtx: TtfwContext;
     const aString: Il3CString): AnsiString;
@@ -1005,11 +733,7 @@ STRING VAR l_String
  end;//TkwStringTransliterate
 
  TkwVarDecLen = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:--Len!
-*Пример:*
-[code]
- string:--Len! aVar
-[code]  }
+  {* Слово скрипта string:--Len! }
   private
    procedure VarDecLen(const aCtx: TtfwContext;
     aVar: TtfwWord);
@@ -1017,19 +741,15 @@ STRING VAR l_String
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwVarDecLen
 
  TkwVarInc = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:++!
-*Пример:*
-[code]
- string:++! aVar
-[code]  }
+  {* Слово скрипта string:++! }
   private
    procedure VarInc(const aCtx: TtfwContext;
     aVar: TtfwWord);
@@ -1037,21 +757,15 @@ STRING VAR l_String
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwVarInc
 
  TkwRSplitTo = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:RSplitTo!
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aDelim string:RSplitTo! aVar >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:RSplitTo! }
   private
    function RSplitTo(const aCtx: TtfwContext;
     aVar: TtfwWord;
@@ -1060,19 +774,15 @@ STRING VAR l_Il3CString
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwRSplitTo
 
  TkwVarShift = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:+!
-*Пример:*
-[code]
- aNum string:+! aVar
-[code]  }
+  {* Слово скрипта string:+! }
   private
    procedure VarShift(const aCtx: TtfwContext;
     aVar: TtfwWord;
@@ -1081,21 +791,15 @@ STRING VAR l_Il3CString
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwVarShift
 
  TkwSplitTo = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:SplitTo!
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aDelim string:SplitTo! aVar >>> l_Il3CString
-[code]  }
+  {* Слово скрипта string:SplitTo! }
   private
    function SplitTo(const aCtx: TtfwContext;
     aVar: TtfwWord;
@@ -1104,21 +808,15 @@ STRING VAR l_Il3CString
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwSplitTo
 
  TkwVarPushCharAndInc = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:[]++!
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- string:[]++! aVar >>> l_Char
-[code]  }
+  {* Слово скрипта string:[]++! }
   private
    function VarPushCharAndInc(const aCtx: TtfwContext;
     aVar: TtfwWord): AnsiChar;
@@ -1126,27 +824,21 @@ CHAR VAR l_Char
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwVarPushCharAndInc
 
  TkwHash16Table = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта Hash16Table
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- Hash16Table >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Hash16Table }
   private
    function Hash16Table(const aCtx: TtfwContext): ItfwValueList;
     {* Реализация слова скрипта Hash16Table }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1246,12 +938,12 @@ function TkwStartsStr.StartsStr(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aSubStr: Il3CString): Boolean;
  {* Реализация слова скрипта StartsStr }
-//#UC START# *ADBAC1D0C450_0093B3082714_var*
-//#UC END# *ADBAC1D0C450_0093B3082714_var*
+//#UC START# *55682E07017A_0093B3082714_var*
+//#UC END# *55682E07017A_0093B3082714_var*
 begin
-//#UC START# *ADBAC1D0C450_0093B3082714_impl*
+//#UC START# *55682E07017A_0093B3082714_impl*
  Result := l3Starts(aSubStr, aString, false);
-//#UC END# *ADBAC1D0C450_0093B3082714_impl*
+//#UC END# *55682E07017A_0093B3082714_impl*
 end;//TkwStartsStr.StartsStr
 
 procedure TkwStartsStr.DoDoIt(const aCtx: TtfwContext);
@@ -1279,6 +971,11 @@ begin
  aCtx.rEngine.PushBool(StartsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsStr.DoDoIt
 
+class function TkwStartsStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StartsStr';
+end;//TkwStartsStr.GetWordNameForRegister
+
 function TkwStartsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1294,21 +991,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsStr.ParamsTypes
 
-class function TkwStartsStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StartsStr';
-end;//TkwStartsStr.GetWordNameForRegister
-
 function TkwStartsText.StartsText(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aSubStr: Il3CString): Boolean;
  {* Реализация слова скрипта StartsText }
-//#UC START# *2B44D7EFA4A8_9996D7566EDE_var*
-//#UC END# *2B44D7EFA4A8_9996D7566EDE_var*
+//#UC START# *55682E2503B9_9996D7566EDE_var*
+//#UC END# *55682E2503B9_9996D7566EDE_var*
 begin
-//#UC START# *2B44D7EFA4A8_9996D7566EDE_impl*
+//#UC START# *55682E2503B9_9996D7566EDE_impl*
  Result := l3Starts(aSubStr, aString, true);
-//#UC END# *2B44D7EFA4A8_9996D7566EDE_impl*
+//#UC END# *55682E2503B9_9996D7566EDE_impl*
 end;//TkwStartsText.StartsText
 
 procedure TkwStartsText.DoDoIt(const aCtx: TtfwContext);
@@ -1336,6 +1028,11 @@ begin
  aCtx.rEngine.PushBool(StartsText(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsText.DoDoIt
 
+class function TkwStartsText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StartsText';
+end;//TkwStartsText.GetWordNameForRegister
+
 function TkwStartsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1351,21 +1048,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsText.ParamsTypes
 
-class function TkwStartsText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StartsText';
-end;//TkwStartsText.GetWordNameForRegister
-
 function TkwEndsStr.EndsStr(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aSubStr: Il3CString): Boolean;
  {* Реализация слова скрипта EndsStr }
-//#UC START# *E58966F67546_397C461D6C30_var*
-//#UC END# *E58966F67546_397C461D6C30_var*
+//#UC START# *55682E4401ED_397C461D6C30_var*
+//#UC END# *55682E4401ED_397C461D6C30_var*
 begin
-//#UC START# *E58966F67546_397C461D6C30_impl*
+//#UC START# *55682E4401ED_397C461D6C30_impl*
  Result := l3Ends(aSubStr, aString, false);
-//#UC END# *E58966F67546_397C461D6C30_impl*
+//#UC END# *55682E4401ED_397C461D6C30_impl*
 end;//TkwEndsStr.EndsStr
 
 procedure TkwEndsStr.DoDoIt(const aCtx: TtfwContext);
@@ -1393,6 +1085,11 @@ begin
  aCtx.rEngine.PushBool(EndsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsStr.DoDoIt
 
+class function TkwEndsStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EndsStr';
+end;//TkwEndsStr.GetWordNameForRegister
+
 function TkwEndsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1408,21 +1105,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsStr.ParamsTypes
 
-class function TkwEndsStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'EndsStr';
-end;//TkwEndsStr.GetWordNameForRegister
-
 function TkwEndsText.EndsText(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aSubStr: Il3CString): Boolean;
  {* Реализация слова скрипта EndsText }
-//#UC START# *187F940B5F16_8997C15C6CA8_var*
-//#UC END# *187F940B5F16_8997C15C6CA8_var*
+//#UC START# *55682E4F033B_8997C15C6CA8_var*
+//#UC END# *55682E4F033B_8997C15C6CA8_var*
 begin
-//#UC START# *187F940B5F16_8997C15C6CA8_impl*
+//#UC START# *55682E4F033B_8997C15C6CA8_impl*
  Result := l3Ends(aSubStr, aString, true);
-//#UC END# *187F940B5F16_8997C15C6CA8_impl*
+//#UC END# *55682E4F033B_8997C15C6CA8_impl*
 end;//TkwEndsText.EndsText
 
 procedure TkwEndsText.DoDoIt(const aCtx: TtfwContext);
@@ -1450,6 +1142,11 @@ begin
  aCtx.rEngine.PushBool(EndsText(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsText.DoDoIt
 
+class function TkwEndsText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EndsText';
+end;//TkwEndsText.GetWordNameForRegister
+
 function TkwEndsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1465,21 +1162,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsText.ParamsTypes
 
-class function TkwEndsText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'EndsText';
-end;//TkwEndsText.GetWordNameForRegister
-
 function TkwSameStr.SameStr(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString): Boolean;
  {* Реализация слова скрипта SameStr }
-//#UC START# *4D25C99A6BEB_2309401B7CC1_var*
-//#UC END# *4D25C99A6BEB_2309401B7CC1_var*
+//#UC START# *55682E5E01E1_2309401B7CC1_var*
+//#UC END# *55682E5E01E1_2309401B7CC1_var*
 begin
-//#UC START# *4D25C99A6BEB_2309401B7CC1_impl*
+//#UC START# *55682E5E01E1_2309401B7CC1_impl*
  Result := l3Same(aString, anOther, false);
-//#UC END# *4D25C99A6BEB_2309401B7CC1_impl*
+//#UC END# *55682E5E01E1_2309401B7CC1_impl*
 end;//TkwSameStr.SameStr
 
 procedure TkwSameStr.DoDoIt(const aCtx: TtfwContext);
@@ -1507,6 +1199,11 @@ begin
  aCtx.rEngine.PushBool(SameStr(aCtx, l_aString, l_anOther));
 end;//TkwSameStr.DoDoIt
 
+class function TkwSameStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SameStr';
+end;//TkwSameStr.GetWordNameForRegister
+
 function TkwSameStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1522,21 +1219,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameStr.ParamsTypes
 
-class function TkwSameStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SameStr';
-end;//TkwSameStr.GetWordNameForRegister
-
 function TkwSameText.SameText(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString): Boolean;
  {* Реализация слова скрипта SameText }
-//#UC START# *883992DDC504_9FC28ACB9AA1_var*
-//#UC END# *883992DDC504_9FC28ACB9AA1_var*
+//#UC START# *55682E72033C_9FC28ACB9AA1_var*
+//#UC END# *55682E72033C_9FC28ACB9AA1_var*
 begin
-//#UC START# *883992DDC504_9FC28ACB9AA1_impl*
+//#UC START# *55682E72033C_9FC28ACB9AA1_impl*
  Result := l3Same(aString, anOther, true);
-//#UC END# *883992DDC504_9FC28ACB9AA1_impl*
+//#UC END# *55682E72033C_9FC28ACB9AA1_impl*
 end;//TkwSameText.SameText
 
 procedure TkwSameText.DoDoIt(const aCtx: TtfwContext);
@@ -1564,6 +1256,11 @@ begin
  aCtx.rEngine.PushBool(SameText(aCtx, l_aString, l_anOther));
 end;//TkwSameText.DoDoIt
 
+class function TkwSameText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SameText';
+end;//TkwSameText.GetWordNameForRegister
+
 function TkwSameText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1579,21 +1276,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameText.ParamsTypes
 
-class function TkwSameText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SameText';
-end;//TkwSameText.GetWordNameForRegister
-
 function TkwCompareStr.CompareStr(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString): Integer;
  {* Реализация слова скрипта CompareStr }
-//#UC START# *60E71D4C9014_C670925F6482_var*
-//#UC END# *60E71D4C9014_C670925F6482_var*
+//#UC START# *55682E84007F_C670925F6482_var*
+//#UC END# *55682E84007F_C670925F6482_var*
 begin
-//#UC START# *60E71D4C9014_C670925F6482_impl*
+//#UC START# *55682E84007F_C670925F6482_impl*
  Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString));
-//#UC END# *60E71D4C9014_C670925F6482_impl*
+//#UC END# *55682E84007F_C670925F6482_impl*
 end;//TkwCompareStr.CompareStr
 
 procedure TkwCompareStr.DoDoIt(const aCtx: TtfwContext);
@@ -1621,6 +1313,11 @@ begin
  aCtx.rEngine.PushInt(CompareStr(aCtx, l_aString, l_anOther));
 end;//TkwCompareStr.DoDoIt
 
+class function TkwCompareStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompareStr';
+end;//TkwCompareStr.GetWordNameForRegister
+
 function TkwCompareStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1636,21 +1333,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareStr.ParamsTypes
 
-class function TkwCompareStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompareStr';
-end;//TkwCompareStr.GetWordNameForRegister
-
 function TkwCompareText.CompareText(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString): Integer;
  {* Реализация слова скрипта CompareText }
-//#UC START# *53DA3FC40405_0E02A0729BA6_var*
-//#UC END# *53DA3FC40405_0E02A0729BA6_var*
+//#UC START# *55682E9700FE_0E02A0729BA6_var*
+//#UC END# *55682E9700FE_0E02A0729BA6_var*
 begin
-//#UC START# *53DA3FC40405_0E02A0729BA6_impl*
+//#UC START# *55682E9700FE_0E02A0729BA6_impl*
  Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString), l3_siCaseUnsensitive);
-//#UC END# *53DA3FC40405_0E02A0729BA6_impl*
+//#UC END# *55682E9700FE_0E02A0729BA6_impl*
 end;//TkwCompareText.CompareText
 
 procedure TkwCompareText.DoDoIt(const aCtx: TtfwContext);
@@ -1678,6 +1370,11 @@ begin
  aCtx.rEngine.PushInt(CompareText(aCtx, l_aString, l_anOther));
 end;//TkwCompareText.DoDoIt
 
+class function TkwCompareText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompareText';
+end;//TkwCompareText.GetWordNameForRegister
+
 function TkwCompareText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1693,20 +1390,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareText.ParamsTypes
 
-class function TkwCompareText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompareText';
-end;//TkwCompareText.GetWordNameForRegister
-
 function TkwStrToInt.StrToInt(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта StrToInt }
-//#UC START# *108F78D959BF_09008856C703_var*
-//#UC END# *108F78D959BF_09008856C703_var*
+//#UC START# *55682EA703B4_09008856C703_var*
+//#UC END# *55682EA703B4_09008856C703_var*
 begin
-//#UC START# *108F78D959BF_09008856C703_impl*
+//#UC START# *55682EA703B4_09008856C703_impl*
  Result := SysUtils.StrToInt(l3Str(aString));
-//#UC END# *108F78D959BF_09008856C703_impl*
+//#UC END# *55682EA703B4_09008856C703_impl*
 end;//TkwStrToInt.StrToInt
 
 procedure TkwStrToInt.DoDoIt(const aCtx: TtfwContext);
@@ -1724,6 +1416,11 @@ begin
  aCtx.rEngine.PushInt(StrToInt(aCtx, l_aString));
 end;//TkwStrToInt.DoDoIt
 
+class function TkwStrToInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StrToInt';
+end;//TkwStrToInt.GetWordNameForRegister
+
 function TkwStrToInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1739,21 +1436,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStrToInt.ParamsTypes
 
-class function TkwStrToInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StrToInt';
-end;//TkwStrToInt.GetWordNameForRegister
-
 function TkwCat.Cat(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString): Il3CString;
  {* Реализация слова скрипта Cat }
-//#UC START# *0AEEC1805BCE_DD57CECF347C_var*
-//#UC END# *0AEEC1805BCE_DD57CECF347C_var*
+//#UC START# *5568365E0395_DD57CECF347C_var*
+//#UC END# *5568365E0395_DD57CECF347C_var*
 begin
-//#UC START# *0AEEC1805BCE_DD57CECF347C_impl*
+//#UC START# *5568365E0395_DD57CECF347C_impl*
  Result := TtfwCStringFactory.Cat(anOther, aString);
-//#UC END# *0AEEC1805BCE_DD57CECF347C_impl*
+//#UC END# *5568365E0395_DD57CECF347C_impl*
 end;//TkwCat.Cat
 
 procedure TkwCat.DoDoIt(const aCtx: TtfwContext);
@@ -1781,6 +1473,11 @@ begin
  aCtx.rEngine.PushString(Cat(aCtx, l_aString, l_anOther));
 end;//TkwCat.DoDoIt
 
+class function TkwCat.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Cat';
+end;//TkwCat.GetWordNameForRegister
+
 function TkwCat.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1796,24 +1493,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCat.ParamsTypes
 
-class function TkwCat.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Cat';
-end;//TkwCat.GetWordNameForRegister
-
 function TkwStringConsistsOf.string_ConsistsOf(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aDelims: Il3CString): Boolean;
  {* Реализация слова скрипта string:ConsistsOf }
-//#UC START# *C17F9AF1604A_5F306006344B_var*
+//#UC START# *556840910148_5F306006344B_var*
 var
  l_S1 : Tl3WString;
  l_S2 : Tl3WString;
  l_C : TChars;
  l_Index : Integer;
-//#UC END# *C17F9AF1604A_5F306006344B_var*
+//#UC END# *556840910148_5F306006344B_var*
 begin
-//#UC START# *C17F9AF1604A_5F306006344B_impl*
+//#UC START# *556840910148_5F306006344B_impl*
  l_S1 := l3PCharLen(aDelims);
  l_S2 := l3PCharLen(aString);
  if l3IsNil(l_S1) then
@@ -1829,7 +1521,7 @@ begin
    l_C := l_C + [l_S1.S[l_Index]];
   Result := l3AllCharsInCharSet(l_S2, l_C);
  end;//l_S1.SLen = 1
-//#UC END# *C17F9AF1604A_5F306006344B_impl*
+//#UC END# *556840910148_5F306006344B_impl*
 end;//TkwStringConsistsOf.string_ConsistsOf
 
 procedure TkwStringConsistsOf.DoDoIt(const aCtx: TtfwContext);
@@ -1857,6 +1549,11 @@ begin
  aCtx.rEngine.PushBool(string_ConsistsOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringConsistsOf.DoDoIt
 
+class function TkwStringConsistsOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ConsistsOf';
+end;//TkwStringConsistsOf.GetWordNameForRegister
+
 function TkwStringConsistsOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1872,24 +1569,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringConsistsOf.ParamsTypes
 
-class function TkwStringConsistsOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ConsistsOf';
-end;//TkwStringConsistsOf.GetWordNameForRegister
-
 function TkwStringHasAnyOf.string_HasAnyOf(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aDelims: Il3CString): Boolean;
  {* Реализация слова скрипта string:HasAnyOf }
-//#UC START# *4E5E3C364C71_2256016890B3_var*
+//#UC START# *5568411F01E1_2256016890B3_var*
 var
  l_S1 : Tl3WString;
  l_S2 : Tl3WString;
  l_C : TChars;
  l_Index : Integer;
-//#UC END# *4E5E3C364C71_2256016890B3_var*
+//#UC END# *5568411F01E1_2256016890B3_var*
 begin
-//#UC START# *4E5E3C364C71_2256016890B3_impl*
+//#UC START# *5568411F01E1_2256016890B3_impl*
  l_S1 := l3PCharLen(aDelims);
  l_S2 := l3PCharLen(aString);
  if l3IsNil(l_S1) then
@@ -1905,7 +1597,7 @@ begin
    l_C := l_C + [l_S1.S[l_Index]];
   Result := l3CharSetPresent(l_S2, l_C);
  end;//l_S1.SLen = 1
-//#UC END# *4E5E3C364C71_2256016890B3_impl*
+//#UC END# *5568411F01E1_2256016890B3_impl*
 end;//TkwStringHasAnyOf.string_HasAnyOf
 
 procedure TkwStringHasAnyOf.DoDoIt(const aCtx: TtfwContext);
@@ -1933,6 +1625,11 @@ begin
  aCtx.rEngine.PushBool(string_HasAnyOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringHasAnyOf.DoDoIt
 
+class function TkwStringHasAnyOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:HasAnyOf';
+end;//TkwStringHasAnyOf.GetWordNameForRegister
+
 function TkwStringHasAnyOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1948,21 +1645,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringHasAnyOf.ParamsTypes
 
-class function TkwStringHasAnyOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:HasAnyOf';
-end;//TkwStringHasAnyOf.GetWordNameForRegister
-
 function TkwStringPos.string_Pos(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString): Integer;
  {* Реализация слова скрипта string:Pos }
-//#UC START# *A3206F78A2FD_851E99BEB53B_var*
-//#UC END# *A3206F78A2FD_851E99BEB53B_var*
+//#UC START# *5568417001D5_851E99BEB53B_var*
+//#UC END# *5568417001D5_851E99BEB53B_var*
 begin
-//#UC START# *A3206F78A2FD_851E99BEB53B_impl*
+//#UC START# *5568417001D5_851E99BEB53B_impl*
  Result := l3Pos(anOther, aString);
-//#UC END# *A3206F78A2FD_851E99BEB53B_impl*
+//#UC END# *5568417001D5_851E99BEB53B_impl*
 end;//TkwStringPos.string_Pos
 
 procedure TkwStringPos.DoDoIt(const aCtx: TtfwContext);
@@ -1990,6 +1682,11 @@ begin
  aCtx.rEngine.PushInt(string_Pos(aCtx, l_aString, l_anOther));
 end;//TkwStringPos.DoDoIt
 
+class function TkwStringPos.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Pos';
+end;//TkwStringPos.GetWordNameForRegister
+
 function TkwStringPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2005,22 +1702,17 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringPos.ParamsTypes
 
-class function TkwStringPos.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Pos';
-end;//TkwStringPos.GetWordNameForRegister
-
 function TkwStringPosEx.string_PosEx(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString;
  aPos: Integer): Integer;
  {* Реализация слова скрипта string:PosEx }
-//#UC START# *F7FE00F8B33E_24901BF384F4_var*
-//#UC END# *F7FE00F8B33E_24901BF384F4_var*
+//#UC START# *556841C601CF_24901BF384F4_var*
+//#UC END# *556841C601CF_24901BF384F4_var*
 begin
-//#UC START# *F7FE00F8B33E_24901BF384F4_impl*
+//#UC START# *556841C601CF_24901BF384F4_impl*
  Result := l3PosEx(anOther, aString, aPos);
-//#UC END# *F7FE00F8B33E_24901BF384F4_impl*
+//#UC END# *556841C601CF_24901BF384F4_impl*
 end;//TkwStringPosEx.string_PosEx
 
 procedure TkwStringPosEx.DoDoIt(const aCtx: TtfwContext);
@@ -2058,6 +1750,11 @@ begin
  aCtx.rEngine.PushInt(string_PosEx(aCtx, l_aString, l_anOther, l_aPos));
 end;//TkwStringPosEx.DoDoIt
 
+class function TkwStringPosEx.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:PosEx';
+end;//TkwStringPosEx.GetWordNameForRegister
+
 function TkwStringPosEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2073,24 +1770,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringPosEx.ParamsTypes
 
-class function TkwStringPosEx.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:PosEx';
-end;//TkwStringPosEx.GetWordNameForRegister
-
 function TkwStringSplit.string_Split(const aCtx: TtfwContext;
  const aString: Il3CString;
  const anOther: Il3CString;
  out theTail: Il3CString): Il3CString;
  {* Реализация слова скрипта string:Split }
-//#UC START# *2D11D07B402C_AA63BC1F51EC_var*
+//#UC START# *5568423E01F3_AA63BC1F51EC_var*
 var
 (* l_P : Il3CString;
  l_S : Il3CString;*)
  l_Len : Integer;
-//#UC END# *2D11D07B402C_AA63BC1F51EC_var*
+//#UC END# *5568423E01F3_AA63BC1F51EC_var*
 begin
-//#UC START# *2D11D07B402C_AA63BC1F51EC_impl*
+//#UC START# *5568423E01F3_AA63BC1F51EC_impl*
  l_Len := l3Len(aString);
  if (l_Len = 1) then
   l3Split(anOther, l3Char(aString, 0), Result, theTail)
@@ -2102,7 +1794,7 @@ begin
   l3Split(anOther, aString, l_P, l_S);
  aCtx.rEngine.PushString(l_P);
  aCtx.rEngine.PushString(l_S);*)
-//#UC END# *2D11D07B402C_AA63BC1F51EC_impl*
+//#UC END# *5568423E01F3_AA63BC1F51EC_impl*
 end;//TkwStringSplit.string_Split
 
 procedure TkwStringSplit.DoDoIt(const aCtx: TtfwContext);
@@ -2132,6 +1824,11 @@ begin
  aCtx.rEngine.PushString(l_theTail);
 end;//TkwStringSplit.DoDoIt
 
+class function TkwStringSplit.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Split';
+end;//TkwStringSplit.GetWordNameForRegister
+
 function TkwStringSplit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2147,24 +1844,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringSplit.ParamsTypes
 
-class function TkwStringSplit.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Split';
-end;//TkwStringSplit.GetWordNameForRegister
-
 function TkwStringReplace.string_Replace(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aFrom: Il3CString;
  const aMain: Il3CString): Il3CString;
  {* Реализация слова скрипта string:Replace }
-//#UC START# *DD442A0F03CD_8CA688C2805E_var*
-//#UC END# *DD442A0F03CD_8CA688C2805E_var*
+//#UC START# *5568520B03B5_8CA688C2805E_var*
+//#UC END# *5568520B03B5_8CA688C2805E_var*
 begin
-//#UC START# *DD442A0F03CD_8CA688C2805E_impl*
+//#UC START# *5568520B03B5_8CA688C2805E_impl*
  Result := l3StringReplace(aMain,
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [rfReplaceAll])
-//#UC END# *DD442A0F03CD_8CA688C2805E_impl*
+//#UC END# *5568520B03B5_8CA688C2805E_impl*
 end;//TkwStringReplace.string_Replace
 
 procedure TkwStringReplace.DoDoIt(const aCtx: TtfwContext);
@@ -2202,6 +1894,11 @@ begin
  aCtx.rEngine.PushString(string_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplace.DoDoIt
 
+class function TkwStringReplace.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Replace';
+end;//TkwStringReplace.GetWordNameForRegister
+
 function TkwStringReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2217,24 +1914,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplace.ParamsTypes
 
-class function TkwStringReplace.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Replace';
-end;//TkwStringReplace.GetWordNameForRegister
-
 function TkwStringReplaceFirst.string_ReplaceFirst(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aFrom: Il3CString;
  const aMain: Il3CString): Il3CString;
  {* Реализация слова скрипта string:ReplaceFirst }
-//#UC START# *9B83E2E03D3D_FF1E0A42BBEF_var*
-//#UC END# *9B83E2E03D3D_FF1E0A42BBEF_var*
+//#UC START# *5568523F03BE_FF1E0A42BBEF_var*
+//#UC END# *5568523F03BE_FF1E0A42BBEF_var*
 begin
-//#UC START# *9B83E2E03D3D_FF1E0A42BBEF_impl*
+//#UC START# *5568523F03BE_FF1E0A42BBEF_impl*
  Result := l3StringReplace(aMain,
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [{rfReplaceAll}])
-//#UC END# *9B83E2E03D3D_FF1E0A42BBEF_impl*
+//#UC END# *5568523F03BE_FF1E0A42BBEF_impl*
 end;//TkwStringReplaceFirst.string_ReplaceFirst
 
 procedure TkwStringReplaceFirst.DoDoIt(const aCtx: TtfwContext);
@@ -2272,6 +1964,11 @@ begin
  aCtx.rEngine.PushString(string_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplaceFirst.DoDoIt
 
+class function TkwStringReplaceFirst.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ReplaceFirst';
+end;//TkwStringReplaceFirst.GetWordNameForRegister
+
 function TkwStringReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2287,24 +1984,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplaceFirst.ParamsTypes
 
-class function TkwStringReplaceFirst.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ReplaceFirst';
-end;//TkwStringReplaceFirst.GetWordNameForRegister
-
 function TkwTextReplace.text_Replace(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aFrom: Il3CString;
  const aMain: Il3CString): Il3CString;
  {* Реализация слова скрипта text:Replace }
-//#UC START# *77C319AE08A3_6F240EDBC3AE_var*
-//#UC END# *77C319AE08A3_6F240EDBC3AE_var*
+//#UC START# *556852510081_6F240EDBC3AE_var*
+//#UC END# *556852510081_6F240EDBC3AE_var*
 begin
-//#UC START# *77C319AE08A3_6F240EDBC3AE_impl*
+//#UC START# *556852510081_6F240EDBC3AE_impl*
  Result := l3StringReplace(aMain,
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [rfReplaceAll, rfIgnoreCase])
-//#UC END# *77C319AE08A3_6F240EDBC3AE_impl*
+//#UC END# *556852510081_6F240EDBC3AE_impl*
 end;//TkwTextReplace.text_Replace
 
 procedure TkwTextReplace.DoDoIt(const aCtx: TtfwContext);
@@ -2342,6 +2034,11 @@ begin
  aCtx.rEngine.PushString(text_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplace.DoDoIt
 
+class function TkwTextReplace.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'text:Replace';
+end;//TkwTextReplace.GetWordNameForRegister
+
 function TkwTextReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2357,24 +2054,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplace.ParamsTypes
 
-class function TkwTextReplace.GetWordNameForRegister: AnsiString;
-begin
- Result := 'text:Replace';
-end;//TkwTextReplace.GetWordNameForRegister
-
 function TkwTextReplaceFirst.text_ReplaceFirst(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aFrom: Il3CString;
  const aMain: Il3CString): Il3CString;
  {* Реализация слова скрипта text:ReplaceFirst }
-//#UC START# *C0B325EEBDF3_0527F8C9DF24_var*
-//#UC END# *C0B325EEBDF3_0527F8C9DF24_var*
+//#UC START# *5568525F008C_0527F8C9DF24_var*
+//#UC END# *5568525F008C_0527F8C9DF24_var*
 begin
-//#UC START# *C0B325EEBDF3_0527F8C9DF24_impl*
+//#UC START# *5568525F008C_0527F8C9DF24_impl*
  Result := l3StringReplace(aMain,
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [{rfReplaceAll,} rfIgnoreCase])
-//#UC END# *C0B325EEBDF3_0527F8C9DF24_impl*
+//#UC END# *5568525F008C_0527F8C9DF24_impl*
 end;//TkwTextReplaceFirst.text_ReplaceFirst
 
 procedure TkwTextReplaceFirst.DoDoIt(const aCtx: TtfwContext);
@@ -2412,6 +2104,11 @@ begin
  aCtx.rEngine.PushString(text_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplaceFirst.DoDoIt
 
+class function TkwTextReplaceFirst.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'text:ReplaceFirst';
+end;//TkwTextReplaceFirst.GetWordNameForRegister
+
 function TkwTextReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2427,21 +2124,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplaceFirst.ParamsTypes
 
-class function TkwTextReplaceFirst.GetWordNameForRegister: AnsiString;
-begin
- Result := 'text:ReplaceFirst';
-end;//TkwTextReplaceFirst.GetWordNameForRegister
-
 function TkwStringChar.string_Char(const aCtx: TtfwContext;
  const aString: Il3CString;
  anIndex: Integer): AnsiChar;
  {* Реализация слова скрипта string:[i] }
-//#UC START# *46139320DD2A_9597582C9BD4_var*
-//#UC END# *46139320DD2A_9597582C9BD4_var*
+//#UC START# *55685FAB0248_9597582C9BD4_var*
+//#UC END# *55685FAB0248_9597582C9BD4_var*
 begin
-//#UC START# *46139320DD2A_9597582C9BD4_impl*
+//#UC START# *55685FAB0248_9597582C9BD4_impl*
  Result := aString.AsWStr.S[anIndex];
-//#UC END# *46139320DD2A_9597582C9BD4_impl*
+//#UC END# *55685FAB0248_9597582C9BD4_impl*
 end;//TkwStringChar.string_Char
 
 procedure TkwStringChar.DoDoIt(const aCtx: TtfwContext);
@@ -2469,6 +2161,11 @@ begin
  aCtx.rEngine.PushChar(string_Char(aCtx, l_aString, l_anIndex));
 end;//TkwStringChar.DoDoIt
 
+class function TkwStringChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:[i]';
+end;//TkwStringChar.GetWordNameForRegister
+
 function TkwStringChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(AnsiChar);
@@ -2484,20 +2181,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringChar.ParamsTypes
 
-class function TkwStringChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:[i]';
-end;//TkwStringChar.GetWordNameForRegister
-
 function TkwStringCodePage.string_CodePage(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта string:CodePage }
-//#UC START# *6C0D8D8B8728_6CAF85926E0C_var*
-//#UC END# *6C0D8D8B8728_6CAF85926E0C_var*
+//#UC START# *55685FD801DF_6CAF85926E0C_var*
+//#UC END# *55685FD801DF_6CAF85926E0C_var*
 begin
-//#UC START# *6C0D8D8B8728_6CAF85926E0C_impl*
+//#UC START# *55685FD801DF_6CAF85926E0C_impl*
  Result := aString.AsWStr.SCodePage;
-//#UC END# *6C0D8D8B8728_6CAF85926E0C_impl*
+//#UC END# *55685FD801DF_6CAF85926E0C_impl*
 end;//TkwStringCodePage.string_CodePage
 
 procedure TkwStringCodePage.DoDoIt(const aCtx: TtfwContext);
@@ -2515,6 +2207,11 @@ begin
  aCtx.rEngine.PushInt(string_CodePage(aCtx, l_aString));
 end;//TkwStringCodePage.DoDoIt
 
+class function TkwStringCodePage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:CodePage';
+end;//TkwStringCodePage.GetWordNameForRegister
+
 function TkwStringCodePage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2530,23 +2227,18 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringCodePage.ParamsTypes
 
-class function TkwStringCodePage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:CodePage';
-end;//TkwStringCodePage.GetWordNameForRegister
-
 function TkwStringLen.string_Len(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта string:Len }
-//#UC START# *1D5A300A0055_0BA6E62BEF84_var*
-//#UC END# *1D5A300A0055_0BA6E62BEF84_var*
+//#UC START# *55685FF101AC_0BA6E62BEF84_var*
+//#UC END# *55685FF101AC_0BA6E62BEF84_var*
 begin
-//#UC START# *1D5A300A0055_0BA6E62BEF84_impl*
+//#UC START# *55685FF101AC_0BA6E62BEF84_impl*
  if (aString = nil) then
   Result := 0
  else
   Result := aString.AsWStr.SLen;
-//#UC END# *1D5A300A0055_0BA6E62BEF84_impl*
+//#UC END# *55685FF101AC_0BA6E62BEF84_impl*
 end;//TkwStringLen.string_Len
 
 procedure TkwStringLen.DoDoIt(const aCtx: TtfwContext);
@@ -2564,6 +2256,11 @@ begin
  aCtx.rEngine.PushInt(string_Len(aCtx, l_aString));
 end;//TkwStringLen.DoDoIt
 
+class function TkwStringLen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Len';
+end;//TkwStringLen.GetWordNameForRegister
+
 function TkwStringLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -2579,21 +2276,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLen.ParamsTypes
 
-class function TkwStringLen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Len';
-end;//TkwStringLen.GetWordNameForRegister
-
 function TkwStringToChar.string_ToChar(const aCtx: TtfwContext;
  const aString: Il3CString): AnsiChar;
  {* Реализация слова скрипта string:ToChar }
-//#UC START# *3F9E9C8EDF9E_CA33F456975C_var*
-//#UC END# *3F9E9C8EDF9E_CA33F456975C_var*
+//#UC START# *556860130209_CA33F456975C_var*
+//#UC END# *556860130209_CA33F456975C_var*
 begin
-//#UC START# *3F9E9C8EDF9E_CA33F456975C_impl*
+//#UC START# *556860130209_CA33F456975C_impl*
  RunnerAssert(aString.AsWStr.SLen = 1, 'Длина строки должна равняться 1', aCtx);
  Result := aString.AsWStr.S[0];
-//#UC END# *3F9E9C8EDF9E_CA33F456975C_impl*
+//#UC END# *556860130209_CA33F456975C_impl*
 end;//TkwStringToChar.string_ToChar
 
 procedure TkwStringToChar.DoDoIt(const aCtx: TtfwContext);
@@ -2611,6 +2303,11 @@ begin
  aCtx.rEngine.PushChar(string_ToChar(aCtx, l_aString));
 end;//TkwStringToChar.DoDoIt
 
+class function TkwStringToChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ToChar';
+end;//TkwStringToChar.GetWordNameForRegister
+
 function TkwStringToChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(AnsiChar);
@@ -2626,36 +2323,21 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringToChar.ParamsTypes
 
-class function TkwStringToChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ToChar';
-end;//TkwStringToChar.GetWordNameForRegister
-
 function TkwCharToString.char_ToString(const aCtx: TtfwContext;
  aChar: AnsiChar): Il3CString;
  {* Реализация слова скрипта char:ToString }
-//#UC START# *E29B58F41653_4C3CAF64FEF3_var*
-//#UC END# *E29B58F41653_4C3CAF64FEF3_var*
+//#UC START# *556866CA0045_4C3CAF64FEF3_var*
+//#UC END# *556866CA0045_4C3CAF64FEF3_var*
 begin
-//#UC START# *E29B58F41653_4C3CAF64FEF3_impl*
+//#UC START# *556866CA0045_4C3CAF64FEF3_impl*
  Result := TtfwCStringFactory.C(aChar);
-//#UC END# *E29B58F41653_4C3CAF64FEF3_impl*
+//#UC END# *556866CA0045_4C3CAF64FEF3_impl*
 end;//TkwCharToString.char_ToString
 
-procedure TkwCharToString.DoDoIt(const aCtx: TtfwContext);
-var l_aChar: AnsiChar;
+class function TkwCharToString.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aChar := aCtx.rEngine.PopChar;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aChar: AnsiChar : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(char_ToString(aCtx, l_aChar));
-end;//TkwCharToString.DoDoIt
+ Result := 'char:ToString';
+end;//TkwCharToString.GetWordNameForRegister
 
 function TkwCharToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2672,21 +2354,31 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(AnsiChar)]);
 end;//TkwCharToString.ParamsTypes
 
-class function TkwCharToString.GetWordNameForRegister: AnsiString;
+procedure TkwCharToString.DoDoIt(const aCtx: TtfwContext);
+var l_aChar: AnsiChar;
 begin
- Result := 'char:ToString';
-end;//TkwCharToString.GetWordNameForRegister
+ try
+  l_aChar := aCtx.rEngine.PopChar;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChar: AnsiChar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(char_ToString(aCtx, l_aChar));
+end;//TkwCharToString.DoDoIt
 
 function TkwCharDupe.char_Dupe(const aCtx: TtfwContext;
  const aString: Il3CString;
  aCount: Integer): Il3CString;
  {* Реализация слова скрипта char:Dupe }
-//#UC START# *E230CFBF78A9_355A8C3D70FA_var*
-//#UC END# *E230CFBF78A9_355A8C3D70FA_var*
+//#UC START# *55687BBF0087_355A8C3D70FA_var*
+//#UC END# *55687BBF0087_355A8C3D70FA_var*
 begin
-//#UC START# *E230CFBF78A9_355A8C3D70FA_impl*
+//#UC START# *55687BBF0087_355A8C3D70FA_impl*
  Result := TtfwCStringFactory.C(ev_psFixLen('', aCount, l3Char(aString, 0)));
-//#UC END# *E230CFBF78A9_355A8C3D70FA_impl*
+//#UC END# *55687BBF0087_355A8C3D70FA_impl*
 end;//TkwCharDupe.char_Dupe
 
 procedure TkwCharDupe.DoDoIt(const aCtx: TtfwContext);
@@ -2714,6 +2406,11 @@ begin
  aCtx.rEngine.PushString(char_Dupe(aCtx, l_aString, l_aCount));
 end;//TkwCharDupe.DoDoIt
 
+class function TkwCharDupe.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'char:Dupe';
+end;//TkwCharDupe.GetWordNameForRegister
+
 function TkwCharDupe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2729,24 +2426,19 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwCharDupe.ParamsTypes
 
-class function TkwCharDupe.GetWordNameForRegister: AnsiString;
-begin
- Result := 'char:Dupe';
-end;//TkwCharDupe.GetWordNameForRegister
-
 function TkwStringInc.string_Inc(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:++ }
-//#UC START# *FF3E231E9FA3_F3116B965978_var*
+//#UC START# *5603F61302F1_F3116B965978_var*
 var
  l_P : Tl3PCharLen;
-//#UC END# *FF3E231E9FA3_F3116B965978_var*
+//#UC END# *5603F61302F1_F3116B965978_var*
 begin
-//#UC START# *FF3E231E9FA3_F3116B965978_impl*
+//#UC START# *5603F61302F1_F3116B965978_impl*
  l_P := l3PCharLen(aString);
  l_P.Shift(+1);
  Result := TtfwCStringFactory.ViewOf(l_P);
-//#UC END# *FF3E231E9FA3_F3116B965978_impl*
+//#UC END# *5603F61302F1_F3116B965978_impl*
 end;//TkwStringInc.string_Inc
 
 procedure TkwStringInc.DoDoIt(const aCtx: TtfwContext);
@@ -2764,6 +2456,11 @@ begin
  aCtx.rEngine.PushString(string_Inc(aCtx, l_aString));
 end;//TkwStringInc.DoDoIt
 
+class function TkwStringInc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:++';
+end;//TkwStringInc.GetWordNameForRegister
+
 function TkwStringInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2779,25 +2476,20 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringInc.ParamsTypes
 
-class function TkwStringInc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:++';
-end;//TkwStringInc.GetWordNameForRegister
-
 function TkwStringShift.string_Shift(const aCtx: TtfwContext;
  const aString: Il3CString;
  aDelta: Integer): Il3CString;
  {* Реализация слова скрипта string:+ }
-//#UC START# *89A4BEF62C61_EFB7A59A9041_var*
+//#UC START# *5603F655014B_EFB7A59A9041_var*
 var
  l_P : Tl3PCharLen;
-//#UC END# *89A4BEF62C61_EFB7A59A9041_var*
+//#UC END# *5603F655014B_EFB7A59A9041_var*
 begin
-//#UC START# *89A4BEF62C61_EFB7A59A9041_impl*
+//#UC START# *5603F655014B_EFB7A59A9041_impl*
  l_P := l3PCharLen(aString);
  l_P.Shift(aDelta);
  Result := TtfwCStringFactory.ViewOf(l_P);
-//#UC END# *89A4BEF62C61_EFB7A59A9041_impl*
+//#UC END# *5603F655014B_EFB7A59A9041_impl*
 end;//TkwStringShift.string_Shift
 
 procedure TkwStringShift.DoDoIt(const aCtx: TtfwContext);
@@ -2825,6 +2517,11 @@ begin
  aCtx.rEngine.PushString(string_Shift(aCtx, l_aString, l_aDelta));
 end;//TkwStringShift.DoDoIt
 
+class function TkwStringShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:+';
+end;//TkwStringShift.GetWordNameForRegister
+
 function TkwStringShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2840,23 +2537,18 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringShift.ParamsTypes
 
-class function TkwStringShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:+';
-end;//TkwStringShift.GetWordNameForRegister
-
 function TkwStringFirstChar.string_FirstChar(const aCtx: TtfwContext;
  const aString: Il3CString): AnsiChar;
  {* Реализация слова скрипта string:[] }
-//#UC START# *16E4F9B79ECC_4E9A5EC5FAC6_var*
-//#UC END# *16E4F9B79ECC_4E9A5EC5FAC6_var*
+//#UC START# *5603F68D018F_4E9A5EC5FAC6_var*
+//#UC END# *5603F68D018F_4E9A5EC5FAC6_var*
 begin
-//#UC START# *16E4F9B79ECC_4E9A5EC5FAC6_impl*
+//#UC START# *5603F68D018F_4E9A5EC5FAC6_impl*
  if l3IsNil(aString) then
   Result := #0
  else
   Result := aString.AsWStr.S[0];
-//#UC END# *16E4F9B79ECC_4E9A5EC5FAC6_impl*
+//#UC END# *5603F68D018F_4E9A5EC5FAC6_impl*
 end;//TkwStringFirstChar.string_FirstChar
 
 procedure TkwStringFirstChar.DoDoIt(const aCtx: TtfwContext);
@@ -2874,6 +2566,11 @@ begin
  aCtx.rEngine.PushChar(string_FirstChar(aCtx, l_aString));
 end;//TkwStringFirstChar.DoDoIt
 
+class function TkwStringFirstChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:[]';
+end;//TkwStringFirstChar.GetWordNameForRegister
+
 function TkwStringFirstChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(AnsiChar);
@@ -2889,20 +2586,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringFirstChar.ParamsTypes
 
-class function TkwStringFirstChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:[]';
-end;//TkwStringFirstChar.GetWordNameForRegister
-
 function TkwStringTrim.string_Trim(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:Trim }
-//#UC START# *62C91D29887A_95D9D233CD72_var*
-//#UC END# *62C91D29887A_95D9D233CD72_var*
+//#UC START# *569E3511013C_95D9D233CD72_var*
+//#UC END# *569E3511013C_95D9D233CD72_var*
 begin
-//#UC START# *62C91D29887A_95D9D233CD72_impl*
+//#UC START# *569E3511013C_95D9D233CD72_impl*
  Result := TtfwCStringFactory.C(l3Trim(aString));
-//#UC END# *62C91D29887A_95D9D233CD72_impl*
+//#UC END# *569E3511013C_95D9D233CD72_impl*
 end;//TkwStringTrim.string_Trim
 
 procedure TkwStringTrim.DoDoIt(const aCtx: TtfwContext);
@@ -2920,6 +2612,11 @@ begin
  aCtx.rEngine.PushString(string_Trim(aCtx, l_aString));
 end;//TkwStringTrim.DoDoIt
 
+class function TkwStringTrim.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Trim';
+end;//TkwStringTrim.GetWordNameForRegister
+
 function TkwStringTrim.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2935,20 +2632,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrim.ParamsTypes
 
-class function TkwStringTrim.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Trim';
-end;//TkwStringTrim.GetWordNameForRegister
-
 function TkwStringTrimLeft.string_TrimLeft(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:TrimLeft }
-//#UC START# *822EF8BD3C12_2D2FC66E49DD_var*
-//#UC END# *822EF8BD3C12_2D2FC66E49DD_var*
+//#UC START# *569E3529023A_2D2FC66E49DD_var*
+//#UC END# *569E3529023A_2D2FC66E49DD_var*
 begin
-//#UC START# *822EF8BD3C12_2D2FC66E49DD_impl*
+//#UC START# *569E3529023A_2D2FC66E49DD_impl*
  Result := TtfwCStringFactory.C(l3LTrim(aString));
-//#UC END# *822EF8BD3C12_2D2FC66E49DD_impl*
+//#UC END# *569E3529023A_2D2FC66E49DD_impl*
 end;//TkwStringTrimLeft.string_TrimLeft
 
 procedure TkwStringTrimLeft.DoDoIt(const aCtx: TtfwContext);
@@ -2966,6 +2658,11 @@ begin
  aCtx.rEngine.PushString(string_TrimLeft(aCtx, l_aString));
 end;//TkwStringTrimLeft.DoDoIt
 
+class function TkwStringTrimLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:TrimLeft';
+end;//TkwStringTrimLeft.GetWordNameForRegister
+
 function TkwStringTrimLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -2981,20 +2678,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrimLeft.ParamsTypes
 
-class function TkwStringTrimLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:TrimLeft';
-end;//TkwStringTrimLeft.GetWordNameForRegister
-
 function TkwStringTrimRight.string_TrimRight(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:TrimRight }
-//#UC START# *357C9EA3B36D_807D7A8440DD_var*
-//#UC END# *357C9EA3B36D_807D7A8440DD_var*
+//#UC START# *569E353501BE_807D7A8440DD_var*
+//#UC END# *569E353501BE_807D7A8440DD_var*
 begin
-//#UC START# *357C9EA3B36D_807D7A8440DD_impl*
+//#UC START# *569E353501BE_807D7A8440DD_impl*
  Result := TtfwCStringFactory.C(l3RTrim(aString, cc_WhiteSpace));
-//#UC END# *357C9EA3B36D_807D7A8440DD_impl*
+//#UC END# *569E353501BE_807D7A8440DD_impl*
 end;//TkwStringTrimRight.string_TrimRight
 
 procedure TkwStringTrimRight.DoDoIt(const aCtx: TtfwContext);
@@ -3012,6 +2704,11 @@ begin
  aCtx.rEngine.PushString(string_TrimRight(aCtx, l_aString));
 end;//TkwStringTrimRight.DoDoIt
 
+class function TkwStringTrimRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:TrimRight';
+end;//TkwStringTrimRight.GetWordNameForRegister
+
 function TkwStringTrimRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3027,20 +2724,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrimRight.ParamsTypes
 
-class function TkwStringTrimRight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:TrimRight';
-end;//TkwStringTrimRight.GetWordNameForRegister
-
 function TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:DeleteDoubleSpaces }
-//#UC START# *CDE072F795B4_D5F09D866A34_var*
-//#UC END# *CDE072F795B4_D5F09D866A34_var*
+//#UC START# *569E3542031A_D5F09D866A34_var*
+//#UC END# *569E3542031A_D5F09D866A34_var*
 begin
-//#UC START# *CDE072F795B4_D5F09D866A34_impl*
+//#UC START# *569E3542031A_D5F09D866A34_impl*
  Result := TtfwCStringFactory.C(l3DeleteDoubleSpace(aString));
-//#UC END# *CDE072F795B4_D5F09D866A34_impl*
+//#UC END# *569E3542031A_D5F09D866A34_impl*
 end;//TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces
 
 procedure TkwStringDeleteDoubleSpaces.DoDoIt(const aCtx: TtfwContext);
@@ -3058,6 +2750,11 @@ begin
  aCtx.rEngine.PushString(string_DeleteDoubleSpaces(aCtx, l_aString));
 end;//TkwStringDeleteDoubleSpaces.DoDoIt
 
+class function TkwStringDeleteDoubleSpaces.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:DeleteDoubleSpaces';
+end;//TkwStringDeleteDoubleSpaces.GetWordNameForRegister
+
 function TkwStringDeleteDoubleSpaces.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3073,21 +2770,16 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringDeleteDoubleSpaces.ParamsTypes
 
-class function TkwStringDeleteDoubleSpaces.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:DeleteDoubleSpaces';
-end;//TkwStringDeleteDoubleSpaces.GetWordNameForRegister
-
 function TkwStringDeleteDoubleChars.string_DeleteDoubleChars(const aCtx: TtfwContext;
  const aString: Il3CString;
  const aChar: Il3CString): Il3CString;
  {* Реализация слова скрипта string:DeleteDoubleChars }
-//#UC START# *F02755D05DBC_30A1EAD7A5D9_var*
-//#UC END# *F02755D05DBC_30A1EAD7A5D9_var*
+//#UC START# *569E355C01F2_30A1EAD7A5D9_var*
+//#UC END# *569E355C01F2_30A1EAD7A5D9_var*
 begin
-//#UC START# *F02755D05DBC_30A1EAD7A5D9_impl*
+//#UC START# *569E355C01F2_30A1EAD7A5D9_impl*
  Result := TtfwCStringFactory.C(l3DeleteSerias(aString, l3Char(aChar, 0))); 
-//#UC END# *F02755D05DBC_30A1EAD7A5D9_impl*
+//#UC END# *569E355C01F2_30A1EAD7A5D9_impl*
 end;//TkwStringDeleteDoubleChars.string_DeleteDoubleChars
 
 procedure TkwStringDeleteDoubleChars.DoDoIt(const aCtx: TtfwContext);
@@ -3115,6 +2807,11 @@ begin
  aCtx.rEngine.PushString(string_DeleteDoubleChars(aCtx, l_aString, l_aChar));
 end;//TkwStringDeleteDoubleChars.DoDoIt
 
+class function TkwStringDeleteDoubleChars.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:DeleteDoubleChars';
+end;//TkwStringDeleteDoubleChars.GetWordNameForRegister
+
 function TkwStringDeleteDoubleChars.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3130,22 +2827,17 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringDeleteDoubleChars.ParamsTypes
 
-class function TkwStringDeleteDoubleChars.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:DeleteDoubleChars';
-end;//TkwStringDeleteDoubleChars.GetWordNameForRegister
-
 function TkwStringSubstring.string_Substring(const aCtx: TtfwContext;
  const aString: Il3CString;
  aPos: Integer;
  aLength: Integer): Il3CString;
  {* Реализация слова скрипта string:Substring }
-//#UC START# *05A68328CDCF_2E3FD122E430_var*
-//#UC END# *05A68328CDCF_2E3FD122E430_var*
+//#UC START# *569E357D015D_2E3FD122E430_var*
+//#UC END# *569E357D015D_2E3FD122E430_var*
 begin
-//#UC START# *05A68328CDCF_2E3FD122E430_impl*
+//#UC START# *569E357D015D_2E3FD122E430_impl*
  Result := TtfwCStringFactory.C(l3Copy(aString, aPos, aLength));
-//#UC END# *05A68328CDCF_2E3FD122E430_impl*
+//#UC END# *569E357D015D_2E3FD122E430_impl*
 end;//TkwStringSubstring.string_Substring
 
 procedure TkwStringSubstring.DoDoIt(const aCtx: TtfwContext);
@@ -3183,6 +2875,11 @@ begin
  aCtx.rEngine.PushString(string_Substring(aCtx, l_aString, l_aPos, l_aLength));
 end;//TkwStringSubstring.DoDoIt
 
+class function TkwStringSubstring.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Substring';
+end;//TkwStringSubstring.GetWordNameForRegister
+
 function TkwStringSubstring.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3198,20 +2895,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwStringSubstring.ParamsTypes
 
-class function TkwStringSubstring.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Substring';
-end;//TkwStringSubstring.GetWordNameForRegister
-
 function TkwStringLower.string_Lower(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:Lower }
-//#UC START# *B1D7965F0E30_B79BEA825961_var*
-//#UC END# *B1D7965F0E30_B79BEA825961_var*
+//#UC START# *56AB7AC10249_B79BEA825961_var*
+//#UC END# *56AB7AC10249_B79BEA825961_var*
 begin
-//#UC START# *B1D7965F0E30_B79BEA825961_impl*
+//#UC START# *56AB7AC10249_B79BEA825961_impl*
  Result := l3Lower(aString);
-//#UC END# *B1D7965F0E30_B79BEA825961_impl*
+//#UC END# *56AB7AC10249_B79BEA825961_impl*
 end;//TkwStringLower.string_Lower
 
 procedure TkwStringLower.DoDoIt(const aCtx: TtfwContext);
@@ -3229,6 +2921,11 @@ begin
  aCtx.rEngine.PushString(string_Lower(aCtx, l_aString));
 end;//TkwStringLower.DoDoIt
 
+class function TkwStringLower.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Lower';
+end;//TkwStringLower.GetWordNameForRegister
+
 function TkwStringLower.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3244,20 +2941,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLower.ParamsTypes
 
-class function TkwStringLower.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Lower';
-end;//TkwStringLower.GetWordNameForRegister
-
 function TkwStringUpper.string_Upper(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:Upper }
-//#UC START# *68E30DDD3D3E_8BA4B632B802_var*
-//#UC END# *68E30DDD3D3E_8BA4B632B802_var*
+//#UC START# *56AB7AD00352_8BA4B632B802_var*
+//#UC END# *56AB7AD00352_8BA4B632B802_var*
 begin
-//#UC START# *68E30DDD3D3E_8BA4B632B802_impl*
+//#UC START# *56AB7AD00352_8BA4B632B802_impl*
  Result := l3Upper(aString);
-//#UC END# *68E30DDD3D3E_8BA4B632B802_impl*
+//#UC END# *56AB7AD00352_8BA4B632B802_impl*
 end;//TkwStringUpper.string_Upper
 
 procedure TkwStringUpper.DoDoIt(const aCtx: TtfwContext);
@@ -3275,6 +2967,11 @@ begin
  aCtx.rEngine.PushString(string_Upper(aCtx, l_aString));
 end;//TkwStringUpper.DoDoIt
 
+class function TkwStringUpper.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Upper';
+end;//TkwStringUpper.GetWordNameForRegister
+
 function TkwStringUpper.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3290,20 +2987,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringUpper.ParamsTypes
 
-class function TkwStringUpper.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Upper';
-end;//TkwStringUpper.GetWordNameForRegister
-
 function TkwStringToUnicode.string_ToUnicode(const aCtx: TtfwContext;
  const aString: Il3CString): Il3CString;
  {* Реализация слова скрипта string:ToUnicode }
-//#UC START# *379CE3C7BE29_F137872D0D02_var*
-//#UC END# *379CE3C7BE29_F137872D0D02_var*
+//#UC START# *56F3E6A203DB_F137872D0D02_var*
+//#UC END# *56F3E6A203DB_F137872D0D02_var*
 begin
-//#UC START# *379CE3C7BE29_F137872D0D02_impl*
+//#UC START# *56F3E6A203DB_F137872D0D02_impl*
  Result := TtfwCStringFactory.ToUnicode(aString);
-//#UC END# *379CE3C7BE29_F137872D0D02_impl*
+//#UC END# *56F3E6A203DB_F137872D0D02_impl*
 end;//TkwStringToUnicode.string_ToUnicode
 
 procedure TkwStringToUnicode.DoDoIt(const aCtx: TtfwContext);
@@ -3321,6 +3013,11 @@ begin
  aCtx.rEngine.PushString(string_ToUnicode(aCtx, l_aString));
 end;//TkwStringToUnicode.DoDoIt
 
+class function TkwStringToUnicode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:ToUnicode';
+end;//TkwStringToUnicode.GetWordNameForRegister
+
 function TkwStringToUnicode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3336,20 +3033,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringToUnicode.ParamsTypes
 
-class function TkwStringToUnicode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:ToUnicode';
-end;//TkwStringToUnicode.GetWordNameForRegister
-
 function TkwStringHash.string_Hash(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта string:Hash }
-//#UC START# *CCA8B4B34AEE_58C52E8D04B3_var*
-//#UC END# *CCA8B4B34AEE_58C52E8D04B3_var*
+//#UC START# *56F3E6BE0100_58C52E8D04B3_var*
+//#UC END# *56F3E6BE0100_58C52E8D04B3_var*
 begin
-//#UC START# *CCA8B4B34AEE_58C52E8D04B3_impl*
+//#UC START# *56F3E6BE0100_58C52E8D04B3_impl*
  Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
-//#UC END# *CCA8B4B34AEE_58C52E8D04B3_impl*
+//#UC END# *56F3E6BE0100_58C52E8D04B3_impl*
 end;//TkwStringHash.string_Hash
 
 procedure TkwStringHash.DoDoIt(const aCtx: TtfwContext);
@@ -3367,6 +3059,11 @@ begin
  aCtx.rEngine.PushInt(string_Hash(aCtx, l_aString));
 end;//TkwStringHash.DoDoIt
 
+class function TkwStringHash.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Hash';
+end;//TkwStringHash.GetWordNameForRegister
+
 function TkwStringHash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -3382,20 +3079,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringHash.ParamsTypes
 
-class function TkwStringHash.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Hash';
-end;//TkwStringHash.GetWordNameForRegister
-
 function TkwStringSmallHash.string_SmallHash(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта string:SmallHash }
-//#UC START# *996EB442FD96_15AF617143C8_var*
-//#UC END# *996EB442FD96_15AF617143C8_var*
+//#UC START# *56F3E6D102C5_15AF617143C8_var*
+//#UC END# *56F3E6D102C5_15AF617143C8_var*
 begin
-//#UC START# *996EB442FD96_15AF617143C8_impl*
+//#UC START# *56F3E6D102C5_15AF617143C8_impl*
  Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC);
-//#UC END# *996EB442FD96_15AF617143C8_impl*
+//#UC END# *56F3E6D102C5_15AF617143C8_impl*
 end;//TkwStringSmallHash.string_SmallHash
 
 procedure TkwStringSmallHash.DoDoIt(const aCtx: TtfwContext);
@@ -3413,6 +3105,11 @@ begin
  aCtx.rEngine.PushInt(string_SmallHash(aCtx, l_aString));
 end;//TkwStringSmallHash.DoDoIt
 
+class function TkwStringSmallHash.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:SmallHash';
+end;//TkwStringSmallHash.GetWordNameForRegister
+
 function TkwStringSmallHash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -3428,20 +3125,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringSmallHash.ParamsTypes
 
-class function TkwStringSmallHash.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:SmallHash';
-end;//TkwStringSmallHash.GetWordNameForRegister
-
 function TkwStringIterator.string_Iterator(const aCtx: TtfwContext;
  const aString: Il3CString): ItfwValueList;
  {* Реализация слова скрипта string:Iterator }
-//#UC START# *5A085B77B272_AE2A1F9F2367_var*
-//#UC END# *5A085B77B272_AE2A1F9F2367_var*
+//#UC START# *56F3EF7C0205_AE2A1F9F2367_var*
+//#UC END# *56F3EF7C0205_AE2A1F9F2367_var*
 begin
-//#UC START# *5A085B77B272_AE2A1F9F2367_impl*
+//#UC START# *56F3EF7C0205_AE2A1F9F2367_impl*
  Result := TtfwStringIterator.Make(aString);
-//#UC END# *5A085B77B272_AE2A1F9F2367_impl*
+//#UC END# *56F3EF7C0205_AE2A1F9F2367_impl*
 end;//TkwStringIterator.string_Iterator
 
 procedure TkwStringIterator.DoDoIt(const aCtx: TtfwContext);
@@ -3459,6 +3151,11 @@ begin
  aCtx.rEngine.PushList(string_Iterator(aCtx, l_aString));
 end;//TkwStringIterator.DoDoIt
 
+class function TkwStringIterator.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Iterator';
+end;//TkwStringIterator.GetWordNameForRegister
+
 function TkwStringIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -3474,20 +3171,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringIterator.ParamsTypes
 
-class function TkwStringIterator.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Iterator';
-end;//TkwStringIterator.GetWordNameForRegister
-
 function TkwStringHashNew.string_Hash_New(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта string:Hash:New }
-//#UC START# *9A63750A932F_B0A153973998_var*
-//#UC END# *9A63750A932F_B0A153973998_var*
+//#UC START# *56F40BBA029D_B0A153973998_var*
+//#UC END# *56F40BBA029D_B0A153973998_var*
 begin
-//#UC START# *9A63750A932F_B0A153973998_impl*
+//#UC START# *56F40BBA029D_B0A153973998_impl*
  Result := m2Hash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
-//#UC END# *9A63750A932F_B0A153973998_impl*
+//#UC END# *56F40BBA029D_B0A153973998_impl*
 end;//TkwStringHashNew.string_Hash_New
 
 procedure TkwStringHashNew.DoDoIt(const aCtx: TtfwContext);
@@ -3505,6 +3197,11 @@ begin
  aCtx.rEngine.PushInt(string_Hash_New(aCtx, l_aString));
 end;//TkwStringHashNew.DoDoIt
 
+class function TkwStringHashNew.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Hash:New';
+end;//TkwStringHashNew.GetWordNameForRegister
+
 function TkwStringHashNew.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -3520,20 +3217,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringHashNew.ParamsTypes
 
-class function TkwStringHashNew.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Hash:New';
-end;//TkwStringHashNew.GetWordNameForRegister
-
 function TkwStringSmallHashNew.string_SmallHash_New(const aCtx: TtfwContext;
  const aString: Il3CString): Integer;
  {* Реализация слова скрипта string:SmallHash:New }
-//#UC START# *BF1566C329E5_A91467BC2C27_var*
-//#UC END# *BF1566C329E5_A91467BC2C27_var*
+//#UC START# *56F40BD3026A_A91467BC2C27_var*
+//#UC END# *56F40BD3026A_A91467BC2C27_var*
 begin
-//#UC START# *BF1566C329E5_A91467BC2C27_impl*
+//#UC START# *56F40BD3026A_A91467BC2C27_impl*
  Result := m2SmallHash16(l3DStr(TtfwCStringFactory.ToUnicode(aString)), Cm2HASVersionCRC + 1);
-//#UC END# *BF1566C329E5_A91467BC2C27_impl*
+//#UC END# *56F40BD3026A_A91467BC2C27_impl*
 end;//TkwStringSmallHashNew.string_SmallHash_New
 
 procedure TkwStringSmallHashNew.DoDoIt(const aCtx: TtfwContext);
@@ -3551,6 +3243,11 @@ begin
  aCtx.rEngine.PushInt(string_SmallHash_New(aCtx, l_aString));
 end;//TkwStringSmallHashNew.DoDoIt
 
+class function TkwStringSmallHashNew.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:SmallHash:New';
+end;//TkwStringSmallHashNew.GetWordNameForRegister
+
 function TkwStringSmallHashNew.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -3566,20 +3263,15 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringSmallHashNew.ParamsTypes
 
-class function TkwStringSmallHashNew.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:SmallHash:New';
-end;//TkwStringSmallHashNew.GetWordNameForRegister
-
 function TkwStringTransliterate.string_Transliterate(const aCtx: TtfwContext;
  const aString: Il3CString): AnsiString;
  {* Реализация слова скрипта string:Transliterate }
-//#UC START# *A9758C4E23DF_FDCE9825C3FB_var*
-//#UC END# *A9758C4E23DF_FDCE9825C3FB_var*
+//#UC START# *5718A63E039C_FDCE9825C3FB_var*
+//#UC END# *5718A63E039C_FDCE9825C3FB_var*
 begin
-//#UC START# *A9758C4E23DF_FDCE9825C3FB_impl*
+//#UC START# *5718A63E039C_FDCE9825C3FB_impl*
  Result := l3Transliterate(l3Str(aString));
-//#UC END# *A9758C4E23DF_FDCE9825C3FB_impl*
+//#UC END# *5718A63E039C_FDCE9825C3FB_impl*
 end;//TkwStringTransliterate.string_Transliterate
 
 procedure TkwStringTransliterate.DoDoIt(const aCtx: TtfwContext);
@@ -3597,6 +3289,11 @@ begin
  aCtx.rEngine.PushString(string_Transliterate(aCtx, l_aString));
 end;//TkwStringTransliterate.DoDoIt
 
+class function TkwStringTransliterate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Transliterate';
+end;//TkwStringTransliterate.GetWordNameForRegister
+
 function TkwStringTransliterate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -3612,31 +3309,46 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTransliterate.ParamsTypes
 
-class function TkwStringTransliterate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:Transliterate';
-end;//TkwStringTransliterate.GetWordNameForRegister
-
 procedure TkwVarDecLen.VarDecLen(const aCtx: TtfwContext;
  aVar: TtfwWord);
  {* Реализация слова скрипта string:--Len! }
-//#UC START# *9CC163BCA241_5B249AD9723E_var*
+//#UC START# *55686F4301AB_55686F4301AB_Word_var*
 var
  l_P : Tl3PCharLen;
-//#UC END# *9CC163BCA241_5B249AD9723E_var*
+//#UC END# *55686F4301AB_55686F4301AB_Word_var*
 begin
-//#UC START# *9CC163BCA241_5B249AD9723E_impl*
+//#UC START# *55686F4301AB_55686F4301AB_Word_impl*
  Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
  Dec(l_P.SLen);
  Assert(l_P.SLen >= 0);
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
-//#UC END# *9CC163BCA241_5B249AD9723E_impl*
+//#UC END# *55686F4301AB_55686F4301AB_Word_impl*
 end;//TkwVarDecLen.VarDecLen
+
+class function TkwVarDecLen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:--Len!';
+end;//TkwVarDecLen.GetWordNameForRegister
+
+function TkwVarDecLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwVarDecLen.GetResultTypeInfo
+
+function TkwVarDecLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwVarDecLen.GetAllParamsCount
 
 function TkwVarDecLen.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwVarDecLen.RightParamsCount
+
+function TkwVarDecLen.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwVarDecLen.ParamsTypes
 
 procedure TkwVarDecLen.DoRun(const aCtx: TtfwContext);
 var l_aVar: TtfwWord;
@@ -3653,45 +3365,45 @@ begin
  VarDecLen(aCtx, l_aVar);
 end;//TkwVarDecLen.DoRun
 
-function TkwVarDecLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwVarDecLen.GetResultTypeInfo
-
-function TkwVarDecLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwVarDecLen.GetAllParamsCount
-
-function TkwVarDecLen.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([]);
-end;//TkwVarDecLen.ParamsTypes
-
-class function TkwVarDecLen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:--Len!';
-end;//TkwVarDecLen.GetWordNameForRegister
-
 procedure TkwVarInc.VarInc(const aCtx: TtfwContext;
  aVar: TtfwWord);
  {* Реализация слова скрипта string:++! }
-//#UC START# *D3130F58366C_FF4D82AA3241_var*
+//#UC START# *55686F75015A_55686F75015A_Word_var*
 var
  l_P : Tl3PCharLen;
-//#UC END# *D3130F58366C_FF4D82AA3241_var*
+//#UC END# *55686F75015A_55686F75015A_Word_var*
 begin
-//#UC START# *D3130F58366C_FF4D82AA3241_impl*
+//#UC START# *55686F75015A_55686F75015A_Word_impl*
  Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
  l_P.Shift(+1);
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
-//#UC END# *D3130F58366C_FF4D82AA3241_impl*
+//#UC END# *55686F75015A_55686F75015A_Word_impl*
 end;//TkwVarInc.VarInc
+
+class function TkwVarInc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:++!';
+end;//TkwVarInc.GetWordNameForRegister
+
+function TkwVarInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwVarInc.GetResultTypeInfo
+
+function TkwVarInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwVarInc.GetAllParamsCount
 
 function TkwVarInc.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwVarInc.RightParamsCount
+
+function TkwVarInc.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwVarInc.ParamsTypes
 
 procedure TkwVarInc.DoRun(const aCtx: TtfwContext);
 var l_aVar: TtfwWord;
@@ -3708,31 +3420,11 @@ begin
  VarInc(aCtx, l_aVar);
 end;//TkwVarInc.DoRun
 
-function TkwVarInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwVarInc.GetResultTypeInfo
-
-function TkwVarInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwVarInc.GetAllParamsCount
-
-function TkwVarInc.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([]);
-end;//TkwVarInc.ParamsTypes
-
-class function TkwVarInc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:++!';
-end;//TkwVarInc.GetWordNameForRegister
-
 function TkwRSplitTo.RSplitTo(const aCtx: TtfwContext;
  aVar: TtfwWord;
  const aDelim: Il3CString): Il3CString;
  {* Реализация слова скрипта string:RSplitTo! }
-//#UC START# *6BE7506C040A_D442EF995DFF_var*
+//#UC START# *55686F9A037E_55686F9A037E_Word_var*
 var
  l_V : Il3CString;
  l_P : Tl3PCharLen;
@@ -3741,9 +3433,9 @@ var
 
  //l_Pref : Il3CString;
  //l_Suff : Il3CString;
-//#UC END# *6BE7506C040A_D442EF995DFF_var*
+//#UC END# *55686F9A037E_55686F9A037E_Word_var*
 begin
-//#UC START# *6BE7506C040A_D442EF995DFF_impl*
+//#UC START# *55686F9A037E_55686F9A037E_Word_impl*
  l_V := aVar.GetValue(aCtx).AsString;
  Tl3WString(l_P) := l3PCharLen(l_V);
  l_WS := l3PCharLen(aDelim);
@@ -3772,13 +3464,33 @@ begin
   Assert(false, 'Пока не реализовано');
   Result := nil;
  end;//l_WS.SLen = 1
-//#UC END# *6BE7506C040A_D442EF995DFF_impl*
+//#UC END# *55686F9A037E_55686F9A037E_Word_impl*
 end;//TkwRSplitTo.RSplitTo
+
+class function TkwRSplitTo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:RSplitTo!';
+end;//TkwRSplitTo.GetWordNameForRegister
+
+function TkwRSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwRSplitTo.GetResultTypeInfo
+
+function TkwRSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwRSplitTo.GetAllParamsCount
 
 function TkwRSplitTo.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwRSplitTo.RightParamsCount
+
+function TkwRSplitTo.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwRSplitTo.ParamsTypes
 
 procedure TkwRSplitTo.DoRun(const aCtx: TtfwContext);
 var l_aVar: TtfwWord;
@@ -3805,46 +3517,46 @@ begin
  aCtx.rEngine.PushString(RSplitTo(aCtx, l_aVar, l_aDelim));
 end;//TkwRSplitTo.DoRun
 
-function TkwRSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiString;
-end;//TkwRSplitTo.GetResultTypeInfo
-
-function TkwRSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwRSplitTo.GetAllParamsCount
-
-function TkwRSplitTo.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString]);
-end;//TkwRSplitTo.ParamsTypes
-
-class function TkwRSplitTo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:RSplitTo!';
-end;//TkwRSplitTo.GetWordNameForRegister
-
 procedure TkwVarShift.VarShift(const aCtx: TtfwContext;
  aVar: TtfwWord;
  aNum: Integer);
  {* Реализация слова скрипта string:+! }
-//#UC START# *9E35DCA8A090_E1736F173AD3_var*
+//#UC START# *55686FC6020D_55686FC6020D_Word_var*
 var
  l_P : Tl3PCharLen;
-//#UC END# *9E35DCA8A090_E1736F173AD3_var*
+//#UC END# *55686FC6020D_55686FC6020D_Word_var*
 begin
-//#UC START# *9E35DCA8A090_E1736F173AD3_impl*
+//#UC START# *55686FC6020D_55686FC6020D_Word_impl*
  Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
  l_P.Shift(aNum);
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
-//#UC END# *9E35DCA8A090_E1736F173AD3_impl*
+//#UC END# *55686FC6020D_55686FC6020D_Word_impl*
 end;//TkwVarShift.VarShift
+
+class function TkwVarShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:+!';
+end;//TkwVarShift.GetWordNameForRegister
+
+function TkwVarShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwVarShift.GetResultTypeInfo
+
+function TkwVarShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwVarShift.GetAllParamsCount
 
 function TkwVarShift.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwVarShift.RightParamsCount
+
+function TkwVarShift.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
+end;//TkwVarShift.ParamsTypes
 
 procedure TkwVarShift.DoRun(const aCtx: TtfwContext);
 var l_aVar: TtfwWord;
@@ -3871,31 +3583,11 @@ begin
  VarShift(aCtx, l_aVar, l_aNum);
 end;//TkwVarShift.DoRun
 
-function TkwVarShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwVarShift.GetResultTypeInfo
-
-function TkwVarShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwVarShift.GetAllParamsCount
-
-function TkwVarShift.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(Integer)]);
-end;//TkwVarShift.ParamsTypes
-
-class function TkwVarShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:+!';
-end;//TkwVarShift.GetWordNameForRegister
-
 function TkwSplitTo.SplitTo(const aCtx: TtfwContext;
  aVar: TtfwWord;
  const aDelim: Il3CString): Il3CString;
  {* Реализация слова скрипта string:SplitTo! }
-//#UC START# *94300FB9FFA5_BF0C6B892128_var*
+//#UC START# *55686FEE03A7_55686FEE03A7_Word_var*
 var
  l_V : Il3CString;
  l_P : Tl3PCharLen;
@@ -3904,9 +3596,9 @@ var
 
  l_Pref : Il3CString;
  l_Suff : Il3CString;
-//#UC END# *94300FB9FFA5_BF0C6B892128_var*
+//#UC END# *55686FEE03A7_55686FEE03A7_Word_var*
 begin
-//#UC START# *94300FB9FFA5_BF0C6B892128_impl*
+//#UC START# *55686FEE03A7_55686FEE03A7_Word_impl*
  l_V := aVar.GetValue(aCtx).AsString;
  Tl3WString(l_P) := l3PCharLen(l_V);
  l_WS := l3PCharLen(aDelim);
@@ -3928,13 +3620,33 @@ begin
   aVar.SetValue(TtfwStackValue_C(l_Suff), aCtx);
   //Assert(false, 'Пока не реализовано');
  end;//l_WS.SLen = 1
-//#UC END# *94300FB9FFA5_BF0C6B892128_impl*
+//#UC END# *55686FEE03A7_55686FEE03A7_Word_impl*
 end;//TkwSplitTo.SplitTo
+
+class function TkwSplitTo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:SplitTo!';
+end;//TkwSplitTo.GetWordNameForRegister
+
+function TkwSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwSplitTo.GetResultTypeInfo
+
+function TkwSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwSplitTo.GetAllParamsCount
 
 function TkwSplitTo.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwSplitTo.RightParamsCount
+
+function TkwSplitTo.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwSplitTo.ParamsTypes
 
 procedure TkwSplitTo.DoRun(const aCtx: TtfwContext);
 var l_aVar: TtfwWord;
@@ -3961,46 +3673,46 @@ begin
  aCtx.rEngine.PushString(SplitTo(aCtx, l_aVar, l_aDelim));
 end;//TkwSplitTo.DoRun
 
-function TkwSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiString;
-end;//TkwSplitTo.GetResultTypeInfo
-
-function TkwSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwSplitTo.GetAllParamsCount
-
-function TkwSplitTo.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString]);
-end;//TkwSplitTo.ParamsTypes
-
-class function TkwSplitTo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:SplitTo!';
-end;//TkwSplitTo.GetWordNameForRegister
-
 function TkwVarPushCharAndInc.VarPushCharAndInc(const aCtx: TtfwContext;
  aVar: TtfwWord): AnsiChar;
  {* Реализация слова скрипта string:[]++! }
-//#UC START# *5123A135DDBC_6014F0D564E4_var*
+//#UC START# *5603F5980215_5603F5980215_Word_var*
 var
  l_P : Tl3PCharLen;
-//#UC END# *5123A135DDBC_6014F0D564E4_var*
+//#UC END# *5603F5980215_5603F5980215_Word_var*
 begin
-//#UC START# *5123A135DDBC_6014F0D564E4_impl*
+//#UC START# *5603F5980215_5603F5980215_Word_impl*
  Tl3WString(l_P) := aVar.GetValue(aCtx).AsString.AsWStr;
  Result := l_P.S^;
  l_P.Shift(+1);
  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
-//#UC END# *5123A135DDBC_6014F0D564E4_impl*
+//#UC END# *5603F5980215_5603F5980215_Word_impl*
 end;//TkwVarPushCharAndInc.VarPushCharAndInc
+
+class function TkwVarPushCharAndInc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:[]++!';
+end;//TkwVarPushCharAndInc.GetWordNameForRegister
+
+function TkwVarPushCharAndInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(AnsiChar);
+end;//TkwVarPushCharAndInc.GetResultTypeInfo
+
+function TkwVarPushCharAndInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwVarPushCharAndInc.GetAllParamsCount
 
 function TkwVarPushCharAndInc.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwVarPushCharAndInc.RightParamsCount
+
+function TkwVarPushCharAndInc.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwVarPushCharAndInc.ParamsTypes
 
 procedure TkwVarPushCharAndInc.DoRun(const aCtx: TtfwContext);
 var l_aVar: TtfwWord;
@@ -4017,40 +3729,20 @@ begin
  aCtx.rEngine.PushChar(VarPushCharAndInc(aCtx, l_aVar));
 end;//TkwVarPushCharAndInc.DoRun
 
-function TkwVarPushCharAndInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(AnsiChar);
-end;//TkwVarPushCharAndInc.GetResultTypeInfo
-
-function TkwVarPushCharAndInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwVarPushCharAndInc.GetAllParamsCount
-
-function TkwVarPushCharAndInc.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([]);
-end;//TkwVarPushCharAndInc.ParamsTypes
-
-class function TkwVarPushCharAndInc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'string:[]++!';
-end;//TkwVarPushCharAndInc.GetWordNameForRegister
-
 function TkwHash16Table.Hash16Table(const aCtx: TtfwContext): ItfwValueList;
  {* Реализация слова скрипта Hash16Table }
-//#UC START# *38279256623E_01887D1A0952_var*
-//#UC END# *38279256623E_01887D1A0952_var*
+//#UC START# *56F3E8880129_56F3E8880129_Word_var*
+//#UC END# *56F3E8880129_56F3E8880129_Word_var*
 begin
-//#UC START# *38279256623E_01887D1A0952_impl*
+//#UC START# *56F3E8880129_56F3E8880129_Word_impl*
  Result := TtfwHash16Table.Make;
-//#UC END# *38279256623E_01887D1A0952_impl*
+//#UC END# *56F3E8880129_56F3E8880129_Word_impl*
 end;//TkwHash16Table.Hash16Table
 
-procedure TkwHash16Table.DoDoIt(const aCtx: TtfwContext);
+class function TkwHash16Table.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushList(Hash16Table(aCtx));
-end;//TkwHash16Table.DoDoIt
+ Result := 'Hash16Table';
+end;//TkwHash16Table.GetWordNameForRegister
 
 function TkwHash16Table.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4067,10 +3759,10 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwHash16Table.ParamsTypes
 
-class function TkwHash16Table.GetWordNameForRegister: AnsiString;
+procedure TkwHash16Table.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'Hash16Table';
-end;//TkwHash16Table.GetWordNameForRegister
+ aCtx.rEngine.PushList(Hash16Table(aCtx));
+end;//TkwHash16Table.DoDoIt
 
 class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
 begin
@@ -4182,8 +3874,6 @@ initialization
  {* Регистрация Hash16Table }
  TtfwIl3CStringPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
@@ -4191,13 +3881,11 @@ initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiChar));
- {* Регистрация типа Char }
+ {* Регистрация типа AnsiChar }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));
  {* Регистрация типа ItfwValueList }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
- {* Регистрация типа TtfwWord }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

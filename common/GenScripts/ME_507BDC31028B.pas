@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwTryFocusOnForm = {final} class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwTryFocusOnForm
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -49,6 +49,11 @@ uses
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
+
+class function TkwTryFocusOnForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'TryFocusOnForm';
+end;//TkwTryFocusOnForm.GetWordNameForRegister
 
 procedure TkwTryFocusOnForm.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_507BDC31028B_var*
@@ -164,11 +169,6 @@ begin
  end;//try..finally
 //#UC END# *4DAEEDE10285_507BDC31028B_impl*
 end;//TkwTryFocusOnForm.DoDoIt
-
-class function TkwTryFocusOnForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'TryFocusOnForm';
-end;//TkwTryFocusOnForm.GetWordNameForRegister
 
 initialization
  TkwTryFocusOnForm.RegisterInEngine;

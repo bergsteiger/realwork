@@ -67,9 +67,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , l3BaseStream
- , nsTypes
+ , nsTypesNew
  , k2CustomFileGenerator
  , k2TagGen
+ , nsTypes
  , l3InternalInterfaces
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Text_Controls

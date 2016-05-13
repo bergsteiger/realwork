@@ -24,12 +24,12 @@ uses
  , nsFiltersInterfaces
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , tfwAxiomaticsResNameGetter
  , FiltersUnit
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *53B533CE01B6impl_uses*
  //#UC END# *53B533CE01B6impl_uses*
@@ -37,13 +37,7 @@ uses
 
 type
  TkwFilterNodeAutoApplied = {final} class(TtfwPropertyLike)
-  {* Слово скрипта FilterNode:AutoApplied
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFilterNode FilterNode:AutoApplied >>> l_Boolean
-[code]  }
+  {* Слово скрипта FilterNode:AutoApplied }
   private
    function AutoApplied(const aCtx: TtfwContext;
     const aFilterNode: InsFilterNode): Boolean;
@@ -52,21 +46,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFilterNodeAutoApplied
 
  TkwFilterNodeIsUsed = {final} class(TtfwPropertyLike)
-  {* Слово скрипта FilterNode:IsUsed
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFilterNode FilterNode:IsUsed >>> l_Boolean
-[code]  }
+  {* Слово скрипта FilterNode:IsUsed }
   private
    function IsUsed(const aCtx: TtfwContext;
     const aFilterNode: InsFilterNode): Boolean;
@@ -75,21 +63,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFilterNodeIsUsed
 
  TkwFilterNodeIsDeleted = {final} class(TtfwPropertyLike)
-  {* Слово скрипта FilterNode:IsDeleted
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFilterNode FilterNode:IsDeleted >>> l_Boolean
-[code]  }
+  {* Слово скрипта FilterNode:IsDeleted }
   private
    function IsDeleted(const aCtx: TtfwContext;
     const aFilterNode: InsFilterNode): Boolean;
@@ -98,21 +80,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFilterNodeIsDeleted
 
  TkwFilterNodeIsChangeable = {final} class(TtfwPropertyLike)
-  {* Слово скрипта FilterNode:IsChangeable
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFilterNode FilterNode:IsChangeable >>> l_Boolean
-[code]  }
+  {* Слово скрипта FilterNode:IsChangeable }
   private
    function IsChangeable(const aCtx: TtfwContext;
     const aFilterNode: InsFilterNode): Boolean;
@@ -121,11 +97,11 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFilterNodeIsChangeable
 
  TInsFilterNodeWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
@@ -156,21 +132,10 @@ begin
  aCtx.rEngine.PushBool(AutoApplied(aCtx, l_aFilterNode));
 end;//TkwFilterNodeAutoApplied.DoDoIt
 
-procedure TkwFilterNodeAutoApplied.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_FilterNode: InsFilterNode;
+class function TkwFilterNodeAutoApplied.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_FilterNode := InsFilterNode(aCtx.rEngine.PopIntf(InsFilterNode));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра FilterNode: InsFilterNode : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_FilterNode.AutoApplied := aValue.AsBoolean;
-end;//TkwFilterNodeAutoApplied.SetValuePrim
+ Result := 'FilterNode:AutoApplied';
+end;//TkwFilterNodeAutoApplied.GetWordNameForRegister
 
 function TkwFilterNodeAutoApplied.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -187,20 +152,31 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeAutoApplied.ParamsTypes
 
-class function TkwFilterNodeAutoApplied.GetWordNameForRegister: AnsiString;
+procedure TkwFilterNodeAutoApplied.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_FilterNode: InsFilterNode;
 begin
- Result := 'FilterNode:AutoApplied';
-end;//TkwFilterNodeAutoApplied.GetWordNameForRegister
+ try
+  l_FilterNode := InsFilterNode(aCtx.rEngine.PopIntf(InsFilterNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра FilterNode: InsFilterNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_FilterNode.AutoApplied := aValue.AsBoolean;
+end;//TkwFilterNodeAutoApplied.SetValuePrim
 
 function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsUsed }
-//#UC START# *93AE1E55C2B1_3EAB6B490CA4_var*
-//#UC END# *93AE1E55C2B1_3EAB6B490CA4_var*
+//#UC START# *0B8C389F0B1C_3EAB6B490CA4_var*
+//#UC END# *0B8C389F0B1C_3EAB6B490CA4_var*
 begin
-//#UC START# *93AE1E55C2B1_3EAB6B490CA4_impl*
+//#UC START# *0B8C389F0B1C_3EAB6B490CA4_impl*
  Result := aFilterNode.UsedStatus;
-//#UC END# *93AE1E55C2B1_3EAB6B490CA4_impl*
+//#UC END# *0B8C389F0B1C_3EAB6B490CA4_impl*
 end;//TkwFilterNodeIsUsed.IsUsed
 
 procedure TkwFilterNodeIsUsed.DoDoIt(const aCtx: TtfwContext);
@@ -218,11 +194,10 @@ begin
  aCtx.rEngine.PushBool(IsUsed(aCtx, l_aFilterNode));
 end;//TkwFilterNodeIsUsed.DoDoIt
 
-procedure TkwFilterNodeIsUsed.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFilterNodeIsUsed.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsUsed', aCtx);
-end;//TkwFilterNodeIsUsed.SetValuePrim
+ Result := 'FilterNode:IsUsed';
+end;//TkwFilterNodeIsUsed.GetWordNameForRegister
 
 function TkwFilterNodeIsUsed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -239,20 +214,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeIsUsed.ParamsTypes
 
-class function TkwFilterNodeIsUsed.GetWordNameForRegister: AnsiString;
+procedure TkwFilterNodeIsUsed.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'FilterNode:IsUsed';
-end;//TkwFilterNodeIsUsed.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsUsed', aCtx);
+end;//TkwFilterNodeIsUsed.SetValuePrim
 
 function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsDeleted }
-//#UC START# *9653DAAB38C3_2F875C7C1CA3_var*
-//#UC END# *9653DAAB38C3_2F875C7C1CA3_var*
+//#UC START# *B12C875B9E52_2F875C7C1CA3_var*
+//#UC END# *B12C875B9E52_2F875C7C1CA3_var*
 begin
-//#UC START# *9653DAAB38C3_2F875C7C1CA3_impl*
+//#UC START# *B12C875B9E52_2F875C7C1CA3_impl*
  Result := aFilterNode.DeletedStatus;
-//#UC END# *9653DAAB38C3_2F875C7C1CA3_impl*
+//#UC END# *B12C875B9E52_2F875C7C1CA3_impl*
 end;//TkwFilterNodeIsDeleted.IsDeleted
 
 procedure TkwFilterNodeIsDeleted.DoDoIt(const aCtx: TtfwContext);
@@ -270,11 +246,10 @@ begin
  aCtx.rEngine.PushBool(IsDeleted(aCtx, l_aFilterNode));
 end;//TkwFilterNodeIsDeleted.DoDoIt
 
-procedure TkwFilterNodeIsDeleted.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFilterNodeIsDeleted.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsDeleted', aCtx);
-end;//TkwFilterNodeIsDeleted.SetValuePrim
+ Result := 'FilterNode:IsDeleted';
+end;//TkwFilterNodeIsDeleted.GetWordNameForRegister
 
 function TkwFilterNodeIsDeleted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -291,20 +266,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeIsDeleted.ParamsTypes
 
-class function TkwFilterNodeIsDeleted.GetWordNameForRegister: AnsiString;
+procedure TkwFilterNodeIsDeleted.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'FilterNode:IsDeleted';
-end;//TkwFilterNodeIsDeleted.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsDeleted', aCtx);
+end;//TkwFilterNodeIsDeleted.SetValuePrim
 
 function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsChangeable }
-//#UC START# *8AEEC707FD9D_008D699CFE74_var*
+//#UC START# *CA5586C3178F_008D699CFE74_var*
 var
  l_F: IFilterFromQuery;
-//#UC END# *8AEEC707FD9D_008D699CFE74_var*
+//#UC END# *CA5586C3178F_008D699CFE74_var*
 begin
-//#UC START# *8AEEC707FD9D_008D699CFE74_impl*
+//#UC START# *CA5586C3178F_008D699CFE74_impl*
  Supports(aFilterNode, IFilterFromQuery, l_F);
  RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
  try
@@ -312,7 +288,7 @@ begin
  finally
   l_F := nil;
  end;//try..finally
-//#UC END# *8AEEC707FD9D_008D699CFE74_impl*
+//#UC END# *CA5586C3178F_008D699CFE74_impl*
 end;//TkwFilterNodeIsChangeable.IsChangeable
 
 procedure TkwFilterNodeIsChangeable.DoDoIt(const aCtx: TtfwContext);
@@ -330,11 +306,10 @@ begin
  aCtx.rEngine.PushBool(IsChangeable(aCtx, l_aFilterNode));
 end;//TkwFilterNodeIsChangeable.DoDoIt
 
-procedure TkwFilterNodeIsChangeable.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFilterNodeIsChangeable.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsChangeable', aCtx);
-end;//TkwFilterNodeIsChangeable.SetValuePrim
+ Result := 'FilterNode:IsChangeable';
+end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
 
 function TkwFilterNodeIsChangeable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -351,10 +326,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InsFilterNode)]);
 end;//TkwFilterNodeIsChangeable.ParamsTypes
 
-class function TkwFilterNodeIsChangeable.GetWordNameForRegister: AnsiString;
+procedure TkwFilterNodeIsChangeable.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'FilterNode:IsChangeable';
-end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsChangeable', aCtx);
+end;//TkwFilterNodeIsChangeable.SetValuePrim
 
 class function TInsFilterNodeWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -374,8 +350,6 @@ initialization
  {* Регистрация FilterNode_IsChangeable }
  TInsFilterNodeWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(InsFilterNode));
  {* Регистрация типа InsFilterNode }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

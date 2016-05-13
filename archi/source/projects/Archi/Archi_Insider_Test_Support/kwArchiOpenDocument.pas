@@ -50,8 +50,8 @@ type
   w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
  [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwArchiOpenDocument
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -62,6 +62,11 @@ uses
  l3ImplUses
  , arArchiTestsAdapter
 ;
+
+class function TkwArchiOpenDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Открыть';
+end;//TkwArchiOpenDocument.GetWordNameForRegister
 
 procedure TkwArchiOpenDocument.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DE6299E021A_var*
@@ -82,11 +87,6 @@ begin
   aCtx.rCaller.Check(arOpenDocumentByNumber(aCtx.rEngine.PopInt, 0, False));
 //#UC END# *4DAEEDE10285_4DE6299E021A_impl*
 end;//TkwArchiOpenDocument.DoDoIt
-
-class function TkwArchiOpenDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Открыть';
-end;//TkwArchiOpenDocument.GetWordNameForRegister
 
 initialization
  TkwArchiOpenDocument.RegisterInEngine;

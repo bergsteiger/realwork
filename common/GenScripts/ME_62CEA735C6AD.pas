@@ -23,7 +23,7 @@ uses
  , Settings_Form
  , tfwControlString
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -53,6 +53,8 @@ end;//Tkw_Form_Settings.GetWordNameForRegister
 initialization
  Tkw_Form_Settings.RegisterInEngine;
  {* Регистрация Tkw_Form_Settings }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Tcf_Settings));
+ {* Регистрация типа Tcf_Settings }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

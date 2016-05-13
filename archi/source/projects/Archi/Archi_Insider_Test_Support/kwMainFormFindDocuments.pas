@@ -21,8 +21,8 @@ type
  TkwMainFormFindDocuments = {final} class(TtfwRegisterableWord)
   {* Вызывает поиск документов. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMainFormFindDocuments
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -34,6 +34,11 @@ uses
  , Main
 ;
 
+class function TkwMainFormFindDocuments.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'MainForm:FindDocuments';
+end;//TkwMainFormFindDocuments.GetWordNameForRegister
+
 procedure TkwMainFormFindDocuments.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F8D503400FD_var*
 //#UC END# *4DAEEDE10285_4F8D503400FD_var*
@@ -43,11 +48,6 @@ begin
  MainForm.acFindDoc.Execute;
 //#UC END# *4DAEEDE10285_4F8D503400FD_impl*
 end;//TkwMainFormFindDocuments.DoDoIt
-
-class function TkwMainFormFindDocuments.GetWordNameForRegister: AnsiString;
-begin
- Result := 'MainForm:FindDocuments';
-end;//TkwMainFormFindDocuments.GetWordNameForRegister
 
 initialization
  TkwMainFormFindDocuments.RegisterInEngine;

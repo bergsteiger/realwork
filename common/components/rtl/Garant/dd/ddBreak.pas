@@ -13,9 +13,9 @@ uses
  , ddDocumentAtom
  , RTFtypes
  , ddSectionProperty
+ , ddCustomDestination
  , k2Interfaces
  , ddTypes
- , ddCustomDestination
 ;
 
 type

@@ -21,6 +21,15 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(El3TryEnterModalState));
+ {* Регистрация типа El3TryEnterModalState }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

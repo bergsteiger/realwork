@@ -20,8 +20,8 @@ type
  TkwDeleteSub = class(TtfwRegisterableWord)
   {* окно_редактора:удалить_саб }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwDeleteSub
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -33,6 +33,11 @@ uses
  , arArchiTestsAdapter
 ;
 
+class function TkwDeleteSub.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'окно_редактора:удалить_саб';
+end;//TkwDeleteSub.GetWordNameForRegister
+
 procedure TkwDeleteSub.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E01AD1F02CA_var*
 //#UC END# *4DAEEDE10285_4E01AD1F02CA_var*
@@ -42,11 +47,6 @@ begin
   arDeleteSub(aCtx.rEngine.PopInt);
 //#UC END# *4DAEEDE10285_4E01AD1F02CA_impl*
 end;//TkwDeleteSub.DoDoIt
-
-class function TkwDeleteSub.GetWordNameForRegister: AnsiString;
-begin
- Result := 'окно_редактора:удалить_саб';
-end;//TkwDeleteSub.GetWordNameForRegister
 
 initialization
  TkwDeleteSub.RegisterInEngine;

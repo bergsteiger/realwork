@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -138,14 +138,7 @@ type
  end;//Tkw_MedicFirmList_Control_ListTree_Push
 
  TkwEnMedicFirmListBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicFirmList.BackgroundPanel
-[panel]Контрол BackgroundPanel формы Ten_MedicFirmList[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aen_MedicFirmList .Ten_MedicFirmList.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .Ten_MedicFirmList.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aen_MedicFirmList: Ten_MedicFirmList): TvtPanel;
@@ -154,22 +147,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicFirmListBackgroundPanel
 
  TkwEnMedicFirmListContextFilter = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicFirmList.ContextFilter
-[panel]Контрол ContextFilter формы Ten_MedicFirmList[panel]
-*Тип результата:* TnscContextFilter
-*Пример:*
-[code]
-OBJECT VAR l_TnscContextFilter
- aen_MedicFirmList .Ten_MedicFirmList.ContextFilter >>> l_TnscContextFilter
-[code]  }
+  {* Слово скрипта .Ten_MedicFirmList.ContextFilter }
   private
    function ContextFilter(const aCtx: TtfwContext;
     aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
@@ -178,22 +164,15 @@ OBJECT VAR l_TnscContextFilter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicFirmListContextFilter
 
  TkwEnMedicFirmListListTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicFirmList.ListTree
-[panel]Контрол ListTree формы Ten_MedicFirmList[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_MedicFirmList .Ten_MedicFirmList.ListTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_MedicFirmList.ListTree }
   private
    function ListTree(const aCtx: TtfwContext;
     aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
@@ -202,11 +181,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicFirmListListTree
 
 function Tkw_Form_MedicFirmList.GetString: AnsiString;
@@ -322,11 +301,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListBackgroundPanel.DoDoIt
 
-procedure TkwEnMedicFirmListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwEnMedicFirmListBackgroundPanel.SetValuePrim
+ Result := '.Ten_MedicFirmList.BackgroundPanel';
+end;//TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister
 
 function TkwEnMedicFirmListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -343,10 +321,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListBackgroundPanel.ParamsTypes
 
-class function TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicFirmListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicFirmList.BackgroundPanel';
-end;//TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwEnMedicFirmListBackgroundPanel.SetValuePrim
 
 function TkwEnMedicFirmListContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
@@ -370,11 +349,10 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListContextFilter.DoDoIt
 
-procedure TkwEnMedicFirmListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicFirmListContextFilter.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
-end;//TkwEnMedicFirmListContextFilter.SetValuePrim
+ Result := '.Ten_MedicFirmList.ContextFilter';
+end;//TkwEnMedicFirmListContextFilter.GetWordNameForRegister
 
 function TkwEnMedicFirmListContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -391,10 +369,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListContextFilter.ParamsTypes
 
-class function TkwEnMedicFirmListContextFilter.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicFirmListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicFirmList.ContextFilter';
-end;//TkwEnMedicFirmListContextFilter.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
+end;//TkwEnMedicFirmListContextFilter.SetValuePrim
 
 function TkwEnMedicFirmListListTree.ListTree(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
@@ -418,11 +397,10 @@ begin
  aCtx.rEngine.PushObj(ListTree(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListListTree.DoDoIt
 
-procedure TkwEnMedicFirmListListTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicFirmListListTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
-end;//TkwEnMedicFirmListListTree.SetValuePrim
+ Result := '.Ten_MedicFirmList.ListTree';
+end;//TkwEnMedicFirmListListTree.GetWordNameForRegister
 
 function TkwEnMedicFirmListListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -439,10 +417,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListListTree.ParamsTypes
 
-class function TkwEnMedicFirmListListTree.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicFirmListListTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicFirmList.ListTree';
-end;//TkwEnMedicFirmListListTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
+end;//TkwEnMedicFirmListListTree.SetValuePrim
 
 initialization
  Tkw_Form_MedicFirmList.RegisterInEngine;
@@ -465,10 +444,8 @@ initialization
  {* Регистрация en_MedicFirmList_ContextFilter }
  TkwEnMedicFirmListListTree.RegisterInEngine;
  {* Регистрация en_MedicFirmList_ListTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_MedicFirmList));
- {* Регистрация типа MedicFirmList$Form }
+ {* Регистрация типа Ten_MedicFirmList }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));

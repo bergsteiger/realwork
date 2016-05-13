@@ -25,8 +25,8 @@ type
 1000 SLEEP
 'Alt' KeyUp // отпустить клавишу }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwKeyDown
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -42,6 +42,11 @@ uses
  , SysUtils
  , l3MessagesService
 ;
+
+class function TkwKeyDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'KeyDown';
+end;//TkwKeyDown.GetWordNameForRegister
 
 procedure TkwKeyDown.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5220A3ED0104_var*
@@ -94,11 +99,6 @@ begin
 {$EndIf XE}
 //#UC END# *4DAEEDE10285_5220A3ED0104_impl*
 end;//TkwKeyDown.DoDoIt
-
-class function TkwKeyDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'KeyDown';
-end;//TkwKeyDown.GetWordNameForRegister
 
 initialization
  TkwKeyDown.RegisterInEngine;

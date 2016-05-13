@@ -38,19 +38,13 @@ uses
  , l3FormsService
  , l3ControlFontService
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopControlClientToScreen = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:ClientToScreen
-*Тип результата:* TPoint
-*Пример:*
-[code]
-VAR l_TPoint
- aPoint aControl pop:Control:ClientToScreen >>> l_TPoint
-[code]  }
+  {* Слово скрипта pop:Control:ClientToScreen }
   private
    function ClientToScreen(const aCtx: TtfwContext;
     aControl: TControl;
@@ -66,13 +60,7 @@ VAR l_TPoint
  end;//TkwPopControlClientToScreen
 
  TkwPopControlScreenToClient = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:ScreenToClient
-*Тип результата:* TPoint
-*Пример:*
-[code]
-VAR l_TPoint
- aPoint aControl pop:Control:ScreenToClient >>> l_TPoint
-[code]  }
+  {* Слово скрипта pop:Control:ScreenToClient }
   private
    function ScreenToClient(const aCtx: TtfwContext;
     aControl: TControl;
@@ -88,11 +76,7 @@ VAR l_TPoint
  end;//TkwPopControlScreenToClient
 
  TkwPopControlInvalidate = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:Invalidate
-*Пример:*
-[code]
- aControl pop:Control:Invalidate
-[code]  }
+  {* Слово скрипта pop:Control:Invalidate }
   private
    procedure Invalidate(const aCtx: TtfwContext;
     aControl: TControl);
@@ -107,11 +91,7 @@ VAR l_TPoint
  end;//TkwPopControlInvalidate
 
  TkwPopControlRepaint = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:Repaint
-*Пример:*
-[code]
- aControl pop:Control:Repaint
-[code]  }
+  {* Слово скрипта pop:Control:Repaint }
   private
    procedure Repaint(const aCtx: TtfwContext;
     aControl: TControl);
@@ -126,11 +106,7 @@ VAR l_TPoint
  end;//TkwPopControlRepaint
 
  TkwPopControlClick = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:Click
-*Пример:*
-[code]
- aControl pop:Control:Click
-[code]  }
+  {* Слово скрипта pop:Control:Click }
   private
    procedure Click(const aCtx: TtfwContext;
     aControl: TControl);
@@ -145,11 +121,7 @@ VAR l_TPoint
  end;//TkwPopControlClick
 
  TkwPopControlShow = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:Show
-*Пример:*
-[code]
- aControl pop:Control:Show
-[code]  }
+  {* Слово скрипта pop:Control:Show }
   private
    procedure Show(const aCtx: TtfwContext;
     aControl: TControl);
@@ -164,11 +136,7 @@ VAR l_TPoint
  end;//TkwPopControlShow
 
  TkwPopControlHide = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:Hide
-*Пример:*
-[code]
- aControl pop:Control:Hide
-[code]  }
+  {* Слово скрипта pop:Control:Hide }
   private
    procedure Hide(const aCtx: TtfwContext;
     aControl: TControl);
@@ -183,11 +151,7 @@ VAR l_TPoint
  end;//TkwPopControlHide
 
  TkwPopControlUndock = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:Undock
-*Пример:*
-[code]
- aControl pop:Control:Undock
-[code]  }
+  {* Слово скрипта pop:Control:Undock }
   private
    procedure Undock(const aCtx: TtfwContext;
     aControl: TControl);
@@ -202,13 +166,7 @@ VAR l_TPoint
  end;//TkwPopControlUndock
 
  TkwPopControlGetPopupMenu = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:GetPopupMenu
-*Тип результата:* TMenuItem
-*Пример:*
-[code]
-OBJECT VAR l_TMenuItem
- aPoint aControl pop:Control:GetPopupMenu >>> l_TMenuItem
-[code]  }
+  {* Слово скрипта pop:Control:GetPopupMenu }
   private
    function GetPopupMenu(const aCtx: TtfwContext;
     aControl: TControl;
@@ -224,13 +182,7 @@ OBJECT VAR l_TMenuItem
  end;//TkwPopControlGetPopupMenu
 
  TkwPopControlGetTopParentForm = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:GetTopParentForm
-*Тип результата:* TCustomForm
-*Пример:*
-[code]
-OBJECT VAR l_TCustomForm
- aControl pop:Control:GetTopParentForm >>> l_TCustomForm
-[code]  }
+  {* Слово скрипта pop:Control:GetTopParentForm }
   private
    function GetTopParentForm(const aCtx: TtfwContext;
     aControl: TControl): TCustomForm;
@@ -245,13 +197,7 @@ OBJECT VAR l_TCustomForm
  end;//TkwPopControlGetTopParentForm
 
  TkwPopControlGetMainForm = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:GetMainForm
-*Тип результата:* TCustomForm
-*Пример:*
-[code]
-OBJECT VAR l_TCustomForm
- aControl pop:Control:GetMainForm >>> l_TCustomForm
-[code]  }
+  {* Слово скрипта pop:Control:GetMainForm }
   private
    function GetMainForm(const aCtx: TtfwContext;
     aControl: TControl): TCustomForm;
@@ -266,13 +212,7 @@ OBJECT VAR l_TCustomForm
  end;//TkwPopControlGetMainForm
 
  TkwPopControlGetParentForm = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:GetParentForm
-*Тип результата:* TCustomForm
-*Пример:*
-[code]
-OBJECT VAR l_TCustomForm
- aControl pop:Control:GetParentForm >>> l_TCustomForm
-[code]  }
+  {* Слово скрипта pop:Control:GetParentForm }
   private
    function GetParentForm(const aCtx: TtfwContext;
     aControl: TControl): TCustomForm;
@@ -287,13 +227,7 @@ OBJECT VAR l_TCustomForm
  end;//TkwPopControlGetParentForm
 
  TkwPopControlGetAnotherParentForm = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:GetAnotherParentForm
-*Тип результата:* TCustomForm
-*Пример:*
-[code]
-OBJECT VAR l_TCustomForm
- aControl pop:Control:GetAnotherParentForm >>> l_TCustomForm
-[code]  }
+  {* Слово скрипта pop:Control:GetAnotherParentForm }
   private
    function GetAnotherParentForm(const aCtx: TtfwContext;
     aControl: TControl): TCustomForm;
@@ -308,20 +242,14 @@ OBJECT VAR l_TCustomForm
  end;//TkwPopControlGetAnotherParentForm
 
  TkwControlByHandle = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта Control:ByHandle
-*Тип результата:* TControl
-*Пример:*
-[code]
-OBJECT VAR l_TControl
- aHandle Control:ByHandle >>> l_TControl
-[code]  }
+  {* Слово скрипта Control:ByHandle }
   private
    function ByHandle(const aCtx: TtfwContext;
     aHandle: THandle): TControl;
     {* Реализация слова скрипта Control:ByHandle }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -329,19 +257,13 @@ OBJECT VAR l_TControl
  end;//TkwControlByHandle
 
  TkwControlFocusedControlPush = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта focused:control:push
-*Тип результата:* TControl
-*Пример:*
-[code]
-OBJECT VAR l_TControl
- focused:control:push >>> l_TControl
-[code]  }
+  {* Слово скрипта focused:control:push }
   private
    function focused_control_push(const aCtx: TtfwContext): TControl;
     {* Реализация слова скрипта focused:control:push }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -349,13 +271,7 @@ OBJECT VAR l_TControl
  end;//TkwControlFocusedControlPush
 
  TkwPopControlColor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Color
-*Тип результата:* TColor
-*Пример:*
-[code]
-TColor VAR l_TColor
- aControl pop:Control:Color >>> l_TColor
-[code]  }
+  {* Слово скрипта pop:Control:Color }
   private
    function Color(const aCtx: TtfwContext;
     aControl: TControl): TColor;
@@ -367,21 +283,15 @@ TColor VAR l_TColor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlColor
 
  TkwPopControlEnabled = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Enabled
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aControl pop:Control:Enabled >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Control:Enabled }
   private
    function Enabled(const aCtx: TtfwContext;
     aControl: TControl): Boolean;
@@ -390,21 +300,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlEnabled
 
  TkwPopControlVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Visible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aControl pop:Control:Visible >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Control:Visible }
   private
    function Visible(const aCtx: TtfwContext;
     aControl: TControl): Boolean;
@@ -413,21 +317,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlVisible
 
  TkwPopControlName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Name
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aControl pop:Control:Name >>> l_String
-[code]  }
+  {* Слово скрипта pop:Control:Name }
   private
    function Name(const aCtx: TtfwContext;
     aControl: TControl): AnsiString;
@@ -436,21 +334,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlName
 
  TkwPopControlHint = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Hint
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aControl pop:Control:Hint >>> l_String
-[code]  }
+  {* Слово скрипта pop:Control:Hint }
   private
    function Hint(const aCtx: TtfwContext;
     aControl: TControl): AnsiString;
@@ -459,21 +351,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlHint
 
  TkwPopControlShowHint = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:ShowHint
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aControl pop:Control:ShowHint >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Control:ShowHint }
   private
    function ShowHint(const aCtx: TtfwContext;
     aControl: TControl): Boolean;
@@ -482,21 +368,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlShowHint
 
  TkwPopControlCaption = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Caption
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aControl pop:Control:Caption >>> l_String
-[code]  }
+  {* Слово скрипта pop:Control:Caption }
   private
    function Caption(const aCtx: TtfwContext;
     aControl: TControl): AnsiString;
@@ -505,21 +385,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlCaption
 
  TkwPopControlTop = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Top
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aControl pop:Control:Top >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Control:Top }
   private
    function Top(const aCtx: TtfwContext;
     aControl: TControl): Integer;
@@ -528,21 +402,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlTop
 
  TkwPopControlLeft = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Left
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aControl pop:Control:Left >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Control:Left }
   private
    function Left(const aCtx: TtfwContext;
     aControl: TControl): Integer;
@@ -551,21 +419,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlLeft
 
  TkwPopControlHeight = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aControl pop:Control:Height >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Control:Height }
   private
    function Height(const aCtx: TtfwContext;
     aControl: TControl): Integer;
@@ -574,21 +436,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlHeight
 
  TkwPopControlWidth = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aControl pop:Control:Width >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Control:Width }
   private
    function Width(const aCtx: TtfwContext;
     aControl: TControl): Integer;
@@ -597,21 +453,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlWidth
 
  TkwPopControlParent = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Parent
-*Тип результата:* TControl
-*Пример:*
-[code]
-OBJECT VAR l_TControl
- aControl pop:Control:Parent >>> l_TControl
-[code]  }
+  {* Слово скрипта pop:Control:Parent }
   private
    function Parent(const aCtx: TtfwContext;
     aControl: TControl): TControl;
@@ -620,21 +470,15 @@ OBJECT VAR l_TControl
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlParent
 
  TkwPopControlFont = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Control:Font
-*Тип результата:* Il3FontInfo
-*Пример:*
-[code]
-INTERFACE VAR l_Il3FontInfo
- aControl pop:Control:Font >>> l_Il3FontInfo
-[code]  }
+  {* Слово скрипта pop:Control:Font }
   private
    function Font(const aCtx: TtfwContext;
     aControl: TControl): Il3FontInfo;
@@ -643,11 +487,11 @@ INTERFACE VAR l_Il3FontInfo
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopControlFont
 
  TControlFriend = {abstract} class(TControl)
@@ -687,6 +531,11 @@ begin
  aCtx.rEngine.PushPoint(ClientToScreen(aCtx, l_aControl, l_aPoint));
 end;//TkwPopControlClientToScreen.DoDoIt
 
+class function TkwPopControlClientToScreen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:ClientToScreen';
+end;//TkwPopControlClientToScreen.GetWordNameForRegister
+
 function TkwPopControlClientToScreen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiStruct;
@@ -701,11 +550,6 @@ function TkwPopControlClientToScreen.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TControl), @tfw_tiStruct]);
 end;//TkwPopControlClientToScreen.ParamsTypes
-
-class function TkwPopControlClientToScreen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:ClientToScreen';
-end;//TkwPopControlClientToScreen.GetWordNameForRegister
 
 function TkwPopControlScreenToClient.ScreenToClient(const aCtx: TtfwContext;
  aControl: TControl;
@@ -740,6 +584,11 @@ begin
  aCtx.rEngine.PushPoint(ScreenToClient(aCtx, l_aControl, l_aPoint));
 end;//TkwPopControlScreenToClient.DoDoIt
 
+class function TkwPopControlScreenToClient.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:ScreenToClient';
+end;//TkwPopControlScreenToClient.GetWordNameForRegister
+
 function TkwPopControlScreenToClient.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiStruct;
@@ -754,11 +603,6 @@ function TkwPopControlScreenToClient.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TControl), @tfw_tiStruct]);
 end;//TkwPopControlScreenToClient.ParamsTypes
-
-class function TkwPopControlScreenToClient.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:ScreenToClient';
-end;//TkwPopControlScreenToClient.GetWordNameForRegister
 
 procedure TkwPopControlInvalidate.Invalidate(const aCtx: TtfwContext;
  aControl: TControl);
@@ -782,6 +626,11 @@ begin
  Invalidate(aCtx, l_aControl);
 end;//TkwPopControlInvalidate.DoDoIt
 
+class function TkwPopControlInvalidate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Invalidate';
+end;//TkwPopControlInvalidate.GetWordNameForRegister
+
 function TkwPopControlInvalidate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -796,11 +645,6 @@ function TkwPopControlInvalidate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlInvalidate.ParamsTypes
-
-class function TkwPopControlInvalidate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:Invalidate';
-end;//TkwPopControlInvalidate.GetWordNameForRegister
 
 procedure TkwPopControlRepaint.Repaint(const aCtx: TtfwContext;
  aControl: TControl);
@@ -824,6 +668,11 @@ begin
  Repaint(aCtx, l_aControl);
 end;//TkwPopControlRepaint.DoDoIt
 
+class function TkwPopControlRepaint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Repaint';
+end;//TkwPopControlRepaint.GetWordNameForRegister
+
 function TkwPopControlRepaint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -839,20 +688,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlRepaint.ParamsTypes
 
-class function TkwPopControlRepaint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:Repaint';
-end;//TkwPopControlRepaint.GetWordNameForRegister
-
 procedure TkwPopControlClick.Click(const aCtx: TtfwContext;
  aControl: TControl);
  {* Реализация слова скрипта pop:Control:Click }
-//#UC START# *61CF2F0B3020_F8C716BBBC31_var*
-//#UC END# *61CF2F0B3020_F8C716BBBC31_var*
+//#UC START# *54FED487024E_F8C716BBBC31_var*
+//#UC END# *54FED487024E_F8C716BBBC31_var*
 begin
-//#UC START# *61CF2F0B3020_F8C716BBBC31_impl*
+//#UC START# *54FED487024E_F8C716BBBC31_impl*
  TControlFriend(aControl).Click;
-//#UC END# *61CF2F0B3020_F8C716BBBC31_impl*
+//#UC END# *54FED487024E_F8C716BBBC31_impl*
 end;//TkwPopControlClick.Click
 
 procedure TkwPopControlClick.DoDoIt(const aCtx: TtfwContext);
@@ -870,6 +714,11 @@ begin
  Click(aCtx, l_aControl);
 end;//TkwPopControlClick.DoDoIt
 
+class function TkwPopControlClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Click';
+end;//TkwPopControlClick.GetWordNameForRegister
+
 function TkwPopControlClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -884,11 +733,6 @@ function TkwPopControlClick.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlClick.ParamsTypes
-
-class function TkwPopControlClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:Click';
-end;//TkwPopControlClick.GetWordNameForRegister
 
 procedure TkwPopControlShow.Show(const aCtx: TtfwContext;
  aControl: TControl);
@@ -912,6 +756,11 @@ begin
  Show(aCtx, l_aControl);
 end;//TkwPopControlShow.DoDoIt
 
+class function TkwPopControlShow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Show';
+end;//TkwPopControlShow.GetWordNameForRegister
+
 function TkwPopControlShow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -926,11 +775,6 @@ function TkwPopControlShow.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlShow.ParamsTypes
-
-class function TkwPopControlShow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:Show';
-end;//TkwPopControlShow.GetWordNameForRegister
 
 procedure TkwPopControlHide.Hide(const aCtx: TtfwContext;
  aControl: TControl);
@@ -954,6 +798,11 @@ begin
  Hide(aCtx, l_aControl);
 end;//TkwPopControlHide.DoDoIt
 
+class function TkwPopControlHide.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Hide';
+end;//TkwPopControlHide.GetWordNameForRegister
+
 function TkwPopControlHide.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -969,20 +818,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlHide.ParamsTypes
 
-class function TkwPopControlHide.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:Hide';
-end;//TkwPopControlHide.GetWordNameForRegister
-
 procedure TkwPopControlUndock.Undock(const aCtx: TtfwContext;
  aControl: TControl);
  {* Реализация слова скрипта pop:Control:Undock }
-//#UC START# *E44BD472B7AB_6BAE007A323D_var*
-//#UC END# *E44BD472B7AB_6BAE007A323D_var*
+//#UC START# *54FEE29D03A3_6BAE007A323D_var*
+//#UC END# *54FEE29D03A3_6BAE007A323D_var*
 begin
-//#UC START# *E44BD472B7AB_6BAE007A323D_impl*
+//#UC START# *54FEE29D03A3_6BAE007A323D_impl*
  aControl.ManualDock(nil, nil, alNone);
-//#UC END# *E44BD472B7AB_6BAE007A323D_impl*
+//#UC END# *54FEE29D03A3_6BAE007A323D_impl*
 end;//TkwPopControlUndock.Undock
 
 procedure TkwPopControlUndock.DoDoIt(const aCtx: TtfwContext);
@@ -1000,6 +844,11 @@ begin
  Undock(aCtx, l_aControl);
 end;//TkwPopControlUndock.DoDoIt
 
+class function TkwPopControlUndock.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Undock';
+end;//TkwPopControlUndock.GetWordNameForRegister
+
 function TkwPopControlUndock.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1015,21 +864,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlUndock.ParamsTypes
 
-class function TkwPopControlUndock.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:Undock';
-end;//TkwPopControlUndock.GetWordNameForRegister
-
 function TkwPopControlGetPopupMenu.GetPopupMenu(const aCtx: TtfwContext;
  aControl: TControl;
  const aPoint: TPoint): TMenuItem;
  {* Реализация слова скрипта pop:Control:GetPopupMenu }
-//#UC START# *03EB93F2B4F5_42A7FAEADBD6_var*
-//#UC END# *03EB93F2B4F5_42A7FAEADBD6_var*
+//#UC START# *550015610205_42A7FAEADBD6_var*
+//#UC END# *550015610205_42A7FAEADBD6_var*
 begin
-//#UC START# *03EB93F2B4F5_42A7FAEADBD6_impl*
+//#UC START# *550015610205_42A7FAEADBD6_impl*
  Result := Tl3PopupMenuHelper.Instance.GetPopupMenu(aControl, aPoint);
-//#UC END# *03EB93F2B4F5_42A7FAEADBD6_impl*
+//#UC END# *550015610205_42A7FAEADBD6_impl*
 end;//TkwPopControlGetPopupMenu.GetPopupMenu
 
 procedure TkwPopControlGetPopupMenu.DoDoIt(const aCtx: TtfwContext);
@@ -1057,6 +901,11 @@ begin
  aCtx.rEngine.PushObj(GetPopupMenu(aCtx, l_aControl, l_aPoint));
 end;//TkwPopControlGetPopupMenu.DoDoIt
 
+class function TkwPopControlGetPopupMenu.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:GetPopupMenu';
+end;//TkwPopControlGetPopupMenu.GetWordNameForRegister
+
 function TkwPopControlGetPopupMenu.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -1072,20 +921,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl), @tfw_tiStruct]);
 end;//TkwPopControlGetPopupMenu.ParamsTypes
 
-class function TkwPopControlGetPopupMenu.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:GetPopupMenu';
-end;//TkwPopControlGetPopupMenu.GetWordNameForRegister
-
 function TkwPopControlGetTopParentForm.GetTopParentForm(const aCtx: TtfwContext;
  aControl: TControl): TCustomForm;
  {* Реализация слова скрипта pop:Control:GetTopParentForm }
-//#UC START# *D1A25E7B9BDA_801293AEE662_var*
-//#UC END# *D1A25E7B9BDA_801293AEE662_var*
+//#UC START# *5506E91A011F_801293AEE662_var*
+//#UC END# *5506E91A011F_801293AEE662_var*
 begin
-//#UC START# *D1A25E7B9BDA_801293AEE662_impl*
+//#UC START# *5506E91A011F_801293AEE662_impl*
  Result := Tl3FormsService.Instance.GetTopParentForm(aControl);
-//#UC END# *D1A25E7B9BDA_801293AEE662_impl*
+//#UC END# *5506E91A011F_801293AEE662_impl*
 end;//TkwPopControlGetTopParentForm.GetTopParentForm
 
 procedure TkwPopControlGetTopParentForm.DoDoIt(const aCtx: TtfwContext);
@@ -1103,6 +947,11 @@ begin
  aCtx.rEngine.PushObj(GetTopParentForm(aCtx, l_aControl));
 end;//TkwPopControlGetTopParentForm.DoDoIt
 
+class function TkwPopControlGetTopParentForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:GetTopParentForm';
+end;//TkwPopControlGetTopParentForm.GetWordNameForRegister
+
 function TkwPopControlGetTopParentForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TCustomForm);
@@ -1118,20 +967,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetTopParentForm.ParamsTypes
 
-class function TkwPopControlGetTopParentForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:GetTopParentForm';
-end;//TkwPopControlGetTopParentForm.GetWordNameForRegister
-
 function TkwPopControlGetMainForm.GetMainForm(const aCtx: TtfwContext;
  aControl: TControl): TCustomForm;
  {* Реализация слова скрипта pop:Control:GetMainForm }
-//#UC START# *2075E5D1B087_19DF01986BE7_var*
-//#UC END# *2075E5D1B087_19DF01986BE7_var*
+//#UC START# *5506E93200C2_19DF01986BE7_var*
+//#UC END# *5506E93200C2_19DF01986BE7_var*
 begin
-//#UC START# *2075E5D1B087_19DF01986BE7_impl*
+//#UC START# *5506E93200C2_19DF01986BE7_impl*
  Result := Tl3FormsService.Instance.GetMainForm(aControl);
-//#UC END# *2075E5D1B087_19DF01986BE7_impl*
+//#UC END# *5506E93200C2_19DF01986BE7_impl*
 end;//TkwPopControlGetMainForm.GetMainForm
 
 procedure TkwPopControlGetMainForm.DoDoIt(const aCtx: TtfwContext);
@@ -1149,6 +993,11 @@ begin
  aCtx.rEngine.PushObj(GetMainForm(aCtx, l_aControl));
 end;//TkwPopControlGetMainForm.DoDoIt
 
+class function TkwPopControlGetMainForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:GetMainForm';
+end;//TkwPopControlGetMainForm.GetWordNameForRegister
+
 function TkwPopControlGetMainForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TCustomForm);
@@ -1164,20 +1013,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetMainForm.ParamsTypes
 
-class function TkwPopControlGetMainForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:GetMainForm';
-end;//TkwPopControlGetMainForm.GetWordNameForRegister
-
 function TkwPopControlGetParentForm.GetParentForm(const aCtx: TtfwContext;
  aControl: TControl): TCustomForm;
  {* Реализация слова скрипта pop:Control:GetParentForm }
-//#UC START# *290504A82C40_BC5B460C7FEA_var*
-//#UC END# *290504A82C40_BC5B460C7FEA_var*
+//#UC START# *5506E9460154_BC5B460C7FEA_var*
+//#UC END# *5506E9460154_BC5B460C7FEA_var*
 begin
-//#UC START# *290504A82C40_BC5B460C7FEA_impl*
+//#UC START# *5506E9460154_BC5B460C7FEA_impl*
  Result := Tl3FormsService.Instance.GetParentForm(aControl);
-//#UC END# *290504A82C40_BC5B460C7FEA_impl*
+//#UC END# *5506E9460154_BC5B460C7FEA_impl*
 end;//TkwPopControlGetParentForm.GetParentForm
 
 procedure TkwPopControlGetParentForm.DoDoIt(const aCtx: TtfwContext);
@@ -1195,6 +1039,11 @@ begin
  aCtx.rEngine.PushObj(GetParentForm(aCtx, l_aControl));
 end;//TkwPopControlGetParentForm.DoDoIt
 
+class function TkwPopControlGetParentForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:GetParentForm';
+end;//TkwPopControlGetParentForm.GetWordNameForRegister
+
 function TkwPopControlGetParentForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TCustomForm);
@@ -1210,20 +1059,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetParentForm.ParamsTypes
 
-class function TkwPopControlGetParentForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:GetParentForm';
-end;//TkwPopControlGetParentForm.GetWordNameForRegister
-
 function TkwPopControlGetAnotherParentForm.GetAnotherParentForm(const aCtx: TtfwContext;
  aControl: TControl): TCustomForm;
  {* Реализация слова скрипта pop:Control:GetAnotherParentForm }
-//#UC START# *68CF70189B15_8A00B7773D0C_var*
-//#UC END# *68CF70189B15_8A00B7773D0C_var*
+//#UC START# *5506E95C015D_8A00B7773D0C_var*
+//#UC END# *5506E95C015D_8A00B7773D0C_var*
 begin
-//#UC START# *68CF70189B15_8A00B7773D0C_impl*
+//#UC START# *5506E95C015D_8A00B7773D0C_impl*
  Result := Tl3FormsService.Instance.GetAnotherParentForm(aControl);
-//#UC END# *68CF70189B15_8A00B7773D0C_impl*
+//#UC END# *5506E95C015D_8A00B7773D0C_impl*
 end;//TkwPopControlGetAnotherParentForm.GetAnotherParentForm
 
 procedure TkwPopControlGetAnotherParentForm.DoDoIt(const aCtx: TtfwContext);
@@ -1241,6 +1085,11 @@ begin
  aCtx.rEngine.PushObj(GetAnotherParentForm(aCtx, l_aControl));
 end;//TkwPopControlGetAnotherParentForm.DoDoIt
 
+class function TkwPopControlGetAnotherParentForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:GetAnotherParentForm';
+end;//TkwPopControlGetAnotherParentForm.GetWordNameForRegister
+
 function TkwPopControlGetAnotherParentForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TCustomForm);
@@ -1256,37 +1105,22 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetAnotherParentForm.ParamsTypes
 
-class function TkwPopControlGetAnotherParentForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:GetAnotherParentForm';
-end;//TkwPopControlGetAnotherParentForm.GetWordNameForRegister
-
 function TkwControlByHandle.ByHandle(const aCtx: TtfwContext;
  aHandle: THandle): TControl;
  {* Реализация слова скрипта Control:ByHandle }
-//#UC START# *C84440B65B87_0241DA0F487D_var*
-//#UC END# *C84440B65B87_0241DA0F487D_var*
+//#UC START# *5511831402B5_0241DA0F487D_var*
+//#UC END# *5511831402B5_0241DA0F487D_var*
 begin
-//#UC START# *C84440B65B87_0241DA0F487D_impl*
+//#UC START# *5511831402B5_0241DA0F487D_impl*
  Result := FindControl(aHandle);
  RunnerAssert(Assigned(Result), 'Не найден контрол.', aCtx);
-//#UC END# *C84440B65B87_0241DA0F487D_impl*
+//#UC END# *5511831402B5_0241DA0F487D_impl*
 end;//TkwControlByHandle.ByHandle
 
-procedure TkwControlByHandle.DoDoIt(const aCtx: TtfwContext);
-var l_aHandle: THandle;
+class function TkwControlByHandle.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aHandle := THandle(aCtx.rEngine.PopInt);
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aHandle: THandle : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ByHandle(aCtx, l_aHandle));
-end;//TkwControlByHandle.DoDoIt
+ Result := 'Control:ByHandle';
+end;//TkwControlByHandle.GetWordNameForRegister
 
 function TkwControlByHandle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1303,19 +1137,29 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl), TypeInfo(THandle)]);
 end;//TkwControlByHandle.ParamsTypes
 
-class function TkwControlByHandle.GetWordNameForRegister: AnsiString;
+procedure TkwControlByHandle.DoDoIt(const aCtx: TtfwContext);
+var l_aHandle: THandle;
 begin
- Result := 'Control:ByHandle';
-end;//TkwControlByHandle.GetWordNameForRegister
+ try
+  l_aHandle := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHandle: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ByHandle(aCtx, l_aHandle));
+end;//TkwControlByHandle.DoDoIt
 
 function TkwControlFocusedControlPush.focused_control_push(const aCtx: TtfwContext): TControl;
  {* Реализация слова скрипта focused:control:push }
-//#UC START# *190B20AA18AF_DDB6E934DC7B_var*
+//#UC START# *551EA6DD0274_DDB6E934DC7B_var*
 var
  l_C : TControl;
-//#UC END# *190B20AA18AF_DDB6E934DC7B_var*
+//#UC END# *551EA6DD0274_DDB6E934DC7B_var*
 begin
-//#UC START# *190B20AA18AF_DDB6E934DC7B_impl*
+//#UC START# *551EA6DD0274_DDB6E934DC7B_impl*
  l_C := FindControl(GetFocus);
  if (l_C = nil) then
  // - наверное мы под отладчиком или из под нас выдернули фокус
@@ -1325,13 +1169,13 @@ begin
  end;//l_C = nil
  RunnerAssert(l_C <> nil, 'Не нашли контрол в фокусе', aCtx);
  Result := l_C;
-//#UC END# *190B20AA18AF_DDB6E934DC7B_impl*
+//#UC END# *551EA6DD0274_DDB6E934DC7B_impl*
 end;//TkwControlFocusedControlPush.focused_control_push
 
-procedure TkwControlFocusedControlPush.DoDoIt(const aCtx: TtfwContext);
+class function TkwControlFocusedControlPush.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushObj(focused_control_push(aCtx));
-end;//TkwControlFocusedControlPush.DoDoIt
+ Result := 'focused:control:push';
+end;//TkwControlFocusedControlPush.GetWordNameForRegister
 
 function TkwControlFocusedControlPush.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1348,32 +1192,32 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwControlFocusedControlPush.ParamsTypes
 
-class function TkwControlFocusedControlPush.GetWordNameForRegister: AnsiString;
+procedure TkwControlFocusedControlPush.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'focused:control:push';
-end;//TkwControlFocusedControlPush.GetWordNameForRegister
-
-function TkwPopControlColor.Color(const aCtx: TtfwContext;
- aControl: TControl): TColor;
- {* Реализация слова скрипта pop:Control:Color }
-//#UC START# *AACBF5E37A06_EBE4B9074377_var*
-//#UC END# *AACBF5E37A06_EBE4B9074377_var*
-begin
-//#UC START# *AACBF5E37A06_EBE4B9074377_impl*
- Result := TControlFriend(aControl).Color;
-//#UC END# *AACBF5E37A06_EBE4B9074377_impl*
-end;//TkwPopControlColor.Color
+ aCtx.rEngine.PushObj(focused_control_push(aCtx));
+end;//TkwControlFocusedControlPush.DoDoIt
 
 class procedure TkwPopControlColor.DoSetValue(aControl: TControl;
  aValue: TColor);
  {* Метод установки значения свойства Color }
-//#UC START# *8D28522E42BF_EBE4B9074377_var*
-//#UC END# *8D28522E42BF_EBE4B9074377_var*
+//#UC START# *EBE4B9074377_DoSetValue_EBE4B9074377_var*
+//#UC END# *EBE4B9074377_DoSetValue_EBE4B9074377_var*
 begin
-//#UC START# *8D28522E42BF_EBE4B9074377_impl*
+//#UC START# *EBE4B9074377_DoSetValue_EBE4B9074377_impl*
  TControlFriend(aControl).Color := aValue;
-//#UC END# *8D28522E42BF_EBE4B9074377_impl*
+//#UC END# *EBE4B9074377_DoSetValue_EBE4B9074377_impl*
 end;//TkwPopControlColor.DoSetValue
+
+function TkwPopControlColor.Color(const aCtx: TtfwContext;
+ aControl: TControl): TColor;
+ {* Реализация слова скрипта pop:Control:Color }
+//#UC START# *ACC5312E1C3D_EBE4B9074377_var*
+//#UC END# *ACC5312E1C3D_EBE4B9074377_var*
+begin
+//#UC START# *ACC5312E1C3D_EBE4B9074377_impl*
+ Result := TControlFriend(aControl).Color;
+//#UC END# *ACC5312E1C3D_EBE4B9074377_impl*
+end;//TkwPopControlColor.Color
 
 procedure TkwPopControlColor.DoDoIt(const aCtx: TtfwContext);
 var l_aControl: TControl;
@@ -1390,21 +1234,10 @@ begin
  aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aControl)));
 end;//TkwPopControlColor.DoDoIt
 
-procedure TkwPopControlColor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Control: TControl;
+class function TkwPopControlColor.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- DoSetValue(l_Control, TColor(aValue.AsInt));
-end;//TkwPopControlColor.SetValuePrim
+ Result := 'pop:Control:Color';
+end;//TkwPopControlColor.GetWordNameForRegister
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1421,10 +1254,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlColor.ParamsTypes
 
-class function TkwPopControlColor.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlColor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- Result := 'pop:Control:Color';
-end;//TkwPopControlColor.GetWordNameForRegister
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(l_Control, TColor(aValue.AsInt));
+end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlEnabled.Enabled(const aCtx: TtfwContext;
  aControl: TControl): Boolean;
@@ -1448,11 +1292,10 @@ begin
  aCtx.rEngine.PushBool(Enabled(aCtx, l_aControl));
 end;//TkwPopControlEnabled.DoDoIt
 
-procedure TkwPopControlEnabled.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlEnabled.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
-end;//TkwPopControlEnabled.SetValuePrim
+ Result := 'pop:Control:Enabled';
+end;//TkwPopControlEnabled.GetWordNameForRegister
 
 function TkwPopControlEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1469,10 +1312,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlEnabled.ParamsTypes
 
-class function TkwPopControlEnabled.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlEnabled.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Enabled';
-end;//TkwPopControlEnabled.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
+end;//TkwPopControlEnabled.SetValuePrim
 
 function TkwPopControlVisible.Visible(const aCtx: TtfwContext;
  aControl: TControl): Boolean;
@@ -1496,11 +1340,10 @@ begin
  aCtx.rEngine.PushBool(Visible(aCtx, l_aControl));
 end;//TkwPopControlVisible.DoDoIt
 
-procedure TkwPopControlVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlVisible.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
-end;//TkwPopControlVisible.SetValuePrim
+ Result := 'pop:Control:Visible';
+end;//TkwPopControlVisible.GetWordNameForRegister
 
 function TkwPopControlVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1517,10 +1360,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlVisible.ParamsTypes
 
-class function TkwPopControlVisible.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Visible';
-end;//TkwPopControlVisible.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
+end;//TkwPopControlVisible.SetValuePrim
 
 function TkwPopControlName.Name(const aCtx: TtfwContext;
  aControl: TControl): AnsiString;
@@ -1544,11 +1388,10 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aControl));
 end;//TkwPopControlName.DoDoIt
 
-procedure TkwPopControlName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
-end;//TkwPopControlName.SetValuePrim
+ Result := 'pop:Control:Name';
+end;//TkwPopControlName.GetWordNameForRegister
 
 function TkwPopControlName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1565,10 +1408,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlName.ParamsTypes
 
-class function TkwPopControlName.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Name';
-end;//TkwPopControlName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
+end;//TkwPopControlName.SetValuePrim
 
 function TkwPopControlHint.Hint(const aCtx: TtfwContext;
  aControl: TControl): AnsiString;
@@ -1592,11 +1436,10 @@ begin
  aCtx.rEngine.PushString(Hint(aCtx, l_aControl));
 end;//TkwPopControlHint.DoDoIt
 
-procedure TkwPopControlHint.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlHint.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Hint', aCtx);
-end;//TkwPopControlHint.SetValuePrim
+ Result := 'pop:Control:Hint';
+end;//TkwPopControlHint.GetWordNameForRegister
 
 function TkwPopControlHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1613,10 +1456,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlHint.ParamsTypes
 
-class function TkwPopControlHint.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlHint.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Hint';
-end;//TkwPopControlHint.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Hint', aCtx);
+end;//TkwPopControlHint.SetValuePrim
 
 function TkwPopControlShowHint.ShowHint(const aCtx: TtfwContext;
  aControl: TControl): Boolean;
@@ -1640,11 +1484,10 @@ begin
  aCtx.rEngine.PushBool(ShowHint(aCtx, l_aControl));
 end;//TkwPopControlShowHint.DoDoIt
 
-procedure TkwPopControlShowHint.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlShowHint.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShowHint', aCtx);
-end;//TkwPopControlShowHint.SetValuePrim
+ Result := 'pop:Control:ShowHint';
+end;//TkwPopControlShowHint.GetWordNameForRegister
 
 function TkwPopControlShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1661,20 +1504,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlShowHint.ParamsTypes
 
-class function TkwPopControlShowHint.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlShowHint.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:ShowHint';
-end;//TkwPopControlShowHint.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShowHint', aCtx);
+end;//TkwPopControlShowHint.SetValuePrim
 
 function TkwPopControlCaption.Caption(const aCtx: TtfwContext;
  aControl: TControl): AnsiString;
  {* Реализация слова скрипта pop:Control:Caption }
-//#UC START# *DAFCD40E37A8_6ED40CDED494_var*
-//#UC END# *DAFCD40E37A8_6ED40CDED494_var*
+//#UC START# *DED31F73A44E_6ED40CDED494_var*
+//#UC END# *DED31F73A44E_6ED40CDED494_var*
 begin
-//#UC START# *DAFCD40E37A8_6ED40CDED494_impl*
+//#UC START# *DED31F73A44E_6ED40CDED494_impl*
  Result := TControlFriend(aControl).Caption;
-//#UC END# *DAFCD40E37A8_6ED40CDED494_impl*
+//#UC END# *DED31F73A44E_6ED40CDED494_impl*
 end;//TkwPopControlCaption.Caption
 
 procedure TkwPopControlCaption.DoDoIt(const aCtx: TtfwContext);
@@ -1692,11 +1536,10 @@ begin
  aCtx.rEngine.PushString(Caption(aCtx, l_aControl));
 end;//TkwPopControlCaption.DoDoIt
 
-procedure TkwPopControlCaption.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlCaption.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
-end;//TkwPopControlCaption.SetValuePrim
+ Result := 'pop:Control:Caption';
+end;//TkwPopControlCaption.GetWordNameForRegister
 
 function TkwPopControlCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1713,10 +1556,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlCaption.ParamsTypes
 
-class function TkwPopControlCaption.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlCaption.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Caption';
-end;//TkwPopControlCaption.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
+end;//TkwPopControlCaption.SetValuePrim
 
 function TkwPopControlTop.Top(const aCtx: TtfwContext;
  aControl: TControl): Integer;
@@ -1740,21 +1584,10 @@ begin
  aCtx.rEngine.PushInt(Top(aCtx, l_aControl));
 end;//TkwPopControlTop.DoDoIt
 
-procedure TkwPopControlTop.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Control: TControl;
+class function TkwPopControlTop.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Control.Top := aValue.AsInt;
-end;//TkwPopControlTop.SetValuePrim
+ Result := 'pop:Control:Top';
+end;//TkwPopControlTop.GetWordNameForRegister
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1771,10 +1604,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlTop.ParamsTypes
 
-class function TkwPopControlTop.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlTop.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- Result := 'pop:Control:Top';
-end;//TkwPopControlTop.GetWordNameForRegister
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Control.Top := aValue.AsInt;
+end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlLeft.Left(const aCtx: TtfwContext;
  aControl: TControl): Integer;
@@ -1798,21 +1642,10 @@ begin
  aCtx.rEngine.PushInt(Left(aCtx, l_aControl));
 end;//TkwPopControlLeft.DoDoIt
 
-procedure TkwPopControlLeft.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Control: TControl;
+class function TkwPopControlLeft.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Control.Left := aValue.AsInt;
-end;//TkwPopControlLeft.SetValuePrim
+ Result := 'pop:Control:Left';
+end;//TkwPopControlLeft.GetWordNameForRegister
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1829,10 +1662,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlLeft.ParamsTypes
 
-class function TkwPopControlLeft.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlLeft.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- Result := 'pop:Control:Left';
-end;//TkwPopControlLeft.GetWordNameForRegister
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Control.Left := aValue.AsInt;
+end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlHeight.Height(const aCtx: TtfwContext;
  aControl: TControl): Integer;
@@ -1856,21 +1700,10 @@ begin
  aCtx.rEngine.PushInt(Height(aCtx, l_aControl));
 end;//TkwPopControlHeight.DoDoIt
 
-procedure TkwPopControlHeight.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Control: TControl;
+class function TkwPopControlHeight.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Control.Height := aValue.AsInt;
-end;//TkwPopControlHeight.SetValuePrim
+ Result := 'pop:Control:Height';
+end;//TkwPopControlHeight.GetWordNameForRegister
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1887,10 +1720,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlHeight.ParamsTypes
 
-class function TkwPopControlHeight.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlHeight.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- Result := 'pop:Control:Height';
-end;//TkwPopControlHeight.GetWordNameForRegister
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Control.Height := aValue.AsInt;
+end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlWidth.Width(const aCtx: TtfwContext;
  aControl: TControl): Integer;
@@ -1914,21 +1758,10 @@ begin
  aCtx.rEngine.PushInt(Width(aCtx, l_aControl));
 end;//TkwPopControlWidth.DoDoIt
 
-procedure TkwPopControlWidth.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Control: TControl;
+class function TkwPopControlWidth.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Control.Width := aValue.AsInt;
-end;//TkwPopControlWidth.SetValuePrim
+ Result := 'pop:Control:Width';
+end;//TkwPopControlWidth.GetWordNameForRegister
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1945,10 +1778,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlWidth.ParamsTypes
 
-class function TkwPopControlWidth.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlWidth.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- Result := 'pop:Control:Width';
-end;//TkwPopControlWidth.GetWordNameForRegister
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Control.Width := aValue.AsInt;
+end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlParent.Parent(const aCtx: TtfwContext;
  aControl: TControl): TControl;
@@ -1972,11 +1816,10 @@ begin
  aCtx.rEngine.PushObj(Parent(aCtx, l_aControl));
 end;//TkwPopControlParent.DoDoIt
 
-procedure TkwPopControlParent.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlParent.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Parent', aCtx);
-end;//TkwPopControlParent.SetValuePrim
+ Result := 'pop:Control:Parent';
+end;//TkwPopControlParent.GetWordNameForRegister
 
 function TkwPopControlParent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1993,20 +1836,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlParent.ParamsTypes
 
-class function TkwPopControlParent.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlParent.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Parent';
-end;//TkwPopControlParent.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Parent', aCtx);
+end;//TkwPopControlParent.SetValuePrim
 
 function TkwPopControlFont.Font(const aCtx: TtfwContext;
  aControl: TControl): Il3FontInfo;
  {* Реализация слова скрипта pop:Control:Font }
-//#UC START# *BCE0497B09C6_520187343F71_var*
-//#UC END# *BCE0497B09C6_520187343F71_var*
+//#UC START# *6F77A6446D98_520187343F71_var*
+//#UC END# *6F77A6446D98_520187343F71_var*
 begin
-//#UC START# *BCE0497B09C6_520187343F71_impl*
+//#UC START# *6F77A6446D98_520187343F71_impl*
  Result := Tl3ControlFontService.Instance.GetFont(aControl);
-//#UC END# *BCE0497B09C6_520187343F71_impl*
+//#UC END# *6F77A6446D98_520187343F71_impl*
 end;//TkwPopControlFont.Font
 
 procedure TkwPopControlFont.DoDoIt(const aCtx: TtfwContext);
@@ -2024,11 +1868,10 @@ begin
  aCtx.rEngine.PushIntf(Font(aCtx, l_aControl), TypeInfo(Il3FontInfo));
 end;//TkwPopControlFont.DoDoIt
 
-procedure TkwPopControlFont.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopControlFont.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Font', aCtx);
-end;//TkwPopControlFont.SetValuePrim
+ Result := 'pop:Control:Font';
+end;//TkwPopControlFont.GetWordNameForRegister
 
 function TkwPopControlFont.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2045,10 +1888,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlFont.ParamsTypes
 
-class function TkwPopControlFont.GetWordNameForRegister: AnsiString;
+procedure TkwPopControlFont.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Control:Font';
-end;//TkwPopControlFont.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Font', aCtx);
+end;//TkwPopControlFont.SetValuePrim
 
 initialization
  TkwPopControlClientToScreen.RegisterInEngine;
@@ -2107,8 +1951,6 @@ initialization
  {* Регистрация pop_Control_Parent }
  TkwPopControlFont.RegisterInEngine;
  {* Регистрация pop_Control_Font }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TControl));
  {* Регистрация типа TControl }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
@@ -2117,18 +1959,18 @@ initialization
  {* Регистрация типа TMenuItem }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomForm));
  {* Регистрация типа TCustomForm }
- TtfwTypeRegistrator.RegisterType(TypeInfo(THandle));
- {* Регистрация типа THandle }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TColor));
  {* Регистрация типа TColor }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3FontInfo));
  {* Регистрация типа Il3FontInfo }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(THandle));
+ {* Регистрация типа THandle }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

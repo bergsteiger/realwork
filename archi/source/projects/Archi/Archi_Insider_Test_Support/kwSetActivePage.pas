@@ -32,8 +32,8 @@ type
   w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwSetActivePage
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -44,6 +44,11 @@ uses
  l3ImplUses
  , arArchiTestsAdapter
 ;
+
+class function TkwSetActivePage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'окно_редактора:перейти_на_вкладку';
+end;//TkwSetActivePage.GetWordNameForRegister
 
 procedure TkwSetActivePage.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EAFC7190370_var*
@@ -56,11 +61,6 @@ begin
   Assert(False, 'Не задан номер вкладки!');
 //#UC END# *4DAEEDE10285_4EAFC7190370_impl*
 end;//TkwSetActivePage.DoDoIt
-
-class function TkwSetActivePage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'окно_редактора:перейти_на_вкладку';
-end;//TkwSetActivePage.GetWordNameForRegister
 
 initialization
  TkwSetActivePage.RegisterInEngine;

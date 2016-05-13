@@ -63,6 +63,23 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TLogicOperation));
+ {* Регистрация типа TLogicOperation }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(InsLogicOperation));
+ {* Регистрация типа InsLogicOperation }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(InsTaggedTreeInfo));
+ {* Регистрация типа InsTaggedTreeInfo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

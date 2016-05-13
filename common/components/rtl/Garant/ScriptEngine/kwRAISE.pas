@@ -37,8 +37,8 @@ EXCEPT
 END
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwRAISE
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -49,6 +49,11 @@ uses
  l3ImplUses
  , SysUtils
 ;
+
+class function TkwRAISE.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'RAISE';
+end;//TkwRAISE.GetWordNameForRegister
 
 procedure TkwRAISE.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBAE64F02F7_var*
@@ -63,11 +68,6 @@ begin
   raise EtfwScriptException.Create(aCtx.rEngine.PopDelphiString);
 //#UC END# *4DAEEDE10285_4DBAE64F02F7_impl*
 end;//TkwRAISE.DoDoIt
-
-class function TkwRAISE.GetWordNameForRegister: AnsiString;
-begin
- Result := 'RAISE';
-end;//TkwRAISE.GetWordNameForRegister
 
 initialization
  TkwRAISE.RegisterInEngine;

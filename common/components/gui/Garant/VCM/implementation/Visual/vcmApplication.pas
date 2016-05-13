@@ -99,6 +99,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(DesignTimeLibrary)}
@@ -291,6 +294,12 @@ begin
  {$IfEnd} //not DesignTimeLibrary
 //#UC END# *47D1602000C6_4AB22E140136_impl*
 end;//TvcmApplication.Create
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmApplication);
+ {* Регистрация TvcmApplication }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -29,8 +29,8 @@ type
 
  TkwHardKey = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwHardKey
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -44,6 +44,11 @@ uses
  , Consts
  , l3MessagesService
 ;
+
+class function TkwHardKey.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'HardKey';
+end;//TkwHardKey.GetWordNameForRegister
 
 procedure TkwHardKey.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_501956850225_var*
@@ -199,11 +204,6 @@ begin
  {$Endif XE}
 //#UC END# *4DAEEDE10285_501956850225_impl*
 end;//TkwHardKey.DoDoIt
-
-class function TkwHardKey.GetWordNameForRegister: AnsiString;
-begin
- Result := 'HardKey';
-end;//TkwHardKey.GetWordNameForRegister
 
 initialization
  TkwHardKey.RegisterInEngine;

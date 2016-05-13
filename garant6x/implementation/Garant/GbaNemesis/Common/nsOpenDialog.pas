@@ -78,6 +78,9 @@ uses
  , CommDlg
  {$IfEnd} // NOT Defined(NoVCL)
  , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4DDD468D0131impl_uses*
  //#UC END# *4DDD468D0131impl_uses*
 ;
@@ -241,6 +244,10 @@ end;//TnsOpenDialog.Execute
 initialization
  str_OpenDialogInnerNumbers.Init;
  {* Инициализация str_OpenDialogInnerNumbers }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnsOpenDialog);
+ {* Регистрация TnsOpenDialog }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

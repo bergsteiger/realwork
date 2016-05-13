@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , dsAACDocumentPrim
- , evdTypes
  , nevTools
+ , evdTypes
 ;
 
 type

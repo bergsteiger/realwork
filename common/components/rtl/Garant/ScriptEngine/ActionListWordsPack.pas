@@ -25,19 +25,13 @@ uses
  , TypInfo
  , ContainedActionsWordspack
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopActionListFindAction = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ActionList:FindAction
-*Тип результата:* TContainedAction
-*Пример:*
-[code]
-OBJECT VAR l_TContainedAction
- anActionName aActionList pop:ActionList:FindAction >>> l_TContainedAction
-[code]  }
+  {* Слово скрипта pop:ActionList:FindAction }
   private
    function FindAction(const aCtx: TtfwContext;
     aActionList: TActionList;
@@ -56,12 +50,12 @@ function TkwPopActionListFindAction.FindAction(const aCtx: TtfwContext;
  aActionList: TActionList;
  const anActionName: AnsiString): TContainedAction;
  {* Реализация слова скрипта pop:ActionList:FindAction }
-//#UC START# *1F5508BF0CF4_E7F049DA4A74_var*
+//#UC START# *55B8E46F00AF_E7F049DA4A74_var*
 var
  l_Index : Integer;
-//#UC END# *1F5508BF0CF4_E7F049DA4A74_var*
+//#UC END# *55B8E46F00AF_E7F049DA4A74_var*
 begin
-//#UC START# *1F5508BF0CF4_E7F049DA4A74_impl*
+//#UC START# *55B8E46F00AF_E7F049DA4A74_impl*
  Result := nil;
  for l_Index := 0 to aActionList.ActionCount - 1 do
  begin
@@ -71,7 +65,7 @@ begin
   else
    Result := nil;
  end; // for i := 0 to l_ActList.ActionCount - 1 do
-//#UC END# *1F5508BF0CF4_E7F049DA4A74_impl*
+//#UC END# *55B8E46F00AF_E7F049DA4A74_impl*
 end;//TkwPopActionListFindAction.FindAction
 
 procedure TkwPopActionListFindAction.DoDoIt(const aCtx: TtfwContext);
@@ -99,6 +93,11 @@ begin
  aCtx.rEngine.PushObj(FindAction(aCtx, l_aActionList, l_anActionName));
 end;//TkwPopActionListFindAction.DoDoIt
 
+class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ActionList:FindAction';
+end;//TkwPopActionListFindAction.GetWordNameForRegister
+
 function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TContainedAction);
@@ -114,22 +113,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TActionList), @tfw_tiString]);
 end;//TkwPopActionListFindAction.ParamsTypes
 
-class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ActionList:FindAction';
-end;//TkwPopActionListFindAction.GetWordNameForRegister
-
 initialization
  TkwPopActionListFindAction.RegisterInEngine;
  {* Регистрация pop_ActionList_FindAction }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TActionList));
  {* Регистрация типа TActionList }
- TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TContainedAction));
  {* Регистрация типа TContainedAction }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

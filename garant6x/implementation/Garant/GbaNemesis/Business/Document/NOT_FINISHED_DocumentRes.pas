@@ -26,6 +26,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure nsDocumentRes;
@@ -36,6 +39,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *49256C990052_49256C760276_impl*
 end;//nsDocumentRes
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnsDocumentRes);
+ {* Регистрация TnsDocumentRes }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

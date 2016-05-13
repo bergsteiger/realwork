@@ -26,19 +26,13 @@ uses
  , tfwPropertyLike
  , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopKeywordFinderKeywordByName = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:KeywordFinder:KeywordByName
-*Тип результата:* TtfwKeyWord
-*Пример:*
-[code]
-OBJECT VAR l_TtfwKeyWord
- aName aKeywordFinder pop:KeywordFinder:KeywordByName >>> l_TtfwKeyWord
-[code]  }
+  {* Слово скрипта pop:KeywordFinder:KeywordByName }
   private
    function KeywordByName(const aCtx: TtfwContext;
     aKeywordFinder: TtfwKeywordFinder;
@@ -54,13 +48,7 @@ OBJECT VAR l_TtfwKeyWord
  end;//TkwPopKeywordFinderKeywordByName
 
  TkwPopKeywordFinderParentFinder = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:KeywordFinder:ParentFinder
-*Тип результата:* TtfwKeywordFinder
-*Пример:*
-[code]
-OBJECT VAR l_TtfwKeywordFinder
- aKeywordFinder pop:KeywordFinder:ParentFinder >>> l_TtfwKeywordFinder
-[code]  }
+  {* Слово скрипта pop:KeywordFinder:ParentFinder }
   private
    function ParentFinder(const aCtx: TtfwContext;
     aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
@@ -69,23 +57,23 @@ OBJECT VAR l_TtfwKeywordFinder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopKeywordFinderParentFinder
 
 function TkwPopKeywordFinderKeywordByName.KeywordByName(const aCtx: TtfwContext;
  aKeywordFinder: TtfwKeywordFinder;
  const aName: Il3CString): TtfwKeyWord;
  {* Реализация слова скрипта pop:KeywordFinder:KeywordByName }
-//#UC START# *4BB40DD9D18E_D73628563892_var*
-//#UC END# *4BB40DD9D18E_D73628563892_var*
+//#UC START# *559BCEFC0315_D73628563892_var*
+//#UC END# *559BCEFC0315_D73628563892_var*
 begin
-//#UC START# *4BB40DD9D18E_D73628563892_impl*
+//#UC START# *559BCEFC0315_D73628563892_impl*
  Result := TtfwKeyWord(aKeywordFinder.KeywordByName(aName));
-//#UC END# *4BB40DD9D18E_D73628563892_impl*
+//#UC END# *559BCEFC0315_D73628563892_impl*
 end;//TkwPopKeywordFinderKeywordByName.KeywordByName
 
 procedure TkwPopKeywordFinderKeywordByName.DoDoIt(const aCtx: TtfwContext);
@@ -113,6 +101,11 @@ begin
  aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aKeywordFinder, l_aName));
 end;//TkwPopKeywordFinderKeywordByName.DoDoIt
 
+class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeywordFinder:KeywordByName';
+end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
+
 function TkwPopKeywordFinderKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwKeyWord);
@@ -128,20 +121,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder), @tfw_tiString]);
 end;//TkwPopKeywordFinderKeywordByName.ParamsTypes
 
-class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeywordFinder:KeywordByName';
-end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
-
 function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
  aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
-//#UC START# *3D8B4028DC71_F60851FE16E3_var*
-//#UC END# *3D8B4028DC71_F60851FE16E3_var*
+//#UC START# *4DFEE1DE515C_F60851FE16E3_var*
+//#UC END# *4DFEE1DE515C_F60851FE16E3_var*
 begin
-//#UC START# *3D8B4028DC71_F60851FE16E3_impl*
+//#UC START# *4DFEE1DE515C_F60851FE16E3_impl*
  Result := aKeywordFinder.ParentFinder;
-//#UC END# *3D8B4028DC71_F60851FE16E3_impl*
+//#UC END# *4DFEE1DE515C_F60851FE16E3_impl*
 end;//TkwPopKeywordFinderParentFinder.ParentFinder
 
 procedure TkwPopKeywordFinderParentFinder.DoDoIt(const aCtx: TtfwContext);
@@ -159,11 +147,10 @@ begin
  aCtx.rEngine.PushObj(ParentFinder(aCtx, l_aKeywordFinder));
 end;//TkwPopKeywordFinderParentFinder.DoDoIt
 
-procedure TkwPopKeywordFinderParentFinder.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentFinder', aCtx);
-end;//TkwPopKeywordFinderParentFinder.SetValuePrim
+ Result := 'pop:KeywordFinder:ParentFinder';
+end;//TkwPopKeywordFinderParentFinder.GetWordNameForRegister
 
 function TkwPopKeywordFinderParentFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -180,24 +167,23 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder)]);
 end;//TkwPopKeywordFinderParentFinder.ParamsTypes
 
-class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
+procedure TkwPopKeywordFinderParentFinder.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:KeywordFinder:ParentFinder';
-end;//TkwPopKeywordFinderParentFinder.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentFinder', aCtx);
+end;//TkwPopKeywordFinderParentFinder.SetValuePrim
 
 initialization
  TkwPopKeywordFinderKeywordByName.RegisterInEngine;
  {* Регистрация pop_KeywordFinder_KeywordByName }
  TkwPopKeywordFinderParentFinder.RegisterInEngine;
  {* Регистрация pop_KeywordFinder_ParentFinder }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeywordFinder));
  {* Регистрация типа TtfwKeywordFinder }
- TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeyWord));
  {* Регистрация типа TtfwKeyWord }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа Il3CString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

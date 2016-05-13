@@ -20,82 +20,66 @@ implementation
 uses
  l3ImplUses
  , tfwGlobalKeyWord
- , tfwScriptingInterfaces
  , TypInfo
+ , tfwScriptingInterfaces
  , kwCheckOutputWithInput
  , kwCheckEtalon
  , kwTestResolveInputFilePath
  , l3EtalonsService
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwEtalonNeeds64 = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeeds64
-*Пример:*
-[code]
- EtalonNeeds64
-[code]  }
+  {* Слово скрипта EtalonNeeds64 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEtalonNeeds64
 
  TkwEtalonNeedsComputerName = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeedsComputerName
-*Пример:*
-[code]
- EtalonNeedsComputerName
-[code]  }
+  {* Слово скрипта EtalonNeedsComputerName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEtalonNeedsComputerName
 
  TkwEtalonNeedsOSName = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeedsOSName
-*Пример:*
-[code]
- EtalonNeedsOSName
-[code]  }
+  {* Слово скрипта EtalonNeedsOSName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEtalonNeedsOSName
 
  TkwEtalonNeedsXE = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeedsXE
-*Пример:*
-[code]
- EtalonNeedsXE
-[code]  }
+  {* Слово скрипта EtalonNeedsXE }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwEtalonNeedsXE
 
-procedure TkwEtalonNeeds64.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_60A242C872F7_var*
-//#UC END# *4DAEEDE10285_60A242C872F7_var*
+class function TkwEtalonNeeds64.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_60A242C872F7_impl*
- Tl3EtalonsService.Instance.EtalonNeeds64 := true; 
-//#UC END# *4DAEEDE10285_60A242C872F7_impl*
-end;//TkwEtalonNeeds64.DoDoIt
+ Result := 'EtalonNeeds64';
+end;//TkwEtalonNeeds64.GetWordNameForRegister
 
 function TkwEtalonNeeds64.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -107,19 +91,24 @@ begin
  Result := 0;
 end;//TkwEtalonNeeds64.GetAllParamsCount
 
-class function TkwEtalonNeeds64.GetWordNameForRegister: AnsiString;
+function TkwEtalonNeeds64.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'EtalonNeeds64';
-end;//TkwEtalonNeeds64.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwEtalonNeeds64.ParamsTypes
 
-procedure TkwEtalonNeedsComputerName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_116A432ADCB1_var*
-//#UC END# *4DAEEDE10285_116A432ADCB1_var*
+procedure TkwEtalonNeeds64.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_555F531D0312_Word_var*
+//#UC END# *4DAEEDE10285_555F531D0312_Word_var*
 begin
-//#UC START# *4DAEEDE10285_116A432ADCB1_impl*
- Tl3EtalonsService.Instance.EtalonNeedsComputerName := true;
-//#UC END# *4DAEEDE10285_116A432ADCB1_impl*
-end;//TkwEtalonNeedsComputerName.DoDoIt
+//#UC START# *4DAEEDE10285_555F531D0312_Word_impl*
+ Tl3EtalonsService.Instance.EtalonNeeds64 := true; 
+//#UC END# *4DAEEDE10285_555F531D0312_Word_impl*
+end;//TkwEtalonNeeds64.DoDoIt
+
+class function TkwEtalonNeedsComputerName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EtalonNeedsComputerName';
+end;//TkwEtalonNeedsComputerName.GetWordNameForRegister
 
 function TkwEtalonNeedsComputerName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -131,19 +120,24 @@ begin
  Result := 0;
 end;//TkwEtalonNeedsComputerName.GetAllParamsCount
 
-class function TkwEtalonNeedsComputerName.GetWordNameForRegister: AnsiString;
+function TkwEtalonNeedsComputerName.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'EtalonNeedsComputerName';
-end;//TkwEtalonNeedsComputerName.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwEtalonNeedsComputerName.ParamsTypes
 
-procedure TkwEtalonNeedsOSName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4A371D758055_var*
-//#UC END# *4DAEEDE10285_4A371D758055_var*
+procedure TkwEtalonNeedsComputerName.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_555F53390367_Word_var*
+//#UC END# *4DAEEDE10285_555F53390367_Word_var*
 begin
-//#UC START# *4DAEEDE10285_4A371D758055_impl*
- Tl3EtalonsService.Instance.EtalonNeedsOSName := true;
-//#UC END# *4DAEEDE10285_4A371D758055_impl*
-end;//TkwEtalonNeedsOSName.DoDoIt
+//#UC START# *4DAEEDE10285_555F53390367_Word_impl*
+ Tl3EtalonsService.Instance.EtalonNeedsComputerName := true;
+//#UC END# *4DAEEDE10285_555F53390367_Word_impl*
+end;//TkwEtalonNeedsComputerName.DoDoIt
+
+class function TkwEtalonNeedsOSName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EtalonNeedsOSName';
+end;//TkwEtalonNeedsOSName.GetWordNameForRegister
 
 function TkwEtalonNeedsOSName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -155,21 +149,24 @@ begin
  Result := 0;
 end;//TkwEtalonNeedsOSName.GetAllParamsCount
 
-class function TkwEtalonNeedsOSName.GetWordNameForRegister: AnsiString;
+function TkwEtalonNeedsOSName.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'EtalonNeedsOSName';
-end;//TkwEtalonNeedsOSName.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwEtalonNeedsOSName.ParamsTypes
 
-procedure TkwEtalonNeedsXE.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DECF86D5A261_var*
-//#UC END# *4DAEEDE10285_DECF86D5A261_var*
+procedure TkwEtalonNeedsOSName.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_555F534D01A0_Word_var*
+//#UC END# *4DAEEDE10285_555F534D01A0_Word_var*
 begin
-//#UC START# *4DAEEDE10285_DECF86D5A261_impl*
- {$IfDef XE}
- Tl3EtalonsService.Instance.EtalonNeedsXE := true;
- {$EndIf XE}
-//#UC END# *4DAEEDE10285_DECF86D5A261_impl*
-end;//TkwEtalonNeedsXE.DoDoIt
+//#UC START# *4DAEEDE10285_555F534D01A0_Word_impl*
+ Tl3EtalonsService.Instance.EtalonNeedsOSName := true;
+//#UC END# *4DAEEDE10285_555F534D01A0_Word_impl*
+end;//TkwEtalonNeedsOSName.DoDoIt
+
+class function TkwEtalonNeedsXE.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EtalonNeedsXE';
+end;//TkwEtalonNeedsXE.GetWordNameForRegister
 
 function TkwEtalonNeedsXE.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +178,21 @@ begin
  Result := 0;
 end;//TkwEtalonNeedsXE.GetAllParamsCount
 
-class function TkwEtalonNeedsXE.GetWordNameForRegister: AnsiString;
+function TkwEtalonNeedsXE.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'EtalonNeedsXE';
-end;//TkwEtalonNeedsXE.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwEtalonNeedsXE.ParamsTypes
+
+procedure TkwEtalonNeedsXE.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_555F535F00CE_Word_var*
+//#UC END# *4DAEEDE10285_555F535F00CE_Word_var*
+begin
+//#UC START# *4DAEEDE10285_555F535F00CE_Word_impl*
+ {$IfDef XE}
+ Tl3EtalonsService.Instance.EtalonNeedsXE := true;
+ {$EndIf XE}
+//#UC END# *4DAEEDE10285_555F535F00CE_Word_impl*
+end;//TkwEtalonNeedsXE.DoDoIt
 
 initialization
  TkwEtalonNeeds64.RegisterInEngine;

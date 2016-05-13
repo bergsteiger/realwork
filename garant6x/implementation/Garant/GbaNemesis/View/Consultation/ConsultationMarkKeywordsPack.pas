@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -334,14 +334,7 @@ type
  end;//Tkw_ConsultationMark_Control_mComment_Push
 
  TkwEnConsultationMarkGbMark = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.gbMark
-[panel]Контрол gbMark формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aen_ConsultationMark .Ten_ConsultationMark.gbMark >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.gbMark }
   private
    function gbMark(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
@@ -350,22 +343,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkGbMark
 
  TkwEnConsultationMarkRbNotSure = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.rbNotSure
-[panel]Контрол rbNotSure формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtRadioButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtRadioButton
- aen_ConsultationMark .Ten_ConsultationMark.rbNotSure >>> l_TvtRadioButton
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.rbNotSure }
   private
    function rbNotSure(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -374,22 +360,15 @@ OBJECT VAR l_TvtRadioButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkRbNotSure
 
  TkwEnConsultationMarkRbTwo = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.rbTwo
-[panel]Контрол rbTwo формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtRadioButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtRadioButton
- aen_ConsultationMark .Ten_ConsultationMark.rbTwo >>> l_TvtRadioButton
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.rbTwo }
   private
    function rbTwo(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -398,22 +377,15 @@ OBJECT VAR l_TvtRadioButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkRbTwo
 
  TkwEnConsultationMarkRbThree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.rbThree
-[panel]Контрол rbThree формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtRadioButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtRadioButton
- aen_ConsultationMark .Ten_ConsultationMark.rbThree >>> l_TvtRadioButton
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.rbThree }
   private
    function rbThree(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -422,22 +394,15 @@ OBJECT VAR l_TvtRadioButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkRbThree
 
  TkwEnConsultationMarkRbFour = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.rbFour
-[panel]Контрол rbFour формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtRadioButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtRadioButton
- aen_ConsultationMark .Ten_ConsultationMark.rbFour >>> l_TvtRadioButton
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.rbFour }
   private
    function rbFour(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -446,22 +411,15 @@ OBJECT VAR l_TvtRadioButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkRbFour
 
  TkwEnConsultationMarkRbFive = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.rbFive
-[panel]Контрол rbFive формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtRadioButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtRadioButton
- aen_ConsultationMark .Ten_ConsultationMark.rbFive >>> l_TvtRadioButton
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.rbFive }
   private
    function rbFive(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -470,22 +428,15 @@ OBJECT VAR l_TvtRadioButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkRbFive
 
  TkwEnConsultationMarkPnlHelp = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.pnlHelp
-[panel]Контрол pnlHelp формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aen_ConsultationMark .Ten_ConsultationMark.pnlHelp >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.pnlHelp }
   private
    function pnlHelp(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtPanel;
@@ -494,22 +445,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkPnlHelp
 
  TkwEnConsultationMarkLblHelp = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.lblHelp
-[panel]Контрол lblHelp формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aen_ConsultationMark .Ten_ConsultationMark.lblHelp >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.lblHelp }
   private
    function lblHelp(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtLabel;
@@ -518,22 +462,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkLblHelp
 
  TkwEnConsultationMarkGbComment = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.gbComment
-[panel]Контрол gbComment формы Ten_ConsultationMark[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aen_ConsultationMark .Ten_ConsultationMark.gbComment >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.gbComment }
   private
    function gbComment(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
@@ -542,22 +479,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkGbComment
 
  TkwEnConsultationMarkMComment = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConsultationMark.mComment
-[panel]Контрол mComment формы Ten_ConsultationMark[panel]
-*Тип результата:* TeeMemoWithEditOperations
-*Пример:*
-[code]
-OBJECT VAR l_TeeMemoWithEditOperations
- aen_ConsultationMark .Ten_ConsultationMark.mComment >>> l_TeeMemoWithEditOperations
-[code]  }
+  {* Слово скрипта .Ten_ConsultationMark.mComment }
   private
    function mComment(const aCtx: TtfwContext;
     aen_ConsultationMark: Ten_ConsultationMark): TeeMemoWithEditOperations;
@@ -566,11 +496,11 @@ OBJECT VAR l_TeeMemoWithEditOperations
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConsultationMarkMComment
 
 function Tkw_Form_ConsultationMark.GetString: AnsiString;
@@ -875,11 +805,10 @@ begin
  aCtx.rEngine.PushObj(gbMark(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkGbMark.DoDoIt
 
-procedure TkwEnConsultationMarkGbMark.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkGbMark.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству gbMark', aCtx);
-end;//TkwEnConsultationMarkGbMark.SetValuePrim
+ Result := '.Ten_ConsultationMark.gbMark';
+end;//TkwEnConsultationMarkGbMark.GetWordNameForRegister
 
 function TkwEnConsultationMarkGbMark.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -896,10 +825,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkGbMark.ParamsTypes
 
-class function TkwEnConsultationMarkGbMark.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkGbMark.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.gbMark';
-end;//TkwEnConsultationMarkGbMark.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству gbMark', aCtx);
+end;//TkwEnConsultationMarkGbMark.SetValuePrim
 
 function TkwEnConsultationMarkRbNotSure.rbNotSure(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -923,11 +853,10 @@ begin
  aCtx.rEngine.PushObj(rbNotSure(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbNotSure.DoDoIt
 
-procedure TkwEnConsultationMarkRbNotSure.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkRbNotSure.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству rbNotSure', aCtx);
-end;//TkwEnConsultationMarkRbNotSure.SetValuePrim
+ Result := '.Ten_ConsultationMark.rbNotSure';
+end;//TkwEnConsultationMarkRbNotSure.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbNotSure.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -944,10 +873,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbNotSure.ParamsTypes
 
-class function TkwEnConsultationMarkRbNotSure.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkRbNotSure.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.rbNotSure';
-end;//TkwEnConsultationMarkRbNotSure.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству rbNotSure', aCtx);
+end;//TkwEnConsultationMarkRbNotSure.SetValuePrim
 
 function TkwEnConsultationMarkRbTwo.rbTwo(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -971,11 +901,10 @@ begin
  aCtx.rEngine.PushObj(rbTwo(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbTwo.DoDoIt
 
-procedure TkwEnConsultationMarkRbTwo.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkRbTwo.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству rbTwo', aCtx);
-end;//TkwEnConsultationMarkRbTwo.SetValuePrim
+ Result := '.Ten_ConsultationMark.rbTwo';
+end;//TkwEnConsultationMarkRbTwo.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbTwo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -992,10 +921,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbTwo.ParamsTypes
 
-class function TkwEnConsultationMarkRbTwo.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkRbTwo.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.rbTwo';
-end;//TkwEnConsultationMarkRbTwo.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству rbTwo', aCtx);
+end;//TkwEnConsultationMarkRbTwo.SetValuePrim
 
 function TkwEnConsultationMarkRbThree.rbThree(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -1019,11 +949,10 @@ begin
  aCtx.rEngine.PushObj(rbThree(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbThree.DoDoIt
 
-procedure TkwEnConsultationMarkRbThree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkRbThree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству rbThree', aCtx);
-end;//TkwEnConsultationMarkRbThree.SetValuePrim
+ Result := '.Ten_ConsultationMark.rbThree';
+end;//TkwEnConsultationMarkRbThree.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbThree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1040,10 +969,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbThree.ParamsTypes
 
-class function TkwEnConsultationMarkRbThree.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkRbThree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.rbThree';
-end;//TkwEnConsultationMarkRbThree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству rbThree', aCtx);
+end;//TkwEnConsultationMarkRbThree.SetValuePrim
 
 function TkwEnConsultationMarkRbFour.rbFour(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -1067,11 +997,10 @@ begin
  aCtx.rEngine.PushObj(rbFour(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbFour.DoDoIt
 
-procedure TkwEnConsultationMarkRbFour.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkRbFour.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству rbFour', aCtx);
-end;//TkwEnConsultationMarkRbFour.SetValuePrim
+ Result := '.Ten_ConsultationMark.rbFour';
+end;//TkwEnConsultationMarkRbFour.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbFour.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1088,10 +1017,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbFour.ParamsTypes
 
-class function TkwEnConsultationMarkRbFour.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkRbFour.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.rbFour';
-end;//TkwEnConsultationMarkRbFour.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству rbFour', aCtx);
+end;//TkwEnConsultationMarkRbFour.SetValuePrim
 
 function TkwEnConsultationMarkRbFive.rbFive(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
@@ -1115,11 +1045,10 @@ begin
  aCtx.rEngine.PushObj(rbFive(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkRbFive.DoDoIt
 
-procedure TkwEnConsultationMarkRbFive.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkRbFive.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству rbFive', aCtx);
-end;//TkwEnConsultationMarkRbFive.SetValuePrim
+ Result := '.Ten_ConsultationMark.rbFive';
+end;//TkwEnConsultationMarkRbFive.GetWordNameForRegister
 
 function TkwEnConsultationMarkRbFive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1136,10 +1065,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkRbFive.ParamsTypes
 
-class function TkwEnConsultationMarkRbFive.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkRbFive.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.rbFive';
-end;//TkwEnConsultationMarkRbFive.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству rbFive', aCtx);
+end;//TkwEnConsultationMarkRbFive.SetValuePrim
 
 function TkwEnConsultationMarkPnlHelp.pnlHelp(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtPanel;
@@ -1163,11 +1093,10 @@ begin
  aCtx.rEngine.PushObj(pnlHelp(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkPnlHelp.DoDoIt
 
-procedure TkwEnConsultationMarkPnlHelp.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkPnlHelp.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlHelp', aCtx);
-end;//TkwEnConsultationMarkPnlHelp.SetValuePrim
+ Result := '.Ten_ConsultationMark.pnlHelp';
+end;//TkwEnConsultationMarkPnlHelp.GetWordNameForRegister
 
 function TkwEnConsultationMarkPnlHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1184,10 +1113,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkPnlHelp.ParamsTypes
 
-class function TkwEnConsultationMarkPnlHelp.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkPnlHelp.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.pnlHelp';
-end;//TkwEnConsultationMarkPnlHelp.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlHelp', aCtx);
+end;//TkwEnConsultationMarkPnlHelp.SetValuePrim
 
 function TkwEnConsultationMarkLblHelp.lblHelp(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtLabel;
@@ -1211,11 +1141,10 @@ begin
  aCtx.rEngine.PushObj(lblHelp(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkLblHelp.DoDoIt
 
-procedure TkwEnConsultationMarkLblHelp.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkLblHelp.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblHelp', aCtx);
-end;//TkwEnConsultationMarkLblHelp.SetValuePrim
+ Result := '.Ten_ConsultationMark.lblHelp';
+end;//TkwEnConsultationMarkLblHelp.GetWordNameForRegister
 
 function TkwEnConsultationMarkLblHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1232,10 +1161,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkLblHelp.ParamsTypes
 
-class function TkwEnConsultationMarkLblHelp.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkLblHelp.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.lblHelp';
-end;//TkwEnConsultationMarkLblHelp.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblHelp', aCtx);
+end;//TkwEnConsultationMarkLblHelp.SetValuePrim
 
 function TkwEnConsultationMarkGbComment.gbComment(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
@@ -1259,11 +1189,10 @@ begin
  aCtx.rEngine.PushObj(gbComment(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkGbComment.DoDoIt
 
-procedure TkwEnConsultationMarkGbComment.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkGbComment.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству gbComment', aCtx);
-end;//TkwEnConsultationMarkGbComment.SetValuePrim
+ Result := '.Ten_ConsultationMark.gbComment';
+end;//TkwEnConsultationMarkGbComment.GetWordNameForRegister
 
 function TkwEnConsultationMarkGbComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1280,10 +1209,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkGbComment.ParamsTypes
 
-class function TkwEnConsultationMarkGbComment.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkGbComment.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.gbComment';
-end;//TkwEnConsultationMarkGbComment.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству gbComment', aCtx);
+end;//TkwEnConsultationMarkGbComment.SetValuePrim
 
 function TkwEnConsultationMarkMComment.mComment(const aCtx: TtfwContext;
  aen_ConsultationMark: Ten_ConsultationMark): TeeMemoWithEditOperations;
@@ -1307,11 +1237,10 @@ begin
  aCtx.rEngine.PushObj(mComment(aCtx, l_aen_ConsultationMark));
 end;//TkwEnConsultationMarkMComment.DoDoIt
 
-procedure TkwEnConsultationMarkMComment.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConsultationMarkMComment.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству mComment', aCtx);
-end;//TkwEnConsultationMarkMComment.SetValuePrim
+ Result := '.Ten_ConsultationMark.mComment';
+end;//TkwEnConsultationMarkMComment.GetWordNameForRegister
 
 function TkwEnConsultationMarkMComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1328,10 +1257,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConsultationMark)]);
 end;//TkwEnConsultationMarkMComment.ParamsTypes
 
-class function TkwEnConsultationMarkMComment.GetWordNameForRegister: AnsiString;
+procedure TkwEnConsultationMarkMComment.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConsultationMark.mComment';
-end;//TkwEnConsultationMarkMComment.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству mComment', aCtx);
+end;//TkwEnConsultationMarkMComment.SetValuePrim
 
 initialization
  Tkw_Form_ConsultationMark.RegisterInEngine;
@@ -1396,10 +1326,8 @@ initialization
  {* Регистрация en_ConsultationMark_gbComment }
  TkwEnConsultationMarkMComment.RegisterInEngine;
  {* Регистрация en_ConsultationMark_mComment }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_ConsultationMark));
- {* Регистрация типа ConsultationMark }
+ {* Регистрация типа Ten_ConsultationMark }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtGroupBox));
  {* Регистрация типа TvtGroupBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtRadioButton));

@@ -66,8 +66,8 @@ type
  w:\archi\source\projects\Archi\TestSet\Dictionary\MainFormUtils.script"
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwArchiCloseDocument
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -79,6 +79,11 @@ uses
  , arArchiTestsAdapter
 ;
 
+class function TkwArchiCloseDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Закрыть';
+end;//TkwArchiCloseDocument.GetWordNameForRegister
+
 procedure TkwArchiCloseDocument.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DE632EF020B_var*
 //#UC END# *4DAEEDE10285_4DE632EF020B_var*
@@ -87,11 +92,6 @@ begin
  aCtx.rCaller.Check(arCloseActiveDocument);
 //#UC END# *4DAEEDE10285_4DE632EF020B_impl*
 end;//TkwArchiCloseDocument.DoDoIt
-
-class function TkwArchiCloseDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Закрыть';
-end;//TkwArchiCloseDocument.GetWordNameForRegister
 
 initialization
  TkwArchiCloseDocument.RegisterInEngine;

@@ -50,6 +50,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , MenuWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TMenu.IsShortCut(var Message: TWMKey): Boolean;
@@ -70,6 +73,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52A090A90317_49A5750A01E8_impl*
 end;//TPopupMenu.Popup
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TMenuItem);
+ {* Регистрация TMenuItem }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TMenu);
+ {* Регистрация TMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TPopupMenu);
+ {* Регистрация TPopupMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TMainMenu);
+ {* Регистрация TMainMenu }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.

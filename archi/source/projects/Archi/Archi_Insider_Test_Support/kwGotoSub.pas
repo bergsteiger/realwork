@@ -20,8 +20,8 @@ type
  TkwGotoSub = class(TtfwRegisterableWord)
   {* окно_редактора:перейти_к_метке }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwGotoSub
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,11 @@ uses
  l3ImplUses
  , arArchiTestsAdapter
 ;
+
+class function TkwGotoSub.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'окно_редактора:перейти_к_метке';
+end;//TkwGotoSub.GetWordNameForRegister
 
 procedure TkwGotoSub.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EEF07E80201_var*
@@ -47,11 +52,6 @@ begin
  ArGotoSub(l_Index);
 //#UC END# *4DAEEDE10285_4EEF07E80201_impl*
 end;//TkwGotoSub.DoDoIt
-
-class function TkwGotoSub.GetWordNameForRegister: AnsiString;
-begin
- Result := 'окно_редактора:перейти_к_метке';
-end;//TkwGotoSub.GetWordNameForRegister
 
 initialization
  TkwGotoSub.RegisterInEngine;

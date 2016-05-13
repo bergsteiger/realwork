@@ -49,26 +49,20 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Graphics
  , l3PicturePathService
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwWndIsVisible = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта wnd:IsVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aWnd wnd:IsVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта wnd:IsVisible }
   private
    function wnd_IsVisible(const aCtx: TtfwContext;
     aWnd: THandle): Boolean;
     {* Реализация слова скрипта wnd:IsVisible }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -76,20 +70,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwWndIsVisible
 
  TkwWndGetClassName = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта wnd:GetClassName
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aWnd wnd:GetClassName >>> l_String
-[code]  }
+  {* Слово скрипта wnd:GetClassName }
   private
    function wnd_GetClassName(const aCtx: TtfwContext;
     aWnd: THandle): AnsiString;
     {* Реализация слова скрипта wnd:GetClassName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -97,20 +85,14 @@ STRING VAR l_String
  end;//TkwWndGetClassName
 
  TkwWndGetWindowText = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта wnd:GetWindowText
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aWnd wnd:GetWindowText >>> l_String
-[code]  }
+  {* Слово скрипта wnd:GetWindowText }
   private
    function wnd_GetWindowText(const aCtx: TtfwContext;
     aWnd: THandle): AnsiString;
     {* Реализация слова скрипта wnd:GetWindowText }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -118,18 +100,14 @@ STRING VAR l_String
  end;//TkwWndGetWindowText
 
  TkwWndCloseWindow = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта wnd:CloseWindow
-*Пример:*
-[code]
- aWnd wnd:CloseWindow
-[code]  }
+  {* Слово скрипта wnd:CloseWindow }
   private
    procedure wnd_CloseWindow(const aCtx: TtfwContext;
     aWnd: THandle);
     {* Реализация слова скрипта wnd:CloseWindow }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -137,20 +115,14 @@ STRING VAR l_String
  end;//TkwWndCloseWindow
 
  TkwWndWindowIsMine = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта wnd:WindowIsMine
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aWnd wnd:WindowIsMine >>> l_Boolean
-[code]  }
+  {* Слово скрипта wnd:WindowIsMine }
   private
    function wnd_WindowIsMine(const aCtx: TtfwContext;
     aWnd: THandle): Boolean;
     {* Реализация слова скрипта wnd:WindowIsMine }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -158,18 +130,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwWndWindowIsMine
 
  TkwWndSetForeground = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта wnd:SetForeground
-*Пример:*
-[code]
- aWnd wnd:SetForeground
-[code]  }
+  {* Слово скрипта wnd:SetForeground }
   private
    procedure wnd_SetForeground(const aCtx: TtfwContext;
     aWnd: THandle);
     {* Реализация слова скрипта wnd:SetForeground }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -177,20 +145,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwWndSetForeground
 
  TkwWinTreeGetCurrentText = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта WinTreeGetCurrentText
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aWnd WinTreeGetCurrentText >>> l_String
-[code]  }
+  {* Слово скрипта WinTreeGetCurrentText }
   private
    function WinTreeGetCurrentText(const aCtx: TtfwContext;
     aWnd: THandle): AnsiString;
     {* Реализация слова скрипта WinTreeGetCurrentText }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -198,19 +160,15 @@ STRING VAR l_String
  end;//TkwWinTreeGetCurrentText
 
  TkwIterateChildWindows = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта IterateChildWindows
-*Пример:*
-[code]
- aLambda aWnd IterateChildWindows
-[code]  }
+  {* Слово скрипта IterateChildWindows }
   private
    procedure IterateChildWindows(const aCtx: TtfwContext;
     aWnd: THandle;
     aLambda: TtfwWord);
     {* Реализация слова скрипта IterateChildWindows }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -218,18 +176,14 @@ STRING VAR l_String
  end;//TkwIterateChildWindows
 
  TkwIterateWindows = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта IterateWindows
-*Пример:*
-[code]
- aLambda IterateWindows
-[code]  }
+  {* Слово скрипта IterateWindows }
   private
    procedure IterateWindows(const aCtx: TtfwContext;
     aLambda: TtfwWord);
     {* Реализация слова скрипта IterateWindows }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -237,20 +191,14 @@ STRING VAR l_String
  end;//TkwIterateWindows
 
  TkwWindowFromPoint = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта WindowFromPoint
-*Тип результата:* THandle
-*Пример:*
-[code]
-CARDINAL VAR l_THandle
- aPoint WindowFromPoint >>> l_THandle
-[code]  }
+  {* Слово скрипта WindowFromPoint }
   private
    function WindowFromPoint(const aCtx: TtfwContext;
     const aPoint: TPoint): THandle;
     {* Реализация слова скрипта WindowFromPoint }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -258,19 +206,13 @@ CARDINAL VAR l_THandle
  end;//TkwWindowFromPoint
 
  TkwGetForegroundWindow = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта GetForegroundWindow
-*Тип результата:* THandle
-*Пример:*
-[code]
-CARDINAL VAR l_THandle
- GetForegroundWindow >>> l_THandle
-[code]  }
+  {* Слово скрипта GetForegroundWindow }
   private
    function GetForegroundWindow(const aCtx: TtfwContext): THandle;
     {* Реализация слова скрипта GetForegroundWindow }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -278,20 +220,14 @@ CARDINAL VAR l_THandle
  end;//TkwGetForegroundWindow
 
  TkwFindWindowByCaption = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта FindWindowByCaption
-*Тип результата:* THandle
-*Пример:*
-[code]
-CARDINAL VAR l_THandle
- aCaption FindWindowByCaption >>> l_THandle
-[code]  }
+  {* Слово скрипта FindWindowByCaption }
   private
    function FindWindowByCaption(const aCtx: TtfwContext;
     const aCaption: AnsiString): THandle;
     {* Реализация слова скрипта FindWindowByCaption }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -299,18 +235,14 @@ CARDINAL VAR l_THandle
  end;//TkwFindWindowByCaption
 
  TkwSetFuzzInPercent = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта SetFuzzInPercent
-*Пример:*
-[code]
- aValue SetFuzzInPercent
-[code]  }
+  {* Слово скрипта SetFuzzInPercent }
   private
    procedure SetFuzzInPercent(const aCtx: TtfwContext;
     aValue: Integer);
     {* Реализация слова скрипта SetFuzzInPercent }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -318,19 +250,13 @@ CARDINAL VAR l_THandle
  end;//TkwSetFuzzInPercent
 
  TkwDesktopHeight = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта desktop:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- desktop:Height >>> l_Integer
-[code]  }
+  {* Слово скрипта desktop:Height }
   private
    function desktop_Height(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта desktop:Height }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -338,19 +264,13 @@ INTEGER VAR l_Integer
  end;//TkwDesktopHeight
 
  TkwDesktopWidth = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта desktop:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- desktop:Width >>> l_Integer
-[code]  }
+  {* Слово скрипта desktop:Width }
   private
    function desktop_Width(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта desktop:Width }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -358,20 +278,14 @@ INTEGER VAR l_Integer
  end;//TkwDesktopWidth
 
  TkwScreenWidth = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта screen:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex screen:Width >>> l_Integer
-[code]  }
+  {* Слово скрипта screen:Width }
   private
    function screen_Width(const aCtx: TtfwContext;
     anIndex: Integer): Integer;
     {* Реализация слова скрипта screen:Width }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -379,20 +293,14 @@ INTEGER VAR l_Integer
  end;//TkwScreenWidth
 
  TkwScreenHeight = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта screen:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex screen:Height >>> l_Integer
-[code]  }
+  {* Слово скрипта screen:Height }
   private
    function screen_Height(const aCtx: TtfwContext;
     anIndex: Integer): Integer;
     {* Реализация слова скрипта screen:Height }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -400,19 +308,13 @@ INTEGER VAR l_Integer
  end;//TkwScreenHeight
 
  TkwMainScreenWidth = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта MainScreen:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- MainScreen:Width >>> l_Integer
-[code]  }
+  {* Слово скрипта MainScreen:Width }
   private
    function MainScreen_Width(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта MainScreen:Width }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -420,19 +322,13 @@ INTEGER VAR l_Integer
  end;//TkwMainScreenWidth
 
  TkwMainScreenHeight = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта MainScreen:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- MainScreen:Height >>> l_Integer
-[code]  }
+  {* Слово скрипта MainScreen:Height }
   private
    function MainScreen_Height(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта MainScreen:Height }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -440,19 +336,13 @@ INTEGER VAR l_Integer
  end;//TkwMainScreenHeight
 
  TkwScreenCount = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ScreenCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- ScreenCount >>> l_Integer
-[code]  }
+  {* Слово скрипта ScreenCount }
   private
    function ScreenCount(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта ScreenCount }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -460,18 +350,14 @@ INTEGER VAR l_Integer
  end;//TkwScreenCount
 
  TkwAskWindowToCloseItself = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта AskWindowToCloseItself
-*Пример:*
-[code]
- aWnd AskWindowToCloseItself
-[code]  }
+  {* Слово скрипта AskWindowToCloseItself }
   private
    procedure AskWindowToCloseItself(const aCtx: TtfwContext;
     const aWnd: TtfwStackValue);
     {* Реализация слова скрипта AskWindowToCloseItself }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -479,27 +365,7 @@ INTEGER VAR l_Integer
  end;//TkwAskWindowToCloseItself
 
  TkwScreenShot2File = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ScreenShot2File
-[panel]Описание: снимает скриншот с передаваемого контрола и сохраняет его в файл bmp. Формат:
-[code]
-aFileName aHeight aWidth aTop aLeft aHandle ScreenShot2File
-[code]
-где aFileName - имя файла с расширением bmp, в который сохранять скриншот
-aHandle - хендл контрола, с которого снимаем скриншот (0 - для снятия скриншота с десктопа).
-aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной области, с которой снимаем скриншот.
-Пример:
-[code]
-  INTEGER VAR l_Handle
-  "Контрол в фокусе" pop:control:GetHandle >>> l_Handle
-  STRING VAR l_FileName
-  script:FileName '.bmp' sysutils:ChangeFileExt
-  sysutils:ExtractFileName >>> l_FileName  
-  l_FileName 200 200 0 0 l_Handle ScreenShot2File
-[code][panel]
-*Пример:*
-[code]
- aFileName aHeight aWidth aTop aLeft aWnd ScreenShot2File
-[code]  }
+  {* Слово скрипта ScreenShot2File }
   private
    procedure ScreenShot2File(const aCtx: TtfwContext;
     aWnd: THandle;
@@ -510,8 +376,8 @@ aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной обла
     const aFileName: AnsiString);
     {* Реализация слова скрипта ScreenShot2File }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -519,28 +385,7 @@ aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной обла
  end;//TkwScreenShot2File
 
  TkwScreenShot2FileWithCheck = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ScreenShot2FileWithCheck
-[panel]Описание: снимает скриншот с передаваемого контрола и сохраняет его в файл bmp. После окончания теста производится сравнение с эталоном.
-Формат:
-[code]
-aFileName aHeight aWidth aTop aLeft aHandle ScreenShot2FileWithCheck
-[code]
-где aFileName - имя файла с расширением bmp, в который сохранять скриншот
-aHandle - хендл контрола, с которого снимаем скриншот (0 - для снятия скриншота с десктопа).
-aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной области, с которой снимаем скриншот.
-Пример:
-[code]
-  INTEGER VAR l_Handle
-  "Контрол в фокусе" pop:control:GetHandle >>> l_Handle
-  STRING VAR l_FileName
-  script:FileName '.bmp' sysutils:ChangeFileExt
-  sysutils:ExtractFileName >>> l_FileName  
-  l_FileName 200 200 0 0 l_Handle ScreenShot2FileWithCheck
-[code][panel]
-*Пример:*
-[code]
- aFileName aHeight aWidth aTop aLeft aWnd ScreenShot2FileWithCheck
-[code]  }
+  {* Слово скрипта ScreenShot2FileWithCheck }
   private
    procedure ScreenShot2FileWithCheck(const aCtx: TtfwContext;
     aWnd: THandle;
@@ -551,8 +396,8 @@ aLeft, aTop, aWidth, aHeight - начальные координаты и размеры прямоугольной обла
     const aFileName: AnsiString);
     {* Реализация слова скрипта ScreenShot2FileWithCheck }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -622,28 +467,18 @@ end;//MakeScreenshot
 function TkwWndIsVisible.wnd_IsVisible(const aCtx: TtfwContext;
  aWnd: THandle): Boolean;
  {* Реализация слова скрипта wnd:IsVisible }
-//#UC START# *51F7DBC755B8_CB65D7FF1E6C_var*
-//#UC END# *51F7DBC755B8_CB65D7FF1E6C_var*
+//#UC START# *55192F7C0078_55192F7C0078_Word_var*
+//#UC END# *55192F7C0078_55192F7C0078_Word_var*
 begin
-//#UC START# *51F7DBC755B8_CB65D7FF1E6C_impl*
+//#UC START# *55192F7C0078_55192F7C0078_Word_impl*
  Result := Windows.IsWindowVisible(aWnd);
-//#UC END# *51F7DBC755B8_CB65D7FF1E6C_impl*
+//#UC END# *55192F7C0078_55192F7C0078_Word_impl*
 end;//TkwWndIsVisible.wnd_IsVisible
 
-procedure TkwWndIsVisible.DoDoIt(const aCtx: TtfwContext);
-var l_aWnd: THandle;
+class function TkwWndIsVisible.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aWnd := THandle(aCtx.rEngine.PopInt);
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(wnd_IsVisible(aCtx, l_aWnd));
-end;//TkwWndIsVisible.DoDoIt
+ Result := 'wnd:IsVisible';
+end;//TkwWndIsVisible.GetWordNameForRegister
 
 function TkwWndIsVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -660,26 +495,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndIsVisible.ParamsTypes
 
-class function TkwWndIsVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wnd:IsVisible';
-end;//TkwWndIsVisible.GetWordNameForRegister
-
-function TkwWndGetClassName.wnd_GetClassName(const aCtx: TtfwContext;
- aWnd: THandle): AnsiString;
- {* Реализация слова скрипта wnd:GetClassName }
-//#UC START# *E554A2B1DE10_455E9214E4B7_var*
-var
- l_Buffer: array[Byte] of Char;
-//#UC END# *E554A2B1DE10_455E9214E4B7_var*
-begin
-//#UC START# *E554A2B1DE10_455E9214E4B7_impl*
- GetClassName(aWnd, l_Buffer, SizeOf(l_Buffer));
- Result := l_Buffer;
-//#UC END# *E554A2B1DE10_455E9214E4B7_impl*
-end;//TkwWndGetClassName.wnd_GetClassName
-
-procedure TkwWndGetClassName.DoDoIt(const aCtx: TtfwContext);
+procedure TkwWndIsVisible.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
 begin
  try
@@ -691,8 +507,27 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(wnd_GetClassName(aCtx, l_aWnd));
-end;//TkwWndGetClassName.DoDoIt
+ aCtx.rEngine.PushBool(wnd_IsVisible(aCtx, l_aWnd));
+end;//TkwWndIsVisible.DoDoIt
+
+function TkwWndGetClassName.wnd_GetClassName(const aCtx: TtfwContext;
+ aWnd: THandle): AnsiString;
+ {* Реализация слова скрипта wnd:GetClassName }
+//#UC START# *55192F980349_55192F980349_Word_var*
+var
+ l_Buffer: array[Byte] of Char;
+//#UC END# *55192F980349_55192F980349_Word_var*
+begin
+//#UC START# *55192F980349_55192F980349_Word_impl*
+ GetClassName(aWnd, l_Buffer, SizeOf(l_Buffer));
+ Result := l_Buffer;
+//#UC END# *55192F980349_55192F980349_Word_impl*
+end;//TkwWndGetClassName.wnd_GetClassName
+
+class function TkwWndGetClassName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'wnd:GetClassName';
+end;//TkwWndGetClassName.GetWordNameForRegister
 
 function TkwWndGetClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -709,26 +544,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndGetClassName.ParamsTypes
 
-class function TkwWndGetClassName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wnd:GetClassName';
-end;//TkwWndGetClassName.GetWordNameForRegister
-
-function TkwWndGetWindowText.wnd_GetWindowText(const aCtx: TtfwContext;
- aWnd: THandle): AnsiString;
- {* Реализация слова скрипта wnd:GetWindowText }
-//#UC START# *38FB07665775_6ECBEE6894B8_var*
-var
- l_Buffer: array[Byte] of Char;
-//#UC END# *38FB07665775_6ECBEE6894B8_var*
-begin
-//#UC START# *38FB07665775_6ECBEE6894B8_impl*
- GetWindowText(aWnd, l_Buffer, SizeOf(l_Buffer));
- Result := l_Buffer;
-//#UC END# *38FB07665775_6ECBEE6894B8_impl*
-end;//TkwWndGetWindowText.wnd_GetWindowText
-
-procedure TkwWndGetWindowText.DoDoIt(const aCtx: TtfwContext);
+procedure TkwWndGetClassName.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
 begin
  try
@@ -740,8 +556,27 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(wnd_GetWindowText(aCtx, l_aWnd));
-end;//TkwWndGetWindowText.DoDoIt
+ aCtx.rEngine.PushString(wnd_GetClassName(aCtx, l_aWnd));
+end;//TkwWndGetClassName.DoDoIt
+
+function TkwWndGetWindowText.wnd_GetWindowText(const aCtx: TtfwContext;
+ aWnd: THandle): AnsiString;
+ {* Реализация слова скрипта wnd:GetWindowText }
+//#UC START# *55192FAF01D3_55192FAF01D3_Word_var*
+var
+ l_Buffer: array[Byte] of Char;
+//#UC END# *55192FAF01D3_55192FAF01D3_Word_var*
+begin
+//#UC START# *55192FAF01D3_55192FAF01D3_Word_impl*
+ GetWindowText(aWnd, l_Buffer, SizeOf(l_Buffer));
+ Result := l_Buffer;
+//#UC END# *55192FAF01D3_55192FAF01D3_Word_impl*
+end;//TkwWndGetWindowText.wnd_GetWindowText
+
+class function TkwWndGetWindowText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'wnd:GetWindowText';
+end;//TkwWndGetWindowText.GetWordNameForRegister
 
 function TkwWndGetWindowText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -758,23 +593,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndGetWindowText.ParamsTypes
 
-class function TkwWndGetWindowText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wnd:GetWindowText';
-end;//TkwWndGetWindowText.GetWordNameForRegister
-
-procedure TkwWndCloseWindow.wnd_CloseWindow(const aCtx: TtfwContext;
- aWnd: THandle);
- {* Реализация слова скрипта wnd:CloseWindow }
-//#UC START# *EF73ED47DC1E_B3B5EA3F1514_var*
-//#UC END# *EF73ED47DC1E_B3B5EA3F1514_var*
-begin
-//#UC START# *EF73ED47DC1E_B3B5EA3F1514_impl*
- SendMessage(aWnd, WM_CLOSE, 0, 0);
-//#UC END# *EF73ED47DC1E_B3B5EA3F1514_impl*
-end;//TkwWndCloseWindow.wnd_CloseWindow
-
-procedure TkwWndCloseWindow.DoDoIt(const aCtx: TtfwContext);
+procedure TkwWndGetWindowText.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
 begin
  try
@@ -786,8 +605,24 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- wnd_CloseWindow(aCtx, l_aWnd);
-end;//TkwWndCloseWindow.DoDoIt
+ aCtx.rEngine.PushString(wnd_GetWindowText(aCtx, l_aWnd));
+end;//TkwWndGetWindowText.DoDoIt
+
+procedure TkwWndCloseWindow.wnd_CloseWindow(const aCtx: TtfwContext;
+ aWnd: THandle);
+ {* Реализация слова скрипта wnd:CloseWindow }
+//#UC START# *5519300102ED_5519300102ED_Word_var*
+//#UC END# *5519300102ED_5519300102ED_Word_var*
+begin
+//#UC START# *5519300102ED_5519300102ED_Word_impl*
+ SendMessage(aWnd, WM_CLOSE, 0, 0);
+//#UC END# *5519300102ED_5519300102ED_Word_impl*
+end;//TkwWndCloseWindow.wnd_CloseWindow
+
+class function TkwWndCloseWindow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'wnd:CloseWindow';
+end;//TkwWndCloseWindow.GetWordNameForRegister
 
 function TkwWndCloseWindow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -804,26 +639,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndCloseWindow.ParamsTypes
 
-class function TkwWndCloseWindow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wnd:CloseWindow';
-end;//TkwWndCloseWindow.GetWordNameForRegister
-
-function TkwWndWindowIsMine.wnd_WindowIsMine(const aCtx: TtfwContext;
- aWnd: THandle): Boolean;
- {* Реализация слова скрипта wnd:WindowIsMine }
-//#UC START# *7F8BF12C6C7F_C09FEECC1053_var*
-var
- l_Process: DWORD;
-//#UC END# *7F8BF12C6C7F_C09FEECC1053_var*
-begin
-//#UC START# *7F8BF12C6C7F_C09FEECC1053_impl*
- GetWindowThreadProcessId(aWnd, l_Process);
- Result := (l_Process = GetCurrentProcessId);
-//#UC END# *7F8BF12C6C7F_C09FEECC1053_impl*
-end;//TkwWndWindowIsMine.wnd_WindowIsMine
-
-procedure TkwWndWindowIsMine.DoDoIt(const aCtx: TtfwContext);
+procedure TkwWndCloseWindow.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
 begin
  try
@@ -835,8 +651,27 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(wnd_WindowIsMine(aCtx, l_aWnd));
-end;//TkwWndWindowIsMine.DoDoIt
+ wnd_CloseWindow(aCtx, l_aWnd);
+end;//TkwWndCloseWindow.DoDoIt
+
+function TkwWndWindowIsMine.wnd_WindowIsMine(const aCtx: TtfwContext;
+ aWnd: THandle): Boolean;
+ {* Реализация слова скрипта wnd:WindowIsMine }
+//#UC START# *55193045008D_55193045008D_Word_var*
+var
+ l_Process: DWORD;
+//#UC END# *55193045008D_55193045008D_Word_var*
+begin
+//#UC START# *55193045008D_55193045008D_Word_impl*
+ GetWindowThreadProcessId(aWnd, l_Process);
+ Result := (l_Process = GetCurrentProcessId);
+//#UC END# *55193045008D_55193045008D_Word_impl*
+end;//TkwWndWindowIsMine.wnd_WindowIsMine
+
+class function TkwWndWindowIsMine.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'wnd:WindowIsMine';
+end;//TkwWndWindowIsMine.GetWordNameForRegister
 
 function TkwWndWindowIsMine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -853,23 +688,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndWindowIsMine.ParamsTypes
 
-class function TkwWndWindowIsMine.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wnd:WindowIsMine';
-end;//TkwWndWindowIsMine.GetWordNameForRegister
-
-procedure TkwWndSetForeground.wnd_SetForeground(const aCtx: TtfwContext;
- aWnd: THandle);
- {* Реализация слова скрипта wnd:SetForeground }
-//#UC START# *D113CC850E0F_1C5511E4225D_var*
-//#UC END# *D113CC850E0F_1C5511E4225D_var*
-begin
-//#UC START# *D113CC850E0F_1C5511E4225D_impl*
- Windows.SetForegroundWindow(aWnd);
-//#UC END# *D113CC850E0F_1C5511E4225D_impl*
-end;//TkwWndSetForeground.wnd_SetForeground
-
-procedure TkwWndSetForeground.DoDoIt(const aCtx: TtfwContext);
+procedure TkwWndWindowIsMine.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
 begin
  try
@@ -881,8 +700,24 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- wnd_SetForeground(aCtx, l_aWnd);
-end;//TkwWndSetForeground.DoDoIt
+ aCtx.rEngine.PushBool(wnd_WindowIsMine(aCtx, l_aWnd));
+end;//TkwWndWindowIsMine.DoDoIt
+
+procedure TkwWndSetForeground.wnd_SetForeground(const aCtx: TtfwContext;
+ aWnd: THandle);
+ {* Реализация слова скрипта wnd:SetForeground }
+//#UC START# *5519307103E4_5519307103E4_Word_var*
+//#UC END# *5519307103E4_5519307103E4_Word_var*
+begin
+//#UC START# *5519307103E4_5519307103E4_Word_impl*
+ Windows.SetForegroundWindow(aWnd);
+//#UC END# *5519307103E4_5519307103E4_Word_impl*
+end;//TkwWndSetForeground.wnd_SetForeground
+
+class function TkwWndSetForeground.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'wnd:SetForeground';
+end;//TkwWndSetForeground.GetWordNameForRegister
 
 function TkwWndSetForeground.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -899,37 +734,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndSetForeground.ParamsTypes
 
-class function TkwWndSetForeground.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wnd:SetForeground';
-end;//TkwWndSetForeground.GetWordNameForRegister
-
-function TkwWinTreeGetCurrentText.WinTreeGetCurrentText(const aCtx: TtfwContext;
- aWnd: THandle): AnsiString;
- {* Реализация слова скрипта WinTreeGetCurrentText }
-//#UC START# *38530DA9DB57_A893626FB9A5_var*
-var
- l_Current: TTVItemA;
- l_Res: Boolean;
- l_Text: array[1..255] of AnsiChar;
-//#UC END# *38530DA9DB57_A893626FB9A5_var*
-begin
-//#UC START# *38530DA9DB57_A893626FB9A5_impl*
- System.FillChar(l_Current, SizeOf(l_Current), 0);
- l_Current.hItem := TreeView_GetSelection(aWnd);
- l_Current.mask := TVIF_TEXT;
- l_Current.cchTextMax := 255;
- l_Current.pszText := @l_Text;
-
- l_Res := TreeView_GetItemA(aWnd, l_Current);
- if l_Res then
-  Result := l_Current.pszText
- else
-  Result := '';
-//#UC END# *38530DA9DB57_A893626FB9A5_impl*
-end;//TkwWinTreeGetCurrentText.WinTreeGetCurrentText
-
-procedure TkwWinTreeGetCurrentText.DoDoIt(const aCtx: TtfwContext);
+procedure TkwWndSetForeground.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
 begin
  try
@@ -941,8 +746,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(WinTreeGetCurrentText(aCtx, l_aWnd));
-end;//TkwWinTreeGetCurrentText.DoDoIt
+ wnd_SetForeground(aCtx, l_aWnd);
+end;//TkwWndSetForeground.DoDoIt
+
+function TkwWinTreeGetCurrentText.WinTreeGetCurrentText(const aCtx: TtfwContext;
+ aWnd: THandle): AnsiString;
+ {* Реализация слова скрипта WinTreeGetCurrentText }
+//#UC START# *551930A001DF_551930A001DF_Word_var*
+var
+ l_Current: TTVItemA;
+ l_Res: Boolean;
+ l_Text: array[1..255] of AnsiChar;
+//#UC END# *551930A001DF_551930A001DF_Word_var*
+begin
+//#UC START# *551930A001DF_551930A001DF_Word_impl*
+ System.FillChar(l_Current, SizeOf(l_Current), 0);
+ l_Current.hItem := TreeView_GetSelection(aWnd);
+ l_Current.mask := TVIF_TEXT;
+ l_Current.cchTextMax := 255;
+ l_Current.pszText := @l_Text;
+
+ l_Res := TreeView_GetItemA(aWnd, l_Current);
+ if l_Res then
+  Result := l_Current.pszText
+ else
+  Result := '';
+//#UC END# *551930A001DF_551930A001DF_Word_impl*
+end;//TkwWinTreeGetCurrentText.WinTreeGetCurrentText
+
+class function TkwWinTreeGetCurrentText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'WinTreeGetCurrentText';
+end;//TkwWinTreeGetCurrentText.GetWordNameForRegister
 
 function TkwWinTreeGetCurrentText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -959,27 +794,57 @@ begin
  Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWinTreeGetCurrentText.ParamsTypes
 
-class function TkwWinTreeGetCurrentText.GetWordNameForRegister: AnsiString;
+procedure TkwWinTreeGetCurrentText.DoDoIt(const aCtx: TtfwContext);
+var l_aWnd: THandle;
 begin
- Result := 'WinTreeGetCurrentText';
-end;//TkwWinTreeGetCurrentText.GetWordNameForRegister
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(WinTreeGetCurrentText(aCtx, l_aWnd));
+end;//TkwWinTreeGetCurrentText.DoDoIt
 
 procedure TkwIterateChildWindows.IterateChildWindows(const aCtx: TtfwContext;
  aWnd: THandle;
  aLambda: TtfwWord);
  {* Реализация слова скрипта IterateChildWindows }
-//#UC START# *885E0A0E618E_BB2233135443_var*
+//#UC START# *551941E30047_551941E30047_Word_var*
 var
  l_Data: TtfwWordCallContext;
-//#UC END# *885E0A0E618E_BB2233135443_var*
+//#UC END# *551941E30047_551941E30047_Word_var*
 begin
-//#UC START# *885E0A0E618E_BB2233135443_impl*
+//#UC START# *551941E30047_551941E30047_Word_impl*
  l_Data.rWord := aLambda;
  l_Data.rCtx := @aCtx;
  
  EnumChildWindows(aWnd, @IterateWindowsMethod, LongInt(@l_Data));
-//#UC END# *885E0A0E618E_BB2233135443_impl*
+//#UC END# *551941E30047_551941E30047_Word_impl*
 end;//TkwIterateChildWindows.IterateChildWindows
+
+class function TkwIterateChildWindows.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IterateChildWindows';
+end;//TkwIterateChildWindows.GetWordNameForRegister
+
+function TkwIterateChildWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwIterateChildWindows.GetResultTypeInfo
+
+function TkwIterateChildWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwIterateChildWindows.GetAllParamsCount
+
+function TkwIterateChildWindows.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(TtfwWord)]);
+end;//TkwIterateChildWindows.ParamsTypes
 
 procedure TkwIterateChildWindows.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
@@ -1006,56 +871,26 @@ begin
  IterateChildWindows(aCtx, l_aWnd, l_aLambda);
 end;//TkwIterateChildWindows.DoDoIt
 
-function TkwIterateChildWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwIterateChildWindows.GetResultTypeInfo
-
-function TkwIterateChildWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwIterateChildWindows.GetAllParamsCount
-
-function TkwIterateChildWindows.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(TtfwWord)]);
-end;//TkwIterateChildWindows.ParamsTypes
-
-class function TkwIterateChildWindows.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IterateChildWindows';
-end;//TkwIterateChildWindows.GetWordNameForRegister
-
 procedure TkwIterateWindows.IterateWindows(const aCtx: TtfwContext;
  aLambda: TtfwWord);
  {* Реализация слова скрипта IterateWindows }
-//#UC START# *0BC1915B6BEB_2EB6B5E4913F_var*
+//#UC START# *5519427E00F3_5519427E00F3_Word_var*
 var
  l_Data: TtfwWordCallContext;
-//#UC END# *0BC1915B6BEB_2EB6B5E4913F_var*
+//#UC END# *5519427E00F3_5519427E00F3_Word_var*
 begin
-//#UC START# *0BC1915B6BEB_2EB6B5E4913F_impl*
+//#UC START# *5519427E00F3_5519427E00F3_Word_impl*
  l_Data.rWord := aLambda;
  l_Data.rCtx := @aCtx;
  
  EnumWindows(@IterateWindowsMethod, LongInt(@l_Data));
-//#UC END# *0BC1915B6BEB_2EB6B5E4913F_impl*
+//#UC END# *5519427E00F3_5519427E00F3_Word_impl*
 end;//TkwIterateWindows.IterateWindows
 
-procedure TkwIterateWindows.DoDoIt(const aCtx: TtfwContext);
-var l_aLambda: TtfwWord;
+class function TkwIterateWindows.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- IterateWindows(aCtx, l_aLambda);
-end;//TkwIterateWindows.DoDoIt
+ Result := 'IterateWindows';
+end;//TkwIterateWindows.GetWordNameForRegister
 
 function TkwIterateWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1072,36 +907,36 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwIterateWindows.ParamsTypes
 
-class function TkwIterateWindows.GetWordNameForRegister: AnsiString;
+procedure TkwIterateWindows.DoDoIt(const aCtx: TtfwContext);
+var l_aLambda: TtfwWord;
 begin
- Result := 'IterateWindows';
-end;//TkwIterateWindows.GetWordNameForRegister
+ try
+  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ IterateWindows(aCtx, l_aLambda);
+end;//TkwIterateWindows.DoDoIt
 
 function TkwWindowFromPoint.WindowFromPoint(const aCtx: TtfwContext;
  const aPoint: TPoint): THandle;
  {* Реализация слова скрипта WindowFromPoint }
-//#UC START# *6FFCD3ADC6FE_2D01DE64792B_var*
-//#UC END# *6FFCD3ADC6FE_2D01DE64792B_var*
+//#UC START# *551943280118_551943280118_Word_var*
+//#UC END# *551943280118_551943280118_Word_var*
 begin
-//#UC START# *6FFCD3ADC6FE_2D01DE64792B_impl*
+//#UC START# *551943280118_551943280118_Word_impl*
  Result := Windows.WindowFromPoint(aPoint);
-//#UC END# *6FFCD3ADC6FE_2D01DE64792B_impl*
+//#UC END# *551943280118_551943280118_Word_impl*
 end;//TkwWindowFromPoint.WindowFromPoint
 
-procedure TkwWindowFromPoint.DoDoIt(const aCtx: TtfwContext);
-var l_aPoint: TPoint;
+class function TkwWindowFromPoint.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aPoint := aCtx.rEngine.PopPoint;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aPoint: TPoint : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(Integer(WindowFromPoint(aCtx, l_aPoint)));
-end;//TkwWindowFromPoint.DoDoIt
+ Result := 'WindowFromPoint';
+end;//TkwWindowFromPoint.GetWordNameForRegister
 
 function TkwWindowFromPoint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1118,25 +953,35 @@ begin
  Result := OpenTypesToTypes([@tfw_tiStruct]);
 end;//TkwWindowFromPoint.ParamsTypes
 
-class function TkwWindowFromPoint.GetWordNameForRegister: AnsiString;
+procedure TkwWindowFromPoint.DoDoIt(const aCtx: TtfwContext);
+var l_aPoint: TPoint;
 begin
- Result := 'WindowFromPoint';
-end;//TkwWindowFromPoint.GetWordNameForRegister
+ try
+  l_aPoint := aCtx.rEngine.PopPoint;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPoint: TPoint : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(WindowFromPoint(aCtx, l_aPoint)));
+end;//TkwWindowFromPoint.DoDoIt
 
 function TkwGetForegroundWindow.GetForegroundWindow(const aCtx: TtfwContext): THandle;
  {* Реализация слова скрипта GetForegroundWindow }
-//#UC START# *5CBACAD0EDFA_CB29543BBB60_var*
-//#UC END# *5CBACAD0EDFA_CB29543BBB60_var*
+//#UC START# *5519434F0000_5519434F0000_Word_var*
+//#UC END# *5519434F0000_5519434F0000_Word_var*
 begin
-//#UC START# *5CBACAD0EDFA_CB29543BBB60_impl*
+//#UC START# *5519434F0000_5519434F0000_Word_impl*
  Result := Windows.GetForegroundWindow;
-//#UC END# *5CBACAD0EDFA_CB29543BBB60_impl*
+//#UC END# *5519434F0000_5519434F0000_Word_impl*
 end;//TkwGetForegroundWindow.GetForegroundWindow
 
-procedure TkwGetForegroundWindow.DoDoIt(const aCtx: TtfwContext);
+class function TkwGetForegroundWindow.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(Integer(GetForegroundWindow(aCtx)));
-end;//TkwGetForegroundWindow.DoDoIt
+ Result := 'GetForegroundWindow';
+end;//TkwGetForegroundWindow.GetWordNameForRegister
 
 function TkwGetForegroundWindow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1153,36 +998,26 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwGetForegroundWindow.ParamsTypes
 
-class function TkwGetForegroundWindow.GetWordNameForRegister: AnsiString;
+procedure TkwGetForegroundWindow.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'GetForegroundWindow';
-end;//TkwGetForegroundWindow.GetWordNameForRegister
+ aCtx.rEngine.PushInt(Integer(GetForegroundWindow(aCtx)));
+end;//TkwGetForegroundWindow.DoDoIt
 
 function TkwFindWindowByCaption.FindWindowByCaption(const aCtx: TtfwContext;
  const aCaption: AnsiString): THandle;
  {* Реализация слова скрипта FindWindowByCaption }
-//#UC START# *84D6BB2A5250_0FB930B944B8_var*
-//#UC END# *84D6BB2A5250_0FB930B944B8_var*
+//#UC START# *551943860248_551943860248_Word_var*
+//#UC END# *551943860248_551943860248_Word_var*
 begin
-//#UC START# *84D6BB2A5250_0FB930B944B8_impl*
+//#UC START# *551943860248_551943860248_Word_impl*
  Result := FindWindowA(nil, PAnsiChar(aCaption));
-//#UC END# *84D6BB2A5250_0FB930B944B8_impl*
+//#UC END# *551943860248_551943860248_Word_impl*
 end;//TkwFindWindowByCaption.FindWindowByCaption
 
-procedure TkwFindWindowByCaption.DoDoIt(const aCtx: TtfwContext);
-var l_aCaption: AnsiString;
+class function TkwFindWindowByCaption.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aCaption := aCtx.rEngine.PopDelphiString;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aCaption: AnsiString : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(Integer(FindWindowByCaption(aCtx, l_aCaption)));
-end;//TkwFindWindowByCaption.DoDoIt
+ Result := 'FindWindowByCaption';
+end;//TkwFindWindowByCaption.GetWordNameForRegister
 
 function TkwFindWindowByCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1199,36 +1034,36 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwFindWindowByCaption.ParamsTypes
 
-class function TkwFindWindowByCaption.GetWordNameForRegister: AnsiString;
+procedure TkwFindWindowByCaption.DoDoIt(const aCtx: TtfwContext);
+var l_aCaption: AnsiString;
 begin
- Result := 'FindWindowByCaption';
-end;//TkwFindWindowByCaption.GetWordNameForRegister
+ try
+  l_aCaption := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCaption: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(FindWindowByCaption(aCtx, l_aCaption)));
+end;//TkwFindWindowByCaption.DoDoIt
 
 procedure TkwSetFuzzInPercent.SetFuzzInPercent(const aCtx: TtfwContext;
  aValue: Integer);
  {* Реализация слова скрипта SetFuzzInPercent }
-//#UC START# *FFB533EE4DD1_DDDEEE94C045_var*
-//#UC END# *FFB533EE4DD1_DDDEEE94C045_var*
+//#UC START# *551943FD0148_551943FD0148_Word_var*
+//#UC END# *551943FD0148_551943FD0148_Word_var*
 begin
-//#UC START# *FFB533EE4DD1_DDDEEE94C045_impl*
+//#UC START# *551943FD0148_551943FD0148_Word_impl*
  l3SetFuzzValueInPercent(aValue);
-//#UC END# *FFB533EE4DD1_DDDEEE94C045_impl*
+//#UC END# *551943FD0148_551943FD0148_Word_impl*
 end;//TkwSetFuzzInPercent.SetFuzzInPercent
 
-procedure TkwSetFuzzInPercent.DoDoIt(const aCtx: TtfwContext);
-var l_aValue: Integer;
+class function TkwSetFuzzInPercent.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aValue := aCtx.rEngine.PopInt;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- SetFuzzInPercent(aCtx, l_aValue);
-end;//TkwSetFuzzInPercent.DoDoIt
+ Result := 'SetFuzzInPercent';
+end;//TkwSetFuzzInPercent.GetWordNameForRegister
 
 function TkwSetFuzzInPercent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1245,29 +1080,39 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwSetFuzzInPercent.ParamsTypes
 
-class function TkwSetFuzzInPercent.GetWordNameForRegister: AnsiString;
+procedure TkwSetFuzzInPercent.DoDoIt(const aCtx: TtfwContext);
+var l_aValue: Integer;
 begin
- Result := 'SetFuzzInPercent';
-end;//TkwSetFuzzInPercent.GetWordNameForRegister
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetFuzzInPercent(aCtx, l_aValue);
+end;//TkwSetFuzzInPercent.DoDoIt
 
 function TkwDesktopHeight.desktop_Height(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта desktop:Height }
-//#UC START# *4EDF1B6456EE_F5071C676120_var*
-//#UC END# *4EDF1B6456EE_F5071C676120_var*
+//#UC START# *551D5FE00397_551D5FE00397_Word_var*
+//#UC END# *551D5FE00397_551D5FE00397_Word_var*
 begin
-//#UC START# *4EDF1B6456EE_F5071C676120_impl*
+//#UC START# *551D5FE00397_551D5FE00397_Word_impl*
  {$IfNDef NoVCL}
  Result := Forms.Screen.DesktopHeight;
  {$Else  NoVCL}
  Assert(false);
  {$EndIf NoVCL}
-//#UC END# *4EDF1B6456EE_F5071C676120_impl*
+//#UC END# *551D5FE00397_551D5FE00397_Word_impl*
 end;//TkwDesktopHeight.desktop_Height
 
-procedure TkwDesktopHeight.DoDoIt(const aCtx: TtfwContext);
+class function TkwDesktopHeight.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(desktop_Height(aCtx));
-end;//TkwDesktopHeight.DoDoIt
+ Result := 'desktop:Height';
+end;//TkwDesktopHeight.GetWordNameForRegister
 
 function TkwDesktopHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1284,29 +1129,29 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwDesktopHeight.ParamsTypes
 
-class function TkwDesktopHeight.GetWordNameForRegister: AnsiString;
+procedure TkwDesktopHeight.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'desktop:Height';
-end;//TkwDesktopHeight.GetWordNameForRegister
+ aCtx.rEngine.PushInt(desktop_Height(aCtx));
+end;//TkwDesktopHeight.DoDoIt
 
 function TkwDesktopWidth.desktop_Width(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта desktop:Width }
-//#UC START# *EC4EA52ACE49_F2D32D266DD0_var*
-//#UC END# *EC4EA52ACE49_F2D32D266DD0_var*
+//#UC START# *551D5FF00393_551D5FF00393_Word_var*
+//#UC END# *551D5FF00393_551D5FF00393_Word_var*
 begin
-//#UC START# *EC4EA52ACE49_F2D32D266DD0_impl*
+//#UC START# *551D5FF00393_551D5FF00393_Word_impl*
  {$IfNDef NoVCL}
  Result := Forms.Screen.DesktopWidth
  {$Else  NoVCL}
  Assert(false);
  {$EndIf NoVCL}
-//#UC END# *EC4EA52ACE49_F2D32D266DD0_impl*
+//#UC END# *551D5FF00393_551D5FF00393_Word_impl*
 end;//TkwDesktopWidth.desktop_Width
 
-procedure TkwDesktopWidth.DoDoIt(const aCtx: TtfwContext);
+class function TkwDesktopWidth.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(desktop_Width(aCtx));
-end;//TkwDesktopWidth.DoDoIt
+ Result := 'desktop:Width';
+end;//TkwDesktopWidth.GetWordNameForRegister
 
 function TkwDesktopWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1323,40 +1168,30 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwDesktopWidth.ParamsTypes
 
-class function TkwDesktopWidth.GetWordNameForRegister: AnsiString;
+procedure TkwDesktopWidth.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'desktop:Width';
-end;//TkwDesktopWidth.GetWordNameForRegister
+ aCtx.rEngine.PushInt(desktop_Width(aCtx));
+end;//TkwDesktopWidth.DoDoIt
 
 function TkwScreenWidth.screen_Width(const aCtx: TtfwContext;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта screen:Width }
-//#UC START# *FF7BA1B0E345_44BBDAE720F0_var*
-//#UC END# *FF7BA1B0E345_44BBDAE720F0_var*
+//#UC START# *551D5FFF03A1_551D5FFF03A1_Word_var*
+//#UC END# *551D5FFF03A1_551D5FFF03A1_Word_var*
 begin
-//#UC START# *FF7BA1B0E345_44BBDAE720F0_impl*
+//#UC START# *551D5FFF03A1_551D5FFF03A1_Word_impl*
  {$IfNDef NoVCL}
  Result := Forms.Screen.Monitors[anIndex].Width;
  {$Else  NoVCL}
  Assert(false);
  {$EndIf NoVCL}
-//#UC END# *FF7BA1B0E345_44BBDAE720F0_impl*
+//#UC END# *551D5FFF03A1_551D5FFF03A1_Word_impl*
 end;//TkwScreenWidth.screen_Width
 
-procedure TkwScreenWidth.DoDoIt(const aCtx: TtfwContext);
-var l_anIndex: Integer;
+class function TkwScreenWidth.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_anIndex := aCtx.rEngine.PopInt;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(screen_Width(aCtx, l_anIndex));
-end;//TkwScreenWidth.DoDoIt
+ Result := 'screen:Width';
+end;//TkwScreenWidth.GetWordNameForRegister
 
 function TkwScreenWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1373,27 +1208,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwScreenWidth.ParamsTypes
 
-class function TkwScreenWidth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'screen:Width';
-end;//TkwScreenWidth.GetWordNameForRegister
-
-function TkwScreenHeight.screen_Height(const aCtx: TtfwContext;
- anIndex: Integer): Integer;
- {* Реализация слова скрипта screen:Height }
-//#UC START# *726789FBF9F7_91E516864416_var*
-//#UC END# *726789FBF9F7_91E516864416_var*
-begin
-//#UC START# *726789FBF9F7_91E516864416_impl*
- {$IfNDef NoVCL}
- Result := Forms.Screen.Monitors[anIndex].Height;
- {$Else   NoVCL}
- Assert(false);
- {$EndIf  NoVCL}
-//#UC END# *726789FBF9F7_91E516864416_impl*
-end;//TkwScreenHeight.screen_Height
-
-procedure TkwScreenHeight.DoDoIt(const aCtx: TtfwContext);
+procedure TkwScreenWidth.DoDoIt(const aCtx: TtfwContext);
 var l_anIndex: Integer;
 begin
  try
@@ -1405,8 +1220,28 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(screen_Height(aCtx, l_anIndex));
-end;//TkwScreenHeight.DoDoIt
+ aCtx.rEngine.PushInt(screen_Width(aCtx, l_anIndex));
+end;//TkwScreenWidth.DoDoIt
+
+function TkwScreenHeight.screen_Height(const aCtx: TtfwContext;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта screen:Height }
+//#UC START# *551D60220051_551D60220051_Word_var*
+//#UC END# *551D60220051_551D60220051_Word_var*
+begin
+//#UC START# *551D60220051_551D60220051_Word_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.Monitors[anIndex].Height;
+ {$Else   NoVCL}
+ Assert(false);
+ {$EndIf  NoVCL}
+//#UC END# *551D60220051_551D60220051_Word_impl*
+end;//TkwScreenHeight.screen_Height
+
+class function TkwScreenHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'screen:Height';
+end;//TkwScreenHeight.GetWordNameForRegister
 
 function TkwScreenHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1423,29 +1258,39 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwScreenHeight.ParamsTypes
 
-class function TkwScreenHeight.GetWordNameForRegister: AnsiString;
+procedure TkwScreenHeight.DoDoIt(const aCtx: TtfwContext);
+var l_anIndex: Integer;
 begin
- Result := 'screen:Height';
-end;//TkwScreenHeight.GetWordNameForRegister
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(screen_Height(aCtx, l_anIndex));
+end;//TkwScreenHeight.DoDoIt
 
 function TkwMainScreenWidth.MainScreen_Width(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта MainScreen:Width }
-//#UC START# *91F8A1F3931B_3832249557A1_var*
-//#UC END# *91F8A1F3931B_3832249557A1_var*
+//#UC START# *551D605302AE_551D605302AE_Word_var*
+//#UC END# *551D605302AE_551D605302AE_Word_var*
 begin
-//#UC START# *91F8A1F3931B_3832249557A1_impl*
+//#UC START# *551D605302AE_551D605302AE_Word_impl*
  {$IfNDef NoVCL}
  Result := Forms.Screen.Monitors[0].Width;
  {$Else   NoVCL}
  Assert(false);
  {$EndIf  NoVCL}
-//#UC END# *91F8A1F3931B_3832249557A1_impl*
+//#UC END# *551D605302AE_551D605302AE_Word_impl*
 end;//TkwMainScreenWidth.MainScreen_Width
 
-procedure TkwMainScreenWidth.DoDoIt(const aCtx: TtfwContext);
+class function TkwMainScreenWidth.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(MainScreen_Width(aCtx));
-end;//TkwMainScreenWidth.DoDoIt
+ Result := 'MainScreen:Width';
+end;//TkwMainScreenWidth.GetWordNameForRegister
 
 function TkwMainScreenWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1462,29 +1307,29 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwMainScreenWidth.ParamsTypes
 
-class function TkwMainScreenWidth.GetWordNameForRegister: AnsiString;
+procedure TkwMainScreenWidth.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'MainScreen:Width';
-end;//TkwMainScreenWidth.GetWordNameForRegister
+ aCtx.rEngine.PushInt(MainScreen_Width(aCtx));
+end;//TkwMainScreenWidth.DoDoIt
 
 function TkwMainScreenHeight.MainScreen_Height(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта MainScreen:Height }
-//#UC START# *8218EB203DB0_8022C1F2B088_var*
-//#UC END# *8218EB203DB0_8022C1F2B088_var*
+//#UC START# *551D606401C1_551D606401C1_Word_var*
+//#UC END# *551D606401C1_551D606401C1_Word_var*
 begin
-//#UC START# *8218EB203DB0_8022C1F2B088_impl*
+//#UC START# *551D606401C1_551D606401C1_Word_impl*
  {$IfNDef NoVCL}
  Result := Forms.Screen.Monitors[0].Height;
  {$Else   NoVCL}
  Assert(false);
  {$EndIf  NoVCL}
-//#UC END# *8218EB203DB0_8022C1F2B088_impl*
+//#UC END# *551D606401C1_551D606401C1_Word_impl*
 end;//TkwMainScreenHeight.MainScreen_Height
 
-procedure TkwMainScreenHeight.DoDoIt(const aCtx: TtfwContext);
+class function TkwMainScreenHeight.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(MainScreen_Height(aCtx));
-end;//TkwMainScreenHeight.DoDoIt
+ Result := 'MainScreen:Height';
+end;//TkwMainScreenHeight.GetWordNameForRegister
 
 function TkwMainScreenHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1501,29 +1346,29 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwMainScreenHeight.ParamsTypes
 
-class function TkwMainScreenHeight.GetWordNameForRegister: AnsiString;
+procedure TkwMainScreenHeight.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'MainScreen:Height';
-end;//TkwMainScreenHeight.GetWordNameForRegister
+ aCtx.rEngine.PushInt(MainScreen_Height(aCtx));
+end;//TkwMainScreenHeight.DoDoIt
 
 function TkwScreenCount.ScreenCount(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта ScreenCount }
-//#UC START# *D8F53100D31F_4C862EA2F8C6_var*
-//#UC END# *D8F53100D31F_4C862EA2F8C6_var*
+//#UC START# *551D607202D0_551D607202D0_Word_var*
+//#UC END# *551D607202D0_551D607202D0_Word_var*
 begin
-//#UC START# *D8F53100D31F_4C862EA2F8C6_impl*
+//#UC START# *551D607202D0_551D607202D0_Word_impl*
  {$IfNDef NoVCL}
  Result := Forms.Screen.MonitorCount;
  {$Else   NoVCL}
  Assert(false);
  {$EndIf  NoVCL}
-//#UC END# *D8F53100D31F_4C862EA2F8C6_impl*
+//#UC END# *551D607202D0_551D607202D0_Word_impl*
 end;//TkwScreenCount.ScreenCount
 
-procedure TkwScreenCount.DoDoIt(const aCtx: TtfwContext);
+class function TkwScreenCount.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(ScreenCount(aCtx));
-end;//TkwScreenCount.DoDoIt
+ Result := 'ScreenCount';
+end;//TkwScreenCount.GetWordNameForRegister
 
 function TkwScreenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1540,23 +1385,23 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwScreenCount.ParamsTypes
 
-class function TkwScreenCount.GetWordNameForRegister: AnsiString;
+procedure TkwScreenCount.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'ScreenCount';
-end;//TkwScreenCount.GetWordNameForRegister
+ aCtx.rEngine.PushInt(ScreenCount(aCtx));
+end;//TkwScreenCount.DoDoIt
 
 procedure TkwAskWindowToCloseItself.AskWindowToCloseItself(const aCtx: TtfwContext;
  const aWnd: TtfwStackValue);
  {* Реализация слова скрипта AskWindowToCloseItself }
-//#UC START# *7734C551216C_22E2D41E5FCD_var*
+//#UC START# *551D60A60370_551D60A60370_Word_var*
 {$IfNDef NoVCL}
 var
  l_Window: TWinControl;
  l_Handle: THandle;
 {$EndIf  NoVCL}
-//#UC END# *7734C551216C_22E2D41E5FCD_var*
+//#UC END# *551D60A60370_551D60A60370_Word_var*
 begin
-//#UC START# *7734C551216C_22E2D41E5FCD_impl*
+//#UC START# *551D60A60370_551D60A60370_Word_impl*
  {$IfNDef NoVCL}
  l_Window := nil;
  if (aWnd.rType = tfw_vtInt) then
@@ -1583,23 +1428,13 @@ begin
  {$Else  NoVCL}
  Assert(false);
  {$EndIf NoVCL}
-//#UC END# *7734C551216C_22E2D41E5FCD_impl*
+//#UC END# *551D60A60370_551D60A60370_Word_impl*
 end;//TkwAskWindowToCloseItself.AskWindowToCloseItself
 
-procedure TkwAskWindowToCloseItself.DoDoIt(const aCtx: TtfwContext);
-var l_aWnd: TtfwStackValue;
+class function TkwAskWindowToCloseItself.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aWnd := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWnd: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- AskWindowToCloseItself(aCtx, l_aWnd);
-end;//TkwAskWindowToCloseItself.DoDoIt
+ Result := 'AskWindowToCloseItself';
+end;//TkwAskWindowToCloseItself.GetWordNameForRegister
 
 function TkwAskWindowToCloseItself.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1616,10 +1451,20 @@ begin
  Result := OpenTypesToTypes([@tfw_tiStruct]);
 end;//TkwAskWindowToCloseItself.ParamsTypes
 
-class function TkwAskWindowToCloseItself.GetWordNameForRegister: AnsiString;
+procedure TkwAskWindowToCloseItself.DoDoIt(const aCtx: TtfwContext);
+var l_aWnd: TtfwStackValue;
 begin
- Result := 'AskWindowToCloseItself';
-end;//TkwAskWindowToCloseItself.GetWordNameForRegister
+ try
+  l_aWnd := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ AskWindowToCloseItself(aCtx, l_aWnd);
+end;//TkwAskWindowToCloseItself.DoDoIt
 
 procedure TkwScreenShot2File.ScreenShot2File(const aCtx: TtfwContext;
  aWnd: THandle;
@@ -1629,13 +1474,33 @@ procedure TkwScreenShot2File.ScreenShot2File(const aCtx: TtfwContext;
  aHeight: Integer;
  const aFileName: AnsiString);
  {* Реализация слова скрипта ScreenShot2File }
-//#UC START# *E3689417D97C_D7673935EC18_var*
-//#UC END# *E3689417D97C_D7673935EC18_var*
+//#UC START# *551D6A28026C_551D6A28026C_Word_var*
+//#UC END# *551D6A28026C_551D6A28026C_Word_var*
 begin
-//#UC START# *E3689417D97C_D7673935EC18_impl*
+//#UC START# *551D6A28026C_551D6A28026C_Word_impl*
  MakeScreenshot(aWnd, Rect(aLeft, aTop, aLeft + aWidth, aTop + aHeight), aFileName, false, aCtx, Self);
-//#UC END# *E3689417D97C_D7673935EC18_impl*
+//#UC END# *551D6A28026C_551D6A28026C_Word_impl*
 end;//TkwScreenShot2File.ScreenShot2File
+
+class function TkwScreenShot2File.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ScreenShot2File';
+end;//TkwScreenShot2File.GetWordNameForRegister
+
+function TkwScreenShot2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwScreenShot2File.GetResultTypeInfo
+
+function TkwScreenShot2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 6;
+end;//TkwScreenShot2File.GetAllParamsCount
+
+function TkwScreenShot2File.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), @tfw_tiString]);
+end;//TkwScreenShot2File.ParamsTypes
 
 procedure TkwScreenShot2File.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
@@ -1702,26 +1567,6 @@ begin
  ScreenShot2File(aCtx, l_aWnd, l_aLeft, l_aTop, l_aWidth, l_aHeight, l_aFileName);
 end;//TkwScreenShot2File.DoDoIt
 
-function TkwScreenShot2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwScreenShot2File.GetResultTypeInfo
-
-function TkwScreenShot2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 6;
-end;//TkwScreenShot2File.GetAllParamsCount
-
-function TkwScreenShot2File.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), @tfw_tiString]);
-end;//TkwScreenShot2File.ParamsTypes
-
-class function TkwScreenShot2File.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ScreenShot2File';
-end;//TkwScreenShot2File.GetWordNameForRegister
-
 procedure TkwScreenShot2FileWithCheck.ScreenShot2FileWithCheck(const aCtx: TtfwContext;
  aWnd: THandle;
  aLeft: Integer;
@@ -1730,13 +1575,33 @@ procedure TkwScreenShot2FileWithCheck.ScreenShot2FileWithCheck(const aCtx: TtfwC
  aHeight: Integer;
  const aFileName: AnsiString);
  {* Реализация слова скрипта ScreenShot2FileWithCheck }
-//#UC START# *8B949444F0A6_13CADBEDE41C_var*
-//#UC END# *8B949444F0A6_13CADBEDE41C_var*
+//#UC START# *551D6A850205_551D6A850205_Word_var*
+//#UC END# *551D6A850205_551D6A850205_Word_var*
 begin
-//#UC START# *8B949444F0A6_13CADBEDE41C_impl*
+//#UC START# *551D6A850205_551D6A850205_Word_impl*
  MakeScreenshot(aWnd, Rect(aLeft, aTop, aLeft + aWidth, aTop + aHeight), aFileName, true, aCtx, Self);
-//#UC END# *8B949444F0A6_13CADBEDE41C_impl*
+//#UC END# *551D6A850205_551D6A850205_Word_impl*
 end;//TkwScreenShot2FileWithCheck.ScreenShot2FileWithCheck
+
+class function TkwScreenShot2FileWithCheck.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ScreenShot2FileWithCheck';
+end;//TkwScreenShot2FileWithCheck.GetWordNameForRegister
+
+function TkwScreenShot2FileWithCheck.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwScreenShot2FileWithCheck.GetResultTypeInfo
+
+function TkwScreenShot2FileWithCheck.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 6;
+end;//TkwScreenShot2FileWithCheck.GetAllParamsCount
+
+function TkwScreenShot2FileWithCheck.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), @tfw_tiString]);
+end;//TkwScreenShot2FileWithCheck.ParamsTypes
 
 procedure TkwScreenShot2FileWithCheck.DoDoIt(const aCtx: TtfwContext);
 var l_aWnd: THandle;
@@ -1803,26 +1668,6 @@ begin
  ScreenShot2FileWithCheck(aCtx, l_aWnd, l_aLeft, l_aTop, l_aWidth, l_aHeight, l_aFileName);
 end;//TkwScreenShot2FileWithCheck.DoDoIt
 
-function TkwScreenShot2FileWithCheck.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwScreenShot2FileWithCheck.GetResultTypeInfo
-
-function TkwScreenShot2FileWithCheck.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 6;
-end;//TkwScreenShot2FileWithCheck.GetAllParamsCount
-
-function TkwScreenShot2FileWithCheck.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), @tfw_tiString]);
-end;//TkwScreenShot2FileWithCheck.ParamsTypes
-
-class function TkwScreenShot2FileWithCheck.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ScreenShot2FileWithCheck';
-end;//TkwScreenShot2FileWithCheck.GetWordNameForRegister
-
 initialization
  TkwWndIsVisible.RegisterInEngine;
  {* Регистрация wnd_IsVisible }
@@ -1870,20 +1715,18 @@ initialization
  {* Регистрация ScreenShot2File }
  TkwScreenShot2FileWithCheck.RegisterInEngine;
  {* Регистрация ScreenShot2FileWithCheck }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
- TtfwTypeRegistrator.RegisterType(TypeInfo(THandle));
- {* Регистрация типа THandle }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(THandle));
+ {* Регистрация типа THandle }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TPoint }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwStackValue }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoWindows)

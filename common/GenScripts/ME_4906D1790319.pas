@@ -96,6 +96,9 @@ uses
  , BaseTypesUnit
  , nsPromptForDocFilter
  , BaseSearchInterfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , evNodePainter
  , l3Memory
  , l3Stream
@@ -368,6 +371,12 @@ begin
  Result := TnsPromptContextFilterParams.Make;
 //#UC END# *48FF52670038_4906D1790319_impl*
 end;//TnsBaseSearchPromptTreeBase.MakeContextFilterParams
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EPromptTreeNotFound));
+ {* Регистрация типа EPromptTreeNotFound }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -4217,6 +4217,10 @@ type _Instance_R_ = TvcmToolbarDefList;
 
 initialization
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmPopupMenu);
+ {* Регистрация TvcmPopupMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmFakeBox);
  {* Регистрация TvcmFakeBox }
 {$IfEnd} // NOT Defined(NoScripts)
@@ -4227,6 +4231,14 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmToolButtonDef);
  {* Регистрация TvcmToolButtonDef }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmButtonPopupMenu);
+ {* Регистрация TvcmButtonPopupMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmCustomMenuManager);
+ {* Регистрация TvcmCustomMenuManager }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmComboBox);
@@ -4247,6 +4259,10 @@ initialization
 //#UC START# *52AB0BCD033E*
  g_InternalButton := TvcmToolButtonDef.Create(nil);
 //#UC END# *52AB0BCD033E*
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmMenuManager);
+ {* Регистрация TvcmMenuManager }
+{$IfEnd} // NOT Defined(NoScripts)
 
 finalization
 //#UC START# *52AB0BD60025*

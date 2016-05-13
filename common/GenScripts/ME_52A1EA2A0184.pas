@@ -67,6 +67,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TvcmBaseEntities.pm_GetEntities: TvcmBaseEntitiesCollection;
@@ -237,6 +240,12 @@ begin
  inherited;
 //#UC END# *4F884378016A_52A1EA2A0184_impl*
 end;//TvcmBaseEntities.Notification
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmBaseEntities);
+ {* Регистрация TvcmBaseEntities }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

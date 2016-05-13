@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_MedicListSynchroView_Control_ztChild_Push
 
  TkwEnMedicListSynchroViewZtChild = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicListSynchroView.ztChild
-[panel]Контрол ztChild формы Ten_MedicListSynchroView[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aen_MedicListSynchroView .Ten_MedicListSynchroView.ztChild >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .Ten_MedicListSynchroView.ztChild }
   private
    function ztChild(const aCtx: TtfwContext;
     aen_MedicListSynchroView: Ten_MedicListSynchroView): TvtPanel;
@@ -94,11 +87,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicListSynchroViewZtChild
 
 function Tkw_Form_MedicListSynchroView.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(ztChild(aCtx, l_aen_MedicListSynchroView));
 end;//TkwEnMedicListSynchroViewZtChild.DoDoIt
 
-procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ztChild', aCtx);
-end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
+ Result := '.Ten_MedicListSynchroView.ztChild';
+end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
 
 function TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicListSynchroView)]);
 end;//TkwEnMedicListSynchroViewZtChild.ParamsTypes
 
-class function TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicListSynchroView.ztChild';
-end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ztChild', aCtx);
+end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
 
 initialization
  Tkw_Form_MedicListSynchroView.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_MedicListSynchroView_Control_ztChild_Push }
  TkwEnMedicListSynchroViewZtChild.RegisterInEngine;
  {* Регистрация en_MedicListSynchroView_ztChild }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_MedicListSynchroView));
- {* Регистрация типа MedicListSynchroView }
+ {* Регистрация типа Ten_MedicListSynchroView }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

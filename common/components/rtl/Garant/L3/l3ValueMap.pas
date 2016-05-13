@@ -48,6 +48,9 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure Tl3ValueMap.DoGetDisplayNames(const aList: Il3StringsEx);
@@ -112,5 +115,15 @@ begin
  Finalize(f_rMapID);
  inherited;
 end;//Tl3ValueMap.ClearFields
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(El3ValueMap));
+ {* Регистрация типа El3ValueMap }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(El3ValueMapValueNotFound));
+ {* Регистрация типа El3ValueMapValueNotFound }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

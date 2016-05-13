@@ -31,8 +31,8 @@ Open
  [code]
  *Результат:* Будет открыт новый документ с именем файла и расширением .evd }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpen
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -44,6 +44,11 @@ uses
  , EverestLiteAdapter
  , SysUtils
 ;
+
+class function TkwOpen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Open';
+end;//TkwOpen.GetWordNameForRegister
 
 procedure TkwOpen.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_512D9C56000B_var*
@@ -59,11 +64,6 @@ begin
  OpenDocument(l_FileName);
 //#UC END# *4DAEEDE10285_512D9C56000B_impl*
 end;//TkwOpen.DoDoIt
-
-class function TkwOpen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Open';
-end;//TkwOpen.GetWordNameForRegister
 
 initialization
  TkwOpen.RegisterInEngine;

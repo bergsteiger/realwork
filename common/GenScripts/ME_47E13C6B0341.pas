@@ -120,10 +120,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , ScrollingWinControlWordsPack
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , ScrollingWinControlWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , FormsProcessingPack
@@ -240,12 +240,20 @@ end;//TCustomForm.CreateNew
 
 initialization
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TApplication);
+ {* Регистрация TApplication }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TScrollingWinControl);
  {* Регистрация TScrollingWinControl }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomForm);
  {* Регистрация TCustomForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TScreen);
+ {* Регистрация TScreen }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TScrollBox);

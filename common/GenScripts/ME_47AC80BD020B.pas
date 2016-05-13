@@ -57,6 +57,63 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2Error));
+ {* Регистрация типа Ek2Error }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2Warning));
+ {* Регистрация типа Ek2Warning }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2NotFound));
+ {* Регистрация типа Ek2NotFound }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2CannotDefine));
+ {* Регистрация типа Ek2CannotDefine }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2TypeAlreadyDefined));
+ {* Регистрация типа Ek2TypeAlreadyDefined }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2PropertyAlreadyDefined));
+ {* Регистрация типа Ek2PropertyAlreadyDefined }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2CannotDefineType));
+ {* Регистрация типа Ek2CannotDefineType }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2ConversionError));
+ {* Регистрация типа Ek2ConversionError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2CannotAddChild));
+ {* Регистрация типа Ek2CannotAddChild }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2InvalidChildType));
+ {* Регистрация типа Ek2InvalidChildType }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2ReadOnlyProperty));
+ {* Регистрация типа Ek2ReadOnlyProperty }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2ReadOnly));
+ {* Регистрация типа Ek2ReadOnly }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Ek2LimitReached));
+ {* Регистрация типа Ek2LimitReached }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

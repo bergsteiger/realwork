@@ -15,8 +15,8 @@ uses
  , nevTools
  , l3Variant
  , nevBase
- , l3Interfaces
  , l3IID
+ , l3Interfaces
 ;
 
 type

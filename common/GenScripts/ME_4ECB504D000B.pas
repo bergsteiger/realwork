@@ -20,8 +20,8 @@ type
  TkwEditorSetTOC = class(TtfwRegisterableWord)
   {* редактор:установить_оглавление }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwEditorSetTOC
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,11 @@ uses
  l3ImplUses
  , arArchiTestsAdapter
 ;
+
+class function TkwEditorSetTOC.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'редактор:установить_оглавление';
+end;//TkwEditorSetTOC.GetWordNameForRegister
 
 procedure TkwEditorSetTOC.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4ECB504D000B_var*
@@ -47,11 +52,6 @@ begin
  ArSetContentsSub(l_BlockID);
 //#UC END# *4DAEEDE10285_4ECB504D000B_impl*
 end;//TkwEditorSetTOC.DoDoIt
-
-class function TkwEditorSetTOC.GetWordNameForRegister: AnsiString;
-begin
- Result := 'редактор:установить_оглавление';
-end;//TkwEditorSetTOC.GetWordNameForRegister
 
 initialization
  TkwEditorSetTOC.RegisterInEngine;

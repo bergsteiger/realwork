@@ -36,6 +36,9 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Graphics
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function l3FormatRTTIInfo(anObject: TObject;
@@ -234,5 +237,11 @@ begin
  end;
 //#UC END# *5012C016039F_5012BFDC0300_impl*
 end;//l3FormatRTTIInfo
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ERTTIInfoSkipProperty));
+ {* Регистрация типа ERTTIInfoSkipProperty }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

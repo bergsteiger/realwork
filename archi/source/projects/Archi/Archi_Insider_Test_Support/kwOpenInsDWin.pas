@@ -18,8 +18,8 @@ uses
 type
  TkwOpenInsDWin = class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpenInsDWin
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -31,6 +31,11 @@ uses
  , arArchiTestsAdapter
 ;
 
+class function TkwOpenInsDWin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'редактор_словарей';
+end;//TkwOpenInsDWin.GetWordNameForRegister
+
 procedure TkwOpenInsDWin.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E2448BD014D_var*
 //#UC END# *4DAEEDE10285_4E2448BD014D_var*
@@ -39,11 +44,6 @@ begin
  AcOpenInsDWin;
 //#UC END# *4DAEEDE10285_4E2448BD014D_impl*
 end;//TkwOpenInsDWin.DoDoIt
-
-class function TkwOpenInsDWin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'редактор_словарей';
-end;//TkwOpenInsDWin.GetWordNameForRegister
 
 initialization
  TkwOpenInsDWin.RegisterInEngine;

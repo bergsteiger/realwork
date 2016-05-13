@@ -14,6 +14,7 @@ uses
  , l3ProtoObject
  , daInterfaces
  , l3DatLst
+ , daArchiUserList
  , daTypes
 ;
 
@@ -26,6 +27,7 @@ type
    f_AllUsers: Tl3StringDataList;
    f_AllGroups: Tl3StringDataList;
    f_UserNameQuery: IdaTabledQuery;
+   f_ArchiUsers: TdaArchiUserList;
   private
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
@@ -36,6 +38,7 @@ type
    procedure FillAllGroups(aList: Tl3StringDataList);
    procedure SortUsersInList(aList: Tl3StringDataList);
    function UserNameQuery: IdaTabledQuery;
+   procedure MakeFullArchiUsersList;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -210,6 +213,16 @@ begin
  Result := f_UserNameQuery;
 //#UC END# *5718C16B036E_5629FC88034B_impl*
 end;//TpgUserManager.UserNameQuery
+
+procedure TpgUserManager.MakeFullArchiUsersList;
+//#UC START# *57347AFF018E_5629FC88034B_var*
+//#UC END# *57347AFF018E_5629FC88034B_var*
+begin
+//#UC START# *57347AFF018E_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *57347AFF018E_5629FC88034B_impl*
+end;//TpgUserManager.MakeFullArchiUsersList
 
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;

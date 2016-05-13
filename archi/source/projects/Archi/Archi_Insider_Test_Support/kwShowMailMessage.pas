@@ -20,8 +20,8 @@ type
  TkwShowMailMessage = class(TtfwRegisterableWord)
   {* ShowMailWindow }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwShowMailMessage
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,11 @@ uses
  l3ImplUses
  , arArchiTestAdapter2
 ;
+
+class function TkwShowMailMessage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ShowMailWindow';
+end;//TkwShowMailMessage.GetWordNameForRegister
 
 procedure TkwShowMailMessage.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F0C26900161_var*
@@ -44,11 +49,6 @@ begin
   Assert(False, 'Не задан номер почтового сообщения.');
 //#UC END# *4DAEEDE10285_4F0C26900161_impl*
 end;//TkwShowMailMessage.DoDoIt
-
-class function TkwShowMailMessage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ShowMailWindow';
-end;//TkwShowMailMessage.GetWordNameForRegister
 
 initialization
  TkwShowMailMessage.RegisterInEngine;

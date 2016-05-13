@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -94,11 +94,11 @@ OBJECT VAR l_TvtOutlinerControl
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwOutlinerFormFormTreeControl
 
 function Tkw_Form_OutlinerForm.GetString: AnsiString;
@@ -160,11 +160,10 @@ begin
  aCtx.rEngine.PushObj(TreeControl(aCtx, l_aOutlinerFormForm));
 end;//TkwOutlinerFormFormTreeControl.DoDoIt
 
-procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwOutlinerFormFormTreeControl.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TreeControl', aCtx);
-end;//TkwOutlinerFormFormTreeControl.SetValuePrim
+ Result := '.TOutlinerFormForm.TreeControl';
+end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
 
 function TkwOutlinerFormFormTreeControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +180,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TOutlinerFormForm)]);
 end;//TkwOutlinerFormFormTreeControl.ParamsTypes
 
-class function TkwOutlinerFormFormTreeControl.GetWordNameForRegister: AnsiString;
+procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TOutlinerFormForm.TreeControl';
-end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TreeControl', aCtx);
+end;//TkwOutlinerFormFormTreeControl.SetValuePrim
 
 initialization
  Tkw_Form_OutlinerForm.RegisterInEngine;
@@ -195,10 +195,8 @@ initialization
  {* Регистрация Tkw_OutlinerForm_Control_TreeControl_Push }
  TkwOutlinerFormFormTreeControl.RegisterInEngine;
  {* Регистрация OutlinerFormForm_TreeControl }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TOutlinerFormForm));
- {* Регистрация типа OutlinerForm }
+ {* Регистрация типа TOutlinerFormForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtOutlinerControl));
  {* Регистрация типа TvtOutlinerControl }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)

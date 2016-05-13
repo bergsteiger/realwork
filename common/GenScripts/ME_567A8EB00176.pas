@@ -24,19 +24,13 @@ uses
  , tfwClassLike
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopWordBoxBoxed = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordBox:Boxed
-*Тип результата:* TtfwWord
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWord
- aWordBox pop:WordBox:Boxed >>> l_TtfwWord
-[code]  }
+  {* Слово скрипта pop:WordBox:Boxed }
   private
    function Boxed(const aCtx: TtfwContext;
     const aWordBox: ItfwWordBox): TtfwWord;
@@ -53,12 +47,12 @@ OBJECT VAR l_TtfwWord
 function TkwPopWordBoxBoxed.Boxed(const aCtx: TtfwContext;
  const aWordBox: ItfwWordBox): TtfwWord;
  {* Реализация слова скрипта pop:WordBox:Boxed }
-//#UC START# *B9B1A8117301_72ECED106E06_var*
-//#UC END# *B9B1A8117301_72ECED106E06_var*
+//#UC START# *567A8EC50138_72ECED106E06_var*
+//#UC END# *567A8EC50138_72ECED106E06_var*
 begin
-//#UC START# *B9B1A8117301_72ECED106E06_impl*
+//#UC START# *567A8EC50138_72ECED106E06_impl*
  Result := aWordBox.Boxed;
-//#UC END# *B9B1A8117301_72ECED106E06_impl*
+//#UC END# *567A8EC50138_72ECED106E06_impl*
 end;//TkwPopWordBoxBoxed.Boxed
 
 procedure TkwPopWordBoxBoxed.DoDoIt(const aCtx: TtfwContext);
@@ -76,6 +70,11 @@ begin
  aCtx.rEngine.PushObj(Boxed(aCtx, l_aWordBox));
 end;//TkwPopWordBoxBoxed.DoDoIt
 
+class function TkwPopWordBoxBoxed.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordBox:Boxed';
+end;//TkwPopWordBoxBoxed.GetWordNameForRegister
+
 function TkwPopWordBoxBoxed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWord);
@@ -91,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwWordBox)]);
 end;//TkwPopWordBoxBoxed.ParamsTypes
 
-class function TkwPopWordBoxBoxed.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordBox:Boxed';
-end;//TkwPopWordBoxBoxed.GetWordNameForRegister
-
 initialization
  TkwPopWordBoxBoxed.RegisterInEngine;
  {* Регистрация pop_WordBox_Boxed }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwWordBox));
  {* Регистрация типа ItfwWordBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));

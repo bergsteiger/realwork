@@ -21,8 +21,8 @@ uses
  , l3TreeInterfaces
  , DocumentAndListInterfaces
  , l3Interfaces
- , DynamicDocListUnit
  , l3IID
+ , DynamicDocListUnit
  , DocumentInterfaces
  , DynamicTreeUnit
  , SimpleListInterfaces

@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , arEditorControl
  , tfwScriptingInterfaces
- , evCustomEditorWindow
  , nevTools
+ , evCustomEditorWindow
  , l3Units
  , nevGUIInterfaces
 ;

@@ -55,6 +55,9 @@ uses
  , l3Base
  , ncsOneFileDeliverer
  , ncsFileDesc
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TncsFileListDeliverer.PrepareDescription(const aList: FileDescHelper);
@@ -177,6 +180,12 @@ begin
  f_Data := TncsOneFileDelivererList.Create;
 //#UC END# *47A042E100E2_546F398E0203_impl*
 end;//TncsFileListDeliverer.InitFields
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EncsEmptyResults));
+ {* Регистрация типа EncsEmptyResults }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

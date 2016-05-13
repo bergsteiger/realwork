@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmFindForm = class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmFindForm
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -42,6 +42,11 @@ uses
 ;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
+
+class function TkwVcmFindForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:FindForm';
+end;//TkwVcmFindForm.GetWordNameForRegister
 
 procedure TkwVcmFindForm.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F215ADB00AF_var*
@@ -74,11 +79,6 @@ begin
  end;//l_Res
 //#UC END# *4DAEEDE10285_4F215ADB00AF_impl*
 end;//TkwVcmFindForm.DoDoIt
-
-class function TkwVcmFindForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:FindForm';
-end;//TkwVcmFindForm.GetWordNameForRegister
 
 initialization
  TkwVcmFindForm.RegisterInEngine;

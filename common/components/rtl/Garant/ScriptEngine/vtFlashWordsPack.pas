@@ -26,19 +26,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopFlashGetFrame = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:flash:GetFrame
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aFlash pop:flash:GetFrame >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:flash:GetFrame }
   private
    function GetFrame(const aCtx: TtfwContext;
     aFlash: TvtShockwaveFlashEx): Integer;
@@ -55,12 +49,12 @@ INTEGER VAR l_Integer
 function TkwPopFlashGetFrame.GetFrame(const aCtx: TtfwContext;
  aFlash: TvtShockwaveFlashEx): Integer;
  {* Реализация слова скрипта pop:flash:GetFrame }
-//#UC START# *974085042BA3_4E9CC5473030_var*
-//#UC END# *974085042BA3_4E9CC5473030_var*
+//#UC START# *552FAF500391_4E9CC5473030_var*
+//#UC END# *552FAF500391_4E9CC5473030_var*
 begin
-//#UC START# *974085042BA3_4E9CC5473030_impl*
+//#UC START# *552FAF500391_4E9CC5473030_impl*
  Result := aFlash.FrameNum;
-//#UC END# *974085042BA3_4E9CC5473030_impl*
+//#UC END# *552FAF500391_4E9CC5473030_impl*
 end;//TkwPopFlashGetFrame.GetFrame
 
 procedure TkwPopFlashGetFrame.DoDoIt(const aCtx: TtfwContext);
@@ -78,6 +72,11 @@ begin
  aCtx.rEngine.PushInt(GetFrame(aCtx, l_aFlash));
 end;//TkwPopFlashGetFrame.DoDoIt
 
+class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:flash:GetFrame';
+end;//TkwPopFlashGetFrame.GetWordNameForRegister
+
 function TkwPopFlashGetFrame.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -93,16 +92,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtShockwaveFlashEx)]);
 end;//TkwPopFlashGetFrame.ParamsTypes
 
-class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:flash:GetFrame';
-end;//TkwPopFlashGetFrame.GetWordNameForRegister
-
 initialization
  TkwPopFlashGetFrame.RegisterInEngine;
  {* Регистрация pop_Flash_GetFrame }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtShockwaveFlashEx));
  {* Регистрация типа TvtShockwaveFlashEx }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));

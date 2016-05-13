@@ -16,8 +16,8 @@ uses
  , nevBase
  , l3Interfaces
  , l3Base
- , afwInterfaces
  , l3IID
+ , afwInterfaces
 ;
 
 type

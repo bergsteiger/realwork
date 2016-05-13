@@ -24,8 +24,17 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\SandBox\StackPrim.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TIntStackFromComponent);
+ {* Регистрация TIntStackFromComponent }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

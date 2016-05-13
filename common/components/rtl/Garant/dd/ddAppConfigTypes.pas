@@ -1168,12 +1168,18 @@ implementation
 uses
  l3ImplUses
  , ddAppConfigTypesRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3String
  , DateUtils
  , l3Base
  , StrUtils
  , Math
  , vtSpinEdit
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -7600,5 +7606,15 @@ begin
   TvtComboBoxQS(aControl).Enabled := TvtComboBoxQS(aControl).Enabled and not ReadOnly;
 //#UC END# *552BB745031E_5440C8300216_impl*
 end;//TddContainerComboConfigItem.AdjustReadOnly
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EddConfigError));
+ {* Регистрация типа EddConfigError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(EddInvalidValue);
+ {* Регистрация EddInvalidValue }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -390,14 +390,7 @@ type
  end;//Tkw_MemoryUsage_Control_lbTotalMemory_Push
 
  TkwMemoryUsageFormPnTagTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.pnTagTree
-[panel]Контрол pnTagTree формы TMemoryUsageForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMemoryUsageForm .TMemoryUsageForm.pnTagTree >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.pnTagTree }
   private
    function pnTagTree(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtPanel;
@@ -406,22 +399,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormPnTagTree
 
  TkwMemoryUsageFormTagTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.TagTree
-[panel]Контрол TagTree формы TMemoryUsageForm[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aMemoryUsageForm .TMemoryUsageForm.TagTree >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.TagTree }
   private
    function TagTree(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TeeTreeView;
@@ -430,22 +416,15 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormTagTree
 
  TkwMemoryUsageFormPnMemClasses = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.pnMemClasses
-[panel]Контрол pnMemClasses формы TMemoryUsageForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aMemoryUsageForm .TMemoryUsageForm.pnMemClasses >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.pnMemClasses }
   private
    function pnMemClasses(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
@@ -454,22 +433,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormPnMemClasses
 
  TkwMemoryUsageFormMemClasses = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.memClasses
-[panel]Контрол memClasses формы TMemoryUsageForm[panel]
-*Тип результата:* TevMemo
-*Пример:*
-[code]
-OBJECT VAR l_TevMemo
- aMemoryUsageForm .TMemoryUsageForm.memClasses >>> l_TevMemo
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.memClasses }
   private
    function memClasses(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TevMemo;
@@ -478,22 +450,15 @@ OBJECT VAR l_TevMemo
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormMemClasses
 
  TkwMemoryUsageFormPnSummary = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.pnSummary
-[panel]Контрол pnSummary формы TMemoryUsageForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aMemoryUsageForm .TMemoryUsageForm.pnSummary >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.pnSummary }
   private
    function pnSummary(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
@@ -502,22 +467,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormPnSummary
 
  TkwMemoryUsageFormLbLocalMemory = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbLocalMemory
-[panel]Контрол lbLocalMemory формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbLocalMemory >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbLocalMemory }
   private
    function lbLocalMemory(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -526,22 +484,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbLocalMemory
 
  TkwMemoryUsageFormLbObjectMemory = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbObjectMemory
-[panel]Контрол lbObjectMemory формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbObjectMemory >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbObjectMemory }
   private
    function lbObjectMemory(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -550,22 +501,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbObjectMemory
 
  TkwMemoryUsageFormLbObjectCount = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbObjectCount
-[panel]Контрол lbObjectCount формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbObjectCount >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbObjectCount }
   private
    function lbObjectCount(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -574,22 +518,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbObjectCount
 
  TkwMemoryUsageFormLbGlobalMemory = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbGlobalMemory
-[panel]Контрол lbGlobalMemory формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbGlobalMemory >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbGlobalMemory }
   private
    function lbGlobalMemory(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -598,22 +535,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbGlobalMemory
 
  TkwMemoryUsageFormLbDocumentsInCacheCount = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbDocumentsInCacheCount
-[panel]Контрол lbDocumentsInCacheCount формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbDocumentsInCacheCount >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbDocumentsInCacheCount }
   private
    function lbDocumentsInCacheCount(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -622,22 +552,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbDocumentsInCacheCount
 
  TkwMemoryUsageFormLbAllLocalMemory = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbAllLocalMemory
-[panel]Контрол lbAllLocalMemory формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbAllLocalMemory >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbAllLocalMemory }
   private
    function lbAllLocalMemory(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -646,22 +569,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbAllLocalMemory
 
  TkwMemoryUsageFormLbTotalMemory = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMemoryUsageForm.lbTotalMemory
-[panel]Контрол lbTotalMemory формы TMemoryUsageForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aMemoryUsageForm .TMemoryUsageForm.lbTotalMemory >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TMemoryUsageForm.lbTotalMemory }
   private
    function lbTotalMemory(const aCtx: TtfwContext;
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -670,11 +586,11 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMemoryUsageFormLbTotalMemory
 
 function Tkw_Form_MemoryUsage.GetString: AnsiString;
@@ -1033,11 +949,10 @@ begin
  aCtx.rEngine.PushObj(pnTagTree(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormPnTagTree.DoDoIt
 
-procedure TkwMemoryUsageFormPnTagTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormPnTagTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnTagTree', aCtx);
-end;//TkwMemoryUsageFormPnTagTree.SetValuePrim
+ Result := '.TMemoryUsageForm.pnTagTree';
+end;//TkwMemoryUsageFormPnTagTree.GetWordNameForRegister
 
 function TkwMemoryUsageFormPnTagTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1054,10 +969,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormPnTagTree.ParamsTypes
 
-class function TkwMemoryUsageFormPnTagTree.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormPnTagTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.pnTagTree';
-end;//TkwMemoryUsageFormPnTagTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnTagTree', aCtx);
+end;//TkwMemoryUsageFormPnTagTree.SetValuePrim
 
 function TkwMemoryUsageFormTagTree.TagTree(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TeeTreeView;
@@ -1081,11 +997,10 @@ begin
  aCtx.rEngine.PushObj(TagTree(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormTagTree.DoDoIt
 
-procedure TkwMemoryUsageFormTagTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormTagTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TagTree', aCtx);
-end;//TkwMemoryUsageFormTagTree.SetValuePrim
+ Result := '.TMemoryUsageForm.TagTree';
+end;//TkwMemoryUsageFormTagTree.GetWordNameForRegister
 
 function TkwMemoryUsageFormTagTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1102,10 +1017,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormTagTree.ParamsTypes
 
-class function TkwMemoryUsageFormTagTree.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormTagTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.TagTree';
-end;//TkwMemoryUsageFormTagTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TagTree', aCtx);
+end;//TkwMemoryUsageFormTagTree.SetValuePrim
 
 function TkwMemoryUsageFormPnMemClasses.pnMemClasses(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
@@ -1129,11 +1045,10 @@ begin
  aCtx.rEngine.PushObj(pnMemClasses(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormPnMemClasses.DoDoIt
 
-procedure TkwMemoryUsageFormPnMemClasses.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnMemClasses', aCtx);
-end;//TkwMemoryUsageFormPnMemClasses.SetValuePrim
+ Result := '.TMemoryUsageForm.pnMemClasses';
+end;//TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister
 
 function TkwMemoryUsageFormPnMemClasses.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1150,10 +1065,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormPnMemClasses.ParamsTypes
 
-class function TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormPnMemClasses.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.pnMemClasses';
-end;//TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnMemClasses', aCtx);
+end;//TkwMemoryUsageFormPnMemClasses.SetValuePrim
 
 function TkwMemoryUsageFormMemClasses.memClasses(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TevMemo;
@@ -1177,11 +1093,10 @@ begin
  aCtx.rEngine.PushObj(memClasses(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormMemClasses.DoDoIt
 
-procedure TkwMemoryUsageFormMemClasses.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormMemClasses.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству memClasses', aCtx);
-end;//TkwMemoryUsageFormMemClasses.SetValuePrim
+ Result := '.TMemoryUsageForm.memClasses';
+end;//TkwMemoryUsageFormMemClasses.GetWordNameForRegister
 
 function TkwMemoryUsageFormMemClasses.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1198,10 +1113,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormMemClasses.ParamsTypes
 
-class function TkwMemoryUsageFormMemClasses.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormMemClasses.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.memClasses';
-end;//TkwMemoryUsageFormMemClasses.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству memClasses', aCtx);
+end;//TkwMemoryUsageFormMemClasses.SetValuePrim
 
 function TkwMemoryUsageFormPnSummary.pnSummary(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
@@ -1225,11 +1141,10 @@ begin
  aCtx.rEngine.PushObj(pnSummary(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormPnSummary.DoDoIt
 
-procedure TkwMemoryUsageFormPnSummary.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormPnSummary.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnSummary', aCtx);
-end;//TkwMemoryUsageFormPnSummary.SetValuePrim
+ Result := '.TMemoryUsageForm.pnSummary';
+end;//TkwMemoryUsageFormPnSummary.GetWordNameForRegister
 
 function TkwMemoryUsageFormPnSummary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1246,10 +1161,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormPnSummary.ParamsTypes
 
-class function TkwMemoryUsageFormPnSummary.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormPnSummary.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.pnSummary';
-end;//TkwMemoryUsageFormPnSummary.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnSummary', aCtx);
+end;//TkwMemoryUsageFormPnSummary.SetValuePrim
 
 function TkwMemoryUsageFormLbLocalMemory.lbLocalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1273,11 +1189,10 @@ begin
  aCtx.rEngine.PushObj(lbLocalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbLocalMemory.DoDoIt
 
-procedure TkwMemoryUsageFormLbLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbLocalMemory', aCtx);
-end;//TkwMemoryUsageFormLbLocalMemory.SetValuePrim
+ Result := '.TMemoryUsageForm.lbLocalMemory';
+end;//TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbLocalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1294,10 +1209,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbLocalMemory.ParamsTypes
 
-class function TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbLocalMemory';
-end;//TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbLocalMemory', aCtx);
+end;//TkwMemoryUsageFormLbLocalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbObjectMemory.lbObjectMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1321,11 +1237,10 @@ begin
  aCtx.rEngine.PushObj(lbObjectMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbObjectMemory.DoDoIt
 
-procedure TkwMemoryUsageFormLbObjectMemory.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbObjectMemory', aCtx);
-end;//TkwMemoryUsageFormLbObjectMemory.SetValuePrim
+ Result := '.TMemoryUsageForm.lbObjectMemory';
+end;//TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbObjectMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1342,10 +1257,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbObjectMemory.ParamsTypes
 
-class function TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbObjectMemory.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbObjectMemory';
-end;//TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbObjectMemory', aCtx);
+end;//TkwMemoryUsageFormLbObjectMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbObjectCount.lbObjectCount(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1369,11 +1285,10 @@ begin
  aCtx.rEngine.PushObj(lbObjectCount(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbObjectCount.DoDoIt
 
-procedure TkwMemoryUsageFormLbObjectCount.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbObjectCount', aCtx);
-end;//TkwMemoryUsageFormLbObjectCount.SetValuePrim
+ Result := '.TMemoryUsageForm.lbObjectCount';
+end;//TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbObjectCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1390,10 +1305,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbObjectCount.ParamsTypes
 
-class function TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbObjectCount.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbObjectCount';
-end;//TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbObjectCount', aCtx);
+end;//TkwMemoryUsageFormLbObjectCount.SetValuePrim
 
 function TkwMemoryUsageFormLbGlobalMemory.lbGlobalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1417,11 +1333,10 @@ begin
  aCtx.rEngine.PushObj(lbGlobalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbGlobalMemory.DoDoIt
 
-procedure TkwMemoryUsageFormLbGlobalMemory.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbGlobalMemory', aCtx);
-end;//TkwMemoryUsageFormLbGlobalMemory.SetValuePrim
+ Result := '.TMemoryUsageForm.lbGlobalMemory';
+end;//TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbGlobalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1438,10 +1353,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbGlobalMemory.ParamsTypes
 
-class function TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbGlobalMemory.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbGlobalMemory';
-end;//TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbGlobalMemory', aCtx);
+end;//TkwMemoryUsageFormLbGlobalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbDocumentsInCacheCount.lbDocumentsInCacheCount(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1465,11 +1381,10 @@ begin
  aCtx.rEngine.PushObj(lbDocumentsInCacheCount(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.DoDoIt
 
-procedure TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbDocumentsInCacheCount', aCtx);
-end;//TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim
+ Result := '.TMemoryUsageForm.lbDocumentsInCacheCount';
+end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbDocumentsInCacheCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1486,10 +1401,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.ParamsTypes
 
-class function TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbDocumentsInCacheCount';
-end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbDocumentsInCacheCount', aCtx);
+end;//TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim
 
 function TkwMemoryUsageFormLbAllLocalMemory.lbAllLocalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1513,11 +1429,10 @@ begin
  aCtx.rEngine.PushObj(lbAllLocalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbAllLocalMemory.DoDoIt
 
-procedure TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbAllLocalMemory', aCtx);
-end;//TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim
+ Result := '.TMemoryUsageForm.lbAllLocalMemory';
+end;//TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbAllLocalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1534,10 +1449,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbAllLocalMemory.ParamsTypes
 
-class function TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbAllLocalMemory';
-end;//TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbAllLocalMemory', aCtx);
+end;//TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbTotalMemory.lbTotalMemory(const aCtx: TtfwContext;
  aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
@@ -1561,11 +1477,10 @@ begin
  aCtx.rEngine.PushObj(lbTotalMemory(aCtx, l_aMemoryUsageForm));
 end;//TkwMemoryUsageFormLbTotalMemory.DoDoIt
 
-procedure TkwMemoryUsageFormLbTotalMemory.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbTotalMemory', aCtx);
-end;//TkwMemoryUsageFormLbTotalMemory.SetValuePrim
+ Result := '.TMemoryUsageForm.lbTotalMemory';
+end;//TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister
 
 function TkwMemoryUsageFormLbTotalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1582,10 +1497,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMemoryUsageForm)]);
 end;//TkwMemoryUsageFormLbTotalMemory.ParamsTypes
 
-class function TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister: AnsiString;
+procedure TkwMemoryUsageFormLbTotalMemory.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TMemoryUsageForm.lbTotalMemory';
-end;//TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbTotalMemory', aCtx);
+end;//TkwMemoryUsageFormLbTotalMemory.SetValuePrim
 
 initialization
  Tkw_Form_MemoryUsage.RegisterInEngine;
@@ -1662,10 +1578,8 @@ initialization
  {* Регистрация MemoryUsageForm_lbAllLocalMemory }
  TkwMemoryUsageFormLbTotalMemory.RegisterInEngine;
  {* Регистрация MemoryUsageForm_lbTotalMemory }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TMemoryUsageForm));
- {* Регистрация типа MemoryUsage }
+ {* Регистрация типа TMemoryUsageForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTreeView));

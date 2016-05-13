@@ -22,22 +22,16 @@ uses
  l3ImplUses
  , kwCompiledWordWorkerWord
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopCompiledWordWorkerWordCompiled = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:CompiledWordWorkerWord:Compiled
-*Тип результата:* TtfwWord
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWord
- aCompiledWordWorkerWord pop:CompiledWordWorkerWord:Compiled >>> l_TtfwWord
-[code]  }
+  {* Слово скрипта pop:CompiledWordWorkerWord:Compiled }
   private
    function Compiled(const aCtx: TtfwContext;
     aCompiledWordWorkerWord: TkwCompiledWordWorkerWord): TtfwWord;
@@ -46,11 +40,11 @@ OBJECT VAR l_TtfwWord
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopCompiledWordWorkerWordCompiled
 
 function TkwPopCompiledWordWorkerWordCompiled.Compiled(const aCtx: TtfwContext;
@@ -75,11 +69,10 @@ begin
  aCtx.rEngine.PushObj(Compiled(aCtx, l_aCompiledWordWorkerWord));
 end;//TkwPopCompiledWordWorkerWordCompiled.DoDoIt
 
-procedure TkwPopCompiledWordWorkerWordCompiled.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Compiled', aCtx);
-end;//TkwPopCompiledWordWorkerWordCompiled.SetValuePrim
+ Result := 'pop:CompiledWordWorkerWord:Compiled';
+end;//TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister
 
 function TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -96,16 +89,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TkwCompiledWordWorkerWord)]);
 end;//TkwPopCompiledWordWorkerWordCompiled.ParamsTypes
 
-class function TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister: AnsiString;
+procedure TkwPopCompiledWordWorkerWordCompiled.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:CompiledWordWorkerWord:Compiled';
-end;//TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Compiled', aCtx);
+end;//TkwPopCompiledWordWorkerWordCompiled.SetValuePrim
 
 initialization
  TkwPopCompiledWordWorkerWordCompiled.RegisterInEngine;
  {* Регистрация pop_CompiledWordWorkerWord_Compiled }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TkwCompiledWordWorkerWord));
  {* Регистрация типа TkwCompiledWordWorkerWord }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));

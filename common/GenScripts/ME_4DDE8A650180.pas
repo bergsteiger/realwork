@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}
  TkwWaitOk = class(_afwImpurity_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwWaitOk
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -37,6 +37,11 @@ uses
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}
 
+class function TkwWaitOk.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'wait:Ok';
+end;//TkwWaitOk.GetWordNameForRegister
+
 procedure TkwWaitOk.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DDE8A650180_var*
 //#UC END# *4DAEEDE10285_4DDE8A650180_var*
@@ -45,11 +50,6 @@ begin
  Tl3BatchService.Instance.PushAnswer(mrOk);
 //#UC END# *4DAEEDE10285_4DDE8A650180_impl*
 end;//TkwWaitOk.DoDoIt
-
-class function TkwWaitOk.GetWordNameForRegister: AnsiString;
-begin
- Result := 'wait:Ok';
-end;//TkwWaitOk.GetWordNameForRegister
 
 initialization
  TkwWaitOk.RegisterInEngine;

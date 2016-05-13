@@ -31,8 +31,8 @@ anExt Editor:Text:SaveAs
 [code]
 где anExt - расширение из списка поддерживаемых: '.evd', .txt', .rtf', .doc' }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwEditorTextSaveAs
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -44,6 +44,11 @@ uses
  , arArchiTestAdapter2
  , SysUtils
 ;
+
+class function TkwEditorTextSaveAs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Editor:Text:SaveAs';
+end;//TkwEditorTextSaveAs.GetWordNameForRegister
 
 procedure TkwEditorTextSaveAs.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_537D968501B2_var*
@@ -61,11 +66,6 @@ begin
  AcSaveTextAs(l_FileName);
 //#UC END# *4DAEEDE10285_537D968501B2_impl*
 end;//TkwEditorTextSaveAs.DoDoIt
-
-class function TkwEditorTextSaveAs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Editor:Text:SaveAs';
-end;//TkwEditorTextSaveAs.GetWordNameForRegister
 
 initialization
  TkwEditorTextSaveAs.RegisterInEngine;

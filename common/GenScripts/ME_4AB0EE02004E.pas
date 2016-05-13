@@ -52,6 +52,9 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TCommonDialog.DoClose;
@@ -107,6 +110,20 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4DCC20C10116_4DA44E2C0153_impl*
 end;//TOpenDialog.Execute
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TCommonDialog);
+ {* Регистрация TCommonDialog }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TOpenDialog);
+ {* Регистрация TOpenDialog }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TSaveDialog);
+ {* Регистрация TSaveDialog }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.

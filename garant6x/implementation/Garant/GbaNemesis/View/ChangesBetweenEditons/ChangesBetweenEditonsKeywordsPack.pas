@@ -30,14 +30,14 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -96,14 +96,7 @@ type
  end;//Tkw_ChangesBetweenEditons_Component_TextSource
 
  TkwChangesBetweenEditonsFormText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChangesBetweenEditonsForm.Text
-[panel]Контрол Text формы TChangesBetweenEditonsForm[panel]
-*Тип результата:* TnscEditor
-*Пример:*
-[code]
-OBJECT VAR l_TnscEditor
- aChangesBetweenEditonsForm .TChangesBetweenEditonsForm.Text >>> l_TnscEditor
-[code]  }
+  {* Слово скрипта .TChangesBetweenEditonsForm.Text }
   private
    function Text(const aCtx: TtfwContext;
     aChangesBetweenEditonsForm: TChangesBetweenEditonsForm): TnscEditor;
@@ -112,11 +105,11 @@ OBJECT VAR l_TnscEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChangesBetweenEditonsFormText
 
 function Tkw_Form_ChangesBetweenEditons.GetString: AnsiString;
@@ -194,11 +187,10 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aChangesBetweenEditonsForm));
 end;//TkwChangesBetweenEditonsFormText.DoDoIt
 
-procedure TkwChangesBetweenEditonsFormText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChangesBetweenEditonsFormText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
-end;//TkwChangesBetweenEditonsFormText.SetValuePrim
+ Result := '.TChangesBetweenEditonsForm.Text';
+end;//TkwChangesBetweenEditonsFormText.GetWordNameForRegister
 
 function TkwChangesBetweenEditonsFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -215,10 +207,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChangesBetweenEditonsForm)]);
 end;//TkwChangesBetweenEditonsFormText.ParamsTypes
 
-class function TkwChangesBetweenEditonsFormText.GetWordNameForRegister: AnsiString;
+procedure TkwChangesBetweenEditonsFormText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChangesBetweenEditonsForm.Text';
-end;//TkwChangesBetweenEditonsFormText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
+end;//TkwChangesBetweenEditonsFormText.SetValuePrim
 
 initialization
  Tkw_Form_ChangesBetweenEditons.RegisterInEngine;
@@ -231,10 +224,8 @@ initialization
  {* Регистрация Tkw_ChangesBetweenEditons_Component_TextSource }
  TkwChangesBetweenEditonsFormText.RegisterInEngine;
  {* Регистрация ChangesBetweenEditonsForm_Text }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChangesBetweenEditonsForm));
- {* Регистрация типа ChangesBetweenEditons }
+ {* Регистрация типа TChangesBetweenEditonsForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

@@ -23,24 +23,17 @@ uses
  l3ImplUses
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwNodeIsFirst = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Node:IsFirst
-[panel]Узел первый?[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aNode Node:IsFirst >>> l_Boolean
-[code]  }
+  {* Слово скрипта Node:IsFirst }
   private
    function IsFirst(const aCtx: TtfwContext;
     const aNode: Il3SimpleNode): Boolean;
@@ -49,22 +42,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNodeIsFirst
 
  TkwNodeIsLast = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Node:IsLast
-[panel]Узел последний?[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aNode Node:IsLast >>> l_Boolean
-[code]  }
+  {* Слово скрипта Node:IsLast }
   private
    function IsLast(const aCtx: TtfwContext;
     const aNode: Il3SimpleNode): Boolean;
@@ -73,22 +59,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNodeIsLast
 
  TkwNodeFlags = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Node:Flags
-[panel]Флаги узла[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aNode Node:Flags >>> l_Integer
-[code]  }
+  {* Слово скрипта Node:Flags }
   private
    function Flags(const aCtx: TtfwContext;
     const aNode: Il3SimpleNode): Integer;
@@ -97,22 +76,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNodeFlags
 
  TkwNodeText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Node:Text
-[panel]Текст узла[panel]
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aNode Node:Text >>> l_Tl3WString
-[code]  }
+  {* Слово скрипта Node:Text }
   private
    function Text(const aCtx: TtfwContext;
     const aNode: Il3SimpleNode): Tl3WString;
@@ -121,11 +93,11 @@ STRING VAR l_Tl3WString
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNodeText
 
  Tl3NodesKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
@@ -156,11 +128,10 @@ begin
  aCtx.rEngine.PushBool(IsFirst(aCtx, l_aNode));
 end;//TkwNodeIsFirst.DoDoIt
 
-procedure TkwNodeIsFirst.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsFirst', aCtx);
-end;//TkwNodeIsFirst.SetValuePrim
+ Result := 'Node:IsFirst';
+end;//TkwNodeIsFirst.GetWordNameForRegister
 
 function TkwNodeIsFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -177,10 +148,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeIsFirst.ParamsTypes
 
-class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
+procedure TkwNodeIsFirst.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Node:IsFirst';
-end;//TkwNodeIsFirst.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsFirst', aCtx);
+end;//TkwNodeIsFirst.SetValuePrim
 
 function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Boolean;
@@ -204,11 +176,10 @@ begin
  aCtx.rEngine.PushBool(IsLast(aCtx, l_aNode));
 end;//TkwNodeIsLast.DoDoIt
 
-procedure TkwNodeIsLast.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsLast', aCtx);
-end;//TkwNodeIsLast.SetValuePrim
+ Result := 'Node:IsLast';
+end;//TkwNodeIsLast.GetWordNameForRegister
 
 function TkwNodeIsLast.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -225,10 +196,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeIsLast.ParamsTypes
 
-class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
+procedure TkwNodeIsLast.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Node:IsLast';
-end;//TkwNodeIsLast.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsLast', aCtx);
+end;//TkwNodeIsLast.SetValuePrim
 
 function TkwNodeFlags.Flags(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Integer;
@@ -252,11 +224,10 @@ begin
  aCtx.rEngine.PushInt(Flags(aCtx, l_aNode));
 end;//TkwNodeFlags.DoDoIt
 
-procedure TkwNodeFlags.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Flags', aCtx);
-end;//TkwNodeFlags.SetValuePrim
+ Result := 'Node:Flags';
+end;//TkwNodeFlags.GetWordNameForRegister
 
 function TkwNodeFlags.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -273,10 +244,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeFlags.ParamsTypes
 
-class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
+procedure TkwNodeFlags.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Node:Flags';
-end;//TkwNodeFlags.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Flags', aCtx);
+end;//TkwNodeFlags.SetValuePrim
 
 function TkwNodeText.Text(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Tl3WString;
@@ -300,11 +272,10 @@ begin
  aCtx.rEngine.PushString(Text(aCtx, l_aNode));
 end;//TkwNodeText.DoDoIt
 
-procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNodeText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
-end;//TkwNodeText.SetValuePrim
+ Result := 'Node:Text';
+end;//TkwNodeText.GetWordNameForRegister
 
 function TkwNodeText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -321,10 +292,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeText.ParamsTypes
 
-class function TkwNodeText.GetWordNameForRegister: AnsiString;
+procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Node:Text';
-end;//TkwNodeText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
+end;//TkwNodeText.SetValuePrim
 
 class function Tl3NodesKeyWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -344,8 +316,6 @@ initialization
  {* Регистрация Node_Text }
  Tl3NodesKeyWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));
  {* Регистрация типа Il3SimpleNode }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

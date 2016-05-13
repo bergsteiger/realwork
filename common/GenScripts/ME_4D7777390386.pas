@@ -15,10 +15,10 @@ uses
  , TextEditorVisitor
  {$IfEnd} // NOT Defined(NoVCM)
  , nevVScrollerSpy
+ , Types
  {$If NOT Defined(NoVCM)}
  , PrimTextLoad_Form
  {$IfEnd} // NOT Defined(NoVCM)
- , Types
 ;
 
 type

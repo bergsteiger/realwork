@@ -20,10 +20,10 @@ uses
  , Classes
  , ddRTFdestination
  , Graphics
+ , ddCustomRTFReader
  , ddRTFState
  , RTFtypes
  , l3Base
- , ddCustomRTFReader
 ;
 
 type

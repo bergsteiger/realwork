@@ -38,11 +38,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -1320,14 +1320,7 @@ type
  end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push
 
  TkwStyleEditorFontFormFontScrollBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontScrollBox
-[panel]Контрол FontScrollBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TScrollBox
-*Пример:*
-[code]
-OBJECT VAR l_TScrollBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontScrollBox >>> l_TScrollBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontScrollBox }
   private
    function FontScrollBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TScrollBox;
@@ -1336,22 +1329,15 @@ OBJECT VAR l_TScrollBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontScrollBox
 
  TkwStyleEditorFontFormFontUnderlineLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontUnderlineLabel
-[panel]Контрол FontUnderlineLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontUnderlineLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontUnderlineLabel }
   private
    function FontUnderlineLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1360,22 +1346,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontUnderlineLabel
 
  TkwStyleEditorFontFormFontStrikeoutLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontStrikeoutLabel
-[panel]Контрол FontStrikeoutLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontStrikeoutLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontStrikeoutLabel }
   private
    function FontStrikeoutLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1384,22 +1363,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontStrikeoutLabel
 
  TkwStyleEditorFontFormFontSizeLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontSizeLabel
-[panel]Контрол FontSizeLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontSizeLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontSizeLabel }
   private
    function FontSizeLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1408,22 +1380,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontSizeLabel
 
  TkwStyleEditorFontFormFontNameLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontNameLabel
-[panel]Контрол FontNameLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontNameLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontNameLabel }
   private
    function FontNameLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1432,22 +1397,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontNameLabel
 
  TkwStyleEditorFontFormFontItalicLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontItalicLabel
-[panel]Контрол FontItalicLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontItalicLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontItalicLabel }
   private
    function FontItalicLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1456,22 +1414,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontItalicLabel
 
  TkwStyleEditorFontFormFontForeColorLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontForeColorLabel
-[panel]Контрол FontForeColorLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontForeColorLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontForeColorLabel }
   private
    function FontForeColorLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1480,22 +1431,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontForeColorLabel
 
  TkwStyleEditorFontFormFontBoldLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontBoldLabel
-[panel]Контрол FontBoldLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontBoldLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontBoldLabel }
   private
    function FontBoldLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1504,22 +1448,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontBoldLabel
 
  TkwStyleEditorFontFormFontBackColorLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontBackColorLabel
-[panel]Контрол FontBackColorLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontBackColorLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontBackColorLabel }
   private
    function FontBackColorLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1528,22 +1465,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontBackColorLabel
 
  TkwStyleEditorFontFormFontScalableLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontScalableLabel
-[panel]Контрол FontScalableLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FontScalableLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontScalableLabel }
   private
    function FontScalableLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -1552,22 +1482,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontScalableLabel
 
  TkwStyleEditorFontFormFontScalableBevel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontScalableBevel
-[panel]Контрол FontScalableBevel формы TStyleEditorFontForm[panel]
-*Тип результата:* TBevel
-*Пример:*
-[code]
-OBJECT VAR l_TBevel
- aStyleEditorFontForm .TStyleEditorFontForm.FontScalableBevel >>> l_TBevel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontScalableBevel }
   private
    function FontScalableBevel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TBevel;
@@ -1576,22 +1499,15 @@ OBJECT VAR l_TBevel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontScalableBevel
 
  TkwStyleEditorFontFormFontStrikeoutInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontStrikeoutInheritanceButton
-[panel]Контрол FontStrikeoutInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontStrikeoutInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontStrikeoutInheritanceButton }
   private
    function FontStrikeoutInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1600,22 +1516,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton
 
  TkwStyleEditorFontFormFontSizeInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontSizeInheritanceButton
-[panel]Контрол FontSizeInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontSizeInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontSizeInheritanceButton }
   private
    function FontSizeInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1624,22 +1533,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontSizeInheritanceButton
 
  TkwStyleEditorFontFormFontNameInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontNameInheritanceButton
-[panel]Контрол FontNameInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontNameInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontNameInheritanceButton }
   private
    function FontNameInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1648,22 +1550,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontNameInheritanceButton
 
  TkwStyleEditorFontFormFontItalicInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontItalicInheritanceButton
-[panel]Контрол FontItalicInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontItalicInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontItalicInheritanceButton }
   private
    function FontItalicInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1672,22 +1567,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontItalicInheritanceButton
 
  TkwStyleEditorFontFormFontForeColorInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontForeColorInheritanceButton
-[panel]Контрол FontForeColorInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontForeColorInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontForeColorInheritanceButton }
   private
    function FontForeColorInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1696,22 +1584,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontForeColorInheritanceButton
 
  TkwStyleEditorFontFormFontBoldInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontBoldInheritanceButton
-[panel]Контрол FontBoldInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontBoldInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontBoldInheritanceButton }
   private
    function FontBoldInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1720,22 +1601,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontBoldInheritanceButton
 
  TkwStyleEditorFontFormFontBackColorInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontBackColorInheritanceButton
-[panel]Контрол FontBackColorInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontBackColorInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontBackColorInheritanceButton }
   private
    function FontBackColorInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1744,22 +1618,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontBackColorInheritanceButton
 
  TkwStyleEditorFontFormFontUnderlineInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontUnderlineInheritanceButton
-[panel]Контрол FontUnderlineInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FontUnderlineInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontUnderlineInheritanceButton }
   private
    function FontUnderlineInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -1768,22 +1635,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton
 
  TkwStyleEditorFontFormFontUnderlineCheckBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontUnderlineCheckBox
-[panel]Контрол FontUnderlineCheckBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontUnderlineCheckBox >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontUnderlineCheckBox }
   private
    function FontUnderlineCheckBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -1792,22 +1652,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontUnderlineCheckBox
 
  TkwStyleEditorFontFormFontStrikeoutCheckBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontStrikeoutCheckBox
-[panel]Контрол FontStrikeoutCheckBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontStrikeoutCheckBox >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontStrikeoutCheckBox }
   private
    function FontStrikeoutCheckBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -1816,22 +1669,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontStrikeoutCheckBox
 
  TkwStyleEditorFontFormFontSizeComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontSizeComboBox
-[panel]Контрол FontSizeComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.FontSizeComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontSizeComboBox }
   private
    function FontSizeComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -1840,22 +1686,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontSizeComboBox
 
  TkwStyleEditorFontFormFontNameComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontNameComboBox
-[panel]Контрол FontNameComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.FontNameComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontNameComboBox }
   private
    function FontNameComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -1864,22 +1703,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontNameComboBox
 
  TkwStyleEditorFontFormFontItalicCheckBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontItalicCheckBox
-[panel]Контрол FontItalicCheckBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontItalicCheckBox >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontItalicCheckBox }
   private
    function FontItalicCheckBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -1888,22 +1720,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontItalicCheckBox
 
  TkwStyleEditorFontFormFontForeColorBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontForeColorBox
-[panel]Контрол FontForeColorBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtColorBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtColorBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontForeColorBox >>> l_TvtColorBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontForeColorBox }
   private
    function FontForeColorBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtColorBox;
@@ -1912,22 +1737,15 @@ OBJECT VAR l_TvtColorBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontForeColorBox
 
  TkwStyleEditorFontFormFontBoldCheckBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontBoldCheckBox
-[panel]Контрол FontBoldCheckBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontBoldCheckBox >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontBoldCheckBox }
   private
    function FontBoldCheckBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -1936,22 +1754,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontBoldCheckBox
 
  TkwStyleEditorFontFormFontBackColorBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontBackColorBox
-[panel]Контрол FontBackColorBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtColorBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtColorBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontBackColorBox >>> l_TvtColorBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontBackColorBox }
   private
    function FontBackColorBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtColorBox;
@@ -1960,22 +1771,15 @@ OBJECT VAR l_TvtColorBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontBackColorBox
 
  TkwStyleEditorFontFormFontScalableCheckBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FontScalableCheckBox
-[panel]Контрол FontScalableCheckBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aStyleEditorFontForm .TStyleEditorFontForm.FontScalableCheckBox >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FontScalableCheckBox }
   private
    function FontScalableCheckBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -1984,22 +1788,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFontScalableCheckBox
 
  TkwStyleEditorFontFormLeftIndentLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.LeftIndentLabel
-[panel]Контрол LeftIndentLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.LeftIndentLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.LeftIndentLabel }
   private
    function LeftIndentLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -2008,22 +1805,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormLeftIndentLabel
 
  TkwStyleEditorFontFormLeftIndentComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.LeftIndentComboBox
-[panel]Контрол LeftIndentComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.LeftIndentComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.LeftIndentComboBox }
   private
    function LeftIndentComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -2032,22 +1822,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormLeftIndentComboBox
 
  TkwStyleEditorFontFormRightIndentLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.RightIndentLabel
-[panel]Контрол RightIndentLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.RightIndentLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.RightIndentLabel }
   private
    function RightIndentLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -2056,22 +1839,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormRightIndentLabel
 
  TkwStyleEditorFontFormRightIndentComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.RightIndentComboBox
-[panel]Контрол RightIndentComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.RightIndentComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.RightIndentComboBox }
   private
    function RightIndentComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -2080,22 +1856,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormRightIndentComboBox
 
  TkwStyleEditorFontFormFirstIndentLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FirstIndentLabel
-[panel]Контрол FirstIndentLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.FirstIndentLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FirstIndentLabel }
   private
    function FirstIndentLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -2104,22 +1873,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFirstIndentLabel
 
  TkwStyleEditorFontFormFirstIndentComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FirstIndentComboBox
-[panel]Контрол FirstIndentComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.FirstIndentComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FirstIndentComboBox }
   private
    function FirstIndentComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -2128,22 +1890,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFirstIndentComboBox
 
  TkwStyleEditorFontFormSpaceBeforeLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.SpaceBeforeLabel
-[panel]Контрол SpaceBeforeLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.SpaceBeforeLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.SpaceBeforeLabel }
   private
    function SpaceBeforeLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -2152,22 +1907,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormSpaceBeforeLabel
 
  TkwStyleEditorFontFormSpaceBeforeComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.SpaceBeforeComboBox
-[panel]Контрол SpaceBeforeComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.SpaceBeforeComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.SpaceBeforeComboBox }
   private
    function SpaceBeforeComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -2176,22 +1924,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormSpaceBeforeComboBox
 
  TkwStyleEditorFontFormSpaceAfterLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.SpaceAfterLabel
-[panel]Контрол SpaceAfterLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.SpaceAfterLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.SpaceAfterLabel }
   private
    function SpaceAfterLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -2200,22 +1941,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormSpaceAfterLabel
 
  TkwStyleEditorFontFormSpaceAfterComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.SpaceAfterComboBox
-[panel]Контрол SpaceAfterComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.SpaceAfterComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.SpaceAfterComboBox }
   private
    function SpaceAfterComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -2224,22 +1958,15 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormSpaceAfterComboBox
 
  TkwStyleEditorFontFormLeftIndentInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.LeftIndentInheritanceButton
-[panel]Контрол LeftIndentInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.LeftIndentInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.LeftIndentInheritanceButton }
   private
    function LeftIndentInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -2248,22 +1975,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormLeftIndentInheritanceButton
 
  TkwStyleEditorFontFormRightIndentInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.RightIndentInheritanceButton
-[panel]Контрол RightIndentInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.RightIndentInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.RightIndentInheritanceButton }
   private
    function RightIndentInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -2272,22 +1992,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormRightIndentInheritanceButton
 
  TkwStyleEditorFontFormFirstIndentInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.FirstIndentInheritanceButton
-[panel]Контрол FirstIndentInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.FirstIndentInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.FirstIndentInheritanceButton }
   private
    function FirstIndentInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -2296,22 +2009,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormFirstIndentInheritanceButton
 
  TkwStyleEditorFontFormSpaceBeforeInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.SpaceBeforeInheritanceButton
-[panel]Контрол SpaceBeforeInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.SpaceBeforeInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.SpaceBeforeInheritanceButton }
   private
    function SpaceBeforeInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -2320,22 +2026,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton
 
  TkwStyleEditorFontFormSpaceAfterInheritanceButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.SpaceAfterInheritanceButton
-[panel]Контрол SpaceAfterInheritanceButton формы TStyleEditorFontForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aStyleEditorFontForm .TStyleEditorFontForm.SpaceAfterInheritanceButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.SpaceAfterInheritanceButton }
   private
    function SpaceAfterInheritanceButton(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -2344,22 +2043,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton
 
  TkwStyleEditorFontFormStyleCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.StyleCaptionLabel
-[panel]Контрол StyleCaptionLabel формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aStyleEditorFontForm .TStyleEditorFontForm.StyleCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.StyleCaptionLabel }
   private
    function StyleCaptionLabel(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -2368,22 +2060,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormStyleCaptionLabel
 
  TkwStyleEditorFontFormStyleCaptionComboBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorFontForm.StyleCaptionComboBox
-[panel]Контрол StyleCaptionComboBox формы TStyleEditorFontForm[panel]
-*Тип результата:* TvtComboBoxQS
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBoxQS
- aStyleEditorFontForm .TStyleEditorFontForm.StyleCaptionComboBox >>> l_TvtComboBoxQS
-[code]  }
+  {* Слово скрипта .TStyleEditorFontForm.StyleCaptionComboBox }
   private
    function StyleCaptionComboBox(const aCtx: TtfwContext;
     aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -2392,11 +2077,11 @@ OBJECT VAR l_TvtComboBoxQS
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorFontFormStyleCaptionComboBox
 
 function Tkw_Form_StyleEditorFont.GetString: AnsiString;
@@ -3646,11 +3331,10 @@ begin
  aCtx.rEngine.PushObj(FontScrollBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScrollBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontScrollBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontScrollBox', aCtx);
-end;//TkwStyleEditorFontFormFontScrollBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontScrollBox';
+end;//TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScrollBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3667,10 +3351,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScrollBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontScrollBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontScrollBox';
-end;//TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontScrollBox', aCtx);
+end;//TkwStyleEditorFontFormFontScrollBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineLabel.FontUnderlineLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3694,11 +3379,10 @@ begin
  aCtx.rEngine.PushObj(FontUnderlineLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontUnderlineLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontUnderlineLabel', aCtx);
-end;//TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontUnderlineLabel';
+end;//TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontUnderlineLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3715,10 +3399,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontUnderlineLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontUnderlineLabel';
-end;//TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontUnderlineLabel', aCtx);
+end;//TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutLabel.FontStrikeoutLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3742,11 +3427,10 @@ begin
  aCtx.rEngine.PushObj(FontStrikeoutLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontStrikeoutLabel', aCtx);
-end;//TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontStrikeoutLabel';
+end;//TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontStrikeoutLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3763,10 +3447,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontStrikeoutLabel';
-end;//TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontStrikeoutLabel', aCtx);
+end;//TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeLabel.FontSizeLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3790,11 +3475,10 @@ begin
  aCtx.rEngine.PushObj(FontSizeLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontSizeLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontSizeLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontSizeLabel', aCtx);
-end;//TkwStyleEditorFontFormFontSizeLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontSizeLabel';
+end;//TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontSizeLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3811,10 +3495,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontSizeLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontSizeLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontSizeLabel';
-end;//TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontSizeLabel', aCtx);
+end;//TkwStyleEditorFontFormFontSizeLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameLabel.FontNameLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3838,11 +3523,10 @@ begin
  aCtx.rEngine.PushObj(FontNameLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontNameLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontNameLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontNameLabel', aCtx);
-end;//TkwStyleEditorFontFormFontNameLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontNameLabel';
+end;//TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3859,10 +3543,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontNameLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontNameLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontNameLabel';
-end;//TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontNameLabel', aCtx);
+end;//TkwStyleEditorFontFormFontNameLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicLabel.FontItalicLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3886,11 +3571,10 @@ begin
  aCtx.rEngine.PushObj(FontItalicLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontItalicLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontItalicLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontItalicLabel', aCtx);
-end;//TkwStyleEditorFontFormFontItalicLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontItalicLabel';
+end;//TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontItalicLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3907,10 +3591,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontItalicLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontItalicLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontItalicLabel';
-end;//TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontItalicLabel', aCtx);
+end;//TkwStyleEditorFontFormFontItalicLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorLabel.FontForeColorLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3934,11 +3619,10 @@ begin
  aCtx.rEngine.PushObj(FontForeColorLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontForeColorLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontForeColorLabel', aCtx);
-end;//TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontForeColorLabel';
+end;//TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontForeColorLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3955,10 +3639,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontForeColorLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontForeColorLabel';
-end;//TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontForeColorLabel', aCtx);
+end;//TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldLabel.FontBoldLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -3982,11 +3667,10 @@ begin
  aCtx.rEngine.PushObj(FontBoldLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBoldLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontBoldLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontBoldLabel', aCtx);
-end;//TkwStyleEditorFontFormFontBoldLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontBoldLabel';
+end;//TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBoldLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4003,10 +3687,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBoldLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontBoldLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontBoldLabel';
-end;//TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontBoldLabel', aCtx);
+end;//TkwStyleEditorFontFormFontBoldLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorLabel.FontBackColorLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -4030,11 +3715,10 @@ begin
  aCtx.rEngine.PushObj(FontBackColorLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBackColorLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontBackColorLabel', aCtx);
-end;//TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontBackColorLabel';
+end;//TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBackColorLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4051,10 +3735,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBackColorLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontBackColorLabel';
-end;//TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontBackColorLabel', aCtx);
+end;//TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableLabel.FontScalableLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -4078,11 +3763,10 @@ begin
  aCtx.rEngine.PushObj(FontScalableLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScalableLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontScalableLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontScalableLabel', aCtx);
-end;//TkwStyleEditorFontFormFontScalableLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontScalableLabel';
+end;//TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScalableLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4099,10 +3783,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScalableLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontScalableLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontScalableLabel';
-end;//TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontScalableLabel', aCtx);
+end;//TkwStyleEditorFontFormFontScalableLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableBevel.FontScalableBevel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TBevel;
@@ -4126,11 +3811,10 @@ begin
  aCtx.rEngine.PushObj(FontScalableBevel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScalableBevel.DoDoIt
 
-procedure TkwStyleEditorFontFormFontScalableBevel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontScalableBevel', aCtx);
-end;//TkwStyleEditorFontFormFontScalableBevel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontScalableBevel';
+end;//TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScalableBevel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4147,10 +3831,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScalableBevel.ParamsTypes
 
-class function TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontScalableBevel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontScalableBevel';
-end;//TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontScalableBevel', aCtx);
+end;//TkwStyleEditorFontFormFontScalableBevel.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.FontStrikeoutInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4174,11 +3859,10 @@ begin
  aCtx.rEngine.PushObj(FontStrikeoutInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontStrikeoutInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontStrikeoutInheritanceButton';
+end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4195,10 +3879,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontStrikeoutInheritanceButton';
-end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontStrikeoutInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeInheritanceButton.FontSizeInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4222,11 +3907,10 @@ begin
  aCtx.rEngine.PushObj(FontSizeInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontSizeInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontSizeInheritanceButton';
+end;//TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontSizeInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4243,10 +3927,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontSizeInheritanceButton';
-end;//TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontSizeInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameInheritanceButton.FontNameInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4270,11 +3955,10 @@ begin
  aCtx.rEngine.PushObj(FontNameInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontNameInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontNameInheritanceButton';
+end;//TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontNameInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4291,10 +3975,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontNameInheritanceButton';
-end;//TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontNameInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicInheritanceButton.FontItalicInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4318,11 +4003,10 @@ begin
  aCtx.rEngine.PushObj(FontItalicInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontItalicInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontItalicInheritanceButton';
+end;//TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontItalicInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4339,10 +4023,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontItalicInheritanceButton';
-end;//TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontItalicInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorInheritanceButton.FontForeColorInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4366,11 +4051,10 @@ begin
  aCtx.rEngine.PushObj(FontForeColorInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontForeColorInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontForeColorInheritanceButton';
+end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4387,10 +4071,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontForeColorInheritanceButton';
-end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontForeColorInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldInheritanceButton.FontBoldInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4414,11 +4099,10 @@ begin
  aCtx.rEngine.PushObj(FontBoldInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontBoldInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontBoldInheritanceButton';
+end;//TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBoldInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4435,10 +4119,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontBoldInheritanceButton';
-end;//TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontBoldInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorInheritanceButton.FontBackColorInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4462,11 +4147,10 @@ begin
  aCtx.rEngine.PushObj(FontBackColorInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontBackColorInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontBackColorInheritanceButton';
+end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4483,10 +4167,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontBackColorInheritanceButton';
-end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontBackColorInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineInheritanceButton.FontUnderlineInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -4510,11 +4195,10 @@ begin
  aCtx.rEngine.PushObj(FontUnderlineInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontUnderlineInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontUnderlineInheritanceButton';
+end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4531,10 +4215,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontUnderlineInheritanceButton';
-end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontUnderlineInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineCheckBox.FontUnderlineCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4558,11 +4243,10 @@ begin
  aCtx.rEngine.PushObj(FontUnderlineCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontUnderlineCheckBox', aCtx);
-end;//TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontUnderlineCheckBox';
+end;//TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontUnderlineCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4579,10 +4263,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontUnderlineCheckBox';
-end;//TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontUnderlineCheckBox', aCtx);
+end;//TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutCheckBox.FontStrikeoutCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4606,11 +4291,10 @@ begin
  aCtx.rEngine.PushObj(FontStrikeoutCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontStrikeoutCheckBox', aCtx);
-end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontStrikeoutCheckBox';
+end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4627,10 +4311,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontStrikeoutCheckBox';
-end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontStrikeoutCheckBox', aCtx);
+end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeComboBox.FontSizeComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -4654,11 +4339,10 @@ begin
  aCtx.rEngine.PushObj(FontSizeComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontSizeComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontSizeComboBox', aCtx);
-end;//TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontSizeComboBox';
+end;//TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontSizeComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4675,10 +4359,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontSizeComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontSizeComboBox';
-end;//TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontSizeComboBox', aCtx);
+end;//TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameComboBox.FontNameComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -4702,11 +4387,10 @@ begin
  aCtx.rEngine.PushObj(FontNameComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontNameComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontNameComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontNameComboBox', aCtx);
-end;//TkwStyleEditorFontFormFontNameComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontNameComboBox';
+end;//TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontNameComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4723,10 +4407,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontNameComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontNameComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontNameComboBox';
-end;//TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontNameComboBox', aCtx);
+end;//TkwStyleEditorFontFormFontNameComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicCheckBox.FontItalicCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4750,11 +4435,10 @@ begin
  aCtx.rEngine.PushObj(FontItalicCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontItalicCheckBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontItalicCheckBox', aCtx);
-end;//TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontItalicCheckBox';
+end;//TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontItalicCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4771,10 +4455,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontItalicCheckBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontItalicCheckBox';
-end;//TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontItalicCheckBox', aCtx);
+end;//TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorBox.FontForeColorBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtColorBox;
@@ -4798,11 +4483,10 @@ begin
  aCtx.rEngine.PushObj(FontForeColorBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontForeColorBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontForeColorBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontForeColorBox', aCtx);
-end;//TkwStyleEditorFontFormFontForeColorBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontForeColorBox';
+end;//TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontForeColorBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4819,10 +4503,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontForeColorBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontForeColorBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontForeColorBox';
-end;//TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontForeColorBox', aCtx);
+end;//TkwStyleEditorFontFormFontForeColorBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldCheckBox.FontBoldCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4846,11 +4531,10 @@ begin
  aCtx.rEngine.PushObj(FontBoldCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBoldCheckBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontBoldCheckBox', aCtx);
-end;//TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontBoldCheckBox';
+end;//TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBoldCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4867,10 +4551,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBoldCheckBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontBoldCheckBox';
-end;//TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontBoldCheckBox', aCtx);
+end;//TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorBox.FontBackColorBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtColorBox;
@@ -4894,11 +4579,10 @@ begin
  aCtx.rEngine.PushObj(FontBackColorBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontBackColorBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontBackColorBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontBackColorBox', aCtx);
-end;//TkwStyleEditorFontFormFontBackColorBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontBackColorBox';
+end;//TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontBackColorBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4915,10 +4599,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontBackColorBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontBackColorBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontBackColorBox';
-end;//TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontBackColorBox', aCtx);
+end;//TkwStyleEditorFontFormFontBackColorBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableCheckBox.FontScalableCheckBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtCheckBox;
@@ -4942,11 +4627,10 @@ begin
  aCtx.rEngine.PushObj(FontScalableCheckBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFontScalableCheckBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FontScalableCheckBox', aCtx);
-end;//TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FontScalableCheckBox';
+end;//TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFontScalableCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4963,10 +4647,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFontScalableCheckBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FontScalableCheckBox';
-end;//TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FontScalableCheckBox', aCtx);
+end;//TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentLabel.LeftIndentLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -4990,11 +4675,10 @@ begin
  aCtx.rEngine.PushObj(LeftIndentLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormLeftIndentLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LeftIndentLabel', aCtx);
-end;//TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.LeftIndentLabel';
+end;//TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormLeftIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5011,10 +4695,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormLeftIndentLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.LeftIndentLabel';
-end;//TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LeftIndentLabel', aCtx);
+end;//TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentComboBox.LeftIndentComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5038,11 +4723,10 @@ begin
  aCtx.rEngine.PushObj(LeftIndentComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormLeftIndentComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LeftIndentComboBox', aCtx);
-end;//TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.LeftIndentComboBox';
+end;//TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormLeftIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5059,10 +4743,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormLeftIndentComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.LeftIndentComboBox';
-end;//TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LeftIndentComboBox', aCtx);
+end;//TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentLabel.RightIndentLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5086,11 +4771,10 @@ begin
  aCtx.rEngine.PushObj(RightIndentLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormRightIndentLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormRightIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RightIndentLabel', aCtx);
-end;//TkwStyleEditorFontFormRightIndentLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.RightIndentLabel';
+end;//TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormRightIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5107,10 +4791,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormRightIndentLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormRightIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.RightIndentLabel';
-end;//TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RightIndentLabel', aCtx);
+end;//TkwStyleEditorFontFormRightIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentComboBox.RightIndentComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5134,11 +4819,10 @@ begin
  aCtx.rEngine.PushObj(RightIndentComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormRightIndentComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RightIndentComboBox', aCtx);
-end;//TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.RightIndentComboBox';
+end;//TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormRightIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5155,10 +4839,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormRightIndentComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.RightIndentComboBox';
-end;//TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RightIndentComboBox', aCtx);
+end;//TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentLabel.FirstIndentLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5182,11 +4867,10 @@ begin
  aCtx.rEngine.PushObj(FirstIndentLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFirstIndentLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FirstIndentLabel', aCtx);
-end;//TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.FirstIndentLabel';
+end;//TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFirstIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5203,10 +4887,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFirstIndentLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FirstIndentLabel';
-end;//TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FirstIndentLabel', aCtx);
+end;//TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentComboBox.FirstIndentComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5230,11 +4915,10 @@ begin
  aCtx.rEngine.PushObj(FirstIndentComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFirstIndentComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FirstIndentComboBox', aCtx);
-end;//TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.FirstIndentComboBox';
+end;//TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFirstIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5251,10 +4935,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFirstIndentComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FirstIndentComboBox';
-end;//TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FirstIndentComboBox', aCtx);
+end;//TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeLabel.SpaceBeforeLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5278,11 +4963,10 @@ begin
  aCtx.rEngine.PushObj(SpaceBeforeLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SpaceBeforeLabel', aCtx);
-end;//TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.SpaceBeforeLabel';
+end;//TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceBeforeLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5299,10 +4983,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.SpaceBeforeLabel';
-end;//TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SpaceBeforeLabel', aCtx);
+end;//TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeComboBox.SpaceBeforeComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5326,11 +5011,10 @@ begin
  aCtx.rEngine.PushObj(SpaceBeforeComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SpaceBeforeComboBox', aCtx);
-end;//TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.SpaceBeforeComboBox';
+end;//TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceBeforeComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5347,10 +5031,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.SpaceBeforeComboBox';
-end;//TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SpaceBeforeComboBox', aCtx);
+end;//TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterLabel.SpaceAfterLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5374,11 +5059,10 @@ begin
  aCtx.rEngine.PushObj(SpaceAfterLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceAfterLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SpaceAfterLabel', aCtx);
-end;//TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.SpaceAfterLabel';
+end;//TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceAfterLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5395,10 +5079,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceAfterLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.SpaceAfterLabel';
-end;//TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SpaceAfterLabel', aCtx);
+end;//TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterComboBox.SpaceAfterComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5422,11 +5107,10 @@ begin
  aCtx.rEngine.PushObj(SpaceAfterComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SpaceAfterComboBox', aCtx);
-end;//TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.SpaceAfterComboBox';
+end;//TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceAfterComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5443,10 +5127,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.SpaceAfterComboBox';
-end;//TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SpaceAfterComboBox', aCtx);
+end;//TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentInheritanceButton.LeftIndentInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5470,11 +5155,10 @@ begin
  aCtx.rEngine.PushObj(LeftIndentInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LeftIndentInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.LeftIndentInheritanceButton';
+end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5491,10 +5175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.LeftIndentInheritanceButton';
-end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LeftIndentInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentInheritanceButton.RightIndentInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5518,11 +5203,10 @@ begin
  aCtx.rEngine.PushObj(RightIndentInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RightIndentInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.RightIndentInheritanceButton';
+end;//TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormRightIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5539,10 +5223,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.RightIndentInheritanceButton';
-end;//TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RightIndentInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentInheritanceButton.FirstIndentInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5566,11 +5251,10 @@ begin
  aCtx.rEngine.PushObj(FirstIndentInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FirstIndentInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.FirstIndentInheritanceButton';
+end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5587,10 +5271,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.FirstIndentInheritanceButton';
-end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FirstIndentInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SpaceBeforeInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5614,11 +5299,10 @@ begin
  aCtx.rEngine.PushObj(SpaceBeforeInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SpaceBeforeInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.SpaceBeforeInheritanceButton';
+end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5635,10 +5319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.SpaceBeforeInheritanceButton';
-end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SpaceBeforeInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterInheritanceButton.SpaceAfterInheritanceButton(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TElPopupButton;
@@ -5662,11 +5347,10 @@ begin
  aCtx.rEngine.PushObj(SpaceAfterInheritanceButton(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.DoDoIt
 
-procedure TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SpaceAfterInheritanceButton', aCtx);
-end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim
+ Result := '.TStyleEditorFontForm.SpaceAfterInheritanceButton';
+end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister
 
 function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5683,10 +5367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.ParamsTypes
 
-class function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.SpaceAfterInheritanceButton';
-end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SpaceAfterInheritanceButton', aCtx);
+end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormStyleCaptionLabel.StyleCaptionLabel(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtLabel;
@@ -5710,11 +5395,10 @@ begin
  aCtx.rEngine.PushObj(StyleCaptionLabel(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormStyleCaptionLabel.DoDoIt
 
-procedure TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству StyleCaptionLabel', aCtx);
-end;//TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim
+ Result := '.TStyleEditorFontForm.StyleCaptionLabel';
+end;//TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister
 
 function TkwStyleEditorFontFormStyleCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5731,10 +5415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormStyleCaptionLabel.ParamsTypes
 
-class function TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.StyleCaptionLabel';
-end;//TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству StyleCaptionLabel', aCtx);
+end;//TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim
 
 function TkwStyleEditorFontFormStyleCaptionComboBox.StyleCaptionComboBox(const aCtx: TtfwContext;
  aStyleEditorFontForm: TStyleEditorFontForm): TvtComboBoxQS;
@@ -5758,11 +5443,10 @@ begin
  aCtx.rEngine.PushObj(StyleCaptionComboBox(aCtx, l_aStyleEditorFontForm));
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.DoDoIt
 
-procedure TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству StyleCaptionComboBox', aCtx);
-end;//TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim
+ Result := '.TStyleEditorFontForm.StyleCaptionComboBox';
+end;//TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister
 
 function TkwStyleEditorFontFormStyleCaptionComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -5779,10 +5463,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorFontForm)]);
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.ParamsTypes
 
-class function TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorFontForm.StyleCaptionComboBox';
-end;//TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству StyleCaptionComboBox', aCtx);
+end;//TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim
 
 initialization
  Tkw_Form_StyleEditorFont.RegisterInEngine;
@@ -6057,10 +5742,8 @@ initialization
  {* Регистрация StyleEditorFontForm_StyleCaptionLabel }
  TkwStyleEditorFontFormStyleCaptionComboBox.RegisterInEngine;
  {* Регистрация StyleEditorFontForm_StyleCaptionComboBox }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TStyleEditorFontForm));
- {* Регистрация типа StyleEditorFont }
+ {* Регистрация типа TStyleEditorFontForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TScrollBox));
  {* Регистрация типа TScrollBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));

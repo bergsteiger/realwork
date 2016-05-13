@@ -26,19 +26,13 @@ uses
  , tfwAxiomaticsResNameGetter
  , FolderSupport
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopTreeNodeIsNodeFolder = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:TreeNode:IsNodeFolder
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTreeNode pop:TreeNode:IsNodeFolder >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:TreeNode:IsNodeFolder }
   private
    function IsNodeFolder(const aCtx: TtfwContext;
     aTreeNode: TTreeNode): Boolean;
@@ -61,12 +55,12 @@ BOOLEAN VAR l_Boolean
 function TkwPopTreeNodeIsNodeFolder.IsNodeFolder(const aCtx: TtfwContext;
  aTreeNode: TTreeNode): Boolean;
  {* Реализация слова скрипта pop:TreeNode:IsNodeFolder }
-//#UC START# *B5879A320542_565CDF98FF94_var*
-//#UC END# *B5879A320542_565CDF98FF94_var*
+//#UC START# *55C9F3B6011B_565CDF98FF94_var*
+//#UC END# *55C9F3B6011B_565CDF98FF94_var*
 begin
-//#UC START# *B5879A320542_565CDF98FF94_impl*
+//#UC START# *55C9F3B6011B_565CDF98FF94_impl*
  Result := FolderSupport.IsNodeFolder(aTreeNode);
-//#UC END# *B5879A320542_565CDF98FF94_impl*
+//#UC END# *55C9F3B6011B_565CDF98FF94_impl*
 end;//TkwPopTreeNodeIsNodeFolder.IsNodeFolder
 
 procedure TkwPopTreeNodeIsNodeFolder.DoDoIt(const aCtx: TtfwContext);
@@ -84,6 +78,11 @@ begin
  aCtx.rEngine.PushBool(IsNodeFolder(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeIsNodeFolder.DoDoIt
 
+class function TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TreeNode:IsNodeFolder';
+end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
+
 function TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -99,11 +98,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeIsNodeFolder.ParamsTypes
 
-class function TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TreeNode:IsNodeFolder';
-end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
-
 class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'TTreeNodeForTestsWordsPack';
@@ -116,8 +110,6 @@ initialization
  {* Регистрация pop_TreeNode_IsNodeFolder }
  TTTreeNodeForTestsWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));
  {* Регистрация типа TTreeNode }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

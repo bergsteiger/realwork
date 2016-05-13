@@ -15,9 +15,9 @@ uses
  l3IntfUses
  , kwEditorFromStackWord
  , nevTools
+ , l3Units
  , tfwScriptingInterfaces
  , evCustomEditorWindow
- , l3Units
 ;
 
 type

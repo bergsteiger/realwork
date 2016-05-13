@@ -24,25 +24,19 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwCompiledProcedureCreate = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта CompiledProcedure:Create
-*Тип результата:* TkwCompiledProcedure
-*Пример:*
-[code]
-OBJECT VAR l_TkwCompiledProcedure
- CompiledProcedure:Create >>> l_TkwCompiledProcedure
-[code]  }
+  {* Слово скрипта CompiledProcedure:Create }
   private
    function Create(const aCtx: TtfwContext): TkwCompiledProcedure;
     {* Реализация слова скрипта CompiledProcedure:Create }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -51,18 +45,18 @@ OBJECT VAR l_TkwCompiledProcedure
 
 function TkwCompiledProcedureCreate.Create(const aCtx: TtfwContext): TkwCompiledProcedure;
  {* Реализация слова скрипта CompiledProcedure:Create }
-//#UC START# *8C9C82BDE803_87E51971436F_var*
-//#UC END# *8C9C82BDE803_87E51971436F_var*
+//#UC START# *5673E7D50121_87E51971436F_var*
+//#UC END# *5673E7D50121_87E51971436F_var*
 begin
-//#UC START# *8C9C82BDE803_87E51971436F_impl*
+//#UC START# *5673E7D50121_87E51971436F_impl*
  Result := TkwCompiledProcedure.Create(nil{Prodicer}, Self{nil}{Finder}, aCtx.rTypeInfo, aCtx, {nil}Key);
-//#UC END# *8C9C82BDE803_87E51971436F_impl*
+//#UC END# *5673E7D50121_87E51971436F_impl*
 end;//TkwCompiledProcedureCreate.Create
 
-procedure TkwCompiledProcedureCreate.DoDoIt(const aCtx: TtfwContext);
+class function TkwCompiledProcedureCreate.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushObj(Create(aCtx));
-end;//TkwCompiledProcedureCreate.DoDoIt
+ Result := 'CompiledProcedure:Create';
+end;//TkwCompiledProcedureCreate.GetWordNameForRegister
 
 function TkwCompiledProcedureCreate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -79,16 +73,14 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TkwCompiledProcedure)]);
 end;//TkwCompiledProcedureCreate.ParamsTypes
 
-class function TkwCompiledProcedureCreate.GetWordNameForRegister: AnsiString;
+procedure TkwCompiledProcedureCreate.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'CompiledProcedure:Create';
-end;//TkwCompiledProcedureCreate.GetWordNameForRegister
+ aCtx.rEngine.PushObj(Create(aCtx));
+end;//TkwCompiledProcedureCreate.DoDoIt
 
 initialization
  TkwCompiledProcedureCreate.RegisterInEngine;
  {* Регистрация CompiledProcedure_Create }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TkwCompiledProcedure));
  {* Регистрация типа TkwCompiledProcedure }
 {$IfEnd} // NOT Defined(NoScripts)

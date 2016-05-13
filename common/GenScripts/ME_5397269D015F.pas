@@ -75,6 +75,9 @@ uses
  , atPositionTypeConverter
  , atListNodeTypeConverter
  , Classes
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -319,5 +322,11 @@ begin
   inherited;
 //#UC END# *5000565C019C_5397269D015F_impl*
 end;//TatComparableList.ClearFields
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EInvalidStringFormat));
+ {* Регистрация типа EInvalidStringFormat }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -91,6 +91,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure FreeAndNil;
@@ -310,5 +313,19 @@ begin
  assert(false, 'Supports not implemented');
 //#UC END# *47877EF503B1_47877EB202FB_impl*
 end;//Supports
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Exception));
+ {* Регистрация типа Exception }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EOSError));
+ {* Регистрация типа EOSError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EAssertionFailed));
+ {* Регистрация типа EAssertionFailed }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

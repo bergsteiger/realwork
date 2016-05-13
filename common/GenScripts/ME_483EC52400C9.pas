@@ -39,6 +39,9 @@ uses
  , atLogger
  , atOperationFactory
  , XMLDoc
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TatXMLScenarioGenerator.FillScenario(aScenario: TatScenario;
@@ -135,5 +138,11 @@ begin
     ParseOperationNode(childs.Nodes[i], operation);
 //#UC END# *483ED09F0138_483EC52400C9_impl*
 end;//TatXMLScenarioGenerator.ParseOperationNode
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EInvalidXMLScenario));
+ {* Регистрация типа EInvalidXMLScenario }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

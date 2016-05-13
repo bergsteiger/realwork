@@ -38,19 +38,13 @@ uses
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwTreeCheckFlag = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:CheckFlag
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aNodeID aFlag aTree tree:CheckFlag >>> l_Boolean
-[code]  }
+  {* Слово скрипта tree:CheckFlag }
   private
    function tree_CheckFlag(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -67,11 +61,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeCheckFlag
 
  TkwTreeCollapseAll = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:CollapseAll
-*Пример:*
-[code]
- aTree tree:CollapseAll
-[code]  }
+  {* Слово скрипта tree:CollapseAll }
   private
    procedure tree_CollapseAll(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner);
@@ -86,13 +76,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeCollapseAll
 
  TkwTreeCurrentNodeIsExpanded = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:CurrentNode:IsExpanded
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTree tree:CurrentNode:IsExpanded >>> l_Boolean
-[code]  }
+  {* Слово скрипта tree:CurrentNode:IsExpanded }
   private
    function tree_CurrentNode_IsExpanded(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner): Boolean;
@@ -107,11 +91,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeCurrentNodeIsExpanded
 
  TkwTreeDeleteAllChildren = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:DeleteAllChildren
-*Пример:*
-[code]
- aTree tree:DeleteAllChildren
-[code]  }
+  {* Слово скрипта tree:DeleteAllChildren }
   private
    procedure tree_DeleteAllChildren(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner);
@@ -126,11 +106,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeDeleteAllChildren
 
  TkwTreeExpandAll = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:ExpandAll
-*Пример:*
-[code]
- aTree tree:ExpandAll
-[code]  }
+  {* Слово скрипта tree:ExpandAll }
   private
    procedure tree_ExpandAll(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner);
@@ -145,13 +121,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeExpandAll
 
  TkwTreeCurrentNode = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:CurrentNode
-*Тип результата:* Il3SimpleNode
-*Пример:*
-[code]
-INTERFACE VAR l_Il3SimpleNode
- aTree tree:CurrentNode >>> l_Il3SimpleNode
-[code]  }
+  {* Слово скрипта tree:CurrentNode }
   private
    function tree_CurrentNode(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner): Il3SimpleNode;
@@ -166,13 +136,7 @@ INTERFACE VAR l_Il3SimpleNode
  end;//TkwTreeCurrentNode
 
  TkwTreeGetItem = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem
-*Тип результата:* Il3SimpleNode
-*Пример:*
-[code]
-INTERFACE VAR l_Il3SimpleNode
- anIndex aTree tree:GetItem >>> l_Il3SimpleNode
-[code]  }
+  {* Слово скрипта tree:GetItem }
   private
    function tree_GetItem(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -188,13 +152,7 @@ INTERFACE VAR l_Il3SimpleNode
  end;//TkwTreeGetItem
 
  TkwTreeGetItemsCount = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItemsCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aTree tree:GetItemsCount >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:GetItemsCount }
   private
    function tree_GetItemsCount(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner): Integer;
@@ -209,11 +167,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeGetItemsCount
 
  TkwTreeIterateNodes = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:IterateNodes
-*Пример:*
-[code]
- aLambda aTree tree:IterateNodes
-[code]  }
+  {* Слово скрипта tree:IterateNodes }
   private
    procedure tree_IterateNodes(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -229,11 +183,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeIterateNodes
 
  TkwTreeSaveState2File = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:SaveState2File
-*Пример:*
-[code]
- aFileName aTree tree:SaveState2File
-[code]  }
+  {* Слово скрипта tree:SaveState2File }
   private
    procedure tree_SaveState2File(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -249,13 +199,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeSaveState2File
 
  TkwTreeChildrenCount = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:ChildrenCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:ChildrenCount >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:ChildrenCount }
   private
    function tree_ChildrenCount(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -271,11 +215,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeChildrenCount
 
  TkwTreeExpand = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:развернуть
-*Пример:*
-[code]
- anIndex aTree tree:развернуть
-[code]  }
+  {* Слово скрипта tree:развернуть }
   private
    procedure tree_expand(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -291,13 +231,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeExpand
 
  TkwTreeGetItemHeight = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Height >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:GetItem:Height }
   private
    function tree_GetItem_Height(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -313,13 +247,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeGetItemHeight
 
  TkwTreeGetItemImageIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItemImageIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItemImageIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:GetItemImageIndex }
   private
    function tree_GetItemImageIndex(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -335,13 +263,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeGetItemImageIndex
 
  TkwTreeGetItemLeft = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Left
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Left >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:GetItem:Left }
   private
    function tree_GetItem_Left(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -357,13 +279,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeGetItemLeft
 
  TkwTreeGetItemTop = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Top
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Top >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:GetItem:Top }
   private
    function tree_GetItem_Top(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -379,13 +295,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeGetItemTop
 
  TkwTreeGetItemWidth = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Width >>> l_Integer
-[code]  }
+  {* Слово скрипта tree:GetItem:Width }
   private
    function tree_GetItem_Width(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -401,13 +311,7 @@ INTEGER VAR l_Integer
  end;//TkwTreeGetItemWidth
 
  TkwTreeGetSelected = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:GetSelected
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anIndex aTree tree:GetSelected >>> l_Boolean
-[code]  }
+  {* Слово скрипта tree:GetSelected }
   private
    function tree_GetSelected(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -423,11 +327,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeGetSelected
 
  TkwTreeSetSelected = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:SetSelected
-*Пример:*
-[code]
- aValue anIndex aTree tree:SetSelected
-[code]  }
+  {* Слово скрипта tree:SetSelected }
   private
    procedure tree_SetSelected(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -444,11 +344,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwTreeSetSelected
 
  TkwTreeCollapse = {final} class(TtfwClassLike)
-  {* Слово скрипта tree:свернуть
-*Пример:*
-[code]
- anIndex aTree tree:свернуть
-[code]  }
+  {* Слово скрипта tree:свернуть }
   private
    procedure tree_collapse(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
@@ -478,12 +374,12 @@ function TkwTreeCheckFlag.tree_CheckFlag(const aCtx: TtfwContext;
  aFlag: Integer;
  aNodeID: Integer): Boolean;
  {* Реализация слова скрипта tree:CheckFlag }
-//#UC START# *A4D880DBCC97_3A8F612BD250_var*
-//#UC END# *A4D880DBCC97_3A8F612BD250_var*
+//#UC START# *552FEA840365_3A8F612BD250_var*
+//#UC END# *552FEA840365_3A8F612BD250_var*
 begin
-//#UC START# *A4D880DBCC97_3A8F612BD250_impl*
+//#UC START# *552FEA840365_3A8F612BD250_impl*
  Result := l3TestMask(aTree.CTree.CNodes[aNodeID].Flags, aFlag);
-//#UC END# *A4D880DBCC97_3A8F612BD250_impl*
+//#UC END# *552FEA840365_3A8F612BD250_impl*
 end;//TkwTreeCheckFlag.tree_CheckFlag
 
 procedure TkwTreeCheckFlag.DoDoIt(const aCtx: TtfwContext);
@@ -521,6 +417,11 @@ begin
  aCtx.rEngine.PushBool(tree_CheckFlag(aCtx, l_aTree, l_aFlag, l_aNodeID));
 end;//TkwTreeCheckFlag.DoDoIt
 
+class function TkwTreeCheckFlag.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CheckFlag';
+end;//TkwTreeCheckFlag.GetWordNameForRegister
+
 function TkwTreeCheckFlag.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -536,20 +437,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwTreeCheckFlag.ParamsTypes
 
-class function TkwTreeCheckFlag.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CheckFlag';
-end;//TkwTreeCheckFlag.GetWordNameForRegister
-
 procedure TkwTreeCollapseAll.tree_CollapseAll(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner);
  {* Реализация слова скрипта tree:CollapseAll }
-//#UC START# *53CF58CDEE72_DCC8D602858A_var*
-//#UC END# *53CF58CDEE72_DCC8D602858A_var*
+//#UC START# *552FEAD4014B_DCC8D602858A_var*
+//#UC END# *552FEAD4014B_DCC8D602858A_var*
 begin
-//#UC START# *53CF58CDEE72_DCC8D602858A_impl*
+//#UC START# *552FEAD4014B_DCC8D602858A_impl*
  aTree.TreeStruct.RootNode.ExpandCollapseAll(False);
-//#UC END# *53CF58CDEE72_DCC8D602858A_impl*
+//#UC END# *552FEAD4014B_DCC8D602858A_impl*
 end;//TkwTreeCollapseAll.tree_CollapseAll
 
 procedure TkwTreeCollapseAll.DoDoIt(const aCtx: TtfwContext);
@@ -567,6 +463,11 @@ begin
  tree_CollapseAll(aCtx, l_aTree);
 end;//TkwTreeCollapseAll.DoDoIt
 
+class function TkwTreeCollapseAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CollapseAll';
+end;//TkwTreeCollapseAll.GetWordNameForRegister
+
 function TkwTreeCollapseAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -582,20 +483,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCollapseAll.ParamsTypes
 
-class function TkwTreeCollapseAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CollapseAll';
-end;//TkwTreeCollapseAll.GetWordNameForRegister
-
 function TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner): Boolean;
  {* Реализация слова скрипта tree:CurrentNode:IsExpanded }
-//#UC START# *5E6EA88E41A6_24EBB16818DB_var*
-//#UC END# *5E6EA88E41A6_24EBB16818DB_var*
+//#UC START# *552FEAF60072_24EBB16818DB_var*
+//#UC END# *552FEAF60072_24EBB16818DB_var*
 begin
-//#UC START# *5E6EA88E41A6_24EBB16818DB_impl*
+//#UC START# *552FEAF60072_24EBB16818DB_impl*
  Result := aTree.TreeStruct.IsExpanded(aTree.GetCurrentNode);
-//#UC END# *5E6EA88E41A6_24EBB16818DB_impl*
+//#UC END# *552FEAF60072_24EBB16818DB_impl*
 end;//TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded
 
 procedure TkwTreeCurrentNodeIsExpanded.DoDoIt(const aCtx: TtfwContext);
@@ -613,6 +509,11 @@ begin
  aCtx.rEngine.PushBool(tree_CurrentNode_IsExpanded(aCtx, l_aTree));
 end;//TkwTreeCurrentNodeIsExpanded.DoDoIt
 
+class function TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CurrentNode:IsExpanded';
+end;//TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister
+
 function TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -628,28 +529,23 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNodeIsExpanded.ParamsTypes
 
-class function TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CurrentNode:IsExpanded';
-end;//TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister
-
 procedure TkwTreeDeleteAllChildren.tree_DeleteAllChildren(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner);
  {* Реализация слова скрипта tree:DeleteAllChildren }
-//#UC START# *8767BA37432C_88EA9B4D8249_var*
+//#UC START# *552FEB150182_88EA9B4D8249_var*
 var
  l_Node   : Il3SimpleNode;
  l_Current: Il3SimpleNode;
-//#UC END# *8767BA37432C_88EA9B4D8249_var*
+//#UC END# *552FEB150182_88EA9B4D8249_var*
 begin
-//#UC START# *8767BA37432C_88EA9B4D8249_impl*
+//#UC START# *552FEB150182_88EA9B4D8249_impl*
  l_Current := aTree.CurrentCNode;
  while l_Current.HasChild do
  begin
   l_Node := l_Current.Child;
   l_Node.Delete;
  end; // while l_Current.HasChld do
-//#UC END# *8767BA37432C_88EA9B4D8249_impl*
+//#UC END# *552FEB150182_88EA9B4D8249_impl*
 end;//TkwTreeDeleteAllChildren.tree_DeleteAllChildren
 
 procedure TkwTreeDeleteAllChildren.DoDoIt(const aCtx: TtfwContext);
@@ -667,6 +563,11 @@ begin
  tree_DeleteAllChildren(aCtx, l_aTree);
 end;//TkwTreeDeleteAllChildren.DoDoIt
 
+class function TkwTreeDeleteAllChildren.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:DeleteAllChildren';
+end;//TkwTreeDeleteAllChildren.GetWordNameForRegister
+
 function TkwTreeDeleteAllChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -682,20 +583,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeDeleteAllChildren.ParamsTypes
 
-class function TkwTreeDeleteAllChildren.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:DeleteAllChildren';
-end;//TkwTreeDeleteAllChildren.GetWordNameForRegister
-
 procedure TkwTreeExpandAll.tree_ExpandAll(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner);
  {* Реализация слова скрипта tree:ExpandAll }
-//#UC START# *04755E6E20F4_11D7E325A602_var*
-//#UC END# *04755E6E20F4_11D7E325A602_var*
+//#UC START# *552FEB5A0289_11D7E325A602_var*
+//#UC END# *552FEB5A0289_11D7E325A602_var*
 begin
-//#UC START# *04755E6E20F4_11D7E325A602_impl*
+//#UC START# *552FEB5A0289_11D7E325A602_impl*
  aTree.TreeStruct.RootNode.ExpandCollapseAll(True);
-//#UC END# *04755E6E20F4_11D7E325A602_impl*
+//#UC END# *552FEB5A0289_11D7E325A602_impl*
 end;//TkwTreeExpandAll.tree_ExpandAll
 
 procedure TkwTreeExpandAll.DoDoIt(const aCtx: TtfwContext);
@@ -713,6 +609,11 @@ begin
  tree_ExpandAll(aCtx, l_aTree);
 end;//TkwTreeExpandAll.DoDoIt
 
+class function TkwTreeExpandAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:ExpandAll';
+end;//TkwTreeExpandAll.GetWordNameForRegister
+
 function TkwTreeExpandAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -728,20 +629,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeExpandAll.ParamsTypes
 
-class function TkwTreeExpandAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:ExpandAll';
-end;//TkwTreeExpandAll.GetWordNameForRegister
-
 function TkwTreeCurrentNode.tree_CurrentNode(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner): Il3SimpleNode;
  {* Реализация слова скрипта tree:CurrentNode }
-//#UC START# *7AB848282EE2_6EB6AE69700F_var*
-//#UC END# *7AB848282EE2_6EB6AE69700F_var*
+//#UC START# *552FEB8A0123_6EB6AE69700F_var*
+//#UC END# *552FEB8A0123_6EB6AE69700F_var*
 begin
-//#UC START# *7AB848282EE2_6EB6AE69700F_impl*
+//#UC START# *552FEB8A0123_6EB6AE69700F_impl*
  Result := aTree.GetCurrentNode;
-//#UC END# *7AB848282EE2_6EB6AE69700F_impl*
+//#UC END# *552FEB8A0123_6EB6AE69700F_impl*
 end;//TkwTreeCurrentNode.tree_CurrentNode
 
 procedure TkwTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
@@ -759,6 +655,11 @@ begin
  aCtx.rEngine.PushIntf(tree_CurrentNode(aCtx, l_aTree), TypeInfo(Il3SimpleNode));
 end;//TkwTreeCurrentNode.DoDoIt
 
+class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:CurrentNode';
+end;//TkwTreeCurrentNode.GetWordNameForRegister
+
 function TkwTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Il3SimpleNode);
@@ -774,21 +675,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNode.ParamsTypes
 
-class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:CurrentNode';
-end;//TkwTreeCurrentNode.GetWordNameForRegister
-
 function TkwTreeGetItem.tree_GetItem(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Il3SimpleNode;
  {* Реализация слова скрипта tree:GetItem }
-//#UC START# *7FAAC6D7CD3C_E66BB4447886_var*
-//#UC END# *7FAAC6D7CD3C_E66BB4447886_var*
+//#UC START# *552FEBB50243_E66BB4447886_var*
+//#UC END# *552FEBB50243_E66BB4447886_var*
 begin
-//#UC START# *7FAAC6D7CD3C_E66BB4447886_impl*
+//#UC START# *552FEBB50243_E66BB4447886_impl*
  Result := aTree.TreeStruct.Nodes[anIndex];
-//#UC END# *7FAAC6D7CD3C_E66BB4447886_impl*
+//#UC END# *552FEBB50243_E66BB4447886_impl*
 end;//TkwTreeGetItem.tree_GetItem
 
 procedure TkwTreeGetItem.DoDoIt(const aCtx: TtfwContext);
@@ -816,6 +712,11 @@ begin
  aCtx.rEngine.PushIntf(tree_GetItem(aCtx, l_aTree, l_anIndex), TypeInfo(Il3SimpleNode));
 end;//TkwTreeGetItem.DoDoIt
 
+class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem';
+end;//TkwTreeGetItem.GetWordNameForRegister
+
 function TkwTreeGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Il3SimpleNode);
@@ -831,20 +732,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItem.ParamsTypes
 
-class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem';
-end;//TkwTreeGetItem.GetWordNameForRegister
-
 function TkwTreeGetItemsCount.tree_GetItemsCount(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner): Integer;
  {* Реализация слова скрипта tree:GetItemsCount }
-//#UC START# *4336ED9E3EE1_6AA86FBC7A2F_var*
-//#UC END# *4336ED9E3EE1_6AA86FBC7A2F_var*
+//#UC START# *552FEBDB031D_6AA86FBC7A2F_var*
+//#UC END# *552FEBDB031D_6AA86FBC7A2F_var*
 begin
-//#UC START# *4336ED9E3EE1_6AA86FBC7A2F_impl*
+//#UC START# *552FEBDB031D_6AA86FBC7A2F_impl*
  Result := aTree.TreeStruct.CountView;
-//#UC END# *4336ED9E3EE1_6AA86FBC7A2F_impl*
+//#UC END# *552FEBDB031D_6AA86FBC7A2F_impl*
 end;//TkwTreeGetItemsCount.tree_GetItemsCount
 
 procedure TkwTreeGetItemsCount.DoDoIt(const aCtx: TtfwContext);
@@ -862,6 +758,11 @@ begin
  aCtx.rEngine.PushInt(tree_GetItemsCount(aCtx, l_aTree));
 end;//TkwTreeGetItemsCount.DoDoIt
 
+class function TkwTreeGetItemsCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItemsCount';
+end;//TkwTreeGetItemsCount.GetWordNameForRegister
+
 function TkwTreeGetItemsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -877,16 +778,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeGetItemsCount.ParamsTypes
 
-class function TkwTreeGetItemsCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItemsCount';
-end;//TkwTreeGetItemsCount.GetWordNameForRegister
-
 procedure TkwTreeIterateNodes.tree_IterateNodes(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  aLambda: TtfwWord);
  {* Реализация слова скрипта tree:IterateNodes }
-//#UC START# *C2580701FE33_57DF7C56BA33_var*
+//#UC START# *552FEBFF016C_57DF7C56BA33_var*
 
  function DoItem(const aNode: Il3Node): Boolean;
  begin//DoItem
@@ -895,15 +791,15 @@ procedure TkwTreeIterateNodes.tree_IterateNodes(const aCtx: TtfwContext;
   aLambda.DoIt(aCtx);
  end;//DoItem
  
-//#UC END# *C2580701FE33_57DF7C56BA33_var*
+//#UC END# *552FEBFF016C_57DF7C56BA33_var*
 begin
-//#UC START# *C2580701FE33_57DF7C56BA33_impl*
+//#UC START# *552FEBFF016C_57DF7C56BA33_impl*
  try
   aTree.IterateF(l3L2NA(@DoItem), 0);
  except
   on EtfwBreakIterator do ;
  end;//try..except
-//#UC END# *C2580701FE33_57DF7C56BA33_impl*
+//#UC END# *552FEBFF016C_57DF7C56BA33_impl*
 end;//TkwTreeIterateNodes.tree_IterateNodes
 
 procedure TkwTreeIterateNodes.DoDoIt(const aCtx: TtfwContext);
@@ -931,6 +827,11 @@ begin
  tree_IterateNodes(aCtx, l_aTree, l_aLambda);
 end;//TkwTreeIterateNodes.DoDoIt
 
+class function TkwTreeIterateNodes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:IterateNodes';
+end;//TkwTreeIterateNodes.GetWordNameForRegister
+
 function TkwTreeIterateNodes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -946,16 +847,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(TtfwWord)]);
 end;//TkwTreeIterateNodes.ParamsTypes
 
-class function TkwTreeIterateNodes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:IterateNodes';
-end;//TkwTreeIterateNodes.GetWordNameForRegister
-
 procedure TkwTreeSaveState2File.tree_SaveState2File(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  const aFileName: AnsiString);
  {* Реализация слова скрипта tree:SaveState2File }
-//#UC START# *60993335F29E_B4D43BCE4979_var*
+//#UC START# *552FEC260349_B4D43BCE4979_var*
 var
  l_F : Tl3CustomDosFiler;
  
@@ -984,9 +880,9 @@ var
 
 var
  l_S : AnsiString;
-//#UC END# *60993335F29E_B4D43BCE4979_var*
+//#UC END# *552FEC260349_B4D43BCE4979_var*
 begin
-//#UC START# *60993335F29E_B4D43BCE4979_impl*
+//#UC START# *552FEC260349_B4D43BCE4979_impl*
  l_S := aCtx.rCaller.ResolveOutputFilePath(aFileName);
  l_S := ChangeFileExt(l_S, '.tree');
  l_F := Tl3CustomDosFiler.Make(l_S, l3_fmWrite, false);
@@ -997,7 +893,7 @@ begin
  finally
   FreeAndNil(l_F);
  end;//try..finally
-//#UC END# *60993335F29E_B4D43BCE4979_impl*
+//#UC END# *552FEC260349_B4D43BCE4979_impl*
 end;//TkwTreeSaveState2File.tree_SaveState2File
 
 procedure TkwTreeSaveState2File.DoDoIt(const aCtx: TtfwContext);
@@ -1025,6 +921,11 @@ begin
  tree_SaveState2File(aCtx, l_aTree, l_aFileName);
 end;//TkwTreeSaveState2File.DoDoIt
 
+class function TkwTreeSaveState2File.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:SaveState2File';
+end;//TkwTreeSaveState2File.GetWordNameForRegister
+
 function TkwTreeSaveState2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1040,21 +941,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), @tfw_tiString]);
 end;//TkwTreeSaveState2File.ParamsTypes
 
-class function TkwTreeSaveState2File.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:SaveState2File';
-end;//TkwTreeSaveState2File.GetWordNameForRegister
-
 function TkwTreeChildrenCount.tree_ChildrenCount(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта tree:ChildrenCount }
-//#UC START# *AE43F50BC9AF_015D1248A6CF_var*
-//#UC END# *AE43F50BC9AF_015D1248A6CF_var*
+//#UC START# *552FF5F001F8_015D1248A6CF_var*
+//#UC END# *552FF5F001F8_015D1248A6CF_var*
 begin
-//#UC START# *AE43F50BC9AF_015D1248A6CF_impl*
+//#UC START# *552FF5F001F8_015D1248A6CF_impl*
  Result := aTree.GetNode(anIndex).ThisChildrenCount;
-//#UC END# *AE43F50BC9AF_015D1248A6CF_impl*
+//#UC END# *552FF5F001F8_015D1248A6CF_impl*
 end;//TkwTreeChildrenCount.tree_ChildrenCount
 
 procedure TkwTreeChildrenCount.DoDoIt(const aCtx: TtfwContext);
@@ -1082,6 +978,11 @@ begin
  aCtx.rEngine.PushInt(tree_ChildrenCount(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeChildrenCount.DoDoIt
 
+class function TkwTreeChildrenCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:ChildrenCount';
+end;//TkwTreeChildrenCount.GetWordNameForRegister
+
 function TkwTreeChildrenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1097,21 +998,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeChildrenCount.ParamsTypes
 
-class function TkwTreeChildrenCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:ChildrenCount';
-end;//TkwTreeChildrenCount.GetWordNameForRegister
-
 procedure TkwTreeExpand.tree_expand(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer);
  {* Реализация слова скрипта tree:развернуть }
-//#UC START# *2E30DC700B4D_B776D637E7D3_var*
-//#UC END# *2E30DC700B4D_B776D637E7D3_var*
+//#UC START# *552FF61301F5_B776D637E7D3_var*
+//#UC END# *552FF61301F5_B776D637E7D3_var*
 begin
-//#UC START# *2E30DC700B4D_B776D637E7D3_impl*
+//#UC START# *552FF61301F5_B776D637E7D3_impl*
  aTree.ExpandNode(aTree.GetNode(anIndex), True);
-//#UC END# *2E30DC700B4D_B776D637E7D3_impl*
+//#UC END# *552FF61301F5_B776D637E7D3_impl*
 end;//TkwTreeExpand.tree_expand
 
 procedure TkwTreeExpand.DoDoIt(const aCtx: TtfwContext);
@@ -1139,6 +1035,11 @@ begin
  tree_expand(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeExpand.DoDoIt
 
+class function TkwTreeExpand.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:развернуть';
+end;//TkwTreeExpand.GetWordNameForRegister
+
 function TkwTreeExpand.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1154,22 +1055,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeExpand.ParamsTypes
 
-class function TkwTreeExpand.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:развернуть';
-end;//TkwTreeExpand.GetWordNameForRegister
-
 function TkwTreeGetItemHeight.tree_GetItem_Height(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта tree:GetItem:Height }
-//#UC START# *6A1F8BF29A15_62AE36AC72B7_var*
-//#UC END# *6A1F8BF29A15_62AE36AC72B7_var*
+//#UC START# *552FF6740129_62AE36AC72B7_var*
+//#UC END# *552FF6740129_62AE36AC72B7_var*
 begin
-//#UC START# *6A1F8BF29A15_62AE36AC72B7_impl*
+//#UC START# *552FF6740129_62AE36AC72B7_impl*
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := (Bottom - Top);
-//#UC END# *6A1F8BF29A15_62AE36AC72B7_impl*
+//#UC END# *552FF6740129_62AE36AC72B7_impl*
 end;//TkwTreeGetItemHeight.tree_GetItem_Height
 
 procedure TkwTreeGetItemHeight.DoDoIt(const aCtx: TtfwContext);
@@ -1197,6 +1093,11 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Height(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemHeight.DoDoIt
 
+class function TkwTreeGetItemHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Height';
+end;//TkwTreeGetItemHeight.GetWordNameForRegister
+
 function TkwTreeGetItemHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1212,26 +1113,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemHeight.ParamsTypes
 
-class function TkwTreeGetItemHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Height';
-end;//TkwTreeGetItemHeight.GetWordNameForRegister
-
 function TkwTreeGetItemImageIndex.tree_GetItemImageIndex(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта tree:GetItemImageIndex }
-//#UC START# *8973BBC94034_A8F9DB23E07A_var*
+//#UC START# *552FF69A0228_A8F9DB23E07A_var*
 var
  l_IL: TCustomImageList;
-//#UC END# *8973BBC94034_A8F9DB23E07A_var*
+//#UC END# *552FF69A0228_A8F9DB23E07A_var*
 begin
-//#UC START# *8973BBC94034_A8F9DB23E07A_impl*
+//#UC START# *552FF69A0228_A8F9DB23E07A_impl*
  if Assigned(aTree.OnGetItemImage) then
   Result := aTree.OnGetItemImage(aTree, anIndex, l_IL)
  else
   Result := vtItemWithoutImage;
-//#UC END# *8973BBC94034_A8F9DB23E07A_impl*
+//#UC END# *552FF69A0228_A8F9DB23E07A_impl*
 end;//TkwTreeGetItemImageIndex.tree_GetItemImageIndex
 
 procedure TkwTreeGetItemImageIndex.DoDoIt(const aCtx: TtfwContext);
@@ -1259,6 +1155,11 @@ begin
  aCtx.rEngine.PushInt(tree_GetItemImageIndex(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemImageIndex.DoDoIt
 
+class function TkwTreeGetItemImageIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItemImageIndex';
+end;//TkwTreeGetItemImageIndex.GetWordNameForRegister
+
 function TkwTreeGetItemImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1274,22 +1175,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemImageIndex.ParamsTypes
 
-class function TkwTreeGetItemImageIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItemImageIndex';
-end;//TkwTreeGetItemImageIndex.GetWordNameForRegister
-
 function TkwTreeGetItemLeft.tree_GetItem_Left(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта tree:GetItem:Left }
-//#UC START# *B8F482D3E058_6CAA56491F95_var*
-//#UC END# *B8F482D3E058_6CAA56491F95_var*
+//#UC START# *552FF6CC0186_6CAA56491F95_var*
+//#UC END# *552FF6CC0186_6CAA56491F95_var*
 begin
-//#UC START# *B8F482D3E058_6CAA56491F95_impl*
+//#UC START# *552FF6CC0186_6CAA56491F95_impl*
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := Left;
-//#UC END# *B8F482D3E058_6CAA56491F95_impl*
+//#UC END# *552FF6CC0186_6CAA56491F95_impl*
 end;//TkwTreeGetItemLeft.tree_GetItem_Left
 
 procedure TkwTreeGetItemLeft.DoDoIt(const aCtx: TtfwContext);
@@ -1317,6 +1213,11 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Left(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemLeft.DoDoIt
 
+class function TkwTreeGetItemLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Left';
+end;//TkwTreeGetItemLeft.GetWordNameForRegister
+
 function TkwTreeGetItemLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1332,22 +1233,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemLeft.ParamsTypes
 
-class function TkwTreeGetItemLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Left';
-end;//TkwTreeGetItemLeft.GetWordNameForRegister
-
 function TkwTreeGetItemTop.tree_GetItem_Top(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта tree:GetItem:Top }
-//#UC START# *BB0EA75B28A4_5F6D76A66CAD_var*
-//#UC END# *BB0EA75B28A4_5F6D76A66CAD_var*
+//#UC START# *552FF6F802D9_5F6D76A66CAD_var*
+//#UC END# *552FF6F802D9_5F6D76A66CAD_var*
 begin
-//#UC START# *BB0EA75B28A4_5F6D76A66CAD_impl*
+//#UC START# *552FF6F802D9_5F6D76A66CAD_impl*
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := Top;
-//#UC END# *BB0EA75B28A4_5F6D76A66CAD_impl*
+//#UC END# *552FF6F802D9_5F6D76A66CAD_impl*
 end;//TkwTreeGetItemTop.tree_GetItem_Top
 
 procedure TkwTreeGetItemTop.DoDoIt(const aCtx: TtfwContext);
@@ -1375,6 +1271,11 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Top(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemTop.DoDoIt
 
+class function TkwTreeGetItemTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Top';
+end;//TkwTreeGetItemTop.GetWordNameForRegister
+
 function TkwTreeGetItemTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1390,22 +1291,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemTop.ParamsTypes
 
-class function TkwTreeGetItemTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Top';
-end;//TkwTreeGetItemTop.GetWordNameForRegister
-
 function TkwTreeGetItemWidth.tree_GetItem_Width(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Integer;
  {* Реализация слова скрипта tree:GetItem:Width }
-//#UC START# *C87D76FDB760_645DA96C0332_var*
-//#UC END# *C87D76FDB760_645DA96C0332_var*
+//#UC START# *552FF71D00BE_645DA96C0332_var*
+//#UC END# *552FF71D00BE_645DA96C0332_var*
 begin
-//#UC START# *C87D76FDB760_645DA96C0332_impl*
+//#UC START# *552FF71D00BE_645DA96C0332_impl*
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := (Right - Left);
-//#UC END# *C87D76FDB760_645DA96C0332_impl*
+//#UC END# *552FF71D00BE_645DA96C0332_impl*
 end;//TkwTreeGetItemWidth.tree_GetItem_Width
 
 procedure TkwTreeGetItemWidth.DoDoIt(const aCtx: TtfwContext);
@@ -1433,6 +1329,11 @@ begin
  aCtx.rEngine.PushInt(tree_GetItem_Width(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemWidth.DoDoIt
 
+class function TkwTreeGetItemWidth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetItem:Width';
+end;//TkwTreeGetItemWidth.GetWordNameForRegister
+
 function TkwTreeGetItemWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1448,21 +1349,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemWidth.ParamsTypes
 
-class function TkwTreeGetItemWidth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetItem:Width';
-end;//TkwTreeGetItemWidth.GetWordNameForRegister
-
 function TkwTreeGetSelected.tree_GetSelected(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer): Boolean;
  {* Реализация слова скрипта tree:GetSelected }
-//#UC START# *9B0DC054C6CC_5AEA5F2D19AB_var*
-//#UC END# *9B0DC054C6CC_5AEA5F2D19AB_var*
+//#UC START# *552FF745039F_5AEA5F2D19AB_var*
+//#UC END# *552FF745039F_5AEA5F2D19AB_var*
 begin
-//#UC START# *9B0DC054C6CC_5AEA5F2D19AB_impl*
+//#UC START# *552FF745039F_5AEA5F2D19AB_impl*
  Result := aTree.Selected[anIndex];
-//#UC END# *9B0DC054C6CC_5AEA5F2D19AB_impl*
+//#UC END# *552FF745039F_5AEA5F2D19AB_impl*
 end;//TkwTreeGetSelected.tree_GetSelected
 
 procedure TkwTreeGetSelected.DoDoIt(const aCtx: TtfwContext);
@@ -1490,6 +1386,11 @@ begin
  aCtx.rEngine.PushBool(tree_GetSelected(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetSelected.DoDoIt
 
+class function TkwTreeGetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:GetSelected';
+end;//TkwTreeGetSelected.GetWordNameForRegister
+
 function TkwTreeGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -1505,22 +1406,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetSelected.ParamsTypes
 
-class function TkwTreeGetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:GetSelected';
-end;//TkwTreeGetSelected.GetWordNameForRegister
-
 procedure TkwTreeSetSelected.tree_SetSelected(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer;
  aValue: Boolean);
  {* Реализация слова скрипта tree:SetSelected }
-//#UC START# *FB5CACE1D73C_017A97801F00_var*
-//#UC END# *FB5CACE1D73C_017A97801F00_var*
+//#UC START# *552FF76C0114_017A97801F00_var*
+//#UC END# *552FF76C0114_017A97801F00_var*
 begin
-//#UC START# *FB5CACE1D73C_017A97801F00_impl*
+//#UC START# *552FF76C0114_017A97801F00_impl*
  aTree.Selected[anIndex] := aValue;
-//#UC END# *FB5CACE1D73C_017A97801F00_impl*
+//#UC END# *552FF76C0114_017A97801F00_impl*
 end;//TkwTreeSetSelected.tree_SetSelected
 
 procedure TkwTreeSetSelected.DoDoIt(const aCtx: TtfwContext);
@@ -1558,6 +1454,11 @@ begin
  tree_SetSelected(aCtx, l_aTree, l_anIndex, l_aValue);
 end;//TkwTreeSetSelected.DoDoIt
 
+class function TkwTreeSetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:SetSelected';
+end;//TkwTreeSetSelected.GetWordNameForRegister
+
 function TkwTreeSetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1573,21 +1474,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwTreeSetSelected.ParamsTypes
 
-class function TkwTreeSetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:SetSelected';
-end;//TkwTreeSetSelected.GetWordNameForRegister
-
 procedure TkwTreeCollapse.tree_collapse(const aCtx: TtfwContext;
  aTree: TvtCustomOutliner;
  anIndex: Integer);
  {* Реализация слова скрипта tree:свернуть }
-//#UC START# *CEBD033C9914_9749EACE054F_var*
-//#UC END# *CEBD033C9914_9749EACE054F_var*
+//#UC START# *5530E0B20024_9749EACE054F_var*
+//#UC END# *5530E0B20024_9749EACE054F_var*
 begin
-//#UC START# *CEBD033C9914_9749EACE054F_impl*
+//#UC START# *5530E0B20024_9749EACE054F_impl*
  aTree.ExpandNode(aTree.GetNode(anIndex), false);
-//#UC END# *CEBD033C9914_9749EACE054F_impl*
+//#UC END# *5530E0B20024_9749EACE054F_impl*
 end;//TkwTreeCollapse.tree_collapse
 
 procedure TkwTreeCollapse.DoDoIt(const aCtx: TtfwContext);
@@ -1615,6 +1511,11 @@ begin
  tree_collapse(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeCollapse.DoDoIt
 
+class function TkwTreeCollapse.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tree:свернуть';
+end;//TkwTreeCollapse.GetWordNameForRegister
+
 function TkwTreeCollapse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1629,11 +1530,6 @@ function TkwTreeCollapse.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeCollapse.ParamsTypes
-
-class function TkwTreeCollapse.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tree:свернуть';
-end;//TkwTreeCollapse.GetWordNameForRegister
 
 class function TvtOutlinerWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -1685,20 +1581,18 @@ initialization
  {* Регистрация tree_collapse }
  TvtOutlinerWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCustomOutliner));
  {* Регистрация типа TvtCustomOutliner }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));
  {* Регистрация типа Il3SimpleNode }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

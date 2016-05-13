@@ -37,12 +37,21 @@ uses
  {$If NOT Defined(NoVCL)}
  , Themes
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
 {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TRoundedButton);
+ {* Регистрация TRoundedButton }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.

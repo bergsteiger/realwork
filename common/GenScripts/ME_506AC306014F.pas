@@ -34,19 +34,13 @@ uses
  , vgObject
  , vg_objects
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwVgControlVisible = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Visible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aVisualObject vg:control:Visible >>> l_Boolean
-[code]  }
+  {* Слово скрипта vg:control:Visible }
   private
    function vg_control_Visible(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Boolean;
@@ -61,13 +55,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwVgControlVisible
 
  TkwVgControlHeight = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:Height >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:Height }
   private
    function vg_control_Height(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -82,13 +70,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlHeight
 
  TkwVgControlWidth = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:Width >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:Width }
   private
    function vg_control_Width(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -103,13 +85,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlWidth
 
  TkwVgControlLeft = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Left
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:Left >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:Left }
   private
    function vg_control_Left(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -124,13 +100,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlLeft
 
  TkwVgControlTop = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Top
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:Top >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:Top }
   private
    function vg_control_Top(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -145,13 +115,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlTop
 
  TkwVgControlEnabled = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Enabled
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aVisualObject vg:control:Enabled >>> l_Boolean
-[code]  }
+  {* Слово скрипта vg:control:Enabled }
   private
    function vg_control_Enabled(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Boolean;
@@ -166,13 +130,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwVgControlEnabled
 
  TkwVgControlName = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Name
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aVisualObject vg:control:Name >>> l_String
-[code]  }
+  {* Слово скрипта vg:control:Name }
   private
    function vg_control_Name(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): AnsiString;
@@ -187,11 +145,7 @@ STRING VAR l_String
  end;//TkwVgControlName
 
  TkwVgControlClick = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Click
-*Пример:*
-[code]
- aVisualObject vg:control:Click
-[code]  }
+  {* Слово скрипта vg:control:Click }
   private
    procedure vg_control_Click(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject);
@@ -206,13 +160,7 @@ STRING VAR l_String
  end;//TkwVgControlClick
 
  TkwVgControlCountSiblingLikeMe = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:CountSiblingLikeMe
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:CountSiblingLikeMe >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:CountSiblingLikeMe }
   private
    function vg_control_CountSiblingLikeMe(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -227,13 +175,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlCountSiblingLikeMe
 
  TkwVgControlGetIsChecked = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:GetIsChecked
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aVisualObject vg:control:GetIsChecked >>> l_Boolean
-[code]  }
+  {* Слово скрипта vg:control:GetIsChecked }
   private
    function vg_control_GetIsChecked(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Boolean;
@@ -248,11 +190,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwVgControlGetIsChecked
 
  TkwVgControlSetIsChecked = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:SetIsChecked
-*Пример:*
-[code]
- aValue aVisualObject vg:control:SetIsChecked
-[code]  }
+  {* Слово скрипта vg:control:SetIsChecked }
   private
    procedure vg_control_SetIsChecked(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject;
@@ -268,13 +206,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwVgControlSetIsChecked
 
  TkwVgControlLeftInScene = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:LeftInScene
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:LeftInScene >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:LeftInScene }
   private
    function vg_control_LeftInScene(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -289,13 +221,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlLeftInScene
 
  TkwVgControlTopInScene = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:TopInScene
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aVisualObject vg:control:TopInScene >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:control:TopInScene }
   private
    function vg_control_TopInScene(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): Integer;
@@ -310,13 +236,7 @@ INTEGER VAR l_Integer
  end;//TkwVgControlTopInScene
 
  TkwVgControlScene = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Scene
-*Тип результата:* TControl
-*Пример:*
-[code]
-OBJECT VAR l_TControl
- aVisualObject vg:control:Scene >>> l_TControl
-[code]  }
+  {* Слово скрипта vg:control:Scene }
   private
    function vg_control_Scene(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): TControl;
@@ -331,13 +251,7 @@ OBJECT VAR l_TControl
  end;//TkwVgControlScene
 
  TkwVgControlText = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:control:Text
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aVisualObject vg:control:Text >>> l_String
-[code]  }
+  {* Слово скрипта vg:control:Text }
   private
    function vg_control_Text(const aCtx: TtfwContext;
     aVisualObject: TvgVisualObject): AnsiString;
@@ -364,12 +278,12 @@ STRING VAR l_String
 function TkwVgControlVisible.vg_control_Visible(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Boolean;
  {* Реализация слова скрипта vg:control:Visible }
-//#UC START# *99CDF025D5A5_89C786B088C6_var*
-//#UC END# *99CDF025D5A5_89C786B088C6_var*
+//#UC START# *551D4CAA00E9_89C786B088C6_var*
+//#UC END# *551D4CAA00E9_89C786B088C6_var*
 begin
-//#UC START# *99CDF025D5A5_89C786B088C6_impl*
+//#UC START# *551D4CAA00E9_89C786B088C6_impl*
  Result := aVisualObject.CheckParentVisible
-//#UC END# *99CDF025D5A5_89C786B088C6_impl*
+//#UC END# *551D4CAA00E9_89C786B088C6_impl*
 end;//TkwVgControlVisible.vg_control_Visible
 
 procedure TkwVgControlVisible.DoDoIt(const aCtx: TtfwContext);
@@ -387,6 +301,11 @@ begin
  aCtx.rEngine.PushBool(vg_control_Visible(aCtx, l_aVisualObject));
 end;//TkwVgControlVisible.DoDoIt
 
+class function TkwVgControlVisible.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Visible';
+end;//TkwVgControlVisible.GetWordNameForRegister
+
 function TkwVgControlVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -402,20 +321,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlVisible.ParamsTypes
 
-class function TkwVgControlVisible.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Visible';
-end;//TkwVgControlVisible.GetWordNameForRegister
-
 function TkwVgControlHeight.vg_control_Height(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:Height }
-//#UC START# *20F09B87AF2A_05A703B5907E_var*
-//#UC END# *20F09B87AF2A_05A703B5907E_var*
+//#UC START# *551D4CCD0130_05A703B5907E_var*
+//#UC END# *551D4CCD0130_05A703B5907E_var*
 begin
-//#UC START# *20F09B87AF2A_05A703B5907E_impl*
+//#UC START# *551D4CCD0130_05A703B5907E_impl*
  Result := Round(aVisualObject.Height);
-//#UC END# *20F09B87AF2A_05A703B5907E_impl*
+//#UC END# *551D4CCD0130_05A703B5907E_impl*
 end;//TkwVgControlHeight.vg_control_Height
 
 procedure TkwVgControlHeight.DoDoIt(const aCtx: TtfwContext);
@@ -433,6 +347,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_Height(aCtx, l_aVisualObject));
 end;//TkwVgControlHeight.DoDoIt
 
+class function TkwVgControlHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Height';
+end;//TkwVgControlHeight.GetWordNameForRegister
+
 function TkwVgControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -448,20 +367,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlHeight.ParamsTypes
 
-class function TkwVgControlHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Height';
-end;//TkwVgControlHeight.GetWordNameForRegister
-
 function TkwVgControlWidth.vg_control_Width(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:Width }
-//#UC START# *68ABF3A0E921_6D438B9C5A14_var*
-//#UC END# *68ABF3A0E921_6D438B9C5A14_var*
+//#UC START# *551D4CF10224_6D438B9C5A14_var*
+//#UC END# *551D4CF10224_6D438B9C5A14_var*
 begin
-//#UC START# *68ABF3A0E921_6D438B9C5A14_impl*
+//#UC START# *551D4CF10224_6D438B9C5A14_impl*
  Result := Round(aVisualObject.Width)
-//#UC END# *68ABF3A0E921_6D438B9C5A14_impl*
+//#UC END# *551D4CF10224_6D438B9C5A14_impl*
 end;//TkwVgControlWidth.vg_control_Width
 
 procedure TkwVgControlWidth.DoDoIt(const aCtx: TtfwContext);
@@ -479,6 +393,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_Width(aCtx, l_aVisualObject));
 end;//TkwVgControlWidth.DoDoIt
 
+class function TkwVgControlWidth.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Width';
+end;//TkwVgControlWidth.GetWordNameForRegister
+
 function TkwVgControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -494,20 +413,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlWidth.ParamsTypes
 
-class function TkwVgControlWidth.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Width';
-end;//TkwVgControlWidth.GetWordNameForRegister
-
 function TkwVgControlLeft.vg_control_Left(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:Left }
-//#UC START# *015BF6CE41DE_0ED393F18084_var*
-//#UC END# *015BF6CE41DE_0ED393F18084_var*
+//#UC START# *551D4CFE03AD_0ED393F18084_var*
+//#UC END# *551D4CFE03AD_0ED393F18084_var*
 begin
-//#UC START# *015BF6CE41DE_0ED393F18084_impl*
+//#UC START# *551D4CFE03AD_0ED393F18084_impl*
  Result := Round(aVisualObject.Position.X)
-//#UC END# *015BF6CE41DE_0ED393F18084_impl*
+//#UC END# *551D4CFE03AD_0ED393F18084_impl*
 end;//TkwVgControlLeft.vg_control_Left
 
 procedure TkwVgControlLeft.DoDoIt(const aCtx: TtfwContext);
@@ -525,6 +439,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_Left(aCtx, l_aVisualObject));
 end;//TkwVgControlLeft.DoDoIt
 
+class function TkwVgControlLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Left';
+end;//TkwVgControlLeft.GetWordNameForRegister
+
 function TkwVgControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -540,20 +459,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlLeft.ParamsTypes
 
-class function TkwVgControlLeft.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Left';
-end;//TkwVgControlLeft.GetWordNameForRegister
-
 function TkwVgControlTop.vg_control_Top(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:Top }
-//#UC START# *15CFF0C454F0_E4BF70016043_var*
-//#UC END# *15CFF0C454F0_E4BF70016043_var*
+//#UC START# *551D4D1002FD_E4BF70016043_var*
+//#UC END# *551D4D1002FD_E4BF70016043_var*
 begin
-//#UC START# *15CFF0C454F0_E4BF70016043_impl*
+//#UC START# *551D4D1002FD_E4BF70016043_impl*
  Result := Round(aVisualObject.Position.Y)
-//#UC END# *15CFF0C454F0_E4BF70016043_impl*
+//#UC END# *551D4D1002FD_E4BF70016043_impl*
 end;//TkwVgControlTop.vg_control_Top
 
 procedure TkwVgControlTop.DoDoIt(const aCtx: TtfwContext);
@@ -571,6 +485,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_Top(aCtx, l_aVisualObject));
 end;//TkwVgControlTop.DoDoIt
 
+class function TkwVgControlTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Top';
+end;//TkwVgControlTop.GetWordNameForRegister
+
 function TkwVgControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -586,20 +505,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlTop.ParamsTypes
 
-class function TkwVgControlTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Top';
-end;//TkwVgControlTop.GetWordNameForRegister
-
 function TkwVgControlEnabled.vg_control_Enabled(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Boolean;
  {* Реализация слова скрипта vg:control:Enabled }
-//#UC START# *7861C2BB2686_20CB200689C7_var*
-//#UC END# *7861C2BB2686_20CB200689C7_var*
+//#UC START# *551D4D2101E1_20CB200689C7_var*
+//#UC END# *551D4D2101E1_20CB200689C7_var*
 begin
-//#UC START# *7861C2BB2686_20CB200689C7_impl*
+//#UC START# *551D4D2101E1_20CB200689C7_impl*
  Result := aVisualObject.Enabled
-//#UC END# *7861C2BB2686_20CB200689C7_impl*
+//#UC END# *551D4D2101E1_20CB200689C7_impl*
 end;//TkwVgControlEnabled.vg_control_Enabled
 
 procedure TkwVgControlEnabled.DoDoIt(const aCtx: TtfwContext);
@@ -617,6 +531,11 @@ begin
  aCtx.rEngine.PushBool(vg_control_Enabled(aCtx, l_aVisualObject));
 end;//TkwVgControlEnabled.DoDoIt
 
+class function TkwVgControlEnabled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Enabled';
+end;//TkwVgControlEnabled.GetWordNameForRegister
+
 function TkwVgControlEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -632,20 +551,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlEnabled.ParamsTypes
 
-class function TkwVgControlEnabled.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Enabled';
-end;//TkwVgControlEnabled.GetWordNameForRegister
-
 function TkwVgControlName.vg_control_Name(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): AnsiString;
  {* Реализация слова скрипта vg:control:Name }
-//#UC START# *FEEF38963F97_F80A519316B5_var*
-//#UC END# *FEEF38963F97_F80A519316B5_var*
+//#UC START# *551D4D30029E_F80A519316B5_var*
+//#UC END# *551D4D30029E_F80A519316B5_var*
 begin
-//#UC START# *FEEF38963F97_F80A519316B5_impl*
+//#UC START# *551D4D30029E_F80A519316B5_impl*
  Result := aVisualObject.Name
-//#UC END# *FEEF38963F97_F80A519316B5_impl*
+//#UC END# *551D4D30029E_F80A519316B5_impl*
 end;//TkwVgControlName.vg_control_Name
 
 procedure TkwVgControlName.DoDoIt(const aCtx: TtfwContext);
@@ -663,6 +577,11 @@ begin
  aCtx.rEngine.PushString(vg_control_Name(aCtx, l_aVisualObject));
 end;//TkwVgControlName.DoDoIt
 
+class function TkwVgControlName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Name';
+end;//TkwVgControlName.GetWordNameForRegister
+
 function TkwVgControlName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -678,24 +597,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlName.ParamsTypes
 
-class function TkwVgControlName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Name';
-end;//TkwVgControlName.GetWordNameForRegister
-
 procedure TkwVgControlClick.vg_control_Click(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject);
  {* Реализация слова скрипта vg:control:Click }
-//#UC START# *FCBA5E83A1C1_E94B273F03D9_var*
-//#UC END# *FCBA5E83A1C1_E94B273F03D9_var*
+//#UC START# *551D4D56027F_E94B273F03D9_var*
+//#UC END# *551D4D56027F_E94B273F03D9_var*
 begin
-//#UC START# *FCBA5E83A1C1_E94B273F03D9_impl*
+//#UC START# *551D4D56027F_E94B273F03D9_impl*
  with TvgVisualObjectFriend(aVisualObject) do
  begin
   MouseDown(mbLeft, [], 0, 0);
   MouseUp(mbLeft, [], 0, 0);
  end;//with TvgVisualObjectFriend(aVisualObject)
-//#UC END# *FCBA5E83A1C1_E94B273F03D9_impl*
+//#UC END# *551D4D56027F_E94B273F03D9_impl*
 end;//TkwVgControlClick.vg_control_Click
 
 procedure TkwVgControlClick.DoDoIt(const aCtx: TtfwContext);
@@ -713,6 +627,11 @@ begin
  vg_control_Click(aCtx, l_aVisualObject);
 end;//TkwVgControlClick.DoDoIt
 
+class function TkwVgControlClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Click';
+end;//TkwVgControlClick.GetWordNameForRegister
+
 function TkwVgControlClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -728,23 +647,18 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlClick.ParamsTypes
 
-class function TkwVgControlClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Click';
-end;//TkwVgControlClick.GetWordNameForRegister
-
 function TkwVgControlCountSiblingLikeMe.vg_control_CountSiblingLikeMe(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:CountSiblingLikeMe }
-//#UC START# *4724A104EB0C_8969D4FAAB14_var*
+//#UC START# *551D4D910121_8969D4FAAB14_var*
 var
  l_Count : Integer;
  l_Index : Integer;
  l_Ow    : TComponent;
  l_C     : TComponent;
-//#UC END# *4724A104EB0C_8969D4FAAB14_var*
+//#UC END# *551D4D910121_8969D4FAAB14_var*
 begin
-//#UC START# *4724A104EB0C_8969D4FAAB14_impl*
+//#UC START# *551D4D910121_8969D4FAAB14_impl*
  l_Count := 0;
  l_Ow := aVisualObject.Owner;
  for l_Index := 0 to Pred(l_Ow.ComponentCount) do
@@ -754,7 +668,7 @@ begin
    Inc(l_Count);
  end;//for l_Index
  Result := l_Count;
-//#UC END# *4724A104EB0C_8969D4FAAB14_impl*
+//#UC END# *551D4D910121_8969D4FAAB14_impl*
 end;//TkwVgControlCountSiblingLikeMe.vg_control_CountSiblingLikeMe
 
 procedure TkwVgControlCountSiblingLikeMe.DoDoIt(const aCtx: TtfwContext);
@@ -772,6 +686,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_CountSiblingLikeMe(aCtx, l_aVisualObject));
 end;//TkwVgControlCountSiblingLikeMe.DoDoIt
 
+class function TkwVgControlCountSiblingLikeMe.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:CountSiblingLikeMe';
+end;//TkwVgControlCountSiblingLikeMe.GetWordNameForRegister
+
 function TkwVgControlCountSiblingLikeMe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -787,20 +706,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlCountSiblingLikeMe.ParamsTypes
 
-class function TkwVgControlCountSiblingLikeMe.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:CountSiblingLikeMe';
-end;//TkwVgControlCountSiblingLikeMe.GetWordNameForRegister
-
 function TkwVgControlGetIsChecked.vg_control_GetIsChecked(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Boolean;
  {* Реализация слова скрипта vg:control:GetIsChecked }
-//#UC START# *351A7FD6B4C4_D3F9471133D7_var*
-//#UC END# *351A7FD6B4C4_D3F9471133D7_var*
+//#UC START# *551D4DB90078_D3F9471133D7_var*
+//#UC END# *551D4DB90078_D3F9471133D7_var*
 begin
-//#UC START# *351A7FD6B4C4_D3F9471133D7_impl*
+//#UC START# *551D4DB90078_D3F9471133D7_impl*
  Result := (aVisualObject As TvgRadioButton).IsChecked;
-//#UC END# *351A7FD6B4C4_D3F9471133D7_impl*
+//#UC END# *551D4DB90078_D3F9471133D7_impl*
 end;//TkwVgControlGetIsChecked.vg_control_GetIsChecked
 
 procedure TkwVgControlGetIsChecked.DoDoIt(const aCtx: TtfwContext);
@@ -818,6 +732,11 @@ begin
  aCtx.rEngine.PushBool(vg_control_GetIsChecked(aCtx, l_aVisualObject));
 end;//TkwVgControlGetIsChecked.DoDoIt
 
+class function TkwVgControlGetIsChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:GetIsChecked';
+end;//TkwVgControlGetIsChecked.GetWordNameForRegister
+
 function TkwVgControlGetIsChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -833,21 +752,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlGetIsChecked.ParamsTypes
 
-class function TkwVgControlGetIsChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:GetIsChecked';
-end;//TkwVgControlGetIsChecked.GetWordNameForRegister
-
 procedure TkwVgControlSetIsChecked.vg_control_SetIsChecked(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject;
  aValue: Boolean);
  {* Реализация слова скрипта vg:control:SetIsChecked }
-//#UC START# *E83EB4C5B17F_5389853B1E01_var*
-//#UC END# *E83EB4C5B17F_5389853B1E01_var*
+//#UC START# *551D4DC601EC_5389853B1E01_var*
+//#UC END# *551D4DC601EC_5389853B1E01_var*
 begin
-//#UC START# *E83EB4C5B17F_5389853B1E01_impl*
+//#UC START# *551D4DC601EC_5389853B1E01_impl*
  (aVisualObject As TvgRadioButton).IsChecked := aValue;
-//#UC END# *E83EB4C5B17F_5389853B1E01_impl*
+//#UC END# *551D4DC601EC_5389853B1E01_impl*
 end;//TkwVgControlSetIsChecked.vg_control_SetIsChecked
 
 procedure TkwVgControlSetIsChecked.DoDoIt(const aCtx: TtfwContext);
@@ -875,6 +789,11 @@ begin
  vg_control_SetIsChecked(aCtx, l_aVisualObject, l_aValue);
 end;//TkwVgControlSetIsChecked.DoDoIt
 
+class function TkwVgControlSetIsChecked.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:SetIsChecked';
+end;//TkwVgControlSetIsChecked.GetWordNameForRegister
+
 function TkwVgControlSetIsChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -890,21 +809,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject), TypeInfo(Boolean)]);
 end;//TkwVgControlSetIsChecked.ParamsTypes
 
-class function TkwVgControlSetIsChecked.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:SetIsChecked';
-end;//TkwVgControlSetIsChecked.GetWordNameForRegister
-
 function TkwVgControlLeftInScene.vg_control_LeftInScene(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:LeftInScene }
-//#UC START# *74951CD8B8BB_0B0F33EAEBDF_var*
+//#UC START# *551D4DEF0359_0B0F33EAEBDF_var*
 var
  l_Left: Single;
  l_Obj: TvgObject;
-//#UC END# *74951CD8B8BB_0B0F33EAEBDF_var*
+//#UC END# *551D4DEF0359_0B0F33EAEBDF_var*
 begin
-//#UC START# *74951CD8B8BB_0B0F33EAEBDF_impl*
+//#UC START# *551D4DEF0359_0B0F33EAEBDF_impl*
  l_Left := aVisualObject.Position.X;
  l_Obj := aVisualObject;
  while Assigned(l_Obj.Parent) {and (anObject.Parent <> anObject.Scene)} do
@@ -914,7 +828,7 @@ begin
    l_Left := TvgVisualObject(l_Obj).Position.X + l_Left;
  end;
  Result := Round(l_Left);
-//#UC END# *74951CD8B8BB_0B0F33EAEBDF_impl*
+//#UC END# *551D4DEF0359_0B0F33EAEBDF_impl*
 end;//TkwVgControlLeftInScene.vg_control_LeftInScene
 
 procedure TkwVgControlLeftInScene.DoDoIt(const aCtx: TtfwContext);
@@ -932,6 +846,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_LeftInScene(aCtx, l_aVisualObject));
 end;//TkwVgControlLeftInScene.DoDoIt
 
+class function TkwVgControlLeftInScene.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:LeftInScene';
+end;//TkwVgControlLeftInScene.GetWordNameForRegister
+
 function TkwVgControlLeftInScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -947,21 +866,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlLeftInScene.ParamsTypes
 
-class function TkwVgControlLeftInScene.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:LeftInScene';
-end;//TkwVgControlLeftInScene.GetWordNameForRegister
-
 function TkwVgControlTopInScene.vg_control_TopInScene(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): Integer;
  {* Реализация слова скрипта vg:control:TopInScene }
-//#UC START# *9772F92476AF_FFE6E88470A5_var*
+//#UC START# *551D4E00011A_FFE6E88470A5_var*
 var
  l_Top: Single;
  l_Obj: TvgObject;
-//#UC END# *9772F92476AF_FFE6E88470A5_var*
+//#UC END# *551D4E00011A_FFE6E88470A5_var*
 begin
-//#UC START# *9772F92476AF_FFE6E88470A5_impl*
+//#UC START# *551D4E00011A_FFE6E88470A5_impl*
  l_Top := aVisualObject.Position.Y;
  l_Obj := aVisualObject;
  while Assigned(l_Obj.Parent) {and (anObject.Parent <> anObject.Scene)} do
@@ -971,7 +885,7 @@ begin
    l_Top := TvgVisualObject(l_Obj).Position.Y + l_Top;
  end;
  Result := Round(l_Top);
-//#UC END# *9772F92476AF_FFE6E88470A5_impl*
+//#UC END# *551D4E00011A_FFE6E88470A5_impl*
 end;//TkwVgControlTopInScene.vg_control_TopInScene
 
 procedure TkwVgControlTopInScene.DoDoIt(const aCtx: TtfwContext);
@@ -989,6 +903,11 @@ begin
  aCtx.rEngine.PushInt(vg_control_TopInScene(aCtx, l_aVisualObject));
 end;//TkwVgControlTopInScene.DoDoIt
 
+class function TkwVgControlTopInScene.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:TopInScene';
+end;//TkwVgControlTopInScene.GetWordNameForRegister
+
 function TkwVgControlTopInScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1004,20 +923,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlTopInScene.ParamsTypes
 
-class function TkwVgControlTopInScene.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:TopInScene';
-end;//TkwVgControlTopInScene.GetWordNameForRegister
-
 function TkwVgControlScene.vg_control_Scene(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): TControl;
  {* Реализация слова скрипта vg:control:Scene }
-//#UC START# *05812BD7CDDB_E3230FB2D73B_var*
-//#UC END# *05812BD7CDDB_E3230FB2D73B_var*
+//#UC START# *551D4E320027_E3230FB2D73B_var*
+//#UC END# *551D4E320027_E3230FB2D73B_var*
 begin
-//#UC START# *05812BD7CDDB_E3230FB2D73B_impl*
+//#UC START# *551D4E320027_E3230FB2D73B_impl*
  Result := aVisualObject.Scene.GetSceneControl;
-//#UC END# *05812BD7CDDB_E3230FB2D73B_impl*
+//#UC END# *551D4E320027_E3230FB2D73B_impl*
 end;//TkwVgControlScene.vg_control_Scene
 
 procedure TkwVgControlScene.DoDoIt(const aCtx: TtfwContext);
@@ -1035,6 +949,11 @@ begin
  aCtx.rEngine.PushObj(vg_control_Scene(aCtx, l_aVisualObject));
 end;//TkwVgControlScene.DoDoIt
 
+class function TkwVgControlScene.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Scene';
+end;//TkwVgControlScene.GetWordNameForRegister
+
 function TkwVgControlScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TControl);
@@ -1050,18 +969,13 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlScene.ParamsTypes
 
-class function TkwVgControlScene.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Scene';
-end;//TkwVgControlScene.GetWordNameForRegister
-
 function TkwVgControlText.vg_control_Text(const aCtx: TtfwContext;
  aVisualObject: TvgVisualObject): AnsiString;
  {* Реализация слова скрипта vg:control:Text }
-//#UC START# *E164CC8FC765_BD648FBA9D21_var*
-//#UC END# *E164CC8FC765_BD648FBA9D21_var*
+//#UC START# *551D538A00B4_BD648FBA9D21_var*
+//#UC END# *551D538A00B4_BD648FBA9D21_var*
 begin
-//#UC START# *E164CC8FC765_BD648FBA9D21_impl*
+//#UC START# *551D538A00B4_BD648FBA9D21_impl*
  if (aVisualObject is TvgTextControl) then
   Result := TvgTextControl(aVisualObject).Text
  else
@@ -1069,7 +983,7 @@ begin
   Result := TvgText(aVisualObject).Text
  else
   Result := '';
-//#UC END# *E164CC8FC765_BD648FBA9D21_impl*
+//#UC END# *551D538A00B4_BD648FBA9D21_impl*
 end;//TkwVgControlText.vg_control_Text
 
 procedure TkwVgControlText.DoDoIt(const aCtx: TtfwContext);
@@ -1087,6 +1001,11 @@ begin
  aCtx.rEngine.PushString(vg_control_Text(aCtx, l_aVisualObject));
 end;//TkwVgControlText.DoDoIt
 
+class function TkwVgControlText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:control:Text';
+end;//TkwVgControlText.GetWordNameForRegister
+
 function TkwVgControlText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1101,11 +1020,6 @@ function TkwVgControlText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlText.ParamsTypes
-
-class function TkwVgControlText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:control:Text';
-end;//TkwVgControlText.GetWordNameForRegister
 
 class function TVGSceneWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -1147,8 +1061,6 @@ initialization
  {* Регистрация vg_control_Text }
  TVGSceneWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgVisualObject));
  {* Регистрация типа TvgVisualObject }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
@@ -1156,7 +1068,7 @@ initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TControl));
  {* Регистрация типа TControl }
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)

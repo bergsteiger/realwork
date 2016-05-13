@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_NewsLine_Control_DateList_Push
 
  TkwEnNewsLineDateList = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenNewsLine.DateList
-[panel]Контрол DateList формы TenNewsLine[panel]
-*Тип результата:* TnscTreeViewForNewsLine
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewForNewsLine
- aenNewsLine .TenNewsLine.DateList >>> l_TnscTreeViewForNewsLine
-[code]  }
+  {* Слово скрипта .TenNewsLine.DateList }
   private
    function DateList(const aCtx: TtfwContext;
     aenNewsLine: TenNewsLine): TnscTreeViewForNewsLine;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewForNewsLine
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnNewsLineDateList
 
 function Tkw_Form_NewsLine.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(DateList(aCtx, l_aenNewsLine));
 end;//TkwEnNewsLineDateList.DoDoIt
 
-procedure TkwEnNewsLineDateList.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnNewsLineDateList.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству DateList', aCtx);
-end;//TkwEnNewsLineDateList.SetValuePrim
+ Result := '.TenNewsLine.DateList';
+end;//TkwEnNewsLineDateList.GetWordNameForRegister
 
 function TkwEnNewsLineDateList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenNewsLine)]);
 end;//TkwEnNewsLineDateList.ParamsTypes
 
-class function TkwEnNewsLineDateList.GetWordNameForRegister: AnsiString;
+procedure TkwEnNewsLineDateList.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenNewsLine.DateList';
-end;//TkwEnNewsLineDateList.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству DateList', aCtx);
+end;//TkwEnNewsLineDateList.SetValuePrim
 
 initialization
  Tkw_Form_NewsLine.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_NewsLine_Control_DateList_Push }
  TkwEnNewsLineDateList.RegisterInEngine;
  {* Регистрация enNewsLine_DateList }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenNewsLine));
- {* Регистрация типа NewsLine }
+ {* Регистрация типа TenNewsLine }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewForNewsLine));
  {* Регистрация типа TnscTreeViewForNewsLine }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

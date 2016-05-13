@@ -24,17 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopTableConvParamDialogFake = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:TableConvParamDialog:Fake
-*Пример:*
-[code]
- aTableConvParamDialog pop:TableConvParamDialog:Fake
-[code]  }
+  {* Слово скрипта pop:TableConvParamDialog:Fake }
   private
    procedure Fake(const aCtx: TtfwContext;
     aTableConvParamDialog: TTableConvParamDialog);
@@ -51,12 +47,12 @@ type
 procedure TkwPopTableConvParamDialogFake.Fake(const aCtx: TtfwContext;
  aTableConvParamDialog: TTableConvParamDialog);
  {* Реализация слова скрипта pop:TableConvParamDialog:Fake }
-//#UC START# *C4A5B2BD74DF_0BE0E0D34519_var*
-//#UC END# *C4A5B2BD74DF_0BE0E0D34519_var*
+//#UC START# *55C8CE120197_0BE0E0D34519_var*
+//#UC END# *55C8CE120197_0BE0E0D34519_var*
 begin
-//#UC START# *C4A5B2BD74DF_0BE0E0D34519_impl*
+//#UC START# *55C8CE120197_0BE0E0D34519_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *C4A5B2BD74DF_0BE0E0D34519_impl*
+//#UC END# *55C8CE120197_0BE0E0D34519_impl*
 end;//TkwPopTableConvParamDialogFake.Fake
 
 procedure TkwPopTableConvParamDialogFake.DoDoIt(const aCtx: TtfwContext);
@@ -74,6 +70,11 @@ begin
  Fake(aCtx, l_aTableConvParamDialog);
 end;//TkwPopTableConvParamDialogFake.DoDoIt
 
+class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TableConvParamDialog:Fake';
+end;//TkwPopTableConvParamDialogFake.GetWordNameForRegister
+
 function TkwPopTableConvParamDialogFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -89,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTableConvParamDialog)]);
 end;//TkwPopTableConvParamDialogFake.ParamsTypes
 
-class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TableConvParamDialog:Fake';
-end;//TkwPopTableConvParamDialogFake.GetWordNameForRegister
-
 initialization
  TkwPopTableConvParamDialogFake.RegisterInEngine;
  {* Регистрация pop_TableConvParamDialog_Fake }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTableConvParamDialog));
  {* Регистрация типа TTableConvParamDialog }
 {$IfEnd} // NOT Defined(NoScripts)

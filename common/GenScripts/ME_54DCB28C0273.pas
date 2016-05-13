@@ -22,22 +22,16 @@ uses
  , vcmEntityForm
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopFormIsFloatingStateAndParentNotVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aForm pop:Form:IsFloatingStateAndParentNotVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Form:IsFloatingStateAndParentNotVisible }
   private
    function IsFloatingStateAndParentNotVisible(const aCtx: TtfwContext;
     aForm: TvcmEntityForm): Boolean;
@@ -46,21 +40,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopFormIsFloatingStateAndParentNotVisible
 
  TkwPopFormIsFloatingState = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Form:IsFloatingState
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aForm pop:Form:IsFloatingState >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Form:IsFloatingState }
   private
    function IsFloatingState(const aCtx: TtfwContext;
     aForm: TvcmEntityForm): Boolean;
@@ -69,21 +57,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopFormIsFloatingState
 
  TkwPopFormUserType = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Form:UserType
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aForm pop:Form:UserType >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Form:UserType }
   private
    function UserType(const aCtx: TtfwContext;
     aForm: TvcmEntityForm): Integer;
@@ -92,21 +74,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopFormUserType
 
  TkwPopFormFormID = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Form:FormID
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aForm pop:Form:FormID >>> l_String
-[code]  }
+  {* Слово скрипта pop:Form:FormID }
   private
    function FormID(const aCtx: TtfwContext;
     aForm: TvcmEntityForm): AnsiString;
@@ -115,11 +91,11 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopFormFormID
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.IsFloatingStateAndParentNotVisible(const aCtx: TtfwContext;
@@ -144,11 +120,10 @@ begin
  aCtx.rEngine.PushBool(IsFloatingStateAndParentNotVisible(aCtx, l_aForm));
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.DoDoIt
 
-procedure TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsFloatingStateAndParentNotVisible', aCtx);
-end;//TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim
+ Result := 'pop:Form:IsFloatingStateAndParentNotVisible';
+end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -165,10 +140,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.ParamsTypes
 
-class function TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister: AnsiString;
+procedure TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Form:IsFloatingStateAndParentNotVisible';
-end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsFloatingStateAndParentNotVisible', aCtx);
+end;//TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim
 
 function TkwPopFormIsFloatingState.IsFloatingState(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): Boolean;
@@ -192,11 +168,10 @@ begin
  aCtx.rEngine.PushBool(IsFloatingState(aCtx, l_aForm));
 end;//TkwPopFormIsFloatingState.DoDoIt
 
-procedure TkwPopFormIsFloatingState.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopFormIsFloatingState.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsFloatingState', aCtx);
-end;//TkwPopFormIsFloatingState.SetValuePrim
+ Result := 'pop:Form:IsFloatingState';
+end;//TkwPopFormIsFloatingState.GetWordNameForRegister
 
 function TkwPopFormIsFloatingState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -213,10 +188,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormIsFloatingState.ParamsTypes
 
-class function TkwPopFormIsFloatingState.GetWordNameForRegister: AnsiString;
+procedure TkwPopFormIsFloatingState.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Form:IsFloatingState';
-end;//TkwPopFormIsFloatingState.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsFloatingState', aCtx);
+end;//TkwPopFormIsFloatingState.SetValuePrim
 
 function TkwPopFormUserType.UserType(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): Integer;
@@ -240,11 +216,10 @@ begin
  aCtx.rEngine.PushInt(UserType(aCtx, l_aForm));
 end;//TkwPopFormUserType.DoDoIt
 
-procedure TkwPopFormUserType.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopFormUserType.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserType', aCtx);
-end;//TkwPopFormUserType.SetValuePrim
+ Result := 'pop:Form:UserType';
+end;//TkwPopFormUserType.GetWordNameForRegister
 
 function TkwPopFormUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -261,20 +236,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormUserType.ParamsTypes
 
-class function TkwPopFormUserType.GetWordNameForRegister: AnsiString;
+procedure TkwPopFormUserType.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Form:UserType';
-end;//TkwPopFormUserType.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserType', aCtx);
+end;//TkwPopFormUserType.SetValuePrim
 
 function TkwPopFormFormID.FormID(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): AnsiString;
  {* Реализация слова скрипта pop:Form:FormID }
-//#UC START# *C723C4FA73E4_B0B047C68F92_var*
-//#UC END# *C723C4FA73E4_B0B047C68F92_var*
+//#UC START# *27D13BB1D318_B0B047C68F92_var*
+//#UC END# *27D13BB1D318_B0B047C68F92_var*
 begin
-//#UC START# *C723C4FA73E4_B0B047C68F92_impl*
+//#UC START# *27D13BB1D318_B0B047C68F92_impl*
  Result := aForm.FormID.rName;
-//#UC END# *C723C4FA73E4_B0B047C68F92_impl*
+//#UC END# *27D13BB1D318_B0B047C68F92_impl*
 end;//TkwPopFormFormID.FormID
 
 procedure TkwPopFormFormID.DoDoIt(const aCtx: TtfwContext);
@@ -292,11 +268,10 @@ begin
  aCtx.rEngine.PushString(FormID(aCtx, l_aForm));
 end;//TkwPopFormFormID.DoDoIt
 
-procedure TkwPopFormFormID.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopFormFormID.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FormID', aCtx);
-end;//TkwPopFormFormID.SetValuePrim
+ Result := 'pop:Form:FormID';
+end;//TkwPopFormFormID.GetWordNameForRegister
 
 function TkwPopFormFormID.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -313,10 +288,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormFormID.ParamsTypes
 
-class function TkwPopFormFormID.GetWordNameForRegister: AnsiString;
+procedure TkwPopFormFormID.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Form:FormID';
-end;//TkwPopFormFormID.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FormID', aCtx);
+end;//TkwPopFormFormID.SetValuePrim
 
 initialization
  TkwPopFormIsFloatingStateAndParentNotVisible.RegisterInEngine;
@@ -327,8 +303,6 @@ initialization
  {* Регистрация pop_Form_UserType }
  TkwPopFormFormID.RegisterInEngine;
  {* Регистрация pop_Form_FormID }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmEntityForm));
  {* Регистрация типа TvcmEntityForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
@@ -336,7 +310,7 @@ initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

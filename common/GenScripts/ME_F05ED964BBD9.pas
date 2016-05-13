@@ -29,11 +29,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -107,14 +107,7 @@ type
  end;//Tkw_ListAnalizer_Control_ListTree_Push
 
  TkwListAnalizerFormBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TListAnalizerForm.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TListAnalizerForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aListAnalizerForm .TListAnalizerForm.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TListAnalizerForm.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aListAnalizerForm: TListAnalizerForm): TvtPanel;
@@ -123,22 +116,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwListAnalizerFormBackgroundPanel
 
  TkwListAnalizerFormListTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TListAnalizerForm.ListTree
-[panel]Контрол ListTree формы TListAnalizerForm[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aListAnalizerForm .TListAnalizerForm.ListTree >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TListAnalizerForm.ListTree }
   private
    function ListTree(const aCtx: TtfwContext;
     aListAnalizerForm: TListAnalizerForm): TeeTreeView;
@@ -147,11 +133,11 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwListAnalizerFormListTree
 
 function Tkw_Form_ListAnalizer.GetString: AnsiString;
@@ -240,11 +226,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aListAnalizerForm));
 end;//TkwListAnalizerFormBackgroundPanel.DoDoIt
 
-procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
+ Result := '.TListAnalizerForm.BackgroundPanel';
+end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
 
 function TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -261,10 +246,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TListAnalizerForm)]);
 end;//TkwListAnalizerFormBackgroundPanel.ParamsTypes
 
-class function TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TListAnalizerForm.BackgroundPanel';
-end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
 function TkwListAnalizerFormListTree.ListTree(const aCtx: TtfwContext;
  aListAnalizerForm: TListAnalizerForm): TeeTreeView;
@@ -288,11 +274,10 @@ begin
  aCtx.rEngine.PushObj(ListTree(aCtx, l_aListAnalizerForm));
 end;//TkwListAnalizerFormListTree.DoDoIt
 
-procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwListAnalizerFormListTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
-end;//TkwListAnalizerFormListTree.SetValuePrim
+ Result := '.TListAnalizerForm.ListTree';
+end;//TkwListAnalizerFormListTree.GetWordNameForRegister
 
 function TkwListAnalizerFormListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -309,10 +294,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TListAnalizerForm)]);
 end;//TkwListAnalizerFormListTree.ParamsTypes
 
-class function TkwListAnalizerFormListTree.GetWordNameForRegister: AnsiString;
+procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TListAnalizerForm.ListTree';
-end;//TkwListAnalizerFormListTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
+end;//TkwListAnalizerFormListTree.SetValuePrim
 
 initialization
  Tkw_Form_ListAnalizer.RegisterInEngine;
@@ -329,10 +315,8 @@ initialization
  {* Регистрация ListAnalizerForm_BackgroundPanel }
  TkwListAnalizerFormListTree.RegisterInEngine;
  {* Регистрация ListAnalizerForm_ListTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TListAnalizerForm));
- {* Регистрация типа ListAnalizer }
+ {* Регистрация типа TListAnalizerForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTreeView));

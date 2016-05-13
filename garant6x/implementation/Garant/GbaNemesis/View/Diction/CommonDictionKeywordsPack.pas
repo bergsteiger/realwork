@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -138,14 +138,7 @@ type
  end;//Tkw_CommonDiction_Control_ContextFilter_Push
 
  TkwEnCommonDictionBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_CommonDiction.BackgroundPanel
-[panel]Контрол BackgroundPanel формы Ten_CommonDiction[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aen_CommonDiction .Ten_CommonDiction.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .Ten_CommonDiction.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aen_CommonDiction: Ten_CommonDiction): TvtPanel;
@@ -154,22 +147,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnCommonDictionBackgroundPanel
 
  TkwEnCommonDictionWordsTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_CommonDiction.WordsTree
-[panel]Контрол WordsTree формы Ten_CommonDiction[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_CommonDiction .Ten_CommonDiction.WordsTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_CommonDiction.WordsTree }
   private
    function WordsTree(const aCtx: TtfwContext;
     aen_CommonDiction: Ten_CommonDiction): TnscTreeViewWithAdapterDragDrop;
@@ -178,22 +164,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnCommonDictionWordsTree
 
  TkwEnCommonDictionContextFilter = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_CommonDiction.ContextFilter
-[panel]Контрол ContextFilter формы Ten_CommonDiction[panel]
-*Тип результата:* TnscContextFilter
-*Пример:*
-[code]
-OBJECT VAR l_TnscContextFilter
- aen_CommonDiction .Ten_CommonDiction.ContextFilter >>> l_TnscContextFilter
-[code]  }
+  {* Слово скрипта .Ten_CommonDiction.ContextFilter }
   private
    function ContextFilter(const aCtx: TtfwContext;
     aen_CommonDiction: Ten_CommonDiction): TnscContextFilter;
@@ -202,11 +181,11 @@ OBJECT VAR l_TnscContextFilter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnCommonDictionContextFilter
 
 function Tkw_Form_CommonDiction.GetString: AnsiString;
@@ -322,11 +301,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionBackgroundPanel.DoDoIt
 
-procedure TkwEnCommonDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwEnCommonDictionBackgroundPanel.SetValuePrim
+ Result := '.Ten_CommonDiction.BackgroundPanel';
+end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
 
 function TkwEnCommonDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -343,10 +321,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionBackgroundPanel.ParamsTypes
 
-class function TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnCommonDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_CommonDiction.BackgroundPanel';
-end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwEnCommonDictionBackgroundPanel.SetValuePrim
 
 function TkwEnCommonDictionWordsTree.WordsTree(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TnscTreeViewWithAdapterDragDrop;
@@ -370,11 +349,10 @@ begin
  aCtx.rEngine.PushObj(WordsTree(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionWordsTree.DoDoIt
 
-procedure TkwEnCommonDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnCommonDictionWordsTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WordsTree', aCtx);
-end;//TkwEnCommonDictionWordsTree.SetValuePrim
+ Result := '.Ten_CommonDiction.WordsTree';
+end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
 
 function TkwEnCommonDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -391,10 +369,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionWordsTree.ParamsTypes
 
-class function TkwEnCommonDictionWordsTree.GetWordNameForRegister: AnsiString;
+procedure TkwEnCommonDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_CommonDiction.WordsTree';
-end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WordsTree', aCtx);
+end;//TkwEnCommonDictionWordsTree.SetValuePrim
 
 function TkwEnCommonDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TnscContextFilter;
@@ -418,11 +397,10 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionContextFilter.DoDoIt
 
-procedure TkwEnCommonDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnCommonDictionContextFilter.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
-end;//TkwEnCommonDictionContextFilter.SetValuePrim
+ Result := '.Ten_CommonDiction.ContextFilter';
+end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
 
 function TkwEnCommonDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -439,10 +417,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionContextFilter.ParamsTypes
 
-class function TkwEnCommonDictionContextFilter.GetWordNameForRegister: AnsiString;
+procedure TkwEnCommonDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_CommonDiction.ContextFilter';
-end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
+end;//TkwEnCommonDictionContextFilter.SetValuePrim
 
 initialization
  Tkw_Form_CommonDiction.RegisterInEngine;
@@ -465,10 +444,8 @@ initialization
  {* Регистрация en_CommonDiction_WordsTree }
  TkwEnCommonDictionContextFilter.RegisterInEngine;
  {* Регистрация en_CommonDiction_ContextFilter }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_CommonDiction));
- {* Регистрация типа CommonDiction }
+ {* Регистрация типа Ten_CommonDiction }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));

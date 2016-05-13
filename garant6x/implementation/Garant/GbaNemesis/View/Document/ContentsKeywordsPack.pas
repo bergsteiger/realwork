@@ -36,11 +36,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -254,14 +254,7 @@ type
  end;//Tkw_Contents_Control_Tasks_Push
 
  TkwContentsFormBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TContentsForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aContentsForm .TContentsForm.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TContentsForm.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TvtPanel;
@@ -270,22 +263,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormBackgroundPanel
 
  TkwContentsFormLstBookmarks = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.lstBookmarks
-[panel]Контрол lstBookmarks формы TContentsForm[panel]
-*Тип результата:* TvtLister
-*Пример:*
-[code]
-OBJECT VAR l_TvtLister
- aContentsForm .TContentsForm.lstBookmarks >>> l_TvtLister
-[code]  }
+  {* Слово скрипта .TContentsForm.lstBookmarks }
   private
    function lstBookmarks(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TvtLister;
@@ -294,22 +280,15 @@ OBJECT VAR l_TvtLister
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormLstBookmarks
 
  TkwContentsFormLstComments = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.lstComments
-[panel]Контрол lstComments формы TContentsForm[panel]
-*Тип результата:* TvtLister
-*Пример:*
-[code]
-OBJECT VAR l_TvtLister
- aContentsForm .TContentsForm.lstComments >>> l_TvtLister
-[code]  }
+  {* Слово скрипта .TContentsForm.lstComments }
   private
    function lstComments(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TvtLister;
@@ -318,22 +297,15 @@ OBJECT VAR l_TvtLister
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormLstComments
 
  TkwContentsFormLstExternalObjects = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.lstExternalObjects
-[panel]Контрол lstExternalObjects формы TContentsForm[panel]
-*Тип результата:* TvtLister
-*Пример:*
-[code]
-OBJECT VAR l_TvtLister
- aContentsForm .TContentsForm.lstExternalObjects >>> l_TvtLister
-[code]  }
+  {* Слово скрипта .TContentsForm.lstExternalObjects }
   private
    function lstExternalObjects(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TvtLister;
@@ -342,22 +314,15 @@ OBJECT VAR l_TvtLister
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormLstExternalObjects
 
  TkwContentsFormContentsTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.ContentsTree
-[panel]Контрол ContentsTree формы TContentsForm[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aContentsForm .TContentsForm.ContentsTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TContentsForm.ContentsTree }
   private
    function ContentsTree(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TnscTreeViewWithAdapterDragDrop;
@@ -366,22 +331,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormContentsTree
 
  TkwContentsFormContextFilter = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.ContextFilter
-[panel]Контрол ContextFilter формы TContentsForm[panel]
-*Тип результата:* TnscContextFilter
-*Пример:*
-[code]
-OBJECT VAR l_TnscContextFilter
- aContentsForm .TContentsForm.ContextFilter >>> l_TnscContextFilter
-[code]  }
+  {* Слово скрипта .TContentsForm.ContextFilter }
   private
    function ContextFilter(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TnscContextFilter;
@@ -390,22 +348,15 @@ OBJECT VAR l_TnscContextFilter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormContextFilter
 
  TkwContentsFormTasks = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContentsForm.Tasks
-[panel]Контрол Tasks формы TContentsForm[panel]
-*Тип результата:* TnscTasksPanelView
-*Пример:*
-[code]
-OBJECT VAR l_TnscTasksPanelView
- aContentsForm .TContentsForm.Tasks >>> l_TnscTasksPanelView
-[code]  }
+  {* Слово скрипта .TContentsForm.Tasks }
   private
    function Tasks(const aCtx: TtfwContext;
     aContentsForm: TContentsForm): TnscTasksPanelView;
@@ -414,11 +365,11 @@ OBJECT VAR l_TnscTasksPanelView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContentsFormTasks
 
 function Tkw_Form_Contents.GetString: AnsiString;
@@ -642,11 +593,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContentsForm));
 end;//TkwContentsFormBackgroundPanel.DoDoIt
 
-procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwContentsFormBackgroundPanel.SetValuePrim
+ Result := '.TContentsForm.BackgroundPanel';
+end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 
 function TkwContentsFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -663,10 +613,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormBackgroundPanel.ParamsTypes
 
-class function TkwContentsFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.BackgroundPanel';
-end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
 function TkwContentsFormLstBookmarks.lstBookmarks(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
@@ -690,11 +641,10 @@ begin
  aCtx.rEngine.PushObj(lstBookmarks(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstBookmarks.DoDoIt
 
-procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormLstBookmarks.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lstBookmarks', aCtx);
-end;//TkwContentsFormLstBookmarks.SetValuePrim
+ Result := '.TContentsForm.lstBookmarks';
+end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 
 function TkwContentsFormLstBookmarks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -711,10 +661,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstBookmarks.ParamsTypes
 
-class function TkwContentsFormLstBookmarks.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.lstBookmarks';
-end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lstBookmarks', aCtx);
+end;//TkwContentsFormLstBookmarks.SetValuePrim
 
 function TkwContentsFormLstComments.lstComments(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
@@ -738,11 +689,10 @@ begin
  aCtx.rEngine.PushObj(lstComments(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstComments.DoDoIt
 
-procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormLstComments.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lstComments', aCtx);
-end;//TkwContentsFormLstComments.SetValuePrim
+ Result := '.TContentsForm.lstComments';
+end;//TkwContentsFormLstComments.GetWordNameForRegister
 
 function TkwContentsFormLstComments.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -759,10 +709,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstComments.ParamsTypes
 
-class function TkwContentsFormLstComments.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.lstComments';
-end;//TkwContentsFormLstComments.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lstComments', aCtx);
+end;//TkwContentsFormLstComments.SetValuePrim
 
 function TkwContentsFormLstExternalObjects.lstExternalObjects(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
@@ -786,11 +737,10 @@ begin
  aCtx.rEngine.PushObj(lstExternalObjects(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstExternalObjects.DoDoIt
 
-procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormLstExternalObjects.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lstExternalObjects', aCtx);
-end;//TkwContentsFormLstExternalObjects.SetValuePrim
+ Result := '.TContentsForm.lstExternalObjects';
+end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 
 function TkwContentsFormLstExternalObjects.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -807,10 +757,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstExternalObjects.ParamsTypes
 
-class function TkwContentsFormLstExternalObjects.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.lstExternalObjects';
-end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lstExternalObjects', aCtx);
+end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
 function TkwContentsFormContentsTree.ContentsTree(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscTreeViewWithAdapterDragDrop;
@@ -834,11 +785,10 @@ begin
  aCtx.rEngine.PushObj(ContentsTree(aCtx, l_aContentsForm));
 end;//TkwContentsFormContentsTree.DoDoIt
 
-procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormContentsTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContentsTree', aCtx);
-end;//TkwContentsFormContentsTree.SetValuePrim
+ Result := '.TContentsForm.ContentsTree';
+end;//TkwContentsFormContentsTree.GetWordNameForRegister
 
 function TkwContentsFormContentsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -855,10 +805,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormContentsTree.ParamsTypes
 
-class function TkwContentsFormContentsTree.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.ContentsTree';
-end;//TkwContentsFormContentsTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContentsTree', aCtx);
+end;//TkwContentsFormContentsTree.SetValuePrim
 
 function TkwContentsFormContextFilter.ContextFilter(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscContextFilter;
@@ -882,11 +833,10 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContentsForm));
 end;//TkwContentsFormContextFilter.DoDoIt
 
-procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormContextFilter.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
-end;//TkwContentsFormContextFilter.SetValuePrim
+ Result := '.TContentsForm.ContextFilter';
+end;//TkwContentsFormContextFilter.GetWordNameForRegister
 
 function TkwContentsFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -903,10 +853,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormContextFilter.ParamsTypes
 
-class function TkwContentsFormContextFilter.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.ContextFilter';
-end;//TkwContentsFormContextFilter.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
+end;//TkwContentsFormContextFilter.SetValuePrim
 
 function TkwContentsFormTasks.Tasks(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscTasksPanelView;
@@ -930,11 +881,10 @@ begin
  aCtx.rEngine.PushObj(Tasks(aCtx, l_aContentsForm));
 end;//TkwContentsFormTasks.DoDoIt
 
-procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContentsFormTasks.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Tasks', aCtx);
-end;//TkwContentsFormTasks.SetValuePrim
+ Result := '.TContentsForm.Tasks';
+end;//TkwContentsFormTasks.GetWordNameForRegister
 
 function TkwContentsFormTasks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -951,10 +901,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormTasks.ParamsTypes
 
-class function TkwContentsFormTasks.GetWordNameForRegister: AnsiString;
+procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContentsForm.Tasks';
-end;//TkwContentsFormTasks.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Tasks', aCtx);
+end;//TkwContentsFormTasks.SetValuePrim
 
 initialization
  Tkw_Form_Contents.RegisterInEngine;
@@ -1001,10 +952,8 @@ initialization
  {* Регистрация ContentsForm_ContextFilter }
  TkwContentsFormTasks.RegisterInEngine;
  {* Регистрация ContentsForm_Tasks }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TContentsForm));
- {* Регистрация типа Contents }
+ {* Регистрация типа TContentsForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLister));

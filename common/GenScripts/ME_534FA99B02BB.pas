@@ -40,17 +40,13 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopReminderClick = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Reminder:Click
-*Пример:*
-[code]
- aReminder pop:Reminder:Click
-[code]  }
+  {* Слово скрипта pop:Reminder:Click }
   private
    procedure Click(const aCtx: TtfwContext;
     aReminder: TvgReminder);
@@ -65,11 +61,7 @@ type
  end;//TkwPopReminderClick
 
  TkwPopReminderMove = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Reminder:Move
-*Пример:*
-[code]
- aDelta aReminder pop:Reminder:Move
-[code]  }
+  {* Слово скрипта pop:Reminder:Move }
   private
    procedure Move(const aCtx: TtfwContext;
     aReminder: TvgReminder;
@@ -85,13 +77,7 @@ type
  end;//TkwPopReminderMove
 
  TkwPopReminderFindEditor = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Reminder:FindEditor
-*Тип результата:* TComponent
-*Пример:*
-[code]
-OBJECT VAR l_TComponent
- aReminder pop:Reminder:FindEditor >>> l_TComponent
-[code]  }
+  {* Слово скрипта pop:Reminder:FindEditor }
   private
    function FindEditor(const aCtx: TtfwContext;
     aReminder: TvgReminder): TComponent;
@@ -106,13 +92,7 @@ OBJECT VAR l_TComponent
  end;//TkwPopReminderFindEditor
 
  TkwPopReminderGetPopupMenu = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Reminder:GetPopupMenu
-*Тип результата:* TMenuItem
-*Пример:*
-[code]
-OBJECT VAR l_TMenuItem
- aReminder pop:Reminder:GetPopupMenu >>> l_TMenuItem
-[code]  }
+  {* Слово скрипта pop:Reminder:GetPopupMenu }
   private
    function GetPopupMenu(const aCtx: TtfwContext;
     aReminder: TvgReminder): TMenuItem;
@@ -127,13 +107,7 @@ OBJECT VAR l_TMenuItem
  end;//TkwPopReminderGetPopupMenu
 
  TkwPopReminderImageIndex = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:ImageIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aReminder pop:Reminder:ImageIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Reminder:ImageIndex }
   private
    function ImageIndex(const aCtx: TtfwContext;
     aReminder: TvgReminder): Integer;
@@ -142,21 +116,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderImageIndex
 
  TkwPopReminderUserType = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:UserType
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aReminder pop:Reminder:UserType >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:Reminder:UserType }
   private
    function UserType(const aCtx: TtfwContext;
     aReminder: TvgReminder): Integer;
@@ -165,21 +133,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderUserType
 
  TkwPopReminderIsBaloonVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:IsBaloonVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aReminder pop:Reminder:IsBaloonVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Reminder:IsBaloonVisible }
   private
    function IsBaloonVisible(const aCtx: TtfwContext;
     aReminder: TvgReminder): Boolean;
@@ -188,21 +150,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderIsBaloonVisible
 
  TkwPopReminderVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:Visible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aReminder pop:Reminder:Visible >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Reminder:Visible }
   private
    function Visible(const aCtx: TtfwContext;
     aReminder: TvgReminder): Boolean;
@@ -211,21 +167,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderVisible
 
  TkwPopReminderName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:Name
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aReminder pop:Reminder:Name >>> l_String
-[code]  }
+  {* Слово скрипта pop:Reminder:Name }
   private
    function Name(const aCtx: TtfwContext;
     aReminder: TvgReminder): AnsiString;
@@ -234,21 +184,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderName
 
  TkwPopReminderFlash = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:Flash
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aReminder pop:Reminder:Flash >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Reminder:Flash }
   private
    function Flash(const aCtx: TtfwContext;
     aReminder: TvgReminder): Boolean;
@@ -257,21 +201,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderFlash
 
  TkwPopReminderTextBackColor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:TextBackColor
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aReminder pop:Reminder:TextBackColor >>> l_String
-[code]  }
+  {* Слово скрипта pop:Reminder:TextBackColor }
   private
    function TextBackColor(const aCtx: TtfwContext;
     aReminder: TvgReminder): AnsiString;
@@ -280,21 +218,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderTextBackColor
 
  TkwPopReminderShowHint = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:ShowHint
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aReminder pop:Reminder:ShowHint >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Reminder:ShowHint }
   private
    function ShowHint(const aCtx: TtfwContext;
     aReminder: TvgReminder): Boolean;
@@ -303,21 +235,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderShowHint
 
  TkwPopReminderCaption = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:Caption
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aReminder pop:Reminder:Caption >>> l_Il3CString
-[code]  }
+  {* Слово скрипта pop:Reminder:Caption }
   private
    function Caption(const aCtx: TtfwContext;
     aReminder: TvgReminder): Il3CString;
@@ -326,21 +252,15 @@ STRING VAR l_Il3CString
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderCaption
 
  TkwPopReminderHint = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:Hint
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aReminder pop:Reminder:Hint >>> l_Il3CString
-[code]  }
+  {* Слово скрипта pop:Reminder:Hint }
   private
    function Hint(const aCtx: TtfwContext;
     aReminder: TvgReminder): Il3CString;
@@ -349,21 +269,15 @@ STRING VAR l_Il3CString
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderHint
 
  TkwPopReminderPopupForm = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Reminder:PopupForm
-*Тип результата:* TvtPopupFormModelPart
-*Пример:*
-[code]
-OBJECT VAR l_TvtPopupFormModelPart
- aReminder pop:Reminder:PopupForm >>> l_TvtPopupFormModelPart
-[code]  }
+  {* Слово скрипта pop:Reminder:PopupForm }
   private
    function PopupForm(const aCtx: TtfwContext;
     aReminder: TvgReminder): TvtPopupFormModelPart;
@@ -372,11 +286,11 @@ OBJECT VAR l_TvtPopupFormModelPart
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopReminderPopupForm
 
 procedure TkwPopReminderClick.Click(const aCtx: TtfwContext;
@@ -401,6 +315,11 @@ begin
  Click(aCtx, l_aReminder);
 end;//TkwPopReminderClick.DoDoIt
 
+class function TkwPopReminderClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Click';
+end;//TkwPopReminderClick.GetWordNameForRegister
+
 function TkwPopReminderClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -416,22 +335,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderClick.ParamsTypes
 
-class function TkwPopReminderClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Click';
-end;//TkwPopReminderClick.GetWordNameForRegister
-
 procedure TkwPopReminderMove.Move(const aCtx: TtfwContext;
  aReminder: TvgReminder;
  const aDelta: TPoint);
  {* Реализация слова скрипта pop:Reminder:Move }
-//#UC START# *2ABDE4AD9F20_0442CDEB32BC_var*
-//#UC END# *2ABDE4AD9F20_0442CDEB32BC_var*
+//#UC START# *55004A3A0131_0442CDEB32BC_var*
+//#UC END# *55004A3A0131_0442CDEB32BC_var*
 begin
-//#UC START# *2ABDE4AD9F20_0442CDEB32BC_impl*
+//#UC START# *55004A3A0131_0442CDEB32BC_impl*
  RunnerAssert(aReminder.Owner is TvgRemindersLine, 'Не найдена линия медали', aCtx);
  (aReminder.Owner as TvgRemindersLine).OffSetLine(aDelta.X, aDelta.Y);
-//#UC END# *2ABDE4AD9F20_0442CDEB32BC_impl*
+//#UC END# *55004A3A0131_0442CDEB32BC_impl*
 end;//TkwPopReminderMove.Move
 
 procedure TkwPopReminderMove.DoDoIt(const aCtx: TtfwContext);
@@ -459,6 +373,11 @@ begin
  Move(aCtx, l_aReminder, l_aDelta);
 end;//TkwPopReminderMove.DoDoIt
 
+class function TkwPopReminderMove.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:Move';
+end;//TkwPopReminderMove.GetWordNameForRegister
+
 function TkwPopReminderMove.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -474,21 +393,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder), @tfw_tiStruct]);
 end;//TkwPopReminderMove.ParamsTypes
 
-class function TkwPopReminderMove.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:Move';
-end;//TkwPopReminderMove.GetWordNameForRegister
-
 function TkwPopReminderFindEditor.FindEditor(const aCtx: TtfwContext;
  aReminder: TvgReminder): TComponent;
  {* Реализация слова скрипта pop:Reminder:FindEditor }
-//#UC START# *963C245EE80F_649B596A6C75_var*
+//#UC START# *55004A7901B4_649B596A6C75_var*
 var
  l_F : TForm;
  l_E : TComponent;
-//#UC END# *963C245EE80F_649B596A6C75_var*
+//#UC END# *55004A7901B4_649B596A6C75_var*
 begin
-//#UC START# *963C245EE80F_649B596A6C75_impl*
+//#UC START# *55004A7901B4_649B596A6C75_impl*
  with aReminder do
  begin
   RunnerAssert(Assigned(PopupForm) and PopupForm.Visible, 'Баллон не существует или невидим.', aCtx);
@@ -497,7 +411,7 @@ begin
   RunnerAssert(Assigned(l_E), 'Не найден редактор в баллоне.', aCtx);
   Result := l_E;
  end;//with aReminder
-//#UC END# *963C245EE80F_649B596A6C75_impl*
+//#UC END# *55004A7901B4_649B596A6C75_impl*
 end;//TkwPopReminderFindEditor.FindEditor
 
 procedure TkwPopReminderFindEditor.DoDoIt(const aCtx: TtfwContext);
@@ -515,6 +429,11 @@ begin
  aCtx.rEngine.PushObj(FindEditor(aCtx, l_aReminder));
 end;//TkwPopReminderFindEditor.DoDoIt
 
+class function TkwPopReminderFindEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:FindEditor';
+end;//TkwPopReminderFindEditor.GetWordNameForRegister
+
 function TkwPopReminderFindEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TComponent);
@@ -530,24 +449,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderFindEditor.ParamsTypes
 
-class function TkwPopReminderFindEditor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:FindEditor';
-end;//TkwPopReminderFindEditor.GetWordNameForRegister
-
 function TkwPopReminderGetPopupMenu.GetPopupMenu(const aCtx: TtfwContext;
  aReminder: TvgReminder): TMenuItem;
  {* Реализация слова скрипта pop:Reminder:GetPopupMenu }
-//#UC START# *BC5BE2E8AB9C_C1FAEFF176B2_var*
+//#UC START# *55004A9B02E5_C1FAEFF176B2_var*
 var
  l_Pt: TPoint;
-//#UC END# *BC5BE2E8AB9C_C1FAEFF176B2_var*
+//#UC END# *55004A9B02E5_C1FAEFF176B2_var*
 begin
-//#UC START# *BC5BE2E8AB9C_C1FAEFF176B2_impl*
+//#UC START# *55004A9B02E5_C1FAEFF176B2_impl*
  l_Pt.X := 0;
  l_Pt.Y := 0;
  Result := Tl3PopupMenuHelper.Instance.GetPopupMenu(aReminder, l_Pt);
-//#UC END# *BC5BE2E8AB9C_C1FAEFF176B2_impl*
+//#UC END# *55004A9B02E5_C1FAEFF176B2_impl*
 end;//TkwPopReminderGetPopupMenu.GetPopupMenu
 
 procedure TkwPopReminderGetPopupMenu.DoDoIt(const aCtx: TtfwContext);
@@ -565,6 +479,11 @@ begin
  aCtx.rEngine.PushObj(GetPopupMenu(aCtx, l_aReminder));
 end;//TkwPopReminderGetPopupMenu.DoDoIt
 
+class function TkwPopReminderGetPopupMenu.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Reminder:GetPopupMenu';
+end;//TkwPopReminderGetPopupMenu.GetWordNameForRegister
+
 function TkwPopReminderGetPopupMenu.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -579,11 +498,6 @@ function TkwPopReminderGetPopupMenu.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderGetPopupMenu.ParamsTypes
-
-class function TkwPopReminderGetPopupMenu.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Reminder:GetPopupMenu';
-end;//TkwPopReminderGetPopupMenu.GetWordNameForRegister
 
 function TkwPopReminderImageIndex.ImageIndex(const aCtx: TtfwContext;
  aReminder: TvgReminder): Integer;
@@ -607,11 +521,10 @@ begin
  aCtx.rEngine.PushInt(ImageIndex(aCtx, l_aReminder));
 end;//TkwPopReminderImageIndex.DoDoIt
 
-procedure TkwPopReminderImageIndex.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderImageIndex.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ImageIndex', aCtx);
-end;//TkwPopReminderImageIndex.SetValuePrim
+ Result := 'pop:Reminder:ImageIndex';
+end;//TkwPopReminderImageIndex.GetWordNameForRegister
 
 function TkwPopReminderImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -628,10 +541,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderImageIndex.ParamsTypes
 
-class function TkwPopReminderImageIndex.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderImageIndex.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:ImageIndex';
-end;//TkwPopReminderImageIndex.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ImageIndex', aCtx);
+end;//TkwPopReminderImageIndex.SetValuePrim
 
 function TkwPopReminderUserType.UserType(const aCtx: TtfwContext;
  aReminder: TvgReminder): Integer;
@@ -655,11 +569,10 @@ begin
  aCtx.rEngine.PushInt(UserType(aCtx, l_aReminder));
 end;//TkwPopReminderUserType.DoDoIt
 
-procedure TkwPopReminderUserType.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderUserType.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserType', aCtx);
-end;//TkwPopReminderUserType.SetValuePrim
+ Result := 'pop:Reminder:UserType';
+end;//TkwPopReminderUserType.GetWordNameForRegister
 
 function TkwPopReminderUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -676,20 +589,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderUserType.ParamsTypes
 
-class function TkwPopReminderUserType.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderUserType.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:UserType';
-end;//TkwPopReminderUserType.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserType', aCtx);
+end;//TkwPopReminderUserType.SetValuePrim
 
 function TkwPopReminderIsBaloonVisible.IsBaloonVisible(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
  {* Реализация слова скрипта pop:Reminder:IsBaloonVisible }
-//#UC START# *17481393F146_B5B73476616C_var*
-//#UC END# *17481393F146_B5B73476616C_var*
+//#UC START# *C9DABDBEC583_B5B73476616C_var*
+//#UC END# *C9DABDBEC583_B5B73476616C_var*
 begin
-//#UC START# *17481393F146_B5B73476616C_impl*
+//#UC START# *C9DABDBEC583_B5B73476616C_impl*
  Result := ((aReminder.PopupForm <> nil) and aReminder.PopupForm.Visible);
-//#UC END# *17481393F146_B5B73476616C_impl*
+//#UC END# *C9DABDBEC583_B5B73476616C_impl*
 end;//TkwPopReminderIsBaloonVisible.IsBaloonVisible
 
 procedure TkwPopReminderIsBaloonVisible.DoDoIt(const aCtx: TtfwContext);
@@ -707,11 +621,10 @@ begin
  aCtx.rEngine.PushBool(IsBaloonVisible(aCtx, l_aReminder));
 end;//TkwPopReminderIsBaloonVisible.DoDoIt
 
-procedure TkwPopReminderIsBaloonVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderIsBaloonVisible.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsBaloonVisible', aCtx);
-end;//TkwPopReminderIsBaloonVisible.SetValuePrim
+ Result := 'pop:Reminder:IsBaloonVisible';
+end;//TkwPopReminderIsBaloonVisible.GetWordNameForRegister
 
 function TkwPopReminderIsBaloonVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -728,10 +641,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderIsBaloonVisible.ParamsTypes
 
-class function TkwPopReminderIsBaloonVisible.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderIsBaloonVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:IsBaloonVisible';
-end;//TkwPopReminderIsBaloonVisible.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsBaloonVisible', aCtx);
+end;//TkwPopReminderIsBaloonVisible.SetValuePrim
 
 function TkwPopReminderVisible.Visible(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -755,11 +669,10 @@ begin
  aCtx.rEngine.PushBool(Visible(aCtx, l_aReminder));
 end;//TkwPopReminderVisible.DoDoIt
 
-procedure TkwPopReminderVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderVisible.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
-end;//TkwPopReminderVisible.SetValuePrim
+ Result := 'pop:Reminder:Visible';
+end;//TkwPopReminderVisible.GetWordNameForRegister
 
 function TkwPopReminderVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -776,10 +689,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderVisible.ParamsTypes
 
-class function TkwPopReminderVisible.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:Visible';
-end;//TkwPopReminderVisible.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
+end;//TkwPopReminderVisible.SetValuePrim
 
 function TkwPopReminderName.Name(const aCtx: TtfwContext;
  aReminder: TvgReminder): AnsiString;
@@ -803,11 +717,10 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aReminder));
 end;//TkwPopReminderName.DoDoIt
 
-procedure TkwPopReminderName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
-end;//TkwPopReminderName.SetValuePrim
+ Result := 'pop:Reminder:Name';
+end;//TkwPopReminderName.GetWordNameForRegister
 
 function TkwPopReminderName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -824,10 +737,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderName.ParamsTypes
 
-class function TkwPopReminderName.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:Name';
-end;//TkwPopReminderName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
+end;//TkwPopReminderName.SetValuePrim
 
 function TkwPopReminderFlash.Flash(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -851,11 +765,10 @@ begin
  aCtx.rEngine.PushBool(Flash(aCtx, l_aReminder));
 end;//TkwPopReminderFlash.DoDoIt
 
-procedure TkwPopReminderFlash.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderFlash.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Flash', aCtx);
-end;//TkwPopReminderFlash.SetValuePrim
+ Result := 'pop:Reminder:Flash';
+end;//TkwPopReminderFlash.GetWordNameForRegister
 
 function TkwPopReminderFlash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -872,20 +785,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderFlash.ParamsTypes
 
-class function TkwPopReminderFlash.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderFlash.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:Flash';
-end;//TkwPopReminderFlash.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Flash', aCtx);
+end;//TkwPopReminderFlash.SetValuePrim
 
 function TkwPopReminderTextBackColor.TextBackColor(const aCtx: TtfwContext;
  aReminder: TvgReminder): AnsiString;
  {* Реализация слова скрипта pop:Reminder:TextBackColor }
-//#UC START# *C4047A8567A8_4910B3AB2F0F_var*
-//#UC END# *C4047A8567A8_4910B3AB2F0F_var*
+//#UC START# *963DF9269ADB_4910B3AB2F0F_var*
+//#UC END# *963DF9269ADB_4910B3AB2F0F_var*
 begin
-//#UC START# *C4047A8567A8_4910B3AB2F0F_impl*
+//#UC START# *963DF9269ADB_4910B3AB2F0F_impl*
  Result := aReminder.vgTextRect.Fill.Color;
-//#UC END# *C4047A8567A8_4910B3AB2F0F_impl*
+//#UC END# *963DF9269ADB_4910B3AB2F0F_impl*
 end;//TkwPopReminderTextBackColor.TextBackColor
 
 procedure TkwPopReminderTextBackColor.DoDoIt(const aCtx: TtfwContext);
@@ -903,11 +817,10 @@ begin
  aCtx.rEngine.PushString(TextBackColor(aCtx, l_aReminder));
 end;//TkwPopReminderTextBackColor.DoDoIt
 
-procedure TkwPopReminderTextBackColor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderTextBackColor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TextBackColor', aCtx);
-end;//TkwPopReminderTextBackColor.SetValuePrim
+ Result := 'pop:Reminder:TextBackColor';
+end;//TkwPopReminderTextBackColor.GetWordNameForRegister
 
 function TkwPopReminderTextBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -924,10 +837,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderTextBackColor.ParamsTypes
 
-class function TkwPopReminderTextBackColor.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderTextBackColor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:TextBackColor';
-end;//TkwPopReminderTextBackColor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TextBackColor', aCtx);
+end;//TkwPopReminderTextBackColor.SetValuePrim
 
 function TkwPopReminderShowHint.ShowHint(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
@@ -951,11 +865,10 @@ begin
  aCtx.rEngine.PushBool(ShowHint(aCtx, l_aReminder));
 end;//TkwPopReminderShowHint.DoDoIt
 
-procedure TkwPopReminderShowHint.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderShowHint.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShowHint', aCtx);
-end;//TkwPopReminderShowHint.SetValuePrim
+ Result := 'pop:Reminder:ShowHint';
+end;//TkwPopReminderShowHint.GetWordNameForRegister
 
 function TkwPopReminderShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -972,10 +885,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderShowHint.ParamsTypes
 
-class function TkwPopReminderShowHint.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderShowHint.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:ShowHint';
-end;//TkwPopReminderShowHint.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShowHint', aCtx);
+end;//TkwPopReminderShowHint.SetValuePrim
 
 function TkwPopReminderCaption.Caption(const aCtx: TtfwContext;
  aReminder: TvgReminder): Il3CString;
@@ -999,11 +913,10 @@ begin
  aCtx.rEngine.PushString(Caption(aCtx, l_aReminder));
 end;//TkwPopReminderCaption.DoDoIt
 
-procedure TkwPopReminderCaption.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderCaption.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
-end;//TkwPopReminderCaption.SetValuePrim
+ Result := 'pop:Reminder:Caption';
+end;//TkwPopReminderCaption.GetWordNameForRegister
 
 function TkwPopReminderCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1020,10 +933,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderCaption.ParamsTypes
 
-class function TkwPopReminderCaption.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderCaption.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:Caption';
-end;//TkwPopReminderCaption.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
+end;//TkwPopReminderCaption.SetValuePrim
 
 function TkwPopReminderHint.Hint(const aCtx: TtfwContext;
  aReminder: TvgReminder): Il3CString;
@@ -1047,11 +961,10 @@ begin
  aCtx.rEngine.PushString(Hint(aCtx, l_aReminder));
 end;//TkwPopReminderHint.DoDoIt
 
-procedure TkwPopReminderHint.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderHint.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Hint', aCtx);
-end;//TkwPopReminderHint.SetValuePrim
+ Result := 'pop:Reminder:Hint';
+end;//TkwPopReminderHint.GetWordNameForRegister
 
 function TkwPopReminderHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1068,10 +981,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderHint.ParamsTypes
 
-class function TkwPopReminderHint.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderHint.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:Hint';
-end;//TkwPopReminderHint.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Hint', aCtx);
+end;//TkwPopReminderHint.SetValuePrim
 
 function TkwPopReminderPopupForm.PopupForm(const aCtx: TtfwContext;
  aReminder: TvgReminder): TvtPopupFormModelPart;
@@ -1095,11 +1009,10 @@ begin
  aCtx.rEngine.PushObj(PopupForm(aCtx, l_aReminder));
 end;//TkwPopReminderPopupForm.DoDoIt
 
-procedure TkwPopReminderPopupForm.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopReminderPopupForm.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству PopupForm', aCtx);
-end;//TkwPopReminderPopupForm.SetValuePrim
+ Result := 'pop:Reminder:PopupForm';
+end;//TkwPopReminderPopupForm.GetWordNameForRegister
 
 function TkwPopReminderPopupForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1116,10 +1029,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderPopupForm.ParamsTypes
 
-class function TkwPopReminderPopupForm.GetWordNameForRegister: AnsiString;
+procedure TkwPopReminderPopupForm.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Reminder:PopupForm';
-end;//TkwPopReminderPopupForm.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству PopupForm', aCtx);
+end;//TkwPopReminderPopupForm.SetValuePrim
 
 initialization
  TkwPopReminderClick.RegisterInEngine;
@@ -1152,12 +1066,8 @@ initialization
  {* Регистрация pop_Reminder_Hint }
  TkwPopReminderPopupForm.RegisterInEngine;
  {* Регистрация pop_Reminder_PopupForm }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgReminder));
  {* Регистрация типа TvgReminder }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TPoint }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TComponent));
  {* Регистрация типа TComponent }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TMenuItem));
@@ -1167,11 +1077,13 @@ initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPopupFormModelPart));
  {* Регистрация типа TvtPopupFormModelPart }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TPoint }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 end.

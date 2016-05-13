@@ -50,6 +50,9 @@ uses
  , Windows
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4D52A881018Bimpl_uses*
  //#UC END# *4D52A881018Bimpl_uses*
 ;
@@ -73,6 +76,12 @@ type
 begin
 end;
 //#UC END# *4D52A881018Bimpl*
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvgComponent);
+ {* Регистрация TvgComponent }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVGScene)
 
 end.

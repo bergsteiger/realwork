@@ -35,11 +35,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -365,14 +365,7 @@ type
  end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push
 
  TkwEnMedicMainMenuHfReferencesAndDictionaries = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.hfReferencesAndDictionaries
-[panel]Контрол hfReferencesAndDictionaries формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MedicMainMenu .Ten_MedicMainMenu.hfReferencesAndDictionaries >>> l_TnscHideField
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.hfReferencesAndDictionaries }
   private
    function hfReferencesAndDictionaries(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -381,22 +374,15 @@ OBJECT VAR l_TnscHideField
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuHfReferencesAndDictionaries
 
  TkwEnMedicMainMenuTvReferencesAndDictionaries = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.tvReferencesAndDictionaries
-[panel]Контрол tvReferencesAndDictionaries формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_MedicMainMenu .Ten_MedicMainMenu.tvReferencesAndDictionaries >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.tvReferencesAndDictionaries }
   private
    function tvReferencesAndDictionaries(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -405,22 +391,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuTvReferencesAndDictionaries
 
  TkwEnMedicMainMenuHfReferencePharmaceuticalInformation = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.hfReferencePharmaceuticalInformation
-[panel]Контрол hfReferencePharmaceuticalInformation формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MedicMainMenu .Ten_MedicMainMenu.hfReferencePharmaceuticalInformation >>> l_TnscHideField
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.hfReferencePharmaceuticalInformation }
   private
    function hfReferencePharmaceuticalInformation(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -429,22 +408,15 @@ OBJECT VAR l_TnscHideField
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation
 
  TkwEnMedicMainMenuTvReferencePharmaceuticalInformation = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.tvReferencePharmaceuticalInformation
-[panel]Контрол tvReferencePharmaceuticalInformation формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_MedicMainMenu .Ten_MedicMainMenu.tvReferencePharmaceuticalInformation >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.tvReferencePharmaceuticalInformation }
   private
    function tvReferencePharmaceuticalInformation(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -453,22 +425,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation
 
  TkwEnMedicMainMenuHfMainFeatures = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.hfMainFeatures
-[panel]Контрол hfMainFeatures формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MedicMainMenu .Ten_MedicMainMenu.hfMainFeatures >>> l_TnscHideField
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.hfMainFeatures }
   private
    function hfMainFeatures(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -477,22 +442,15 @@ OBJECT VAR l_TnscHideField
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuHfMainFeatures
 
  TkwEnMedicMainMenuTvMainFeatures = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.tvMainFeatures
-[panel]Контрол tvMainFeatures формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscTreeViewHotTruck
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewHotTruck
- aen_MedicMainMenu .Ten_MedicMainMenu.tvMainFeatures >>> l_TnscTreeViewHotTruck
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.tvMainFeatures }
   private
    function tvMainFeatures(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewHotTruck;
@@ -501,22 +459,15 @@ OBJECT VAR l_TnscTreeViewHotTruck
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuTvMainFeatures
 
  TkwEnMedicMainMenuHfRegulatoryInformation = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.hfRegulatoryInformation
-[panel]Контрол hfRegulatoryInformation формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MedicMainMenu .Ten_MedicMainMenu.hfRegulatoryInformation >>> l_TnscHideField
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.hfRegulatoryInformation }
   private
    function hfRegulatoryInformation(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -525,22 +476,15 @@ OBJECT VAR l_TnscHideField
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuHfRegulatoryInformation
 
  TkwEnMedicMainMenuTvRegulatoryInformation = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.tvRegulatoryInformation
-[panel]Контрол tvRegulatoryInformation формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_MedicMainMenu .Ten_MedicMainMenu.tvRegulatoryInformation >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.tvRegulatoryInformation }
   private
    function tvRegulatoryInformation(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -549,22 +493,15 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuTvRegulatoryInformation
 
  TkwEnMedicMainMenuPnlMain = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.pnlMain
-[panel]Контрол pnlMain формы Ten_MedicMainMenu[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aen_MedicMainMenu .Ten_MedicMainMenu.pnlMain >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.pnlMain }
   private
    function pnlMain(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TvtPanel;
@@ -573,22 +510,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuPnlMain
 
  TkwEnMedicMainMenuHfLastOpenDocs = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.hfLastOpenDocs
-[panel]Контрол hfLastOpenDocs формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscHideField
-*Пример:*
-[code]
-OBJECT VAR l_TnscHideField
- aen_MedicMainMenu .Ten_MedicMainMenu.hfLastOpenDocs >>> l_TnscHideField
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.hfLastOpenDocs }
   private
    function hfLastOpenDocs(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -597,22 +527,15 @@ OBJECT VAR l_TnscHideField
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuHfLastOpenDocs
 
  TkwEnMedicMainMenuTvLastOpenDocs = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_MedicMainMenu.tvLastOpenDocs
-[panel]Контрол tvLastOpenDocs формы Ten_MedicMainMenu[panel]
-*Тип результата:* TnscTreeViewHotTruck
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewHotTruck
- aen_MedicMainMenu .Ten_MedicMainMenu.tvLastOpenDocs >>> l_TnscTreeViewHotTruck
-[code]  }
+  {* Слово скрипта .Ten_MedicMainMenu.tvLastOpenDocs }
   private
    function tvLastOpenDocs(const aCtx: TtfwContext;
     aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewHotTruck;
@@ -621,11 +544,11 @@ OBJECT VAR l_TnscTreeViewHotTruck
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnMedicMainMenuTvLastOpenDocs
 
 function Tkw_Form_MedicMainMenu.GetString: AnsiString;
@@ -957,11 +880,10 @@ begin
  aCtx.rEngine.PushObj(hfReferencesAndDictionaries(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.DoDoIt
 
-procedure TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству hfReferencesAndDictionaries', aCtx);
-end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim
+ Result := '.Ten_MedicMainMenu.hfReferencesAndDictionaries';
+end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -978,10 +900,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.ParamsTypes
 
-class function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.hfReferencesAndDictionaries';
-end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству hfReferencesAndDictionaries', aCtx);
+end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.tvReferencesAndDictionaries(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -1005,11 +928,10 @@ begin
  aCtx.rEngine.PushObj(tvReferencesAndDictionaries(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.DoDoIt
 
-procedure TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvReferencesAndDictionaries', aCtx);
-end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim
+ Result := '.Ten_MedicMainMenu.tvReferencesAndDictionaries';
+end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1026,10 +948,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.ParamsTypes
 
-class function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.tvReferencesAndDictionaries';
-end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvReferencesAndDictionaries', aCtx);
+end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.hfReferencePharmaceuticalInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1053,11 +976,10 @@ begin
  aCtx.rEngine.PushObj(hfReferencePharmaceuticalInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.DoDoIt
 
-procedure TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству hfReferencePharmaceuticalInformation', aCtx);
-end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim
+ Result := '.Ten_MedicMainMenu.hfReferencePharmaceuticalInformation';
+end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1074,10 +996,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.ParamsTypes
 
-class function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.hfReferencePharmaceuticalInformation';
-end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству hfReferencePharmaceuticalInformation', aCtx);
+end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.tvReferencePharmaceuticalInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -1101,11 +1024,10 @@ begin
  aCtx.rEngine.PushObj(tvReferencePharmaceuticalInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.DoDoIt
 
-procedure TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvReferencePharmaceuticalInformation', aCtx);
-end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim
+ Result := '.Ten_MedicMainMenu.tvReferencePharmaceuticalInformation';
+end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1122,10 +1044,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.ParamsTypes
 
-class function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.tvReferencePharmaceuticalInformation';
-end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvReferencePharmaceuticalInformation', aCtx);
+end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim
 
 function TkwEnMedicMainMenuHfMainFeatures.hfMainFeatures(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1149,11 +1072,10 @@ begin
  aCtx.rEngine.PushObj(hfMainFeatures(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfMainFeatures.DoDoIt
 
-procedure TkwEnMedicMainMenuHfMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству hfMainFeatures', aCtx);
-end;//TkwEnMedicMainMenuHfMainFeatures.SetValuePrim
+ Result := '.Ten_MedicMainMenu.hfMainFeatures';
+end;//TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfMainFeatures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1170,10 +1092,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfMainFeatures.ParamsTypes
 
-class function TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuHfMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.hfMainFeatures';
-end;//TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству hfMainFeatures', aCtx);
+end;//TkwEnMedicMainMenuHfMainFeatures.SetValuePrim
 
 function TkwEnMedicMainMenuTvMainFeatures.tvMainFeatures(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewHotTruck;
@@ -1197,11 +1120,10 @@ begin
  aCtx.rEngine.PushObj(tvMainFeatures(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvMainFeatures.DoDoIt
 
-procedure TkwEnMedicMainMenuTvMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvMainFeatures', aCtx);
-end;//TkwEnMedicMainMenuTvMainFeatures.SetValuePrim
+ Result := '.Ten_MedicMainMenu.tvMainFeatures';
+end;//TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvMainFeatures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1218,10 +1140,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvMainFeatures.ParamsTypes
 
-class function TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuTvMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.tvMainFeatures';
-end;//TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvMainFeatures', aCtx);
+end;//TkwEnMedicMainMenuTvMainFeatures.SetValuePrim
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.hfRegulatoryInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1245,11 +1168,10 @@ begin
  aCtx.rEngine.PushObj(hfRegulatoryInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.DoDoIt
 
-procedure TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству hfRegulatoryInformation', aCtx);
-end;//TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim
+ Result := '.Ten_MedicMainMenu.hfRegulatoryInformation';
+end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1266,10 +1188,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.ParamsTypes
 
-class function TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.hfRegulatoryInformation';
-end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству hfRegulatoryInformation', aCtx);
+end;//TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.tvRegulatoryInformation(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewWithAdapterDragDrop;
@@ -1293,11 +1216,10 @@ begin
  aCtx.rEngine.PushObj(tvRegulatoryInformation(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.DoDoIt
 
-procedure TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvRegulatoryInformation', aCtx);
-end;//TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim
+ Result := '.Ten_MedicMainMenu.tvRegulatoryInformation';
+end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1314,10 +1236,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.ParamsTypes
 
-class function TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.tvRegulatoryInformation';
-end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvRegulatoryInformation', aCtx);
+end;//TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim
 
 function TkwEnMedicMainMenuPnlMain.pnlMain(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TvtPanel;
@@ -1341,11 +1264,10 @@ begin
  aCtx.rEngine.PushObj(pnlMain(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuPnlMain.DoDoIt
 
-procedure TkwEnMedicMainMenuPnlMain.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuPnlMain.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlMain', aCtx);
-end;//TkwEnMedicMainMenuPnlMain.SetValuePrim
+ Result := '.Ten_MedicMainMenu.pnlMain';
+end;//TkwEnMedicMainMenuPnlMain.GetWordNameForRegister
 
 function TkwEnMedicMainMenuPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1362,10 +1284,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuPnlMain.ParamsTypes
 
-class function TkwEnMedicMainMenuPnlMain.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuPnlMain.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.pnlMain';
-end;//TkwEnMedicMainMenuPnlMain.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlMain', aCtx);
+end;//TkwEnMedicMainMenuPnlMain.SetValuePrim
 
 function TkwEnMedicMainMenuHfLastOpenDocs.hfLastOpenDocs(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscHideField;
@@ -1389,11 +1312,10 @@ begin
  aCtx.rEngine.PushObj(hfLastOpenDocs(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuHfLastOpenDocs.DoDoIt
 
-procedure TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству hfLastOpenDocs', aCtx);
-end;//TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim
+ Result := '.Ten_MedicMainMenu.hfLastOpenDocs';
+end;//TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister
 
 function TkwEnMedicMainMenuHfLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1410,10 +1332,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuHfLastOpenDocs.ParamsTypes
 
-class function TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.hfLastOpenDocs';
-end;//TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству hfLastOpenDocs', aCtx);
+end;//TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim
 
 function TkwEnMedicMainMenuTvLastOpenDocs.tvLastOpenDocs(const aCtx: TtfwContext;
  aen_MedicMainMenu: Ten_MedicMainMenu): TnscTreeViewHotTruck;
@@ -1437,11 +1360,10 @@ begin
  aCtx.rEngine.PushObj(tvLastOpenDocs(aCtx, l_aen_MedicMainMenu));
 end;//TkwEnMedicMainMenuTvLastOpenDocs.DoDoIt
 
-procedure TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvLastOpenDocs', aCtx);
-end;//TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim
+ Result := '.Ten_MedicMainMenu.tvLastOpenDocs';
+end;//TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister
 
 function TkwEnMedicMainMenuTvLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1458,10 +1380,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_MedicMainMenu)]);
 end;//TkwEnMedicMainMenuTvLastOpenDocs.ParamsTypes
 
-class function TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister: AnsiString;
+procedure TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_MedicMainMenu.tvLastOpenDocs';
-end;//TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvLastOpenDocs', aCtx);
+end;//TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim
 
 initialization
  Tkw_Form_MedicMainMenu.RegisterInEngine;
@@ -1532,10 +1455,8 @@ initialization
  {* Регистрация en_MedicMainMenu_hfLastOpenDocs }
  TkwEnMedicMainMenuTvLastOpenDocs.RegisterInEngine;
  {* Регистрация en_MedicMainMenu_tvLastOpenDocs }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_MedicMainMenu));
- {* Регистрация типа MedicMainMenu }
+ {* Регистрация типа Ten_MedicMainMenu }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscHideField));
  {* Регистрация типа TnscHideField }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));

@@ -24,7 +24,7 @@ uses
  , tfwControlString
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -61,6 +61,8 @@ end;//Tkw_Form_Logo.GetWordNameForRegister
 initialization
  Tkw_Form_Logo.RegisterInEngine;
  {* Регистрация Tkw_Form_Logo }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TLogoForm));
+ {* Регистрация типа TLogoForm }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

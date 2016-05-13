@@ -24,7 +24,7 @@ uses
  , tfwControlString
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -61,6 +61,8 @@ end;//Tkw_Form_CustomizeTools.GetWordNameForRegister
 initialization
  Tkw_Form_CustomizeTools.RegisterInEngine;
  {* Регистрация Tkw_Form_CustomizeTools }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomizeToolsForm));
+ {* Регистрация типа TCustomizeToolsForm }
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
 end.

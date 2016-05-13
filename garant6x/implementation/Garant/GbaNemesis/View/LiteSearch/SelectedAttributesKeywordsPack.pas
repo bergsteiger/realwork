@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_SelectedAttributes_Control_SelectedTree_Push
 
  TkwEnSelectedAttributesSelectedTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenSelectedAttributes.SelectedTree
-[panel]Контрол SelectedTree формы TenSelectedAttributes[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aenSelectedAttributes .TenSelectedAttributes.SelectedTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TenSelectedAttributes.SelectedTree }
   private
    function SelectedTree(const aCtx: TtfwContext;
     aenSelectedAttributes: TenSelectedAttributes): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnSelectedAttributesSelectedTree
 
 function Tkw_Form_SelectedAttributes.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(SelectedTree(aCtx, l_aenSelectedAttributes));
 end;//TkwEnSelectedAttributesSelectedTree.DoDoIt
 
-procedure TkwEnSelectedAttributesSelectedTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SelectedTree', aCtx);
-end;//TkwEnSelectedAttributesSelectedTree.SetValuePrim
+ Result := '.TenSelectedAttributes.SelectedTree';
+end;//TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister
 
 function TkwEnSelectedAttributesSelectedTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenSelectedAttributes)]);
 end;//TkwEnSelectedAttributesSelectedTree.ParamsTypes
 
-class function TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister: AnsiString;
+procedure TkwEnSelectedAttributesSelectedTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenSelectedAttributes.SelectedTree';
-end;//TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SelectedTree', aCtx);
+end;//TkwEnSelectedAttributesSelectedTree.SetValuePrim
 
 initialization
  Tkw_Form_SelectedAttributes.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_SelectedAttributes_Control_SelectedTree_Push }
  TkwEnSelectedAttributesSelectedTree.RegisterInEngine;
  {* Регистрация enSelectedAttributes_SelectedTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenSelectedAttributes));
- {* Регистрация типа SelectedAttributes }
+ {* Регистрация типа TenSelectedAttributes }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(NoScripts)

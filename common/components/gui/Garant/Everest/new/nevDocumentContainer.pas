@@ -29,8 +29,8 @@ uses
  , k2InternalInterfaces
  , l3Filer
  , evGeneratorsInterfaces
- , evdInterfaces
  , l3IID
+ , evdInterfaces
  , evDocumentPartGenerator
 ;
 

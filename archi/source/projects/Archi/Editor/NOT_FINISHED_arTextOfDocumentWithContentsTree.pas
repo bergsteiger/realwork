@@ -25,7 +25,16 @@ implementation
 uses
  l3ImplUses
  , arDocumentContainerWithContentsTree
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TarTextOfDocumentWithContentsTree);
+ {* Регистрация TarTextOfDocumentWithContentsTree }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(AppClientSide)
 
 end.

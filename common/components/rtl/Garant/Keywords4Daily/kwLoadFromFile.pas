@@ -25,8 +25,8 @@ type
 *Формат:* имя_файла LoadFromFile
 *Примечание:* Создан специально для тестов DailyTests в результате переделок form:Needs. Имя файла можно подавать без пути - будет автоматически добавлен путь к данным для тестов. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwLoadFromFile
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -40,6 +40,11 @@ uses
 ;
 
 {$Include w:\common\components\gui\Garant\Daily\LoadUnits.imp.pas}
+
+class function TkwLoadFromFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'LoadFromFile';
+end;//TkwLoadFromFile.GetWordNameForRegister
 
 procedure TkwLoadFromFile.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_509A5CCB022A_var*
@@ -70,11 +75,6 @@ begin
   Assert(False, 'Не задана форма для загрузки текста!');
 //#UC END# *4DAEEDE10285_509A5CCB022A_impl*
 end;//TkwLoadFromFile.DoDoIt
-
-class function TkwLoadFromFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'LoadFromFile';
-end;//TkwLoadFromFile.GetWordNameForRegister
 
 initialization
  TkwLoadFromFile.RegisterInEngine;

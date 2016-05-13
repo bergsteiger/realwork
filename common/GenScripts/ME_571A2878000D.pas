@@ -42,7 +42,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A2878000Dimpl_uses*
  //#UC END# *571A2878000Dimpl_uses*
@@ -51,20 +51,20 @@ uses
 type
  TkwConfigRestore = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwConfigRestore
 
  TkwStyleTableRestore = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwStyleTableRestore
 
  TkwGetEncryptedComplectId = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwGetEncryptedComplectId
 
  TkwConfigurationsWord = {abstract} class(TtfwRegisterableWord)
@@ -72,8 +72,8 @@ type
    f_ConfigurationManager: IConfigurationManager;
   protected
    procedure DoWithConfigurations(const aCtx: TtfwContext); virtual; abstract;
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    procedure ClearFields; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   protected
    property ConfigurationManager: IConfigurationManager
     read f_ConfigurationManager;
@@ -134,40 +134,45 @@ type
 
  TkwRestoreSettings = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwRestoreSettings
 
  TkwF1BaseDate = {final} class(TtfwRegisterableWord)
   {*  ладЄт на стек дату базы в строковом формате }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwF1BaseDate
 
  TkwF1ComplectName = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwF1ComplectName
 
  TkwF1ComplectOwner = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwF1ComplectOwner
 
  TkwTimeMachineSetDate = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwTimeMachineSetDate
 
  TkwExportHelp = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwExportHelp
+
+class function TkwConfigRestore.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Config:Restore';
+end;//TkwConfigRestore.GetWordNameForRegister
 
 procedure TkwConfigRestore.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E68C9020275_var*
@@ -178,10 +183,10 @@ begin
 //#UC END# *4DAEEDE10285_4E68C9020275_impl*
 end;//TkwConfigRestore.DoDoIt
 
-class function TkwConfigRestore.GetWordNameForRegister: AnsiString;
+class function TkwStyleTableRestore.GetWordNameForRegister: AnsiString;
 begin
- Result := 'Config:Restore';
-end;//TkwConfigRestore.GetWordNameForRegister
+ Result := 'StyleTable:Restore';
+end;//TkwStyleTableRestore.GetWordNameForRegister
 
 procedure TkwStyleTableRestore.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E68D33202D5_var*
@@ -192,10 +197,10 @@ begin
 //#UC END# *4DAEEDE10285_4E68D33202D5_impl*
 end;//TkwStyleTableRestore.DoDoIt
 
-class function TkwStyleTableRestore.GetWordNameForRegister: AnsiString;
+class function TkwGetEncryptedComplectId.GetWordNameForRegister: AnsiString;
 begin
- Result := 'StyleTable:Restore';
-end;//TkwStyleTableRestore.GetWordNameForRegister
+ Result := 'GetEncryptedComplectId';
+end;//TkwGetEncryptedComplectId.GetWordNameForRegister
 
 procedure TkwGetEncryptedComplectId.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_51AEF36002D1_var*
@@ -209,10 +214,11 @@ begin
 //#UC END# *4DAEEDE10285_51AEF36002D1_impl*
 end;//TkwGetEncryptedComplectId.DoDoIt
 
-class function TkwGetEncryptedComplectId.GetWordNameForRegister: AnsiString;
+procedure TkwConfigurationsWord.ClearFields;
 begin
- Result := 'GetEncryptedComplectId';
-end;//TkwGetEncryptedComplectId.GetWordNameForRegister
+ f_ConfigurationManager := nil;
+ inherited;
+end;//TkwConfigurationsWord.ClearFields
 
 procedure TkwConfigurationsWord.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2E10F03C0_var*
@@ -227,12 +233,6 @@ begin
  end;
 //#UC END# *4DAEEDE10285_53B2E10F03C0_impl*
 end;//TkwConfigurationsWord.DoDoIt
-
-procedure TkwConfigurationsWord.ClearFields;
-begin
- f_ConfigurationManager := nil;
- inherited;
-end;//TkwConfigurationsWord.ClearFields
 
 procedure TkwConfigurationsGetCount.DoWithConfigurations(const aCtx: TtfwContext);
 //#UC START# *53B2E1D201CE_53B2DE010174_var*
@@ -382,6 +382,11 @@ begin
  Result := 'configuration:GetType';
 end;//TkwConfigurationGetType.GetWordNameForRegister
 
+class function TkwRestoreSettings.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'RestoreSettings';
+end;//TkwRestoreSettings.GetWordNameForRegister
+
 procedure TkwRestoreSettings.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_539834A703AD_var*
 //#UC END# *4DAEEDE10285_539834A703AD_var*
@@ -391,10 +396,10 @@ begin
 //#UC END# *4DAEEDE10285_539834A703AD_impl*
 end;//TkwRestoreSettings.DoDoIt
 
-class function TkwRestoreSettings.GetWordNameForRegister: AnsiString;
+class function TkwF1BaseDate.GetWordNameForRegister: AnsiString;
 begin
- Result := 'RestoreSettings';
-end;//TkwRestoreSettings.GetWordNameForRegister
+ Result := 'f1:BaseDate';
+end;//TkwF1BaseDate.GetWordNameForRegister
 
 procedure TkwF1BaseDate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EC134690154_var*
@@ -405,10 +410,10 @@ begin
 //#UC END# *4DAEEDE10285_4EC134690154_impl*
 end;//TkwF1BaseDate.DoDoIt
 
-class function TkwF1BaseDate.GetWordNameForRegister: AnsiString;
+class function TkwF1ComplectName.GetWordNameForRegister: AnsiString;
 begin
- Result := 'f1:BaseDate';
-end;//TkwF1BaseDate.GetWordNameForRegister
+ Result := 'f1:ComplectName';
+end;//TkwF1ComplectName.GetWordNameForRegister
 
 procedure TkwF1ComplectName.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50237E1C0249_var*
@@ -419,10 +424,10 @@ begin
 //#UC END# *4DAEEDE10285_50237E1C0249_impl*
 end;//TkwF1ComplectName.DoDoIt
 
-class function TkwF1ComplectName.GetWordNameForRegister: AnsiString;
+class function TkwF1ComplectOwner.GetWordNameForRegister: AnsiString;
 begin
- Result := 'f1:ComplectName';
-end;//TkwF1ComplectName.GetWordNameForRegister
+ Result := 'f1:ComplectOwner';
+end;//TkwF1ComplectOwner.GetWordNameForRegister
 
 procedure TkwF1ComplectOwner.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50237E3A03A5_var*
@@ -433,10 +438,10 @@ begin
 //#UC END# *4DAEEDE10285_50237E3A03A5_impl*
 end;//TkwF1ComplectOwner.DoDoIt
 
-class function TkwF1ComplectOwner.GetWordNameForRegister: AnsiString;
+class function TkwTimeMachineSetDate.GetWordNameForRegister: AnsiString;
 begin
- Result := 'f1:ComplectOwner';
-end;//TkwF1ComplectOwner.GetWordNameForRegister
+ Result := 'timemachine:SetDate';
+end;//TkwTimeMachineSetDate.GetWordNameForRegister
 
 procedure TkwTimeMachineSetDate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DC3D8E200AF_var*
@@ -447,10 +452,10 @@ begin
 //#UC END# *4DAEEDE10285_4DC3D8E200AF_impl*
 end;//TkwTimeMachineSetDate.DoDoIt
 
-class function TkwTimeMachineSetDate.GetWordNameForRegister: AnsiString;
+class function TkwExportHelp.GetWordNameForRegister: AnsiString;
 begin
- Result := 'timemachine:SetDate';
-end;//TkwTimeMachineSetDate.GetWordNameForRegister
+ Result := 'vcm:ExportHelp';
+end;//TkwExportHelp.GetWordNameForRegister
 
 procedure TkwExportHelp.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DD530DD03D8_var*
@@ -464,11 +469,6 @@ begin
  aCtx.rCaller.CheckWithEtalon(l_S, #0);
 //#UC END# *4DAEEDE10285_4DD530DD03D8_impl*
 end;//TkwExportHelp.DoDoIt
-
-class function TkwExportHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:ExportHelp';
-end;//TkwExportHelp.GetWordNameForRegister
 
 initialization
  TkwConfigRestore.RegisterInEngine;

@@ -411,7 +411,58 @@ type
 
  IdaArchiUser = interface
   ['{A56BF40C-4A4B-495E-A991-952C94ADBF66}']
+  function Get_ID: TdaUserID;
+  procedure Set_ID(aValue: TdaUserID);
+  function Get_Active: Boolean;
+  procedure Set_Active(aValue: Boolean);
+  function Get_HasAdminRights: Boolean;
+  procedure Set_HasAdminRights(aValue: Boolean);
+  function Get_ExportPriority: TdaPriority;
+  procedure Set_ExportPriority(aValue: TdaPriority);
+  function Get_ImportPriority: TdaPriority;
+  procedure Set_ImportPriority(aValue: TdaPriority);
+  function Get_IP: AnsiString;
+  procedure Set_IP(const aValue: AnsiString);
+  function Get_LoginDate: TDateTime;
+  procedure Set_LoginDate(aValue: TDateTime);
+  function Get_LoginName: AnsiString;
+  procedure Set_LoginName(const aValue: AnsiString);
+  function Get_Password: AnsiString;
+  procedure Set_Password(const aValue: AnsiString);
+  function Get_UserName: AnsiString;
+  procedure Set_UserName(const aValue: AnsiString);
   procedure Save(aStream: TStream);
+  procedure Load(aStream: TStream);
+  property ID: TdaUserID
+   read Get_ID
+   write Set_ID;
+  property Active: Boolean
+   read Get_Active
+   write Set_Active;
+  property HasAdminRights: Boolean
+   read Get_HasAdminRights
+   write Set_HasAdminRights;
+  property ExportPriority: TdaPriority
+   read Get_ExportPriority
+   write Set_ExportPriority;
+  property ImportPriority: TdaPriority
+   read Get_ImportPriority
+   write Set_ImportPriority;
+  property IP: AnsiString
+   read Get_IP
+   write Set_IP;
+  property LoginDate: TDateTime
+   read Get_LoginDate
+   write Set_LoginDate;
+  property LoginName: AnsiString
+   read Get_LoginName
+   write Set_LoginName;
+  property Password: AnsiString
+   read Get_Password
+   write Set_Password;
+  property UserName: AnsiString
+   read Get_UserName
+   write Set_UserName;
  end;//IdaArchiUser
 
  IdaSortField = interface

@@ -47,6 +47,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure Printer;
@@ -75,5 +78,11 @@ begin
  assert(false, 'SetPrinter not implemented');
 //#UC END# *4799F74602BA_4799D2E6027B_impl*
 end;//SetPrinter
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EPrinter));
+ {* Регистрация типа EPrinter }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

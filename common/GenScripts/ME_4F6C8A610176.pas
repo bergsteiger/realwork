@@ -13,8 +13,8 @@ uses
  , afwSettingsImplPrim
  , afwSettingsImplPrimPrim
  , afwInterfaces
- , l3Interfaces
  , l3Types
+ , l3Interfaces
 ;
 
 type

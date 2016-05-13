@@ -32,6 +32,9 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCL)}
@@ -68,6 +71,12 @@ begin
  Windows.SetDlgItemText(DialogHandle, vtFileNameDlgCtlId(Handle), PAnsiChar(aFileName));
 //#UC END# *4DCBC96000E3_4C37236E02A1_impl*
 end;//TvtSaveDialog.SetAdjustedFileName
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtSaveDialog);
+ {* Регистрация TvtSaveDialog }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.

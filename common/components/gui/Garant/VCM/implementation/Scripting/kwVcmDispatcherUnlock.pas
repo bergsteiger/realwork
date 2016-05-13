@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmDispatcherUnlock = {final} class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmDispatcherUnlock
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -42,6 +42,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwVcmDispatcherUnlock.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Dispatcher:Unlock';
+end;//TkwVcmDispatcherUnlock.GetWordNameForRegister
+
 procedure TkwVcmDispatcherUnlock.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F69B9AD0040_var*
 //#UC END# *4DAEEDE10285_4F69B9AD0040_var*
@@ -50,11 +55,6 @@ begin
  vcmDispatcher.FormDispatcher.Unlock;
 //#UC END# *4DAEEDE10285_4F69B9AD0040_impl*
 end;//TkwVcmDispatcherUnlock.DoDoIt
-
-class function TkwVcmDispatcherUnlock.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:Dispatcher:Unlock';
-end;//TkwVcmDispatcherUnlock.GetWordNameForRegister
 
 initialization
  TkwVcmDispatcherUnlock.RegisterInEngine;

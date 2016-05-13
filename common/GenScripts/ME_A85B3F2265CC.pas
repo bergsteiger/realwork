@@ -23,7 +23,7 @@ uses
  , InternetAgent_Form
  , tfwControlString
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -53,6 +53,8 @@ end;//Tkw_Form_InternetAgent.GetWordNameForRegister
 initialization
  Tkw_Form_InternetAgent.RegisterInEngine;
  {* Регистрация Tkw_Form_InternetAgent }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TInternetAgentForm));
+ {* Регистрация типа TInternetAgentForm }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

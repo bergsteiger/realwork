@@ -400,7 +400,20 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ETryLogoutCurrentUser));
+ {* Регистрация типа ETryLogoutCurrentUser }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EDuplicateGroupName));
+ {* Регистрация типа EDuplicateGroupName }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Admin)
 
 end.

@@ -38,7 +38,7 @@ uses
  , FoldersUnit
  , DataAdapter
  , BaseTreeSupportUnit
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A211F0239impl_uses*
  , nsUtils
@@ -89,20 +89,20 @@ type
 
  TkwOpenDocument = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpenDocument
 
  TkwDocumentsCacheClear = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwDocumentsCacheClear
 
  TkwIsMyDocumentsEmpty = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwIsMyDocumentsEmpty
 
 {$If NOT Defined(NoVCL)}
@@ -174,6 +174,11 @@ begin
  Result := 'document:LikeState';
 end;//TkwDocumentLikeState.GetWordNameForRegister
 
+class function TkwOpenDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Открыть';
+end;//TkwOpenDocument.GetWordNameForRegister
+
 procedure TkwOpenDocument.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB00AF302F0_var*
 var
@@ -213,10 +218,10 @@ begin
 //#UC END# *4DAEEDE10285_4DB00AF302F0_impl*
 end;//TkwOpenDocument.DoDoIt
 
-class function TkwOpenDocument.GetWordNameForRegister: AnsiString;
+class function TkwDocumentsCacheClear.GetWordNameForRegister: AnsiString;
 begin
- Result := 'Открыть';
-end;//TkwOpenDocument.GetWordNameForRegister
+ Result := 'documentscache:Clear';
+end;//TkwDocumentsCacheClear.GetWordNameForRegister
 
 procedure TkwDocumentsCacheClear.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB82E4D0197_var*
@@ -227,10 +232,10 @@ begin
 //#UC END# *4DAEEDE10285_4DB82E4D0197_impl*
 end;//TkwDocumentsCacheClear.DoDoIt
 
-class function TkwDocumentsCacheClear.GetWordNameForRegister: AnsiString;
+class function TkwIsMyDocumentsEmpty.GetWordNameForRegister: AnsiString;
 begin
- Result := 'documentscache:Clear';
-end;//TkwDocumentsCacheClear.GetWordNameForRegister
+ Result := 'IsMyDocumentsEmpty';
+end;//TkwIsMyDocumentsEmpty.GetWordNameForRegister
 
 procedure TkwIsMyDocumentsEmpty.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2CAE50115_var*
@@ -258,11 +263,6 @@ begin
  end;
 //#UC END# *4DAEEDE10285_53B2CAE50115_impl*
 end;//TkwIsMyDocumentsEmpty.DoDoIt
-
-class function TkwIsMyDocumentsEmpty.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsMyDocumentsEmpty';
-end;//TkwIsMyDocumentsEmpty.GetWordNameForRegister
 
 initialization
  TkwExTextFormWord.RegisterClass;

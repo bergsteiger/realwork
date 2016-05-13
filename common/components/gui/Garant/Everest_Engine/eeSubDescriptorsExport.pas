@@ -31,6 +31,9 @@ uses
  l3ImplUses
  , l3CacheableBase
  , evdTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type
@@ -131,6 +134,12 @@ begin
  inherited;
 //#UC END# *479731C50290_5481DE6402F5_impl*
 end;//TeeSubDescriptor.Cleanup
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TeeSubDescriptors);
+ {* Регистрация TeeSubDescriptors }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 
 end.

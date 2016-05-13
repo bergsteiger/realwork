@@ -99,28 +99,23 @@ var
  Result := true;
  if Atom.Box.IsKindOf(k2_typTask) then
  begin
-  Assert(f_TaskAtomCounter > 0);
-  Dec(f_TaskAtomCounter);
-  if f_TaskAtomCounter = 0 then
-  begin
-   l_TaskMade := nil;
-   try
-    l_TaskMade := TddTaskItem.MakeFromTaggedData(Atom.Box, f_TaskFolder, False, true);
-    if not (l_TaskMade Is TddProcessTask) then
-    begin
-     FreeAndNil(l_TaskMade);
-     l3System.Msg2Log('Не удалось загрузить задачу из EVD хранилища. Задача проигнорирована');
-    end;//not l_TaskMade Is TddProcessTask
-    l_Task := l_TaskMade As TddProcessTask;
-    if (l_Task <> nil) then
-    begin
-     l_Task.CorrectStatus;
-     Self.Add(l_Task);
-    end;//l_Task <> nil
-   finally
+  l_TaskMade := nil;
+  try
+   l_TaskMade := TddTaskItem.MakeFromTaggedData(Atom.Box, f_TaskFolder, False, true);
+   if not (l_TaskMade Is TddProcessTask) then
+   begin
     FreeAndNil(l_TaskMade);
-   end;//try..finally
-  end;//f_TaskAtomCounter = 0
+    l3System.Msg2Log('Не удалось загрузить задачу из EVD хранилища. Задача проигнорирована');
+   end;//not l_TaskMade Is TddProcessTask
+   l_Task := l_TaskMade As TddProcessTask;
+   if (l_Task <> nil) then
+   begin
+    l_Task.CorrectStatus;        
+    Self.Add(l_Task);
+   end;//l_Task <> nil
+  finally
+   FreeAndNil(l_TaskMade);
+  end;//try..finally
  end;//Atom.Box.IsKindOf(k2_typTask)
 //#UC END# *53A180B502CB_52FA3DB401BE_impl*
 //#UC START# *53A180B502CB_52FA3DB401BE_var*
@@ -161,7 +156,6 @@ var
          l_Reader.Filer := l_Filer;
          l_Gen := TalcuTaskGenerator.Create;
          try
-          l_Gen.OnStartAtom := DoStartAtom;
           l_Gen.OnFinishAtom := DoFinishAtom;
           l_Reader.Generator := l_Gen;
          finally
@@ -236,7 +230,7 @@ var
 //#UC END# *590637D17394__var*
 //#UC START# *FD19BDB28F10__impl*
    Result := true;
-   if (anItem.Status in cs_tsFinishedStatuses) then
+   if (anItem.Status in [cs_tsDone] + cs_tsErrorStatuses) then
     Exit;
    if (anItem.Status = cs_tsReadyToDelivery) then
     if (DaysBetween(anItem.Date, Now) > 10) then

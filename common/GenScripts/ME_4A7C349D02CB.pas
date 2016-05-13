@@ -91,7 +91,7 @@ type
   public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {*  оллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {*  оллеги, кто может описать этот метод? }
@@ -520,7 +520,7 @@ end;//TPrimUnderControlForm.StatusParamsShow
 
 function TPrimUnderControlForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {*  оллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_4A7C349D02CBexec_var*
 var

@@ -30,17 +30,13 @@ uses
  , Forms
  , l3ScreenService
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwMenuItemClick = {final} class(TtfwClassLike)
-  {* Слово скрипта menuitem:Click
-*Пример:*
-[code]
- aMenuItem menuitem:Click
-[code]  }
+  {* Слово скрипта menuitem:Click }
   private
    procedure Click(const aCtx: TtfwContext;
     aMenuItem: TMenuItem);
@@ -55,13 +51,7 @@ type
  end;//TkwMenuItemClick
 
  TkwMenuItemGetItem = {final} class(TtfwClassLike)
-  {* Слово скрипта menuitem:GetItem
-*Тип результата:* TMenuItem
-*Пример:*
-[code]
-OBJECT VAR l_TMenuItem
- anIndex aMenuItem menuitem:GetItem >>> l_TMenuItem
-[code]  }
+  {* Слово скрипта menuitem:GetItem }
   private
    function GetItem(const aCtx: TtfwContext;
     aMenuItem: TMenuItem;
@@ -77,13 +67,7 @@ OBJECT VAR l_TMenuItem
  end;//TkwMenuItemGetItem
 
  TkwMenuItemGetMenuHeight = {final} class(TtfwClassLike)
-  {* Слово скрипта menuitem:GetMenuHeight
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aMenuItem menuitem:GetMenuHeight >>> l_Integer
-[code]  }
+  {* Слово скрипта menuitem:GetMenuHeight }
   private
    function GetMenuHeight(const aCtx: TtfwContext;
     aMenuItem: TMenuItem): Integer;
@@ -98,13 +82,7 @@ INTEGER VAR l_Integer
  end;//TkwMenuItemGetMenuHeight
 
  TkwMenuItemCaption = {final} class(TtfwPropertyLike)
-  {* Слово скрипта menuitem:GetCaption
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aMenuItem menuitem:GetCaption >>> l_String
-[code]  }
+  {* Слово скрипта menuitem:GetCaption }
   private
    function Caption(const aCtx: TtfwContext;
     aMenuItem: TMenuItem): AnsiString;
@@ -113,21 +91,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMenuItemCaption
 
  TkwMenuItemCount = {final} class(TtfwPropertyLike)
-  {* Слово скрипта menuitem:GetCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aMenuItem menuitem:GetCount >>> l_Integer
-[code]  }
+  {* Слово скрипта menuitem:GetCount }
   private
    function Count(const aCtx: TtfwContext;
     aMenuItem: TMenuItem): Integer;
@@ -136,21 +108,15 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMenuItemCount
 
  TkwMenuItemEnabled = {final} class(TtfwPropertyLike)
-  {* Слово скрипта menuitem:IsEnabled
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aMenuItem menuitem:IsEnabled >>> l_Boolean
-[code]  }
+  {* Слово скрипта menuitem:IsEnabled }
   private
    function Enabled(const aCtx: TtfwContext;
     aMenuItem: TMenuItem): Boolean;
@@ -159,21 +125,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMenuItemEnabled
 
  TkwMenuItemVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта menuitem:IsVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aMenuItem menuitem:IsVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта menuitem:IsVisible }
   private
    function Visible(const aCtx: TtfwContext;
     aMenuItem: TMenuItem): Boolean;
@@ -182,11 +142,11 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMenuItemVisible
 
  TMenuItemFriend = {abstract} class(TMenuItem)
@@ -221,6 +181,11 @@ begin
  Click(aCtx, l_aMenuItem);
 end;//TkwMenuItemClick.DoDoIt
 
+class function TkwMenuItemClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:Click';
+end;//TkwMenuItemClick.GetWordNameForRegister
+
 function TkwMenuItemClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -236,22 +201,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemClick.ParamsTypes
 
-class function TkwMenuItemClick.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:Click';
-end;//TkwMenuItemClick.GetWordNameForRegister
-
 function TkwMenuItemGetItem.GetItem(const aCtx: TtfwContext;
  aMenuItem: TMenuItem;
  anIndex: Integer): TMenuItem;
  {* Реализация слова скрипта menuitem:GetItem }
-//#UC START# *E7D62A88975C_89C28B4155A9_var*
-//#UC END# *E7D62A88975C_89C28B4155A9_var*
+//#UC START# *552E570E0302_89C28B4155A9_var*
+//#UC END# *552E570E0302_89C28B4155A9_var*
 begin
-//#UC START# *E7D62A88975C_89C28B4155A9_impl*
+//#UC START# *552E570E0302_89C28B4155A9_impl*
  Result := aMenuItem.Items[anIndex];
  Result.InitiateAction;
-//#UC END# *E7D62A88975C_89C28B4155A9_impl*
+//#UC END# *552E570E0302_89C28B4155A9_impl*
 end;//TkwMenuItemGetItem.GetItem
 
 procedure TkwMenuItemGetItem.DoDoIt(const aCtx: TtfwContext);
@@ -279,6 +239,11 @@ begin
  aCtx.rEngine.PushObj(GetItem(aCtx, l_aMenuItem, l_anIndex));
 end;//TkwMenuItemGetItem.DoDoIt
 
+class function TkwMenuItemGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:GetItem';
+end;//TkwMenuItemGetItem.GetWordNameForRegister
+
 function TkwMenuItemGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TMenuItem);
@@ -294,22 +259,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem), TypeInfo(Integer)]);
 end;//TkwMenuItemGetItem.ParamsTypes
 
-class function TkwMenuItemGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:GetItem';
-end;//TkwMenuItemGetItem.GetWordNameForRegister
-
 function TkwMenuItemGetMenuHeight.GetMenuHeight(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Integer;
  {* Реализация слова скрипта menuitem:GetMenuHeight }
-//#UC START# *F09CA18F756D_F44EDB26B480_var*
+//#UC START# *552E57E00346_F44EDB26B480_var*
 var
  I: Integer;
  l_Width, l_Height, l_TotalHeight: Integer;
  l_Canvas: TControlCanvas;
-//#UC END# *F09CA18F756D_F44EDB26B480_var*
+//#UC END# *552E57E00346_F44EDB26B480_var*
 begin
-//#UC START# *F09CA18F756D_F44EDB26B480_impl*
+//#UC START# *552E57E00346_F44EDB26B480_impl*
  l_TotalHeight := 0;
  l_Canvas := TControlCanvas.Create;
  try
@@ -325,7 +285,7 @@ begin
   FreeAndNil(l_Canvas);
  end;//try..finally
  Result := l_TotalHeight;
-//#UC END# *F09CA18F756D_F44EDB26B480_impl*
+//#UC END# *552E57E00346_F44EDB26B480_impl*
 end;//TkwMenuItemGetMenuHeight.GetMenuHeight
 
 procedure TkwMenuItemGetMenuHeight.DoDoIt(const aCtx: TtfwContext);
@@ -343,6 +303,11 @@ begin
  aCtx.rEngine.PushInt(GetMenuHeight(aCtx, l_aMenuItem));
 end;//TkwMenuItemGetMenuHeight.DoDoIt
 
+class function TkwMenuItemGetMenuHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'menuitem:GetMenuHeight';
+end;//TkwMenuItemGetMenuHeight.GetWordNameForRegister
+
 function TkwMenuItemGetMenuHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -357,11 +322,6 @@ function TkwMenuItemGetMenuHeight.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemGetMenuHeight.ParamsTypes
-
-class function TkwMenuItemGetMenuHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'menuitem:GetMenuHeight';
-end;//TkwMenuItemGetMenuHeight.GetWordNameForRegister
 
 function TkwMenuItemCaption.Caption(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): AnsiString;
@@ -385,11 +345,10 @@ begin
  aCtx.rEngine.PushString(Caption(aCtx, l_aMenuItem));
 end;//TkwMenuItemCaption.DoDoIt
 
-procedure TkwMenuItemCaption.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMenuItemCaption.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
-end;//TkwMenuItemCaption.SetValuePrim
+ Result := 'menuitem:GetCaption';
+end;//TkwMenuItemCaption.GetWordNameForRegister
 
 function TkwMenuItemCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -406,10 +365,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemCaption.ParamsTypes
 
-class function TkwMenuItemCaption.GetWordNameForRegister: AnsiString;
+procedure TkwMenuItemCaption.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'menuitem:GetCaption';
-end;//TkwMenuItemCaption.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
+end;//TkwMenuItemCaption.SetValuePrim
 
 function TkwMenuItemCount.Count(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Integer;
@@ -433,11 +393,10 @@ begin
  aCtx.rEngine.PushInt(Count(aCtx, l_aMenuItem));
 end;//TkwMenuItemCount.DoDoIt
 
-procedure TkwMenuItemCount.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMenuItemCount.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
-end;//TkwMenuItemCount.SetValuePrim
+ Result := 'menuitem:GetCount';
+end;//TkwMenuItemCount.GetWordNameForRegister
 
 function TkwMenuItemCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -454,10 +413,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemCount.ParamsTypes
 
-class function TkwMenuItemCount.GetWordNameForRegister: AnsiString;
+procedure TkwMenuItemCount.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'menuitem:GetCount';
-end;//TkwMenuItemCount.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
+end;//TkwMenuItemCount.SetValuePrim
 
 function TkwMenuItemEnabled.Enabled(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Boolean;
@@ -481,11 +441,10 @@ begin
  aCtx.rEngine.PushBool(Enabled(aCtx, l_aMenuItem));
 end;//TkwMenuItemEnabled.DoDoIt
 
-procedure TkwMenuItemEnabled.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMenuItemEnabled.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
-end;//TkwMenuItemEnabled.SetValuePrim
+ Result := 'menuitem:IsEnabled';
+end;//TkwMenuItemEnabled.GetWordNameForRegister
 
 function TkwMenuItemEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -502,10 +461,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemEnabled.ParamsTypes
 
-class function TkwMenuItemEnabled.GetWordNameForRegister: AnsiString;
+procedure TkwMenuItemEnabled.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'menuitem:IsEnabled';
-end;//TkwMenuItemEnabled.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
+end;//TkwMenuItemEnabled.SetValuePrim
 
 function TkwMenuItemVisible.Visible(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Boolean;
@@ -529,11 +489,10 @@ begin
  aCtx.rEngine.PushBool(Visible(aCtx, l_aMenuItem));
 end;//TkwMenuItemVisible.DoDoIt
 
-procedure TkwMenuItemVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMenuItemVisible.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
-end;//TkwMenuItemVisible.SetValuePrim
+ Result := 'menuitem:IsVisible';
+end;//TkwMenuItemVisible.GetWordNameForRegister
 
 function TkwMenuItemVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -550,10 +509,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemVisible.ParamsTypes
 
-class function TkwMenuItemVisible.GetWordNameForRegister: AnsiString;
+procedure TkwMenuItemVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'menuitem:IsVisible';
-end;//TkwMenuItemVisible.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
+end;//TkwMenuItemVisible.SetValuePrim
 
 class function TMenuWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -579,14 +539,12 @@ initialization
  {* Регистрация MenuItem_Visible }
  TMenuWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TMenuItem));
  {* Регистрация типа TMenuItem }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

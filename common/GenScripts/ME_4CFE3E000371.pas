@@ -650,6 +650,18 @@ initialization
  {* Регистрация TvgControl }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvgResources);
+ {* Регистрация TvgResources }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvgLang);
+ {* Регистрация TvgLang }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvgDesigner);
+ {* Регистрация TvgDesigner }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgScene);
  {* Регистрация TvgScene }
 {$IfEnd} // NOT Defined(NoScripts)

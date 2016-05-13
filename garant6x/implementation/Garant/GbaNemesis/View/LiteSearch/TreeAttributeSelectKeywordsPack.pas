@@ -35,11 +35,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -141,14 +141,7 @@ type
  end;//Tkw_TreeAttributeSelect_Control_AttributeTree_Push
 
  TkwEfTreeAttributeSelectBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefTreeAttributeSelect.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TefTreeAttributeSelect[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aefTreeAttributeSelect .TefTreeAttributeSelect.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TefTreeAttributeSelect.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aefTreeAttributeSelect: TefTreeAttributeSelect): TvtPanel;
@@ -157,22 +150,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfTreeAttributeSelectBackgroundPanel
 
  TkwEfTreeAttributeSelectContextFilter = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefTreeAttributeSelect.ContextFilter
-[panel]Контрол ContextFilter формы TefTreeAttributeSelect[panel]
-*Тип результата:* TnscContextFilter
-*Пример:*
-[code]
-OBJECT VAR l_TnscContextFilter
- aefTreeAttributeSelect .TefTreeAttributeSelect.ContextFilter >>> l_TnscContextFilter
-[code]  }
+  {* Слово скрипта .TefTreeAttributeSelect.ContextFilter }
   private
    function ContextFilter(const aCtx: TtfwContext;
     aefTreeAttributeSelect: TefTreeAttributeSelect): TnscContextFilter;
@@ -181,22 +167,15 @@ OBJECT VAR l_TnscContextFilter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfTreeAttributeSelectContextFilter
 
  TkwEfTreeAttributeSelectAttributeTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefTreeAttributeSelect.AttributeTree
-[panel]Контрол AttributeTree формы TefTreeAttributeSelect[panel]
-*Тип результата:* TnscTreeViewHotTruck
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewHotTruck
- aefTreeAttributeSelect .TefTreeAttributeSelect.AttributeTree >>> l_TnscTreeViewHotTruck
-[code]  }
+  {* Слово скрипта .TefTreeAttributeSelect.AttributeTree }
   private
    function AttributeTree(const aCtx: TtfwContext;
     aefTreeAttributeSelect: TefTreeAttributeSelect): TnscTreeViewHotTruck;
@@ -205,11 +184,11 @@ OBJECT VAR l_TnscTreeViewHotTruck
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfTreeAttributeSelectAttributeTree
 
 function Tkw_Form_TreeAttributeSelect.GetString: AnsiString;
@@ -325,11 +304,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectBackgroundPanel.DoDoIt
 
-procedure TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim
+ Result := '.TefTreeAttributeSelect.BackgroundPanel';
+end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 function TkwEfTreeAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -346,10 +324,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes
 
-class function TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefTreeAttributeSelect.BackgroundPanel';
-end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwEfTreeAttributeSelectContextFilter.ContextFilter(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TnscContextFilter;
@@ -373,11 +352,10 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectContextFilter.DoDoIt
 
-procedure TkwEfTreeAttributeSelectContextFilter.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
-end;//TkwEfTreeAttributeSelectContextFilter.SetValuePrim
+ Result := '.TefTreeAttributeSelect.ContextFilter';
+end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
 
 function TkwEfTreeAttributeSelectContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -394,10 +372,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectContextFilter.ParamsTypes
 
-class function TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister: AnsiString;
+procedure TkwEfTreeAttributeSelectContextFilter.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefTreeAttributeSelect.ContextFilter';
-end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
+end;//TkwEfTreeAttributeSelectContextFilter.SetValuePrim
 
 function TkwEfTreeAttributeSelectAttributeTree.AttributeTree(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TnscTreeViewHotTruck;
@@ -421,11 +400,10 @@ begin
  aCtx.rEngine.PushObj(AttributeTree(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectAttributeTree.DoDoIt
 
-procedure TkwEfTreeAttributeSelectAttributeTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству AttributeTree', aCtx);
-end;//TkwEfTreeAttributeSelectAttributeTree.SetValuePrim
+ Result := '.TefTreeAttributeSelect.AttributeTree';
+end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
 
 function TkwEfTreeAttributeSelectAttributeTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -442,10 +420,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectAttributeTree.ParamsTypes
 
-class function TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister: AnsiString;
+procedure TkwEfTreeAttributeSelectAttributeTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefTreeAttributeSelect.AttributeTree';
-end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству AttributeTree', aCtx);
+end;//TkwEfTreeAttributeSelectAttributeTree.SetValuePrim
 
 initialization
  Tkw_Form_TreeAttributeSelect.RegisterInEngine;
@@ -468,10 +447,8 @@ initialization
  {* Регистрация efTreeAttributeSelect_ContextFilter }
  TkwEfTreeAttributeSelectAttributeTree.RegisterInEngine;
  {* Регистрация efTreeAttributeSelect_AttributeTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefTreeAttributeSelect));
- {* Регистрация типа TreeAttributeSelect }
+ {* Регистрация типа TefTreeAttributeSelect }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));

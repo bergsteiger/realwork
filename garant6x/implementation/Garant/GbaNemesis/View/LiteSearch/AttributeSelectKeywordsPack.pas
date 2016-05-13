@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -136,14 +136,7 @@ type
  end;//Tkw_AttributeSelect_Control_ValuesZone_Push
 
  TkwCfAttributeSelectBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfAttributeSelect.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TcfAttributeSelect[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- acfAttributeSelect .TcfAttributeSelect.BackgroundPanel >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TcfAttributeSelect.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     acfAttributeSelect: TcfAttributeSelect): TvtProportionalPanel;
@@ -152,22 +145,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfAttributeSelectBackgroundPanel
 
  TkwCfAttributeSelectSelectedZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfAttributeSelect.SelectedZone
-[panel]Контрол SelectedZone формы TcfAttributeSelect[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- acfAttributeSelect .TcfAttributeSelect.SelectedZone >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TcfAttributeSelect.SelectedZone }
   private
    function SelectedZone(const aCtx: TtfwContext;
     acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
@@ -176,22 +162,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfAttributeSelectSelectedZone
 
  TkwCfAttributeSelectValuesZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfAttributeSelect.ValuesZone
-[panel]Контрол ValuesZone формы TcfAttributeSelect[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- acfAttributeSelect .TcfAttributeSelect.ValuesZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TcfAttributeSelect.ValuesZone }
   private
    function ValuesZone(const aCtx: TtfwContext;
     acfAttributeSelect: TcfAttributeSelect): TvtPanel;
@@ -200,11 +179,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfAttributeSelectValuesZone
 
 function Tkw_Form_AttributeSelect.GetString: AnsiString;
@@ -320,11 +299,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectBackgroundPanel.DoDoIt
 
-procedure TkwCfAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
+ Result := '.TcfAttributeSelect.BackgroundPanel';
+end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 function TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -341,10 +319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectBackgroundPanel.ParamsTypes
 
-class function TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCfAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfAttributeSelect.BackgroundPanel';
-end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwCfAttributeSelectSelectedZone.SelectedZone(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
@@ -368,11 +347,10 @@ begin
  aCtx.rEngine.PushObj(SelectedZone(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectSelectedZone.DoDoIt
 
-procedure TkwCfAttributeSelectSelectedZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfAttributeSelectSelectedZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SelectedZone', aCtx);
-end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
+ Result := '.TcfAttributeSelect.SelectedZone';
+end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
 
 function TkwCfAttributeSelectSelectedZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -389,10 +367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectSelectedZone.ParamsTypes
 
-class function TkwCfAttributeSelectSelectedZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfAttributeSelectSelectedZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfAttributeSelect.SelectedZone';
-end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SelectedZone', aCtx);
+end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
 
 function TkwCfAttributeSelectValuesZone.ValuesZone(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtPanel;
@@ -416,11 +395,10 @@ begin
  aCtx.rEngine.PushObj(ValuesZone(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectValuesZone.DoDoIt
 
-procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfAttributeSelectValuesZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ValuesZone', aCtx);
-end;//TkwCfAttributeSelectValuesZone.SetValuePrim
+ Result := '.TcfAttributeSelect.ValuesZone';
+end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
 
 function TkwCfAttributeSelectValuesZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -437,10 +415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectValuesZone.ParamsTypes
 
-class function TkwCfAttributeSelectValuesZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfAttributeSelect.ValuesZone';
-end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ValuesZone', aCtx);
+end;//TkwCfAttributeSelectValuesZone.SetValuePrim
 
 initialization
  Tkw_Form_AttributeSelect.RegisterInEngine;
@@ -463,10 +442,8 @@ initialization
  {* Регистрация cfAttributeSelect_SelectedZone }
  TkwCfAttributeSelectValuesZone.RegisterInEngine;
  {* Регистрация cfAttributeSelect_ValuesZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TcfAttributeSelect));
- {* Регистрация типа AttributeSelect }
+ {* Регистрация типа TcfAttributeSelect }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));

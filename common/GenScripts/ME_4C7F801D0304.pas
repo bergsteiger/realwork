@@ -38,13 +38,13 @@ uses
  , DocumentUnit
  , AdapterFacade
  , nevNavigation
- , DocumentAndListInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , DocumentAndListInterfaces
  , l3StringIDEx
 ;
 

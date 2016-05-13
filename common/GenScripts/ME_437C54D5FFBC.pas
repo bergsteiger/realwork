@@ -36,11 +36,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -286,14 +286,7 @@ type
 {$IfEnd} // Defined(HasRightNavigator)
 
  TkwAdminMainFormStatusBar = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.StatusBar
-[panel]Контрол StatusBar формы TAdminMainForm[panel]
-*Тип результата:* TnscStatusBar
-*Пример:*
-[code]
-OBJECT VAR l_TnscStatusBar
- aAdminMainForm .TAdminMainForm.StatusBar >>> l_TnscStatusBar
-[code]  }
+  {* Слово скрипта .TAdminMainForm.StatusBar }
   private
    function StatusBar(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TnscStatusBar;
@@ -302,22 +295,15 @@ OBJECT VAR l_TnscStatusBar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormStatusBar
 
  TkwAdminMainFormClientZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.ClientZone
-[panel]Контрол ClientZone формы TAdminMainForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aAdminMainForm .TAdminMainForm.ClientZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TAdminMainForm.ClientZone }
   private
    function ClientZone(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -326,22 +312,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormClientZone
 
  TkwAdminMainFormMainZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.MainZone
-[panel]Контрол MainZone формы TAdminMainForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aAdminMainForm .TAdminMainForm.MainZone >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TAdminMainForm.MainZone }
   private
    function MainZone(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TvtProportionalPanel;
@@ -350,22 +329,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormMainZone
 
  TkwAdminMainFormParentZonePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.ParentZonePanel
-[panel]Контрол ParentZonePanel формы TAdminMainForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aAdminMainForm .TAdminMainForm.ParentZonePanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TAdminMainForm.ParentZonePanel }
   private
    function ParentZonePanel(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -374,22 +346,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormParentZonePanel
 
  TkwAdminMainFormChildZonePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.ChildZonePanel
-[panel]Контрол ChildZonePanel формы TAdminMainForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aAdminMainForm .TAdminMainForm.ChildZonePanel >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TAdminMainForm.ChildZonePanel }
   private
    function ChildZonePanel(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TvtSizeablePanel;
@@ -398,22 +363,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormChildZonePanel
 
  TkwAdminMainFormBaseSearchPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.BaseSearchPanel
-[panel]Контрол BaseSearchPanel формы TAdminMainForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aAdminMainForm .TAdminMainForm.BaseSearchPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TAdminMainForm.BaseSearchPanel }
   private
    function BaseSearchPanel(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -422,22 +380,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormBaseSearchPanel
 
  TkwAdminMainFormLeftNavigator = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.LeftNavigator
-[panel]Контрол LeftNavigator формы TAdminMainForm[panel]
-*Тип результата:* TnscNavigator
-*Пример:*
-[code]
-OBJECT VAR l_TnscNavigator
- aAdminMainForm .TAdminMainForm.LeftNavigator >>> l_TnscNavigator
-[code]  }
+  {* Слово скрипта .TAdminMainForm.LeftNavigator }
   private
    function LeftNavigator(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TnscNavigator;
@@ -446,23 +397,16 @@ OBJECT VAR l_TnscNavigator
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormLeftNavigator
 
 {$If Defined(HasRightNavigator)}
  TkwAdminMainFormRightNavigator = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAdminMainForm.RightNavigator
-[panel]Контрол RightNavigator формы TAdminMainForm[panel]
-*Тип результата:* TnscNavigator
-*Пример:*
-[code]
-OBJECT VAR l_TnscNavigator
- aAdminMainForm .TAdminMainForm.RightNavigator >>> l_TnscNavigator
-[code]  }
+  {* Слово скрипта .TAdminMainForm.RightNavigator }
   private
    function RightNavigator(const aCtx: TtfwContext;
     aAdminMainForm: TAdminMainForm): TnscNavigator;
@@ -471,11 +415,11 @@ OBJECT VAR l_TnscNavigator
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAdminMainFormRightNavigator
 {$IfEnd} // Defined(HasRightNavigator)
 
@@ -731,11 +675,10 @@ begin
  aCtx.rEngine.PushObj(StatusBar(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormStatusBar.DoDoIt
 
-procedure TkwAdminMainFormStatusBar.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormStatusBar.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству StatusBar', aCtx);
-end;//TkwAdminMainFormStatusBar.SetValuePrim
+ Result := '.TAdminMainForm.StatusBar';
+end;//TkwAdminMainFormStatusBar.GetWordNameForRegister
 
 function TkwAdminMainFormStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -752,10 +695,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormStatusBar.ParamsTypes
 
-class function TkwAdminMainFormStatusBar.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormStatusBar.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.StatusBar';
-end;//TkwAdminMainFormStatusBar.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству StatusBar', aCtx);
+end;//TkwAdminMainFormStatusBar.SetValuePrim
 
 function TkwAdminMainFormClientZone.ClientZone(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -779,11 +723,10 @@ begin
  aCtx.rEngine.PushObj(ClientZone(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormClientZone.DoDoIt
 
-procedure TkwAdminMainFormClientZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormClientZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ClientZone', aCtx);
-end;//TkwAdminMainFormClientZone.SetValuePrim
+ Result := '.TAdminMainForm.ClientZone';
+end;//TkwAdminMainFormClientZone.GetWordNameForRegister
 
 function TkwAdminMainFormClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -800,10 +743,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormClientZone.ParamsTypes
 
-class function TkwAdminMainFormClientZone.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormClientZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.ClientZone';
-end;//TkwAdminMainFormClientZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ClientZone', aCtx);
+end;//TkwAdminMainFormClientZone.SetValuePrim
 
 function TkwAdminMainFormMainZone.MainZone(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtProportionalPanel;
@@ -827,11 +771,10 @@ begin
  aCtx.rEngine.PushObj(MainZone(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormMainZone.DoDoIt
 
-procedure TkwAdminMainFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormMainZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
-end;//TkwAdminMainFormMainZone.SetValuePrim
+ Result := '.TAdminMainForm.MainZone';
+end;//TkwAdminMainFormMainZone.GetWordNameForRegister
 
 function TkwAdminMainFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -848,10 +791,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormMainZone.ParamsTypes
 
-class function TkwAdminMainFormMainZone.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.MainZone';
-end;//TkwAdminMainFormMainZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
+end;//TkwAdminMainFormMainZone.SetValuePrim
 
 function TkwAdminMainFormParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -875,11 +819,10 @@ begin
  aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormParentZonePanel.DoDoIt
 
-procedure TkwAdminMainFormParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormParentZonePanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentZonePanel', aCtx);
-end;//TkwAdminMainFormParentZonePanel.SetValuePrim
+ Result := '.TAdminMainForm.ParentZonePanel';
+end;//TkwAdminMainFormParentZonePanel.GetWordNameForRegister
 
 function TkwAdminMainFormParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -896,10 +839,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormParentZonePanel.ParamsTypes
 
-class function TkwAdminMainFormParentZonePanel.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.ParentZonePanel';
-end;//TkwAdminMainFormParentZonePanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZonePanel', aCtx);
+end;//TkwAdminMainFormParentZonePanel.SetValuePrim
 
 function TkwAdminMainFormChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtSizeablePanel;
@@ -923,11 +867,10 @@ begin
  aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormChildZonePanel.DoDoIt
 
-procedure TkwAdminMainFormChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormChildZonePanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ChildZonePanel', aCtx);
-end;//TkwAdminMainFormChildZonePanel.SetValuePrim
+ Result := '.TAdminMainForm.ChildZonePanel';
+end;//TkwAdminMainFormChildZonePanel.GetWordNameForRegister
 
 function TkwAdminMainFormChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -944,10 +887,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormChildZonePanel.ParamsTypes
 
-class function TkwAdminMainFormChildZonePanel.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.ChildZonePanel';
-end;//TkwAdminMainFormChildZonePanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZonePanel', aCtx);
+end;//TkwAdminMainFormChildZonePanel.SetValuePrim
 
 function TkwAdminMainFormBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TvtPanel;
@@ -971,11 +915,10 @@ begin
  aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormBaseSearchPanel.DoDoIt
 
-procedure TkwAdminMainFormBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BaseSearchPanel', aCtx);
-end;//TkwAdminMainFormBaseSearchPanel.SetValuePrim
+ Result := '.TAdminMainForm.BaseSearchPanel';
+end;//TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister
 
 function TkwAdminMainFormBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -992,10 +935,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormBaseSearchPanel.ParamsTypes
 
-class function TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.BaseSearchPanel';
-end;//TkwAdminMainFormBaseSearchPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BaseSearchPanel', aCtx);
+end;//TkwAdminMainFormBaseSearchPanel.SetValuePrim
 
 function TkwAdminMainFormLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
  aAdminMainForm: TAdminMainForm): TnscNavigator;
@@ -1019,11 +963,10 @@ begin
  aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormLeftNavigator.DoDoIt
 
-procedure TkwAdminMainFormLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormLeftNavigator.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LeftNavigator', aCtx);
-end;//TkwAdminMainFormLeftNavigator.SetValuePrim
+ Result := '.TAdminMainForm.LeftNavigator';
+end;//TkwAdminMainFormLeftNavigator.GetWordNameForRegister
 
 function TkwAdminMainFormLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1040,10 +983,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormLeftNavigator.ParamsTypes
 
-class function TkwAdminMainFormLeftNavigator.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.LeftNavigator';
-end;//TkwAdminMainFormLeftNavigator.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LeftNavigator', aCtx);
+end;//TkwAdminMainFormLeftNavigator.SetValuePrim
 
 {$If Defined(HasRightNavigator)}
 function TkwAdminMainFormRightNavigator.RightNavigator(const aCtx: TtfwContext;
@@ -1068,11 +1012,10 @@ begin
  aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aAdminMainForm));
 end;//TkwAdminMainFormRightNavigator.DoDoIt
 
-procedure TkwAdminMainFormRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAdminMainFormRightNavigator.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RightNavigator', aCtx);
-end;//TkwAdminMainFormRightNavigator.SetValuePrim
+ Result := '.TAdminMainForm.RightNavigator';
+end;//TkwAdminMainFormRightNavigator.GetWordNameForRegister
 
 function TkwAdminMainFormRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1089,10 +1032,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAdminMainForm)]);
 end;//TkwAdminMainFormRightNavigator.ParamsTypes
 
-class function TkwAdminMainFormRightNavigator.GetWordNameForRegister: AnsiString;
+procedure TkwAdminMainFormRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAdminMainForm.RightNavigator';
-end;//TkwAdminMainFormRightNavigator.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RightNavigator', aCtx);
+end;//TkwAdminMainFormRightNavigator.SetValuePrim
 {$IfEnd} // Defined(HasRightNavigator)
 
 initialization
@@ -1152,10 +1096,8 @@ initialization
  TkwAdminMainFormRightNavigator.RegisterInEngine;
  {* Регистрация AdminMainForm_RightNavigator }
 {$IfEnd} // Defined(HasRightNavigator)
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TAdminMainForm));
- {* Регистрация типа AdminMain }
+ {* Регистрация типа TAdminMainForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBar));
  {* Регистрация типа TnscStatusBar }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));

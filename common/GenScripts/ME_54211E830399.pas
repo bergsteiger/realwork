@@ -30,7 +30,16 @@ uses
  , ChromeLikeTypes
  , ChromeLikeLegacyWindowCaptionButtons
  , ChromeLikeThemedWindowCaptionButtons
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TFormFrameDecorator);
+ {* Регистрация TFormFrameDecorator }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

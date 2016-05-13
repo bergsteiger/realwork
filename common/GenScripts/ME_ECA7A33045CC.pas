@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -80,14 +80,7 @@ type
  end;//Tkw_ChatHistory_Control_HistoryEditor_Push
 
  TkwChatHistoryFormHistoryEditor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChatHistoryForm.HistoryEditor
-[panel]Контрол HistoryEditor формы TChatHistoryForm[panel]
-*Тип результата:* TnscChatMemo
-*Пример:*
-[code]
-OBJECT VAR l_TnscChatMemo
- aChatHistoryForm .TChatHistoryForm.HistoryEditor >>> l_TnscChatMemo
-[code]  }
+  {* Слово скрипта .TChatHistoryForm.HistoryEditor }
   private
    function HistoryEditor(const aCtx: TtfwContext;
     aChatHistoryForm: TChatHistoryForm): TnscChatMemo;
@@ -96,11 +89,11 @@ OBJECT VAR l_TnscChatMemo
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChatHistoryFormHistoryEditor
 
 function Tkw_Form_ChatHistory.GetString: AnsiString;
@@ -162,11 +155,10 @@ begin
  aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatHistoryForm));
 end;//TkwChatHistoryFormHistoryEditor.DoDoIt
 
-procedure TkwChatHistoryFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChatHistoryFormHistoryEditor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HistoryEditor', aCtx);
-end;//TkwChatHistoryFormHistoryEditor.SetValuePrim
+ Result := '.TChatHistoryForm.HistoryEditor';
+end;//TkwChatHistoryFormHistoryEditor.GetWordNameForRegister
 
 function TkwChatHistoryFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -183,10 +175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChatHistoryForm)]);
 end;//TkwChatHistoryFormHistoryEditor.ParamsTypes
 
-class function TkwChatHistoryFormHistoryEditor.GetWordNameForRegister: AnsiString;
+procedure TkwChatHistoryFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChatHistoryForm.HistoryEditor';
-end;//TkwChatHistoryFormHistoryEditor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HistoryEditor', aCtx);
+end;//TkwChatHistoryFormHistoryEditor.SetValuePrim
 
 initialization
  Tkw_Form_ChatHistory.RegisterInEngine;
@@ -197,10 +190,8 @@ initialization
  {* Регистрация Tkw_ChatHistory_Control_HistoryEditor_Push }
  TkwChatHistoryFormHistoryEditor.RegisterInEngine;
  {* Регистрация ChatHistoryForm_HistoryEditor }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChatHistoryForm));
- {* Регистрация типа ChatHistory }
+ {* Регистрация типа TChatHistoryForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscChatMemo));
  {* Регистрация типа TnscChatMemo }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

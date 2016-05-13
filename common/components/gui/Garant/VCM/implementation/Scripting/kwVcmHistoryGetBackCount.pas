@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmHistoryGetBackCount = {final} class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmHistoryGetBackCount
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -42,6 +42,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwVcmHistoryGetBackCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:History:GetBackCount';
+end;//TkwVcmHistoryGetBackCount.GetWordNameForRegister
+
 procedure TkwVcmHistoryGetBackCount.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4FC4C90B002D_var*
 //#UC END# *4DAEEDE10285_4FC4C90B002D_var*
@@ -50,11 +55,6 @@ begin
  aCtx.rEngine.PushInt(vcmDispatcher.History.GetBackCount);
 //#UC END# *4DAEEDE10285_4FC4C90B002D_impl*
 end;//TkwVcmHistoryGetBackCount.DoDoIt
-
-class function TkwVcmHistoryGetBackCount.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:History:GetBackCount';
-end;//TkwVcmHistoryGetBackCount.GetWordNameForRegister
 
 initialization
  TkwVcmHistoryGetBackCount.RegisterInEngine;

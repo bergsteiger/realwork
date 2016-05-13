@@ -48,11 +48,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -616,14 +616,7 @@ type
  end;//Tkw_NewBaseSearch_Component_FlashTimer
 
  TkwNewBaseSearchFormFindBtn = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.FindBtn
-[panel]Контрол FindBtn формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgPathButton
-*Пример:*
-[code]
-OBJECT VAR l_TvgPathButton
- aNewBaseSearchForm .TNewBaseSearchForm.FindBtn >>> l_TvgPathButton
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.FindBtn }
   private
    function FindBtn(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
@@ -632,22 +625,15 @@ OBJECT VAR l_TvgPathButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormFindBtn
 
  TkwNewBaseSearchFormFindBackBtn = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.FindBackBtn
-[panel]Контрол FindBackBtn формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgPathButton
-*Пример:*
-[code]
-OBJECT VAR l_TvgPathButton
- aNewBaseSearchForm .TNewBaseSearchForm.FindBackBtn >>> l_TvgPathButton
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.FindBackBtn }
   private
    function FindBackBtn(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
@@ -656,22 +642,15 @@ OBJECT VAR l_TvgPathButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormFindBackBtn
 
  TkwNewBaseSearchFormCloseBtn = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.CloseBtn
-[panel]Контрол CloseBtn формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgCloseButton
-*Пример:*
-[code]
-OBJECT VAR l_TvgCloseButton
- aNewBaseSearchForm .TNewBaseSearchForm.CloseBtn >>> l_TvgCloseButton
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.CloseBtn }
   private
    function CloseBtn(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgCloseButton;
@@ -680,22 +659,15 @@ OBJECT VAR l_TvgCloseButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormCloseBtn
 
  TkwNewBaseSearchFormAreaCombo = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.AreaCombo
-[panel]Контрол AreaCombo формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgComboBox
-*Пример:*
-[code]
-OBJECT VAR l_TvgComboBox
- aNewBaseSearchForm .TNewBaseSearchForm.AreaCombo >>> l_TvgComboBox
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.AreaCombo }
   private
    function AreaCombo(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
@@ -704,22 +676,15 @@ OBJECT VAR l_TvgComboBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormAreaCombo
 
  TkwNewBaseSearchFormQueryExampleLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.QueryExampleLabel
-[panel]Контрол QueryExampleLabel формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgText
-*Пример:*
-[code]
-OBJECT VAR l_TvgText
- aNewBaseSearchForm .TNewBaseSearchForm.QueryExampleLabel >>> l_TvgText
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.QueryExampleLabel }
   private
    function QueryExampleLabel(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -728,22 +693,15 @@ OBJECT VAR l_TvgText
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormQueryExampleLabel
 
  TkwNewBaseSearchFormDropButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.DropButton
-[panel]Контрол DropButton формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgButton
-*Пример:*
-[code]
-OBJECT VAR l_TvgButton
- aNewBaseSearchForm .TNewBaseSearchForm.DropButton >>> l_TvgButton
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.DropButton }
   private
    function DropButton(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgButton;
@@ -752,22 +710,15 @@ OBJECT VAR l_TvgButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormDropButton
 
  TkwNewBaseSearchFormFoundCountLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.FoundCountLabel
-[panel]Контрол FoundCountLabel формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgText
-*Пример:*
-[code]
-OBJECT VAR l_TvgText
- aNewBaseSearchForm .TNewBaseSearchForm.FoundCountLabel >>> l_TvgText
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.FoundCountLabel }
   private
    function FoundCountLabel(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -776,22 +727,15 @@ OBJECT VAR l_TvgText
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormFoundCountLabel
 
  TkwNewBaseSearchFormExampleLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.ExampleLabel
-[panel]Контрол ExampleLabel формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgText
-*Пример:*
-[code]
-OBJECT VAR l_TvgText
- aNewBaseSearchForm .TNewBaseSearchForm.ExampleLabel >>> l_TvgText
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.ExampleLabel }
   private
    function ExampleLabel(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -800,22 +744,15 @@ OBJECT VAR l_TvgText
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormExampleLabel
 
  TkwNewBaseSearchFormContextEditPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.ContextEditPanel
-[panel]Контрол ContextEditPanel формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgNonVGLayout
-*Пример:*
-[code]
-OBJECT VAR l_TvgNonVGLayout
- aNewBaseSearchForm .TNewBaseSearchForm.ContextEditPanel >>> l_TvgNonVGLayout
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.ContextEditPanel }
   private
    function ContextEditPanel(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgNonVGLayout;
@@ -824,22 +761,15 @@ OBJECT VAR l_TvgNonVGLayout
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormContextEditPanel
 
  TkwNewBaseSearchFormLayout1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.Layout1
-[panel]Контрол Layout1 формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgLayout
-*Пример:*
-[code]
-OBJECT VAR l_TvgLayout
- aNewBaseSearchForm .TNewBaseSearchForm.Layout1 >>> l_TvgLayout
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.Layout1 }
   private
    function Layout1(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -848,22 +778,15 @@ OBJECT VAR l_TvgLayout
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormLayout1
 
  TkwNewBaseSearchFormLayout2 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.Layout2
-[panel]Контрол Layout2 формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgLayout
-*Пример:*
-[code]
-OBJECT VAR l_TvgLayout
- aNewBaseSearchForm .TNewBaseSearchForm.Layout2 >>> l_TvgLayout
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.Layout2 }
   private
    function Layout2(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -872,22 +795,15 @@ OBJECT VAR l_TvgLayout
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormLayout2
 
  TkwNewBaseSearchFormLayout3 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.Layout3
-[panel]Контрол Layout3 формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgLayout
-*Пример:*
-[code]
-OBJECT VAR l_TvgLayout
- aNewBaseSearchForm .TNewBaseSearchForm.Layout3 >>> l_TvgLayout
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.Layout3 }
   private
    function Layout3(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -896,22 +812,15 @@ OBJECT VAR l_TvgLayout
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormLayout3
 
  TkwNewBaseSearchFormVgScene1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.vgScene1
-[panel]Контрол vgScene1 формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgScene
-*Пример:*
-[code]
-OBJECT VAR l_TvgScene
- aNewBaseSearchForm .TNewBaseSearchForm.vgScene1 >>> l_TvgScene
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.vgScene1 }
   private
    function vgScene1(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgScene;
@@ -920,22 +829,15 @@ OBJECT VAR l_TvgScene
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormVgScene1
 
  TkwNewBaseSearchFormMoreTab = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.MoreTab
-[panel]Контрол MoreTab формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgComboBox
-*Пример:*
-[code]
-OBJECT VAR l_TvgComboBox
- aNewBaseSearchForm .TNewBaseSearchForm.MoreTab >>> l_TvgComboBox
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.MoreTab }
   private
    function MoreTab(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
@@ -944,22 +846,15 @@ OBJECT VAR l_TvgComboBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormMoreTab
 
  TkwNewBaseSearchFormBorder = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.Border
-[panel]Контрол Border формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgRectangle
-*Пример:*
-[code]
-OBJECT VAR l_TvgRectangle
- aNewBaseSearchForm .TNewBaseSearchForm.Border >>> l_TvgRectangle
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.Border }
   private
    function Border(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -968,22 +863,15 @@ OBJECT VAR l_TvgRectangle
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormBorder
 
  TkwNewBaseSearchFormInnerBorder = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.InnerBorder
-[panel]Контрол InnerBorder формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgRectangle
-*Пример:*
-[code]
-OBJECT VAR l_TvgRectangle
- aNewBaseSearchForm .TNewBaseSearchForm.InnerBorder >>> l_TvgRectangle
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.InnerBorder }
   private
    function InnerBorder(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -992,22 +880,15 @@ OBJECT VAR l_TvgRectangle
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormInnerBorder
 
  TkwNewBaseSearchFormMostOuterRectangle = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.MostOuterRectangle
-[panel]Контрол MostOuterRectangle формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgRectangle
-*Пример:*
-[code]
-OBJECT VAR l_TvgRectangle
- aNewBaseSearchForm .TNewBaseSearchForm.MostOuterRectangle >>> l_TvgRectangle
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.MostOuterRectangle }
   private
    function MostOuterRectangle(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -1016,22 +897,15 @@ OBJECT VAR l_TvgRectangle
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormMostOuterRectangle
 
  TkwNewBaseSearchFormRectangle1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.Rectangle1
-[panel]Контрол Rectangle1 формы TNewBaseSearchForm[panel]
-*Тип результата:* TvgRectangle
-*Пример:*
-[code]
-OBJECT VAR l_TvgRectangle
- aNewBaseSearchForm .TNewBaseSearchForm.Rectangle1 >>> l_TvgRectangle
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.Rectangle1 }
   private
    function Rectangle1(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -1040,22 +914,15 @@ OBJECT VAR l_TvgRectangle
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormRectangle1
 
  TkwNewBaseSearchFormContextEdit = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.ContextEdit
-[panel]Контрол ContextEdit формы TNewBaseSearchForm[panel]
-*Тип результата:* TnscTreeComboWithHistoryAndOperations
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeComboWithHistoryAndOperations
- aNewBaseSearchForm .TNewBaseSearchForm.ContextEdit >>> l_TnscTreeComboWithHistoryAndOperations
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.ContextEdit }
   private
    function ContextEdit(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TnscTreeComboWithHistoryAndOperations;
@@ -1064,22 +931,15 @@ OBJECT VAR l_TnscTreeComboWithHistoryAndOperations
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormContextEdit
 
  TkwNewBaseSearchFormFlashTimer = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TNewBaseSearchForm.FlashTimer
-[panel]Контрол FlashTimer формы TNewBaseSearchForm[panel]
-*Тип результата:* TTimer
-*Пример:*
-[code]
-OBJECT VAR l_TTimer
- aNewBaseSearchForm .TNewBaseSearchForm.FlashTimer >>> l_TTimer
-[code]  }
+  {* Слово скрипта .TNewBaseSearchForm.FlashTimer }
   private
    function FlashTimer(const aCtx: TtfwContext;
     aNewBaseSearchForm: TNewBaseSearchForm): TTimer;
@@ -1088,11 +948,11 @@ OBJECT VAR l_TTimer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwNewBaseSearchFormFlashTimer
 
 function Tkw_Form_NewBaseSearch.GetString: AnsiString;
@@ -1662,11 +1522,10 @@ begin
  aCtx.rEngine.PushObj(FindBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFindBtn.DoDoIt
 
-procedure TkwNewBaseSearchFormFindBtn.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormFindBtn.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FindBtn', aCtx);
-end;//TkwNewBaseSearchFormFindBtn.SetValuePrim
+ Result := '.TNewBaseSearchForm.FindBtn';
+end;//TkwNewBaseSearchFormFindBtn.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFindBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1683,10 +1542,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFindBtn.ParamsTypes
 
-class function TkwNewBaseSearchFormFindBtn.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormFindBtn.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.FindBtn';
-end;//TkwNewBaseSearchFormFindBtn.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FindBtn', aCtx);
+end;//TkwNewBaseSearchFormFindBtn.SetValuePrim
 
 function TkwNewBaseSearchFormFindBackBtn.FindBackBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
@@ -1710,11 +1570,10 @@ begin
  aCtx.rEngine.PushObj(FindBackBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFindBackBtn.DoDoIt
 
-procedure TkwNewBaseSearchFormFindBackBtn.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FindBackBtn', aCtx);
-end;//TkwNewBaseSearchFormFindBackBtn.SetValuePrim
+ Result := '.TNewBaseSearchForm.FindBackBtn';
+end;//TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFindBackBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1731,10 +1590,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFindBackBtn.ParamsTypes
 
-class function TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormFindBackBtn.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.FindBackBtn';
-end;//TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FindBackBtn', aCtx);
+end;//TkwNewBaseSearchFormFindBackBtn.SetValuePrim
 
 function TkwNewBaseSearchFormCloseBtn.CloseBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgCloseButton;
@@ -1758,11 +1618,10 @@ begin
  aCtx.rEngine.PushObj(CloseBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormCloseBtn.DoDoIt
 
-procedure TkwNewBaseSearchFormCloseBtn.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CloseBtn', aCtx);
-end;//TkwNewBaseSearchFormCloseBtn.SetValuePrim
+ Result := '.TNewBaseSearchForm.CloseBtn';
+end;//TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister
 
 function TkwNewBaseSearchFormCloseBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1779,10 +1638,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormCloseBtn.ParamsTypes
 
-class function TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormCloseBtn.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.CloseBtn';
-end;//TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CloseBtn', aCtx);
+end;//TkwNewBaseSearchFormCloseBtn.SetValuePrim
 
 function TkwNewBaseSearchFormAreaCombo.AreaCombo(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
@@ -1806,11 +1666,10 @@ begin
  aCtx.rEngine.PushObj(AreaCombo(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormAreaCombo.DoDoIt
 
-procedure TkwNewBaseSearchFormAreaCombo.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству AreaCombo', aCtx);
-end;//TkwNewBaseSearchFormAreaCombo.SetValuePrim
+ Result := '.TNewBaseSearchForm.AreaCombo';
+end;//TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister
 
 function TkwNewBaseSearchFormAreaCombo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1827,10 +1686,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormAreaCombo.ParamsTypes
 
-class function TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormAreaCombo.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.AreaCombo';
-end;//TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству AreaCombo', aCtx);
+end;//TkwNewBaseSearchFormAreaCombo.SetValuePrim
 
 function TkwNewBaseSearchFormQueryExampleLabel.QueryExampleLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -1854,11 +1714,10 @@ begin
  aCtx.rEngine.PushObj(QueryExampleLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormQueryExampleLabel.DoDoIt
 
-procedure TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству QueryExampleLabel', aCtx);
-end;//TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim
+ Result := '.TNewBaseSearchForm.QueryExampleLabel';
+end;//TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormQueryExampleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1875,10 +1734,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormQueryExampleLabel.ParamsTypes
 
-class function TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.QueryExampleLabel';
-end;//TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству QueryExampleLabel', aCtx);
+end;//TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim
 
 function TkwNewBaseSearchFormDropButton.DropButton(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgButton;
@@ -1902,11 +1762,10 @@ begin
  aCtx.rEngine.PushObj(DropButton(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormDropButton.DoDoIt
 
-procedure TkwNewBaseSearchFormDropButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormDropButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству DropButton', aCtx);
-end;//TkwNewBaseSearchFormDropButton.SetValuePrim
+ Result := '.TNewBaseSearchForm.DropButton';
+end;//TkwNewBaseSearchFormDropButton.GetWordNameForRegister
 
 function TkwNewBaseSearchFormDropButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1923,10 +1782,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormDropButton.ParamsTypes
 
-class function TkwNewBaseSearchFormDropButton.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormDropButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.DropButton';
-end;//TkwNewBaseSearchFormDropButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству DropButton', aCtx);
+end;//TkwNewBaseSearchFormDropButton.SetValuePrim
 
 function TkwNewBaseSearchFormFoundCountLabel.FoundCountLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -1950,11 +1810,10 @@ begin
  aCtx.rEngine.PushObj(FoundCountLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFoundCountLabel.DoDoIt
 
-procedure TkwNewBaseSearchFormFoundCountLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FoundCountLabel', aCtx);
-end;//TkwNewBaseSearchFormFoundCountLabel.SetValuePrim
+ Result := '.TNewBaseSearchForm.FoundCountLabel';
+end;//TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFoundCountLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1971,10 +1830,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFoundCountLabel.ParamsTypes
 
-class function TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormFoundCountLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.FoundCountLabel';
-end;//TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FoundCountLabel', aCtx);
+end;//TkwNewBaseSearchFormFoundCountLabel.SetValuePrim
 
 function TkwNewBaseSearchFormExampleLabel.ExampleLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
@@ -1998,11 +1858,10 @@ begin
  aCtx.rEngine.PushObj(ExampleLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormExampleLabel.DoDoIt
 
-procedure TkwNewBaseSearchFormExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ExampleLabel', aCtx);
-end;//TkwNewBaseSearchFormExampleLabel.SetValuePrim
+ Result := '.TNewBaseSearchForm.ExampleLabel';
+end;//TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormExampleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2019,10 +1878,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormExampleLabel.ParamsTypes
 
-class function TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.ExampleLabel';
-end;//TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ExampleLabel', aCtx);
+end;//TkwNewBaseSearchFormExampleLabel.SetValuePrim
 
 function TkwNewBaseSearchFormContextEditPanel.ContextEditPanel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgNonVGLayout;
@@ -2046,11 +1906,10 @@ begin
  aCtx.rEngine.PushObj(ContextEditPanel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormContextEditPanel.DoDoIt
 
-procedure TkwNewBaseSearchFormContextEditPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextEditPanel', aCtx);
-end;//TkwNewBaseSearchFormContextEditPanel.SetValuePrim
+ Result := '.TNewBaseSearchForm.ContextEditPanel';
+end;//TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister
 
 function TkwNewBaseSearchFormContextEditPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2067,10 +1926,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormContextEditPanel.ParamsTypes
 
-class function TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormContextEditPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.ContextEditPanel';
-end;//TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextEditPanel', aCtx);
+end;//TkwNewBaseSearchFormContextEditPanel.SetValuePrim
 
 function TkwNewBaseSearchFormLayout1.Layout1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -2094,11 +1954,10 @@ begin
  aCtx.rEngine.PushObj(Layout1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout1.DoDoIt
 
-procedure TkwNewBaseSearchFormLayout1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormLayout1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Layout1', aCtx);
-end;//TkwNewBaseSearchFormLayout1.SetValuePrim
+ Result := '.TNewBaseSearchForm.Layout1';
+end;//TkwNewBaseSearchFormLayout1.GetWordNameForRegister
 
 function TkwNewBaseSearchFormLayout1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2115,10 +1974,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout1.ParamsTypes
 
-class function TkwNewBaseSearchFormLayout1.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormLayout1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.Layout1';
-end;//TkwNewBaseSearchFormLayout1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Layout1', aCtx);
+end;//TkwNewBaseSearchFormLayout1.SetValuePrim
 
 function TkwNewBaseSearchFormLayout2.Layout2(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -2142,11 +2002,10 @@ begin
  aCtx.rEngine.PushObj(Layout2(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout2.DoDoIt
 
-procedure TkwNewBaseSearchFormLayout2.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormLayout2.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Layout2', aCtx);
-end;//TkwNewBaseSearchFormLayout2.SetValuePrim
+ Result := '.TNewBaseSearchForm.Layout2';
+end;//TkwNewBaseSearchFormLayout2.GetWordNameForRegister
 
 function TkwNewBaseSearchFormLayout2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2163,10 +2022,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout2.ParamsTypes
 
-class function TkwNewBaseSearchFormLayout2.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormLayout2.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.Layout2';
-end;//TkwNewBaseSearchFormLayout2.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Layout2', aCtx);
+end;//TkwNewBaseSearchFormLayout2.SetValuePrim
 
 function TkwNewBaseSearchFormLayout3.Layout3(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
@@ -2190,11 +2050,10 @@ begin
  aCtx.rEngine.PushObj(Layout3(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout3.DoDoIt
 
-procedure TkwNewBaseSearchFormLayout3.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormLayout3.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Layout3', aCtx);
-end;//TkwNewBaseSearchFormLayout3.SetValuePrim
+ Result := '.TNewBaseSearchForm.Layout3';
+end;//TkwNewBaseSearchFormLayout3.GetWordNameForRegister
 
 function TkwNewBaseSearchFormLayout3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2211,10 +2070,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout3.ParamsTypes
 
-class function TkwNewBaseSearchFormLayout3.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormLayout3.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.Layout3';
-end;//TkwNewBaseSearchFormLayout3.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Layout3', aCtx);
+end;//TkwNewBaseSearchFormLayout3.SetValuePrim
 
 function TkwNewBaseSearchFormVgScene1.vgScene1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgScene;
@@ -2238,11 +2098,10 @@ begin
  aCtx.rEngine.PushObj(vgScene1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormVgScene1.DoDoIt
 
-procedure TkwNewBaseSearchFormVgScene1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormVgScene1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству vgScene1', aCtx);
-end;//TkwNewBaseSearchFormVgScene1.SetValuePrim
+ Result := '.TNewBaseSearchForm.vgScene1';
+end;//TkwNewBaseSearchFormVgScene1.GetWordNameForRegister
 
 function TkwNewBaseSearchFormVgScene1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2259,10 +2118,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormVgScene1.ParamsTypes
 
-class function TkwNewBaseSearchFormVgScene1.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormVgScene1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.vgScene1';
-end;//TkwNewBaseSearchFormVgScene1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству vgScene1', aCtx);
+end;//TkwNewBaseSearchFormVgScene1.SetValuePrim
 
 function TkwNewBaseSearchFormMoreTab.MoreTab(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
@@ -2286,11 +2146,10 @@ begin
  aCtx.rEngine.PushObj(MoreTab(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormMoreTab.DoDoIt
 
-procedure TkwNewBaseSearchFormMoreTab.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormMoreTab.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству MoreTab', aCtx);
-end;//TkwNewBaseSearchFormMoreTab.SetValuePrim
+ Result := '.TNewBaseSearchForm.MoreTab';
+end;//TkwNewBaseSearchFormMoreTab.GetWordNameForRegister
 
 function TkwNewBaseSearchFormMoreTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2307,10 +2166,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormMoreTab.ParamsTypes
 
-class function TkwNewBaseSearchFormMoreTab.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormMoreTab.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.MoreTab';
-end;//TkwNewBaseSearchFormMoreTab.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству MoreTab', aCtx);
+end;//TkwNewBaseSearchFormMoreTab.SetValuePrim
 
 function TkwNewBaseSearchFormBorder.Border(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2334,11 +2194,10 @@ begin
  aCtx.rEngine.PushObj(Border(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormBorder.DoDoIt
 
-procedure TkwNewBaseSearchFormBorder.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormBorder.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Border', aCtx);
-end;//TkwNewBaseSearchFormBorder.SetValuePrim
+ Result := '.TNewBaseSearchForm.Border';
+end;//TkwNewBaseSearchFormBorder.GetWordNameForRegister
 
 function TkwNewBaseSearchFormBorder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2355,10 +2214,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormBorder.ParamsTypes
 
-class function TkwNewBaseSearchFormBorder.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormBorder.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.Border';
-end;//TkwNewBaseSearchFormBorder.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Border', aCtx);
+end;//TkwNewBaseSearchFormBorder.SetValuePrim
 
 function TkwNewBaseSearchFormInnerBorder.InnerBorder(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2382,11 +2242,10 @@ begin
  aCtx.rEngine.PushObj(InnerBorder(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormInnerBorder.DoDoIt
 
-procedure TkwNewBaseSearchFormInnerBorder.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству InnerBorder', aCtx);
-end;//TkwNewBaseSearchFormInnerBorder.SetValuePrim
+ Result := '.TNewBaseSearchForm.InnerBorder';
+end;//TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister
 
 function TkwNewBaseSearchFormInnerBorder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2403,10 +2262,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormInnerBorder.ParamsTypes
 
-class function TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormInnerBorder.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.InnerBorder';
-end;//TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству InnerBorder', aCtx);
+end;//TkwNewBaseSearchFormInnerBorder.SetValuePrim
 
 function TkwNewBaseSearchFormMostOuterRectangle.MostOuterRectangle(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2430,11 +2290,10 @@ begin
  aCtx.rEngine.PushObj(MostOuterRectangle(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormMostOuterRectangle.DoDoIt
 
-procedure TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству MostOuterRectangle', aCtx);
-end;//TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim
+ Result := '.TNewBaseSearchForm.MostOuterRectangle';
+end;//TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister
 
 function TkwNewBaseSearchFormMostOuterRectangle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2451,10 +2310,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormMostOuterRectangle.ParamsTypes
 
-class function TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.MostOuterRectangle';
-end;//TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству MostOuterRectangle', aCtx);
+end;//TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim
 
 function TkwNewBaseSearchFormRectangle1.Rectangle1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
@@ -2478,11 +2338,10 @@ begin
  aCtx.rEngine.PushObj(Rectangle1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormRectangle1.DoDoIt
 
-procedure TkwNewBaseSearchFormRectangle1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormRectangle1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Rectangle1', aCtx);
-end;//TkwNewBaseSearchFormRectangle1.SetValuePrim
+ Result := '.TNewBaseSearchForm.Rectangle1';
+end;//TkwNewBaseSearchFormRectangle1.GetWordNameForRegister
 
 function TkwNewBaseSearchFormRectangle1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2499,10 +2358,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormRectangle1.ParamsTypes
 
-class function TkwNewBaseSearchFormRectangle1.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormRectangle1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.Rectangle1';
-end;//TkwNewBaseSearchFormRectangle1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Rectangle1', aCtx);
+end;//TkwNewBaseSearchFormRectangle1.SetValuePrim
 
 function TkwNewBaseSearchFormContextEdit.ContextEdit(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TnscTreeComboWithHistoryAndOperations;
@@ -2526,11 +2386,10 @@ begin
  aCtx.rEngine.PushObj(ContextEdit(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormContextEdit.DoDoIt
 
-procedure TkwNewBaseSearchFormContextEdit.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormContextEdit.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextEdit', aCtx);
-end;//TkwNewBaseSearchFormContextEdit.SetValuePrim
+ Result := '.TNewBaseSearchForm.ContextEdit';
+end;//TkwNewBaseSearchFormContextEdit.GetWordNameForRegister
 
 function TkwNewBaseSearchFormContextEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2547,10 +2406,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormContextEdit.ParamsTypes
 
-class function TkwNewBaseSearchFormContextEdit.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormContextEdit.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.ContextEdit';
-end;//TkwNewBaseSearchFormContextEdit.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextEdit', aCtx);
+end;//TkwNewBaseSearchFormContextEdit.SetValuePrim
 
 function TkwNewBaseSearchFormFlashTimer.FlashTimer(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TTimer;
@@ -2574,11 +2434,10 @@ begin
  aCtx.rEngine.PushObj(FlashTimer(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFlashTimer.DoDoIt
 
-procedure TkwNewBaseSearchFormFlashTimer.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FlashTimer', aCtx);
-end;//TkwNewBaseSearchFormFlashTimer.SetValuePrim
+ Result := '.TNewBaseSearchForm.FlashTimer';
+end;//TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister
 
 function TkwNewBaseSearchFormFlashTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2595,10 +2454,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFlashTimer.ParamsTypes
 
-class function TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister: AnsiString;
+procedure TkwNewBaseSearchFormFlashTimer.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TNewBaseSearchForm.FlashTimer';
-end;//TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FlashTimer', aCtx);
+end;//TkwNewBaseSearchFormFlashTimer.SetValuePrim
 
 initialization
  Tkw_Form_NewBaseSearch.RegisterInEngine;
@@ -2721,10 +2581,8 @@ initialization
  {* Регистрация NewBaseSearchForm_ContextEdit }
  TkwNewBaseSearchFormFlashTimer.RegisterInEngine;
  {* Регистрация NewBaseSearchForm_FlashTimer }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TNewBaseSearchForm));
- {* Регистрация типа NewBaseSearch }
+ {* Регистрация типа TNewBaseSearchForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgPathButton));
  {* Регистрация типа TvgPathButton }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgCloseButton));

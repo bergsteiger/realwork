@@ -185,6 +185,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmHistoryService
+ {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , l3Base
  , l3InterfacesMisc

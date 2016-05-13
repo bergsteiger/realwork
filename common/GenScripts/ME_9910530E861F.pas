@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_FoldersInfo_Control_ChildZone_Push
 
  TkwCfFoldersInfoChildZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfFoldersInfo.ChildZone
-[panel]Контрол ChildZone формы TcfFoldersInfo[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- acfFoldersInfo .TcfFoldersInfo.ChildZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TcfFoldersInfo.ChildZone }
   private
    function ChildZone(const aCtx: TtfwContext;
     acfFoldersInfo: TcfFoldersInfo): TvtPanel;
@@ -94,11 +87,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfFoldersInfoChildZone
 
 function Tkw_Form_FoldersInfo.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfFoldersInfo));
 end;//TkwCfFoldersInfoChildZone.DoDoIt
 
-procedure TkwCfFoldersInfoChildZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfFoldersInfoChildZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
-end;//TkwCfFoldersInfoChildZone.SetValuePrim
+ Result := '.TcfFoldersInfo.ChildZone';
+end;//TkwCfFoldersInfoChildZone.GetWordNameForRegister
 
 function TkwCfFoldersInfoChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfFoldersInfo)]);
 end;//TkwCfFoldersInfoChildZone.ParamsTypes
 
-class function TkwCfFoldersInfoChildZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfFoldersInfoChildZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfFoldersInfo.ChildZone';
-end;//TkwCfFoldersInfoChildZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
+end;//TkwCfFoldersInfoChildZone.SetValuePrim
 
 initialization
  Tkw_Form_FoldersInfo.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_FoldersInfo_Control_ChildZone_Push }
  TkwCfFoldersInfoChildZone.RegisterInEngine;
  {* Регистрация cfFoldersInfo_ChildZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TcfFoldersInfo));
- {* Регистрация типа FoldersInfo }
+ {* Регистрация типа TcfFoldersInfo }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

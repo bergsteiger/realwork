@@ -14,8 +14,8 @@ uses
  , l3CProtoObject
  , nevGUIInterfaces
  , nevTools
- , afwInterfaces
  , l3Interfaces
+ , afwInterfaces
 ;
 
 type

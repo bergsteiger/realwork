@@ -24,6 +24,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TvtFocusLabel.NeedUnderLine: Boolean;
@@ -52,5 +55,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4C03EAB40015_4A9B9BC00258_impl*
 end;//TvtFocusLabel.AllowTranslateReturn
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtFocusLabel);
+ {* Регистрация TvtFocusLabel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

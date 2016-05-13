@@ -67,6 +67,9 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
 ;
 
@@ -85,6 +88,12 @@ procedure TNemesisTestRes.Loaded;
 begin
  inherited;
 end;//TNemesisTestRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TNemesisTestRes);
+ {* Регистрация NemesisTest }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

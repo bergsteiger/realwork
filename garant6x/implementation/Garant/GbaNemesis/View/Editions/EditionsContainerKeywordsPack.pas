@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -136,14 +136,7 @@ type
  end;//Tkw_EditionsContainer_Control_pnRight_Push
 
  TkwEditionsContainerFormBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TEditionsContainerForm.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TEditionsContainerForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aEditionsContainerForm .TEditionsContainerForm.BackgroundPanel >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TEditionsContainerForm.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aEditionsContainerForm: TEditionsContainerForm): TvtProportionalPanel;
@@ -152,22 +145,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEditionsContainerFormBackgroundPanel
 
  TkwEditionsContainerFormPnLeft = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TEditionsContainerForm.pnLeft
-[panel]Контрол pnLeft формы TEditionsContainerForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aEditionsContainerForm .TEditionsContainerForm.pnLeft >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TEditionsContainerForm.pnLeft }
   private
    function pnLeft(const aCtx: TtfwContext;
     aEditionsContainerForm: TEditionsContainerForm): TvtSizeablePanel;
@@ -176,22 +162,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEditionsContainerFormPnLeft
 
  TkwEditionsContainerFormPnRight = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TEditionsContainerForm.pnRight
-[panel]Контрол pnRight формы TEditionsContainerForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aEditionsContainerForm .TEditionsContainerForm.pnRight >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TEditionsContainerForm.pnRight }
   private
    function pnRight(const aCtx: TtfwContext;
     aEditionsContainerForm: TEditionsContainerForm): TvtPanel;
@@ -200,11 +179,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEditionsContainerFormPnRight
 
 function Tkw_Form_EditionsContainer.GetString: AnsiString;
@@ -320,11 +299,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aEditionsContainerForm));
 end;//TkwEditionsContainerFormBackgroundPanel.DoDoIt
 
-procedure TkwEditionsContainerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEditionsContainerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwEditionsContainerFormBackgroundPanel.SetValuePrim
+ Result := '.TEditionsContainerForm.BackgroundPanel';
+end;//TkwEditionsContainerFormBackgroundPanel.GetWordNameForRegister
 
 function TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -341,10 +319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TEditionsContainerForm)]);
 end;//TkwEditionsContainerFormBackgroundPanel.ParamsTypes
 
-class function TkwEditionsContainerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEditionsContainerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TEditionsContainerForm.BackgroundPanel';
-end;//TkwEditionsContainerFormBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwEditionsContainerFormBackgroundPanel.SetValuePrim
 
 function TkwEditionsContainerFormPnLeft.pnLeft(const aCtx: TtfwContext;
  aEditionsContainerForm: TEditionsContainerForm): TvtSizeablePanel;
@@ -368,11 +347,10 @@ begin
  aCtx.rEngine.PushObj(pnLeft(aCtx, l_aEditionsContainerForm));
 end;//TkwEditionsContainerFormPnLeft.DoDoIt
 
-procedure TkwEditionsContainerFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEditionsContainerFormPnLeft.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
-end;//TkwEditionsContainerFormPnLeft.SetValuePrim
+ Result := '.TEditionsContainerForm.pnLeft';
+end;//TkwEditionsContainerFormPnLeft.GetWordNameForRegister
 
 function TkwEditionsContainerFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -389,10 +367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TEditionsContainerForm)]);
 end;//TkwEditionsContainerFormPnLeft.ParamsTypes
 
-class function TkwEditionsContainerFormPnLeft.GetWordNameForRegister: AnsiString;
+procedure TkwEditionsContainerFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TEditionsContainerForm.pnLeft';
-end;//TkwEditionsContainerFormPnLeft.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
+end;//TkwEditionsContainerFormPnLeft.SetValuePrim
 
 function TkwEditionsContainerFormPnRight.pnRight(const aCtx: TtfwContext;
  aEditionsContainerForm: TEditionsContainerForm): TvtPanel;
@@ -416,11 +395,10 @@ begin
  aCtx.rEngine.PushObj(pnRight(aCtx, l_aEditionsContainerForm));
 end;//TkwEditionsContainerFormPnRight.DoDoIt
 
-procedure TkwEditionsContainerFormPnRight.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEditionsContainerFormPnRight.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnRight', aCtx);
-end;//TkwEditionsContainerFormPnRight.SetValuePrim
+ Result := '.TEditionsContainerForm.pnRight';
+end;//TkwEditionsContainerFormPnRight.GetWordNameForRegister
 
 function TkwEditionsContainerFormPnRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -437,10 +415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TEditionsContainerForm)]);
 end;//TkwEditionsContainerFormPnRight.ParamsTypes
 
-class function TkwEditionsContainerFormPnRight.GetWordNameForRegister: AnsiString;
+procedure TkwEditionsContainerFormPnRight.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TEditionsContainerForm.pnRight';
-end;//TkwEditionsContainerFormPnRight.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnRight', aCtx);
+end;//TkwEditionsContainerFormPnRight.SetValuePrim
 
 initialization
  Tkw_Form_EditionsContainer.RegisterInEngine;
@@ -463,10 +442,8 @@ initialization
  {* Регистрация EditionsContainerForm_pnLeft }
  TkwEditionsContainerFormPnRight.RegisterInEngine;
  {* Регистрация EditionsContainerForm_pnRight }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TEditionsContainerForm));
- {* Регистрация типа EditionsContainer }
+ {* Регистрация типа TEditionsContainerForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));

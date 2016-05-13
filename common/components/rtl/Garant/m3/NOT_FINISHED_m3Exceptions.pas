@@ -31,6 +31,27 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Em3Exception));
+ {* Регистрация типа Em3Exception }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Em3InvalidStream));
+ {* Регистрация типа Em3InvalidStream }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Em3NilStream));
+ {* Регистрация типа Em3NilStream }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Em3NoIndex));
+ {* Регистрация типа Em3NoIndex }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

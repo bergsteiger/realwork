@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -80,14 +80,7 @@ type
  end;//Tkw_ProgressIndicator_Control_ProgressBar_Push
 
  TkwEfProgressIndicatorProgressBar = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefProgressIndicator.ProgressBar
-[panel]Контрол ProgressBar формы TefProgressIndicator[panel]
-*Тип результата:* TProgressBar
-*Пример:*
-[code]
-OBJECT VAR l_TProgressBar
- aefProgressIndicator .TefProgressIndicator.ProgressBar >>> l_TProgressBar
-[code]  }
+  {* Слово скрипта .TefProgressIndicator.ProgressBar }
   private
    function ProgressBar(const aCtx: TtfwContext;
     aefProgressIndicator: TefProgressIndicator): TProgressBar;
@@ -96,11 +89,11 @@ OBJECT VAR l_TProgressBar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfProgressIndicatorProgressBar
 
 function Tkw_Form_ProgressIndicator.GetString: AnsiString;
@@ -162,11 +155,10 @@ begin
  aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aefProgressIndicator));
 end;//TkwEfProgressIndicatorProgressBar.DoDoIt
 
-procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfProgressIndicatorProgressBar.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ProgressBar', aCtx);
-end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
+ Result := '.TefProgressIndicator.ProgressBar';
+end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
 
 function TkwEfProgressIndicatorProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -183,10 +175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefProgressIndicator)]);
 end;//TkwEfProgressIndicatorProgressBar.ParamsTypes
 
-class function TkwEfProgressIndicatorProgressBar.GetWordNameForRegister: AnsiString;
+procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefProgressIndicator.ProgressBar';
-end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ProgressBar', aCtx);
+end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
 
 initialization
  Tkw_Form_ProgressIndicator.RegisterInEngine;
@@ -197,10 +190,8 @@ initialization
  {* Регистрация Tkw_ProgressIndicator_Control_ProgressBar_Push }
  TkwEfProgressIndicatorProgressBar.RegisterInEngine;
  {* Регистрация efProgressIndicator_ProgressBar }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefProgressIndicator));
- {* Регистрация типа ProgressIndicator }
+ {* Регистрация типа TefProgressIndicator }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TProgressBar));
  {* Регистрация типа TProgressBar }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

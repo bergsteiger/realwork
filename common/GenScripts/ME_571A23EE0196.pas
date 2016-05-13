@@ -37,7 +37,7 @@ uses
  , OfficeLike_ResultEx_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A23EE0196impl_uses*
  //#UC END# *571A23EE0196impl_uses*
@@ -67,8 +67,8 @@ type
 
  TkwOk = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOk
 
 {$If NOT Defined(NoVCL)}
@@ -98,6 +98,11 @@ begin
  Result := 'QueryCard:SetCanSaveState';
 end;//TkwQueryCardSetCanSaveState.GetWordNameForRegister
 
+class function TkwOk.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Ok';
+end;//TkwOk.GetWordNameForRegister
+
 procedure TkwOk.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DAF1DD9017F_var*
 //#UC END# *4DAEEDE10285_4DAF1DD9017F_var*
@@ -106,11 +111,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4DAEEDE10285_4DAF1DD9017F_impl*
 end;//TkwOk.DoDoIt
-
-class function TkwOk.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Ok';
-end;//TkwOk.GetWordNameForRegister
 
 initialization
  TkwQueryCardFormWord.RegisterClass;

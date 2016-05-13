@@ -22,22 +22,16 @@ uses
  , tb97Ctls
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopTB97ButtonDown = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:TB97Button:Down
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTB97Button pop:TB97Button:Down >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:TB97Button:Down }
   private
    function Down(const aCtx: TtfwContext;
     aTB97Button: TCustomToolbarButton97): Boolean;
@@ -46,11 +40,11 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopTB97ButtonDown
 
 function TkwPopTB97ButtonDown.Down(const aCtx: TtfwContext;
@@ -75,11 +69,10 @@ begin
  aCtx.rEngine.PushBool(Down(aCtx, l_aTB97Button));
 end;//TkwPopTB97ButtonDown.DoDoIt
 
-procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Down', aCtx);
-end;//TkwPopTB97ButtonDown.SetValuePrim
+ Result := 'pop:TB97Button:Down';
+end;//TkwPopTB97ButtonDown.GetWordNameForRegister
 
 function TkwPopTB97ButtonDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -96,16 +89,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomToolbarButton97)]);
 end;//TkwPopTB97ButtonDown.ParamsTypes
 
-class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
+procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:TB97Button:Down';
-end;//TkwPopTB97ButtonDown.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Down', aCtx);
+end;//TkwPopTB97ButtonDown.SetValuePrim
 
 initialization
  TkwPopTB97ButtonDown.RegisterInEngine;
  {* Регистрация pop_TB97Button_Down }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomToolbarButton97));
  {* Регистрация типа TCustomToolbarButton97 }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

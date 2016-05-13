@@ -25,19 +25,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopComboTreeCurrentNode = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:CurrentNode
-*Тип результата:* Il3SimpleNode
-*Пример:*
-[code]
-INTERFACE VAR l_Il3SimpleNode
- aComboTree pop:ComboTree:CurrentNode >>> l_Il3SimpleNode
-[code]  }
+  {* Слово скрипта pop:ComboTree:CurrentNode }
   private
    function CurrentNode(const aCtx: TtfwContext;
     aComboTree: TvtComboTree): Il3SimpleNode;
@@ -54,12 +48,12 @@ INTERFACE VAR l_Il3SimpleNode
 function TkwPopComboTreeCurrentNode.CurrentNode(const aCtx: TtfwContext;
  aComboTree: TvtComboTree): Il3SimpleNode;
  {* Реализация слова скрипта pop:ComboTree:CurrentNode }
-//#UC START# *E52B39199FD5_9F9FF0616B3E_var*
-//#UC END# *E52B39199FD5_9F9FF0616B3E_var*
+//#UC START# *55B783230053_9F9FF0616B3E_var*
+//#UC END# *55B783230053_9F9FF0616B3E_var*
 begin
-//#UC START# *E52B39199FD5_9F9FF0616B3E_impl*
+//#UC START# *55B783230053_9F9FF0616B3E_impl*
  Result := aComboTree.Tree.GetCurrentNode;
-//#UC END# *E52B39199FD5_9F9FF0616B3E_impl*
+//#UC END# *55B783230053_9F9FF0616B3E_impl*
 end;//TkwPopComboTreeCurrentNode.CurrentNode
 
 procedure TkwPopComboTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
@@ -77,6 +71,11 @@ begin
  aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree), TypeInfo(Il3SimpleNode));
 end;//TkwPopComboTreeCurrentNode.DoDoIt
 
+class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:CurrentNode';
+end;//TkwPopComboTreeCurrentNode.GetWordNameForRegister
+
 function TkwPopComboTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Il3SimpleNode);
@@ -92,16 +91,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeCurrentNode.ParamsTypes
 
-class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:CurrentNode';
-end;//TkwPopComboTreeCurrentNode.GetWordNameForRegister
-
 initialization
  TkwPopComboTreeCurrentNode.RegisterInEngine;
  {* Регистрация pop_ComboTree_CurrentNode }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtComboTree));
  {* Регистрация типа TvtComboTree }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));

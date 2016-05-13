@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -80,14 +80,7 @@ type
  end;//Tkw_TasksPanel_Control_tpvMain_Push
 
  TkwEnTasksPanelTpvMain = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_TasksPanel.tpvMain
-[panel]Контрол tpvMain формы Ten_TasksPanel[panel]
-*Тип результата:* TnscTasksPanelView
-*Пример:*
-[code]
-OBJECT VAR l_TnscTasksPanelView
- aen_TasksPanel .Ten_TasksPanel.tpvMain >>> l_TnscTasksPanelView
-[code]  }
+  {* Слово скрипта .Ten_TasksPanel.tpvMain }
   private
    function tpvMain(const aCtx: TtfwContext;
     aen_TasksPanel: Ten_TasksPanel): TnscTasksPanelView;
@@ -96,11 +89,11 @@ OBJECT VAR l_TnscTasksPanelView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnTasksPanelTpvMain
 
 function Tkw_Form_TasksPanel.GetString: AnsiString;
@@ -162,11 +155,10 @@ begin
  aCtx.rEngine.PushObj(tpvMain(aCtx, l_aen_TasksPanel));
 end;//TkwEnTasksPanelTpvMain.DoDoIt
 
-procedure TkwEnTasksPanelTpvMain.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnTasksPanelTpvMain.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tpvMain', aCtx);
-end;//TkwEnTasksPanelTpvMain.SetValuePrim
+ Result := '.Ten_TasksPanel.tpvMain';
+end;//TkwEnTasksPanelTpvMain.GetWordNameForRegister
 
 function TkwEnTasksPanelTpvMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -183,10 +175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_TasksPanel)]);
 end;//TkwEnTasksPanelTpvMain.ParamsTypes
 
-class function TkwEnTasksPanelTpvMain.GetWordNameForRegister: AnsiString;
+procedure TkwEnTasksPanelTpvMain.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_TasksPanel.tpvMain';
-end;//TkwEnTasksPanelTpvMain.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tpvMain', aCtx);
+end;//TkwEnTasksPanelTpvMain.SetValuePrim
 
 initialization
  Tkw_Form_TasksPanel.RegisterInEngine;
@@ -197,10 +190,8 @@ initialization
  {* Регистрация Tkw_TasksPanel_Control_tpvMain_Push }
  TkwEnTasksPanelTpvMain.RegisterInEngine;
  {* Регистрация en_TasksPanel_tpvMain }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_TasksPanel));
- {* Регистрация типа TasksPanel }
+ {* Регистрация типа Ten_TasksPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTasksPanelView));
  {* Регистрация типа TnscTasksPanelView }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

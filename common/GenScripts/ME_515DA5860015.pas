@@ -566,6 +566,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , vtOutlinerWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *515DA5860015impl_uses*
@@ -3857,6 +3860,10 @@ end;//TvtCustomOutliner.GetItemDim
 //#UC END# *515DA5860015impl*
 
 initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ESkipOperation));
+ {* Регистрация типа ESkipOperation }
+{$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtSimpleOutliner);
  {* Регистрация TvtSimpleOutliner }

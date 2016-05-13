@@ -15,9 +15,9 @@ uses
  , afwNavigation
  , evQueryCardInt
  , l3Interfaces
+ , l3IID
  , nevTools
  , nevBase
- , l3IID
 ;
 
 type

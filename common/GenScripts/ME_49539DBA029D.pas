@@ -46,10 +46,10 @@ uses
  , nevContainers
  , evCustomEditorWindow
  , BaseSearchInterfaces
+ , DocumentInterfaces
  , ExternalOperationUnit
  , bsTypesNew
  , NavigationInterfaces
- , DocumentInterfaces
  , Messages
  , afwInterfaces
  {$If NOT Defined(NoVCM)}
@@ -69,6 +69,7 @@ uses
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
  , l3BaseStream
+ , nsTypesNew
  , k2CustomFileGenerator
  , k2TagGen
  , l3InternalInterfaces
@@ -486,7 +487,7 @@ type
     {* Информация о документе }
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
     {* Коллеги, кто может описать этот метод? }
@@ -3085,7 +3086,7 @@ end;//TExTextForm.Document_GetAttributesFrmAct_Execute
 
 function TExTextForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_49539DBA029Dexec_var*
 var

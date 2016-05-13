@@ -37,6 +37,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , moParentAndChild
  , vtStdRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , MainPrim_Form
  , evExtFormat
 ;
@@ -55,6 +58,12 @@ procedure TF1LikeRes.Loaded;
 begin
  inherited;
 end;//TF1LikeRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TF1LikeRes);
+ {* Регистрация F1Like }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

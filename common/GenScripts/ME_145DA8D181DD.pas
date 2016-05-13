@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -136,14 +136,7 @@ type
  end;//Tkw_EULA_Control_eeMemoWithEditOperations1_Push
 
  TkwEfEULAShellCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefEULA.ShellCaptionLabel
-[panel]Контрол ShellCaptionLabel формы TefEULA[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefEULA .TefEULA.ShellCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefEULA.ShellCaptionLabel }
   private
    function ShellCaptionLabel(const aCtx: TtfwContext;
     aefEULA: TefEULA): TvtLabel;
@@ -152,22 +145,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfEULAShellCaptionLabel
 
  TkwEfEULAOkButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefEULA.OkButton
-[panel]Контрол OkButton формы TefEULA[panel]
-*Тип результата:* TvtButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtButton
- aefEULA .TefEULA.OkButton >>> l_TvtButton
-[code]  }
+  {* Слово скрипта .TefEULA.OkButton }
   private
    function OkButton(const aCtx: TtfwContext;
     aefEULA: TefEULA): TvtButton;
@@ -176,22 +162,15 @@ OBJECT VAR l_TvtButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfEULAOkButton
 
  TkwEfEULAEeMemoWithEditOperations1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefEULA.eeMemoWithEditOperations1
-[panel]Контрол eeMemoWithEditOperations1 формы TefEULA[panel]
-*Тип результата:* TeeMemoWithEditOperations
-*Пример:*
-[code]
-OBJECT VAR l_TeeMemoWithEditOperations
- aefEULA .TefEULA.eeMemoWithEditOperations1 >>> l_TeeMemoWithEditOperations
-[code]  }
+  {* Слово скрипта .TefEULA.eeMemoWithEditOperations1 }
   private
    function eeMemoWithEditOperations1(const aCtx: TtfwContext;
     aefEULA: TefEULA): TeeMemoWithEditOperations;
@@ -200,11 +179,11 @@ OBJECT VAR l_TeeMemoWithEditOperations
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfEULAEeMemoWithEditOperations1
 
 function Tkw_Form_EULA.GetString: AnsiString;
@@ -320,11 +299,10 @@ begin
  aCtx.rEngine.PushObj(ShellCaptionLabel(aCtx, l_aefEULA));
 end;//TkwEfEULAShellCaptionLabel.DoDoIt
 
-procedure TkwEfEULAShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfEULAShellCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShellCaptionLabel', aCtx);
-end;//TkwEfEULAShellCaptionLabel.SetValuePrim
+ Result := '.TefEULA.ShellCaptionLabel';
+end;//TkwEfEULAShellCaptionLabel.GetWordNameForRegister
 
 function TkwEfEULAShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -341,10 +319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefEULA)]);
 end;//TkwEfEULAShellCaptionLabel.ParamsTypes
 
-class function TkwEfEULAShellCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfEULAShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefEULA.ShellCaptionLabel';
-end;//TkwEfEULAShellCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShellCaptionLabel', aCtx);
+end;//TkwEfEULAShellCaptionLabel.SetValuePrim
 
 function TkwEfEULAOkButton.OkButton(const aCtx: TtfwContext;
  aefEULA: TefEULA): TvtButton;
@@ -368,11 +347,10 @@ begin
  aCtx.rEngine.PushObj(OkButton(aCtx, l_aefEULA));
 end;//TkwEfEULAOkButton.DoDoIt
 
-procedure TkwEfEULAOkButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfEULAOkButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству OkButton', aCtx);
-end;//TkwEfEULAOkButton.SetValuePrim
+ Result := '.TefEULA.OkButton';
+end;//TkwEfEULAOkButton.GetWordNameForRegister
 
 function TkwEfEULAOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -389,10 +367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefEULA)]);
 end;//TkwEfEULAOkButton.ParamsTypes
 
-class function TkwEfEULAOkButton.GetWordNameForRegister: AnsiString;
+procedure TkwEfEULAOkButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefEULA.OkButton';
-end;//TkwEfEULAOkButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству OkButton', aCtx);
+end;//TkwEfEULAOkButton.SetValuePrim
 
 function TkwEfEULAEeMemoWithEditOperations1.eeMemoWithEditOperations1(const aCtx: TtfwContext;
  aefEULA: TefEULA): TeeMemoWithEditOperations;
@@ -416,11 +395,10 @@ begin
  aCtx.rEngine.PushObj(eeMemoWithEditOperations1(aCtx, l_aefEULA));
 end;//TkwEfEULAEeMemoWithEditOperations1.DoDoIt
 
-procedure TkwEfEULAEeMemoWithEditOperations1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству eeMemoWithEditOperations1', aCtx);
-end;//TkwEfEULAEeMemoWithEditOperations1.SetValuePrim
+ Result := '.TefEULA.eeMemoWithEditOperations1';
+end;//TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister
 
 function TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -437,10 +415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefEULA)]);
 end;//TkwEfEULAEeMemoWithEditOperations1.ParamsTypes
 
-class function TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister: AnsiString;
+procedure TkwEfEULAEeMemoWithEditOperations1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefEULA.eeMemoWithEditOperations1';
-end;//TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству eeMemoWithEditOperations1', aCtx);
+end;//TkwEfEULAEeMemoWithEditOperations1.SetValuePrim
 
 initialization
  Tkw_Form_EULA.RegisterInEngine;
@@ -463,10 +442,8 @@ initialization
  {* Регистрация efEULA_OkButton }
  TkwEfEULAEeMemoWithEditOperations1.RegisterInEngine;
  {* Регистрация efEULA_eeMemoWithEditOperations1 }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefEULA));
- {* Регистрация типа EULA }
+ {* Регистрация типа TefEULA }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));
  {* Регистрация типа TvtLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtButton));

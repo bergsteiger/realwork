@@ -201,6 +201,9 @@ uses
  , kw_Search_opAttributeSearch
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , SearchModuleWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , nsConst
@@ -1159,6 +1162,12 @@ begin
  inherited;
 //#UC END# *479731C50290_4AA641A3036C_impl*
 end;//TSearchModule.Cleanup
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TSearchModule);
+ {* Регистрация Search }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

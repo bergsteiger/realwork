@@ -26,7 +26,7 @@ uses
  , DataAdapter
  , nsTypes
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A296801DDimpl_uses*
  //#UC END# *571A296801DDimpl_uses*
@@ -35,9 +35,14 @@ uses
 type
  TkwF1ImportConsultation = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwF1ImportConsultation
+
+class function TkwF1ImportConsultation.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'f1::ImportConsultation';
+end;//TkwF1ImportConsultation.GetWordNameForRegister
 
 procedure TkwF1ImportConsultation.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DECF7F4001F_var*
@@ -51,11 +56,6 @@ begin
  DefDataAdapter.ConsultationManager.LoadFromXml(nsAStr(l_S){.S});
 //#UC END# *4DAEEDE10285_4DECF7F4001F_impl*
 end;//TkwF1ImportConsultation.DoDoIt
-
-class function TkwF1ImportConsultation.GetWordNameForRegister: AnsiString;
-begin
- Result := 'f1::ImportConsultation';
-end;//TkwF1ImportConsultation.GetWordNameForRegister
 
 initialization
  TkwF1ImportConsultation.RegisterInEngine;

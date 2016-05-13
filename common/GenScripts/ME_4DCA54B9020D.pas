@@ -26,75 +26,55 @@ uses
  , nsExternalObjectPrim
  , nsUtils
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwBrowse = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта browse
-*Пример:*
-[code]
- aStr browse
-[code]  }
+  {* Слово скрипта browse }
   private
    procedure browse(const aCtx: TtfwContext;
     const aStr: Il3CString);
     {* Реализация слова скрипта browse }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwBrowse
 
- TkwF1_WasBeep = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта f1::WasBeep
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- f1::WasBeep >>> l_Boolean
-[code]  }
+ TkwF1WasBeep = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта f1::WasBeep }
   private
    function f1_WasBeep(const aCtx: TtfwContext): Boolean;
     {* Реализация слова скрипта f1::WasBeep }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
- end;//TkwF1_WasBeep
+ end;//TkwF1WasBeep
 
 procedure TkwBrowse.browse(const aCtx: TtfwContext;
  const aStr: Il3CString);
  {* Реализация слова скрипта browse }
-//#UC START# *ADC7C02D00B5_3223F9BFFE72_var*
-//#UC END# *ADC7C02D00B5_3223F9BFFE72_var*
+//#UC START# *556C08A80212_556C08A80212_Word_var*
+//#UC END# *556C08A80212_556C08A80212_Word_var*
 begin
-//#UC START# *ADC7C02D00B5_3223F9BFFE72_impl*
+//#UC START# *556C08A80212_556C08A80212_Word_impl*
  nsDoShellExecute(aStr, False, nil, True);
-//#UC END# *ADC7C02D00B5_3223F9BFFE72_impl*
+//#UC END# *556C08A80212_556C08A80212_Word_impl*
 end;//TkwBrowse.browse
 
-procedure TkwBrowse.DoDoIt(const aCtx: TtfwContext);
-var l_aStr: Il3CString;
+class function TkwBrowse.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aStr := Il3CString(aCtx.rEngine.PopString);
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aStr: Il3CString : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- browse(aCtx, l_aStr);
-end;//TkwBrowse.DoDoIt
+ Result := 'browse';
+end;//TkwBrowse.GetWordNameForRegister
 
 function TkwBrowse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -111,62 +91,70 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwBrowse.ParamsTypes
 
-class function TkwBrowse.GetWordNameForRegister: AnsiString;
+procedure TkwBrowse.DoDoIt(const aCtx: TtfwContext);
+var l_aStr: Il3CString;
 begin
- Result := 'browse';
-end;//TkwBrowse.GetWordNameForRegister
+ try
+  l_aStr := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStr: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ browse(aCtx, l_aStr);
+end;//TkwBrowse.DoDoIt
 
-function TkwF1_WasBeep.f1_WasBeep(const aCtx: TtfwContext): Boolean;
+function TkwF1WasBeep.f1_WasBeep(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта f1::WasBeep }
-//#UC START# *3C50E0D2B358_5888E53B751F_var*
-//#UC END# *3C50E0D2B358_5888E53B751F_var*
+//#UC START# *556C08EF0058_556C08EF0058_Word_var*
+//#UC END# *556C08EF0058_556C08EF0058_Word_var*
 begin
-//#UC START# *3C50E0D2B358_5888E53B751F_impl*
+//#UC START# *556C08EF0058_556C08EF0058_Word_impl*
  {$IfDef InsiderTest}
  Result := g_WasBeep;
  g_WasBeep := false;
  {$Else  InsiderTest}
  Result := false;
  {$EndIf InsiderTest}
-//#UC END# *3C50E0D2B358_5888E53B751F_impl*
-end;//TkwF1_WasBeep.f1_WasBeep
+//#UC END# *556C08EF0058_556C08EF0058_Word_impl*
+end;//TkwF1WasBeep.f1_WasBeep
 
-procedure TkwF1_WasBeep.DoDoIt(const aCtx: TtfwContext);
-begin
- aCtx.rEngine.PushBool(f1_WasBeep(aCtx));
-end;//TkwF1_WasBeep.DoDoIt
-
-function TkwF1_WasBeep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwF1_WasBeep.GetResultTypeInfo
-
-function TkwF1_WasBeep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 0;
-end;//TkwF1_WasBeep.GetAllParamsCount
-
-function TkwF1_WasBeep.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([]);
-end;//TkwF1_WasBeep.ParamsTypes
-
-class function TkwF1_WasBeep.GetWordNameForRegister: AnsiString;
+class function TkwF1WasBeep.GetWordNameForRegister: AnsiString;
 begin
  Result := 'f1::WasBeep';
-end;//TkwF1_WasBeep.GetWordNameForRegister
+end;//TkwF1WasBeep.GetWordNameForRegister
+
+function TkwF1WasBeep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwF1WasBeep.GetResultTypeInfo
+
+function TkwF1WasBeep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwF1WasBeep.GetAllParamsCount
+
+function TkwF1WasBeep.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwF1WasBeep.ParamsTypes
+
+procedure TkwF1WasBeep.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushBool(f1_WasBeep(aCtx));
+end;//TkwF1WasBeep.DoDoIt
 
 initialization
  TkwBrowse.RegisterInEngine;
  {* Регистрация browse }
- TkwF1_WasBeep.RegisterInEngine;
+ TkwF1WasBeep.RegisterInEngine;
  {* Регистрация f1__WasBeep }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
- TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа Il3CString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -37,11 +37,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -591,14 +591,7 @@ type
  end;//Tkw_SelfInfo_Control_HelpLabel_Push
 
  TkwSelfInfoFormPnMainData = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.pnMainData
-[panel]Контрол pnMainData формы TSelfInfoForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aSelfInfoForm .TSelfInfoForm.pnMainData >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.pnMainData }
   private
    function pnMainData(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtPanel;
@@ -607,22 +600,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormPnMainData
 
  TkwSelfInfoFormUserNameLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.UserNameLabel
-[panel]Контрол UserNameLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.UserNameLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.UserNameLabel }
   private
    function UserNameLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -631,22 +617,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormUserNameLabel
 
  TkwSelfInfoFormPasswordLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.PasswordLabel
-[panel]Контрол PasswordLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.PasswordLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.PasswordLabel }
   private
    function PasswordLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -655,22 +634,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormPasswordLabel
 
  TkwSelfInfoFormLoginLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.LoginLabel
-[panel]Контрол LoginLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.LoginLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.LoginLabel }
   private
    function LoginLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -679,22 +651,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormLoginLabel
 
  TkwSelfInfoFormInfoLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.InfoLabel
-[panel]Контрол InfoLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.InfoLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.InfoLabel }
   private
    function InfoLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -703,22 +668,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormInfoLabel
 
  TkwSelfInfoFormEMailLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.EMailLabel
-[panel]Контрол EMailLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.EMailLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.EMailLabel }
   private
    function EMailLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -727,22 +685,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormEMailLabel
 
  TkwSelfInfoFormConfirmPasswordLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.ConfirmPasswordLabel
-[panel]Контрол ConfirmPasswordLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.ConfirmPasswordLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.ConfirmPasswordLabel }
   private
    function ConfirmPasswordLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -751,22 +702,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormConfirmPasswordLabel
 
  TkwSelfInfoFormVtAsteriskLabelLogin = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.vtAsteriskLabelLogin
-[panel]Контрол vtAsteriskLabelLogin формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.vtAsteriskLabelLogin >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.vtAsteriskLabelLogin }
   private
    function vtAsteriskLabelLogin(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -775,22 +719,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormVtAsteriskLabelLogin
 
  TkwSelfInfoFormVtAsteriskLabelFIO = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.vtAsteriskLabelFIO
-[panel]Контрол vtAsteriskLabelFIO формы TSelfInfoForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aSelfInfoForm .TSelfInfoForm.vtAsteriskLabelFIO >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.vtAsteriskLabelFIO }
   private
    function vtAsteriskLabelFIO(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -799,22 +736,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormVtAsteriskLabelFIO
 
  TkwSelfInfoFormEdPassword = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.edPassword
-[panel]Контрол edPassword формы TSelfInfoForm[panel]
-*Тип результата:* TnscComboBoxWithPwdChar
-*Пример:*
-[code]
-OBJECT VAR l_TnscComboBoxWithPwdChar
- aSelfInfoForm .TSelfInfoForm.edPassword >>> l_TnscComboBoxWithPwdChar
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.edPassword }
   private
    function edPassword(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TnscComboBoxWithPwdChar;
@@ -823,22 +753,15 @@ OBJECT VAR l_TnscComboBoxWithPwdChar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormEdPassword
 
  TkwSelfInfoFormEdUserName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.edUserName
-[panel]Контрол edUserName формы TSelfInfoForm[panel]
-*Тип результата:* TnscEdit
-*Пример:*
-[code]
-OBJECT VAR l_TnscEdit
- aSelfInfoForm .TSelfInfoForm.edUserName >>> l_TnscEdit
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.edUserName }
   private
    function edUserName(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TnscEdit;
@@ -847,22 +770,15 @@ OBJECT VAR l_TnscEdit
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormEdUserName
 
  TkwSelfInfoFormEdLogin = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.edLogin
-[panel]Контрол edLogin формы TSelfInfoForm[panel]
-*Тип результата:* TnscEdit
-*Пример:*
-[code]
-OBJECT VAR l_TnscEdit
- aSelfInfoForm .TSelfInfoForm.edLogin >>> l_TnscEdit
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.edLogin }
   private
    function edLogin(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TnscEdit;
@@ -871,22 +787,15 @@ OBJECT VAR l_TnscEdit
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormEdLogin
 
  TkwSelfInfoFormEdEmail = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.edEmail
-[panel]Контрол edEmail формы TSelfInfoForm[panel]
-*Тип результата:* TnscEdit
-*Пример:*
-[code]
-OBJECT VAR l_TnscEdit
- aSelfInfoForm .TSelfInfoForm.edEmail >>> l_TnscEdit
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.edEmail }
   private
    function edEmail(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TnscEdit;
@@ -895,22 +804,15 @@ OBJECT VAR l_TnscEdit
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormEdEmail
 
  TkwSelfInfoFormEdConfirm = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.edConfirm
-[panel]Контрол edConfirm формы TSelfInfoForm[panel]
-*Тип результата:* TnscComboBoxWithPwdChar
-*Пример:*
-[code]
-OBJECT VAR l_TnscComboBoxWithPwdChar
- aSelfInfoForm .TSelfInfoForm.edConfirm >>> l_TnscComboBoxWithPwdChar
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.edConfirm }
   private
    function edConfirm(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TnscComboBoxWithPwdChar;
@@ -919,22 +821,15 @@ OBJECT VAR l_TnscComboBoxWithPwdChar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormEdConfirm
 
  TkwSelfInfoFormBottomPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.BottomPanel
-[panel]Контрол BottomPanel формы TSelfInfoForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aSelfInfoForm .TSelfInfoForm.BottomPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.BottomPanel }
   private
    function BottomPanel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtPanel;
@@ -943,22 +838,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormBottomPanel
 
  TkwSelfInfoFormRegisterButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.RegisterButton
-[panel]Контрол RegisterButton формы TSelfInfoForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aSelfInfoForm .TSelfInfoForm.RegisterButton >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.RegisterButton }
   private
    function RegisterButton(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TElPopupButton;
@@ -967,22 +855,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormRegisterButton
 
  TkwSelfInfoFormHelpPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.HelpPanel
-[panel]Контрол HelpPanel формы TSelfInfoForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aSelfInfoForm .TSelfInfoForm.HelpPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.HelpPanel }
   private
    function HelpPanel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtPanel;
@@ -991,22 +872,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormHelpPanel
 
  TkwSelfInfoFormHelpPaintBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.HelpPaintBox
-[panel]Контрол HelpPaintBox формы TSelfInfoForm[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aSelfInfoForm .TSelfInfoForm.HelpPaintBox >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.HelpPaintBox }
   private
    function HelpPaintBox(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TPaintBox;
@@ -1015,22 +889,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormHelpPaintBox
 
  TkwSelfInfoFormHelpLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TSelfInfoForm.HelpLabel
-[panel]Контрол HelpLabel формы TSelfInfoForm[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aSelfInfoForm .TSelfInfoForm.HelpLabel >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TSelfInfoForm.HelpLabel }
   private
    function HelpLabel(const aCtx: TtfwContext;
     aSelfInfoForm: TSelfInfoForm): TvtFocusLabel;
@@ -1039,11 +906,11 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwSelfInfoFormHelpLabel
 
 function Tkw_Form_SelfInfo.GetString: AnsiString;
@@ -1591,11 +1458,10 @@ begin
  aCtx.rEngine.PushObj(pnMainData(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormPnMainData.DoDoIt
 
-procedure TkwSelfInfoFormPnMainData.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormPnMainData.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnMainData', aCtx);
-end;//TkwSelfInfoFormPnMainData.SetValuePrim
+ Result := '.TSelfInfoForm.pnMainData';
+end;//TkwSelfInfoFormPnMainData.GetWordNameForRegister
 
 function TkwSelfInfoFormPnMainData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1612,10 +1478,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormPnMainData.ParamsTypes
 
-class function TkwSelfInfoFormPnMainData.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormPnMainData.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.pnMainData';
-end;//TkwSelfInfoFormPnMainData.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnMainData', aCtx);
+end;//TkwSelfInfoFormPnMainData.SetValuePrim
 
 function TkwSelfInfoFormUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1639,11 +1506,10 @@ begin
  aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormUserNameLabel.DoDoIt
 
-procedure TkwSelfInfoFormUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormUserNameLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
-end;//TkwSelfInfoFormUserNameLabel.SetValuePrim
+ Result := '.TSelfInfoForm.UserNameLabel';
+end;//TkwSelfInfoFormUserNameLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1660,10 +1526,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormUserNameLabel.ParamsTypes
 
-class function TkwSelfInfoFormUserNameLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.UserNameLabel';
-end;//TkwSelfInfoFormUserNameLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
+end;//TkwSelfInfoFormUserNameLabel.SetValuePrim
 
 function TkwSelfInfoFormPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1687,11 +1554,10 @@ begin
  aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormPasswordLabel.DoDoIt
 
-procedure TkwSelfInfoFormPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormPasswordLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству PasswordLabel', aCtx);
-end;//TkwSelfInfoFormPasswordLabel.SetValuePrim
+ Result := '.TSelfInfoForm.PasswordLabel';
+end;//TkwSelfInfoFormPasswordLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1708,10 +1574,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormPasswordLabel.ParamsTypes
 
-class function TkwSelfInfoFormPasswordLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.PasswordLabel';
-end;//TkwSelfInfoFormPasswordLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству PasswordLabel', aCtx);
+end;//TkwSelfInfoFormPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormLoginLabel.LoginLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1735,11 +1602,10 @@ begin
  aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormLoginLabel.DoDoIt
 
-procedure TkwSelfInfoFormLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormLoginLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
-end;//TkwSelfInfoFormLoginLabel.SetValuePrim
+ Result := '.TSelfInfoForm.LoginLabel';
+end;//TkwSelfInfoFormLoginLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1756,10 +1622,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormLoginLabel.ParamsTypes
 
-class function TkwSelfInfoFormLoginLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.LoginLabel';
-end;//TkwSelfInfoFormLoginLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
+end;//TkwSelfInfoFormLoginLabel.SetValuePrim
 
 function TkwSelfInfoFormInfoLabel.InfoLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1783,11 +1650,10 @@ begin
  aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormInfoLabel.DoDoIt
 
-procedure TkwSelfInfoFormInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormInfoLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству InfoLabel', aCtx);
-end;//TkwSelfInfoFormInfoLabel.SetValuePrim
+ Result := '.TSelfInfoForm.InfoLabel';
+end;//TkwSelfInfoFormInfoLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1804,10 +1670,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormInfoLabel.ParamsTypes
 
-class function TkwSelfInfoFormInfoLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.InfoLabel';
-end;//TkwSelfInfoFormInfoLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству InfoLabel', aCtx);
+end;//TkwSelfInfoFormInfoLabel.SetValuePrim
 
 function TkwSelfInfoFormEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1831,11 +1698,10 @@ begin
  aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEMailLabel.DoDoIt
 
-procedure TkwSelfInfoFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormEMailLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
-end;//TkwSelfInfoFormEMailLabel.SetValuePrim
+ Result := '.TSelfInfoForm.EMailLabel';
+end;//TkwSelfInfoFormEMailLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1852,10 +1718,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEMailLabel.ParamsTypes
 
-class function TkwSelfInfoFormEMailLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.EMailLabel';
-end;//TkwSelfInfoFormEMailLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
+end;//TkwSelfInfoFormEMailLabel.SetValuePrim
 
 function TkwSelfInfoFormConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1879,11 +1746,10 @@ begin
  aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormConfirmPasswordLabel.DoDoIt
 
-procedure TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ConfirmPasswordLabel', aCtx);
-end;//TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim
+ Result := '.TSelfInfoForm.ConfirmPasswordLabel';
+end;//TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormConfirmPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1900,10 +1766,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormConfirmPasswordLabel.ParamsTypes
 
-class function TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.ConfirmPasswordLabel';
-end;//TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ConfirmPasswordLabel', aCtx);
+end;//TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.vtAsteriskLabelLogin(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1927,11 +1794,10 @@ begin
  aCtx.rEngine.PushObj(vtAsteriskLabelLogin(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.DoDoIt
 
-procedure TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelLogin', aCtx);
-end;//TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim
+ Result := '.TSelfInfoForm.vtAsteriskLabelLogin';
+end;//TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1948,10 +1814,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.ParamsTypes
 
-class function TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.vtAsteriskLabelLogin';
-end;//TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelLogin', aCtx);
+end;//TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.vtAsteriskLabelFIO(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
@@ -1975,11 +1842,10 @@ begin
  aCtx.rEngine.PushObj(vtAsteriskLabelFIO(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.DoDoIt
 
-procedure TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelFIO', aCtx);
-end;//TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim
+ Result := '.TSelfInfoForm.vtAsteriskLabelFIO';
+end;//TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1996,10 +1862,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.ParamsTypes
 
-class function TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.vtAsteriskLabelFIO';
-end;//TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelFIO', aCtx);
+end;//TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim
 
 function TkwSelfInfoFormEdPassword.edPassword(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscComboBoxWithPwdChar;
@@ -2023,11 +1890,10 @@ begin
  aCtx.rEngine.PushObj(edPassword(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdPassword.DoDoIt
 
-procedure TkwSelfInfoFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormEdPassword.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
-end;//TkwSelfInfoFormEdPassword.SetValuePrim
+ Result := '.TSelfInfoForm.edPassword';
+end;//TkwSelfInfoFormEdPassword.GetWordNameForRegister
 
 function TkwSelfInfoFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2044,10 +1910,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdPassword.ParamsTypes
 
-class function TkwSelfInfoFormEdPassword.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.edPassword';
-end;//TkwSelfInfoFormEdPassword.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
+end;//TkwSelfInfoFormEdPassword.SetValuePrim
 
 function TkwSelfInfoFormEdUserName.edUserName(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscEdit;
@@ -2071,11 +1938,10 @@ begin
  aCtx.rEngine.PushObj(edUserName(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdUserName.DoDoIt
 
-procedure TkwSelfInfoFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormEdUserName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
-end;//TkwSelfInfoFormEdUserName.SetValuePrim
+ Result := '.TSelfInfoForm.edUserName';
+end;//TkwSelfInfoFormEdUserName.GetWordNameForRegister
 
 function TkwSelfInfoFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2092,10 +1958,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdUserName.ParamsTypes
 
-class function TkwSelfInfoFormEdUserName.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.edUserName';
-end;//TkwSelfInfoFormEdUserName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
+end;//TkwSelfInfoFormEdUserName.SetValuePrim
 
 function TkwSelfInfoFormEdLogin.edLogin(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscEdit;
@@ -2119,11 +1986,10 @@ begin
  aCtx.rEngine.PushObj(edLogin(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdLogin.DoDoIt
 
-procedure TkwSelfInfoFormEdLogin.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormEdLogin.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edLogin', aCtx);
-end;//TkwSelfInfoFormEdLogin.SetValuePrim
+ Result := '.TSelfInfoForm.edLogin';
+end;//TkwSelfInfoFormEdLogin.GetWordNameForRegister
 
 function TkwSelfInfoFormEdLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2140,10 +2006,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdLogin.ParamsTypes
 
-class function TkwSelfInfoFormEdLogin.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormEdLogin.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.edLogin';
-end;//TkwSelfInfoFormEdLogin.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edLogin', aCtx);
+end;//TkwSelfInfoFormEdLogin.SetValuePrim
 
 function TkwSelfInfoFormEdEmail.edEmail(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscEdit;
@@ -2167,11 +2034,10 @@ begin
  aCtx.rEngine.PushObj(edEmail(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdEmail.DoDoIt
 
-procedure TkwSelfInfoFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormEdEmail.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
-end;//TkwSelfInfoFormEdEmail.SetValuePrim
+ Result := '.TSelfInfoForm.edEmail';
+end;//TkwSelfInfoFormEdEmail.GetWordNameForRegister
 
 function TkwSelfInfoFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2188,10 +2054,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdEmail.ParamsTypes
 
-class function TkwSelfInfoFormEdEmail.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.edEmail';
-end;//TkwSelfInfoFormEdEmail.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
+end;//TkwSelfInfoFormEdEmail.SetValuePrim
 
 function TkwSelfInfoFormEdConfirm.edConfirm(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscComboBoxWithPwdChar;
@@ -2215,11 +2082,10 @@ begin
  aCtx.rEngine.PushObj(edConfirm(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdConfirm.DoDoIt
 
-procedure TkwSelfInfoFormEdConfirm.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormEdConfirm.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edConfirm', aCtx);
-end;//TkwSelfInfoFormEdConfirm.SetValuePrim
+ Result := '.TSelfInfoForm.edConfirm';
+end;//TkwSelfInfoFormEdConfirm.GetWordNameForRegister
 
 function TkwSelfInfoFormEdConfirm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2236,10 +2102,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdConfirm.ParamsTypes
 
-class function TkwSelfInfoFormEdConfirm.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormEdConfirm.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.edConfirm';
-end;//TkwSelfInfoFormEdConfirm.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edConfirm', aCtx);
+end;//TkwSelfInfoFormEdConfirm.SetValuePrim
 
 function TkwSelfInfoFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtPanel;
@@ -2263,11 +2130,10 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormBottomPanel.DoDoIt
 
-procedure TkwSelfInfoFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormBottomPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
-end;//TkwSelfInfoFormBottomPanel.SetValuePrim
+ Result := '.TSelfInfoForm.BottomPanel';
+end;//TkwSelfInfoFormBottomPanel.GetWordNameForRegister
 
 function TkwSelfInfoFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2284,10 +2150,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormBottomPanel.ParamsTypes
 
-class function TkwSelfInfoFormBottomPanel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.BottomPanel';
-end;//TkwSelfInfoFormBottomPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
+end;//TkwSelfInfoFormBottomPanel.SetValuePrim
 
 function TkwSelfInfoFormRegisterButton.RegisterButton(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TElPopupButton;
@@ -2311,11 +2178,10 @@ begin
  aCtx.rEngine.PushObj(RegisterButton(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormRegisterButton.DoDoIt
 
-procedure TkwSelfInfoFormRegisterButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormRegisterButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RegisterButton', aCtx);
-end;//TkwSelfInfoFormRegisterButton.SetValuePrim
+ Result := '.TSelfInfoForm.RegisterButton';
+end;//TkwSelfInfoFormRegisterButton.GetWordNameForRegister
 
 function TkwSelfInfoFormRegisterButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2332,10 +2198,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormRegisterButton.ParamsTypes
 
-class function TkwSelfInfoFormRegisterButton.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormRegisterButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.RegisterButton';
-end;//TkwSelfInfoFormRegisterButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RegisterButton', aCtx);
+end;//TkwSelfInfoFormRegisterButton.SetValuePrim
 
 function TkwSelfInfoFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtPanel;
@@ -2359,11 +2226,10 @@ begin
  aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormHelpPanel.DoDoIt
 
-procedure TkwSelfInfoFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormHelpPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
-end;//TkwSelfInfoFormHelpPanel.SetValuePrim
+ Result := '.TSelfInfoForm.HelpPanel';
+end;//TkwSelfInfoFormHelpPanel.GetWordNameForRegister
 
 function TkwSelfInfoFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2380,10 +2246,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormHelpPanel.ParamsTypes
 
-class function TkwSelfInfoFormHelpPanel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.HelpPanel';
-end;//TkwSelfInfoFormHelpPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
+end;//TkwSelfInfoFormHelpPanel.SetValuePrim
 
 function TkwSelfInfoFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TPaintBox;
@@ -2407,11 +2274,10 @@ begin
  aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormHelpPaintBox.DoDoIt
 
-procedure TkwSelfInfoFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
-end;//TkwSelfInfoFormHelpPaintBox.SetValuePrim
+ Result := '.TSelfInfoForm.HelpPaintBox';
+end;//TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister
 
 function TkwSelfInfoFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2428,10 +2294,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormHelpPaintBox.ParamsTypes
 
-class function TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.HelpPaintBox';
-end;//TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
+end;//TkwSelfInfoFormHelpPaintBox.SetValuePrim
 
 function TkwSelfInfoFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtFocusLabel;
@@ -2455,11 +2322,10 @@ begin
  aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormHelpLabel.DoDoIt
 
-procedure TkwSelfInfoFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwSelfInfoFormHelpLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
-end;//TkwSelfInfoFormHelpLabel.SetValuePrim
+ Result := '.TSelfInfoForm.HelpLabel';
+end;//TkwSelfInfoFormHelpLabel.GetWordNameForRegister
 
 function TkwSelfInfoFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2476,10 +2342,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormHelpLabel.ParamsTypes
 
-class function TkwSelfInfoFormHelpLabel.GetWordNameForRegister: AnsiString;
+procedure TkwSelfInfoFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TSelfInfoForm.HelpLabel';
-end;//TkwSelfInfoFormHelpLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
+end;//TkwSelfInfoFormHelpLabel.SetValuePrim
 
 initialization
  Tkw_Form_SelfInfo.RegisterInEngine;
@@ -2598,10 +2465,8 @@ initialization
  {* Регистрация SelfInfoForm_HelpPaintBox }
  TkwSelfInfoFormHelpLabel.RegisterInEngine;
  {* Регистрация SelfInfoForm_HelpLabel }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TSelfInfoForm));
- {* Регистрация типа SelfInfo }
+ {* Регистрация типа TSelfInfoForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));

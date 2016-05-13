@@ -11,8 +11,8 @@ interface
 uses
  l3IntfUses
  , nevParaFormatInfo
- , nevTools
  , nevBase
+ , nevTools
 ;
 
 type

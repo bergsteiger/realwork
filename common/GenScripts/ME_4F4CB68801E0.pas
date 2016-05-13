@@ -80,17 +80,13 @@ uses
  , evTypes
  , TevCustomEditorWordsPack
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopEditorScrollBottom = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:ScrollBottom
-*Пример:*
-[code]
- aVert aEditor pop:Editor:ScrollBottom
-[code]  }
+  {* Слово скрипта pop:Editor:ScrollBottom }
   private
    procedure ScrollBottom(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow;
@@ -106,11 +102,7 @@ type
  end;//TkwPopEditorScrollBottom
 
  TkwPopEditorScrollLineUp = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:ScrollLineUp
-*Пример:*
-[code]
- aEditor pop:Editor:ScrollLineUp
-[code]  }
+  {* Слово скрипта pop:Editor:ScrollLineUp }
   private
    procedure ScrollLineUp(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow);
@@ -125,11 +117,7 @@ type
  end;//TkwPopEditorScrollLineUp
 
  TkwPopEditorScrollLineDown = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:ScrollLineDown
-*Пример:*
-[code]
- aEditor pop:Editor:ScrollLineDown
-[code]  }
+  {* Слово скрипта pop:Editor:ScrollLineDown }
   private
    procedure ScrollLineDown(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow);
@@ -144,11 +132,7 @@ type
  end;//TkwPopEditorScrollLineDown
 
  TkwPopEditorScrollTo = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:ScrollTo
-*Пример:*
-[code]
- aPosition aVert aEditor pop:Editor:ScrollTo
-[code]  }
+  {* Слово скрипта pop:Editor:ScrollTo }
   private
    procedure ScrollTo(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow;
@@ -165,13 +149,7 @@ type
  end;//TkwPopEditorScrollTo
 
  TkwPopEditorPushParaFromCursor = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:PushParaFromCursor
-*Тип результата:* InevPara
-*Пример:*
-[code]
-INTERFACE VAR l_InevPara
- aEditor pop:Editor:PushParaFromCursor >>> l_InevPara
-[code]  }
+  {* Слово скрипта pop:Editor:PushParaFromCursor }
   private
    function PushParaFromCursor(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): InevPara;
@@ -186,11 +164,7 @@ INTERFACE VAR l_InevPara
  end;//TkwPopEditorPushParaFromCursor
 
  TkwPopEditorSelectAll = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SelectAll
-*Пример:*
-[code]
- aEditor pop:Editor:SelectAll
-[code]  }
+  {* Слово скрипта pop:Editor:SelectAll }
   private
    procedure SelectAll(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow);
@@ -205,11 +179,7 @@ INTERFACE VAR l_InevPara
  end;//TkwPopEditorSelectAll
 
  TkwPopEditorSelectPara = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SelectPara
-*Пример:*
-[code]
- aEditor pop:Editor:SelectPara
-[code]  }
+  {* Слово скрипта pop:Editor:SelectPara }
   private
    procedure SelectPara(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow);
@@ -224,13 +194,7 @@ INTERFACE VAR l_InevPara
  end;//TkwPopEditorSelectPara
 
  TkwPopEditorAtTop = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:AtTop
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:AtTop >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:AtTop }
   private
    function AtTop(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -245,11 +209,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopEditorAtTop
 
  TkwPopEditorSelectWord = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SelectWord
-*Пример:*
-[code]
- aEditor pop:Editor:SelectWord
-[code]  }
+  {* Слово скрипта pop:Editor:SelectWord }
   private
    procedure SelectWord(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow);
@@ -264,13 +224,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopEditorSelectWord
 
  TkwPopEditorCaretVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:CaretVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:CaretVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:CaretVisible }
   private
    function CaretVisible(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -282,21 +236,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorCaretVisible
 
  TkwPopEditorShowDocumentParts = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:ShowDocumentParts
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:ShowDocumentParts >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:ShowDocumentParts }
   private
    function ShowDocumentParts(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -305,21 +253,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorShowDocumentParts
 
  TkwPopEditorWebStyle = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:WebStyle
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:WebStyle >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:WebStyle }
   private
    function WebStyle(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -328,21 +270,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorWebStyle
 
  TkwPopEditorDrawSpecial = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:DrawSpecial
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:DrawSpecial >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:DrawSpecial }
   private
    function DrawSpecial(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -351,21 +287,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorDrawSpecial
 
  TkwPopEditorDocumentTailVisible = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:DocumentTailVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:DocumentTailVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:DocumentTailVisible }
   private
    function DocumentTailVisible(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -374,21 +304,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorDocumentTailVisible
 
  TkwPopEditorModified = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:Modified
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:Modified >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:Modified }
   private
    function Modified(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -397,21 +321,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorModified
 
  TkwPopEditorDrawLines = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:DrawLines
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor pop:Editor:DrawLines >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:Editor:DrawLines }
   private
    function DrawLines(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): Boolean;
@@ -423,21 +341,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorDrawLines
 
  TkwPopEditorAllowRubberTables = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:Editor:AllowRubberTables
-*Тип результата:* TnevRubberTablesMode
-*Пример:*
-[code]
-TnevRubberTablesMode VAR l_TnevRubberTablesMode
- aEditor pop:Editor:AllowRubberTables >>> l_TnevRubberTablesMode
-[code]  }
+  {* Слово скрипта pop:Editor:AllowRubberTables }
   private
    function AllowRubberTables(const aCtx: TtfwContext;
     aEditor: TevCustomEditorWindow): TnevRubberTablesMode;
@@ -446,11 +358,11 @@ TnevRubberTablesMode VAR l_TnevRubberTablesMode
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopEditorAllowRubberTables
 
  TEditorFromStackKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
@@ -463,12 +375,12 @@ procedure TkwPopEditorScrollBottom.ScrollBottom(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow;
  aVert: Boolean);
  {* Реализация слова скрипта pop:Editor:ScrollBottom }
-//#UC START# *E878A5785856_57E2F8D45E5B_var*
-//#UC END# *E878A5785856_57E2F8D45E5B_var*
+//#UC START# *55D5F6BB01C5_57E2F8D45E5B_var*
+//#UC END# *55D5F6BB01C5_57E2F8D45E5B_var*
 begin
-//#UC START# *E878A5785856_57E2F8D45E5B_impl*
+//#UC START# *55D5F6BB01C5_57E2F8D45E5B_impl*
  aEditor.View.Scroller[aVert].Bottom;
-//#UC END# *E878A5785856_57E2F8D45E5B_impl*
+//#UC END# *55D5F6BB01C5_57E2F8D45E5B_impl*
 end;//TkwPopEditorScrollBottom.ScrollBottom
 
 procedure TkwPopEditorScrollBottom.DoDoIt(const aCtx: TtfwContext);
@@ -496,6 +408,11 @@ begin
  ScrollBottom(aCtx, l_aEditor, l_aVert);
 end;//TkwPopEditorScrollBottom.DoDoIt
 
+class function TkwPopEditorScrollBottom.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollBottom';
+end;//TkwPopEditorScrollBottom.GetWordNameForRegister
+
 function TkwPopEditorScrollBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -511,20 +428,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean)]);
 end;//TkwPopEditorScrollBottom.ParamsTypes
 
-class function TkwPopEditorScrollBottom.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollBottom';
-end;//TkwPopEditorScrollBottom.GetWordNameForRegister
-
 procedure TkwPopEditorScrollLineUp.ScrollLineUp(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
  {* Реализация слова скрипта pop:Editor:ScrollLineUp }
-//#UC START# *3365A63C1282_984121B2A39C_var*
-//#UC END# *3365A63C1282_984121B2A39C_var*
+//#UC START# *55D5F6F701A4_984121B2A39C_var*
+//#UC END# *55D5F6F701A4_984121B2A39C_var*
 begin
-//#UC START# *3365A63C1282_984121B2A39C_impl*
+//#UC START# *55D5F6F701A4_984121B2A39C_impl*
  aEditor.View.Scroller[true].LineUp(1);
-//#UC END# *3365A63C1282_984121B2A39C_impl*
+//#UC END# *55D5F6F701A4_984121B2A39C_impl*
 end;//TkwPopEditorScrollLineUp.ScrollLineUp
 
 procedure TkwPopEditorScrollLineUp.DoDoIt(const aCtx: TtfwContext);
@@ -542,6 +454,11 @@ begin
  ScrollLineUp(aCtx, l_aEditor);
 end;//TkwPopEditorScrollLineUp.DoDoIt
 
+class function TkwPopEditorScrollLineUp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollLineUp';
+end;//TkwPopEditorScrollLineUp.GetWordNameForRegister
+
 function TkwPopEditorScrollLineUp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -557,20 +474,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorScrollLineUp.ParamsTypes
 
-class function TkwPopEditorScrollLineUp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollLineUp';
-end;//TkwPopEditorScrollLineUp.GetWordNameForRegister
-
 procedure TkwPopEditorScrollLineDown.ScrollLineDown(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
  {* Реализация слова скрипта pop:Editor:ScrollLineDown }
-//#UC START# *D3A35E072C1B_6EFB94FBB9D0_var*
-//#UC END# *D3A35E072C1B_6EFB94FBB9D0_var*
+//#UC START# *55D5F70C019D_6EFB94FBB9D0_var*
+//#UC END# *55D5F70C019D_6EFB94FBB9D0_var*
 begin
-//#UC START# *D3A35E072C1B_6EFB94FBB9D0_impl*
+//#UC START# *55D5F70C019D_6EFB94FBB9D0_impl*
  aEditor.View.Scroller[true].LineDown(1);
-//#UC END# *D3A35E072C1B_6EFB94FBB9D0_impl*
+//#UC END# *55D5F70C019D_6EFB94FBB9D0_impl*
 end;//TkwPopEditorScrollLineDown.ScrollLineDown
 
 procedure TkwPopEditorScrollLineDown.DoDoIt(const aCtx: TtfwContext);
@@ -588,6 +500,11 @@ begin
  ScrollLineDown(aCtx, l_aEditor);
 end;//TkwPopEditorScrollLineDown.DoDoIt
 
+class function TkwPopEditorScrollLineDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollLineDown';
+end;//TkwPopEditorScrollLineDown.GetWordNameForRegister
+
 function TkwPopEditorScrollLineDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -603,22 +520,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorScrollLineDown.ParamsTypes
 
-class function TkwPopEditorScrollLineDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollLineDown';
-end;//TkwPopEditorScrollLineDown.GetWordNameForRegister
-
 procedure TkwPopEditorScrollTo.ScrollTo(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow;
  aVert: Boolean;
  aPosition: Integer);
  {* Реализация слова скрипта pop:Editor:ScrollTo }
-//#UC START# *A3F91EDFD1C9_C6DBF363488D_var*
-//#UC END# *A3F91EDFD1C9_C6DBF363488D_var*
+//#UC START# *55D5F73E005E_C6DBF363488D_var*
+//#UC END# *55D5F73E005E_C6DBF363488D_var*
 begin
-//#UC START# *A3F91EDFD1C9_C6DBF363488D_impl*
+//#UC START# *55D5F73E005E_C6DBF363488D_impl*
  aEditor.View.Scroller[aVert].ScrollTo(aPosition);
-//#UC END# *A3F91EDFD1C9_C6DBF363488D_impl*
+//#UC END# *55D5F73E005E_C6DBF363488D_impl*
 end;//TkwPopEditorScrollTo.ScrollTo
 
 procedure TkwPopEditorScrollTo.DoDoIt(const aCtx: TtfwContext);
@@ -656,6 +568,11 @@ begin
  ScrollTo(aCtx, l_aEditor, l_aVert, l_aPosition);
 end;//TkwPopEditorScrollTo.DoDoIt
 
+class function TkwPopEditorScrollTo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:ScrollTo';
+end;//TkwPopEditorScrollTo.GetWordNameForRegister
+
 function TkwPopEditorScrollTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -671,20 +588,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean), TypeInfo(Integer)]);
 end;//TkwPopEditorScrollTo.ParamsTypes
 
-class function TkwPopEditorScrollTo.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:ScrollTo';
-end;//TkwPopEditorScrollTo.GetWordNameForRegister
-
 function TkwPopEditorPushParaFromCursor.PushParaFromCursor(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): InevPara;
  {* Реализация слова скрипта pop:Editor:PushParaFromCursor }
-//#UC START# *DD411E2D2581_A463E79E2664_var*
-//#UC END# *DD411E2D2581_A463E79E2664_var*
+//#UC START# *55D5F82B0316_A463E79E2664_var*
+//#UC END# *55D5F82B0316_A463E79E2664_var*
 begin
-//#UC START# *DD411E2D2581_A463E79E2664_impl*
+//#UC START# *55D5F82B0316_A463E79E2664_impl*
  Result := aEditor.Selection.Cursor.MostInner.Obj^.AsPara;
-//#UC END# *DD411E2D2581_A463E79E2664_impl*
+//#UC END# *55D5F82B0316_A463E79E2664_impl*
 end;//TkwPopEditorPushParaFromCursor.PushParaFromCursor
 
 procedure TkwPopEditorPushParaFromCursor.DoDoIt(const aCtx: TtfwContext);
@@ -702,6 +614,11 @@ begin
  aCtx.rEngine.PushIntf(PushParaFromCursor(aCtx, l_aEditor), TypeInfo(InevPara));
 end;//TkwPopEditorPushParaFromCursor.DoDoIt
 
+class function TkwPopEditorPushParaFromCursor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:PushParaFromCursor';
+end;//TkwPopEditorPushParaFromCursor.GetWordNameForRegister
+
 function TkwPopEditorPushParaFromCursor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(InevPara);
@@ -717,20 +634,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorPushParaFromCursor.ParamsTypes
 
-class function TkwPopEditorPushParaFromCursor.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:PushParaFromCursor';
-end;//TkwPopEditorPushParaFromCursor.GetWordNameForRegister
-
 procedure TkwPopEditorSelectAll.SelectAll(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
  {* Реализация слова скрипта pop:Editor:SelectAll }
-//#UC START# *C4091644F56C_4E1035C3F4EA_var*
-//#UC END# *C4091644F56C_4E1035C3F4EA_var*
+//#UC START# *55D5F8E00362_4E1035C3F4EA_var*
+//#UC END# *55D5F8E00362_4E1035C3F4EA_var*
 begin
-//#UC START# *C4091644F56C_4E1035C3F4EA_impl*
+//#UC START# *55D5F8E00362_4E1035C3F4EA_impl*
  aEditor.Select(ev_stDocument);
-//#UC END# *C4091644F56C_4E1035C3F4EA_impl*
+//#UC END# *55D5F8E00362_4E1035C3F4EA_impl*
 end;//TkwPopEditorSelectAll.SelectAll
 
 procedure TkwPopEditorSelectAll.DoDoIt(const aCtx: TtfwContext);
@@ -748,6 +660,11 @@ begin
  SelectAll(aCtx, l_aEditor);
 end;//TkwPopEditorSelectAll.DoDoIt
 
+class function TkwPopEditorSelectAll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SelectAll';
+end;//TkwPopEditorSelectAll.GetWordNameForRegister
+
 function TkwPopEditorSelectAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -763,20 +680,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectAll.ParamsTypes
 
-class function TkwPopEditorSelectAll.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SelectAll';
-end;//TkwPopEditorSelectAll.GetWordNameForRegister
-
 procedure TkwPopEditorSelectPara.SelectPara(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
  {* Реализация слова скрипта pop:Editor:SelectPara }
-//#UC START# *1FB82A59CE0C_3286856E5FD0_var*
-//#UC END# *1FB82A59CE0C_3286856E5FD0_var*
+//#UC START# *55D5F9010294_3286856E5FD0_var*
+//#UC END# *55D5F9010294_3286856E5FD0_var*
 begin
-//#UC START# *1FB82A59CE0C_3286856E5FD0_impl*
+//#UC START# *55D5F9010294_3286856E5FD0_impl*
  aEditor.Select(ev_stPara);
-//#UC END# *1FB82A59CE0C_3286856E5FD0_impl*
+//#UC END# *55D5F9010294_3286856E5FD0_impl*
 end;//TkwPopEditorSelectPara.SelectPara
 
 procedure TkwPopEditorSelectPara.DoDoIt(const aCtx: TtfwContext);
@@ -794,6 +706,11 @@ begin
  SelectPara(aCtx, l_aEditor);
 end;//TkwPopEditorSelectPara.DoDoIt
 
+class function TkwPopEditorSelectPara.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SelectPara';
+end;//TkwPopEditorSelectPara.GetWordNameForRegister
+
 function TkwPopEditorSelectPara.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -809,20 +726,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectPara.ParamsTypes
 
-class function TkwPopEditorSelectPara.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SelectPara';
-end;//TkwPopEditorSelectPara.GetWordNameForRegister
-
 function TkwPopEditorAtTop.AtTop(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:AtTop }
-//#UC START# *F84F861D4DF5_7B4AFEA8148C_var*
-//#UC END# *F84F861D4DF5_7B4AFEA8148C_var*
+//#UC START# *55D6030E03A9_7B4AFEA8148C_var*
+//#UC END# *55D6030E03A9_7B4AFEA8148C_var*
 begin
-//#UC START# *F84F861D4DF5_7B4AFEA8148C_impl*
+//#UC START# *55D6030E03A9_7B4AFEA8148C_impl*
  Result := aEditor.View.TopAnchor.AtStart;
-//#UC END# *F84F861D4DF5_7B4AFEA8148C_impl*
+//#UC END# *55D6030E03A9_7B4AFEA8148C_impl*
 end;//TkwPopEditorAtTop.AtTop
 
 procedure TkwPopEditorAtTop.DoDoIt(const aCtx: TtfwContext);
@@ -840,6 +752,11 @@ begin
  aCtx.rEngine.PushBool(AtTop(aCtx, l_aEditor));
 end;//TkwPopEditorAtTop.DoDoIt
 
+class function TkwPopEditorAtTop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:AtTop';
+end;//TkwPopEditorAtTop.GetWordNameForRegister
+
 function TkwPopEditorAtTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -855,20 +772,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorAtTop.ParamsTypes
 
-class function TkwPopEditorAtTop.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:AtTop';
-end;//TkwPopEditorAtTop.GetWordNameForRegister
-
 procedure TkwPopEditorSelectWord.SelectWord(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow);
  {* Реализация слова скрипта pop:Editor:SelectWord }
-//#UC START# *31861998FC92_2C60D13844FA_var*
-//#UC END# *31861998FC92_2C60D13844FA_var*
+//#UC START# *55D608E50272_2C60D13844FA_var*
+//#UC END# *55D608E50272_2C60D13844FA_var*
 begin
-//#UC START# *31861998FC92_2C60D13844FA_impl*
+//#UC START# *55D608E50272_2C60D13844FA_impl*
  aEditor.Select(ev_stWord);
-//#UC END# *31861998FC92_2C60D13844FA_impl*
+//#UC END# *55D608E50272_2C60D13844FA_impl*
 end;//TkwPopEditorSelectWord.SelectWord
 
 procedure TkwPopEditorSelectWord.DoDoIt(const aCtx: TtfwContext);
@@ -886,6 +798,11 @@ begin
  SelectWord(aCtx, l_aEditor);
 end;//TkwPopEditorSelectWord.DoDoIt
 
+class function TkwPopEditorSelectWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SelectWord';
+end;//TkwPopEditorSelectWord.GetWordNameForRegister
+
 function TkwPopEditorSelectWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -901,32 +818,27 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectWord.ParamsTypes
 
-class function TkwPopEditorSelectWord.GetWordNameForRegister: AnsiString;
+class procedure TkwPopEditorCaretVisible.DoSetValue(aEditor: TevCustomEditorWindow;
+ aValue: Boolean);
+ {* Метод установки значения свойства CaretVisible }
+//#UC START# *B38D1749E0D8_DoSetValue_B38D1749E0D8_var*
+//#UC END# *B38D1749E0D8_DoSetValue_B38D1749E0D8_var*
 begin
- Result := 'pop:Editor:SelectWord';
-end;//TkwPopEditorSelectWord.GetWordNameForRegister
+//#UC START# *B38D1749E0D8_DoSetValue_B38D1749E0D8_impl*
+ aEditor.Selection.Caret.Visible := aValue;
+//#UC END# *B38D1749E0D8_DoSetValue_B38D1749E0D8_impl*
+end;//TkwPopEditorCaretVisible.DoSetValue
 
 function TkwPopEditorCaretVisible.CaretVisible(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:CaretVisible }
-//#UC START# *F1AC80FF6877_B38D1749E0D8_var*
-//#UC END# *F1AC80FF6877_B38D1749E0D8_var*
+//#UC START# *9BDC571BB6C6_B38D1749E0D8_var*
+//#UC END# *9BDC571BB6C6_B38D1749E0D8_var*
 begin
-//#UC START# *F1AC80FF6877_B38D1749E0D8_impl*
+//#UC START# *9BDC571BB6C6_B38D1749E0D8_impl*
  Result := aEditor.Selection.Caret.Visible;
-//#UC END# *F1AC80FF6877_B38D1749E0D8_impl*
+//#UC END# *9BDC571BB6C6_B38D1749E0D8_impl*
 end;//TkwPopEditorCaretVisible.CaretVisible
-
-class procedure TkwPopEditorCaretVisible.DoSetValue(aEditor: TevCustomEditorWindow;
- aValue: Boolean);
- {* Метод установки значения свойства CaretVisible }
-//#UC START# *813D8AF5A13B_B38D1749E0D8_var*
-//#UC END# *813D8AF5A13B_B38D1749E0D8_var*
-begin
-//#UC START# *813D8AF5A13B_B38D1749E0D8_impl*
- aEditor.Selection.Caret.Visible := aValue;
-//#UC END# *813D8AF5A13B_B38D1749E0D8_impl*
-end;//TkwPopEditorCaretVisible.DoSetValue
 
 procedure TkwPopEditorCaretVisible.DoDoIt(const aCtx: TtfwContext);
 var l_aEditor: TevCustomEditorWindow;
@@ -943,21 +855,10 @@ begin
  aCtx.rEngine.PushBool(CaretVisible(aCtx, l_aEditor));
 end;//TkwPopEditorCaretVisible.DoDoIt
 
-procedure TkwPopEditorCaretVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
+class function TkwPopEditorCaretVisible.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- DoSetValue(l_Editor, aValue.AsBoolean);
-end;//TkwPopEditorCaretVisible.SetValuePrim
+ Result := 'pop:Editor:CaretVisible';
+end;//TkwPopEditorCaretVisible.GetWordNameForRegister
 
 function TkwPopEditorCaretVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -974,10 +875,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorCaretVisible.ParamsTypes
 
-class function TkwPopEditorCaretVisible.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorCaretVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- Result := 'pop:Editor:CaretVisible';
-end;//TkwPopEditorCaretVisible.GetWordNameForRegister
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(l_Editor, aValue.AsBoolean);
+end;//TkwPopEditorCaretVisible.SetValuePrim
 
 function TkwPopEditorShowDocumentParts.ShowDocumentParts(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -1001,21 +913,10 @@ begin
  aCtx.rEngine.PushBool(ShowDocumentParts(aCtx, l_aEditor));
 end;//TkwPopEditorShowDocumentParts.DoDoIt
 
-procedure TkwPopEditorShowDocumentParts.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
+class function TkwPopEditorShowDocumentParts.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Editor.ShowDocumentParts := aValue.AsBoolean;
-end;//TkwPopEditorShowDocumentParts.SetValuePrim
+ Result := 'pop:Editor:ShowDocumentParts';
+end;//TkwPopEditorShowDocumentParts.GetWordNameForRegister
 
 function TkwPopEditorShowDocumentParts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1032,10 +933,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorShowDocumentParts.ParamsTypes
 
-class function TkwPopEditorShowDocumentParts.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorShowDocumentParts.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- Result := 'pop:Editor:ShowDocumentParts';
-end;//TkwPopEditorShowDocumentParts.GetWordNameForRegister
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Editor.ShowDocumentParts := aValue.AsBoolean;
+end;//TkwPopEditorShowDocumentParts.SetValuePrim
 
 function TkwPopEditorWebStyle.WebStyle(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -1059,21 +971,10 @@ begin
  aCtx.rEngine.PushBool(WebStyle(aCtx, l_aEditor));
 end;//TkwPopEditorWebStyle.DoDoIt
 
-procedure TkwPopEditorWebStyle.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
+class function TkwPopEditorWebStyle.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Editor.WebStyle := aValue.AsBoolean;
-end;//TkwPopEditorWebStyle.SetValuePrim
+ Result := 'pop:Editor:WebStyle';
+end;//TkwPopEditorWebStyle.GetWordNameForRegister
 
 function TkwPopEditorWebStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1090,10 +991,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorWebStyle.ParamsTypes
 
-class function TkwPopEditorWebStyle.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorWebStyle.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- Result := 'pop:Editor:WebStyle';
-end;//TkwPopEditorWebStyle.GetWordNameForRegister
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Editor.WebStyle := aValue.AsBoolean;
+end;//TkwPopEditorWebStyle.SetValuePrim
 
 function TkwPopEditorDrawSpecial.DrawSpecial(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -1117,21 +1029,10 @@ begin
  aCtx.rEngine.PushBool(DrawSpecial(aCtx, l_aEditor));
 end;//TkwPopEditorDrawSpecial.DoDoIt
 
-procedure TkwPopEditorDrawSpecial.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
+class function TkwPopEditorDrawSpecial.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Editor.DrawSpecial := aValue.AsBoolean;
-end;//TkwPopEditorDrawSpecial.SetValuePrim
+ Result := 'pop:Editor:DrawSpecial';
+end;//TkwPopEditorDrawSpecial.GetWordNameForRegister
 
 function TkwPopEditorDrawSpecial.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1148,20 +1049,31 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDrawSpecial.ParamsTypes
 
-class function TkwPopEditorDrawSpecial.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorDrawSpecial.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- Result := 'pop:Editor:DrawSpecial';
-end;//TkwPopEditorDrawSpecial.GetWordNameForRegister
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Editor.DrawSpecial := aValue.AsBoolean;
+end;//TkwPopEditorDrawSpecial.SetValuePrim
 
 function TkwPopEditorDocumentTailVisible.DocumentTailVisible(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:DocumentTailVisible }
-//#UC START# *FC999CC36EB4_EE3EA3E1113C_var*
-//#UC END# *FC999CC36EB4_EE3EA3E1113C_var*
+//#UC START# *4D8865E49C68_EE3EA3E1113C_var*
+//#UC END# *4D8865E49C68_EE3EA3E1113C_var*
 begin
-//#UC START# *FC999CC36EB4_EE3EA3E1113C_impl*
+//#UC START# *4D8865E49C68_EE3EA3E1113C_impl*
  Result := aEditor.View.IsDocumentTailVisible;
-//#UC END# *FC999CC36EB4_EE3EA3E1113C_impl*
+//#UC END# *4D8865E49C68_EE3EA3E1113C_impl*
 end;//TkwPopEditorDocumentTailVisible.DocumentTailVisible
 
 procedure TkwPopEditorDocumentTailVisible.DoDoIt(const aCtx: TtfwContext);
@@ -1179,11 +1091,10 @@ begin
  aCtx.rEngine.PushBool(DocumentTailVisible(aCtx, l_aEditor));
 end;//TkwPopEditorDocumentTailVisible.DoDoIt
 
-procedure TkwPopEditorDocumentTailVisible.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopEditorDocumentTailVisible.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству DocumentTailVisible', aCtx);
-end;//TkwPopEditorDocumentTailVisible.SetValuePrim
+ Result := 'pop:Editor:DocumentTailVisible';
+end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
 
 function TkwPopEditorDocumentTailVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1200,10 +1111,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDocumentTailVisible.ParamsTypes
 
-class function TkwPopEditorDocumentTailVisible.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorDocumentTailVisible.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Editor:DocumentTailVisible';
-end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству DocumentTailVisible', aCtx);
+end;//TkwPopEditorDocumentTailVisible.SetValuePrim
 
 function TkwPopEditorModified.Modified(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
@@ -1227,11 +1139,10 @@ begin
  aCtx.rEngine.PushBool(Modified(aCtx, l_aEditor));
 end;//TkwPopEditorModified.DoDoIt
 
-procedure TkwPopEditorModified.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopEditorModified.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Modified', aCtx);
-end;//TkwPopEditorModified.SetValuePrim
+ Result := 'pop:Editor:Modified';
+end;//TkwPopEditorModified.GetWordNameForRegister
 
 function TkwPopEditorModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1248,32 +1159,33 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorModified.ParamsTypes
 
-class function TkwPopEditorModified.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorModified.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:Editor:Modified';
-end;//TkwPopEditorModified.GetWordNameForRegister
-
-function TkwPopEditorDrawLines.DrawLines(const aCtx: TtfwContext;
- aEditor: TevCustomEditorWindow): Boolean;
- {* Реализация слова скрипта pop:Editor:DrawLines }
-//#UC START# *4AE71A813BB5_3928ECE1F34F_var*
-//#UC END# *4AE71A813BB5_3928ECE1F34F_var*
-begin
-//#UC START# *4AE71A813BB5_3928ECE1F34F_impl*
- Result := aEditor.Selection.DrawLines;
-//#UC END# *4AE71A813BB5_3928ECE1F34F_impl*
-end;//TkwPopEditorDrawLines.DrawLines
+ RunnerError('Нельзя присваивать значение readonly свойству Modified', aCtx);
+end;//TkwPopEditorModified.SetValuePrim
 
 class procedure TkwPopEditorDrawLines.DoSetValue(aEditor: TevCustomEditorWindow;
  aValue: Boolean);
  {* Метод установки значения свойства DrawLines }
-//#UC START# *D9A36FE270D1_3928ECE1F34F_var*
-//#UC END# *D9A36FE270D1_3928ECE1F34F_var*
+//#UC START# *3928ECE1F34F_DoSetValue_3928ECE1F34F_var*
+//#UC END# *3928ECE1F34F_DoSetValue_3928ECE1F34F_var*
 begin
-//#UC START# *D9A36FE270D1_3928ECE1F34F_impl*
+//#UC START# *3928ECE1F34F_DoSetValue_3928ECE1F34F_impl*
  aEditor.Selection.DrawLines := aValue;
-//#UC END# *D9A36FE270D1_3928ECE1F34F_impl*
+//#UC END# *3928ECE1F34F_DoSetValue_3928ECE1F34F_impl*
 end;//TkwPopEditorDrawLines.DoSetValue
+
+function TkwPopEditorDrawLines.DrawLines(const aCtx: TtfwContext;
+ aEditor: TevCustomEditorWindow): Boolean;
+ {* Реализация слова скрипта pop:Editor:DrawLines }
+//#UC START# *A434474CBB34_3928ECE1F34F_var*
+//#UC END# *A434474CBB34_3928ECE1F34F_var*
+begin
+//#UC START# *A434474CBB34_3928ECE1F34F_impl*
+ Result := aEditor.Selection.DrawLines;
+//#UC END# *A434474CBB34_3928ECE1F34F_impl*
+end;//TkwPopEditorDrawLines.DrawLines
 
 procedure TkwPopEditorDrawLines.DoDoIt(const aCtx: TtfwContext);
 var l_aEditor: TevCustomEditorWindow;
@@ -1290,21 +1202,10 @@ begin
  aCtx.rEngine.PushBool(DrawLines(aCtx, l_aEditor));
 end;//TkwPopEditorDrawLines.DoDoIt
 
-procedure TkwPopEditorDrawLines.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
+class function TkwPopEditorDrawLines.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- DoSetValue(l_Editor, aValue.AsBoolean);
-end;//TkwPopEditorDrawLines.SetValuePrim
+ Result := 'pop:Editor:DrawLines';
+end;//TkwPopEditorDrawLines.GetWordNameForRegister
 
 function TkwPopEditorDrawLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1321,10 +1222,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDrawLines.ParamsTypes
 
-class function TkwPopEditorDrawLines.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorDrawLines.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- Result := 'pop:Editor:DrawLines';
-end;//TkwPopEditorDrawLines.GetWordNameForRegister
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(l_Editor, aValue.AsBoolean);
+end;//TkwPopEditorDrawLines.SetValuePrim
 
 function TkwPopEditorAllowRubberTables.AllowRubberTables(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): TnevRubberTablesMode;
@@ -1348,21 +1260,10 @@ begin
  aCtx.rEngine.PushInt(Ord(AllowRubberTables(aCtx, l_aEditor)));
 end;//TkwPopEditorAllowRubberTables.DoDoIt
 
-procedure TkwPopEditorAllowRubberTables.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
+class function TkwPopEditorAllowRubberTables.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_Editor.AllowRubberTables := TnevRubberTablesMode(aValue.AsInt);
-end;//TkwPopEditorAllowRubberTables.SetValuePrim
+ Result := 'pop:Editor:AllowRubberTables';
+end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
 
 function TkwPopEditorAllowRubberTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1379,10 +1280,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorAllowRubberTables.ParamsTypes
 
-class function TkwPopEditorAllowRubberTables.GetWordNameForRegister: AnsiString;
+procedure TkwPopEditorAllowRubberTables.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- Result := 'pop:Editor:AllowRubberTables';
-end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_Editor.AllowRubberTables := TnevRubberTablesMode(aValue.AsInt);
+end;//TkwPopEditorAllowRubberTables.SetValuePrim
 
 class function TEditorFromStackKeyWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -1428,18 +1340,16 @@ initialization
  {* Регистрация pop_Editor_AllowRubberTables }
  TEditorFromStackKeyWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditorWindow));
  {* Регистрация типа TevCustomEditorWindow }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
- {* Регистрация типа Boolean }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(InevPara));
  {* Регистрация типа InevPara }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnevRubberTablesMode));
  {* Регистрация типа TnevRubberTablesMode }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

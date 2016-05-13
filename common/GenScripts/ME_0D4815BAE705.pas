@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_SynchroView_Control_DocView_Push
 
  TkwFcSynchroViewDocView = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TfcSynchroView.DocView
-[panel]Контрол DocView формы TfcSynchroView[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- afcSynchroView .TfcSynchroView.DocView >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TfcSynchroView.DocView }
   private
    function DocView(const aCtx: TtfwContext;
     afcSynchroView: TfcSynchroView): TvtPanel;
@@ -94,11 +87,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFcSynchroViewDocView
 
 function Tkw_Form_SynchroView.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(DocView(aCtx, l_afcSynchroView));
 end;//TkwFcSynchroViewDocView.DoDoIt
 
-procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFcSynchroViewDocView.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству DocView', aCtx);
-end;//TkwFcSynchroViewDocView.SetValuePrim
+ Result := '.TfcSynchroView.DocView';
+end;//TkwFcSynchroViewDocView.GetWordNameForRegister
 
 function TkwFcSynchroViewDocView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TfcSynchroView)]);
 end;//TkwFcSynchroViewDocView.ParamsTypes
 
-class function TkwFcSynchroViewDocView.GetWordNameForRegister: AnsiString;
+procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TfcSynchroView.DocView';
-end;//TkwFcSynchroViewDocView.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству DocView', aCtx);
+end;//TkwFcSynchroViewDocView.SetValuePrim
 
 initialization
  Tkw_Form_SynchroView.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_SynchroView_Control_DocView_Push }
  TkwFcSynchroViewDocView.RegisterInEngine;
  {* Регистрация fcSynchroView_DocView }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TfcSynchroView));
- {* Регистрация типа SynchroView }
+ {* Регистрация типа TfcSynchroView }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

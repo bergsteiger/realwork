@@ -24,17 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopSpellCheckDlgFake = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:SpellCheckDlg:Fake
-*Пример:*
-[code]
- aSpellCheckDlg pop:SpellCheckDlg:Fake
-[code]  }
+  {* Слово скрипта pop:SpellCheckDlg:Fake }
   private
    procedure Fake(const aCtx: TtfwContext;
     aSpellCheckDlg: TSpellCheckDlg);
@@ -51,12 +47,12 @@ type
 procedure TkwPopSpellCheckDlgFake.Fake(const aCtx: TtfwContext;
  aSpellCheckDlg: TSpellCheckDlg);
  {* Реализация слова скрипта pop:SpellCheckDlg:Fake }
-//#UC START# *66B7B716E7E4_B3D7A1E7CA69_var*
-//#UC END# *66B7B716E7E4_B3D7A1E7CA69_var*
+//#UC START# *55C8CE2102C9_B3D7A1E7CA69_var*
+//#UC END# *55C8CE2102C9_B3D7A1E7CA69_var*
 begin
-//#UC START# *66B7B716E7E4_B3D7A1E7CA69_impl*
+//#UC START# *55C8CE2102C9_B3D7A1E7CA69_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *66B7B716E7E4_B3D7A1E7CA69_impl*
+//#UC END# *55C8CE2102C9_B3D7A1E7CA69_impl*
 end;//TkwPopSpellCheckDlgFake.Fake
 
 procedure TkwPopSpellCheckDlgFake.DoDoIt(const aCtx: TtfwContext);
@@ -74,6 +70,11 @@ begin
  Fake(aCtx, l_aSpellCheckDlg);
 end;//TkwPopSpellCheckDlgFake.DoDoIt
 
+class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:SpellCheckDlg:Fake';
+end;//TkwPopSpellCheckDlgFake.GetWordNameForRegister
+
 function TkwPopSpellCheckDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -89,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TSpellCheckDlg)]);
 end;//TkwPopSpellCheckDlgFake.ParamsTypes
 
-class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:SpellCheckDlg:Fake';
-end;//TkwPopSpellCheckDlgFake.GetWordNameForRegister
-
 initialization
  TkwPopSpellCheckDlgFake.RegisterInEngine;
  {* Регистрация pop_SpellCheckDlg_Fake }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TSpellCheckDlg));
  {* Регистрация типа TSpellCheckDlg }
 {$IfEnd} // NOT Defined(NoScripts)

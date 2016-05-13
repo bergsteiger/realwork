@@ -58,6 +58,9 @@ uses
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
  , l3BatchService
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -80,6 +83,12 @@ procedure TPrimeTestRes.Loaded;
 begin
  inherited;
 end;//TPrimeTestRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TPrimeTestRes);
+ {* Регистрация PrimeTest }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin)
 
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(Monitorings)

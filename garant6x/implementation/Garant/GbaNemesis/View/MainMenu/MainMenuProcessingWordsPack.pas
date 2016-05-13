@@ -24,7 +24,7 @@ uses
  , tfwRegisterableWord
  , tfwScriptingInterfaces
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571E23FB01C3impl_uses*
  , StdRes
@@ -34,9 +34,14 @@ uses
 type
  TkwMainMenu = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMainMenu
+
+class function TkwMainMenu.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ќсновноећеню';
+end;//TkwMainMenu.GetWordNameForRegister
 
 procedure TkwMainMenu.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DAF1471030D_var*
@@ -46,11 +51,6 @@ begin
  TdmStdRes.OpenMainMenuIfNeeded(nil);
 //#UC END# *4DAEEDE10285_4DAF1471030D_impl*
 end;//TkwMainMenu.DoDoIt
-
-class function TkwMainMenu.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ќсновноећеню';
-end;//TkwMainMenu.GetWordNameForRegister
 
 initialization
  TkwMainMenu.RegisterInEngine;

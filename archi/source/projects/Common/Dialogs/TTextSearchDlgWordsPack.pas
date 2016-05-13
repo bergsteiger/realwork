@@ -24,18 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopTextSearchDlgFake = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:TextSearchDlg:Fake
-[panel]Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.[panel]
-*Пример:*
-[code]
- aTextSearchDlg pop:TextSearchDlg:Fake
-[code]  }
+  {* Слово скрипта pop:TextSearchDlg:Fake }
   private
    procedure Fake(const aCtx: TtfwContext;
     aTextSearchDlg: TTextSearchDlg);
@@ -52,12 +47,12 @@ type
 procedure TkwPopTextSearchDlgFake.Fake(const aCtx: TtfwContext;
  aTextSearchDlg: TTextSearchDlg);
  {* Реализация слова скрипта pop:TextSearchDlg:Fake }
-//#UC START# *29B068DE5F56_2975C5F7A803_var*
-//#UC END# *29B068DE5F56_2975C5F7A803_var*
+//#UC START# *55C8CD470049_2975C5F7A803_var*
+//#UC END# *55C8CD470049_2975C5F7A803_var*
 begin
-//#UC START# *29B068DE5F56_2975C5F7A803_impl*
+//#UC START# *55C8CD470049_2975C5F7A803_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *29B068DE5F56_2975C5F7A803_impl*
+//#UC END# *55C8CD470049_2975C5F7A803_impl*
 end;//TkwPopTextSearchDlgFake.Fake
 
 procedure TkwPopTextSearchDlgFake.DoDoIt(const aCtx: TtfwContext);
@@ -75,6 +70,11 @@ begin
  Fake(aCtx, l_aTextSearchDlg);
 end;//TkwPopTextSearchDlgFake.DoDoIt
 
+class function TkwPopTextSearchDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TextSearchDlg:Fake';
+end;//TkwPopTextSearchDlgFake.GetWordNameForRegister
+
 function TkwPopTextSearchDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -90,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextSearchDlg)]);
 end;//TkwPopTextSearchDlgFake.ParamsTypes
 
-class function TkwPopTextSearchDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TextSearchDlg:Fake';
-end;//TkwPopTextSearchDlgFake.GetWordNameForRegister
-
 initialization
  TkwPopTextSearchDlgFake.RegisterInEngine;
  {* Регистрация pop_TextSearchDlg_Fake }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTextSearchDlg));
  {* Регистрация типа TTextSearchDlg }
 {$IfEnd} // NOT Defined(NoScripts)

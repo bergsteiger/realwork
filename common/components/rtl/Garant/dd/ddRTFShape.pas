@@ -17,9 +17,9 @@ uses
  , destNorm
  , ddPicture
  , ddTextParagraph
+ , ddCustomDestination
  , k2Interfaces
  , ddTypes
- , ddCustomDestination
 ;
 
 type

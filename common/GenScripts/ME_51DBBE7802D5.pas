@@ -16,9 +16,15 @@ uses
 ;
 
 type
+ TddSectState = (
+  dd_ssNone
+  , dd_ssStart
+  , dd_ssFinish
+ );//TddSectState
+
  TddSectionProperty = class(TddDocumentProperty)
   private
-   f_cCols: Integer;
+   f_ColumnCount: Integer;
    f_ColsSpace: Integer;
    f_EndHere: Boolean;
    f_Landscape: Boolean;
@@ -26,15 +32,16 @@ type
    f_Unlocked: Boolean;
    f_pgnFormat: TPGN;
    f_SBK: TSBK;
+   f_SectionState: TddSectState;
   public
    constructor Create; override;
     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
    procedure Clear; override;
    procedure AssignFrom(anOther: TddPropertyObject); override;
   public
-   property cCols: Integer
-    read f_cCols
-    write f_cCols;
+   property ColumnCount: Integer
+    read f_ColumnCount
+    write f_ColumnCount;
    property ColsSpace: Integer
     read f_ColsSpace
     write f_ColsSpace;
@@ -56,6 +63,9 @@ type
    property SBK: TSBK
     read f_SBK
     write f_SBK;
+   property SectionState: TddSectState
+    read f_SectionState
+    write f_SectionState;
  end;//TddSectionProperty
 
 implementation

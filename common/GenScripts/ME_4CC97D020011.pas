@@ -54,6 +54,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , Search_Strange_Controls
  , SearchLite_Strange_Controls
@@ -185,6 +188,10 @@ end;//TBaseSearchModule.MakeBaseSearchCard
 initialization
  fm_NewBaseSearchForm.SetFactory(TNewBaseSearchForm.Make);
  {* Регистрация фабрики формы NewBaseSearch }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TBaseSearchModule);
+ {* Регистрация BaseSearch }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

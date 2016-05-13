@@ -59,6 +59,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngineEX
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -69,6 +72,12 @@ procedure TNemesisRes.Loaded;
 begin
  inherited;
 end;//TNemesisRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TNemesisRes);
+ {* Регистрация Nemesis }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

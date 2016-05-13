@@ -27,7 +27,16 @@ uses
  , vcmMenuForChromeLikeItems
  , vcmDropDownMenuForChromeLike
  , vcmPopupControlWindowService
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmMainMenuStripForChromeLike);
+ {* Регистрация TvcmMainMenuStripForChromeLike }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

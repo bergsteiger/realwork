@@ -33,11 +33,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -320,14 +320,7 @@ type
  end;//Tkw_ShutDown_Control_CloseButton_Push
 
  TkwShutDownFormShutdownTimer = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.ShutdownTimer
-[panel]Контрол ShutdownTimer формы TShutDownForm[panel]
-*Тип результата:* TTimer
-*Пример:*
-[code]
-OBJECT VAR l_TTimer
- aShutDownForm .TShutDownForm.ShutdownTimer >>> l_TTimer
-[code]  }
+  {* Слово скрипта .TShutDownForm.ShutdownTimer }
   private
    function ShutdownTimer(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TTimer;
@@ -336,22 +329,15 @@ OBJECT VAR l_TTimer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormShutdownTimer
 
  TkwShutDownFormVtPanel1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.vtPanel1
-[panel]Контрол vtPanel1 формы TShutDownForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aShutDownForm .TShutDownForm.vtPanel1 >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TShutDownForm.vtPanel1 }
   private
    function vtPanel1(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtPanel;
@@ -360,22 +346,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormVtPanel1
 
  TkwShutDownFormLeftPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.LeftPanel
-[panel]Контрол LeftPanel формы TShutDownForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aShutDownForm .TShutDownForm.LeftPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TShutDownForm.LeftPanel }
   private
    function LeftPanel(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtPanel;
@@ -384,22 +363,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormLeftPanel
 
  TkwShutDownFormImage = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.Image
-[panel]Контрол Image формы TShutDownForm[panel]
-*Тип результата:* TImage
-*Пример:*
-[code]
-OBJECT VAR l_TImage
- aShutDownForm .TShutDownForm.Image >>> l_TImage
-[code]  }
+  {* Слово скрипта .TShutDownForm.Image }
   private
    function Image(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TImage;
@@ -408,22 +380,15 @@ OBJECT VAR l_TImage
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormImage
 
  TkwShutDownFormCenterPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.CenterPanel
-[panel]Контрол CenterPanel формы TShutDownForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aShutDownForm .TShutDownForm.CenterPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TShutDownForm.CenterPanel }
   private
    function CenterPanel(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtPanel;
@@ -432,22 +397,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormCenterPanel
 
  TkwShutDownFormTopSpacerPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.TopSpacerPanel
-[panel]Контрол TopSpacerPanel формы TShutDownForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aShutDownForm .TShutDownForm.TopSpacerPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TShutDownForm.TopSpacerPanel }
   private
    function TopSpacerPanel(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtPanel;
@@ -456,22 +414,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormTopSpacerPanel
 
  TkwShutDownFormWarningText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.WarningText
-[panel]Контрол WarningText формы TShutDownForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aShutDownForm .TShutDownForm.WarningText >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TShutDownForm.WarningText }
   private
    function WarningText(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtLabel;
@@ -480,22 +431,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormWarningText
 
  TkwShutDownFormRightSpacerPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.RightSpacerPanel
-[panel]Контрол RightSpacerPanel формы TShutDownForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aShutDownForm .TShutDownForm.RightSpacerPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TShutDownForm.RightSpacerPanel }
   private
    function RightSpacerPanel(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtPanel;
@@ -504,22 +448,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormRightSpacerPanel
 
  TkwShutDownFormPnlBottom = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.pnlBottom
-[panel]Контрол pnlBottom формы TShutDownForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aShutDownForm .TShutDownForm.pnlBottom >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TShutDownForm.pnlBottom }
   private
    function pnlBottom(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtPanel;
@@ -528,22 +465,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormPnlBottom
 
  TkwShutDownFormCloseButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TShutDownForm.CloseButton
-[panel]Контрол CloseButton формы TShutDownForm[panel]
-*Тип результата:* TvtButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtButton
- aShutDownForm .TShutDownForm.CloseButton >>> l_TvtButton
-[code]  }
+  {* Слово скрипта .TShutDownForm.CloseButton }
   private
    function CloseButton(const aCtx: TtfwContext;
     aShutDownForm: TShutDownForm): TvtButton;
@@ -552,11 +482,11 @@ OBJECT VAR l_TvtButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwShutDownFormCloseButton
 
 function Tkw_Form_ShutDown.GetString: AnsiString;
@@ -850,11 +780,10 @@ begin
  aCtx.rEngine.PushObj(ShutdownTimer(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormShutdownTimer.DoDoIt
 
-procedure TkwShutDownFormShutdownTimer.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormShutdownTimer.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShutdownTimer', aCtx);
-end;//TkwShutDownFormShutdownTimer.SetValuePrim
+ Result := '.TShutDownForm.ShutdownTimer';
+end;//TkwShutDownFormShutdownTimer.GetWordNameForRegister
 
 function TkwShutDownFormShutdownTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -871,10 +800,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormShutdownTimer.ParamsTypes
 
-class function TkwShutDownFormShutdownTimer.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormShutdownTimer.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.ShutdownTimer';
-end;//TkwShutDownFormShutdownTimer.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShutdownTimer', aCtx);
+end;//TkwShutDownFormShutdownTimer.SetValuePrim
 
 function TkwShutDownFormVtPanel1.vtPanel1(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -898,11 +828,10 @@ begin
  aCtx.rEngine.PushObj(vtPanel1(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormVtPanel1.DoDoIt
 
-procedure TkwShutDownFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormVtPanel1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству vtPanel1', aCtx);
-end;//TkwShutDownFormVtPanel1.SetValuePrim
+ Result := '.TShutDownForm.vtPanel1';
+end;//TkwShutDownFormVtPanel1.GetWordNameForRegister
 
 function TkwShutDownFormVtPanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -919,10 +848,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormVtPanel1.ParamsTypes
 
-class function TkwShutDownFormVtPanel1.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.vtPanel1';
-end;//TkwShutDownFormVtPanel1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству vtPanel1', aCtx);
+end;//TkwShutDownFormVtPanel1.SetValuePrim
 
 function TkwShutDownFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -946,11 +876,10 @@ begin
  aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormLeftPanel.DoDoIt
 
-procedure TkwShutDownFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormLeftPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LeftPanel', aCtx);
-end;//TkwShutDownFormLeftPanel.SetValuePrim
+ Result := '.TShutDownForm.LeftPanel';
+end;//TkwShutDownFormLeftPanel.GetWordNameForRegister
 
 function TkwShutDownFormLeftPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -967,10 +896,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormLeftPanel.ParamsTypes
 
-class function TkwShutDownFormLeftPanel.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.LeftPanel';
-end;//TkwShutDownFormLeftPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LeftPanel', aCtx);
+end;//TkwShutDownFormLeftPanel.SetValuePrim
 
 function TkwShutDownFormImage.Image(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TImage;
@@ -994,11 +924,10 @@ begin
  aCtx.rEngine.PushObj(Image(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormImage.DoDoIt
 
-procedure TkwShutDownFormImage.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormImage.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Image', aCtx);
-end;//TkwShutDownFormImage.SetValuePrim
+ Result := '.TShutDownForm.Image';
+end;//TkwShutDownFormImage.GetWordNameForRegister
 
 function TkwShutDownFormImage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1015,10 +944,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormImage.ParamsTypes
 
-class function TkwShutDownFormImage.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormImage.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.Image';
-end;//TkwShutDownFormImage.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Image', aCtx);
+end;//TkwShutDownFormImage.SetValuePrim
 
 function TkwShutDownFormCenterPanel.CenterPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1042,11 +972,10 @@ begin
  aCtx.rEngine.PushObj(CenterPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormCenterPanel.DoDoIt
 
-procedure TkwShutDownFormCenterPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormCenterPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CenterPanel', aCtx);
-end;//TkwShutDownFormCenterPanel.SetValuePrim
+ Result := '.TShutDownForm.CenterPanel';
+end;//TkwShutDownFormCenterPanel.GetWordNameForRegister
 
 function TkwShutDownFormCenterPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1063,10 +992,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormCenterPanel.ParamsTypes
 
-class function TkwShutDownFormCenterPanel.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormCenterPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.CenterPanel';
-end;//TkwShutDownFormCenterPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CenterPanel', aCtx);
+end;//TkwShutDownFormCenterPanel.SetValuePrim
 
 function TkwShutDownFormTopSpacerPanel.TopSpacerPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1090,11 +1020,10 @@ begin
  aCtx.rEngine.PushObj(TopSpacerPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormTopSpacerPanel.DoDoIt
 
-procedure TkwShutDownFormTopSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormTopSpacerPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TopSpacerPanel', aCtx);
-end;//TkwShutDownFormTopSpacerPanel.SetValuePrim
+ Result := '.TShutDownForm.TopSpacerPanel';
+end;//TkwShutDownFormTopSpacerPanel.GetWordNameForRegister
 
 function TkwShutDownFormTopSpacerPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1111,10 +1040,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormTopSpacerPanel.ParamsTypes
 
-class function TkwShutDownFormTopSpacerPanel.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormTopSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.TopSpacerPanel';
-end;//TkwShutDownFormTopSpacerPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TopSpacerPanel', aCtx);
+end;//TkwShutDownFormTopSpacerPanel.SetValuePrim
 
 function TkwShutDownFormWarningText.WarningText(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtLabel;
@@ -1138,11 +1068,10 @@ begin
  aCtx.rEngine.PushObj(WarningText(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormWarningText.DoDoIt
 
-procedure TkwShutDownFormWarningText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormWarningText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarningText', aCtx);
-end;//TkwShutDownFormWarningText.SetValuePrim
+ Result := '.TShutDownForm.WarningText';
+end;//TkwShutDownFormWarningText.GetWordNameForRegister
 
 function TkwShutDownFormWarningText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1159,10 +1088,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormWarningText.ParamsTypes
 
-class function TkwShutDownFormWarningText.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormWarningText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.WarningText';
-end;//TkwShutDownFormWarningText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarningText', aCtx);
+end;//TkwShutDownFormWarningText.SetValuePrim
 
 function TkwShutDownFormRightSpacerPanel.RightSpacerPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1186,11 +1116,10 @@ begin
  aCtx.rEngine.PushObj(RightSpacerPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormRightSpacerPanel.DoDoIt
 
-procedure TkwShutDownFormRightSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormRightSpacerPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RightSpacerPanel', aCtx);
-end;//TkwShutDownFormRightSpacerPanel.SetValuePrim
+ Result := '.TShutDownForm.RightSpacerPanel';
+end;//TkwShutDownFormRightSpacerPanel.GetWordNameForRegister
 
 function TkwShutDownFormRightSpacerPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1207,10 +1136,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormRightSpacerPanel.ParamsTypes
 
-class function TkwShutDownFormRightSpacerPanel.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormRightSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.RightSpacerPanel';
-end;//TkwShutDownFormRightSpacerPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RightSpacerPanel', aCtx);
+end;//TkwShutDownFormRightSpacerPanel.SetValuePrim
 
 function TkwShutDownFormPnlBottom.pnlBottom(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
@@ -1234,11 +1164,10 @@ begin
  aCtx.rEngine.PushObj(pnlBottom(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormPnlBottom.DoDoIt
 
-procedure TkwShutDownFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormPnlBottom.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlBottom', aCtx);
-end;//TkwShutDownFormPnlBottom.SetValuePrim
+ Result := '.TShutDownForm.pnlBottom';
+end;//TkwShutDownFormPnlBottom.GetWordNameForRegister
 
 function TkwShutDownFormPnlBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1255,10 +1184,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormPnlBottom.ParamsTypes
 
-class function TkwShutDownFormPnlBottom.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.pnlBottom';
-end;//TkwShutDownFormPnlBottom.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlBottom', aCtx);
+end;//TkwShutDownFormPnlBottom.SetValuePrim
 
 function TkwShutDownFormCloseButton.CloseButton(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtButton;
@@ -1282,11 +1212,10 @@ begin
  aCtx.rEngine.PushObj(CloseButton(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormCloseButton.DoDoIt
 
-procedure TkwShutDownFormCloseButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwShutDownFormCloseButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CloseButton', aCtx);
-end;//TkwShutDownFormCloseButton.SetValuePrim
+ Result := '.TShutDownForm.CloseButton';
+end;//TkwShutDownFormCloseButton.GetWordNameForRegister
 
 function TkwShutDownFormCloseButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1303,10 +1232,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormCloseButton.ParamsTypes
 
-class function TkwShutDownFormCloseButton.GetWordNameForRegister: AnsiString;
+procedure TkwShutDownFormCloseButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TShutDownForm.CloseButton';
-end;//TkwShutDownFormCloseButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CloseButton', aCtx);
+end;//TkwShutDownFormCloseButton.SetValuePrim
 
 initialization
  Tkw_Form_ShutDown.RegisterInEngine;
@@ -1369,10 +1299,8 @@ initialization
  {* Регистрация ShutDownForm_pnlBottom }
  TkwShutDownFormCloseButton.RegisterInEngine;
  {* Регистрация ShutDownForm_CloseButton }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TShutDownForm));
- {* Регистрация типа ShutDown }
+ {* Регистрация типа TShutDownForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTimer));
  {* Регистрация типа TTimer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));

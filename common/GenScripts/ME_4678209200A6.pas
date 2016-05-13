@@ -707,6 +707,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TnevControlInfo_C(const aPara: InevObjectPrim;
@@ -735,5 +738,15 @@ begin
 //#UC END# *47A6FEE600FC_480F377B0271_impl*
 end;//TnevFormatInfoPrim.IsCacheable
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EnevMaybeBaseSwitched));
+ {* Регистрация типа EnevMaybeBaseSwitched }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EnevMaybePreviewCancelled));
+ {* Регистрация типа EnevMaybePreviewCancelled }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

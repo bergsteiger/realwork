@@ -24,19 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopStatusBarButtonIsDown = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:StatusBarButton:IsDown
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aStatusBarButton pop:StatusBarButton:IsDown >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:StatusBarButton:IsDown }
   private
    function IsDown(const aCtx: TtfwContext;
     aStatusBarButton: TnscStatusBarButton): Boolean;
@@ -53,12 +47,12 @@ BOOLEAN VAR l_Boolean
 function TkwPopStatusBarButtonIsDown.IsDown(const aCtx: TtfwContext;
  aStatusBarButton: TnscStatusBarButton): Boolean;
  {* Реализация слова скрипта pop:StatusBarButton:IsDown }
-//#UC START# *8D82AE1A2B57_33C559B72437_var*
-//#UC END# *8D82AE1A2B57_33C559B72437_var*
+//#UC START# *552FC9C10154_33C559B72437_var*
+//#UC END# *552FC9C10154_33C559B72437_var*
 begin
-//#UC START# *8D82AE1A2B57_33C559B72437_impl*
+//#UC START# *552FC9C10154_33C559B72437_impl*
  Result := aStatusBarButton.Down;
-//#UC END# *8D82AE1A2B57_33C559B72437_impl*
+//#UC END# *552FC9C10154_33C559B72437_impl*
 end;//TkwPopStatusBarButtonIsDown.IsDown
 
 procedure TkwPopStatusBarButtonIsDown.DoDoIt(const aCtx: TtfwContext);
@@ -76,6 +70,11 @@ begin
  aCtx.rEngine.PushBool(IsDown(aCtx, l_aStatusBarButton));
 end;//TkwPopStatusBarButtonIsDown.DoDoIt
 
+class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:StatusBarButton:IsDown';
+end;//TkwPopStatusBarButtonIsDown.GetWordNameForRegister
+
 function TkwPopStatusBarButtonIsDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -91,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBarButton)]);
 end;//TkwPopStatusBarButtonIsDown.ParamsTypes
 
-class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:StatusBarButton:IsDown';
-end;//TkwPopStatusBarButtonIsDown.GetWordNameForRegister
-
 initialization
  TkwPopStatusBarButtonIsDown.RegisterInEngine;
  {* Регистрация pop_StatusBarButton_IsDown }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBarButton));
  {* Регистрация типа TnscStatusBarButton }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

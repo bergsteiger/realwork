@@ -82,6 +82,9 @@ uses
  , Messages
  , Registry
  , LocaleMessages
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function GarantShowLink(aRef: PAnsiChar;
@@ -428,6 +431,10 @@ begin
 end;//QuoteStringIfNeed
 
 initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ELauncherError));
+ {* Регистрация типа ELauncherError }
+{$IfEnd} // NOT Defined(NoScripts)
 //#UC START# *5137215D0134*
  g_Message := RegisterWindowMessage(c_IntegrationMessageName);
  g_LastMainWindowMessage := RegisterWindowMessage(c_LastMainWindowMessageName);

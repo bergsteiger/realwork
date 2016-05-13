@@ -25,19 +25,13 @@ uses
  , TypInfo
  , TreeNodeWordsPack
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopTreeViewGetItem = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:TreeView:GetItem
-*Тип результата:* TTreeNode
-*Пример:*
-[code]
-OBJECT VAR l_TTreeNode
- anIndex aTreeView pop:TreeView:GetItem >>> l_TTreeNode
-[code]  }
+  {* Слово скрипта pop:TreeView:GetItem }
   private
    function GetItem(const aCtx: TtfwContext;
     aTreeView: TTreeView;
@@ -56,12 +50,12 @@ function TkwPopTreeViewGetItem.GetItem(const aCtx: TtfwContext;
  aTreeView: TTreeView;
  anIndex: Integer): TTreeNode;
  {* Реализация слова скрипта pop:TreeView:GetItem }
-//#UC START# *76ED4B50CB4A_F4C36DEF11AB_var*
-//#UC END# *76ED4B50CB4A_F4C36DEF11AB_var*
+//#UC START# *55C9CBCD0127_F4C36DEF11AB_var*
+//#UC END# *55C9CBCD0127_F4C36DEF11AB_var*
 begin
-//#UC START# *76ED4B50CB4A_F4C36DEF11AB_impl*
+//#UC START# *55C9CBCD0127_F4C36DEF11AB_impl*
  Result := aTreeView.Items[anIndex];
-//#UC END# *76ED4B50CB4A_F4C36DEF11AB_impl*
+//#UC END# *55C9CBCD0127_F4C36DEF11AB_impl*
 end;//TkwPopTreeViewGetItem.GetItem
 
 procedure TkwPopTreeViewGetItem.DoDoIt(const aCtx: TtfwContext);
@@ -89,6 +83,11 @@ begin
  aCtx.rEngine.PushObj(GetItem(aCtx, l_aTreeView, l_anIndex));
 end;//TkwPopTreeViewGetItem.DoDoIt
 
+class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TreeView:GetItem';
+end;//TkwPopTreeViewGetItem.GetWordNameForRegister
+
 function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TTreeNode);
@@ -104,22 +103,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTreeView), TypeInfo(Integer)]);
 end;//TkwPopTreeViewGetItem.ParamsTypes
 
-class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TreeView:GetItem';
-end;//TkwPopTreeViewGetItem.GetWordNameForRegister
-
 initialization
  TkwPopTreeViewGetItem.RegisterInEngine;
  {* Регистрация pop_TreeView_GetItem }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeView));
  {* Регистрация типа TTreeView }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));
  {* Регистрация типа TTreeNode }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

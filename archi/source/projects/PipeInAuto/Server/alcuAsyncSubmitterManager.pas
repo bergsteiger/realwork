@@ -70,9 +70,6 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(Nemesis)}
- , dt_UserTypes
- {$IfEnd} // NOT Defined(Nemesis)
- {$If NOT Defined(Nemesis)}
  , dt_User
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
@@ -82,6 +79,7 @@ uses
  , l3Types
  , l3Base
  , daUtils
+ , daInterfaces
 ;
 
 constructor TalcuAsyncSubmitterManager.Create(const aBaseEngineHolder: TalcuBaseEngineHolder);

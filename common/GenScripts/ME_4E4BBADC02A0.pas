@@ -20,8 +20,8 @@ type
  TkwMakeChangeDoc = class(TtfwRegisterableWord)
   {* macros:MakeChangeDoc }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMakeChangeDoc
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -33,6 +33,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwMakeChangeDoc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'macros:MakeChangeDoc';
+end;//TkwMakeChangeDoc.GetWordNameForRegister
+
 procedure TkwMakeChangeDoc.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E4BBADC02A0_var*
 //#UC END# *4DAEEDE10285_4E4BBADC02A0_var*
@@ -41,11 +46,6 @@ begin
  ArMakeChangeDoc;
 //#UC END# *4DAEEDE10285_4E4BBADC02A0_impl*
 end;//TkwMakeChangeDoc.DoDoIt
-
-class function TkwMakeChangeDoc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'macros:MakeChangeDoc';
-end;//TkwMakeChangeDoc.GetWordNameForRegister
 
 initialization
  TkwMakeChangeDoc.RegisterInEngine;

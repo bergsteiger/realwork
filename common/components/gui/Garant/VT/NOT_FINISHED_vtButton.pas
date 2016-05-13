@@ -23,8 +23,17 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtButton);
+ {* Регистрация TvtButton }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -23,19 +23,13 @@ uses
  , TypInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwIsNeedSaveDocument = {final} class(TtfwClassLike)
-  {* Слово скрипта IsNeedSaveDocument
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aEditor IsNeedSaveDocument >>> l_Boolean
-[code]  }
+  {* Слово скрипта IsNeedSaveDocument }
   private
    function IsNeedSaveDocument(const aCtx: TtfwContext;
     aEditor: TEditorWindow): Boolean;
@@ -58,12 +52,12 @@ BOOLEAN VAR l_Boolean
 function TkwIsNeedSaveDocument.IsNeedSaveDocument(const aCtx: TtfwContext;
  aEditor: TEditorWindow): Boolean;
  {* Реализация слова скрипта IsNeedSaveDocument }
-//#UC START# *5BBB7C35D3A8_BB6D8477DC61_var*
-//#UC END# *5BBB7C35D3A8_BB6D8477DC61_var*
+//#UC START# *55B665ED0380_BB6D8477DC61_var*
+//#UC END# *55B665ED0380_BB6D8477DC61_var*
 begin
-//#UC START# *5BBB7C35D3A8_BB6D8477DC61_impl*
+//#UC START# *55B665ED0380_BB6D8477DC61_impl*
  Result := aEditor.IsNeedSaveDocument;
-//#UC END# *5BBB7C35D3A8_BB6D8477DC61_impl*
+//#UC END# *55B665ED0380_BB6D8477DC61_impl*
 end;//TkwIsNeedSaveDocument.IsNeedSaveDocument
 
 procedure TkwIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
@@ -81,6 +75,11 @@ begin
  aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aEditor));
 end;//TkwIsNeedSaveDocument.DoDoIt
 
+class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsNeedSaveDocument';
+end;//TkwIsNeedSaveDocument.GetWordNameForRegister
+
 function TkwIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -96,11 +95,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TEditorWindow)]);
 end;//TkwIsNeedSaveDocument.ParamsTypes
 
-class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsNeedSaveDocument';
-end;//TkwIsNeedSaveDocument.GetWordNameForRegister
-
 class function TarchiEditorWindowWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'archiEditorWindowWordsPack';
@@ -113,8 +107,6 @@ initialization
  {* Регистрация IsNeedSaveDocument }
  TarchiEditorWindowWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TEditorWindow));
  {* Регистрация типа TEditorWindow }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

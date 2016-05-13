@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -136,14 +136,7 @@ type
  end;//Tkw_Folders_Control_ChildZone_Push
 
  TkwCfFoldersBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfFolders.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TcfFolders[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- acfFolders .TcfFolders.BackgroundPanel >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TcfFolders.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     acfFolders: TcfFolders): TvtProportionalPanel;
@@ -152,22 +145,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfFoldersBackgroundPanel
 
  TkwCfFoldersParentZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfFolders.ParentZone
-[panel]Контрол ParentZone формы TcfFolders[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- acfFolders .TcfFolders.ParentZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TcfFolders.ParentZone }
   private
    function ParentZone(const aCtx: TtfwContext;
     acfFolders: TcfFolders): TvtPanel;
@@ -176,22 +162,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfFoldersParentZone
 
  TkwCfFoldersChildZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfFolders.ChildZone
-[panel]Контрол ChildZone формы TcfFolders[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- acfFolders .TcfFolders.ChildZone >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TcfFolders.ChildZone }
   private
    function ChildZone(const aCtx: TtfwContext;
     acfFolders: TcfFolders): TvtSizeablePanel;
@@ -200,11 +179,11 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfFoldersChildZone
 
 function Tkw_Form_Folders.GetString: AnsiString;
@@ -320,11 +299,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfFolders));
 end;//TkwCfFoldersBackgroundPanel.DoDoIt
 
-procedure TkwCfFoldersBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfFoldersBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwCfFoldersBackgroundPanel.SetValuePrim
+ Result := '.TcfFolders.BackgroundPanel';
+end;//TkwCfFoldersBackgroundPanel.GetWordNameForRegister
 
 function TkwCfFoldersBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -341,10 +319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfFolders)]);
 end;//TkwCfFoldersBackgroundPanel.ParamsTypes
 
-class function TkwCfFoldersBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCfFoldersBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfFolders.BackgroundPanel';
-end;//TkwCfFoldersBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwCfFoldersBackgroundPanel.SetValuePrim
 
 function TkwCfFoldersParentZone.ParentZone(const aCtx: TtfwContext;
  acfFolders: TcfFolders): TvtPanel;
@@ -368,11 +347,10 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfFolders));
 end;//TkwCfFoldersParentZone.DoDoIt
 
-procedure TkwCfFoldersParentZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfFoldersParentZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
-end;//TkwCfFoldersParentZone.SetValuePrim
+ Result := '.TcfFolders.ParentZone';
+end;//TkwCfFoldersParentZone.GetWordNameForRegister
 
 function TkwCfFoldersParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -389,10 +367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfFolders)]);
 end;//TkwCfFoldersParentZone.ParamsTypes
 
-class function TkwCfFoldersParentZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfFoldersParentZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfFolders.ParentZone';
-end;//TkwCfFoldersParentZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
+end;//TkwCfFoldersParentZone.SetValuePrim
 
 function TkwCfFoldersChildZone.ChildZone(const aCtx: TtfwContext;
  acfFolders: TcfFolders): TvtSizeablePanel;
@@ -416,11 +395,10 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfFolders));
 end;//TkwCfFoldersChildZone.DoDoIt
 
-procedure TkwCfFoldersChildZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfFoldersChildZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
-end;//TkwCfFoldersChildZone.SetValuePrim
+ Result := '.TcfFolders.ChildZone';
+end;//TkwCfFoldersChildZone.GetWordNameForRegister
 
 function TkwCfFoldersChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -437,10 +415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfFolders)]);
 end;//TkwCfFoldersChildZone.ParamsTypes
 
-class function TkwCfFoldersChildZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfFoldersChildZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfFolders.ChildZone';
-end;//TkwCfFoldersChildZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
+end;//TkwCfFoldersChildZone.SetValuePrim
 
 initialization
  Tkw_Form_Folders.RegisterInEngine;
@@ -463,10 +442,8 @@ initialization
  {* Регистрация cfFolders_ParentZone }
  TkwCfFoldersChildZone.RegisterInEngine;
  {* Регистрация cfFolders_ChildZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TcfFolders));
- {* Регистрация типа Folders }
+ {* Регистрация типа TcfFolders }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));

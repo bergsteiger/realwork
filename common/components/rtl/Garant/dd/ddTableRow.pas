@@ -17,8 +17,8 @@ uses
  , ddTableCell
  , ddCellProperty
  , ddTypes
- , k2Interfaces
  , ddCustomDestination
+ , k2Interfaces
  , l3ProtoObject
 ;
 
@@ -31,6 +31,7 @@ type
    f_RTFLikeWidth: Boolean;
    f_CellPropsCompleate: Boolean;
    f_HasMerged: Boolean;
+   f_CurColumn: Integer;
   private
    procedure DoApplyCellProps(aCellProps: TddCellsPropertyList);
   protected
@@ -72,6 +73,8 @@ type
    procedure SetVMerged2LastCell(aFirst: Boolean);
    function InsertCell(anIndex: Integer): TddTableCell;
    function CellIndex(aCell: TddTableCell): Integer;
+   procedure IncCurrColumn;
+   procedure DecCurrColumn;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
     LiteVersion: TddLiteVersion); override;
@@ -116,6 +119,9 @@ type
     write f_CellPropsCompleate;
    property HasMerged: Boolean
     read f_HasMerged;
+   property CurColumn: Integer
+    read f_CurColumn
+    write f_CurColumn;
  end;//TddTableRow
 
 implementation
@@ -625,6 +631,24 @@ begin
  Result := f_CellList.IndexOf(aCell);
 //#UC END# *56C56DDB01F7_4FACE1370377_impl*
 end;//TddTableRow.CellIndex
+
+procedure TddTableRow.IncCurrColumn;
+//#UC START# *572C73B200DC_4FACE1370377_var*
+//#UC END# *572C73B200DC_4FACE1370377_var*
+begin
+//#UC START# *572C73B200DC_4FACE1370377_impl*
+ Inc(f_CurColumn);
+//#UC END# *572C73B200DC_4FACE1370377_impl*
+end;//TddTableRow.IncCurrColumn
+
+procedure TddTableRow.DecCurrColumn;
+//#UC START# *572C73CE03CB_4FACE1370377_var*
+//#UC END# *572C73CE03CB_4FACE1370377_var*
+begin
+//#UC START# *572C73CE03CB_4FACE1370377_impl*
+ Dec(f_CurColumn);
+//#UC END# *572C73CE03CB_4FACE1370377_impl*
+end;//TddTableRow.DecCurrColumn
 
 procedure TddTableRow.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;

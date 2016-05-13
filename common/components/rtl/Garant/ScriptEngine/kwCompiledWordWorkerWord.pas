@@ -15,8 +15,8 @@ uses
  , tfwScriptingInterfaces
  , kwCompiledWordWorkerWordRunner
  , tfwScriptingTypes
- , kwCompiledWordWorker
  , tfwDictionaryPrim
+ , kwCompiledWordWorker
  , kwCompiledWordPrim
  , kwTemporaryCompiledCode
 ;

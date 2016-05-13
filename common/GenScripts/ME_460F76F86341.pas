@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -136,14 +136,7 @@ type
  end;//Tkw_AdminForm_Control_TreeZone_Push
 
  TkwCfAdminFormBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfAdminForm.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TcfAdminForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- acfAdminForm .TcfAdminForm.BackgroundPanel >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TcfAdminForm.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     acfAdminForm: TcfAdminForm): TvtProportionalPanel;
@@ -152,22 +145,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfAdminFormBackgroundPanel
 
  TkwCfAdminFormPropertyZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfAdminForm.PropertyZone
-[panel]Контрол PropertyZone формы TcfAdminForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- acfAdminForm .TcfAdminForm.PropertyZone >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TcfAdminForm.PropertyZone }
   private
    function PropertyZone(const aCtx: TtfwContext;
     acfAdminForm: TcfAdminForm): TvtSizeablePanel;
@@ -176,22 +162,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfAdminFormPropertyZone
 
  TkwCfAdminFormTreeZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfAdminForm.TreeZone
-[panel]Контрол TreeZone формы TcfAdminForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- acfAdminForm .TcfAdminForm.TreeZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TcfAdminForm.TreeZone }
   private
    function TreeZone(const aCtx: TtfwContext;
     acfAdminForm: TcfAdminForm): TvtPanel;
@@ -200,11 +179,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfAdminFormTreeZone
 
 function Tkw_Form_AdminForm.GetString: AnsiString;
@@ -320,11 +299,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormBackgroundPanel.DoDoIt
 
-procedure TkwCfAdminFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfAdminFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwCfAdminFormBackgroundPanel.SetValuePrim
+ Result := '.TcfAdminForm.BackgroundPanel';
+end;//TkwCfAdminFormBackgroundPanel.GetWordNameForRegister
 
 function TkwCfAdminFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -341,10 +319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormBackgroundPanel.ParamsTypes
 
-class function TkwCfAdminFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCfAdminFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfAdminForm.BackgroundPanel';
-end;//TkwCfAdminFormBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwCfAdminFormBackgroundPanel.SetValuePrim
 
 function TkwCfAdminFormPropertyZone.PropertyZone(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtSizeablePanel;
@@ -368,11 +347,10 @@ begin
  aCtx.rEngine.PushObj(PropertyZone(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormPropertyZone.DoDoIt
 
-procedure TkwCfAdminFormPropertyZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfAdminFormPropertyZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству PropertyZone', aCtx);
-end;//TkwCfAdminFormPropertyZone.SetValuePrim
+ Result := '.TcfAdminForm.PropertyZone';
+end;//TkwCfAdminFormPropertyZone.GetWordNameForRegister
 
 function TkwCfAdminFormPropertyZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -389,10 +367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormPropertyZone.ParamsTypes
 
-class function TkwCfAdminFormPropertyZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfAdminFormPropertyZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfAdminForm.PropertyZone';
-end;//TkwCfAdminFormPropertyZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству PropertyZone', aCtx);
+end;//TkwCfAdminFormPropertyZone.SetValuePrim
 
 function TkwCfAdminFormTreeZone.TreeZone(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtPanel;
@@ -416,11 +395,10 @@ begin
  aCtx.rEngine.PushObj(TreeZone(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormTreeZone.DoDoIt
 
-procedure TkwCfAdminFormTreeZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfAdminFormTreeZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TreeZone', aCtx);
-end;//TkwCfAdminFormTreeZone.SetValuePrim
+ Result := '.TcfAdminForm.TreeZone';
+end;//TkwCfAdminFormTreeZone.GetWordNameForRegister
 
 function TkwCfAdminFormTreeZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -437,10 +415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormTreeZone.ParamsTypes
 
-class function TkwCfAdminFormTreeZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfAdminFormTreeZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfAdminForm.TreeZone';
-end;//TkwCfAdminFormTreeZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TreeZone', aCtx);
+end;//TkwCfAdminFormTreeZone.SetValuePrim
 
 initialization
  Tkw_Form_AdminForm.RegisterInEngine;
@@ -463,10 +442,8 @@ initialization
  {* Регистрация cfAdminForm_PropertyZone }
  TkwCfAdminFormTreeZone.RegisterInEngine;
  {* Регистрация cfAdminForm_TreeZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TcfAdminForm));
- {* Регистрация типа AdminForm }
+ {* Регистрация типа TcfAdminForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));

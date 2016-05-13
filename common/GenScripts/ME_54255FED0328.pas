@@ -39,8 +39,8 @@ type
 aMode dialogs:LockDocument:SetSkipMode
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwDialogsLockDocumentSetSkipMode
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -52,6 +52,11 @@ uses
  , arArchiTestsAdapter
 ;
 
+class function TkwDialogsLockDocumentSetSkipMode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'dialogs:LockDocument:SetSkipMode';
+end;//TkwDialogsLockDocumentSetSkipMode.GetWordNameForRegister
+
 procedure TkwDialogsLockDocumentSetSkipMode.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_54255FED0328_var*
 //#UC END# *4DAEEDE10285_54255FED0328_var*
@@ -61,11 +66,6 @@ begin
  TarTestConfig.Instance.SkipLockDialog := TarSkipDialog(aCtx.rEngine.PopInt);
 //#UC END# *4DAEEDE10285_54255FED0328_impl*
 end;//TkwDialogsLockDocumentSetSkipMode.DoDoIt
-
-class function TkwDialogsLockDocumentSetSkipMode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'dialogs:LockDocument:SetSkipMode';
-end;//TkwDialogsLockDocumentSetSkipMode.GetWordNameForRegister
 
 initialization
  TkwDialogsLockDocumentSetSkipMode.RegisterInEngine;

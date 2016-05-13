@@ -14,10 +14,10 @@ uses
  , l3CacheableBase
  , afwInterfaces
  , afwPreviewNotifierPtrList
+ , l3IID
  , afwTypes
  , l3Interfaces
  , l3Core
- , l3IID
 ;
 
 type

@@ -37,6 +37,10 @@ initialization
  TtfwClassRef.Register(TnscCustomPreviewPanel);
  {* Регистрация TnscCustomPreviewPanel }
 {$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscPreviewPanel);
+ {* Регистрация TnscPreviewPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 
 end.

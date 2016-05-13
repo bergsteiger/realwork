@@ -24,17 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopExprEditorFake = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ExprEditor:Fake
-*Пример:*
-[code]
- aExprEditor pop:ExprEditor:Fake
-[code]  }
+  {* Слово скрипта pop:ExprEditor:Fake }
   private
    procedure Fake(const aCtx: TtfwContext;
     aExprEditor: TExprEditor);
@@ -51,12 +47,12 @@ type
 procedure TkwPopExprEditorFake.Fake(const aCtx: TtfwContext;
  aExprEditor: TExprEditor);
  {* Реализация слова скрипта pop:ExprEditor:Fake }
-//#UC START# *F9F482E814E0_1C9135EF778B_var*
-//#UC END# *F9F482E814E0_1C9135EF778B_var*
+//#UC START# *55C8CE280375_1C9135EF778B_var*
+//#UC END# *55C8CE280375_1C9135EF778B_var*
 begin
-//#UC START# *F9F482E814E0_1C9135EF778B_impl*
+//#UC START# *55C8CE280375_1C9135EF778B_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *F9F482E814E0_1C9135EF778B_impl*
+//#UC END# *55C8CE280375_1C9135EF778B_impl*
 end;//TkwPopExprEditorFake.Fake
 
 procedure TkwPopExprEditorFake.DoDoIt(const aCtx: TtfwContext);
@@ -74,6 +70,11 @@ begin
  Fake(aCtx, l_aExprEditor);
 end;//TkwPopExprEditorFake.DoDoIt
 
+class function TkwPopExprEditorFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ExprEditor:Fake';
+end;//TkwPopExprEditorFake.GetWordNameForRegister
+
 function TkwPopExprEditorFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -89,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TExprEditor)]);
 end;//TkwPopExprEditorFake.ParamsTypes
 
-class function TkwPopExprEditorFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ExprEditor:Fake';
-end;//TkwPopExprEditorFake.GetWordNameForRegister
-
 initialization
  TkwPopExprEditorFake.RegisterInEngine;
  {* Регистрация pop_ExprEditor_Fake }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TExprEditor));
  {* Регистрация типа TExprEditor }
 {$IfEnd} // NOT Defined(NoScripts)

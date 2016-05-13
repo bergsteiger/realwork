@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -94,11 +94,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFromWithPanelFormWorkSpace
 
 function Tkw_Form_FromWithPanel.GetString: AnsiString;
@@ -160,11 +160,10 @@ begin
  aCtx.rEngine.PushObj(WorkSpace(aCtx, l_aFromWithPanelForm));
 end;//TkwFromWithPanelFormWorkSpace.DoDoIt
 
-procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFromWithPanelFormWorkSpace.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WorkSpace', aCtx);
-end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
+ Result := '.TFromWithPanelForm.WorkSpace';
+end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
 
 function TkwFromWithPanelFormWorkSpace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +180,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TFromWithPanelForm)]);
 end;//TkwFromWithPanelFormWorkSpace.ParamsTypes
 
-class function TkwFromWithPanelFormWorkSpace.GetWordNameForRegister: AnsiString;
+procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TFromWithPanelForm.WorkSpace';
-end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WorkSpace', aCtx);
+end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
 
 initialization
  Tkw_Form_FromWithPanel.RegisterInEngine;
@@ -195,10 +195,8 @@ initialization
  {* Регистрация Tkw_FromWithPanel_Control_WorkSpace_Push }
  TkwFromWithPanelFormWorkSpace.RegisterInEngine;
  {* Регистрация FromWithPanelForm_WorkSpace }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TFromWithPanelForm));
- {* Регистрация типа FromWithPanel }
+ {* Регистрация типа TFromWithPanelForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)

@@ -33,11 +33,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -96,14 +96,7 @@ type
  end;//Tkw_ListInfo_Component_TextSource
 
  TkwEfListInfoListInfoViewer = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefListInfo.ListInfoViewer
-[panel]Контрол ListInfoViewer формы TefListInfo[panel]
-*Тип результата:* TnscEditor
-*Пример:*
-[code]
-OBJECT VAR l_TnscEditor
- aefListInfo .TefListInfo.ListInfoViewer >>> l_TnscEditor
-[code]  }
+  {* Слово скрипта .TefListInfo.ListInfoViewer }
   private
    function ListInfoViewer(const aCtx: TtfwContext;
     aefListInfo: TefListInfo): TnscEditor;
@@ -112,22 +105,15 @@ OBJECT VAR l_TnscEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfListInfoListInfoViewer
 
  TkwEfListInfoTextSource = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefListInfo.TextSource
-[panel]Контрол TextSource формы TefListInfo[panel]
-*Тип результата:* TnscTextSource
-*Пример:*
-[code]
-OBJECT VAR l_TnscTextSource
- aefListInfo .TefListInfo.TextSource >>> l_TnscTextSource
-[code]  }
+  {* Слово скрипта .TefListInfo.TextSource }
   private
    function TextSource(const aCtx: TtfwContext;
     aefListInfo: TefListInfo): TnscTextSource;
@@ -136,11 +122,11 @@ OBJECT VAR l_TnscTextSource
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfListInfoTextSource
 
 function Tkw_Form_ListInfo.GetString: AnsiString;
@@ -218,11 +204,10 @@ begin
  aCtx.rEngine.PushObj(ListInfoViewer(aCtx, l_aefListInfo));
 end;//TkwEfListInfoListInfoViewer.DoDoIt
 
-procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfListInfoListInfoViewer.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ListInfoViewer', aCtx);
-end;//TkwEfListInfoListInfoViewer.SetValuePrim
+ Result := '.TefListInfo.ListInfoViewer';
+end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 
 function TkwEfListInfoListInfoViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -239,10 +224,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefListInfo)]);
 end;//TkwEfListInfoListInfoViewer.ParamsTypes
 
-class function TkwEfListInfoListInfoViewer.GetWordNameForRegister: AnsiString;
+procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefListInfo.ListInfoViewer';
-end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ListInfoViewer', aCtx);
+end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
 function TkwEfListInfoTextSource.TextSource(const aCtx: TtfwContext;
  aefListInfo: TefListInfo): TnscTextSource;
@@ -266,11 +252,10 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aefListInfo));
 end;//TkwEfListInfoTextSource.DoDoIt
 
-procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfListInfoTextSource.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
-end;//TkwEfListInfoTextSource.SetValuePrim
+ Result := '.TefListInfo.TextSource';
+end;//TkwEfListInfoTextSource.GetWordNameForRegister
 
 function TkwEfListInfoTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -287,10 +272,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefListInfo)]);
 end;//TkwEfListInfoTextSource.ParamsTypes
 
-class function TkwEfListInfoTextSource.GetWordNameForRegister: AnsiString;
+procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefListInfo.TextSource';
-end;//TkwEfListInfoTextSource.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
+end;//TkwEfListInfoTextSource.SetValuePrim
 
 initialization
  Tkw_Form_ListInfo.RegisterInEngine;
@@ -305,10 +291,8 @@ initialization
  {* Регистрация efListInfo_ListInfoViewer }
  TkwEfListInfoTextSource.RegisterInEngine;
  {* Регистрация efListInfo_TextSource }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefListInfo));
- {* Регистрация типа ListInfo }
+ {* Регистрация типа TefListInfo }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTextSource));

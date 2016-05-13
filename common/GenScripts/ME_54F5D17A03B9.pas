@@ -21,9 +21,13 @@ uses
  l3ImplUses
  , ExtCtrls
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
+
+initialization
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TPanel));
+ {* Регистрация типа TPanel }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

@@ -159,6 +159,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor EdsMaxLengthExceed.Create(aMaxLength: Integer);
@@ -170,5 +173,11 @@ begin
  f_MaxLength := aMaxLength;
 //#UC END# *491D987C0028_491D982203CD_impl*
 end;//EdsMaxLengthExceed.Create
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EdsMaxLengthExceed));
+ {* Регистрация типа EdsMaxLengthExceed }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -19,8 +19,8 @@ uses
 type
  TkwPopClassInherits = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwPopClassInherits
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -31,6 +31,11 @@ uses
  l3ImplUses
  , SysUtils
 ;
+
+class function TkwPopClassInherits.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:class:Inherits';
+end;//TkwPopClassInherits.GetWordNameForRegister
 
 procedure TkwPopClassInherits.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53E0FC5E0100_var*
@@ -72,11 +77,6 @@ begin
  end;//aCtx.rEngine.IsTopClass
 //#UC END# *4DAEEDE10285_53E0FC5E0100_impl*
 end;//TkwPopClassInherits.DoDoIt
-
-class function TkwPopClassInherits.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:class:Inherits';
-end;//TkwPopClassInherits.GetWordNameForRegister
 
 initialization
  TkwPopClassInherits.RegisterInEngine;

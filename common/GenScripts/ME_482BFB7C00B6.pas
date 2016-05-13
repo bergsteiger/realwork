@@ -36,6 +36,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TevCustomTextSource.DoMakeDocumentContainer: InevDocumentContainer;
@@ -46,5 +49,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *482D9A030221_482BFB7C00B6_impl*
 end;//TevCustomTextSource.DoMakeDocumentContainer
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TevCustomTextSource);
+ {* Регистрация TevCustomTextSource }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

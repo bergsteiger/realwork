@@ -29,17 +29,13 @@ uses
  , l3Interfaces
  , IedRangeWordsPack
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopEditorInsertTable = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertTable
-*Пример:*
-[code]
- aColNum aRowNum aEditor pop:Editor:InsertTable
-[code]  }
+  {* Слово скрипта pop:Editor:InsertTable }
   private
    procedure InsertTable(const aCtx: TtfwContext;
     aEditor: TevCustomEditor;
@@ -56,11 +52,7 @@ type
  end;//TkwPopEditorInsertTable
 
  TkwPopEditorInsertRow = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertRow
-*Пример:*
-[code]
- aEditor pop:Editor:InsertRow
-[code]  }
+  {* Слово скрипта pop:Editor:InsertRow }
   private
    procedure InsertRow(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -75,11 +67,7 @@ type
  end;//TkwPopEditorInsertRow
 
  TkwPopEditorDeleteRow = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:DeleteRow
-*Пример:*
-[code]
- aEditor pop:Editor:DeleteRow
-[code]  }
+  {* Слово скрипта pop:Editor:DeleteRow }
   private
    procedure DeleteRow(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -94,11 +82,7 @@ type
  end;//TkwPopEditorDeleteRow
 
  TkwPopEditorInsertColumn = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertColumn
-*Пример:*
-[code]
- aEditor pop:Editor:InsertColumn
-[code]  }
+  {* Слово скрипта pop:Editor:InsertColumn }
   private
    procedure InsertColumn(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -113,11 +97,7 @@ type
  end;//TkwPopEditorInsertColumn
 
  TkwPopEditorDeleteColumn = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:DeleteColumn
-*Пример:*
-[code]
- aEditor pop:Editor:DeleteColumn
-[code]  }
+  {* Слово скрипта pop:Editor:DeleteColumn }
   private
    procedure DeleteColumn(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -132,11 +112,7 @@ type
  end;//TkwPopEditorDeleteColumn
 
  TkwPopEditorMergeCells = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:MergeCells
-*Пример:*
-[code]
- anAlgorytm aEditor pop:Editor:MergeCells
-[code]  }
+  {* Слово скрипта pop:Editor:MergeCells }
   private
    procedure MergeCells(const aCtx: TtfwContext;
     aEditor: TevCustomEditor;
@@ -152,11 +128,7 @@ type
  end;//TkwPopEditorMergeCells
 
  TkwPopEditorSplitCell = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SplitCell
-*Пример:*
-[code]
- aVert aEditor pop:Editor:SplitCell
-[code]  }
+  {* Слово скрипта pop:Editor:SplitCell }
   private
    procedure SplitCell(const aCtx: TtfwContext;
     aEditor: TevCustomEditor;
@@ -172,11 +144,7 @@ type
  end;//TkwPopEditorSplitCell
 
  TkwPopEditorSplitTable = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SplitTable
-*Пример:*
-[code]
- aEditor pop:Editor:SplitTable
-[code]  }
+  {* Слово скрипта pop:Editor:SplitTable }
   private
    procedure SplitTable(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -191,11 +159,7 @@ type
  end;//TkwPopEditorSplitTable
 
  TkwPopEditorMergeTables = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:MergeTables
-*Пример:*
-[code]
- aEditor pop:Editor:MergeTables
-[code]  }
+  {* Слово скрипта pop:Editor:MergeTables }
   private
    procedure MergeTables(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -210,11 +174,7 @@ type
  end;//TkwPopEditorMergeTables
 
  TkwPopEditorInsertSectionBreak = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertSectionBreak
-*Пример:*
-[code]
- aPageOrientation aEditor pop:Editor:InsertSectionBreak
-[code]  }
+  {* Слово скрипта pop:Editor:InsertSectionBreak }
   private
    procedure InsertSectionBreak(const aCtx: TtfwContext;
     aEditor: TevCustomEditor;
@@ -230,11 +190,7 @@ type
  end;//TkwPopEditorInsertSectionBreak
 
  TkwPopEditorPrevHyperlink = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:PrevHyperlink
-*Пример:*
-[code]
- aEditor pop:Editor:PrevHyperlink
-[code]  }
+  {* Слово скрипта pop:Editor:PrevHyperlink }
   private
    procedure PrevHyperlink(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -249,11 +205,7 @@ type
  end;//TkwPopEditorPrevHyperlink
 
  TkwPopEditorNextHyperlink = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:NextHyperlink
-*Пример:*
-[code]
- aEditor pop:Editor:NextHyperlink
-[code]  }
+  {* Слово скрипта pop:Editor:NextHyperlink }
   private
    procedure NextHyperlink(const aCtx: TtfwContext;
     aEditor: TevCustomEditor);
@@ -268,13 +220,7 @@ type
  end;//TkwPopEditorNextHyperlink
 
  TkwPopEditorRange = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:Range
-*Тип результата:* IedRange
-*Пример:*
-[code]
-INTERFACE VAR l_IedRange
- aEditor pop:Editor:Range >>> l_IedRange
-[code]  }
+  {* Слово скрипта pop:Editor:Range }
   private
    function Range(const aCtx: TtfwContext;
     aEditor: TevCustomEditor): IedRange;
@@ -299,12 +245,12 @@ procedure TkwPopEditorInsertTable.InsertTable(const aCtx: TtfwContext;
  aRowNum: Integer;
  aColNum: Integer);
  {* Реализация слова скрипта pop:Editor:InsertTable }
-//#UC START# *2A65ED70712B_A1BCB5D9397E_var*
-//#UC END# *2A65ED70712B_A1BCB5D9397E_var*
+//#UC START# *55E46D7201BC_A1BCB5D9397E_var*
+//#UC END# *55E46D7201BC_A1BCB5D9397E_var*
 begin
-//#UC START# *2A65ED70712B_A1BCB5D9397E_impl*
+//#UC START# *55E46D7201BC_A1BCB5D9397E_impl*
  aEditor.InsertTable(aColNum, aRowNum);
-//#UC END# *2A65ED70712B_A1BCB5D9397E_impl*
+//#UC END# *55E46D7201BC_A1BCB5D9397E_impl*
 end;//TkwPopEditorInsertTable.InsertTable
 
 procedure TkwPopEditorInsertTable.DoDoIt(const aCtx: TtfwContext);
@@ -342,6 +288,11 @@ begin
  InsertTable(aCtx, l_aEditor, l_aRowNum, l_aColNum);
 end;//TkwPopEditorInsertTable.DoDoIt
 
+class function TkwPopEditorInsertTable.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:InsertTable';
+end;//TkwPopEditorInsertTable.GetWordNameForRegister
+
 function TkwPopEditorInsertTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -356,11 +307,6 @@ function TkwPopEditorInsertTable.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwPopEditorInsertTable.ParamsTypes
-
-class function TkwPopEditorInsertTable.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:InsertTable';
-end;//TkwPopEditorInsertTable.GetWordNameForRegister
 
 procedure TkwPopEditorInsertRow.InsertRow(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
@@ -384,6 +330,11 @@ begin
  InsertRow(aCtx, l_aEditor);
 end;//TkwPopEditorInsertRow.DoDoIt
 
+class function TkwPopEditorInsertRow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:InsertRow';
+end;//TkwPopEditorInsertRow.GetWordNameForRegister
+
 function TkwPopEditorInsertRow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -398,11 +349,6 @@ function TkwPopEditorInsertRow.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorInsertRow.ParamsTypes
-
-class function TkwPopEditorInsertRow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:InsertRow';
-end;//TkwPopEditorInsertRow.GetWordNameForRegister
 
 procedure TkwPopEditorDeleteRow.DeleteRow(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
@@ -426,6 +372,11 @@ begin
  DeleteRow(aCtx, l_aEditor);
 end;//TkwPopEditorDeleteRow.DoDoIt
 
+class function TkwPopEditorDeleteRow.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:DeleteRow';
+end;//TkwPopEditorDeleteRow.GetWordNameForRegister
+
 function TkwPopEditorDeleteRow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -440,11 +391,6 @@ function TkwPopEditorDeleteRow.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorDeleteRow.ParamsTypes
-
-class function TkwPopEditorDeleteRow.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:DeleteRow';
-end;//TkwPopEditorDeleteRow.GetWordNameForRegister
 
 procedure TkwPopEditorInsertColumn.InsertColumn(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
@@ -468,6 +414,11 @@ begin
  InsertColumn(aCtx, l_aEditor);
 end;//TkwPopEditorInsertColumn.DoDoIt
 
+class function TkwPopEditorInsertColumn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:InsertColumn';
+end;//TkwPopEditorInsertColumn.GetWordNameForRegister
+
 function TkwPopEditorInsertColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -482,11 +433,6 @@ function TkwPopEditorInsertColumn.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorInsertColumn.ParamsTypes
-
-class function TkwPopEditorInsertColumn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:InsertColumn';
-end;//TkwPopEditorInsertColumn.GetWordNameForRegister
 
 procedure TkwPopEditorDeleteColumn.DeleteColumn(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
@@ -510,6 +456,11 @@ begin
  DeleteColumn(aCtx, l_aEditor);
 end;//TkwPopEditorDeleteColumn.DoDoIt
 
+class function TkwPopEditorDeleteColumn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:DeleteColumn';
+end;//TkwPopEditorDeleteColumn.GetWordNameForRegister
+
 function TkwPopEditorDeleteColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -525,23 +476,18 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorDeleteColumn.ParamsTypes
 
-class function TkwPopEditorDeleteColumn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:DeleteColumn';
-end;//TkwPopEditorDeleteColumn.GetWordNameForRegister
-
 procedure TkwPopEditorMergeCells.MergeCells(const aCtx: TtfwContext;
  aEditor: TevCustomEditor;
  anAlgorytm: TedMergeAlgorythm);
  {* Реализация слова скрипта pop:Editor:MergeCells }
-//#UC START# *1D5492E02FD7_A451D154F580_var*
+//#UC START# *55E46F51016A_A451D154F580_var*
 var
  l_Table     : IedTable;
  l_Range     : IedRange;
  l_Cells     : IedCells;
-//#UC END# *1D5492E02FD7_A451D154F580_var*
+//#UC END# *55E46F51016A_A451D154F580_var*
 begin
-//#UC START# *1D5492E02FD7_A451D154F580_impl*
+//#UC START# *55E46F51016A_A451D154F580_impl*
  l_Range := aEditor.Range;
  if (l_Range = nil) then
   RunnerError('Не удалось получить выделение.', aCtx);
@@ -552,7 +498,7 @@ begin
  if (l_Cells = nil) then
   RunnerError('Не удалось получить диапазон ячеек!', aCtx);
  l_Cells.Merge(anAlgorytm);
-//#UC END# *1D5492E02FD7_A451D154F580_impl*
+//#UC END# *55E46F51016A_A451D154F580_impl*
 end;//TkwPopEditorMergeCells.MergeCells
 
 procedure TkwPopEditorMergeCells.DoDoIt(const aCtx: TtfwContext);
@@ -580,6 +526,11 @@ begin
  MergeCells(aCtx, l_aEditor, l_anAlgorytm);
 end;//TkwPopEditorMergeCells.DoDoIt
 
+class function TkwPopEditorMergeCells.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:MergeCells';
+end;//TkwPopEditorMergeCells.GetWordNameForRegister
+
 function TkwPopEditorMergeCells.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -595,22 +546,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(TedMergeAlgorythm)]);
 end;//TkwPopEditorMergeCells.ParamsTypes
 
-class function TkwPopEditorMergeCells.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:MergeCells';
-end;//TkwPopEditorMergeCells.GetWordNameForRegister
-
 procedure TkwPopEditorSplitCell.SplitCell(const aCtx: TtfwContext;
  aEditor: TevCustomEditor;
  aVert: Boolean);
  {* Реализация слова скрипта pop:Editor:SplitCell }
-//#UC START# *FC2B610EC587_3AC5FB50949B_var*
+//#UC START# *55E46FDE02F7_3AC5FB50949B_var*
 var
  l_Cell : IedCell;
  l_Table: IedTable;
-//#UC END# *FC2B610EC587_3AC5FB50949B_var*
+//#UC END# *55E46FDE02F7_3AC5FB50949B_var*
 begin
-//#UC START# *FC2B610EC587_3AC5FB50949B_impl*
+//#UC START# *55E46FDE02F7_3AC5FB50949B_impl*
  l_Table := aEditor.Range.Table;
  if (l_Table <> nil) then
  begin
@@ -623,7 +569,7 @@ begin
     l_Cell.Split(ev_orHorizontal);
   end;//l_Cell <> nil
  end;//l_Table <> nil
-//#UC END# *FC2B610EC587_3AC5FB50949B_impl*
+//#UC END# *55E46FDE02F7_3AC5FB50949B_impl*
 end;//TkwPopEditorSplitCell.SplitCell
 
 procedure TkwPopEditorSplitCell.DoDoIt(const aCtx: TtfwContext);
@@ -651,6 +597,11 @@ begin
  SplitCell(aCtx, l_aEditor, l_aVert);
 end;//TkwPopEditorSplitCell.DoDoIt
 
+class function TkwPopEditorSplitCell.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SplitCell';
+end;//TkwPopEditorSplitCell.GetWordNameForRegister
+
 function TkwPopEditorSplitCell.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -666,26 +617,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(Boolean)]);
 end;//TkwPopEditorSplitCell.ParamsTypes
 
-class function TkwPopEditorSplitCell.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SplitCell';
-end;//TkwPopEditorSplitCell.GetWordNameForRegister
-
 procedure TkwPopEditorSplitTable.SplitTable(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:SplitTable }
-//#UC START# *4F994DADAE61_AA4E45C58AA3_var*
+//#UC START# *55E4714B033F_AA4E45C58AA3_var*
 var
  l_Table: IedTable;
-//#UC END# *4F994DADAE61_AA4E45C58AA3_var*
+//#UC END# *55E4714B033F_AA4E45C58AA3_var*
 begin
-//#UC START# *4F994DADAE61_AA4E45C58AA3_impl*
+//#UC START# *55E4714B033F_AA4E45C58AA3_impl*
  l_Table := aEditor.Range.Table;
  if (l_Table = nil) then
   RunnerError('Курсор не находится в таблице.', aCtx)
  else
   aCtx.rCaller.Check(l_Table.Split(aEditor.TextSource.Indicator), 'Разделение таблицы закончелось неудачей.')
-//#UC END# *4F994DADAE61_AA4E45C58AA3_impl*
+//#UC END# *55E4714B033F_AA4E45C58AA3_impl*
 end;//TkwPopEditorSplitTable.SplitTable
 
 procedure TkwPopEditorSplitTable.DoDoIt(const aCtx: TtfwContext);
@@ -703,6 +649,11 @@ begin
  SplitTable(aCtx, l_aEditor);
 end;//TkwPopEditorSplitTable.DoDoIt
 
+class function TkwPopEditorSplitTable.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:SplitTable';
+end;//TkwPopEditorSplitTable.GetWordNameForRegister
+
 function TkwPopEditorSplitTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -718,26 +669,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorSplitTable.ParamsTypes
 
-class function TkwPopEditorSplitTable.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:SplitTable';
-end;//TkwPopEditorSplitTable.GetWordNameForRegister
-
 procedure TkwPopEditorMergeTables.MergeTables(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:MergeTables }
-//#UC START# *7C77C501EF5C_E73997E799CF_var*
+//#UC START# *55E471580016_E73997E799CF_var*
 var
  l_Table: IedTable;
-//#UC END# *7C77C501EF5C_E73997E799CF_var*
+//#UC END# *55E471580016_E73997E799CF_var*
 begin
-//#UC START# *7C77C501EF5C_E73997E799CF_impl*
+//#UC START# *55E471580016_E73997E799CF_impl*
  l_Table := aEditor.Range.Table;
  if (l_Table = nil) then
   RunnerError('Курсор не находится в таблице.', aCtx)
  else
   aCtx.rCaller.Check(l_Table.Merge(aEditor.TextSource.Indicator), 'Объединение таблицы закончелось неудачей.')
-//#UC END# *7C77C501EF5C_E73997E799CF_impl*
+//#UC END# *55E471580016_E73997E799CF_impl*
 end;//TkwPopEditorMergeTables.MergeTables
 
 procedure TkwPopEditorMergeTables.DoDoIt(const aCtx: TtfwContext);
@@ -755,6 +701,11 @@ begin
  MergeTables(aCtx, l_aEditor);
 end;//TkwPopEditorMergeTables.DoDoIt
 
+class function TkwPopEditorMergeTables.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:MergeTables';
+end;//TkwPopEditorMergeTables.GetWordNameForRegister
+
 function TkwPopEditorMergeTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -770,21 +721,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorMergeTables.ParamsTypes
 
-class function TkwPopEditorMergeTables.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:MergeTables';
-end;//TkwPopEditorMergeTables.GetWordNameForRegister
-
 procedure TkwPopEditorInsertSectionBreak.InsertSectionBreak(const aCtx: TtfwContext;
  aEditor: TevCustomEditor;
  aPageOrientation: TevPageOrientation);
  {* Реализация слова скрипта pop:Editor:InsertSectionBreak }
-//#UC START# *20D4E8106F99_5C1388B33B3A_var*
-//#UC END# *20D4E8106F99_5C1388B33B3A_var*
+//#UC START# *55E471E9011E_5C1388B33B3A_var*
+//#UC END# *55E471E9011E_5C1388B33B3A_var*
 begin
-//#UC START# *20D4E8106F99_5C1388B33B3A_impl*
+//#UC START# *55E471E9011E_5C1388B33B3A_impl*
  aEditor.InsertPageBreak(True, aPageOrientation);
-//#UC END# *20D4E8106F99_5C1388B33B3A_impl*
+//#UC END# *55E471E9011E_5C1388B33B3A_impl*
 end;//TkwPopEditorInsertSectionBreak.InsertSectionBreak
 
 procedure TkwPopEditorInsertSectionBreak.DoDoIt(const aCtx: TtfwContext);
@@ -812,6 +758,11 @@ begin
  InsertSectionBreak(aCtx, l_aEditor, l_aPageOrientation);
 end;//TkwPopEditorInsertSectionBreak.DoDoIt
 
+class function TkwPopEditorInsertSectionBreak.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:InsertSectionBreak';
+end;//TkwPopEditorInsertSectionBreak.GetWordNameForRegister
+
 function TkwPopEditorInsertSectionBreak.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -827,20 +778,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(TevPageOrientation)]);
 end;//TkwPopEditorInsertSectionBreak.ParamsTypes
 
-class function TkwPopEditorInsertSectionBreak.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:InsertSectionBreak';
-end;//TkwPopEditorInsertSectionBreak.GetWordNameForRegister
-
 procedure TkwPopEditorPrevHyperlink.PrevHyperlink(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:PrevHyperlink }
-//#UC START# *DB7F8A6A9D94_B77C574814C1_var*
-//#UC END# *DB7F8A6A9D94_B77C574814C1_var*
+//#UC START# *55E47282036F_B77C574814C1_var*
+//#UC END# *55E47282036F_B77C574814C1_var*
 begin
-//#UC START# *DB7F8A6A9D94_B77C574814C1_impl*
+//#UC START# *55E47282036F_B77C574814C1_impl*
  aEditor.PrevHyperlink(False);
-//#UC END# *DB7F8A6A9D94_B77C574814C1_impl*
+//#UC END# *55E47282036F_B77C574814C1_impl*
 end;//TkwPopEditorPrevHyperlink.PrevHyperlink
 
 procedure TkwPopEditorPrevHyperlink.DoDoIt(const aCtx: TtfwContext);
@@ -858,6 +804,11 @@ begin
  PrevHyperlink(aCtx, l_aEditor);
 end;//TkwPopEditorPrevHyperlink.DoDoIt
 
+class function TkwPopEditorPrevHyperlink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:PrevHyperlink';
+end;//TkwPopEditorPrevHyperlink.GetWordNameForRegister
+
 function TkwPopEditorPrevHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -873,20 +824,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorPrevHyperlink.ParamsTypes
 
-class function TkwPopEditorPrevHyperlink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:PrevHyperlink';
-end;//TkwPopEditorPrevHyperlink.GetWordNameForRegister
-
 procedure TkwPopEditorNextHyperlink.NextHyperlink(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:NextHyperlink }
-//#UC START# *8C3D0835326B_F05E0D5E838A_var*
-//#UC END# *8C3D0835326B_F05E0D5E838A_var*
+//#UC START# *55E4728F01D8_F05E0D5E838A_var*
+//#UC END# *55E4728F01D8_F05E0D5E838A_var*
 begin
-//#UC START# *8C3D0835326B_F05E0D5E838A_impl*
+//#UC START# *55E4728F01D8_F05E0D5E838A_impl*
  aEditor.NextHyperlink(False);
-//#UC END# *8C3D0835326B_F05E0D5E838A_impl*
+//#UC END# *55E4728F01D8_F05E0D5E838A_impl*
 end;//TkwPopEditorNextHyperlink.NextHyperlink
 
 procedure TkwPopEditorNextHyperlink.DoDoIt(const aCtx: TtfwContext);
@@ -904,6 +850,11 @@ begin
  NextHyperlink(aCtx, l_aEditor);
 end;//TkwPopEditorNextHyperlink.DoDoIt
 
+class function TkwPopEditorNextHyperlink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:NextHyperlink';
+end;//TkwPopEditorNextHyperlink.GetWordNameForRegister
+
 function TkwPopEditorNextHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -919,20 +870,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorNextHyperlink.ParamsTypes
 
-class function TkwPopEditorNextHyperlink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:NextHyperlink';
-end;//TkwPopEditorNextHyperlink.GetWordNameForRegister
-
 function TkwPopEditorRange.Range(const aCtx: TtfwContext;
  aEditor: TevCustomEditor): IedRange;
  {* Реализация слова скрипта pop:Editor:Range }
-//#UC START# *7884E20C97ED_47D4B4C536FD_var*
-//#UC END# *7884E20C97ED_47D4B4C536FD_var*
+//#UC START# *55E5A3D40355_47D4B4C536FD_var*
+//#UC END# *55E5A3D40355_47D4B4C536FD_var*
 begin
-//#UC START# *7884E20C97ED_47D4B4C536FD_impl*
+//#UC START# *55E5A3D40355_47D4B4C536FD_impl*
  Result := aEditor.Range;
-//#UC END# *7884E20C97ED_47D4B4C536FD_impl*
+//#UC END# *55E5A3D40355_47D4B4C536FD_impl*
 end;//TkwPopEditorRange.Range
 
 procedure TkwPopEditorRange.DoDoIt(const aCtx: TtfwContext);
@@ -950,6 +896,11 @@ begin
  aCtx.rEngine.PushIntf(Range(aCtx, l_aEditor), TypeInfo(IedRange));
 end;//TkwPopEditorRange.DoDoIt
 
+class function TkwPopEditorRange.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Editor:Range';
+end;//TkwPopEditorRange.GetWordNameForRegister
+
 function TkwPopEditorRange.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(IedRange);
@@ -964,11 +915,6 @@ function TkwPopEditorRange.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorRange.ParamsTypes
-
-class function TkwPopEditorRange.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Editor:Range';
-end;//TkwPopEditorRange.GetWordNameForRegister
 
 class function TTevCustomEditorWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -1006,10 +952,10 @@ initialization
  {* Регистрация pop_Editor_Range }
  TTevCustomEditorWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditor));
  {* Регистрация типа TevCustomEditor }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IedRange));
+ {* Регистрация типа IedRange }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TedMergeAlgorythm));
@@ -1017,9 +963,7 @@ initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevPageOrientation));
- {* Регистрация типа PageOrientation }
- TtfwTypeRegistrator.RegisterType(TypeInfo(IedRange));
- {* Регистрация типа IedRange }
+ {* Регистрация типа TevPageOrientation }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

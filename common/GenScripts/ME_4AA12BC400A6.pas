@@ -44,6 +44,7 @@ uses
  , PreviewInterfaces
  , l3InternalInterfaces
  , FiltersUnit
+ , nsTypesNew
  , nsTypes
  , AttributesUserTypes_fDocAttribute_UserType
  , BaseDocumentWithAttributesInterfaces

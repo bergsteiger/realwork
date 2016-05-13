@@ -22,22 +22,16 @@ uses
  , vtSpinEdit
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopSpinEditValue = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:SpinEdit:Value
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aSpinEdit pop:SpinEdit:Value >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:SpinEdit:Value }
   private
    function Value(const aCtx: TtfwContext;
     aSpinEdit: TvtSpinEdit): Integer;
@@ -49,34 +43,34 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopSpinEditValue
-
-function TkwPopSpinEditValue.Value(const aCtx: TtfwContext;
- aSpinEdit: TvtSpinEdit): Integer;
- {* Реализация слова скрипта pop:SpinEdit:Value }
-//#UC START# *7366517D8188_0F40F0279E11_var*
-//#UC END# *7366517D8188_0F40F0279E11_var*
-begin
-//#UC START# *7366517D8188_0F40F0279E11_impl*
- Result := aSpinEdit.AsInteger;
-//#UC END# *7366517D8188_0F40F0279E11_impl*
-end;//TkwPopSpinEditValue.Value
 
 class procedure TkwPopSpinEditValue.DoSetValue(aSpinEdit: TvtSpinEdit;
  aValue: Integer);
  {* Метод установки значения свойства Value }
-//#UC START# *A9BA2BCEA197_0F40F0279E11_var*
-//#UC END# *A9BA2BCEA197_0F40F0279E11_var*
+//#UC START# *0F40F0279E11_DoSetValue_0F40F0279E11_var*
+//#UC END# *0F40F0279E11_DoSetValue_0F40F0279E11_var*
 begin
-//#UC START# *A9BA2BCEA197_0F40F0279E11_impl*
+//#UC START# *0F40F0279E11_DoSetValue_0F40F0279E11_impl*
  aSpinEdit.AsInteger := aValue;
-//#UC END# *A9BA2BCEA197_0F40F0279E11_impl*
+//#UC END# *0F40F0279E11_DoSetValue_0F40F0279E11_impl*
 end;//TkwPopSpinEditValue.DoSetValue
+
+function TkwPopSpinEditValue.Value(const aCtx: TtfwContext;
+ aSpinEdit: TvtSpinEdit): Integer;
+ {* Реализация слова скрипта pop:SpinEdit:Value }
+//#UC START# *FFBFE1E95F74_0F40F0279E11_var*
+//#UC END# *FFBFE1E95F74_0F40F0279E11_var*
+begin
+//#UC START# *FFBFE1E95F74_0F40F0279E11_impl*
+ Result := aSpinEdit.AsInteger;
+//#UC END# *FFBFE1E95F74_0F40F0279E11_impl*
+end;//TkwPopSpinEditValue.Value
 
 procedure TkwPopSpinEditValue.DoDoIt(const aCtx: TtfwContext);
 var l_aSpinEdit: TvtSpinEdit;
@@ -92,6 +86,26 @@ begin
  end;//try..except
  aCtx.rEngine.PushInt(Value(aCtx, l_aSpinEdit));
 end;//TkwPopSpinEditValue.DoDoIt
+
+class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:SpinEdit:Value';
+end;//TkwPopSpinEditValue.GetWordNameForRegister
+
+function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwPopSpinEditValue.GetResultTypeInfo
+
+function TkwPopSpinEditValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopSpinEditValue.GetAllParamsCount
+
+function TkwPopSpinEditValue.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvtSpinEdit)]);
+end;//TkwPopSpinEditValue.ParamsTypes
 
 procedure TkwPopSpinEditValue.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
@@ -109,31 +123,9 @@ begin
  DoSetValue(l_SpinEdit, aValue.AsInt);
 end;//TkwPopSpinEditValue.SetValuePrim
 
-function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Integer);
-end;//TkwPopSpinEditValue.GetResultTypeInfo
-
-function TkwPopSpinEditValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwPopSpinEditValue.GetAllParamsCount
-
-function TkwPopSpinEditValue.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvtSpinEdit)]);
-end;//TkwPopSpinEditValue.ParamsTypes
-
-class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:SpinEdit:Value';
-end;//TkwPopSpinEditValue.GetWordNameForRegister
-
 initialization
  TkwPopSpinEditValue.RegisterInEngine;
  {* Регистрация pop_SpinEdit_Value }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSpinEdit));
  {* Регистрация типа TvtSpinEdit }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));

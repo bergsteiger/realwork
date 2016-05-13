@@ -16,17 +16,17 @@ uses
  , afwInterfaces
  , nevGUIInterfaces
  , eeInterfacesEx
+ , evCustomEditorModelPart
  , nevTools
  , Windows
- , evCustomEditorModelPart
  , evTypes
  {$If Defined(Nemesis)}
  , eeDocumentTool
  {$IfEnd} // Defined(Nemesis)
  , evdTypes
  , l3Interfaces
- , k2Base
  , l3IID
+ , k2Base
  , Classes
 ;
 

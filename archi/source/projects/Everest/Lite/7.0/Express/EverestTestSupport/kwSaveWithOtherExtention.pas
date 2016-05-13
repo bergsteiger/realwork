@@ -31,8 +31,8 @@ type
  [code]
 *Результат:* Открытый файл в редакторе будет сохранен с расширением nsr (с преобразованием в формат NSRC, если нужно). }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwSaveWithOtherExtention
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -44,6 +44,11 @@ uses
  , EverestLiteAdapter
  , SysUtils
 ;
+
+class function TkwSaveWithOtherExtention.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'SaveWithOtherExtention';
+end;//TkwSaveWithOtherExtention.GetWordNameForRegister
 
 procedure TkwSaveWithOtherExtention.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_512DD336009D_var*
@@ -65,11 +70,6 @@ begin
   Assert(False, 'Не задано новое расширение!');
 //#UC END# *4DAEEDE10285_512DD336009D_impl*
 end;//TkwSaveWithOtherExtention.DoDoIt
-
-class function TkwSaveWithOtherExtention.GetWordNameForRegister: AnsiString;
-begin
- Result := 'SaveWithOtherExtention';
-end;//TkwSaveWithOtherExtention.GetWordNameForRegister
 
 initialization
  TkwSaveWithOtherExtention.RegisterInEngine;

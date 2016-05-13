@@ -51,6 +51,9 @@ uses
  , l3Types
  , l3Base
  , m3StorageInterfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor Tm3DBFiler.Create(const aDB: Im3DB;
@@ -161,5 +164,11 @@ begin
  f_Part := nil;
  inherited;
 end;//Tm3DBFiler.ClearFields
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Tm3DBFiler);
+ {* Регистрация Tm3DBFiler }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

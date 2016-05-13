@@ -21,8 +21,8 @@ type
  TkwMainFormClearHistory = {final} class(TtfwRegisterableWord)
   {* Очищает историю переходов по документам. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMainFormClearHistory
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -34,6 +34,11 @@ uses
  , Main
 ;
 
+class function TkwMainFormClearHistory.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'MainForm:ClearHistory';
+end;//TkwMainFormClearHistory.GetWordNameForRegister
+
 procedure TkwMainFormClearHistory.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5370939A008D_var*
 //#UC END# *4DAEEDE10285_5370939A008D_var*
@@ -42,11 +47,6 @@ begin
  MainForm.ClearHistory;
 //#UC END# *4DAEEDE10285_5370939A008D_impl*
 end;//TkwMainFormClearHistory.DoDoIt
-
-class function TkwMainFormClearHistory.GetWordNameForRegister: AnsiString;
-begin
- Result := 'MainForm:ClearHistory';
-end;//TkwMainFormClearHistory.GetWordNameForRegister
 
 initialization
  TkwMainFormClearHistory.RegisterInEngine;

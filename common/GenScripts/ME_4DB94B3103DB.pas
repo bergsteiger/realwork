@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}
  TkwWasWait = class(_afwImpurity_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwWasWait
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -36,6 +36,11 @@ uses
 ;
 
 {$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}
+
+class function TkwWasWait.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'waited:?';
+end;//TkwWasWait.GetWordNameForRegister
 
 procedure TkwWasWait.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB94B3103DB_var*
@@ -54,11 +59,6 @@ begin
  aCtx.rEngine.PushBool(l_WasWait);
 //#UC END# *4DAEEDE10285_4DB94B3103DB_impl*
 end;//TkwWasWait.DoDoIt
-
-class function TkwWasWait.GetWordNameForRegister: AnsiString;
-begin
- Result := 'waited:?';
-end;//TkwWasWait.GetWordNameForRegister
 
 initialization
  TkwWasWait.RegisterInEngine;

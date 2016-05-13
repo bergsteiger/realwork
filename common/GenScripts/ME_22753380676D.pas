@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push
 
  TkwEfTreeAttributeFirstLevelFirstLevelContent = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefTreeAttributeFirstLevel.FirstLevelContent
-[panel]Контрол FirstLevelContent формы TefTreeAttributeFirstLevel[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aefTreeAttributeFirstLevel .TefTreeAttributeFirstLevel.FirstLevelContent >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TefTreeAttributeFirstLevel.FirstLevelContent }
   private
    function FirstLevelContent(const aCtx: TtfwContext;
     aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfTreeAttributeFirstLevelFirstLevelContent
 
 function Tkw_Form_TreeAttributeFirstLevel.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel));
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt
 
-procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FirstLevelContent', aCtx);
-end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim
+ Result := '.TefTreeAttributeFirstLevel.FirstLevelContent';
+end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeFirstLevel)]);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes
 
-class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
+procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefTreeAttributeFirstLevel.FirstLevelContent';
-end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FirstLevelContent', aCtx);
+end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim
 
 initialization
  Tkw_Form_TreeAttributeFirstLevel.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push }
  TkwEfTreeAttributeFirstLevelFirstLevelContent.RegisterInEngine;
  {* Регистрация efTreeAttributeFirstLevel_FirstLevelContent }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefTreeAttributeFirstLevel));
- {* Регистрация типа TreeAttributeFirstLevel }
+ {* Регистрация типа TefTreeAttributeFirstLevel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

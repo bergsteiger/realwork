@@ -24,17 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopPicSizeEditDlgFake = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:PicSizeEditDlg:Fake
-*Пример:*
-[code]
- aPicSizeEditDlg pop:PicSizeEditDlg:Fake
-[code]  }
+  {* Слово скрипта pop:PicSizeEditDlg:Fake }
   private
    procedure Fake(const aCtx: TtfwContext;
     aPicSizeEditDlg: TPicSizeEditDlg);
@@ -51,12 +47,12 @@ type
 procedure TkwPopPicSizeEditDlgFake.Fake(const aCtx: TtfwContext;
  aPicSizeEditDlg: TPicSizeEditDlg);
  {* Реализация слова скрипта pop:PicSizeEditDlg:Fake }
-//#UC START# *CD007FA5CC23_DF6A0ECD8244_var*
-//#UC END# *CD007FA5CC23_DF6A0ECD8244_var*
+//#UC START# *55C8CE2502B9_DF6A0ECD8244_var*
+//#UC END# *55C8CE2502B9_DF6A0ECD8244_var*
 begin
-//#UC START# *CD007FA5CC23_DF6A0ECD8244_impl*
+//#UC START# *55C8CE2502B9_DF6A0ECD8244_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *CD007FA5CC23_DF6A0ECD8244_impl*
+//#UC END# *55C8CE2502B9_DF6A0ECD8244_impl*
 end;//TkwPopPicSizeEditDlgFake.Fake
 
 procedure TkwPopPicSizeEditDlgFake.DoDoIt(const aCtx: TtfwContext);
@@ -74,6 +70,11 @@ begin
  Fake(aCtx, l_aPicSizeEditDlg);
 end;//TkwPopPicSizeEditDlgFake.DoDoIt
 
+class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:PicSizeEditDlg:Fake';
+end;//TkwPopPicSizeEditDlgFake.GetWordNameForRegister
+
 function TkwPopPicSizeEditDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -89,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TPicSizeEditDlg)]);
 end;//TkwPopPicSizeEditDlgFake.ParamsTypes
 
-class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:PicSizeEditDlg:Fake';
-end;//TkwPopPicSizeEditDlgFake.GetWordNameForRegister
-
 initialization
  TkwPopPicSizeEditDlgFake.RegisterInEngine;
  {* Регистрация pop_PicSizeEditDlg_Fake }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPicSizeEditDlg));
  {* Регистрация типа TPicSizeEditDlg }
 {$IfEnd} // NOT Defined(NoScripts)

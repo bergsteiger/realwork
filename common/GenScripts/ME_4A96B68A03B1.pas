@@ -51,7 +51,7 @@ type
     const aCaption: Il3CString;
     const aUserData: IUnknown;
     anOpenType: TFoldersInfoType;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Integer;
+    anOp: TListLogicOperation = LLO_NONE): Integer;
   protected
    procedure OpenFoldersPrim(const aContainer: IvcmContainer);
    function FindFoldersForm(const aContainer: IvcmContainer): IvcmEntityForm;
@@ -119,6 +119,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kw_Folders_opOpenFrmAct
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , DataAdapter
  {$If NOT Defined(NoVCM)}
@@ -350,7 +353,7 @@ function TPrimFoldersModule.OpenFoldersForSelect(const aContainer: IvcmContainer
  const aCaption: Il3CString;
  const aUserData: IUnknown;
  anOpenType: TFoldersInfoType;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Integer;
+ anOp: TListLogicOperation = LLO_NONE): Integer;
 var l_Params: IvcmMakeParams;
 var l_Container: IvcmEntityForm;
 var l_Folders: ;
@@ -528,6 +531,12 @@ begin
  inherited;
 //#UC END# *479731C50290_4A96B68A03B1_impl*
 end;//TPrimFoldersModule.Cleanup
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TPrimFoldersModule);
+ {* Регистрация PrimFolders$UC }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

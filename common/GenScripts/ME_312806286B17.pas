@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_Attributes_Control_tvAttributes_Push
 
  TkwAttributesFormTvAttributes = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TAttributesForm.tvAttributes
-[panel]Контрол tvAttributes формы TAttributesForm[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aAttributesForm .TAttributesForm.tvAttributes >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TAttributesForm.tvAttributes }
   private
    function tvAttributes(const aCtx: TtfwContext;
     aAttributesForm: TAttributesForm): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwAttributesFormTvAttributes
 
 function Tkw_Form_Attributes.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(tvAttributes(aCtx, l_aAttributesForm));
 end;//TkwAttributesFormTvAttributes.DoDoIt
 
-procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwAttributesFormTvAttributes.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvAttributes', aCtx);
-end;//TkwAttributesFormTvAttributes.SetValuePrim
+ Result := '.TAttributesForm.tvAttributes';
+end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
 
 function TkwAttributesFormTvAttributes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAttributesForm)]);
 end;//TkwAttributesFormTvAttributes.ParamsTypes
 
-class function TkwAttributesFormTvAttributes.GetWordNameForRegister: AnsiString;
+procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TAttributesForm.tvAttributes';
-end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvAttributes', aCtx);
+end;//TkwAttributesFormTvAttributes.SetValuePrim
 
 initialization
  Tkw_Form_Attributes.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_Attributes_Control_tvAttributes_Push }
  TkwAttributesFormTvAttributes.RegisterInEngine;
  {* Регистрация AttributesForm_tvAttributes }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TAttributesForm));
- {* Регистрация типа Attributes }
+ {* Регистрация типа TAttributesForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

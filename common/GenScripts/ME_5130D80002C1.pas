@@ -38,7 +38,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *5130D80002C1impl_uses*
  //#UC END# *5130D80002C1impl_uses*

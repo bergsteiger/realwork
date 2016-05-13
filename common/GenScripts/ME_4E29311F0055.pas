@@ -31,8 +31,8 @@ aClass - класс формы.
 
 ПОКА создаёт только VCM-формы но предполагается научить создавать и ДРУГИЕ объекты. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwObjectCreate
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -56,6 +56,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwObjectCreate.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.Create';
+end;//TkwObjectCreate.GetWordNameForRegister
+
 procedure TkwObjectCreate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E29311F0055_var*
 var
@@ -77,11 +82,6 @@ begin
 {$IfEnd} //not NoVCM
 //#UC END# *4DAEEDE10285_4E29311F0055_impl*
 end;//TkwObjectCreate.DoDoIt
-
-class function TkwObjectCreate.GetWordNameForRegister: AnsiString;
-begin
- Result := '.Create';
-end;//TkwObjectCreate.GetWordNameForRegister
 
 initialization
  TkwObjectCreate.RegisterInEngine;

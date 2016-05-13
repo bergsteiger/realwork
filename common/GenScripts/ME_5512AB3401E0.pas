@@ -22,7 +22,7 @@ uses
  , tfwTypeInfo
  , tfwConst
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -45,6 +45,8 @@ end;//TkwCONST.GetWordNameForRegister
 initialization
  TkwCONST.RegisterInEngine;
  {* Регистрация CONST }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

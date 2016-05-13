@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_Parent_Control_ParentZone_Push
 
  TkwParentFormParentZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TParentForm.ParentZone
-[panel]Контрол ParentZone формы TParentForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aParentForm .TParentForm.ParentZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TParentForm.ParentZone }
   private
    function ParentZone(const aCtx: TtfwContext;
     aParentForm: TParentForm): TvtPanel;
@@ -94,11 +87,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwParentFormParentZone
 
 function Tkw_Form_Parent.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_aParentForm));
 end;//TkwParentFormParentZone.DoDoIt
 
-procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwParentFormParentZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
-end;//TkwParentFormParentZone.SetValuePrim
+ Result := '.TParentForm.ParentZone';
+end;//TkwParentFormParentZone.GetWordNameForRegister
 
 function TkwParentFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TParentForm)]);
 end;//TkwParentFormParentZone.ParamsTypes
 
-class function TkwParentFormParentZone.GetWordNameForRegister: AnsiString;
+procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TParentForm.ParentZone';
-end;//TkwParentFormParentZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
+end;//TkwParentFormParentZone.SetValuePrim
 
 initialization
  Tkw_Form_Parent.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_Parent_Control_ParentZone_Push }
  TkwParentFormParentZone.RegisterInEngine;
  {* Регистрация ParentForm_ParentZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TParentForm));
- {* Регистрация типа Parent }
+ {* Регистрация типа TParentForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // NOT Defined(NoScripts)

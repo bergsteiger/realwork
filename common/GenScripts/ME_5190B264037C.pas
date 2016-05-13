@@ -23,23 +23,17 @@ uses
  l3ImplUses
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwFontColor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:Color
-*Тип результата:* Tl3Color
-*Пример:*
-[code]
-TColor VAR l_Tl3Color
- aFont Font:Color >>> l_Tl3Color
-[code]  }
+  {* Слово скрипта Font:Color }
   private
    function Color(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Tl3Color;
@@ -48,21 +42,15 @@ TColor VAR l_Tl3Color
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontColor
 
  TkwFontBackColor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:BackColor
-*Тип результата:* Tl3Color
-*Пример:*
-[code]
-TColor VAR l_Tl3Color
- aFont Font:BackColor >>> l_Tl3Color
-[code]  }
+  {* Слово скрипта Font:BackColor }
   private
    function BackColor(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Tl3Color;
@@ -71,21 +59,15 @@ TColor VAR l_Tl3Color
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontBackColor
 
  TkwFontIsBold = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:IsBold
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFont Font:IsBold >>> l_Boolean
-[code]  }
+  {* Слово скрипта Font:IsBold }
   private
    function IsBold(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Boolean;
@@ -94,21 +76,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontIsBold
 
  TkwFontIsItalic = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:IsItalic
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFont Font:IsItalic >>> l_Boolean
-[code]  }
+  {* Слово скрипта Font:IsItalic }
   private
    function IsItalic(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Boolean;
@@ -117,21 +93,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontIsItalic
 
  TkwFontIsUnderline = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:IsUnderline
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFont Font:IsUnderline >>> l_Boolean
-[code]  }
+  {* Слово скрипта Font:IsUnderline }
   private
    function IsUnderline(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Boolean;
@@ -140,21 +110,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontIsUnderline
 
  TkwFontIsStrikeOut = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:IsStrikeOut
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFont Font:IsStrikeOut >>> l_Boolean
-[code]  }
+  {* Слово скрипта Font:IsStrikeOut }
   private
    function IsStrikeOut(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Boolean;
@@ -163,21 +127,15 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontIsStrikeOut
 
  TkwFontName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:Name
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aFont Font:Name >>> l_String
-[code]  }
+  {* Слово скрипта Font:Name }
   private
    function Name(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): AnsiString;
@@ -186,21 +144,15 @@ STRING VAR l_String
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontName
 
  TkwFontSize = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Font:Size
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aFont Font:Size >>> l_Integer
-[code]  }
+  {* Слово скрипта Font:Size }
   private
    function Size(const aCtx: TtfwContext;
     const aFont: Il3FontInfo): Integer;
@@ -209,11 +161,11 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwFontSize
 
  TFontWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
@@ -225,12 +177,12 @@ INTEGER VAR l_Integer
 function TkwFontColor.Color(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
  {* Реализация слова скрипта Font:Color }
-//#UC START# *7040B1F6FD7B_B42B6353E972_var*
-//#UC END# *7040B1F6FD7B_B42B6353E972_var*
+//#UC START# *69F0C68E7956_B42B6353E972_var*
+//#UC END# *69F0C68E7956_B42B6353E972_var*
 begin
-//#UC START# *7040B1F6FD7B_B42B6353E972_impl*
+//#UC START# *69F0C68E7956_B42B6353E972_impl*
  Result := aFont.ForeColor;
-//#UC END# *7040B1F6FD7B_B42B6353E972_impl*
+//#UC END# *69F0C68E7956_B42B6353E972_impl*
 end;//TkwFontColor.Color
 
 procedure TkwFontColor.DoDoIt(const aCtx: TtfwContext);
@@ -248,11 +200,10 @@ begin
  aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aFont)));
 end;//TkwFontColor.DoDoIt
 
-procedure TkwFontColor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontColor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Color', aCtx);
-end;//TkwFontColor.SetValuePrim
+ Result := 'Font:Color';
+end;//TkwFontColor.GetWordNameForRegister
 
 function TkwFontColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -269,20 +220,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontColor.ParamsTypes
 
-class function TkwFontColor.GetWordNameForRegister: AnsiString;
+procedure TkwFontColor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:Color';
-end;//TkwFontColor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Color', aCtx);
+end;//TkwFontColor.SetValuePrim
 
 function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
  {* Реализация слова скрипта Font:BackColor }
-//#UC START# *85B9473C71C2_ADDA8C159EED_var*
-//#UC END# *85B9473C71C2_ADDA8C159EED_var*
+//#UC START# *F9B0C6DC0985_ADDA8C159EED_var*
+//#UC END# *F9B0C6DC0985_ADDA8C159EED_var*
 begin
-//#UC START# *85B9473C71C2_ADDA8C159EED_impl*
+//#UC START# *F9B0C6DC0985_ADDA8C159EED_impl*
  Result := aFont.BackColor;
-//#UC END# *85B9473C71C2_ADDA8C159EED_impl*
+//#UC END# *F9B0C6DC0985_ADDA8C159EED_impl*
 end;//TkwFontBackColor.BackColor
 
 procedure TkwFontBackColor.DoDoIt(const aCtx: TtfwContext);
@@ -300,11 +252,10 @@ begin
  aCtx.rEngine.PushInt(Integer(BackColor(aCtx, l_aFont)));
 end;//TkwFontBackColor.DoDoIt
 
-procedure TkwFontBackColor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackColor', aCtx);
-end;//TkwFontBackColor.SetValuePrim
+ Result := 'Font:BackColor';
+end;//TkwFontBackColor.GetWordNameForRegister
 
 function TkwFontBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -321,20 +272,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontBackColor.ParamsTypes
 
-class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
+procedure TkwFontBackColor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:BackColor';
-end;//TkwFontBackColor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackColor', aCtx);
+end;//TkwFontBackColor.SetValuePrim
 
 function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsBold }
-//#UC START# *F4864359618B_6426AF77D4E5_var*
-//#UC END# *F4864359618B_6426AF77D4E5_var*
+//#UC START# *42937118B88F_6426AF77D4E5_var*
+//#UC END# *42937118B88F_6426AF77D4E5_var*
 begin
-//#UC START# *F4864359618B_6426AF77D4E5_impl*
+//#UC START# *42937118B88F_6426AF77D4E5_impl*
  Result := aFont.Bold;
-//#UC END# *F4864359618B_6426AF77D4E5_impl*
+//#UC END# *42937118B88F_6426AF77D4E5_impl*
 end;//TkwFontIsBold.IsBold
 
 procedure TkwFontIsBold.DoDoIt(const aCtx: TtfwContext);
@@ -352,11 +304,10 @@ begin
  aCtx.rEngine.PushBool(IsBold(aCtx, l_aFont));
 end;//TkwFontIsBold.DoDoIt
 
-procedure TkwFontIsBold.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsBold', aCtx);
-end;//TkwFontIsBold.SetValuePrim
+ Result := 'Font:IsBold';
+end;//TkwFontIsBold.GetWordNameForRegister
 
 function TkwFontIsBold.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -373,20 +324,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsBold.ParamsTypes
 
-class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
+procedure TkwFontIsBold.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:IsBold';
-end;//TkwFontIsBold.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsBold', aCtx);
+end;//TkwFontIsBold.SetValuePrim
 
 function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsItalic }
-//#UC START# *3EC3A4D3FAB3_FAD60EB55765_var*
-//#UC END# *3EC3A4D3FAB3_FAD60EB55765_var*
+//#UC START# *451C4035B290_FAD60EB55765_var*
+//#UC END# *451C4035B290_FAD60EB55765_var*
 begin
-//#UC START# *3EC3A4D3FAB3_FAD60EB55765_impl*
+//#UC START# *451C4035B290_FAD60EB55765_impl*
  Result := aFont.Italic;
-//#UC END# *3EC3A4D3FAB3_FAD60EB55765_impl*
+//#UC END# *451C4035B290_FAD60EB55765_impl*
 end;//TkwFontIsItalic.IsItalic
 
 procedure TkwFontIsItalic.DoDoIt(const aCtx: TtfwContext);
@@ -404,11 +356,10 @@ begin
  aCtx.rEngine.PushBool(IsItalic(aCtx, l_aFont));
 end;//TkwFontIsItalic.DoDoIt
 
-procedure TkwFontIsItalic.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsItalic', aCtx);
-end;//TkwFontIsItalic.SetValuePrim
+ Result := 'Font:IsItalic';
+end;//TkwFontIsItalic.GetWordNameForRegister
 
 function TkwFontIsItalic.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -425,20 +376,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsItalic.ParamsTypes
 
-class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
+procedure TkwFontIsItalic.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:IsItalic';
-end;//TkwFontIsItalic.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsItalic', aCtx);
+end;//TkwFontIsItalic.SetValuePrim
 
 function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsUnderline }
-//#UC START# *F84904DE8371_0A56585439B0_var*
-//#UC END# *F84904DE8371_0A56585439B0_var*
+//#UC START# *6B90D10D9839_0A56585439B0_var*
+//#UC END# *6B90D10D9839_0A56585439B0_var*
 begin
-//#UC START# *F84904DE8371_0A56585439B0_impl*
+//#UC START# *6B90D10D9839_0A56585439B0_impl*
  Result := aFont.Underline;
-//#UC END# *F84904DE8371_0A56585439B0_impl*
+//#UC END# *6B90D10D9839_0A56585439B0_impl*
 end;//TkwFontIsUnderline.IsUnderline
 
 procedure TkwFontIsUnderline.DoDoIt(const aCtx: TtfwContext);
@@ -456,11 +408,10 @@ begin
  aCtx.rEngine.PushBool(IsUnderline(aCtx, l_aFont));
 end;//TkwFontIsUnderline.DoDoIt
 
-procedure TkwFontIsUnderline.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsUnderline', aCtx);
-end;//TkwFontIsUnderline.SetValuePrim
+ Result := 'Font:IsUnderline';
+end;//TkwFontIsUnderline.GetWordNameForRegister
 
 function TkwFontIsUnderline.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -477,20 +428,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsUnderline.ParamsTypes
 
-class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
+procedure TkwFontIsUnderline.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:IsUnderline';
-end;//TkwFontIsUnderline.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsUnderline', aCtx);
+end;//TkwFontIsUnderline.SetValuePrim
 
 function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsStrikeOut }
-//#UC START# *56B18ED23F7B_48690441DF69_var*
-//#UC END# *56B18ED23F7B_48690441DF69_var*
+//#UC START# *07EFCC131FBD_48690441DF69_var*
+//#UC END# *07EFCC131FBD_48690441DF69_var*
 begin
-//#UC START# *56B18ED23F7B_48690441DF69_impl*
+//#UC START# *07EFCC131FBD_48690441DF69_impl*
  Result := aFont.Strikeout;
-//#UC END# *56B18ED23F7B_48690441DF69_impl*
+//#UC END# *07EFCC131FBD_48690441DF69_impl*
 end;//TkwFontIsStrikeOut.IsStrikeOut
 
 procedure TkwFontIsStrikeOut.DoDoIt(const aCtx: TtfwContext);
@@ -508,11 +460,10 @@ begin
  aCtx.rEngine.PushBool(IsStrikeOut(aCtx, l_aFont));
 end;//TkwFontIsStrikeOut.DoDoIt
 
-procedure TkwFontIsStrikeOut.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству IsStrikeOut', aCtx);
-end;//TkwFontIsStrikeOut.SetValuePrim
+ Result := 'Font:IsStrikeOut';
+end;//TkwFontIsStrikeOut.GetWordNameForRegister
 
 function TkwFontIsStrikeOut.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -529,20 +480,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsStrikeOut.ParamsTypes
 
-class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
+procedure TkwFontIsStrikeOut.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:IsStrikeOut';
-end;//TkwFontIsStrikeOut.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству IsStrikeOut', aCtx);
+end;//TkwFontIsStrikeOut.SetValuePrim
 
 function TkwFontName.Name(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): AnsiString;
  {* Реализация слова скрипта Font:Name }
-//#UC START# *5822CA56AAFA_7A73CF636A32_var*
-//#UC END# *5822CA56AAFA_7A73CF636A32_var*
+//#UC START# *F619DAD50B87_7A73CF636A32_var*
+//#UC END# *F619DAD50B87_7A73CF636A32_var*
 begin
-//#UC START# *5822CA56AAFA_7A73CF636A32_impl*
+//#UC START# *F619DAD50B87_7A73CF636A32_impl*
  Result := aFont.Name;
-//#UC END# *5822CA56AAFA_7A73CF636A32_impl*
+//#UC END# *F619DAD50B87_7A73CF636A32_impl*
 end;//TkwFontName.Name
 
 procedure TkwFontName.DoDoIt(const aCtx: TtfwContext);
@@ -560,11 +512,10 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aFont));
 end;//TkwFontName.DoDoIt
 
-procedure TkwFontName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
-end;//TkwFontName.SetValuePrim
+ Result := 'Font:Name';
+end;//TkwFontName.GetWordNameForRegister
 
 function TkwFontName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -581,20 +532,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontName.ParamsTypes
 
-class function TkwFontName.GetWordNameForRegister: AnsiString;
+procedure TkwFontName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:Name';
-end;//TkwFontName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
+end;//TkwFontName.SetValuePrim
 
 function TkwFontSize.Size(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Integer;
  {* Реализация слова скрипта Font:Size }
-//#UC START# *88C29661A1A9_F76B0EA46A07_var*
-//#UC END# *88C29661A1A9_F76B0EA46A07_var*
+//#UC START# *B6BEEE7F8558_F76B0EA46A07_var*
+//#UC END# *B6BEEE7F8558_F76B0EA46A07_var*
 begin
-//#UC START# *88C29661A1A9_F76B0EA46A07_impl*
+//#UC START# *B6BEEE7F8558_F76B0EA46A07_impl*
  Result := aFont.Size;
-//#UC END# *88C29661A1A9_F76B0EA46A07_impl*
+//#UC END# *B6BEEE7F8558_F76B0EA46A07_impl*
 end;//TkwFontSize.Size
 
 procedure TkwFontSize.DoDoIt(const aCtx: TtfwContext);
@@ -612,11 +564,10 @@ begin
  aCtx.rEngine.PushInt(Size(aCtx, l_aFont));
 end;//TkwFontSize.DoDoIt
 
-procedure TkwFontSize.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwFontSize.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Size', aCtx);
-end;//TkwFontSize.SetValuePrim
+ Result := 'Font:Size';
+end;//TkwFontSize.GetWordNameForRegister
 
 function TkwFontSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -633,10 +584,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontSize.ParamsTypes
 
-class function TkwFontSize.GetWordNameForRegister: AnsiString;
+procedure TkwFontSize.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Font:Size';
-end;//TkwFontSize.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Size', aCtx);
+end;//TkwFontSize.SetValuePrim
 
 class function TFontWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -664,8 +616,6 @@ initialization
  {* Регистрация Font_Size }
  TFontWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3FontInfo));
  {* Регистрация типа Il3FontInfo }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Tl3Color));
@@ -673,7 +623,7 @@ initialization
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts)

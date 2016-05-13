@@ -20,8 +20,8 @@ type
  TkwAddBlock = class(TtfwRegisterableWord)
   {* окно_редактора:установить_блок }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwAddBlock
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -33,6 +33,11 @@ uses
  , arArchiTestsAdapter
 ;
 
+class function TkwAddBlock.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'окно_редактора:установить_блок';
+end;//TkwAddBlock.GetWordNameForRegister
+
 procedure TkwAddBlock.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EA94ED30365_var*
 //#UC END# *4DAEEDE10285_4EA94ED30365_var*
@@ -41,11 +46,6 @@ begin
  ArAddBlock
 //#UC END# *4DAEEDE10285_4EA94ED30365_impl*
 end;//TkwAddBlock.DoDoIt
-
-class function TkwAddBlock.GetWordNameForRegister: AnsiString;
-begin
- Result := 'окно_редактора:установить_блок';
-end;//TkwAddBlock.GetWordNameForRegister
 
 initialization
  TkwAddBlock.RegisterInEngine;

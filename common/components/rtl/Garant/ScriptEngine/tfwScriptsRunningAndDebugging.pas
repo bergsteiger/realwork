@@ -26,25 +26,21 @@ uses
  , tfwOutToFileScriptCaller
  , tfwDebugScriptCaller
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwScriptRunFromFile = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта script:RunFromFile
-*Пример:*
-[code]
- anOutputFile aFile script:RunFromFile
-[code]  }
+  {* Слово скрипта script:RunFromFile }
   private
    procedure script_RunFromFile(const aCtx: TtfwContext;
     const aFile: AnsiString;
     const anOutputFile: AnsiString);
     {* Реализация слова скрипта script:RunFromFile }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -55,16 +51,36 @@ procedure TkwScriptRunFromFile.script_RunFromFile(const aCtx: TtfwContext;
  const aFile: AnsiString;
  const anOutputFile: AnsiString);
  {* Реализация слова скрипта script:RunFromFile }
-//#UC START# *1DB03B13C581_7C9C5C70AAD4_var*
-//#UC END# *1DB03B13C581_7C9C5C70AAD4_var*
+//#UC START# *56F5564A035F_56F5564A035F_Word_var*
+//#UC END# *56F5564A035F_56F5564A035F_Word_var*
 begin
-//#UC START# *1DB03B13C581_7C9C5C70AAD4_impl*
+//#UC START# *56F5564A035F_56F5564A035F_Word_impl*
  if (anOutputFile = '') then
   TtfwScriptEngine.ScriptFromFile(aFile, TtfwDebugScriptCaller.Make)
  else 
   TtfwScriptEngine.ScriptFromFile(aFile, TtfwOutToFileScriptCaller.Make(anOutputFile));
-//#UC END# *1DB03B13C581_7C9C5C70AAD4_impl*
+//#UC END# *56F5564A035F_56F5564A035F_Word_impl*
 end;//TkwScriptRunFromFile.script_RunFromFile
+
+class function TkwScriptRunFromFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'script:RunFromFile';
+end;//TkwScriptRunFromFile.GetWordNameForRegister
+
+function TkwScriptRunFromFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwScriptRunFromFile.GetResultTypeInfo
+
+function TkwScriptRunFromFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwScriptRunFromFile.GetAllParamsCount
+
+function TkwScriptRunFromFile.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
+end;//TkwScriptRunFromFile.ParamsTypes
 
 procedure TkwScriptRunFromFile.DoDoIt(const aCtx: TtfwContext);
 var l_aFile: AnsiString;
@@ -91,33 +107,11 @@ begin
  script_RunFromFile(aCtx, l_aFile, l_anOutputFile);
 end;//TkwScriptRunFromFile.DoDoIt
 
-function TkwScriptRunFromFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwScriptRunFromFile.GetResultTypeInfo
-
-function TkwScriptRunFromFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwScriptRunFromFile.GetAllParamsCount
-
-function TkwScriptRunFromFile.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
-end;//TkwScriptRunFromFile.ParamsTypes
-
-class function TkwScriptRunFromFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'script:RunFromFile';
-end;//TkwScriptRunFromFile.GetWordNameForRegister
-
 initialization
  TkwScriptRunFromFile.RegisterInEngine;
  {* Регистрация script_RunFromFile }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

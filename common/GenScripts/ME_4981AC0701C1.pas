@@ -26,6 +26,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure OleCheck;
@@ -36,5 +39,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D186F8401C5_4981AC0701C1_impl*
 end;//OleCheck
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EOleError));
+ {* Регистрация типа EOleError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EOleSysError));
+ {* Регистрация типа EOleSysError }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

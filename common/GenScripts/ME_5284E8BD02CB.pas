@@ -28,7 +28,7 @@ uses
  , kwBEGIN
  , kwRULES
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

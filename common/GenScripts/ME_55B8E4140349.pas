@@ -24,17 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopContainedActionExecute = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ContainedAction:Execute
-*Пример:*
-[code]
- aContainedAction pop:ContainedAction:Execute
-[code]  }
+  {* Слово скрипта pop:ContainedAction:Execute }
   private
    procedure Execute(const aCtx: TtfwContext;
     aContainedAction: TContainedAction);
@@ -51,12 +47,12 @@ type
 procedure TkwPopContainedActionExecute.Execute(const aCtx: TtfwContext;
  aContainedAction: TContainedAction);
  {* Реализация слова скрипта pop:ContainedAction:Execute }
-//#UC START# *AFC4E3ACD81B_87D5D18D9F8E_var*
-//#UC END# *AFC4E3ACD81B_87D5D18D9F8E_var*
+//#UC START# *55B8E49D01F4_87D5D18D9F8E_var*
+//#UC END# *55B8E49D01F4_87D5D18D9F8E_var*
 begin
-//#UC START# *AFC4E3ACD81B_87D5D18D9F8E_impl*
+//#UC START# *55B8E49D01F4_87D5D18D9F8E_impl*
  aContainedAction.Execute;
-//#UC END# *AFC4E3ACD81B_87D5D18D9F8E_impl*
+//#UC END# *55B8E49D01F4_87D5D18D9F8E_impl*
 end;//TkwPopContainedActionExecute.Execute
 
 procedure TkwPopContainedActionExecute.DoDoIt(const aCtx: TtfwContext);
@@ -74,6 +70,11 @@ begin
  Execute(aCtx, l_aContainedAction);
 end;//TkwPopContainedActionExecute.DoDoIt
 
+class function TkwPopContainedActionExecute.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ContainedAction:Execute';
+end;//TkwPopContainedActionExecute.GetWordNameForRegister
+
 function TkwPopContainedActionExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -89,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContainedAction)]);
 end;//TkwPopContainedActionExecute.ParamsTypes
 
-class function TkwPopContainedActionExecute.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ContainedAction:Execute';
-end;//TkwPopContainedActionExecute.GetWordNameForRegister
-
 initialization
  TkwPopContainedActionExecute.RegisterInEngine;
  {* Регистрация pop_ContainedAction_Execute }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TContainedAction));
  {* Регистрация типа TContainedAction }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

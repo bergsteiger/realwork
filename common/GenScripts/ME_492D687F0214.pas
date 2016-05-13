@@ -34,6 +34,7 @@ uses
  , BaseDocumentWithAttributesInterfaces
  , FiltersUnit
  , PreviewInterfaces
+ , nsTypesNew
  , TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ExtCtrls

@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -123,14 +123,7 @@ type
  end;//Tkw_StyleEditorExample_Control_Editor_Push
 
  TkwStyleEditorExampleFormTextSource = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorExampleForm.TextSource
-[panel]Контрол TextSource формы TStyleEditorExampleForm[panel]
-*Тип результата:* TnscTextSource
-*Пример:*
-[code]
-OBJECT VAR l_TnscTextSource
- aStyleEditorExampleForm .TStyleEditorExampleForm.TextSource >>> l_TnscTextSource
-[code]  }
+  {* Слово скрипта .TStyleEditorExampleForm.TextSource }
   private
    function TextSource(const aCtx: TtfwContext;
     aStyleEditorExampleForm: TStyleEditorExampleForm): TnscTextSource;
@@ -139,22 +132,15 @@ OBJECT VAR l_TnscTextSource
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorExampleFormTextSource
 
  TkwStyleEditorExampleFormEditorPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorExampleForm.EditorPanel
-[panel]Контрол EditorPanel формы TStyleEditorExampleForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aStyleEditorExampleForm .TStyleEditorExampleForm.EditorPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TStyleEditorExampleForm.EditorPanel }
   private
    function EditorPanel(const aCtx: TtfwContext;
     aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
@@ -163,22 +149,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorExampleFormEditorPanel
 
  TkwStyleEditorExampleFormEditor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorExampleForm.Editor
-[panel]Контрол Editor формы TStyleEditorExampleForm[panel]
-*Тип результата:* TeeEditorWithoutOperations
-*Пример:*
-[code]
-OBJECT VAR l_TeeEditorWithoutOperations
- aStyleEditorExampleForm .TStyleEditorExampleForm.Editor >>> l_TeeEditorWithoutOperations
-[code]  }
+  {* Слово скрипта .TStyleEditorExampleForm.Editor }
   private
    function Editor(const aCtx: TtfwContext;
     aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
@@ -187,11 +166,11 @@ OBJECT VAR l_TeeEditorWithoutOperations
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorExampleFormEditor
 
 function Tkw_Form_StyleEditorExample.GetString: AnsiString;
@@ -296,11 +275,10 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormTextSource.DoDoIt
 
-procedure TkwStyleEditorExampleFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorExampleFormTextSource.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
-end;//TkwStyleEditorExampleFormTextSource.SetValuePrim
+ Result := '.TStyleEditorExampleForm.TextSource';
+end;//TkwStyleEditorExampleFormTextSource.GetWordNameForRegister
 
 function TkwStyleEditorExampleFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -317,10 +295,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormTextSource.ParamsTypes
 
-class function TkwStyleEditorExampleFormTextSource.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorExampleFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorExampleForm.TextSource';
-end;//TkwStyleEditorExampleFormTextSource.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
+end;//TkwStyleEditorExampleFormTextSource.SetValuePrim
 
 function TkwStyleEditorExampleFormEditorPanel.EditorPanel(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
@@ -344,11 +323,10 @@ begin
  aCtx.rEngine.PushObj(EditorPanel(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormEditorPanel.DoDoIt
 
-procedure TkwStyleEditorExampleFormEditorPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству EditorPanel', aCtx);
-end;//TkwStyleEditorExampleFormEditorPanel.SetValuePrim
+ Result := '.TStyleEditorExampleForm.EditorPanel';
+end;//TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister
 
 function TkwStyleEditorExampleFormEditorPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -365,10 +343,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormEditorPanel.ParamsTypes
 
-class function TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorExampleFormEditorPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorExampleForm.EditorPanel';
-end;//TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству EditorPanel', aCtx);
+end;//TkwStyleEditorExampleFormEditorPanel.SetValuePrim
 
 function TkwStyleEditorExampleFormEditor.Editor(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
@@ -392,11 +371,10 @@ begin
  aCtx.rEngine.PushObj(Editor(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormEditor.DoDoIt
 
-procedure TkwStyleEditorExampleFormEditor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorExampleFormEditor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
-end;//TkwStyleEditorExampleFormEditor.SetValuePrim
+ Result := '.TStyleEditorExampleForm.Editor';
+end;//TkwStyleEditorExampleFormEditor.GetWordNameForRegister
 
 function TkwStyleEditorExampleFormEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -413,10 +391,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormEditor.ParamsTypes
 
-class function TkwStyleEditorExampleFormEditor.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorExampleFormEditor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorExampleForm.Editor';
-end;//TkwStyleEditorExampleFormEditor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
+end;//TkwStyleEditorExampleFormEditor.SetValuePrim
 
 initialization
  Tkw_Form_StyleEditorExample.RegisterInEngine;
@@ -437,10 +416,8 @@ initialization
  {* Регистрация StyleEditorExampleForm_EditorPanel }
  TkwStyleEditorExampleFormEditor.RegisterInEngine;
  {* Регистрация StyleEditorExampleForm_Editor }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TStyleEditorExampleForm));
- {* Регистрация типа StyleEditorExample }
+ {* Регистрация типа TStyleEditorExampleForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTextSource));
  {* Регистрация типа TnscTextSource }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));

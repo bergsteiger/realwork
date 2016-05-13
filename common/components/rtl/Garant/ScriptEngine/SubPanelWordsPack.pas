@@ -30,7 +30,7 @@ uses
  , kwIterateSubDecriptorsOnSubPanelEX
  , kwSubPanelGetPopupMenuForSub
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

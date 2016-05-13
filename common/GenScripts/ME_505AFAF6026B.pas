@@ -29,18 +29,13 @@ uses
  , k2EVDReaderService
  , k2EVDWriterService
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwGeneratorsExecute = {final} class(TtfwClassLike)
-  {* Слово скрипта generators:Execute
-[panel]Берёт со стека имя имя входного файла (EVD) и генератор (или цепочку). Затем делает трубу и прогоняет через неё файл.[panel]
-*Пример:*
-[code]
- aFileName aTagGenerator generators:Execute
-[code]  }
+  {* Слово скрипта generators:Execute }
   private
    procedure generators_Execute(const aCtx: TtfwContext;
     const aTagGenerator: Ik2TagGenerator;
@@ -56,14 +51,7 @@ type
  end;//TkwGeneratorsExecute
 
  TkwGeneratorsLink = {final} class(TtfwClassLike)
-  {* Слово скрипта generators:Link
-[panel]Берёт со стека два генератора и делает из них цепочку. В результате на стеке остаётся один генератор (к которому подклеен другой)[panel]
-*Тип результата:* Ik2TagGenerator
-*Пример:*
-[code]
-INTERFACE VAR l_Ik2TagGenerator
- aGenHead aTagGenerator generators:Link >>> l_Ik2TagGenerator
-[code]  }
+  {* Слово скрипта generators:Link }
   private
    function generators_Link(const aCtx: TtfwContext;
     const aTagGenerator: Ik2TagGenerator;
@@ -88,16 +76,16 @@ procedure TkwGeneratorsExecute.generators_Execute(const aCtx: TtfwContext;
  const aTagGenerator: Ik2TagGenerator;
  const aFileName: AnsiString);
  {* Реализация слова скрипта generators:Execute }
-//#UC START# *51B232178794_825779F5AD08_var*
+//#UC START# *552BD7AD0110_825779F5AD08_var*
 var
  l_Filt: Ik2TagGenerator;
  l_InFN: AnsiString;
  l_OutFN: AnsiString;
  l_Reader: Il3Reader;
  l_Writer: Ik2TagGenerator;
-//#UC END# *51B232178794_825779F5AD08_var*
+//#UC END# *552BD7AD0110_825779F5AD08_var*
 begin
-//#UC START# *51B232178794_825779F5AD08_impl*
+//#UC START# *552BD7AD0110_825779F5AD08_impl*
  l_InFN := aFileName;
  l_OutFN := aCtx.rCaller.ResolveOutputFilePath(l_InFN);
  l_InFN := aCtx.rCaller.ResolveInputFilePath(l_InFN);
@@ -117,7 +105,7 @@ begin
  finally
   l_Reader := nil;
  end;//try..finally
-//#UC END# *51B232178794_825779F5AD08_impl*
+//#UC END# *552BD7AD0110_825779F5AD08_impl*
 end;//TkwGeneratorsExecute.generators_Execute
 
 procedure TkwGeneratorsExecute.DoDoIt(const aCtx: TtfwContext);
@@ -145,6 +133,11 @@ begin
  generators_Execute(aCtx, l_aTagGenerator, l_aFileName);
 end;//TkwGeneratorsExecute.DoDoIt
 
+class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'generators:Execute';
+end;//TkwGeneratorsExecute.GetWordNameForRegister
+
 function TkwGeneratorsExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -160,27 +153,22 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), @tfw_tiString]);
 end;//TkwGeneratorsExecute.ParamsTypes
 
-class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
-begin
- Result := 'generators:Execute';
-end;//TkwGeneratorsExecute.GetWordNameForRegister
-
 function TkwGeneratorsLink.generators_Link(const aCtx: TtfwContext;
  const aTagGenerator: Ik2TagGenerator;
  const aGenHead: Ik2TagGenerator): Ik2TagGenerator;
  {* Реализация слова скрипта generators:Link }
-//#UC START# *C44F9D8AB364_E6DB290D23D7_var*
+//#UC START# *552BD8F60043_E6DB290D23D7_var*
 var
  l_GenHead: Ik2TagGenerator;
-//#UC END# *C44F9D8AB364_E6DB290D23D7_var*
+//#UC END# *552BD8F60043_E6DB290D23D7_var*
 begin
-//#UC START# *C44F9D8AB364_E6DB290D23D7_impl*
+//#UC START# *552BD8F60043_E6DB290D23D7_impl*
  l_GenHead := aGenHead;
  while (l_GenHead.NextGenerator <> nil) do
   l_GenHead := l_GenHead.NextGenerator;
  l_GenHead.NextGenerator := aTagGenerator;
  Result := aGenHead;
-//#UC END# *C44F9D8AB364_E6DB290D23D7_impl*
+//#UC END# *552BD8F60043_E6DB290D23D7_impl*
 end;//TkwGeneratorsLink.generators_Link
 
 procedure TkwGeneratorsLink.DoDoIt(const aCtx: TtfwContext);
@@ -208,6 +196,11 @@ begin
  aCtx.rEngine.PushIntf(generators_Link(aCtx, l_aTagGenerator, l_aGenHead), TypeInfo(Ik2TagGenerator));
 end;//TkwGeneratorsLink.DoDoIt
 
+class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'generators:Link';
+end;//TkwGeneratorsLink.GetWordNameForRegister
+
 function TkwGeneratorsLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Ik2TagGenerator);
@@ -223,11 +216,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), TypeInfo(Ik2TagGenerator)]);
 end;//TkwGeneratorsLink.ParamsTypes
 
-class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'generators:Link';
-end;//TkwGeneratorsLink.GetWordNameForRegister
-
 class function TkwFiltersAndGeneratorsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'kwFiltersAndGeneratorsPack';
@@ -242,12 +230,10 @@ initialization
  {* Регистрация generators_Link }
  TkwFiltersAndGeneratorsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ik2TagGenerator));
  {* Регистрация типа Ik2TagGenerator }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -29,8 +29,8 @@ type
 MainForm:FormClose
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMainFormFormClose
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -42,6 +42,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwMainFormFormClose.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'MainForm:FormClose';
+end;//TkwMainFormFormClose.GetWordNameForRegister
+
 procedure TkwMainFormFormClose.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53EB19070285_var*
 //#UC END# *4DAEEDE10285_53EB19070285_var*
@@ -50,11 +55,6 @@ begin
  AcMainFormFormClose;
 //#UC END# *4DAEEDE10285_53EB19070285_impl*
 end;//TkwMainFormFormClose.DoDoIt
-
-class function TkwMainFormFormClose.GetWordNameForRegister: AnsiString;
-begin
- Result := 'MainForm:FormClose';
-end;//TkwMainFormFormClose.GetWordNameForRegister
 
 initialization
  TkwMainFormFormClose.RegisterInEngine;

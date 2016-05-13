@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_Redactions_Control_RedactionTree_Push
 
  TkwRedactionsFormRedactionTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRedactionsForm.RedactionTree
-[panel]Контрол RedactionTree формы TRedactionsForm[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aRedactionsForm .TRedactionsForm.RedactionTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TRedactionsForm.RedactionTree }
   private
    function RedactionTree(const aCtx: TtfwContext;
     aRedactionsForm: TRedactionsForm): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRedactionsFormRedactionTree
 
 function Tkw_Form_Redactions.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(RedactionTree(aCtx, l_aRedactionsForm));
 end;//TkwRedactionsFormRedactionTree.DoDoIt
 
-procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRedactionsFormRedactionTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RedactionTree', aCtx);
-end;//TkwRedactionsFormRedactionTree.SetValuePrim
+ Result := '.TRedactionsForm.RedactionTree';
+end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
 
 function TkwRedactionsFormRedactionTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRedactionsForm)]);
 end;//TkwRedactionsFormRedactionTree.ParamsTypes
 
-class function TkwRedactionsFormRedactionTree.GetWordNameForRegister: AnsiString;
+procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRedactionsForm.RedactionTree';
-end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RedactionTree', aCtx);
+end;//TkwRedactionsFormRedactionTree.SetValuePrim
 
 initialization
  Tkw_Form_Redactions.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_Redactions_Control_RedactionTree_Push }
  TkwRedactionsFormRedactionTree.RegisterInEngine;
  {* Регистрация RedactionsForm_RedactionTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TRedactionsForm));
- {* Регистрация типа Redactions }
+ {* Регистрация типа TRedactionsForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

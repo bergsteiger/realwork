@@ -31,8 +31,8 @@ OpenWith 'MyEvd.doc'
  [code]
  *Результат:* Будет открыт новый документ с именем файла 'MyEvd.doc' }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpenWith
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -44,6 +44,11 @@ uses
  , EverestLiteAdapter
  , SysUtils
 ;
+
+class function TkwOpenWith.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'OpenWith';
+end;//TkwOpenWith.GetWordNameForRegister
 
 procedure TkwOpenWith.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5143073402A1_var*
@@ -64,11 +69,6 @@ begin
   Assert(False, 'Не задано имя файла для открытия!');
 //#UC END# *4DAEEDE10285_5143073402A1_impl*
 end;//TkwOpenWith.DoDoIt
-
-class function TkwOpenWith.GetWordNameForRegister: AnsiString;
-begin
- Result := 'OpenWith';
-end;//TkwOpenWith.GetWordNameForRegister
 
 initialization
  TkwOpenWith.RegisterInEngine;

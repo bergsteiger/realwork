@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -122,11 +122,11 @@ OBJECT VAR l_TevTextSource
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwQFLikeTextLoadFormTextSource
 
  TkwQFLikeTextLoadFormText = {final} class(TtfwPropertyLike)
@@ -146,11 +146,11 @@ OBJECT VAR l_TevQueryCardEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwQFLikeTextLoadFormText
 
  TkwQFLikeTextLoadFormLoadManager = {final} class(TtfwPropertyLike)
@@ -170,11 +170,11 @@ OBJECT VAR l_TevLoadDocumentManager
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwQFLikeTextLoadFormLoadManager
 
 function Tkw_Form_QFLikeTextLoad.GetString: AnsiString;
@@ -268,11 +268,10 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormTextSource.DoDoIt
 
-procedure TkwQFLikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
-end;//TkwQFLikeTextLoadFormTextSource.SetValuePrim
+ Result := '.TQFLikeTextLoadForm.TextSource';
+end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
 
 function TkwQFLikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -289,10 +288,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormTextSource.ParamsTypes
 
-class function TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
+procedure TkwQFLikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TQFLikeTextLoadForm.TextSource';
-end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
+end;//TkwQFLikeTextLoadFormTextSource.SetValuePrim
 
 function TkwQFLikeTextLoadFormText.Text(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevQueryCardEditor;
@@ -316,11 +316,10 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormText.DoDoIt
 
-procedure TkwQFLikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwQFLikeTextLoadFormText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
-end;//TkwQFLikeTextLoadFormText.SetValuePrim
+ Result := '.TQFLikeTextLoadForm.Text';
+end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
 
 function TkwQFLikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -337,10 +336,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormText.ParamsTypes
 
-class function TkwQFLikeTextLoadFormText.GetWordNameForRegister: AnsiString;
+procedure TkwQFLikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TQFLikeTextLoadForm.Text';
-end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
+end;//TkwQFLikeTextLoadFormText.SetValuePrim
 
 function TkwQFLikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevLoadDocumentManager;
@@ -364,11 +364,10 @@ begin
  aCtx.rEngine.PushObj(LoadManager(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormLoadManager.DoDoIt
 
-procedure TkwQFLikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
-end;//TkwQFLikeTextLoadFormLoadManager.SetValuePrim
+ Result := '.TQFLikeTextLoadForm.LoadManager';
+end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
 
 function TkwQFLikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -385,10 +384,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormLoadManager.ParamsTypes
 
-class function TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
+procedure TkwQFLikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TQFLikeTextLoadForm.LoadManager';
-end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
+end;//TkwQFLikeTextLoadFormLoadManager.SetValuePrim
 
 initialization
  Tkw_Form_QFLikeTextLoad.RegisterInEngine;
@@ -407,10 +407,8 @@ initialization
  {* Регистрация QFLikeTextLoadForm_Text }
  TkwQFLikeTextLoadFormLoadManager.RegisterInEngine;
  {* Регистрация QFLikeTextLoadForm_LoadManager }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TQFLikeTextLoadForm));
- {* Регистрация типа QFLikeTextLoad }
+ {* Регистрация типа TQFLikeTextLoadForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevTextSource));
  {* Регистрация типа TevTextSource }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevQueryCardEditor));

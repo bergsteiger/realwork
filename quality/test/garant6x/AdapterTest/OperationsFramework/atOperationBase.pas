@@ -70,6 +70,9 @@ uses
  l3ImplUses
  , Math
  , atLogger
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TatOperationBase.pm_GetParameters(const aName: AnsiString): TatOperationParameter;
@@ -215,5 +218,11 @@ begin
 end;//TatOperationBase.InitFields
 
 {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EInvalidOpParams));
+ {* Регистрация типа EInvalidOpParams }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -25,11 +25,11 @@ uses
  , l3Interfaces
  , FoldersDomainInterfaces
  , UnderControlUnit
- , DocumentUnit
- , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

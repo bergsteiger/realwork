@@ -13,10 +13,10 @@ uses
  , ddRTFdestination
  , rtfListTable
  , destList
+ , ddCustomRTFReader
  , ddRTFState
  , RTFtypes
  , l3Base
- , ddCustomRTFReader
 ;
 
 type

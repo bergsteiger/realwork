@@ -42,11 +42,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -488,14 +488,7 @@ type
 {$IfEnd} // Defined(HasRightNavigator)
 
  TkwMainWindowRemOnlineDead = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.remOnlineDead
-[panel]Контрол remOnlineDead формы TnsMainWindow[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aMainWindow .TnsMainWindow.remOnlineDead >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TnsMainWindow.remOnlineDead }
   private
    function remOnlineDead(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscReminder;
@@ -504,22 +497,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowRemOnlineDead
 
  TkwMainWindowRemNewChatMessages = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.remNewChatMessages
-[panel]Контрол remNewChatMessages формы TnsMainWindow[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aMainWindow .TnsMainWindow.remNewChatMessages >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TnsMainWindow.remNewChatMessages }
   private
    function remNewChatMessages(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscReminder;
@@ -528,22 +514,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowRemNewChatMessages
 
  TkwMainWindowTrialModeWarning = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.TrialModeWarning
-[panel]Контрол TrialModeWarning формы TnsMainWindow[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aMainWindow .TnsMainWindow.TrialModeWarning >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TnsMainWindow.TrialModeWarning }
   private
    function TrialModeWarning(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscReminder;
@@ -552,22 +531,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowTrialModeWarning
 
  TkwMainWindowOldBaseWarning = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.OldBaseWarning
-[panel]Контрол OldBaseWarning формы TnsMainWindow[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aMainWindow .TnsMainWindow.OldBaseWarning >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TnsMainWindow.OldBaseWarning }
   private
    function OldBaseWarning(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscReminder;
@@ -576,22 +548,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowOldBaseWarning
 
  TkwMainWindowRemindersLine = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.RemindersLine
-[panel]Контрол RemindersLine формы TnsMainWindow[panel]
-*Тип результата:* TnscRemindersLine
-*Пример:*
-[code]
-OBJECT VAR l_TnscRemindersLine
- aMainWindow .TnsMainWindow.RemindersLine >>> l_TnscRemindersLine
-[code]  }
+  {* Слово скрипта .TnsMainWindow.RemindersLine }
   private
    function RemindersLine(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscRemindersLine;
@@ -600,22 +565,15 @@ OBJECT VAR l_TnscRemindersLine
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowRemindersLine
 
  TkwMainWindowControlledChangingWarning = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.ControlledChangingWarning
-[panel]Контрол ControlledChangingWarning формы TnsMainWindow[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aMainWindow .TnsMainWindow.ControlledChangingWarning >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TnsMainWindow.ControlledChangingWarning }
   private
    function ControlledChangingWarning(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscReminder;
@@ -624,22 +582,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowControlledChangingWarning
 
  TkwMainWindowRemUnreadConsultations = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.remUnreadConsultations
-[panel]Контрол remUnreadConsultations формы TnsMainWindow[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aMainWindow .TnsMainWindow.remUnreadConsultations >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TnsMainWindow.remUnreadConsultations }
   private
    function remUnreadConsultations(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscReminder;
@@ -648,22 +599,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowRemUnreadConsultations
 
  TkwMainWindowStatusBar = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.StatusBar
-[panel]Контрол StatusBar формы TnsMainWindow[panel]
-*Тип результата:* TnscStatusBar
-*Пример:*
-[code]
-OBJECT VAR l_TnscStatusBar
- aMainWindow .TnsMainWindow.StatusBar >>> l_TnscStatusBar
-[code]  }
+  {* Слово скрипта .TnsMainWindow.StatusBar }
   private
    function StatusBar(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscStatusBar;
@@ -672,22 +616,15 @@ OBJECT VAR l_TnscStatusBar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowStatusBar
 
  TkwMainWindowClientZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.ClientZone
-[panel]Контрол ClientZone формы TnsMainWindow[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMainWindow .TnsMainWindow.ClientZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TnsMainWindow.ClientZone }
   private
    function ClientZone(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TvtPanel;
@@ -696,22 +633,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowClientZone
 
  TkwMainWindowMainZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.MainZone
-[panel]Контрол MainZone формы TnsMainWindow[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aMainWindow .TnsMainWindow.MainZone >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TnsMainWindow.MainZone }
   private
    function MainZone(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TvtProportionalPanel;
@@ -720,22 +650,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowMainZone
 
  TkwMainWindowParentZonePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.ParentZonePanel
-[panel]Контрол ParentZonePanel формы TnsMainWindow[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMainWindow .TnsMainWindow.ParentZonePanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TnsMainWindow.ParentZonePanel }
   private
    function ParentZonePanel(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TvtPanel;
@@ -744,22 +667,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowParentZonePanel
 
  TkwMainWindowChildZonePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.ChildZonePanel
-[panel]Контрол ChildZonePanel формы TnsMainWindow[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aMainWindow .TnsMainWindow.ChildZonePanel >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TnsMainWindow.ChildZonePanel }
   private
    function ChildZonePanel(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TvtSizeablePanel;
@@ -768,22 +684,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowChildZonePanel
 
  TkwMainWindowBaseSearchPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.BaseSearchPanel
-[panel]Контрол BaseSearchPanel формы TnsMainWindow[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMainWindow .TnsMainWindow.BaseSearchPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TnsMainWindow.BaseSearchPanel }
   private
    function BaseSearchPanel(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TvtPanel;
@@ -792,22 +701,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowBaseSearchPanel
 
  TkwMainWindowLeftNavigator = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.LeftNavigator
-[panel]Контрол LeftNavigator формы TnsMainWindow[panel]
-*Тип результата:* TnscNavigator
-*Пример:*
-[code]
-OBJECT VAR l_TnscNavigator
- aMainWindow .TnsMainWindow.LeftNavigator >>> l_TnscNavigator
-[code]  }
+  {* Слово скрипта .TnsMainWindow.LeftNavigator }
   private
    function LeftNavigator(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscNavigator;
@@ -816,23 +718,16 @@ OBJECT VAR l_TnscNavigator
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowLeftNavigator
 
 {$If Defined(HasRightNavigator)}
  TkwMainWindowRightNavigator = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TnsMainWindow.RightNavigator
-[panel]Контрол RightNavigator формы TnsMainWindow[panel]
-*Тип результата:* TnscNavigator
-*Пример:*
-[code]
-OBJECT VAR l_TnscNavigator
- aMainWindow .TnsMainWindow.RightNavigator >>> l_TnscNavigator
-[code]  }
+  {* Слово скрипта .TnsMainWindow.RightNavigator }
   private
    function RightNavigator(const aCtx: TtfwContext;
     aMainWindow: TnsMainWindow): TnscNavigator;
@@ -841,11 +736,11 @@ OBJECT VAR l_TnscNavigator
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwMainWindowRightNavigator
 {$IfEnd} // Defined(HasRightNavigator)
 
@@ -1290,11 +1185,10 @@ begin
  aCtx.rEngine.PushObj(remOnlineDead(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemOnlineDead.DoDoIt
 
-procedure TkwMainWindowRemOnlineDead.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowRemOnlineDead.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству remOnlineDead', aCtx);
-end;//TkwMainWindowRemOnlineDead.SetValuePrim
+ Result := '.TnsMainWindow.remOnlineDead';
+end;//TkwMainWindowRemOnlineDead.GetWordNameForRegister
 
 function TkwMainWindowRemOnlineDead.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1311,10 +1205,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemOnlineDead.ParamsTypes
 
-class function TkwMainWindowRemOnlineDead.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowRemOnlineDead.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.remOnlineDead';
-end;//TkwMainWindowRemOnlineDead.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству remOnlineDead', aCtx);
+end;//TkwMainWindowRemOnlineDead.SetValuePrim
 
 function TkwMainWindowRemNewChatMessages.remNewChatMessages(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
@@ -1338,11 +1233,10 @@ begin
  aCtx.rEngine.PushObj(remNewChatMessages(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemNewChatMessages.DoDoIt
 
-procedure TkwMainWindowRemNewChatMessages.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowRemNewChatMessages.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству remNewChatMessages', aCtx);
-end;//TkwMainWindowRemNewChatMessages.SetValuePrim
+ Result := '.TnsMainWindow.remNewChatMessages';
+end;//TkwMainWindowRemNewChatMessages.GetWordNameForRegister
 
 function TkwMainWindowRemNewChatMessages.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1359,10 +1253,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemNewChatMessages.ParamsTypes
 
-class function TkwMainWindowRemNewChatMessages.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowRemNewChatMessages.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.remNewChatMessages';
-end;//TkwMainWindowRemNewChatMessages.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству remNewChatMessages', aCtx);
+end;//TkwMainWindowRemNewChatMessages.SetValuePrim
 
 function TkwMainWindowTrialModeWarning.TrialModeWarning(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
@@ -1386,11 +1281,10 @@ begin
  aCtx.rEngine.PushObj(TrialModeWarning(aCtx, l_aMainWindow));
 end;//TkwMainWindowTrialModeWarning.DoDoIt
 
-procedure TkwMainWindowTrialModeWarning.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowTrialModeWarning.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TrialModeWarning', aCtx);
-end;//TkwMainWindowTrialModeWarning.SetValuePrim
+ Result := '.TnsMainWindow.TrialModeWarning';
+end;//TkwMainWindowTrialModeWarning.GetWordNameForRegister
 
 function TkwMainWindowTrialModeWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1407,10 +1301,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowTrialModeWarning.ParamsTypes
 
-class function TkwMainWindowTrialModeWarning.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowTrialModeWarning.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.TrialModeWarning';
-end;//TkwMainWindowTrialModeWarning.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TrialModeWarning', aCtx);
+end;//TkwMainWindowTrialModeWarning.SetValuePrim
 
 function TkwMainWindowOldBaseWarning.OldBaseWarning(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
@@ -1434,11 +1329,10 @@ begin
  aCtx.rEngine.PushObj(OldBaseWarning(aCtx, l_aMainWindow));
 end;//TkwMainWindowOldBaseWarning.DoDoIt
 
-procedure TkwMainWindowOldBaseWarning.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowOldBaseWarning.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству OldBaseWarning', aCtx);
-end;//TkwMainWindowOldBaseWarning.SetValuePrim
+ Result := '.TnsMainWindow.OldBaseWarning';
+end;//TkwMainWindowOldBaseWarning.GetWordNameForRegister
 
 function TkwMainWindowOldBaseWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1455,10 +1349,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowOldBaseWarning.ParamsTypes
 
-class function TkwMainWindowOldBaseWarning.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowOldBaseWarning.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.OldBaseWarning';
-end;//TkwMainWindowOldBaseWarning.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству OldBaseWarning', aCtx);
+end;//TkwMainWindowOldBaseWarning.SetValuePrim
 
 function TkwMainWindowRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscRemindersLine;
@@ -1482,11 +1377,10 @@ begin
  aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemindersLine.DoDoIt
 
-procedure TkwMainWindowRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowRemindersLine.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
-end;//TkwMainWindowRemindersLine.SetValuePrim
+ Result := '.TnsMainWindow.RemindersLine';
+end;//TkwMainWindowRemindersLine.GetWordNameForRegister
 
 function TkwMainWindowRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1503,10 +1397,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemindersLine.ParamsTypes
 
-class function TkwMainWindowRemindersLine.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.RemindersLine';
-end;//TkwMainWindowRemindersLine.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
+end;//TkwMainWindowRemindersLine.SetValuePrim
 
 function TkwMainWindowControlledChangingWarning.ControlledChangingWarning(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
@@ -1530,11 +1425,10 @@ begin
  aCtx.rEngine.PushObj(ControlledChangingWarning(aCtx, l_aMainWindow));
 end;//TkwMainWindowControlledChangingWarning.DoDoIt
 
-procedure TkwMainWindowControlledChangingWarning.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowControlledChangingWarning.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ControlledChangingWarning', aCtx);
-end;//TkwMainWindowControlledChangingWarning.SetValuePrim
+ Result := '.TnsMainWindow.ControlledChangingWarning';
+end;//TkwMainWindowControlledChangingWarning.GetWordNameForRegister
 
 function TkwMainWindowControlledChangingWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1551,10 +1445,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowControlledChangingWarning.ParamsTypes
 
-class function TkwMainWindowControlledChangingWarning.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowControlledChangingWarning.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.ControlledChangingWarning';
-end;//TkwMainWindowControlledChangingWarning.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ControlledChangingWarning', aCtx);
+end;//TkwMainWindowControlledChangingWarning.SetValuePrim
 
 function TkwMainWindowRemUnreadConsultations.remUnreadConsultations(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
@@ -1578,11 +1473,10 @@ begin
  aCtx.rEngine.PushObj(remUnreadConsultations(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemUnreadConsultations.DoDoIt
 
-procedure TkwMainWindowRemUnreadConsultations.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowRemUnreadConsultations.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству remUnreadConsultations', aCtx);
-end;//TkwMainWindowRemUnreadConsultations.SetValuePrim
+ Result := '.TnsMainWindow.remUnreadConsultations';
+end;//TkwMainWindowRemUnreadConsultations.GetWordNameForRegister
 
 function TkwMainWindowRemUnreadConsultations.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1599,10 +1493,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemUnreadConsultations.ParamsTypes
 
-class function TkwMainWindowRemUnreadConsultations.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowRemUnreadConsultations.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.remUnreadConsultations';
-end;//TkwMainWindowRemUnreadConsultations.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству remUnreadConsultations', aCtx);
+end;//TkwMainWindowRemUnreadConsultations.SetValuePrim
 
 function TkwMainWindowStatusBar.StatusBar(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscStatusBar;
@@ -1626,11 +1521,10 @@ begin
  aCtx.rEngine.PushObj(StatusBar(aCtx, l_aMainWindow));
 end;//TkwMainWindowStatusBar.DoDoIt
 
-procedure TkwMainWindowStatusBar.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowStatusBar.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству StatusBar', aCtx);
-end;//TkwMainWindowStatusBar.SetValuePrim
+ Result := '.TnsMainWindow.StatusBar';
+end;//TkwMainWindowStatusBar.GetWordNameForRegister
 
 function TkwMainWindowStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1647,10 +1541,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowStatusBar.ParamsTypes
 
-class function TkwMainWindowStatusBar.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowStatusBar.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.StatusBar';
-end;//TkwMainWindowStatusBar.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству StatusBar', aCtx);
+end;//TkwMainWindowStatusBar.SetValuePrim
 
 function TkwMainWindowClientZone.ClientZone(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtPanel;
@@ -1674,11 +1569,10 @@ begin
  aCtx.rEngine.PushObj(ClientZone(aCtx, l_aMainWindow));
 end;//TkwMainWindowClientZone.DoDoIt
 
-procedure TkwMainWindowClientZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowClientZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ClientZone', aCtx);
-end;//TkwMainWindowClientZone.SetValuePrim
+ Result := '.TnsMainWindow.ClientZone';
+end;//TkwMainWindowClientZone.GetWordNameForRegister
 
 function TkwMainWindowClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1695,10 +1589,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowClientZone.ParamsTypes
 
-class function TkwMainWindowClientZone.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowClientZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.ClientZone';
-end;//TkwMainWindowClientZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ClientZone', aCtx);
+end;//TkwMainWindowClientZone.SetValuePrim
 
 function TkwMainWindowMainZone.MainZone(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtProportionalPanel;
@@ -1722,11 +1617,10 @@ begin
  aCtx.rEngine.PushObj(MainZone(aCtx, l_aMainWindow));
 end;//TkwMainWindowMainZone.DoDoIt
 
-procedure TkwMainWindowMainZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowMainZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
-end;//TkwMainWindowMainZone.SetValuePrim
+ Result := '.TnsMainWindow.MainZone';
+end;//TkwMainWindowMainZone.GetWordNameForRegister
 
 function TkwMainWindowMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1743,10 +1637,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowMainZone.ParamsTypes
 
-class function TkwMainWindowMainZone.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowMainZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.MainZone';
-end;//TkwMainWindowMainZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
+end;//TkwMainWindowMainZone.SetValuePrim
 
 function TkwMainWindowParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtPanel;
@@ -1770,11 +1665,10 @@ begin
  aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aMainWindow));
 end;//TkwMainWindowParentZonePanel.DoDoIt
 
-procedure TkwMainWindowParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowParentZonePanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentZonePanel', aCtx);
-end;//TkwMainWindowParentZonePanel.SetValuePrim
+ Result := '.TnsMainWindow.ParentZonePanel';
+end;//TkwMainWindowParentZonePanel.GetWordNameForRegister
 
 function TkwMainWindowParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1791,10 +1685,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowParentZonePanel.ParamsTypes
 
-class function TkwMainWindowParentZonePanel.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.ParentZonePanel';
-end;//TkwMainWindowParentZonePanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZonePanel', aCtx);
+end;//TkwMainWindowParentZonePanel.SetValuePrim
 
 function TkwMainWindowChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtSizeablePanel;
@@ -1818,11 +1713,10 @@ begin
  aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aMainWindow));
 end;//TkwMainWindowChildZonePanel.DoDoIt
 
-procedure TkwMainWindowChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowChildZonePanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ChildZonePanel', aCtx);
-end;//TkwMainWindowChildZonePanel.SetValuePrim
+ Result := '.TnsMainWindow.ChildZonePanel';
+end;//TkwMainWindowChildZonePanel.GetWordNameForRegister
 
 function TkwMainWindowChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1839,10 +1733,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowChildZonePanel.ParamsTypes
 
-class function TkwMainWindowChildZonePanel.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.ChildZonePanel';
-end;//TkwMainWindowChildZonePanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZonePanel', aCtx);
+end;//TkwMainWindowChildZonePanel.SetValuePrim
 
 function TkwMainWindowBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtPanel;
@@ -1866,11 +1761,10 @@ begin
  aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aMainWindow));
 end;//TkwMainWindowBaseSearchPanel.DoDoIt
 
-procedure TkwMainWindowBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowBaseSearchPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BaseSearchPanel', aCtx);
-end;//TkwMainWindowBaseSearchPanel.SetValuePrim
+ Result := '.TnsMainWindow.BaseSearchPanel';
+end;//TkwMainWindowBaseSearchPanel.GetWordNameForRegister
 
 function TkwMainWindowBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1887,10 +1781,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowBaseSearchPanel.ParamsTypes
 
-class function TkwMainWindowBaseSearchPanel.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.BaseSearchPanel';
-end;//TkwMainWindowBaseSearchPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BaseSearchPanel', aCtx);
+end;//TkwMainWindowBaseSearchPanel.SetValuePrim
 
 function TkwMainWindowLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscNavigator;
@@ -1914,11 +1809,10 @@ begin
  aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aMainWindow));
 end;//TkwMainWindowLeftNavigator.DoDoIt
 
-procedure TkwMainWindowLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowLeftNavigator.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LeftNavigator', aCtx);
-end;//TkwMainWindowLeftNavigator.SetValuePrim
+ Result := '.TnsMainWindow.LeftNavigator';
+end;//TkwMainWindowLeftNavigator.GetWordNameForRegister
 
 function TkwMainWindowLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1935,10 +1829,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowLeftNavigator.ParamsTypes
 
-class function TkwMainWindowLeftNavigator.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.LeftNavigator';
-end;//TkwMainWindowLeftNavigator.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LeftNavigator', aCtx);
+end;//TkwMainWindowLeftNavigator.SetValuePrim
 
 {$If Defined(HasRightNavigator)}
 function TkwMainWindowRightNavigator.RightNavigator(const aCtx: TtfwContext;
@@ -1963,11 +1858,10 @@ begin
  aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aMainWindow));
 end;//TkwMainWindowRightNavigator.DoDoIt
 
-procedure TkwMainWindowRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwMainWindowRightNavigator.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RightNavigator', aCtx);
-end;//TkwMainWindowRightNavigator.SetValuePrim
+ Result := '.TnsMainWindow.RightNavigator';
+end;//TkwMainWindowRightNavigator.GetWordNameForRegister
 
 function TkwMainWindowRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1984,10 +1878,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRightNavigator.ParamsTypes
 
-class function TkwMainWindowRightNavigator.GetWordNameForRegister: AnsiString;
+procedure TkwMainWindowRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TnsMainWindow.RightNavigator';
-end;//TkwMainWindowRightNavigator.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RightNavigator', aCtx);
+end;//TkwMainWindowRightNavigator.SetValuePrim
 {$IfEnd} // Defined(HasRightNavigator)
 
 initialization
@@ -2089,10 +1984,8 @@ initialization
  TkwMainWindowRightNavigator.RegisterInEngine;
  {* Регистрация MainWindow_RightNavigator }
 {$IfEnd} // Defined(HasRightNavigator)
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnsMainWindow));
- {* Регистрация типа MainWindow }
+ {* Регистрация типа TnsMainWindow }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));
  {* Регистрация типа TnscReminder }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscRemindersLine));

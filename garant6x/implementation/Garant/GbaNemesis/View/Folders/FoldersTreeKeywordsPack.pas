@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_FoldersTree_Control_FoldersTree_Push
 
  TkwEnFoldersTreeFoldersTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersTree.FoldersTree
-[panel]Контрол FoldersTree формы TenFoldersTree[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aenFoldersTree .TenFoldersTree.FoldersTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TenFoldersTree.FoldersTree }
   private
    function FoldersTree(const aCtx: TtfwContext;
     aenFoldersTree: TenFoldersTree): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersTreeFoldersTree
 
 function Tkw_Form_FoldersTree.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(FoldersTree(aCtx, l_aenFoldersTree));
 end;//TkwEnFoldersTreeFoldersTree.DoDoIt
 
-procedure TkwEnFoldersTreeFoldersTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersTreeFoldersTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FoldersTree', aCtx);
-end;//TkwEnFoldersTreeFoldersTree.SetValuePrim
+ Result := '.TenFoldersTree.FoldersTree';
+end;//TkwEnFoldersTreeFoldersTree.GetWordNameForRegister
 
 function TkwEnFoldersTreeFoldersTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersTree)]);
 end;//TkwEnFoldersTreeFoldersTree.ParamsTypes
 
-class function TkwEnFoldersTreeFoldersTree.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersTreeFoldersTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersTree.FoldersTree';
-end;//TkwEnFoldersTreeFoldersTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FoldersTree', aCtx);
+end;//TkwEnFoldersTreeFoldersTree.SetValuePrim
 
 initialization
  Tkw_Form_FoldersTree.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_FoldersTree_Control_FoldersTree_Push }
  TkwEnFoldersTreeFoldersTree.RegisterInEngine;
  {* Регистрация enFoldersTree_FoldersTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenFoldersTree));
- {* Регистрация типа FoldersTree }
+ {* Регистрация типа TenFoldersTree }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

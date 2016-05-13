@@ -63,26 +63,20 @@ uses
  , l3FileUtils
  , l3Base
  , l3Stream
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwFileOpenRead = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта File:OpenRead
-*Тип результата:* ItfwFile
-*Пример:*
-[code]
-FILE VAR l_ItfwFile
- aName File:OpenRead >>> l_ItfwFile
-[code]  }
+  {* Слово скрипта File:OpenRead }
   private
    function OpenRead(const aCtx: TtfwContext;
     const aName: AnsiString): ItfwFile;
     {* Реализация слова скрипта File:OpenRead }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,20 +84,14 @@ FILE VAR l_ItfwFile
  end;//TkwFileOpenRead
 
  TkwFileOpenWrite = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта File:OpenWrite
-*Тип результата:* ItfwFile
-*Пример:*
-[code]
-FILE VAR l_ItfwFile
- aName File:OpenWrite >>> l_ItfwFile
-[code]  }
+  {* Слово скрипта File:OpenWrite }
   private
    function OpenWrite(const aCtx: TtfwContext;
     const aName: AnsiString): ItfwFile;
     {* Реализация слова скрипта File:OpenWrite }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -111,13 +99,7 @@ FILE VAR l_ItfwFile
  end;//TkwFileOpenWrite
 
  TkwFileEOF = {final} class(TtfwClassLike)
-  {* Слово скрипта File:EOF
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aFile File:EOF >>> l_Boolean
-[code]  }
+  {* Слово скрипта File:EOF }
   private
    function EOF(const aCtx: TtfwContext;
     const aFile: ItfwFile): Boolean;
@@ -132,13 +114,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwFileEOF
 
  TkwFileReadLn = {final} class(TtfwClassLike)
-  {* Слово скрипта File:ReadLn
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aFile File:ReadLn >>> l_Il3CString
-[code]  }
+  {* Слово скрипта File:ReadLn }
   private
    function ReadLn(const aCtx: TtfwContext;
     const aFile: ItfwFile): Il3CString;
@@ -153,11 +129,7 @@ STRING VAR l_Il3CString
  end;//TkwFileReadLn
 
  TkwFileWriteLn = {final} class(TtfwClassLike)
-  {* Слово скрипта File:WriteLn
-*Пример:*
-[code]
- aValue aFile File:WriteLn
-[code]  }
+  {* Слово скрипта File:WriteLn }
   private
    procedure WriteLn(const aCtx: TtfwContext;
     const aFile: ItfwFile;
@@ -173,11 +145,7 @@ STRING VAR l_Il3CString
  end;//TkwFileWriteLn
 
  TkwFileWriteChar = {final} class(TtfwClassLike)
-  {* Слово скрипта File:WriteChar
-*Пример:*
-[code]
- aValue aFile File:WriteChar
-[code]  }
+  {* Слово скрипта File:WriteChar }
   private
    procedure WriteChar(const aCtx: TtfwContext;
     const aFile: ItfwFile;
@@ -193,11 +161,7 @@ STRING VAR l_Il3CString
  end;//TkwFileWriteChar
 
  TkwFileWriteStr = {final} class(TtfwClassLike)
-  {* Слово скрипта File:WriteStr
-*Пример:*
-[code]
- aValue aFile File:WriteStr
-[code]  }
+  {* Слово скрипта File:WriteStr }
   private
    procedure WriteStr(const aCtx: TtfwContext;
     const aFile: ItfwFile;
@@ -213,11 +177,7 @@ STRING VAR l_Il3CString
  end;//TkwFileWriteStr
 
  TkwFileReadLines = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта File:ReadLines
-*Пример:*
-[code]
- aFile File:ReadLines aWord
-[code]  }
+  {* Слово скрипта File:ReadLines }
   private
    procedure ReadLines(const aCtx: TtfwContext;
     aWord: TtfwWord;
@@ -226,19 +186,15 @@ STRING VAR l_Il3CString
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwFileReadLines
 
  TkwFileWriteWStr = {final} class(TtfwClassLike)
-  {* Слово скрипта File:WriteWStr
-*Пример:*
-[code]
- aValue aFile File:WriteWStr
-[code]  }
+  {* Слово скрипта File:WriteWStr }
   private
    procedure WriteWStr(const aCtx: TtfwContext;
     const aFile: ItfwFile;
@@ -254,13 +210,7 @@ STRING VAR l_Il3CString
  end;//TkwFileWriteWStr
 
  TkwFileReadWStrLn = {final} class(TtfwClassLike)
-  {* Слово скрипта File:ReadWStrLn
-*Тип результата:* Tl3PCharLen
-*Пример:*
-[code]
-W-STRING VAR l_Tl3PCharLen
- aFile File:ReadWStrLn >>> l_Tl3PCharLen
-[code]  }
+  {* Слово скрипта File:ReadWStrLn }
   private
    function ReadWStrLn(const aCtx: TtfwContext;
     const aFile: ItfwFile): Tl3PCharLen;
@@ -275,11 +225,7 @@ W-STRING VAR l_Tl3PCharLen
  end;//TkwFileReadWStrLn
 
  TkwFileWriteWStrLn = {final} class(TtfwClassLike)
-  {* Слово скрипта File:WriteWStrLn
-*Пример:*
-[code]
- aValue aFile File:WriteWStrLn
-[code]  }
+  {* Слово скрипта File:WriteWStrLn }
   private
    procedure WriteWStrLn(const aCtx: TtfwContext;
     const aFile: ItfwFile;
@@ -295,20 +241,14 @@ W-STRING VAR l_Tl3PCharLen
  end;//TkwFileWriteWStrLn
 
  TkwFileOpenAppend = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта File:OpenAppend
-*Тип результата:* ItfwFile
-*Пример:*
-[code]
-FILE VAR l_ItfwFile
- aName File:OpenAppend >>> l_ItfwFile
-[code]  }
+  {* Слово скрипта File:OpenAppend }
   private
    function OpenAppend(const aCtx: TtfwContext;
     const aName: AnsiString): ItfwFile;
     {* Реализация слова скрипта File:OpenAppend }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -316,20 +256,14 @@ FILE VAR l_ItfwFile
  end;//TkwFileOpenAppend
 
  TkwDeleteFile = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта DeleteFile
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aName DeleteFile >>> l_Boolean
-[code]  }
+  {* Слово скрипта DeleteFile }
   private
    function DeleteFile(const aCtx: TtfwContext;
     const aName: AnsiString): Boolean;
     {* Реализация слова скрипта DeleteFile }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -337,26 +271,15 @@ BOOLEAN VAR l_Boolean
  end;//TkwDeleteFile
 
  TkwRenameFile = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта RenameFile
-[panel]RenameFile - переименовывает файл.
-*Формат:* aOldFileName aNewFileName RenameFile
-* aNewFileName - новое имя файла.
-* aOldFileName - старое имя файла.
-В стек помещается результат операции: true - если успешно, false - если переименование не получилось.[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOldName aNewName RenameFile >>> l_Boolean
-[code]  }
+  {* Слово скрипта RenameFile }
   private
    function RenameFile(const aCtx: TtfwContext;
     const aNewName: AnsiString;
     const anOldName: AnsiString): Boolean;
     {* Реализация слова скрипта RenameFile }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -364,20 +287,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwRenameFile
 
  TkwCopyFilesByMask = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта CopyFilesByMask
-[panel]CopyFilesByMask- копирует файлы по маске..
-*Формат:* 
-[code]
- aFileMask aDestDir aSourceDir  CopyFilesByMask
-[code]
-* aSourceDir - директория откуда копируем.
-* aDestDir - директория куда копируем.
-* aFileMask - маска, по которой копируем файлы.
-Результат слово не возвращает. Если появляется ошибка, то будет Exception[panel]
-*Пример:*
-[code]
- aFileMask aDestDir aSourceDir CopyFilesByMask
-[code]  }
+  {* Слово скрипта CopyFilesByMask }
   private
    procedure CopyFilesByMask(const aCtx: TtfwContext;
     const aSourceDir: AnsiString;
@@ -385,8 +295,8 @@ BOOLEAN VAR l_Boolean
     const aFileMask: AnsiString);
     {* Реализация слова скрипта CopyFilesByMask }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -394,17 +304,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwCopyFilesByMask
 
  TkwCopyFile = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта CopyFile
-[panel]CopyFile - копирует файл.
-*Формат:*  aCopyMode aDestFile aSourceFile CopyFile
-* aSourceFile - имя исходного файла
-* aDestFile - имя файла, куда копируем
-* aCopyMode - режим копирования файла.
-Результат слово не возвращает. Если появляется ошибка, то будет Exception[panel]
-*Пример:*
-[code]
- aCopyMode aDestFile aSourceFile CopyFile
-[code]  }
+  {* Слово скрипта CopyFile }
   private
    procedure CopyFile(const aCtx: TtfwContext;
     const aSourceFile: AnsiString;
@@ -412,8 +312,8 @@ BOOLEAN VAR l_Boolean
     aCopyMode: Integer);
     {* Реализация слова скрипта CopyFile }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -421,21 +321,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwCopyFile
 
  TkwPureDir = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта PureDir
-[panel]PureDir - очищает директорию.
-*Формат:* aDirName PureDir
-* aDirName  - имя директории.[panel]
-*Пример:*
-[code]
- aName PureDir
-[code]  }
+  {* Слово скрипта PureDir }
   private
    procedure PureDir(const aCtx: TtfwContext;
     const aName: AnsiString);
     {* Реализация слова скрипта PureDir }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -443,23 +336,15 @@ BOOLEAN VAR l_Boolean
  end;//TkwPureDir
 
  TkwDeleteFilesByMask = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта DeleteFilesByMask
-[panel]DeleteFilesByMask - очищает директорию.
-*Формат:* aMask aDirName DeleteFilesByMask
-* aDirName  - имя директории.
-* aMask - маска, по которой отбираются файлы.[panel]
-*Пример:*
-[code]
- aMask aDirName DeleteFilesByMask
-[code]  }
+  {* Слово скрипта DeleteFilesByMask }
   private
    procedure DeleteFilesByMask(const aCtx: TtfwContext;
     const aDirName: AnsiString;
     const aMask: AnsiString);
     {* Реализация слова скрипта DeleteFilesByMask }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -467,27 +352,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwDeleteFilesByMask
 
  TkwProcessFilesWithMask = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ProcessFilesWithMask
-[panel]ProcessFilesWithMask - перебирает файлы по маске в заданной директории и вызывает для каждого найденного функцию.
-*Формат:*
-aProc aFileMask aDirName ProcessFilesWithMask
-* aProc - функция, которая вызывается для каждого файла. В стек при вызове помещается имя файла.
-* aFileMask - маска, по которой отбираются файлы, например '*.script'
-* aDirName - путь, по которому ищутся файлы.
-*Пример:*
-[code]
-: PrintFileName
- .
-;
-
-@ PrintFileName '*.script' 'w:\archi\source\projects\Archi\TestSet\Scripts\' ProcessFilesWithMask
-[code]
-В результате будет создан файл с имя_скрипта.prn с именами файлов с полными путями.
-*Примечание:* Если ни один файл не найден, то функция не будет вызвана ни разу. Ни дирректории, ни ссылки на файлы, ни имена дисков в поиск не попадают. Поиск во вложенных директориях не прозводится. Имя файла передается с полным путем.[panel]
-*Пример:*
-[code]
- aProc aFileMask aDirName ProcessFilesWithMask
-[code]  }
+  {* Слово скрипта ProcessFilesWithMask }
   private
    procedure ProcessFilesWithMask(const aCtx: TtfwContext;
     const aDirName: AnsiString;
@@ -495,8 +360,8 @@ aProc aFileMask aDirName ProcessFilesWithMask
     aProc: TtfwWord);
     {* Реализация слова скрипта ProcessFilesWithMask }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -504,34 +369,15 @@ aProc aFileMask aDirName ProcessFilesWithMask
  end;//TkwProcessFilesWithMask
 
  TkwProcessSubDirs = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ProcessSubDirs
-[panel]ProcessSubDirs - перебирает директории в заданной директории и вызывает для каждого найденного функцию.
-*Формат:*
-aProc aDirName ProcessSubDirs
-* aProc - функция, которая вызывается для каждой директории. В стек при вызове помещается имя директории.
-* aDirName - путь, по которому ищутся директории.
-*Пример:*
-[code]
-: PrintFileName
- .
-;
-
-@ PrintFileName 'w:\archi\source\projects\Archi\TestSet\' ProcessSubDirs
-[code]
-В результате будет создан файл с имя_скрипта.prn с именами директорий с полными путями.
-*Примечание:* Если ни одна директория  не найдена, то функция не будет вызвана ни разу.[panel]
-*Пример:*
-[code]
- aProc aDirName ProcessSubDirs
-[code]  }
+  {* Слово скрипта ProcessSubDirs }
   private
    procedure ProcessSubDirs(const aCtx: TtfwContext;
     const aDirName: AnsiString;
     aProc: TtfwWord);
     {* Реализация слова скрипта ProcessSubDirs }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -539,20 +385,14 @@ aProc aDirName ProcessSubDirs
  end;//TkwProcessSubDirs
 
  TkwFileSize = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта FileSize
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aFileName FileSize >>> l_Integer
-[code]  }
+  {* Слово скрипта FileSize }
   private
    function FileSize(const aCtx: TtfwContext;
     const aFileName: AnsiString): Integer;
     {* Реализация слова скрипта FileSize }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -560,13 +400,7 @@ INTEGER VAR l_Integer
  end;//TkwFileSize
 
  TkwCompareFiles = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта CompareFiles
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aHeaderBegin aFile2 aFile1 CompareFiles >>> l_Boolean
-[code]  }
+  {* Слово скрипта CompareFiles }
   private
    function CompareFiles(const aCtx: TtfwContext;
     const aFile1: AnsiString;
@@ -574,8 +408,8 @@ BOOLEAN VAR l_Boolean
     const aHeaderBegin: AnsiString): Boolean;
     {* Реализация слова скрипта CompareFiles }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -775,28 +609,18 @@ end;//TtfwFile.Cleanup
 function TkwFileOpenRead.OpenRead(const aCtx: TtfwContext;
  const aName: AnsiString): ItfwFile;
  {* Реализация слова скрипта File:OpenRead }
-//#UC START# *1138E576E816_E10DA0D7493D_var*
-//#UC END# *1138E576E816_E10DA0D7493D_var*
+//#UC START# *55B5FB4B0008_E10DA0D7493D_var*
+//#UC END# *55B5FB4B0008_E10DA0D7493D_var*
 begin
-//#UC START# *1138E576E816_E10DA0D7493D_impl*
+//#UC START# *55B5FB4B0008_E10DA0D7493D_impl*
  Result := TtfwFile.MakeRead(aCtx.rCaller.ResolveInputFilePath(aName));
-//#UC END# *1138E576E816_E10DA0D7493D_impl*
+//#UC END# *55B5FB4B0008_E10DA0D7493D_impl*
 end;//TkwFileOpenRead.OpenRead
 
-procedure TkwFileOpenRead.DoDoIt(const aCtx: TtfwContext);
-var l_aName: AnsiString;
+class function TkwFileOpenRead.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aName := aCtx.rEngine.PopDelphiString;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushFile(OpenRead(aCtx, l_aName));
-end;//TkwFileOpenRead.DoDoIt
+ Result := 'File:OpenRead';
+end;//TkwFileOpenRead.GetWordNameForRegister
 
 function TkwFileOpenRead.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -813,23 +637,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileOpenRead.ParamsTypes
 
-class function TkwFileOpenRead.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:OpenRead';
-end;//TkwFileOpenRead.GetWordNameForRegister
-
-function TkwFileOpenWrite.OpenWrite(const aCtx: TtfwContext;
- const aName: AnsiString): ItfwFile;
- {* Реализация слова скрипта File:OpenWrite }
-//#UC START# *C3A7BCE24C3B_1CA3472F7177_var*
-//#UC END# *C3A7BCE24C3B_1CA3472F7177_var*
-begin
-//#UC START# *C3A7BCE24C3B_1CA3472F7177_impl*
- Result := TtfwFile.MakeWrite(aCtx.rCaller.ResolveOutputFilePath(aName));
-//#UC END# *C3A7BCE24C3B_1CA3472F7177_impl*
-end;//TkwFileOpenWrite.OpenWrite
-
-procedure TkwFileOpenWrite.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFileOpenRead.DoDoIt(const aCtx: TtfwContext);
 var l_aName: AnsiString;
 begin
  try
@@ -841,8 +649,24 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushFile(OpenWrite(aCtx, l_aName));
-end;//TkwFileOpenWrite.DoDoIt
+ aCtx.rEngine.PushFile(OpenRead(aCtx, l_aName));
+end;//TkwFileOpenRead.DoDoIt
+
+function TkwFileOpenWrite.OpenWrite(const aCtx: TtfwContext;
+ const aName: AnsiString): ItfwFile;
+ {* Реализация слова скрипта File:OpenWrite }
+//#UC START# *55B5FB780316_1CA3472F7177_var*
+//#UC END# *55B5FB780316_1CA3472F7177_var*
+begin
+//#UC START# *55B5FB780316_1CA3472F7177_impl*
+ Result := TtfwFile.MakeWrite(aCtx.rCaller.ResolveOutputFilePath(aName));
+//#UC END# *55B5FB780316_1CA3472F7177_impl*
+end;//TkwFileOpenWrite.OpenWrite
+
+class function TkwFileOpenWrite.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:OpenWrite';
+end;//TkwFileOpenWrite.GetWordNameForRegister
 
 function TkwFileOpenWrite.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -859,20 +683,30 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileOpenWrite.ParamsTypes
 
-class function TkwFileOpenWrite.GetWordNameForRegister: AnsiString;
+procedure TkwFileOpenWrite.DoDoIt(const aCtx: TtfwContext);
+var l_aName: AnsiString;
 begin
- Result := 'File:OpenWrite';
-end;//TkwFileOpenWrite.GetWordNameForRegister
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushFile(OpenWrite(aCtx, l_aName));
+end;//TkwFileOpenWrite.DoDoIt
 
 function TkwFileEOF.EOF(const aCtx: TtfwContext;
  const aFile: ItfwFile): Boolean;
  {* Реализация слова скрипта File:EOF }
-//#UC START# *509E2E3CFD11_2B33C78BBAB9_var*
-//#UC END# *509E2E3CFD11_2B33C78BBAB9_var*
+//#UC START# *55B5FB9E01EF_2B33C78BBAB9_var*
+//#UC END# *55B5FB9E01EF_2B33C78BBAB9_var*
 begin
-//#UC START# *509E2E3CFD11_2B33C78BBAB9_impl*
+//#UC START# *55B5FB9E01EF_2B33C78BBAB9_impl*
  Result := aFile.EOF;
-//#UC END# *509E2E3CFD11_2B33C78BBAB9_impl*
+//#UC END# *55B5FB9E01EF_2B33C78BBAB9_impl*
 end;//TkwFileEOF.EOF
 
 procedure TkwFileEOF.DoDoIt(const aCtx: TtfwContext);
@@ -890,6 +724,11 @@ begin
  aCtx.rEngine.PushBool(EOF(aCtx, l_aFile));
 end;//TkwFileEOF.DoDoIt
 
+class function TkwFileEOF.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:EOF';
+end;//TkwFileEOF.GetWordNameForRegister
+
 function TkwFileEOF.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -905,20 +744,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileEOF.ParamsTypes
 
-class function TkwFileEOF.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:EOF';
-end;//TkwFileEOF.GetWordNameForRegister
-
 function TkwFileReadLn.ReadLn(const aCtx: TtfwContext;
  const aFile: ItfwFile): Il3CString;
  {* Реализация слова скрипта File:ReadLn }
-//#UC START# *47F929C35E76_324E0BCF3B98_var*
-//#UC END# *47F929C35E76_324E0BCF3B98_var*
+//#UC START# *55B5FBE20353_324E0BCF3B98_var*
+//#UC END# *55B5FBE20353_324E0BCF3B98_var*
 begin
-//#UC START# *47F929C35E76_324E0BCF3B98_impl*
+//#UC START# *55B5FBE20353_324E0BCF3B98_impl*
  Result := aFile.ReadLn;
-//#UC END# *47F929C35E76_324E0BCF3B98_impl*
+//#UC END# *55B5FBE20353_324E0BCF3B98_impl*
 end;//TkwFileReadLn.ReadLn
 
 procedure TkwFileReadLn.DoDoIt(const aCtx: TtfwContext);
@@ -936,6 +770,11 @@ begin
  aCtx.rEngine.PushString(ReadLn(aCtx, l_aFile));
 end;//TkwFileReadLn.DoDoIt
 
+class function TkwFileReadLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:ReadLn';
+end;//TkwFileReadLn.GetWordNameForRegister
+
 function TkwFileReadLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -951,21 +790,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileReadLn.ParamsTypes
 
-class function TkwFileReadLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:ReadLn';
-end;//TkwFileReadLn.GetWordNameForRegister
-
 procedure TkwFileWriteLn.WriteLn(const aCtx: TtfwContext;
  const aFile: ItfwFile;
  const aValue: Il3CString);
  {* Реализация слова скрипта File:WriteLn }
-//#UC START# *7E6964328B7F_D6A86D931B42_var*
-//#UC END# *7E6964328B7F_D6A86D931B42_var*
+//#UC START# *55B5FBFE02E9_D6A86D931B42_var*
+//#UC END# *55B5FBFE02E9_D6A86D931B42_var*
 begin
-//#UC START# *7E6964328B7F_D6A86D931B42_impl*
+//#UC START# *55B5FBFE02E9_D6A86D931B42_impl*
  aFile.WriteLn(aValue);
-//#UC END# *7E6964328B7F_D6A86D931B42_impl*
+//#UC END# *55B5FBFE02E9_D6A86D931B42_impl*
 end;//TkwFileWriteLn.WriteLn
 
 procedure TkwFileWriteLn.DoDoIt(const aCtx: TtfwContext);
@@ -993,6 +827,11 @@ begin
  WriteLn(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteLn.DoDoIt
 
+class function TkwFileWriteLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteLn';
+end;//TkwFileWriteLn.GetWordNameForRegister
+
 function TkwFileWriteLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1008,21 +847,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileWriteLn.ParamsTypes
 
-class function TkwFileWriteLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteLn';
-end;//TkwFileWriteLn.GetWordNameForRegister
-
 procedure TkwFileWriteChar.WriteChar(const aCtx: TtfwContext;
  const aFile: ItfwFile;
  aValue: AnsiChar);
  {* Реализация слова скрипта File:WriteChar }
-//#UC START# *8B2200CCBE22_B530B64F8857_var*
-//#UC END# *8B2200CCBE22_B530B64F8857_var*
+//#UC START# *55B5FC1C0184_B530B64F8857_var*
+//#UC END# *55B5FC1C0184_B530B64F8857_var*
 begin
-//#UC START# *8B2200CCBE22_B530B64F8857_impl*
+//#UC START# *55B5FC1C0184_B530B64F8857_impl*
  aFile.WriteChar(aValue);
-//#UC END# *8B2200CCBE22_B530B64F8857_impl*
+//#UC END# *55B5FC1C0184_B530B64F8857_impl*
 end;//TkwFileWriteChar.WriteChar
 
 procedure TkwFileWriteChar.DoDoIt(const aCtx: TtfwContext);
@@ -1050,6 +884,11 @@ begin
  WriteChar(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteChar.DoDoIt
 
+class function TkwFileWriteChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteChar';
+end;//TkwFileWriteChar.GetWordNameForRegister
+
 function TkwFileWriteChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1065,21 +904,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), TypeInfo(AnsiChar)]);
 end;//TkwFileWriteChar.ParamsTypes
 
-class function TkwFileWriteChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteChar';
-end;//TkwFileWriteChar.GetWordNameForRegister
-
 procedure TkwFileWriteStr.WriteStr(const aCtx: TtfwContext;
  const aFile: ItfwFile;
  const aValue: Il3CString);
  {* Реализация слова скрипта File:WriteStr }
-//#UC START# *BF1D3E215CF5_0016E31D4F5B_var*
-//#UC END# *BF1D3E215CF5_0016E31D4F5B_var*
+//#UC START# *55B5FC500169_0016E31D4F5B_var*
+//#UC END# *55B5FC500169_0016E31D4F5B_var*
 begin
-//#UC START# *BF1D3E215CF5_0016E31D4F5B_impl*
+//#UC START# *55B5FC500169_0016E31D4F5B_impl*
  aFile.WriteWStr(l3PCharLen(aValue));
-//#UC END# *BF1D3E215CF5_0016E31D4F5B_impl*
+//#UC END# *55B5FC500169_0016E31D4F5B_impl*
 end;//TkwFileWriteStr.WriteStr
 
 procedure TkwFileWriteStr.DoDoIt(const aCtx: TtfwContext);
@@ -1107,6 +941,11 @@ begin
  WriteStr(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteStr.DoDoIt
 
+class function TkwFileWriteStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteStr';
+end;//TkwFileWriteStr.GetWordNameForRegister
+
 function TkwFileWriteStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1122,27 +961,42 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileWriteStr.ParamsTypes
 
-class function TkwFileWriteStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteStr';
-end;//TkwFileWriteStr.GetWordNameForRegister
-
 procedure TkwFileReadLines.ReadLines(const aCtx: TtfwContext;
  aWord: TtfwWord;
  const aFile: ItfwFile);
  {* Реализация слова скрипта File:ReadLines }
-//#UC START# *B66526463736_4D96B2094588_var*
-//#UC END# *B66526463736_4D96B2094588_var*
+//#UC START# *55B6044A038E_4D96B2094588_var*
+//#UC END# *55B6044A038E_4D96B2094588_var*
 begin
-//#UC START# *B66526463736_4D96B2094588_impl*
+//#UC START# *55B6044A038E_4D96B2094588_impl*
  aFile.ForEach(aWord, aCtx);
-//#UC END# *B66526463736_4D96B2094588_impl*
+//#UC END# *55B6044A038E_4D96B2094588_impl*
 end;//TkwFileReadLines.ReadLines
+
+class function TkwFileReadLines.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:ReadLines';
+end;//TkwFileReadLines.GetWordNameForRegister
+
+function TkwFileReadLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwFileReadLines.GetResultTypeInfo
+
+function TkwFileReadLines.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwFileReadLines.GetAllParamsCount
 
 function TkwFileReadLines.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwFileReadLines.RightParamsCount
+
+function TkwFileReadLines.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
+end;//TkwFileReadLines.ParamsTypes
 
 procedure TkwFileReadLines.DoRun(const aCtx: TtfwContext);
 var l_aWord: TtfwWord;
@@ -1169,34 +1023,14 @@ begin
  ReadLines(aCtx, l_aWord, l_aFile);
 end;//TkwFileReadLines.DoRun
 
-function TkwFileReadLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwFileReadLines.GetResultTypeInfo
-
-function TkwFileReadLines.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwFileReadLines.GetAllParamsCount
-
-function TkwFileReadLines.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
-end;//TkwFileReadLines.ParamsTypes
-
-class function TkwFileReadLines.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:ReadLines';
-end;//TkwFileReadLines.GetWordNameForRegister
-
 procedure TkwFileWriteWStr.WriteWStr(const aCtx: TtfwContext;
  const aFile: ItfwFile;
  const aValue: TtfwStackValue);
  {* Реализация слова скрипта File:WriteWStr }
-//#UC START# *EA5DBDC19650_12D9E8420555_var*
-//#UC END# *EA5DBDC19650_12D9E8420555_var*
+//#UC START# *55B60993020B_12D9E8420555_var*
+//#UC END# *55B60993020B_12D9E8420555_var*
 begin
-//#UC START# *EA5DBDC19650_12D9E8420555_impl*
+//#UC START# *55B60993020B_12D9E8420555_impl*
  Case aValue.rType of
   tfw_vtStr:
    aFile.WriteWStr(aValue.AsString.AsWStr);
@@ -1205,7 +1039,7 @@ begin
   else
    BadValueType(aValue.rType, aCtx);
  end;//Case aValue.rType
-//#UC END# *EA5DBDC19650_12D9E8420555_impl*
+//#UC END# *55B60993020B_12D9E8420555_impl*
 end;//TkwFileWriteWStr.WriteWStr
 
 procedure TkwFileWriteWStr.DoDoIt(const aCtx: TtfwContext);
@@ -1233,6 +1067,11 @@ begin
  WriteWStr(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteWStr.DoDoIt
 
+class function TkwFileWriteWStr.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteWStr';
+end;//TkwFileWriteWStr.GetWordNameForRegister
+
 function TkwFileWriteWStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1248,20 +1087,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiStruct]);
 end;//TkwFileWriteWStr.ParamsTypes
 
-class function TkwFileWriteWStr.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteWStr';
-end;//TkwFileWriteWStr.GetWordNameForRegister
-
 function TkwFileReadWStrLn.ReadWStrLn(const aCtx: TtfwContext;
  const aFile: ItfwFile): Tl3PCharLen;
  {* Реализация слова скрипта File:ReadWStrLn }
-//#UC START# *062B42A458F5_6F89E50D4B41_var*
-//#UC END# *062B42A458F5_6F89E50D4B41_var*
+//#UC START# *55B618940267_6F89E50D4B41_var*
+//#UC END# *55B618940267_6F89E50D4B41_var*
 begin
-//#UC START# *062B42A458F5_6F89E50D4B41_impl*
+//#UC START# *55B618940267_6F89E50D4B41_impl*
  Result := Tl3PCharLen(aFile.ReadWStrLn);
-//#UC END# *062B42A458F5_6F89E50D4B41_impl*
+//#UC END# *55B618940267_6F89E50D4B41_impl*
 end;//TkwFileReadWStrLn.ReadWStrLn
 
 procedure TkwFileReadWStrLn.DoDoIt(const aCtx: TtfwContext);
@@ -1279,6 +1113,11 @@ begin
  aCtx.rEngine.PushWStr(ReadWStrLn(aCtx, l_aFile));
 end;//TkwFileReadWStrLn.DoDoIt
 
+class function TkwFileReadWStrLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:ReadWStrLn';
+end;//TkwFileReadWStrLn.GetWordNameForRegister
+
 function TkwFileReadWStrLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiWString;
@@ -1294,19 +1133,14 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile)]);
 end;//TkwFileReadWStrLn.ParamsTypes
 
-class function TkwFileReadWStrLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:ReadWStrLn';
-end;//TkwFileReadWStrLn.GetWordNameForRegister
-
 procedure TkwFileWriteWStrLn.WriteWStrLn(const aCtx: TtfwContext;
  const aFile: ItfwFile;
  const aValue: TtfwStackValue);
  {* Реализация слова скрипта File:WriteWStrLn }
-//#UC START# *5BB0C2B29FB4_2C287EC9B0C3_var*
-//#UC END# *5BB0C2B29FB4_2C287EC9B0C3_var*
+//#UC START# *55B618AB03C3_2C287EC9B0C3_var*
+//#UC END# *55B618AB03C3_2C287EC9B0C3_var*
 begin
-//#UC START# *5BB0C2B29FB4_2C287EC9B0C3_impl*
+//#UC START# *55B618AB03C3_2C287EC9B0C3_impl*
  Case aValue.rType of
   tfw_vtStr:
    aFile.WriteWStrLn(aValue.AsString.AsWStr);
@@ -1315,7 +1149,7 @@ begin
   else
    BadValueType(aValue.rType, aCtx);
  end;//Case aValue.rType
-//#UC END# *5BB0C2B29FB4_2C287EC9B0C3_impl*
+//#UC END# *55B618AB03C3_2C287EC9B0C3_impl*
 end;//TkwFileWriteWStrLn.WriteWStrLn
 
 procedure TkwFileWriteWStrLn.DoDoIt(const aCtx: TtfwContext);
@@ -1343,6 +1177,11 @@ begin
  WriteWStrLn(aCtx, l_aFile, l_aValue);
 end;//TkwFileWriteWStrLn.DoDoIt
 
+class function TkwFileWriteWStrLn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'File:WriteWStrLn';
+end;//TkwFileWriteWStrLn.GetWordNameForRegister
+
 function TkwFileWriteWStrLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1358,36 +1197,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiStruct]);
 end;//TkwFileWriteWStrLn.ParamsTypes
 
-class function TkwFileWriteWStrLn.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:WriteWStrLn';
-end;//TkwFileWriteWStrLn.GetWordNameForRegister
-
 function TkwFileOpenAppend.OpenAppend(const aCtx: TtfwContext;
  const aName: AnsiString): ItfwFile;
  {* Реализация слова скрипта File:OpenAppend }
-//#UC START# *B8708CE49928_7185464C1BEA_var*
-//#UC END# *B8708CE49928_7185464C1BEA_var*
+//#UC START# *570E700201A7_7185464C1BEA_var*
+//#UC END# *570E700201A7_7185464C1BEA_var*
 begin
-//#UC START# *B8708CE49928_7185464C1BEA_impl*
+//#UC START# *570E700201A7_7185464C1BEA_impl*
  Result := TtfwFile.MakeAppend(aCtx.rCaller.ResolveOutputFilePath(aName));
-//#UC END# *B8708CE49928_7185464C1BEA_impl*
+//#UC END# *570E700201A7_7185464C1BEA_impl*
 end;//TkwFileOpenAppend.OpenAppend
 
-procedure TkwFileOpenAppend.DoDoIt(const aCtx: TtfwContext);
-var l_aName: AnsiString;
+class function TkwFileOpenAppend.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aName := aCtx.rEngine.PopDelphiString;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushFile(OpenAppend(aCtx, l_aName));
-end;//TkwFileOpenAppend.DoDoIt
+ Result := 'File:OpenAppend';
+end;//TkwFileOpenAppend.GetWordNameForRegister
 
 function TkwFileOpenAppend.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1404,23 +1228,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwFile), @tfw_tiString]);
 end;//TkwFileOpenAppend.ParamsTypes
 
-class function TkwFileOpenAppend.GetWordNameForRegister: AnsiString;
-begin
- Result := 'File:OpenAppend';
-end;//TkwFileOpenAppend.GetWordNameForRegister
-
-function TkwDeleteFile.DeleteFile(const aCtx: TtfwContext;
- const aName: AnsiString): Boolean;
- {* Реализация слова скрипта DeleteFile }
-//#UC START# *8A54E0B1468F_01A4D246A0C9_var*
-//#UC END# *8A54E0B1468F_01A4D246A0C9_var*
-begin
-//#UC START# *8A54E0B1468F_01A4D246A0C9_impl*
- Result := SysUtils.DeleteFile(aName);
-//#UC END# *8A54E0B1468F_01A4D246A0C9_impl*
-end;//TkwDeleteFile.DeleteFile
-
-procedure TkwDeleteFile.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFileOpenAppend.DoDoIt(const aCtx: TtfwContext);
 var l_aName: AnsiString;
 begin
  try
@@ -1432,8 +1240,24 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(DeleteFile(aCtx, l_aName));
-end;//TkwDeleteFile.DoDoIt
+ aCtx.rEngine.PushFile(OpenAppend(aCtx, l_aName));
+end;//TkwFileOpenAppend.DoDoIt
+
+function TkwDeleteFile.DeleteFile(const aCtx: TtfwContext;
+ const aName: AnsiString): Boolean;
+ {* Реализация слова скрипта DeleteFile }
+//#UC START# *55B6047F005B_55B6047F005B_Word_var*
+//#UC END# *55B6047F005B_55B6047F005B_Word_var*
+begin
+//#UC START# *55B6047F005B_55B6047F005B_Word_impl*
+ Result := SysUtils.DeleteFile(aName);
+//#UC END# *55B6047F005B_55B6047F005B_Word_impl*
+end;//TkwDeleteFile.DeleteFile
+
+class function TkwDeleteFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DeleteFile';
+end;//TkwDeleteFile.GetWordNameForRegister
 
 function TkwDeleteFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1450,22 +1274,52 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwDeleteFile.ParamsTypes
 
-class function TkwDeleteFile.GetWordNameForRegister: AnsiString;
+procedure TkwDeleteFile.DoDoIt(const aCtx: TtfwContext);
+var l_aName: AnsiString;
 begin
- Result := 'DeleteFile';
-end;//TkwDeleteFile.GetWordNameForRegister
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(DeleteFile(aCtx, l_aName));
+end;//TkwDeleteFile.DoDoIt
 
 function TkwRenameFile.RenameFile(const aCtx: TtfwContext;
  const aNewName: AnsiString;
  const anOldName: AnsiString): Boolean;
  {* Реализация слова скрипта RenameFile }
-//#UC START# *4B30612C1E84_269C162F0F47_var*
-//#UC END# *4B30612C1E84_269C162F0F47_var*
+//#UC START# *55B6049F0019_55B6049F0019_Word_var*
+//#UC END# *55B6049F0019_55B6049F0019_Word_var*
 begin
-//#UC START# *4B30612C1E84_269C162F0F47_impl*
+//#UC START# *55B6049F0019_55B6049F0019_Word_impl*
  Result := SysUtils.RenameFile(anOldName, aNewName);
-//#UC END# *4B30612C1E84_269C162F0F47_impl*
+//#UC END# *55B6049F0019_55B6049F0019_Word_impl*
 end;//TkwRenameFile.RenameFile
+
+class function TkwRenameFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'RenameFile';
+end;//TkwRenameFile.GetWordNameForRegister
+
+function TkwRenameFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwRenameFile.GetResultTypeInfo
+
+function TkwRenameFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwRenameFile.GetAllParamsCount
+
+function TkwRenameFile.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
+end;//TkwRenameFile.ParamsTypes
 
 procedure TkwRenameFile.DoDoIt(const aCtx: TtfwContext);
 var l_aNewName: AnsiString;
@@ -1492,38 +1346,38 @@ begin
  aCtx.rEngine.PushBool(RenameFile(aCtx, l_aNewName, l_anOldName));
 end;//TkwRenameFile.DoDoIt
 
-function TkwRenameFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwRenameFile.GetResultTypeInfo
-
-function TkwRenameFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwRenameFile.GetAllParamsCount
-
-function TkwRenameFile.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
-end;//TkwRenameFile.ParamsTypes
-
-class function TkwRenameFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'RenameFile';
-end;//TkwRenameFile.GetWordNameForRegister
-
 procedure TkwCopyFilesByMask.CopyFilesByMask(const aCtx: TtfwContext;
  const aSourceDir: AnsiString;
  const aDestDir: AnsiString;
  const aFileMask: AnsiString);
  {* Реализация слова скрипта CopyFilesByMask }
-//#UC START# *B545E742BFBB_5478B1531C0E_var*
-//#UC END# *B545E742BFBB_5478B1531C0E_var*
+//#UC START# *55B604FC0108_55B604FC0108_Word_var*
+//#UC END# *55B604FC0108_55B604FC0108_Word_var*
 begin
-//#UC START# *B545E742BFBB_5478B1531C0E_impl*
+//#UC START# *55B604FC0108_55B604FC0108_Word_impl*
  l3FileUtils.CopyFilesByMask(aSourceDir, aDestDir, aFileMask);
-//#UC END# *B545E742BFBB_5478B1531C0E_impl*
+//#UC END# *55B604FC0108_55B604FC0108_Word_impl*
 end;//TkwCopyFilesByMask.CopyFilesByMask
+
+class function TkwCopyFilesByMask.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CopyFilesByMask';
+end;//TkwCopyFilesByMask.GetWordNameForRegister
+
+function TkwCopyFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwCopyFilesByMask.GetResultTypeInfo
+
+function TkwCopyFilesByMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwCopyFilesByMask.GetAllParamsCount
+
+function TkwCopyFilesByMask.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
+end;//TkwCopyFilesByMask.ParamsTypes
 
 procedure TkwCopyFilesByMask.DoDoIt(const aCtx: TtfwContext);
 var l_aSourceDir: AnsiString;
@@ -1560,38 +1414,38 @@ begin
  CopyFilesByMask(aCtx, l_aSourceDir, l_aDestDir, l_aFileMask);
 end;//TkwCopyFilesByMask.DoDoIt
 
-function TkwCopyFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwCopyFilesByMask.GetResultTypeInfo
-
-function TkwCopyFilesByMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwCopyFilesByMask.GetAllParamsCount
-
-function TkwCopyFilesByMask.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
-end;//TkwCopyFilesByMask.ParamsTypes
-
-class function TkwCopyFilesByMask.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CopyFilesByMask';
-end;//TkwCopyFilesByMask.GetWordNameForRegister
-
 procedure TkwCopyFile.CopyFile(const aCtx: TtfwContext;
  const aSourceFile: AnsiString;
  const aDestFile: AnsiString;
  aCopyMode: Integer);
  {* Реализация слова скрипта CopyFile }
-//#UC START# *7B442954EEE8_C4E46637B80B_var*
-//#UC END# *7B442954EEE8_C4E46637B80B_var*
+//#UC START# *55B605890120_55B605890120_Word_var*
+//#UC END# *55B605890120_55B605890120_Word_var*
 begin
-//#UC START# *7B442954EEE8_C4E46637B80B_impl*
+//#UC START# *55B605890120_55B605890120_Word_impl*
  l3FileUtils.CopyFile(aSourceFile, aDestFile, aCopyMode);
-//#UC END# *7B442954EEE8_C4E46637B80B_impl*
+//#UC END# *55B605890120_55B605890120_Word_impl*
 end;//TkwCopyFile.CopyFile
+
+class function TkwCopyFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CopyFile';
+end;//TkwCopyFile.GetWordNameForRegister
+
+function TkwCopyFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwCopyFile.GetResultTypeInfo
+
+function TkwCopyFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwCopyFile.GetAllParamsCount
+
+function TkwCopyFile.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
+end;//TkwCopyFile.ParamsTypes
 
 procedure TkwCopyFile.DoDoIt(const aCtx: TtfwContext);
 var l_aSourceFile: AnsiString;
@@ -1628,51 +1482,21 @@ begin
  CopyFile(aCtx, l_aSourceFile, l_aDestFile, l_aCopyMode);
 end;//TkwCopyFile.DoDoIt
 
-function TkwCopyFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwCopyFile.GetResultTypeInfo
-
-function TkwCopyFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwCopyFile.GetAllParamsCount
-
-function TkwCopyFile.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
-end;//TkwCopyFile.ParamsTypes
-
-class function TkwCopyFile.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CopyFile';
-end;//TkwCopyFile.GetWordNameForRegister
-
 procedure TkwPureDir.PureDir(const aCtx: TtfwContext;
  const aName: AnsiString);
  {* Реализация слова скрипта PureDir }
-//#UC START# *4475F8181332_C77B92459A8E_var*
-//#UC END# *4475F8181332_C77B92459A8E_var*
+//#UC START# *55B606A70227_55B606A70227_Word_var*
+//#UC END# *55B606A70227_55B606A70227_Word_var*
 begin
-//#UC START# *4475F8181332_C77B92459A8E_impl*
+//#UC START# *55B606A70227_55B606A70227_Word_impl*
  l3FileUtils.PureDir(aName);
-//#UC END# *4475F8181332_C77B92459A8E_impl*
+//#UC END# *55B606A70227_55B606A70227_Word_impl*
 end;//TkwPureDir.PureDir
 
-procedure TkwPureDir.DoDoIt(const aCtx: TtfwContext);
-var l_aName: AnsiString;
+class function TkwPureDir.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aName := aCtx.rEngine.PopDelphiString;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- PureDir(aCtx, l_aName);
-end;//TkwPureDir.DoDoIt
+ Result := 'PureDir';
+end;//TkwPureDir.GetWordNameForRegister
 
 function TkwPureDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1689,22 +1513,52 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwPureDir.ParamsTypes
 
-class function TkwPureDir.GetWordNameForRegister: AnsiString;
+procedure TkwPureDir.DoDoIt(const aCtx: TtfwContext);
+var l_aName: AnsiString;
 begin
- Result := 'PureDir';
-end;//TkwPureDir.GetWordNameForRegister
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ PureDir(aCtx, l_aName);
+end;//TkwPureDir.DoDoIt
 
 procedure TkwDeleteFilesByMask.DeleteFilesByMask(const aCtx: TtfwContext;
  const aDirName: AnsiString;
  const aMask: AnsiString);
  {* Реализация слова скрипта DeleteFilesByMask }
-//#UC START# *4757446F5D1B_E5B04DD6635F_var*
-//#UC END# *4757446F5D1B_E5B04DD6635F_var*
+//#UC START# *55B606F1003D_55B606F1003D_Word_var*
+//#UC END# *55B606F1003D_55B606F1003D_Word_var*
 begin
-//#UC START# *4757446F5D1B_E5B04DD6635F_impl*
+//#UC START# *55B606F1003D_55B606F1003D_Word_impl*
  l3FileUtils.DeleteFilesByMask(aDirName, aMask);
-//#UC END# *4757446F5D1B_E5B04DD6635F_impl*
+//#UC END# *55B606F1003D_55B606F1003D_Word_impl*
 end;//TkwDeleteFilesByMask.DeleteFilesByMask
+
+class function TkwDeleteFilesByMask.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DeleteFilesByMask';
+end;//TkwDeleteFilesByMask.GetWordNameForRegister
+
+function TkwDeleteFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwDeleteFilesByMask.GetResultTypeInfo
+
+function TkwDeleteFilesByMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwDeleteFilesByMask.GetAllParamsCount
+
+function TkwDeleteFilesByMask.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
+end;//TkwDeleteFilesByMask.ParamsTypes
 
 procedure TkwDeleteFilesByMask.DoDoIt(const aCtx: TtfwContext);
 var l_aDirName: AnsiString;
@@ -1731,38 +1585,18 @@ begin
  DeleteFilesByMask(aCtx, l_aDirName, l_aMask);
 end;//TkwDeleteFilesByMask.DoDoIt
 
-function TkwDeleteFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwDeleteFilesByMask.GetResultTypeInfo
-
-function TkwDeleteFilesByMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwDeleteFilesByMask.GetAllParamsCount
-
-function TkwDeleteFilesByMask.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
-end;//TkwDeleteFilesByMask.ParamsTypes
-
-class function TkwDeleteFilesByMask.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DeleteFilesByMask';
-end;//TkwDeleteFilesByMask.GetWordNameForRegister
-
 procedure TkwProcessFilesWithMask.ProcessFilesWithMask(const aCtx: TtfwContext;
  const aDirName: AnsiString;
  const aFileMask: AnsiString;
  aProc: TtfwWord);
  {* Реализация слова скрипта ProcessFilesWithMask }
-//#UC START# *332776E818ED_F43FC392309A_var*
+//#UC START# *55B6075302CC_55B6075302CC_Word_var*
 var
  l_SearchRec  : TSearchRec;
  l_FindResult : Integer;
-//#UC END# *332776E818ED_F43FC392309A_var*
+//#UC END# *55B6075302CC_55B6075302CC_Word_var*
 begin
-//#UC START# *332776E818ED_F43FC392309A_impl*
+//#UC START# *55B6075302CC_55B6075302CC_Word_impl*
  if not DirectoryExists(aDirName) then
  begin
   Assert(False, Format('Директория %s не существует', [aDirName]));
@@ -1784,8 +1618,28 @@ begin
  finally
   SysUtils.FindClose(l_SearchRec);
  end;//try..finally
-//#UC END# *332776E818ED_F43FC392309A_impl*
+//#UC END# *55B6075302CC_55B6075302CC_Word_impl*
 end;//TkwProcessFilesWithMask.ProcessFilesWithMask
+
+class function TkwProcessFilesWithMask.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ProcessFilesWithMask';
+end;//TkwProcessFilesWithMask.GetWordNameForRegister
+
+function TkwProcessFilesWithMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwProcessFilesWithMask.GetResultTypeInfo
+
+function TkwProcessFilesWithMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwProcessFilesWithMask.GetAllParamsCount
+
+function TkwProcessFilesWithMask.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(TtfwWord)]);
+end;//TkwProcessFilesWithMask.ParamsTypes
 
 procedure TkwProcessFilesWithMask.DoDoIt(const aCtx: TtfwContext);
 var l_aDirName: AnsiString;
@@ -1822,37 +1676,17 @@ begin
  ProcessFilesWithMask(aCtx, l_aDirName, l_aFileMask, l_aProc);
 end;//TkwProcessFilesWithMask.DoDoIt
 
-function TkwProcessFilesWithMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwProcessFilesWithMask.GetResultTypeInfo
-
-function TkwProcessFilesWithMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwProcessFilesWithMask.GetAllParamsCount
-
-function TkwProcessFilesWithMask.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(TtfwWord)]);
-end;//TkwProcessFilesWithMask.ParamsTypes
-
-class function TkwProcessFilesWithMask.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ProcessFilesWithMask';
-end;//TkwProcessFilesWithMask.GetWordNameForRegister
-
 procedure TkwProcessSubDirs.ProcessSubDirs(const aCtx: TtfwContext;
  const aDirName: AnsiString;
  aProc: TtfwWord);
  {* Реализация слова скрипта ProcessSubDirs }
-//#UC START# *3A2CA042D20F_4D6340E72B1A_var*
+//#UC START# *55B607D400E0_55B607D400E0_Word_var*
 var
  l_SearchRec : TSearchRec;
  l_FindResult: Integer;
-//#UC END# *3A2CA042D20F_4D6340E72B1A_var*
+//#UC END# *55B607D400E0_55B607D400E0_Word_var*
 begin
-//#UC START# *3A2CA042D20F_4D6340E72B1A_impl*
+//#UC START# *55B607D400E0_55B607D400E0_Word_impl*
  if not DirectoryExists(aDirName) then
  begin
   Assert(False, Format('Директория %s не существует', [aDirName]));
@@ -1874,8 +1708,28 @@ begin
  finally
   SysUtils.FindClose(l_SearchRec);
  end;//try..finally
-//#UC END# *3A2CA042D20F_4D6340E72B1A_impl*
+//#UC END# *55B607D400E0_55B607D400E0_Word_impl*
 end;//TkwProcessSubDirs.ProcessSubDirs
+
+class function TkwProcessSubDirs.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ProcessSubDirs';
+end;//TkwProcessSubDirs.GetWordNameForRegister
+
+function TkwProcessSubDirs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwProcessSubDirs.GetResultTypeInfo
+
+function TkwProcessSubDirs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwProcessSubDirs.GetAllParamsCount
+
+function TkwProcessSubDirs.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(TtfwWord)]);
+end;//TkwProcessSubDirs.ParamsTypes
 
 procedure TkwProcessSubDirs.DoDoIt(const aCtx: TtfwContext);
 var l_aDirName: AnsiString;
@@ -1902,51 +1756,21 @@ begin
  ProcessSubDirs(aCtx, l_aDirName, l_aProc);
 end;//TkwProcessSubDirs.DoDoIt
 
-function TkwProcessSubDirs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwProcessSubDirs.GetResultTypeInfo
-
-function TkwProcessSubDirs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwProcessSubDirs.GetAllParamsCount
-
-function TkwProcessSubDirs.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(TtfwWord)]);
-end;//TkwProcessSubDirs.ParamsTypes
-
-class function TkwProcessSubDirs.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ProcessSubDirs';
-end;//TkwProcessSubDirs.GetWordNameForRegister
-
 function TkwFileSize.FileSize(const aCtx: TtfwContext;
  const aFileName: AnsiString): Integer;
  {* Реализация слова скрипта FileSize }
-//#UC START# *DEA5A01CE3B1_E2551B3D7813_var*
-//#UC END# *DEA5A01CE3B1_E2551B3D7813_var*
+//#UC START# *56420DAD0276_56420DAD0276_Word_var*
+//#UC END# *56420DAD0276_56420DAD0276_Word_var*
 begin
-//#UC START# *DEA5A01CE3B1_E2551B3D7813_impl*
+//#UC START# *56420DAD0276_56420DAD0276_Word_impl*
  Result := l3FileUtils.GetFileSize(afileName);
-//#UC END# *DEA5A01CE3B1_E2551B3D7813_impl*
+//#UC END# *56420DAD0276_56420DAD0276_Word_impl*
 end;//TkwFileSize.FileSize
 
-procedure TkwFileSize.DoDoIt(const aCtx: TtfwContext);
-var l_aFileName: AnsiString;
+class function TkwFileSize.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aFileName := aCtx.rEngine.PopDelphiString;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(FileSize(aCtx, l_aFileName));
-end;//TkwFileSize.DoDoIt
+ Result := 'FileSize';
+end;//TkwFileSize.GetWordNameForRegister
 
 function TkwFileSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1963,26 +1787,56 @@ begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwFileSize.ParamsTypes
 
-class function TkwFileSize.GetWordNameForRegister: AnsiString;
+procedure TkwFileSize.DoDoIt(const aCtx: TtfwContext);
+var l_aFileName: AnsiString;
 begin
- Result := 'FileSize';
-end;//TkwFileSize.GetWordNameForRegister
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(FileSize(aCtx, l_aFileName));
+end;//TkwFileSize.DoDoIt
 
 function TkwCompareFiles.CompareFiles(const aCtx: TtfwContext;
  const aFile1: AnsiString;
  const aFile2: AnsiString;
  const aHeaderBegin: AnsiString): Boolean;
  {* Реализация слова скрипта CompareFiles }
-//#UC START# *6C5EFAFC54B2_CF832D7F4CA1_var*
-//#UC END# *6C5EFAFC54B2_CF832D7F4CA1_var*
+//#UC START# *56420DEC002D_56420DEC002D_Word_var*
+//#UC END# *56420DEC002D_56420DEC002D_Word_var*
 begin
-//#UC START# *6C5EFAFC54B2_CF832D7F4CA1_impl*
+//#UC START# *56420DEC002D_56420DEC002D_Word_impl*
  if (aHeaderBegin = '') then
   Result := l3Stream.l3CompareFiles(aFile1, aFile2, #0)
  else
   Result := l3Stream.l3CompareFiles(aFile1, aFile2, aHeaderBegin[1]);
-//#UC END# *6C5EFAFC54B2_CF832D7F4CA1_impl*
+//#UC END# *56420DEC002D_56420DEC002D_Word_impl*
 end;//TkwCompareFiles.CompareFiles
+
+class function TkwCompareFiles.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CompareFiles';
+end;//TkwCompareFiles.GetWordNameForRegister
+
+function TkwCompareFiles.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwCompareFiles.GetResultTypeInfo
+
+function TkwCompareFiles.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwCompareFiles.GetAllParamsCount
+
+function TkwCompareFiles.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
+end;//TkwCompareFiles.ParamsTypes
 
 procedure TkwCompareFiles.DoDoIt(const aCtx: TtfwContext);
 var l_aFile1: AnsiString;
@@ -2018,26 +1872,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushBool(CompareFiles(aCtx, l_aFile1, l_aFile2, l_aHeaderBegin));
 end;//TkwCompareFiles.DoDoIt
-
-function TkwCompareFiles.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwCompareFiles.GetResultTypeInfo
-
-function TkwCompareFiles.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwCompareFiles.GetAllParamsCount
-
-function TkwCompareFiles.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
-end;//TkwCompareFiles.ParamsTypes
-
-class function TkwCompareFiles.GetWordNameForRegister: AnsiString;
-begin
- Result := 'CompareFiles';
-end;//TkwCompareFiles.GetWordNameForRegister
 
 class function TFileProcessingPackResNameGetter.ResName: AnsiString;
 begin
@@ -2093,26 +1927,24 @@ initialization
  {* Регистрация CompareFiles }
  TFileProcessingPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
- TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwFile));
  {* Регистрация типа ItfwFile }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Il3CString }
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiChar));
- {* Регистрация типа Char }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
- {* Регистрация типа TtfwWord }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwStackValue }
  TtfwTypeRegistrator.RegisterType(@tfw_tiWString);
  {* Регистрация типа Tl3PCharLen }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа AnsiString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiChar));
+ {* Регистрация типа AnsiChar }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
+ {* Регистрация типа TtfwWord }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -27,6 +27,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function MatchesMask(const Filename: AnsiString;
@@ -39,5 +42,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50254A2603D3_502549AF030B_impl*
 end;//MatchesMask
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EMaskException));
+ {* Регистрация типа EMaskException }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

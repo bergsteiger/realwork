@@ -248,6 +248,9 @@ uses
  , vcmTaskPanelInterfaces
  , vcmHistoryRes
  , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , RTLConsts
 ;
@@ -2592,6 +2595,12 @@ begin
  Result := Make(aForm, aStateType, True, SavingClone);
 //#UC END# *550825AC0253_5506DCE50052_impl*
 end;//TvcmHistoryItem.MakeChild
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EvcmFormWasClosedInSave));
+ {* Регистрация типа EvcmFormWasClosedInSave }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

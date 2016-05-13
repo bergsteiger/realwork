@@ -22,9 +22,9 @@ uses
  , nsRootManager
  , PrimPrimListInterfaces
  , DocumentUnit
+ , l3IID
  , nsTypes
  , AdapterFacade
- , l3IID
 ;
 
 type

@@ -48,6 +48,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , NewGenMainPrim_Form
  , Main_Form
  {$If NOT Defined(NoScripts)}
@@ -91,6 +94,10 @@ end;//TNewGenRes.Loaded
 initialization
  str_NewGenTitle.Init;
  {* Инициализация str_NewGenTitle }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TNewGenRes);
+ {* Регистрация NewGen }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(NewGen)
 
 end.

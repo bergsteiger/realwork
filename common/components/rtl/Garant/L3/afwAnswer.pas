@@ -65,6 +65,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , TtfwTypeRegistrator_Proxy
 ;
 
 var g_TafwBatchService: TafwBatchService = nil;
@@ -232,6 +233,8 @@ end;//TafwAnswers.Exists
 initialization
  Tl3BatchService.Instance.Alien := TafwBatchService.Instance;
  {* Регистрация TafwBatchService }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EkwWaitBracketsBalance));
+ {* Регистрация типа EkwWaitBracketsBalance }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

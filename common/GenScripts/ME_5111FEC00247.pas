@@ -17,6 +17,14 @@ uses
 ;
 
 type
+ TddOffsetType = (
+  dd_otNone
+  , dd_otByTab
+  , dd_otByColumn
+  , dd_otByLeftIndent
+  , dd_otByPage
+ );//TddOffsetType
+
  TddCellProperty = class(TddPropertyObject)
   private
    f_ClearBorder: TddClearBoder;
@@ -46,6 +54,7 @@ type
    f_TopPad: LongInt;
    f_AlignCell: Boolean;
    f_CellWidth: LongInt;
+   f_OffsetType: TddOffsetType;
   protected
    function pm_GetIsBorder: Boolean;
    procedure pm_SetIsBorder(aValue: Boolean);
@@ -53,8 +62,8 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create(aClearBorder: TddClearBoder); reintroduce;
-   procedure Assign(aCellProperty: TddCellProperty);
    function IsCellOffseDefault: Boolean;
+   procedure Assign(aCellProperty: TddCellProperty);
    procedure MergeWith(P: TddPropertyObject); override;
    procedure InheriteFrom(P: TddPropertyObject); override;
    procedure Write2Generator(const Generator: Ik2TagGenerator); override;
@@ -133,6 +142,9 @@ type
    property CellWidth: LongInt
     read f_CellWidth
     write f_CellWidth;
+   property OffsetType: TddOffsetType
+    read f_OffsetType
+    write f_OffsetType;
  end;//TddCellProperty
 
 implementation
@@ -174,6 +186,15 @@ begin
 //#UC END# *52CF9FF4019B_5111FEC00247_impl*
 end;//TddCellProperty.Create
 
+function TddCellProperty.IsCellOffseDefault: Boolean;
+//#UC START# *5614C68F0041_5111FEC00247_var*
+//#UC END# *5614C68F0041_5111FEC00247_var*
+begin
+//#UC START# *5614C68F0041_5111FEC00247_impl*
+ Result := f_CellOffset = ddGetMinimalCellWidth;
+//#UC END# *5614C68F0041_5111FEC00247_impl*
+end;//TddCellProperty.IsCellOffseDefault
+
 procedure TddCellProperty.Assign(aCellProperty: TddCellProperty);
 //#UC START# *52CFA04E02A8_5111FEC00247_var*
 //#UC END# *52CFA04E02A8_5111FEC00247_var*
@@ -197,15 +218,6 @@ begin
  f_RowSpan := aCellProperty.RowSpan;
 //#UC END# *52CFA04E02A8_5111FEC00247_impl*
 end;//TddCellProperty.Assign
-
-function TddCellProperty.IsCellOffseDefault: Boolean;
-//#UC START# *5614C68F0041_5111FEC00247_var*
-//#UC END# *5614C68F0041_5111FEC00247_var*
-begin
-//#UC START# *5614C68F0041_5111FEC00247_impl*
- Result := f_CellOffset = ddGetMinimalCellWidth;
-//#UC END# *5614C68F0041_5111FEC00247_impl*
-end;//TddCellProperty.IsCellOffseDefault
 
 procedure TddCellProperty.MergeWith(P: TddPropertyObject);
 //#UC START# *525E369F0158_5111FEC00247_var*

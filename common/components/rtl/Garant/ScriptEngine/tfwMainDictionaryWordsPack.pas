@@ -24,19 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopMainDictionaryCompiledCode = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:MainDictionary:CompiledCode
-*Тип результата:* TtfwWord
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWord
- aMainDictionary pop:MainDictionary:CompiledCode >>> l_TtfwWord
-[code]  }
+  {* Слово скрипта pop:MainDictionary:CompiledCode }
   private
    function CompiledCode(const aCtx: TtfwContext;
     aMainDictionary: TtfwMainDictionary): TtfwWord;
@@ -53,12 +47,12 @@ OBJECT VAR l_TtfwWord
 function TkwPopMainDictionaryCompiledCode.CompiledCode(const aCtx: TtfwContext;
  aMainDictionary: TtfwMainDictionary): TtfwWord;
  {* Реализация слова скрипта pop:MainDictionary:CompiledCode }
-//#UC START# *E184DB3F75A6_FA2C6FCB48FD_var*
-//#UC END# *E184DB3F75A6_FA2C6FCB48FD_var*
+//#UC START# *55ED491201A9_FA2C6FCB48FD_var*
+//#UC END# *55ED491201A9_FA2C6FCB48FD_var*
 begin
-//#UC START# *E184DB3F75A6_FA2C6FCB48FD_impl*
+//#UC START# *55ED491201A9_FA2C6FCB48FD_impl*
  Result := aMainDictionary.CompiledCode;
-//#UC END# *E184DB3F75A6_FA2C6FCB48FD_impl*
+//#UC END# *55ED491201A9_FA2C6FCB48FD_impl*
 end;//TkwPopMainDictionaryCompiledCode.CompiledCode
 
 procedure TkwPopMainDictionaryCompiledCode.DoDoIt(const aCtx: TtfwContext);
@@ -76,6 +70,11 @@ begin
  aCtx.rEngine.PushObj(CompiledCode(aCtx, l_aMainDictionary));
 end;//TkwPopMainDictionaryCompiledCode.DoDoIt
 
+class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:MainDictionary:CompiledCode';
+end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
+
 function TkwPopMainDictionaryCompiledCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWord);
@@ -91,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwMainDictionary)]);
 end;//TkwPopMainDictionaryCompiledCode.ParamsTypes
 
-class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:MainDictionary:CompiledCode';
-end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
-
 initialization
  TkwPopMainDictionaryCompiledCode.RegisterInEngine;
  {* Регистрация pop_MainDictionary_CompiledCode }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwMainDictionary));
  {* Регистрация типа TtfwMainDictionary }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));

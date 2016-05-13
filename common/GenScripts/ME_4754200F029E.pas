@@ -44,6 +44,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure Tl3ProgressComponent.Start(Count: Integer;
@@ -136,5 +139,11 @@ begin
  assert(false, 'Tl3ProgressComponent.InUse not implemented');
 //#UC END# *476F767601FC_4754200F029E_impl*
 end;//Tl3ProgressComponent.InUse
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Tl3ProgressComponent);
+ {* Регистрация Tl3ProgressComponent }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

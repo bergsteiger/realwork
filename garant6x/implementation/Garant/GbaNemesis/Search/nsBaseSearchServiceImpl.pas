@@ -46,6 +46,7 @@ type
     const aContainer: IvcmContainer);
    function GetBaseSearchController(const aContainer: IvcmContainer): InsBaseSearchController;
    function GetBaseSearchModel(const aContainer: IvcmContainer): InsBaseSearchModel;
+   function GetBaseSearchView(const aContainer: IvcmContainer): InsBaseSearchView;
    function GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
    procedure OpenBaseSearch(const aContainer: IvcmContainer;
     aOpenKind: TnsBaseSearchOpenKind);
@@ -122,6 +123,16 @@ begin
  Assert(False);
 //#UC END# *3ABD99A8B9EE_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.GetBaseSearchModel
+
+function TnsBaseSearchServiceImpl.GetBaseSearchView(const aContainer: IvcmContainer): InsBaseSearchView;
+//#UC START# *48C239B7B9E8_563208C60299_var*
+//#UC END# *48C239B7B9E8_563208C60299_var*
+begin
+//#UC START# *48C239B7B9E8_563208C60299_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *48C239B7B9E8_563208C60299_impl*
+end;//TnsBaseSearchServiceImpl.GetBaseSearchView
 
 function TnsBaseSearchServiceImpl.GetBaseSearcher(const aEntityForm: IvcmEntityForm): InsBaseSearcher;
 //#UC START# *4923CA8F0CFB_563208C60299_var*

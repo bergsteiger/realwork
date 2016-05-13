@@ -38,14 +38,14 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -440,14 +440,7 @@ type
  end;//Tkw_Text_Component_TextSource
 
  TkwTextFormRemindersLine = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.RemindersLine
-[panel]Контрол RemindersLine формы TTextForm[panel]
-*Тип результата:* TnscRemindersLine
-*Пример:*
-[code]
-OBJECT VAR l_TnscRemindersLine
- aTextForm .TTextForm.RemindersLine >>> l_TnscRemindersLine
-[code]  }
+  {* Слово скрипта .TTextForm.RemindersLine }
   private
    function RemindersLine(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscRemindersLine;
@@ -456,22 +449,15 @@ OBJECT VAR l_TnscRemindersLine
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormRemindersLine
 
  TkwTextFormWarnTimeMachineException = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnTimeMachineException
-[panel]Контрол WarnTimeMachineException формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnTimeMachineException >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnTimeMachineException }
   private
    function WarnTimeMachineException(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -480,22 +466,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnTimeMachineException
 
  TkwTextFormWarnIsAbolished = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnIsAbolished
-[panel]Контрол WarnIsAbolished формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnIsAbolished >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnIsAbolished }
   private
    function WarnIsAbolished(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -504,22 +483,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnIsAbolished
 
  TkwTextFormWarnPreActive = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnPreActive
-[panel]Контрол WarnPreActive формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnPreActive >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnPreActive }
   private
    function WarnPreActive(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -528,22 +500,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnPreActive
 
  TkwTextFormWarnTimeMachineWarning = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnTimeMachineWarning
-[panel]Контрол WarnTimeMachineWarning формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnTimeMachineWarning >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnTimeMachineWarning }
   private
    function WarnTimeMachineWarning(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -552,22 +517,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnTimeMachineWarning
 
  TkwTextFormWarnOnControl = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnOnControl
-[panel]Контрол WarnOnControl формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnOnControl >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnOnControl }
   private
    function WarnOnControl(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -576,22 +534,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnOnControl
 
  TkwTextFormWarnJuror = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnJuror
-[panel]Контрол WarnJuror формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnJuror >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnJuror }
   private
    function WarnJuror(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -600,22 +551,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnJuror
 
  TkwTextFormWarnRedaction = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnRedaction
-[panel]Контрол WarnRedaction формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnRedaction >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnRedaction }
   private
    function WarnRedaction(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -624,22 +568,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnRedaction
 
  TkwTextFormWarnInactualDocument = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnInactualDocument
-[panel]Контрол WarnInactualDocument формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnInactualDocument >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnInactualDocument }
   private
    function WarnInactualDocument(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -648,22 +585,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnInactualDocument
 
  TkwTextFormWarnTimeMachineOn = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.WarnTimeMachineOn
-[panel]Контрол WarnTimeMachineOn формы TTextForm[panel]
-*Тип результата:* TnscReminder
-*Пример:*
-[code]
-OBJECT VAR l_TnscReminder
- aTextForm .TTextForm.WarnTimeMachineOn >>> l_TnscReminder
-[code]  }
+  {* Слово скрипта .TTextForm.WarnTimeMachineOn }
   private
    function WarnTimeMachineOn(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscReminder;
@@ -672,22 +602,15 @@ OBJECT VAR l_TnscReminder
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormWarnTimeMachineOn
 
  TkwTextFormSubPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.SubPanel
-[panel]Контрол SubPanel формы TTextForm[panel]
-*Тип результата:* TeeSubPanel
-*Пример:*
-[code]
-OBJECT VAR l_TeeSubPanel
- aTextForm .TTextForm.SubPanel >>> l_TeeSubPanel
-[code]  }
+  {* Слово скрипта .TTextForm.SubPanel }
   private
    function SubPanel(const aCtx: TtfwContext;
     aTextForm: TTextForm): TeeSubPanel;
@@ -696,22 +619,15 @@ OBJECT VAR l_TeeSubPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormSubPanel
 
  TkwTextFormHScroll = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.HScroll
-[panel]Контрол HScroll формы TTextForm[panel]
-*Тип результата:* TvtScrollBar
-*Пример:*
-[code]
-OBJECT VAR l_TvtScrollBar
- aTextForm .TTextForm.HScroll >>> l_TvtScrollBar
-[code]  }
+  {* Слово скрипта .TTextForm.HScroll }
   private
    function HScroll(const aCtx: TtfwContext;
     aTextForm: TTextForm): TvtScrollBar;
@@ -720,22 +636,15 @@ OBJECT VAR l_TvtScrollBar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormHScroll
 
  TkwTextFormText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextForm.Text
-[panel]Контрол Text формы TTextForm[panel]
-*Тип результата:* TnscEditor
-*Пример:*
-[code]
-OBJECT VAR l_TnscEditor
- aTextForm .TTextForm.Text >>> l_TnscEditor
-[code]  }
+  {* Слово скрипта .TTextForm.Text }
   private
    function Text(const aCtx: TtfwContext;
     aTextForm: TTextForm): TnscEditor;
@@ -744,11 +653,11 @@ OBJECT VAR l_TnscEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextFormText
 
 function Tkw_Form_Text.GetString: AnsiString;
@@ -1150,11 +1059,10 @@ begin
  aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aTextForm));
 end;//TkwTextFormRemindersLine.DoDoIt
 
-procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormRemindersLine.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
-end;//TkwTextFormRemindersLine.SetValuePrim
+ Result := '.TTextForm.RemindersLine';
+end;//TkwTextFormRemindersLine.GetWordNameForRegister
 
 function TkwTextFormRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1171,10 +1079,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormRemindersLine.ParamsTypes
 
-class function TkwTextFormRemindersLine.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.RemindersLine';
-end;//TkwTextFormRemindersLine.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
+end;//TkwTextFormRemindersLine.SetValuePrim
 
 function TkwTextFormWarnTimeMachineException.WarnTimeMachineException(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1198,11 +1107,10 @@ begin
  aCtx.rEngine.PushObj(WarnTimeMachineException(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineException.DoDoIt
 
-procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnTimeMachineException.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineException', aCtx);
-end;//TkwTextFormWarnTimeMachineException.SetValuePrim
+ Result := '.TTextForm.WarnTimeMachineException';
+end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
 
 function TkwTextFormWarnTimeMachineException.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1219,10 +1127,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineException.ParamsTypes
 
-class function TkwTextFormWarnTimeMachineException.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnTimeMachineException';
-end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineException', aCtx);
+end;//TkwTextFormWarnTimeMachineException.SetValuePrim
 
 function TkwTextFormWarnIsAbolished.WarnIsAbolished(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1246,11 +1155,10 @@ begin
  aCtx.rEngine.PushObj(WarnIsAbolished(aCtx, l_aTextForm));
 end;//TkwTextFormWarnIsAbolished.DoDoIt
 
-procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnIsAbolished.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnIsAbolished', aCtx);
-end;//TkwTextFormWarnIsAbolished.SetValuePrim
+ Result := '.TTextForm.WarnIsAbolished';
+end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
 
 function TkwTextFormWarnIsAbolished.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1267,10 +1175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnIsAbolished.ParamsTypes
 
-class function TkwTextFormWarnIsAbolished.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnIsAbolished';
-end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnIsAbolished', aCtx);
+end;//TkwTextFormWarnIsAbolished.SetValuePrim
 
 function TkwTextFormWarnPreActive.WarnPreActive(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1294,11 +1203,10 @@ begin
  aCtx.rEngine.PushObj(WarnPreActive(aCtx, l_aTextForm));
 end;//TkwTextFormWarnPreActive.DoDoIt
 
-procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnPreActive.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnPreActive', aCtx);
-end;//TkwTextFormWarnPreActive.SetValuePrim
+ Result := '.TTextForm.WarnPreActive';
+end;//TkwTextFormWarnPreActive.GetWordNameForRegister
 
 function TkwTextFormWarnPreActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1315,10 +1223,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnPreActive.ParamsTypes
 
-class function TkwTextFormWarnPreActive.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnPreActive';
-end;//TkwTextFormWarnPreActive.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnPreActive', aCtx);
+end;//TkwTextFormWarnPreActive.SetValuePrim
 
 function TkwTextFormWarnTimeMachineWarning.WarnTimeMachineWarning(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1342,11 +1251,10 @@ begin
  aCtx.rEngine.PushObj(WarnTimeMachineWarning(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineWarning.DoDoIt
 
-procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineWarning', aCtx);
-end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
+ Result := '.TTextForm.WarnTimeMachineWarning';
+end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
 
 function TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1363,10 +1271,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineWarning.ParamsTypes
 
-class function TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnTimeMachineWarning';
-end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineWarning', aCtx);
+end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
 
 function TkwTextFormWarnOnControl.WarnOnControl(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1390,11 +1299,10 @@ begin
  aCtx.rEngine.PushObj(WarnOnControl(aCtx, l_aTextForm));
 end;//TkwTextFormWarnOnControl.DoDoIt
 
-procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnOnControl.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnOnControl', aCtx);
-end;//TkwTextFormWarnOnControl.SetValuePrim
+ Result := '.TTextForm.WarnOnControl';
+end;//TkwTextFormWarnOnControl.GetWordNameForRegister
 
 function TkwTextFormWarnOnControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1411,10 +1319,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnOnControl.ParamsTypes
 
-class function TkwTextFormWarnOnControl.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnOnControl';
-end;//TkwTextFormWarnOnControl.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnOnControl', aCtx);
+end;//TkwTextFormWarnOnControl.SetValuePrim
 
 function TkwTextFormWarnJuror.WarnJuror(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1438,11 +1347,10 @@ begin
  aCtx.rEngine.PushObj(WarnJuror(aCtx, l_aTextForm));
 end;//TkwTextFormWarnJuror.DoDoIt
 
-procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnJuror.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnJuror', aCtx);
-end;//TkwTextFormWarnJuror.SetValuePrim
+ Result := '.TTextForm.WarnJuror';
+end;//TkwTextFormWarnJuror.GetWordNameForRegister
 
 function TkwTextFormWarnJuror.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1459,10 +1367,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnJuror.ParamsTypes
 
-class function TkwTextFormWarnJuror.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnJuror';
-end;//TkwTextFormWarnJuror.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnJuror', aCtx);
+end;//TkwTextFormWarnJuror.SetValuePrim
 
 function TkwTextFormWarnRedaction.WarnRedaction(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1486,11 +1395,10 @@ begin
  aCtx.rEngine.PushObj(WarnRedaction(aCtx, l_aTextForm));
 end;//TkwTextFormWarnRedaction.DoDoIt
 
-procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnRedaction.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnRedaction', aCtx);
-end;//TkwTextFormWarnRedaction.SetValuePrim
+ Result := '.TTextForm.WarnRedaction';
+end;//TkwTextFormWarnRedaction.GetWordNameForRegister
 
 function TkwTextFormWarnRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1507,10 +1415,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnRedaction.ParamsTypes
 
-class function TkwTextFormWarnRedaction.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnRedaction';
-end;//TkwTextFormWarnRedaction.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnRedaction', aCtx);
+end;//TkwTextFormWarnRedaction.SetValuePrim
 
 function TkwTextFormWarnInactualDocument.WarnInactualDocument(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1534,11 +1443,10 @@ begin
  aCtx.rEngine.PushObj(WarnInactualDocument(aCtx, l_aTextForm));
 end;//TkwTextFormWarnInactualDocument.DoDoIt
 
-procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnInactualDocument.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnInactualDocument', aCtx);
-end;//TkwTextFormWarnInactualDocument.SetValuePrim
+ Result := '.TTextForm.WarnInactualDocument';
+end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
 
 function TkwTextFormWarnInactualDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1555,10 +1463,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnInactualDocument.ParamsTypes
 
-class function TkwTextFormWarnInactualDocument.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnInactualDocument';
-end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnInactualDocument', aCtx);
+end;//TkwTextFormWarnInactualDocument.SetValuePrim
 
 function TkwTextFormWarnTimeMachineOn.WarnTimeMachineOn(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
@@ -1582,11 +1491,10 @@ begin
  aCtx.rEngine.PushObj(WarnTimeMachineOn(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineOn.DoDoIt
 
-procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormWarnTimeMachineOn.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineOn', aCtx);
-end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
+ Result := '.TTextForm.WarnTimeMachineOn';
+end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
 
 function TkwTextFormWarnTimeMachineOn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1603,10 +1511,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineOn.ParamsTypes
 
-class function TkwTextFormWarnTimeMachineOn.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.WarnTimeMachineOn';
-end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineOn', aCtx);
+end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
 
 function TkwTextFormSubPanel.SubPanel(const aCtx: TtfwContext;
  aTextForm: TTextForm): TeeSubPanel;
@@ -1630,11 +1539,10 @@ begin
  aCtx.rEngine.PushObj(SubPanel(aCtx, l_aTextForm));
 end;//TkwTextFormSubPanel.DoDoIt
 
-procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormSubPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SubPanel', aCtx);
-end;//TkwTextFormSubPanel.SetValuePrim
+ Result := '.TTextForm.SubPanel';
+end;//TkwTextFormSubPanel.GetWordNameForRegister
 
 function TkwTextFormSubPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1651,10 +1559,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormSubPanel.ParamsTypes
 
-class function TkwTextFormSubPanel.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.SubPanel';
-end;//TkwTextFormSubPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SubPanel', aCtx);
+end;//TkwTextFormSubPanel.SetValuePrim
 
 function TkwTextFormHScroll.HScroll(const aCtx: TtfwContext;
  aTextForm: TTextForm): TvtScrollBar;
@@ -1678,11 +1587,10 @@ begin
  aCtx.rEngine.PushObj(HScroll(aCtx, l_aTextForm));
 end;//TkwTextFormHScroll.DoDoIt
 
-procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormHScroll.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HScroll', aCtx);
-end;//TkwTextFormHScroll.SetValuePrim
+ Result := '.TTextForm.HScroll';
+end;//TkwTextFormHScroll.GetWordNameForRegister
 
 function TkwTextFormHScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1699,10 +1607,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormHScroll.ParamsTypes
 
-class function TkwTextFormHScroll.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.HScroll';
-end;//TkwTextFormHScroll.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HScroll', aCtx);
+end;//TkwTextFormHScroll.SetValuePrim
 
 function TkwTextFormText.Text(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscEditor;
@@ -1726,11 +1635,10 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aTextForm));
 end;//TkwTextFormText.DoDoIt
 
-procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextFormText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
-end;//TkwTextFormText.SetValuePrim
+ Result := '.TTextForm.Text';
+end;//TkwTextFormText.GetWordNameForRegister
 
 function TkwTextFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1747,10 +1655,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormText.ParamsTypes
 
-class function TkwTextFormText.GetWordNameForRegister: AnsiString;
+procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextForm.Text';
-end;//TkwTextFormText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
+end;//TkwTextFormText.SetValuePrim
 
 initialization
  Tkw_Form_Text.RegisterInEngine;
@@ -1835,10 +1744,8 @@ initialization
  {* Регистрация TextForm_HScroll }
  TkwTextFormText.RegisterInEngine;
  {* Регистрация TextForm_Text }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTextForm));
- {* Регистрация типа Text }
+ {* Регистрация типа TTextForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscRemindersLine));
  {* Регистрация типа TnscRemindersLine }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));

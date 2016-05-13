@@ -33,11 +33,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -195,14 +195,7 @@ type
  end;//Tkw_ChatWindow_Control_HistoryEditor_Push
 
  TkwChatWindowFormBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChatWindowForm.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TChatWindowForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aChatWindowForm .TChatWindowForm.BackgroundPanel >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TChatWindowForm.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aChatWindowForm: TChatWindowForm): TvtProportionalPanel;
@@ -211,22 +204,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChatWindowFormBackgroundPanel
 
  TkwChatWindowFormBottomPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChatWindowForm.BottomPanel
-[panel]Контрол BottomPanel формы TChatWindowForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aChatWindowForm .TChatWindowForm.BottomPanel >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TChatWindowForm.BottomPanel }
   private
    function BottomPanel(const aCtx: TtfwContext;
     aChatWindowForm: TChatWindowForm): TvtSizeablePanel;
@@ -235,22 +221,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChatWindowFormBottomPanel
 
  TkwChatWindowFormBottomEditor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChatWindowForm.BottomEditor
-[panel]Контрол BottomEditor формы TChatWindowForm[panel]
-*Тип результата:* TnscChatMemo
-*Пример:*
-[code]
-OBJECT VAR l_TnscChatMemo
- aChatWindowForm .TChatWindowForm.BottomEditor >>> l_TnscChatMemo
-[code]  }
+  {* Слово скрипта .TChatWindowForm.BottomEditor }
   private
    function BottomEditor(const aCtx: TtfwContext;
     aChatWindowForm: TChatWindowForm): TnscChatMemo;
@@ -259,22 +238,15 @@ OBJECT VAR l_TnscChatMemo
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChatWindowFormBottomEditor
 
  TkwChatWindowFormTopPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChatWindowForm.TopPanel
-[panel]Контрол TopPanel формы TChatWindowForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aChatWindowForm .TChatWindowForm.TopPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TChatWindowForm.TopPanel }
   private
    function TopPanel(const aCtx: TtfwContext;
     aChatWindowForm: TChatWindowForm): TvtPanel;
@@ -283,22 +255,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChatWindowFormTopPanel
 
  TkwChatWindowFormHistoryEditor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChatWindowForm.HistoryEditor
-[panel]Контрол HistoryEditor формы TChatWindowForm[panel]
-*Тип результата:* TnscChatMemo
-*Пример:*
-[code]
-OBJECT VAR l_TnscChatMemo
- aChatWindowForm .TChatWindowForm.HistoryEditor >>> l_TnscChatMemo
-[code]  }
+  {* Слово скрипта .TChatWindowForm.HistoryEditor }
   private
    function HistoryEditor(const aCtx: TtfwContext;
     aChatWindowForm: TChatWindowForm): TnscChatMemo;
@@ -307,11 +272,11 @@ OBJECT VAR l_TnscChatMemo
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChatWindowFormHistoryEditor
 
 function Tkw_Form_ChatWindow.GetString: AnsiString;
@@ -481,11 +446,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormBackgroundPanel.DoDoIt
 
-procedure TkwChatWindowFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChatWindowFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwChatWindowFormBackgroundPanel.SetValuePrim
+ Result := '.TChatWindowForm.BackgroundPanel';
+end;//TkwChatWindowFormBackgroundPanel.GetWordNameForRegister
 
 function TkwChatWindowFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -502,10 +466,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormBackgroundPanel.ParamsTypes
 
-class function TkwChatWindowFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwChatWindowFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChatWindowForm.BackgroundPanel';
-end;//TkwChatWindowFormBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwChatWindowFormBackgroundPanel.SetValuePrim
 
 function TkwChatWindowFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TvtSizeablePanel;
@@ -529,11 +494,10 @@ begin
  aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormBottomPanel.DoDoIt
 
-procedure TkwChatWindowFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChatWindowFormBottomPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
-end;//TkwChatWindowFormBottomPanel.SetValuePrim
+ Result := '.TChatWindowForm.BottomPanel';
+end;//TkwChatWindowFormBottomPanel.GetWordNameForRegister
 
 function TkwChatWindowFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -550,10 +514,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormBottomPanel.ParamsTypes
 
-class function TkwChatWindowFormBottomPanel.GetWordNameForRegister: AnsiString;
+procedure TkwChatWindowFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChatWindowForm.BottomPanel';
-end;//TkwChatWindowFormBottomPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
+end;//TkwChatWindowFormBottomPanel.SetValuePrim
 
 function TkwChatWindowFormBottomEditor.BottomEditor(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TnscChatMemo;
@@ -577,11 +542,10 @@ begin
  aCtx.rEngine.PushObj(BottomEditor(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormBottomEditor.DoDoIt
 
-procedure TkwChatWindowFormBottomEditor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChatWindowFormBottomEditor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BottomEditor', aCtx);
-end;//TkwChatWindowFormBottomEditor.SetValuePrim
+ Result := '.TChatWindowForm.BottomEditor';
+end;//TkwChatWindowFormBottomEditor.GetWordNameForRegister
 
 function TkwChatWindowFormBottomEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -598,10 +562,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormBottomEditor.ParamsTypes
 
-class function TkwChatWindowFormBottomEditor.GetWordNameForRegister: AnsiString;
+procedure TkwChatWindowFormBottomEditor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChatWindowForm.BottomEditor';
-end;//TkwChatWindowFormBottomEditor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BottomEditor', aCtx);
+end;//TkwChatWindowFormBottomEditor.SetValuePrim
 
 function TkwChatWindowFormTopPanel.TopPanel(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TvtPanel;
@@ -625,11 +590,10 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormTopPanel.DoDoIt
 
-procedure TkwChatWindowFormTopPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChatWindowFormTopPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
-end;//TkwChatWindowFormTopPanel.SetValuePrim
+ Result := '.TChatWindowForm.TopPanel';
+end;//TkwChatWindowFormTopPanel.GetWordNameForRegister
 
 function TkwChatWindowFormTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -646,10 +610,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormTopPanel.ParamsTypes
 
-class function TkwChatWindowFormTopPanel.GetWordNameForRegister: AnsiString;
+procedure TkwChatWindowFormTopPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChatWindowForm.TopPanel';
-end;//TkwChatWindowFormTopPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
+end;//TkwChatWindowFormTopPanel.SetValuePrim
 
 function TkwChatWindowFormHistoryEditor.HistoryEditor(const aCtx: TtfwContext;
  aChatWindowForm: TChatWindowForm): TnscChatMemo;
@@ -673,11 +638,10 @@ begin
  aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatWindowForm));
 end;//TkwChatWindowFormHistoryEditor.DoDoIt
 
-procedure TkwChatWindowFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChatWindowFormHistoryEditor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HistoryEditor', aCtx);
-end;//TkwChatWindowFormHistoryEditor.SetValuePrim
+ Result := '.TChatWindowForm.HistoryEditor';
+end;//TkwChatWindowFormHistoryEditor.GetWordNameForRegister
 
 function TkwChatWindowFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -694,10 +658,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChatWindowForm)]);
 end;//TkwChatWindowFormHistoryEditor.ParamsTypes
 
-class function TkwChatWindowFormHistoryEditor.GetWordNameForRegister: AnsiString;
+procedure TkwChatWindowFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChatWindowForm.HistoryEditor';
-end;//TkwChatWindowFormHistoryEditor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HistoryEditor', aCtx);
+end;//TkwChatWindowFormHistoryEditor.SetValuePrim
 
 initialization
  Tkw_Form_ChatWindow.RegisterInEngine;
@@ -732,10 +697,8 @@ initialization
  {* Регистрация ChatWindowForm_TopPanel }
  TkwChatWindowFormHistoryEditor.RegisterInEngine;
  {* Регистрация ChatWindowForm_HistoryEditor }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChatWindowForm));
- {* Регистрация типа ChatWindow }
+ {* Регистрация типа TChatWindowForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));

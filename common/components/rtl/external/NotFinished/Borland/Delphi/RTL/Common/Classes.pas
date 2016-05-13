@@ -256,6 +256,9 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , ComponentsProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
@@ -573,6 +576,18 @@ end;//TBasicActionLink.AssignClient
 
 initialization
 {$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EListError));
+ {* Регистрация типа EListError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TComponent);
+ {* Регистрация TComponent }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TDataModule);
+ {* Регистрация TDataModule }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCollectionItem);
  {* Регистрация TCollectionItem }
 {$IfEnd} // NOT Defined(NoScripts)
@@ -581,8 +596,16 @@ initialization
  {* Регистрация TCollection }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TBasicAction);
+ {* Регистрация TBasicAction }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TOwnedCollection);
  {* Регистрация TOwnedCollection }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EReadError));
+ {* Регистрация типа EReadError }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

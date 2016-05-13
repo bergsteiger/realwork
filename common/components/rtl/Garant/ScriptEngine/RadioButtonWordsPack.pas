@@ -22,22 +22,16 @@ uses
  , StdCtrls
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopRadioButtonChecked = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:RadioButton:Checked
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aRadioButton pop:RadioButton:Checked >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:RadioButton:Checked }
   private
    function Checked(const aCtx: TtfwContext;
     aRadioButton: TRadioButton): Boolean;
@@ -46,11 +40,11 @@ BOOLEAN VAR l_Boolean
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopRadioButtonChecked
 
 function TkwPopRadioButtonChecked.Checked(const aCtx: TtfwContext;
@@ -75,21 +69,10 @@ begin
  aCtx.rEngine.PushBool(Checked(aCtx, l_aRadioButton));
 end;//TkwPopRadioButtonChecked.DoDoIt
 
-procedure TkwPopRadioButtonChecked.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_RadioButton: TRadioButton;
+class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_RadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра RadioButton: TRadioButton : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_RadioButton.Checked := aValue.AsBoolean;
-end;//TkwPopRadioButtonChecked.SetValuePrim
+ Result := 'pop:RadioButton:Checked';
+end;//TkwPopRadioButtonChecked.GetWordNameForRegister
 
 function TkwPopRadioButtonChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -106,16 +89,25 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRadioButton)]);
 end;//TkwPopRadioButtonChecked.ParamsTypes
 
-class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
+procedure TkwPopRadioButtonChecked.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_RadioButton: TRadioButton;
 begin
- Result := 'pop:RadioButton:Checked';
-end;//TkwPopRadioButtonChecked.GetWordNameForRegister
+ try
+  l_RadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RadioButton: TRadioButton : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_RadioButton.Checked := aValue.AsBoolean;
+end;//TkwPopRadioButtonChecked.SetValuePrim
 
 initialization
  TkwPopRadioButtonChecked.RegisterInEngine;
  {* Регистрация pop_RadioButton_Checked }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TRadioButton));
  {* Регистрация типа TRadioButton }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

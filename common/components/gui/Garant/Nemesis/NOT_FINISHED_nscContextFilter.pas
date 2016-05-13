@@ -35,7 +35,16 @@ implementation
 uses
  l3ImplUses
  , nscContextFilterRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscContextFilter);
+ {* Регистрация TnscContextFilter }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 
 end.

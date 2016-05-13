@@ -32,7 +32,7 @@ uses
  , kwMouseWheelUp
  , kwMouseWheelDown
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

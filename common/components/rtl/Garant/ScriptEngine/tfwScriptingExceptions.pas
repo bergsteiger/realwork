@@ -34,6 +34,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TtfwTypeRegistrator_Proxy
+ , TtfwClassRef_Proxy
 ;
 
 class procedure EtfwCheckPrim.IsTrue(aCondition: Boolean;
@@ -55,6 +57,14 @@ begin
  IsTrue(false, aMessage);
 //#UC END# *550C432A0223_54F873F5009A_impl*
 end;//EtfwCheckPrim.Fail
+
+initialization
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwException));
+ {* Регистрация типа EtfwException }
+ TtfwClassRef.Register(EtfwCheckPrim);
+ {* Регистрация EtfwCheckPrim }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCheck));
+ {* Регистрация типа EtfwCheck }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -40,6 +40,9 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -54,5 +57,11 @@ begin
 end;//TnscNavigator.MainFormChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscNavigator);
+ {* Регистрация TnscNavigator }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
+
 end.

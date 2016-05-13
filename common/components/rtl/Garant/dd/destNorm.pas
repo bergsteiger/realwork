@@ -69,8 +69,6 @@ type
     aPAP: TddParagraphProperty);
    procedure CorrectCharset(aCHP: TddCharacterProperty;
     aText: Tl3String);
-   procedure FlushTextBuffer(aState: TddRTFState;
-    aCheckCodePage: Boolean);
    procedure FlushUnicodeBuffer(aState: TddRTFState);
    procedure Unicode2Text;
    function GetLastTextParaOrCreateNew(aPAP: TddParagraphProperty;
@@ -95,6 +93,8 @@ type
    function GetFontEvent(aFontID: Integer): TddFontEntry;
    function GetColor(aColorIndex: Integer): TColor;
    function InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph; virtual;
+   procedure FlushTextBuffer(aState: TddRTFState;
+    aCheckCodePage: Boolean);
    procedure Try2ApplyParaProperty(aState: TddRTFState;
     aPara: TddTextParagraph;
     aWasPara: Boolean); virtual;
@@ -117,6 +117,9 @@ type
     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure DoAddTabStop(aPAP: TddParagraphProperty); virtual;
    function AddTextPara2Document: TddTextParagraph;
+   procedure BeforeWriteBuffer(aText: Tl3String;
+    aState: TddRTFState); virtual;
+   function Try2AddShapeWithTextPara(aPAP: TddParagraphProperty): TddTextParagraph; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -1635,6 +1638,70 @@ begin
  end;
 //#UC END# *56C5946F0006_51D278280093_impl*
 end;//TdestNorm.AddTextPara2Document
+
+procedure TdestNorm.BeforeWriteBuffer(aText: Tl3String;
+ aState: TddRTFState);
+//#UC START# *572C58C602AF_51D278280093_var*
+//#UC END# *572C58C602AF_51D278280093_var*
+begin
+//#UC START# *572C58C602AF_51D278280093_impl*
+
+//#UC END# *572C58C602AF_51D278280093_impl*
+end;//TdestNorm.BeforeWriteBuffer
+
+function TdestNorm.Try2AddShapeWithTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
+//#UC START# *573427280365_51D278280093_var*
+
+ procedure lp_AddShape;
+
+  function lp_ClearUndef(aValue: Integer): Integer;
+  begin
+   if aValue = propUndefined then
+    Result := 0
+   else
+    Result := aValue;
+  end;
+
+ var
+  l_Shape: TddRTFShape;
+ begin
+  l_Shape := TddRTFShape.Create(Self);
+  try
+   l_Shape.Left := aPAP.PosX;
+   l_Shape.Top := aPAP.PosY;
+   l_Shape.Right := l_Shape.Left + lp_ClearUndef(aPAP.AbsW);
+   l_Shape.Bottom := l_Shape.Top + lp_ClearUndef(aPAP.AbsH);
+   Result := l_Shape.AddTextPara;
+   f_LastShape := l_Shape;
+   SimpleAddShape(l_Shape);
+  finally
+   FreeAndNil(l_Shape);
+  end;
+ end;
+
+var
+ l_Shape   : TddRTFShape;
+ l_LastAtom: TddDocumentAtom;
+//#UC END# *573427280365_51D278280093_var*
+begin
+//#UC START# *573427280365_51D278280093_impl*
+ l_LastAtom := f_LastShape;
+ if (l_LastAtom = nil) or not (l_LastAtom is TddRTFShape) then
+  lp_AddShape
+ else
+  begin
+   l_Shape := l_LastAtom as TddRTFShape;
+   if l_Shape.Closed or (l_Shape.Left <> aPAP.PosX) or (l_Shape.Top <> aPAP.PosY) then
+    lp_AddShape
+   else
+   begin
+    Result := l_Shape.LastPara;
+    if (Result = nil) or Result.Closed then
+     Result := l_Shape.AddTextPara;
+   end;
+  end;
+//#UC END# *573427280365_51D278280093_impl*
+end;//TdestNorm.Try2AddShapeWithTextPara
 
 procedure TdestNorm.Close(aState: TddRTFState;
  aNewDest: TddRTFDestination);

@@ -77,6 +77,9 @@ uses
  , ChromeLikeInterfaces
  {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
  , vtDateEditRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , NemesisMain_Form
  , MainOptions_Form
  , Main_Form
@@ -329,6 +332,12 @@ procedure TPrimNemesisRes.Loaded;
 begin
  inherited;
 end;//TPrimNemesisRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TPrimNemesisRes);
+ {* Регистрация PrimNemesis }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

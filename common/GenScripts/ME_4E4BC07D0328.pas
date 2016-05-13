@@ -20,8 +20,8 @@ type
  TkwInsertDocChanges = class(TtfwRegisterableWord)
   {* macros:InsertDocChanges }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwInsertDocChanges
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -33,6 +33,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwInsertDocChanges.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'macros:InsertDocChanges';
+end;//TkwInsertDocChanges.GetWordNameForRegister
+
 procedure TkwInsertDocChanges.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E4BC07D0328_var*
 //#UC END# *4DAEEDE10285_4E4BC07D0328_var*
@@ -41,11 +46,6 @@ begin
  ArInsertDocChanges;
 //#UC END# *4DAEEDE10285_4E4BC07D0328_impl*
 end;//TkwInsertDocChanges.DoDoIt
-
-class function TkwInsertDocChanges.GetWordNameForRegister: AnsiString;
-begin
- Result := 'macros:InsertDocChanges';
-end;//TkwInsertDocChanges.GetWordNameForRegister
 
 initialization
  TkwInsertDocChanges.RegisterInEngine;

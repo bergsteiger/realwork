@@ -34,11 +34,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -336,14 +336,7 @@ type
  end;//Tkw_FoldersElementInfo_Control_InfoName_Push
 
  TkwEnFoldersElementInfoCommentPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.CommentPanel
-[panel]Контрол CommentPanel формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aenFoldersElementInfo .TenFoldersElementInfo.CommentPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.CommentPanel }
   private
    function CommentPanel(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -352,22 +345,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoCommentPanel
 
  TkwEnFoldersElementInfoElementComment = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.ElementComment
-[panel]Контрол ElementComment формы TenFoldersElementInfo[panel]
-*Тип результата:* TeeMemoWithEditOperations
-*Пример:*
-[code]
-OBJECT VAR l_TeeMemoWithEditOperations
- aenFoldersElementInfo .TenFoldersElementInfo.ElementComment >>> l_TeeMemoWithEditOperations
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.ElementComment }
   private
    function ElementComment(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TeeMemoWithEditOperations;
@@ -376,22 +362,15 @@ OBJECT VAR l_TeeMemoWithEditOperations
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoElementComment
 
  TkwEnFoldersElementInfoCaptionPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.CaptionPanel
-[panel]Контрол CaptionPanel формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aenFoldersElementInfo .TenFoldersElementInfo.CaptionPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.CaptionPanel }
   private
    function CaptionPanel(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -400,22 +379,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoCaptionPanel
 
  TkwEnFoldersElementInfoLblComment = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.lblComment
-[panel]Контрол lblComment формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aenFoldersElementInfo .TenFoldersElementInfo.lblComment >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.lblComment }
   private
    function lblComment(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -424,22 +396,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoLblComment
 
  TkwEnFoldersElementInfoTopPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.TopPanel
-[panel]Контрол TopPanel формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aenFoldersElementInfo .TenFoldersElementInfo.TopPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.TopPanel }
   private
    function TopPanel(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -448,22 +413,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoTopPanel
 
  TkwEnFoldersElementInfoNamePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.NamePanel
-[panel]Контрол NamePanel формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aenFoldersElementInfo .TenFoldersElementInfo.NamePanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.NamePanel }
   private
    function NamePanel(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -472,22 +430,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoNamePanel
 
  TkwEnFoldersElementInfoLblElementName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.lblElementName
-[panel]Контрол lblElementName формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aenFoldersElementInfo .TenFoldersElementInfo.lblElementName >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.lblElementName }
   private
    function lblElementName(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -496,22 +447,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoLblElementName
 
  TkwEnFoldersElementInfoElementName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.ElementName
-[panel]Контрол ElementName формы TenFoldersElementInfo[panel]
-*Тип результата:* TnscComboBoxWithReadOnly
-*Пример:*
-[code]
-OBJECT VAR l_TnscComboBoxWithReadOnly
- aenFoldersElementInfo .TenFoldersElementInfo.ElementName >>> l_TnscComboBoxWithReadOnly
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.ElementName }
   private
    function ElementName(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TnscComboBoxWithReadOnly;
@@ -520,22 +464,15 @@ OBJECT VAR l_TnscComboBoxWithReadOnly
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoElementName
 
  TkwEnFoldersElementInfoCbShared = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.cbShared
-[panel]Контрол cbShared формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aenFoldersElementInfo .TenFoldersElementInfo.cbShared >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.cbShared }
   private
    function cbShared(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtCheckBox;
@@ -544,22 +481,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoCbShared
 
  TkwEnFoldersElementInfoInfoName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFoldersElementInfo.InfoName
-[panel]Контрол InfoName формы TenFoldersElementInfo[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aenFoldersElementInfo .TenFoldersElementInfo.InfoName >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TenFoldersElementInfo.InfoName }
   private
    function InfoName(const aCtx: TtfwContext;
     aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -568,11 +498,11 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFoldersElementInfoInfoName
 
 function Tkw_Form_FoldersElementInfo.GetString: AnsiString;
@@ -877,11 +807,10 @@ begin
  aCtx.rEngine.PushObj(CommentPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCommentPanel.DoDoIt
 
-procedure TkwEnFoldersElementInfoCommentPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CommentPanel', aCtx);
-end;//TkwEnFoldersElementInfoCommentPanel.SetValuePrim
+ Result := '.TenFoldersElementInfo.CommentPanel';
+end;//TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoCommentPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -898,10 +827,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCommentPanel.ParamsTypes
 
-class function TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoCommentPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.CommentPanel';
-end;//TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CommentPanel', aCtx);
+end;//TkwEnFoldersElementInfoCommentPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoElementComment.ElementComment(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TeeMemoWithEditOperations;
@@ -925,11 +855,10 @@ begin
  aCtx.rEngine.PushObj(ElementComment(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoElementComment.DoDoIt
 
-procedure TkwEnFoldersElementInfoElementComment.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoElementComment.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ElementComment', aCtx);
-end;//TkwEnFoldersElementInfoElementComment.SetValuePrim
+ Result := '.TenFoldersElementInfo.ElementComment';
+end;//TkwEnFoldersElementInfoElementComment.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoElementComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -946,10 +875,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoElementComment.ParamsTypes
 
-class function TkwEnFoldersElementInfoElementComment.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoElementComment.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.ElementComment';
-end;//TkwEnFoldersElementInfoElementComment.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ElementComment', aCtx);
+end;//TkwEnFoldersElementInfoElementComment.SetValuePrim
 
 function TkwEnFoldersElementInfoCaptionPanel.CaptionPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -973,11 +903,10 @@ begin
  aCtx.rEngine.PushObj(CaptionPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCaptionPanel.DoDoIt
 
-procedure TkwEnFoldersElementInfoCaptionPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CaptionPanel', aCtx);
-end;//TkwEnFoldersElementInfoCaptionPanel.SetValuePrim
+ Result := '.TenFoldersElementInfo.CaptionPanel';
+end;//TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoCaptionPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -994,10 +923,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCaptionPanel.ParamsTypes
 
-class function TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoCaptionPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.CaptionPanel';
-end;//TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CaptionPanel', aCtx);
+end;//TkwEnFoldersElementInfoCaptionPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoLblComment.lblComment(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -1021,11 +951,10 @@ begin
  aCtx.rEngine.PushObj(lblComment(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoLblComment.DoDoIt
 
-procedure TkwEnFoldersElementInfoLblComment.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoLblComment.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblComment', aCtx);
-end;//TkwEnFoldersElementInfoLblComment.SetValuePrim
+ Result := '.TenFoldersElementInfo.lblComment';
+end;//TkwEnFoldersElementInfoLblComment.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoLblComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1042,10 +971,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoLblComment.ParamsTypes
 
-class function TkwEnFoldersElementInfoLblComment.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoLblComment.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.lblComment';
-end;//TkwEnFoldersElementInfoLblComment.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblComment', aCtx);
+end;//TkwEnFoldersElementInfoLblComment.SetValuePrim
 
 function TkwEnFoldersElementInfoTopPanel.TopPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -1069,11 +999,10 @@ begin
  aCtx.rEngine.PushObj(TopPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoTopPanel.DoDoIt
 
-procedure TkwEnFoldersElementInfoTopPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
-end;//TkwEnFoldersElementInfoTopPanel.SetValuePrim
+ Result := '.TenFoldersElementInfo.TopPanel';
+end;//TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1090,10 +1019,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoTopPanel.ParamsTypes
 
-class function TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoTopPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.TopPanel';
-end;//TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
+end;//TkwEnFoldersElementInfoTopPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoNamePanel.NamePanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
@@ -1117,11 +1047,10 @@ begin
  aCtx.rEngine.PushObj(NamePanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoNamePanel.DoDoIt
 
-procedure TkwEnFoldersElementInfoNamePanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NamePanel', aCtx);
-end;//TkwEnFoldersElementInfoNamePanel.SetValuePrim
+ Result := '.TenFoldersElementInfo.NamePanel';
+end;//TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoNamePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1138,10 +1067,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoNamePanel.ParamsTypes
 
-class function TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoNamePanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.NamePanel';
-end;//TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NamePanel', aCtx);
+end;//TkwEnFoldersElementInfoNamePanel.SetValuePrim
 
 function TkwEnFoldersElementInfoLblElementName.lblElementName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -1165,11 +1095,10 @@ begin
  aCtx.rEngine.PushObj(lblElementName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoLblElementName.DoDoIt
 
-procedure TkwEnFoldersElementInfoLblElementName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblElementName', aCtx);
-end;//TkwEnFoldersElementInfoLblElementName.SetValuePrim
+ Result := '.TenFoldersElementInfo.lblElementName';
+end;//TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoLblElementName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1186,10 +1115,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoLblElementName.ParamsTypes
 
-class function TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoLblElementName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.lblElementName';
-end;//TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblElementName', aCtx);
+end;//TkwEnFoldersElementInfoLblElementName.SetValuePrim
 
 function TkwEnFoldersElementInfoElementName.ElementName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TnscComboBoxWithReadOnly;
@@ -1213,11 +1143,10 @@ begin
  aCtx.rEngine.PushObj(ElementName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoElementName.DoDoIt
 
-procedure TkwEnFoldersElementInfoElementName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoElementName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ElementName', aCtx);
-end;//TkwEnFoldersElementInfoElementName.SetValuePrim
+ Result := '.TenFoldersElementInfo.ElementName';
+end;//TkwEnFoldersElementInfoElementName.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoElementName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1234,10 +1163,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoElementName.ParamsTypes
 
-class function TkwEnFoldersElementInfoElementName.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoElementName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.ElementName';
-end;//TkwEnFoldersElementInfoElementName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ElementName', aCtx);
+end;//TkwEnFoldersElementInfoElementName.SetValuePrim
 
 function TkwEnFoldersElementInfoCbShared.cbShared(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtCheckBox;
@@ -1261,11 +1191,10 @@ begin
  aCtx.rEngine.PushObj(cbShared(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCbShared.DoDoIt
 
-procedure TkwEnFoldersElementInfoCbShared.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoCbShared.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству cbShared', aCtx);
-end;//TkwEnFoldersElementInfoCbShared.SetValuePrim
+ Result := '.TenFoldersElementInfo.cbShared';
+end;//TkwEnFoldersElementInfoCbShared.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoCbShared.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1282,10 +1211,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCbShared.ParamsTypes
 
-class function TkwEnFoldersElementInfoCbShared.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoCbShared.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.cbShared';
-end;//TkwEnFoldersElementInfoCbShared.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству cbShared', aCtx);
+end;//TkwEnFoldersElementInfoCbShared.SetValuePrim
 
 function TkwEnFoldersElementInfoInfoName.InfoName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
@@ -1309,11 +1239,10 @@ begin
  aCtx.rEngine.PushObj(InfoName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoInfoName.DoDoIt
 
-procedure TkwEnFoldersElementInfoInfoName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFoldersElementInfoInfoName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству InfoName', aCtx);
-end;//TkwEnFoldersElementInfoInfoName.SetValuePrim
+ Result := '.TenFoldersElementInfo.InfoName';
+end;//TkwEnFoldersElementInfoInfoName.GetWordNameForRegister
 
 function TkwEnFoldersElementInfoInfoName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1330,10 +1259,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoInfoName.ParamsTypes
 
-class function TkwEnFoldersElementInfoInfoName.GetWordNameForRegister: AnsiString;
+procedure TkwEnFoldersElementInfoInfoName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFoldersElementInfo.InfoName';
-end;//TkwEnFoldersElementInfoInfoName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству InfoName', aCtx);
+end;//TkwEnFoldersElementInfoInfoName.SetValuePrim
 
 initialization
  Tkw_Form_FoldersElementInfo.RegisterInEngine;
@@ -1398,10 +1328,8 @@ initialization
  {* Регистрация enFoldersElementInfo_cbShared }
  TkwEnFoldersElementInfoInfoName.RegisterInEngine;
  {* Регистрация enFoldersElementInfo_InfoName }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenFoldersElementInfo));
- {* Регистрация типа FoldersElementInfo }
+ {* Регистрация типа TenFoldersElementInfo }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeMemoWithEditOperations));

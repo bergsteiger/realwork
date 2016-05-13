@@ -391,6 +391,9 @@ uses
  {$IfEnd} // NOT Defined(NoImageEn)
  , l3ObjectList
  , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 var g_BlendOp: TBlendFunction = (BlendOp: AC_SRC_OVER; BlendFlags: 0; SourceConstantAlpha: cFullAlpha; AlphaFormat: AC_SRC_ALPHA);
@@ -1978,5 +1981,31 @@ end;
 
 //#UC START# *4FD2248F001Bimpl*
 //#UC END# *4FD2248F001Bimpl*
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtNonFixedPngImageListPrim);
+ {* Регистрация TvtNonFixedPngImageListPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtPngImageListPrim);
+ {* Регистрация TvtPngImageListPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtFixedSizeProxyPngImageListPrim);
+ {* Регистрация TvtFixedSizeProxyPngImageListPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtNonFixedPngImageList);
+ {* Регистрация TvtNonFixedPngImageList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtPngImageList);
+ {* Регистрация TvtPngImageList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtFixedSizeProxyPngImageList);
+ {* Регистрация TvtFixedSizeProxyPngImageList }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

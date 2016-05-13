@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmDispatcherEndOp = {final} class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmDispatcherEndOp
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -42,6 +42,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwVcmDispatcherEndOp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Dispatcher:EndOp';
+end;//TkwVcmDispatcherEndOp.GetWordNameForRegister
+
 procedure TkwVcmDispatcherEndOp.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F69BC2601EB_var*
 //#UC END# *4DAEEDE10285_4F69BC2601EB_var*
@@ -50,11 +55,6 @@ begin
  vcmDispatcher.EndOp;
 //#UC END# *4DAEEDE10285_4F69BC2601EB_impl*
 end;//TkwVcmDispatcherEndOp.DoDoIt
-
-class function TkwVcmDispatcherEndOp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:Dispatcher:EndOp';
-end;//TkwVcmDispatcherEndOp.GetWordNameForRegister
 
 initialization
  TkwVcmDispatcherEndOp.RegisterInEngine;

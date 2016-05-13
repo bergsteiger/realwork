@@ -32,8 +32,8 @@ type
   w:\archi\source\projects\Archi\TestSet\Dictionary\ArchiControls.script"
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwGetActiveEditorPageName
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -50,6 +50,11 @@ uses
  {$IfEnd} // Defined(AppClientSide)
 ;
 
+class function TkwGetActiveEditorPageName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'main_form:GetActivePageName';
+end;//TkwGetActiveEditorPageName.GetWordNameForRegister
+
 procedure TkwGetActiveEditorPageName.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E60CB00004F_var*
 //#UC END# *4DAEEDE10285_4E60CB00004F_var*
@@ -58,11 +63,6 @@ begin
  aCtx.rEngine.PushString((MainForm.ActiveMDIChild as TDocEditorWindow).nbkDocPages.ActivePageName);
 //#UC END# *4DAEEDE10285_4E60CB00004F_impl*
 end;//TkwGetActiveEditorPageName.DoDoIt
-
-class function TkwGetActiveEditorPageName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'main_form:GetActivePageName';
-end;//TkwGetActiveEditorPageName.GetWordNameForRegister
 
 initialization
  TkwGetActiveEditorPageName.RegisterInEngine;

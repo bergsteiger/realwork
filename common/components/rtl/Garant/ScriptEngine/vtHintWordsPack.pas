@@ -20,45 +20,36 @@ implementation
 uses
  l3ImplUses
  , tfwGlobalKeyWord
- , tfwScriptingInterfaces
  , TypInfo
+ , tfwScriptingInterfaces
  , l3Interfaces
  , vtHintManager
  , Windows
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwApplicationCancelHint = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта application:CancelHint
-*Пример:*
-[code]
- application:CancelHint
-[code]  }
+  {* Слово скрипта application:CancelHint }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwApplicationCancelHint
 
  TkwApplicationIsHintVisible = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта application:IsHintVisible
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- application:IsHintVisible >>> l_Boolean
-[code]  }
+  {* Слово скрипта application:IsHintVisible }
   private
    function application_IsHintVisible(const aCtx: TtfwContext): Boolean;
     {* Реализация слова скрипта application:IsHintVisible }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -66,36 +57,23 @@ BOOLEAN VAR l_Boolean
  end;//TkwApplicationIsHintVisible
 
  TkwApplicationGetLastHint = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта application:GetLastHint
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- application:GetLastHint >>> l_Il3CString
-[code]  }
+  {* Слово скрипта application:GetLastHint }
   private
    function application_GetLastHint(const aCtx: TtfwContext): Il3CString;
     {* Реализация слова скрипта application:GetLastHint }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwApplicationGetLastHint
 
-procedure TkwApplicationCancelHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_602888D14BF8_var*
-//#UC END# *4DAEEDE10285_602888D14BF8_var*
+class function TkwApplicationCancelHint.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_602888D14BF8_impl*
-// Application.CancelHint;
- with TvtHintManager.Instance do
-  if Count > 0 then
-   ShowWindow(Item[Count - 1].Handle, SW_HIDE);
-//#UC END# *4DAEEDE10285_602888D14BF8_impl*
-end;//TkwApplicationCancelHint.DoDoIt
+ Result := 'application:CancelHint';
+end;//TkwApplicationCancelHint.GetWordNameForRegister
 
 function TkwApplicationCancelHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -107,26 +85,35 @@ begin
  Result := 0;
 end;//TkwApplicationCancelHint.GetAllParamsCount
 
-class function TkwApplicationCancelHint.GetWordNameForRegister: AnsiString;
+function TkwApplicationCancelHint.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'application:CancelHint';
-end;//TkwApplicationCancelHint.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwApplicationCancelHint.ParamsTypes
+
+procedure TkwApplicationCancelHint.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_552FAFAA0226_Word_var*
+//#UC END# *4DAEEDE10285_552FAFAA0226_Word_var*
+begin
+//#UC START# *4DAEEDE10285_552FAFAA0226_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_552FAFAA0226_Word_impl*
+end;//TkwApplicationCancelHint.DoDoIt
 
 function TkwApplicationIsHintVisible.application_IsHintVisible(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта application:IsHintVisible }
-//#UC START# *84B99BA2B7CE_0EF7A152CBB4_var*
-//#UC END# *84B99BA2B7CE_0EF7A152CBB4_var*
+//#UC START# *552FAFB6009F_552FAFB6009F_Word_var*
+//#UC END# *552FAFB6009F_552FAFB6009F_Word_var*
 begin
-//#UC START# *84B99BA2B7CE_0EF7A152CBB4_impl*
+//#UC START# *552FAFB6009F_552FAFB6009F_Word_impl*
  with TvtHintManager.Instance do
   Result := ((Count > 0) and IsWindowVisible(Item[Count - 1].Handle));
-//#UC END# *84B99BA2B7CE_0EF7A152CBB4_impl*
+//#UC END# *552FAFB6009F_552FAFB6009F_Word_impl*
 end;//TkwApplicationIsHintVisible.application_IsHintVisible
 
-procedure TkwApplicationIsHintVisible.DoDoIt(const aCtx: TtfwContext);
+class function TkwApplicationIsHintVisible.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushBool(application_IsHintVisible(aCtx));
-end;//TkwApplicationIsHintVisible.DoDoIt
+ Result := 'application:IsHintVisible';
+end;//TkwApplicationIsHintVisible.GetWordNameForRegister
 
 function TkwApplicationIsHintVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -143,29 +130,29 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwApplicationIsHintVisible.ParamsTypes
 
-class function TkwApplicationIsHintVisible.GetWordNameForRegister: AnsiString;
+procedure TkwApplicationIsHintVisible.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'application:IsHintVisible';
-end;//TkwApplicationIsHintVisible.GetWordNameForRegister
+ aCtx.rEngine.PushBool(application_IsHintVisible(aCtx));
+end;//TkwApplicationIsHintVisible.DoDoIt
 
 function TkwApplicationGetLastHint.application_GetLastHint(const aCtx: TtfwContext): Il3CString;
  {* Реализация слова скрипта application:GetLastHint }
-//#UC START# *BEF87F4CB387_64C2DF1C9241_var*
-//#UC END# *BEF87F4CB387_64C2DF1C9241_var*
+//#UC START# *552FAFDC0324_552FAFDC0324_Word_var*
+//#UC END# *552FAFDC0324_552FAFDC0324_Word_var*
 begin
-//#UC START# *BEF87F4CB387_64C2DF1C9241_impl*
+//#UC START# *552FAFDC0324_552FAFDC0324_Word_impl*
  with TvtHintManager.Instance do
   if Count > 0 then
    Result := Item[Count - 1].LastHint
   else
    Result := TtfwCStringFactory.C('');
-//#UC END# *BEF87F4CB387_64C2DF1C9241_impl*
+//#UC END# *552FAFDC0324_552FAFDC0324_Word_impl*
 end;//TkwApplicationGetLastHint.application_GetLastHint
 
-procedure TkwApplicationGetLastHint.DoDoIt(const aCtx: TtfwContext);
+class function TkwApplicationGetLastHint.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushString(application_GetLastHint(aCtx));
-end;//TkwApplicationGetLastHint.DoDoIt
+ Result := 'application:GetLastHint';
+end;//TkwApplicationGetLastHint.GetWordNameForRegister
 
 function TkwApplicationGetLastHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -182,10 +169,10 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwApplicationGetLastHint.ParamsTypes
 
-class function TkwApplicationGetLastHint.GetWordNameForRegister: AnsiString;
+procedure TkwApplicationGetLastHint.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'application:GetLastHint';
-end;//TkwApplicationGetLastHint.GetWordNameForRegister
+ aCtx.rEngine.PushString(application_GetLastHint(aCtx));
+end;//TkwApplicationGetLastHint.DoDoIt
 
 initialization
  TkwApplicationCancelHint.RegisterInEngine;
@@ -194,8 +181,6 @@ initialization
  {* Регистрация application_IsHintVisible }
  TkwApplicationGetLastHint.RegisterInEngine;
  {* Регистрация application_GetLastHint }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

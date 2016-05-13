@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -138,14 +138,7 @@ type
  end;//Tkw_Navigator_Control_NavigatorTree_Push
 
  TkwEnNavigatorBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_Navigator.BackgroundPanel
-[panel]Контрол BackgroundPanel формы Ten_Navigator[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aen_Navigator .Ten_Navigator.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .Ten_Navigator.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aen_Navigator: Ten_Navigator): TvtPanel;
@@ -154,22 +147,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnNavigatorBackgroundPanel
 
  TkwEnNavigatorContextFilter = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_Navigator.ContextFilter
-[panel]Контрол ContextFilter формы Ten_Navigator[panel]
-*Тип результата:* TnscContextFilter
-*Пример:*
-[code]
-OBJECT VAR l_TnscContextFilter
- aen_Navigator .Ten_Navigator.ContextFilter >>> l_TnscContextFilter
-[code]  }
+  {* Слово скрипта .Ten_Navigator.ContextFilter }
   private
    function ContextFilter(const aCtx: TtfwContext;
     aen_Navigator: Ten_Navigator): TnscContextFilter;
@@ -178,22 +164,15 @@ OBJECT VAR l_TnscContextFilter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnNavigatorContextFilter
 
  TkwEnNavigatorNavigatorTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_Navigator.NavigatorTree
-[panel]Контрол NavigatorTree формы Ten_Navigator[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_Navigator .Ten_Navigator.NavigatorTree >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_Navigator.NavigatorTree }
   private
    function NavigatorTree(const aCtx: TtfwContext;
     aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
@@ -202,11 +181,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnNavigatorNavigatorTree
 
 function Tkw_Form_Navigator.GetString: AnsiString;
@@ -322,11 +301,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorBackgroundPanel.DoDoIt
 
-procedure TkwEnNavigatorBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnNavigatorBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwEnNavigatorBackgroundPanel.SetValuePrim
+ Result := '.Ten_Navigator.BackgroundPanel';
+end;//TkwEnNavigatorBackgroundPanel.GetWordNameForRegister
 
 function TkwEnNavigatorBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -343,10 +321,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorBackgroundPanel.ParamsTypes
 
-class function TkwEnNavigatorBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEnNavigatorBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_Navigator.BackgroundPanel';
-end;//TkwEnNavigatorBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwEnNavigatorBackgroundPanel.SetValuePrim
 
 function TkwEnNavigatorContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TnscContextFilter;
@@ -370,11 +349,10 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorContextFilter.DoDoIt
 
-procedure TkwEnNavigatorContextFilter.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnNavigatorContextFilter.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
-end;//TkwEnNavigatorContextFilter.SetValuePrim
+ Result := '.Ten_Navigator.ContextFilter';
+end;//TkwEnNavigatorContextFilter.GetWordNameForRegister
 
 function TkwEnNavigatorContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -391,10 +369,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorContextFilter.ParamsTypes
 
-class function TkwEnNavigatorContextFilter.GetWordNameForRegister: AnsiString;
+procedure TkwEnNavigatorContextFilter.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_Navigator.ContextFilter';
-end;//TkwEnNavigatorContextFilter.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
+end;//TkwEnNavigatorContextFilter.SetValuePrim
 
 function TkwEnNavigatorNavigatorTree.NavigatorTree(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
@@ -418,11 +397,10 @@ begin
  aCtx.rEngine.PushObj(NavigatorTree(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorNavigatorTree.DoDoIt
 
-procedure TkwEnNavigatorNavigatorTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnNavigatorNavigatorTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NavigatorTree', aCtx);
-end;//TkwEnNavigatorNavigatorTree.SetValuePrim
+ Result := '.Ten_Navigator.NavigatorTree';
+end;//TkwEnNavigatorNavigatorTree.GetWordNameForRegister
 
 function TkwEnNavigatorNavigatorTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -439,10 +417,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorNavigatorTree.ParamsTypes
 
-class function TkwEnNavigatorNavigatorTree.GetWordNameForRegister: AnsiString;
+procedure TkwEnNavigatorNavigatorTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_Navigator.NavigatorTree';
-end;//TkwEnNavigatorNavigatorTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NavigatorTree', aCtx);
+end;//TkwEnNavigatorNavigatorTree.SetValuePrim
 
 initialization
  Tkw_Form_Navigator.RegisterInEngine;
@@ -465,10 +444,8 @@ initialization
  {* Регистрация en_Navigator_ContextFilter }
  TkwEnNavigatorNavigatorTree.RegisterInEngine;
  {* Регистрация en_Navigator_NavigatorTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_Navigator));
- {* Регистрация типа Navigator }
+ {* Регистрация типа Ten_Navigator }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));

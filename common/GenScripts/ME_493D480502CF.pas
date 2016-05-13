@@ -19,10 +19,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , WorkWithDocumentInterfaces
  , evdInterfaces
+ , l3IID
  , DynamicDocListUnit
  , l3TreeInterfaces
  , nevTools
- , l3IID
  , l3Types
  , DocumentInterfaces
  , WorkWithListInterfaces

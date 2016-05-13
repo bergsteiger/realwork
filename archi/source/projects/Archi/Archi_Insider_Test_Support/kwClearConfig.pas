@@ -19,8 +19,8 @@ uses
 type
  TkwClearConfig = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwClearConfig
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwClearConfig.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ClearConfig';
+end;//TkwClearConfig.GetWordNameForRegister
+
 procedure TkwClearConfig.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_56A09E250064_var*
 //#UC END# *4DAEEDE10285_56A09E250064_var*
@@ -40,11 +45,6 @@ begin
 
 //#UC END# *4DAEEDE10285_56A09E250064_impl*
 end;//TkwClearConfig.DoDoIt
-
-class function TkwClearConfig.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ClearConfig';
-end;//TkwClearConfig.GetWordNameForRegister
 
 initialization
  TkwClearConfig.RegisterInEngine;

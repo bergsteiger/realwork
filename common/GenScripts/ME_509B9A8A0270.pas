@@ -19,8 +19,8 @@ type
  TkwGetFontSize = {final} class(TtfwRegisterableWord)
   {* Возвращает установленный размер шрифта для стиля "Нормальный". }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwGetFontSize
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -32,6 +32,11 @@ uses
  , evStyleInterface
  , SysUtils
 ;
+
+class function TkwGetFontSize.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GetFontSize';
+end;//TkwGetFontSize.GetWordNameForRegister
 
 procedure TkwGetFontSize.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_509B9A8A0270_var*
@@ -48,11 +53,6 @@ begin
  end;
 //#UC END# *4DAEEDE10285_509B9A8A0270_impl*
 end;//TkwGetFontSize.DoDoIt
-
-class function TkwGetFontSize.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GetFontSize';
-end;//TkwGetFontSize.GetWordNameForRegister
 
 initialization
  TkwGetFontSize.RegisterInEngine;

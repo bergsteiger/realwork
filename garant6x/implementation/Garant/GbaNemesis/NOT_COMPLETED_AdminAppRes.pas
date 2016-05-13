@@ -42,6 +42,9 @@ uses
  , moAdmin
  , nsStartupSupport
  , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimAdminMain_Form
  , AdminMain_Form
  {$If NOT Defined(NoScripts)}
@@ -73,6 +76,10 @@ end;//TAdminAppRes.Loaded
 initialization
  str_AdminTitle.Init;
  {* Инициализация str_AdminTitle }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TAdminAppRes);
+ {* Регистрация AdminApp }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Admin)
 
 end.

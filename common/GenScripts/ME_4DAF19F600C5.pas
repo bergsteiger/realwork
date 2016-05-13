@@ -979,7 +979,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TtfwTypeRegistrator_Proxy
  , tfwWordInfoWordsPack
+ , TtfwClassRef_Proxy
  , l3Base
  , StrUtils
  , l3Parser
@@ -3014,8 +3016,34 @@ begin
 end;//TtfwCStringFactoryEx.ViewOf
 
 initialization
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCodeFlowException));
+ {* Регистрация типа EtfwCodeFlowException }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCodeFlowError));
+ {* Регистрация типа EtfwCodeFlowError }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwScriptException));
+ {* Регистрация типа EtfwScriptException }
+ TtfwClassRef.Register(EtfwExitOrBreak);
+ {* Регистрация EtfwExitOrBreak }
+ TtfwClassRef.Register(EtfwContinue);
+ {* Регистрация EtfwContinue }
+ TtfwClassRef.Register(EtfwExit);
+ {* Регистрация EtfwExit }
+ TtfwClassRef.Register(EtfwHalt);
+ {* Регистрация EtfwHalt }
+ TtfwClassRef.Register(EtfwBreakIterator);
+ {* Регистрация EtfwBreakIterator }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCompiler));
+ {* Регистрация типа EtfwCompiler }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwRunner));
+ {* Регистрация типа EtfwRunner }
  TtfwWord.RegisterClass;
  {* Регистрация TtfwWord }
+ TtfwClassRef.Register(EtfwBreak);
+ {* Регистрация EtfwBreak }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwFail));
+ {* Регистрация типа EtfwFail }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwManualBreak));
+ {* Регистрация типа EtfwManualBreak }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

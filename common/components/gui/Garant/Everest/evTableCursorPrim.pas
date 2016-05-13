@@ -13,11 +13,11 @@ uses
  l3IntfUses
  , evParaListCursor
  , evInternalInterfaces
+ , l3IID
  , nevTools
  , nevBase
  , l3Interfaces
  , l3Types
- , l3IID
 ;
 
 type

@@ -31,7 +31,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , DocumentUnit
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A22D2007Aimpl_uses*
  //#UC END# *571A22D2007Aimpl_uses*

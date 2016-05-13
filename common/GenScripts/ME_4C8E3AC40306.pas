@@ -36,10 +36,19 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCL)}
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmPopupMenuPrim);
+ {* Регистрация TvcmPopupMenuPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 {$IfEnd} // NOT Defined(NoVCM)

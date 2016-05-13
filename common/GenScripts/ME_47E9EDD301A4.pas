@@ -30,6 +30,7 @@ uses
  , DocumentUnit
  , nsTypes
  , PreviewInterfaces
+ , nsTypesNew
  , TreeInterfaces
  , bsInterfaces
  {$If NOT Defined(NoVCL)}

@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_ConfigurationList_Control_tvConfs_Push
 
  TkwEnConfigurationListTvConfs = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_ConfigurationList.tvConfs
-[panel]Контрол tvConfs формы Ten_ConfigurationList[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aen_ConfigurationList .Ten_ConfigurationList.tvConfs >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .Ten_ConfigurationList.tvConfs }
   private
    function tvConfs(const aCtx: TtfwContext;
     aen_ConfigurationList: Ten_ConfigurationList): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnConfigurationListTvConfs
 
 function Tkw_Form_ConfigurationList.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(tvConfs(aCtx, l_aen_ConfigurationList));
 end;//TkwEnConfigurationListTvConfs.DoDoIt
 
-procedure TkwEnConfigurationListTvConfs.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnConfigurationListTvConfs.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvConfs', aCtx);
-end;//TkwEnConfigurationListTvConfs.SetValuePrim
+ Result := '.Ten_ConfigurationList.tvConfs';
+end;//TkwEnConfigurationListTvConfs.GetWordNameForRegister
 
 function TkwEnConfigurationListTvConfs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_ConfigurationList)]);
 end;//TkwEnConfigurationListTvConfs.ParamsTypes
 
-class function TkwEnConfigurationListTvConfs.GetWordNameForRegister: AnsiString;
+procedure TkwEnConfigurationListTvConfs.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_ConfigurationList.tvConfs';
-end;//TkwEnConfigurationListTvConfs.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvConfs', aCtx);
+end;//TkwEnConfigurationListTvConfs.SetValuePrim
 
 initialization
  Tkw_Form_ConfigurationList.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_ConfigurationList_Control_tvConfs_Push }
  TkwEnConfigurationListTvConfs.RegisterInEngine;
  {* Регистрация en_ConfigurationList_tvConfs }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_ConfigurationList));
- {* Регистрация типа ConfigurationList }
+ {* Регистрация типа Ten_ConfigurationList }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

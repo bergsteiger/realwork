@@ -23,6 +23,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure vtStdResources;
@@ -33,5 +36,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *49213E3A030E_49213DFA02CB_impl*
 end;//vtStdResources
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtStdResources);
+ {* Регистрация TvtStdResources }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

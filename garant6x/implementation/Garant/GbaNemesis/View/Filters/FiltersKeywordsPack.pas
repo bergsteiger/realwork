@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_Filters_Control_FiltersList_Push
 
  TkwEnFiltersFiltersList = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenFilters.FiltersList
-[panel]Контрол FiltersList формы TenFilters[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aenFilters .TenFilters.FiltersList >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TenFilters.FiltersList }
   private
    function FiltersList(const aCtx: TtfwContext;
     aenFilters: TenFilters): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnFiltersFiltersList
 
 function Tkw_Form_Filters.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(FiltersList(aCtx, l_aenFilters));
 end;//TkwEnFiltersFiltersList.DoDoIt
 
-procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnFiltersFiltersList.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству FiltersList', aCtx);
-end;//TkwEnFiltersFiltersList.SetValuePrim
+ Result := '.TenFilters.FiltersList';
+end;//TkwEnFiltersFiltersList.GetWordNameForRegister
 
 function TkwEnFiltersFiltersList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenFilters)]);
 end;//TkwEnFiltersFiltersList.ParamsTypes
 
-class function TkwEnFiltersFiltersList.GetWordNameForRegister: AnsiString;
+procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenFilters.FiltersList';
-end;//TkwEnFiltersFiltersList.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству FiltersList', aCtx);
+end;//TkwEnFiltersFiltersList.SetValuePrim
 
 initialization
  Tkw_Form_Filters.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_Filters_Control_FiltersList_Push }
  TkwEnFiltersFiltersList.RegisterInEngine;
  {* Регистрация enFilters_FiltersList }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenFilters));
- {* Регистрация типа Filters }
+ {* Регистрация типа TenFilters }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

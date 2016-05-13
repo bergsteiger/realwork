@@ -26,7 +26,7 @@ uses
  , FiltersUnit
  , DataAdapter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571E1AF302D6impl_uses*
  //#UC END# *571E1AF302D6impl_uses*
@@ -35,8 +35,8 @@ uses
 type
  TkwFiltersList = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwFiltersList
 
  TkwPermanentFilterExists = {abstract} class(TtfwRegisterableWord)
@@ -57,6 +57,11 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIsPharmPermanentFilterExists
 
+class function TkwFiltersList.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'filters:Open';
+end;//TkwFiltersList.GetWordNameForRegister
+
 procedure TkwFiltersList.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBA9CE301B4_var*
 //#UC END# *4DAEEDE10285_4DBA9CE301B4_var*
@@ -65,11 +70,6 @@ begin
  aCtx.rCaller.Check(vcmDispatcher.EntityOperation(TdmStdRes.opcode_Filters_FiltersListOpen, vcmParams));
 //#UC END# *4DAEEDE10285_4DBA9CE301B4_impl*
 end;//TkwFiltersList.DoDoIt
-
-class function TkwFiltersList.GetWordNameForRegister: AnsiString;
-begin
- Result := 'filters:Open';
-end;//TkwFiltersList.GetWordNameForRegister
 
 procedure TkwPermanentFilterExists.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2B1460348_var*

@@ -16,9 +16,9 @@ uses
  , nevTools
  , WorkWithDocumentInterfaces
  , evdInterfaces
+ , l3IID
  , DynamicDocListUnit
  , l3TreeInterfaces
- , l3IID
  , l3Types
  , DocumentInterfaces
  , WorkWithListInterfaces
@@ -28,11 +28,11 @@ uses
  , bsTypes
  , FoldersDomainInterfaces
  , UnderControlUnit
- , DocumentUnit
- , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

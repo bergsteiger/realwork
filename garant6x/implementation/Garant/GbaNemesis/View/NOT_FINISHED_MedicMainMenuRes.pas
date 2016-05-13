@@ -26,6 +26,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure fake;
@@ -36,6 +39,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4AA7E9DB02FF_4AA7E9CB034A_impl*
 end;//fake
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TdmMedicMainMenuRes);
+ {* Регистрация TdmMedicMainMenuRes }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

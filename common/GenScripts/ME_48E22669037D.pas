@@ -20,7 +20,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , nevBase
- , l3Core
  , evEditorWithOperations
  , evCustomEditorWindow
  , Classes
@@ -28,6 +27,7 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , Types
+ , l3Core
  //#UC START# *48E22669037Dintf_uses*
  //#UC END# *48E22669037Dintf_uses*
 ;

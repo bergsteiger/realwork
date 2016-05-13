@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_PictureInfo_Control_Info_Push
 
  TkwEnPictureInfoInfo = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_PictureInfo.Info
-[panel]Контрол Info формы Ten_PictureInfo[panel]
-*Тип результата:* TeeMemoWithEditOperations
-*Пример:*
-[code]
-OBJECT VAR l_TeeMemoWithEditOperations
- aen_PictureInfo .Ten_PictureInfo.Info >>> l_TeeMemoWithEditOperations
-[code]  }
+  {* Слово скрипта .Ten_PictureInfo.Info }
   private
    function Info(const aCtx: TtfwContext;
     aen_PictureInfo: Ten_PictureInfo): TeeMemoWithEditOperations;
@@ -94,11 +87,11 @@ OBJECT VAR l_TeeMemoWithEditOperations
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnPictureInfoInfo
 
 function Tkw_Form_PictureInfo.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(Info(aCtx, l_aen_PictureInfo));
 end;//TkwEnPictureInfoInfo.DoDoIt
 
-procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnPictureInfoInfo.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Info', aCtx);
-end;//TkwEnPictureInfoInfo.SetValuePrim
+ Result := '.Ten_PictureInfo.Info';
+end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 
 function TkwEnPictureInfoInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PictureInfo)]);
 end;//TkwEnPictureInfoInfo.ParamsTypes
 
-class function TkwEnPictureInfoInfo.GetWordNameForRegister: AnsiString;
+procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_PictureInfo.Info';
-end;//TkwEnPictureInfoInfo.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Info', aCtx);
+end;//TkwEnPictureInfoInfo.SetValuePrim
 
 initialization
  Tkw_Form_PictureInfo.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_PictureInfo_Control_Info_Push }
  TkwEnPictureInfoInfo.RegisterInEngine;
  {* Регистрация en_PictureInfo_Info }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_PictureInfo));
- {* Регистрация типа PictureInfo }
+ {* Регистрация типа Ten_PictureInfo }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeMemoWithEditOperations));
  {* Регистрация типа TeeMemoWithEditOperations }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

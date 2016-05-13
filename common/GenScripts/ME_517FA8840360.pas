@@ -19,8 +19,8 @@ uses
 type
  TkwDisableMergedCellFilter = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwDisableMergedCellFilter
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,11 @@ uses
  , evCommonUtils
 ;
 
+class function TkwDisableMergedCellFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DisableMergedCellFilter';
+end;//TkwDisableMergedCellFilter.GetWordNameForRegister
+
 procedure TkwDisableMergedCellFilter.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_517FA8840360_var*
 //#UC END# *4DAEEDE10285_517FA8840360_var*
@@ -40,11 +45,6 @@ begin
  g_DisableMergeCellFilter := True;
 //#UC END# *4DAEEDE10285_517FA8840360_impl*
 end;//TkwDisableMergedCellFilter.DoDoIt
-
-class function TkwDisableMergedCellFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DisableMergedCellFilter';
-end;//TkwDisableMergedCellFilter.GetWordNameForRegister
 
 initialization
  TkwDisableMergedCellFilter.RegisterInEngine;

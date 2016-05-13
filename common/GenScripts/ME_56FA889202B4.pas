@@ -258,6 +258,9 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmHistoryService
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -449,6 +452,16 @@ end;//TPrimMainMenuWithProfNewsForm.SearchClick
 
 procedure TPrimMainMenuWithProfNewsForm.ArrangeControls;
 //#UC START# *56FE6DC90398_56FA889202B4_var*
+ procedure lp_VertArrange(const aControls: array of TControl);
+ var
+  I: Integer;
+ begin
+  aControls[0].Top := 0;
+  for I := Low(aControls) + 1 to High(aControls) do
+   with aControls[I - 1] do
+    aControls[I].Top := Top + Height;
+ end;
+
 const
  c_lblTop = 10;
  c_LeftIndent = 5;
@@ -462,6 +475,7 @@ var
  lnWidth: Integer;
  pnWidth: Integer;
  F: THandle;
+ pnlMainHeight: Integer;
 //#UC END# *56FE6DC90398_56FA889202B4_var*
 begin
 //#UC START# *56FE6DC90398_56FA889202B4_impl*
@@ -548,26 +562,19 @@ begin
 
  pnlLastOpenDocs.ClientHeight := tvLastOpenDocs.Top + tvLastOpenDocs.Height + c_BottomIndent;
  //////
- pnlMain.ClientHeight := Max(pnlWebVersion.Top + pnlWebVersion.Height, pnlLastOpenDocs.Top + pnlLastOpenDocs.Height);
- pnlClient.Height := pnlMain.ClientHeight;
-
- bvlLeftTop.Top := 0;
  bvlLeftTop.Height := pnlBaseSearch.Top + 10;
- with pnlLogo do
- begin
-  Height := 60;
-  Top := bvlLeftTop.Height;
- end;
- with pnlBanner do
- begin
-  Height := ieBanner.Height + 40;
-  Top := pnlLogo.Top + pnlLogo.Height;
- end;
+ pnlLogo.Height := 60;
+ pnlBanner.Height := ieBanner.Height + 40;
  ieBanner.Top := 20;
 
- pnlFeedback.Top := pnlBanner.Top + pnlBanner.Height;
- pnlOnlineResources.Top := pnlFeedback.Top + pnlFeedback.Height;
- pnlWebVersion.Top := pnlOnlineResources.Top + pnlOnlineResources.Height;
+ lp_VertArrange([bvlLeftTop, pnlLogo, pnlBanner, pnlFeedback, pnlOnlineResources, pnlWebVersion]);
+
+ if pnlWebVersion.Visible
+  then pnlMainHeight := pnlWebVersion.Top + pnlWebVersion.Height
+  else pnlMainHeight := pnlOnlineResources.Top + pnlOnlineResources.Height;
+ pnlMainHeight := Max(pnlMainHeight, pnlLastOpenDocs.Top + pnlLastOpenDocs.Height);
+ pnlMain.ClientHeight := pnlMainHeight + 10;
+ pnlClient.Height := pnlMain.ClientHeight;
 
  if pnlMain.Height > ClientHeight
   then VertScrollBar.Range := pnlMain.Height

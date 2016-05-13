@@ -16,9 +16,9 @@ uses
  , MedicInterfaces
  , WorkWithDocumentInterfaces
  , DocumentAndListInterfaces
+ , nevTools
  , DynamicDocListUnit
  , l3TreeInterfaces
- , nevTools
  , l3Types
  , DocumentInterfaces
  , WorkWithListInterfaces
@@ -28,11 +28,11 @@ uses
  , bsTypes
  , FoldersDomainInterfaces
  , UnderControlUnit
- , DocumentUnit
- , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

@@ -47,6 +47,9 @@ uses
  , Classes
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *53E49235000Bimpl_uses*
  //#UC END# *53E49235000Bimpl_uses*
 ;
@@ -70,5 +73,11 @@ type
 begin
 end;
 //#UC END# *53E49235000Bimpl*
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtGauge);
+ {* Регистрация TvtGauge }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

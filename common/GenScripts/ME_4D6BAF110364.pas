@@ -25,6 +25,9 @@ implementation
 uses
  l3ImplUses
  , nscSimpleEditorForDialogsContainer
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TnscSimpleEditorForDialogsTextSource.DoMakeDocumentContainer: InevDocumentContainer;
@@ -35,5 +38,11 @@ begin
  Result := TnscSimpleEditorForDialogsContainer.Make;
 //#UC END# *482D9A030221_4D6BAF110364_impl*
 end;//TnscSimpleEditorForDialogsTextSource.DoMakeDocumentContainer
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscSimpleEditorForDialogsTextSource);
+ {* Регистрация TnscSimpleEditorForDialogsTextSource }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

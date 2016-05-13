@@ -23,7 +23,7 @@ uses
  , ListAnalize_Form
  , tfwControlString
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -53,6 +53,8 @@ end;//Tkw_Form_ListAnalize.GetWordNameForRegister
 initialization
  Tkw_Form_ListAnalize.RegisterInEngine;
  {* Регистрация Tkw_Form_ListAnalize }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TListAnalizeForm));
+ {* Регистрация типа TListAnalizeForm }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

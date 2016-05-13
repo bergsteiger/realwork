@@ -19,8 +19,8 @@ uses
 type
  TkwBaseRelCorrecter = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwBaseRelCorrecter
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -31,6 +31,11 @@ uses
  l3ImplUses
  , arArchiTestAdapter2
 ;
+
+class function TkwBaseRelCorrecter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'base:RelCorrecter';
+end;//TkwBaseRelCorrecter.GetWordNameForRegister
 
 procedure TkwBaseRelCorrecter.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_526E5B5D033B_var*
@@ -45,11 +50,6 @@ begin
  acCorrectRelatedText(l_FileName);
 //#UC END# *4DAEEDE10285_526E5B5D033B_impl*
 end;//TkwBaseRelCorrecter.DoDoIt
-
-class function TkwBaseRelCorrecter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'base:RelCorrecter';
-end;//TkwBaseRelCorrecter.GetWordNameForRegister
 
 initialization
  TkwBaseRelCorrecter.RegisterInEngine;

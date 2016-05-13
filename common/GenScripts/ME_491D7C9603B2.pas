@@ -37,6 +37,7 @@ uses
  , DocumentUnit
  , l3InternalInterfaces
  , FiltersUnit
+ , nsTypesNew
  , nsTypes
  {$If Defined(Nemesis)}
  , nscNewInterfaces

@@ -18,9 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DocumentInterfaces
  , DocumentAndListInterfaces
+ , l3IID
  , DocumentUnit
  , bsTypesNew
- , l3IID
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

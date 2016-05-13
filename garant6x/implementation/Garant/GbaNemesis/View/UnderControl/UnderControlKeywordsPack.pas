@@ -29,7 +29,7 @@ uses
  , nscTreeViewWithAdapterDragDrop
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -118,6 +118,8 @@ initialization
  {* Регистрация Tkw_UnderControl_Control_UnderControlList }
  Tkw_UnderControl_Control_UnderControlList_Push.RegisterInEngine;
  {* Регистрация Tkw_UnderControl_Control_UnderControlList_Push }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TenUnderControl));
+ {* Регистрация типа TenUnderControl }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

@@ -1965,6 +1965,14 @@ initialization
  {* Регистрация TevSubDescriptor }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TevCustomSubDescriptors);
+ {* Регистрация TevCustomSubDescriptors }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TevSubDescriptors);
+ {* Регистрация TevSubDescriptors }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevSubLayerDescriptor);
  {* Регистрация TevSubLayerDescriptor }
 {$IfEnd} // NOT Defined(NoScripts)

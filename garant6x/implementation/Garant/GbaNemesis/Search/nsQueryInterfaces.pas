@@ -310,6 +310,12 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor EqaException.Create(const anErrorControl: IevEditorControlField;
@@ -344,6 +350,28 @@ begin
  inherited;
 //#UC END# *48077504027E_52330CD700F3_impl*
 end;//EqaException.Destroy
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(EqaException);
+ {* Регистрация EqaException }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EqaRequiredValue));
+ {* Регистрация типа EqaRequiredValue }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EqaDuplicateValue));
+ {* Регистрация типа EqaDuplicateValue }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EqaInvalidValue));
+ {* Регистрация типа EqaInvalidValue }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EqaSilentAbort));
+ {* Регистрация типа EqaSilentAbort }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin)
 
 end.

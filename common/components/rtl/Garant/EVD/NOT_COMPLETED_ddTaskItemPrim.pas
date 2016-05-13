@@ -21,6 +21,7 @@ type
  {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TddTaskItemPrim = class(_evdTagHolder_)
   private
+   f_Owner: Tl3Tag;
    f_CanNotifyChange: Boolean;
     {* Поле для свойства CanNotifyChange }
   protected
@@ -52,6 +53,8 @@ type
    class procedure WriteCardinal(aStream: TStream;
     aValue: Cardinal);
    procedure InitFields; override;
+   function pm_GetTagOwner: Tl3Variant; override;
+   procedure pm_SetTagOwner(aValue: Tl3Variant); override;
   public
    procedure Changed(aStatus: TcsTaskStatus);
    class function TaskTaggedDataType: Tk2Type;
@@ -364,5 +367,23 @@ begin
  f_CanNotifyChange := false;
 //#UC END# *47A042E100E2_53AC018900AE_impl*
 end;//TddTaskItemPrim.InitFields
+
+function TddTaskItemPrim.pm_GetTagOwner: Tl3Variant;
+//#UC START# *53343980014A_53AC018900AEget_var*
+//#UC END# *53343980014A_53AC018900AEget_var*
+begin
+//#UC START# *53343980014A_53AC018900AEget_impl*
+ Result := f_Owner;
+//#UC END# *53343980014A_53AC018900AEget_impl*
+end;//TddTaskItemPrim.pm_GetTagOwner
+
+procedure TddTaskItemPrim.pm_SetTagOwner(aValue: Tl3Variant);
+//#UC START# *53343980014A_53AC018900AEset_var*
+//#UC END# *53343980014A_53AC018900AEset_var*
+begin
+//#UC START# *53343980014A_53AC018900AEset_impl*
+ f_Owner := aValue;
+//#UC END# *53343980014A_53AC018900AEset_impl*
+end;//TddTaskItemPrim.pm_SetTagOwner
 
 end.

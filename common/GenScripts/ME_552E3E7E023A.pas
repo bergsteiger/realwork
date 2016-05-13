@@ -24,27 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopStatusBarGetPanel = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:vtStatusBar:GetPanel
-[panel]*Описание:* Помещает в стек панель статусбара по номеру.
-Формат:
-[code]
-anIndex aStatusControl pop:vtStatusBar:GetPanel
-[code]
-anIndex - номер панели.
-aStatusControl - контрол статус-бар.
-В стек помещается объект класса TvtStatusPanel[panel]
-*Тип результата:* TvtStatusPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtStatusPanel
- anIndex aStatusBar pop:vtStatusBar:GetPanel >>> l_TvtStatusPanel
-[code]  }
+  {* Слово скрипта pop:vtStatusBar:GetPanel }
   private
    function GetPanel(const aCtx: TtfwContext;
     aStatusBar: TvtStatusBar;
@@ -63,12 +49,12 @@ function TkwPopStatusBarGetPanel.GetPanel(const aCtx: TtfwContext;
  aStatusBar: TvtStatusBar;
  anIndex: Integer): TvtStatusPanel;
  {* Реализация слова скрипта pop:vtStatusBar:GetPanel }
-//#UC START# *2B3EB01EE00A_0B36D9E86F88_var*
-//#UC END# *2B3EB01EE00A_0B36D9E86F88_var*
+//#UC START# *552E3EE00284_0B36D9E86F88_var*
+//#UC END# *552E3EE00284_0B36D9E86F88_var*
 begin
-//#UC START# *2B3EB01EE00A_0B36D9E86F88_impl*
+//#UC START# *552E3EE00284_0B36D9E86F88_impl*
  Result := aStatusBar.Panels.Items[anIndex];
-//#UC END# *2B3EB01EE00A_0B36D9E86F88_impl*
+//#UC END# *552E3EE00284_0B36D9E86F88_impl*
 end;//TkwPopStatusBarGetPanel.GetPanel
 
 procedure TkwPopStatusBarGetPanel.DoDoIt(const aCtx: TtfwContext);
@@ -96,6 +82,11 @@ begin
  aCtx.rEngine.PushObj(GetPanel(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwPopStatusBarGetPanel.DoDoIt
 
+class function TkwPopStatusBarGetPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:vtStatusBar:GetPanel';
+end;//TkwPopStatusBarGetPanel.GetWordNameForRegister
+
 function TkwPopStatusBarGetPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvtStatusPanel);
@@ -111,22 +102,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtStatusBar), TypeInfo(Integer)]);
 end;//TkwPopStatusBarGetPanel.ParamsTypes
 
-class function TkwPopStatusBarGetPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:vtStatusBar:GetPanel';
-end;//TkwPopStatusBarGetPanel.GetWordNameForRegister
-
 initialization
  TkwPopStatusBarGetPanel.RegisterInEngine;
  {* Регистрация pop_StatusBar_GetPanel }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStatusBar));
  {* Регистрация типа TvtStatusBar }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStatusPanel));
  {* Регистрация типа TvtStatusPanel }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

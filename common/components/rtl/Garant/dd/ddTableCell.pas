@@ -14,9 +14,9 @@ uses
  , ddCellProperty
  , ddTextParagraph
  , ddDocumentAtomList
+ , ddCustomDestination
  , k2Interfaces
  , ddTypes
- , ddCustomDestination
  , l3ProtoObject
 ;
 
@@ -42,6 +42,8 @@ type
    function LastTableAtom: TddDocumentAtom;
     {* Возвращает последнюю открытую вложенную таблицу. }
    function IsCellEmpty: Boolean;
+   procedure Insert(anIndex: Integer;
+    aPara: TddDocumentAtom);
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
     LiteVersion: TddLiteVersion); override;
@@ -226,6 +228,18 @@ begin
   end; // for i := 0 to f_ParaList.Count - 1 do
 //#UC END# *525D141900DD_4FACE127032F_impl*
 end;//TddTableCell.IsCellEmpty
+
+procedure TddTableCell.Insert(anIndex: Integer;
+ aPara: TddDocumentAtom);
+//#UC START# *572C72F20143_4FACE127032F_var*
+//#UC END# *572C72F20143_4FACE127032F_var*
+begin
+//#UC START# *572C72F20143_4FACE127032F_impl*
+ if aPara.IsTextPara then
+  TddTextparagraph(aPara).PAP.InTable := True;
+ f_ParaList.Insert(anIndex, aPara);
+//#UC END# *572C72F20143_4FACE127032F_impl*
+end;//TddTableCell.Insert
 
 procedure TddTableCell.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;

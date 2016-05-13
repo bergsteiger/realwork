@@ -65,6 +65,9 @@ implementation
 uses
  l3ImplUses
  , Variants
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TatParameter.pm_GetAsStr: AnsiString;
@@ -190,5 +193,15 @@ begin
     f_DefaultValue := INVALID_DEFAULT_VALUE;
 //#UC END# *48086E3F0109_48086D7103BE_impl*
 end;//TatParameter.Create
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ECanNotCast));
+ {* Регистрация типа ECanNotCast }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EHasNotSet));
+ {* Регистрация типа EHasNotSet }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -33,6 +33,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type
@@ -98,6 +101,10 @@ begin
 end;//TatClassContainer.Create
 
 initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EOperationNotRegistered));
+ {* Регистрация типа EOperationNotRegistered }
+{$IfEnd} // NOT Defined(NoScripts)
 //#UC START# *4808AA000171*
   OperationFactory := TatOperationFactory.Create;
 //#UC END# *4808AA000171*

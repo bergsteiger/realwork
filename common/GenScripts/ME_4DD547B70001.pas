@@ -19,8 +19,8 @@ uses
 type
  TkwCheckEtalon = class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCheckEtalon
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -30,6 +30,11 @@ implementation
 uses
  l3ImplUses
 ;
+
+class function TkwCheckEtalon.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tests:CheckEtalon';
+end;//TkwCheckEtalon.GetWordNameForRegister
 
 procedure TkwCheckEtalon.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DD547B70001_var*
@@ -50,11 +55,6 @@ begin
  aCtx.rCaller.CheckWithEtalon(l_S, l_Delim);
 //#UC END# *4DAEEDE10285_4DD547B70001_impl*
 end;//TkwCheckEtalon.DoDoIt
-
-class function TkwCheckEtalon.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tests:CheckEtalon';
-end;//TkwCheckEtalon.GetWordNameForRegister
 
 initialization
  TkwCheckEtalon.RegisterInEngine;

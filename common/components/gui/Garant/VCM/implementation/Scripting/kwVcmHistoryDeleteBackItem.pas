@@ -43,8 +43,8 @@ type
  vcm:history:DeleteBackItem
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmHistoryDeleteBackItem
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -64,6 +64,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwVcmHistoryDeleteBackItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:History:DeleteBackItem';
+end;//TkwVcmHistoryDeleteBackItem.GetWordNameForRegister
+
 procedure TkwVcmHistoryDeleteBackItem.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E82CEBA0299_var*
 //#UC END# *4DAEEDE10285_4E82CEBA0299_var*
@@ -73,11 +78,6 @@ begin
   vcmDispatcher.History.DeleteBackItem;
 //#UC END# *4DAEEDE10285_4E82CEBA0299_impl*
 end;//TkwVcmHistoryDeleteBackItem.DoDoIt
-
-class function TkwVcmHistoryDeleteBackItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:History:DeleteBackItem';
-end;//TkwVcmHistoryDeleteBackItem.GetWordNameForRegister
 
 initialization
  TkwVcmHistoryDeleteBackItem.RegisterInEngine;

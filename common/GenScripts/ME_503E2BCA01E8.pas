@@ -125,6 +125,13 @@ begin
 //#UC END# *503E5D3102F3_503E2BCA01E8_impl*
 end;//_atConverter_.InitConvertMap
 
+{$Else atConverter_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EConvertError));
+ {* Регистрация типа EConvertError }
+{$IfEnd} // NOT Defined(NoScripts)
+
 {$EndIf atConverter_imp_impl}
 
 {$EndIf atConverter_imp}

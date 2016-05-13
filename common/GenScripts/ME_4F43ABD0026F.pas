@@ -26,7 +26,7 @@ uses
  , kwCompiledFunction
  , SysUtils
  , l3Base
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 

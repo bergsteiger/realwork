@@ -24,25 +24,19 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwKeyValuesCreate = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта KeyValues:Create
-*Тип результата:* TkwKeyValues
-*Пример:*
-[code]
-OBJECT VAR l_TkwKeyValues
- KeyValues:Create >>> l_TkwKeyValues
-[code]  }
+  {* Слово скрипта KeyValues:Create }
   private
    function Create(const aCtx: TtfwContext): TkwKeyValues;
     {* Реализация слова скрипта KeyValues:Create }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -51,18 +45,18 @@ OBJECT VAR l_TkwKeyValues
 
 function TkwKeyValuesCreate.Create(const aCtx: TtfwContext): TkwKeyValues;
  {* Реализация слова скрипта KeyValues:Create }
-//#UC START# *7E12612EF455_6CD721531904_var*
-//#UC END# *7E12612EF455_6CD721531904_var*
+//#UC START# *567ACC37033D_6CD721531904_var*
+//#UC END# *567ACC37033D_6CD721531904_var*
 begin
-//#UC START# *7E12612EF455_6CD721531904_impl*
+//#UC START# *567ACC37033D_6CD721531904_impl*
  Result := TkwKeyValues.Create(nil{Prodicer}, Self{nil}{Finder}, aCtx.rTypeInfo, aCtx, {nil}Key);
-//#UC END# *7E12612EF455_6CD721531904_impl*
+//#UC END# *567ACC37033D_6CD721531904_impl*
 end;//TkwKeyValuesCreate.Create
 
-procedure TkwKeyValuesCreate.DoDoIt(const aCtx: TtfwContext);
+class function TkwKeyValuesCreate.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushObj(Create(aCtx));
-end;//TkwKeyValuesCreate.DoDoIt
+ Result := 'KeyValues:Create';
+end;//TkwKeyValuesCreate.GetWordNameForRegister
 
 function TkwKeyValuesCreate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -79,16 +73,14 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TkwKeyValues)]);
 end;//TkwKeyValuesCreate.ParamsTypes
 
-class function TkwKeyValuesCreate.GetWordNameForRegister: AnsiString;
+procedure TkwKeyValuesCreate.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'KeyValues:Create';
-end;//TkwKeyValuesCreate.GetWordNameForRegister
+ aCtx.rEngine.PushObj(Create(aCtx));
+end;//TkwKeyValuesCreate.DoDoIt
 
 initialization
  TkwKeyValuesCreate.RegisterInEngine;
  {* Регистрация KeyValues_Create }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TkwKeyValues));
  {* Регистрация типа TkwKeyValues }
 {$IfEnd} // NOT Defined(NoScripts)

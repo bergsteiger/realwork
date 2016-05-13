@@ -13,9 +13,9 @@ uses
  , evParaNode
  , k2Interfaces
  , nevTools
+ , l3IID
  , l3Variant
  , nevBase
- , l3IID
 ;
 
 type

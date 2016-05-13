@@ -16,8 +16,8 @@ uses
  , l3Interfaces
  , l3Variant
  , Classes
- , l3Except
  , l3Core
+ , l3Except
  , l3Memory
  , l3Types
 ;

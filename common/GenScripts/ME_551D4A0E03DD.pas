@@ -28,19 +28,13 @@ uses
  , TypInfo
  , vg_controls
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopControlFindVGControlByName = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:Control:FindVGControlByName
-*Тип результата:* TvgObject
-*Пример:*
-[code]
-OBJECT VAR l_TvgObject
- aName aControl pop:Control:FindVGControlByName >>> l_TvgObject
-[code]  }
+  {* Слово скрипта pop:Control:FindVGControlByName }
   private
    function FindVGControlByName(const aCtx: TtfwContext;
     aControl: TWinControl;
@@ -59,7 +53,7 @@ function TkwPopControlFindVGControlByName.FindVGControlByName(const aCtx: TtfwCo
  aControl: TWinControl;
  const aName: AnsiString): TvgObject;
  {* Реализация слова скрипта pop:Control:FindVGControlByName }
-//#UC START# *687CE4789741_BAFBA1D026AA_var*
+//#UC START# *551D4AA003A2_BAFBA1D026AA_var*
 
  function DoFindVGObject(aVgControl: TvgObject; const aName: AnsiString): TvgObject;
  var
@@ -109,11 +103,11 @@ function TkwPopControlFindVGControlByName.FindVGControlByName(const aCtx: TtfwCo
   Result := nil;
  end;
  
-//#UC END# *687CE4789741_BAFBA1D026AA_var*
+//#UC END# *551D4AA003A2_BAFBA1D026AA_var*
 begin
-//#UC START# *687CE4789741_BAFBA1D026AA_impl*
+//#UC START# *551D4AA003A2_BAFBA1D026AA_impl*
  Result := DoFindWinControl(aControl, aName);
-//#UC END# *687CE4789741_BAFBA1D026AA_impl*
+//#UC END# *551D4AA003A2_BAFBA1D026AA_impl*
 end;//TkwPopControlFindVGControlByName.FindVGControlByName
 
 procedure TkwPopControlFindVGControlByName.DoDoIt(const aCtx: TtfwContext);
@@ -141,6 +135,11 @@ begin
  aCtx.rEngine.PushObj(FindVGControlByName(aCtx, l_aControl, l_aName));
 end;//TkwPopControlFindVGControlByName.DoDoIt
 
+class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:FindVGControlByName';
+end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
+
 function TkwPopControlFindVGControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TvgObject);
@@ -156,22 +155,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TWinControl), @tfw_tiString]);
 end;//TkwPopControlFindVGControlByName.ParamsTypes
 
-class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:FindVGControlByName';
-end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
-
 initialization
  TkwPopControlFindVGControlByName.RegisterInEngine;
  {* Регистрация pop_Control_FindVGControlByName }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWinControl));
  {* Регистрация типа TWinControl }
- TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgObject));
  {* Регистрация типа TvgObject }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
 end.

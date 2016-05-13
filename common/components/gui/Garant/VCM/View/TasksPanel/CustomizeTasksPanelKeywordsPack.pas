@@ -41,11 +41,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -1128,14 +1128,7 @@ type
  end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push
 
  TkwCustomizeTasksPanelFormSpRight = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.spRight
-[panel]Контрол spRight формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtSplitter
-*Пример:*
-[code]
-OBJECT VAR l_TvtSplitter
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.spRight >>> l_TvtSplitter
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.spRight }
   private
    function spRight(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtSplitter;
@@ -1144,22 +1137,15 @@ OBJECT VAR l_TvtSplitter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormSpRight
 
  TkwCustomizeTasksPanelFormPnlBottom = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlBottom
-[panel]Контрол pnlBottom формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlBottom >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlBottom }
   private
    function pnlBottom(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1168,22 +1154,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlBottom
 
  TkwCustomizeTasksPanelFormLblConfirmSave = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.lblConfirmSave
-[panel]Контрол lblConfirmSave формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.lblConfirmSave >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.lblConfirmSave }
   private
    function lblConfirmSave(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -1192,22 +1171,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormLblConfirmSave
 
  TkwCustomizeTasksPanelFormLblAvailableOpsCaption = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.lblAvailableOpsCaption
-[panel]Контрол lblAvailableOpsCaption формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.lblAvailableOpsCaption >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.lblAvailableOpsCaption }
   private
    function lblAvailableOpsCaption(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -1216,22 +1188,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption
 
  TkwCustomizeTasksPanelFormBtOk = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btOk
-[panel]Контрол btOk формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btOk >>> l_TvtButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btOk }
   private
    function btOk(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -1240,22 +1205,15 @@ OBJECT VAR l_TvtButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtOk
 
  TkwCustomizeTasksPanelFormBtCancel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btCancel
-[panel]Контрол btCancel формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btCancel >>> l_TvtButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btCancel }
   private
    function btCancel(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -1264,22 +1222,15 @@ OBJECT VAR l_TvtButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtCancel
 
  TkwCustomizeTasksPanelFormBtApply = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btApply
-[panel]Контрол btApply формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btApply >>> l_TvtButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btApply }
   private
    function btApply(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -1288,22 +1239,15 @@ OBJECT VAR l_TvtButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtApply
 
  TkwCustomizeTasksPanelFormPnlRep = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlRep
-[panel]Контрол pnlRep формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlRep >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlRep }
   private
    function pnlRep(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1312,22 +1256,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlRep
 
  TkwCustomizeTasksPanelFormSplRep = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.splRep
-[panel]Контрол splRep формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtSplitter
-*Пример:*
-[code]
-OBJECT VAR l_TvtSplitter
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.splRep >>> l_TvtSplitter
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.splRep }
   private
    function splRep(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtSplitter;
@@ -1336,22 +1273,15 @@ OBJECT VAR l_TvtSplitter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormSplRep
 
  TkwCustomizeTasksPanelFormGbAvailableGroups = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.gbAvailableGroups
-[panel]Контрол gbAvailableGroups формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.gbAvailableGroups >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.gbAvailableGroups }
   private
    function gbAvailableGroups(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -1360,22 +1290,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormGbAvailableGroups
 
  TkwCustomizeTasksPanelFormTvRepGroups = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.tvRepGroups
-[panel]Контрол tvRepGroups формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.tvRepGroups >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.tvRepGroups }
   private
    function tvRepGroups(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -1384,22 +1307,15 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormTvRepGroups
 
  TkwCustomizeTasksPanelFormVtPanel1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.vtPanel1
-[panel]Контрол vtPanel1 формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.vtPanel1 >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.vtPanel1 }
   private
    function vtPanel1(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1408,22 +1324,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormVtPanel1
 
  TkwCustomizeTasksPanelFormCbGroupName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.cbGroupName
-[panel]Контрол cbGroupName формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtComboBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.cbGroupName >>> l_TvtComboBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.cbGroupName }
   private
    function cbGroupName(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtComboBox;
@@ -1432,22 +1341,15 @@ OBJECT VAR l_TvtComboBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormCbGroupName
 
  TkwCustomizeTasksPanelFormBtnAddGroup = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnAddGroup
-[panel]Контрол btnAddGroup формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeButton
-*Пример:*
-[code]
-OBJECT VAR l_TeeButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnAddGroup >>> l_TeeButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnAddGroup }
   private
    function btnAddGroup(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -1456,22 +1358,15 @@ OBJECT VAR l_TeeButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnAddGroup
 
  TkwCustomizeTasksPanelFormBtnChangeGroup = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnChangeGroup
-[panel]Контрол btnChangeGroup формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeButton
-*Пример:*
-[code]
-OBJECT VAR l_TeeButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnChangeGroup >>> l_TeeButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnChangeGroup }
   private
    function btnChangeGroup(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -1480,22 +1375,15 @@ OBJECT VAR l_TeeButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnChangeGroup
 
  TkwCustomizeTasksPanelFormBtnDeleteGroup = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnDeleteGroup
-[panel]Контрол btnDeleteGroup формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeButton
-*Пример:*
-[code]
-OBJECT VAR l_TeeButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnDeleteGroup >>> l_TeeButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnDeleteGroup }
   private
    function btnDeleteGroup(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -1504,22 +1392,15 @@ OBJECT VAR l_TeeButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnDeleteGroup
 
  TkwCustomizeTasksPanelFormGbAvailableOperations = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.gbAvailableOperations
-[panel]Контрол gbAvailableOperations формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.gbAvailableOperations >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.gbAvailableOperations }
   private
    function gbAvailableOperations(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -1528,22 +1409,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormGbAvailableOperations
 
  TkwCustomizeTasksPanelFormTvRepOps = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.tvRepOps
-[panel]Контрол tvRepOps формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.tvRepOps >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.tvRepOps }
   private
    function tvRepOps(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -1552,22 +1426,15 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormTvRepOps
 
  TkwCustomizeTasksPanelFormPnlForms = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlForms
-[panel]Контрол pnlForms формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlForms >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlForms }
   private
    function pnlForms(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1576,22 +1443,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlForms
 
  TkwCustomizeTasksPanelFormLblForms = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.lblForms
-[panel]Контрол lblForms формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.lblForms >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.lblForms }
   private
    function lblForms(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -1600,22 +1460,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormLblForms
 
  TkwCustomizeTasksPanelFormCbForms = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.cbForms
-[panel]Контрол cbForms формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TComboBox
-*Пример:*
-[code]
-OBJECT VAR l_TComboBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.cbForms >>> l_TComboBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.cbForms }
   private
    function cbForms(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TComboBox;
@@ -1624,22 +1477,15 @@ OBJECT VAR l_TComboBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormCbForms
 
  TkwCustomizeTasksPanelFormPnlMain = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlMain
-[panel]Контрол pnlMain формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlMain >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlMain }
   private
    function pnlMain(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1648,22 +1494,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlMain
 
  TkwCustomizeTasksPanelFormPnlLeft = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlLeft
-[panel]Контрол pnlLeft формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlLeft >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlLeft }
   private
    function pnlLeft(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1672,22 +1511,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlLeft
 
  TkwCustomizeTasksPanelFormBtnMoveOpToPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveOpToPanel
-[panel]Контрол btnMoveOpToPanel формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TBitBtn
-*Пример:*
-[code]
-OBJECT VAR l_TBitBtn
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnMoveOpToPanel >>> l_TBitBtn
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveOpToPanel }
   private
    function btnMoveOpToPanel(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -1696,22 +1528,15 @@ OBJECT VAR l_TBitBtn
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel
 
  TkwCustomizeTasksPanelFormBtnMoveOpToRep = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveOpToRep
-[panel]Контрол btnMoveOpToRep формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TBitBtn
-*Пример:*
-[code]
-OBJECT VAR l_TBitBtn
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnMoveOpToRep >>> l_TBitBtn
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveOpToRep }
   private
    function btnMoveOpToRep(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -1720,22 +1545,15 @@ OBJECT VAR l_TBitBtn
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep
 
  TkwCustomizeTasksPanelFormBtnMoveGroupToPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveGroupToPanel
-[panel]Контрол btnMoveGroupToPanel формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TBitBtn
-*Пример:*
-[code]
-OBJECT VAR l_TBitBtn
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnMoveGroupToPanel >>> l_TBitBtn
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveGroupToPanel }
   private
    function btnMoveGroupToPanel(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -1744,22 +1562,15 @@ OBJECT VAR l_TBitBtn
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel
 
  TkwCustomizeTasksPanelFormBtnMoveGroupToRep = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveGroupToRep
-[panel]Контрол btnMoveGroupToRep формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TBitBtn
-*Пример:*
-[code]
-OBJECT VAR l_TBitBtn
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnMoveGroupToRep >>> l_TBitBtn
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnMoveGroupToRep }
   private
    function btnMoveGroupToRep(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -1768,22 +1579,15 @@ OBJECT VAR l_TBitBtn
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep
 
  TkwCustomizeTasksPanelFormPnlTasksPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlTasksPanel
-[panel]Контрол pnlTasksPanel формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlTasksPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlTasksPanel }
   private
    function pnlTasksPanel(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1792,22 +1596,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlTasksPanel
 
  TkwCustomizeTasksPanelFormGbTasksPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.gbTasksPanel
-[panel]Контрол gbTasksPanel формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.gbTasksPanel >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.gbTasksPanel }
   private
    function gbTasksPanel(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -1816,22 +1613,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormGbTasksPanel
 
  TkwCustomizeTasksPanelFormTvTasksPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.tvTasksPanel
-[panel]Контрол tvTasksPanel формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.tvTasksPanel >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.tvTasksPanel }
   private
    function tvTasksPanel(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -1840,22 +1630,15 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormTvTasksPanel
 
  TkwCustomizeTasksPanelFormVtGroupBox3 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.vtGroupBox3
-[panel]Контрол vtGroupBox3 формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.vtGroupBox3 >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.vtGroupBox3 }
   private
    function vtGroupBox3(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -1864,22 +1647,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormVtGroupBox3
 
  TkwCustomizeTasksPanelFormLblCaption = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.lblCaption
-[panel]Контрол lblCaption формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.lblCaption >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.lblCaption }
   private
    function lblCaption(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -1888,22 +1664,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormLblCaption
 
  TkwCustomizeTasksPanelFormEdChange = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.edChange
-[panel]Контрол edChange формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtComboBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtComboBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.edChange >>> l_TvtComboBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.edChange }
   private
    function edChange(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtComboBox;
@@ -1912,22 +1681,15 @@ OBJECT VAR l_TvtComboBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormEdChange
 
  TkwCustomizeTasksPanelFormCbForAllUseCases = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.cbForAllUseCases
-[panel]Контрол cbForAllUseCases формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TeeCheckBox
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.cbForAllUseCases >>> l_TeeCheckBox
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.cbForAllUseCases }
   private
    function cbForAllUseCases(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeCheckBox;
@@ -1936,22 +1698,15 @@ OBJECT VAR l_TeeCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormCbForAllUseCases
 
  TkwCustomizeTasksPanelFormBtnChangeItem = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.btnChangeItem
-[panel]Контрол btnChangeItem формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TeeButton
-*Пример:*
-[code]
-OBJECT VAR l_TeeButton
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.btnChangeItem >>> l_TeeButton
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.btnChangeItem }
   private
    function btnChangeItem(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -1960,22 +1715,15 @@ OBJECT VAR l_TeeButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormBtnChangeItem
 
  TkwCustomizeTasksPanelFormPnlOperationPos = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.pnlOperationPos
-[panel]Контрол pnlOperationPos формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.pnlOperationPos >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.pnlOperationPos }
   private
    function pnlOperationPos(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -1984,22 +1732,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormPnlOperationPos
 
  TkwCustomizeTasksPanelFormUpBitBtn = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.UpBitBtn
-[panel]Контрол UpBitBtn формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TBitBtn
-*Пример:*
-[code]
-OBJECT VAR l_TBitBtn
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.UpBitBtn >>> l_TBitBtn
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.UpBitBtn }
   private
    function UpBitBtn(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -2008,22 +1749,15 @@ OBJECT VAR l_TBitBtn
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormUpBitBtn
 
  TkwCustomizeTasksPanelFormDownBitBtn = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TCustomizeTasksPanelForm.DownBitBtn
-[panel]Контрол DownBitBtn формы TCustomizeTasksPanelForm[panel]
-*Тип результата:* TBitBtn
-*Пример:*
-[code]
-OBJECT VAR l_TBitBtn
- aCustomizeTasksPanelForm .TCustomizeTasksPanelForm.DownBitBtn >>> l_TBitBtn
-[code]  }
+  {* Слово скрипта .TCustomizeTasksPanelForm.DownBitBtn }
   private
    function DownBitBtn(const aCtx: TtfwContext;
     aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -2032,11 +1766,11 @@ OBJECT VAR l_TBitBtn
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCustomizeTasksPanelFormDownBitBtn
 
 function Tkw_Form_CustomizeTasksPanel.GetString: AnsiString;
@@ -3103,11 +2837,10 @@ begin
  aCtx.rEngine.PushObj(spRight(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormSpRight.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormSpRight.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству spRight', aCtx);
-end;//TkwCustomizeTasksPanelFormSpRight.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.spRight';
+end;//TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormSpRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3124,10 +2857,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormSpRight.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormSpRight.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.spRight';
-end;//TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству spRight', aCtx);
+end;//TkwCustomizeTasksPanelFormSpRight.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlBottom.pnlBottom(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3151,11 +2885,10 @@ begin
  aCtx.rEngine.PushObj(pnlBottom(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlBottom.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlBottom', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlBottom';
+end;//TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3172,10 +2905,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlBottom.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlBottom';
-end;//TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlBottom', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.lblConfirmSave(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -3199,11 +2933,10 @@ begin
  aCtx.rEngine.PushObj(lblConfirmSave(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblConfirmSave', aCtx);
-end;//TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.lblConfirmSave';
+end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3220,10 +2953,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.lblConfirmSave';
-end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblConfirmSave', aCtx);
+end;//TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.lblAvailableOpsCaption(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -3247,11 +2981,10 @@ begin
  aCtx.rEngine.PushObj(lblAvailableOpsCaption(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblAvailableOpsCaption', aCtx);
-end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.lblAvailableOpsCaption';
+end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3268,10 +3001,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.lblAvailableOpsCaption';
-end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblAvailableOpsCaption', aCtx);
+end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtOk.btOk(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -3295,11 +3029,10 @@ begin
  aCtx.rEngine.PushObj(btOk(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtOk.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtOk.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btOk', aCtx);
-end;//TkwCustomizeTasksPanelFormBtOk.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btOk';
+end;//TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3316,10 +3049,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtOk.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtOk.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btOk';
-end;//TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btOk', aCtx);
+end;//TkwCustomizeTasksPanelFormBtOk.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtCancel.btCancel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -3343,11 +3077,10 @@ begin
  aCtx.rEngine.PushObj(btCancel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtCancel.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtCancel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btCancel', aCtx);
-end;//TkwCustomizeTasksPanelFormBtCancel.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btCancel';
+end;//TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3364,10 +3097,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtCancel.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtCancel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btCancel';
-end;//TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btCancel', aCtx);
+end;//TkwCustomizeTasksPanelFormBtCancel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtApply.btApply(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtButton;
@@ -3391,11 +3125,10 @@ begin
  aCtx.rEngine.PushObj(btApply(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtApply.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtApply.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btApply', aCtx);
-end;//TkwCustomizeTasksPanelFormBtApply.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btApply';
+end;//TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtApply.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3412,10 +3145,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtApply.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtApply.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btApply';
-end;//TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btApply', aCtx);
+end;//TkwCustomizeTasksPanelFormBtApply.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlRep.pnlRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3439,11 +3173,10 @@ begin
  aCtx.rEngine.PushObj(pnlRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlRep.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlRep.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlRep', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlRep.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlRep';
+end;//TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3460,10 +3193,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlRep.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlRep.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlRep';
-end;//TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlRep', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormSplRep.splRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtSplitter;
@@ -3487,11 +3221,10 @@ begin
  aCtx.rEngine.PushObj(splRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormSplRep.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormSplRep.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству splRep', aCtx);
-end;//TkwCustomizeTasksPanelFormSplRep.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.splRep';
+end;//TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormSplRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3508,10 +3241,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormSplRep.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormSplRep.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.splRep';
-end;//TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству splRep', aCtx);
+end;//TkwCustomizeTasksPanelFormSplRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.gbAvailableGroups(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -3535,11 +3269,10 @@ begin
  aCtx.rEngine.PushObj(gbAvailableGroups(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству gbAvailableGroups', aCtx);
-end;//TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.gbAvailableGroups';
+end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3556,10 +3289,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.gbAvailableGroups';
-end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству gbAvailableGroups', aCtx);
+end;//TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvRepGroups.tvRepGroups(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -3583,11 +3317,10 @@ begin
  aCtx.rEngine.PushObj(tvRepGroups(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvRepGroups.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvRepGroups', aCtx);
-end;//TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.tvRepGroups';
+end;//TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormTvRepGroups.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3604,10 +3337,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvRepGroups.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.tvRepGroups';
-end;//TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvRepGroups', aCtx);
+end;//TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim
 
 function TkwCustomizeTasksPanelFormVtPanel1.vtPanel1(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3631,11 +3365,10 @@ begin
  aCtx.rEngine.PushObj(vtPanel1(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormVtPanel1.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству vtPanel1', aCtx);
-end;//TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.vtPanel1';
+end;//TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormVtPanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3652,10 +3385,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormVtPanel1.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.vtPanel1';
-end;//TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству vtPanel1', aCtx);
+end;//TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbGroupName.cbGroupName(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtComboBox;
@@ -3679,11 +3413,10 @@ begin
  aCtx.rEngine.PushObj(cbGroupName(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbGroupName.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству cbGroupName', aCtx);
-end;//TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.cbGroupName';
+end;//TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormCbGroupName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3700,10 +3433,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbGroupName.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.cbGroupName';
-end;//TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству cbGroupName', aCtx);
+end;//TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.btnAddGroup(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -3727,11 +3461,10 @@ begin
  aCtx.rEngine.PushObj(btnAddGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnAddGroup', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnAddGroup';
+end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3748,10 +3481,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnAddGroup';
-end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnAddGroup', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.btnChangeGroup(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -3775,11 +3509,10 @@ begin
  aCtx.rEngine.PushObj(btnChangeGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnChangeGroup', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnChangeGroup';
+end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3796,10 +3529,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnChangeGroup';
-end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnChangeGroup', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.btnDeleteGroup(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -3823,11 +3557,10 @@ begin
  aCtx.rEngine.PushObj(btnDeleteGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnDeleteGroup', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnDeleteGroup';
+end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3844,10 +3577,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnDeleteGroup';
-end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnDeleteGroup', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.gbAvailableOperations(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -3871,11 +3605,10 @@ begin
  aCtx.rEngine.PushObj(gbAvailableOperations(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству gbAvailableOperations', aCtx);
-end;//TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.gbAvailableOperations';
+end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3892,10 +3625,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.gbAvailableOperations';
-end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству gbAvailableOperations', aCtx);
+end;//TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvRepOps.tvRepOps(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -3919,11 +3653,10 @@ begin
  aCtx.rEngine.PushObj(tvRepOps(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvRepOps.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvRepOps', aCtx);
-end;//TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.tvRepOps';
+end;//TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormTvRepOps.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3940,10 +3673,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvRepOps.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.tvRepOps';
-end;//TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvRepOps', aCtx);
+end;//TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlForms.pnlForms(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -3967,11 +3701,10 @@ begin
  aCtx.rEngine.PushObj(pnlForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlForms.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlForms.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlForms', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlForms.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlForms';
+end;//TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -3988,10 +3721,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlForms.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlForms.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlForms';
-end;//TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlForms', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblForms.lblForms(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -4015,11 +3749,10 @@ begin
  aCtx.rEngine.PushObj(lblForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblForms.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormLblForms.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblForms', aCtx);
-end;//TkwCustomizeTasksPanelFormLblForms.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.lblForms';
+end;//TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4036,10 +3769,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblForms.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormLblForms.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.lblForms';
-end;//TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblForms', aCtx);
+end;//TkwCustomizeTasksPanelFormLblForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbForms.cbForms(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TComboBox;
@@ -4063,11 +3797,10 @@ begin
  aCtx.rEngine.PushObj(cbForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbForms.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormCbForms.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству cbForms', aCtx);
-end;//TkwCustomizeTasksPanelFormCbForms.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.cbForms';
+end;//TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormCbForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4084,10 +3817,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbForms.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormCbForms.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.cbForms';
-end;//TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству cbForms', aCtx);
+end;//TkwCustomizeTasksPanelFormCbForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlMain.pnlMain(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4111,11 +3845,10 @@ begin
  aCtx.rEngine.PushObj(pnlMain(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlMain.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlMain.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlMain', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlMain.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlMain';
+end;//TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4132,10 +3865,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlMain.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlMain.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlMain';
-end;//TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlMain', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlMain.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlLeft.pnlLeft(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4159,11 +3893,10 @@ begin
  aCtx.rEngine.PushObj(pnlLeft(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlLeft.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlLeft', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlLeft';
+end;//TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4180,10 +3913,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlLeft.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlLeft';
-end;//TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlLeft', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.btnMoveOpToPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4207,11 +3941,10 @@ begin
  aCtx.rEngine.PushObj(btnMoveOpToPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnMoveOpToPanel', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnMoveOpToPanel';
+end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4228,10 +3961,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnMoveOpToPanel';
-end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnMoveOpToPanel', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.btnMoveOpToRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4255,11 +3989,10 @@ begin
  aCtx.rEngine.PushObj(btnMoveOpToRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnMoveOpToRep', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnMoveOpToRep';
+end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4276,10 +4009,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnMoveOpToRep';
-end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnMoveOpToRep', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.btnMoveGroupToPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4303,11 +4037,10 @@ begin
  aCtx.rEngine.PushObj(btnMoveGroupToPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnMoveGroupToPanel', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnMoveGroupToPanel';
+end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4324,10 +4057,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnMoveGroupToPanel';
-end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnMoveGroupToPanel', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.btnMoveGroupToRep(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4351,11 +4085,10 @@ begin
  aCtx.rEngine.PushObj(btnMoveGroupToRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnMoveGroupToRep', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnMoveGroupToRep';
+end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4372,10 +4105,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnMoveGroupToRep';
-end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnMoveGroupToRep', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.pnlTasksPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4399,11 +4133,10 @@ begin
  aCtx.rEngine.PushObj(pnlTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlTasksPanel', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlTasksPanel';
+end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4420,10 +4153,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlTasksPanel';
-end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlTasksPanel', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.gbTasksPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -4447,11 +4181,10 @@ begin
  aCtx.rEngine.PushObj(gbTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству gbTasksPanel', aCtx);
-end;//TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.gbTasksPanel';
+end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4468,10 +4201,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.gbTasksPanel';
-end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству gbTasksPanel', aCtx);
+end;//TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.tvTasksPanel(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeTreeView;
@@ -4495,11 +4229,10 @@ begin
  aCtx.rEngine.PushObj(tvTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvTasksPanel', aCtx);
-end;//TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.tvTasksPanel';
+end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4516,10 +4249,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.tvTasksPanel';
-end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvTasksPanel', aCtx);
+end;//TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.vtGroupBox3(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtGroupBox;
@@ -4543,11 +4277,10 @@ begin
  aCtx.rEngine.PushObj(vtGroupBox3(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству vtGroupBox3', aCtx);
-end;//TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.vtGroupBox3';
+end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4564,10 +4297,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.vtGroupBox3';
-end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству vtGroupBox3', aCtx);
+end;//TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblCaption.lblCaption(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtLabel;
@@ -4591,11 +4325,10 @@ begin
  aCtx.rEngine.PushObj(lblCaption(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblCaption.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormLblCaption.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblCaption', aCtx);
-end;//TkwCustomizeTasksPanelFormLblCaption.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.lblCaption';
+end;//TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormLblCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4612,10 +4345,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblCaption.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormLblCaption.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.lblCaption';
-end;//TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblCaption', aCtx);
+end;//TkwCustomizeTasksPanelFormLblCaption.SetValuePrim
 
 function TkwCustomizeTasksPanelFormEdChange.edChange(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtComboBox;
@@ -4639,11 +4373,10 @@ begin
  aCtx.rEngine.PushObj(edChange(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormEdChange.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormEdChange.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edChange', aCtx);
-end;//TkwCustomizeTasksPanelFormEdChange.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.edChange';
+end;//TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormEdChange.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4660,10 +4393,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormEdChange.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormEdChange.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.edChange';
-end;//TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edChange', aCtx);
+end;//TkwCustomizeTasksPanelFormEdChange.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.cbForAllUseCases(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeCheckBox;
@@ -4687,11 +4421,10 @@ begin
  aCtx.rEngine.PushObj(cbForAllUseCases(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству cbForAllUseCases', aCtx);
-end;//TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.cbForAllUseCases';
+end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4708,10 +4441,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.cbForAllUseCases';
-end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству cbForAllUseCases', aCtx);
+end;//TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.btnChangeItem(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TeeButton;
@@ -4735,11 +4469,10 @@ begin
  aCtx.rEngine.PushObj(btnChangeItem(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnChangeItem', aCtx);
-end;//TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.btnChangeItem';
+end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4756,10 +4489,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.btnChangeItem';
-end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnChangeItem', aCtx);
+end;//TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.pnlOperationPos(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TvtPanel;
@@ -4783,11 +4517,10 @@ begin
  aCtx.rEngine.PushObj(pnlOperationPos(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnlOperationPos', aCtx);
-end;//TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.pnlOperationPos';
+end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4804,10 +4537,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.pnlOperationPos';
-end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnlOperationPos', aCtx);
+end;//TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim
 
 function TkwCustomizeTasksPanelFormUpBitBtn.UpBitBtn(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4831,11 +4565,10 @@ begin
  aCtx.rEngine.PushObj(UpBitBtn(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormUpBitBtn.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UpBitBtn', aCtx);
-end;//TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.UpBitBtn';
+end;//TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormUpBitBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4852,10 +4585,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormUpBitBtn.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.UpBitBtn';
-end;//TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UpBitBtn', aCtx);
+end;//TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim
 
 function TkwCustomizeTasksPanelFormDownBitBtn.DownBitBtn(const aCtx: TtfwContext;
  aCustomizeTasksPanelForm: TCustomizeTasksPanelForm): TBitBtn;
@@ -4879,11 +4613,10 @@ begin
  aCtx.rEngine.PushObj(DownBitBtn(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormDownBitBtn.DoDoIt
 
-procedure TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству DownBitBtn', aCtx);
-end;//TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim
+ Result := '.TCustomizeTasksPanelForm.DownBitBtn';
+end;//TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister
 
 function TkwCustomizeTasksPanelFormDownBitBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -4900,10 +4633,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormDownBitBtn.ParamsTypes
 
-class function TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister: AnsiString;
+procedure TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TCustomizeTasksPanelForm.DownBitBtn';
-end;//TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству DownBitBtn', aCtx);
+end;//TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim
 
 initialization
  Tkw_Form_CustomizeTasksPanel.RegisterInEngine;
@@ -5136,10 +4870,8 @@ initialization
  {* Регистрация CustomizeTasksPanelForm_UpBitBtn }
  TkwCustomizeTasksPanelFormDownBitBtn.RegisterInEngine;
  {* Регистрация CustomizeTasksPanelForm_DownBitBtn }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomizeTasksPanelForm));
- {* Регистрация типа CustomizeTasksPanel }
+ {* Регистрация типа TCustomizeTasksPanelForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSplitter));
  {* Регистрация типа TvtSplitter }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));

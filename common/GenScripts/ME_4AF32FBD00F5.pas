@@ -150,6 +150,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4AF32FBD00F5impl_uses*
  //#UC END# *4AF32FBD00F5impl_uses*
 ;
@@ -696,6 +699,12 @@ end;//TnsSaveDialog.Execute
 
 //#UC START# *4AF32FBD00F5impl*
 //#UC END# *4AF32FBD00F5impl*
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnsSaveDialog);
+ {* Регистрация TnsSaveDialog }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

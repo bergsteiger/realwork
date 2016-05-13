@@ -30,7 +30,7 @@ uses
  , BaseSearchInterfaces
  , nsContextHistory
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A254F038Aimpl_uses*
  //#UC END# *571A254F038Aimpl_uses*
@@ -40,21 +40,21 @@ type
  TkwOpenSituationCard = class(TtfwRegisterableWord)
   {* открыть ППС 6.х (Стандартная) }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpenSituationCard
 
  TkwOpenOldSituationCard = class(TtfwRegisterableWord)
   {* открыть ППС 5.х (Преемственная) }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpenOldSituationCard
 
  TkwAttributeSearch = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwAttributeSearch
 
  TkwClearContextSearchHistory = {abstract} class(TtfwRegisterableWord)
@@ -75,6 +75,11 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwClearPharmContextSearchHistory
 
+class function TkwOpenSituationCard.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ППС_Стандартная_Prim';
+end;//TkwOpenSituationCard.GetWordNameForRegister
+
 procedure TkwOpenSituationCard.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F27EAF200E5_var*
 //#UC END# *4DAEEDE10285_4F27EAF200E5_var*
@@ -84,10 +89,10 @@ begin
 //#UC END# *4DAEEDE10285_4F27EAF200E5_impl*
 end;//TkwOpenSituationCard.DoDoIt
 
-class function TkwOpenSituationCard.GetWordNameForRegister: AnsiString;
+class function TkwOpenOldSituationCard.GetWordNameForRegister: AnsiString;
 begin
- Result := 'ППС_Стандартная_Prim';
-end;//TkwOpenSituationCard.GetWordNameForRegister
+ Result := 'ППС_Преемственная_Prim';
+end;//TkwOpenOldSituationCard.GetWordNameForRegister
 
 procedure TkwOpenOldSituationCard.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F27EB56012C_var*
@@ -98,10 +103,10 @@ begin
 //#UC END# *4DAEEDE10285_4F27EB56012C_impl*
 end;//TkwOpenOldSituationCard.DoDoIt
 
-class function TkwOpenOldSituationCard.GetWordNameForRegister: AnsiString;
+class function TkwAttributeSearch.GetWordNameForRegister: AnsiString;
 begin
- Result := 'ППС_Преемственная_Prim';
-end;//TkwOpenOldSituationCard.GetWordNameForRegister
+ Result := 'ППР_Prim';
+end;//TkwAttributeSearch.GetWordNameForRegister
 
 procedure TkwAttributeSearch.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DAF069D0072_var*
@@ -111,11 +116,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4DAEEDE10285_4DAF069D0072_impl*
 end;//TkwAttributeSearch.DoDoIt
-
-class function TkwAttributeSearch.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ППР_Prim';
-end;//TkwAttributeSearch.GetWordNameForRegister
 
 procedure TkwClearContextSearchHistory.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B12A56032C_var*

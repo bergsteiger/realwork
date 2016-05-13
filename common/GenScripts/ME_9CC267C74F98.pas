@@ -35,15 +35,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , vtComboBoxQS
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -270,14 +270,7 @@ type
  end;//Tkw_RightEdition_Component_TextSource
 
  TkwRightEditionFormHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRightEditionForm.Header
-[panel]Контрол Header формы TRightEditionForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aRightEditionForm .TRightEditionForm.Header >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TRightEditionForm.Header }
   private
    function Header(const aCtx: TtfwContext;
     aRightEditionForm: TRightEditionForm): TvtPanel;
@@ -286,22 +279,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRightEditionFormHeader
 
  TkwRightEditionFormPnLeft = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRightEditionForm.pnLeft
-[panel]Контрол pnLeft формы TRightEditionForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aRightEditionForm .TRightEditionForm.pnLeft >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TRightEditionForm.pnLeft }
   private
    function pnLeft(const aCtx: TtfwContext;
     aRightEditionForm: TRightEditionForm): TvtPanel;
@@ -310,22 +296,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRightEditionFormPnLeft
 
  TkwRightEditionFormEditionLink = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRightEditionForm.EditionLink
-[panel]Контрол EditionLink формы TRightEditionForm[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aRightEditionForm .TRightEditionForm.EditionLink >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TRightEditionForm.EditionLink }
   private
    function EditionLink(const aCtx: TtfwContext;
     aRightEditionForm: TRightEditionForm): TvtFocusLabel;
@@ -334,22 +313,15 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRightEditionFormEditionLink
 
  TkwRightEditionFormPbIcon = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRightEditionForm.pbIcon
-[panel]Контрол pbIcon формы TRightEditionForm[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aRightEditionForm .TRightEditionForm.pbIcon >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TRightEditionForm.pbIcon }
   private
    function pbIcon(const aCtx: TtfwContext;
     aRightEditionForm: TRightEditionForm): TPaintBox;
@@ -358,22 +330,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRightEditionFormPbIcon
 
  TkwRightEditionFormPnCaption = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRightEditionForm.pnCaption
-[panel]Контрол pnCaption формы TRightEditionForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aRightEditionForm .TRightEditionForm.pnCaption >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TRightEditionForm.pnCaption }
   private
    function pnCaption(const aCtx: TtfwContext;
     aRightEditionForm: TRightEditionForm): TvtPanel;
@@ -382,22 +347,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRightEditionFormPnCaption
 
  TkwRightEditionFormText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TRightEditionForm.Text
-[panel]Контрол Text формы TRightEditionForm[panel]
-*Тип результата:* TnscEditor
-*Пример:*
-[code]
-OBJECT VAR l_TnscEditor
- aRightEditionForm .TRightEditionForm.Text >>> l_TnscEditor
-[code]  }
+  {* Слово скрипта .TRightEditionForm.Text }
   private
    function Text(const aCtx: TtfwContext;
     aRightEditionForm: TRightEditionForm): TnscEditor;
@@ -406,11 +364,11 @@ OBJECT VAR l_TnscEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwRightEditionFormText
 
 function Tkw_Form_RightEdition.GetString: AnsiString;
@@ -650,11 +608,10 @@ begin
  aCtx.rEngine.PushObj(Header(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormHeader.DoDoIt
 
-procedure TkwRightEditionFormHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRightEditionFormHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Header', aCtx);
-end;//TkwRightEditionFormHeader.SetValuePrim
+ Result := '.TRightEditionForm.Header';
+end;//TkwRightEditionFormHeader.GetWordNameForRegister
 
 function TkwRightEditionFormHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -671,10 +628,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormHeader.ParamsTypes
 
-class function TkwRightEditionFormHeader.GetWordNameForRegister: AnsiString;
+procedure TkwRightEditionFormHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRightEditionForm.Header';
-end;//TkwRightEditionFormHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Header', aCtx);
+end;//TkwRightEditionFormHeader.SetValuePrim
 
 function TkwRightEditionFormPnLeft.pnLeft(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtPanel;
@@ -698,11 +656,10 @@ begin
  aCtx.rEngine.PushObj(pnLeft(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormPnLeft.DoDoIt
 
-procedure TkwRightEditionFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRightEditionFormPnLeft.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
-end;//TkwRightEditionFormPnLeft.SetValuePrim
+ Result := '.TRightEditionForm.pnLeft';
+end;//TkwRightEditionFormPnLeft.GetWordNameForRegister
 
 function TkwRightEditionFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -719,10 +676,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormPnLeft.ParamsTypes
 
-class function TkwRightEditionFormPnLeft.GetWordNameForRegister: AnsiString;
+procedure TkwRightEditionFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRightEditionForm.pnLeft';
-end;//TkwRightEditionFormPnLeft.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
+end;//TkwRightEditionFormPnLeft.SetValuePrim
 
 function TkwRightEditionFormEditionLink.EditionLink(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtFocusLabel;
@@ -746,11 +704,10 @@ begin
  aCtx.rEngine.PushObj(EditionLink(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormEditionLink.DoDoIt
 
-procedure TkwRightEditionFormEditionLink.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRightEditionFormEditionLink.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству EditionLink', aCtx);
-end;//TkwRightEditionFormEditionLink.SetValuePrim
+ Result := '.TRightEditionForm.EditionLink';
+end;//TkwRightEditionFormEditionLink.GetWordNameForRegister
 
 function TkwRightEditionFormEditionLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -767,10 +724,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormEditionLink.ParamsTypes
 
-class function TkwRightEditionFormEditionLink.GetWordNameForRegister: AnsiString;
+procedure TkwRightEditionFormEditionLink.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRightEditionForm.EditionLink';
-end;//TkwRightEditionFormEditionLink.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству EditionLink', aCtx);
+end;//TkwRightEditionFormEditionLink.SetValuePrim
 
 function TkwRightEditionFormPbIcon.pbIcon(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TPaintBox;
@@ -794,11 +752,10 @@ begin
  aCtx.rEngine.PushObj(pbIcon(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormPbIcon.DoDoIt
 
-procedure TkwRightEditionFormPbIcon.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRightEditionFormPbIcon.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbIcon', aCtx);
-end;//TkwRightEditionFormPbIcon.SetValuePrim
+ Result := '.TRightEditionForm.pbIcon';
+end;//TkwRightEditionFormPbIcon.GetWordNameForRegister
 
 function TkwRightEditionFormPbIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -815,10 +772,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormPbIcon.ParamsTypes
 
-class function TkwRightEditionFormPbIcon.GetWordNameForRegister: AnsiString;
+procedure TkwRightEditionFormPbIcon.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRightEditionForm.pbIcon';
-end;//TkwRightEditionFormPbIcon.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pbIcon', aCtx);
+end;//TkwRightEditionFormPbIcon.SetValuePrim
 
 function TkwRightEditionFormPnCaption.pnCaption(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtPanel;
@@ -842,11 +800,10 @@ begin
  aCtx.rEngine.PushObj(pnCaption(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormPnCaption.DoDoIt
 
-procedure TkwRightEditionFormPnCaption.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRightEditionFormPnCaption.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnCaption', aCtx);
-end;//TkwRightEditionFormPnCaption.SetValuePrim
+ Result := '.TRightEditionForm.pnCaption';
+end;//TkwRightEditionFormPnCaption.GetWordNameForRegister
 
 function TkwRightEditionFormPnCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -863,10 +820,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormPnCaption.ParamsTypes
 
-class function TkwRightEditionFormPnCaption.GetWordNameForRegister: AnsiString;
+procedure TkwRightEditionFormPnCaption.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRightEditionForm.pnCaption';
-end;//TkwRightEditionFormPnCaption.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnCaption', aCtx);
+end;//TkwRightEditionFormPnCaption.SetValuePrim
 
 function TkwRightEditionFormText.Text(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TnscEditor;
@@ -890,11 +848,10 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormText.DoDoIt
 
-procedure TkwRightEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwRightEditionFormText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
-end;//TkwRightEditionFormText.SetValuePrim
+ Result := '.TRightEditionForm.Text';
+end;//TkwRightEditionFormText.GetWordNameForRegister
 
 function TkwRightEditionFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -911,10 +868,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormText.ParamsTypes
 
-class function TkwRightEditionFormText.GetWordNameForRegister: AnsiString;
+procedure TkwRightEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TRightEditionForm.Text';
-end;//TkwRightEditionFormText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
+end;//TkwRightEditionFormText.SetValuePrim
 
 initialization
  Tkw_Form_RightEdition.RegisterInEngine;
@@ -961,10 +919,8 @@ initialization
  {* Регистрация RightEditionForm_pnCaption }
  TkwRightEditionFormText.RegisterInEngine;
  {* Регистрация RightEditionForm_Text }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TRightEditionForm));
- {* Регистрация типа RightEdition }
+ {* Регистрация типа TRightEditionForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtFocusLabel));

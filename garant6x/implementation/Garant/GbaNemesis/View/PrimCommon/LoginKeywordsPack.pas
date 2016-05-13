@@ -42,11 +42,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -512,14 +512,7 @@ type
  end;//Tkw_Login_Control_HelpLabel_Push
 
  TkwLoginFormRegisteredGroupBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.RegisteredGroupBox
-[panel]Контрол RegisteredGroupBox формы TLoginForm[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aLoginForm .TLoginForm.RegisteredGroupBox >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TLoginForm.RegisteredGroupBox }
   private
    function RegisteredGroupBox(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtGroupBox;
@@ -528,22 +521,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormRegisteredGroupBox
 
  TkwLoginFormLblLogin = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.lblLogin
-[panel]Контрол lblLogin формы TLoginForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aLoginForm .TLoginForm.lblLogin >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TLoginForm.lblLogin }
   private
    function lblLogin(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtLabel;
@@ -552,22 +538,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormLblLogin
 
  TkwLoginFormLblPassword = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.lblPassword
-[panel]Контрол lblPassword формы TLoginForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aLoginForm .TLoginForm.lblPassword >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TLoginForm.lblPassword }
   private
    function lblPassword(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtLabel;
@@ -576,22 +555,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormLblPassword
 
  TkwLoginFormEnterPaintBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.EnterPaintBox
-[panel]Контрол EnterPaintBox формы TLoginForm[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aLoginForm .TLoginForm.EnterPaintBox >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TLoginForm.EnterPaintBox }
   private
    function EnterPaintBox(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TPaintBox;
@@ -600,22 +572,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormEnterPaintBox
 
  TkwLoginFormEdUserName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.edUserName
-[panel]Контрол edUserName формы TLoginForm[panel]
-*Тип результата:* TnscComboBoxWithReadOnly
-*Пример:*
-[code]
-OBJECT VAR l_TnscComboBoxWithReadOnly
- aLoginForm .TLoginForm.edUserName >>> l_TnscComboBoxWithReadOnly
-[code]  }
+  {* Слово скрипта .TLoginForm.edUserName }
   private
    function edUserName(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TnscComboBoxWithReadOnly;
@@ -624,22 +589,15 @@ OBJECT VAR l_TnscComboBoxWithReadOnly
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormEdUserName
 
  TkwLoginFormEdPassword = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.edPassword
-[panel]Контрол edPassword формы TLoginForm[panel]
-*Тип результата:* TnscComboBoxWithPwdChar
-*Пример:*
-[code]
-OBJECT VAR l_TnscComboBoxWithPwdChar
- aLoginForm .TLoginForm.edPassword >>> l_TnscComboBoxWithPwdChar
-[code]  }
+  {* Слово скрипта .TLoginForm.edPassword }
   private
    function edPassword(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TnscComboBoxWithPwdChar;
@@ -648,22 +606,15 @@ OBJECT VAR l_TnscComboBoxWithPwdChar
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormEdPassword
 
  TkwLoginFormLblForgetPassword = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.lblForgetPassword
-[panel]Контрол lblForgetPassword формы TLoginForm[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aLoginForm .TLoginForm.lblForgetPassword >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TLoginForm.lblForgetPassword }
   private
    function lblForgetPassword(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtFocusLabel;
@@ -672,22 +623,15 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormLblForgetPassword
 
  TkwLoginFormCbAutoLogin = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.cbAutoLogin
-[panel]Контрол cbAutoLogin формы TLoginForm[panel]
-*Тип результата:* TvtCheckBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtCheckBox
- aLoginForm .TLoginForm.cbAutoLogin >>> l_TvtCheckBox
-[code]  }
+  {* Слово скрипта .TLoginForm.cbAutoLogin }
   private
    function cbAutoLogin(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtCheckBox;
@@ -696,22 +640,15 @@ OBJECT VAR l_TvtCheckBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormCbAutoLogin
 
  TkwLoginFormBtnOk = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.btnOk
-[panel]Контрол btnOk формы TLoginForm[panel]
-*Тип результата:* TElPopupButton
-*Пример:*
-[code]
-OBJECT VAR l_TElPopupButton
- aLoginForm .TLoginForm.btnOk >>> l_TElPopupButton
-[code]  }
+  {* Слово скрипта .TLoginForm.btnOk }
   private
    function btnOk(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TElPopupButton;
@@ -720,22 +657,15 @@ OBJECT VAR l_TElPopupButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormBtnOk
 
  TkwLoginFormNewUserGroupBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.NewUserGroupBox
-[panel]Контрол NewUserGroupBox формы TLoginForm[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aLoginForm .TLoginForm.NewUserGroupBox >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TLoginForm.NewUserGroupBox }
   private
    function NewUserGroupBox(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtGroupBox;
@@ -744,22 +674,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormNewUserGroupBox
 
  TkwLoginFormNewUserLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.NewUserLabel
-[panel]Контрол NewUserLabel формы TLoginForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aLoginForm .TLoginForm.NewUserLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TLoginForm.NewUserLabel }
   private
    function NewUserLabel(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtLabel;
@@ -768,22 +691,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormNewUserLabel
 
  TkwLoginFormNewUserPaintBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.NewUserPaintBox
-[panel]Контрол NewUserPaintBox формы TLoginForm[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aLoginForm .TLoginForm.NewUserPaintBox >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TLoginForm.NewUserPaintBox }
   private
    function NewUserPaintBox(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TPaintBox;
@@ -792,22 +708,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormNewUserPaintBox
 
  TkwLoginFormLblNewUser = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.lblNewUser
-[panel]Контрол lblNewUser формы TLoginForm[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aLoginForm .TLoginForm.lblNewUser >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TLoginForm.lblNewUser }
   private
    function lblNewUser(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtFocusLabel;
@@ -816,22 +725,15 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormLblNewUser
 
  TkwLoginFormHelpPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.HelpPanel
-[panel]Контрол HelpPanel формы TLoginForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aLoginForm .TLoginForm.HelpPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TLoginForm.HelpPanel }
   private
    function HelpPanel(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtPanel;
@@ -840,22 +742,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormHelpPanel
 
  TkwLoginFormHelpPaintBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.HelpPaintBox
-[panel]Контрол HelpPaintBox формы TLoginForm[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aLoginForm .TLoginForm.HelpPaintBox >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TLoginForm.HelpPaintBox }
   private
    function HelpPaintBox(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TPaintBox;
@@ -864,22 +759,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormHelpPaintBox
 
  TkwLoginFormHelpLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TLoginForm.HelpLabel
-[panel]Контрол HelpLabel формы TLoginForm[panel]
-*Тип результата:* TvtFocusLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtFocusLabel
- aLoginForm .TLoginForm.HelpLabel >>> l_TvtFocusLabel
-[code]  }
+  {* Слово скрипта .TLoginForm.HelpLabel }
   private
    function HelpLabel(const aCtx: TtfwContext;
     aLoginForm: TLoginForm): TvtFocusLabel;
@@ -888,11 +776,11 @@ OBJECT VAR l_TvtFocusLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwLoginFormHelpLabel
 
 function Tkw_Form_Login.GetString: AnsiString;
@@ -1359,11 +1247,10 @@ begin
  aCtx.rEngine.PushObj(RegisteredGroupBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormRegisteredGroupBox.DoDoIt
 
-procedure TkwLoginFormRegisteredGroupBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormRegisteredGroupBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству RegisteredGroupBox', aCtx);
-end;//TkwLoginFormRegisteredGroupBox.SetValuePrim
+ Result := '.TLoginForm.RegisteredGroupBox';
+end;//TkwLoginFormRegisteredGroupBox.GetWordNameForRegister
 
 function TkwLoginFormRegisteredGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1380,10 +1267,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormRegisteredGroupBox.ParamsTypes
 
-class function TkwLoginFormRegisteredGroupBox.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormRegisteredGroupBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.RegisteredGroupBox';
-end;//TkwLoginFormRegisteredGroupBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству RegisteredGroupBox', aCtx);
+end;//TkwLoginFormRegisteredGroupBox.SetValuePrim
 
 function TkwLoginFormLblLogin.lblLogin(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtLabel;
@@ -1407,11 +1295,10 @@ begin
  aCtx.rEngine.PushObj(lblLogin(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblLogin.DoDoIt
 
-procedure TkwLoginFormLblLogin.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormLblLogin.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblLogin', aCtx);
-end;//TkwLoginFormLblLogin.SetValuePrim
+ Result := '.TLoginForm.lblLogin';
+end;//TkwLoginFormLblLogin.GetWordNameForRegister
 
 function TkwLoginFormLblLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1428,10 +1315,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblLogin.ParamsTypes
 
-class function TkwLoginFormLblLogin.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormLblLogin.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.lblLogin';
-end;//TkwLoginFormLblLogin.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblLogin', aCtx);
+end;//TkwLoginFormLblLogin.SetValuePrim
 
 function TkwLoginFormLblPassword.lblPassword(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtLabel;
@@ -1455,11 +1343,10 @@ begin
  aCtx.rEngine.PushObj(lblPassword(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblPassword.DoDoIt
 
-procedure TkwLoginFormLblPassword.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormLblPassword.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblPassword', aCtx);
-end;//TkwLoginFormLblPassword.SetValuePrim
+ Result := '.TLoginForm.lblPassword';
+end;//TkwLoginFormLblPassword.GetWordNameForRegister
 
 function TkwLoginFormLblPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1476,10 +1363,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblPassword.ParamsTypes
 
-class function TkwLoginFormLblPassword.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormLblPassword.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.lblPassword';
-end;//TkwLoginFormLblPassword.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblPassword', aCtx);
+end;//TkwLoginFormLblPassword.SetValuePrim
 
 function TkwLoginFormEnterPaintBox.EnterPaintBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TPaintBox;
@@ -1503,11 +1391,10 @@ begin
  aCtx.rEngine.PushObj(EnterPaintBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormEnterPaintBox.DoDoIt
 
-procedure TkwLoginFormEnterPaintBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormEnterPaintBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству EnterPaintBox', aCtx);
-end;//TkwLoginFormEnterPaintBox.SetValuePrim
+ Result := '.TLoginForm.EnterPaintBox';
+end;//TkwLoginFormEnterPaintBox.GetWordNameForRegister
 
 function TkwLoginFormEnterPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1524,10 +1411,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormEnterPaintBox.ParamsTypes
 
-class function TkwLoginFormEnterPaintBox.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormEnterPaintBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.EnterPaintBox';
-end;//TkwLoginFormEnterPaintBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству EnterPaintBox', aCtx);
+end;//TkwLoginFormEnterPaintBox.SetValuePrim
 
 function TkwLoginFormEdUserName.edUserName(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TnscComboBoxWithReadOnly;
@@ -1551,11 +1439,10 @@ begin
  aCtx.rEngine.PushObj(edUserName(aCtx, l_aLoginForm));
 end;//TkwLoginFormEdUserName.DoDoIt
 
-procedure TkwLoginFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormEdUserName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
-end;//TkwLoginFormEdUserName.SetValuePrim
+ Result := '.TLoginForm.edUserName';
+end;//TkwLoginFormEdUserName.GetWordNameForRegister
 
 function TkwLoginFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1572,10 +1459,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormEdUserName.ParamsTypes
 
-class function TkwLoginFormEdUserName.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.edUserName';
-end;//TkwLoginFormEdUserName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
+end;//TkwLoginFormEdUserName.SetValuePrim
 
 function TkwLoginFormEdPassword.edPassword(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TnscComboBoxWithPwdChar;
@@ -1599,11 +1487,10 @@ begin
  aCtx.rEngine.PushObj(edPassword(aCtx, l_aLoginForm));
 end;//TkwLoginFormEdPassword.DoDoIt
 
-procedure TkwLoginFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormEdPassword.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
-end;//TkwLoginFormEdPassword.SetValuePrim
+ Result := '.TLoginForm.edPassword';
+end;//TkwLoginFormEdPassword.GetWordNameForRegister
 
 function TkwLoginFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1620,10 +1507,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormEdPassword.ParamsTypes
 
-class function TkwLoginFormEdPassword.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.edPassword';
-end;//TkwLoginFormEdPassword.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
+end;//TkwLoginFormEdPassword.SetValuePrim
 
 function TkwLoginFormLblForgetPassword.lblForgetPassword(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtFocusLabel;
@@ -1647,11 +1535,10 @@ begin
  aCtx.rEngine.PushObj(lblForgetPassword(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblForgetPassword.DoDoIt
 
-procedure TkwLoginFormLblForgetPassword.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormLblForgetPassword.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblForgetPassword', aCtx);
-end;//TkwLoginFormLblForgetPassword.SetValuePrim
+ Result := '.TLoginForm.lblForgetPassword';
+end;//TkwLoginFormLblForgetPassword.GetWordNameForRegister
 
 function TkwLoginFormLblForgetPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1668,10 +1555,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblForgetPassword.ParamsTypes
 
-class function TkwLoginFormLblForgetPassword.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormLblForgetPassword.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.lblForgetPassword';
-end;//TkwLoginFormLblForgetPassword.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblForgetPassword', aCtx);
+end;//TkwLoginFormLblForgetPassword.SetValuePrim
 
 function TkwLoginFormCbAutoLogin.cbAutoLogin(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtCheckBox;
@@ -1695,11 +1583,10 @@ begin
  aCtx.rEngine.PushObj(cbAutoLogin(aCtx, l_aLoginForm));
 end;//TkwLoginFormCbAutoLogin.DoDoIt
 
-procedure TkwLoginFormCbAutoLogin.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormCbAutoLogin.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству cbAutoLogin', aCtx);
-end;//TkwLoginFormCbAutoLogin.SetValuePrim
+ Result := '.TLoginForm.cbAutoLogin';
+end;//TkwLoginFormCbAutoLogin.GetWordNameForRegister
 
 function TkwLoginFormCbAutoLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1716,10 +1603,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormCbAutoLogin.ParamsTypes
 
-class function TkwLoginFormCbAutoLogin.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormCbAutoLogin.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.cbAutoLogin';
-end;//TkwLoginFormCbAutoLogin.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству cbAutoLogin', aCtx);
+end;//TkwLoginFormCbAutoLogin.SetValuePrim
 
 function TkwLoginFormBtnOk.btnOk(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TElPopupButton;
@@ -1743,11 +1631,10 @@ begin
  aCtx.rEngine.PushObj(btnOk(aCtx, l_aLoginForm));
 end;//TkwLoginFormBtnOk.DoDoIt
 
-procedure TkwLoginFormBtnOk.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormBtnOk.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству btnOk', aCtx);
-end;//TkwLoginFormBtnOk.SetValuePrim
+ Result := '.TLoginForm.btnOk';
+end;//TkwLoginFormBtnOk.GetWordNameForRegister
 
 function TkwLoginFormBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1764,10 +1651,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormBtnOk.ParamsTypes
 
-class function TkwLoginFormBtnOk.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormBtnOk.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.btnOk';
-end;//TkwLoginFormBtnOk.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству btnOk', aCtx);
+end;//TkwLoginFormBtnOk.SetValuePrim
 
 function TkwLoginFormNewUserGroupBox.NewUserGroupBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtGroupBox;
@@ -1791,11 +1679,10 @@ begin
  aCtx.rEngine.PushObj(NewUserGroupBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormNewUserGroupBox.DoDoIt
 
-procedure TkwLoginFormNewUserGroupBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormNewUserGroupBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NewUserGroupBox', aCtx);
-end;//TkwLoginFormNewUserGroupBox.SetValuePrim
+ Result := '.TLoginForm.NewUserGroupBox';
+end;//TkwLoginFormNewUserGroupBox.GetWordNameForRegister
 
 function TkwLoginFormNewUserGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1812,10 +1699,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormNewUserGroupBox.ParamsTypes
 
-class function TkwLoginFormNewUserGroupBox.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormNewUserGroupBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.NewUserGroupBox';
-end;//TkwLoginFormNewUserGroupBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NewUserGroupBox', aCtx);
+end;//TkwLoginFormNewUserGroupBox.SetValuePrim
 
 function TkwLoginFormNewUserLabel.NewUserLabel(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtLabel;
@@ -1839,11 +1727,10 @@ begin
  aCtx.rEngine.PushObj(NewUserLabel(aCtx, l_aLoginForm));
 end;//TkwLoginFormNewUserLabel.DoDoIt
 
-procedure TkwLoginFormNewUserLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormNewUserLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NewUserLabel', aCtx);
-end;//TkwLoginFormNewUserLabel.SetValuePrim
+ Result := '.TLoginForm.NewUserLabel';
+end;//TkwLoginFormNewUserLabel.GetWordNameForRegister
 
 function TkwLoginFormNewUserLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1860,10 +1747,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormNewUserLabel.ParamsTypes
 
-class function TkwLoginFormNewUserLabel.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormNewUserLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.NewUserLabel';
-end;//TkwLoginFormNewUserLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NewUserLabel', aCtx);
+end;//TkwLoginFormNewUserLabel.SetValuePrim
 
 function TkwLoginFormNewUserPaintBox.NewUserPaintBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TPaintBox;
@@ -1887,11 +1775,10 @@ begin
  aCtx.rEngine.PushObj(NewUserPaintBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormNewUserPaintBox.DoDoIt
 
-procedure TkwLoginFormNewUserPaintBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormNewUserPaintBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NewUserPaintBox', aCtx);
-end;//TkwLoginFormNewUserPaintBox.SetValuePrim
+ Result := '.TLoginForm.NewUserPaintBox';
+end;//TkwLoginFormNewUserPaintBox.GetWordNameForRegister
 
 function TkwLoginFormNewUserPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1908,10 +1795,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormNewUserPaintBox.ParamsTypes
 
-class function TkwLoginFormNewUserPaintBox.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormNewUserPaintBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.NewUserPaintBox';
-end;//TkwLoginFormNewUserPaintBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NewUserPaintBox', aCtx);
+end;//TkwLoginFormNewUserPaintBox.SetValuePrim
 
 function TkwLoginFormLblNewUser.lblNewUser(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtFocusLabel;
@@ -1935,11 +1823,10 @@ begin
  aCtx.rEngine.PushObj(lblNewUser(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblNewUser.DoDoIt
 
-procedure TkwLoginFormLblNewUser.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormLblNewUser.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lblNewUser', aCtx);
-end;//TkwLoginFormLblNewUser.SetValuePrim
+ Result := '.TLoginForm.lblNewUser';
+end;//TkwLoginFormLblNewUser.GetWordNameForRegister
 
 function TkwLoginFormLblNewUser.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1956,10 +1843,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblNewUser.ParamsTypes
 
-class function TkwLoginFormLblNewUser.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormLblNewUser.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.lblNewUser';
-end;//TkwLoginFormLblNewUser.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lblNewUser', aCtx);
+end;//TkwLoginFormLblNewUser.SetValuePrim
 
 function TkwLoginFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtPanel;
@@ -1983,11 +1871,10 @@ begin
  aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aLoginForm));
 end;//TkwLoginFormHelpPanel.DoDoIt
 
-procedure TkwLoginFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormHelpPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
-end;//TkwLoginFormHelpPanel.SetValuePrim
+ Result := '.TLoginForm.HelpPanel';
+end;//TkwLoginFormHelpPanel.GetWordNameForRegister
 
 function TkwLoginFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2004,10 +1891,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormHelpPanel.ParamsTypes
 
-class function TkwLoginFormHelpPanel.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.HelpPanel';
-end;//TkwLoginFormHelpPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
+end;//TkwLoginFormHelpPanel.SetValuePrim
 
 function TkwLoginFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TPaintBox;
@@ -2031,11 +1919,10 @@ begin
  aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormHelpPaintBox.DoDoIt
 
-procedure TkwLoginFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormHelpPaintBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
-end;//TkwLoginFormHelpPaintBox.SetValuePrim
+ Result := '.TLoginForm.HelpPaintBox';
+end;//TkwLoginFormHelpPaintBox.GetWordNameForRegister
 
 function TkwLoginFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2052,10 +1939,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormHelpPaintBox.ParamsTypes
 
-class function TkwLoginFormHelpPaintBox.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.HelpPaintBox';
-end;//TkwLoginFormHelpPaintBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
+end;//TkwLoginFormHelpPaintBox.SetValuePrim
 
 function TkwLoginFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtFocusLabel;
@@ -2079,11 +1967,10 @@ begin
  aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aLoginForm));
 end;//TkwLoginFormHelpLabel.DoDoIt
 
-procedure TkwLoginFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwLoginFormHelpLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
-end;//TkwLoginFormHelpLabel.SetValuePrim
+ Result := '.TLoginForm.HelpLabel';
+end;//TkwLoginFormHelpLabel.GetWordNameForRegister
 
 function TkwLoginFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2100,10 +1987,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormHelpLabel.ParamsTypes
 
-class function TkwLoginFormHelpLabel.GetWordNameForRegister: AnsiString;
+procedure TkwLoginFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TLoginForm.HelpLabel';
-end;//TkwLoginFormHelpLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
+end;//TkwLoginFormHelpLabel.SetValuePrim
 
 initialization
  Tkw_Form_Login.RegisterInEngine;
@@ -2204,10 +2092,8 @@ initialization
  {* Регистрация LoginForm_HelpPaintBox }
  TkwLoginFormHelpLabel.RegisterInEngine;
  {* Регистрация LoginForm_HelpLabel }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TLoginForm));
- {* Регистрация типа Login }
+ {* Регистрация типа TLoginForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtGroupBox));
  {* Регистрация типа TvtGroupBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));

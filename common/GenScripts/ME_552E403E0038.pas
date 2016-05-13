@@ -24,25 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopStatusPanelGetText = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:vtStatusPanel:GetText
-[panel]*Описание:* Возвращает текст панели
-*Формат:* 
-[code]
-aPanel pop:vtStatusPanel:GetText
-[code]
-aPanel - объект класса TvtStatusPanel, который можно получить с помощью pop:vtStatusPanel:GetText[panel]
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aStatusPanel pop:vtStatusPanel:GetText >>> l_String
-[code]  }
+  {* Слово скрипта pop:vtStatusPanel:GetText }
   private
    function GetText(const aCtx: TtfwContext;
     aStatusPanel: TvtStatusPanel): AnsiString;
@@ -59,12 +47,12 @@ STRING VAR l_String
 function TkwPopStatusPanelGetText.GetText(const aCtx: TtfwContext;
  aStatusPanel: TvtStatusPanel): AnsiString;
  {* Реализация слова скрипта pop:vtStatusPanel:GetText }
-//#UC START# *D504B43B31FD_7D107A8BDD1A_var*
-//#UC END# *D504B43B31FD_7D107A8BDD1A_var*
+//#UC START# *552E40740003_7D107A8BDD1A_var*
+//#UC END# *552E40740003_7D107A8BDD1A_var*
 begin
-//#UC START# *D504B43B31FD_7D107A8BDD1A_impl*
+//#UC START# *552E40740003_7D107A8BDD1A_impl*
  Result := aStatusPanel.Text;
-//#UC END# *D504B43B31FD_7D107A8BDD1A_impl*
+//#UC END# *552E40740003_7D107A8BDD1A_impl*
 end;//TkwPopStatusPanelGetText.GetText
 
 procedure TkwPopStatusPanelGetText.DoDoIt(const aCtx: TtfwContext);
@@ -82,6 +70,11 @@ begin
  aCtx.rEngine.PushString(GetText(aCtx, l_aStatusPanel));
 end;//TkwPopStatusPanelGetText.DoDoIt
 
+class function TkwPopStatusPanelGetText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:vtStatusPanel:GetText';
+end;//TkwPopStatusPanelGetText.GetWordNameForRegister
+
 function TkwPopStatusPanelGetText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -97,20 +90,13 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtStatusPanel)]);
 end;//TkwPopStatusPanelGetText.ParamsTypes
 
-class function TkwPopStatusPanelGetText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:vtStatusPanel:GetText';
-end;//TkwPopStatusPanelGetText.GetWordNameForRegister
-
 initialization
  TkwPopStatusPanelGetText.RegisterInEngine;
  {* Регистрация pop_StatusPanel_GetText }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStatusPanel));
  {* Регистрация типа TvtStatusPanel }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -29,6 +29,9 @@ uses
  l3ImplUses
  , moCommonSearch
  , tasSaveLoadRealization
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , ShellAndMonitoringsMain_Form
  , evExtFormat
 ;
@@ -37,6 +40,12 @@ procedure TShellAndMonitoringsRes.Loaded;
 begin
  inherited;
 end;//TShellAndMonitoringsRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TShellAndMonitoringsRes);
+ {* Регистрация ShellAndMonitorings }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin)
 
 end.

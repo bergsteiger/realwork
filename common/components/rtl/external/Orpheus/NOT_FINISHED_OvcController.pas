@@ -23,6 +23,15 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TOvcController);
+ {* Регистрация TOvcController }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

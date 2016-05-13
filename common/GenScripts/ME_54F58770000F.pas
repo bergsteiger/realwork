@@ -22,23 +22,16 @@ uses
  , ExtCtrls
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopRadioGroupItemIndex = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:RadioGroup:ItemIndex
-[panel]Индекс элемента[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aRadioGroup pop:RadioGroup:ItemIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:RadioGroup:ItemIndex }
   private
    function ItemIndex(const aCtx: TtfwContext;
     aRadioGroup: TRadioGroup): Integer;
@@ -47,11 +40,11 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopRadioGroupItemIndex
 
 function TkwPopRadioGroupItemIndex.ItemIndex(const aCtx: TtfwContext;
@@ -76,21 +69,10 @@ begin
  aCtx.rEngine.PushInt(ItemIndex(aCtx, l_aRadioGroup));
 end;//TkwPopRadioGroupItemIndex.DoDoIt
 
-procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-var l_RadioGroup: TRadioGroup;
+class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_RadioGroup := TRadioGroup(aCtx.rEngine.PopObjAs(TRadioGroup));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра RadioGroup: TRadioGroup : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- l_RadioGroup.ItemIndex := aValue.AsInt;
-end;//TkwPopRadioGroupItemIndex.SetValuePrim
+ Result := 'pop:RadioGroup:ItemIndex';
+end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
 
 function TkwPopRadioGroupItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -107,16 +89,25 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TRadioGroup)]);
 end;//TkwPopRadioGroupItemIndex.ParamsTypes
 
-class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
+procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+var l_RadioGroup: TRadioGroup;
 begin
- Result := 'pop:RadioGroup:ItemIndex';
-end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
+ try
+  l_RadioGroup := TRadioGroup(aCtx.rEngine.PopObjAs(TRadioGroup));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RadioGroup: TRadioGroup : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ l_RadioGroup.ItemIndex := aValue.AsInt;
+end;//TkwPopRadioGroupItemIndex.SetValuePrim
 
 initialization
  TkwPopRadioGroupItemIndex.RegisterInEngine;
  {* Регистрация pop_RadioGroup_ItemIndex }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TRadioGroup));
  {* Регистрация типа TRadioGroup }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));

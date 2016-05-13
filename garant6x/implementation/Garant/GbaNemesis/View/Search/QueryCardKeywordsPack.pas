@@ -29,11 +29,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -92,14 +92,7 @@ type
  end;//Tkw_QueryCard_Component_TextSource
 
  TkwEnQueryCardEditor = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenQueryCard.Editor
-[panel]Контрол Editor формы TenQueryCard[panel]
-*Тип результата:* TevQueryCardEditor
-*Пример:*
-[code]
-OBJECT VAR l_TevQueryCardEditor
- aenQueryCard .TenQueryCard.Editor >>> l_TevQueryCardEditor
-[code]  }
+  {* Слово скрипта .TenQueryCard.Editor }
   private
    function Editor(const aCtx: TtfwContext;
     aenQueryCard: TenQueryCard): TevQueryCardEditor;
@@ -108,22 +101,15 @@ OBJECT VAR l_TevQueryCardEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnQueryCardEditor
 
  TkwEnQueryCardTextSource = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenQueryCard.TextSource
-[panel]Контрол TextSource формы TenQueryCard[panel]
-*Тип результата:* TevTextSource
-*Пример:*
-[code]
-OBJECT VAR l_TevTextSource
- aenQueryCard .TenQueryCard.TextSource >>> l_TevTextSource
-[code]  }
+  {* Слово скрипта .TenQueryCard.TextSource }
   private
    function TextSource(const aCtx: TtfwContext;
     aenQueryCard: TenQueryCard): TevTextSource;
@@ -132,11 +118,11 @@ OBJECT VAR l_TevTextSource
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnQueryCardTextSource
 
 function Tkw_Form_QueryCard.GetString: AnsiString;
@@ -214,11 +200,10 @@ begin
  aCtx.rEngine.PushObj(Editor(aCtx, l_aenQueryCard));
 end;//TkwEnQueryCardEditor.DoDoIt
 
-procedure TkwEnQueryCardEditor.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnQueryCardEditor.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
-end;//TkwEnQueryCardEditor.SetValuePrim
+ Result := '.TenQueryCard.Editor';
+end;//TkwEnQueryCardEditor.GetWordNameForRegister
 
 function TkwEnQueryCardEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -235,10 +220,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenQueryCard)]);
 end;//TkwEnQueryCardEditor.ParamsTypes
 
-class function TkwEnQueryCardEditor.GetWordNameForRegister: AnsiString;
+procedure TkwEnQueryCardEditor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenQueryCard.Editor';
-end;//TkwEnQueryCardEditor.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
+end;//TkwEnQueryCardEditor.SetValuePrim
 
 function TkwEnQueryCardTextSource.TextSource(const aCtx: TtfwContext;
  aenQueryCard: TenQueryCard): TevTextSource;
@@ -262,11 +248,10 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aenQueryCard));
 end;//TkwEnQueryCardTextSource.DoDoIt
 
-procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnQueryCardTextSource.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
-end;//TkwEnQueryCardTextSource.SetValuePrim
+ Result := '.TenQueryCard.TextSource';
+end;//TkwEnQueryCardTextSource.GetWordNameForRegister
 
 function TkwEnQueryCardTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -283,10 +268,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenQueryCard)]);
 end;//TkwEnQueryCardTextSource.ParamsTypes
 
-class function TkwEnQueryCardTextSource.GetWordNameForRegister: AnsiString;
+procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenQueryCard.TextSource';
-end;//TkwEnQueryCardTextSource.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
+end;//TkwEnQueryCardTextSource.SetValuePrim
 
 initialization
  Tkw_Form_QueryCard.RegisterInEngine;
@@ -301,10 +287,8 @@ initialization
  {* Регистрация enQueryCard_Editor }
  TkwEnQueryCardTextSource.RegisterInEngine;
  {* Регистрация enQueryCard_TextSource }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenQueryCard));
- {* Регистрация типа QueryCard }
+ {* Регистрация типа TenQueryCard }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevQueryCardEditor));
  {* Регистрация типа TevQueryCardEditor }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevTextSource));

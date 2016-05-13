@@ -24,17 +24,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopNewSubDlgFake = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:NewSubDlg:Fake
-*Пример:*
-[code]
- aNewSubDlg pop:NewSubDlg:Fake
-[code]  }
+  {* Слово скрипта pop:NewSubDlg:Fake }
   private
    procedure Fake(const aCtx: TtfwContext;
     aNewSubDlg: TNewSubDlg);
@@ -51,12 +47,12 @@ type
 procedure TkwPopNewSubDlgFake.Fake(const aCtx: TtfwContext;
  aNewSubDlg: TNewSubDlg);
  {* Реализация слова скрипта pop:NewSubDlg:Fake }
-//#UC START# *BEDAA2A137B4_744BF601F735_var*
-//#UC END# *BEDAA2A137B4_744BF601F735_var*
+//#UC START# *55C8CE1E0042_744BF601F735_var*
+//#UC END# *55C8CE1E0042_744BF601F735_var*
 begin
-//#UC START# *BEDAA2A137B4_744BF601F735_impl*
+//#UC START# *55C8CE1E0042_744BF601F735_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *BEDAA2A137B4_744BF601F735_impl*
+//#UC END# *55C8CE1E0042_744BF601F735_impl*
 end;//TkwPopNewSubDlgFake.Fake
 
 procedure TkwPopNewSubDlgFake.DoDoIt(const aCtx: TtfwContext);
@@ -74,6 +70,11 @@ begin
  Fake(aCtx, l_aNewSubDlg);
 end;//TkwPopNewSubDlgFake.DoDoIt
 
+class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewSubDlg:Fake';
+end;//TkwPopNewSubDlgFake.GetWordNameForRegister
+
 function TkwPopNewSubDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -89,16 +90,9 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TNewSubDlg)]);
 end;//TkwPopNewSubDlgFake.ParamsTypes
 
-class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:NewSubDlg:Fake';
-end;//TkwPopNewSubDlgFake.GetWordNameForRegister
-
 initialization
  TkwPopNewSubDlgFake.RegisterInEngine;
  {* Регистрация pop_NewSubDlg_Fake }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TNewSubDlg));
  {* Регистрация типа TNewSubDlg }
 {$IfEnd} // NOT Defined(NoScripts)

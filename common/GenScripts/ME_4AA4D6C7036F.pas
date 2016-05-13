@@ -44,6 +44,7 @@ uses
  , PrimListInterfaces
  , FiltersUnit
  , DocumentInterfaces
+ , nsTypesNew
  , nsTypes
  , ListInfoUserTypes_liListInfo_UserType
  , FiltersUserTypes_utFilters_UserType

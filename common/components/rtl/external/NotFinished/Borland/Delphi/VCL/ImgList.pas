@@ -113,6 +113,9 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TCustomImageList.Change;
@@ -178,5 +181,11 @@ begin
 end;//TCustomImageList.IsSmart
 {$IfEnd} // NOT Defined(DesignTimeLibrary) AND NOT Defined(XE)
 
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TCustomImageList);
+ {* Регистрация TCustomImageList }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
+
 end.

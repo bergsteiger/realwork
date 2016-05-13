@@ -25,7 +25,7 @@ uses
  , kwKeyDown
  , kwKeyUp
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 

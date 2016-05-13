@@ -34,17 +34,13 @@ uses
  , l3Types
  , l3Interfaces
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopComboBoxDropDown = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:DropDown
-*Пример:*
-[code]
- aValue aComboBox pop:ComboBox:DropDown
-[code]  }
+  {* Слово скрипта pop:ComboBox:DropDown }
   private
    procedure DropDown(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox;
@@ -60,13 +56,7 @@ type
  end;//TkwPopComboBoxDropDown
 
  TkwPopComboBoxGetItemIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:GetItemIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboBox pop:ComboBox:GetItemIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:ComboBox:GetItemIndex }
   private
    function GetItemIndex(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox): Integer;
@@ -81,13 +71,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboBoxGetItemIndex
 
  TkwPopComboBoxIndexOf = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:IndexOf
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString aComboBox pop:ComboBox:IndexOf >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:ComboBox:IndexOf }
   private
    function IndexOf(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox;
@@ -103,11 +87,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboBoxIndexOf
 
  TkwPopComboBoxSelectItem = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:SelectItem
-*Пример:*
-[code]
- aString aComboBox pop:ComboBox:SelectItem
-[code]  }
+  {* Слово скрипта pop:ComboBox:SelectItem }
   private
    procedure SelectItem(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox;
@@ -123,11 +103,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboBoxSelectItem
 
  TkwPopComboBoxSetItemIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:SetItemIndex
-*Пример:*
-[code]
- anIndex aComboBox pop:ComboBox:SetItemIndex
-[code]  }
+  {* Слово скрипта pop:ComboBox:SetItemIndex }
   private
    procedure SetItemIndex(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox;
@@ -143,18 +119,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboBoxSetItemIndex
 
  TkwPopComboBoxSaveItems = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:SaveItems
-[panel]*Формат:* имя_файла  контрол pop:ComboBox:SaveItems 
-*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.
-*Пример:*
-[code]
-'MyList.cmbx' 'StyleComboBox' byname:control:push pop:ComboBox:SaveItems
-[code] 
-*Результат:* Сохраняет содержимое комбобокса 'StyleComboBox' в  файл  'MyList.cmbx' и сравнивает с эталоном.[panel]
-*Пример:*
-[code]
- aFileName aComboBox pop:ComboBox:SaveItems
-[code]  }
+  {* Слово скрипта pop:ComboBox:SaveItems }
   private
    procedure SaveItems(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox;
@@ -170,11 +135,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboBoxSaveItems
 
  TkwPopComboTreeDropDown = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:DropDown
-*Пример:*
-[code]
- aValue aComboTree pop:ComboTree:DropDown
-[code]  }
+  {* Слово скрипта pop:ComboTree:DropDown }
   private
    procedure DropDown(const aCtx: TtfwContext;
     aComboTree: TvtComboTree;
@@ -190,13 +151,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboTreeDropDown
 
  TkwPopComboTreeGetItemIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:GetItemIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboTree pop:ComboTree:GetItemIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:ComboTree:GetItemIndex }
   private
    function GetItemIndex(const aCtx: TtfwContext;
     aComboTree: TvtComboTree): Integer;
@@ -211,13 +166,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboTreeGetItemIndex
 
  TkwPopComboTreeIndexOf = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:IndexOf
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString aComboTree pop:ComboTree:IndexOf >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:ComboTree:IndexOf }
   private
    function IndexOf(const aCtx: TtfwContext;
     aComboTree: TvtComboTree;
@@ -233,11 +182,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboTreeIndexOf
 
  TkwPopComboTreeSelectItem = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:SelectItem
-*Пример:*
-[code]
- aString aComboTree pop:ComboTree:SelectItem
-[code]  }
+  {* Слово скрипта pop:ComboTree:SelectItem }
   private
    procedure SelectItem(const aCtx: TtfwContext;
     aComboTree: TvtComboTree;
@@ -253,11 +198,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboTreeSelectItem
 
  TkwPopComboTreeSetItemIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:SetItemIndex
-*Пример:*
-[code]
- anIndex aComboTree pop:ComboTree:SetItemIndex
-[code]  }
+  {* Слово скрипта pop:ComboTree:SetItemIndex }
   private
    procedure SetItemIndex(const aCtx: TtfwContext;
     aComboTree: TvtComboTree;
@@ -273,18 +214,7 @@ INTEGER VAR l_Integer
  end;//TkwPopComboTreeSetItemIndex
 
  TkwPopComboTreeSaveItems = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:SaveItems
-[panel]*Формат:* имя_файла  контрол pop:ComboBox:SaveItems 
-*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.
-*Пример:*
-[code]
-'MyList.cmbx' 'StyleComboBox' byname:control:push pop:ComboBox:SaveItems
-[code] 
-*Результат:* Сохраняет содержимое комбобокса 'StyleComboBox' в  файл  'MyList.cmbx' и сравнивает с эталоном.[panel]
-*Пример:*
-[code]
- aFileName aComboTree pop:ComboTree:SaveItems
-[code]  }
+  {* Слово скрипта pop:ComboTree:SaveItems }
   private
    procedure SaveItems(const aCtx: TtfwContext;
     aComboTree: TvtComboTree;
@@ -315,12 +245,12 @@ procedure TkwPopComboBoxDropDown.DropDown(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
  aValue: Boolean);
  {* Реализация слова скрипта pop:ComboBox:DropDown }
-//#UC START# *D4660B294082_B7676CD1AAB3_var*
-//#UC END# *D4660B294082_B7676CD1AAB3_var*
+//#UC START# *55B7A59500C7_B7676CD1AAB3_var*
+//#UC END# *55B7A59500C7_B7676CD1AAB3_var*
 begin
-//#UC START# *D4660B294082_B7676CD1AAB3_impl*
+//#UC START# *55B7A59500C7_B7676CD1AAB3_impl*
  aCombobox.DroppedDown := aValue;
-//#UC END# *D4660B294082_B7676CD1AAB3_impl*
+//#UC END# *55B7A59500C7_B7676CD1AAB3_impl*
 end;//TkwPopComboBoxDropDown.DropDown
 
 procedure TkwPopComboBoxDropDown.DoDoIt(const aCtx: TtfwContext);
@@ -348,6 +278,11 @@ begin
  DropDown(aCtx, l_aComboBox, l_aValue);
 end;//TkwPopComboBoxDropDown.DoDoIt
 
+class function TkwPopComboBoxDropDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:DropDown';
+end;//TkwPopComboBoxDropDown.GetWordNameForRegister
+
 function TkwPopComboBoxDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -363,20 +298,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Boolean)]);
 end;//TkwPopComboBoxDropDown.ParamsTypes
 
-class function TkwPopComboBoxDropDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:DropDown';
-end;//TkwPopComboBoxDropDown.GetWordNameForRegister
-
 function TkwPopComboBoxGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox): Integer;
  {* Реализация слова скрипта pop:ComboBox:GetItemIndex }
-//#UC START# *0DE7BD329B92_731890DC5F90_var*
-//#UC END# *0DE7BD329B92_731890DC5F90_var*
+//#UC START# *55B7A5B502F8_731890DC5F90_var*
+//#UC END# *55B7A5B502F8_731890DC5F90_var*
 begin
-//#UC START# *0DE7BD329B92_731890DC5F90_impl*
+//#UC START# *55B7A5B502F8_731890DC5F90_impl*
  Result := aCombobox.ItemIndex;
-//#UC END# *0DE7BD329B92_731890DC5F90_impl*
+//#UC END# *55B7A5B502F8_731890DC5F90_impl*
 end;//TkwPopComboBoxGetItemIndex.GetItemIndex
 
 procedure TkwPopComboBoxGetItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -394,6 +324,11 @@ begin
  aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboBox));
 end;//TkwPopComboBoxGetItemIndex.DoDoIt
 
+class function TkwPopComboBoxGetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:GetItemIndex';
+end;//TkwPopComboBoxGetItemIndex.GetWordNameForRegister
+
 function TkwPopComboBoxGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -409,21 +344,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox)]);
 end;//TkwPopComboBoxGetItemIndex.ParamsTypes
 
-class function TkwPopComboBoxGetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:GetItemIndex';
-end;//TkwPopComboBoxGetItemIndex.GetWordNameForRegister
-
 function TkwPopComboBoxIndexOf.IndexOf(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
  const aString: AnsiString): Integer;
  {* Реализация слова скрипта pop:ComboBox:IndexOf }
-//#UC START# *56A99D643C95_697C86093610_var*
-//#UC END# *56A99D643C95_697C86093610_var*
+//#UC START# *55B7A5CD03A9_697C86093610_var*
+//#UC END# *55B7A5CD03A9_697C86093610_var*
 begin
-//#UC START# *56A99D643C95_697C86093610_impl*
+//#UC START# *55B7A5CD03A9_697C86093610_impl*
  Result := aCombobox.Items.IndexOf(aString);
-//#UC END# *56A99D643C95_697C86093610_impl*
+//#UC END# *55B7A5CD03A9_697C86093610_impl*
 end;//TkwPopComboBoxIndexOf.IndexOf
 
 procedure TkwPopComboBoxIndexOf.DoDoIt(const aCtx: TtfwContext);
@@ -451,6 +381,11 @@ begin
  aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboBox, l_aString));
 end;//TkwPopComboBoxIndexOf.DoDoIt
 
+class function TkwPopComboBoxIndexOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:IndexOf';
+end;//TkwPopComboBoxIndexOf.GetWordNameForRegister
+
 function TkwPopComboBoxIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -466,21 +401,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxIndexOf.ParamsTypes
 
-class function TkwPopComboBoxIndexOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:IndexOf';
-end;//TkwPopComboBoxIndexOf.GetWordNameForRegister
-
 procedure TkwPopComboBoxSelectItem.SelectItem(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
  const aString: AnsiString);
  {* Реализация слова скрипта pop:ComboBox:SelectItem }
-//#UC START# *BC0BF0E96B69_E94AE4FC3D32_var*
-//#UC END# *BC0BF0E96B69_E94AE4FC3D32_var*
+//#UC START# *55B7A5FB0027_E94AE4FC3D32_var*
+//#UC END# *55B7A5FB0027_E94AE4FC3D32_var*
 begin
-//#UC START# *BC0BF0E96B69_E94AE4FC3D32_impl*
+//#UC START# *55B7A5FB0027_E94AE4FC3D32_impl*
  TCustomComboBoxFriend(aCombobox).SelectItem(aString);
-//#UC END# *BC0BF0E96B69_E94AE4FC3D32_impl*
+//#UC END# *55B7A5FB0027_E94AE4FC3D32_impl*
 end;//TkwPopComboBoxSelectItem.SelectItem
 
 procedure TkwPopComboBoxSelectItem.DoDoIt(const aCtx: TtfwContext);
@@ -508,6 +438,11 @@ begin
  SelectItem(aCtx, l_aComboBox, l_aString);
 end;//TkwPopComboBoxSelectItem.DoDoIt
 
+class function TkwPopComboBoxSelectItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:SelectItem';
+end;//TkwPopComboBoxSelectItem.GetWordNameForRegister
+
 function TkwPopComboBoxSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -523,22 +458,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSelectItem.ParamsTypes
 
-class function TkwPopComboBoxSelectItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:SelectItem';
-end;//TkwPopComboBoxSelectItem.GetWordNameForRegister
-
 procedure TkwPopComboBoxSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
  anIndex: Integer);
  {* Реализация слова скрипта pop:ComboBox:SetItemIndex }
-//#UC START# *589DC0B1C0D3_DF10F6F55A61_var*
-//#UC END# *589DC0B1C0D3_DF10F6F55A61_var*
+//#UC START# *55B7A6200240_DF10F6F55A61_var*
+//#UC END# *55B7A6200240_DF10F6F55A61_var*
 begin
-//#UC START# *589DC0B1C0D3_DF10F6F55A61_impl*
+//#UC START# *55B7A6200240_DF10F6F55A61_impl*
  aCombobox.ItemIndex := anIndex;
  TCustomComboBoxFriend(aCombobox).Select;
-//#UC END# *589DC0B1C0D3_DF10F6F55A61_impl*
+//#UC END# *55B7A6200240_DF10F6F55A61_impl*
 end;//TkwPopComboBoxSetItemIndex.SetItemIndex
 
 procedure TkwPopComboBoxSetItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -566,6 +496,11 @@ begin
  SetItemIndex(aCtx, l_aComboBox, l_anIndex);
 end;//TkwPopComboBoxSetItemIndex.DoDoIt
 
+class function TkwPopComboBoxSetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:SetItemIndex';
+end;//TkwPopComboBoxSetItemIndex.GetWordNameForRegister
+
 function TkwPopComboBoxSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -581,24 +516,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Integer)]);
 end;//TkwPopComboBoxSetItemIndex.ParamsTypes
 
-class function TkwPopComboBoxSetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:SetItemIndex';
-end;//TkwPopComboBoxSetItemIndex.GetWordNameForRegister
-
 procedure TkwPopComboBoxSaveItems.SaveItems(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
  const aFileName: AnsiString);
  {* Реализация слова скрипта pop:ComboBox:SaveItems }
-//#UC START# *414096239FD4_F4F78563FAA5_var*
+//#UC START# *55B7A69E02F1_F4F78563FAA5_var*
 var
  l_S: AnsiString;
  l_Filer : Tl3CustomDosFiler;
  I: Integer;
  l_Count: Integer;
-//#UC END# *414096239FD4_F4F78563FAA5_var*
+//#UC END# *55B7A69E02F1_F4F78563FAA5_var*
 begin
-//#UC START# *414096239FD4_F4F78563FAA5_impl*
+//#UC START# *55B7A69E02F1_F4F78563FAA5_impl*
  l_S := aCtx.rCaller.ResolveOutputFilePath(aFileName);
  l_S := ChangeFileExt(l_S, '.cmbx');
  l_Filer := Tl3CustomDosFiler.Make(l_S, l3_fmWrite, false);
@@ -614,7 +544,7 @@ begin
  finally
   FreeAndNil(l_Filer);
  end;//try..finally
-//#UC END# *414096239FD4_F4F78563FAA5_impl*
+//#UC END# *55B7A69E02F1_F4F78563FAA5_impl*
 end;//TkwPopComboBoxSaveItems.SaveItems
 
 procedure TkwPopComboBoxSaveItems.DoDoIt(const aCtx: TtfwContext);
@@ -642,6 +572,11 @@ begin
  SaveItems(aCtx, l_aComboBox, l_aFileName);
 end;//TkwPopComboBoxSaveItems.DoDoIt
 
+class function TkwPopComboBoxSaveItems.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboBox:SaveItems';
+end;//TkwPopComboBoxSaveItems.GetWordNameForRegister
+
 function TkwPopComboBoxSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -657,21 +592,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSaveItems.ParamsTypes
 
-class function TkwPopComboBoxSaveItems.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboBox:SaveItems';
-end;//TkwPopComboBoxSaveItems.GetWordNameForRegister
-
 procedure TkwPopComboTreeDropDown.DropDown(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
  aValue: Boolean);
  {* Реализация слова скрипта pop:ComboTree:DropDown }
-//#UC START# *BB9DD9C656EE_CBB40EABEDB6_var*
-//#UC END# *BB9DD9C656EE_CBB40EABEDB6_var*
+//#UC START# *55B7A59500C7_CBB40EABEDB6_var*
+//#UC END# *55B7A59500C7_CBB40EABEDB6_var*
 begin
-//#UC START# *BB9DD9C656EE_CBB40EABEDB6_impl*
+//#UC START# *55B7A59500C7_CBB40EABEDB6_impl*
  aComboTree.Dropped := aValue;
-//#UC END# *BB9DD9C656EE_CBB40EABEDB6_impl*
+//#UC END# *55B7A59500C7_CBB40EABEDB6_impl*
 end;//TkwPopComboTreeDropDown.DropDown
 
 procedure TkwPopComboTreeDropDown.DoDoIt(const aCtx: TtfwContext);
@@ -699,6 +629,11 @@ begin
  DropDown(aCtx, l_aComboTree, l_aValue);
 end;//TkwPopComboTreeDropDown.DoDoIt
 
+class function TkwPopComboTreeDropDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:DropDown';
+end;//TkwPopComboTreeDropDown.GetWordNameForRegister
+
 function TkwPopComboTreeDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -714,23 +649,18 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Boolean)]);
 end;//TkwPopComboTreeDropDown.ParamsTypes
 
-class function TkwPopComboTreeDropDown.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:DropDown';
-end;//TkwPopComboTreeDropDown.GetWordNameForRegister
-
 function TkwPopComboTreeGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
  aComboTree: TvtComboTree): Integer;
  {* Реализация слова скрипта pop:ComboTree:GetItemIndex }
-//#UC START# *1C4FCF6402FE_FDB2008A1DAA_var*
-//#UC END# *1C4FCF6402FE_FDB2008A1DAA_var*
+//#UC START# *55B7A5B502F8_FDB2008A1DAA_var*
+//#UC END# *55B7A5B502F8_FDB2008A1DAA_var*
 begin
-//#UC START# *1C4FCF6402FE_FDB2008A1DAA_impl*
+//#UC START# *55B7A5B502F8_FDB2008A1DAA_impl*
  if Assigned(aComboTree.ChoosenValue) then
   Result := aComboTree.FindIndexOf(aComboTree.ChoosenValue)
  else
   Result := aComboTree.ItemIndex;
-//#UC END# *1C4FCF6402FE_FDB2008A1DAA_impl*
+//#UC END# *55B7A5B502F8_FDB2008A1DAA_impl*
 end;//TkwPopComboTreeGetItemIndex.GetItemIndex
 
 procedure TkwPopComboTreeGetItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -748,6 +678,11 @@ begin
  aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboTree));
 end;//TkwPopComboTreeGetItemIndex.DoDoIt
 
+class function TkwPopComboTreeGetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:GetItemIndex';
+end;//TkwPopComboTreeGetItemIndex.GetWordNameForRegister
+
 function TkwPopComboTreeGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -763,21 +698,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeGetItemIndex.ParamsTypes
 
-class function TkwPopComboTreeGetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:GetItemIndex';
-end;//TkwPopComboTreeGetItemIndex.GetWordNameForRegister
-
 function TkwPopComboTreeIndexOf.IndexOf(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
  const aString: AnsiString): Integer;
  {* Реализация слова скрипта pop:ComboTree:IndexOf }
-//#UC START# *6E676C6B7B53_C0C842FB1A8C_var*
-//#UC END# *6E676C6B7B53_C0C842FB1A8C_var*
+//#UC START# *55B7A5CD03A9_C0C842FB1A8C_var*
+//#UC END# *55B7A5CD03A9_C0C842FB1A8C_var*
 begin
-//#UC START# *6E676C6B7B53_C0C842FB1A8C_impl*
+//#UC START# *55B7A5CD03A9_C0C842FB1A8C_impl*
  Result := aComboTree.Items.IndexOf(aString);
-//#UC END# *6E676C6B7B53_C0C842FB1A8C_impl*
+//#UC END# *55B7A5CD03A9_C0C842FB1A8C_impl*
 end;//TkwPopComboTreeIndexOf.IndexOf
 
 procedure TkwPopComboTreeIndexOf.DoDoIt(const aCtx: TtfwContext);
@@ -805,6 +735,11 @@ begin
  aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboTree, l_aString));
 end;//TkwPopComboTreeIndexOf.DoDoIt
 
+class function TkwPopComboTreeIndexOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:IndexOf';
+end;//TkwPopComboTreeIndexOf.GetWordNameForRegister
+
 function TkwPopComboTreeIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -820,21 +755,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeIndexOf.ParamsTypes
 
-class function TkwPopComboTreeIndexOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:IndexOf';
-end;//TkwPopComboTreeIndexOf.GetWordNameForRegister
-
 procedure TkwPopComboTreeSelectItem.SelectItem(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
  const aString: AnsiString);
  {* Реализация слова скрипта pop:ComboTree:SelectItem }
-//#UC START# *8E1C1B564723_B5A21C7BEE37_var*
-//#UC END# *8E1C1B564723_B5A21C7BEE37_var*
+//#UC START# *55B7A5FB0027_B5A21C7BEE37_var*
+//#UC END# *55B7A5FB0027_B5A21C7BEE37_var*
 begin
-//#UC START# *8E1C1B564723_B5A21C7BEE37_impl*
+//#UC START# *55B7A5FB0027_B5A21C7BEE37_impl*
  aComboTree.ItemIndex := aComboTree.Items.IndexOf(aString);
-//#UC END# *8E1C1B564723_B5A21C7BEE37_impl*
+//#UC END# *55B7A5FB0027_B5A21C7BEE37_impl*
 end;//TkwPopComboTreeSelectItem.SelectItem
 
 procedure TkwPopComboTreeSelectItem.DoDoIt(const aCtx: TtfwContext);
@@ -862,6 +792,11 @@ begin
  SelectItem(aCtx, l_aComboTree, l_aString);
 end;//TkwPopComboTreeSelectItem.DoDoIt
 
+class function TkwPopComboTreeSelectItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:SelectItem';
+end;//TkwPopComboTreeSelectItem.GetWordNameForRegister
+
 function TkwPopComboTreeSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -877,21 +812,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSelectItem.ParamsTypes
 
-class function TkwPopComboTreeSelectItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:SelectItem';
-end;//TkwPopComboTreeSelectItem.GetWordNameForRegister
-
 procedure TkwPopComboTreeSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
  anIndex: Integer);
  {* Реализация слова скрипта pop:ComboTree:SetItemIndex }
-//#UC START# *6A72CBA7686D_8C448529271A_var*
+//#UC START# *55B7A6200240_8C448529271A_var*
 var
  l_Node: Il3SimpleNode;
-//#UC END# *6A72CBA7686D_8C448529271A_var*
+//#UC END# *55B7A6200240_8C448529271A_var*
 begin
-//#UC START# *6A72CBA7686D_8C448529271A_impl*
+//#UC START# *55B7A6200240_8C448529271A_impl*
  if (aComboTree is TvtComboBoxQS) then //561950536
   aComboTree.ItemIndex := anIndex
  else
@@ -900,7 +830,7 @@ begin
   aComboTree.Tree.GotoOnNode(l_Node);
   aComboTree.ShowNode(l_Node, True);
  end;//aComboTree is TvtComboBoxQS
-//#UC END# *6A72CBA7686D_8C448529271A_impl*
+//#UC END# *55B7A6200240_8C448529271A_impl*
 end;//TkwPopComboTreeSetItemIndex.SetItemIndex
 
 procedure TkwPopComboTreeSetItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -928,6 +858,11 @@ begin
  SetItemIndex(aCtx, l_aComboTree, l_anIndex);
 end;//TkwPopComboTreeSetItemIndex.DoDoIt
 
+class function TkwPopComboTreeSetItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:SetItemIndex';
+end;//TkwPopComboTreeSetItemIndex.GetWordNameForRegister
+
 function TkwPopComboTreeSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -943,22 +878,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Integer)]);
 end;//TkwPopComboTreeSetItemIndex.ParamsTypes
 
-class function TkwPopComboTreeSetItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:SetItemIndex';
-end;//TkwPopComboTreeSetItemIndex.GetWordNameForRegister
-
 procedure TkwPopComboTreeSaveItems.SaveItems(const aCtx: TtfwContext;
  aComboTree: TvtComboTree;
  const aFileName: AnsiString);
  {* Реализация слова скрипта pop:ComboTree:SaveItems }
-//#UC START# *1F4D33D465E4_957FA5E0E3AB_var*
+//#UC START# *55B7A69E02F1_957FA5E0E3AB_var*
 var
  l_S: AnsiString;
  l_Filer : Tl3CustomDosFiler;
-//#UC END# *1F4D33D465E4_957FA5E0E3AB_var*
+//#UC END# *55B7A69E02F1_957FA5E0E3AB_var*
 begin
-//#UC START# *1F4D33D465E4_957FA5E0E3AB_impl*
+//#UC START# *55B7A69E02F1_957FA5E0E3AB_impl*
  l_S := aCtx.rCaller.ResolveOutputFilePath(aFileName);
  l_S := ChangeFileExt(l_S, '.cmbx');
  l_Filer := Tl3CustomDosFiler.Make(l_S, l3_fmWrite, false);
@@ -972,7 +902,7 @@ begin
  finally
   FreeAndNil(l_Filer);
  end;//try..finally
-//#UC END# *1F4D33D465E4_957FA5E0E3AB_impl*
+//#UC END# *55B7A69E02F1_957FA5E0E3AB_impl*
 end;//TkwPopComboTreeSaveItems.SaveItems
 
 procedure TkwPopComboTreeSaveItems.DoDoIt(const aCtx: TtfwContext);
@@ -1000,6 +930,11 @@ begin
  SaveItems(aCtx, l_aComboTree, l_aFileName);
 end;//TkwPopComboTreeSaveItems.DoDoIt
 
+class function TkwPopComboTreeSaveItems.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ComboTree:SaveItems';
+end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
+
 function TkwPopComboTreeSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -1014,11 +949,6 @@ function TkwPopComboTreeSaveItems.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSaveItems.ParamsTypes
-
-class function TkwPopComboTreeSaveItems.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ComboTree:SaveItems';
-end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
 
 {$If NOT Defined(NoVCL)}
 {$IfEnd} // NOT Defined(NoVCL)
@@ -1056,18 +986,16 @@ initialization
  {* Регистрация pop_ComboTree_SaveItems }
  TvtComboBoxWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomComboBox));
  {* Регистрация типа TCustomComboBox }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
- {* Регистрация типа Boolean }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
- TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtComboTree));
  {* Регистрация типа TvtComboTree }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

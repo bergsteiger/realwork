@@ -26,6 +26,9 @@ uses
  l3ImplUses
  , evEditDocumentContainer
  , evCustomMemo
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TevCustomEditTextSource.DoMakeDocumentContainer: InevDocumentContainer;
@@ -36,5 +39,11 @@ begin
  Result := TevEditDocumentContainer.Make;
 //#UC END# *482D9A030221_482D988102EC_impl*
 end;//TevCustomEditTextSource.DoMakeDocumentContainer
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TevCustomEditTextSource);
+ {* Регистрация TevCustomEditTextSource }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

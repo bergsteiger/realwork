@@ -34,11 +34,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -280,14 +280,7 @@ type
  end;//Tkw_DictionContainer_Control_ParentZone_Push
 
  TkwDictionContainerFormPnBackground = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.pnBackground
-[panel]Контрол pnBackground формы TDictionContainerForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aDictionContainerForm .TDictionContainerForm.pnBackground >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.pnBackground }
   private
    function pnBackground(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtProportionalPanel;
@@ -296,22 +289,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormPnBackground
 
  TkwDictionContainerFormNavigatorZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.NavigatorZone
-[panel]Контрол NavigatorZone формы TDictionContainerForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aDictionContainerForm .TDictionContainerForm.NavigatorZone >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.NavigatorZone }
   private
    function NavigatorZone(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtSizeablePanel;
@@ -320,22 +306,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormNavigatorZone
 
  TkwDictionContainerFormPnWorkArea = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.pnWorkArea
-[panel]Контрол pnWorkArea формы TDictionContainerForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aDictionContainerForm .TDictionContainerForm.pnWorkArea >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.pnWorkArea }
   private
    function pnWorkArea(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtProportionalPanel;
@@ -344,22 +323,15 @@ OBJECT VAR l_TvtProportionalPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormPnWorkArea
 
  TkwDictionContainerFormChildZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.ChildZone
-[panel]Контрол ChildZone формы TDictionContainerForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aDictionContainerForm .TDictionContainerForm.ChildZone >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.ChildZone }
   private
    function ChildZone(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtSizeablePanel;
@@ -368,22 +340,15 @@ OBJECT VAR l_TvtSizeablePanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormChildZone
 
  TkwDictionContainerFormPnHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.pnHeader
-[panel]Контрол pnHeader формы TDictionContainerForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aDictionContainerForm .TDictionContainerForm.pnHeader >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.pnHeader }
   private
    function pnHeader(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtPanel;
@@ -392,22 +357,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormPnHeader
 
  TkwDictionContainerFormLbHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.lbHeader
-[panel]Контрол lbHeader формы TDictionContainerForm[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aDictionContainerForm .TDictionContainerForm.lbHeader >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.lbHeader }
   private
    function lbHeader(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtLabel;
@@ -416,22 +374,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormLbHeader
 
  TkwDictionContainerFormPbHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.pbHeader
-[panel]Контрол pbHeader формы TDictionContainerForm[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aDictionContainerForm .TDictionContainerForm.pbHeader >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.pbHeader }
   private
    function pbHeader(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TPaintBox;
@@ -440,22 +391,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormPbHeader
 
  TkwDictionContainerFormParentZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TDictionContainerForm.ParentZone
-[panel]Контрол ParentZone формы TDictionContainerForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aDictionContainerForm .TDictionContainerForm.ParentZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TDictionContainerForm.ParentZone }
   private
    function ParentZone(const aCtx: TtfwContext;
     aDictionContainerForm: TDictionContainerForm): TvtPanel;
@@ -464,11 +408,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwDictionContainerFormParentZone
 
 function Tkw_Form_DictionContainer.GetString: AnsiString;
@@ -719,11 +663,10 @@ begin
  aCtx.rEngine.PushObj(pnBackground(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPnBackground.DoDoIt
 
-procedure TkwDictionContainerFormPnBackground.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormPnBackground.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnBackground', aCtx);
-end;//TkwDictionContainerFormPnBackground.SetValuePrim
+ Result := '.TDictionContainerForm.pnBackground';
+end;//TkwDictionContainerFormPnBackground.GetWordNameForRegister
 
 function TkwDictionContainerFormPnBackground.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -740,10 +683,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPnBackground.ParamsTypes
 
-class function TkwDictionContainerFormPnBackground.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormPnBackground.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.pnBackground';
-end;//TkwDictionContainerFormPnBackground.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnBackground', aCtx);
+end;//TkwDictionContainerFormPnBackground.SetValuePrim
 
 function TkwDictionContainerFormNavigatorZone.NavigatorZone(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtSizeablePanel;
@@ -767,11 +711,10 @@ begin
  aCtx.rEngine.PushObj(NavigatorZone(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormNavigatorZone.DoDoIt
 
-procedure TkwDictionContainerFormNavigatorZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormNavigatorZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству NavigatorZone', aCtx);
-end;//TkwDictionContainerFormNavigatorZone.SetValuePrim
+ Result := '.TDictionContainerForm.NavigatorZone';
+end;//TkwDictionContainerFormNavigatorZone.GetWordNameForRegister
 
 function TkwDictionContainerFormNavigatorZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -788,10 +731,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormNavigatorZone.ParamsTypes
 
-class function TkwDictionContainerFormNavigatorZone.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormNavigatorZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.NavigatorZone';
-end;//TkwDictionContainerFormNavigatorZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству NavigatorZone', aCtx);
+end;//TkwDictionContainerFormNavigatorZone.SetValuePrim
 
 function TkwDictionContainerFormPnWorkArea.pnWorkArea(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtProportionalPanel;
@@ -815,11 +759,10 @@ begin
  aCtx.rEngine.PushObj(pnWorkArea(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPnWorkArea.DoDoIt
 
-procedure TkwDictionContainerFormPnWorkArea.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormPnWorkArea.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnWorkArea', aCtx);
-end;//TkwDictionContainerFormPnWorkArea.SetValuePrim
+ Result := '.TDictionContainerForm.pnWorkArea';
+end;//TkwDictionContainerFormPnWorkArea.GetWordNameForRegister
 
 function TkwDictionContainerFormPnWorkArea.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -836,10 +779,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPnWorkArea.ParamsTypes
 
-class function TkwDictionContainerFormPnWorkArea.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormPnWorkArea.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.pnWorkArea';
-end;//TkwDictionContainerFormPnWorkArea.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnWorkArea', aCtx);
+end;//TkwDictionContainerFormPnWorkArea.SetValuePrim
 
 function TkwDictionContainerFormChildZone.ChildZone(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtSizeablePanel;
@@ -863,11 +807,10 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormChildZone.DoDoIt
 
-procedure TkwDictionContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormChildZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
-end;//TkwDictionContainerFormChildZone.SetValuePrim
+ Result := '.TDictionContainerForm.ChildZone';
+end;//TkwDictionContainerFormChildZone.GetWordNameForRegister
 
 function TkwDictionContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -884,10 +827,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormChildZone.ParamsTypes
 
-class function TkwDictionContainerFormChildZone.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.ChildZone';
-end;//TkwDictionContainerFormChildZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
+end;//TkwDictionContainerFormChildZone.SetValuePrim
 
 function TkwDictionContainerFormPnHeader.pnHeader(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtPanel;
@@ -911,11 +855,10 @@ begin
  aCtx.rEngine.PushObj(pnHeader(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPnHeader.DoDoIt
 
-procedure TkwDictionContainerFormPnHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormPnHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
-end;//TkwDictionContainerFormPnHeader.SetValuePrim
+ Result := '.TDictionContainerForm.pnHeader';
+end;//TkwDictionContainerFormPnHeader.GetWordNameForRegister
 
 function TkwDictionContainerFormPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -932,10 +875,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPnHeader.ParamsTypes
 
-class function TkwDictionContainerFormPnHeader.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormPnHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.pnHeader';
-end;//TkwDictionContainerFormPnHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
+end;//TkwDictionContainerFormPnHeader.SetValuePrim
 
 function TkwDictionContainerFormLbHeader.lbHeader(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtLabel;
@@ -959,11 +903,10 @@ begin
  aCtx.rEngine.PushObj(lbHeader(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormLbHeader.DoDoIt
 
-procedure TkwDictionContainerFormLbHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormLbHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
-end;//TkwDictionContainerFormLbHeader.SetValuePrim
+ Result := '.TDictionContainerForm.lbHeader';
+end;//TkwDictionContainerFormLbHeader.GetWordNameForRegister
 
 function TkwDictionContainerFormLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -980,10 +923,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormLbHeader.ParamsTypes
 
-class function TkwDictionContainerFormLbHeader.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormLbHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.lbHeader';
-end;//TkwDictionContainerFormLbHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
+end;//TkwDictionContainerFormLbHeader.SetValuePrim
 
 function TkwDictionContainerFormPbHeader.pbHeader(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TPaintBox;
@@ -1007,11 +951,10 @@ begin
  aCtx.rEngine.PushObj(pbHeader(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormPbHeader.DoDoIt
 
-procedure TkwDictionContainerFormPbHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormPbHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
-end;//TkwDictionContainerFormPbHeader.SetValuePrim
+ Result := '.TDictionContainerForm.pbHeader';
+end;//TkwDictionContainerFormPbHeader.GetWordNameForRegister
 
 function TkwDictionContainerFormPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1028,10 +971,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormPbHeader.ParamsTypes
 
-class function TkwDictionContainerFormPbHeader.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormPbHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.pbHeader';
-end;//TkwDictionContainerFormPbHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
+end;//TkwDictionContainerFormPbHeader.SetValuePrim
 
 function TkwDictionContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
  aDictionContainerForm: TDictionContainerForm): TvtPanel;
@@ -1055,11 +999,10 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_aDictionContainerForm));
 end;//TkwDictionContainerFormParentZone.DoDoIt
 
-procedure TkwDictionContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwDictionContainerFormParentZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
-end;//TkwDictionContainerFormParentZone.SetValuePrim
+ Result := '.TDictionContainerForm.ParentZone';
+end;//TkwDictionContainerFormParentZone.GetWordNameForRegister
 
 function TkwDictionContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1076,10 +1019,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDictionContainerForm)]);
 end;//TkwDictionContainerFormParentZone.ParamsTypes
 
-class function TkwDictionContainerFormParentZone.GetWordNameForRegister: AnsiString;
+procedure TkwDictionContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TDictionContainerForm.ParentZone';
-end;//TkwDictionContainerFormParentZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
+end;//TkwDictionContainerFormParentZone.SetValuePrim
 
 initialization
  Tkw_Form_DictionContainer.RegisterInEngine;
@@ -1132,10 +1076,8 @@ initialization
  {* Регистрация DictionContainerForm_pbHeader }
  TkwDictionContainerFormParentZone.RegisterInEngine;
  {* Регистрация DictionContainerForm_ParentZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TDictionContainerForm));
- {* Регистрация типа DictionContainer }
+ {* Регистрация типа TDictionContainerForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));

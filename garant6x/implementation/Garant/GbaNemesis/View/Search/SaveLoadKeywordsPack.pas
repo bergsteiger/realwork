@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -166,14 +166,7 @@ type
  end;//Tkw_SaveLoad_Control_ParentZone_Push
 
  TkwCfSaveLoadPnHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfSaveLoad.pnHeader
-[panel]Контрол pnHeader формы TcfSaveLoad[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- acfSaveLoad .TcfSaveLoad.pnHeader >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TcfSaveLoad.pnHeader }
   private
    function pnHeader(const aCtx: TtfwContext;
     acfSaveLoad: TcfSaveLoad): TvtPanel;
@@ -182,22 +175,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfSaveLoadPnHeader
 
  TkwCfSaveLoadLbHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfSaveLoad.lbHeader
-[panel]Контрол lbHeader формы TcfSaveLoad[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- acfSaveLoad .TcfSaveLoad.lbHeader >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TcfSaveLoad.lbHeader }
   private
    function lbHeader(const aCtx: TtfwContext;
     acfSaveLoad: TcfSaveLoad): TvtLabel;
@@ -206,22 +192,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfSaveLoadLbHeader
 
  TkwCfSaveLoadPbHeader = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfSaveLoad.pbHeader
-[panel]Контрол pbHeader формы TcfSaveLoad[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- acfSaveLoad .TcfSaveLoad.pbHeader >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TcfSaveLoad.pbHeader }
   private
    function pbHeader(const aCtx: TtfwContext;
     acfSaveLoad: TcfSaveLoad): TPaintBox;
@@ -230,22 +209,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfSaveLoadPbHeader
 
  TkwCfSaveLoadParentZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TcfSaveLoad.ParentZone
-[panel]Контрол ParentZone формы TcfSaveLoad[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- acfSaveLoad .TcfSaveLoad.ParentZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TcfSaveLoad.ParentZone }
   private
    function ParentZone(const aCtx: TtfwContext;
     acfSaveLoad: TcfSaveLoad): TvtPanel;
@@ -254,11 +226,11 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwCfSaveLoadParentZone
 
 function Tkw_Form_SaveLoad.GetString: AnsiString;
@@ -401,11 +373,10 @@ begin
  aCtx.rEngine.PushObj(pnHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadPnHeader.DoDoIt
 
-procedure TkwCfSaveLoadPnHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfSaveLoadPnHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
-end;//TkwCfSaveLoadPnHeader.SetValuePrim
+ Result := '.TcfSaveLoad.pnHeader';
+end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
 
 function TkwCfSaveLoadPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -422,10 +393,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadPnHeader.ParamsTypes
 
-class function TkwCfSaveLoadPnHeader.GetWordNameForRegister: AnsiString;
+procedure TkwCfSaveLoadPnHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfSaveLoad.pnHeader';
-end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
+end;//TkwCfSaveLoadPnHeader.SetValuePrim
 
 function TkwCfSaveLoadLbHeader.lbHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtLabel;
@@ -449,11 +421,10 @@ begin
  aCtx.rEngine.PushObj(lbHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadLbHeader.DoDoIt
 
-procedure TkwCfSaveLoadLbHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfSaveLoadLbHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
-end;//TkwCfSaveLoadLbHeader.SetValuePrim
+ Result := '.TcfSaveLoad.lbHeader';
+end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
 
 function TkwCfSaveLoadLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -470,10 +441,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadLbHeader.ParamsTypes
 
-class function TkwCfSaveLoadLbHeader.GetWordNameForRegister: AnsiString;
+procedure TkwCfSaveLoadLbHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfSaveLoad.lbHeader';
-end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
+end;//TkwCfSaveLoadLbHeader.SetValuePrim
 
 function TkwCfSaveLoadPbHeader.pbHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TPaintBox;
@@ -497,11 +469,10 @@ begin
  aCtx.rEngine.PushObj(pbHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadPbHeader.DoDoIt
 
-procedure TkwCfSaveLoadPbHeader.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfSaveLoadPbHeader.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
-end;//TkwCfSaveLoadPbHeader.SetValuePrim
+ Result := '.TcfSaveLoad.pbHeader';
+end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
 
 function TkwCfSaveLoadPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -518,10 +489,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadPbHeader.ParamsTypes
 
-class function TkwCfSaveLoadPbHeader.GetWordNameForRegister: AnsiString;
+procedure TkwCfSaveLoadPbHeader.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfSaveLoad.pbHeader';
-end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
+end;//TkwCfSaveLoadPbHeader.SetValuePrim
 
 function TkwCfSaveLoadParentZone.ParentZone(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtPanel;
@@ -545,11 +517,10 @@ begin
  aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadParentZone.DoDoIt
 
-procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwCfSaveLoadParentZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
-end;//TkwCfSaveLoadParentZone.SetValuePrim
+ Result := '.TcfSaveLoad.ParentZone';
+end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
 
 function TkwCfSaveLoadParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -566,10 +537,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadParentZone.ParamsTypes
 
-class function TkwCfSaveLoadParentZone.GetWordNameForRegister: AnsiString;
+procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TcfSaveLoad.ParentZone';
-end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
+end;//TkwCfSaveLoadParentZone.SetValuePrim
 
 initialization
  Tkw_Form_SaveLoad.RegisterInEngine;
@@ -598,10 +570,8 @@ initialization
  {* Регистрация cfSaveLoad_pbHeader }
  TkwCfSaveLoadParentZone.RegisterInEngine;
  {* Регистрация cfSaveLoad_ParentZone }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TcfSaveLoad));
- {* Регистрация типа SaveLoad }
+ {* Регистрация типа TcfSaveLoad }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));

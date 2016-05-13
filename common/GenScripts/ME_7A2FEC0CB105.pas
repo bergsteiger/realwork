@@ -33,11 +33,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -559,14 +559,7 @@ type
  end;//Tkw_About_Control_AdapterCaptionLabel_Push
 
  TkwEfAboutPbLogo = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.pbLogo
-[panel]Контрол pbLogo формы TefAbout[panel]
-*Тип результата:* TPaintBox
-*Пример:*
-[code]
-OBJECT VAR l_TPaintBox
- aefAbout .TefAbout.pbLogo >>> l_TPaintBox
-[code]  }
+  {* Слово скрипта .TefAbout.pbLogo }
   private
    function pbLogo(const aCtx: TtfwContext;
     aefAbout: TefAbout): TPaintBox;
@@ -575,22 +568,15 @@ OBJECT VAR l_TPaintBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutPbLogo
 
  TkwEfAboutShellInfoLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.ShellInfoLabel
-[panel]Контрол ShellInfoLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.ShellInfoLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.ShellInfoLabel }
   private
    function ShellInfoLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -599,22 +585,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutShellInfoLabel
 
  TkwEfAboutAdapterInfoLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.AdapterInfoLabel
-[panel]Контрол AdapterInfoLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.AdapterInfoLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.AdapterInfoLabel }
   private
    function AdapterInfoLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -623,22 +602,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutAdapterInfoLabel
 
  TkwEfAboutUserCountLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.UserCountLabel
-[panel]Контрол UserCountLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.UserCountLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.UserCountLabel }
   private
    function UserCountLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -647,22 +619,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutUserCountLabel
 
  TkwEfAboutOwnerLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.OwnerLabel
-[panel]Контрол OwnerLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.OwnerLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.OwnerLabel }
   private
    function OwnerLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -671,22 +636,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutOwnerLabel
 
  TkwEfAboutShellCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.ShellCaptionLabel
-[panel]Контрол ShellCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.ShellCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.ShellCaptionLabel }
   private
    function ShellCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -695,22 +653,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutShellCaptionLabel
 
  TkwEfAboutOwnerCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.OwnerCaptionLabel
-[panel]Контрол OwnerCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.OwnerCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.OwnerCaptionLabel }
   private
    function OwnerCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -719,22 +670,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutOwnerCaptionLabel
 
  TkwEfAboutUserInfoGroupBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.UserInfoGroupBox
-[panel]Контрол UserInfoGroupBox формы TefAbout[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aefAbout .TefAbout.UserInfoGroupBox >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .TefAbout.UserInfoGroupBox }
   private
    function UserInfoGroupBox(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtGroupBox;
@@ -743,22 +687,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutUserInfoGroupBox
 
  TkwEfAboutEMailCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.EMailCaptionLabel
-[panel]Контрол EMailCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.EMailCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.EMailCaptionLabel }
   private
    function EMailCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -767,22 +704,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutEMailCaptionLabel
 
  TkwEfAboutEMailLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.EMailLabel
-[panel]Контрол EMailLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.EMailLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.EMailLabel }
   private
    function EMailLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -791,22 +721,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutEMailLabel
 
  TkwEfAboutLoginCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.LoginCaptionLabel
-[panel]Контрол LoginCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.LoginCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.LoginCaptionLabel }
   private
    function LoginCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -815,22 +738,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutLoginCaptionLabel
 
  TkwEfAboutUserCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.UserCaptionLabel
-[panel]Контрол UserCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.UserCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.UserCaptionLabel }
   private
    function UserCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -839,22 +755,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutUserCaptionLabel
 
  TkwEfAboutUserNameLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.UserNameLabel
-[panel]Контрол UserNameLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.UserNameLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.UserNameLabel }
   private
    function UserNameLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -863,22 +772,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutUserNameLabel
 
  TkwEfAboutLoginLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.LoginLabel
-[panel]Контрол LoginLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.LoginLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.LoginLabel }
   private
    function LoginLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -887,22 +789,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutLoginLabel
 
  TkwEfAboutCopyrightCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.CopyrightCaptionLabel
-[panel]Контрол CopyrightCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.CopyrightCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.CopyrightCaptionLabel }
   private
    function CopyrightCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -911,22 +806,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutCopyrightCaptionLabel
 
  TkwEfAboutOkButton = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.OkButton
-[panel]Контрол OkButton формы TefAbout[panel]
-*Тип результата:* TvtButton
-*Пример:*
-[code]
-OBJECT VAR l_TvtButton
- aefAbout .TefAbout.OkButton >>> l_TvtButton
-[code]  }
+  {* Слово скрипта .TefAbout.OkButton }
   private
    function OkButton(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtButton;
@@ -935,22 +823,15 @@ OBJECT VAR l_TvtButton
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutOkButton
 
  TkwEfAboutUserCountCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.UserCountCaptionLabel
-[panel]Контрол UserCountCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.UserCountCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.UserCountCaptionLabel }
   private
    function UserCountCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -959,22 +840,15 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutUserCountCaptionLabel
 
  TkwEfAboutAdapterCaptionLabel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefAbout.AdapterCaptionLabel
-[panel]Контрол AdapterCaptionLabel формы TefAbout[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefAbout .TefAbout.AdapterCaptionLabel >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefAbout.AdapterCaptionLabel }
   private
    function AdapterCaptionLabel(const aCtx: TtfwContext;
     aefAbout: TefAbout): TvtLabel;
@@ -983,11 +857,11 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfAboutAdapterCaptionLabel
 
 function Tkw_Form_About.GetString: AnsiString;
@@ -1508,11 +1382,10 @@ begin
  aCtx.rEngine.PushObj(pbLogo(aCtx, l_aefAbout));
 end;//TkwEfAboutPbLogo.DoDoIt
 
-procedure TkwEfAboutPbLogo.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutPbLogo.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству pbLogo', aCtx);
-end;//TkwEfAboutPbLogo.SetValuePrim
+ Result := '.TefAbout.pbLogo';
+end;//TkwEfAboutPbLogo.GetWordNameForRegister
 
 function TkwEfAboutPbLogo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1529,10 +1402,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutPbLogo.ParamsTypes
 
-class function TkwEfAboutPbLogo.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutPbLogo.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.pbLogo';
-end;//TkwEfAboutPbLogo.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству pbLogo', aCtx);
+end;//TkwEfAboutPbLogo.SetValuePrim
 
 function TkwEfAboutShellInfoLabel.ShellInfoLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1556,11 +1430,10 @@ begin
  aCtx.rEngine.PushObj(ShellInfoLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutShellInfoLabel.DoDoIt
 
-procedure TkwEfAboutShellInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutShellInfoLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShellInfoLabel', aCtx);
-end;//TkwEfAboutShellInfoLabel.SetValuePrim
+ Result := '.TefAbout.ShellInfoLabel';
+end;//TkwEfAboutShellInfoLabel.GetWordNameForRegister
 
 function TkwEfAboutShellInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1577,10 +1450,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutShellInfoLabel.ParamsTypes
 
-class function TkwEfAboutShellInfoLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutShellInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.ShellInfoLabel';
-end;//TkwEfAboutShellInfoLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShellInfoLabel', aCtx);
+end;//TkwEfAboutShellInfoLabel.SetValuePrim
 
 function TkwEfAboutAdapterInfoLabel.AdapterInfoLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1604,11 +1478,10 @@ begin
  aCtx.rEngine.PushObj(AdapterInfoLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutAdapterInfoLabel.DoDoIt
 
-procedure TkwEfAboutAdapterInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutAdapterInfoLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству AdapterInfoLabel', aCtx);
-end;//TkwEfAboutAdapterInfoLabel.SetValuePrim
+ Result := '.TefAbout.AdapterInfoLabel';
+end;//TkwEfAboutAdapterInfoLabel.GetWordNameForRegister
 
 function TkwEfAboutAdapterInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1625,10 +1498,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutAdapterInfoLabel.ParamsTypes
 
-class function TkwEfAboutAdapterInfoLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutAdapterInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.AdapterInfoLabel';
-end;//TkwEfAboutAdapterInfoLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству AdapterInfoLabel', aCtx);
+end;//TkwEfAboutAdapterInfoLabel.SetValuePrim
 
 function TkwEfAboutUserCountLabel.UserCountLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1652,11 +1526,10 @@ begin
  aCtx.rEngine.PushObj(UserCountLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserCountLabel.DoDoIt
 
-procedure TkwEfAboutUserCountLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutUserCountLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserCountLabel', aCtx);
-end;//TkwEfAboutUserCountLabel.SetValuePrim
+ Result := '.TefAbout.UserCountLabel';
+end;//TkwEfAboutUserCountLabel.GetWordNameForRegister
 
 function TkwEfAboutUserCountLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1673,10 +1546,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserCountLabel.ParamsTypes
 
-class function TkwEfAboutUserCountLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutUserCountLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.UserCountLabel';
-end;//TkwEfAboutUserCountLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserCountLabel', aCtx);
+end;//TkwEfAboutUserCountLabel.SetValuePrim
 
 function TkwEfAboutOwnerLabel.OwnerLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1700,11 +1574,10 @@ begin
  aCtx.rEngine.PushObj(OwnerLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutOwnerLabel.DoDoIt
 
-procedure TkwEfAboutOwnerLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutOwnerLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству OwnerLabel', aCtx);
-end;//TkwEfAboutOwnerLabel.SetValuePrim
+ Result := '.TefAbout.OwnerLabel';
+end;//TkwEfAboutOwnerLabel.GetWordNameForRegister
 
 function TkwEfAboutOwnerLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1721,10 +1594,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutOwnerLabel.ParamsTypes
 
-class function TkwEfAboutOwnerLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutOwnerLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.OwnerLabel';
-end;//TkwEfAboutOwnerLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству OwnerLabel', aCtx);
+end;//TkwEfAboutOwnerLabel.SetValuePrim
 
 function TkwEfAboutShellCaptionLabel.ShellCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1748,11 +1622,10 @@ begin
  aCtx.rEngine.PushObj(ShellCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutShellCaptionLabel.DoDoIt
 
-procedure TkwEfAboutShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutShellCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ShellCaptionLabel', aCtx);
-end;//TkwEfAboutShellCaptionLabel.SetValuePrim
+ Result := '.TefAbout.ShellCaptionLabel';
+end;//TkwEfAboutShellCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1769,10 +1642,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutShellCaptionLabel.ParamsTypes
 
-class function TkwEfAboutShellCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.ShellCaptionLabel';
-end;//TkwEfAboutShellCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ShellCaptionLabel', aCtx);
+end;//TkwEfAboutShellCaptionLabel.SetValuePrim
 
 function TkwEfAboutOwnerCaptionLabel.OwnerCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1796,11 +1670,10 @@ begin
  aCtx.rEngine.PushObj(OwnerCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutOwnerCaptionLabel.DoDoIt
 
-procedure TkwEfAboutOwnerCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству OwnerCaptionLabel', aCtx);
-end;//TkwEfAboutOwnerCaptionLabel.SetValuePrim
+ Result := '.TefAbout.OwnerCaptionLabel';
+end;//TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutOwnerCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1817,10 +1690,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutOwnerCaptionLabel.ParamsTypes
 
-class function TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutOwnerCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.OwnerCaptionLabel';
-end;//TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству OwnerCaptionLabel', aCtx);
+end;//TkwEfAboutOwnerCaptionLabel.SetValuePrim
 
 function TkwEfAboutUserInfoGroupBox.UserInfoGroupBox(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtGroupBox;
@@ -1844,11 +1718,10 @@ begin
  aCtx.rEngine.PushObj(UserInfoGroupBox(aCtx, l_aefAbout));
 end;//TkwEfAboutUserInfoGroupBox.DoDoIt
 
-procedure TkwEfAboutUserInfoGroupBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutUserInfoGroupBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserInfoGroupBox', aCtx);
-end;//TkwEfAboutUserInfoGroupBox.SetValuePrim
+ Result := '.TefAbout.UserInfoGroupBox';
+end;//TkwEfAboutUserInfoGroupBox.GetWordNameForRegister
 
 function TkwEfAboutUserInfoGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1865,10 +1738,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserInfoGroupBox.ParamsTypes
 
-class function TkwEfAboutUserInfoGroupBox.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutUserInfoGroupBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.UserInfoGroupBox';
-end;//TkwEfAboutUserInfoGroupBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserInfoGroupBox', aCtx);
+end;//TkwEfAboutUserInfoGroupBox.SetValuePrim
 
 function TkwEfAboutEMailCaptionLabel.EMailCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1892,11 +1766,10 @@ begin
  aCtx.rEngine.PushObj(EMailCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutEMailCaptionLabel.DoDoIt
 
-procedure TkwEfAboutEMailCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutEMailCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству EMailCaptionLabel', aCtx);
-end;//TkwEfAboutEMailCaptionLabel.SetValuePrim
+ Result := '.TefAbout.EMailCaptionLabel';
+end;//TkwEfAboutEMailCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutEMailCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1913,10 +1786,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutEMailCaptionLabel.ParamsTypes
 
-class function TkwEfAboutEMailCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutEMailCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.EMailCaptionLabel';
-end;//TkwEfAboutEMailCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству EMailCaptionLabel', aCtx);
+end;//TkwEfAboutEMailCaptionLabel.SetValuePrim
 
 function TkwEfAboutEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1940,11 +1814,10 @@ begin
  aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutEMailLabel.DoDoIt
 
-procedure TkwEfAboutEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutEMailLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
-end;//TkwEfAboutEMailLabel.SetValuePrim
+ Result := '.TefAbout.EMailLabel';
+end;//TkwEfAboutEMailLabel.GetWordNameForRegister
 
 function TkwEfAboutEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1961,10 +1834,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutEMailLabel.ParamsTypes
 
-class function TkwEfAboutEMailLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.EMailLabel';
-end;//TkwEfAboutEMailLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
+end;//TkwEfAboutEMailLabel.SetValuePrim
 
 function TkwEfAboutLoginCaptionLabel.LoginCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -1988,11 +1862,10 @@ begin
  aCtx.rEngine.PushObj(LoginCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutLoginCaptionLabel.DoDoIt
 
-procedure TkwEfAboutLoginCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutLoginCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LoginCaptionLabel', aCtx);
-end;//TkwEfAboutLoginCaptionLabel.SetValuePrim
+ Result := '.TefAbout.LoginCaptionLabel';
+end;//TkwEfAboutLoginCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutLoginCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2009,10 +1882,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutLoginCaptionLabel.ParamsTypes
 
-class function TkwEfAboutLoginCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutLoginCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.LoginCaptionLabel';
-end;//TkwEfAboutLoginCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LoginCaptionLabel', aCtx);
+end;//TkwEfAboutLoginCaptionLabel.SetValuePrim
 
 function TkwEfAboutUserCaptionLabel.UserCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2036,11 +1910,10 @@ begin
  aCtx.rEngine.PushObj(UserCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserCaptionLabel.DoDoIt
 
-procedure TkwEfAboutUserCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutUserCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserCaptionLabel', aCtx);
-end;//TkwEfAboutUserCaptionLabel.SetValuePrim
+ Result := '.TefAbout.UserCaptionLabel';
+end;//TkwEfAboutUserCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutUserCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2057,10 +1930,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserCaptionLabel.ParamsTypes
 
-class function TkwEfAboutUserCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutUserCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.UserCaptionLabel';
-end;//TkwEfAboutUserCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserCaptionLabel', aCtx);
+end;//TkwEfAboutUserCaptionLabel.SetValuePrim
 
 function TkwEfAboutUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2084,11 +1958,10 @@ begin
  aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserNameLabel.DoDoIt
 
-procedure TkwEfAboutUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutUserNameLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
-end;//TkwEfAboutUserNameLabel.SetValuePrim
+ Result := '.TefAbout.UserNameLabel';
+end;//TkwEfAboutUserNameLabel.GetWordNameForRegister
 
 function TkwEfAboutUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2105,10 +1978,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserNameLabel.ParamsTypes
 
-class function TkwEfAboutUserNameLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.UserNameLabel';
-end;//TkwEfAboutUserNameLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
+end;//TkwEfAboutUserNameLabel.SetValuePrim
 
 function TkwEfAboutLoginLabel.LoginLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2132,11 +2006,10 @@ begin
  aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutLoginLabel.DoDoIt
 
-procedure TkwEfAboutLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutLoginLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
-end;//TkwEfAboutLoginLabel.SetValuePrim
+ Result := '.TefAbout.LoginLabel';
+end;//TkwEfAboutLoginLabel.GetWordNameForRegister
 
 function TkwEfAboutLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2153,10 +2026,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutLoginLabel.ParamsTypes
 
-class function TkwEfAboutLoginLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.LoginLabel';
-end;//TkwEfAboutLoginLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
+end;//TkwEfAboutLoginLabel.SetValuePrim
 
 function TkwEfAboutCopyrightCaptionLabel.CopyrightCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2180,11 +2054,10 @@ begin
  aCtx.rEngine.PushObj(CopyrightCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutCopyrightCaptionLabel.DoDoIt
 
-procedure TkwEfAboutCopyrightCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству CopyrightCaptionLabel', aCtx);
-end;//TkwEfAboutCopyrightCaptionLabel.SetValuePrim
+ Result := '.TefAbout.CopyrightCaptionLabel';
+end;//TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutCopyrightCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2201,10 +2074,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutCopyrightCaptionLabel.ParamsTypes
 
-class function TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutCopyrightCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.CopyrightCaptionLabel';
-end;//TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству CopyrightCaptionLabel', aCtx);
+end;//TkwEfAboutCopyrightCaptionLabel.SetValuePrim
 
 function TkwEfAboutOkButton.OkButton(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtButton;
@@ -2228,11 +2102,10 @@ begin
  aCtx.rEngine.PushObj(OkButton(aCtx, l_aefAbout));
 end;//TkwEfAboutOkButton.DoDoIt
 
-procedure TkwEfAboutOkButton.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutOkButton.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству OkButton', aCtx);
-end;//TkwEfAboutOkButton.SetValuePrim
+ Result := '.TefAbout.OkButton';
+end;//TkwEfAboutOkButton.GetWordNameForRegister
 
 function TkwEfAboutOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2249,10 +2122,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutOkButton.ParamsTypes
 
-class function TkwEfAboutOkButton.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutOkButton.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.OkButton';
-end;//TkwEfAboutOkButton.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству OkButton', aCtx);
+end;//TkwEfAboutOkButton.SetValuePrim
 
 function TkwEfAboutUserCountCaptionLabel.UserCountCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2276,11 +2150,10 @@ begin
  aCtx.rEngine.PushObj(UserCountCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutUserCountCaptionLabel.DoDoIt
 
-procedure TkwEfAboutUserCountCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству UserCountCaptionLabel', aCtx);
-end;//TkwEfAboutUserCountCaptionLabel.SetValuePrim
+ Result := '.TefAbout.UserCountCaptionLabel';
+end;//TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutUserCountCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2297,10 +2170,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutUserCountCaptionLabel.ParamsTypes
 
-class function TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutUserCountCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.UserCountCaptionLabel';
-end;//TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству UserCountCaptionLabel', aCtx);
+end;//TkwEfAboutUserCountCaptionLabel.SetValuePrim
 
 function TkwEfAboutAdapterCaptionLabel.AdapterCaptionLabel(const aCtx: TtfwContext;
  aefAbout: TefAbout): TvtLabel;
@@ -2324,11 +2198,10 @@ begin
  aCtx.rEngine.PushObj(AdapterCaptionLabel(aCtx, l_aefAbout));
 end;//TkwEfAboutAdapterCaptionLabel.DoDoIt
 
-procedure TkwEfAboutAdapterCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству AdapterCaptionLabel', aCtx);
-end;//TkwEfAboutAdapterCaptionLabel.SetValuePrim
+ Result := '.TefAbout.AdapterCaptionLabel';
+end;//TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister
 
 function TkwEfAboutAdapterCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -2345,10 +2218,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefAbout)]);
 end;//TkwEfAboutAdapterCaptionLabel.ParamsTypes
 
-class function TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister: AnsiString;
+procedure TkwEfAboutAdapterCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefAbout.AdapterCaptionLabel';
-end;//TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству AdapterCaptionLabel', aCtx);
+end;//TkwEfAboutAdapterCaptionLabel.SetValuePrim
 
 initialization
  Tkw_Form_About.RegisterInEngine;
@@ -2461,10 +2335,8 @@ initialization
  {* Регистрация efAbout_UserCountCaptionLabel }
  TkwEfAboutAdapterCaptionLabel.RegisterInEngine;
  {* Регистрация efAbout_AdapterCaptionLabel }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefAbout));
- {* Регистрация типа About }
+ {* Регистрация типа TefAbout }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPaintBox));
  {* Регистрация типа TPaintBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));

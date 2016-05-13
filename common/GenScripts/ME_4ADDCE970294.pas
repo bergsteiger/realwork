@@ -30,6 +30,9 @@ uses
  , moToolbarMenu
  , vcmBaseOperationsCollectionItem
  , vcmUserControls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , OfficeLikeMain_Form
  , evExtFormat
 ;
@@ -38,6 +41,12 @@ procedure TOfficeLikeRes.Loaded;
 begin
  inherited;
 end;//TOfficeLikeRes.Loaded
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TOfficeLikeRes);
+ {* Регистрация OfficeLike }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -22,6 +22,7 @@ uses
  , ddParagraphProperty
  , ddTextParagraph
  , ddCustomRTFReader
+ , l3Base
 ;
 
 type
@@ -30,6 +31,18 @@ type
   , dd_spNumber
   , dd_spHypen
  );//TddSplitPara
+
+ TddWaitChar = (
+  dd_wcNone
+  , dd_wcDoubleQuote
+ );//TddWaitChar
+
+ TddTransferMode = (
+  dd_tmNone
+  , dd_tmColumn
+  , dd_tmTab
+  , dd_tmBreak
+ );//TddTransferMode
 
  TdestNormSpec = class(TdestNorm)
   {* Специализированная dest, для колонок, например. }
@@ -43,40 +56,63 @@ type
    f_ColWidths: Tl3LongintList;
     {* Ширины колонок (из атрибутов RTF). }
    f_SectProp: TddSectionProperty;
-   f_CurColumn: Integer;
-    {* Номер текущей колонки (в которую будет добавляться текст). }
    f_StartRow: Integer;
     {* Номер строки, с которой начинается колонка. }
    f_LastCell: TddTableCell;
     {* Ячейка для добавления текста. }
    f_LastRow: TddTableRow;
     {* Строка для добавления текста. }
-   f_SaveInColumns: Boolean;
-    {* Сохраняем в колонки. }
+   f_ClearColumnOffset: Boolean;
+    {* Очищать смещение колонки. }
    f_TabIndex: Integer;
     {* Текущий индекс табуляции параграфа. }
    f_Table: TddTable;
     {* Таблица, в которую пишем, даже если колонки кончились... }
    f_SplitPara: TddSplitPara;
     {* Как разбивать оставшуюся часть параграфа. }
+   f_WaitChar: TddWaitChar;
+   f_TransferMode: TddTransferMode;
+   f_PrevTransferMode: TddTransferMode;
+   f_EmptyParaCount: Integer;
+    {* Число пустых строк. }
+   f_InAddingCell: Boolean;
+    {* Режим добавления ячейки. }
+   f_SpacesCount: Integer;
+    {* Количество пробелов. }
   private
-   procedure AddColumn4Table(aRowIndex: Integer);
+   procedure AddColumn4Table(aRowIndex: Integer;
+    aCurColumn: Integer);
    procedure FinishColumn(aState: TddRTFState);
-   procedure CheckColumnRow;
    procedure CheckColumnTable;
    procedure AppyToColumn(aWhat: TIProp;
     aValue: LongInt;
     aState: TddRTFState);
    procedure SetCellProp(aCell: TddTableCell;
     anIndex: Integer);
-   procedure AddNewRowWithColumn;
-   procedure CheckLeftIndent(aPAP: TddParagraphProperty);
+   procedure AddNewRowWithColumn(aPAP: TddParagraphProperty);
+   function CheckLeftIndent(aPAP: TddParagraphProperty): Boolean;
    function ColumnOffset(anIndex: Integer): Integer;
    function CheckNewColumn: Boolean;
    function NeedNewCell(aState: TddRTFState): Boolean;
-   procedure AddNewCell(aState: TddRTFState);
+   procedure AddNewCellByTab(aState: TddRTFState);
    procedure ClearTextPara4Table(aPara: TddTextParagraph);
-   procedure AddNewRow(aPAP: TddParagraphProperty);
+   procedure AddNewRowByTab(aPAP: TddParagraphProperty);
+   procedure CloseTable;
+   procedure Try2CloseTabble(aPAP: TddParagraphProperty);
+   procedure CheckCellWidth;
+   function CurColID: Integer;
+   procedure InitNewColumns;
+   function NotInFirstColumn: Boolean;
+   procedure TrySpaces2Tab(aState: TddRTFState);
+   procedure Cells2Tabs(aState: TddRTFState);
+   function Try2AddNewCell(aSymbol: Integer;
+    aState: TddRTFState): Boolean;
+   procedure ClosePara(aSymbol: Integer;
+    aState: TddRTFState);
+   procedure PopTransferMode(aMode: TddTransferMode);
+   procedure PushTransferMode;
+   function NeedNewRow(aPAP: TddParagraphProperty): Boolean;
+   procedure Try2SplitNumbers(aState: TddRTFState);
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -98,8 +134,12 @@ type
    function Itap(aPAP: TddParagraphProperty): Integer; override;
     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure DoAddTabStop(aPAP: TddParagraphProperty); override;
+   procedure BeforeWriteBuffer(aText: Tl3String;
+    aState: TddRTFState); override;
   public
    procedure Clear; override;
+   procedure AddUnicodeChar(aText: Word;
+    aState: TddRTFState); override;
    procedure ApplyProperty(propType: TPropType;
     What: TIProp;
     Value: LongInt;
@@ -120,10 +160,13 @@ uses
  , ddDocumentAtom
  , l3Chars
  , ddTypes
- , l3Base
+ , ddCellProperty
+ , ddConst
+ , l3MinMax
 ;
 
-procedure TdestNormSpec.AddColumn4Table(aRowIndex: Integer);
+procedure TdestNormSpec.AddColumn4Table(aRowIndex: Integer;
+ aCurColumn: Integer);
 //#UC START# *56BB3E570128_56BB14F503A0_var*
 var
  l_Row : TddTableRow;
@@ -164,23 +207,6 @@ begin
  AddColumn4Table(f_StartRow);
 //#UC END# *56BB3E9801EA_56BB14F503A0_impl*
 end;//TdestNormSpec.FinishColumn
-
-procedure TdestNormSpec.CheckColumnRow;
-//#UC START# *56BB3EC800A3_56BB14F503A0_var*
-var
- l_Row: TddTableRow;
-//#UC END# *56BB3EC800A3_56BB14F503A0_var*
-begin
-//#UC START# *56BB3EC800A3_56BB14F503A0_impl*
- if f_Table <> nil then
- begin
-  l_Row := f_Table.LastRow;
-  l_Row.Closed := True;
-  if (l_Row.CellCount = 1) and l_Row[0].IsCellEmpty then Exit;
-  l_Row.Closed := True;
- end; // if l_Table <> nil then
-//#UC END# *56BB3EC800A3_56BB14F503A0_impl*
-end;//TdestNormSpec.CheckColumnRow
 
 procedure TdestNormSpec.CheckColumnTable;
 //#UC START# *56BB3EE301F6_56BB14F503A0_var*
@@ -293,7 +319,7 @@ begin
 //#UC END# *56BD93A10343_56BB14F503A0_impl*
 end;//TdestNormSpec.SetCellProp
 
-procedure TdestNormSpec.AddNewRowWithColumn;
+procedure TdestNormSpec.AddNewRowWithColumn(aPAP: TddParagraphProperty);
 //#UC START# *56C5769301AC_56BB14F503A0_var*
 var
  i         : Integer;
@@ -336,7 +362,7 @@ begin
 //#UC END# *56C5769301AC_56BB14F503A0_impl*
 end;//TdestNormSpec.AddNewRowWithColumn
 
-procedure TdestNormSpec.CheckLeftIndent(aPAP: TddParagraphProperty);
+function TdestNormSpec.CheckLeftIndent(aPAP: TddParagraphProperty): Boolean;
 //#UC START# *56C6FC91019C_56BB14F503A0_var*
 const
  cnDelta = 10;
@@ -408,7 +434,7 @@ begin
 //#UC END# *56C6FD0C03C4_56BB14F503A0_impl*
 end;//TdestNormSpec.NeedNewCell
 
-procedure TdestNormSpec.AddNewCell(aState: TddRTFState);
+procedure TdestNormSpec.AddNewCellByTab(aState: TddRTFState);
 //#UC START# *56C6FD3B01A5_56BB14F503A0_var*
 
  function lp_AddCell(aRow: TddTableRow; aWidth: Integer): TddTableCell;
@@ -452,7 +478,7 @@ begin
      f_LastRow.LastCell.Props.CellOffset := f_PrevColsWidth;
    end; // if (f_LastCell <> nil) and (aState.PAP.TabList.Count > 0) then
 //#UC END# *56C6FD3B01A5_56BB14F503A0_impl*
-end;//TdestNormSpec.AddNewCell
+end;//TdestNormSpec.AddNewCellByTab
 
 procedure TdestNormSpec.ClearTextPara4Table(aPara: TddTextParagraph);
 //#UC START# *56C846290255_56BB14F503A0_var*
@@ -467,7 +493,7 @@ begin
 //#UC END# *56C846290255_56BB14F503A0_impl*
 end;//TdestNormSpec.ClearTextPara4Table
 
-procedure TdestNormSpec.AddNewRow(aPAP: TddParagraphProperty);
+procedure TdestNormSpec.AddNewRowByTab(aPAP: TddParagraphProperty);
 //#UC START# *56D81BA40350_56BB14F503A0_var*
 //#UC END# *56D81BA40350_56BB14F503A0_var*
 begin
@@ -485,7 +511,276 @@ begin
   f_TabIndex := 0;
  end; // if f_Table <> nil then
 //#UC END# *56D81BA40350_56BB14F503A0_impl*
-end;//TdestNormSpec.AddNewRow
+end;//TdestNormSpec.AddNewRowByTab
+
+procedure TdestNormSpec.CloseTable;
+//#UC START# *572C60C800BD_56BB14F503A0_var*
+//#UC END# *572C60C800BD_56BB14F503A0_var*
+begin
+//#UC START# *572C60C800BD_56BB14F503A0_impl*
+ f_EmptyParaCount := 0;
+ if f_LastCell = nil then Exit;
+ CheckCellWidth;
+ f_LastCell := nil;
+ f_Table.LastRow.Closed := True;
+ f_Table.Closed := True;
+ f_Table := nil;
+ f_LastRow := nil;
+ PopTransferMode(dd_tmNone);
+//#UC END# *572C60C800BD_56BB14F503A0_impl*
+end;//TdestNormSpec.CloseTable
+
+procedure TdestNormSpec.Try2CloseTabble(aPAP: TddParagraphProperty);
+//#UC START# *572C60F301A0_56BB14F503A0_var*
+//#UC END# *572C60F301A0_56BB14F503A0_var*
+begin
+//#UC START# *572C60F301A0_56BB14F503A0_impl*
+ if (TextBuffer.Len = 0) and (f_Table <> nil) then
+  if (f_TransferMode <> dd_tmColumn) then
+  begin
+   if (aPAP.xaFirst = propUndefined) and (aPAP.xaLeft = propUndefined) then
+    Inc(f_EmptyParaCount)
+   else
+    f_EmptyParaCount := 0;
+   if (f_EmptyParaCount > 2) then
+    CloseTable;
+  end // if (f_Table <> nil) then
+  else
+   if (aPAP.xaFirst = propUndefined) and (aPAP.xaLeft = propUndefined) then
+    Inc(f_EmptyParaCount);
+//#UC END# *572C60F301A0_56BB14F503A0_impl*
+end;//TdestNormSpec.Try2CloseTabble
+
+procedure TdestNormSpec.CheckCellWidth;
+//#UC START# *572C61230202_56BB14F503A0_var*
+//#UC END# *572C61230202_56BB14F503A0_var*
+begin
+//#UC START# *572C61230202_56BB14F503A0_impl*
+ if f_LastCell.Props.CellOffset = 0 then
+ begin
+  f_LastCell.Props.CellOffset := f_SectProp.xaPage - f_SectProp.xaLeft - f_SectProp.xaRight;
+  f_LastCell.Props.OffsetType := dd_otByPage;
+ end;
+//#UC END# *572C61230202_56BB14F503A0_impl*
+end;//TdestNormSpec.CheckCellWidth
+
+function TdestNormSpec.CurColID: Integer;
+//#UC START# *572C614401A8_56BB14F503A0_var*
+//#UC END# *572C614401A8_56BB14F503A0_var*
+begin
+//#UC START# *572C614401A8_56BB14F503A0_impl*
+ if f_StartRow > -1 then
+  Result := f_Table.Rows[f_StartRow].CurColumn
+ else
+  Result := -1; 
+//#UC END# *572C614401A8_56BB14F503A0_impl*
+end;//TdestNormSpec.CurColID
+
+procedure TdestNormSpec.InitNewColumns;
+//#UC START# *572C617603AE_56BB14F503A0_var*
+//#UC END# *572C617603AE_56BB14F503A0_var*
+begin
+//#UC START# *572C617603AE_56BB14F503A0_impl*
+ f_TabIndex := 0;
+ f_EmptyParaCount := 0;
+ f_ClearColumnOffset := False;
+//#UC END# *572C617603AE_56BB14F503A0_impl*
+end;//TdestNormSpec.InitNewColumns
+
+function TdestNormSpec.NotInFirstColumn: Boolean;
+//#UC START# *572C61990328_56BB14F503A0_var*
+var
+ l_RowIndex: Integer;
+//#UC END# *572C61990328_56BB14F503A0_var*
+begin
+//#UC START# *572C61990328_56BB14F503A0_impl*
+ Result := False;
+ l_RowIndex := f_Table.RowIndex(f_LastRow);
+ if (l_RowIndex < (f_Table.RowCount - 1)) and (f_LastRow.CurColumn > 0) then
+  Result := True;
+//#UC END# *572C61990328_56BB14F503A0_impl*
+end;//TdestNormSpec.NotInFirstColumn
+
+procedure TdestNormSpec.TrySpaces2Tab(aState: TddRTFState);
+//#UC START# *572C61C30037_56BB14F503A0_var*
+const
+ cnSpaces2Tab = 5;
+//#UC END# *572C61C30037_56BB14F503A0_var*
+begin
+//#UC START# *572C61C30037_56BB14F503A0_impl*
+ if not TextBuffer.Empty then
+  if f_SpacesCount >= cnSpaces2Tab then
+  begin
+   Cells2Tabs(aState);
+   TextBuffer.RTrim;
+   ParseSymbol(Ord(cc_Tab), propCHP, aState);
+  end; // if TextBuffer.RTrimLen > cnSpaces2Tab then
+ f_SpacesCount := 0;
+//#UC END# *572C61C30037_56BB14F503A0_impl*
+end;//TdestNormSpec.TrySpaces2Tab
+
+procedure TdestNormSpec.Cells2Tabs(aState: TddRTFState);
+//#UC START# *572C61E90325_56BB14F503A0_var*
+
+ procedure lp_AddTab(aTabPos: Integer);
+ var
+  l_Tab: TddTab;
+ begin
+  l_Tab := TddTab.Create;
+  try
+   l_Tab.TabPos := aTabPos;
+   aState.PAP.TabList.Add(l_Tab);
+  finally
+   FreeAndNil(l_Tab);
+  end;
+ end;
+
+var
+ i          : Integer;
+ l_Cell     : TddTableCell;
+ l_Offset   : Integer;
+ l_ColOffset: Integer;
+//#UC END# *572C61E90325_56BB14F503A0_var*
+begin
+//#UC START# *572C61E90325_56BB14F503A0_impl*
+ if (f_LastRow.CellCount > 1) and (f_LastRow.CurColumn = 0) and (aState.PAP.TabList.Count = 0) then
+ begin
+  l_ColOffset := ColumnOffset(0);
+  if f_LastRow.LastCell.Props.CellOffset = l_ColOffset then
+  begin
+   l_Offset := 0;                             
+   for i := 0 to f_LastRow.CellCount - 1 do
+   begin
+    l_Cell := f_LastRow.Cells[i];
+    l_Offset := l_Cell.Props.CellOffset;
+    if l_Offset = l_ColOffset then Break;
+    lp_AddTab(l_Offset);
+   end; // while l_Offset <> l_ColOffset do
+  end; // if f_LastRow.LastCell.Props.CellOffset = l_ColOffset then
+ end; // if (f_LastRow.CurColumn = 0) and (aState.PAP.TabList.Count = 0) then
+//#UC END# *572C61E90325_56BB14F503A0_impl*
+end;//TdestNormSpec.Cells2Tabs
+
+function TdestNormSpec.Try2AddNewCell(aSymbol: Integer;
+ aState: TddRTFState): Boolean;
+//#UC START# *572C62180157_56BB14F503A0_var*
+//#UC END# *572C62180157_56BB14F503A0_var*
+begin
+//#UC START# *572C62180157_56BB14F503A0_impl*
+ Result := False;
+ if NeedNewCell(aState) then
+ begin
+  Result := True;
+  f_InAddingCell := True;
+  try
+   ClosePara(aSymbol, aState);
+   AddNewCellByTab(aState);
+  finally
+   f_InAddingCell := False;
+  end;
+ end // if NeedNewCell then
+//#UC END# *572C62180157_56BB14F503A0_impl*
+end;//TdestNormSpec.Try2AddNewCell
+
+procedure TdestNormSpec.ClosePara(aSymbol: Integer;
+ aState: TddRTFState);
+//#UC START# *572C624C03B4_56BB14F503A0_var*
+//#UC END# *572C624C03B4_56BB14F503A0_var*
+begin
+//#UC START# *572C624C03B4_56BB14F503A0_impl*
+ PushTransferMode;
+ if f_TransferMode = dd_tmColumn then
+  ParseSymbol(aSymbol, propPAP, aState); // Закрываем параграф.
+//#UC END# *572C624C03B4_56BB14F503A0_impl*
+end;//TdestNormSpec.ClosePara
+
+procedure TdestNormSpec.PopTransferMode(aMode: TddTransferMode);
+//#UC START# *572C627400F5_56BB14F503A0_var*
+//#UC END# *572C627400F5_56BB14F503A0_var*
+begin
+//#UC START# *572C627400F5_56BB14F503A0_impl*
+ f_PrevTransferMode := f_TransferMode;
+ f_TransferMode := aMode;
+//#UC END# *572C627400F5_56BB14F503A0_impl*
+end;//TdestNormSpec.PopTransferMode
+
+procedure TdestNormSpec.PushTransferMode;
+//#UC START# *572C62B102DA_56BB14F503A0_var*
+//#UC END# *572C62B102DA_56BB14F503A0_var*
+begin
+//#UC START# *572C62B102DA_56BB14F503A0_impl*
+ if f_TransferMode = dd_tmBreak then
+  f_TransferMode := f_PrevTransferMode;
+ f_PrevTransferMode := dd_tmNone;
+//#UC END# *572C62B102DA_56BB14F503A0_impl*
+end;//TdestNormSpec.PushTransferMode
+
+function TdestNormSpec.NeedNewRow(aPAP: TddParagraphProperty): Boolean;
+//#UC START# *572C62D3018A_56BB14F503A0_var*
+
+  function lp_OnlyColumns: Boolean;
+  var
+   i: Integer;
+  begin
+   Result := f_ColCount >= f_LastRow.CellCount;
+   if Result then
+    for i := 0 to f_LastRow.CellCount - 1 do
+     if f_LastRow.Cells[i].Props.OffsetType <> dd_otByColumn then
+     begin
+      Result := False;
+      Break;
+     end; // if f_LastRow.Cells[i].Props.OffsetType <> dd_ByColumn then
+  end;
+
+  function lp_LastColumnEmpty: Boolean;
+  var
+   l_Offset    : Integer;
+   l_PrevOffset: Integer;
+  begin
+   Result := f_LastRow.CellCount = 0;
+   if not Result then
+    if f_LastRow.CellCount = 1 then
+     Result := f_LastCell.IsCellEmpty and (ColumnOffset(0) = f_LastCell.Props.CellOffset) and (aPAP.xaLeft <> propUndefined)
+    else
+     if f_LastRow.CellCount > 1 then
+     begin
+      Result := False;
+      if (f_LastRow.CurColumn > 0) and (f_LastCell <> nil) then
+      begin
+       if lp_OnlyColumns then
+        Result := f_LastCell.IsCellEmpty // И ячейка колонки пустая...
+       else
+       begin
+        l_Offset := ColumnOffset(f_LastRow.CurColumn);
+        l_PrevOffset := ColumnOffset(f_LastRow.CurColumn - 1);
+        // В колонку не навставляли еще ячеек...
+        if (l_Offset = f_LastCell.Props.CellOffset) and (l_PrevOffset = f_LastRow.Cells[f_LastRow.CellCount - 2].Props.CellOffset) then
+         Result := f_LastCell.IsCellEmpty; // И ячейка колонки пустая...
+       end;
+      end; // if f_LastRow.CurColumn > 0 then
+     end; // if Result then
+  end;
+
+//#UC END# *572C62D3018A_56BB14F503A0_var*
+begin
+//#UC START# *572C62D3018A_56BB14F503A0_impl*
+ Result := (f_LastCell <> nil) and not f_LastCell.IsCellEmpty;
+ if not Result then
+  if (f_EmptyParaCount > 0) then
+   Result := not lp_LastColumnEmpty;
+//#UC END# *572C62D3018A_56BB14F503A0_impl*
+end;//TdestNormSpec.NeedNewRow
+
+procedure TdestNormSpec.Try2SplitNumbers(aState: TddRTFState);
+//#UC START# *572C62FA035D_56BB14F503A0_var*
+//#UC END# *572C62FA035D_56BB14F503A0_var*
+begin
+//#UC START# *572C62FA035D_56BB14F503A0_impl*
+ if f_LastCell <> nil then
+  if f_LastCell.LastTextPara.Text.Last in cc_Digits then
+   ClosePara(Ord(cc_Tab), aState);
+//#UC END# *572C62FA035D_56BB14F503A0_impl*
+end;//TdestNormSpec.Try2SplitNumbers
 
 procedure TdestNormSpec.Cleanup;
  {* Функция очистки полей объекта. }
@@ -520,6 +815,16 @@ begin
  inherited;
 //#UC END# *51D27A48038E_56BB14F503A0_impl*
 end;//TdestNormSpec.Clear
+
+procedure TdestNormSpec.AddUnicodeChar(aText: Word;
+ aState: TddRTFState);
+//#UC START# *51D27DFA0308_56BB14F503A0_var*
+//#UC END# *51D27DFA0308_56BB14F503A0_var*
+begin
+//#UC START# *51D27DFA0308_56BB14F503A0_impl*
+
+//#UC END# *51D27DFA0308_56BB14F503A0_impl*
+end;//TdestNormSpec.AddUnicodeChar
 
 procedure TdestNormSpec.ApplyProperty(propType: TPropType;
  What: TIProp;
@@ -809,5 +1114,15 @@ begin
    AddNewRow(aPAP);
 //#UC END# *56C574EA022E_56BB14F503A0_impl*
 end;//TdestNormSpec.DoAddTabStop
+
+procedure TdestNormSpec.BeforeWriteBuffer(aText: Tl3String;
+ aState: TddRTFState);
+//#UC START# *572C58C602AF_56BB14F503A0_var*
+//#UC END# *572C58C602AF_56BB14F503A0_var*
+begin
+//#UC START# *572C58C602AF_56BB14F503A0_impl*
+
+//#UC END# *572C58C602AF_56BB14F503A0_impl*
+end;//TdestNormSpec.BeforeWriteBuffer
 
 end.

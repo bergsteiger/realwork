@@ -25,11 +25,11 @@ uses
  , tfwControlString
  , tfwPropertyLike
  , tfwScriptingInterfaces
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -76,11 +76,11 @@ OBJECT VAR l_TelCustomEdit
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwElCustomEditFormEdit
 
 function Tkw_Form_elCustomEdit.GetString: AnsiString;
@@ -131,11 +131,10 @@ begin
  aCtx.rEngine.PushObj(Edit(aCtx, l_aelCustomEditForm));
 end;//TkwElCustomEditFormEdit.DoDoIt
 
-procedure TkwElCustomEditFormEdit.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwElCustomEditFormEdit.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Edit', aCtx);
-end;//TkwElCustomEditFormEdit.SetValuePrim
+ Result := '.TelCustomEditForm.Edit';
+end;//TkwElCustomEditFormEdit.GetWordNameForRegister
 
 function TkwElCustomEditFormEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -152,10 +151,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TelCustomEditForm)]);
 end;//TkwElCustomEditFormEdit.ParamsTypes
 
-class function TkwElCustomEditFormEdit.GetWordNameForRegister: AnsiString;
+procedure TkwElCustomEditFormEdit.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TelCustomEditForm.Edit';
-end;//TkwElCustomEditFormEdit.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Edit', aCtx);
+end;//TkwElCustomEditFormEdit.SetValuePrim
 
 initialization
  Tkw_Form_elCustomEdit.RegisterInEngine;
@@ -164,10 +164,8 @@ initialization
  {* Регистрация Tkw_elCustomEdit_Component_Edit }
  TkwElCustomEditFormEdit.RegisterInEngine;
  {* Регистрация elCustomEditForm_Edit }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TelCustomEditForm));
- {* Регистрация типа elCustomEdit }
+ {* Регистрация типа TelCustomEditForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TelCustomEdit));
  {* Регистрация типа TelCustomEdit }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)

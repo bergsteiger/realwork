@@ -16,8 +16,8 @@ uses
  , nevTools
  , evInternalInterfaces
  , l3ProtoObject
- , afwInterfaces
  , l3Interfaces
+ , afwInterfaces
 ;
 
 type

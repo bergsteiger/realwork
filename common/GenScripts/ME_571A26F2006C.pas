@@ -25,7 +25,7 @@ uses
  , tfwScriptingInterfaces
  , PrimMonitorings_Module
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A26F2006Cimpl_uses*
  //#UC END# *571A26F2006Cimpl_uses*
@@ -35,9 +35,14 @@ type
  TkwOpenPrimeForm = {final} class(TtfwRegisterableWord)
   {* http://mdp.garant.ru/pages/viewpage.action?pageId=235046973 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwOpenPrimeForm
+
+class function TkwOpenPrimeForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'OpenPrimeForm';
+end;//TkwOpenPrimeForm.GetWordNameForRegister
 
 procedure TkwOpenPrimeForm.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_54294F2701D0_var*
@@ -47,11 +52,6 @@ begin
  TPrimMonitoringsModule.OpenNewsLinePrim;
 //#UC END# *4DAEEDE10285_54294F2701D0_impl*
 end;//TkwOpenPrimeForm.DoDoIt
-
-class function TkwOpenPrimeForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'OpenPrimeForm';
-end;//TkwOpenPrimeForm.GetWordNameForRegister
 
 initialization
  TkwOpenPrimeForm.RegisterInEngine;

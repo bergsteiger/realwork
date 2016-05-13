@@ -30,8 +30,8 @@ type
   'testBase.zip' 'C:\Base\TestBase' ClearDataBase
 [code] }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwClearDataBase
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -46,6 +46,11 @@ uses
  , dt_Jour
  {$IfEnd} // NOT Defined(Nemesis)
 ;
+
+class function TkwClearDataBase.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ClearDataBase';
+end;//TkwClearDataBase.GetWordNameForRegister
 
 procedure TkwClearDataBase.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E4A181002B0_var*
@@ -71,11 +76,6 @@ begin
  acInitDB; 
 //#UC END# *4DAEEDE10285_4E4A181002B0_impl*
 end;//TkwClearDataBase.DoDoIt
-
-class function TkwClearDataBase.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ClearDataBase';
-end;//TkwClearDataBase.GetWordNameForRegister
 
 initialization
  TkwClearDataBase.RegisterInEngine;

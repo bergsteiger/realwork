@@ -58,7 +58,20 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EPgError));
+ {* Регистрация типа EPgError }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EpgLockError));
+ {* Регистрация типа EpgLockError }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(UsePostgres)
 
 end.

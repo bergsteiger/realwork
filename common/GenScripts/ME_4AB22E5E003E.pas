@@ -26,7 +26,16 @@ implementation
 {$If Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmApplicationRef);
+ {* Регистрация TvcmApplicationRef }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(DesignTimeLibrary) AND NOT Defined(NoVCM)
+
 end.

@@ -30,6 +30,9 @@ implementation
 uses
  l3ImplUses
  , arSpravkaDocumentContainer
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TarSpravkaTextOfDocument.DoMakeDocumentContainer: InevDocumentContainer;
@@ -40,6 +43,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *482D9A030221_4F9502130133_impl*
 end;//TarSpravkaTextOfDocument.DoMakeDocumentContainer
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TarSpravkaTextOfDocument);
+ {* Регистрация TarSpravkaTextOfDocument }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(AppClientSide)
 
 end.

@@ -91,7 +91,11 @@ uses
  , Logo_Form
  , nsAppTitleData
  , f1StartupCompletedService
+ , l3ExceptionsLog
  , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , BaseTypesUnit
  , evDocumentsCache
  {$If NOT Defined(NoVCM)}
@@ -431,5 +435,9 @@ initialization
  {* Инициализация str_FullVersionMessage }
  str_NemesisTitle.Init;
  {* Инициализация str_NemesisTitle }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TPrimF1Res);
+ {* Регистрация PrimF1 }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

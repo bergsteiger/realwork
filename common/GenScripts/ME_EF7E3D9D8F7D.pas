@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -80,14 +80,7 @@ type
  end;//Tkw_PreviewForm_Control_PreviewPanel_Push
 
  TkwEfPreviewFormPreviewPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefPreviewForm.PreviewPanel
-[panel]Контрол PreviewPanel формы TefPreviewForm[panel]
-*Тип результата:* TnscPreviewPanel
-*Пример:*
-[code]
-OBJECT VAR l_TnscPreviewPanel
- aefPreviewForm .TefPreviewForm.PreviewPanel >>> l_TnscPreviewPanel
-[code]  }
+  {* Слово скрипта .TefPreviewForm.PreviewPanel }
   private
    function PreviewPanel(const aCtx: TtfwContext;
     aefPreviewForm: TefPreviewForm): TnscPreviewPanel;
@@ -96,11 +89,11 @@ OBJECT VAR l_TnscPreviewPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfPreviewFormPreviewPanel
 
 function Tkw_Form_PreviewForm.GetString: AnsiString;
@@ -162,11 +155,10 @@ begin
  aCtx.rEngine.PushObj(PreviewPanel(aCtx, l_aefPreviewForm));
 end;//TkwEfPreviewFormPreviewPanel.DoDoIt
 
-procedure TkwEfPreviewFormPreviewPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfPreviewFormPreviewPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству PreviewPanel', aCtx);
-end;//TkwEfPreviewFormPreviewPanel.SetValuePrim
+ Result := '.TefPreviewForm.PreviewPanel';
+end;//TkwEfPreviewFormPreviewPanel.GetWordNameForRegister
 
 function TkwEfPreviewFormPreviewPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -183,10 +175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefPreviewForm)]);
 end;//TkwEfPreviewFormPreviewPanel.ParamsTypes
 
-class function TkwEfPreviewFormPreviewPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfPreviewFormPreviewPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefPreviewForm.PreviewPanel';
-end;//TkwEfPreviewFormPreviewPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству PreviewPanel', aCtx);
+end;//TkwEfPreviewFormPreviewPanel.SetValuePrim
 
 initialization
  Tkw_Form_PreviewForm.RegisterInEngine;
@@ -197,10 +190,8 @@ initialization
  {* Регистрация Tkw_PreviewForm_Control_PreviewPanel_Push }
  TkwEfPreviewFormPreviewPanel.RegisterInEngine;
  {* Регистрация efPreviewForm_PreviewPanel }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefPreviewForm));
- {* Регистрация типа PreviewForm }
+ {* Регистрация типа TefPreviewForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscPreviewPanel));
  {* Регистрация типа TnscPreviewPanel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)

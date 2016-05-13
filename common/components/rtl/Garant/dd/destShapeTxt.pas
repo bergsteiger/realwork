@@ -13,12 +13,15 @@ uses
  , destNorm
  , ddRTFState
  , ddRTFShape
+ , ddTextParagraph
+ , ddParagraphProperty
 ;
 
 type
  TdestShapeTxt = class(TdestNorm)
   protected
    function CanAddTable: Boolean; override;
+   function Try2AddShapeWithTextPara(aPAP: TddParagraphProperty): TddTextParagraph; override;
   public
    procedure Apply2Shape(aState: TddRTFState;
     aShape: TddRTFShape);
@@ -60,5 +63,14 @@ begin
  Result := True;
 //#UC END# *559516AA0098_5461C20002DF_impl*
 end;//TdestShapeTxt.CanAddTable
+
+function TdestShapeTxt.Try2AddShapeWithTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
+//#UC START# *573427280365_5461C20002DF_var*
+//#UC END# *573427280365_5461C20002DF_var*
+begin
+//#UC START# *573427280365_5461C20002DF_impl*
+ Result := InternalAddTextPara(aPAP);
+//#UC END# *573427280365_5461C20002DF_impl*
+end;//TdestShapeTxt.Try2AddShapeWithTextPara
 
 end.

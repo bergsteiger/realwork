@@ -3567,6 +3567,10 @@ end;//TChromeLikeTabSetControl.DoOnMouseLeave
 
 initialization
 {$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TChromeLikeTabAction);
+ {* Регистрация TChromeLikeTabAction }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChromeLikeTabSetControl);
  {* Регистрация TChromeLikeTabSetControl }
 {$IfEnd} // NOT Defined(NoScripts)

@@ -15,8 +15,8 @@ uses
  , arCommonTypes
  , l3Tree_TLB
  , l3LongintList
- , evdTypes
  , nevBase
+ , evdTypes
  , k2DocumentGenerator
  , k2Base
 ;

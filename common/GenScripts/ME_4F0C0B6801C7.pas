@@ -116,6 +116,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , kwVTControlsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
@@ -444,5 +447,11 @@ class function TDragDataSupport.Exists: Boolean;
 begin
  Result := g_TDragDataSupport <> nil;
 end;//TDragDataSupport.Exists
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(EDragInProcess);
+ {* Регистрация EDragInProcess }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

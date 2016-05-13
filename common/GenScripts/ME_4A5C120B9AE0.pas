@@ -29,11 +29,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -107,14 +107,7 @@ type
  end;//Tkw_GroupList_Control_GroupsTree_Push
 
  TkwEfGroupListBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefGroupList.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TefGroupList[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aefGroupList .TefGroupList.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TefGroupList.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aefGroupList: TefGroupList): TvtPanel;
@@ -123,22 +116,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfGroupListBackgroundPanel
 
  TkwEfGroupListGroupsTree = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefGroupList.GroupsTree
-[panel]Контрол GroupsTree формы TefGroupList[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aefGroupList .TefGroupList.GroupsTree >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TefGroupList.GroupsTree }
   private
    function GroupsTree(const aCtx: TtfwContext;
     aefGroupList: TefGroupList): TeeTreeView;
@@ -147,11 +133,11 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfGroupListGroupsTree
 
 function Tkw_Form_GroupList.GetString: AnsiString;
@@ -240,11 +226,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefGroupList));
 end;//TkwEfGroupListBackgroundPanel.DoDoIt
 
-procedure TkwEfGroupListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfGroupListBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwEfGroupListBackgroundPanel.SetValuePrim
+ Result := '.TefGroupList.BackgroundPanel';
+end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
 
 function TkwEfGroupListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -261,10 +246,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupList)]);
 end;//TkwEfGroupListBackgroundPanel.ParamsTypes
 
-class function TkwEfGroupListBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwEfGroupListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefGroupList.BackgroundPanel';
-end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwEfGroupListBackgroundPanel.SetValuePrim
 
 function TkwEfGroupListGroupsTree.GroupsTree(const aCtx: TtfwContext;
  aefGroupList: TefGroupList): TeeTreeView;
@@ -288,11 +274,10 @@ begin
  aCtx.rEngine.PushObj(GroupsTree(aCtx, l_aefGroupList));
 end;//TkwEfGroupListGroupsTree.DoDoIt
 
-procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfGroupListGroupsTree.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству GroupsTree', aCtx);
-end;//TkwEfGroupListGroupsTree.SetValuePrim
+ Result := '.TefGroupList.GroupsTree';
+end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
 
 function TkwEfGroupListGroupsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -309,10 +294,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupList)]);
 end;//TkwEfGroupListGroupsTree.ParamsTypes
 
-class function TkwEfGroupListGroupsTree.GetWordNameForRegister: AnsiString;
+procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefGroupList.GroupsTree';
-end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству GroupsTree', aCtx);
+end;//TkwEfGroupListGroupsTree.SetValuePrim
 
 initialization
  Tkw_Form_GroupList.RegisterInEngine;
@@ -329,10 +315,8 @@ initialization
  {* Регистрация efGroupList_BackgroundPanel }
  TkwEfGroupListGroupsTree.RegisterInEngine;
  {* Регистрация efGroupList_GroupsTree }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefGroupList));
- {* Регистрация типа GroupList }
+ {* Регистрация типа TefGroupList }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTreeView));

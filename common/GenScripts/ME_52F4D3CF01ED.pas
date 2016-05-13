@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmHistoryClear = {final} class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmHistoryClear
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -42,6 +42,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwVcmHistoryClear.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:History:Clear';
+end;//TkwVcmHistoryClear.GetWordNameForRegister
+
 procedure TkwVcmHistoryClear.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52F4D3CF01ED_var*
 //#UC END# *4DAEEDE10285_52F4D3CF01ED_var*
@@ -51,11 +56,6 @@ begin
   vcmDispatcher.History.Clear(false);
 //#UC END# *4DAEEDE10285_52F4D3CF01ED_impl*
 end;//TkwVcmHistoryClear.DoDoIt
-
-class function TkwVcmHistoryClear.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:History:Clear';
-end;//TkwVcmHistoryClear.GetWordNameForRegister
 
 initialization
  TkwVcmHistoryClear.RegisterInEngine;

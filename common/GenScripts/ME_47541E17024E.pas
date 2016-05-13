@@ -50,6 +50,9 @@ uses
  , Windows
  , l3MemUtils
  , l3Interlocked
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *47541E17024Eimpl_uses*
  //#UC END# *47541E17024Eimpl_uses*
 ;
@@ -96,5 +99,11 @@ end;//Tl3InterfacedComponent.QueryInterface
 
 //#UC START# *47541E17024Eimpl*
 //#UC END# *47541E17024Eimpl*
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Tl3InterfacedComponent);
+ {* Регистрация Tl3InterfacedComponent }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

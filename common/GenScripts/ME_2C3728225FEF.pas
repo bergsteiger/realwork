@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_StyleEditorNavigator_Control_StyleTreeView_Push
 
  TkwStyleEditorNavigatorFormStyleTreeView = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TStyleEditorNavigatorForm.StyleTreeView
-[panel]Контрол StyleTreeView формы TStyleEditorNavigatorForm[panel]
-*Тип результата:* TnscTreeViewWithAdapterDragDrop
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
- aStyleEditorNavigatorForm .TStyleEditorNavigatorForm.StyleTreeView >>> l_TnscTreeViewWithAdapterDragDrop
-[code]  }
+  {* Слово скрипта .TStyleEditorNavigatorForm.StyleTreeView }
   private
    function StyleTreeView(const aCtx: TtfwContext;
     aStyleEditorNavigatorForm: TStyleEditorNavigatorForm): TnscTreeViewWithAdapterDragDrop;
@@ -94,11 +87,11 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwStyleEditorNavigatorFormStyleTreeView
 
 function Tkw_Form_StyleEditorNavigator.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(StyleTreeView(aCtx, l_aStyleEditorNavigatorForm));
 end;//TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt
 
-procedure TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству StyleTreeView', aCtx);
-end;//TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim
+ Result := '.TStyleEditorNavigatorForm.StyleTreeView';
+end;//TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister
 
 function TkwStyleEditorNavigatorFormStyleTreeView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TStyleEditorNavigatorForm)]);
 end;//TkwStyleEditorNavigatorFormStyleTreeView.ParamsTypes
 
-class function TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister: AnsiString;
+procedure TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TStyleEditorNavigatorForm.StyleTreeView';
-end;//TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству StyleTreeView', aCtx);
+end;//TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim
 
 initialization
  Tkw_Form_StyleEditorNavigator.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_StyleEditorNavigator_Control_StyleTreeView_Push }
  TkwStyleEditorNavigatorFormStyleTreeView.RegisterInEngine;
  {* Регистрация StyleEditorNavigatorForm_StyleTreeView }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TStyleEditorNavigatorForm));
- {* Регистрация типа StyleEditorNavigator }
+ {* Регистрация типа TStyleEditorNavigatorForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

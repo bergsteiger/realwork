@@ -26,7 +26,7 @@ uses
  , nsIntegrationSupport
  , nsIntegrationModelPart
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *5135EFD80062impl_uses*
  //#UC END# *5135EFD80062impl_uses*
@@ -35,9 +35,14 @@ uses
 type
  TkwIntegrationOpenLink = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwIntegrationOpenLink
+
+class function TkwIntegrationOpenLink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'integration:OpenLink';
+end;//TkwIntegrationOpenLink.GetWordNameForRegister
 
 procedure TkwIntegrationOpenLink.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5135F0090070_var*
@@ -50,11 +55,6 @@ begin
  GarantShowLink(PAnsiChar(l_Link), False, 500);
 //#UC END# *4DAEEDE10285_5135F0090070_impl*
 end;//TkwIntegrationOpenLink.DoDoIt
-
-class function TkwIntegrationOpenLink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'integration:OpenLink';
-end;//TkwIntegrationOpenLink.GetWordNameForRegister
 
 initialization
  TkwIntegrationOpenLink.RegisterInEngine;

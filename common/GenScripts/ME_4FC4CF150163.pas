@@ -21,8 +21,8 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmHistoryGetForwardItem = {final} class(_VCMWord_)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwVcmHistoryGetForwardItem
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -42,6 +42,11 @@ uses
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
+class function TkwVcmHistoryGetForwardItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:History:GetForwardItem';
+end;//TkwVcmHistoryGetForwardItem.GetWordNameForRegister
+
 procedure TkwVcmHistoryGetForwardItem.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4FC4CF150163_var*
 //#UC END# *4DAEEDE10285_4FC4CF150163_var*
@@ -50,11 +55,6 @@ begin
  aCtx.rEngine.PushString(vcmDispatcher.History.GetForwardItem(aCtx.rEngine.PopInt));
 //#UC END# *4DAEEDE10285_4FC4CF150163_impl*
 end;//TkwVcmHistoryGetForwardItem.DoDoIt
-
-class function TkwVcmHistoryGetForwardItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:History:GetForwardItem';
-end;//TkwVcmHistoryGetForwardItem.GetWordNameForRegister
 
 initialization
  TkwVcmHistoryGetForwardItem.RegisterInEngine;

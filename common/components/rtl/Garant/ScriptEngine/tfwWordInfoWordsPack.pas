@@ -28,18 +28,12 @@ uses
  , TypInfo
  , tfwPropertyLike
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
 ;
 
 type
  TkwPopWordInfoIncludeModifier = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:IncludeModifier
-*Тип результата:* TtfwWordInfo
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWordInfo
- aModifier aWordInfo pop:WordInfo:IncludeModifier >>> l_TtfwWordInfo
-[code]  }
+  {* Слово скрипта pop:WordInfo:IncludeModifier }
   private
    function IncludeModifier(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -55,13 +49,7 @@ OBJECT VAR l_TtfwWordInfo
  end;//TkwPopWordInfoIncludeModifier
 
  TkwPopWordInfoEmpty = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:Empty
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aWordInfo pop:WordInfo:Empty >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:WordInfo:Empty }
   private
    function Empty(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo): Boolean;
@@ -76,13 +64,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopWordInfoEmpty
 
  TkwPopWordInfoHasWordModifier = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:HasWordModifier
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aModifier aWordInfo pop:WordInfo:HasWordModifier >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:WordInfo:HasWordModifier }
   private
    function HasWordModifier(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -98,13 +80,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopWordInfoHasWordModifier
 
  TkwPopWordInfoIncludeTypeModifier = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:IncludeTypeModifier
-*Тип результата:* TtfwWordInfo
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWordInfo
- aType aWordInfo pop:WordInfo:IncludeTypeModifier >>> l_TtfwWordInfo
-[code]  }
+  {* Слово скрипта pop:WordInfo:IncludeTypeModifier }
   private
    function IncludeTypeModifier(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -120,13 +96,7 @@ OBJECT VAR l_TtfwWordInfo
  end;//TkwPopWordInfoIncludeTypeModifier
 
  TkwPopWordInfoHasValueType = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:HasValueType
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aType aWordInfo pop:WordInfo:HasValueType >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:WordInfo:HasValueType }
   private
    function HasValueType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -142,13 +112,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopWordInfoHasValueType
 
  TkwPopWordInfoAcceptsValue = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:AcceptsValue
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aValue aWordInfo pop:WordInfo:AcceptsValue >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:WordInfo:AcceptsValue }
   private
    function AcceptsValue(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -164,13 +128,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopWordInfoAcceptsValue
 
  TkwPopWordInfoHasAccessType = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:HasAccessType
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anAccess aWordInfo pop:WordInfo:HasAccessType >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:WordInfo:HasAccessType }
   private
    function HasAccessType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -186,13 +144,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopWordInfoHasAccessType
 
  TkwPopWordInfoIncludeAccesType = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:IncludeAccesType
-*Тип результата:* TtfwWordInfo
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWordInfo
- anAccess aWordInfo pop:WordInfo:IncludeAccesType >>> l_TtfwWordInfo
-[code]  }
+  {* Слово скрипта pop:WordInfo:IncludeAccesType }
   private
    function IncludeAccesType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -208,13 +160,7 @@ OBJECT VAR l_TtfwWordInfo
  end;//TkwPopWordInfoIncludeAccesType
 
  TkwPopWordInfoValueTypes = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:ValueTypes
-*Тип результата:* TtfwValueTypes
-*Пример:*
-[code]
-OBJECT VAR l_TtfwValueTypes
- aWordInfo pop:WordInfo:ValueTypes >>> l_TtfwValueTypes
-[code]  }
+  {* Слово скрипта pop:WordInfo:ValueTypes }
   private
    function ValueTypes(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo): TtfwValueTypes;
@@ -229,13 +175,7 @@ OBJECT VAR l_TtfwValueTypes
  end;//TkwPopWordInfoValueTypes
 
  TkwPopWordInfoIncludeLinkType = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:IncludeLinkType
-*Тип результата:* TtfwWordInfo
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWordInfo
- aLinkType aWordInfo pop:WordInfo:IncludeLinkType >>> l_TtfwWordInfo
-[code]  }
+  {* Слово скрипта pop:WordInfo:IncludeLinkType }
   private
    function IncludeLinkType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -251,13 +191,7 @@ OBJECT VAR l_TtfwWordInfo
  end;//TkwPopWordInfoIncludeLinkType
 
  TkwPopWordInfoHasLinkType = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:HasLinkType
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aLinkType aWordInfo pop:WordInfo:HasLinkType >>> l_Boolean
-[code]  }
+  {* Слово скрипта pop:WordInfo:HasLinkType }
   private
    function HasLinkType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -273,13 +207,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwPopWordInfoHasLinkType
 
  TkwPopWordInfoCompare = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:Compare
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aWordInfo pop:WordInfo:Compare >>> l_Integer
-[code]  }
+  {* Слово скрипта pop:WordInfo:Compare }
   private
    function Compare(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo;
@@ -295,13 +223,7 @@ INTEGER VAR l_Integer
  end;//TkwPopWordInfoCompare
 
  TkwPopWordInfoToString = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:WordInfo:ToString
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aWordInfo pop:WordInfo:ToString >>> l_Il3CString
-[code]  }
+  {* Слово скрипта pop:WordInfo:ToString }
   private
    function ToString(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo): Il3CString;
@@ -316,13 +238,7 @@ STRING VAR l_Il3CString
  end;//TkwPopWordInfoToString
 
  TkwPopWordInfoTypeName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:WordInfo:TypeName
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aWordInfo pop:WordInfo:TypeName >>> l_Il3CString
-[code]  }
+  {* Слово скрипта pop:WordInfo:TypeName }
   private
    function TypeName(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo): Il3CString;
@@ -331,21 +247,15 @@ STRING VAR l_Il3CString
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopWordInfoTypeName
 
  TkwPopWordInfoLinkType = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:WordInfo:LinkType
-*Тип результата:* TtfwLinkType
-*Пример:*
-[code]
-TtfwLinkType VAR l_TtfwLinkType
- aWordInfo pop:WordInfo:LinkType >>> l_TtfwLinkType
-[code]  }
+  {* Слово скрипта pop:WordInfo:LinkType }
   private
    function LinkType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo): TtfwLinkType;
@@ -354,21 +264,15 @@ TtfwLinkType VAR l_TtfwLinkType
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopWordInfoLinkType
 
  TkwPopWordInfoAccessType = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:WordInfo:AccessType
-*Тип результата:* TtfwAccessType
-*Пример:*
-[code]
-TtfwAccessType VAR l_TtfwAccessType
- aWordInfo pop:WordInfo:AccessType >>> l_TtfwAccessType
-[code]  }
+  {* Слово скрипта pop:WordInfo:AccessType }
   private
    function AccessType(const aCtx: TtfwContext;
     aWordInfo: TtfwWordInfo): TtfwAccessType;
@@ -377,11 +281,11 @@ TtfwAccessType VAR l_TtfwAccessType
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopWordInfoAccessType
 
 function TkwPopWordInfoIncludeModifier.IncludeModifier(const aCtx: TtfwContext;
@@ -417,6 +321,11 @@ begin
  aCtx.rEngine.PushObj(IncludeModifier(aCtx, l_aWordInfo, l_aModifier));
 end;//TkwPopWordInfoIncludeModifier.DoDoIt
 
+class function TkwPopWordInfoIncludeModifier.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:IncludeModifier';
+end;//TkwPopWordInfoIncludeModifier.GetWordNameForRegister
+
 function TkwPopWordInfoIncludeModifier.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWordInfo);
@@ -431,11 +340,6 @@ function TkwPopWordInfoIncludeModifier.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwWordModifier)]);
 end;//TkwPopWordInfoIncludeModifier.ParamsTypes
-
-class function TkwPopWordInfoIncludeModifier.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:IncludeModifier';
-end;//TkwPopWordInfoIncludeModifier.GetWordNameForRegister
 
 function TkwPopWordInfoEmpty.Empty(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): Boolean;
@@ -459,6 +363,11 @@ begin
  aCtx.rEngine.PushBool(Empty(aCtx, l_aWordInfo));
 end;//TkwPopWordInfoEmpty.DoDoIt
 
+class function TkwPopWordInfoEmpty.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:Empty';
+end;//TkwPopWordInfoEmpty.GetWordNameForRegister
+
 function TkwPopWordInfoEmpty.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -474,21 +383,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoEmpty.ParamsTypes
 
-class function TkwPopWordInfoEmpty.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:Empty';
-end;//TkwPopWordInfoEmpty.GetWordNameForRegister
-
 function TkwPopWordInfoHasWordModifier.HasWordModifier(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  aModifier: TtfwWordModifier): Boolean;
  {* Реализация слова скрипта pop:WordInfo:HasWordModifier }
-//#UC START# *6F1830859A21_4280F4A50B03_var*
-//#UC END# *6F1830859A21_4280F4A50B03_var*
+//#UC START# *55C373250327_4280F4A50B03_var*
+//#UC END# *55C373250327_4280F4A50B03_var*
 begin
-//#UC START# *6F1830859A21_4280F4A50B03_impl*
+//#UC START# *55C373250327_4280F4A50B03_impl*
  Result := aWordInfo.Has(aModifier);
-//#UC END# *6F1830859A21_4280F4A50B03_impl*
+//#UC END# *55C373250327_4280F4A50B03_impl*
 end;//TkwPopWordInfoHasWordModifier.HasWordModifier
 
 procedure TkwPopWordInfoHasWordModifier.DoDoIt(const aCtx: TtfwContext);
@@ -516,6 +420,11 @@ begin
  aCtx.rEngine.PushBool(HasWordModifier(aCtx, l_aWordInfo, l_aModifier));
 end;//TkwPopWordInfoHasWordModifier.DoDoIt
 
+class function TkwPopWordInfoHasWordModifier.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:HasWordModifier';
+end;//TkwPopWordInfoHasWordModifier.GetWordNameForRegister
+
 function TkwPopWordInfoHasWordModifier.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -530,11 +439,6 @@ function TkwPopWordInfoHasWordModifier.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwWordModifier)]);
 end;//TkwPopWordInfoHasWordModifier.ParamsTypes
-
-class function TkwPopWordInfoHasWordModifier.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:HasWordModifier';
-end;//TkwPopWordInfoHasWordModifier.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeTypeModifier.IncludeTypeModifier(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
@@ -569,6 +473,11 @@ begin
  aCtx.rEngine.PushObj(IncludeTypeModifier(aCtx, l_aWordInfo, l_aType));
 end;//TkwPopWordInfoIncludeTypeModifier.DoDoIt
 
+class function TkwPopWordInfoIncludeTypeModifier.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:IncludeTypeModifier';
+end;//TkwPopWordInfoIncludeTypeModifier.GetWordNameForRegister
+
 function TkwPopWordInfoIncludeTypeModifier.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWordInfo);
@@ -584,21 +493,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwValueType)]);
 end;//TkwPopWordInfoIncludeTypeModifier.ParamsTypes
 
-class function TkwPopWordInfoIncludeTypeModifier.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:IncludeTypeModifier';
-end;//TkwPopWordInfoIncludeTypeModifier.GetWordNameForRegister
-
 function TkwPopWordInfoHasValueType.HasValueType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  aType: TtfwValueType): Boolean;
  {* Реализация слова скрипта pop:WordInfo:HasValueType }
-//#UC START# *AEC40CE6A30A_E77A7D4C22A1_var*
-//#UC END# *AEC40CE6A30A_E77A7D4C22A1_var*
+//#UC START# *55C373600196_E77A7D4C22A1_var*
+//#UC END# *55C373600196_E77A7D4C22A1_var*
 begin
-//#UC START# *AEC40CE6A30A_E77A7D4C22A1_impl*
+//#UC START# *55C373600196_E77A7D4C22A1_impl*
  Result := aWordInfo.Has(aType);
-//#UC END# *AEC40CE6A30A_E77A7D4C22A1_impl*
+//#UC END# *55C373600196_E77A7D4C22A1_impl*
 end;//TkwPopWordInfoHasValueType.HasValueType
 
 procedure TkwPopWordInfoHasValueType.DoDoIt(const aCtx: TtfwContext);
@@ -626,6 +530,11 @@ begin
  aCtx.rEngine.PushBool(HasValueType(aCtx, l_aWordInfo, l_aType));
 end;//TkwPopWordInfoHasValueType.DoDoIt
 
+class function TkwPopWordInfoHasValueType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:HasValueType';
+end;//TkwPopWordInfoHasValueType.GetWordNameForRegister
+
 function TkwPopWordInfoHasValueType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -640,11 +549,6 @@ function TkwPopWordInfoHasValueType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwValueType)]);
 end;//TkwPopWordInfoHasValueType.ParamsTypes
-
-class function TkwPopWordInfoHasValueType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:HasValueType';
-end;//TkwPopWordInfoHasValueType.GetWordNameForRegister
 
 function TkwPopWordInfoAcceptsValue.AcceptsValue(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
@@ -679,6 +583,11 @@ begin
  aCtx.rEngine.PushBool(AcceptsValue(aCtx, l_aWordInfo, l_aValue));
 end;//TkwPopWordInfoAcceptsValue.DoDoIt
 
+class function TkwPopWordInfoAcceptsValue.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:AcceptsValue';
+end;//TkwPopWordInfoAcceptsValue.GetWordNameForRegister
+
 function TkwPopWordInfoAcceptsValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -694,21 +603,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), @tfw_tiStruct]);
 end;//TkwPopWordInfoAcceptsValue.ParamsTypes
 
-class function TkwPopWordInfoAcceptsValue.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:AcceptsValue';
-end;//TkwPopWordInfoAcceptsValue.GetWordNameForRegister
-
 function TkwPopWordInfoHasAccessType.HasAccessType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  anAccess: TtfwAccessType): Boolean;
  {* Реализация слова скрипта pop:WordInfo:HasAccessType }
-//#UC START# *DE32097D5418_E7485F00A9C9_var*
-//#UC END# *DE32097D5418_E7485F00A9C9_var*
+//#UC START# *55C3739302E9_E7485F00A9C9_var*
+//#UC END# *55C3739302E9_E7485F00A9C9_var*
 begin
-//#UC START# *DE32097D5418_E7485F00A9C9_impl*
+//#UC START# *55C3739302E9_E7485F00A9C9_impl*
  Result := aWordInfo.Has(anAccess);
-//#UC END# *DE32097D5418_E7485F00A9C9_impl*
+//#UC END# *55C3739302E9_E7485F00A9C9_impl*
 end;//TkwPopWordInfoHasAccessType.HasAccessType
 
 procedure TkwPopWordInfoHasAccessType.DoDoIt(const aCtx: TtfwContext);
@@ -736,6 +640,11 @@ begin
  aCtx.rEngine.PushBool(HasAccessType(aCtx, l_aWordInfo, l_anAccess));
 end;//TkwPopWordInfoHasAccessType.DoDoIt
 
+class function TkwPopWordInfoHasAccessType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:HasAccessType';
+end;//TkwPopWordInfoHasAccessType.GetWordNameForRegister
+
 function TkwPopWordInfoHasAccessType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -750,11 +659,6 @@ function TkwPopWordInfoHasAccessType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwAccessType)]);
 end;//TkwPopWordInfoHasAccessType.ParamsTypes
-
-class function TkwPopWordInfoHasAccessType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:HasAccessType';
-end;//TkwPopWordInfoHasAccessType.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeAccesType.IncludeAccesType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
@@ -789,6 +693,11 @@ begin
  aCtx.rEngine.PushObj(IncludeAccesType(aCtx, l_aWordInfo, l_anAccess));
 end;//TkwPopWordInfoIncludeAccesType.DoDoIt
 
+class function TkwPopWordInfoIncludeAccesType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:IncludeAccesType';
+end;//TkwPopWordInfoIncludeAccesType.GetWordNameForRegister
+
 function TkwPopWordInfoIncludeAccesType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWordInfo);
@@ -803,11 +712,6 @@ function TkwPopWordInfoIncludeAccesType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwAccessType)]);
 end;//TkwPopWordInfoIncludeAccesType.ParamsTypes
-
-class function TkwPopWordInfoIncludeAccesType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:IncludeAccesType';
-end;//TkwPopWordInfoIncludeAccesType.GetWordNameForRegister
 
 function TkwPopWordInfoValueTypes.ValueTypes(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): TtfwValueTypes;
@@ -831,6 +735,11 @@ begin
  aCtx.rEngine.PushObj(ValueTypes(aCtx, l_aWordInfo));
 end;//TkwPopWordInfoValueTypes.DoDoIt
 
+class function TkwPopWordInfoValueTypes.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:ValueTypes';
+end;//TkwPopWordInfoValueTypes.GetWordNameForRegister
+
 function TkwPopWordInfoValueTypes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwValueTypes);
@@ -845,11 +754,6 @@ function TkwPopWordInfoValueTypes.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoValueTypes.ParamsTypes
-
-class function TkwPopWordInfoValueTypes.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:ValueTypes';
-end;//TkwPopWordInfoValueTypes.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeLinkType.IncludeLinkType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
@@ -884,6 +788,11 @@ begin
  aCtx.rEngine.PushObj(IncludeLinkType(aCtx, l_aWordInfo, l_aLinkType));
 end;//TkwPopWordInfoIncludeLinkType.DoDoIt
 
+class function TkwPopWordInfoIncludeLinkType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:IncludeLinkType';
+end;//TkwPopWordInfoIncludeLinkType.GetWordNameForRegister
+
 function TkwPopWordInfoIncludeLinkType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(TtfwWordInfo);
@@ -899,21 +808,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwLinkType)]);
 end;//TkwPopWordInfoIncludeLinkType.ParamsTypes
 
-class function TkwPopWordInfoIncludeLinkType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:IncludeLinkType';
-end;//TkwPopWordInfoIncludeLinkType.GetWordNameForRegister
-
 function TkwPopWordInfoHasLinkType.HasLinkType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  aLinkType: TtfwLinkType): Boolean;
  {* Реализация слова скрипта pop:WordInfo:HasLinkType }
-//#UC START# *C3E1AB4AA1BE_1B2BFB318FE4_var*
-//#UC END# *C3E1AB4AA1BE_1B2BFB318FE4_var*
+//#UC START# *55C374500185_1B2BFB318FE4_var*
+//#UC END# *55C374500185_1B2BFB318FE4_var*
 begin
-//#UC START# *C3E1AB4AA1BE_1B2BFB318FE4_impl*
+//#UC START# *55C374500185_1B2BFB318FE4_impl*
  Result := aWordInfo.Has(aLinkType);
-//#UC END# *C3E1AB4AA1BE_1B2BFB318FE4_impl*
+//#UC END# *55C374500185_1B2BFB318FE4_impl*
 end;//TkwPopWordInfoHasLinkType.HasLinkType
 
 procedure TkwPopWordInfoHasLinkType.DoDoIt(const aCtx: TtfwContext);
@@ -941,6 +845,11 @@ begin
  aCtx.rEngine.PushBool(HasLinkType(aCtx, l_aWordInfo, l_aLinkType));
 end;//TkwPopWordInfoHasLinkType.DoDoIt
 
+class function TkwPopWordInfoHasLinkType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:HasLinkType';
+end;//TkwPopWordInfoHasLinkType.GetWordNameForRegister
+
 function TkwPopWordInfoHasLinkType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -955,11 +864,6 @@ function TkwPopWordInfoHasLinkType.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwLinkType)]);
 end;//TkwPopWordInfoHasLinkType.ParamsTypes
-
-class function TkwPopWordInfoHasLinkType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:HasLinkType';
-end;//TkwPopWordInfoHasLinkType.GetWordNameForRegister
 
 function TkwPopWordInfoCompare.Compare(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
@@ -994,6 +898,11 @@ begin
  aCtx.rEngine.PushInt(Compare(aCtx, l_aWordInfo, l_anOther));
 end;//TkwPopWordInfoCompare.DoDoIt
 
+class function TkwPopWordInfoCompare.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:Compare';
+end;//TkwPopWordInfoCompare.GetWordNameForRegister
+
 function TkwPopWordInfoCompare.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -1008,11 +917,6 @@ function TkwPopWordInfoCompare.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo), TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoCompare.ParamsTypes
-
-class function TkwPopWordInfoCompare.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:Compare';
-end;//TkwPopWordInfoCompare.GetWordNameForRegister
 
 function TkwPopWordInfoToString.ToString(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): Il3CString;
@@ -1036,6 +940,11 @@ begin
  aCtx.rEngine.PushString(ToString(aCtx, l_aWordInfo));
 end;//TkwPopWordInfoToString.DoDoIt
 
+class function TkwPopWordInfoToString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:WordInfo:ToString';
+end;//TkwPopWordInfoToString.GetWordNameForRegister
+
 function TkwPopWordInfoToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -1050,11 +959,6 @@ function TkwPopWordInfoToString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoToString.ParamsTypes
-
-class function TkwPopWordInfoToString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:WordInfo:ToString';
-end;//TkwPopWordInfoToString.GetWordNameForRegister
 
 function TkwPopWordInfoTypeName.TypeName(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): Il3CString;
@@ -1078,11 +982,10 @@ begin
  aCtx.rEngine.PushString(TypeName(aCtx, l_aWordInfo));
 end;//TkwPopWordInfoTypeName.DoDoIt
 
-procedure TkwPopWordInfoTypeName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopWordInfoTypeName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TypeName', aCtx);
-end;//TkwPopWordInfoTypeName.SetValuePrim
+ Result := 'pop:WordInfo:TypeName';
+end;//TkwPopWordInfoTypeName.GetWordNameForRegister
 
 function TkwPopWordInfoTypeName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1099,10 +1002,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoTypeName.ParamsTypes
 
-class function TkwPopWordInfoTypeName.GetWordNameForRegister: AnsiString;
+procedure TkwPopWordInfoTypeName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:WordInfo:TypeName';
-end;//TkwPopWordInfoTypeName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TypeName', aCtx);
+end;//TkwPopWordInfoTypeName.SetValuePrim
 
 function TkwPopWordInfoLinkType.LinkType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): TtfwLinkType;
@@ -1126,11 +1030,10 @@ begin
  aCtx.rEngine.PushInt(Ord(LinkType(aCtx, l_aWordInfo)));
 end;//TkwPopWordInfoLinkType.DoDoIt
 
-procedure TkwPopWordInfoLinkType.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopWordInfoLinkType.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LinkType', aCtx);
-end;//TkwPopWordInfoLinkType.SetValuePrim
+ Result := 'pop:WordInfo:LinkType';
+end;//TkwPopWordInfoLinkType.GetWordNameForRegister
 
 function TkwPopWordInfoLinkType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1147,10 +1050,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoLinkType.ParamsTypes
 
-class function TkwPopWordInfoLinkType.GetWordNameForRegister: AnsiString;
+procedure TkwPopWordInfoLinkType.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:WordInfo:LinkType';
-end;//TkwPopWordInfoLinkType.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LinkType', aCtx);
+end;//TkwPopWordInfoLinkType.SetValuePrim
 
 function TkwPopWordInfoAccessType.AccessType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): TtfwAccessType;
@@ -1174,11 +1078,10 @@ begin
  aCtx.rEngine.PushInt(Ord(AccessType(aCtx, l_aWordInfo)));
 end;//TkwPopWordInfoAccessType.DoDoIt
 
-procedure TkwPopWordInfoAccessType.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopWordInfoAccessType.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству AccessType', aCtx);
-end;//TkwPopWordInfoAccessType.SetValuePrim
+ Result := 'pop:WordInfo:AccessType';
+end;//TkwPopWordInfoAccessType.GetWordNameForRegister
 
 function TkwPopWordInfoAccessType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1195,10 +1098,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwWordInfo)]);
 end;//TkwPopWordInfoAccessType.ParamsTypes
 
-class function TkwPopWordInfoAccessType.GetWordNameForRegister: AnsiString;
+procedure TkwPopWordInfoAccessType.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:WordInfo:AccessType';
-end;//TkwPopWordInfoAccessType.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству AccessType', aCtx);
+end;//TkwPopWordInfoAccessType.SetValuePrim
 
 initialization
  TkwPopWordInfoIncludeModifier.RegisterInEngine;
@@ -1233,28 +1137,26 @@ initialization
  {* Регистрация pop_WordInfo_LinkType }
  TkwPopWordInfoAccessType.RegisterInEngine;
  {* Регистрация pop_WordInfo_AccessType }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWordInfo));
  {* Регистрация типа TtfwWordInfo }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWordModifier));
- {* Регистрация типа TtfwWordModifier }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwValueType));
- {* Регистрация типа TtfwValueType }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwStackValue }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwAccessType));
- {* Регистрация типа TtfwAccessType }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwValueTypes));
  {* Регистрация типа TtfwValueTypes }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwLinkType));
- {* Регистрация типа TtfwLinkType }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Il3CString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwLinkType));
+ {* Регистрация типа TtfwLinkType }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwAccessType));
+ {* Регистрация типа TtfwAccessType }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWordModifier));
+ {* Регистрация типа TtfwWordModifier }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwValueType));
+ {* Регистрация типа TtfwValueType }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -20,44 +20,35 @@ implementation
 uses
  l3ImplUses
  , tfwGlobalKeyWord
- , tfwScriptingInterfaces
  , TypInfo
+ , tfwScriptingInterfaces
  , l3TabbedContainersDispatcher
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwVcmTabsCloseCurrent = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:CloseCurrent
-[panel]Закрыть текущую вкладку в активном окне. Не закрывает последнюю.[panel]
-*Пример:*
-[code]
- vcm:tabs:CloseCurrent
-[code]  }
+  {* Слово скрипта vcm:tabs:CloseCurrent }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmTabsCloseCurrent
 
  TkwVcmTabsClose = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:Close
-[panel]Закрыть вкладку по индексу. Нумерация с нуля.[panel]
-*Пример:*
-[code]
- aTabIndex vcm:tabs:Close
-[code]  }
+  {* Слово скрипта vcm:tabs:Close }
   private
    procedure vcm_tabs_Close(const aCtx: TtfwContext;
     aTabIndex: Integer);
     {* Реализация слова скрипта vcm:tabs:Close }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -65,35 +56,24 @@ type
  end;//TkwVcmTabsClose
 
  TkwVcmTabsCloseAllButCurrent = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:CloseAllButCurrent
-[panel]Закрыть все вкладки кроме текущей в активном окне[panel]
-*Пример:*
-[code]
- vcm:tabs:CloseAllButCurrent
-[code]  }
+  {* Слово скрипта vcm:tabs:CloseAllButCurrent }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmTabsCloseAllButCurrent
 
  TkwVcmTabsActive = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:Active
-[panel]Номер активной вкладки в текущем окне. Нумерация с нуля.[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- vcm:tabs:Active >>> l_Integer
-[code]  }
+  {* Слово скрипта vcm:tabs:Active }
   private
    function vcm_tabs_Active(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта vcm:tabs:Active }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -101,19 +81,14 @@ INTEGER VAR l_Integer
  end;//TkwVcmTabsActive
 
  TkwVcmTabsSetActive = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:SetActive
-[panel]Перейти на вкладку в активном окне (нумерация с нуля)[panel]
-*Пример:*
-[code]
- aValue vcm:tabs:SetActive
-[code]  }
+  {* Слово скрипта vcm:tabs:SetActive }
   private
    procedure vcm_tabs_SetActive(const aCtx: TtfwContext;
     aValue: Integer);
     {* Реализация слова скрипта vcm:tabs:SetActive }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -121,20 +96,13 @@ INTEGER VAR l_Integer
  end;//TkwVcmTabsSetActive
 
  TkwVcmTabsCount = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:Count
-[panel]Количество вкладок в активном окне[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- vcm:tabs:Count >>> l_Integer
-[code]  }
+  {* Слово скрипта vcm:tabs:Count }
   private
    function vcm_tabs_Count(const aCtx: TtfwContext): Integer;
     {* Реализация слова скрипта vcm:tabs:Count }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -142,35 +110,24 @@ INTEGER VAR l_Integer
  end;//TkwVcmTabsCount
 
  TkwVcmTabsOpenNewTab = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:OpenNewTab
-[panel]Открыть новую вкладку в активном окне[panel]
-*Пример:*
-[code]
- vcm:tabs:OpenNewTab
-[code]  }
+  {* Слово скрипта vcm:tabs:OpenNewTab }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmTabsOpenNewTab
 
  TkwVcmTabsCanOpenNewTab = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:CanOpenNewTab
-[panel]Можно ли открыть новую вкладку в активном окне[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- vcm:tabs:CanOpenNewTab >>> l_Boolean
-[code]  }
+  {* Слово скрипта vcm:tabs:CanOpenNewTab }
   private
    function vcm_tabs_CanOpenNewTab(const aCtx: TtfwContext): Boolean;
     {* Реализация слова скрипта vcm:tabs:CanOpenNewTab }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -178,19 +135,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwVcmTabsCanOpenNewTab
 
  TkwVcmTabsDuplicate = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:Duplicate
-[panel]Дублировать вкладку в активном окне[panel]
-*Пример:*
-[code]
- aTabIndex vcm:tabs:Duplicate
-[code]  }
+  {* Слово скрипта vcm:tabs:Duplicate }
   private
    procedure vcm_tabs_Duplicate(const aCtx: TtfwContext;
     aTabIndex: Integer);
     {* Реализация слова скрипта vcm:tabs:Duplicate }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -198,21 +150,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwVcmTabsDuplicate
 
  TkwVcmTabsCanDuplicate = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:CanDuplicate
-[panel]Можно ли дублировать вкладку в активном окне[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTabIndex vcm:tabs:CanDuplicate >>> l_Boolean
-[code]  }
+  {* Слово скрипта vcm:tabs:CanDuplicate }
   private
    function vcm_tabs_CanDuplicate(const aCtx: TtfwContext;
     aTabIndex: Integer): Boolean;
     {* Реализация слова скрипта vcm:tabs:CanDuplicate }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -220,35 +165,24 @@ BOOLEAN VAR l_Boolean
  end;//TkwVcmTabsCanDuplicate
 
  TkwVcmTabsReopen = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:Reopen
-[panel]Открыть закрытую вкладку в активном окне[panel]
-*Пример:*
-[code]
- vcm:tabs:Reopen
-[code]  }
+  {* Слово скрипта vcm:tabs:Reopen }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmTabsReopen
 
  TkwVcmTabsCanReopen = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:CanReopen
-[panel]Можно ли открыть закрытую вкладку в активном окне[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- vcm:tabs:CanReopen >>> l_Boolean
-[code]  }
+  {* Слово скрипта vcm:tabs:CanReopen }
   private
    function vcm_tabs_CanReopen(const aCtx: TtfwContext): Boolean;
     {* Реализация слова скрипта vcm:tabs:CanReopen }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -256,20 +190,14 @@ BOOLEAN VAR l_Boolean
  end;//TkwVcmTabsCanReopen
 
  TkwVcmTabsGetIconIndex = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:GetIconIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aTabIndex vcm:tabs:GetIconIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта vcm:tabs:GetIconIndex }
   private
    function vcm_tabs_GetIconIndex(const aCtx: TtfwContext;
     aTabIndex: Integer): Integer;
     {* Реализация слова скрипта vcm:tabs:GetIconIndex }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -277,20 +205,14 @@ INTEGER VAR l_Integer
  end;//TkwVcmTabsGetIconIndex
 
  TkwVcmTabsGetCaption = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:GetCaption
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aTabIndex vcm:tabs:GetCaption >>> l_String
-[code]  }
+  {* Слово скрипта vcm:tabs:GetCaption }
   private
    function vcm_tabs_GetCaption(const aCtx: TtfwContext;
     aTabIndex: Integer): AnsiString;
     {* Реализация слова скрипта vcm:tabs:GetCaption }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -298,20 +220,14 @@ STRING VAR l_String
  end;//TkwVcmTabsGetCaption
 
  TkwVcmTabsCanUndock = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:CanUndock
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTabIndex vcm:tabs:CanUndock >>> l_Boolean
-[code]  }
+  {* Слово скрипта vcm:tabs:CanUndock }
   private
    function vcm_tabs_CanUndock(const aCtx: TtfwContext;
     aTabIndex: Integer): Boolean;
     {* Реализация слова скрипта vcm:tabs:CanUndock }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -319,32 +235,24 @@ BOOLEAN VAR l_Boolean
  end;//TkwVcmTabsCanUndock
 
  TkwVcmTabsUndock = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:tabs:Undock
-*Пример:*
-[code]
- aTabIndex vcm:tabs:Undock
-[code]  }
+  {* Слово скрипта vcm:tabs:Undock }
   private
    procedure vcm_tabs_Undock(const aCtx: TtfwContext;
     aTabIndex: Integer);
     {* Реализация слова скрипта vcm:tabs:Undock }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwVcmTabsUndock
 
-procedure TkwVcmTabsCloseCurrent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_137FD631C8A7_var*
-//#UC END# *4DAEEDE10285_137FD631C8A7_var*
+class function TkwVcmTabsCloseCurrent.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_137FD631C8A7_impl*
- Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseSelectedTab;
-//#UC END# *4DAEEDE10285_137FD631C8A7_impl*
-end;//TkwVcmTabsCloseCurrent.DoDoIt
+ Result := 'vcm:tabs:CloseCurrent';
+end;//TkwVcmTabsCloseCurrent.GetWordNameForRegister
 
 function TkwVcmTabsCloseCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -356,37 +264,36 @@ begin
  Result := 0;
 end;//TkwVcmTabsCloseCurrent.GetAllParamsCount
 
-class function TkwVcmTabsCloseCurrent.GetWordNameForRegister: AnsiString;
+function TkwVcmTabsCloseCurrent.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'vcm:tabs:CloseCurrent';
-end;//TkwVcmTabsCloseCurrent.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwVcmTabsCloseCurrent.ParamsTypes
+
+procedure TkwVcmTabsCloseCurrent.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_55AE4C31002C_Word_var*
+//#UC END# *4DAEEDE10285_55AE4C31002C_Word_var*
+begin
+//#UC START# *4DAEEDE10285_55AE4C31002C_Word_impl*
+ Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseSelectedTab;
+//#UC END# *4DAEEDE10285_55AE4C31002C_Word_impl*
+end;//TkwVcmTabsCloseCurrent.DoDoIt
 
 procedure TkwVcmTabsClose.vcm_tabs_Close(const aCtx: TtfwContext;
  aTabIndex: Integer);
  {* Реализация слова скрипта vcm:tabs:Close }
-//#UC START# *6AA735B1AFE9_12F6A6736B71_var*
-//#UC END# *6AA735B1AFE9_12F6A6736B71_var*
+//#UC START# *55AE4C470082_55AE4C470082_Word_var*
+//#UC END# *55AE4C470082_55AE4C470082_Word_var*
 begin
-//#UC START# *6AA735B1AFE9_12F6A6736B71_impl*
+//#UC START# *55AE4C470082_55AE4C470082_Word_impl*
  with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
   CloseTab(Tabs[aTabIndex]);
-//#UC END# *6AA735B1AFE9_12F6A6736B71_impl*
+//#UC END# *55AE4C470082_55AE4C470082_Word_impl*
 end;//TkwVcmTabsClose.vcm_tabs_Close
 
-procedure TkwVcmTabsClose.DoDoIt(const aCtx: TtfwContext);
-var l_aTabIndex: Integer;
+class function TkwVcmTabsClose.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aTabIndex := aCtx.rEngine.PopInt;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- vcm_tabs_Close(aCtx, l_aTabIndex);
-end;//TkwVcmTabsClose.DoDoIt
+ Result := 'vcm:tabs:Close';
+end;//TkwVcmTabsClose.GetWordNameForRegister
 
 function TkwVcmTabsClose.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -403,19 +310,25 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsClose.ParamsTypes
 
-class function TkwVcmTabsClose.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsClose.DoDoIt(const aCtx: TtfwContext);
+var l_aTabIndex: Integer;
 begin
- Result := 'vcm:tabs:Close';
-end;//TkwVcmTabsClose.GetWordNameForRegister
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_Close(aCtx, l_aTabIndex);
+end;//TkwVcmTabsClose.DoDoIt
 
-procedure TkwVcmTabsCloseAllButCurrent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_91294BF70EF7_var*
-//#UC END# *4DAEEDE10285_91294BF70EF7_var*
+class function TkwVcmTabsCloseAllButCurrent.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_91294BF70EF7_impl*
- Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseAllButActiveTab;
-//#UC END# *4DAEEDE10285_91294BF70EF7_impl*
-end;//TkwVcmTabsCloseAllButCurrent.DoDoIt
+ Result := 'vcm:tabs:CloseAllButCurrent';
+end;//TkwVcmTabsCloseAllButCurrent.GetWordNameForRegister
 
 function TkwVcmTabsCloseAllButCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -427,25 +340,34 @@ begin
  Result := 0;
 end;//TkwVcmTabsCloseAllButCurrent.GetAllParamsCount
 
-class function TkwVcmTabsCloseAllButCurrent.GetWordNameForRegister: AnsiString;
+function TkwVcmTabsCloseAllButCurrent.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'vcm:tabs:CloseAllButCurrent';
-end;//TkwVcmTabsCloseAllButCurrent.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwVcmTabsCloseAllButCurrent.ParamsTypes
+
+procedure TkwVcmTabsCloseAllButCurrent.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_55AE4C630229_Word_var*
+//#UC END# *4DAEEDE10285_55AE4C630229_Word_var*
+begin
+//#UC START# *4DAEEDE10285_55AE4C630229_Word_impl*
+ Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseAllButActiveTab;
+//#UC END# *4DAEEDE10285_55AE4C630229_Word_impl*
+end;//TkwVcmTabsCloseAllButCurrent.DoDoIt
 
 function TkwVcmTabsActive.vcm_tabs_Active(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта vcm:tabs:Active }
-//#UC START# *BFE28234E0FC_EA6F3BD4A5CA_var*
-//#UC END# *BFE28234E0FC_EA6F3BD4A5CA_var*
+//#UC START# *55AE78F700E1_55AE78F700E1_Word_var*
+//#UC END# *55AE78F700E1_55AE78F700E1_Word_var*
 begin
-//#UC START# *BFE28234E0FC_EA6F3BD4A5CA_impl*
+//#UC START# *55AE78F700E1_55AE78F700E1_Word_impl*
  Result := Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.ActiveTab.VisibleIndex;
-//#UC END# *BFE28234E0FC_EA6F3BD4A5CA_impl*
+//#UC END# *55AE78F700E1_55AE78F700E1_Word_impl*
 end;//TkwVcmTabsActive.vcm_tabs_Active
 
-procedure TkwVcmTabsActive.DoDoIt(const aCtx: TtfwContext);
+class function TkwVcmTabsActive.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(vcm_tabs_Active(aCtx));
-end;//TkwVcmTabsActive.DoDoIt
+ Result := 'vcm:tabs:Active';
+end;//TkwVcmTabsActive.GetWordNameForRegister
 
 function TkwVcmTabsActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -462,37 +384,27 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsActive.ParamsTypes
 
-class function TkwVcmTabsActive.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsActive.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'vcm:tabs:Active';
-end;//TkwVcmTabsActive.GetWordNameForRegister
+ aCtx.rEngine.PushInt(vcm_tabs_Active(aCtx));
+end;//TkwVcmTabsActive.DoDoIt
 
 procedure TkwVcmTabsSetActive.vcm_tabs_SetActive(const aCtx: TtfwContext;
  aValue: Integer);
  {* Реализация слова скрипта vcm:tabs:SetActive }
-//#UC START# *4D8DA9C0F345_36E868893B0A_var*
-//#UC END# *4D8DA9C0F345_36E868893B0A_var*
+//#UC START# *55AE790302E8_55AE790302E8_Word_var*
+//#UC END# *55AE790302E8_55AE790302E8_Word_var*
 begin
-//#UC START# *4D8DA9C0F345_36E868893B0A_impl*
+//#UC START# *55AE790302E8_55AE790302E8_Word_impl*
  with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
   ActiveTab := Tabs[aValue];
-//#UC END# *4D8DA9C0F345_36E868893B0A_impl*
+//#UC END# *55AE790302E8_55AE790302E8_Word_impl*
 end;//TkwVcmTabsSetActive.vcm_tabs_SetActive
 
-procedure TkwVcmTabsSetActive.DoDoIt(const aCtx: TtfwContext);
-var l_aValue: Integer;
+class function TkwVcmTabsSetActive.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aValue := aCtx.rEngine.PopInt;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- vcm_tabs_SetActive(aCtx, l_aValue);
-end;//TkwVcmTabsSetActive.DoDoIt
+ Result := 'vcm:tabs:SetActive';
+end;//TkwVcmTabsSetActive.GetWordNameForRegister
 
 function TkwVcmTabsSetActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -509,25 +421,35 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsSetActive.ParamsTypes
 
-class function TkwVcmTabsSetActive.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsSetActive.DoDoIt(const aCtx: TtfwContext);
+var l_aValue: Integer;
 begin
- Result := 'vcm:tabs:SetActive';
-end;//TkwVcmTabsSetActive.GetWordNameForRegister
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_SetActive(aCtx, l_aValue);
+end;//TkwVcmTabsSetActive.DoDoIt
 
 function TkwVcmTabsCount.vcm_tabs_Count(const aCtx: TtfwContext): Integer;
  {* Реализация слова скрипта vcm:tabs:Count }
-//#UC START# *D3D18ECCBD33_D1C0BD993D2F_var*
-//#UC END# *D3D18ECCBD33_D1C0BD993D2F_var*
+//#UC START# *55AE79190270_55AE79190270_Word_var*
+//#UC END# *55AE79190270_55AE79190270_Word_var*
 begin
-//#UC START# *D3D18ECCBD33_D1C0BD993D2F_impl*
+//#UC START# *55AE79190270_55AE79190270_Word_impl*
  Result := Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.TabCount;
-//#UC END# *D3D18ECCBD33_D1C0BD993D2F_impl*
+//#UC END# *55AE79190270_55AE79190270_Word_impl*
 end;//TkwVcmTabsCount.vcm_tabs_Count
 
-procedure TkwVcmTabsCount.DoDoIt(const aCtx: TtfwContext);
+class function TkwVcmTabsCount.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(vcm_tabs_Count(aCtx));
-end;//TkwVcmTabsCount.DoDoIt
+ Result := 'vcm:tabs:Count';
+end;//TkwVcmTabsCount.GetWordNameForRegister
 
 function TkwVcmTabsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -544,19 +466,15 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsCount.ParamsTypes
 
-class function TkwVcmTabsCount.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsCount.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'vcm:tabs:Count';
-end;//TkwVcmTabsCount.GetWordNameForRegister
+ aCtx.rEngine.PushInt(vcm_tabs_Count(aCtx));
+end;//TkwVcmTabsCount.DoDoIt
 
-procedure TkwVcmTabsOpenNewTab.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_76B187B4575B_var*
-//#UC END# *4DAEEDE10285_76B187B4575B_var*
+class function TkwVcmTabsOpenNewTab.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_76B187B4575B_impl*
- Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.OpenNewTab;
-//#UC END# *4DAEEDE10285_76B187B4575B_impl*
-end;//TkwVcmTabsOpenNewTab.DoDoIt
+ Result := 'vcm:tabs:OpenNewTab';
+end;//TkwVcmTabsOpenNewTab.GetWordNameForRegister
 
 function TkwVcmTabsOpenNewTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -568,25 +486,34 @@ begin
  Result := 0;
 end;//TkwVcmTabsOpenNewTab.GetAllParamsCount
 
-class function TkwVcmTabsOpenNewTab.GetWordNameForRegister: AnsiString;
+function TkwVcmTabsOpenNewTab.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'vcm:tabs:OpenNewTab';
-end;//TkwVcmTabsOpenNewTab.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwVcmTabsOpenNewTab.ParamsTypes
+
+procedure TkwVcmTabsOpenNewTab.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_55AE7931034C_Word_var*
+//#UC END# *4DAEEDE10285_55AE7931034C_Word_var*
+begin
+//#UC START# *4DAEEDE10285_55AE7931034C_Word_impl*
+ Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.OpenNewTab;
+//#UC END# *4DAEEDE10285_55AE7931034C_Word_impl*
+end;//TkwVcmTabsOpenNewTab.DoDoIt
 
 function TkwVcmTabsCanOpenNewTab.vcm_tabs_CanOpenNewTab(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта vcm:tabs:CanOpenNewTab }
-//#UC START# *18CE39730151_D42D3E4F7AC2_var*
-//#UC END# *18CE39730151_D42D3E4F7AC2_var*
+//#UC START# *55AE794F0259_55AE794F0259_Word_var*
+//#UC END# *55AE794F0259_55AE794F0259_Word_var*
 begin
-//#UC START# *18CE39730151_D42D3E4F7AC2_impl*
+//#UC START# *55AE794F0259_55AE794F0259_Word_impl*
  Result := Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CanOpenNewTab;
-//#UC END# *18CE39730151_D42D3E4F7AC2_impl*
+//#UC END# *55AE794F0259_55AE794F0259_Word_impl*
 end;//TkwVcmTabsCanOpenNewTab.vcm_tabs_CanOpenNewTab
 
-procedure TkwVcmTabsCanOpenNewTab.DoDoIt(const aCtx: TtfwContext);
+class function TkwVcmTabsCanOpenNewTab.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushBool(vcm_tabs_CanOpenNewTab(aCtx));
-end;//TkwVcmTabsCanOpenNewTab.DoDoIt
+ Result := 'vcm:tabs:CanOpenNewTab';
+end;//TkwVcmTabsCanOpenNewTab.GetWordNameForRegister
 
 function TkwVcmTabsCanOpenNewTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -603,37 +530,27 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsCanOpenNewTab.ParamsTypes
 
-class function TkwVcmTabsCanOpenNewTab.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsCanOpenNewTab.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'vcm:tabs:CanOpenNewTab';
-end;//TkwVcmTabsCanOpenNewTab.GetWordNameForRegister
+ aCtx.rEngine.PushBool(vcm_tabs_CanOpenNewTab(aCtx));
+end;//TkwVcmTabsCanOpenNewTab.DoDoIt
 
 procedure TkwVcmTabsDuplicate.vcm_tabs_Duplicate(const aCtx: TtfwContext;
  aTabIndex: Integer);
  {* Реализация слова скрипта vcm:tabs:Duplicate }
-//#UC START# *A4A5C2458E8A_25BDB3DFEC33_var*
-//#UC END# *A4A5C2458E8A_25BDB3DFEC33_var*
+//#UC START# *55DB1AF403B8_55DB1AF403B8_Word_var*
+//#UC END# *55DB1AF403B8_55DB1AF403B8_Word_var*
 begin
-//#UC START# *A4A5C2458E8A_25BDB3DFEC33_impl*
+//#UC START# *55DB1AF403B8_55DB1AF403B8_Word_impl*
  with Tl3TabbedContainersDispatcher.Instance do
   CloneTab(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
-//#UC END# *A4A5C2458E8A_25BDB3DFEC33_impl*
+//#UC END# *55DB1AF403B8_55DB1AF403B8_Word_impl*
 end;//TkwVcmTabsDuplicate.vcm_tabs_Duplicate
 
-procedure TkwVcmTabsDuplicate.DoDoIt(const aCtx: TtfwContext);
-var l_aTabIndex: Integer;
+class function TkwVcmTabsDuplicate.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aTabIndex := aCtx.rEngine.PopInt;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- vcm_tabs_Duplicate(aCtx, l_aTabIndex);
-end;//TkwVcmTabsDuplicate.DoDoIt
+ Result := 'vcm:tabs:Duplicate';
+end;//TkwVcmTabsDuplicate.GetWordNameForRegister
 
 function TkwVcmTabsDuplicate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -650,24 +567,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsDuplicate.ParamsTypes
 
-class function TkwVcmTabsDuplicate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:tabs:Duplicate';
-end;//TkwVcmTabsDuplicate.GetWordNameForRegister
-
-function TkwVcmTabsCanDuplicate.vcm_tabs_CanDuplicate(const aCtx: TtfwContext;
- aTabIndex: Integer): Boolean;
- {* Реализация слова скрипта vcm:tabs:CanDuplicate }
-//#UC START# *56B44CB5CD89_43C0563688C9_var*
-//#UC END# *56B44CB5CD89_43C0563688C9_var*
-begin
-//#UC START# *56B44CB5CD89_43C0563688C9_impl*
- with Tl3TabbedContainersDispatcher.Instance do
-  Result := CanCloneTab(GetActiveTabbedContainer.Tabs[aTabIndex]);
-//#UC END# *56B44CB5CD89_43C0563688C9_impl*
-end;//TkwVcmTabsCanDuplicate.vcm_tabs_CanDuplicate
-
-procedure TkwVcmTabsCanDuplicate.DoDoIt(const aCtx: TtfwContext);
+procedure TkwVcmTabsDuplicate.DoDoIt(const aCtx: TtfwContext);
 var l_aTabIndex: Integer;
 begin
  try
@@ -679,8 +579,25 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(vcm_tabs_CanDuplicate(aCtx, l_aTabIndex));
-end;//TkwVcmTabsCanDuplicate.DoDoIt
+ vcm_tabs_Duplicate(aCtx, l_aTabIndex);
+end;//TkwVcmTabsDuplicate.DoDoIt
+
+function TkwVcmTabsCanDuplicate.vcm_tabs_CanDuplicate(const aCtx: TtfwContext;
+ aTabIndex: Integer): Boolean;
+ {* Реализация слова скрипта vcm:tabs:CanDuplicate }
+//#UC START# *55DB1BAC0203_55DB1BAC0203_Word_var*
+//#UC END# *55DB1BAC0203_55DB1BAC0203_Word_var*
+begin
+//#UC START# *55DB1BAC0203_55DB1BAC0203_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  Result := CanCloneTab(GetActiveTabbedContainer.Tabs[aTabIndex]);
+//#UC END# *55DB1BAC0203_55DB1BAC0203_Word_impl*
+end;//TkwVcmTabsCanDuplicate.vcm_tabs_CanDuplicate
+
+class function TkwVcmTabsCanDuplicate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:tabs:CanDuplicate';
+end;//TkwVcmTabsCanDuplicate.GetWordNameForRegister
 
 function TkwVcmTabsCanDuplicate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -697,20 +614,25 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsCanDuplicate.ParamsTypes
 
-class function TkwVcmTabsCanDuplicate.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsCanDuplicate.DoDoIt(const aCtx: TtfwContext);
+var l_aTabIndex: Integer;
 begin
- Result := 'vcm:tabs:CanDuplicate';
-end;//TkwVcmTabsCanDuplicate.GetWordNameForRegister
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(vcm_tabs_CanDuplicate(aCtx, l_aTabIndex));
+end;//TkwVcmTabsCanDuplicate.DoDoIt
 
-procedure TkwVcmTabsReopen.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C449AC698640_var*
-//#UC END# *4DAEEDE10285_C449AC698640_var*
+class function TkwVcmTabsReopen.GetWordNameForRegister: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_C449AC698640_impl*
- with Tl3TabbedContainersDispatcher.Instance do
-  ReopenClosedTab(GetActiveTabbedContainer);
-//#UC END# *4DAEEDE10285_C449AC698640_impl*
-end;//TkwVcmTabsReopen.DoDoIt
+ Result := 'vcm:tabs:Reopen';
+end;//TkwVcmTabsReopen.GetWordNameForRegister
 
 function TkwVcmTabsReopen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -722,26 +644,36 @@ begin
  Result := 0;
 end;//TkwVcmTabsReopen.GetAllParamsCount
 
-class function TkwVcmTabsReopen.GetWordNameForRegister: AnsiString;
+function TkwVcmTabsReopen.ParamsTypes: PTypeInfoArray;
 begin
- Result := 'vcm:tabs:Reopen';
-end;//TkwVcmTabsReopen.GetWordNameForRegister
+ Result := OpenTypesToTypes([]);
+end;//TkwVcmTabsReopen.ParamsTypes
+
+procedure TkwVcmTabsReopen.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_55DB1B1500D4_Word_var*
+//#UC END# *4DAEEDE10285_55DB1B1500D4_Word_var*
+begin
+//#UC START# *4DAEEDE10285_55DB1B1500D4_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  ReopenClosedTab(GetActiveTabbedContainer);
+//#UC END# *4DAEEDE10285_55DB1B1500D4_Word_impl*
+end;//TkwVcmTabsReopen.DoDoIt
 
 function TkwVcmTabsCanReopen.vcm_tabs_CanReopen(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта vcm:tabs:CanReopen }
-//#UC START# *6BFDCF32FEC5_B8D479345CBE_var*
-//#UC END# *6BFDCF32FEC5_B8D479345CBE_var*
+//#UC START# *55DB1B7A0137_55DB1B7A0137_Word_var*
+//#UC END# *55DB1B7A0137_55DB1B7A0137_Word_var*
 begin
-//#UC START# *6BFDCF32FEC5_B8D479345CBE_impl*
+//#UC START# *55DB1B7A0137_55DB1B7A0137_Word_impl*
  with Tl3TabbedContainersDispatcher.Instance do
   Result := CanReopenClosedTab(GetActiveTabbedContainer);
-//#UC END# *6BFDCF32FEC5_B8D479345CBE_impl*
+//#UC END# *55DB1B7A0137_55DB1B7A0137_Word_impl*
 end;//TkwVcmTabsCanReopen.vcm_tabs_CanReopen
 
-procedure TkwVcmTabsCanReopen.DoDoIt(const aCtx: TtfwContext);
+class function TkwVcmTabsCanReopen.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushBool(vcm_tabs_CanReopen(aCtx));
-end;//TkwVcmTabsCanReopen.DoDoIt
+ Result := 'vcm:tabs:CanReopen';
+end;//TkwVcmTabsCanReopen.GetWordNameForRegister
 
 function TkwVcmTabsCanReopen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -758,37 +690,27 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsCanReopen.ParamsTypes
 
-class function TkwVcmTabsCanReopen.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsCanReopen.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'vcm:tabs:CanReopen';
-end;//TkwVcmTabsCanReopen.GetWordNameForRegister
+ aCtx.rEngine.PushBool(vcm_tabs_CanReopen(aCtx));
+end;//TkwVcmTabsCanReopen.DoDoIt
 
 function TkwVcmTabsGetIconIndex.vcm_tabs_GetIconIndex(const aCtx: TtfwContext;
  aTabIndex: Integer): Integer;
  {* Реализация слова скрипта vcm:tabs:GetIconIndex }
-//#UC START# *5F70A124CAC6_1F0AD0312C05_var*
-//#UC END# *5F70A124CAC6_1F0AD0312C05_var*
+//#UC START# *560168780139_560168780139_Word_var*
+//#UC END# *560168780139_560168780139_Word_var*
 begin
-//#UC START# *5F70A124CAC6_1F0AD0312C05_impl*
+//#UC START# *560168780139_560168780139_Word_impl*
  with Tl3TabbedContainersDispatcher.Instance do
   Result := GetTabIcon(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
-//#UC END# *5F70A124CAC6_1F0AD0312C05_impl*
+//#UC END# *560168780139_560168780139_Word_impl*
 end;//TkwVcmTabsGetIconIndex.vcm_tabs_GetIconIndex
 
-procedure TkwVcmTabsGetIconIndex.DoDoIt(const aCtx: TtfwContext);
-var l_aTabIndex: Integer;
+class function TkwVcmTabsGetIconIndex.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aTabIndex := aCtx.rEngine.PopInt;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(vcm_tabs_GetIconIndex(aCtx, l_aTabIndex));
-end;//TkwVcmTabsGetIconIndex.DoDoIt
+ Result := 'vcm:tabs:GetIconIndex';
+end;//TkwVcmTabsGetIconIndex.GetWordNameForRegister
 
 function TkwVcmTabsGetIconIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -805,24 +727,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsGetIconIndex.ParamsTypes
 
-class function TkwVcmTabsGetIconIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:tabs:GetIconIndex';
-end;//TkwVcmTabsGetIconIndex.GetWordNameForRegister
-
-function TkwVcmTabsGetCaption.vcm_tabs_GetCaption(const aCtx: TtfwContext;
- aTabIndex: Integer): AnsiString;
- {* Реализация слова скрипта vcm:tabs:GetCaption }
-//#UC START# *8DA64904FF22_27CA2643776F_var*
-//#UC END# *8DA64904FF22_27CA2643776F_var*
-begin
-//#UC START# *8DA64904FF22_27CA2643776F_impl*
- with Tl3TabbedContainersDispatcher.Instance do
-  Result := GetTabCaption(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
-//#UC END# *8DA64904FF22_27CA2643776F_impl*
-end;//TkwVcmTabsGetCaption.vcm_tabs_GetCaption
-
-procedure TkwVcmTabsGetCaption.DoDoIt(const aCtx: TtfwContext);
+procedure TkwVcmTabsGetIconIndex.DoDoIt(const aCtx: TtfwContext);
 var l_aTabIndex: Integer;
 begin
  try
@@ -834,8 +739,25 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(vcm_tabs_GetCaption(aCtx, l_aTabIndex));
-end;//TkwVcmTabsGetCaption.DoDoIt
+ aCtx.rEngine.PushInt(vcm_tabs_GetIconIndex(aCtx, l_aTabIndex));
+end;//TkwVcmTabsGetIconIndex.DoDoIt
+
+function TkwVcmTabsGetCaption.vcm_tabs_GetCaption(const aCtx: TtfwContext;
+ aTabIndex: Integer): AnsiString;
+ {* Реализация слова скрипта vcm:tabs:GetCaption }
+//#UC START# *56727DFE03B2_56727DFE03B2_Word_var*
+//#UC END# *56727DFE03B2_56727DFE03B2_Word_var*
+begin
+//#UC START# *56727DFE03B2_56727DFE03B2_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance do
+  Result := GetTabCaption(GetActiveTabbedContainer.TabByVisibleIndex[aTabIndex]);
+//#UC END# *56727DFE03B2_56727DFE03B2_Word_impl*
+end;//TkwVcmTabsGetCaption.vcm_tabs_GetCaption
+
+class function TkwVcmTabsGetCaption.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:tabs:GetCaption';
+end;//TkwVcmTabsGetCaption.GetWordNameForRegister
 
 function TkwVcmTabsGetCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -852,24 +774,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsGetCaption.ParamsTypes
 
-class function TkwVcmTabsGetCaption.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:tabs:GetCaption';
-end;//TkwVcmTabsGetCaption.GetWordNameForRegister
-
-function TkwVcmTabsCanUndock.vcm_tabs_CanUndock(const aCtx: TtfwContext;
- aTabIndex: Integer): Boolean;
- {* Реализация слова скрипта vcm:tabs:CanUndock }
-//#UC START# *4B3F5E37FD4C_C1A0F850A859_var*
-//#UC END# *4B3F5E37FD4C_C1A0F850A859_var*
-begin
-//#UC START# *4B3F5E37FD4C_C1A0F850A859_impl*
- with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
-  Result := CanUndockFormFromTab(aTabIndex);
-//#UC END# *4B3F5E37FD4C_C1A0F850A859_impl*
-end;//TkwVcmTabsCanUndock.vcm_tabs_CanUndock
-
-procedure TkwVcmTabsCanUndock.DoDoIt(const aCtx: TtfwContext);
+procedure TkwVcmTabsGetCaption.DoDoIt(const aCtx: TtfwContext);
 var l_aTabIndex: Integer;
 begin
  try
@@ -881,8 +786,25 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(vcm_tabs_CanUndock(aCtx, l_aTabIndex));
-end;//TkwVcmTabsCanUndock.DoDoIt
+ aCtx.rEngine.PushString(vcm_tabs_GetCaption(aCtx, l_aTabIndex));
+end;//TkwVcmTabsGetCaption.DoDoIt
+
+function TkwVcmTabsCanUndock.vcm_tabs_CanUndock(const aCtx: TtfwContext;
+ aTabIndex: Integer): Boolean;
+ {* Реализация слова скрипта vcm:tabs:CanUndock }
+//#UC START# *5698FB1801C8_5698FB1801C8_Word_var*
+//#UC END# *5698FB1801C8_5698FB1801C8_Word_var*
+begin
+//#UC START# *5698FB1801C8_5698FB1801C8_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
+  Result := CanUndockFormFromTab(aTabIndex);
+//#UC END# *5698FB1801C8_5698FB1801C8_Word_impl*
+end;//TkwVcmTabsCanUndock.vcm_tabs_CanUndock
+
+class function TkwVcmTabsCanUndock.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:tabs:CanUndock';
+end;//TkwVcmTabsCanUndock.GetWordNameForRegister
 
 function TkwVcmTabsCanUndock.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -899,24 +821,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsCanUndock.ParamsTypes
 
-class function TkwVcmTabsCanUndock.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vcm:tabs:CanUndock';
-end;//TkwVcmTabsCanUndock.GetWordNameForRegister
-
-procedure TkwVcmTabsUndock.vcm_tabs_Undock(const aCtx: TtfwContext;
- aTabIndex: Integer);
- {* Реализация слова скрипта vcm:tabs:Undock }
-//#UC START# *38AB4FF25C84_DB5208478590_var*
-//#UC END# *38AB4FF25C84_DB5208478590_var*
-begin
-//#UC START# *38AB4FF25C84_DB5208478590_impl*
- with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
-  UndockFormFromTab(aTabIndex);
-//#UC END# *38AB4FF25C84_DB5208478590_impl*
-end;//TkwVcmTabsUndock.vcm_tabs_Undock
-
-procedure TkwVcmTabsUndock.DoDoIt(const aCtx: TtfwContext);
+procedure TkwVcmTabsCanUndock.DoDoIt(const aCtx: TtfwContext);
 var l_aTabIndex: Integer;
 begin
  try
@@ -928,8 +833,25 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- vcm_tabs_Undock(aCtx, l_aTabIndex);
-end;//TkwVcmTabsUndock.DoDoIt
+ aCtx.rEngine.PushBool(vcm_tabs_CanUndock(aCtx, l_aTabIndex));
+end;//TkwVcmTabsCanUndock.DoDoIt
+
+procedure TkwVcmTabsUndock.vcm_tabs_Undock(const aCtx: TtfwContext;
+ aTabIndex: Integer);
+ {* Реализация слова скрипта vcm:tabs:Undock }
+//#UC START# *5698FB610250_5698FB610250_Word_var*
+//#UC END# *5698FB610250_5698FB610250_Word_var*
+begin
+//#UC START# *5698FB610250_5698FB610250_Word_impl*
+ with Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer do
+  UndockFormFromTab(aTabIndex);
+//#UC END# *5698FB610250_5698FB610250_Word_impl*
+end;//TkwVcmTabsUndock.vcm_tabs_Undock
+
+class function TkwVcmTabsUndock.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:tabs:Undock';
+end;//TkwVcmTabsUndock.GetWordNameForRegister
 
 function TkwVcmTabsUndock.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -946,10 +868,20 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsUndock.ParamsTypes
 
-class function TkwVcmTabsUndock.GetWordNameForRegister: AnsiString;
+procedure TkwVcmTabsUndock.DoDoIt(const aCtx: TtfwContext);
+var l_aTabIndex: Integer;
 begin
- Result := 'vcm:tabs:Undock';
-end;//TkwVcmTabsUndock.GetWordNameForRegister
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_Undock(aCtx, l_aTabIndex);
+end;//TkwVcmTabsUndock.DoDoIt
 
 initialization
  TkwVcmTabsCloseCurrent.RegisterInEngine;
@@ -984,14 +916,12 @@ initialization
  {* Регистрация vcm_tabs_CanUndock }
  TkwVcmTabsUndock.RegisterInEngine;
  {* Регистрация vcm_tabs_Undock }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
 
 end.

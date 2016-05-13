@@ -25,19 +25,13 @@ uses
  , TypInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwVgComboBoxGetText = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:ComboBox:GetText
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aComboBox vg:ComboBox:GetText >>> l_String
-[code]  }
+  {* Слово скрипта vg:ComboBox:GetText }
   private
    function vg_ComboBox_GetText(const aCtx: TtfwContext;
     aComboBox: TvgComboBox): AnsiString;
@@ -52,13 +46,7 @@ STRING VAR l_String
  end;//TkwVgComboBoxGetText
 
  TkwVgComboBoxItemHeight = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:ComboBox:ItemHeight
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboBox vg:ComboBox:ItemHeight >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:ComboBox:ItemHeight }
   private
    function vg_ComboBox_ItemHeight(const aCtx: TtfwContext;
     aComboBox: TvgComboBox): Integer;
@@ -73,13 +61,7 @@ INTEGER VAR l_Integer
  end;//TkwVgComboBoxItemHeight
 
  TkwVgComboBoxItemIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:ComboBox:ItemIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboBox vg:ComboBox:ItemIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:ComboBox:ItemIndex }
   private
    function vg_ComboBox_ItemIndex(const aCtx: TtfwContext;
     aComboBox: TvgComboBox): Integer;
@@ -94,13 +76,7 @@ INTEGER VAR l_Integer
  end;//TkwVgComboBoxItemIndex
 
  TkwVgComboBoxGetItem = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:ComboBox:GetItem
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- anIndex aComboBox vg:ComboBox:GetItem >>> l_String
-[code]  }
+  {* Слово скрипта vg:ComboBox:GetItem }
   private
    function vg_ComboBox_GetItem(const aCtx: TtfwContext;
     aComboBox: TvgComboBox;
@@ -116,13 +92,7 @@ STRING VAR l_String
  end;//TkwVgComboBoxGetItem
 
  TkwVgComboBoxGetHighLightItemIndex = {final} class(TtfwClassLike)
-  {* Слово скрипта vg:ComboBox:GetHighLightItemIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboBox vg:ComboBox:GetHighLightItemIndex >>> l_Integer
-[code]  }
+  {* Слово скрипта vg:ComboBox:GetHighLightItemIndex }
   private
    function vg_ComboBox_GetHighLightItemIndex(const aCtx: TtfwContext;
     aComboBox: TvgComboBox): Integer;
@@ -145,12 +115,12 @@ INTEGER VAR l_Integer
 function TkwVgComboBoxGetText.vg_ComboBox_GetText(const aCtx: TtfwContext;
  aComboBox: TvgComboBox): AnsiString;
  {* Реализация слова скрипта vg:ComboBox:GetText }
-//#UC START# *E6AB0BAEC690_3D1B97A2F7D1_var*
-//#UC END# *E6AB0BAEC690_3D1B97A2F7D1_var*
+//#UC START# *551D4BD8016D_3D1B97A2F7D1_var*
+//#UC END# *551D4BD8016D_3D1B97A2F7D1_var*
 begin
-//#UC START# *E6AB0BAEC690_3D1B97A2F7D1_impl*
+//#UC START# *551D4BD8016D_3D1B97A2F7D1_impl*
  Result := aComboBox.ListBox.Selected.Binding['text'];
-//#UC END# *E6AB0BAEC690_3D1B97A2F7D1_impl*
+//#UC END# *551D4BD8016D_3D1B97A2F7D1_impl*
 end;//TkwVgComboBoxGetText.vg_ComboBox_GetText
 
 procedure TkwVgComboBoxGetText.DoDoIt(const aCtx: TtfwContext);
@@ -168,6 +138,11 @@ begin
  aCtx.rEngine.PushString(vg_ComboBox_GetText(aCtx, l_aComboBox));
 end;//TkwVgComboBoxGetText.DoDoIt
 
+class function TkwVgComboBoxGetText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:ComboBox:GetText';
+end;//TkwVgComboBoxGetText.GetWordNameForRegister
+
 function TkwVgComboBoxGetText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -183,20 +158,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxGetText.ParamsTypes
 
-class function TkwVgComboBoxGetText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:ComboBox:GetText';
-end;//TkwVgComboBoxGetText.GetWordNameForRegister
-
 function TkwVgComboBoxItemHeight.vg_ComboBox_ItemHeight(const aCtx: TtfwContext;
  aComboBox: TvgComboBox): Integer;
  {* Реализация слова скрипта vg:ComboBox:ItemHeight }
-//#UC START# *3D92BC0DA86C_6AF76187796E_var*
-//#UC END# *3D92BC0DA86C_6AF76187796E_var*
+//#UC START# *551D4BFD035D_6AF76187796E_var*
+//#UC END# *551D4BFD035D_6AF76187796E_var*
 begin
-//#UC START# *3D92BC0DA86C_6AF76187796E_impl*
+//#UC START# *551D4BFD035D_6AF76187796E_impl*
  Result := Round(aComboBox.ItemHeight);
-//#UC END# *3D92BC0DA86C_6AF76187796E_impl*
+//#UC END# *551D4BFD035D_6AF76187796E_impl*
 end;//TkwVgComboBoxItemHeight.vg_ComboBox_ItemHeight
 
 procedure TkwVgComboBoxItemHeight.DoDoIt(const aCtx: TtfwContext);
@@ -214,6 +184,11 @@ begin
  aCtx.rEngine.PushInt(vg_ComboBox_ItemHeight(aCtx, l_aComboBox));
 end;//TkwVgComboBoxItemHeight.DoDoIt
 
+class function TkwVgComboBoxItemHeight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:ComboBox:ItemHeight';
+end;//TkwVgComboBoxItemHeight.GetWordNameForRegister
+
 function TkwVgComboBoxItemHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -229,20 +204,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxItemHeight.ParamsTypes
 
-class function TkwVgComboBoxItemHeight.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:ComboBox:ItemHeight';
-end;//TkwVgComboBoxItemHeight.GetWordNameForRegister
-
 function TkwVgComboBoxItemIndex.vg_ComboBox_ItemIndex(const aCtx: TtfwContext;
  aComboBox: TvgComboBox): Integer;
  {* Реализация слова скрипта vg:ComboBox:ItemIndex }
-//#UC START# *FD2233CED588_E6401AA7CFD9_var*
-//#UC END# *FD2233CED588_E6401AA7CFD9_var*
+//#UC START# *551D4C2C037F_E6401AA7CFD9_var*
+//#UC END# *551D4C2C037F_E6401AA7CFD9_var*
 begin
-//#UC START# *FD2233CED588_E6401AA7CFD9_impl*
+//#UC START# *551D4C2C037F_E6401AA7CFD9_impl*
  Result := aComboBox.ItemIndex;
-//#UC END# *FD2233CED588_E6401AA7CFD9_impl*
+//#UC END# *551D4C2C037F_E6401AA7CFD9_impl*
 end;//TkwVgComboBoxItemIndex.vg_ComboBox_ItemIndex
 
 procedure TkwVgComboBoxItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -260,6 +230,11 @@ begin
  aCtx.rEngine.PushInt(vg_ComboBox_ItemIndex(aCtx, l_aComboBox));
 end;//TkwVgComboBoxItemIndex.DoDoIt
 
+class function TkwVgComboBoxItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:ComboBox:ItemIndex';
+end;//TkwVgComboBoxItemIndex.GetWordNameForRegister
+
 function TkwVgComboBoxItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -275,21 +250,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxItemIndex.ParamsTypes
 
-class function TkwVgComboBoxItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:ComboBox:ItemIndex';
-end;//TkwVgComboBoxItemIndex.GetWordNameForRegister
-
 function TkwVgComboBoxGetItem.vg_ComboBox_GetItem(const aCtx: TtfwContext;
  aComboBox: TvgComboBox;
  anIndex: Integer): AnsiString;
  {* Реализация слова скрипта vg:ComboBox:GetItem }
-//#UC START# *543B6C62927E_F404139FE541_var*
-//#UC END# *543B6C62927E_F404139FE541_var*
+//#UC START# *552BC81F01C4_F404139FE541_var*
+//#UC END# *552BC81F01C4_F404139FE541_var*
 begin
-//#UC START# *543B6C62927E_F404139FE541_impl*
+//#UC START# *552BC81F01C4_F404139FE541_impl*
  Result := aComboBox.ListBox.Items[anIndex].Binding['text'];
-//#UC END# *543B6C62927E_F404139FE541_impl*
+//#UC END# *552BC81F01C4_F404139FE541_impl*
 end;//TkwVgComboBoxGetItem.vg_ComboBox_GetItem
 
 procedure TkwVgComboBoxGetItem.DoDoIt(const aCtx: TtfwContext);
@@ -317,6 +287,11 @@ begin
  aCtx.rEngine.PushString(vg_ComboBox_GetItem(aCtx, l_aComboBox, l_anIndex));
 end;//TkwVgComboBoxGetItem.DoDoIt
 
+class function TkwVgComboBoxGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:ComboBox:GetItem';
+end;//TkwVgComboBoxGetItem.GetWordNameForRegister
+
 function TkwVgComboBoxGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -332,25 +307,20 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvgComboBox), TypeInfo(Integer)]);
 end;//TkwVgComboBoxGetItem.ParamsTypes
 
-class function TkwVgComboBoxGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:ComboBox:GetItem';
-end;//TkwVgComboBoxGetItem.GetWordNameForRegister
-
 function TkwVgComboBoxGetHighLightItemIndex.vg_ComboBox_GetHighLightItemIndex(const aCtx: TtfwContext;
  aComboBox: TvgComboBox): Integer;
  {* Реализация слова скрипта vg:ComboBox:GetHighLightItemIndex }
-//#UC START# *7E4219389025_4E17F992CC09_var*
+//#UC START# *552BD85E001F_4E17F992CC09_var*
 var
  l_Item: TvgListBoxItem;
-//#UC END# *7E4219389025_4E17F992CC09_var*
+//#UC END# *552BD85E001F_4E17F992CC09_var*
 begin
-//#UC START# *7E4219389025_4E17F992CC09_impl*
+//#UC START# *552BD85E001F_4E17F992CC09_impl*
  l_Item := aComboBox.ListBox.HighlightItem;
  if Assigned(l_Item) 
   then Result := l_Item.Index
   else Result := -1;
-//#UC END# *7E4219389025_4E17F992CC09_impl*
+//#UC END# *552BD85E001F_4E17F992CC09_impl*
 end;//TkwVgComboBoxGetHighLightItemIndex.vg_ComboBox_GetHighLightItemIndex
 
 procedure TkwVgComboBoxGetHighLightItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -368,6 +338,11 @@ begin
  aCtx.rEngine.PushInt(vg_ComboBox_GetHighLightItemIndex(aCtx, l_aComboBox));
 end;//TkwVgComboBoxGetHighLightItemIndex.DoDoIt
 
+class function TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vg:ComboBox:GetHighLightItemIndex';
+end;//TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister
+
 function TkwVgComboBoxGetHighLightItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -382,11 +357,6 @@ function TkwVgComboBoxGetHighLightItemIndex.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxGetHighLightItemIndex.ParamsTypes
-
-class function TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'vg:ComboBox:GetHighLightItemIndex';
-end;//TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister
 
 class function TVGComboBoxPackResNameGetter.ResName: AnsiString;
 begin
@@ -408,12 +378,10 @@ initialization
  {* Регистрация vg_ComboBox_GetHighLightItemIndex }
  TVGComboBoxPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgComboBox));
  {* Регистрация типа TvgComboBox }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)

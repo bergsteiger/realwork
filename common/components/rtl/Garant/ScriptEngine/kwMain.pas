@@ -71,6 +71,10 @@ uses
  , tfwAutoregisteredDiction
  , tfwAxiomaticsResNameGetters
  , tfwCompiledAxiomaticsRes
+ , tfwTypesForRegister
+ , tfwTypeRegistrator
+ , tfwClassesForRegister
+ , tfwClassRef
  , l3Memory
  , l3_String
  , l3String

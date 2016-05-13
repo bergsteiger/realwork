@@ -25,6 +25,19 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtProportionalPanel);
+ {* Регистрация TvtProportionalPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtProportionalCustomPanel);
+ {* Регистрация TvtProportionalCustomPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

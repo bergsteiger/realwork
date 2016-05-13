@@ -28,11 +28,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -78,14 +78,7 @@ type
  end;//Tkw_PostingsList_Control_tvPostings_Push
 
  TkwEnPostingsListTvPostings = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TenPostingsList.tvPostings
-[panel]Контрол tvPostings формы TenPostingsList[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aenPostingsList .TenPostingsList.tvPostings >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TenPostingsList.tvPostings }
   private
    function tvPostings(const aCtx: TtfwContext;
     aenPostingsList: TenPostingsList): TeeTreeView;
@@ -94,11 +87,11 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnPostingsListTvPostings
 
 function Tkw_Form_PostingsList.GetString: AnsiString;
@@ -160,11 +153,10 @@ begin
  aCtx.rEngine.PushObj(tvPostings(aCtx, l_aenPostingsList));
 end;//TkwEnPostingsListTvPostings.DoDoIt
 
-procedure TkwEnPostingsListTvPostings.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnPostingsListTvPostings.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству tvPostings', aCtx);
-end;//TkwEnPostingsListTvPostings.SetValuePrim
+ Result := '.TenPostingsList.tvPostings';
+end;//TkwEnPostingsListTvPostings.GetWordNameForRegister
 
 function TkwEnPostingsListTvPostings.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -181,10 +173,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TenPostingsList)]);
 end;//TkwEnPostingsListTvPostings.ParamsTypes
 
-class function TkwEnPostingsListTvPostings.GetWordNameForRegister: AnsiString;
+procedure TkwEnPostingsListTvPostings.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TenPostingsList.tvPostings';
-end;//TkwEnPostingsListTvPostings.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству tvPostings', aCtx);
+end;//TkwEnPostingsListTvPostings.SetValuePrim
 
 initialization
  Tkw_Form_PostingsList.RegisterInEngine;
@@ -195,10 +188,8 @@ initialization
  {* Регистрация Tkw_PostingsList_Control_tvPostings_Push }
  TkwEnPostingsListTvPostings.RegisterInEngine;
  {* Регистрация enPostingsList_tvPostings }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TenPostingsList));
- {* Регистрация типа PostingsList }
+ {* Регистрация типа TenPostingsList }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTreeView));
  {* Регистрация типа TeeTreeView }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)

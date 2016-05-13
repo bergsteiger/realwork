@@ -13,10 +13,10 @@ interface
 uses
  l3IntfUses
  , ScrollerParamsTestPrim
+ , Types
  {$If NOT Defined(NoVCM)}
  , PrimTextLoad_Form
  {$IfEnd} // NOT Defined(NoVCM)
- , Types
 ;
 
 type

@@ -21,8 +21,8 @@ type
  TkwBaseExport = {final} class(TtfwRegisterableWord)
   {* Ёкспорт документа из базы }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwBaseExport
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -42,6 +42,11 @@ uses
 type
  TSewerPipeHack = class(TSewerPipe)
  end;//TSewerPipeHack
+
+class function TkwBaseExport.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'base:export';
+end;//TkwBaseExport.GetWordNameForRegister
 
 procedure TkwBaseExport.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50580B6C00E6_var*
@@ -77,11 +82,6 @@ begin
  end;
 //#UC END# *4DAEEDE10285_50580B6C00E6_impl*
 end;//TkwBaseExport.DoDoIt
-
-class function TkwBaseExport.GetWordNameForRegister: AnsiString;
-begin
- Result := 'base:export';
-end;//TkwBaseExport.GetWordNameForRegister
 
 initialization
  TkwBaseExport.RegisterInEngine;

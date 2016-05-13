@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , l3Variant
  , l3LogFont
- , k2BaseStruct
  , l3Interfaces
+ , k2BaseStruct
  , k2Base
  , k2TagList
  , k2Prim

@@ -26,17 +26,13 @@ uses
  , l3AFWExceptions
  , seThreadSupport
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwMODAL = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта MODAL
-*Пример:*
-[code]
- aBeforeModal MODAL aWord
-[code]  }
+  {* Слово скрипта MODAL }
   private
    procedure MODAL(const aCtx: TtfwContext;
     aWord: TtfwWord;
@@ -45,19 +41,15 @@ type
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwMODAL
 
  TkwTHREAD = {final} class(TtfwWordWorkerEx)
-  {* Слово скрипта THREAD
-*Пример:*
-[code]
- THREAD aWord
-[code]  }
+  {* Слово скрипта THREAD }
   private
    procedure THREAD(const aCtx: TtfwContext;
     aWord: TtfwWord);
@@ -65,23 +57,23 @@ type
   protected
    class function GetWordNameForRegister: AnsiString; override;
   public
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
  end;//TkwTHREAD
 
 procedure TkwMODAL.MODAL(const aCtx: TtfwContext;
  aWord: TtfwWord;
  aBeforeModal: TtfwWord);
  {* Реализация слова скрипта MODAL }
-//#UC START# *D14B34278240_05ABA7975E25_var*
+//#UC START# *553F9F73034D_553F9F73034D_Word_var*
 var
  l_Count : Integer;
-//#UC END# *D14B34278240_05ABA7975E25_var*
+//#UC END# *553F9F73034D_553F9F73034D_Word_var*
 begin
-//#UC START# *D14B34278240_05ABA7975E25_impl*
+//#UC START# *553F9F73034D_553F9F73034D_Word_impl*
  l_Count := seAddModalWorker(aWord, aCtx);
  try
   try
@@ -98,13 +90,33 @@ begin
  finally
   RunnerAssert(seIsValidModalWorkersCount(l_Count), 'Видимо не выполнился код модального окна', aCtx);
  end;//try..finally
-//#UC END# *D14B34278240_05ABA7975E25_impl*
+//#UC END# *553F9F73034D_553F9F73034D_Word_impl*
 end;//TkwMODAL.MODAL
+
+class function TkwMODAL.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'MODAL';
+end;//TkwMODAL.GetWordNameForRegister
+
+function TkwMODAL.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwMODAL.GetResultTypeInfo
+
+function TkwMODAL.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwMODAL.GetAllParamsCount
 
 function TkwMODAL.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwMODAL.RightParamsCount
+
+function TkwMODAL.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
+end;//TkwMODAL.ParamsTypes
 
 procedure TkwMODAL.DoRun(const aCtx: TtfwContext);
 var l_aWord: TtfwWord;
@@ -131,41 +143,41 @@ begin
  MODAL(aCtx, l_aWord, l_aBeforeModal);
 end;//TkwMODAL.DoRun
 
-function TkwMODAL.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwMODAL.GetResultTypeInfo
-
-function TkwMODAL.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwMODAL.GetAllParamsCount
-
-function TkwMODAL.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
-end;//TkwMODAL.ParamsTypes
-
-class function TkwMODAL.GetWordNameForRegister: AnsiString;
-begin
- Result := 'MODAL';
-end;//TkwMODAL.GetWordNameForRegister
-
 procedure TkwTHREAD.THREAD(const aCtx: TtfwContext;
  aWord: TtfwWord);
  {* Реализация слова скрипта THREAD }
-//#UC START# *A56425D1C72F_44C318D8896A_var*
-//#UC END# *A56425D1C72F_44C318D8896A_var*
+//#UC START# *553FAAB10161_553FAAB10161_Word_var*
+//#UC END# *553FAAB10161_553FAAB10161_Word_var*
 begin
-//#UC START# *A56425D1C72F_44C318D8896A_impl*
+//#UC START# *553FAAB10161_553FAAB10161_Word_impl*
  TseWorkThreadList.Instance.AddAndResumeThread(aCtx, aWord);
-//#UC END# *A56425D1C72F_44C318D8896A_impl*
+//#UC END# *553FAAB10161_553FAAB10161_Word_impl*
 end;//TkwTHREAD.THREAD
+
+class function TkwTHREAD.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'THREAD';
+end;//TkwTHREAD.GetWordNameForRegister
+
+function TkwTHREAD.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwTHREAD.GetResultTypeInfo
+
+function TkwTHREAD.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwTHREAD.GetAllParamsCount
 
 function TkwTHREAD.RightParamsCount(const aCtx: TtfwContext): Integer;
 begin
  Result := 1;
 end;//TkwTHREAD.RightParamsCount
+
+function TkwTHREAD.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwTHREAD.ParamsTypes
 
 procedure TkwTHREAD.DoRun(const aCtx: TtfwContext);
 var l_aWord: TtfwWord;
@@ -182,33 +194,11 @@ begin
  THREAD(aCtx, l_aWord);
 end;//TkwTHREAD.DoRun
 
-function TkwTHREAD.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwTHREAD.GetResultTypeInfo
-
-function TkwTHREAD.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwTHREAD.GetAllParamsCount
-
-function TkwTHREAD.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([]);
-end;//TkwTHREAD.ParamsTypes
-
-class function TkwTHREAD.GetWordNameForRegister: AnsiString;
-begin
- Result := 'THREAD';
-end;//TkwTHREAD.GetWordNameForRegister
-
 initialization
  TkwMODAL.RegisterInEngine;
  {* Регистрация MODAL }
  TkwTHREAD.RegisterInEngine;
  {* Регистрация THREAD }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
 {$IfEnd} // NOT Defined(NoScripts)

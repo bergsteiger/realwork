@@ -25,24 +25,20 @@ uses
  , TypInfo
  , vcmMenuManager
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwVcmToolbarSetGlyphSize = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:Toolbar:SetGlyphSize
-*Пример:*
-[code]
- aValue vcm:Toolbar:SetGlyphSize
-[code]  }
+  {* Слово скрипта vcm:Toolbar:SetGlyphSize }
   private
    procedure vcm_Toolbar_SetGlyphSize(const aCtx: TtfwContext;
     aValue: TvcmGlyphSize);
     {* Реализация слова скрипта vcm:Toolbar:SetGlyphSize }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -50,19 +46,13 @@ type
  end;//TkwVcmToolbarSetGlyphSize
 
  TkwVcmToolbarGetGlyphSize = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:Toolbar:GetGlyphSize
-*Тип результата:* TvcmGlyphSize
-*Пример:*
-[code]
-TvcmGlyphSize VAR l_TvcmGlyphSize
- vcm:Toolbar:GetGlyphSize >>> l_TvcmGlyphSize
-[code]  }
+  {* Слово скрипта vcm:Toolbar:GetGlyphSize }
   private
    function vcm_Toolbar_GetGlyphSize(const aCtx: TtfwContext): TvcmGlyphSize;
     {* Реализация слова скрипта vcm:Toolbar:GetGlyphSize }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -70,19 +60,13 @@ TvcmGlyphSize VAR l_TvcmGlyphSize
  end;//TkwVcmToolbarGetGlyphSize
 
  TkwVcmToolbarGetGlyphColorDepth = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:Toolbar:GetGlyphColorDepth
-*Тип результата:* TvcmGlyphColordepth
-*Пример:*
-[code]
-TvcmGlyphColordepth VAR l_TvcmGlyphColordepth
- vcm:Toolbar:GetGlyphColorDepth >>> l_TvcmGlyphColordepth
-[code]  }
+  {* Слово скрипта vcm:Toolbar:GetGlyphColorDepth }
   private
    function vcm_Toolbar_GetGlyphColorDepth(const aCtx: TtfwContext): TvcmGlyphColordepth;
     {* Реализация слова скрипта vcm:Toolbar:GetGlyphColorDepth }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,18 +74,14 @@ TvcmGlyphColordepth VAR l_TvcmGlyphColordepth
  end;//TkwVcmToolbarGetGlyphColorDepth
 
  TkwVcmToolbarSetGlyphColorDepth = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта vcm:Toolbar:SetGlyphColorDepth
-*Пример:*
-[code]
- aValue vcm:Toolbar:SetGlyphColorDepth
-[code]  }
+  {* Слово скрипта vcm:Toolbar:SetGlyphColorDepth }
   private
    procedure vcm_Toolbar_SetGlyphColorDepth(const aCtx: TtfwContext;
     aValue: TvcmGlyphColordepth);
     {* Реализация слова скрипта vcm:Toolbar:SetGlyphColorDepth }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -111,28 +91,18 @@ TvcmGlyphColordepth VAR l_TvcmGlyphColordepth
 procedure TkwVcmToolbarSetGlyphSize.vcm_Toolbar_SetGlyphSize(const aCtx: TtfwContext;
  aValue: TvcmGlyphSize);
  {* Реализация слова скрипта vcm:Toolbar:SetGlyphSize }
-//#UC START# *3E6A2A4DD8C9_4463E51B5CE8_var*
-//#UC END# *3E6A2A4DD8C9_4463E51B5CE8_var*
+//#UC START# *552BAF1E0177_552BAF1E0177_Word_var*
+//#UC END# *552BAF1E0177_552BAF1E0177_Word_var*
 begin
-//#UC START# *3E6A2A4DD8C9_4463E51B5CE8_impl*
+//#UC START# *552BAF1E0177_552BAF1E0177_Word_impl*
  TvcmToolbarGlyphService.Instance.SetGlyphSize(aValue);
-//#UC END# *3E6A2A4DD8C9_4463E51B5CE8_impl*
+//#UC END# *552BAF1E0177_552BAF1E0177_Word_impl*
 end;//TkwVcmToolbarSetGlyphSize.vcm_Toolbar_SetGlyphSize
 
-procedure TkwVcmToolbarSetGlyphSize.DoDoIt(const aCtx: TtfwContext);
-var l_aValue: TvcmGlyphSize;
+class function TkwVcmToolbarSetGlyphSize.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aValue := TvcmGlyphSize(aCtx.rEngine.PopInt);
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aValue: TvcmGlyphSize : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- vcm_Toolbar_SetGlyphSize(aCtx, l_aValue);
-end;//TkwVcmToolbarSetGlyphSize.DoDoIt
+ Result := 'vcm:Toolbar:SetGlyphSize';
+end;//TkwVcmToolbarSetGlyphSize.GetWordNameForRegister
 
 function TkwVcmToolbarSetGlyphSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -149,25 +119,35 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmGlyphSize)]);
 end;//TkwVcmToolbarSetGlyphSize.ParamsTypes
 
-class function TkwVcmToolbarSetGlyphSize.GetWordNameForRegister: AnsiString;
+procedure TkwVcmToolbarSetGlyphSize.DoDoIt(const aCtx: TtfwContext);
+var l_aValue: TvcmGlyphSize;
 begin
- Result := 'vcm:Toolbar:SetGlyphSize';
-end;//TkwVcmToolbarSetGlyphSize.GetWordNameForRegister
+ try
+  l_aValue := TvcmGlyphSize(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TvcmGlyphSize : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_Toolbar_SetGlyphSize(aCtx, l_aValue);
+end;//TkwVcmToolbarSetGlyphSize.DoDoIt
 
 function TkwVcmToolbarGetGlyphSize.vcm_Toolbar_GetGlyphSize(const aCtx: TtfwContext): TvcmGlyphSize;
  {* Реализация слова скрипта vcm:Toolbar:GetGlyphSize }
-//#UC START# *0D29944D7496_CB878D8D1F92_var*
-//#UC END# *0D29944D7496_CB878D8D1F92_var*
+//#UC START# *552BBC51039D_552BBC51039D_Word_var*
+//#UC END# *552BBC51039D_552BBC51039D_Word_var*
 begin
-//#UC START# *0D29944D7496_CB878D8D1F92_impl*
+//#UC START# *552BBC51039D_552BBC51039D_Word_impl*
  Result := TvcmToolbarGlyphService.Instance.GetGlyphSize;
-//#UC END# *0D29944D7496_CB878D8D1F92_impl*
+//#UC END# *552BBC51039D_552BBC51039D_Word_impl*
 end;//TkwVcmToolbarGetGlyphSize.vcm_Toolbar_GetGlyphSize
 
-procedure TkwVcmToolbarGetGlyphSize.DoDoIt(const aCtx: TtfwContext);
+class function TkwVcmToolbarGetGlyphSize.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphSize(aCtx)));
-end;//TkwVcmToolbarGetGlyphSize.DoDoIt
+ Result := 'vcm:Toolbar:GetGlyphSize';
+end;//TkwVcmToolbarGetGlyphSize.GetWordNameForRegister
 
 function TkwVcmToolbarGetGlyphSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -184,25 +164,25 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmToolbarGetGlyphSize.ParamsTypes
 
-class function TkwVcmToolbarGetGlyphSize.GetWordNameForRegister: AnsiString;
+procedure TkwVcmToolbarGetGlyphSize.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'vcm:Toolbar:GetGlyphSize';
-end;//TkwVcmToolbarGetGlyphSize.GetWordNameForRegister
+ aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphSize(aCtx)));
+end;//TkwVcmToolbarGetGlyphSize.DoDoIt
 
 function TkwVcmToolbarGetGlyphColorDepth.vcm_Toolbar_GetGlyphColorDepth(const aCtx: TtfwContext): TvcmGlyphColordepth;
  {* Реализация слова скрипта vcm:Toolbar:GetGlyphColorDepth }
-//#UC START# *5358A0B19EFE_8FA6E0CDB066_var*
-//#UC END# *5358A0B19EFE_8FA6E0CDB066_var*
+//#UC START# *552BC39B031D_552BC39B031D_Word_var*
+//#UC END# *552BC39B031D_552BC39B031D_Word_var*
 begin
-//#UC START# *5358A0B19EFE_8FA6E0CDB066_impl*
+//#UC START# *552BC39B031D_552BC39B031D_Word_impl*
  Result := TvcmToolbarGlyphService.Instance.GetGlyphColordepth;
-//#UC END# *5358A0B19EFE_8FA6E0CDB066_impl*
+//#UC END# *552BC39B031D_552BC39B031D_Word_impl*
 end;//TkwVcmToolbarGetGlyphColorDepth.vcm_Toolbar_GetGlyphColorDepth
 
-procedure TkwVcmToolbarGetGlyphColorDepth.DoDoIt(const aCtx: TtfwContext);
+class function TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphColorDepth(aCtx)));
-end;//TkwVcmToolbarGetGlyphColorDepth.DoDoIt
+ Result := 'vcm:Toolbar:GetGlyphColorDepth';
+end;//TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister
 
 function TkwVcmToolbarGetGlyphColorDepth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -219,36 +199,26 @@ begin
  Result := OpenTypesToTypes([]);
 end;//TkwVcmToolbarGetGlyphColorDepth.ParamsTypes
 
-class function TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister: AnsiString;
+procedure TkwVcmToolbarGetGlyphColorDepth.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'vcm:Toolbar:GetGlyphColorDepth';
-end;//TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister
+ aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphColorDepth(aCtx)));
+end;//TkwVcmToolbarGetGlyphColorDepth.DoDoIt
 
 procedure TkwVcmToolbarSetGlyphColorDepth.vcm_Toolbar_SetGlyphColorDepth(const aCtx: TtfwContext;
  aValue: TvcmGlyphColordepth);
  {* Реализация слова скрипта vcm:Toolbar:SetGlyphColorDepth }
-//#UC START# *47BBC580F855_2E579942A814_var*
-//#UC END# *47BBC580F855_2E579942A814_var*
+//#UC START# *552BC3BA003E_552BC3BA003E_Word_var*
+//#UC END# *552BC3BA003E_552BC3BA003E_Word_var*
 begin
-//#UC START# *47BBC580F855_2E579942A814_impl*
+//#UC START# *552BC3BA003E_552BC3BA003E_Word_impl*
  TvcmToolbarGlyphService.Instance.SetGlyphColorDepth(aValue);
-//#UC END# *47BBC580F855_2E579942A814_impl*
+//#UC END# *552BC3BA003E_552BC3BA003E_Word_impl*
 end;//TkwVcmToolbarSetGlyphColorDepth.vcm_Toolbar_SetGlyphColorDepth
 
-procedure TkwVcmToolbarSetGlyphColorDepth.DoDoIt(const aCtx: TtfwContext);
-var l_aValue: TvcmGlyphColordepth;
+class function TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aValue := TvcmGlyphColordepth(aCtx.rEngine.PopInt);
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aValue: TvcmGlyphColordepth : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- vcm_Toolbar_SetGlyphColorDepth(aCtx, l_aValue);
-end;//TkwVcmToolbarSetGlyphColorDepth.DoDoIt
+ Result := 'vcm:Toolbar:SetGlyphColorDepth';
+end;//TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister
 
 function TkwVcmToolbarSetGlyphColorDepth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -265,10 +235,20 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmGlyphColordepth)]);
 end;//TkwVcmToolbarSetGlyphColorDepth.ParamsTypes
 
-class function TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister: AnsiString;
+procedure TkwVcmToolbarSetGlyphColorDepth.DoDoIt(const aCtx: TtfwContext);
+var l_aValue: TvcmGlyphColordepth;
 begin
- Result := 'vcm:Toolbar:SetGlyphColorDepth';
-end;//TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister
+ try
+  l_aValue := TvcmGlyphColordepth(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TvcmGlyphColordepth : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_Toolbar_SetGlyphColorDepth(aCtx, l_aValue);
+end;//TkwVcmToolbarSetGlyphColorDepth.DoDoIt
 
 initialization
  TkwVcmToolbarSetGlyphSize.RegisterInEngine;
@@ -279,8 +259,6 @@ initialization
  {* Регистрация vcm_Toolbar_GetGlyphColorDepth }
  TkwVcmToolbarSetGlyphColorDepth.RegisterInEngine;
  {* Регистрация vcm_Toolbar_SetGlyphColorDepth }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmGlyphSize));
  {* Регистрация типа TvcmGlyphSize }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmGlyphColordepth));

@@ -19,8 +19,8 @@ uses
 type
  TkwCheckOutputWithInput = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCheckOutputWithInput
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -30,6 +30,11 @@ implementation
 uses
  l3ImplUses
 ;
+
+class function TkwCheckOutputWithInput.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'tests:CheckOutputWithInput';
+end;//TkwCheckOutputWithInput.GetWordNameForRegister
 
 procedure TkwCheckOutputWithInput.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F5F490D030B_var*
@@ -54,11 +59,6 @@ begin
  aCtx.rCaller.CheckOutputWithInput(l_In, l_Out, l_Delim, false, false, '', true);
 //#UC END# *4DAEEDE10285_4F5F490D030B_impl*
 end;//TkwCheckOutputWithInput.DoDoIt
-
-class function TkwCheckOutputWithInput.GetWordNameForRegister: AnsiString;
-begin
- Result := 'tests:CheckOutputWithInput';
-end;//TkwCheckOutputWithInput.GetWordNameForRegister
 
 initialization
  TkwCheckOutputWithInput.RegisterInEngine;

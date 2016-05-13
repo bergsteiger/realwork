@@ -126,6 +126,13 @@ begin
 //#UC END# *50363C5402FA_4807779F01CA_impl*
 end;//_atNamedParametersList_.AddAlias
 
+{$Else atNamedParametersList_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EParameterNotExists));
+ {* Регистрация типа EParameterNotExists }
+{$IfEnd} // NOT Defined(NoScripts)
+
 {$EndIf atNamedParametersList_imp_impl}
 
 {$EndIf atNamedParametersList_imp}

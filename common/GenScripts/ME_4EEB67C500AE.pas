@@ -19,8 +19,8 @@ uses
 type
  TkwMouseGetCursorIndex = class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwMouseGetCursorIndex
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -38,6 +38,11 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
 ;
+
+class function TkwMouseGetCursorIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'mouse:GetCursorIndex';
+end;//TkwMouseGetCursorIndex.GetWordNameForRegister
 
 procedure TkwMouseGetCursorIndex.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EEB67C500AE_var*
@@ -72,11 +77,6 @@ begin
  {$EndIf NoVCL}
 //#UC END# *4DAEEDE10285_4EEB67C500AE_impl*
 end;//TkwMouseGetCursorIndex.DoDoIt
-
-class function TkwMouseGetCursorIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'mouse:GetCursorIndex';
-end;//TkwMouseGetCursorIndex.GetWordNameForRegister
 
 initialization
  TkwMouseGetCursorIndex.RegisterInEngine;

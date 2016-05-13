@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -80,14 +80,7 @@ type
  end;//Tkw_WarningBaloon_Control_Viewer_Push
 
  TkwWarningBaloonFormViewer = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TWarningBaloonForm.Viewer
-[panel]Контрол Viewer формы TWarningBaloonForm[panel]
-*Тип результата:* TnscEditor
-*Пример:*
-[code]
-OBJECT VAR l_TnscEditor
- aWarningBaloonForm .TWarningBaloonForm.Viewer >>> l_TnscEditor
-[code]  }
+  {* Слово скрипта .TWarningBaloonForm.Viewer }
   private
    function Viewer(const aCtx: TtfwContext;
     aWarningBaloonForm: TWarningBaloonForm): TnscEditor;
@@ -96,11 +89,11 @@ OBJECT VAR l_TnscEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwWarningBaloonFormViewer
 
 function Tkw_Form_WarningBaloon.GetString: AnsiString;
@@ -162,11 +155,10 @@ begin
  aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningBaloonForm));
 end;//TkwWarningBaloonFormViewer.DoDoIt
 
-procedure TkwWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
-end;//TkwWarningBaloonFormViewer.SetValuePrim
+ Result := '.TWarningBaloonForm.Viewer';
+end;//TkwWarningBaloonFormViewer.GetWordNameForRegister
 
 function TkwWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -183,10 +175,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TWarningBaloonForm)]);
 end;//TkwWarningBaloonFormViewer.ParamsTypes
 
-class function TkwWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
+procedure TkwWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TWarningBaloonForm.Viewer';
-end;//TkwWarningBaloonFormViewer.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
+end;//TkwWarningBaloonFormViewer.SetValuePrim
 
 initialization
  Tkw_Form_WarningBaloon.RegisterInEngine;
@@ -197,10 +190,8 @@ initialization
  {* Регистрация Tkw_WarningBaloon_Control_Viewer_Push }
  TkwWarningBaloonFormViewer.RegisterInEngine;
  {* Регистрация WarningBaloonForm_Viewer }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWarningBaloonForm));
- {* Регистрация типа WarningBaloon }
+ {* Регистрация типа TWarningBaloonForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)

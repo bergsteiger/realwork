@@ -31,11 +31,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -110,14 +110,7 @@ type
  end;//Tkw_PageSetup_Control_SettingsPageControl_Push
 
  TkwEnPageSetupPreviewGroupBox = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_PageSetup.PreviewGroupBox
-[panel]Контрол PreviewGroupBox формы Ten_PageSetup[panel]
-*Тип результата:* TvtGroupBox
-*Пример:*
-[code]
-OBJECT VAR l_TvtGroupBox
- aen_PageSetup .Ten_PageSetup.PreviewGroupBox >>> l_TvtGroupBox
-[code]  }
+  {* Слово скрипта .Ten_PageSetup.PreviewGroupBox }
   private
    function PreviewGroupBox(const aCtx: TtfwContext;
     aen_PageSetup: Ten_PageSetup): TvtGroupBox;
@@ -126,22 +119,15 @@ OBJECT VAR l_TvtGroupBox
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnPageSetupPreviewGroupBox
 
  TkwEnPageSetupSettingsPageControl = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .Ten_PageSetup.SettingsPageControl
-[panel]Контрол SettingsPageControl формы Ten_PageSetup[panel]
-*Тип результата:* TnscPageControl
-*Пример:*
-[code]
-OBJECT VAR l_TnscPageControl
- aen_PageSetup .Ten_PageSetup.SettingsPageControl >>> l_TnscPageControl
-[code]  }
+  {* Слово скрипта .Ten_PageSetup.SettingsPageControl }
   private
    function SettingsPageControl(const aCtx: TtfwContext;
     aen_PageSetup: Ten_PageSetup): TnscPageControl;
@@ -150,11 +136,11 @@ OBJECT VAR l_TnscPageControl
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEnPageSetupSettingsPageControl
 
 function Tkw_Form_PageSetup.GetString: AnsiString;
@@ -249,11 +235,10 @@ begin
  aCtx.rEngine.PushObj(PreviewGroupBox(aCtx, l_aen_PageSetup));
 end;//TkwEnPageSetupPreviewGroupBox.DoDoIt
 
-procedure TkwEnPageSetupPreviewGroupBox.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству PreviewGroupBox', aCtx);
-end;//TkwEnPageSetupPreviewGroupBox.SetValuePrim
+ Result := '.Ten_PageSetup.PreviewGroupBox';
+end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
 
 function TkwEnPageSetupPreviewGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -270,10 +255,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PageSetup)]);
 end;//TkwEnPageSetupPreviewGroupBox.ParamsTypes
 
-class function TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister: AnsiString;
+procedure TkwEnPageSetupPreviewGroupBox.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_PageSetup.PreviewGroupBox';
-end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству PreviewGroupBox', aCtx);
+end;//TkwEnPageSetupPreviewGroupBox.SetValuePrim
 
 function TkwEnPageSetupSettingsPageControl.SettingsPageControl(const aCtx: TtfwContext;
  aen_PageSetup: Ten_PageSetup): TnscPageControl;
@@ -297,11 +283,10 @@ begin
  aCtx.rEngine.PushObj(SettingsPageControl(aCtx, l_aen_PageSetup));
 end;//TkwEnPageSetupSettingsPageControl.DoDoIt
 
-procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEnPageSetupSettingsPageControl.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству SettingsPageControl', aCtx);
-end;//TkwEnPageSetupSettingsPageControl.SetValuePrim
+ Result := '.Ten_PageSetup.SettingsPageControl';
+end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
 
 function TkwEnPageSetupSettingsPageControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -318,10 +303,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(Ten_PageSetup)]);
 end;//TkwEnPageSetupSettingsPageControl.ParamsTypes
 
-class function TkwEnPageSetupSettingsPageControl.GetWordNameForRegister: AnsiString;
+procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.Ten_PageSetup.SettingsPageControl';
-end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству SettingsPageControl', aCtx);
+end;//TkwEnPageSetupSettingsPageControl.SetValuePrim
 
 initialization
  Tkw_Form_PageSetup.RegisterInEngine;
@@ -338,10 +324,8 @@ initialization
  {* Регистрация en_PageSetup_PreviewGroupBox }
  TkwEnPageSetupSettingsPageControl.RegisterInEngine;
  {* Регистрация en_PageSetup_SettingsPageControl }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_PageSetup));
- {* Регистрация типа PageSetup }
+ {* Регистрация типа Ten_PageSetup }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtGroupBox));
  {* Регистрация типа TvtGroupBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscPageControl));

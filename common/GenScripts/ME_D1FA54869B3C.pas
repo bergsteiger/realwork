@@ -31,11 +31,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -109,14 +109,7 @@ type
  end;//Tkw_Child_Control_MainPageTab_Push
 
  TkwChildFormChildZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChildForm.ChildZone
-[panel]Контрол ChildZone формы TChildForm[panel]
-*Тип результата:* TnscFormsPageControl
-*Пример:*
-[code]
-OBJECT VAR l_TnscFormsPageControl
- aChildForm .TChildForm.ChildZone >>> l_TnscFormsPageControl
-[code]  }
+  {* Слово скрипта .TChildForm.ChildZone }
   private
    function ChildZone(const aCtx: TtfwContext;
     aChildForm: TChildForm): TnscFormsPageControl;
@@ -125,22 +118,15 @@ OBJECT VAR l_TnscFormsPageControl
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChildFormChildZone
 
  TkwChildFormMainPageTab = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TChildForm.MainPageTab
-[panel]Контрол MainPageTab формы TChildForm[panel]
-*Тип результата:* TElTabSheet
-*Пример:*
-[code]
-OBJECT VAR l_TElTabSheet
- aChildForm .TChildForm.MainPageTab >>> l_TElTabSheet
-[code]  }
+  {* Слово скрипта .TChildForm.MainPageTab }
   private
    function MainPageTab(const aCtx: TtfwContext;
     aChildForm: TChildForm): TElTabSheet;
@@ -149,11 +135,11 @@ OBJECT VAR l_TElTabSheet
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwChildFormMainPageTab
 
 function Tkw_Form_Child.GetString: AnsiString;
@@ -242,11 +228,10 @@ begin
  aCtx.rEngine.PushObj(ChildZone(aCtx, l_aChildForm));
 end;//TkwChildFormChildZone.DoDoIt
 
-procedure TkwChildFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChildFormChildZone.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
-end;//TkwChildFormChildZone.SetValuePrim
+ Result := '.TChildForm.ChildZone';
+end;//TkwChildFormChildZone.GetWordNameForRegister
 
 function TkwChildFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -263,10 +248,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChildForm)]);
 end;//TkwChildFormChildZone.ParamsTypes
 
-class function TkwChildFormChildZone.GetWordNameForRegister: AnsiString;
+procedure TkwChildFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChildForm.ChildZone';
-end;//TkwChildFormChildZone.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
+end;//TkwChildFormChildZone.SetValuePrim
 
 function TkwChildFormMainPageTab.MainPageTab(const aCtx: TtfwContext;
  aChildForm: TChildForm): TElTabSheet;
@@ -290,11 +276,10 @@ begin
  aCtx.rEngine.PushObj(MainPageTab(aCtx, l_aChildForm));
 end;//TkwChildFormMainPageTab.DoDoIt
 
-procedure TkwChildFormMainPageTab.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwChildFormMainPageTab.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству MainPageTab', aCtx);
-end;//TkwChildFormMainPageTab.SetValuePrim
+ Result := '.TChildForm.MainPageTab';
+end;//TkwChildFormMainPageTab.GetWordNameForRegister
 
 function TkwChildFormMainPageTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -311,10 +296,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TChildForm)]);
 end;//TkwChildFormMainPageTab.ParamsTypes
 
-class function TkwChildFormMainPageTab.GetWordNameForRegister: AnsiString;
+procedure TkwChildFormMainPageTab.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TChildForm.MainPageTab';
-end;//TkwChildFormMainPageTab.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству MainPageTab', aCtx);
+end;//TkwChildFormMainPageTab.SetValuePrim
 
 initialization
  Tkw_Form_Child.RegisterInEngine;
@@ -331,10 +317,8 @@ initialization
  {* Регистрация ChildForm_ChildZone }
  TkwChildFormMainPageTab.RegisterInEngine;
  {* Регистрация ChildForm_MainPageTab }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChildForm));
- {* Регистрация типа Child }
+ {* Регистрация типа TChildForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscFormsPageControl));
  {* Регистрация типа TnscFormsPageControl }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TElTabSheet));

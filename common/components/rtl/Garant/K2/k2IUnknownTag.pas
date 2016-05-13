@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , k2NotStructuredTag
  , l3Variant
- , k2BaseStruct
  , l3IID
+ , k2BaseStruct
  , k2Base
  , k2TagList
  , k2Prim

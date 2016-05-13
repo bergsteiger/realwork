@@ -28,6 +28,9 @@ implementation
 uses
  l3ImplUses
  , evCustomMemoContainer
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TevCustomMemoTextSource.Create(AOwner: TComponent);
@@ -48,5 +51,11 @@ begin
  Result := TevCustomMemoContainer.Make;
 //#UC END# *482D9A030221_482D98A20190_impl*
 end;//TevCustomMemoTextSource.DoMakeDocumentContainer
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TevCustomMemoTextSource);
+ {* Регистрация TevCustomMemoTextSource }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

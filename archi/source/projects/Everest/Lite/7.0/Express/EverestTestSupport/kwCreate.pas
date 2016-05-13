@@ -31,8 +31,8 @@ Create
  [code]
  *Результат:* Будет создан новый документ. }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCreate
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -44,6 +44,11 @@ uses
  , EverestLiteAdapter
 ;
 
+class function TkwCreate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Create';
+end;//TkwCreate.GetWordNameForRegister
+
 procedure TkwCreate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_512D9C2D013F_var*
 //#UC END# *4DAEEDE10285_512D9C2D013F_var*
@@ -52,11 +57,6 @@ begin
  CreateNewDocument;
 //#UC END# *4DAEEDE10285_512D9C2D013F_impl*
 end;//TkwCreate.DoDoIt
-
-class function TkwCreate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Create';
-end;//TkwCreate.GetWordNameForRegister
 
 initialization
  TkwCreate.RegisterInEngine;

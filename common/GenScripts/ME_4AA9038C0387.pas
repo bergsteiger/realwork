@@ -41,6 +41,9 @@ uses
  l3ImplUses
  , moCommonPost
  , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimMonitoringsMain_Form
  , MonitoringsMain_Form
  {$If NOT Defined(NoScripts)}
@@ -72,6 +75,10 @@ end;//TMonitoringsRes.Loaded
 initialization
  str_MonitoringTitle.Init;
  {* Инициализация str_MonitoringTitle }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TMonitoringsRes);
+ {* Регистрация Monitorings }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
 end.

@@ -28,17 +28,13 @@ uses
  , tfwTypeInfo
  , tfwScriptEngineExInterfaces
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopKeyWordSetWord = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:KeyWord:SetWord
-*Пример:*
-[code]
- aWord aKeyWord pop:KeyWord:SetWord
-[code]  }
+  {* Слово скрипта pop:KeyWord:SetWord }
   private
    procedure SetWord(const aCtx: TtfwContext;
     aKeyWord: TtfwKeyWord;
@@ -54,13 +50,7 @@ type
  end;//TkwPopKeyWordSetWord
 
  TkwPopKeyWordWord = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:KeyWord:Word
-*Тип результата:* TtfwWord
-*Пример:*
-[code]
-OBJECT VAR l_TtfwWord
- aKeyWord pop:KeyWord:Word >>> l_TtfwWord
-[code]  }
+  {* Слово скрипта pop:KeyWord:Word }
   private
    function Word(const aCtx: TtfwContext;
     aKeyWord: TtfwKeyWord): TtfwWord;
@@ -69,21 +59,15 @@ OBJECT VAR l_TtfwWord
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopKeyWordWord
 
  TkwPopKeyWordName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:KeyWord:Name
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aKeyWord pop:KeyWord:Name >>> l_Il3CString
-[code]  }
+  {* Слово скрипта pop:KeyWord:Name }
   private
    function Name(const aCtx: TtfwContext;
     aKeyWord: TtfwKeyWord): Il3CString;
@@ -92,21 +76,15 @@ STRING VAR l_Il3CString
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopKeyWordName
 
  TkwPopKeyWordDictionary = {final} class(TtfwPropertyLike)
-  {* Слово скрипта pop:KeyWord:Dictionary
-*Тип результата:* TtfwDictionary
-*Пример:*
-[code]
-OBJECT VAR l_TtfwDictionary
- aKeyWord pop:KeyWord:Dictionary >>> l_TtfwDictionary
-[code]  }
+  {* Слово скрипта pop:KeyWord:Dictionary }
   private
    function Dictionary(const aCtx: TtfwContext;
     aKeyWord: TtfwKeyWord): TtfwDictionary;
@@ -115,28 +93,28 @@ OBJECT VAR l_TtfwDictionary
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwPopKeyWordDictionary
 
 procedure TkwPopKeyWordSetWord.SetWord(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord;
  aWord: TtfwWord);
  {* Реализация слова скрипта pop:KeyWord:SetWord }
-//#UC START# *D7C9A8EDA8B8_DA7B06A59C14_var*
+//#UC START# *5673CF480040_DA7B06A59C14_var*
 var
  l_Key : TtfwKeyWord;
-//#UC END# *D7C9A8EDA8B8_DA7B06A59C14_var*
+//#UC END# *5673CF480040_DA7B06A59C14_var*
 begin
-//#UC START# *D7C9A8EDA8B8_DA7B06A59C14_impl*
+//#UC START# *5673CF480040_DA7B06A59C14_impl*
  l_Key := aWord.Key As TtfwKeyWord;
  aKeyWord.SetWord(aCtx, aWord);
  if (l_Key <> nil) then
   aWord.Key := l_Key;
-//#UC END# *D7C9A8EDA8B8_DA7B06A59C14_impl*
+//#UC END# *5673CF480040_DA7B06A59C14_impl*
 end;//TkwPopKeyWordSetWord.SetWord
 
 procedure TkwPopKeyWordSetWord.DoDoIt(const aCtx: TtfwContext);
@@ -164,6 +142,11 @@ begin
  SetWord(aCtx, l_aKeyWord, l_aWord);
 end;//TkwPopKeyWordSetWord.DoDoIt
 
+class function TkwPopKeyWordSetWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeyWord:SetWord';
+end;//TkwPopKeyWordSetWord.GetWordNameForRegister
+
 function TkwPopKeyWordSetWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -178,11 +161,6 @@ function TkwPopKeyWordSetWord.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord), TypeInfo(TtfwWord)]);
 end;//TkwPopKeyWordSetWord.ParamsTypes
-
-class function TkwPopKeyWordSetWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeyWord:SetWord';
-end;//TkwPopKeyWordSetWord.GetWordNameForRegister
 
 function TkwPopKeyWordWord.Word(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwWord;
@@ -206,11 +184,10 @@ begin
  aCtx.rEngine.PushObj(Word(aCtx, l_aKeyWord));
 end;//TkwPopKeyWordWord.DoDoIt
 
-procedure TkwPopKeyWordWord.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopKeyWordWord.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Word', aCtx);
-end;//TkwPopKeyWordWord.SetValuePrim
+ Result := 'pop:KeyWord:Word';
+end;//TkwPopKeyWordWord.GetWordNameForRegister
 
 function TkwPopKeyWordWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -227,20 +204,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord)]);
 end;//TkwPopKeyWordWord.ParamsTypes
 
-class function TkwPopKeyWordWord.GetWordNameForRegister: AnsiString;
+procedure TkwPopKeyWordWord.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:KeyWord:Word';
-end;//TkwPopKeyWordWord.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Word', aCtx);
+end;//TkwPopKeyWordWord.SetValuePrim
 
 function TkwPopKeyWordName.Name(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): Il3CString;
  {* Реализация слова скрипта pop:KeyWord:Name }
-//#UC START# *23CD12DE8461_F4F627A63039_var*
-//#UC END# *23CD12DE8461_F4F627A63039_var*
+//#UC START# *95D794E63B77_F4F627A63039_var*
+//#UC END# *95D794E63B77_F4F627A63039_var*
 begin
-//#UC START# *23CD12DE8461_F4F627A63039_impl*
+//#UC START# *95D794E63B77_F4F627A63039_impl*
  Result := aKeyWord.AsCStr;
-//#UC END# *23CD12DE8461_F4F627A63039_impl*
+//#UC END# *95D794E63B77_F4F627A63039_impl*
 end;//TkwPopKeyWordName.Name
 
 procedure TkwPopKeyWordName.DoDoIt(const aCtx: TtfwContext);
@@ -258,11 +236,10 @@ begin
  aCtx.rEngine.PushString(Name(aCtx, l_aKeyWord));
 end;//TkwPopKeyWordName.DoDoIt
 
-procedure TkwPopKeyWordName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopKeyWordName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
-end;//TkwPopKeyWordName.SetValuePrim
+ Result := 'pop:KeyWord:Name';
+end;//TkwPopKeyWordName.GetWordNameForRegister
 
 function TkwPopKeyWordName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -279,20 +256,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord)]);
 end;//TkwPopKeyWordName.ParamsTypes
 
-class function TkwPopKeyWordName.GetWordNameForRegister: AnsiString;
+procedure TkwPopKeyWordName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:KeyWord:Name';
-end;//TkwPopKeyWordName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
+end;//TkwPopKeyWordName.SetValuePrim
 
 function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwDictionary;
  {* Реализация слова скрипта pop:KeyWord:Dictionary }
-//#UC START# *CF988D0FA0BC_668B733FDAFB_var*
-//#UC END# *CF988D0FA0BC_668B733FDAFB_var*
+//#UC START# *BA5A99900884_668B733FDAFB_var*
+//#UC END# *BA5A99900884_668B733FDAFB_var*
 begin
-//#UC START# *CF988D0FA0BC_668B733FDAFB_impl*
+//#UC START# *BA5A99900884_668B733FDAFB_impl*
  Result := aKeyWord.Dictionary As TtfwDictionary;
-//#UC END# *CF988D0FA0BC_668B733FDAFB_impl*
+//#UC END# *BA5A99900884_668B733FDAFB_impl*
 end;//TkwPopKeyWordDictionary.Dictionary
 
 procedure TkwPopKeyWordDictionary.DoDoIt(const aCtx: TtfwContext);
@@ -310,11 +288,10 @@ begin
  aCtx.rEngine.PushObj(Dictionary(aCtx, l_aKeyWord));
 end;//TkwPopKeyWordDictionary.DoDoIt
 
-procedure TkwPopKeyWordDictionary.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwPopKeyWordDictionary.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Dictionary', aCtx);
-end;//TkwPopKeyWordDictionary.SetValuePrim
+ Result := 'pop:KeyWord:Dictionary';
+end;//TkwPopKeyWordDictionary.GetWordNameForRegister
 
 function TkwPopKeyWordDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -331,10 +308,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord)]);
 end;//TkwPopKeyWordDictionary.ParamsTypes
 
-class function TkwPopKeyWordDictionary.GetWordNameForRegister: AnsiString;
+procedure TkwPopKeyWordDictionary.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'pop:KeyWord:Dictionary';
-end;//TkwPopKeyWordDictionary.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Dictionary', aCtx);
+end;//TkwPopKeyWordDictionary.SetValuePrim
 
 initialization
  TkwPopKeyWordSetWord.RegisterInEngine;
@@ -345,8 +323,6 @@ initialization
  {* Регистрация pop_KeyWord_Name }
  TkwPopKeyWordDictionary.RegisterInEngine;
  {* Регистрация pop_KeyWord_Dictionary }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeyWord));
  {* Регистрация типа TtfwKeyWord }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));

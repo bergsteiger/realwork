@@ -23,7 +23,7 @@ uses
  , DocumentWithFlash_Form
  , tfwControlString
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -53,6 +53,8 @@ end;//Tkw_Form_DocumentWithFlash.GetWordNameForRegister
 initialization
  Tkw_Form_DocumentWithFlash.RegisterInEngine;
  {* Регистрация Tkw_Form_DocumentWithFlash }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TDocumentWithFlashForm));
+ {* Регистрация типа TDocumentWithFlashForm }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

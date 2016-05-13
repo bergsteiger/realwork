@@ -21,8 +21,8 @@ type
  TkwClearTemplateStorage = {final} class(TtfwRegisterableWord)
   {* Очищает данные для 'Текстового шаблона' }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwClearTemplateStorage
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -34,6 +34,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwClearTemplateStorage.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ClearTemplateStorage';
+end;//TkwClearTemplateStorage.GetWordNameForRegister
+
 procedure TkwClearTemplateStorage.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B647A9029B_var*
 //#UC END# *4DAEEDE10285_53B647A9029B_var*
@@ -42,11 +47,6 @@ begin
  ArClearTemplateStorage;
 //#UC END# *4DAEEDE10285_53B647A9029B_impl*
 end;//TkwClearTemplateStorage.DoDoIt
-
-class function TkwClearTemplateStorage.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ClearTemplateStorage';
-end;//TkwClearTemplateStorage.GetWordNameForRegister
 
 initialization
  TkwClearTemplateStorage.RegisterInEngine;

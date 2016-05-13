@@ -43,6 +43,9 @@ uses
  , moDocument
  , moList
  , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -58,6 +61,10 @@ end;//TVCMSandBoxRes.Loaded
 initialization
  str_VCMSandBoxTitle.Init;
  {* Инициализация str_VCMSandBoxTitle }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TVCMSandBoxRes);
+ {* Регистрация VCMSandBox }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

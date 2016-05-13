@@ -35,25 +35,19 @@ uses
  , KTestRunner
  {$IfEnd} // NOT Defined(NotTunedDUnit)
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwGUITestRunnerPushDUnitForm = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта GUITestRunner:push:DUnitForm
-*Тип результата:* TGUITestRunner
-*Пример:*
-[code]
-OBJECT VAR l_TGUITestRunner
- GUITestRunner:push:DUnitForm >>> l_TGUITestRunner
-[code]  }
+  {* Слово скрипта GUITestRunner:push:DUnitForm }
   private
    function push_DUnitForm(const aCtx: TtfwContext): TGUITestRunner;
     {* Реализация слова скрипта GUITestRunner:push:DUnitForm }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -61,13 +55,7 @@ OBJECT VAR l_TGUITestRunner
  end;//TkwGUITestRunnerPushDUnitForm
 
  TkwPopGUITestRunnerNodeToTest = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:GUITestRunner:NodeToTest
-*Тип результата:* ITest
-*Пример:*
-[code]
-INTERFACE VAR l_ITest
- aNode aGUITestRunner pop:GUITestRunner:NodeToTest >>> l_ITest
-[code]  }
+  {* Слово скрипта pop:GUITestRunner:NodeToTest }
   private
    function NodeToTest(const aCtx: TtfwContext;
     aGUITestRunner: TGUITestRunner;
@@ -83,11 +71,7 @@ INTERFACE VAR l_ITest
  end;//TkwPopGUITestRunnerNodeToTest
 
  TkwDeleteEtalons = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта DeleteEtalons
-*Пример:*
-[code]
- anIsScript aSubFolder aName DeleteEtalons
-[code]  }
+  {* Слово скрипта DeleteEtalons }
   private
    procedure DeleteEtalons(const aCtx: TtfwContext;
     const aName: AnsiString;
@@ -95,8 +79,8 @@ INTERFACE VAR l_ITest
     anIsScript: Boolean);
     {* Реализация слова скрипта DeleteEtalons }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -111,18 +95,18 @@ INTERFACE VAR l_ITest
 
 function TkwGUITestRunnerPushDUnitForm.push_DUnitForm(const aCtx: TtfwContext): TGUITestRunner;
  {* Реализация слова скрипта GUITestRunner:push:DUnitForm }
-//#UC START# *8CDAC59949AC_0200DD1E29D8_var*
-//#UC END# *8CDAC59949AC_0200DD1E29D8_var*
+//#UC START# *55C9F42D0261_0200DD1E29D8_var*
+//#UC END# *55C9F42D0261_0200DD1E29D8_var*
 begin
-//#UC START# *8CDAC59949AC_0200DD1E29D8_impl*
+//#UC START# *55C9F42D0261_0200DD1E29D8_impl*
  Result := TestForm4Scripts.GetTestForm;
-//#UC END# *8CDAC59949AC_0200DD1E29D8_impl*
+//#UC END# *55C9F42D0261_0200DD1E29D8_impl*
 end;//TkwGUITestRunnerPushDUnitForm.push_DUnitForm
 
-procedure TkwGUITestRunnerPushDUnitForm.DoDoIt(const aCtx: TtfwContext);
+class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
 begin
- aCtx.rEngine.PushObj(push_DUnitForm(aCtx));
-end;//TkwGUITestRunnerPushDUnitForm.DoDoIt
+ Result := 'GUITestRunner:push:DUnitForm';
+end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
 
 function TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -139,21 +123,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TGUITestRunner)]);
 end;//TkwGUITestRunnerPushDUnitForm.ParamsTypes
 
-class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
+procedure TkwGUITestRunnerPushDUnitForm.DoDoIt(const aCtx: TtfwContext);
 begin
- Result := 'GUITestRunner:push:DUnitForm';
-end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
+ aCtx.rEngine.PushObj(push_DUnitForm(aCtx));
+end;//TkwGUITestRunnerPushDUnitForm.DoDoIt
 
 function TkwPopGUITestRunnerNodeToTest.NodeToTest(const aCtx: TtfwContext;
  aGUITestRunner: TGUITestRunner;
  aNode: TTreeNode): ITest;
  {* Реализация слова скрипта pop:GUITestRunner:NodeToTest }
-//#UC START# *03113FE401D9_D7892D333B1E_var*
-//#UC END# *03113FE401D9_D7892D333B1E_var*
+//#UC START# *55C9F44A003C_D7892D333B1E_var*
+//#UC END# *55C9F44A003C_D7892D333B1E_var*
 begin
-//#UC START# *03113FE401D9_D7892D333B1E_impl*
+//#UC START# *55C9F44A003C_D7892D333B1E_impl*
  Result := aGUITestRunner.NodeToTest(aNode)
-//#UC END# *03113FE401D9_D7892D333B1E_impl*
+//#UC END# *55C9F44A003C_D7892D333B1E_impl*
 end;//TkwPopGUITestRunnerNodeToTest.NodeToTest
 
 procedure TkwPopGUITestRunnerNodeToTest.DoDoIt(const aCtx: TtfwContext);
@@ -181,6 +165,11 @@ begin
  aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode), TypeInfo(ITest));
 end;//TkwPopGUITestRunnerNodeToTest.DoDoIt
 
+class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:GUITestRunner:NodeToTest';
+end;//TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister
+
 function TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ITest);
@@ -196,23 +185,38 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TGUITestRunner), TypeInfo(TTreeNode)]);
 end;//TkwPopGUITestRunnerNodeToTest.ParamsTypes
 
-class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:GUITestRunner:NodeToTest';
-end;//TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister
-
 procedure TkwDeleteEtalons.DeleteEtalons(const aCtx: TtfwContext;
  const aName: AnsiString;
  const aSubFolder: AnsiString;
  anIsScript: Boolean);
  {* Реализация слова скрипта DeleteEtalons }
-//#UC START# *32E2191A0272_6F1D31444115_var*
-//#UC END# *32E2191A0272_6F1D31444115_var*
+//#UC START# *55C9F4AC003F_55C9F4AC003F_Word_var*
+//#UC END# *55C9F4AC003F_55C9F4AC003F_Word_var*
 begin
-//#UC START# *32E2191A0272_6F1D31444115_impl*
+//#UC START# *55C9F4AC003F_55C9F4AC003F_Word_impl*
  KTestRunner.DeleteEtalons(aName, aSubFolder, anIsScript);
-//#UC END# *32E2191A0272_6F1D31444115_impl*
+//#UC END# *55C9F4AC003F_55C9F4AC003F_Word_impl*
 end;//TkwDeleteEtalons.DeleteEtalons
+
+class function TkwDeleteEtalons.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DeleteEtalons';
+end;//TkwDeleteEtalons.GetWordNameForRegister
+
+function TkwDeleteEtalons.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwDeleteEtalons.GetResultTypeInfo
+
+function TkwDeleteEtalons.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwDeleteEtalons.GetAllParamsCount
+
+function TkwDeleteEtalons.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Boolean)]);
+end;//TkwDeleteEtalons.ParamsTypes
 
 procedure TkwDeleteEtalons.DoDoIt(const aCtx: TtfwContext);
 var l_aName: AnsiString;
@@ -249,26 +253,6 @@ begin
  DeleteEtalons(aCtx, l_aName, l_aSubFolder, l_anIsScript);
 end;//TkwDeleteEtalons.DoDoIt
 
-function TkwDeleteEtalons.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwDeleteEtalons.GetResultTypeInfo
-
-function TkwDeleteEtalons.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwDeleteEtalons.GetAllParamsCount
-
-function TkwDeleteEtalons.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Boolean)]);
-end;//TkwDeleteEtalons.ParamsTypes
-
-class function TkwDeleteEtalons.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DeleteEtalons';
-end;//TkwDeleteEtalons.GetWordNameForRegister
-
 class function TkwKeyWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'kwKeyWordsPack';
@@ -285,16 +269,14 @@ initialization
  {* Регистрация DeleteEtalons }
  TkwKeyWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TGUITestRunner));
  {* Регистрация типа TGUITestRunner }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));
- {* Регистрация типа TTreeNode }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ITest));
  {* Регистрация типа ITest }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TTreeNode));
+ {* Регистрация типа TTreeNode }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
- {* Регистрация типа String }
+ {* Регистрация типа AnsiString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

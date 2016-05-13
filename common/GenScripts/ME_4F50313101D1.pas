@@ -40,7 +40,7 @@ uses
  , tfwSliceView
  , tfwArray
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -67,11 +67,7 @@ type
  end;//TkwOpenArray
 
  TkwArrayClear = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Clear
-*Пример:*
-[code]
- aArray Array:Clear
-[code]  }
+  {* Слово скрипта Array:Clear }
   private
    procedure Clear(const aCtx: TtfwContext;
     const aArray: ItfwValueList);
@@ -86,13 +82,7 @@ type
  end;//TkwArrayClear
 
  TkwArrayItem = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Item
-*Тип результата:* TtfwStackValue
-*Пример:*
-[code]
-VAR l_TtfwStackValue
- anIndex aArray Array:Item >>> l_TtfwStackValue
-[code]  }
+  {* Слово скрипта Array:Item }
   private
    function Item(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -104,24 +94,18 @@ VAR l_TtfwStackValue
     const aValue: TtfwStackValue);
     {* Метод установки значения свойства Item }
    procedure DoDoIt(const aCtx: TtfwContext); override;
-   function BindParams: Boolean; override;
    class function GetWordNameForRegister: AnsiString; override;
+   function BindParams: Boolean; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwArrayItem
 
  TkwArrayReverted = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Reverted
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aArray Array:Reverted >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:Reverted }
   private
    function Reverted(const aCtx: TtfwContext;
     const aArray: ItfwValueList): ItfwValueList;
@@ -136,13 +120,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayReverted
 
  TkwArrayFilter = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Filter
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aLambda aArray Array:Filter >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:Filter }
   private
    function Filter(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -158,13 +136,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayFilter
 
  TkwArrayMap = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Map
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aLambda aArray Array:Map >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:Map }
   private
    function Map(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -180,11 +152,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayMap
 
  TkwArrayIterate = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Iterate
-*Пример:*
-[code]
- aLambda aArray Array:Iterate
-[code]  }
+  {* Слово скрипта Array:Iterate }
   private
    procedure Iterate(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -200,11 +168,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayIterate
 
  TkwArrayAdd = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Add
-*Пример:*
-[code]
- aValue aArray Array:Add
-[code]  }
+  {* Слово скрипта Array:Add }
   private
    procedure Add(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -220,20 +184,14 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayAdd
 
  TkwArrayFunctorToIterator = {final} class(TtfwRegisterableWord)
-  {* Слово скрипта Array:FunctorToIterator
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aLambda Array:FunctorToIterator >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:FunctorToIterator }
   private
    function FunctorToIterator(const aCtx: TtfwContext;
     aLambda: TtfwWord): ItfwValueList;
     {* Реализация слова скрипта Array:FunctorToIterator }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -241,13 +199,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayFunctorToIterator
 
  TkwArrayJoin = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Join
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- anOther aArray Array:Join >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:Join }
   private
    function Join(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -263,13 +215,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayJoin
 
  TkwArrayTrunc = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Trunc
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aLambda aArray Array:Trunc >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:Trunc }
   private
    function Trunc(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -285,14 +231,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArrayTrunc
 
  TkwArraySlice = {final} class(TtfwClassLike)
-  {* Слово скрипта Array:Slice
-[panel]Возвращает итератор, который выдаёт наборы элементов по aCount штук[panel]
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- aCount aArray Array:Slice >>> l_ItfwValueList
-[code]  }
+  {* Слово скрипта Array:Slice }
   private
    function Slice(const aCtx: TtfwContext;
     const aArray: ItfwValueList;
@@ -308,13 +247,7 @@ ARRAY VAR l_ItfwValueList
  end;//TkwArraySlice
 
  TkwArrayCount = {final} class(TtfwPropertyLike)
-  {* Слово скрипта Array:Count
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aArray Array:Count >>> l_Integer
-[code]  }
+  {* Слово скрипта Array:Count }
   private
    function Count(const aCtx: TtfwContext;
     const aArray: ItfwValueList): Integer;
@@ -323,11 +256,11 @@ INTEGER VAR l_Integer
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwArrayCount
 
  TArrayProcessingPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
@@ -436,13 +369,13 @@ end;//TkwOpenArray.GetWordNameForRegister
 procedure TkwArrayClear.Clear(const aCtx: TtfwContext;
  const aArray: ItfwValueList);
  {* Реализация слова скрипта Array:Clear }
-//#UC START# *428D1CC30289_878FE88B604D_var*
-//#UC END# *428D1CC30289_878FE88B604D_var*
+//#UC START# *551012E802AF_878FE88B604D_var*
+//#UC END# *551012E802AF_878FE88B604D_var*
 begin
-//#UC START# *428D1CC30289_878FE88B604D_impl*
+//#UC START# *551012E802AF_878FE88B604D_impl*
  if (aArray <> nil) then
   aArray.Clear;
-//#UC END# *428D1CC30289_878FE88B604D_impl*
+//#UC END# *551012E802AF_878FE88B604D_impl*
 end;//TkwArrayClear.Clear
 
 procedure TkwArrayClear.DoDoIt(const aCtx: TtfwContext);
@@ -460,6 +393,11 @@ begin
  Clear(aCtx, l_aArray);
 end;//TkwArrayClear.DoDoIt
 
+class function TkwArrayClear.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Clear';
+end;//TkwArrayClear.GetWordNameForRegister
+
 function TkwArrayClear.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -475,38 +413,33 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
 end;//TkwArrayClear.ParamsTypes
 
-class function TkwArrayClear.GetWordNameForRegister: AnsiString;
+class procedure TkwArrayItem.DoSetValue(const aArray: ItfwValueList;
+ anIndex: Integer;
+ const aValue: TtfwStackValue);
+ {* Метод установки значения свойства Item }
+//#UC START# *E14E90E5EF2D_DoSetValue_E14E90E5EF2D_var*
+//#UC END# *E14E90E5EF2D_DoSetValue_E14E90E5EF2D_var*
 begin
- Result := 'Array:Clear';
-end;//TkwArrayClear.GetWordNameForRegister
+//#UC START# *E14E90E5EF2D_DoSetValue_E14E90E5EF2D_impl*
+ //RunnerAssert(anIndex >= 0, 'Мне нужно положительное число.', aCtx);
+ //RunnerAssert(anIndex < aArray.Count, 'В массиве нет столько элементов.', aCtx);
+ aArray.SetItem(anIndex, aValue);
+//#UC END# *E14E90E5EF2D_DoSetValue_E14E90E5EF2D_impl*
+end;//TkwArrayItem.DoSetValue
 
 function TkwArrayItem.Item(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  anIndex: Integer): TtfwStackValue;
  {* Реализация слова скрипта Array:Item }
-//#UC START# *66E011EC054E_E14E90E5EF2D_var*
-//#UC END# *66E011EC054E_E14E90E5EF2D_var*
+//#UC START# *551012F603D4_E14E90E5EF2D_var*
+//#UC END# *551012F603D4_E14E90E5EF2D_var*
 begin
-//#UC START# *66E011EC054E_E14E90E5EF2D_impl*
+//#UC START# *551012F603D4_E14E90E5EF2D_impl*
  RunnerAssert(anIndex >= 0, 'Мне нужно положительное число.', aCtx);
  RunnerAssert(anIndex < aArray.Count, 'В массиве нет столько элементов.', aCtx);
  Result := aArray.Items[anIndex];
-//#UC END# *66E011EC054E_E14E90E5EF2D_impl*
+//#UC END# *551012F603D4_E14E90E5EF2D_impl*
 end;//TkwArrayItem.Item
-
-class procedure TkwArrayItem.DoSetValue(const aArray: ItfwValueList;
- anIndex: Integer;
- const aValue: TtfwStackValue);
- {* Метод установки значения свойства Item }
-//#UC START# *2550EECFAAC1_E14E90E5EF2D_var*
-//#UC END# *2550EECFAAC1_E14E90E5EF2D_var*
-begin
-//#UC START# *2550EECFAAC1_E14E90E5EF2D_impl*
- //RunnerAssert(anIndex >= 0, 'Мне нужно положительное число.', aCtx);
- //RunnerAssert(anIndex < aArray.Count, 'В массиве нет столько элементов.', aCtx);
- aArray.SetItem(anIndex, aValue);
-//#UC END# *2550EECFAAC1_E14E90E5EF2D_impl*
-end;//TkwArrayItem.DoSetValue
 
 procedure TkwArrayItem.DoDoIt(const aCtx: TtfwContext);
 var l_aArray: ItfwValueList;
@@ -532,6 +465,31 @@ begin
  end;//try..except
  aCtx.rEngine.Push(Item(aCtx, l_aArray, l_anIndex));
 end;//TkwArrayItem.DoDoIt
+
+class function TkwArrayItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Item';
+end;//TkwArrayItem.GetWordNameForRegister
+
+function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiStruct;
+end;//TkwArrayItem.GetResultTypeInfo
+
+function TkwArrayItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwArrayItem.GetAllParamsCount
+
+function TkwArrayItem.BindParams: Boolean;
+begin
+ Result := true;
+end;//TkwArrayItem.BindParams
+
+function TkwArrayItem.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(Integer)]);
+end;//TkwArrayItem.ParamsTypes
 
 procedure TkwArrayItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
@@ -559,44 +517,18 @@ begin
  DoSetValue(l_Array, l_anIndex, aValue);
 end;//TkwArrayItem.SetValuePrim
 
-function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiStruct;
-end;//TkwArrayItem.GetResultTypeInfo
-
-function TkwArrayItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwArrayItem.GetAllParamsCount
-
-function TkwArrayItem.BindParams: Boolean;
-//#UC START# *5617C8A30023_E14E90E5EF2D_var*
-//#UC END# *5617C8A30023_E14E90E5EF2D_var*
-begin
-//#UC START# *5617C8A30023_E14E90E5EF2D_impl*
- Result := true;
-//#UC END# *5617C8A30023_E14E90E5EF2D_impl*
-end;//TkwArrayItem.BindParams
-
-function TkwArrayItem.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(Integer)]);
-end;//TkwArrayItem.ParamsTypes
-
-class function TkwArrayItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Item';
-end;//TkwArrayItem.GetWordNameForRegister
-
 function TkwArrayReverted.Reverted(const aCtx: TtfwContext;
  const aArray: ItfwValueList): ItfwValueList;
  {* Реализация слова скрипта Array:Reverted }
-//#UC START# *155569C67894_68189B4B7D71_var*
-//#UC END# *155569C67894_68189B4B7D71_var*
+//#UC START# *5510147F0057_68189B4B7D71_var*
+//#UC END# *5510147F0057_68189B4B7D71_var*
 begin
-//#UC START# *155569C67894_68189B4B7D71_impl*
- Result := TtfwRevertedArrayView.Make(aArray);
-//#UC END# *155569C67894_68189B4B7D71_impl*
+//#UC START# *5510147F0057_68189B4B7D71_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwRevertedArrayView.Make(aArray);
+//#UC END# *5510147F0057_68189B4B7D71_impl*
 end;//TkwArrayReverted.Reverted
 
 procedure TkwArrayReverted.DoDoIt(const aCtx: TtfwContext);
@@ -614,6 +546,11 @@ begin
  aCtx.rEngine.PushList(Reverted(aCtx, l_aArray));
 end;//TkwArrayReverted.DoDoIt
 
+class function TkwArrayReverted.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Reverted';
+end;//TkwArrayReverted.GetWordNameForRegister
+
 function TkwArrayReverted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -629,21 +566,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
 end;//TkwArrayReverted.ParamsTypes
 
-class function TkwArrayReverted.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Reverted';
-end;//TkwArrayReverted.GetWordNameForRegister
-
 function TkwArrayFilter.Filter(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  aLambda: TtfwWord): ItfwValueList;
  {* Реализация слова скрипта Array:Filter }
-//#UC START# *781431CE844D_BE2AD2FE44CF_var*
-//#UC END# *781431CE844D_BE2AD2FE44CF_var*
+//#UC START# *55101ABC0102_BE2AD2FE44CF_var*
+//#UC END# *55101ABC0102_BE2AD2FE44CF_var*
 begin
-//#UC START# *781431CE844D_BE2AD2FE44CF_impl*
- Result := TtfwFilteredArrayView.Make(aArray, aLambda);
-//#UC END# *781431CE844D_BE2AD2FE44CF_impl*
+//#UC START# *55101ABC0102_BE2AD2FE44CF_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwFilteredArrayView.Make(aArray, aLambda);
+//#UC END# *55101ABC0102_BE2AD2FE44CF_impl*
 end;//TkwArrayFilter.Filter
 
 procedure TkwArrayFilter.DoDoIt(const aCtx: TtfwContext);
@@ -671,6 +606,11 @@ begin
  aCtx.rEngine.PushList(Filter(aCtx, l_aArray, l_aLambda));
 end;//TkwArrayFilter.DoDoIt
 
+class function TkwArrayFilter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Filter';
+end;//TkwArrayFilter.GetWordNameForRegister
+
 function TkwArrayFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -686,21 +626,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayFilter.ParamsTypes
 
-class function TkwArrayFilter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Filter';
-end;//TkwArrayFilter.GetWordNameForRegister
-
 function TkwArrayMap.Map(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  aLambda: TtfwWord): ItfwValueList;
  {* Реализация слова скрипта Array:Map }
-//#UC START# *7FA64661B5E5_4D82A8E4E72B_var*
-//#UC END# *7FA64661B5E5_4D82A8E4E72B_var*
+//#UC START# *55101AE0033E_4D82A8E4E72B_var*
+//#UC END# *55101AE0033E_4D82A8E4E72B_var*
 begin
-//#UC START# *7FA64661B5E5_4D82A8E4E72B_impl*
- Result := TtfwMappedArrayView.Make(aArray, aLambda);
-//#UC END# *7FA64661B5E5_4D82A8E4E72B_impl*
+//#UC START# *55101AE0033E_4D82A8E4E72B_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwMappedArrayView.Make(aArray, aLambda);
+//#UC END# *55101AE0033E_4D82A8E4E72B_impl*
 end;//TkwArrayMap.Map
 
 procedure TkwArrayMap.DoDoIt(const aCtx: TtfwContext);
@@ -728,6 +666,11 @@ begin
  aCtx.rEngine.PushList(Map(aCtx, l_aArray, l_aLambda));
 end;//TkwArrayMap.DoDoIt
 
+class function TkwArrayMap.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Map';
+end;//TkwArrayMap.GetWordNameForRegister
+
 function TkwArrayMap.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -743,21 +686,17 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayMap.ParamsTypes
 
-class function TkwArrayMap.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Map';
-end;//TkwArrayMap.GetWordNameForRegister
-
 procedure TkwArrayIterate.Iterate(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  aLambda: TtfwWord);
  {* Реализация слова скрипта Array:Iterate }
-//#UC START# *78836988FFF5_67F9FD4545C9_var*
-//#UC END# *78836988FFF5_67F9FD4545C9_var*
+//#UC START# *55101BDF0235_67F9FD4545C9_var*
+//#UC END# *55101BDF0235_67F9FD4545C9_var*
 begin
-//#UC START# *78836988FFF5_67F9FD4545C9_impl*
- aArray.ForEach(aLambda, aCtx);
-//#UC END# *78836988FFF5_67F9FD4545C9_impl*
+//#UC START# *55101BDF0235_67F9FD4545C9_impl*
+ if (aArray <> nil) then
+  aArray.ForEach(aLambda, aCtx);
+//#UC END# *55101BDF0235_67F9FD4545C9_impl*
 end;//TkwArrayIterate.Iterate
 
 procedure TkwArrayIterate.DoDoIt(const aCtx: TtfwContext);
@@ -785,6 +724,11 @@ begin
  Iterate(aCtx, l_aArray, l_aLambda);
 end;//TkwArrayIterate.DoDoIt
 
+class function TkwArrayIterate.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Iterate';
+end;//TkwArrayIterate.GetWordNameForRegister
+
 function TkwArrayIterate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -799,11 +743,6 @@ function TkwArrayIterate.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayIterate.ParamsTypes
-
-class function TkwArrayIterate.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Iterate';
-end;//TkwArrayIterate.GetWordNameForRegister
 
 procedure TkwArrayAdd.Add(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
@@ -838,6 +777,11 @@ begin
  Add(aCtx, l_aArray, l_aValue);
 end;//TkwArrayAdd.DoDoIt
 
+class function TkwArrayAdd.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Add';
+end;//TkwArrayAdd.GetWordNameForRegister
+
 function TkwArrayAdd.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -853,36 +797,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), @tfw_tiStruct]);
 end;//TkwArrayAdd.ParamsTypes
 
-class function TkwArrayAdd.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Add';
-end;//TkwArrayAdd.GetWordNameForRegister
-
 function TkwArrayFunctorToIterator.FunctorToIterator(const aCtx: TtfwContext;
  aLambda: TtfwWord): ItfwValueList;
  {* Реализация слова скрипта Array:FunctorToIterator }
-//#UC START# *D84558AB12E8_AC4DA64FB94F_var*
-//#UC END# *D84558AB12E8_AC4DA64FB94F_var*
+//#UC START# *551038F0003A_AC4DA64FB94F_var*
+//#UC END# *551038F0003A_AC4DA64FB94F_var*
 begin
-//#UC START# *D84558AB12E8_AC4DA64FB94F_impl*
+//#UC START# *551038F0003A_AC4DA64FB94F_impl*
  Result := TtfwIteratorFromFunctor.Make(aLambda);
-//#UC END# *D84558AB12E8_AC4DA64FB94F_impl*
+//#UC END# *551038F0003A_AC4DA64FB94F_impl*
 end;//TkwArrayFunctorToIterator.FunctorToIterator
 
-procedure TkwArrayFunctorToIterator.DoDoIt(const aCtx: TtfwContext);
-var l_aLambda: TtfwWord;
+class function TkwArrayFunctorToIterator.GetWordNameForRegister: AnsiString;
 begin
- try
-  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushList(FunctorToIterator(aCtx, l_aLambda));
-end;//TkwArrayFunctorToIterator.DoDoIt
+ Result := 'Array:FunctorToIterator';
+end;//TkwArrayFunctorToIterator.GetWordNameForRegister
 
 function TkwArrayFunctorToIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -899,21 +828,42 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayFunctorToIterator.ParamsTypes
 
-class function TkwArrayFunctorToIterator.GetWordNameForRegister: AnsiString;
+procedure TkwArrayFunctorToIterator.DoDoIt(const aCtx: TtfwContext);
+var l_aLambda: TtfwWord;
 begin
- Result := 'Array:FunctorToIterator';
-end;//TkwArrayFunctorToIterator.GetWordNameForRegister
+ try
+  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushList(FunctorToIterator(aCtx, l_aLambda));
+end;//TkwArrayFunctorToIterator.DoDoIt
 
 function TkwArrayJoin.Join(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  const anOther: ItfwValueList): ItfwValueList;
  {* Реализация слова скрипта Array:Join }
-//#UC START# *AE1CCBE76617_F83E51FB5EAA_var*
-//#UC END# *AE1CCBE76617_F83E51FB5EAA_var*
+//#UC START# *55E02C110223_F83E51FB5EAA_var*
+//#UC END# *55E02C110223_F83E51FB5EAA_var*
 begin
-//#UC START# *AE1CCBE76617_F83E51FB5EAA_impl*
- Result := TtfwJoinIterator.Make(aArray, anOther);
-//#UC END# *AE1CCBE76617_F83E51FB5EAA_impl*
+//#UC START# *55E02C110223_F83E51FB5EAA_impl*
+ if (aArray = nil) then
+ begin
+  if (anOther = nil) then
+   Result := nil
+  else
+   Result := anOther; 
+ end//aArray = nil
+ else
+ if (anOther = nil) then
+  Result := aArray
+ else 
+  Result := TtfwJoinIterator.Make(aArray, anOther);
+//#UC END# *55E02C110223_F83E51FB5EAA_impl*
 end;//TkwArrayJoin.Join
 
 procedure TkwArrayJoin.DoDoIt(const aCtx: TtfwContext);
@@ -941,6 +891,11 @@ begin
  aCtx.rEngine.PushList(Join(aCtx, l_aArray, l_anOther));
 end;//TkwArrayJoin.DoDoIt
 
+class function TkwArrayJoin.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Join';
+end;//TkwArrayJoin.GetWordNameForRegister
+
 function TkwArrayJoin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -956,21 +911,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(ItfwValueList)]);
 end;//TkwArrayJoin.ParamsTypes
 
-class function TkwArrayJoin.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Join';
-end;//TkwArrayJoin.GetWordNameForRegister
-
 function TkwArrayTrunc.Trunc(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  aLambda: TtfwWord): ItfwValueList;
  {* Реализация слова скрипта Array:Trunc }
-//#UC START# *3CA55B4BDAA5_BD92B7361A83_var*
-//#UC END# *3CA55B4BDAA5_BD92B7361A83_var*
+//#UC START# *55E0410603CA_BD92B7361A83_var*
+//#UC END# *55E0410603CA_BD92B7361A83_var*
 begin
-//#UC START# *3CA55B4BDAA5_BD92B7361A83_impl*
- Result := TtfwTruncatedArrayView.Make(aArray, aLambda);
-//#UC END# *3CA55B4BDAA5_BD92B7361A83_impl*
+//#UC START# *55E0410603CA_BD92B7361A83_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwTruncatedArrayView.Make(aArray, aLambda);
+//#UC END# *55E0410603CA_BD92B7361A83_impl*
 end;//TkwArrayTrunc.Trunc
 
 procedure TkwArrayTrunc.DoDoIt(const aCtx: TtfwContext);
@@ -998,6 +951,11 @@ begin
  aCtx.rEngine.PushList(Trunc(aCtx, l_aArray, l_aLambda));
 end;//TkwArrayTrunc.DoDoIt
 
+class function TkwArrayTrunc.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Trunc';
+end;//TkwArrayTrunc.GetWordNameForRegister
+
 function TkwArrayTrunc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -1013,21 +971,19 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(TtfwWord)]);
 end;//TkwArrayTrunc.ParamsTypes
 
-class function TkwArrayTrunc.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Trunc';
-end;//TkwArrayTrunc.GetWordNameForRegister
-
 function TkwArraySlice.Slice(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  aCount: Integer): ItfwValueList;
  {* Реализация слова скрипта Array:Slice }
-//#UC START# *A24C2DBFCDED_2892AD069398_var*
-//#UC END# *A24C2DBFCDED_2892AD069398_var*
+//#UC START# *55E59002038C_2892AD069398_var*
+//#UC END# *55E59002038C_2892AD069398_var*
 begin
-//#UC START# *A24C2DBFCDED_2892AD069398_impl*
- Result := TtfwSliceView.Make(aArray, aCount);
-//#UC END# *A24C2DBFCDED_2892AD069398_impl*
+//#UC START# *55E59002038C_2892AD069398_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwSliceView.Make(aArray, aCount);
+//#UC END# *55E59002038C_2892AD069398_impl*
 end;//TkwArraySlice.Slice
 
 procedure TkwArraySlice.DoDoIt(const aCtx: TtfwContext);
@@ -1055,6 +1011,11 @@ begin
  aCtx.rEngine.PushList(Slice(aCtx, l_aArray, l_aCount));
 end;//TkwArraySlice.DoDoIt
 
+class function TkwArraySlice.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Array:Slice';
+end;//TkwArraySlice.GetWordNameForRegister
+
 function TkwArraySlice.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(ItfwValueList);
@@ -1070,23 +1031,18 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList), TypeInfo(Integer)]);
 end;//TkwArraySlice.ParamsTypes
 
-class function TkwArraySlice.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Array:Slice';
-end;//TkwArraySlice.GetWordNameForRegister
-
 function TkwArrayCount.Count(const aCtx: TtfwContext;
  const aArray: ItfwValueList): Integer;
  {* Реализация слова скрипта Array:Count }
-//#UC START# *87ED8662D31C_F4E1D8EB306A_var*
-//#UC END# *87ED8662D31C_F4E1D8EB306A_var*
+//#UC START# *044C5FFA728B_F4E1D8EB306A_var*
+//#UC END# *044C5FFA728B_F4E1D8EB306A_var*
 begin
-//#UC START# *87ED8662D31C_F4E1D8EB306A_impl*
+//#UC START# *044C5FFA728B_F4E1D8EB306A_impl*
  if (aArray = nil) then
   Result := 0
  else
   Result := aArray.Count; 
-//#UC END# *87ED8662D31C_F4E1D8EB306A_impl*
+//#UC END# *044C5FFA728B_F4E1D8EB306A_impl*
 end;//TkwArrayCount.Count
 
 procedure TkwArrayCount.DoDoIt(const aCtx: TtfwContext);
@@ -1104,11 +1060,10 @@ begin
  aCtx.rEngine.PushInt(Count(aCtx, l_aArray));
 end;//TkwArrayCount.DoDoIt
 
-procedure TkwArrayCount.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwArrayCount.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
-end;//TkwArrayCount.SetValuePrim
+ Result := 'Array:Count';
+end;//TkwArrayCount.GetWordNameForRegister
 
 function TkwArrayCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -1125,10 +1080,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwValueList)]);
 end;//TkwArrayCount.ParamsTypes
 
-class function TkwArrayCount.GetWordNameForRegister: AnsiString;
+procedure TkwArrayCount.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := 'Array:Count';
-end;//TkwArrayCount.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
+end;//TkwArrayCount.SetValuePrim
 
 class function TArrayProcessingPackResNameGetter.ResName: AnsiString;
 begin
@@ -1170,14 +1126,12 @@ initialization
  {* Регистрация Array_Count }
  TArrayProcessingPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));
  {* Регистрация типа ItfwValueList }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwStackValue }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
  {* Регистрация типа TtfwWord }
 {$IfEnd} // NOT Defined(NoScripts)

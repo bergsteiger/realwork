@@ -26,23 +26,13 @@ uses
  , TypInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwAttrExplorerGotoOnAttrNode = {final} class(TtfwClassLike)
-  {* Слово скрипта AttrExplorer:GotoOnAttrNode
-[panel]Формат: aNumberAttribute aControl AttributeExplorer:GotoOnAttrNode
-где aNumberAttribute - номер атрибута, а aControl - форма TAttrExplorer.
-Пример:
-[code]
-TdtAttribute::atKeyWords "Контрол по имени [('otlAttributes')]- в стек" pop:Component:Owner AttributeExplorer:GotoOnAttrNode
-[code][panel]
-*Пример:*
-[code]
- anAttrID aAttrExplorer AttrExplorer:GotoOnAttrNode
-[code]  }
+  {* Слово скрипта AttrExplorer:GotoOnAttrNode }
   private
    procedure GotoOnAttrNode(const aCtx: TtfwContext;
     aAttrExplorer: TAttrExplorer;
@@ -67,12 +57,12 @@ procedure TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode(const aCtx: TtfwContext;
  aAttrExplorer: TAttrExplorer;
  anAttrID: TdtAttribute);
  {* Реализация слова скрипта AttrExplorer:GotoOnAttrNode }
-//#UC START# *986AD64514D6_50112451BECA_var*
-//#UC END# *986AD64514D6_50112451BECA_var*
+//#UC START# *553109D90010_50112451BECA_var*
+//#UC END# *553109D90010_50112451BECA_var*
 begin
-//#UC START# *986AD64514D6_50112451BECA_impl*
+//#UC START# *553109D90010_50112451BECA_impl*
  aAttrExplorer.GotoOnAttrNode(anAttrID);
-//#UC END# *986AD64514D6_50112451BECA_impl*
+//#UC END# *553109D90010_50112451BECA_impl*
 end;//TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode
 
 procedure TkwAttrExplorerGotoOnAttrNode.DoDoIt(const aCtx: TtfwContext);
@@ -100,6 +90,11 @@ begin
  GotoOnAttrNode(aCtx, l_aAttrExplorer, l_anAttrID);
 end;//TkwAttrExplorerGotoOnAttrNode.DoDoIt
 
+class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'AttrExplorer:GotoOnAttrNode';
+end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
+
 function TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -115,11 +110,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TAttrExplorer), TypeInfo(TdtAttribute)]);
 end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
 
-class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'AttrExplorer:GotoOnAttrNode';
-end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
-
 class function TAttributeExplorerWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'AttributeExplorerWordsPack';
@@ -132,8 +122,6 @@ initialization
  {* Регистрация AttrExplorer_GotoOnAttrNode }
  TAttributeExplorerWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TAttrExplorer));
  {* Регистрация типа TAttrExplorer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TdtAttribute));

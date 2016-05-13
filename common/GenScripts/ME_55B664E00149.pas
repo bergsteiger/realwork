@@ -27,19 +27,13 @@ uses
  , TypInfo
  , tfwAxiomaticsResNameGetter
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwDocEditorWindowIsNeedSaveDocument = {final} class(TtfwClassLike)
-  {* Слово скрипта DocEditorWindow:IsNeedSaveDocument
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDocEditorWindow DocEditorWindow:IsNeedSaveDocument >>> l_Boolean
-[code]  }
+  {* Слово скрипта DocEditorWindow:IsNeedSaveDocument }
   private
    function IsNeedSaveDocument(const aCtx: TtfwContext;
     aDocEditorWindow: TDocEditorWindow): Boolean;
@@ -62,12 +56,12 @@ BOOLEAN VAR l_Boolean
 function TkwDocEditorWindowIsNeedSaveDocument.IsNeedSaveDocument(const aCtx: TtfwContext;
  aDocEditorWindow: TDocEditorWindow): Boolean;
  {* Реализация слова скрипта DocEditorWindow:IsNeedSaveDocument }
-//#UC START# *632EECFCBB72_1E0CF5C9A3AF_var*
-//#UC END# *632EECFCBB72_1E0CF5C9A3AF_var*
+//#UC START# *55B6651703CB_1E0CF5C9A3AF_var*
+//#UC END# *55B6651703CB_1E0CF5C9A3AF_var*
 begin
-//#UC START# *632EECFCBB72_1E0CF5C9A3AF_impl*
+//#UC START# *55B6651703CB_1E0CF5C9A3AF_impl*
  Result := aDocEditorWindow.IsNeedSaveDocument;
-//#UC END# *632EECFCBB72_1E0CF5C9A3AF_impl*
+//#UC END# *55B6651703CB_1E0CF5C9A3AF_impl*
 end;//TkwDocEditorWindowIsNeedSaveDocument.IsNeedSaveDocument
 
 procedure TkwDocEditorWindowIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
@@ -85,6 +79,11 @@ begin
  aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aDocEditorWindow));
 end;//TkwDocEditorWindowIsNeedSaveDocument.DoDoIt
 
+class function TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'DocEditorWindow:IsNeedSaveDocument';
+end;//TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister
+
 function TkwDocEditorWindowIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -100,11 +99,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TDocEditorWindow)]);
 end;//TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes
 
-class function TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
-begin
- Result := 'DocEditorWindow:IsNeedSaveDocument';
-end;//TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister
-
 class function TarchiDocEditorWindowWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'archiDocEditorWindowWordsPack';
@@ -117,8 +111,6 @@ initialization
  {* Регистрация DocEditorWindow_IsNeedSaveDocument }
  TarchiDocEditorWindowWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TDocEditorWindow));
  {* Регистрация типа TDocEditorWindow }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

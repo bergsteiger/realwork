@@ -647,6 +647,9 @@ uses
  l3ImplUses
  , l3Nodes
  , l3Chars
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3InterfacesMisc
  {$If NOT Defined(NoScripts)}
  , l3NodesKeyWordsPack
@@ -4155,5 +4158,19 @@ begin
  end;
 //#UC END# *54CF9287015D_4ADDE1D8022Fset_impl*
 end;//Tl3DataListItemNode.Set_DataSize
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ESkipIterateChilds));
+ {* Регистрация типа ESkipIterateChilds }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(El3NodeExeption));
+ {* Регистрация типа El3NodeExeption }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(El3InsertDenied));
+ {* Регистрация типа El3InsertDenied }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

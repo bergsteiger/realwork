@@ -32,11 +32,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -138,14 +138,7 @@ type
  end;//Tkw_ContactList_Control_trContactList_Push
 
  TkwContactListFormBackgroundPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContactListForm.BackgroundPanel
-[panel]Контрол BackgroundPanel формы TContactListForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aContactListForm .TContactListForm.BackgroundPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TContactListForm.BackgroundPanel }
   private
    function BackgroundPanel(const aCtx: TtfwContext;
     aContactListForm: TContactListForm): TvtPanel;
@@ -154,22 +147,15 @@ OBJECT VAR l_TvtPanel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContactListFormBackgroundPanel
 
  TkwContactListFormContextFilter = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContactListForm.ContextFilter
-[panel]Контрол ContextFilter формы TContactListForm[panel]
-*Тип результата:* TnscContextFilter
-*Пример:*
-[code]
-OBJECT VAR l_TnscContextFilter
- aContactListForm .TContactListForm.ContextFilter >>> l_TnscContextFilter
-[code]  }
+  {* Слово скрипта .TContactListForm.ContextFilter }
   private
    function ContextFilter(const aCtx: TtfwContext;
     aContactListForm: TContactListForm): TnscContextFilter;
@@ -178,22 +164,15 @@ OBJECT VAR l_TnscContextFilter
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContactListFormContextFilter
 
  TkwContactListFormTrContactList = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TContactListForm.trContactList
-[panel]Контрол trContactList формы TContactListForm[panel]
-*Тип результата:* TeeTreeView
-*Пример:*
-[code]
-OBJECT VAR l_TeeTreeView
- aContactListForm .TContactListForm.trContactList >>> l_TeeTreeView
-[code]  }
+  {* Слово скрипта .TContactListForm.trContactList }
   private
    function trContactList(const aCtx: TtfwContext;
     aContactListForm: TContactListForm): TeeTreeView;
@@ -202,11 +181,11 @@ OBJECT VAR l_TeeTreeView
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwContactListFormTrContactList
 
 function Tkw_Form_ContactList.GetString: AnsiString;
@@ -322,11 +301,10 @@ begin
  aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContactListForm));
 end;//TkwContactListFormBackgroundPanel.DoDoIt
 
-procedure TkwContactListFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContactListFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
-end;//TkwContactListFormBackgroundPanel.SetValuePrim
+ Result := '.TContactListForm.BackgroundPanel';
+end;//TkwContactListFormBackgroundPanel.GetWordNameForRegister
 
 function TkwContactListFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -343,10 +321,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContactListForm)]);
 end;//TkwContactListFormBackgroundPanel.ParamsTypes
 
-class function TkwContactListFormBackgroundPanel.GetWordNameForRegister: AnsiString;
+procedure TkwContactListFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContactListForm.BackgroundPanel';
-end;//TkwContactListFormBackgroundPanel.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
+end;//TkwContactListFormBackgroundPanel.SetValuePrim
 
 function TkwContactListFormContextFilter.ContextFilter(const aCtx: TtfwContext;
  aContactListForm: TContactListForm): TnscContextFilter;
@@ -370,11 +349,10 @@ begin
  aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContactListForm));
 end;//TkwContactListFormContextFilter.DoDoIt
 
-procedure TkwContactListFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContactListFormContextFilter.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
-end;//TkwContactListFormContextFilter.SetValuePrim
+ Result := '.TContactListForm.ContextFilter';
+end;//TkwContactListFormContextFilter.GetWordNameForRegister
 
 function TkwContactListFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -391,10 +369,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContactListForm)]);
 end;//TkwContactListFormContextFilter.ParamsTypes
 
-class function TkwContactListFormContextFilter.GetWordNameForRegister: AnsiString;
+procedure TkwContactListFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContactListForm.ContextFilter';
-end;//TkwContactListFormContextFilter.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
+end;//TkwContactListFormContextFilter.SetValuePrim
 
 function TkwContactListFormTrContactList.trContactList(const aCtx: TtfwContext;
  aContactListForm: TContactListForm): TeeTreeView;
@@ -418,11 +397,10 @@ begin
  aCtx.rEngine.PushObj(trContactList(aCtx, l_aContactListForm));
 end;//TkwContactListFormTrContactList.DoDoIt
 
-procedure TkwContactListFormTrContactList.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwContactListFormTrContactList.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству trContactList', aCtx);
-end;//TkwContactListFormTrContactList.SetValuePrim
+ Result := '.TContactListForm.trContactList';
+end;//TkwContactListFormTrContactList.GetWordNameForRegister
 
 function TkwContactListFormTrContactList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -439,10 +417,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TContactListForm)]);
 end;//TkwContactListFormTrContactList.ParamsTypes
 
-class function TkwContactListFormTrContactList.GetWordNameForRegister: AnsiString;
+procedure TkwContactListFormTrContactList.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TContactListForm.trContactList';
-end;//TkwContactListFormTrContactList.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству trContactList', aCtx);
+end;//TkwContactListFormTrContactList.SetValuePrim
 
 initialization
  Tkw_Form_ContactList.RegisterInEngine;
@@ -465,10 +444,8 @@ initialization
  {* Регистрация ContactListForm_ContextFilter }
  TkwContactListFormTrContactList.RegisterInEngine;
  {* Регистрация ContactListForm_trContactList }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TContactListForm));
- {* Регистрация типа ContactList }
+ {* Регистрация типа TContactListForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));

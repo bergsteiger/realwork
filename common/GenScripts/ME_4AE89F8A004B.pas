@@ -254,22 +254,22 @@ type
    class function Call(const aTarget: IvcmEntity;
     const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean; overload;
+    anOp: TListLogicOperation = LLO_NONE): Boolean; overload;
     {* Вызов операции Loadable.Load у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean; overload;
+    anOp: TListLogicOperation = LLO_NONE): Boolean; overload;
     {* Вызов операции Loadable.Load у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean; overload;
+    anOp: TListLogicOperation = LLO_NONE): Boolean; overload;
     {* Вызов операции Loadable.Load у формы }
    class function Call(const aTarget: IvcmContainer;
     const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean; overload;
+    anOp: TListLogicOperation = LLO_NONE): Boolean; overload;
     {* Вызов операции Loadable.Load у контейнера }
  end;//Op_Loadable_Load
 
@@ -1271,7 +1271,7 @@ end;//TLoadable_Load_Params.ClearFields
 class function Op_Loadable_Load.Call(const aTarget: IvcmEntity;
  const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Вызов операции Loadable.Load у сущности }
 //#UC START# *2AA9C5E3617A_D5342FDC6257_var*
 //#UC END# *2AA9C5E3617A_D5342FDC6257_var*
@@ -1284,7 +1284,7 @@ end;//Op_Loadable_Load.Call
 class function Op_Loadable_Load.Call(const aTarget: IvcmAggregate;
  const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Вызов операции Loadable.Load у агрегации }
 //#UC START# *5AE985D1EBCA_D5342FDC6257_var*
 //#UC END# *5AE985D1EBCA_D5342FDC6257_var*
@@ -1297,7 +1297,7 @@ end;//Op_Loadable_Load.Call
 class function Op_Loadable_Load.Call(const aTarget: IvcmEntityForm;
  const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Вызов операции Loadable.Load у формы }
 //#UC START# *7C79B405A668_D5342FDC6257_var*
 //#UC END# *7C79B405A668_D5342FDC6257_var*
@@ -1310,7 +1310,7 @@ end;//Op_Loadable_Load.Call
 class function Op_Loadable_Load.Call(const aTarget: IvcmContainer;
  const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Вызов операции Loadable.Load у контейнера }
 //#UC START# *D84A269495D4_D5342FDC6257_var*
 //#UC END# *D84A269495D4_D5342FDC6257_var*

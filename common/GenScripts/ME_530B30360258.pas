@@ -19,8 +19,8 @@ uses
 type
  TkwPreview = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwPreview
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -32,6 +32,11 @@ uses
  , arArchiTestAdapter2
 ;
 
+class function TkwPreview.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Preview';
+end;//TkwPreview.GetWordNameForRegister
+
 procedure TkwPreview.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_530B30360258_var*
 //#UC END# *4DAEEDE10285_530B30360258_var*
@@ -40,11 +45,6 @@ begin
  acMakePreview;
 //#UC END# *4DAEEDE10285_530B30360258_impl*
 end;//TkwPreview.DoDoIt
-
-class function TkwPreview.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Preview';
-end;//TkwPreview.GetWordNameForRegister
 
 initialization
  TkwPreview.RegisterInEngine;

@@ -478,6 +478,9 @@ uses
  , kwOperationsRegistrar
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , VCMWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , vcmEntitiesDefIteratorForContextMenu
@@ -2952,10 +2955,18 @@ end;//TvcmBaseMenuManager.FillPopupMenu
 //#UC END# *52A1F4A201F9impl*
 
 initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmBaseMenuManagerPrim);
+ {* Регистрация TvcmBaseMenuManagerPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoVCL)}
  Tl3PopupMenuHelper.Instance.Alien := TvcmPopupMenuHelper.Instance;
 {$IfEnd} // NOT Defined(NoVCL)
  {* Регистрация TvcmPopupMenuHelper }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmBaseMenuManager);
+ {* Регистрация TvcmBaseMenuManager }
+{$IfEnd} // NOT Defined(NoScripts)
 //#UC START# *52A1F92402C1*
  g_MenuManager := nil;
  g_ShortcutProcessingEnabled := False;

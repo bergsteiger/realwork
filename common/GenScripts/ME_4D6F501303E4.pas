@@ -18,10 +18,10 @@ uses
  {$If Defined(evNeedPainters)}
  , evDelayedPaintersSpy
  {$IfEnd} // Defined(evNeedPainters)
+ , Types
  {$If NOT Defined(NoVCM)}
  , PrimTextLoad_Form
  {$IfEnd} // NOT Defined(NoVCM)
- , Types
  , nevTools
  , evCustomEditorWindow
 ;

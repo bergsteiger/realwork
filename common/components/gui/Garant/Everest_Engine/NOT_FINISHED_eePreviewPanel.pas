@@ -34,5 +34,9 @@ initialization
  TtfwClassRef.Register(TeeCustomPreviewPanel);
  {* Регистрация TeeCustomPreviewPanel }
 {$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TeePreviewPanel);
+ {* Регистрация TeePreviewPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

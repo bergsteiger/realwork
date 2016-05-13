@@ -26,17 +26,13 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwPopParserExPushString = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ParserEx:PushString
-*Пример:*
-[code]
- aString aParserEx pop:ParserEx:PushString
-[code]  }
+  {* Слово скрипта pop:ParserEx:PushString }
   private
    procedure PushString(const aCtx: TtfwContext;
     const aParserEx: ItfwParserEx;
@@ -52,11 +48,7 @@ type
  end;//TkwPopParserExPushString
 
  TkwPopParserExPushSymbol = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ParserEx:PushSymbol
-*Пример:*
-[code]
- aString aParserEx pop:ParserEx:PushSymbol
-[code]  }
+  {* Слово скрипта pop:ParserEx:PushSymbol }
   private
    procedure PushSymbol(const aCtx: TtfwContext;
     const aParserEx: ItfwParserEx;
@@ -72,11 +64,7 @@ type
  end;//TkwPopParserExPushSymbol
 
  TkwPopParserExPushInt = {final} class(TtfwClassLike)
-  {* Слово скрипта pop:ParserEx:PushInt
-*Пример:*
-[code]
- aValue aParserEx pop:ParserEx:PushInt
-[code]  }
+  {* Слово скрипта pop:ParserEx:PushInt }
   private
    procedure PushInt(const aCtx: TtfwContext;
     const aParserEx: ItfwParserEx;
@@ -124,6 +112,11 @@ begin
  PushString(aCtx, l_aParserEx, l_aString);
 end;//TkwPopParserExPushString.DoDoIt
 
+class function TkwPopParserExPushString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ParserEx:PushString';
+end;//TkwPopParserExPushString.GetWordNameForRegister
+
 function TkwPopParserExPushString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -138,11 +131,6 @@ function TkwPopParserExPushString.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), @tfw_tiString]);
 end;//TkwPopParserExPushString.ParamsTypes
-
-class function TkwPopParserExPushString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ParserEx:PushString';
-end;//TkwPopParserExPushString.GetWordNameForRegister
 
 procedure TkwPopParserExPushSymbol.PushSymbol(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
@@ -177,6 +165,11 @@ begin
  PushSymbol(aCtx, l_aParserEx, l_aString);
 end;//TkwPopParserExPushSymbol.DoDoIt
 
+class function TkwPopParserExPushSymbol.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ParserEx:PushSymbol';
+end;//TkwPopParserExPushSymbol.GetWordNameForRegister
+
 function TkwPopParserExPushSymbol.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -191,11 +184,6 @@ function TkwPopParserExPushSymbol.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), @tfw_tiString]);
 end;//TkwPopParserExPushSymbol.ParamsTypes
-
-class function TkwPopParserExPushSymbol.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ParserEx:PushSymbol';
-end;//TkwPopParserExPushSymbol.GetWordNameForRegister
 
 procedure TkwPopParserExPushInt.PushInt(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
@@ -230,6 +218,11 @@ begin
  PushInt(aCtx, l_aParserEx, l_aValue);
 end;//TkwPopParserExPushInt.DoDoIt
 
+class function TkwPopParserExPushInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ParserEx:PushInt';
+end;//TkwPopParserExPushInt.GetWordNameForRegister
+
 function TkwPopParserExPushInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -245,11 +238,6 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), TypeInfo(Integer)]);
 end;//TkwPopParserExPushInt.ParamsTypes
 
-class function TkwPopParserExPushInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ParserEx:PushInt';
-end;//TkwPopParserExPushInt.GetWordNameForRegister
-
 initialization
  TkwPopParserExPushString.RegisterInEngine;
  {* Регистрация pop_ParserEx_PushString }
@@ -257,8 +245,6 @@ initialization
  {* Регистрация pop_ParserEx_PushSymbol }
  TkwPopParserExPushInt.RegisterInEngine;
  {* Регистрация pop_ParserEx_PushInt }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwParserEx));
  {* Регистрация типа ItfwParserEx }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

@@ -31,11 +31,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -109,14 +109,7 @@ type
  end;//Tkw_GroupProperty_Control_Label1_Push
 
  TkwEfGroupPropertyEdName = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefGroupProperty.edName
-[panel]Контрол edName формы TefGroupProperty[panel]
-*Тип результата:* TnscEdit
-*Пример:*
-[code]
-OBJECT VAR l_TnscEdit
- aefGroupProperty .TefGroupProperty.edName >>> l_TnscEdit
-[code]  }
+  {* Слово скрипта .TefGroupProperty.edName }
   private
    function edName(const aCtx: TtfwContext;
     aefGroupProperty: TefGroupProperty): TnscEdit;
@@ -125,22 +118,15 @@ OBJECT VAR l_TnscEdit
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfGroupPropertyEdName
 
  TkwEfGroupPropertyLabel1 = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TefGroupProperty.Label1
-[panel]Контрол Label1 формы TefGroupProperty[panel]
-*Тип результата:* TvtLabel
-*Пример:*
-[code]
-OBJECT VAR l_TvtLabel
- aefGroupProperty .TefGroupProperty.Label1 >>> l_TvtLabel
-[code]  }
+  {* Слово скрипта .TefGroupProperty.Label1 }
   private
    function Label1(const aCtx: TtfwContext;
     aefGroupProperty: TefGroupProperty): TvtLabel;
@@ -149,11 +135,11 @@ OBJECT VAR l_TvtLabel
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwEfGroupPropertyLabel1
 
 function Tkw_Form_GroupProperty.GetString: AnsiString;
@@ -242,11 +228,10 @@ begin
  aCtx.rEngine.PushObj(edName(aCtx, l_aefGroupProperty));
 end;//TkwEfGroupPropertyEdName.DoDoIt
 
-procedure TkwEfGroupPropertyEdName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfGroupPropertyEdName.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству edName', aCtx);
-end;//TkwEfGroupPropertyEdName.SetValuePrim
+ Result := '.TefGroupProperty.edName';
+end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
 
 function TkwEfGroupPropertyEdName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -263,10 +248,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupProperty)]);
 end;//TkwEfGroupPropertyEdName.ParamsTypes
 
-class function TkwEfGroupPropertyEdName.GetWordNameForRegister: AnsiString;
+procedure TkwEfGroupPropertyEdName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefGroupProperty.edName';
-end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству edName', aCtx);
+end;//TkwEfGroupPropertyEdName.SetValuePrim
 
 function TkwEfGroupPropertyLabel1.Label1(const aCtx: TtfwContext;
  aefGroupProperty: TefGroupProperty): TvtLabel;
@@ -290,11 +276,10 @@ begin
  aCtx.rEngine.PushObj(Label1(aCtx, l_aefGroupProperty));
 end;//TkwEfGroupPropertyLabel1.DoDoIt
 
-procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwEfGroupPropertyLabel1.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
-end;//TkwEfGroupPropertyLabel1.SetValuePrim
+ Result := '.TefGroupProperty.Label1';
+end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
 
 function TkwEfGroupPropertyLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -311,10 +296,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TefGroupProperty)]);
 end;//TkwEfGroupPropertyLabel1.ParamsTypes
 
-class function TkwEfGroupPropertyLabel1.GetWordNameForRegister: AnsiString;
+procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TefGroupProperty.Label1';
-end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
+end;//TkwEfGroupPropertyLabel1.SetValuePrim
 
 initialization
  Tkw_Form_GroupProperty.RegisterInEngine;
@@ -331,10 +317,8 @@ initialization
  {* Регистрация efGroupProperty_edName }
  TkwEfGroupPropertyLabel1.RegisterInEngine;
  {* Регистрация efGroupProperty_Label1 }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefGroupProperty));
- {* Регистрация типа GroupProperty }
+ {* Регистрация типа TefGroupProperty }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEdit));
  {* Регистрация типа TnscEdit }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));

@@ -21,7 +21,7 @@ uses
  l3ImplUses
  , kwFORWARD
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)

@@ -19,8 +19,8 @@ uses
  , ddTextSegment
  , k2Interfaces
  , rtfListTable
- , ddTypes
  , ddCustomDestination
+ , ddTypes
  , l3ProtoObject
 ;
 

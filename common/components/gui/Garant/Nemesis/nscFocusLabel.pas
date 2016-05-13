@@ -49,6 +49,9 @@ implementation
 uses
  l3ImplUses
  , Windows
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TnscFocusLabel.pm_SetAllowTrucking(aValue: Boolean);
@@ -151,6 +154,12 @@ begin
  Result := False;
 //#UC END# *4C03EAB40015_4B6019A601D8_impl*
 end;//TnscFocusLabel.AllowTranslateReturn
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TnscFocusLabel);
+ {* Регистрация TnscFocusLabel }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 
 end.

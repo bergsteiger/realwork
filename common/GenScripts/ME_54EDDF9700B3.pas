@@ -37,19 +37,13 @@ uses
  , k2OpMisc
  , k2Facade
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
 type
  TkwParaBoolA = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:BoolA
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTag aPara Para:BoolA >>> l_Boolean
-[code]  }
+  {* Слово скрипта Para:BoolA }
   private
    function BoolA(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -65,11 +59,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwParaBoolA
 
  TkwParaBoolW = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:BoolW
-*Пример:*
-[code]
- aTag aValue anEditor aPara Para:BoolW
-[code]  }
+  {* Слово скрипта Para:BoolW }
   private
    procedure BoolW(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -87,13 +77,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwParaBoolW
 
  TkwParaGetParent = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:GetParent
-*Тип результата:* InevPara
-*Пример:*
-[code]
-INTERFACE VAR l_InevPara
- aPara Para:GetParent >>> l_InevPara
-[code]  }
+  {* Слово скрипта Para:GetParent }
   private
    function GetParent(const aCtx: TtfwContext;
     const aPara: InevPara): InevPara;
@@ -108,13 +92,7 @@ INTERFACE VAR l_InevPara
  end;//TkwParaGetParent
 
  TkwParaGetType = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:GetType
-*Тип результата:* Tl3VariantDef
-*Пример:*
-[code]
-OBJECT VAR l_Tl3VariantDef
- aPara Para:GetType >>> l_Tl3VariantDef
-[code]  }
+  {* Слово скрипта Para:GetType }
   private
    function GetType(const aCtx: TtfwContext;
     const aPara: InevPara): Tl3VariantDef;
@@ -129,13 +107,7 @@ OBJECT VAR l_Tl3VariantDef
  end;//TkwParaGetType
 
  TkwParaIntA = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:IntA
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aTag aPara Para:IntA >>> l_Integer
-[code]  }
+  {* Слово скрипта Para:IntA }
   private
    function IntA(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -151,11 +123,7 @@ INTEGER VAR l_Integer
  end;//TkwParaIntA
 
  TkwParaIntW = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:IntW
-*Пример:*
-[code]
- aTag aValue anEditor aPara Para:IntW
-[code]  }
+  {* Слово скрипта Para:IntW }
   private
    procedure IntW(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -173,13 +141,7 @@ INTEGER VAR l_Integer
  end;//TkwParaIntW
 
  TkwParaIsSame = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:IsSame
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOther aPara Para:IsSame >>> l_Boolean
-[code]  }
+  {* Слово скрипта Para:IsSame }
   private
    function IsSame(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -195,13 +157,7 @@ BOOLEAN VAR l_Boolean
  end;//TkwParaIsSame
 
  TkwParaStrA = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:StrA
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aTag aPara Para:StrA >>> l_Tl3WString
-[code]  }
+  {* Слово скрипта Para:StrA }
   private
    function StrA(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -217,13 +173,7 @@ STRING VAR l_Tl3WString
  end;//TkwParaStrA
 
  TkwParaStyleName = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:StyleName
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aPara Para:StyleName >>> l_Tl3WString
-[code]  }
+  {* Слово скрипта Para:StyleName }
   private
    function StyleName(const aCtx: TtfwContext;
     const aPara: InevPara): Tl3WString;
@@ -238,13 +188,7 @@ STRING VAR l_Tl3WString
  end;//TkwParaStyleName
 
  TkwParaText = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:Text
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aPara Para:Text >>> l_Tl3WString
-[code]  }
+  {* Слово скрипта Para:Text }
   private
    function Text(const aCtx: TtfwContext;
     const aPara: InevPara): Tl3WString;
@@ -259,13 +203,7 @@ STRING VAR l_Tl3WString
  end;//TkwParaText
 
  TkwParaTypeInherits = {final} class(TtfwClassLike)
-  {* Слово скрипта Para:Type:Inherits
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTypeID aPara Para:Type:Inherits >>> l_Boolean
-[code]  }
+  {* Слово скрипта Para:Type:Inherits }
   private
    function Type_Inherits(const aCtx: TtfwContext;
     const aPara: InevPara;
@@ -290,12 +228,12 @@ function TkwParaBoolA.BoolA(const aCtx: TtfwContext;
  const aPara: InevPara;
  aTag: Integer): Boolean;
  {* Реализация слова скрипта Para:BoolA }
-//#UC START# *813358A7CF85_73A41501B720_var*
-//#UC END# *813358A7CF85_73A41501B720_var*
+//#UC START# *5530ED2E028D_73A41501B720_var*
+//#UC END# *5530ED2E028D_73A41501B720_var*
 begin
-//#UC START# *813358A7CF85_73A41501B720_impl*
+//#UC START# *5530ED2E028D_73A41501B720_impl*
  Result := aPara.AsObject.BoolA[aTag];
-//#UC END# *813358A7CF85_73A41501B720_impl*
+//#UC END# *5530ED2E028D_73A41501B720_impl*
 end;//TkwParaBoolA.BoolA
 
 procedure TkwParaBoolA.DoDoIt(const aCtx: TtfwContext);
@@ -323,6 +261,11 @@ begin
  aCtx.rEngine.PushBool(BoolA(aCtx, l_aPara, l_aTag));
 end;//TkwParaBoolA.DoDoIt
 
+class function TkwParaBoolA.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:BoolA';
+end;//TkwParaBoolA.GetWordNameForRegister
+
 function TkwParaBoolA.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -338,23 +281,18 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaBoolA.ParamsTypes
 
-class function TkwParaBoolA.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:BoolA';
-end;//TkwParaBoolA.GetWordNameForRegister
-
 procedure TkwParaBoolW.BoolW(const aCtx: TtfwContext;
  const aPara: InevPara;
  anEditor: TevCustomEditorWindow;
  aValue: Boolean;
  aTag: Integer);
  {* Реализация слова скрипта Para:BoolW }
-//#UC START# *FA63F0F0EFEE_7DB044DC9B24_var*
-//#UC END# *FA63F0F0EFEE_7DB044DC9B24_var*
+//#UC START# *5530ED5401C7_7DB044DC9B24_var*
+//#UC END# *5530ED5401C7_7DB044DC9B24_var*
 begin
-//#UC START# *FA63F0F0EFEE_7DB044DC9B24_impl*
+//#UC START# *5530ED5401C7_7DB044DC9B24_impl*
  aPara.AsObject.BoolW[aTag, k2StartOp(anEditor.View.Processor)] := aValue;
-//#UC END# *FA63F0F0EFEE_7DB044DC9B24_impl*
+//#UC END# *5530ED5401C7_7DB044DC9B24_impl*
 end;//TkwParaBoolW.BoolW
 
 procedure TkwParaBoolW.DoDoIt(const aCtx: TtfwContext);
@@ -402,6 +340,11 @@ begin
  BoolW(aCtx, l_aPara, l_anEditor, l_aValue, l_aTag);
 end;//TkwParaBoolW.DoDoIt
 
+class function TkwParaBoolW.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:BoolW';
+end;//TkwParaBoolW.GetWordNameForRegister
+
 function TkwParaBoolW.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -417,20 +360,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean), TypeInfo(Integer)]);
 end;//TkwParaBoolW.ParamsTypes
 
-class function TkwParaBoolW.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:BoolW';
-end;//TkwParaBoolW.GetWordNameForRegister
-
 function TkwParaGetParent.GetParent(const aCtx: TtfwContext;
  const aPara: InevPara): InevPara;
  {* Реализация слова скрипта Para:GetParent }
-//#UC START# *CDCE3FA90D6B_8E4CB03D8918_var*
-//#UC END# *CDCE3FA90D6B_8E4CB03D8918_var*
+//#UC START# *5530EDE9010F_8E4CB03D8918_var*
+//#UC END# *5530EDE9010F_8E4CB03D8918_var*
 begin
-//#UC START# *CDCE3FA90D6B_8E4CB03D8918_impl*
+//#UC START# *5530EDE9010F_8E4CB03D8918_impl*
  Result := aPara.OwnerObj.AsPara;
-//#UC END# *CDCE3FA90D6B_8E4CB03D8918_impl*
+//#UC END# *5530EDE9010F_8E4CB03D8918_impl*
 end;//TkwParaGetParent.GetParent
 
 procedure TkwParaGetParent.DoDoIt(const aCtx: TtfwContext);
@@ -448,6 +386,11 @@ begin
  aCtx.rEngine.PushIntf(GetParent(aCtx, l_aPara), TypeInfo(InevPara));
 end;//TkwParaGetParent.DoDoIt
 
+class function TkwParaGetParent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:GetParent';
+end;//TkwParaGetParent.GetWordNameForRegister
+
 function TkwParaGetParent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(InevPara);
@@ -463,20 +406,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaGetParent.ParamsTypes
 
-class function TkwParaGetParent.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:GetParent';
-end;//TkwParaGetParent.GetWordNameForRegister
-
 function TkwParaGetType.GetType(const aCtx: TtfwContext;
  const aPara: InevPara): Tl3VariantDef;
  {* Реализация слова скрипта Para:GetType }
-//#UC START# *45DC1815EB7A_1F1556695E5E_var*
-//#UC END# *45DC1815EB7A_1F1556695E5E_var*
+//#UC START# *5530EE040111_1F1556695E5E_var*
+//#UC END# *5530EE040111_1F1556695E5E_var*
 begin
-//#UC START# *45DC1815EB7A_1F1556695E5E_impl*
+//#UC START# *5530EE040111_1F1556695E5E_impl*
  Result := aPara.AsObject.TagType;
-//#UC END# *45DC1815EB7A_1F1556695E5E_impl*
+//#UC END# *5530EE040111_1F1556695E5E_impl*
 end;//TkwParaGetType.GetType
 
 procedure TkwParaGetType.DoDoIt(const aCtx: TtfwContext);
@@ -494,6 +432,11 @@ begin
  aCtx.rEngine.PushObj(GetType(aCtx, l_aPara));
 end;//TkwParaGetType.DoDoIt
 
+class function TkwParaGetType.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:GetType';
+end;//TkwParaGetType.GetWordNameForRegister
+
 function TkwParaGetType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Tl3VariantDef);
@@ -509,21 +452,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaGetType.ParamsTypes
 
-class function TkwParaGetType.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:GetType';
-end;//TkwParaGetType.GetWordNameForRegister
-
 function TkwParaIntA.IntA(const aCtx: TtfwContext;
  const aPara: InevPara;
  aTag: Integer): Integer;
  {* Реализация слова скрипта Para:IntA }
-//#UC START# *F1D0FBBB4A2A_87CE9706F506_var*
-//#UC END# *F1D0FBBB4A2A_87CE9706F506_var*
+//#UC START# *5530EE3D0010_87CE9706F506_var*
+//#UC END# *5530EE3D0010_87CE9706F506_var*
 begin
-//#UC START# *F1D0FBBB4A2A_87CE9706F506_impl*
+//#UC START# *5530EE3D0010_87CE9706F506_impl*
  Result := aPara.AsObject.IntA[aTag];
-//#UC END# *F1D0FBBB4A2A_87CE9706F506_impl*
+//#UC END# *5530EE3D0010_87CE9706F506_impl*
 end;//TkwParaIntA.IntA
 
 procedure TkwParaIntA.DoDoIt(const aCtx: TtfwContext);
@@ -551,6 +489,11 @@ begin
  aCtx.rEngine.PushInt(IntA(aCtx, l_aPara, l_aTag));
 end;//TkwParaIntA.DoDoIt
 
+class function TkwParaIntA.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:IntA';
+end;//TkwParaIntA.GetWordNameForRegister
+
 function TkwParaIntA.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Integer);
@@ -566,23 +509,18 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaIntA.ParamsTypes
 
-class function TkwParaIntA.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:IntA';
-end;//TkwParaIntA.GetWordNameForRegister
-
 procedure TkwParaIntW.IntW(const aCtx: TtfwContext;
  const aPara: InevPara;
  anEditor: TevCustomEditorWindow;
  aValue: Integer;
  aTag: Integer);
  {* Реализация слова скрипта Para:IntW }
-//#UC START# *79467BAD33FB_9C157259C948_var*
-//#UC END# *79467BAD33FB_9C157259C948_var*
+//#UC START# *5530EE75004D_9C157259C948_var*
+//#UC END# *5530EE75004D_9C157259C948_var*
 begin
-//#UC START# *79467BAD33FB_9C157259C948_impl*
+//#UC START# *5530EE75004D_9C157259C948_impl*
  aPara.AsObject.IntW[aTag, k2StartOp(anEditor.View.Processor)] := aValue;
-//#UC END# *79467BAD33FB_9C157259C948_impl*
+//#UC END# *5530EE75004D_9C157259C948_impl*
 end;//TkwParaIntW.IntW
 
 procedure TkwParaIntW.DoDoIt(const aCtx: TtfwContext);
@@ -630,6 +568,11 @@ begin
  IntW(aCtx, l_aPara, l_anEditor, l_aValue, l_aTag);
 end;//TkwParaIntW.DoDoIt
 
+class function TkwParaIntW.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:IntW';
+end;//TkwParaIntW.GetWordNameForRegister
+
 function TkwParaIntW.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiVoid;
@@ -645,21 +588,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(TevCustomEditorWindow), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwParaIntW.ParamsTypes
 
-class function TkwParaIntW.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:IntW';
-end;//TkwParaIntW.GetWordNameForRegister
-
 function TkwParaIsSame.IsSame(const aCtx: TtfwContext;
  const aPara: InevPara;
  const anOther: InevPara): Boolean;
  {* Реализация слова скрипта Para:IsSame }
-//#UC START# *135EE191EC2B_FD4CFCA9A1DA_var*
-//#UC END# *135EE191EC2B_FD4CFCA9A1DA_var*
+//#UC START# *5530EE9C03D7_FD4CFCA9A1DA_var*
+//#UC END# *5530EE9C03D7_FD4CFCA9A1DA_var*
 begin
-//#UC START# *135EE191EC2B_FD4CFCA9A1DA_impl*
+//#UC START# *5530EE9C03D7_FD4CFCA9A1DA_impl*
  Result := anOther.AsObject.IsSame(aPara.AsObject);
-//#UC END# *135EE191EC2B_FD4CFCA9A1DA_impl*
+//#UC END# *5530EE9C03D7_FD4CFCA9A1DA_impl*
 end;//TkwParaIsSame.IsSame
 
 procedure TkwParaIsSame.DoDoIt(const aCtx: TtfwContext);
@@ -687,6 +625,11 @@ begin
  aCtx.rEngine.PushBool(IsSame(aCtx, l_aPara, l_anOther));
 end;//TkwParaIsSame.DoDoIt
 
+class function TkwParaIsSame.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:IsSame';
+end;//TkwParaIsSame.GetWordNameForRegister
+
 function TkwParaIsSame.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -702,21 +645,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(InevPara)]);
 end;//TkwParaIsSame.ParamsTypes
 
-class function TkwParaIsSame.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:IsSame';
-end;//TkwParaIsSame.GetWordNameForRegister
-
 function TkwParaStrA.StrA(const aCtx: TtfwContext;
  const aPara: InevPara;
  aTag: Integer): Tl3WString;
  {* Реализация слова скрипта Para:StrA }
-//#UC START# *B475DB5CB51E_A38F9F2F9E00_var*
-//#UC END# *B475DB5CB51E_A38F9F2F9E00_var*
+//#UC START# *5530EECD0214_A38F9F2F9E00_var*
+//#UC END# *5530EECD0214_A38F9F2F9E00_var*
 begin
-//#UC START# *B475DB5CB51E_A38F9F2F9E00_impl*
+//#UC START# *5530EECD0214_A38F9F2F9E00_impl*
  Result := aPara.AsObject.PCharLenA[aTag];
-//#UC END# *B475DB5CB51E_A38F9F2F9E00_impl*
+//#UC END# *5530EECD0214_A38F9F2F9E00_impl*
 end;//TkwParaStrA.StrA
 
 procedure TkwParaStrA.DoDoIt(const aCtx: TtfwContext);
@@ -744,6 +682,11 @@ begin
  aCtx.rEngine.PushString(StrA(aCtx, l_aPara, l_aTag));
 end;//TkwParaStrA.DoDoIt
 
+class function TkwParaStrA.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:StrA';
+end;//TkwParaStrA.GetWordNameForRegister
+
 function TkwParaStrA.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -759,20 +702,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaStrA.ParamsTypes
 
-class function TkwParaStrA.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:StrA';
-end;//TkwParaStrA.GetWordNameForRegister
-
 function TkwParaStyleName.StyleName(const aCtx: TtfwContext;
  const aPara: InevPara): Tl3WString;
  {* Реализация слова скрипта Para:StyleName }
-//#UC START# *6DC250CE244B_6834305B1C71_var*
-//#UC END# *6DC250CE244B_6834305B1C71_var*
+//#UC START# *5530EF10025B_6834305B1C71_var*
+//#UC END# *5530EF10025B_6834305B1C71_var*
 begin
-//#UC START# *6DC250CE244B_6834305B1C71_impl*
+//#UC START# *5530EF10025B_6834305B1C71_impl*
  Result := aPara.AsObject.PCharLenA[k2_tiStyle];
-//#UC END# *6DC250CE244B_6834305B1C71_impl*
+//#UC END# *5530EF10025B_6834305B1C71_impl*
 end;//TkwParaStyleName.StyleName
 
 procedure TkwParaStyleName.DoDoIt(const aCtx: TtfwContext);
@@ -790,6 +728,11 @@ begin
  aCtx.rEngine.PushString(StyleName(aCtx, l_aPara));
 end;//TkwParaStyleName.DoDoIt
 
+class function TkwParaStyleName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:StyleName';
+end;//TkwParaStyleName.GetWordNameForRegister
+
 function TkwParaStyleName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -805,20 +748,15 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaStyleName.ParamsTypes
 
-class function TkwParaStyleName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:StyleName';
-end;//TkwParaStyleName.GetWordNameForRegister
-
 function TkwParaText.Text(const aCtx: TtfwContext;
  const aPara: InevPara): Tl3WString;
  {* Реализация слова скрипта Para:Text }
-//#UC START# *AF0DB87C1E22_742EC299532F_var*
-//#UC END# *AF0DB87C1E22_742EC299532F_var*
+//#UC START# *5530EF280204_742EC299532F_var*
+//#UC END# *5530EF280204_742EC299532F_var*
 begin
-//#UC START# *AF0DB87C1E22_742EC299532F_impl*
+//#UC START# *5530EF280204_742EC299532F_impl*
  Result := aPara.AsObject.PCharLenA[k2_tiText];
-//#UC END# *AF0DB87C1E22_742EC299532F_impl*
+//#UC END# *5530EF280204_742EC299532F_impl*
 end;//TkwParaText.Text
 
 procedure TkwParaText.DoDoIt(const aCtx: TtfwContext);
@@ -836,6 +774,11 @@ begin
  aCtx.rEngine.PushString(Text(aCtx, l_aPara));
 end;//TkwParaText.DoDoIt
 
+class function TkwParaText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:Text';
+end;//TkwParaText.GetWordNameForRegister
+
 function TkwParaText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := @tfw_tiString;
@@ -851,21 +794,16 @@ begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaText.ParamsTypes
 
-class function TkwParaText.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:Text';
-end;//TkwParaText.GetWordNameForRegister
-
 function TkwParaTypeInherits.Type_Inherits(const aCtx: TtfwContext;
  const aPara: InevPara;
  aTypeID: Integer): Boolean;
  {* Реализация слова скрипта Para:Type:Inherits }
-//#UC START# *E7A7AF07EE52_E16D3A553EA8_var*
-//#UC END# *E7A7AF07EE52_E16D3A553EA8_var*
+//#UC START# *5530EF480281_E16D3A553EA8_var*
+//#UC END# *5530EF480281_E16D3A553EA8_var*
 begin
-//#UC START# *E7A7AF07EE52_E16D3A553EA8_impl*
+//#UC START# *5530EF480281_E16D3A553EA8_impl*
  Result := aPara.AsObject.IsKindOf(k2.TypeTable.TypeByHandle[aTypeID]);
-//#UC END# *E7A7AF07EE52_E16D3A553EA8_impl*
+//#UC END# *5530EF480281_E16D3A553EA8_impl*
 end;//TkwParaTypeInherits.Type_Inherits
 
 procedure TkwParaTypeInherits.DoDoIt(const aCtx: TtfwContext);
@@ -893,6 +831,11 @@ begin
  aCtx.rEngine.PushBool(Type_Inherits(aCtx, l_aPara, l_aTypeID));
 end;//TkwParaTypeInherits.DoDoIt
 
+class function TkwParaTypeInherits.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Para:Type:Inherits';
+end;//TkwParaTypeInherits.GetWordNameForRegister
+
 function TkwParaTypeInherits.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
  Result := TypeInfo(Boolean);
@@ -907,11 +850,6 @@ function TkwParaTypeInherits.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaTypeInherits.ParamsTypes
-
-class function TkwParaTypeInherits.GetWordNameForRegister: AnsiString;
-begin
- Result := 'Para:Type:Inherits';
-end;//TkwParaTypeInherits.GetWordNameForRegister
 
 class function TevParaWordsPackResNameGetter.ResName: AnsiString;
 begin
@@ -945,20 +883,18 @@ initialization
  {* Регистрация Para_Type_Inherits }
  TevParaWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(InevPara));
  {* Регистрация типа InevPara }
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
- {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditorWindow));
- {* Регистрация типа TevCustomEditorWindow }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Tl3VariantDef));
  {* Регистрация типа Tl3VariantDef }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Tl3WString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditorWindow));
+ {* Регистрация типа TevCustomEditorWindow }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

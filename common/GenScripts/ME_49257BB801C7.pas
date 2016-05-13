@@ -22,7 +22,7 @@ uses
  , DocumentUnit
  , DocumentInterfaces
  , PreviewInterfaces
- , nsTypes
+ , nsTypesNew
  , TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ExtCtrls

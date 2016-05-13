@@ -12,10 +12,10 @@ uses
  l3IntfUses
  , ddRTFdestination
  , rtfListTable
+ , ddCustomRTFReader
  , ddRTFState
  , RTFtypes
  , l3Base
- , ddCustomRTFReader
 ;
 
 type

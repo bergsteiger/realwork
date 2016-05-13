@@ -30,11 +30,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , tfwScriptingInterfaces
  , tfwPropertyLike
- , tfwTypeInfo
  , TypInfo
+ , tfwTypeInfo
  , TtfwClassRef_Proxy
  , SysUtils
- , tfwTypeRegistrator
+ , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
 ;
 
@@ -122,11 +122,11 @@ OBJECT VAR l_TevEditor
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextLoadFormText
 
  TkwTextLoadFormTextSource = {final} class(TtfwPropertyLike)
@@ -146,11 +146,11 @@ OBJECT VAR l_TevTextSource
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextLoadFormTextSource
 
  TkwTextLoadFormLoadManager = {final} class(TtfwPropertyLike)
@@ -170,11 +170,11 @@ OBJECT VAR l_TevLoadDocumentManager
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
   public
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TkwTextLoadFormLoadManager
 
 function Tkw_Form_TextLoad.GetString: AnsiString;
@@ -268,11 +268,10 @@ begin
  aCtx.rEngine.PushObj(Text(aCtx, l_aTextLoadForm));
 end;//TkwTextLoadFormText.DoDoIt
 
-procedure TkwTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextLoadFormText.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
-end;//TkwTextLoadFormText.SetValuePrim
+ Result := '.TTextLoadForm.Text';
+end;//TkwTextLoadFormText.GetWordNameForRegister
 
 function TkwTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -289,10 +288,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextLoadForm)]);
 end;//TkwTextLoadFormText.ParamsTypes
 
-class function TkwTextLoadFormText.GetWordNameForRegister: AnsiString;
+procedure TkwTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextLoadForm.Text';
-end;//TkwTextLoadFormText.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
+end;//TkwTextLoadFormText.SetValuePrim
 
 function TkwTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
  aTextLoadForm: TTextLoadForm): TevTextSource;
@@ -316,11 +316,10 @@ begin
  aCtx.rEngine.PushObj(TextSource(aCtx, l_aTextLoadForm));
 end;//TkwTextLoadFormTextSource.DoDoIt
 
-procedure TkwTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
-end;//TkwTextLoadFormTextSource.SetValuePrim
+ Result := '.TTextLoadForm.TextSource';
+end;//TkwTextLoadFormTextSource.GetWordNameForRegister
 
 function TkwTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -337,10 +336,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextLoadForm)]);
 end;//TkwTextLoadFormTextSource.ParamsTypes
 
-class function TkwTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
+procedure TkwTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextLoadForm.TextSource';
-end;//TkwTextLoadFormTextSource.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
+end;//TkwTextLoadFormTextSource.SetValuePrim
 
 function TkwTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aTextLoadForm: TTextLoadForm): TevLoadDocumentManager;
@@ -364,11 +364,10 @@ begin
  aCtx.rEngine.PushObj(LoadManager(aCtx, l_aTextLoadForm));
 end;//TkwTextLoadFormLoadManager.DoDoIt
 
-procedure TkwTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
+class function TkwTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
-end;//TkwTextLoadFormLoadManager.SetValuePrim
+ Result := '.TTextLoadForm.LoadManager';
+end;//TkwTextLoadFormLoadManager.GetWordNameForRegister
 
 function TkwTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
@@ -385,10 +384,11 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TTextLoadForm)]);
 end;//TkwTextLoadFormLoadManager.ParamsTypes
 
-class function TkwTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
+procedure TkwTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
 begin
- Result := '.TTextLoadForm.LoadManager';
-end;//TkwTextLoadFormLoadManager.GetWordNameForRegister
+ RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
+end;//TkwTextLoadFormLoadManager.SetValuePrim
 
 initialization
  Tkw_Form_TextLoad.RegisterInEngine;
@@ -407,10 +407,8 @@ initialization
  {* Регистрация TextLoadForm_TextSource }
  TkwTextLoadFormLoadManager.RegisterInEngine;
  {* Регистрация TextLoadForm_LoadManager }
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
- {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTextLoadForm));
- {* Регистрация типа TextLoad }
+ {* Регистрация типа TTextLoadForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevEditor));
  {* Регистрация типа TevEditor }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevTextSource));

@@ -21,8 +21,8 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  , ConfigInterfaces
- , Classes
  , ddAppConfigConst
+ , Classes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -297,6 +297,12 @@ uses
  l3ImplUses
  , nsAppConfigRes
  , nsConfigurationProperties
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , afwSettingsChangePublisher
 ;
@@ -980,6 +986,20 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53A0448D00B6_53A0441300B9_impl*
 end;//TstgVersionCommentLinkBehaviour.Create
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(EDuplicateConfName);
+ {* Регистрация EDuplicateConfName }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ECRSettingsAreEqual));
+ {* Регистрация типа ECRSettingsAreEqual }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EConfigNotSaved));
+ {* Регистрация типа EConfigNotSaved }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

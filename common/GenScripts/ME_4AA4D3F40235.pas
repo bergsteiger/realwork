@@ -42,6 +42,7 @@ uses
  , FoldersDomainInterfaces
  , FiltersUnit
  , DocumentAndListInterfaces
+ , nsTypesNew
  , nsTypes
  , bsTypesNew
  , ListUserTypes_lftDrugList_UserType

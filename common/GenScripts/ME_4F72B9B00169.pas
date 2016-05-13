@@ -19,8 +19,8 @@ uses
 type
  TkwBeginWaitPrint = {final} class(TtfwRegisterableWord)
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwBeginWaitPrint
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
@@ -34,6 +34,11 @@ uses
  {$IfEnd} // Defined(InsiderTest)
 ;
 
+class function TkwBeginWaitPrint.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'BeginWait:Print';
+end;//TkwBeginWaitPrint.GetWordNameForRegister
+
 procedure TkwBeginWaitPrint.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F72B9B00169_var*
 //#UC END# *4DAEEDE10285_4F72B9B00169_var*
@@ -44,11 +49,6 @@ begin
  {$IfEnd}
 //#UC END# *4DAEEDE10285_4F72B9B00169_impl*
 end;//TkwBeginWaitPrint.DoDoIt
-
-class function TkwBeginWaitPrint.GetWordNameForRegister: AnsiString;
-begin
- Result := 'BeginWait:Print';
-end;//TkwBeginWaitPrint.GetWordNameForRegister
 
 initialization
  TkwBeginWaitPrint.RegisterInEngine;

@@ -229,6 +229,7 @@ type
   {* сплиттер используемый в навигаторе }
   private
    f_MouseDownPoint: TPoint;
+   f_LastMovingPoint: TPoint;
    f_IsHideButtonDown: Boolean;
    f_HideButtonHint: THintWindow;
     {* подсказка к кнопке "скрыть\развернуть" }
@@ -558,6 +559,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    {$If Defined(Nemesis)}
    f_ParentMainForm: TCustomForm;
    {$IfEnd} // Defined(Nemesis)
+   f_SizeNormalLoaded: Boolean;
    f_SizeMini: Integer;
    f_Swim: Boolean;
    f_Activate: Boolean;
