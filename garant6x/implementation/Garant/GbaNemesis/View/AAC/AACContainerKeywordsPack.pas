@@ -540,8 +540,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnWriteToUs }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -557,8 +557,8 @@ type
     aAACContainerForm: TAACContainerForm): TnscSimpleEditorForDialogs;
     {* Реализация слова скрипта .TAACContainerForm.edWriteToUs }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -574,8 +574,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnSeeAlso }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -591,8 +591,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtLabel;
     {* Реализация слова скрипта .TAACContainerForm.lblSeeAlso }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -608,8 +608,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnLinkToContent }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -625,8 +625,8 @@ type
     aAACContainerForm: TAACContainerForm): TPaintBox;
     {* Реализация слова скрипта .TAACContainerForm.pbLinkToContent }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -642,8 +642,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtProportionalPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnBack }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -659,8 +659,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnRightEx }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -676,8 +676,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnRightForScroll }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -693,8 +693,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnRight }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -710,8 +710,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnlRightTop }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -727,8 +727,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtScrollBar;
     {* Реализация слова скрипта .TAACContainerForm.scrRight }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -744,8 +744,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtSizeablePanel;
     {* Реализация слова скрипта .TAACContainerForm.pnLeftEx }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -761,8 +761,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnLeftForScroll }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -778,8 +778,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnlLeftTop }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -795,8 +795,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtPanel;
     {* Реализация слова скрипта .TAACContainerForm.pnLeft }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -812,8 +812,8 @@ type
     aAACContainerForm: TAACContainerForm): TvtScrollBar;
     {* Реализация слова скрипта .TAACContainerForm.scrLeft }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1298,21 +1298,6 @@ begin
  Result := aAACContainerForm.pnWriteToUs;
 end;//TkwAACContainerFormPnWriteToUs.pnWriteToUs
 
-procedure TkwAACContainerFormPnWriteToUs.DoDoIt(const aCtx: TtfwContext);
-var l_aAACContainerForm: TAACContainerForm;
-begin
- try
-  l_aAACContainerForm := TAACContainerForm(aCtx.rEngine.PopObjAs(TAACContainerForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aAACContainerForm: TAACContainerForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(pnWriteToUs(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnWriteToUs.DoDoIt
-
 class function TkwAACContainerFormPnWriteToUs.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TAACContainerForm.pnWriteToUs';
@@ -1339,14 +1324,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnWriteToUs', aCtx);
 end;//TkwAACContainerFormPnWriteToUs.SetValuePrim
 
-function TkwAACContainerFormEdWriteToUs.edWriteToUs(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TnscSimpleEditorForDialogs;
- {* Реализация слова скрипта .TAACContainerForm.edWriteToUs }
-begin
- Result := aAACContainerForm.edWriteToUs;
-end;//TkwAACContainerFormEdWriteToUs.edWriteToUs
-
-procedure TkwAACContainerFormEdWriteToUs.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnWriteToUs.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1358,8 +1336,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edWriteToUs(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormEdWriteToUs.DoDoIt
+ aCtx.rEngine.PushObj(pnWriteToUs(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnWriteToUs.DoDoIt
+
+function TkwAACContainerFormEdWriteToUs.edWriteToUs(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TnscSimpleEditorForDialogs;
+ {* Реализация слова скрипта .TAACContainerForm.edWriteToUs }
+begin
+ Result := aAACContainerForm.edWriteToUs;
+end;//TkwAACContainerFormEdWriteToUs.edWriteToUs
 
 class function TkwAACContainerFormEdWriteToUs.GetWordNameForRegister: AnsiString;
 begin
@@ -1387,14 +1372,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edWriteToUs', aCtx);
 end;//TkwAACContainerFormEdWriteToUs.SetValuePrim
 
-function TkwAACContainerFormPnSeeAlso.pnSeeAlso(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnSeeAlso }
-begin
- Result := aAACContainerForm.pnSeeAlso;
-end;//TkwAACContainerFormPnSeeAlso.pnSeeAlso
-
-procedure TkwAACContainerFormPnSeeAlso.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormEdWriteToUs.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1406,8 +1384,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnSeeAlso(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnSeeAlso.DoDoIt
+ aCtx.rEngine.PushObj(edWriteToUs(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormEdWriteToUs.DoDoIt
+
+function TkwAACContainerFormPnSeeAlso.pnSeeAlso(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnSeeAlso }
+begin
+ Result := aAACContainerForm.pnSeeAlso;
+end;//TkwAACContainerFormPnSeeAlso.pnSeeAlso
 
 class function TkwAACContainerFormPnSeeAlso.GetWordNameForRegister: AnsiString;
 begin
@@ -1435,14 +1420,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnSeeAlso', aCtx);
 end;//TkwAACContainerFormPnSeeAlso.SetValuePrim
 
-function TkwAACContainerFormLblSeeAlso.lblSeeAlso(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtLabel;
- {* Реализация слова скрипта .TAACContainerForm.lblSeeAlso }
-begin
- Result := aAACContainerForm.lblSeeAlso;
-end;//TkwAACContainerFormLblSeeAlso.lblSeeAlso
-
-procedure TkwAACContainerFormLblSeeAlso.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnSeeAlso.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1454,8 +1432,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lblSeeAlso(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormLblSeeAlso.DoDoIt
+ aCtx.rEngine.PushObj(pnSeeAlso(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnSeeAlso.DoDoIt
+
+function TkwAACContainerFormLblSeeAlso.lblSeeAlso(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtLabel;
+ {* Реализация слова скрипта .TAACContainerForm.lblSeeAlso }
+begin
+ Result := aAACContainerForm.lblSeeAlso;
+end;//TkwAACContainerFormLblSeeAlso.lblSeeAlso
 
 class function TkwAACContainerFormLblSeeAlso.GetWordNameForRegister: AnsiString;
 begin
@@ -1483,14 +1468,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lblSeeAlso', aCtx);
 end;//TkwAACContainerFormLblSeeAlso.SetValuePrim
 
-function TkwAACContainerFormPnLinkToContent.pnLinkToContent(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnLinkToContent }
-begin
- Result := aAACContainerForm.pnLinkToContent;
-end;//TkwAACContainerFormPnLinkToContent.pnLinkToContent
-
-procedure TkwAACContainerFormPnLinkToContent.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormLblSeeAlso.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1502,8 +1480,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnLinkToContent(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnLinkToContent.DoDoIt
+ aCtx.rEngine.PushObj(lblSeeAlso(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormLblSeeAlso.DoDoIt
+
+function TkwAACContainerFormPnLinkToContent.pnLinkToContent(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnLinkToContent }
+begin
+ Result := aAACContainerForm.pnLinkToContent;
+end;//TkwAACContainerFormPnLinkToContent.pnLinkToContent
 
 class function TkwAACContainerFormPnLinkToContent.GetWordNameForRegister: AnsiString;
 begin
@@ -1531,14 +1516,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnLinkToContent', aCtx);
 end;//TkwAACContainerFormPnLinkToContent.SetValuePrim
 
-function TkwAACContainerFormPbLinkToContent.pbLinkToContent(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TPaintBox;
- {* Реализация слова скрипта .TAACContainerForm.pbLinkToContent }
-begin
- Result := aAACContainerForm.pbLinkToContent;
-end;//TkwAACContainerFormPbLinkToContent.pbLinkToContent
-
-procedure TkwAACContainerFormPbLinkToContent.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnLinkToContent.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1550,8 +1528,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbLinkToContent(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPbLinkToContent.DoDoIt
+ aCtx.rEngine.PushObj(pnLinkToContent(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnLinkToContent.DoDoIt
+
+function TkwAACContainerFormPbLinkToContent.pbLinkToContent(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TPaintBox;
+ {* Реализация слова скрипта .TAACContainerForm.pbLinkToContent }
+begin
+ Result := aAACContainerForm.pbLinkToContent;
+end;//TkwAACContainerFormPbLinkToContent.pbLinkToContent
 
 class function TkwAACContainerFormPbLinkToContent.GetWordNameForRegister: AnsiString;
 begin
@@ -1579,14 +1564,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pbLinkToContent', aCtx);
 end;//TkwAACContainerFormPbLinkToContent.SetValuePrim
 
-function TkwAACContainerFormPnBack.pnBack(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtProportionalPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnBack }
-begin
- Result := aAACContainerForm.pnBack;
-end;//TkwAACContainerFormPnBack.pnBack
-
-procedure TkwAACContainerFormPnBack.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPbLinkToContent.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1598,8 +1576,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnBack(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnBack.DoDoIt
+ aCtx.rEngine.PushObj(pbLinkToContent(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPbLinkToContent.DoDoIt
+
+function TkwAACContainerFormPnBack.pnBack(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtProportionalPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnBack }
+begin
+ Result := aAACContainerForm.pnBack;
+end;//TkwAACContainerFormPnBack.pnBack
 
 class function TkwAACContainerFormPnBack.GetWordNameForRegister: AnsiString;
 begin
@@ -1627,14 +1612,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnBack', aCtx);
 end;//TkwAACContainerFormPnBack.SetValuePrim
 
-function TkwAACContainerFormPnRightEx.pnRightEx(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnRightEx }
-begin
- Result := aAACContainerForm.pnRightEx;
-end;//TkwAACContainerFormPnRightEx.pnRightEx
-
-procedure TkwAACContainerFormPnRightEx.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnBack.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1646,8 +1624,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnRightEx(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnRightEx.DoDoIt
+ aCtx.rEngine.PushObj(pnBack(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnBack.DoDoIt
+
+function TkwAACContainerFormPnRightEx.pnRightEx(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnRightEx }
+begin
+ Result := aAACContainerForm.pnRightEx;
+end;//TkwAACContainerFormPnRightEx.pnRightEx
 
 class function TkwAACContainerFormPnRightEx.GetWordNameForRegister: AnsiString;
 begin
@@ -1675,14 +1660,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnRightEx', aCtx);
 end;//TkwAACContainerFormPnRightEx.SetValuePrim
 
-function TkwAACContainerFormPnRightForScroll.pnRightForScroll(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnRightForScroll }
-begin
- Result := aAACContainerForm.pnRightForScroll;
-end;//TkwAACContainerFormPnRightForScroll.pnRightForScroll
-
-procedure TkwAACContainerFormPnRightForScroll.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnRightEx.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1694,8 +1672,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnRightForScroll(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnRightForScroll.DoDoIt
+ aCtx.rEngine.PushObj(pnRightEx(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnRightEx.DoDoIt
+
+function TkwAACContainerFormPnRightForScroll.pnRightForScroll(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnRightForScroll }
+begin
+ Result := aAACContainerForm.pnRightForScroll;
+end;//TkwAACContainerFormPnRightForScroll.pnRightForScroll
 
 class function TkwAACContainerFormPnRightForScroll.GetWordNameForRegister: AnsiString;
 begin
@@ -1723,14 +1708,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnRightForScroll', aCtx);
 end;//TkwAACContainerFormPnRightForScroll.SetValuePrim
 
-function TkwAACContainerFormPnRight.pnRight(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnRight }
-begin
- Result := aAACContainerForm.pnRight;
-end;//TkwAACContainerFormPnRight.pnRight
-
-procedure TkwAACContainerFormPnRight.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnRightForScroll.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1742,8 +1720,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnRight(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnRight.DoDoIt
+ aCtx.rEngine.PushObj(pnRightForScroll(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnRightForScroll.DoDoIt
+
+function TkwAACContainerFormPnRight.pnRight(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnRight }
+begin
+ Result := aAACContainerForm.pnRight;
+end;//TkwAACContainerFormPnRight.pnRight
 
 class function TkwAACContainerFormPnRight.GetWordNameForRegister: AnsiString;
 begin
@@ -1771,14 +1756,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnRight', aCtx);
 end;//TkwAACContainerFormPnRight.SetValuePrim
 
-function TkwAACContainerFormPnlRightTop.pnlRightTop(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnlRightTop }
-begin
- Result := aAACContainerForm.pnlRightTop;
-end;//TkwAACContainerFormPnlRightTop.pnlRightTop
-
-procedure TkwAACContainerFormPnlRightTop.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnRight.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1790,8 +1768,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnlRightTop(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnlRightTop.DoDoIt
+ aCtx.rEngine.PushObj(pnRight(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnRight.DoDoIt
+
+function TkwAACContainerFormPnlRightTop.pnlRightTop(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnlRightTop }
+begin
+ Result := aAACContainerForm.pnlRightTop;
+end;//TkwAACContainerFormPnlRightTop.pnlRightTop
 
 class function TkwAACContainerFormPnlRightTop.GetWordNameForRegister: AnsiString;
 begin
@@ -1819,14 +1804,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnlRightTop', aCtx);
 end;//TkwAACContainerFormPnlRightTop.SetValuePrim
 
-function TkwAACContainerFormScrRight.scrRight(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtScrollBar;
- {* Реализация слова скрипта .TAACContainerForm.scrRight }
-begin
- Result := aAACContainerForm.scrRight;
-end;//TkwAACContainerFormScrRight.scrRight
-
-procedure TkwAACContainerFormScrRight.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnlRightTop.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1838,8 +1816,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(scrRight(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormScrRight.DoDoIt
+ aCtx.rEngine.PushObj(pnlRightTop(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnlRightTop.DoDoIt
+
+function TkwAACContainerFormScrRight.scrRight(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtScrollBar;
+ {* Реализация слова скрипта .TAACContainerForm.scrRight }
+begin
+ Result := aAACContainerForm.scrRight;
+end;//TkwAACContainerFormScrRight.scrRight
 
 class function TkwAACContainerFormScrRight.GetWordNameForRegister: AnsiString;
 begin
@@ -1867,14 +1852,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству scrRight', aCtx);
 end;//TkwAACContainerFormScrRight.SetValuePrim
 
-function TkwAACContainerFormPnLeftEx.pnLeftEx(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtSizeablePanel;
- {* Реализация слова скрипта .TAACContainerForm.pnLeftEx }
-begin
- Result := aAACContainerForm.pnLeftEx;
-end;//TkwAACContainerFormPnLeftEx.pnLeftEx
-
-procedure TkwAACContainerFormPnLeftEx.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormScrRight.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1886,8 +1864,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnLeftEx(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnLeftEx.DoDoIt
+ aCtx.rEngine.PushObj(scrRight(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormScrRight.DoDoIt
+
+function TkwAACContainerFormPnLeftEx.pnLeftEx(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtSizeablePanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnLeftEx }
+begin
+ Result := aAACContainerForm.pnLeftEx;
+end;//TkwAACContainerFormPnLeftEx.pnLeftEx
 
 class function TkwAACContainerFormPnLeftEx.GetWordNameForRegister: AnsiString;
 begin
@@ -1915,14 +1900,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnLeftEx', aCtx);
 end;//TkwAACContainerFormPnLeftEx.SetValuePrim
 
-function TkwAACContainerFormPnLeftForScroll.pnLeftForScroll(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnLeftForScroll }
-begin
- Result := aAACContainerForm.pnLeftForScroll;
-end;//TkwAACContainerFormPnLeftForScroll.pnLeftForScroll
-
-procedure TkwAACContainerFormPnLeftForScroll.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnLeftEx.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1934,8 +1912,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnLeftForScroll(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnLeftForScroll.DoDoIt
+ aCtx.rEngine.PushObj(pnLeftEx(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnLeftEx.DoDoIt
+
+function TkwAACContainerFormPnLeftForScroll.pnLeftForScroll(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnLeftForScroll }
+begin
+ Result := aAACContainerForm.pnLeftForScroll;
+end;//TkwAACContainerFormPnLeftForScroll.pnLeftForScroll
 
 class function TkwAACContainerFormPnLeftForScroll.GetWordNameForRegister: AnsiString;
 begin
@@ -1963,14 +1948,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnLeftForScroll', aCtx);
 end;//TkwAACContainerFormPnLeftForScroll.SetValuePrim
 
-function TkwAACContainerFormPnlLeftTop.pnlLeftTop(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnlLeftTop }
-begin
- Result := aAACContainerForm.pnlLeftTop;
-end;//TkwAACContainerFormPnlLeftTop.pnlLeftTop
-
-procedure TkwAACContainerFormPnlLeftTop.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnLeftForScroll.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -1982,8 +1960,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnlLeftTop(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnlLeftTop.DoDoIt
+ aCtx.rEngine.PushObj(pnLeftForScroll(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnLeftForScroll.DoDoIt
+
+function TkwAACContainerFormPnlLeftTop.pnlLeftTop(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnlLeftTop }
+begin
+ Result := aAACContainerForm.pnlLeftTop;
+end;//TkwAACContainerFormPnlLeftTop.pnlLeftTop
 
 class function TkwAACContainerFormPnlLeftTop.GetWordNameForRegister: AnsiString;
 begin
@@ -2011,14 +1996,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnlLeftTop', aCtx);
 end;//TkwAACContainerFormPnlLeftTop.SetValuePrim
 
-function TkwAACContainerFormPnLeft.pnLeft(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtPanel;
- {* Реализация слова скрипта .TAACContainerForm.pnLeft }
-begin
- Result := aAACContainerForm.pnLeft;
-end;//TkwAACContainerFormPnLeft.pnLeft
-
-procedure TkwAACContainerFormPnLeft.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnlLeftTop.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -2030,8 +2008,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnLeft(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormPnLeft.DoDoIt
+ aCtx.rEngine.PushObj(pnlLeftTop(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnlLeftTop.DoDoIt
+
+function TkwAACContainerFormPnLeft.pnLeft(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TAACContainerForm.pnLeft }
+begin
+ Result := aAACContainerForm.pnLeft;
+end;//TkwAACContainerFormPnLeft.pnLeft
 
 class function TkwAACContainerFormPnLeft.GetWordNameForRegister: AnsiString;
 begin
@@ -2059,14 +2044,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
 end;//TkwAACContainerFormPnLeft.SetValuePrim
 
-function TkwAACContainerFormScrLeft.scrLeft(const aCtx: TtfwContext;
- aAACContainerForm: TAACContainerForm): TvtScrollBar;
- {* Реализация слова скрипта .TAACContainerForm.scrLeft }
-begin
- Result := aAACContainerForm.scrLeft;
-end;//TkwAACContainerFormScrLeft.scrLeft
-
-procedure TkwAACContainerFormScrLeft.DoDoIt(const aCtx: TtfwContext);
+procedure TkwAACContainerFormPnLeft.DoDoIt(const aCtx: TtfwContext);
 var l_aAACContainerForm: TAACContainerForm;
 begin
  try
@@ -2078,8 +2056,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(scrLeft(aCtx, l_aAACContainerForm));
-end;//TkwAACContainerFormScrLeft.DoDoIt
+ aCtx.rEngine.PushObj(pnLeft(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormPnLeft.DoDoIt
+
+function TkwAACContainerFormScrLeft.scrLeft(const aCtx: TtfwContext;
+ aAACContainerForm: TAACContainerForm): TvtScrollBar;
+ {* Реализация слова скрипта .TAACContainerForm.scrLeft }
+begin
+ Result := aAACContainerForm.scrLeft;
+end;//TkwAACContainerFormScrLeft.scrLeft
 
 class function TkwAACContainerFormScrLeft.GetWordNameForRegister: AnsiString;
 begin
@@ -2106,6 +2091,21 @@ procedure TkwAACContainerFormScrLeft.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству scrLeft', aCtx);
 end;//TkwAACContainerFormScrLeft.SetValuePrim
+
+procedure TkwAACContainerFormScrLeft.DoDoIt(const aCtx: TtfwContext);
+var l_aAACContainerForm: TAACContainerForm;
+begin
+ try
+  l_aAACContainerForm := TAACContainerForm(aCtx.rEngine.PopObjAs(TAACContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aAACContainerForm: TAACContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(scrLeft(aCtx, l_aAACContainerForm));
+end;//TkwAACContainerFormScrLeft.DoDoIt
 
 initialization
  Tkw_Form_AACContainer.RegisterInEngine;

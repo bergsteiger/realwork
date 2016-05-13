@@ -102,8 +102,8 @@ type
     aChangesBetweenEditonsForm: TChangesBetweenEditonsForm): TnscEditor;
     {* Реализация слова скрипта .TChangesBetweenEditonsForm.Text }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -172,21 +172,6 @@ begin
  Result := aChangesBetweenEditonsForm.Text;
 end;//TkwChangesBetweenEditonsFormText.Text
 
-procedure TkwChangesBetweenEditonsFormText.DoDoIt(const aCtx: TtfwContext);
-var l_aChangesBetweenEditonsForm: TChangesBetweenEditonsForm;
-begin
- try
-  l_aChangesBetweenEditonsForm := TChangesBetweenEditonsForm(aCtx.rEngine.PopObjAs(TChangesBetweenEditonsForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aChangesBetweenEditonsForm: TChangesBetweenEditonsForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Text(aCtx, l_aChangesBetweenEditonsForm));
-end;//TkwChangesBetweenEditonsFormText.DoDoIt
-
 class function TkwChangesBetweenEditonsFormText.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TChangesBetweenEditonsForm.Text';
@@ -212,6 +197,21 @@ procedure TkwChangesBetweenEditonsFormText.SetValuePrim(const aValue: TtfwStackV
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwChangesBetweenEditonsFormText.SetValuePrim
+
+procedure TkwChangesBetweenEditonsFormText.DoDoIt(const aCtx: TtfwContext);
+var l_aChangesBetweenEditonsForm: TChangesBetweenEditonsForm;
+begin
+ try
+  l_aChangesBetweenEditonsForm := TChangesBetweenEditonsForm(aCtx.rEngine.PopObjAs(TChangesBetweenEditonsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChangesBetweenEditonsForm: TChangesBetweenEditonsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aChangesBetweenEditonsForm));
+end;//TkwChangesBetweenEditonsFormText.DoDoIt
 
 initialization
  Tkw_Form_ChangesBetweenEditons.RegisterInEngine;
