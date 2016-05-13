@@ -84,8 +84,8 @@ type
     aenSelectedAttributes: TenSelectedAttributes): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TenSelectedAttributes.SelectedTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aenSelectedAttributes.SelectedTree;
 end;//TkwEnSelectedAttributesSelectedTree.SelectedTree
 
-procedure TkwEnSelectedAttributesSelectedTree.DoDoIt(const aCtx: TtfwContext);
-var l_aenSelectedAttributes: TenSelectedAttributes;
-begin
- try
-  l_aenSelectedAttributes := TenSelectedAttributes(aCtx.rEngine.PopObjAs(TenSelectedAttributes));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenSelectedAttributes: TenSelectedAttributes : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(SelectedTree(aCtx, l_aenSelectedAttributes));
-end;//TkwEnSelectedAttributesSelectedTree.DoDoIt
-
 class function TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenSelectedAttributes.SelectedTree';
@@ -178,6 +163,21 @@ procedure TkwEnSelectedAttributesSelectedTree.SetValuePrim(const aValue: TtfwSta
 begin
  RunnerError('Нельзя присваивать значение readonly свойству SelectedTree', aCtx);
 end;//TkwEnSelectedAttributesSelectedTree.SetValuePrim
+
+procedure TkwEnSelectedAttributesSelectedTree.DoDoIt(const aCtx: TtfwContext);
+var l_aenSelectedAttributes: TenSelectedAttributes;
+begin
+ try
+  l_aenSelectedAttributes := TenSelectedAttributes(aCtx.rEngine.PopObjAs(TenSelectedAttributes));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenSelectedAttributes: TenSelectedAttributes : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(SelectedTree(aCtx, l_aenSelectedAttributes));
+end;//TkwEnSelectedAttributesSelectedTree.DoDoIt
 
 initialization
  Tkw_Form_SelectedAttributes.RegisterInEngine;

@@ -38,8 +38,8 @@ type
     anIndex: Integer): TTreeNode;
     {* Реализация слова скрипта pop:TreeView:GetItem }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -50,13 +50,33 @@ function TkwPopTreeViewGetItem.GetItem(const aCtx: TtfwContext;
  aTreeView: TTreeView;
  anIndex: Integer): TTreeNode;
  {* Реализация слова скрипта pop:TreeView:GetItem }
-//#UC START# *55C9CBCD0127_F4C36DEF11AB_var*
-//#UC END# *55C9CBCD0127_F4C36DEF11AB_var*
+//#UC START# *55C9CBCD0127_55C9CBCD0127_512F402F01BA_Word_var*
+//#UC END# *55C9CBCD0127_55C9CBCD0127_512F402F01BA_Word_var*
 begin
-//#UC START# *55C9CBCD0127_F4C36DEF11AB_impl*
+//#UC START# *55C9CBCD0127_55C9CBCD0127_512F402F01BA_Word_impl*
  Result := aTreeView.Items[anIndex];
-//#UC END# *55C9CBCD0127_F4C36DEF11AB_impl*
+//#UC END# *55C9CBCD0127_55C9CBCD0127_512F402F01BA_Word_impl*
 end;//TkwPopTreeViewGetItem.GetItem
+
+class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:TreeView:GetItem';
+end;//TkwPopTreeViewGetItem.GetWordNameForRegister
+
+function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TTreeNode);
+end;//TkwPopTreeViewGetItem.GetResultTypeInfo
+
+function TkwPopTreeViewGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopTreeViewGetItem.GetAllParamsCount
+
+function TkwPopTreeViewGetItem.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TTreeView), TypeInfo(Integer)]);
+end;//TkwPopTreeViewGetItem.ParamsTypes
 
 procedure TkwPopTreeViewGetItem.DoDoIt(const aCtx: TtfwContext);
 var l_aTreeView: TTreeView;
@@ -82,26 +102,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushObj(GetItem(aCtx, l_aTreeView, l_anIndex));
 end;//TkwPopTreeViewGetItem.DoDoIt
-
-class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:TreeView:GetItem';
-end;//TkwPopTreeViewGetItem.GetWordNameForRegister
-
-function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TTreeNode);
-end;//TkwPopTreeViewGetItem.GetResultTypeInfo
-
-function TkwPopTreeViewGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopTreeViewGetItem.GetAllParamsCount
-
-function TkwPopTreeViewGetItem.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TTreeView), TypeInfo(Integer)]);
-end;//TkwPopTreeViewGetItem.ParamsTypes
 
 initialization
  TkwPopTreeViewGetItem.RegisterInEngine;

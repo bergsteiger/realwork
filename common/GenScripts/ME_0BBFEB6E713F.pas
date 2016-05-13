@@ -116,8 +116,8 @@ type
     aen_PageSetup: Ten_PageSetup): TvtGroupBox;
     {* Реализация слова скрипта .Ten_PageSetup.PreviewGroupBox }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -133,8 +133,8 @@ type
     aen_PageSetup: Ten_PageSetup): TnscPageControl;
     {* Реализация слова скрипта .Ten_PageSetup.SettingsPageControl }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -220,21 +220,6 @@ begin
  Result := aen_PageSetup.PreviewGroupBox;
 end;//TkwEnPageSetupPreviewGroupBox.PreviewGroupBox
 
-procedure TkwEnPageSetupPreviewGroupBox.DoDoIt(const aCtx: TtfwContext);
-var l_aen_PageSetup: Ten_PageSetup;
-begin
- try
-  l_aen_PageSetup := Ten_PageSetup(aCtx.rEngine.PopObjAs(Ten_PageSetup));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_PageSetup: Ten_PageSetup : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(PreviewGroupBox(aCtx, l_aen_PageSetup));
-end;//TkwEnPageSetupPreviewGroupBox.DoDoIt
-
 class function TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_PageSetup.PreviewGroupBox';
@@ -261,14 +246,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству PreviewGroupBox', aCtx);
 end;//TkwEnPageSetupPreviewGroupBox.SetValuePrim
 
-function TkwEnPageSetupSettingsPageControl.SettingsPageControl(const aCtx: TtfwContext;
- aen_PageSetup: Ten_PageSetup): TnscPageControl;
- {* Реализация слова скрипта .Ten_PageSetup.SettingsPageControl }
-begin
- Result := aen_PageSetup.SettingsPageControl;
-end;//TkwEnPageSetupSettingsPageControl.SettingsPageControl
-
-procedure TkwEnPageSetupSettingsPageControl.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnPageSetupPreviewGroupBox.DoDoIt(const aCtx: TtfwContext);
 var l_aen_PageSetup: Ten_PageSetup;
 begin
  try
@@ -280,8 +258,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(SettingsPageControl(aCtx, l_aen_PageSetup));
-end;//TkwEnPageSetupSettingsPageControl.DoDoIt
+ aCtx.rEngine.PushObj(PreviewGroupBox(aCtx, l_aen_PageSetup));
+end;//TkwEnPageSetupPreviewGroupBox.DoDoIt
+
+function TkwEnPageSetupSettingsPageControl.SettingsPageControl(const aCtx: TtfwContext;
+ aen_PageSetup: Ten_PageSetup): TnscPageControl;
+ {* Реализация слова скрипта .Ten_PageSetup.SettingsPageControl }
+begin
+ Result := aen_PageSetup.SettingsPageControl;
+end;//TkwEnPageSetupSettingsPageControl.SettingsPageControl
 
 class function TkwEnPageSetupSettingsPageControl.GetWordNameForRegister: AnsiString;
 begin
@@ -308,6 +293,21 @@ procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStack
 begin
  RunnerError('Нельзя присваивать значение readonly свойству SettingsPageControl', aCtx);
 end;//TkwEnPageSetupSettingsPageControl.SetValuePrim
+
+procedure TkwEnPageSetupSettingsPageControl.DoDoIt(const aCtx: TtfwContext);
+var l_aen_PageSetup: Ten_PageSetup;
+begin
+ try
+  l_aen_PageSetup := Ten_PageSetup(aCtx.rEngine.PopObjAs(Ten_PageSetup));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PageSetup: Ten_PageSetup : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(SettingsPageControl(aCtx, l_aen_PageSetup));
+end;//TkwEnPageSetupSettingsPageControl.DoDoIt
 
 initialization
  Tkw_Form_PageSetup.RegisterInEngine;

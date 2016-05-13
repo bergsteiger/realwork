@@ -129,8 +129,8 @@ type
     aStyleEditorExampleForm: TStyleEditorExampleForm): TnscTextSource;
     {* Реализация слова скрипта .TStyleEditorExampleForm.TextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -146,8 +146,8 @@ type
     aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
     {* Реализация слова скрипта .TStyleEditorExampleForm.EditorPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -163,8 +163,8 @@ type
     aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
     {* Реализация слова скрипта .TStyleEditorExampleForm.Editor }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -260,21 +260,6 @@ begin
  Result := aStyleEditorExampleForm.TextSource;
 end;//TkwStyleEditorExampleFormTextSource.TextSource
 
-procedure TkwStyleEditorExampleFormTextSource.DoDoIt(const aCtx: TtfwContext);
-var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
-begin
- try
-  l_aStyleEditorExampleForm := TStyleEditorExampleForm(aCtx.rEngine.PopObjAs(TStyleEditorExampleForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aStyleEditorExampleForm: TStyleEditorExampleForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(TextSource(aCtx, l_aStyleEditorExampleForm));
-end;//TkwStyleEditorExampleFormTextSource.DoDoIt
-
 class function TkwStyleEditorExampleFormTextSource.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TStyleEditorExampleForm.TextSource';
@@ -301,14 +286,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwStyleEditorExampleFormTextSource.SetValuePrim
 
-function TkwStyleEditorExampleFormEditorPanel.EditorPanel(const aCtx: TtfwContext;
- aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
- {* Реализация слова скрипта .TStyleEditorExampleForm.EditorPanel }
-begin
- Result := aStyleEditorExampleForm.EditorPanel;
-end;//TkwStyleEditorExampleFormEditorPanel.EditorPanel
-
-procedure TkwStyleEditorExampleFormEditorPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwStyleEditorExampleFormTextSource.DoDoIt(const aCtx: TtfwContext);
 var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
 begin
  try
@@ -320,8 +298,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(EditorPanel(aCtx, l_aStyleEditorExampleForm));
-end;//TkwStyleEditorExampleFormEditorPanel.DoDoIt
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aStyleEditorExampleForm));
+end;//TkwStyleEditorExampleFormTextSource.DoDoIt
+
+function TkwStyleEditorExampleFormEditorPanel.EditorPanel(const aCtx: TtfwContext;
+ aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
+ {* Реализация слова скрипта .TStyleEditorExampleForm.EditorPanel }
+begin
+ Result := aStyleEditorExampleForm.EditorPanel;
+end;//TkwStyleEditorExampleFormEditorPanel.EditorPanel
 
 class function TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -349,14 +334,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству EditorPanel', aCtx);
 end;//TkwStyleEditorExampleFormEditorPanel.SetValuePrim
 
-function TkwStyleEditorExampleFormEditor.Editor(const aCtx: TtfwContext;
- aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
- {* Реализация слова скрипта .TStyleEditorExampleForm.Editor }
-begin
- Result := aStyleEditorExampleForm.Editor;
-end;//TkwStyleEditorExampleFormEditor.Editor
-
-procedure TkwStyleEditorExampleFormEditor.DoDoIt(const aCtx: TtfwContext);
+procedure TkwStyleEditorExampleFormEditorPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
 begin
  try
@@ -368,8 +346,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Editor(aCtx, l_aStyleEditorExampleForm));
-end;//TkwStyleEditorExampleFormEditor.DoDoIt
+ aCtx.rEngine.PushObj(EditorPanel(aCtx, l_aStyleEditorExampleForm));
+end;//TkwStyleEditorExampleFormEditorPanel.DoDoIt
+
+function TkwStyleEditorExampleFormEditor.Editor(const aCtx: TtfwContext;
+ aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
+ {* Реализация слова скрипта .TStyleEditorExampleForm.Editor }
+begin
+ Result := aStyleEditorExampleForm.Editor;
+end;//TkwStyleEditorExampleFormEditor.Editor
 
 class function TkwStyleEditorExampleFormEditor.GetWordNameForRegister: AnsiString;
 begin
@@ -396,6 +381,21 @@ procedure TkwStyleEditorExampleFormEditor.SetValuePrim(const aValue: TtfwStackVa
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
 end;//TkwStyleEditorExampleFormEditor.SetValuePrim
+
+procedure TkwStyleEditorExampleFormEditor.DoDoIt(const aCtx: TtfwContext);
+var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
+begin
+ try
+  l_aStyleEditorExampleForm := TStyleEditorExampleForm(aCtx.rEngine.PopObjAs(TStyleEditorExampleForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorExampleForm: TStyleEditorExampleForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Editor(aCtx, l_aStyleEditorExampleForm));
+end;//TkwStyleEditorExampleFormEditor.DoDoIt
 
 initialization
  Tkw_Form_StyleEditorExample.RegisterInEngine;

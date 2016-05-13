@@ -276,8 +276,8 @@ type
     aRightEditionForm: TRightEditionForm): TvtPanel;
     {* Реализация слова скрипта .TRightEditionForm.Header }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -293,8 +293,8 @@ type
     aRightEditionForm: TRightEditionForm): TvtPanel;
     {* Реализация слова скрипта .TRightEditionForm.pnLeft }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -310,8 +310,8 @@ type
     aRightEditionForm: TRightEditionForm): TvtFocusLabel;
     {* Реализация слова скрипта .TRightEditionForm.EditionLink }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -327,8 +327,8 @@ type
     aRightEditionForm: TRightEditionForm): TPaintBox;
     {* Реализация слова скрипта .TRightEditionForm.pbIcon }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -344,8 +344,8 @@ type
     aRightEditionForm: TRightEditionForm): TvtPanel;
     {* Реализация слова скрипта .TRightEditionForm.pnCaption }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -361,8 +361,8 @@ type
     aRightEditionForm: TRightEditionForm): TnscEditor;
     {* Реализация слова скрипта .TRightEditionForm.Text }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -593,21 +593,6 @@ begin
  Result := aRightEditionForm.Header;
 end;//TkwRightEditionFormHeader.Header
 
-procedure TkwRightEditionFormHeader.DoDoIt(const aCtx: TtfwContext);
-var l_aRightEditionForm: TRightEditionForm;
-begin
- try
-  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Header(aCtx, l_aRightEditionForm));
-end;//TkwRightEditionFormHeader.DoDoIt
-
 class function TkwRightEditionFormHeader.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TRightEditionForm.Header';
@@ -634,14 +619,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Header', aCtx);
 end;//TkwRightEditionFormHeader.SetValuePrim
 
-function TkwRightEditionFormPnLeft.pnLeft(const aCtx: TtfwContext;
- aRightEditionForm: TRightEditionForm): TvtPanel;
- {* Реализация слова скрипта .TRightEditionForm.pnLeft }
-begin
- Result := aRightEditionForm.pnLeft;
-end;//TkwRightEditionFormPnLeft.pnLeft
-
-procedure TkwRightEditionFormPnLeft.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRightEditionFormHeader.DoDoIt(const aCtx: TtfwContext);
 var l_aRightEditionForm: TRightEditionForm;
 begin
  try
@@ -653,8 +631,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnLeft(aCtx, l_aRightEditionForm));
-end;//TkwRightEditionFormPnLeft.DoDoIt
+ aCtx.rEngine.PushObj(Header(aCtx, l_aRightEditionForm));
+end;//TkwRightEditionFormHeader.DoDoIt
+
+function TkwRightEditionFormPnLeft.pnLeft(const aCtx: TtfwContext;
+ aRightEditionForm: TRightEditionForm): TvtPanel;
+ {* Реализация слова скрипта .TRightEditionForm.pnLeft }
+begin
+ Result := aRightEditionForm.pnLeft;
+end;//TkwRightEditionFormPnLeft.pnLeft
 
 class function TkwRightEditionFormPnLeft.GetWordNameForRegister: AnsiString;
 begin
@@ -682,14 +667,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
 end;//TkwRightEditionFormPnLeft.SetValuePrim
 
-function TkwRightEditionFormEditionLink.EditionLink(const aCtx: TtfwContext;
- aRightEditionForm: TRightEditionForm): TvtFocusLabel;
- {* Реализация слова скрипта .TRightEditionForm.EditionLink }
-begin
- Result := aRightEditionForm.EditionLink;
-end;//TkwRightEditionFormEditionLink.EditionLink
-
-procedure TkwRightEditionFormEditionLink.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRightEditionFormPnLeft.DoDoIt(const aCtx: TtfwContext);
 var l_aRightEditionForm: TRightEditionForm;
 begin
  try
@@ -701,8 +679,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(EditionLink(aCtx, l_aRightEditionForm));
-end;//TkwRightEditionFormEditionLink.DoDoIt
+ aCtx.rEngine.PushObj(pnLeft(aCtx, l_aRightEditionForm));
+end;//TkwRightEditionFormPnLeft.DoDoIt
+
+function TkwRightEditionFormEditionLink.EditionLink(const aCtx: TtfwContext;
+ aRightEditionForm: TRightEditionForm): TvtFocusLabel;
+ {* Реализация слова скрипта .TRightEditionForm.EditionLink }
+begin
+ Result := aRightEditionForm.EditionLink;
+end;//TkwRightEditionFormEditionLink.EditionLink
 
 class function TkwRightEditionFormEditionLink.GetWordNameForRegister: AnsiString;
 begin
@@ -730,14 +715,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству EditionLink', aCtx);
 end;//TkwRightEditionFormEditionLink.SetValuePrim
 
-function TkwRightEditionFormPbIcon.pbIcon(const aCtx: TtfwContext;
- aRightEditionForm: TRightEditionForm): TPaintBox;
- {* Реализация слова скрипта .TRightEditionForm.pbIcon }
-begin
- Result := aRightEditionForm.pbIcon;
-end;//TkwRightEditionFormPbIcon.pbIcon
-
-procedure TkwRightEditionFormPbIcon.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRightEditionFormEditionLink.DoDoIt(const aCtx: TtfwContext);
 var l_aRightEditionForm: TRightEditionForm;
 begin
  try
@@ -749,8 +727,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbIcon(aCtx, l_aRightEditionForm));
-end;//TkwRightEditionFormPbIcon.DoDoIt
+ aCtx.rEngine.PushObj(EditionLink(aCtx, l_aRightEditionForm));
+end;//TkwRightEditionFormEditionLink.DoDoIt
+
+function TkwRightEditionFormPbIcon.pbIcon(const aCtx: TtfwContext;
+ aRightEditionForm: TRightEditionForm): TPaintBox;
+ {* Реализация слова скрипта .TRightEditionForm.pbIcon }
+begin
+ Result := aRightEditionForm.pbIcon;
+end;//TkwRightEditionFormPbIcon.pbIcon
 
 class function TkwRightEditionFormPbIcon.GetWordNameForRegister: AnsiString;
 begin
@@ -778,14 +763,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pbIcon', aCtx);
 end;//TkwRightEditionFormPbIcon.SetValuePrim
 
-function TkwRightEditionFormPnCaption.pnCaption(const aCtx: TtfwContext;
- aRightEditionForm: TRightEditionForm): TvtPanel;
- {* Реализация слова скрипта .TRightEditionForm.pnCaption }
-begin
- Result := aRightEditionForm.pnCaption;
-end;//TkwRightEditionFormPnCaption.pnCaption
-
-procedure TkwRightEditionFormPnCaption.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRightEditionFormPbIcon.DoDoIt(const aCtx: TtfwContext);
 var l_aRightEditionForm: TRightEditionForm;
 begin
  try
@@ -797,8 +775,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnCaption(aCtx, l_aRightEditionForm));
-end;//TkwRightEditionFormPnCaption.DoDoIt
+ aCtx.rEngine.PushObj(pbIcon(aCtx, l_aRightEditionForm));
+end;//TkwRightEditionFormPbIcon.DoDoIt
+
+function TkwRightEditionFormPnCaption.pnCaption(const aCtx: TtfwContext;
+ aRightEditionForm: TRightEditionForm): TvtPanel;
+ {* Реализация слова скрипта .TRightEditionForm.pnCaption }
+begin
+ Result := aRightEditionForm.pnCaption;
+end;//TkwRightEditionFormPnCaption.pnCaption
 
 class function TkwRightEditionFormPnCaption.GetWordNameForRegister: AnsiString;
 begin
@@ -826,14 +811,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnCaption', aCtx);
 end;//TkwRightEditionFormPnCaption.SetValuePrim
 
-function TkwRightEditionFormText.Text(const aCtx: TtfwContext;
- aRightEditionForm: TRightEditionForm): TnscEditor;
- {* Реализация слова скрипта .TRightEditionForm.Text }
-begin
- Result := aRightEditionForm.Text;
-end;//TkwRightEditionFormText.Text
-
-procedure TkwRightEditionFormText.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRightEditionFormPnCaption.DoDoIt(const aCtx: TtfwContext);
 var l_aRightEditionForm: TRightEditionForm;
 begin
  try
@@ -845,8 +823,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Text(aCtx, l_aRightEditionForm));
-end;//TkwRightEditionFormText.DoDoIt
+ aCtx.rEngine.PushObj(pnCaption(aCtx, l_aRightEditionForm));
+end;//TkwRightEditionFormPnCaption.DoDoIt
+
+function TkwRightEditionFormText.Text(const aCtx: TtfwContext;
+ aRightEditionForm: TRightEditionForm): TnscEditor;
+ {* Реализация слова скрипта .TRightEditionForm.Text }
+begin
+ Result := aRightEditionForm.Text;
+end;//TkwRightEditionFormText.Text
 
 class function TkwRightEditionFormText.GetWordNameForRegister: AnsiString;
 begin
@@ -873,6 +858,21 @@ procedure TkwRightEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwRightEditionFormText.SetValuePrim
+
+procedure TkwRightEditionFormText.DoDoIt(const aCtx: TtfwContext);
+var l_aRightEditionForm: TRightEditionForm;
+begin
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aRightEditionForm));
+end;//TkwRightEditionFormText.DoDoIt
 
 initialization
  Tkw_Form_RightEdition.RegisterInEngine;

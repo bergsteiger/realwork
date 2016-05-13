@@ -41,8 +41,8 @@ type
     anIndex: Integer): TControl;
     {* Реализация слова скрипта StatusBar:OrderedControl }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -56,8 +56,8 @@ type
     aStatusBar: TnscStatusBar): Integer;
     {* Реализация слова скрипта StatusBar:OrderedControlsCount }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -72,8 +72,8 @@ type
     aControl: TControl): Integer;
     {* Реализация слова скрипта StatusBar:OrderIndex }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,13 +90,33 @@ function TkwStatusBarOrderedControl.OrderedControl(const aCtx: TtfwContext;
  aStatusBar: TnscStatusBar;
  anIndex: Integer): TControl;
  {* Реализация слова скрипта StatusBar:OrderedControl }
-//#UC START# *552FC8E1023A_6A3FD2C52DF9_var*
-//#UC END# *552FC8E1023A_6A3FD2C52DF9_var*
+//#UC START# *552FC8E1023A_552FC8E1023A_4E15A08E030D_Word_var*
+//#UC END# *552FC8E1023A_552FC8E1023A_4E15A08E030D_Word_var*
 begin
-//#UC START# *552FC8E1023A_6A3FD2C52DF9_impl*
+//#UC START# *552FC8E1023A_552FC8E1023A_4E15A08E030D_Word_impl*
  Result := aStatusBar.OrderedControls[anIndex];
-//#UC END# *552FC8E1023A_6A3FD2C52DF9_impl*
+//#UC END# *552FC8E1023A_552FC8E1023A_4E15A08E030D_Word_impl*
 end;//TkwStatusBarOrderedControl.OrderedControl
+
+class function TkwStatusBarOrderedControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StatusBar:OrderedControl';
+end;//TkwStatusBarOrderedControl.GetWordNameForRegister
+
+function TkwStatusBarOrderedControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TControl);
+end;//TkwStatusBarOrderedControl.GetResultTypeInfo
+
+function TkwStatusBarOrderedControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwStatusBarOrderedControl.GetAllParamsCount
+
+function TkwStatusBarOrderedControl.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(Integer)]);
+end;//TkwStatusBarOrderedControl.ParamsTypes
 
 procedure TkwStatusBarOrderedControl.DoDoIt(const aCtx: TtfwContext);
 var l_aStatusBar: TnscStatusBar;
@@ -123,51 +143,16 @@ begin
  aCtx.rEngine.PushObj(OrderedControl(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwStatusBarOrderedControl.DoDoIt
 
-class function TkwStatusBarOrderedControl.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StatusBar:OrderedControl';
-end;//TkwStatusBarOrderedControl.GetWordNameForRegister
-
-function TkwStatusBarOrderedControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TControl);
-end;//TkwStatusBarOrderedControl.GetResultTypeInfo
-
-function TkwStatusBarOrderedControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwStatusBarOrderedControl.GetAllParamsCount
-
-function TkwStatusBarOrderedControl.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(Integer)]);
-end;//TkwStatusBarOrderedControl.ParamsTypes
-
 function TkwStatusBarOrderedControlsCount.OrderedControlsCount(const aCtx: TtfwContext;
  aStatusBar: TnscStatusBar): Integer;
  {* Реализация слова скрипта StatusBar:OrderedControlsCount }
-//#UC START# *552FC91301BD_C8B065596342_var*
-//#UC END# *552FC91301BD_C8B065596342_var*
+//#UC START# *552FC91301BD_552FC91301BD_4E15A08E030D_Word_var*
+//#UC END# *552FC91301BD_552FC91301BD_4E15A08E030D_Word_var*
 begin
-//#UC START# *552FC91301BD_C8B065596342_impl*
+//#UC START# *552FC91301BD_552FC91301BD_4E15A08E030D_Word_impl*
  Result := aStatusBar.OrderedControlsCount; 
-//#UC END# *552FC91301BD_C8B065596342_impl*
+//#UC END# *552FC91301BD_552FC91301BD_4E15A08E030D_Word_impl*
 end;//TkwStatusBarOrderedControlsCount.OrderedControlsCount
-
-procedure TkwStatusBarOrderedControlsCount.DoDoIt(const aCtx: TtfwContext);
-var l_aStatusBar: TnscStatusBar;
-begin
- try
-  l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aStatusBar: TnscStatusBar : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(OrderedControlsCount(aCtx, l_aStatusBar));
-end;//TkwStatusBarOrderedControlsCount.DoDoIt
 
 class function TkwStatusBarOrderedControlsCount.GetWordNameForRegister: AnsiString;
 begin
@@ -189,17 +174,52 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBar)]);
 end;//TkwStatusBarOrderedControlsCount.ParamsTypes
 
+procedure TkwStatusBarOrderedControlsCount.DoDoIt(const aCtx: TtfwContext);
+var l_aStatusBar: TnscStatusBar;
+begin
+ try
+  l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBar: TnscStatusBar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(OrderedControlsCount(aCtx, l_aStatusBar));
+end;//TkwStatusBarOrderedControlsCount.DoDoIt
+
 function TkwStatusBarOrderIndex.OrderIndex(const aCtx: TtfwContext;
  aStatusBar: TnscStatusBar;
  aControl: TControl): Integer;
  {* Реализация слова скрипта StatusBar:OrderIndex }
-//#UC START# *552FC94F0188_F7D061E9FD6E_var*
-//#UC END# *552FC94F0188_F7D061E9FD6E_var*
+//#UC START# *552FC94F0188_552FC94F0188_4E15A08E030D_Word_var*
+//#UC END# *552FC94F0188_552FC94F0188_4E15A08E030D_Word_var*
 begin
-//#UC START# *552FC94F0188_F7D061E9FD6E_impl*
+//#UC START# *552FC94F0188_552FC94F0188_4E15A08E030D_Word_impl*
  Result := aStatusBar.OrderIndex[aControl];
-//#UC END# *552FC94F0188_F7D061E9FD6E_impl*
+//#UC END# *552FC94F0188_552FC94F0188_4E15A08E030D_Word_impl*
 end;//TkwStatusBarOrderIndex.OrderIndex
+
+class function TkwStatusBarOrderIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'StatusBar:OrderIndex';
+end;//TkwStatusBarOrderIndex.GetWordNameForRegister
+
+function TkwStatusBarOrderIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Integer);
+end;//TkwStatusBarOrderIndex.GetResultTypeInfo
+
+function TkwStatusBarOrderIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwStatusBarOrderIndex.GetAllParamsCount
+
+function TkwStatusBarOrderIndex.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(TControl)]);
+end;//TkwStatusBarOrderIndex.ParamsTypes
 
 procedure TkwStatusBarOrderIndex.DoDoIt(const aCtx: TtfwContext);
 var l_aStatusBar: TnscStatusBar;
@@ -225,26 +245,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushInt(OrderIndex(aCtx, l_aStatusBar, l_aControl));
 end;//TkwStatusBarOrderIndex.DoDoIt
-
-class function TkwStatusBarOrderIndex.GetWordNameForRegister: AnsiString;
-begin
- Result := 'StatusBar:OrderIndex';
-end;//TkwStatusBarOrderIndex.GetWordNameForRegister
-
-function TkwStatusBarOrderIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Integer);
-end;//TkwStatusBarOrderIndex.GetResultTypeInfo
-
-function TkwStatusBarOrderIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwStatusBarOrderIndex.GetAllParamsCount
-
-function TkwStatusBarOrderIndex.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(TControl)]);
-end;//TkwStatusBarOrderIndex.ParamsTypes
 
 class function TStatusBarWordsResNameGetter.ResName: AnsiString;
 begin

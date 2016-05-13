@@ -84,8 +84,8 @@ type
     aRedactionsForm: TRedactionsForm): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TRedactionsForm.RedactionTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aRedactionsForm.RedactionTree;
 end;//TkwRedactionsFormRedactionTree.RedactionTree
 
-procedure TkwRedactionsFormRedactionTree.DoDoIt(const aCtx: TtfwContext);
-var l_aRedactionsForm: TRedactionsForm;
-begin
- try
-  l_aRedactionsForm := TRedactionsForm(aCtx.rEngine.PopObjAs(TRedactionsForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRedactionsForm: TRedactionsForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(RedactionTree(aCtx, l_aRedactionsForm));
-end;//TkwRedactionsFormRedactionTree.DoDoIt
-
 class function TkwRedactionsFormRedactionTree.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TRedactionsForm.RedactionTree';
@@ -178,6 +163,21 @@ procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackVal
 begin
  RunnerError('Нельзя присваивать значение readonly свойству RedactionTree', aCtx);
 end;//TkwRedactionsFormRedactionTree.SetValuePrim
+
+procedure TkwRedactionsFormRedactionTree.DoDoIt(const aCtx: TtfwContext);
+var l_aRedactionsForm: TRedactionsForm;
+begin
+ try
+  l_aRedactionsForm := TRedactionsForm(aCtx.rEngine.PopObjAs(TRedactionsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRedactionsForm: TRedactionsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RedactionTree(aCtx, l_aRedactionsForm));
+end;//TkwRedactionsFormRedactionTree.DoDoIt
 
 initialization
  Tkw_Form_Redactions.RegisterInEngine;

@@ -285,8 +285,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -302,8 +302,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TnscContextFilter;
     {* Реализация слова скрипта .TcfOldSituationSearch.ContextFilter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -319,8 +319,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.InnerBackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -336,8 +336,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.BotomPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -353,8 +353,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.ParentZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -370,8 +370,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.ZoneContainer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -387,8 +387,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.ChildZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -404,8 +404,8 @@ type
     acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
     {* Реализация слова скрипта .TcfOldSituationSearch.MainZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -647,21 +647,6 @@ begin
  Result := acfOldSituationSearch.BackgroundPanel;
 end;//TkwCfOldSituationSearchBackgroundPanel.BackgroundPanel
 
-procedure TkwCfOldSituationSearchBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_acfOldSituationSearch: TcfOldSituationSearch;
-begin
- try
-  l_acfOldSituationSearch := TcfOldSituationSearch(aCtx.rEngine.PopObjAs(TcfOldSituationSearch));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра acfOldSituationSearch: TcfOldSituationSearch : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchBackgroundPanel.DoDoIt
-
 class function TkwCfOldSituationSearchBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TcfOldSituationSearch.BackgroundPanel';
@@ -688,14 +673,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwCfOldSituationSearchBackgroundPanel.SetValuePrim
 
-function TkwCfOldSituationSearchContextFilter.ContextFilter(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TnscContextFilter;
- {* Реализация слова скрипта .TcfOldSituationSearch.ContextFilter }
-begin
- Result := acfOldSituationSearch.ContextFilter;
-end;//TkwCfOldSituationSearchContextFilter.ContextFilter
-
-procedure TkwCfOldSituationSearchContextFilter.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -707,8 +685,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ContextFilter(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchContextFilter.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchBackgroundPanel.DoDoIt
+
+function TkwCfOldSituationSearchContextFilter.ContextFilter(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TnscContextFilter;
+ {* Реализация слова скрипта .TcfOldSituationSearch.ContextFilter }
+begin
+ Result := acfOldSituationSearch.ContextFilter;
+end;//TkwCfOldSituationSearchContextFilter.ContextFilter
 
 class function TkwCfOldSituationSearchContextFilter.GetWordNameForRegister: AnsiString;
 begin
@@ -736,14 +721,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwCfOldSituationSearchContextFilter.SetValuePrim
 
-function TkwCfOldSituationSearchInnerBackgroundPanel.InnerBackgroundPanel(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
- {* Реализация слова скрипта .TcfOldSituationSearch.InnerBackgroundPanel }
-begin
- Result := acfOldSituationSearch.InnerBackgroundPanel;
-end;//TkwCfOldSituationSearchInnerBackgroundPanel.InnerBackgroundPanel
-
-procedure TkwCfOldSituationSearchInnerBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchContextFilter.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -755,8 +733,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(InnerBackgroundPanel(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchInnerBackgroundPanel.DoDoIt
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchContextFilter.DoDoIt
+
+function TkwCfOldSituationSearchInnerBackgroundPanel.InnerBackgroundPanel(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
+ {* Реализация слова скрипта .TcfOldSituationSearch.InnerBackgroundPanel }
+begin
+ Result := acfOldSituationSearch.InnerBackgroundPanel;
+end;//TkwCfOldSituationSearchInnerBackgroundPanel.InnerBackgroundPanel
 
 class function TkwCfOldSituationSearchInnerBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -784,14 +769,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству InnerBackgroundPanel', aCtx);
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.SetValuePrim
 
-function TkwCfOldSituationSearchBotomPanel.BotomPanel(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
- {* Реализация слова скрипта .TcfOldSituationSearch.BotomPanel }
-begin
- Result := acfOldSituationSearch.BotomPanel;
-end;//TkwCfOldSituationSearchBotomPanel.BotomPanel
-
-procedure TkwCfOldSituationSearchBotomPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchInnerBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -803,8 +781,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(BotomPanel(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchBotomPanel.DoDoIt
+ aCtx.rEngine.PushObj(InnerBackgroundPanel(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchInnerBackgroundPanel.DoDoIt
+
+function TkwCfOldSituationSearchBotomPanel.BotomPanel(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
+ {* Реализация слова скрипта .TcfOldSituationSearch.BotomPanel }
+begin
+ Result := acfOldSituationSearch.BotomPanel;
+end;//TkwCfOldSituationSearchBotomPanel.BotomPanel
 
 class function TkwCfOldSituationSearchBotomPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -832,14 +817,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BotomPanel', aCtx);
 end;//TkwCfOldSituationSearchBotomPanel.SetValuePrim
 
-function TkwCfOldSituationSearchParentZone.ParentZone(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
- {* Реализация слова скрипта .TcfOldSituationSearch.ParentZone }
-begin
- Result := acfOldSituationSearch.ParentZone;
-end;//TkwCfOldSituationSearchParentZone.ParentZone
-
-procedure TkwCfOldSituationSearchParentZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchBotomPanel.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -851,8 +829,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchParentZone.DoDoIt
+ aCtx.rEngine.PushObj(BotomPanel(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchBotomPanel.DoDoIt
+
+function TkwCfOldSituationSearchParentZone.ParentZone(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
+ {* Реализация слова скрипта .TcfOldSituationSearch.ParentZone }
+begin
+ Result := acfOldSituationSearch.ParentZone;
+end;//TkwCfOldSituationSearchParentZone.ParentZone
 
 class function TkwCfOldSituationSearchParentZone.GetWordNameForRegister: AnsiString;
 begin
@@ -880,14 +865,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwCfOldSituationSearchParentZone.SetValuePrim
 
-function TkwCfOldSituationSearchZoneContainer.ZoneContainer(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
- {* Реализация слова скрипта .TcfOldSituationSearch.ZoneContainer }
-begin
- Result := acfOldSituationSearch.ZoneContainer;
-end;//TkwCfOldSituationSearchZoneContainer.ZoneContainer
-
-procedure TkwCfOldSituationSearchZoneContainer.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchParentZone.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -899,8 +877,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ZoneContainer(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchZoneContainer.DoDoIt
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchParentZone.DoDoIt
+
+function TkwCfOldSituationSearchZoneContainer.ZoneContainer(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TvtProportionalPanel;
+ {* Реализация слова скрипта .TcfOldSituationSearch.ZoneContainer }
+begin
+ Result := acfOldSituationSearch.ZoneContainer;
+end;//TkwCfOldSituationSearchZoneContainer.ZoneContainer
 
 class function TkwCfOldSituationSearchZoneContainer.GetWordNameForRegister: AnsiString;
 begin
@@ -928,14 +913,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ZoneContainer', aCtx);
 end;//TkwCfOldSituationSearchZoneContainer.SetValuePrim
 
-function TkwCfOldSituationSearchChildZone.ChildZone(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
- {* Реализация слова скрипта .TcfOldSituationSearch.ChildZone }
-begin
- Result := acfOldSituationSearch.ChildZone;
-end;//TkwCfOldSituationSearchChildZone.ChildZone
-
-procedure TkwCfOldSituationSearchChildZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchZoneContainer.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -947,8 +925,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchChildZone.DoDoIt
+ aCtx.rEngine.PushObj(ZoneContainer(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchZoneContainer.DoDoIt
+
+function TkwCfOldSituationSearchChildZone.ChildZone(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TvtPanel;
+ {* Реализация слова скрипта .TcfOldSituationSearch.ChildZone }
+begin
+ Result := acfOldSituationSearch.ChildZone;
+end;//TkwCfOldSituationSearchChildZone.ChildZone
 
 class function TkwCfOldSituationSearchChildZone.GetWordNameForRegister: AnsiString;
 begin
@@ -976,14 +961,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
 end;//TkwCfOldSituationSearchChildZone.SetValuePrim
 
-function TkwCfOldSituationSearchMainZone.MainZone(const aCtx: TtfwContext;
- acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
- {* Реализация слова скрипта .TcfOldSituationSearch.MainZone }
-begin
- Result := acfOldSituationSearch.MainZone;
-end;//TkwCfOldSituationSearchMainZone.MainZone
-
-procedure TkwCfOldSituationSearchMainZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfOldSituationSearchChildZone.DoDoIt(const aCtx: TtfwContext);
 var l_acfOldSituationSearch: TcfOldSituationSearch;
 begin
  try
@@ -995,8 +973,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(MainZone(aCtx, l_acfOldSituationSearch));
-end;//TkwCfOldSituationSearchMainZone.DoDoIt
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchChildZone.DoDoIt
+
+function TkwCfOldSituationSearchMainZone.MainZone(const aCtx: TtfwContext;
+ acfOldSituationSearch: TcfOldSituationSearch): TvtSizeablePanel;
+ {* Реализация слова скрипта .TcfOldSituationSearch.MainZone }
+begin
+ Result := acfOldSituationSearch.MainZone;
+end;//TkwCfOldSituationSearchMainZone.MainZone
 
 class function TkwCfOldSituationSearchMainZone.GetWordNameForRegister: AnsiString;
 begin
@@ -1023,6 +1008,21 @@ procedure TkwCfOldSituationSearchMainZone.SetValuePrim(const aValue: TtfwStackVa
 begin
  RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
 end;//TkwCfOldSituationSearchMainZone.SetValuePrim
+
+procedure TkwCfOldSituationSearchMainZone.DoDoIt(const aCtx: TtfwContext);
+var l_acfOldSituationSearch: TcfOldSituationSearch;
+begin
+ try
+  l_acfOldSituationSearch := TcfOldSituationSearch(aCtx.rEngine.PopObjAs(TcfOldSituationSearch));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfOldSituationSearch: TcfOldSituationSearch : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MainZone(aCtx, l_acfOldSituationSearch));
+end;//TkwCfOldSituationSearchMainZone.DoDoIt
 
 initialization
  Tkw_Form_OldSituationSearch.RegisterInEngine;

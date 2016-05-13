@@ -80,13 +80,10 @@ var
  {$IfDef vcmUseSettings}
  Finalize(f_MainToolbarDefs);
  {$EndIf vcmUseSettings}
- if (Screen <> nil) then
- begin
-  l_Event := Screen.OnActiveFormChange;
-  l_MyEvent := FormChange;
-  if (l_Method.Code = l_MyMethod.Code) and (l_Method.Data = l_MyMethod.Data) then
-   Screen.OnActiveFormChange := nil;
- end;//Screen <> nil
+ l_Event := Screen.OnActiveFormChange;
+ l_MyEvent := FormChange;
+ if (l_Method.Code = l_MyMethod.Code) and (l_Method.Data = l_MyMethod.Data) then
+  Screen.OnActiveFormChange := nil;
  vcmFree(f_MainMenuItems);
  vcmFree(f_Popup);
  vcmFree(f_SaveLockCounter);
@@ -1123,14 +1120,13 @@ var
  begin
   f_PopupForm := TvcmEntityForm(l_Form);
   f_Popup.Items.Clear;
-  if (f_PopupForm.GetEntitiesDefIterator <> nil) then
-   vcmMakeEntitiesMenus(f_Popup.Items,
-                        TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
-                        [vcm_ooShowInContextMenu],
-                        not (vcm_moEntitesInContextMenu in MenuOptions),
-                        vcm_icExternal,
-                        nil,
-                        CheckPopup);
+  vcmMakeEntitiesMenus(f_Popup.Items,
+                       TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
+                       [vcm_ooShowInContextMenu],
+                       not (vcm_moEntitesInContextMenu in MenuOptions),
+                       vcm_icExternal,
+                       nil,
+                       CheckPopup);
  end;//l_Form is TvcmEntityForm
 //#UC END# *52A8362B00B7_4B30EC81021A_impl*
 //#UC START# *52A8362B00B7_4B30EC81021A_var*

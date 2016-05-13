@@ -144,8 +144,8 @@ type
     aenDiction: TenDiction): TvtPanel;
     {* Реализация слова скрипта .TenDiction.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -161,8 +161,8 @@ type
     aenDiction: TenDiction): TnscContextFilter;
     {* Реализация слова скрипта .TenDiction.ContextFilter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -178,8 +178,8 @@ type
     aenDiction: TenDiction): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TenDiction.WordsTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -286,21 +286,6 @@ begin
  Result := aenDiction.BackgroundPanel;
 end;//TkwEnDictionBackgroundPanel.BackgroundPanel
 
-procedure TkwEnDictionBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aenDiction: TenDiction;
-begin
- try
-  l_aenDiction := TenDiction(aCtx.rEngine.PopObjAs(TenDiction));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenDiction: TenDiction : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aenDiction));
-end;//TkwEnDictionBackgroundPanel.DoDoIt
-
 class function TkwEnDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenDiction.BackgroundPanel';
@@ -327,14 +312,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnDictionBackgroundPanel.SetValuePrim
 
-function TkwEnDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
- aenDiction: TenDiction): TnscContextFilter;
- {* Реализация слова скрипта .TenDiction.ContextFilter }
-begin
- Result := aenDiction.ContextFilter;
-end;//TkwEnDictionContextFilter.ContextFilter
-
-procedure TkwEnDictionContextFilter.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDictionBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aenDiction: TenDiction;
 begin
  try
@@ -346,8 +324,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aenDiction));
-end;//TkwEnDictionContextFilter.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aenDiction));
+end;//TkwEnDictionBackgroundPanel.DoDoIt
+
+function TkwEnDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
+ aenDiction: TenDiction): TnscContextFilter;
+ {* Реализация слова скрипта .TenDiction.ContextFilter }
+begin
+ Result := aenDiction.ContextFilter;
+end;//TkwEnDictionContextFilter.ContextFilter
 
 class function TkwEnDictionContextFilter.GetWordNameForRegister: AnsiString;
 begin
@@ -375,14 +360,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnDictionContextFilter.SetValuePrim
 
-function TkwEnDictionWordsTree.WordsTree(const aCtx: TtfwContext;
- aenDiction: TenDiction): TnscTreeViewWithAdapterDragDrop;
- {* Реализация слова скрипта .TenDiction.WordsTree }
-begin
- Result := aenDiction.WordsTree;
-end;//TkwEnDictionWordsTree.WordsTree
-
-procedure TkwEnDictionWordsTree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDictionContextFilter.DoDoIt(const aCtx: TtfwContext);
 var l_aenDiction: TenDiction;
 begin
  try
@@ -394,8 +372,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(WordsTree(aCtx, l_aenDiction));
-end;//TkwEnDictionWordsTree.DoDoIt
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aenDiction));
+end;//TkwEnDictionContextFilter.DoDoIt
+
+function TkwEnDictionWordsTree.WordsTree(const aCtx: TtfwContext;
+ aenDiction: TenDiction): TnscTreeViewWithAdapterDragDrop;
+ {* Реализация слова скрипта .TenDiction.WordsTree }
+begin
+ Result := aenDiction.WordsTree;
+end;//TkwEnDictionWordsTree.WordsTree
 
 class function TkwEnDictionWordsTree.GetWordNameForRegister: AnsiString;
 begin
@@ -422,6 +407,21 @@ procedure TkwEnDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству WordsTree', aCtx);
 end;//TkwEnDictionWordsTree.SetValuePrim
+
+procedure TkwEnDictionWordsTree.DoDoIt(const aCtx: TtfwContext);
+var l_aenDiction: TenDiction;
+begin
+ try
+  l_aenDiction := TenDiction(aCtx.rEngine.PopObjAs(TenDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenDiction: TenDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WordsTree(aCtx, l_aenDiction));
+end;//TkwEnDictionWordsTree.DoDoIt
 
 initialization
  Tkw_Form_Diction.RegisterInEngine;

@@ -34,6 +34,13 @@ uses
  , tfwScriptingTypes
 ;
 
+{$If NOT Defined(NoVGScene)}
+type
+ TvcmBaseMenuForChromeLikeFriend = {abstract} class(TvcmBaseMenuForChromeLike)
+  {* Друг к классу TvcmBaseMenuForChromeLike }
+ end;//TvcmBaseMenuForChromeLikeFriend
+{$IfEnd} // NOT Defined(NoVGScene)
+
 type
  TkwPopMenuForChromeLikeActive = {final} class(TtfwClassLike)
   {* Слово скрипта pop:MenuForChromeLike:Active }
@@ -42,8 +49,8 @@ type
     aMenuForChromeLike: TvcmBaseMenuForChromeLike): TvcmBaseMenuForChromeLike;
     {* Реализация слова скрипта pop:MenuForChromeLike:Active }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -57,8 +64,8 @@ type
     aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
     {* Реализация слова скрипта pop:MenuForChromeLike:Hovered }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -72,19 +79,13 @@ type
     aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
     {* Реализация слова скрипта pop:MenuForChromeLike:MenuItem }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopMenuForChromeLikeMenuItem
-
-{$If NOT Defined(NoVGScene)}
- TvcmBaseMenuForChromeLikeFriend = {abstract} class(TvcmBaseMenuForChromeLike)
-  {* Друг к классу TvcmBaseMenuForChromeLike }
- end;//TvcmBaseMenuForChromeLikeFriend
-{$IfEnd} // NOT Defined(NoVGScene)
 
  TvcmTabbedMenuWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
@@ -92,31 +93,18 @@ type
    class function ResName: AnsiString; override;
  end;//TvcmTabbedMenuWordsPackResNameGetter
 
+{$If NOT Defined(NoVGScene)}
+{$IfEnd} // NOT Defined(NoVGScene)
 function TkwPopMenuForChromeLikeActive.Active(const aCtx: TtfwContext;
  aMenuForChromeLike: TvcmBaseMenuForChromeLike): TvcmBaseMenuForChromeLike;
  {* Реализация слова скрипта pop:MenuForChromeLike:Active }
-//#UC START# *55C8753A0311_0E751338C548_var*
-//#UC END# *55C8753A0311_0E751338C548_var*
+//#UC START# *55C8753A0311_55C8753A0311_545C51CB0171_Word_var*
+//#UC END# *55C8753A0311_55C8753A0311_545C51CB0171_Word_var*
 begin
-//#UC START# *55C8753A0311_0E751338C548_impl*
+//#UC START# *55C8753A0311_55C8753A0311_545C51CB0171_Word_impl*
  Result := TvcmBaseMenuForChromeLikeFriend(aMenuForChromeLike).CurrentOpenedSubmenu;
-//#UC END# *55C8753A0311_0E751338C548_impl*
+//#UC END# *55C8753A0311_55C8753A0311_545C51CB0171_Word_impl*
 end;//TkwPopMenuForChromeLikeActive.Active
-
-procedure TkwPopMenuForChromeLikeActive.DoDoIt(const aCtx: TtfwContext);
-var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
-begin
- try
-  l_aMenuForChromeLike := TvcmBaseMenuForChromeLike(aCtx.rEngine.PopObjAs(TvcmBaseMenuForChromeLike));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aMenuForChromeLike: TvcmBaseMenuForChromeLike : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Active(aCtx, l_aMenuForChromeLike));
-end;//TkwPopMenuForChromeLikeActive.DoDoIt
 
 class function TkwPopMenuForChromeLikeActive.GetWordNameForRegister: AnsiString;
 begin
@@ -138,18 +126,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeActive.ParamsTypes
 
-function TkwPopMenuForChromeLikeHovered.Hovered(const aCtx: TtfwContext;
- aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
- {* Реализация слова скрипта pop:MenuForChromeLike:Hovered }
-//#UC START# *55C8756402D3_82B96D3A5D58_var*
-//#UC END# *55C8756402D3_82B96D3A5D58_var*
-begin
-//#UC START# *55C8756402D3_82B96D3A5D58_impl*
- Result := TvcmBaseMenuForChromeLikeFriend(aMenuForChromeLike).HoveredItem.rItem;
-//#UC END# *55C8756402D3_82B96D3A5D58_impl*
-end;//TkwPopMenuForChromeLikeHovered.Hovered
-
-procedure TkwPopMenuForChromeLikeHovered.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopMenuForChromeLikeActive.DoDoIt(const aCtx: TtfwContext);
 var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
 begin
  try
@@ -161,8 +138,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Hovered(aCtx, l_aMenuForChromeLike));
-end;//TkwPopMenuForChromeLikeHovered.DoDoIt
+ aCtx.rEngine.PushObj(Active(aCtx, l_aMenuForChromeLike));
+end;//TkwPopMenuForChromeLikeActive.DoDoIt
+
+function TkwPopMenuForChromeLikeHovered.Hovered(const aCtx: TtfwContext;
+ aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
+ {* Реализация слова скрипта pop:MenuForChromeLike:Hovered }
+//#UC START# *55C8756402D3_55C8756402D3_545C51CB0171_Word_var*
+//#UC END# *55C8756402D3_55C8756402D3_545C51CB0171_Word_var*
+begin
+//#UC START# *55C8756402D3_55C8756402D3_545C51CB0171_Word_impl*
+ Result := TvcmBaseMenuForChromeLikeFriend(aMenuForChromeLike).HoveredItem.rItem;
+//#UC END# *55C8756402D3_55C8756402D3_545C51CB0171_Word_impl*
+end;//TkwPopMenuForChromeLikeHovered.Hovered
 
 class function TkwPopMenuForChromeLikeHovered.GetWordNameForRegister: AnsiString;
 begin
@@ -184,18 +172,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeHovered.ParamsTypes
 
-function TkwPopMenuForChromeLikeMenuItem.MenuItem(const aCtx: TtfwContext;
- aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
- {* Реализация слова скрипта pop:MenuForChromeLike:MenuItem }
-//#UC START# *55C8992400F6_B39FBDC27B79_var*
-//#UC END# *55C8992400F6_B39FBDC27B79_var*
-begin
-//#UC START# *55C8992400F6_B39FBDC27B79_impl*
- Result := aMenuForChromeLike.MenuItem;
-//#UC END# *55C8992400F6_B39FBDC27B79_impl*
-end;//TkwPopMenuForChromeLikeMenuItem.MenuItem
-
-procedure TkwPopMenuForChromeLikeMenuItem.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopMenuForChromeLikeHovered.DoDoIt(const aCtx: TtfwContext);
 var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
 begin
  try
@@ -207,8 +184,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(MenuItem(aCtx, l_aMenuForChromeLike));
-end;//TkwPopMenuForChromeLikeMenuItem.DoDoIt
+ aCtx.rEngine.PushObj(Hovered(aCtx, l_aMenuForChromeLike));
+end;//TkwPopMenuForChromeLikeHovered.DoDoIt
+
+function TkwPopMenuForChromeLikeMenuItem.MenuItem(const aCtx: TtfwContext;
+ aMenuForChromeLike: TvcmBaseMenuForChromeLike): TMenuItem;
+ {* Реализация слова скрипта pop:MenuForChromeLike:MenuItem }
+//#UC START# *55C8992400F6_55C8992400F6_545C51CB0171_Word_var*
+//#UC END# *55C8992400F6_55C8992400F6_545C51CB0171_Word_var*
+begin
+//#UC START# *55C8992400F6_55C8992400F6_545C51CB0171_Word_impl*
+ Result := aMenuForChromeLike.MenuItem;
+//#UC END# *55C8992400F6_55C8992400F6_545C51CB0171_Word_impl*
+end;//TkwPopMenuForChromeLikeMenuItem.MenuItem
 
 class function TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister: AnsiString;
 begin
@@ -230,8 +218,21 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeMenuItem.ParamsTypes
 
-{$If NOT Defined(NoVGScene)}
-{$IfEnd} // NOT Defined(NoVGScene)
+procedure TkwPopMenuForChromeLikeMenuItem.DoDoIt(const aCtx: TtfwContext);
+var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
+begin
+ try
+  l_aMenuForChromeLike := TvcmBaseMenuForChromeLike(aCtx.rEngine.PopObjAs(TvcmBaseMenuForChromeLike));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuForChromeLike: TvcmBaseMenuForChromeLike : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MenuItem(aCtx, l_aMenuForChromeLike));
+end;//TkwPopMenuForChromeLikeMenuItem.DoDoIt
+
 class function TvcmTabbedMenuWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'vcmTabbedMenuWordsPack';

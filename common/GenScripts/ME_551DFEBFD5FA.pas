@@ -144,8 +144,8 @@ type
     aefUserList: TefUserList): TvtPanel;
     {* Реализация слова скрипта .TefUserList.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -161,8 +161,8 @@ type
     aefUserList: TefUserList): TnscContextFilter;
     {* Реализация слова скрипта .TefUserList.ContextFilter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -178,8 +178,8 @@ type
     aefUserList: TefUserList): TeeTreeView;
     {* Реализация слова скрипта .TefUserList.trUserList }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -286,21 +286,6 @@ begin
  Result := aefUserList.BackgroundPanel;
 end;//TkwEfUserListBackgroundPanel.BackgroundPanel
 
-procedure TkwEfUserListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aefUserList: TefUserList;
-begin
- try
-  l_aefUserList := TefUserList(aCtx.rEngine.PopObjAs(TefUserList));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefUserList: TefUserList : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefUserList));
-end;//TkwEfUserListBackgroundPanel.DoDoIt
-
 class function TkwEfUserListBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefUserList.BackgroundPanel';
@@ -327,14 +312,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEfUserListBackgroundPanel.SetValuePrim
 
-function TkwEfUserListContextFilter.ContextFilter(const aCtx: TtfwContext;
- aefUserList: TefUserList): TnscContextFilter;
- {* Реализация слова скрипта .TefUserList.ContextFilter }
-begin
- Result := aefUserList.ContextFilter;
-end;//TkwEfUserListContextFilter.ContextFilter
-
-procedure TkwEfUserListContextFilter.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserList: TefUserList;
 begin
  try
@@ -346,8 +324,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefUserList));
-end;//TkwEfUserListContextFilter.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefUserList));
+end;//TkwEfUserListBackgroundPanel.DoDoIt
+
+function TkwEfUserListContextFilter.ContextFilter(const aCtx: TtfwContext;
+ aefUserList: TefUserList): TnscContextFilter;
+ {* Реализация слова скрипта .TefUserList.ContextFilter }
+begin
+ Result := aefUserList.ContextFilter;
+end;//TkwEfUserListContextFilter.ContextFilter
 
 class function TkwEfUserListContextFilter.GetWordNameForRegister: AnsiString;
 begin
@@ -375,14 +360,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEfUserListContextFilter.SetValuePrim
 
-function TkwEfUserListTrUserList.trUserList(const aCtx: TtfwContext;
- aefUserList: TefUserList): TeeTreeView;
- {* Реализация слова скрипта .TefUserList.trUserList }
-begin
- Result := aefUserList.trUserList;
-end;//TkwEfUserListTrUserList.trUserList
-
-procedure TkwEfUserListTrUserList.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserListContextFilter.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserList: TefUserList;
 begin
  try
@@ -394,8 +372,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(trUserList(aCtx, l_aefUserList));
-end;//TkwEfUserListTrUserList.DoDoIt
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefUserList));
+end;//TkwEfUserListContextFilter.DoDoIt
+
+function TkwEfUserListTrUserList.trUserList(const aCtx: TtfwContext;
+ aefUserList: TefUserList): TeeTreeView;
+ {* Реализация слова скрипта .TefUserList.trUserList }
+begin
+ Result := aefUserList.trUserList;
+end;//TkwEfUserListTrUserList.trUserList
 
 class function TkwEfUserListTrUserList.GetWordNameForRegister: AnsiString;
 begin
@@ -422,6 +407,21 @@ procedure TkwEfUserListTrUserList.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству trUserList', aCtx);
 end;//TkwEfUserListTrUserList.SetValuePrim
+
+procedure TkwEfUserListTrUserList.DoDoIt(const aCtx: TtfwContext);
+var l_aefUserList: TefUserList;
+begin
+ try
+  l_aefUserList := TefUserList(aCtx.rEngine.PopObjAs(TefUserList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefUserList: TefUserList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(trUserList(aCtx, l_aefUserList));
+end;//TkwEfUserListTrUserList.DoDoIt
 
 initialization
  Tkw_Form_UserList.RegisterInEngine;

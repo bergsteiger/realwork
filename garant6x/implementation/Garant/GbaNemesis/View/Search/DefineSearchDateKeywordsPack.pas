@@ -423,8 +423,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtPanel;
     {* Реализация слова скрипта .Ten_DefineSearchDate.Panel1 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -440,8 +440,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
     {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel1 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -457,8 +457,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
     {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel2 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -474,8 +474,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
     {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel3 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -491,8 +491,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
     {* Реализация слова скрипта .Ten_DefineSearchDate.dD1EqD2 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -508,8 +508,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
     {* Реализация слова скрипта .Ten_DefineSearchDate.rbEq }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -525,8 +525,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
     {* Реализация слова скрипта .Ten_DefineSearchDate.rbInt }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -542,8 +542,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
     {* Реализация слова скрипта .Ten_DefineSearchDate.rbD2Only }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -559,8 +559,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
     {* Реализация слова скрипта .Ten_DefineSearchDate.dD1Only }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -576,8 +576,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
     {* Реализация слова скрипта .Ten_DefineSearchDate.dD2Only }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -593,8 +593,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
     {* Реализация слова скрипта .Ten_DefineSearchDate.dD1 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -610,8 +610,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
     {* Реализация слова скрипта .Ten_DefineSearchDate.rbD1Only }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -627,8 +627,8 @@ type
     aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
     {* Реализация слова скрипта .Ten_DefineSearchDate.dD2 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1005,21 +1005,6 @@ begin
  Result := aen_DefineSearchDate.Panel1;
 end;//TkwEnDefineSearchDatePanel1.Panel1
 
-procedure TkwEnDefineSearchDatePanel1.DoDoIt(const aCtx: TtfwContext);
-var l_aen_DefineSearchDate: Ten_DefineSearchDate;
-begin
- try
-  l_aen_DefineSearchDate := Ten_DefineSearchDate(aCtx.rEngine.PopObjAs(Ten_DefineSearchDate));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_DefineSearchDate: Ten_DefineSearchDate : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Panel1(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDatePanel1.DoDoIt
-
 class function TkwEnDefineSearchDatePanel1.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_DefineSearchDate.Panel1';
@@ -1046,14 +1031,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Panel1', aCtx);
 end;//TkwEnDefineSearchDatePanel1.SetValuePrim
 
-function TkwEnDefineSearchDateElLabel1.ElLabel1(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
- {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel1 }
-begin
- Result := aen_DefineSearchDate.ElLabel1;
-end;//TkwEnDefineSearchDateElLabel1.ElLabel1
-
-procedure TkwEnDefineSearchDateElLabel1.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDatePanel1.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1065,8 +1043,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ElLabel1(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateElLabel1.DoDoIt
+ aCtx.rEngine.PushObj(Panel1(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDatePanel1.DoDoIt
+
+function TkwEnDefineSearchDateElLabel1.ElLabel1(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel1 }
+begin
+ Result := aen_DefineSearchDate.ElLabel1;
+end;//TkwEnDefineSearchDateElLabel1.ElLabel1
 
 class function TkwEnDefineSearchDateElLabel1.GetWordNameForRegister: AnsiString;
 begin
@@ -1094,14 +1079,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ElLabel1', aCtx);
 end;//TkwEnDefineSearchDateElLabel1.SetValuePrim
 
-function TkwEnDefineSearchDateElLabel2.ElLabel2(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
- {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel2 }
-begin
- Result := aen_DefineSearchDate.ElLabel2;
-end;//TkwEnDefineSearchDateElLabel2.ElLabel2
-
-procedure TkwEnDefineSearchDateElLabel2.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateElLabel1.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1113,8 +1091,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ElLabel2(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateElLabel2.DoDoIt
+ aCtx.rEngine.PushObj(ElLabel1(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateElLabel1.DoDoIt
+
+function TkwEnDefineSearchDateElLabel2.ElLabel2(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel2 }
+begin
+ Result := aen_DefineSearchDate.ElLabel2;
+end;//TkwEnDefineSearchDateElLabel2.ElLabel2
 
 class function TkwEnDefineSearchDateElLabel2.GetWordNameForRegister: AnsiString;
 begin
@@ -1142,14 +1127,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ElLabel2', aCtx);
 end;//TkwEnDefineSearchDateElLabel2.SetValuePrim
 
-function TkwEnDefineSearchDateElLabel3.ElLabel3(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
- {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel3 }
-begin
- Result := aen_DefineSearchDate.ElLabel3;
-end;//TkwEnDefineSearchDateElLabel3.ElLabel3
-
-procedure TkwEnDefineSearchDateElLabel3.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateElLabel2.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1161,8 +1139,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ElLabel3(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateElLabel3.DoDoIt
+ aCtx.rEngine.PushObj(ElLabel2(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateElLabel2.DoDoIt
+
+function TkwEnDefineSearchDateElLabel3.ElLabel3(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtLabel;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.ElLabel3 }
+begin
+ Result := aen_DefineSearchDate.ElLabel3;
+end;//TkwEnDefineSearchDateElLabel3.ElLabel3
 
 class function TkwEnDefineSearchDateElLabel3.GetWordNameForRegister: AnsiString;
 begin
@@ -1190,14 +1175,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ElLabel3', aCtx);
 end;//TkwEnDefineSearchDateElLabel3.SetValuePrim
 
-function TkwEnDefineSearchDateDD1EqD2.dD1EqD2(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
- {* Реализация слова скрипта .Ten_DefineSearchDate.dD1EqD2 }
-begin
- Result := aen_DefineSearchDate.dD1EqD2;
-end;//TkwEnDefineSearchDateDD1EqD2.dD1EqD2
-
-procedure TkwEnDefineSearchDateDD1EqD2.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateElLabel3.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1209,8 +1187,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(dD1EqD2(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateDD1EqD2.DoDoIt
+ aCtx.rEngine.PushObj(ElLabel3(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateElLabel3.DoDoIt
+
+function TkwEnDefineSearchDateDD1EqD2.dD1EqD2(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.dD1EqD2 }
+begin
+ Result := aen_DefineSearchDate.dD1EqD2;
+end;//TkwEnDefineSearchDateDD1EqD2.dD1EqD2
 
 class function TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister: AnsiString;
 begin
@@ -1238,14 +1223,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству dD1EqD2', aCtx);
 end;//TkwEnDefineSearchDateDD1EqD2.SetValuePrim
 
-function TkwEnDefineSearchDateRbEq.rbEq(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
- {* Реализация слова скрипта .Ten_DefineSearchDate.rbEq }
-begin
- Result := aen_DefineSearchDate.rbEq;
-end;//TkwEnDefineSearchDateRbEq.rbEq
-
-procedure TkwEnDefineSearchDateRbEq.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateDD1EqD2.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1257,8 +1235,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbEq(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateRbEq.DoDoIt
+ aCtx.rEngine.PushObj(dD1EqD2(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateDD1EqD2.DoDoIt
+
+function TkwEnDefineSearchDateRbEq.rbEq(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.rbEq }
+begin
+ Result := aen_DefineSearchDate.rbEq;
+end;//TkwEnDefineSearchDateRbEq.rbEq
 
 class function TkwEnDefineSearchDateRbEq.GetWordNameForRegister: AnsiString;
 begin
@@ -1286,14 +1271,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbEq', aCtx);
 end;//TkwEnDefineSearchDateRbEq.SetValuePrim
 
-function TkwEnDefineSearchDateRbInt.rbInt(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
- {* Реализация слова скрипта .Ten_DefineSearchDate.rbInt }
-begin
- Result := aen_DefineSearchDate.rbInt;
-end;//TkwEnDefineSearchDateRbInt.rbInt
-
-procedure TkwEnDefineSearchDateRbInt.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateRbEq.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1305,8 +1283,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbInt(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateRbInt.DoDoIt
+ aCtx.rEngine.PushObj(rbEq(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateRbEq.DoDoIt
+
+function TkwEnDefineSearchDateRbInt.rbInt(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.rbInt }
+begin
+ Result := aen_DefineSearchDate.rbInt;
+end;//TkwEnDefineSearchDateRbInt.rbInt
 
 class function TkwEnDefineSearchDateRbInt.GetWordNameForRegister: AnsiString;
 begin
@@ -1334,14 +1319,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbInt', aCtx);
 end;//TkwEnDefineSearchDateRbInt.SetValuePrim
 
-function TkwEnDefineSearchDateRbD2Only.rbD2Only(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
- {* Реализация слова скрипта .Ten_DefineSearchDate.rbD2Only }
-begin
- Result := aen_DefineSearchDate.rbD2Only;
-end;//TkwEnDefineSearchDateRbD2Only.rbD2Only
-
-procedure TkwEnDefineSearchDateRbD2Only.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateRbInt.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1353,8 +1331,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbD2Only(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateRbD2Only.DoDoIt
+ aCtx.rEngine.PushObj(rbInt(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateRbInt.DoDoIt
+
+function TkwEnDefineSearchDateRbD2Only.rbD2Only(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.rbD2Only }
+begin
+ Result := aen_DefineSearchDate.rbD2Only;
+end;//TkwEnDefineSearchDateRbD2Only.rbD2Only
 
 class function TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister: AnsiString;
 begin
@@ -1382,14 +1367,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbD2Only', aCtx);
 end;//TkwEnDefineSearchDateRbD2Only.SetValuePrim
 
-function TkwEnDefineSearchDateDD1Only.dD1Only(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
- {* Реализация слова скрипта .Ten_DefineSearchDate.dD1Only }
-begin
- Result := aen_DefineSearchDate.dD1Only;
-end;//TkwEnDefineSearchDateDD1Only.dD1Only
-
-procedure TkwEnDefineSearchDateDD1Only.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateRbD2Only.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1401,8 +1379,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(dD1Only(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateDD1Only.DoDoIt
+ aCtx.rEngine.PushObj(rbD2Only(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateRbD2Only.DoDoIt
+
+function TkwEnDefineSearchDateDD1Only.dD1Only(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.dD1Only }
+begin
+ Result := aen_DefineSearchDate.dD1Only;
+end;//TkwEnDefineSearchDateDD1Only.dD1Only
 
 class function TkwEnDefineSearchDateDD1Only.GetWordNameForRegister: AnsiString;
 begin
@@ -1430,14 +1415,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству dD1Only', aCtx);
 end;//TkwEnDefineSearchDateDD1Only.SetValuePrim
 
-function TkwEnDefineSearchDateDD2Only.dD2Only(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
- {* Реализация слова скрипта .Ten_DefineSearchDate.dD2Only }
-begin
- Result := aen_DefineSearchDate.dD2Only;
-end;//TkwEnDefineSearchDateDD2Only.dD2Only
-
-procedure TkwEnDefineSearchDateDD2Only.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateDD1Only.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1449,8 +1427,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(dD2Only(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateDD2Only.DoDoIt
+ aCtx.rEngine.PushObj(dD1Only(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateDD1Only.DoDoIt
+
+function TkwEnDefineSearchDateDD2Only.dD2Only(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.dD2Only }
+begin
+ Result := aen_DefineSearchDate.dD2Only;
+end;//TkwEnDefineSearchDateDD2Only.dD2Only
 
 class function TkwEnDefineSearchDateDD2Only.GetWordNameForRegister: AnsiString;
 begin
@@ -1478,14 +1463,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству dD2Only', aCtx);
 end;//TkwEnDefineSearchDateDD2Only.SetValuePrim
 
-function TkwEnDefineSearchDateDD1.dD1(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
- {* Реализация слова скрипта .Ten_DefineSearchDate.dD1 }
-begin
- Result := aen_DefineSearchDate.dD1;
-end;//TkwEnDefineSearchDateDD1.dD1
-
-procedure TkwEnDefineSearchDateDD1.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateDD2Only.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1497,8 +1475,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(dD1(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateDD1.DoDoIt
+ aCtx.rEngine.PushObj(dD2Only(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateDD2Only.DoDoIt
+
+function TkwEnDefineSearchDateDD1.dD1(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.dD1 }
+begin
+ Result := aen_DefineSearchDate.dD1;
+end;//TkwEnDefineSearchDateDD1.dD1
 
 class function TkwEnDefineSearchDateDD1.GetWordNameForRegister: AnsiString;
 begin
@@ -1526,14 +1511,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству dD1', aCtx);
 end;//TkwEnDefineSearchDateDD1.SetValuePrim
 
-function TkwEnDefineSearchDateRbD1Only.rbD1Only(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
- {* Реализация слова скрипта .Ten_DefineSearchDate.rbD1Only }
-begin
- Result := aen_DefineSearchDate.rbD1Only;
-end;//TkwEnDefineSearchDateRbD1Only.rbD1Only
-
-procedure TkwEnDefineSearchDateRbD1Only.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateDD1.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1545,8 +1523,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbD1Only(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateRbD1Only.DoDoIt
+ aCtx.rEngine.PushObj(dD1(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateDD1.DoDoIt
+
+function TkwEnDefineSearchDateRbD1Only.rbD1Only(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.rbD1Only }
+begin
+ Result := aen_DefineSearchDate.rbD1Only;
+end;//TkwEnDefineSearchDateRbD1Only.rbD1Only
 
 class function TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister: AnsiString;
 begin
@@ -1574,14 +1559,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbD1Only', aCtx);
 end;//TkwEnDefineSearchDateRbD1Only.SetValuePrim
 
-function TkwEnDefineSearchDateDD2.dD2(const aCtx: TtfwContext;
- aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
- {* Реализация слова скрипта .Ten_DefineSearchDate.dD2 }
-begin
- Result := aen_DefineSearchDate.dD2;
-end;//TkwEnDefineSearchDateDD2.dD2
-
-procedure TkwEnDefineSearchDateDD2.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnDefineSearchDateRbD1Only.DoDoIt(const aCtx: TtfwContext);
 var l_aen_DefineSearchDate: Ten_DefineSearchDate;
 begin
  try
@@ -1593,8 +1571,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(dD2(aCtx, l_aen_DefineSearchDate));
-end;//TkwEnDefineSearchDateDD2.DoDoIt
+ aCtx.rEngine.PushObj(rbD1Only(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateRbD1Only.DoDoIt
+
+function TkwEnDefineSearchDateDD2.dD2(const aCtx: TtfwContext;
+ aen_DefineSearchDate: Ten_DefineSearchDate): TvtDblClickDateEdit;
+ {* Реализация слова скрипта .Ten_DefineSearchDate.dD2 }
+begin
+ Result := aen_DefineSearchDate.dD2;
+end;//TkwEnDefineSearchDateDD2.dD2
 
 class function TkwEnDefineSearchDateDD2.GetWordNameForRegister: AnsiString;
 begin
@@ -1621,6 +1606,21 @@ procedure TkwEnDefineSearchDateDD2.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству dD2', aCtx);
 end;//TkwEnDefineSearchDateDD2.SetValuePrim
+
+procedure TkwEnDefineSearchDateDD2.DoDoIt(const aCtx: TtfwContext);
+var l_aen_DefineSearchDate: Ten_DefineSearchDate;
+begin
+ try
+  l_aen_DefineSearchDate := Ten_DefineSearchDate(aCtx.rEngine.PopObjAs(Ten_DefineSearchDate));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_DefineSearchDate: Ten_DefineSearchDate : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(dD2(aCtx, l_aen_DefineSearchDate));
+end;//TkwEnDefineSearchDateDD2.DoDoIt
 
 initialization
  Tkw_Form_DefineSearchDate.RegisterInEngine;

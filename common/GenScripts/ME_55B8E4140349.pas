@@ -36,8 +36,8 @@ type
     aContainedAction: TContainedAction);
     {* Реализация слова скрипта pop:ContainedAction:Execute }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 procedure TkwPopContainedActionExecute.Execute(const aCtx: TtfwContext;
  aContainedAction: TContainedAction);
  {* Реализация слова скрипта pop:ContainedAction:Execute }
-//#UC START# *55B8E49D01F4_87D5D18D9F8E_var*
-//#UC END# *55B8E49D01F4_87D5D18D9F8E_var*
+//#UC START# *55B8E49D01F4_55B8E49D01F4_47E76278025E_Word_var*
+//#UC END# *55B8E49D01F4_55B8E49D01F4_47E76278025E_Word_var*
 begin
-//#UC START# *55B8E49D01F4_87D5D18D9F8E_impl*
+//#UC START# *55B8E49D01F4_55B8E49D01F4_47E76278025E_Word_impl*
  aContainedAction.Execute;
-//#UC END# *55B8E49D01F4_87D5D18D9F8E_impl*
+//#UC END# *55B8E49D01F4_55B8E49D01F4_47E76278025E_Word_impl*
 end;//TkwPopContainedActionExecute.Execute
-
-procedure TkwPopContainedActionExecute.DoDoIt(const aCtx: TtfwContext);
-var l_aContainedAction: TContainedAction;
-begin
- try
-  l_aContainedAction := TContainedAction(aCtx.rEngine.PopObjAs(TContainedAction));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aContainedAction: TContainedAction : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Execute(aCtx, l_aContainedAction);
-end;//TkwPopContainedActionExecute.DoDoIt
 
 class function TkwPopContainedActionExecute.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopContainedActionExecute.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TContainedAction)]);
 end;//TkwPopContainedActionExecute.ParamsTypes
+
+procedure TkwPopContainedActionExecute.DoDoIt(const aCtx: TtfwContext);
+var l_aContainedAction: TContainedAction;
+begin
+ try
+  l_aContainedAction := TContainedAction(aCtx.rEngine.PopObjAs(TContainedAction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContainedAction: TContainedAction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Execute(aCtx, l_aContainedAction);
+end;//TkwPopContainedActionExecute.DoDoIt
 
 initialization
  TkwPopContainedActionExecute.RegisterInEngine;

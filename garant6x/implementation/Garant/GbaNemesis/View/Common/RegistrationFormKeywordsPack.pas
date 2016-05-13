@@ -711,8 +711,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtPanel;
     {* Реализация слова скрипта .TnsRegistrationForm.pnMainData }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -728,8 +728,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.UserNameLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -745,8 +745,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.PasswordLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -762,8 +762,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.LoginLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -779,8 +779,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.InfoLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -796,8 +796,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.EMailLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -813,8 +813,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.ConfirmPasswordLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -830,8 +830,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.vtAsteriskLabelLogin }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -847,8 +847,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.vtAsteriskLabelFIO }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -864,8 +864,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
     {* Реализация слова скрипта .TnsRegistrationForm.edPassword }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -881,8 +881,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TnscEdit;
     {* Реализация слова скрипта .TnsRegistrationForm.edUserName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -898,8 +898,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TnscEdit;
     {* Реализация слова скрипта .TnsRegistrationForm.edLogin }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -915,8 +915,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TnscEdit;
     {* Реализация слова скрипта .TnsRegistrationForm.edEmail }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -932,8 +932,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
     {* Реализация слова скрипта .TnsRegistrationForm.edConfirm }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -949,8 +949,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtCheckBox;
     {* Реализация слова скрипта .TnsRegistrationForm.cbAutoLogin }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -966,8 +966,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtGroupBox;
     {* Реализация слова скрипта .TnsRegistrationForm.NewUserGroupBox }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -983,8 +983,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.NewUserLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1000,8 +1000,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TPaintBox;
     {* Реализация слова скрипта .TnsRegistrationForm.NewUserPaintBox }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1017,8 +1017,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtPanel;
     {* Реализация слова скрипта .TnsRegistrationForm.BottomPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1034,8 +1034,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TElPopupButton;
     {* Реализация слова скрипта .TnsRegistrationForm.RegisterButton }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1051,8 +1051,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtPanel;
     {* Реализация слова скрипта .TnsRegistrationForm.HelpPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1068,8 +1068,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TPaintBox;
     {* Реализация слова скрипта .TnsRegistrationForm.HelpPaintBox }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1085,8 +1085,8 @@ type
     aRegistrationForm: TnsRegistrationForm): TvtFocusLabel;
     {* Реализация слова скрипта .TnsRegistrationForm.HelpLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1733,21 +1733,6 @@ begin
  Result := aRegistrationForm.pnMainData;
 end;//TkwRegistrationFormPnMainData.pnMainData
 
-procedure TkwRegistrationFormPnMainData.DoDoIt(const aCtx: TtfwContext);
-var l_aRegistrationForm: TnsRegistrationForm;
-begin
- try
-  l_aRegistrationForm := TnsRegistrationForm(aCtx.rEngine.PopObjAs(TnsRegistrationForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRegistrationForm: TnsRegistrationForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(pnMainData(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormPnMainData.DoDoIt
-
 class function TkwRegistrationFormPnMainData.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TnsRegistrationForm.pnMainData';
@@ -1774,14 +1759,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnMainData', aCtx);
 end;//TkwRegistrationFormPnMainData.SetValuePrim
 
-function TkwRegistrationFormUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.UserNameLabel }
-begin
- Result := aRegistrationForm.UserNameLabel;
-end;//TkwRegistrationFormUserNameLabel.UserNameLabel
-
-procedure TkwRegistrationFormUserNameLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormPnMainData.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -1793,8 +1771,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormUserNameLabel.DoDoIt
+ aCtx.rEngine.PushObj(pnMainData(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormPnMainData.DoDoIt
+
+function TkwRegistrationFormUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.UserNameLabel }
+begin
+ Result := aRegistrationForm.UserNameLabel;
+end;//TkwRegistrationFormUserNameLabel.UserNameLabel
 
 class function TkwRegistrationFormUserNameLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1822,14 +1807,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
 end;//TkwRegistrationFormUserNameLabel.SetValuePrim
 
-function TkwRegistrationFormPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.PasswordLabel }
-begin
- Result := aRegistrationForm.PasswordLabel;
-end;//TkwRegistrationFormPasswordLabel.PasswordLabel
-
-procedure TkwRegistrationFormPasswordLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormUserNameLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -1841,8 +1819,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormPasswordLabel.DoDoIt
+ aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormUserNameLabel.DoDoIt
+
+function TkwRegistrationFormPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.PasswordLabel }
+begin
+ Result := aRegistrationForm.PasswordLabel;
+end;//TkwRegistrationFormPasswordLabel.PasswordLabel
 
 class function TkwRegistrationFormPasswordLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1870,14 +1855,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству PasswordLabel', aCtx);
 end;//TkwRegistrationFormPasswordLabel.SetValuePrim
 
-function TkwRegistrationFormLoginLabel.LoginLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.LoginLabel }
-begin
- Result := aRegistrationForm.LoginLabel;
-end;//TkwRegistrationFormLoginLabel.LoginLabel
-
-procedure TkwRegistrationFormLoginLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormPasswordLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -1889,8 +1867,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormLoginLabel.DoDoIt
+ aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormPasswordLabel.DoDoIt
+
+function TkwRegistrationFormLoginLabel.LoginLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.LoginLabel }
+begin
+ Result := aRegistrationForm.LoginLabel;
+end;//TkwRegistrationFormLoginLabel.LoginLabel
 
 class function TkwRegistrationFormLoginLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1918,14 +1903,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
 end;//TkwRegistrationFormLoginLabel.SetValuePrim
 
-function TkwRegistrationFormInfoLabel.InfoLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.InfoLabel }
-begin
- Result := aRegistrationForm.InfoLabel;
-end;//TkwRegistrationFormInfoLabel.InfoLabel
-
-procedure TkwRegistrationFormInfoLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormLoginLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -1937,8 +1915,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormInfoLabel.DoDoIt
+ aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormLoginLabel.DoDoIt
+
+function TkwRegistrationFormInfoLabel.InfoLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.InfoLabel }
+begin
+ Result := aRegistrationForm.InfoLabel;
+end;//TkwRegistrationFormInfoLabel.InfoLabel
 
 class function TkwRegistrationFormInfoLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1966,14 +1951,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству InfoLabel', aCtx);
 end;//TkwRegistrationFormInfoLabel.SetValuePrim
 
-function TkwRegistrationFormEMailLabel.EMailLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.EMailLabel }
-begin
- Result := aRegistrationForm.EMailLabel;
-end;//TkwRegistrationFormEMailLabel.EMailLabel
-
-procedure TkwRegistrationFormEMailLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormInfoLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -1985,8 +1963,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormEMailLabel.DoDoIt
+ aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormInfoLabel.DoDoIt
+
+function TkwRegistrationFormEMailLabel.EMailLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.EMailLabel }
+begin
+ Result := aRegistrationForm.EMailLabel;
+end;//TkwRegistrationFormEMailLabel.EMailLabel
 
 class function TkwRegistrationFormEMailLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -2014,14 +1999,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
 end;//TkwRegistrationFormEMailLabel.SetValuePrim
 
-function TkwRegistrationFormConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.ConfirmPasswordLabel }
-begin
- Result := aRegistrationForm.ConfirmPasswordLabel;
-end;//TkwRegistrationFormConfirmPasswordLabel.ConfirmPasswordLabel
-
-procedure TkwRegistrationFormConfirmPasswordLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormEMailLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2033,8 +2011,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormConfirmPasswordLabel.DoDoIt
+ aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormEMailLabel.DoDoIt
+
+function TkwRegistrationFormConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.ConfirmPasswordLabel }
+begin
+ Result := aRegistrationForm.ConfirmPasswordLabel;
+end;//TkwRegistrationFormConfirmPasswordLabel.ConfirmPasswordLabel
 
 class function TkwRegistrationFormConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -2062,14 +2047,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ConfirmPasswordLabel', aCtx);
 end;//TkwRegistrationFormConfirmPasswordLabel.SetValuePrim
 
-function TkwRegistrationFormVtAsteriskLabelLogin.vtAsteriskLabelLogin(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.vtAsteriskLabelLogin }
-begin
- Result := aRegistrationForm.vtAsteriskLabelLogin;
-end;//TkwRegistrationFormVtAsteriskLabelLogin.vtAsteriskLabelLogin
-
-procedure TkwRegistrationFormVtAsteriskLabelLogin.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormConfirmPasswordLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2081,8 +2059,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(vtAsteriskLabelLogin(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormVtAsteriskLabelLogin.DoDoIt
+ aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormConfirmPasswordLabel.DoDoIt
+
+function TkwRegistrationFormVtAsteriskLabelLogin.vtAsteriskLabelLogin(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.vtAsteriskLabelLogin }
+begin
+ Result := aRegistrationForm.vtAsteriskLabelLogin;
+end;//TkwRegistrationFormVtAsteriskLabelLogin.vtAsteriskLabelLogin
 
 class function TkwRegistrationFormVtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
 begin
@@ -2110,14 +2095,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelLogin', aCtx);
 end;//TkwRegistrationFormVtAsteriskLabelLogin.SetValuePrim
 
-function TkwRegistrationFormVtAsteriskLabelFIO.vtAsteriskLabelFIO(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.vtAsteriskLabelFIO }
-begin
- Result := aRegistrationForm.vtAsteriskLabelFIO;
-end;//TkwRegistrationFormVtAsteriskLabelFIO.vtAsteriskLabelFIO
-
-procedure TkwRegistrationFormVtAsteriskLabelFIO.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormVtAsteriskLabelLogin.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2129,8 +2107,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(vtAsteriskLabelFIO(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormVtAsteriskLabelFIO.DoDoIt
+ aCtx.rEngine.PushObj(vtAsteriskLabelLogin(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormVtAsteriskLabelLogin.DoDoIt
+
+function TkwRegistrationFormVtAsteriskLabelFIO.vtAsteriskLabelFIO(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.vtAsteriskLabelFIO }
+begin
+ Result := aRegistrationForm.vtAsteriskLabelFIO;
+end;//TkwRegistrationFormVtAsteriskLabelFIO.vtAsteriskLabelFIO
 
 class function TkwRegistrationFormVtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
 begin
@@ -2158,14 +2143,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelFIO', aCtx);
 end;//TkwRegistrationFormVtAsteriskLabelFIO.SetValuePrim
 
-function TkwRegistrationFormEdPassword.edPassword(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
- {* Реализация слова скрипта .TnsRegistrationForm.edPassword }
-begin
- Result := aRegistrationForm.edPassword;
-end;//TkwRegistrationFormEdPassword.edPassword
-
-procedure TkwRegistrationFormEdPassword.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormVtAsteriskLabelFIO.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2177,8 +2155,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edPassword(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormEdPassword.DoDoIt
+ aCtx.rEngine.PushObj(vtAsteriskLabelFIO(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormVtAsteriskLabelFIO.DoDoIt
+
+function TkwRegistrationFormEdPassword.edPassword(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
+ {* Реализация слова скрипта .TnsRegistrationForm.edPassword }
+begin
+ Result := aRegistrationForm.edPassword;
+end;//TkwRegistrationFormEdPassword.edPassword
 
 class function TkwRegistrationFormEdPassword.GetWordNameForRegister: AnsiString;
 begin
@@ -2206,14 +2191,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
 end;//TkwRegistrationFormEdPassword.SetValuePrim
 
-function TkwRegistrationFormEdUserName.edUserName(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TnscEdit;
- {* Реализация слова скрипта .TnsRegistrationForm.edUserName }
-begin
- Result := aRegistrationForm.edUserName;
-end;//TkwRegistrationFormEdUserName.edUserName
-
-procedure TkwRegistrationFormEdUserName.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormEdPassword.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2225,8 +2203,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edUserName(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormEdUserName.DoDoIt
+ aCtx.rEngine.PushObj(edPassword(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormEdPassword.DoDoIt
+
+function TkwRegistrationFormEdUserName.edUserName(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TnscEdit;
+ {* Реализация слова скрипта .TnsRegistrationForm.edUserName }
+begin
+ Result := aRegistrationForm.edUserName;
+end;//TkwRegistrationFormEdUserName.edUserName
 
 class function TkwRegistrationFormEdUserName.GetWordNameForRegister: AnsiString;
 begin
@@ -2254,14 +2239,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
 end;//TkwRegistrationFormEdUserName.SetValuePrim
 
-function TkwRegistrationFormEdLogin.edLogin(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TnscEdit;
- {* Реализация слова скрипта .TnsRegistrationForm.edLogin }
-begin
- Result := aRegistrationForm.edLogin;
-end;//TkwRegistrationFormEdLogin.edLogin
-
-procedure TkwRegistrationFormEdLogin.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormEdUserName.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2273,8 +2251,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edLogin(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormEdLogin.DoDoIt
+ aCtx.rEngine.PushObj(edUserName(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormEdUserName.DoDoIt
+
+function TkwRegistrationFormEdLogin.edLogin(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TnscEdit;
+ {* Реализация слова скрипта .TnsRegistrationForm.edLogin }
+begin
+ Result := aRegistrationForm.edLogin;
+end;//TkwRegistrationFormEdLogin.edLogin
 
 class function TkwRegistrationFormEdLogin.GetWordNameForRegister: AnsiString;
 begin
@@ -2302,14 +2287,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edLogin', aCtx);
 end;//TkwRegistrationFormEdLogin.SetValuePrim
 
-function TkwRegistrationFormEdEmail.edEmail(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TnscEdit;
- {* Реализация слова скрипта .TnsRegistrationForm.edEmail }
-begin
- Result := aRegistrationForm.edEmail;
-end;//TkwRegistrationFormEdEmail.edEmail
-
-procedure TkwRegistrationFormEdEmail.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormEdLogin.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2321,8 +2299,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edEmail(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormEdEmail.DoDoIt
+ aCtx.rEngine.PushObj(edLogin(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormEdLogin.DoDoIt
+
+function TkwRegistrationFormEdEmail.edEmail(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TnscEdit;
+ {* Реализация слова скрипта .TnsRegistrationForm.edEmail }
+begin
+ Result := aRegistrationForm.edEmail;
+end;//TkwRegistrationFormEdEmail.edEmail
 
 class function TkwRegistrationFormEdEmail.GetWordNameForRegister: AnsiString;
 begin
@@ -2350,14 +2335,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
 end;//TkwRegistrationFormEdEmail.SetValuePrim
 
-function TkwRegistrationFormEdConfirm.edConfirm(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
- {* Реализация слова скрипта .TnsRegistrationForm.edConfirm }
-begin
- Result := aRegistrationForm.edConfirm;
-end;//TkwRegistrationFormEdConfirm.edConfirm
-
-procedure TkwRegistrationFormEdConfirm.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormEdEmail.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2369,8 +2347,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edConfirm(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormEdConfirm.DoDoIt
+ aCtx.rEngine.PushObj(edEmail(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormEdEmail.DoDoIt
+
+function TkwRegistrationFormEdConfirm.edConfirm(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TnscComboBoxWithPwdChar;
+ {* Реализация слова скрипта .TnsRegistrationForm.edConfirm }
+begin
+ Result := aRegistrationForm.edConfirm;
+end;//TkwRegistrationFormEdConfirm.edConfirm
 
 class function TkwRegistrationFormEdConfirm.GetWordNameForRegister: AnsiString;
 begin
@@ -2398,14 +2383,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edConfirm', aCtx);
 end;//TkwRegistrationFormEdConfirm.SetValuePrim
 
-function TkwRegistrationFormCbAutoLogin.cbAutoLogin(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtCheckBox;
- {* Реализация слова скрипта .TnsRegistrationForm.cbAutoLogin }
-begin
- Result := aRegistrationForm.cbAutoLogin;
-end;//TkwRegistrationFormCbAutoLogin.cbAutoLogin
-
-procedure TkwRegistrationFormCbAutoLogin.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormEdConfirm.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2417,8 +2395,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(cbAutoLogin(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormCbAutoLogin.DoDoIt
+ aCtx.rEngine.PushObj(edConfirm(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormEdConfirm.DoDoIt
+
+function TkwRegistrationFormCbAutoLogin.cbAutoLogin(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtCheckBox;
+ {* Реализация слова скрипта .TnsRegistrationForm.cbAutoLogin }
+begin
+ Result := aRegistrationForm.cbAutoLogin;
+end;//TkwRegistrationFormCbAutoLogin.cbAutoLogin
 
 class function TkwRegistrationFormCbAutoLogin.GetWordNameForRegister: AnsiString;
 begin
@@ -2446,14 +2431,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству cbAutoLogin', aCtx);
 end;//TkwRegistrationFormCbAutoLogin.SetValuePrim
 
-function TkwRegistrationFormNewUserGroupBox.NewUserGroupBox(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtGroupBox;
- {* Реализация слова скрипта .TnsRegistrationForm.NewUserGroupBox }
-begin
- Result := aRegistrationForm.NewUserGroupBox;
-end;//TkwRegistrationFormNewUserGroupBox.NewUserGroupBox
-
-procedure TkwRegistrationFormNewUserGroupBox.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormCbAutoLogin.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2465,8 +2443,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(NewUserGroupBox(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormNewUserGroupBox.DoDoIt
+ aCtx.rEngine.PushObj(cbAutoLogin(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormCbAutoLogin.DoDoIt
+
+function TkwRegistrationFormNewUserGroupBox.NewUserGroupBox(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtGroupBox;
+ {* Реализация слова скрипта .TnsRegistrationForm.NewUserGroupBox }
+begin
+ Result := aRegistrationForm.NewUserGroupBox;
+end;//TkwRegistrationFormNewUserGroupBox.NewUserGroupBox
 
 class function TkwRegistrationFormNewUserGroupBox.GetWordNameForRegister: AnsiString;
 begin
@@ -2494,14 +2479,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству NewUserGroupBox', aCtx);
 end;//TkwRegistrationFormNewUserGroupBox.SetValuePrim
 
-function TkwRegistrationFormNewUserLabel.NewUserLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.NewUserLabel }
-begin
- Result := aRegistrationForm.NewUserLabel;
-end;//TkwRegistrationFormNewUserLabel.NewUserLabel
-
-procedure TkwRegistrationFormNewUserLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormNewUserGroupBox.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2513,8 +2491,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(NewUserLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormNewUserLabel.DoDoIt
+ aCtx.rEngine.PushObj(NewUserGroupBox(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormNewUserGroupBox.DoDoIt
+
+function TkwRegistrationFormNewUserLabel.NewUserLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.NewUserLabel }
+begin
+ Result := aRegistrationForm.NewUserLabel;
+end;//TkwRegistrationFormNewUserLabel.NewUserLabel
 
 class function TkwRegistrationFormNewUserLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -2542,14 +2527,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству NewUserLabel', aCtx);
 end;//TkwRegistrationFormNewUserLabel.SetValuePrim
 
-function TkwRegistrationFormNewUserPaintBox.NewUserPaintBox(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TPaintBox;
- {* Реализация слова скрипта .TnsRegistrationForm.NewUserPaintBox }
-begin
- Result := aRegistrationForm.NewUserPaintBox;
-end;//TkwRegistrationFormNewUserPaintBox.NewUserPaintBox
-
-procedure TkwRegistrationFormNewUserPaintBox.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormNewUserLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2561,8 +2539,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(NewUserPaintBox(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormNewUserPaintBox.DoDoIt
+ aCtx.rEngine.PushObj(NewUserLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormNewUserLabel.DoDoIt
+
+function TkwRegistrationFormNewUserPaintBox.NewUserPaintBox(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TPaintBox;
+ {* Реализация слова скрипта .TnsRegistrationForm.NewUserPaintBox }
+begin
+ Result := aRegistrationForm.NewUserPaintBox;
+end;//TkwRegistrationFormNewUserPaintBox.NewUserPaintBox
 
 class function TkwRegistrationFormNewUserPaintBox.GetWordNameForRegister: AnsiString;
 begin
@@ -2590,14 +2575,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству NewUserPaintBox', aCtx);
 end;//TkwRegistrationFormNewUserPaintBox.SetValuePrim
 
-function TkwRegistrationFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtPanel;
- {* Реализация слова скрипта .TnsRegistrationForm.BottomPanel }
-begin
- Result := aRegistrationForm.BottomPanel;
-end;//TkwRegistrationFormBottomPanel.BottomPanel
-
-procedure TkwRegistrationFormBottomPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormNewUserPaintBox.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2609,8 +2587,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormBottomPanel.DoDoIt
+ aCtx.rEngine.PushObj(NewUserPaintBox(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormNewUserPaintBox.DoDoIt
+
+function TkwRegistrationFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtPanel;
+ {* Реализация слова скрипта .TnsRegistrationForm.BottomPanel }
+begin
+ Result := aRegistrationForm.BottomPanel;
+end;//TkwRegistrationFormBottomPanel.BottomPanel
 
 class function TkwRegistrationFormBottomPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -2638,14 +2623,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
 end;//TkwRegistrationFormBottomPanel.SetValuePrim
 
-function TkwRegistrationFormRegisterButton.RegisterButton(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TElPopupButton;
- {* Реализация слова скрипта .TnsRegistrationForm.RegisterButton }
-begin
- Result := aRegistrationForm.RegisterButton;
-end;//TkwRegistrationFormRegisterButton.RegisterButton
-
-procedure TkwRegistrationFormRegisterButton.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormBottomPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2657,8 +2635,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(RegisterButton(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormRegisterButton.DoDoIt
+ aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormBottomPanel.DoDoIt
+
+function TkwRegistrationFormRegisterButton.RegisterButton(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TElPopupButton;
+ {* Реализация слова скрипта .TnsRegistrationForm.RegisterButton }
+begin
+ Result := aRegistrationForm.RegisterButton;
+end;//TkwRegistrationFormRegisterButton.RegisterButton
 
 class function TkwRegistrationFormRegisterButton.GetWordNameForRegister: AnsiString;
 begin
@@ -2686,14 +2671,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству RegisterButton', aCtx);
 end;//TkwRegistrationFormRegisterButton.SetValuePrim
 
-function TkwRegistrationFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtPanel;
- {* Реализация слова скрипта .TnsRegistrationForm.HelpPanel }
-begin
- Result := aRegistrationForm.HelpPanel;
-end;//TkwRegistrationFormHelpPanel.HelpPanel
-
-procedure TkwRegistrationFormHelpPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormRegisterButton.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2705,8 +2683,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormHelpPanel.DoDoIt
+ aCtx.rEngine.PushObj(RegisterButton(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormRegisterButton.DoDoIt
+
+function TkwRegistrationFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtPanel;
+ {* Реализация слова скрипта .TnsRegistrationForm.HelpPanel }
+begin
+ Result := aRegistrationForm.HelpPanel;
+end;//TkwRegistrationFormHelpPanel.HelpPanel
 
 class function TkwRegistrationFormHelpPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -2734,14 +2719,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
 end;//TkwRegistrationFormHelpPanel.SetValuePrim
 
-function TkwRegistrationFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TPaintBox;
- {* Реализация слова скрипта .TnsRegistrationForm.HelpPaintBox }
-begin
- Result := aRegistrationForm.HelpPaintBox;
-end;//TkwRegistrationFormHelpPaintBox.HelpPaintBox
-
-procedure TkwRegistrationFormHelpPaintBox.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormHelpPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2753,8 +2731,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormHelpPaintBox.DoDoIt
+ aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormHelpPanel.DoDoIt
+
+function TkwRegistrationFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TPaintBox;
+ {* Реализация слова скрипта .TnsRegistrationForm.HelpPaintBox }
+begin
+ Result := aRegistrationForm.HelpPaintBox;
+end;//TkwRegistrationFormHelpPaintBox.HelpPaintBox
 
 class function TkwRegistrationFormHelpPaintBox.GetWordNameForRegister: AnsiString;
 begin
@@ -2782,14 +2767,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
 end;//TkwRegistrationFormHelpPaintBox.SetValuePrim
 
-function TkwRegistrationFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
- aRegistrationForm: TnsRegistrationForm): TvtFocusLabel;
- {* Реализация слова скрипта .TnsRegistrationForm.HelpLabel }
-begin
- Result := aRegistrationForm.HelpLabel;
-end;//TkwRegistrationFormHelpLabel.HelpLabel
-
-procedure TkwRegistrationFormHelpLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRegistrationFormHelpPaintBox.DoDoIt(const aCtx: TtfwContext);
 var l_aRegistrationForm: TnsRegistrationForm;
 begin
  try
@@ -2801,8 +2779,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aRegistrationForm));
-end;//TkwRegistrationFormHelpLabel.DoDoIt
+ aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormHelpPaintBox.DoDoIt
+
+function TkwRegistrationFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
+ aRegistrationForm: TnsRegistrationForm): TvtFocusLabel;
+ {* Реализация слова скрипта .TnsRegistrationForm.HelpLabel }
+begin
+ Result := aRegistrationForm.HelpLabel;
+end;//TkwRegistrationFormHelpLabel.HelpLabel
 
 class function TkwRegistrationFormHelpLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -2829,6 +2814,21 @@ procedure TkwRegistrationFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue
 begin
  RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
 end;//TkwRegistrationFormHelpLabel.SetValuePrim
+
+procedure TkwRegistrationFormHelpLabel.DoDoIt(const aCtx: TtfwContext);
+var l_aRegistrationForm: TnsRegistrationForm;
+begin
+ try
+  l_aRegistrationForm := TnsRegistrationForm(aCtx.rEngine.PopObjAs(TnsRegistrationForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRegistrationForm: TnsRegistrationForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aRegistrationForm));
+end;//TkwRegistrationFormHelpLabel.DoDoIt
 
 initialization
  Tkw_Form_RegistrationForm.RegisterInEngine;

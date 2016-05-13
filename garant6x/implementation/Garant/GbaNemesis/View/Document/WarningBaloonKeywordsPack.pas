@@ -86,8 +86,8 @@ type
     aWarningBaloonForm: TWarningBaloonForm): TnscEditor;
     {* Реализация слова скрипта .TWarningBaloonForm.Viewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aWarningBaloonForm.Viewer;
 end;//TkwWarningBaloonFormViewer.Viewer
 
-procedure TkwWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-var l_aWarningBaloonForm: TWarningBaloonForm;
-begin
- try
-  l_aWarningBaloonForm := TWarningBaloonForm(aCtx.rEngine.PopObjAs(TWarningBaloonForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWarningBaloonForm: TWarningBaloonForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningBaloonForm));
-end;//TkwWarningBaloonFormViewer.DoDoIt
-
 class function TkwWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TWarningBaloonForm.Viewer';
@@ -180,6 +165,21 @@ procedure TkwWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwWarningBaloonFormViewer.SetValuePrim
+
+procedure TkwWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
+var l_aWarningBaloonForm: TWarningBaloonForm;
+begin
+ try
+  l_aWarningBaloonForm := TWarningBaloonForm(aCtx.rEngine.PopObjAs(TWarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWarningBaloonForm: TWarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningBaloonForm));
+end;//TkwWarningBaloonFormViewer.DoDoIt
 
 initialization
  Tkw_Form_WarningBaloon.RegisterInEngine;

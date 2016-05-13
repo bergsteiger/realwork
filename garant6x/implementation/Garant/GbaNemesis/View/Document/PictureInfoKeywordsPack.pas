@@ -84,8 +84,8 @@ type
     aen_PictureInfo: Ten_PictureInfo): TeeMemoWithEditOperations;
     {* Реализация слова скрипта .Ten_PictureInfo.Info }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aen_PictureInfo.Info;
 end;//TkwEnPictureInfoInfo.Info
 
-procedure TkwEnPictureInfoInfo.DoDoIt(const aCtx: TtfwContext);
-var l_aen_PictureInfo: Ten_PictureInfo;
-begin
- try
-  l_aen_PictureInfo := Ten_PictureInfo(aCtx.rEngine.PopObjAs(Ten_PictureInfo));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_PictureInfo: Ten_PictureInfo : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Info(aCtx, l_aen_PictureInfo));
-end;//TkwEnPictureInfoInfo.DoDoIt
-
 class function TkwEnPictureInfoInfo.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_PictureInfo.Info';
@@ -178,6 +163,21 @@ procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Info', aCtx);
 end;//TkwEnPictureInfoInfo.SetValuePrim
+
+procedure TkwEnPictureInfoInfo.DoDoIt(const aCtx: TtfwContext);
+var l_aen_PictureInfo: Ten_PictureInfo;
+begin
+ try
+  l_aen_PictureInfo := Ten_PictureInfo(aCtx.rEngine.PopObjAs(Ten_PictureInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PictureInfo: Ten_PictureInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Info(aCtx, l_aen_PictureInfo));
+end;//TkwEnPictureInfoInfo.DoDoIt
 
 initialization
  Tkw_Form_PictureInfo.RegisterInEngine;

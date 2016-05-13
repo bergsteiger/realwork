@@ -84,8 +84,8 @@ type
     aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TefTreeAttributeFirstLevel.FirstLevelContent }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aefTreeAttributeFirstLevel.FirstLevelContent;
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.FirstLevelContent
 
-procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt(const aCtx: TtfwContext);
-var l_aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel;
-begin
- try
-  l_aefTreeAttributeFirstLevel := TefTreeAttributeFirstLevel(aCtx.rEngine.PopObjAs(TefTreeAttributeFirstLevel));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel));
-end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt
-
 class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefTreeAttributeFirstLevel.FirstLevelContent';
@@ -178,6 +163,21 @@ procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim(const aValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству FirstLevelContent', aCtx);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim
+
+procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt(const aCtx: TtfwContext);
+var l_aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel;
+begin
+ try
+  l_aefTreeAttributeFirstLevel := TefTreeAttributeFirstLevel(aCtx.rEngine.PopObjAs(TefTreeAttributeFirstLevel));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel));
+end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt
 
 initialization
  Tkw_Form_TreeAttributeFirstLevel.RegisterInEngine;

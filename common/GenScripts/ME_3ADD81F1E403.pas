@@ -144,8 +144,8 @@ type
     aen_Navigator: Ten_Navigator): TvtPanel;
     {* Реализация слова скрипта .Ten_Navigator.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -161,8 +161,8 @@ type
     aen_Navigator: Ten_Navigator): TnscContextFilter;
     {* Реализация слова скрипта .Ten_Navigator.ContextFilter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -178,8 +178,8 @@ type
     aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .Ten_Navigator.NavigatorTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -286,21 +286,6 @@ begin
  Result := aen_Navigator.BackgroundPanel;
 end;//TkwEnNavigatorBackgroundPanel.BackgroundPanel
 
-procedure TkwEnNavigatorBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aen_Navigator: Ten_Navigator;
-begin
- try
-  l_aen_Navigator := Ten_Navigator(aCtx.rEngine.PopObjAs(Ten_Navigator));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_Navigator: Ten_Navigator : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_Navigator));
-end;//TkwEnNavigatorBackgroundPanel.DoDoIt
-
 class function TkwEnNavigatorBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_Navigator.BackgroundPanel';
@@ -327,14 +312,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnNavigatorBackgroundPanel.SetValuePrim
 
-function TkwEnNavigatorContextFilter.ContextFilter(const aCtx: TtfwContext;
- aen_Navigator: Ten_Navigator): TnscContextFilter;
- {* Реализация слова скрипта .Ten_Navigator.ContextFilter }
-begin
- Result := aen_Navigator.ContextFilter;
-end;//TkwEnNavigatorContextFilter.ContextFilter
-
-procedure TkwEnNavigatorContextFilter.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnNavigatorBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aen_Navigator: Ten_Navigator;
 begin
  try
@@ -346,8 +324,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_Navigator));
-end;//TkwEnNavigatorContextFilter.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_Navigator));
+end;//TkwEnNavigatorBackgroundPanel.DoDoIt
+
+function TkwEnNavigatorContextFilter.ContextFilter(const aCtx: TtfwContext;
+ aen_Navigator: Ten_Navigator): TnscContextFilter;
+ {* Реализация слова скрипта .Ten_Navigator.ContextFilter }
+begin
+ Result := aen_Navigator.ContextFilter;
+end;//TkwEnNavigatorContextFilter.ContextFilter
 
 class function TkwEnNavigatorContextFilter.GetWordNameForRegister: AnsiString;
 begin
@@ -375,14 +360,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnNavigatorContextFilter.SetValuePrim
 
-function TkwEnNavigatorNavigatorTree.NavigatorTree(const aCtx: TtfwContext;
- aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
- {* Реализация слова скрипта .Ten_Navigator.NavigatorTree }
-begin
- Result := aen_Navigator.NavigatorTree;
-end;//TkwEnNavigatorNavigatorTree.NavigatorTree
-
-procedure TkwEnNavigatorNavigatorTree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnNavigatorContextFilter.DoDoIt(const aCtx: TtfwContext);
 var l_aen_Navigator: Ten_Navigator;
 begin
  try
@@ -394,8 +372,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(NavigatorTree(aCtx, l_aen_Navigator));
-end;//TkwEnNavigatorNavigatorTree.DoDoIt
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_Navigator));
+end;//TkwEnNavigatorContextFilter.DoDoIt
+
+function TkwEnNavigatorNavigatorTree.NavigatorTree(const aCtx: TtfwContext;
+ aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
+ {* Реализация слова скрипта .Ten_Navigator.NavigatorTree }
+begin
+ Result := aen_Navigator.NavigatorTree;
+end;//TkwEnNavigatorNavigatorTree.NavigatorTree
 
 class function TkwEnNavigatorNavigatorTree.GetWordNameForRegister: AnsiString;
 begin
@@ -422,6 +407,21 @@ procedure TkwEnNavigatorNavigatorTree.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству NavigatorTree', aCtx);
 end;//TkwEnNavigatorNavigatorTree.SetValuePrim
+
+procedure TkwEnNavigatorNavigatorTree.DoDoIt(const aCtx: TtfwContext);
+var l_aen_Navigator: Ten_Navigator;
+begin
+ try
+  l_aen_Navigator := Ten_Navigator(aCtx.rEngine.PopObjAs(Ten_Navigator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_Navigator: Ten_Navigator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NavigatorTree(aCtx, l_aen_Navigator));
+end;//TkwEnNavigatorNavigatorTree.DoDoIt
 
 initialization
  Tkw_Form_Navigator.RegisterInEngine;

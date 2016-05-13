@@ -396,8 +396,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtPanel;
     {* Реализация слова скрипта .TMemoryUsageForm.pnTagTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -413,8 +413,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TeeTreeView;
     {* Реализация слова скрипта .TMemoryUsageForm.TagTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -430,8 +430,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
     {* Реализация слова скрипта .TMemoryUsageForm.pnMemClasses }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -447,8 +447,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TevMemo;
     {* Реализация слова скрипта .TMemoryUsageForm.memClasses }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -464,8 +464,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
     {* Реализация слова скрипта .TMemoryUsageForm.pnSummary }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -481,8 +481,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbLocalMemory }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -498,8 +498,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbObjectMemory }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -515,8 +515,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbObjectCount }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -532,8 +532,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbGlobalMemory }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -549,8 +549,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbDocumentsInCacheCount }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -566,8 +566,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbAllLocalMemory }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -583,8 +583,8 @@ type
     aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
     {* Реализация слова скрипта .TMemoryUsageForm.lbTotalMemory }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -934,21 +934,6 @@ begin
  Result := aMemoryUsageForm.pnTagTree;
 end;//TkwMemoryUsageFormPnTagTree.pnTagTree
 
-procedure TkwMemoryUsageFormPnTagTree.DoDoIt(const aCtx: TtfwContext);
-var l_aMemoryUsageForm: TMemoryUsageForm;
-begin
- try
-  l_aMemoryUsageForm := TMemoryUsageForm(aCtx.rEngine.PopObjAs(TMemoryUsageForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aMemoryUsageForm: TMemoryUsageForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(pnTagTree(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormPnTagTree.DoDoIt
-
 class function TkwMemoryUsageFormPnTagTree.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TMemoryUsageForm.pnTagTree';
@@ -975,14 +960,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnTagTree', aCtx);
 end;//TkwMemoryUsageFormPnTagTree.SetValuePrim
 
-function TkwMemoryUsageFormTagTree.TagTree(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TeeTreeView;
- {* Реализация слова скрипта .TMemoryUsageForm.TagTree }
-begin
- Result := aMemoryUsageForm.TagTree;
-end;//TkwMemoryUsageFormTagTree.TagTree
-
-procedure TkwMemoryUsageFormTagTree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormPnTagTree.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -994,8 +972,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TagTree(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormTagTree.DoDoIt
+ aCtx.rEngine.PushObj(pnTagTree(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormPnTagTree.DoDoIt
+
+function TkwMemoryUsageFormTagTree.TagTree(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TeeTreeView;
+ {* Реализация слова скрипта .TMemoryUsageForm.TagTree }
+begin
+ Result := aMemoryUsageForm.TagTree;
+end;//TkwMemoryUsageFormTagTree.TagTree
 
 class function TkwMemoryUsageFormTagTree.GetWordNameForRegister: AnsiString;
 begin
@@ -1023,14 +1008,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству TagTree', aCtx);
 end;//TkwMemoryUsageFormTagTree.SetValuePrim
 
-function TkwMemoryUsageFormPnMemClasses.pnMemClasses(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
- {* Реализация слова скрипта .TMemoryUsageForm.pnMemClasses }
-begin
- Result := aMemoryUsageForm.pnMemClasses;
-end;//TkwMemoryUsageFormPnMemClasses.pnMemClasses
-
-procedure TkwMemoryUsageFormPnMemClasses.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormTagTree.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1042,8 +1020,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnMemClasses(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormPnMemClasses.DoDoIt
+ aCtx.rEngine.PushObj(TagTree(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormTagTree.DoDoIt
+
+function TkwMemoryUsageFormPnMemClasses.pnMemClasses(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
+ {* Реализация слова скрипта .TMemoryUsageForm.pnMemClasses }
+begin
+ Result := aMemoryUsageForm.pnMemClasses;
+end;//TkwMemoryUsageFormPnMemClasses.pnMemClasses
 
 class function TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister: AnsiString;
 begin
@@ -1071,14 +1056,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnMemClasses', aCtx);
 end;//TkwMemoryUsageFormPnMemClasses.SetValuePrim
 
-function TkwMemoryUsageFormMemClasses.memClasses(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TevMemo;
- {* Реализация слова скрипта .TMemoryUsageForm.memClasses }
-begin
- Result := aMemoryUsageForm.memClasses;
-end;//TkwMemoryUsageFormMemClasses.memClasses
-
-procedure TkwMemoryUsageFormMemClasses.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormPnMemClasses.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1090,8 +1068,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(memClasses(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormMemClasses.DoDoIt
+ aCtx.rEngine.PushObj(pnMemClasses(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormPnMemClasses.DoDoIt
+
+function TkwMemoryUsageFormMemClasses.memClasses(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TevMemo;
+ {* Реализация слова скрипта .TMemoryUsageForm.memClasses }
+begin
+ Result := aMemoryUsageForm.memClasses;
+end;//TkwMemoryUsageFormMemClasses.memClasses
 
 class function TkwMemoryUsageFormMemClasses.GetWordNameForRegister: AnsiString;
 begin
@@ -1119,14 +1104,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству memClasses', aCtx);
 end;//TkwMemoryUsageFormMemClasses.SetValuePrim
 
-function TkwMemoryUsageFormPnSummary.pnSummary(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
- {* Реализация слова скрипта .TMemoryUsageForm.pnSummary }
-begin
- Result := aMemoryUsageForm.pnSummary;
-end;//TkwMemoryUsageFormPnSummary.pnSummary
-
-procedure TkwMemoryUsageFormPnSummary.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormMemClasses.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1138,8 +1116,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnSummary(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormPnSummary.DoDoIt
+ aCtx.rEngine.PushObj(memClasses(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormMemClasses.DoDoIt
+
+function TkwMemoryUsageFormPnSummary.pnSummary(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtSizeablePanel;
+ {* Реализация слова скрипта .TMemoryUsageForm.pnSummary }
+begin
+ Result := aMemoryUsageForm.pnSummary;
+end;//TkwMemoryUsageFormPnSummary.pnSummary
 
 class function TkwMemoryUsageFormPnSummary.GetWordNameForRegister: AnsiString;
 begin
@@ -1167,14 +1152,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnSummary', aCtx);
 end;//TkwMemoryUsageFormPnSummary.SetValuePrim
 
-function TkwMemoryUsageFormLbLocalMemory.lbLocalMemory(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbLocalMemory }
-begin
- Result := aMemoryUsageForm.lbLocalMemory;
-end;//TkwMemoryUsageFormLbLocalMemory.lbLocalMemory
-
-procedure TkwMemoryUsageFormLbLocalMemory.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormPnSummary.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1186,8 +1164,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbLocalMemory(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbLocalMemory.DoDoIt
+ aCtx.rEngine.PushObj(pnSummary(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormPnSummary.DoDoIt
+
+function TkwMemoryUsageFormLbLocalMemory.lbLocalMemory(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbLocalMemory }
+begin
+ Result := aMemoryUsageForm.lbLocalMemory;
+end;//TkwMemoryUsageFormLbLocalMemory.lbLocalMemory
 
 class function TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister: AnsiString;
 begin
@@ -1215,14 +1200,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbLocalMemory', aCtx);
 end;//TkwMemoryUsageFormLbLocalMemory.SetValuePrim
 
-function TkwMemoryUsageFormLbObjectMemory.lbObjectMemory(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbObjectMemory }
-begin
- Result := aMemoryUsageForm.lbObjectMemory;
-end;//TkwMemoryUsageFormLbObjectMemory.lbObjectMemory
-
-procedure TkwMemoryUsageFormLbObjectMemory.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormLbLocalMemory.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1234,8 +1212,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbObjectMemory(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbObjectMemory.DoDoIt
+ aCtx.rEngine.PushObj(lbLocalMemory(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbLocalMemory.DoDoIt
+
+function TkwMemoryUsageFormLbObjectMemory.lbObjectMemory(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbObjectMemory }
+begin
+ Result := aMemoryUsageForm.lbObjectMemory;
+end;//TkwMemoryUsageFormLbObjectMemory.lbObjectMemory
 
 class function TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister: AnsiString;
 begin
@@ -1263,14 +1248,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbObjectMemory', aCtx);
 end;//TkwMemoryUsageFormLbObjectMemory.SetValuePrim
 
-function TkwMemoryUsageFormLbObjectCount.lbObjectCount(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbObjectCount }
-begin
- Result := aMemoryUsageForm.lbObjectCount;
-end;//TkwMemoryUsageFormLbObjectCount.lbObjectCount
-
-procedure TkwMemoryUsageFormLbObjectCount.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormLbObjectMemory.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1282,8 +1260,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbObjectCount(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbObjectCount.DoDoIt
+ aCtx.rEngine.PushObj(lbObjectMemory(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbObjectMemory.DoDoIt
+
+function TkwMemoryUsageFormLbObjectCount.lbObjectCount(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbObjectCount }
+begin
+ Result := aMemoryUsageForm.lbObjectCount;
+end;//TkwMemoryUsageFormLbObjectCount.lbObjectCount
 
 class function TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister: AnsiString;
 begin
@@ -1311,14 +1296,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbObjectCount', aCtx);
 end;//TkwMemoryUsageFormLbObjectCount.SetValuePrim
 
-function TkwMemoryUsageFormLbGlobalMemory.lbGlobalMemory(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbGlobalMemory }
-begin
- Result := aMemoryUsageForm.lbGlobalMemory;
-end;//TkwMemoryUsageFormLbGlobalMemory.lbGlobalMemory
-
-procedure TkwMemoryUsageFormLbGlobalMemory.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormLbObjectCount.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1330,8 +1308,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbGlobalMemory(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbGlobalMemory.DoDoIt
+ aCtx.rEngine.PushObj(lbObjectCount(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbObjectCount.DoDoIt
+
+function TkwMemoryUsageFormLbGlobalMemory.lbGlobalMemory(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbGlobalMemory }
+begin
+ Result := aMemoryUsageForm.lbGlobalMemory;
+end;//TkwMemoryUsageFormLbGlobalMemory.lbGlobalMemory
 
 class function TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister: AnsiString;
 begin
@@ -1359,14 +1344,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbGlobalMemory', aCtx);
 end;//TkwMemoryUsageFormLbGlobalMemory.SetValuePrim
 
-function TkwMemoryUsageFormLbDocumentsInCacheCount.lbDocumentsInCacheCount(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbDocumentsInCacheCount }
-begin
- Result := aMemoryUsageForm.lbDocumentsInCacheCount;
-end;//TkwMemoryUsageFormLbDocumentsInCacheCount.lbDocumentsInCacheCount
-
-procedure TkwMemoryUsageFormLbDocumentsInCacheCount.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormLbGlobalMemory.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1378,8 +1356,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbDocumentsInCacheCount(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbDocumentsInCacheCount.DoDoIt
+ aCtx.rEngine.PushObj(lbGlobalMemory(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbGlobalMemory.DoDoIt
+
+function TkwMemoryUsageFormLbDocumentsInCacheCount.lbDocumentsInCacheCount(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbDocumentsInCacheCount }
+begin
+ Result := aMemoryUsageForm.lbDocumentsInCacheCount;
+end;//TkwMemoryUsageFormLbDocumentsInCacheCount.lbDocumentsInCacheCount
 
 class function TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister: AnsiString;
 begin
@@ -1407,14 +1392,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbDocumentsInCacheCount', aCtx);
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim
 
-function TkwMemoryUsageFormLbAllLocalMemory.lbAllLocalMemory(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbAllLocalMemory }
-begin
- Result := aMemoryUsageForm.lbAllLocalMemory;
-end;//TkwMemoryUsageFormLbAllLocalMemory.lbAllLocalMemory
-
-procedure TkwMemoryUsageFormLbAllLocalMemory.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormLbDocumentsInCacheCount.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1426,8 +1404,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbAllLocalMemory(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbAllLocalMemory.DoDoIt
+ aCtx.rEngine.PushObj(lbDocumentsInCacheCount(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbDocumentsInCacheCount.DoDoIt
+
+function TkwMemoryUsageFormLbAllLocalMemory.lbAllLocalMemory(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbAllLocalMemory }
+begin
+ Result := aMemoryUsageForm.lbAllLocalMemory;
+end;//TkwMemoryUsageFormLbAllLocalMemory.lbAllLocalMemory
 
 class function TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister: AnsiString;
 begin
@@ -1455,14 +1440,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbAllLocalMemory', aCtx);
 end;//TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim
 
-function TkwMemoryUsageFormLbTotalMemory.lbTotalMemory(const aCtx: TtfwContext;
- aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
- {* Реализация слова скрипта .TMemoryUsageForm.lbTotalMemory }
-begin
- Result := aMemoryUsageForm.lbTotalMemory;
-end;//TkwMemoryUsageFormLbTotalMemory.lbTotalMemory
-
-procedure TkwMemoryUsageFormLbTotalMemory.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMemoryUsageFormLbAllLocalMemory.DoDoIt(const aCtx: TtfwContext);
 var l_aMemoryUsageForm: TMemoryUsageForm;
 begin
  try
@@ -1474,8 +1452,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbTotalMemory(aCtx, l_aMemoryUsageForm));
-end;//TkwMemoryUsageFormLbTotalMemory.DoDoIt
+ aCtx.rEngine.PushObj(lbAllLocalMemory(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbAllLocalMemory.DoDoIt
+
+function TkwMemoryUsageFormLbTotalMemory.lbTotalMemory(const aCtx: TtfwContext;
+ aMemoryUsageForm: TMemoryUsageForm): TvtLabel;
+ {* Реализация слова скрипта .TMemoryUsageForm.lbTotalMemory }
+begin
+ Result := aMemoryUsageForm.lbTotalMemory;
+end;//TkwMemoryUsageFormLbTotalMemory.lbTotalMemory
 
 class function TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister: AnsiString;
 begin
@@ -1502,6 +1487,21 @@ procedure TkwMemoryUsageFormLbTotalMemory.SetValuePrim(const aValue: TtfwStackVa
 begin
  RunnerError('Нельзя присваивать значение readonly свойству lbTotalMemory', aCtx);
 end;//TkwMemoryUsageFormLbTotalMemory.SetValuePrim
+
+procedure TkwMemoryUsageFormLbTotalMemory.DoDoIt(const aCtx: TtfwContext);
+var l_aMemoryUsageForm: TMemoryUsageForm;
+begin
+ try
+  l_aMemoryUsageForm := TMemoryUsageForm(aCtx.rEngine.PopObjAs(TMemoryUsageForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMemoryUsageForm: TMemoryUsageForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lbTotalMemory(aCtx, l_aMemoryUsageForm));
+end;//TkwMemoryUsageFormLbTotalMemory.DoDoIt
 
 initialization
  Tkw_Form_MemoryUsage.RegisterInEngine;

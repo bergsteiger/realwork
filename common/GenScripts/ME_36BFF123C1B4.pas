@@ -115,8 +115,8 @@ type
     aefGroupProperty: TefGroupProperty): TnscEdit;
     {* Реализация слова скрипта .TefGroupProperty.edName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -132,8 +132,8 @@ type
     aefGroupProperty: TefGroupProperty): TvtLabel;
     {* Реализация слова скрипта .TefGroupProperty.Label1 }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -213,21 +213,6 @@ begin
  Result := aefGroupProperty.edName;
 end;//TkwEfGroupPropertyEdName.edName
 
-procedure TkwEfGroupPropertyEdName.DoDoIt(const aCtx: TtfwContext);
-var l_aefGroupProperty: TefGroupProperty;
-begin
- try
-  l_aefGroupProperty := TefGroupProperty(aCtx.rEngine.PopObjAs(TefGroupProperty));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefGroupProperty: TefGroupProperty : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(edName(aCtx, l_aefGroupProperty));
-end;//TkwEfGroupPropertyEdName.DoDoIt
-
 class function TkwEfGroupPropertyEdName.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefGroupProperty.edName';
@@ -254,14 +239,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edName', aCtx);
 end;//TkwEfGroupPropertyEdName.SetValuePrim
 
-function TkwEfGroupPropertyLabel1.Label1(const aCtx: TtfwContext;
- aefGroupProperty: TefGroupProperty): TvtLabel;
- {* Реализация слова скрипта .TefGroupProperty.Label1 }
-begin
- Result := aefGroupProperty.Label1;
-end;//TkwEfGroupPropertyLabel1.Label1
-
-procedure TkwEfGroupPropertyLabel1.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfGroupPropertyEdName.DoDoIt(const aCtx: TtfwContext);
 var l_aefGroupProperty: TefGroupProperty;
 begin
  try
@@ -273,8 +251,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Label1(aCtx, l_aefGroupProperty));
-end;//TkwEfGroupPropertyLabel1.DoDoIt
+ aCtx.rEngine.PushObj(edName(aCtx, l_aefGroupProperty));
+end;//TkwEfGroupPropertyEdName.DoDoIt
+
+function TkwEfGroupPropertyLabel1.Label1(const aCtx: TtfwContext;
+ aefGroupProperty: TefGroupProperty): TvtLabel;
+ {* Реализация слова скрипта .TefGroupProperty.Label1 }
+begin
+ Result := aefGroupProperty.Label1;
+end;//TkwEfGroupPropertyLabel1.Label1
 
 class function TkwEfGroupPropertyLabel1.GetWordNameForRegister: AnsiString;
 begin
@@ -301,6 +286,21 @@ procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
 end;//TkwEfGroupPropertyLabel1.SetValuePrim
+
+procedure TkwEfGroupPropertyLabel1.DoDoIt(const aCtx: TtfwContext);
+var l_aefGroupProperty: TefGroupProperty;
+begin
+ try
+  l_aefGroupProperty := TefGroupProperty(aCtx.rEngine.PopObjAs(TefGroupProperty));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefGroupProperty: TefGroupProperty : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Label1(aCtx, l_aefGroupProperty));
+end;//TkwEfGroupPropertyLabel1.DoDoIt
 
 initialization
  Tkw_Form_GroupProperty.RegisterInEngine;

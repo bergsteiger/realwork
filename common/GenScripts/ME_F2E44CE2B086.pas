@@ -86,8 +86,8 @@ type
     aefProgressIndicator: TefProgressIndicator): TProgressBar;
     {* Реализация слова скрипта .TefProgressIndicator.ProgressBar }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aefProgressIndicator.ProgressBar;
 end;//TkwEfProgressIndicatorProgressBar.ProgressBar
 
-procedure TkwEfProgressIndicatorProgressBar.DoDoIt(const aCtx: TtfwContext);
-var l_aefProgressIndicator: TefProgressIndicator;
-begin
- try
-  l_aefProgressIndicator := TefProgressIndicator(aCtx.rEngine.PopObjAs(TefProgressIndicator));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefProgressIndicator: TefProgressIndicator : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aefProgressIndicator));
-end;//TkwEfProgressIndicatorProgressBar.DoDoIt
-
 class function TkwEfProgressIndicatorProgressBar.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefProgressIndicator.ProgressBar';
@@ -180,6 +165,21 @@ procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStack
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ProgressBar', aCtx);
 end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
+
+procedure TkwEfProgressIndicatorProgressBar.DoDoIt(const aCtx: TtfwContext);
+var l_aefProgressIndicator: TefProgressIndicator;
+begin
+ try
+  l_aefProgressIndicator := TefProgressIndicator(aCtx.rEngine.PopObjAs(TefProgressIndicator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefProgressIndicator: TefProgressIndicator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aefProgressIndicator));
+end;//TkwEfProgressIndicatorProgressBar.DoDoIt
 
 initialization
  Tkw_Form_ProgressIndicator.RegisterInEngine;

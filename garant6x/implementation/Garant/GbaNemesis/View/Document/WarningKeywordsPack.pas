@@ -86,8 +86,8 @@ type
     aWarningForm: TWarningForm): TnscEditor;
     {* Реализация слова скрипта .TWarningForm.Viewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aWarningForm.Viewer;
 end;//TkwWarningFormViewer.Viewer
 
-procedure TkwWarningFormViewer.DoDoIt(const aCtx: TtfwContext);
-var l_aWarningForm: TWarningForm;
-begin
- try
-  l_aWarningForm := TWarningForm(aCtx.rEngine.PopObjAs(TWarningForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWarningForm: TWarningForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningForm));
-end;//TkwWarningFormViewer.DoDoIt
-
 class function TkwWarningFormViewer.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TWarningForm.Viewer';
@@ -180,6 +165,21 @@ procedure TkwWarningFormViewer.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwWarningFormViewer.SetValuePrim
+
+procedure TkwWarningFormViewer.DoDoIt(const aCtx: TtfwContext);
+var l_aWarningForm: TWarningForm;
+begin
+ try
+  l_aWarningForm := TWarningForm(aCtx.rEngine.PopObjAs(TWarningForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWarningForm: TWarningForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningForm));
+end;//TkwWarningFormViewer.DoDoIt
 
 initialization
  Tkw_Form_Warning.RegisterInEngine;

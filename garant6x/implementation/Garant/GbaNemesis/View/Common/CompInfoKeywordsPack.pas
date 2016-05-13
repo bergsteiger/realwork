@@ -198,8 +198,8 @@ type
     aenCompInfo: TenCompInfo): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TenCompInfo.tvComplectInfo }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -215,8 +215,8 @@ type
     aenCompInfo: TenCompInfo): TvtPanel;
     {* Реализация слова скрипта .TenCompInfo.pnBottom }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -232,8 +232,8 @@ type
     aenCompInfo: TenCompInfo): TvtPanel;
     {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationData }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -249,8 +249,8 @@ type
     aenCompInfo: TenCompInfo): TvtPanel;
     {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationDataCaption }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -266,8 +266,8 @@ type
     aenCompInfo: TenCompInfo): TvtLabel;
     {* Реализация слова скрипта .TenCompInfo.lblVisualRepresentationData }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -428,21 +428,6 @@ begin
  Result := aenCompInfo.tvComplectInfo;
 end;//TkwEnCompInfoTvComplectInfo.tvComplectInfo
 
-procedure TkwEnCompInfoTvComplectInfo.DoDoIt(const aCtx: TtfwContext);
-var l_aenCompInfo: TenCompInfo;
-begin
- try
-  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(tvComplectInfo(aCtx, l_aenCompInfo));
-end;//TkwEnCompInfoTvComplectInfo.DoDoIt
-
 class function TkwEnCompInfoTvComplectInfo.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenCompInfo.tvComplectInfo';
@@ -469,14 +454,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству tvComplectInfo', aCtx);
 end;//TkwEnCompInfoTvComplectInfo.SetValuePrim
 
-function TkwEnCompInfoPnBottom.pnBottom(const aCtx: TtfwContext;
- aenCompInfo: TenCompInfo): TvtPanel;
- {* Реализация слова скрипта .TenCompInfo.pnBottom }
-begin
- Result := aenCompInfo.pnBottom;
-end;//TkwEnCompInfoPnBottom.pnBottom
-
-procedure TkwEnCompInfoPnBottom.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnCompInfoTvComplectInfo.DoDoIt(const aCtx: TtfwContext);
 var l_aenCompInfo: TenCompInfo;
 begin
  try
@@ -488,8 +466,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnBottom(aCtx, l_aenCompInfo));
-end;//TkwEnCompInfoPnBottom.DoDoIt
+ aCtx.rEngine.PushObj(tvComplectInfo(aCtx, l_aenCompInfo));
+end;//TkwEnCompInfoTvComplectInfo.DoDoIt
+
+function TkwEnCompInfoPnBottom.pnBottom(const aCtx: TtfwContext;
+ aenCompInfo: TenCompInfo): TvtPanel;
+ {* Реализация слова скрипта .TenCompInfo.pnBottom }
+begin
+ Result := aenCompInfo.pnBottom;
+end;//TkwEnCompInfoPnBottom.pnBottom
 
 class function TkwEnCompInfoPnBottom.GetWordNameForRegister: AnsiString;
 begin
@@ -517,14 +502,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnBottom', aCtx);
 end;//TkwEnCompInfoPnBottom.SetValuePrim
 
-function TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData(const aCtx: TtfwContext;
- aenCompInfo: TenCompInfo): TvtPanel;
- {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationData }
-begin
- Result := aenCompInfo.pnVisualRepresentationData;
-end;//TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData
-
-procedure TkwEnCompInfoPnVisualRepresentationData.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnCompInfoPnBottom.DoDoIt(const aCtx: TtfwContext);
 var l_aenCompInfo: TenCompInfo;
 begin
  try
@@ -536,8 +514,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnVisualRepresentationData(aCtx, l_aenCompInfo));
-end;//TkwEnCompInfoPnVisualRepresentationData.DoDoIt
+ aCtx.rEngine.PushObj(pnBottom(aCtx, l_aenCompInfo));
+end;//TkwEnCompInfoPnBottom.DoDoIt
+
+function TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData(const aCtx: TtfwContext;
+ aenCompInfo: TenCompInfo): TvtPanel;
+ {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationData }
+begin
+ Result := aenCompInfo.pnVisualRepresentationData;
+end;//TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData
 
 class function TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister: AnsiString;
 begin
@@ -565,14 +550,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnVisualRepresentationData', aCtx);
 end;//TkwEnCompInfoPnVisualRepresentationData.SetValuePrim
 
-function TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption(const aCtx: TtfwContext;
- aenCompInfo: TenCompInfo): TvtPanel;
- {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationDataCaption }
-begin
- Result := aenCompInfo.pnVisualRepresentationDataCaption;
-end;//TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption
-
-procedure TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnCompInfoPnVisualRepresentationData.DoDoIt(const aCtx: TtfwContext);
 var l_aenCompInfo: TenCompInfo;
 begin
  try
@@ -584,8 +562,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnVisualRepresentationDataCaption(aCtx, l_aenCompInfo));
-end;//TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt
+ aCtx.rEngine.PushObj(pnVisualRepresentationData(aCtx, l_aenCompInfo));
+end;//TkwEnCompInfoPnVisualRepresentationData.DoDoIt
+
+function TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption(const aCtx: TtfwContext;
+ aenCompInfo: TenCompInfo): TvtPanel;
+ {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationDataCaption }
+begin
+ Result := aenCompInfo.pnVisualRepresentationDataCaption;
+end;//TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption
 
 class function TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister: AnsiString;
 begin
@@ -613,14 +598,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnVisualRepresentationDataCaption', aCtx);
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim
 
-function TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData(const aCtx: TtfwContext;
- aenCompInfo: TenCompInfo): TvtLabel;
- {* Реализация слова скрипта .TenCompInfo.lblVisualRepresentationData }
-begin
- Result := aenCompInfo.lblVisualRepresentationData;
-end;//TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData
-
-procedure TkwEnCompInfoLblVisualRepresentationData.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt(const aCtx: TtfwContext);
 var l_aenCompInfo: TenCompInfo;
 begin
  try
@@ -632,8 +610,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lblVisualRepresentationData(aCtx, l_aenCompInfo));
-end;//TkwEnCompInfoLblVisualRepresentationData.DoDoIt
+ aCtx.rEngine.PushObj(pnVisualRepresentationDataCaption(aCtx, l_aenCompInfo));
+end;//TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt
+
+function TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData(const aCtx: TtfwContext;
+ aenCompInfo: TenCompInfo): TvtLabel;
+ {* Реализация слова скрипта .TenCompInfo.lblVisualRepresentationData }
+begin
+ Result := aenCompInfo.lblVisualRepresentationData;
+end;//TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData
 
 class function TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister: AnsiString;
 begin
@@ -660,6 +645,21 @@ procedure TkwEnCompInfoLblVisualRepresentationData.SetValuePrim(const aValue: Tt
 begin
  RunnerError('Нельзя присваивать значение readonly свойству lblVisualRepresentationData', aCtx);
 end;//TkwEnCompInfoLblVisualRepresentationData.SetValuePrim
+
+procedure TkwEnCompInfoLblVisualRepresentationData.DoDoIt(const aCtx: TtfwContext);
+var l_aenCompInfo: TenCompInfo;
+begin
+ try
+  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblVisualRepresentationData(aCtx, l_aenCompInfo));
+end;//TkwEnCompInfoLblVisualRepresentationData.DoDoIt
 
 initialization
  Tkw_Form_CompInfo.RegisterInEngine;

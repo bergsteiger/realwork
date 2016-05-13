@@ -120,8 +120,8 @@ type
     aPictureForm: TPictureForm): TImageEnIO;
     {* Реализация слова скрипта .TPictureForm.ieIO }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -137,8 +137,8 @@ type
     aPictureForm: TPictureForm): TImageEnView;
     {* Реализация слова скрипта .TPictureForm.ieViewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -154,8 +154,8 @@ type
     aPictureForm: TPictureForm): TImageEnProc;
     {* Реализация слова скрипта .TPictureForm.ieProc }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -240,21 +240,6 @@ begin
  Result := aPictureForm.ieIO;
 end;//TkwPictureFormIeIO.ieIO
 
-procedure TkwPictureFormIeIO.DoDoIt(const aCtx: TtfwContext);
-var l_aPictureForm: TPictureForm;
-begin
- try
-  l_aPictureForm := TPictureForm(aCtx.rEngine.PopObjAs(TPictureForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aPictureForm: TPictureForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ieIO(aCtx, l_aPictureForm));
-end;//TkwPictureFormIeIO.DoDoIt
-
 class function TkwPictureFormIeIO.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TPictureForm.ieIO';
@@ -281,14 +266,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ieIO', aCtx);
 end;//TkwPictureFormIeIO.SetValuePrim
 
-function TkwPictureFormIeViewer.ieViewer(const aCtx: TtfwContext;
- aPictureForm: TPictureForm): TImageEnView;
- {* Реализация слова скрипта .TPictureForm.ieViewer }
-begin
- Result := aPictureForm.ieViewer;
-end;//TkwPictureFormIeViewer.ieViewer
-
-procedure TkwPictureFormIeViewer.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPictureFormIeIO.DoDoIt(const aCtx: TtfwContext);
 var l_aPictureForm: TPictureForm;
 begin
  try
@@ -300,8 +278,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ieViewer(aCtx, l_aPictureForm));
-end;//TkwPictureFormIeViewer.DoDoIt
+ aCtx.rEngine.PushObj(ieIO(aCtx, l_aPictureForm));
+end;//TkwPictureFormIeIO.DoDoIt
+
+function TkwPictureFormIeViewer.ieViewer(const aCtx: TtfwContext;
+ aPictureForm: TPictureForm): TImageEnView;
+ {* Реализация слова скрипта .TPictureForm.ieViewer }
+begin
+ Result := aPictureForm.ieViewer;
+end;//TkwPictureFormIeViewer.ieViewer
 
 class function TkwPictureFormIeViewer.GetWordNameForRegister: AnsiString;
 begin
@@ -329,14 +314,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ieViewer', aCtx);
 end;//TkwPictureFormIeViewer.SetValuePrim
 
-function TkwPictureFormIeProc.ieProc(const aCtx: TtfwContext;
- aPictureForm: TPictureForm): TImageEnProc;
- {* Реализация слова скрипта .TPictureForm.ieProc }
-begin
- Result := aPictureForm.ieProc;
-end;//TkwPictureFormIeProc.ieProc
-
-procedure TkwPictureFormIeProc.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPictureFormIeViewer.DoDoIt(const aCtx: TtfwContext);
 var l_aPictureForm: TPictureForm;
 begin
  try
@@ -348,8 +326,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ieProc(aCtx, l_aPictureForm));
-end;//TkwPictureFormIeProc.DoDoIt
+ aCtx.rEngine.PushObj(ieViewer(aCtx, l_aPictureForm));
+end;//TkwPictureFormIeViewer.DoDoIt
+
+function TkwPictureFormIeProc.ieProc(const aCtx: TtfwContext;
+ aPictureForm: TPictureForm): TImageEnProc;
+ {* Реализация слова скрипта .TPictureForm.ieProc }
+begin
+ Result := aPictureForm.ieProc;
+end;//TkwPictureFormIeProc.ieProc
 
 class function TkwPictureFormIeProc.GetWordNameForRegister: AnsiString;
 begin
@@ -376,6 +361,21 @@ procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ieProc', aCtx);
 end;//TkwPictureFormIeProc.SetValuePrim
+
+procedure TkwPictureFormIeProc.DoDoIt(const aCtx: TtfwContext);
+var l_aPictureForm: TPictureForm;
+begin
+ try
+  l_aPictureForm := TPictureForm(aCtx.rEngine.PopObjAs(TPictureForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPictureForm: TPictureForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ieProc(aCtx, l_aPictureForm));
+end;//TkwPictureFormIeProc.DoDoIt
 
 initialization
  Tkw_Form_Picture.RegisterInEngine;

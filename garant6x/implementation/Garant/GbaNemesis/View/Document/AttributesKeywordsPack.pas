@@ -84,8 +84,8 @@ type
     aAttributesForm: TAttributesForm): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TAttributesForm.tvAttributes }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aAttributesForm.tvAttributes;
 end;//TkwAttributesFormTvAttributes.tvAttributes
 
-procedure TkwAttributesFormTvAttributes.DoDoIt(const aCtx: TtfwContext);
-var l_aAttributesForm: TAttributesForm;
-begin
- try
-  l_aAttributesForm := TAttributesForm(aCtx.rEngine.PopObjAs(TAttributesForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aAttributesForm: TAttributesForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(tvAttributes(aCtx, l_aAttributesForm));
-end;//TkwAttributesFormTvAttributes.DoDoIt
-
 class function TkwAttributesFormTvAttributes.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TAttributesForm.tvAttributes';
@@ -178,6 +163,21 @@ procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству tvAttributes', aCtx);
 end;//TkwAttributesFormTvAttributes.SetValuePrim
+
+procedure TkwAttributesFormTvAttributes.DoDoIt(const aCtx: TtfwContext);
+var l_aAttributesForm: TAttributesForm;
+begin
+ try
+  l_aAttributesForm := TAttributesForm(aCtx.rEngine.PopObjAs(TAttributesForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aAttributesForm: TAttributesForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvAttributes(aCtx, l_aAttributesForm));
+end;//TkwAttributesFormTvAttributes.DoDoIt
 
 initialization
  Tkw_Form_Attributes.RegisterInEngine;

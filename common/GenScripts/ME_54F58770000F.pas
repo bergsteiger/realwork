@@ -37,8 +37,8 @@ type
     aRadioGroup: TRadioGroup): Integer;
     {* Реализация слова скрипта pop:RadioGroup:ItemIndex }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -53,21 +53,6 @@ function TkwPopRadioGroupItemIndex.ItemIndex(const aCtx: TtfwContext;
 begin
  Result := aRadioGroup.ItemIndex;
 end;//TkwPopRadioGroupItemIndex.ItemIndex
-
-procedure TkwPopRadioGroupItemIndex.DoDoIt(const aCtx: TtfwContext);
-var l_aRadioGroup: TRadioGroup;
-begin
- try
-  l_aRadioGroup := TRadioGroup(aCtx.rEngine.PopObjAs(TRadioGroup));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRadioGroup: TRadioGroup : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(ItemIndex(aCtx, l_aRadioGroup));
-end;//TkwPopRadioGroupItemIndex.DoDoIt
 
 class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
 begin
@@ -104,6 +89,21 @@ begin
  end;//try..except
  l_RadioGroup.ItemIndex := aValue.AsInt;
 end;//TkwPopRadioGroupItemIndex.SetValuePrim
+
+procedure TkwPopRadioGroupItemIndex.DoDoIt(const aCtx: TtfwContext);
+var l_aRadioGroup: TRadioGroup;
+begin
+ try
+  l_aRadioGroup := TRadioGroup(aCtx.rEngine.PopObjAs(TRadioGroup));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRadioGroup: TRadioGroup : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(ItemIndex(aCtx, l_aRadioGroup));
+end;//TkwPopRadioGroupItemIndex.DoDoIt
 
 initialization
  TkwPopRadioGroupItemIndex.RegisterInEngine;

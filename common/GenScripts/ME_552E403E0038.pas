@@ -36,8 +36,8 @@ type
     aStatusPanel: TvtStatusPanel): AnsiString;
     {* Реализация слова скрипта pop:vtStatusPanel:GetText }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 function TkwPopStatusPanelGetText.GetText(const aCtx: TtfwContext;
  aStatusPanel: TvtStatusPanel): AnsiString;
  {* Реализация слова скрипта pop:vtStatusPanel:GetText }
-//#UC START# *552E40740003_7D107A8BDD1A_var*
-//#UC END# *552E40740003_7D107A8BDD1A_var*
+//#UC START# *552E40740003_552E40740003_53F7021D0257_Word_var*
+//#UC END# *552E40740003_552E40740003_53F7021D0257_Word_var*
 begin
-//#UC START# *552E40740003_7D107A8BDD1A_impl*
+//#UC START# *552E40740003_552E40740003_53F7021D0257_Word_impl*
  Result := aStatusPanel.Text;
-//#UC END# *552E40740003_7D107A8BDD1A_impl*
+//#UC END# *552E40740003_552E40740003_53F7021D0257_Word_impl*
 end;//TkwPopStatusPanelGetText.GetText
-
-procedure TkwPopStatusPanelGetText.DoDoIt(const aCtx: TtfwContext);
-var l_aStatusPanel: TvtStatusPanel;
-begin
- try
-  l_aStatusPanel := TvtStatusPanel(aCtx.rEngine.PopObjAs(TvtStatusPanel));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aStatusPanel: TvtStatusPanel : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(GetText(aCtx, l_aStatusPanel));
-end;//TkwPopStatusPanelGetText.DoDoIt
 
 class function TkwPopStatusPanelGetText.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopStatusPanelGetText.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtStatusPanel)]);
 end;//TkwPopStatusPanelGetText.ParamsTypes
+
+procedure TkwPopStatusPanelGetText.DoDoIt(const aCtx: TtfwContext);
+var l_aStatusPanel: TvtStatusPanel;
+begin
+ try
+  l_aStatusPanel := TvtStatusPanel(aCtx.rEngine.PopObjAs(TvtStatusPanel));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusPanel: TvtStatusPanel : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(GetText(aCtx, l_aStatusPanel));
+end;//TkwPopStatusPanelGetText.DoDoIt
 
 initialization
  TkwPopStatusPanelGetText.RegisterInEngine;

@@ -84,8 +84,8 @@ type
     aStyleEditorNavigatorForm: TStyleEditorNavigatorForm): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TStyleEditorNavigatorForm.StyleTreeView }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aStyleEditorNavigatorForm.StyleTreeView;
 end;//TkwStyleEditorNavigatorFormStyleTreeView.StyleTreeView
 
-procedure TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt(const aCtx: TtfwContext);
-var l_aStyleEditorNavigatorForm: TStyleEditorNavigatorForm;
-begin
- try
-  l_aStyleEditorNavigatorForm := TStyleEditorNavigatorForm(aCtx.rEngine.PopObjAs(TStyleEditorNavigatorForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aStyleEditorNavigatorForm: TStyleEditorNavigatorForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(StyleTreeView(aCtx, l_aStyleEditorNavigatorForm));
-end;//TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt
-
 class function TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TStyleEditorNavigatorForm.StyleTreeView';
@@ -178,6 +163,21 @@ procedure TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim(const aValue: Tt
 begin
  RunnerError('Нельзя присваивать значение readonly свойству StyleTreeView', aCtx);
 end;//TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim
+
+procedure TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt(const aCtx: TtfwContext);
+var l_aStyleEditorNavigatorForm: TStyleEditorNavigatorForm;
+begin
+ try
+  l_aStyleEditorNavigatorForm := TStyleEditorNavigatorForm(aCtx.rEngine.PopObjAs(TStyleEditorNavigatorForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorNavigatorForm: TStyleEditorNavigatorForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(StyleTreeView(aCtx, l_aStyleEditorNavigatorForm));
+end;//TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt
 
 initialization
  Tkw_Form_StyleEditorNavigator.RegisterInEngine;

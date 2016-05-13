@@ -40,8 +40,8 @@ type
    class procedure DoSetValue(aSpinEdit: TvtSpinEdit;
     aValue: Integer);
     {* Метод установки значения свойства Value }
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -53,39 +53,24 @@ type
 class procedure TkwPopSpinEditValue.DoSetValue(aSpinEdit: TvtSpinEdit;
  aValue: Integer);
  {* Метод установки значения свойства Value }
-//#UC START# *0F40F0279E11_DoSetValue_0F40F0279E11_var*
-//#UC END# *0F40F0279E11_DoSetValue_0F40F0279E11_var*
+//#UC START# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_var*
+//#UC END# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_var*
 begin
-//#UC START# *0F40F0279E11_DoSetValue_0F40F0279E11_impl*
- aSpinEdit.AsInteger := aValue;
-//#UC END# *0F40F0279E11_DoSetValue_0F40F0279E11_impl*
+//#UC START# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_impl*
 end;//TkwPopSpinEditValue.DoSetValue
 
 function TkwPopSpinEditValue.Value(const aCtx: TtfwContext;
  aSpinEdit: TvtSpinEdit): Integer;
  {* Реализация слова скрипта pop:SpinEdit:Value }
-//#UC START# *FFBFE1E95F74_0F40F0279E11_var*
-//#UC END# *FFBFE1E95F74_0F40F0279E11_var*
+//#UC START# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_var*
+//#UC END# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_var*
 begin
-//#UC START# *FFBFE1E95F74_0F40F0279E11_impl*
+//#UC START# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_impl*
  Result := aSpinEdit.AsInteger;
-//#UC END# *FFBFE1E95F74_0F40F0279E11_impl*
+//#UC END# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_impl*
 end;//TkwPopSpinEditValue.Value
-
-procedure TkwPopSpinEditValue.DoDoIt(const aCtx: TtfwContext);
-var l_aSpinEdit: TvtSpinEdit;
-begin
- try
-  l_aSpinEdit := TvtSpinEdit(aCtx.rEngine.PopObjAs(TvtSpinEdit));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSpinEdit: TvtSpinEdit : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(Value(aCtx, l_aSpinEdit));
-end;//TkwPopSpinEditValue.DoDoIt
 
 class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
 begin
@@ -122,6 +107,21 @@ begin
  end;//try..except
  DoSetValue(l_SpinEdit, aValue.AsInt);
 end;//TkwPopSpinEditValue.SetValuePrim
+
+procedure TkwPopSpinEditValue.DoDoIt(const aCtx: TtfwContext);
+var l_aSpinEdit: TvtSpinEdit;
+begin
+ try
+  l_aSpinEdit := TvtSpinEdit(aCtx.rEngine.PopObjAs(TvtSpinEdit));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSpinEdit: TvtSpinEdit : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Value(aCtx, l_aSpinEdit));
+end;//TkwPopSpinEditValue.DoDoIt
 
 initialization
  TkwPopSpinEditValue.RegisterInEngine;

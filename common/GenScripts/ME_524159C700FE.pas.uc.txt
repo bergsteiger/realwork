@@ -364,10 +364,10 @@ var
  if aHRefSeacher.SearchInString(l_HREFStr.S, 0, l_HREFStr.SLen, l_REPosition) and
      (aHRefSeacher.TagParts.Count = 2) then
  begin
-  l_NewParam.rDocID := l3StrToIntDef(aHRefSeacher.TagParts[0].AsWStr, 0);
+  l_NewParam.rDocID := StrToInt(aHRefSeacher.TagParts[0].AsString);
 
-  if (aHRefSeacher.TagParts[1].AsWStr.SLen > 0) then
-    l_NewParam.rSubID := l3StrToIntDef(aHRefSeacher.TagParts[1].AsWStr, 0)
+  if (Length(aHRefSeacher.TagParts[1].AsString) > 0) then
+    l_NewParam.rSubID := StrToInt(aHRefSeacher.TagParts[1].AsString)
   else
     l_NewParam.rSubID := 0;
 

@@ -86,8 +86,8 @@ type
     aefPreviewForm: TefPreviewForm): TnscPreviewPanel;
     {* Реализация слова скрипта .TefPreviewForm.PreviewPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aefPreviewForm.PreviewPanel;
 end;//TkwEfPreviewFormPreviewPanel.PreviewPanel
 
-procedure TkwEfPreviewFormPreviewPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aefPreviewForm: TefPreviewForm;
-begin
- try
-  l_aefPreviewForm := TefPreviewForm(aCtx.rEngine.PopObjAs(TefPreviewForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefPreviewForm: TefPreviewForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(PreviewPanel(aCtx, l_aefPreviewForm));
-end;//TkwEfPreviewFormPreviewPanel.DoDoIt
-
 class function TkwEfPreviewFormPreviewPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefPreviewForm.PreviewPanel';
@@ -180,6 +165,21 @@ procedure TkwEfPreviewFormPreviewPanel.SetValuePrim(const aValue: TtfwStackValue
 begin
  RunnerError('Нельзя присваивать значение readonly свойству PreviewPanel', aCtx);
 end;//TkwEfPreviewFormPreviewPanel.SetValuePrim
+
+procedure TkwEfPreviewFormPreviewPanel.DoDoIt(const aCtx: TtfwContext);
+var l_aefPreviewForm: TefPreviewForm;
+begin
+ try
+  l_aefPreviewForm := TefPreviewForm(aCtx.rEngine.PopObjAs(TefPreviewForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefPreviewForm: TefPreviewForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(PreviewPanel(aCtx, l_aefPreviewForm));
+end;//TkwEfPreviewFormPreviewPanel.DoDoIt
 
 initialization
  Tkw_Form_PreviewForm.RegisterInEngine;

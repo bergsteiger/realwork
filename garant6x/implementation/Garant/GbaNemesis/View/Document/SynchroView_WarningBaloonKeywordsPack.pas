@@ -86,8 +86,8 @@ type
     aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm): TnscEditor;
     {* Реализация слова скрипта .TSynchroView_WarningBaloonForm.Viewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aSynchroView_WarningBaloonForm.Viewer;
 end;//TkwSynchroViewWarningBaloonFormViewer.Viewer
 
-procedure TkwSynchroViewWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-var l_aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm;
-begin
- try
-  l_aSynchroView_WarningBaloonForm := TSynchroView_WarningBaloonForm(aCtx.rEngine.PopObjAs(TSynchroView_WarningBaloonForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Viewer(aCtx, l_aSynchroView_WarningBaloonForm));
-end;//TkwSynchroViewWarningBaloonFormViewer.DoDoIt
-
 class function TkwSynchroViewWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TSynchroView_WarningBaloonForm.Viewer';
@@ -180,6 +165,21 @@ procedure TkwSynchroViewWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwS
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwSynchroViewWarningBaloonFormViewer.SetValuePrim
+
+procedure TkwSynchroViewWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
+var l_aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm;
+begin
+ try
+  l_aSynchroView_WarningBaloonForm := TSynchroView_WarningBaloonForm(aCtx.rEngine.PopObjAs(TSynchroView_WarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aSynchroView_WarningBaloonForm));
+end;//TkwSynchroViewWarningBaloonFormViewer.DoDoIt
 
 initialization
  Tkw_Form_SynchroView_WarningBaloon.RegisterInEngine;

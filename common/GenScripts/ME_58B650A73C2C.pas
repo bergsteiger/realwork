@@ -286,8 +286,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtPanel;
     {* Реализация слова скрипта .TLongProcessForm.ClientPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -303,8 +303,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtLabel;
     {* Реализация слова скрипта .TLongProcessForm.MessageLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -320,8 +320,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtPanel;
     {* Реализация слова скрипта .TLongProcessForm.BottomPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -337,8 +337,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtGradientWaitbar;
     {* Реализация слова скрипта .TLongProcessForm.ProgressBar }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -354,8 +354,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtPanel;
     {* Реализация слова скрипта .TLongProcessForm.LeftPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -371,8 +371,8 @@ type
     aLongProcessForm: TLongProcessForm): TImage;
     {* Реализация слова скрипта .TLongProcessForm.Image }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -388,8 +388,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtPanel;
     {* Реализация слова скрипта .TLongProcessForm.ButtonPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -405,8 +405,8 @@ type
     aLongProcessForm: TLongProcessForm): TvtButton;
     {* Реализация слова скрипта .TLongProcessForm.btnExit }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -648,21 +648,6 @@ begin
  Result := aLongProcessForm.ClientPanel;
 end;//TkwLongProcessFormClientPanel.ClientPanel
 
-procedure TkwLongProcessFormClientPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aLongProcessForm: TLongProcessForm;
-begin
- try
-  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ClientPanel(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormClientPanel.DoDoIt
-
 class function TkwLongProcessFormClientPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TLongProcessForm.ClientPanel';
@@ -689,14 +674,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ClientPanel', aCtx);
 end;//TkwLongProcessFormClientPanel.SetValuePrim
 
-function TkwLongProcessFormMessageLabel.MessageLabel(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TvtLabel;
- {* Реализация слова скрипта .TLongProcessForm.MessageLabel }
-begin
- Result := aLongProcessForm.MessageLabel;
-end;//TkwLongProcessFormMessageLabel.MessageLabel
-
-procedure TkwLongProcessFormMessageLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormClientPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -708,8 +686,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(MessageLabel(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormMessageLabel.DoDoIt
+ aCtx.rEngine.PushObj(ClientPanel(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormClientPanel.DoDoIt
+
+function TkwLongProcessFormMessageLabel.MessageLabel(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TvtLabel;
+ {* Реализация слова скрипта .TLongProcessForm.MessageLabel }
+begin
+ Result := aLongProcessForm.MessageLabel;
+end;//TkwLongProcessFormMessageLabel.MessageLabel
 
 class function TkwLongProcessFormMessageLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -737,14 +722,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству MessageLabel', aCtx);
 end;//TkwLongProcessFormMessageLabel.SetValuePrim
 
-function TkwLongProcessFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TvtPanel;
- {* Реализация слова скрипта .TLongProcessForm.BottomPanel }
-begin
- Result := aLongProcessForm.BottomPanel;
-end;//TkwLongProcessFormBottomPanel.BottomPanel
-
-procedure TkwLongProcessFormBottomPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormMessageLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -756,8 +734,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormBottomPanel.DoDoIt
+ aCtx.rEngine.PushObj(MessageLabel(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormMessageLabel.DoDoIt
+
+function TkwLongProcessFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TvtPanel;
+ {* Реализация слова скрипта .TLongProcessForm.BottomPanel }
+begin
+ Result := aLongProcessForm.BottomPanel;
+end;//TkwLongProcessFormBottomPanel.BottomPanel
 
 class function TkwLongProcessFormBottomPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -785,14 +770,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
 end;//TkwLongProcessFormBottomPanel.SetValuePrim
 
-function TkwLongProcessFormProgressBar.ProgressBar(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TvtGradientWaitbar;
- {* Реализация слова скрипта .TLongProcessForm.ProgressBar }
-begin
- Result := aLongProcessForm.ProgressBar;
-end;//TkwLongProcessFormProgressBar.ProgressBar
-
-procedure TkwLongProcessFormProgressBar.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormBottomPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -804,8 +782,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormProgressBar.DoDoIt
+ aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormBottomPanel.DoDoIt
+
+function TkwLongProcessFormProgressBar.ProgressBar(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TvtGradientWaitbar;
+ {* Реализация слова скрипта .TLongProcessForm.ProgressBar }
+begin
+ Result := aLongProcessForm.ProgressBar;
+end;//TkwLongProcessFormProgressBar.ProgressBar
 
 class function TkwLongProcessFormProgressBar.GetWordNameForRegister: AnsiString;
 begin
@@ -833,14 +818,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ProgressBar', aCtx);
 end;//TkwLongProcessFormProgressBar.SetValuePrim
 
-function TkwLongProcessFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TvtPanel;
- {* Реализация слова скрипта .TLongProcessForm.LeftPanel }
-begin
- Result := aLongProcessForm.LeftPanel;
-end;//TkwLongProcessFormLeftPanel.LeftPanel
-
-procedure TkwLongProcessFormLeftPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormProgressBar.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -852,8 +830,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormLeftPanel.DoDoIt
+ aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormProgressBar.DoDoIt
+
+function TkwLongProcessFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TvtPanel;
+ {* Реализация слова скрипта .TLongProcessForm.LeftPanel }
+begin
+ Result := aLongProcessForm.LeftPanel;
+end;//TkwLongProcessFormLeftPanel.LeftPanel
 
 class function TkwLongProcessFormLeftPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -881,14 +866,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству LeftPanel', aCtx);
 end;//TkwLongProcessFormLeftPanel.SetValuePrim
 
-function TkwLongProcessFormImage.Image(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TImage;
- {* Реализация слова скрипта .TLongProcessForm.Image }
-begin
- Result := aLongProcessForm.Image;
-end;//TkwLongProcessFormImage.Image
-
-procedure TkwLongProcessFormImage.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormLeftPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -900,8 +878,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Image(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormImage.DoDoIt
+ aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormLeftPanel.DoDoIt
+
+function TkwLongProcessFormImage.Image(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TImage;
+ {* Реализация слова скрипта .TLongProcessForm.Image }
+begin
+ Result := aLongProcessForm.Image;
+end;//TkwLongProcessFormImage.Image
 
 class function TkwLongProcessFormImage.GetWordNameForRegister: AnsiString;
 begin
@@ -929,14 +914,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Image', aCtx);
 end;//TkwLongProcessFormImage.SetValuePrim
 
-function TkwLongProcessFormButtonPanel.ButtonPanel(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TvtPanel;
- {* Реализация слова скрипта .TLongProcessForm.ButtonPanel }
-begin
- Result := aLongProcessForm.ButtonPanel;
-end;//TkwLongProcessFormButtonPanel.ButtonPanel
-
-procedure TkwLongProcessFormButtonPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormImage.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -948,8 +926,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ButtonPanel(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormButtonPanel.DoDoIt
+ aCtx.rEngine.PushObj(Image(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormImage.DoDoIt
+
+function TkwLongProcessFormButtonPanel.ButtonPanel(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TvtPanel;
+ {* Реализация слова скрипта .TLongProcessForm.ButtonPanel }
+begin
+ Result := aLongProcessForm.ButtonPanel;
+end;//TkwLongProcessFormButtonPanel.ButtonPanel
 
 class function TkwLongProcessFormButtonPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -977,14 +962,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ButtonPanel', aCtx);
 end;//TkwLongProcessFormButtonPanel.SetValuePrim
 
-function TkwLongProcessFormBtnExit.btnExit(const aCtx: TtfwContext;
- aLongProcessForm: TLongProcessForm): TvtButton;
- {* Реализация слова скрипта .TLongProcessForm.btnExit }
-begin
- Result := aLongProcessForm.btnExit;
-end;//TkwLongProcessFormBtnExit.btnExit
-
-procedure TkwLongProcessFormBtnExit.DoDoIt(const aCtx: TtfwContext);
+procedure TkwLongProcessFormButtonPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aLongProcessForm: TLongProcessForm;
 begin
  try
@@ -996,8 +974,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(btnExit(aCtx, l_aLongProcessForm));
-end;//TkwLongProcessFormBtnExit.DoDoIt
+ aCtx.rEngine.PushObj(ButtonPanel(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormButtonPanel.DoDoIt
+
+function TkwLongProcessFormBtnExit.btnExit(const aCtx: TtfwContext;
+ aLongProcessForm: TLongProcessForm): TvtButton;
+ {* Реализация слова скрипта .TLongProcessForm.btnExit }
+begin
+ Result := aLongProcessForm.btnExit;
+end;//TkwLongProcessFormBtnExit.btnExit
 
 class function TkwLongProcessFormBtnExit.GetWordNameForRegister: AnsiString;
 begin
@@ -1024,6 +1009,21 @@ procedure TkwLongProcessFormBtnExit.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству btnExit', aCtx);
 end;//TkwLongProcessFormBtnExit.SetValuePrim
+
+procedure TkwLongProcessFormBtnExit.DoDoIt(const aCtx: TtfwContext);
+var l_aLongProcessForm: TLongProcessForm;
+begin
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnExit(aCtx, l_aLongProcessForm));
+end;//TkwLongProcessFormBtnExit.DoDoIt
 
 initialization
  Tkw_Form_LongProcess.RegisterInEngine;

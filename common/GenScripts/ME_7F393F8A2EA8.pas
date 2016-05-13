@@ -84,8 +84,8 @@ type
     aenNewsLine: TenNewsLine): TnscTreeViewForNewsLine;
     {* Реализация слова скрипта .TenNewsLine.DateList }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aenNewsLine.DateList;
 end;//TkwEnNewsLineDateList.DateList
 
-procedure TkwEnNewsLineDateList.DoDoIt(const aCtx: TtfwContext);
-var l_aenNewsLine: TenNewsLine;
-begin
- try
-  l_aenNewsLine := TenNewsLine(aCtx.rEngine.PopObjAs(TenNewsLine));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenNewsLine: TenNewsLine : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(DateList(aCtx, l_aenNewsLine));
-end;//TkwEnNewsLineDateList.DoDoIt
-
 class function TkwEnNewsLineDateList.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenNewsLine.DateList';
@@ -178,6 +163,21 @@ procedure TkwEnNewsLineDateList.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству DateList', aCtx);
 end;//TkwEnNewsLineDateList.SetValuePrim
+
+procedure TkwEnNewsLineDateList.DoDoIt(const aCtx: TtfwContext);
+var l_aenNewsLine: TenNewsLine;
+begin
+ try
+  l_aenNewsLine := TenNewsLine(aCtx.rEngine.PopObjAs(TenNewsLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenNewsLine: TenNewsLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(DateList(aCtx, l_aenNewsLine));
+end;//TkwEnNewsLineDateList.DoDoIt
 
 initialization
  Tkw_Form_NewsLine.RegisterInEngine;

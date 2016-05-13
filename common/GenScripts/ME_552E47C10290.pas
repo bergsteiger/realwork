@@ -31,6 +31,10 @@ uses
 ;
 
 type
+ TvtCustomListerFriend = {abstract} class(TvtCustomLister)
+  {* Друг к классу TvtCustomLister }
+ end;//TvtCustomListerFriend
+
  TkwPopListerSelectWithShift = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Lister:SelectWithShift }
   private
@@ -39,8 +43,8 @@ type
     aFinish: Integer);
     {* Реализация слова скрипта pop:Lister:SelectWithShift }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -55,8 +59,8 @@ type
     anIndex: Integer): Boolean;
     {* Реализация слова скрипта pop:Lister:GetSelected }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -70,8 +74,8 @@ type
     aLister: TvtCustomLister): AnsiString;
     {* Реализация слова скрипта pop:Lister:FooterCaption }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -85,8 +89,8 @@ type
     aLister: TvtCustomLister): Integer;
     {* Реализация слова скрипта pop:Lister:Current }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -95,21 +99,37 @@ type
     const aCtx: TtfwContext); override;
  end;//TkwPopListerCurrent
 
- TvtCustomListerFriend = {abstract} class(TvtCustomLister)
-  {* Друг к классу TvtCustomLister }
- end;//TvtCustomListerFriend
-
 procedure TkwPopListerSelectWithShift.SelectWithShift(const aCtx: TtfwContext;
  aLister: TvtCustomLister;
  aFinish: Integer);
  {* Реализация слова скрипта pop:Lister:SelectWithShift }
-//#UC START# *552E482B0030_3601E7023043_var*
-//#UC END# *552E482B0030_3601E7023043_var*
+//#UC START# *552E482B0030_552E482B0030_515062D301C4_Word_var*
+//#UC END# *552E482B0030_552E482B0030_515062D301C4_Word_var*
 begin
-//#UC START# *552E482B0030_3601E7023043_impl*
+//#UC START# *552E482B0030_552E482B0030_515062D301C4_Word_impl*
  aLister.SelectItems(aFinish);
-//#UC END# *552E482B0030_3601E7023043_impl*
+//#UC END# *552E482B0030_552E482B0030_515062D301C4_Word_impl*
 end;//TkwPopListerSelectWithShift.SelectWithShift
+
+class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:SelectWithShift';
+end;//TkwPopListerSelectWithShift.GetWordNameForRegister
+
+function TkwPopListerSelectWithShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopListerSelectWithShift.GetResultTypeInfo
+
+function TkwPopListerSelectWithShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopListerSelectWithShift.GetAllParamsCount
+
+function TkwPopListerSelectWithShift.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
+end;//TkwPopListerSelectWithShift.ParamsTypes
 
 procedure TkwPopListerSelectWithShift.DoDoIt(const aCtx: TtfwContext);
 var l_aLister: TvtCustomLister;
@@ -136,37 +156,37 @@ begin
  SelectWithShift(aCtx, l_aLister, l_aFinish);
 end;//TkwPopListerSelectWithShift.DoDoIt
 
-class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:SelectWithShift';
-end;//TkwPopListerSelectWithShift.GetWordNameForRegister
-
-function TkwPopListerSelectWithShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopListerSelectWithShift.GetResultTypeInfo
-
-function TkwPopListerSelectWithShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopListerSelectWithShift.GetAllParamsCount
-
-function TkwPopListerSelectWithShift.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
-end;//TkwPopListerSelectWithShift.ParamsTypes
-
 function TkwPopListerGetSelected.GetSelected(const aCtx: TtfwContext;
  aLister: TvtCustomLister;
  anIndex: Integer): Boolean;
  {* Реализация слова скрипта pop:Lister:GetSelected }
-//#UC START# *552E485701AB_94BB02952F38_var*
-//#UC END# *552E485701AB_94BB02952F38_var*
+//#UC START# *552E485701AB_552E485701AB_515062D301C4_Word_var*
+//#UC END# *552E485701AB_552E485701AB_515062D301C4_Word_var*
 begin
-//#UC START# *552E485701AB_94BB02952F38_impl*
+//#UC START# *552E485701AB_552E485701AB_515062D301C4_Word_impl*
  Result := aLister.Selected[anIndex];
-//#UC END# *552E485701AB_94BB02952F38_impl*
+//#UC END# *552E485701AB_552E485701AB_515062D301C4_Word_impl*
 end;//TkwPopListerGetSelected.GetSelected
+
+class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Lister:GetSelected';
+end;//TkwPopListerGetSelected.GetWordNameForRegister
+
+function TkwPopListerGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwPopListerGetSelected.GetResultTypeInfo
+
+function TkwPopListerGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopListerGetSelected.GetAllParamsCount
+
+function TkwPopListerGetSelected.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
+end;//TkwPopListerGetSelected.ParamsTypes
 
 procedure TkwPopListerGetSelected.DoDoIt(const aCtx: TtfwContext);
 var l_aLister: TvtCustomLister;
@@ -193,51 +213,16 @@ begin
  aCtx.rEngine.PushBool(GetSelected(aCtx, l_aLister, l_anIndex));
 end;//TkwPopListerGetSelected.DoDoIt
 
-class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Lister:GetSelected';
-end;//TkwPopListerGetSelected.GetWordNameForRegister
-
-function TkwPopListerGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwPopListerGetSelected.GetResultTypeInfo
-
-function TkwPopListerGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopListerGetSelected.GetAllParamsCount
-
-function TkwPopListerGetSelected.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
-end;//TkwPopListerGetSelected.ParamsTypes
-
 function TkwPopListerFooterCaption.FooterCaption(const aCtx: TtfwContext;
  aLister: TvtCustomLister): AnsiString;
  {* Реализация слова скрипта pop:Lister:FooterCaption }
-//#UC START# *552E48AF00FD_0BB474851F7E_var*
-//#UC END# *552E48AF00FD_0BB474851F7E_var*
+//#UC START# *552E48AF00FD_552E48AF00FD_515062D301C4_Word_var*
+//#UC END# *552E48AF00FD_552E48AF00FD_515062D301C4_Word_var*
 begin
-//#UC START# *552E48AF00FD_0BB474851F7E_impl*
+//#UC START# *552E48AF00FD_552E48AF00FD_515062D301C4_Word_impl*
  Result := TvtCustomListerFriend(aLister).FooterCaption;
-//#UC END# *552E48AF00FD_0BB474851F7E_impl*
+//#UC END# *552E48AF00FD_552E48AF00FD_515062D301C4_Word_impl*
 end;//TkwPopListerFooterCaption.FooterCaption
-
-procedure TkwPopListerFooterCaption.DoDoIt(const aCtx: TtfwContext);
-var l_aLister: TvtCustomLister;
-begin
- try
-  l_aLister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aLister: TvtCustomLister : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(FooterCaption(aCtx, l_aLister));
-end;//TkwPopListerFooterCaption.DoDoIt
 
 class function TkwPopListerFooterCaption.GetWordNameForRegister: AnsiString;
 begin
@@ -259,14 +244,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerFooterCaption.ParamsTypes
 
-function TkwPopListerCurrent.Current(const aCtx: TtfwContext;
- aLister: TvtCustomLister): Integer;
- {* Реализация слова скрипта pop:Lister:Current }
-begin
- Result := aLister.Current;
-end;//TkwPopListerCurrent.Current
-
-procedure TkwPopListerCurrent.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopListerFooterCaption.DoDoIt(const aCtx: TtfwContext);
 var l_aLister: TvtCustomLister;
 begin
  try
@@ -278,8 +256,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Current(aCtx, l_aLister));
-end;//TkwPopListerCurrent.DoDoIt
+ aCtx.rEngine.PushString(FooterCaption(aCtx, l_aLister));
+end;//TkwPopListerFooterCaption.DoDoIt
+
+function TkwPopListerCurrent.Current(const aCtx: TtfwContext;
+ aLister: TvtCustomLister): Integer;
+ {* Реализация слова скрипта pop:Lister:Current }
+begin
+ Result := aLister.Current;
+end;//TkwPopListerCurrent.Current
 
 class function TkwPopListerCurrent.GetWordNameForRegister: AnsiString;
 begin
@@ -306,6 +291,21 @@ procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Current', aCtx);
 end;//TkwPopListerCurrent.SetValuePrim
+
+procedure TkwPopListerCurrent.DoDoIt(const aCtx: TtfwContext);
+var l_aLister: TvtCustomLister;
+begin
+ try
+  l_aLister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLister: TvtCustomLister : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Current(aCtx, l_aLister));
+end;//TkwPopListerCurrent.DoDoIt
 
 initialization
  TkwPopListerSelectWithShift.RegisterInEngine;

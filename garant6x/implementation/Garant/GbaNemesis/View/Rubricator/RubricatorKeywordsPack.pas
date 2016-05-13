@@ -217,8 +217,8 @@ type
     aefRubricator: TefRubricator): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TefRubricator.RubricatorList }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -234,8 +234,8 @@ type
     aefRubricator: TefRubricator): TvtPanel;
     {* Реализация слова скрипта .TefRubricator.TopPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -251,8 +251,8 @@ type
     aefRubricator: TefRubricator): TPaintBox;
     {* Реализация слова скрипта .TefRubricator.PaintBox }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -268,8 +268,8 @@ type
     aefRubricator: TefRubricator): TnscSimpleEditor;
     {* Реализация слова скрипта .TefRubricator.NewDocLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -285,8 +285,8 @@ type
     aefRubricator: TefRubricator): TvtPanel;
     {* Реализация слова скрипта .TefRubricator.DelimiterPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -302,8 +302,8 @@ type
     aefRubricator: TefRubricator): TnscTextSource;
     {* Реализация слова скрипта .TefRubricator.ExampleTextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -480,21 +480,6 @@ begin
  Result := aefRubricator.RubricatorList;
 end;//TkwEfRubricatorRubricatorList.RubricatorList
 
-procedure TkwEfRubricatorRubricatorList.DoDoIt(const aCtx: TtfwContext);
-var l_aefRubricator: TefRubricator;
-begin
- try
-  l_aefRubricator := TefRubricator(aCtx.rEngine.PopObjAs(TefRubricator));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefRubricator: TefRubricator : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(RubricatorList(aCtx, l_aefRubricator));
-end;//TkwEfRubricatorRubricatorList.DoDoIt
-
 class function TkwEfRubricatorRubricatorList.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefRubricator.RubricatorList';
@@ -521,14 +506,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству RubricatorList', aCtx);
 end;//TkwEfRubricatorRubricatorList.SetValuePrim
 
-function TkwEfRubricatorTopPanel.TopPanel(const aCtx: TtfwContext;
- aefRubricator: TefRubricator): TvtPanel;
- {* Реализация слова скрипта .TefRubricator.TopPanel }
-begin
- Result := aefRubricator.TopPanel;
-end;//TkwEfRubricatorTopPanel.TopPanel
-
-procedure TkwEfRubricatorTopPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfRubricatorRubricatorList.DoDoIt(const aCtx: TtfwContext);
 var l_aefRubricator: TefRubricator;
 begin
  try
@@ -540,8 +518,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TopPanel(aCtx, l_aefRubricator));
-end;//TkwEfRubricatorTopPanel.DoDoIt
+ aCtx.rEngine.PushObj(RubricatorList(aCtx, l_aefRubricator));
+end;//TkwEfRubricatorRubricatorList.DoDoIt
+
+function TkwEfRubricatorTopPanel.TopPanel(const aCtx: TtfwContext;
+ aefRubricator: TefRubricator): TvtPanel;
+ {* Реализация слова скрипта .TefRubricator.TopPanel }
+begin
+ Result := aefRubricator.TopPanel;
+end;//TkwEfRubricatorTopPanel.TopPanel
 
 class function TkwEfRubricatorTopPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -569,14 +554,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
 end;//TkwEfRubricatorTopPanel.SetValuePrim
 
-function TkwEfRubricatorPaintBox.PaintBox(const aCtx: TtfwContext;
- aefRubricator: TefRubricator): TPaintBox;
- {* Реализация слова скрипта .TefRubricator.PaintBox }
-begin
- Result := aefRubricator.PaintBox;
-end;//TkwEfRubricatorPaintBox.PaintBox
-
-procedure TkwEfRubricatorPaintBox.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfRubricatorTopPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefRubricator: TefRubricator;
 begin
  try
@@ -588,8 +566,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(PaintBox(aCtx, l_aefRubricator));
-end;//TkwEfRubricatorPaintBox.DoDoIt
+ aCtx.rEngine.PushObj(TopPanel(aCtx, l_aefRubricator));
+end;//TkwEfRubricatorTopPanel.DoDoIt
+
+function TkwEfRubricatorPaintBox.PaintBox(const aCtx: TtfwContext;
+ aefRubricator: TefRubricator): TPaintBox;
+ {* Реализация слова скрипта .TefRubricator.PaintBox }
+begin
+ Result := aefRubricator.PaintBox;
+end;//TkwEfRubricatorPaintBox.PaintBox
 
 class function TkwEfRubricatorPaintBox.GetWordNameForRegister: AnsiString;
 begin
@@ -617,14 +602,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству PaintBox', aCtx);
 end;//TkwEfRubricatorPaintBox.SetValuePrim
 
-function TkwEfRubricatorNewDocLabel.NewDocLabel(const aCtx: TtfwContext;
- aefRubricator: TefRubricator): TnscSimpleEditor;
- {* Реализация слова скрипта .TefRubricator.NewDocLabel }
-begin
- Result := aefRubricator.NewDocLabel;
-end;//TkwEfRubricatorNewDocLabel.NewDocLabel
-
-procedure TkwEfRubricatorNewDocLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfRubricatorPaintBox.DoDoIt(const aCtx: TtfwContext);
 var l_aefRubricator: TefRubricator;
 begin
  try
@@ -636,8 +614,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(NewDocLabel(aCtx, l_aefRubricator));
-end;//TkwEfRubricatorNewDocLabel.DoDoIt
+ aCtx.rEngine.PushObj(PaintBox(aCtx, l_aefRubricator));
+end;//TkwEfRubricatorPaintBox.DoDoIt
+
+function TkwEfRubricatorNewDocLabel.NewDocLabel(const aCtx: TtfwContext;
+ aefRubricator: TefRubricator): TnscSimpleEditor;
+ {* Реализация слова скрипта .TefRubricator.NewDocLabel }
+begin
+ Result := aefRubricator.NewDocLabel;
+end;//TkwEfRubricatorNewDocLabel.NewDocLabel
 
 class function TkwEfRubricatorNewDocLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -665,14 +650,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству NewDocLabel', aCtx);
 end;//TkwEfRubricatorNewDocLabel.SetValuePrim
 
-function TkwEfRubricatorDelimiterPanel.DelimiterPanel(const aCtx: TtfwContext;
- aefRubricator: TefRubricator): TvtPanel;
- {* Реализация слова скрипта .TefRubricator.DelimiterPanel }
-begin
- Result := aefRubricator.DelimiterPanel;
-end;//TkwEfRubricatorDelimiterPanel.DelimiterPanel
-
-procedure TkwEfRubricatorDelimiterPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfRubricatorNewDocLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefRubricator: TefRubricator;
 begin
  try
@@ -684,8 +662,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(DelimiterPanel(aCtx, l_aefRubricator));
-end;//TkwEfRubricatorDelimiterPanel.DoDoIt
+ aCtx.rEngine.PushObj(NewDocLabel(aCtx, l_aefRubricator));
+end;//TkwEfRubricatorNewDocLabel.DoDoIt
+
+function TkwEfRubricatorDelimiterPanel.DelimiterPanel(const aCtx: TtfwContext;
+ aefRubricator: TefRubricator): TvtPanel;
+ {* Реализация слова скрипта .TefRubricator.DelimiterPanel }
+begin
+ Result := aefRubricator.DelimiterPanel;
+end;//TkwEfRubricatorDelimiterPanel.DelimiterPanel
 
 class function TkwEfRubricatorDelimiterPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -713,14 +698,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству DelimiterPanel', aCtx);
 end;//TkwEfRubricatorDelimiterPanel.SetValuePrim
 
-function TkwEfRubricatorExampleTextSource.ExampleTextSource(const aCtx: TtfwContext;
- aefRubricator: TefRubricator): TnscTextSource;
- {* Реализация слова скрипта .TefRubricator.ExampleTextSource }
-begin
- Result := aefRubricator.ExampleTextSource;
-end;//TkwEfRubricatorExampleTextSource.ExampleTextSource
-
-procedure TkwEfRubricatorExampleTextSource.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfRubricatorDelimiterPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefRubricator: TefRubricator;
 begin
  try
@@ -732,8 +710,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ExampleTextSource(aCtx, l_aefRubricator));
-end;//TkwEfRubricatorExampleTextSource.DoDoIt
+ aCtx.rEngine.PushObj(DelimiterPanel(aCtx, l_aefRubricator));
+end;//TkwEfRubricatorDelimiterPanel.DoDoIt
+
+function TkwEfRubricatorExampleTextSource.ExampleTextSource(const aCtx: TtfwContext;
+ aefRubricator: TefRubricator): TnscTextSource;
+ {* Реализация слова скрипта .TefRubricator.ExampleTextSource }
+begin
+ Result := aefRubricator.ExampleTextSource;
+end;//TkwEfRubricatorExampleTextSource.ExampleTextSource
 
 class function TkwEfRubricatorExampleTextSource.GetWordNameForRegister: AnsiString;
 begin
@@ -760,6 +745,21 @@ procedure TkwEfRubricatorExampleTextSource.SetValuePrim(const aValue: TtfwStackV
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ExampleTextSource', aCtx);
 end;//TkwEfRubricatorExampleTextSource.SetValuePrim
+
+procedure TkwEfRubricatorExampleTextSource.DoDoIt(const aCtx: TtfwContext);
+var l_aefRubricator: TefRubricator;
+begin
+ try
+  l_aefRubricator := TefRubricator(aCtx.rEngine.PopObjAs(TefRubricator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefRubricator: TefRubricator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ExampleTextSource(aCtx, l_aefRubricator));
+end;//TkwEfRubricatorExampleTextSource.DoDoIt
 
 initialization
  Tkw_Form_Rubricator.RegisterInEngine;

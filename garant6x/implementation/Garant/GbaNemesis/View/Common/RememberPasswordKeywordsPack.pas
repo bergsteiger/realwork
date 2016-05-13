@@ -200,8 +200,8 @@ type
     aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
     {* Реализация слова скрипта .TRememberPasswordForm.EMailLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -217,8 +217,8 @@ type
     aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
     {* Реализация слова скрипта .TRememberPasswordForm.HintLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -234,8 +234,8 @@ type
     aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
     {* Реализация слова скрипта .TRememberPasswordForm.btnCancel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -251,8 +251,8 @@ type
     aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
     {* Реализация слова скрипта .TRememberPasswordForm.btnSend }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -268,8 +268,8 @@ type
     aRememberPasswordForm: TRememberPasswordForm): TnscEdit;
     {* Реализация слова скрипта .TRememberPasswordForm.edEmail }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -430,21 +430,6 @@ begin
  Result := aRememberPasswordForm.EMailLabel;
 end;//TkwRememberPasswordFormEMailLabel.EMailLabel
 
-procedure TkwRememberPasswordFormEMailLabel.DoDoIt(const aCtx: TtfwContext);
-var l_aRememberPasswordForm: TRememberPasswordForm;
-begin
- try
-  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRememberPasswordForm));
-end;//TkwRememberPasswordFormEMailLabel.DoDoIt
-
 class function TkwRememberPasswordFormEMailLabel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TRememberPasswordForm.EMailLabel';
@@ -471,14 +456,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
 end;//TkwRememberPasswordFormEMailLabel.SetValuePrim
 
-function TkwRememberPasswordFormHintLabel.HintLabel(const aCtx: TtfwContext;
- aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
- {* Реализация слова скрипта .TRememberPasswordForm.HintLabel }
-begin
- Result := aRememberPasswordForm.HintLabel;
-end;//TkwRememberPasswordFormHintLabel.HintLabel
-
-procedure TkwRememberPasswordFormHintLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRememberPasswordFormEMailLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
  try
@@ -490,8 +468,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(HintLabel(aCtx, l_aRememberPasswordForm));
-end;//TkwRememberPasswordFormHintLabel.DoDoIt
+ aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRememberPasswordForm));
+end;//TkwRememberPasswordFormEMailLabel.DoDoIt
+
+function TkwRememberPasswordFormHintLabel.HintLabel(const aCtx: TtfwContext;
+ aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
+ {* Реализация слова скрипта .TRememberPasswordForm.HintLabel }
+begin
+ Result := aRememberPasswordForm.HintLabel;
+end;//TkwRememberPasswordFormHintLabel.HintLabel
 
 class function TkwRememberPasswordFormHintLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -519,14 +504,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству HintLabel', aCtx);
 end;//TkwRememberPasswordFormHintLabel.SetValuePrim
 
-function TkwRememberPasswordFormBtnCancel.btnCancel(const aCtx: TtfwContext;
- aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
- {* Реализация слова скрипта .TRememberPasswordForm.btnCancel }
-begin
- Result := aRememberPasswordForm.btnCancel;
-end;//TkwRememberPasswordFormBtnCancel.btnCancel
-
-procedure TkwRememberPasswordFormBtnCancel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRememberPasswordFormHintLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
  try
@@ -538,8 +516,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(btnCancel(aCtx, l_aRememberPasswordForm));
-end;//TkwRememberPasswordFormBtnCancel.DoDoIt
+ aCtx.rEngine.PushObj(HintLabel(aCtx, l_aRememberPasswordForm));
+end;//TkwRememberPasswordFormHintLabel.DoDoIt
+
+function TkwRememberPasswordFormBtnCancel.btnCancel(const aCtx: TtfwContext;
+ aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
+ {* Реализация слова скрипта .TRememberPasswordForm.btnCancel }
+begin
+ Result := aRememberPasswordForm.btnCancel;
+end;//TkwRememberPasswordFormBtnCancel.btnCancel
 
 class function TkwRememberPasswordFormBtnCancel.GetWordNameForRegister: AnsiString;
 begin
@@ -567,14 +552,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству btnCancel', aCtx);
 end;//TkwRememberPasswordFormBtnCancel.SetValuePrim
 
-function TkwRememberPasswordFormBtnSend.btnSend(const aCtx: TtfwContext;
- aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
- {* Реализация слова скрипта .TRememberPasswordForm.btnSend }
-begin
- Result := aRememberPasswordForm.btnSend;
-end;//TkwRememberPasswordFormBtnSend.btnSend
-
-procedure TkwRememberPasswordFormBtnSend.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRememberPasswordFormBtnCancel.DoDoIt(const aCtx: TtfwContext);
 var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
  try
@@ -586,8 +564,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(btnSend(aCtx, l_aRememberPasswordForm));
-end;//TkwRememberPasswordFormBtnSend.DoDoIt
+ aCtx.rEngine.PushObj(btnCancel(aCtx, l_aRememberPasswordForm));
+end;//TkwRememberPasswordFormBtnCancel.DoDoIt
+
+function TkwRememberPasswordFormBtnSend.btnSend(const aCtx: TtfwContext;
+ aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
+ {* Реализация слова скрипта .TRememberPasswordForm.btnSend }
+begin
+ Result := aRememberPasswordForm.btnSend;
+end;//TkwRememberPasswordFormBtnSend.btnSend
 
 class function TkwRememberPasswordFormBtnSend.GetWordNameForRegister: AnsiString;
 begin
@@ -615,14 +600,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству btnSend', aCtx);
 end;//TkwRememberPasswordFormBtnSend.SetValuePrim
 
-function TkwRememberPasswordFormEdEmail.edEmail(const aCtx: TtfwContext;
- aRememberPasswordForm: TRememberPasswordForm): TnscEdit;
- {* Реализация слова скрипта .TRememberPasswordForm.edEmail }
-begin
- Result := aRememberPasswordForm.edEmail;
-end;//TkwRememberPasswordFormEdEmail.edEmail
-
-procedure TkwRememberPasswordFormEdEmail.DoDoIt(const aCtx: TtfwContext);
+procedure TkwRememberPasswordFormBtnSend.DoDoIt(const aCtx: TtfwContext);
 var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
  try
@@ -634,8 +612,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edEmail(aCtx, l_aRememberPasswordForm));
-end;//TkwRememberPasswordFormEdEmail.DoDoIt
+ aCtx.rEngine.PushObj(btnSend(aCtx, l_aRememberPasswordForm));
+end;//TkwRememberPasswordFormBtnSend.DoDoIt
+
+function TkwRememberPasswordFormEdEmail.edEmail(const aCtx: TtfwContext;
+ aRememberPasswordForm: TRememberPasswordForm): TnscEdit;
+ {* Реализация слова скрипта .TRememberPasswordForm.edEmail }
+begin
+ Result := aRememberPasswordForm.edEmail;
+end;//TkwRememberPasswordFormEdEmail.edEmail
 
 class function TkwRememberPasswordFormEdEmail.GetWordNameForRegister: AnsiString;
 begin
@@ -662,6 +647,21 @@ procedure TkwRememberPasswordFormEdEmail.SetValuePrim(const aValue: TtfwStackVal
 begin
  RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
 end;//TkwRememberPasswordFormEdEmail.SetValuePrim
+
+procedure TkwRememberPasswordFormEdEmail.DoDoIt(const aCtx: TtfwContext);
+var l_aRememberPasswordForm: TRememberPasswordForm;
+begin
+ try
+  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edEmail(aCtx, l_aRememberPasswordForm));
+end;//TkwRememberPasswordFormEdEmail.DoDoIt
 
 initialization
  Tkw_Form_RememberPassword.RegisterInEngine;

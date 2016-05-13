@@ -84,8 +84,8 @@ type
     afcSynchroView: TfcSynchroView): TvtPanel;
     {* Реализация слова скрипта .TfcSynchroView.DocView }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := afcSynchroView.DocView;
 end;//TkwFcSynchroViewDocView.DocView
 
-procedure TkwFcSynchroViewDocView.DoDoIt(const aCtx: TtfwContext);
-var l_afcSynchroView: TfcSynchroView;
-begin
- try
-  l_afcSynchroView := TfcSynchroView(aCtx.rEngine.PopObjAs(TfcSynchroView));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра afcSynchroView: TfcSynchroView : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(DocView(aCtx, l_afcSynchroView));
-end;//TkwFcSynchroViewDocView.DoDoIt
-
 class function TkwFcSynchroViewDocView.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TfcSynchroView.DocView';
@@ -178,6 +163,21 @@ procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству DocView', aCtx);
 end;//TkwFcSynchroViewDocView.SetValuePrim
+
+procedure TkwFcSynchroViewDocView.DoDoIt(const aCtx: TtfwContext);
+var l_afcSynchroView: TfcSynchroView;
+begin
+ try
+  l_afcSynchroView := TfcSynchroView(aCtx.rEngine.PopObjAs(TfcSynchroView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра afcSynchroView: TfcSynchroView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(DocView(aCtx, l_afcSynchroView));
+end;//TkwFcSynchroViewDocView.DoDoIt
 
 initialization
  Tkw_Form_SynchroView.RegisterInEngine;

@@ -86,8 +86,8 @@ type
     aChatHistoryForm: TChatHistoryForm): TnscChatMemo;
     {* Реализация слова скрипта .TChatHistoryForm.HistoryEditor }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aChatHistoryForm.HistoryEditor;
 end;//TkwChatHistoryFormHistoryEditor.HistoryEditor
 
-procedure TkwChatHistoryFormHistoryEditor.DoDoIt(const aCtx: TtfwContext);
-var l_aChatHistoryForm: TChatHistoryForm;
-begin
- try
-  l_aChatHistoryForm := TChatHistoryForm(aCtx.rEngine.PopObjAs(TChatHistoryForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aChatHistoryForm: TChatHistoryForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatHistoryForm));
-end;//TkwChatHistoryFormHistoryEditor.DoDoIt
-
 class function TkwChatHistoryFormHistoryEditor.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TChatHistoryForm.HistoryEditor';
@@ -180,6 +165,21 @@ procedure TkwChatHistoryFormHistoryEditor.SetValuePrim(const aValue: TtfwStackVa
 begin
  RunnerError('Нельзя присваивать значение readonly свойству HistoryEditor', aCtx);
 end;//TkwChatHistoryFormHistoryEditor.SetValuePrim
+
+procedure TkwChatHistoryFormHistoryEditor.DoDoIt(const aCtx: TtfwContext);
+var l_aChatHistoryForm: TChatHistoryForm;
+begin
+ try
+  l_aChatHistoryForm := TChatHistoryForm(aCtx.rEngine.PopObjAs(TChatHistoryForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChatHistoryForm: TChatHistoryForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatHistoryForm));
+end;//TkwChatHistoryFormHistoryEditor.DoDoIt
 
 initialization
  Tkw_Form_ChatHistory.RegisterInEngine;

@@ -256,8 +256,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
     {* Реализация слова скрипта .TefForbidAutoregistration.lblReference }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -273,8 +273,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TvtGroupBox;
     {* Реализация слова скрипта .TefForbidAutoregistration.gbInfo }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -290,8 +290,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
     {* Реализация слова скрипта .TefForbidAutoregistration.lblPhone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -307,8 +307,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
     {* Реализация слова скрипта .TefForbidAutoregistration.lblEmail }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -324,8 +324,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
     {* Реализация слова скрипта .TefForbidAutoregistration.lblHint }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -341,8 +341,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
     {* Реализация слова скрипта .TefForbidAutoregistration.cbPhone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -358,8 +358,8 @@ type
     aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
     {* Реализация слова скрипта .TefForbidAutoregistration.cbEmail }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -574,21 +574,6 @@ begin
  Result := aefForbidAutoregistration.lblReference;
 end;//TkwEfForbidAutoregistrationLblReference.lblReference
 
-procedure TkwEfForbidAutoregistrationLblReference.DoDoIt(const aCtx: TtfwContext);
-var l_aefForbidAutoregistration: TefForbidAutoregistration;
-begin
- try
-  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(lblReference(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationLblReference.DoDoIt
-
 class function TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefForbidAutoregistration.lblReference';
@@ -615,14 +600,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lblReference', aCtx);
 end;//TkwEfForbidAutoregistrationLblReference.SetValuePrim
 
-function TkwEfForbidAutoregistrationGbInfo.gbInfo(const aCtx: TtfwContext;
- aefForbidAutoregistration: TefForbidAutoregistration): TvtGroupBox;
- {* Реализация слова скрипта .TefForbidAutoregistration.gbInfo }
-begin
- Result := aefForbidAutoregistration.gbInfo;
-end;//TkwEfForbidAutoregistrationGbInfo.gbInfo
-
-procedure TkwEfForbidAutoregistrationGbInfo.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfForbidAutoregistrationLblReference.DoDoIt(const aCtx: TtfwContext);
 var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
  try
@@ -634,8 +612,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(gbInfo(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationGbInfo.DoDoIt
+ aCtx.rEngine.PushObj(lblReference(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationLblReference.DoDoIt
+
+function TkwEfForbidAutoregistrationGbInfo.gbInfo(const aCtx: TtfwContext;
+ aefForbidAutoregistration: TefForbidAutoregistration): TvtGroupBox;
+ {* Реализация слова скрипта .TefForbidAutoregistration.gbInfo }
+begin
+ Result := aefForbidAutoregistration.gbInfo;
+end;//TkwEfForbidAutoregistrationGbInfo.gbInfo
 
 class function TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister: AnsiString;
 begin
@@ -663,14 +648,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству gbInfo', aCtx);
 end;//TkwEfForbidAutoregistrationGbInfo.SetValuePrim
 
-function TkwEfForbidAutoregistrationLblPhone.lblPhone(const aCtx: TtfwContext;
- aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
- {* Реализация слова скрипта .TefForbidAutoregistration.lblPhone }
-begin
- Result := aefForbidAutoregistration.lblPhone;
-end;//TkwEfForbidAutoregistrationLblPhone.lblPhone
-
-procedure TkwEfForbidAutoregistrationLblPhone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfForbidAutoregistrationGbInfo.DoDoIt(const aCtx: TtfwContext);
 var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
  try
@@ -682,8 +660,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lblPhone(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationLblPhone.DoDoIt
+ aCtx.rEngine.PushObj(gbInfo(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationGbInfo.DoDoIt
+
+function TkwEfForbidAutoregistrationLblPhone.lblPhone(const aCtx: TtfwContext;
+ aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
+ {* Реализация слова скрипта .TefForbidAutoregistration.lblPhone }
+begin
+ Result := aefForbidAutoregistration.lblPhone;
+end;//TkwEfForbidAutoregistrationLblPhone.lblPhone
 
 class function TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister: AnsiString;
 begin
@@ -711,14 +696,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lblPhone', aCtx);
 end;//TkwEfForbidAutoregistrationLblPhone.SetValuePrim
 
-function TkwEfForbidAutoregistrationLblEmail.lblEmail(const aCtx: TtfwContext;
- aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
- {* Реализация слова скрипта .TefForbidAutoregistration.lblEmail }
-begin
- Result := aefForbidAutoregistration.lblEmail;
-end;//TkwEfForbidAutoregistrationLblEmail.lblEmail
-
-procedure TkwEfForbidAutoregistrationLblEmail.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfForbidAutoregistrationLblPhone.DoDoIt(const aCtx: TtfwContext);
 var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
  try
@@ -730,8 +708,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lblEmail(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationLblEmail.DoDoIt
+ aCtx.rEngine.PushObj(lblPhone(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationLblPhone.DoDoIt
+
+function TkwEfForbidAutoregistrationLblEmail.lblEmail(const aCtx: TtfwContext;
+ aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
+ {* Реализация слова скрипта .TefForbidAutoregistration.lblEmail }
+begin
+ Result := aefForbidAutoregistration.lblEmail;
+end;//TkwEfForbidAutoregistrationLblEmail.lblEmail
 
 class function TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister: AnsiString;
 begin
@@ -759,14 +744,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lblEmail', aCtx);
 end;//TkwEfForbidAutoregistrationLblEmail.SetValuePrim
 
-function TkwEfForbidAutoregistrationLblHint.lblHint(const aCtx: TtfwContext;
- aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
- {* Реализация слова скрипта .TefForbidAutoregistration.lblHint }
-begin
- Result := aefForbidAutoregistration.lblHint;
-end;//TkwEfForbidAutoregistrationLblHint.lblHint
-
-procedure TkwEfForbidAutoregistrationLblHint.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfForbidAutoregistrationLblEmail.DoDoIt(const aCtx: TtfwContext);
 var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
  try
@@ -778,8 +756,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lblHint(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationLblHint.DoDoIt
+ aCtx.rEngine.PushObj(lblEmail(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationLblEmail.DoDoIt
+
+function TkwEfForbidAutoregistrationLblHint.lblHint(const aCtx: TtfwContext;
+ aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
+ {* Реализация слова скрипта .TefForbidAutoregistration.lblHint }
+begin
+ Result := aefForbidAutoregistration.lblHint;
+end;//TkwEfForbidAutoregistrationLblHint.lblHint
 
 class function TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister: AnsiString;
 begin
@@ -807,14 +792,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lblHint', aCtx);
 end;//TkwEfForbidAutoregistrationLblHint.SetValuePrim
 
-function TkwEfForbidAutoregistrationCbPhone.cbPhone(const aCtx: TtfwContext;
- aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
- {* Реализация слова скрипта .TefForbidAutoregistration.cbPhone }
-begin
- Result := aefForbidAutoregistration.cbPhone;
-end;//TkwEfForbidAutoregistrationCbPhone.cbPhone
-
-procedure TkwEfForbidAutoregistrationCbPhone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfForbidAutoregistrationLblHint.DoDoIt(const aCtx: TtfwContext);
 var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
  try
@@ -826,8 +804,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(cbPhone(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationCbPhone.DoDoIt
+ aCtx.rEngine.PushObj(lblHint(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationLblHint.DoDoIt
+
+function TkwEfForbidAutoregistrationCbPhone.cbPhone(const aCtx: TtfwContext;
+ aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
+ {* Реализация слова скрипта .TefForbidAutoregistration.cbPhone }
+begin
+ Result := aefForbidAutoregistration.cbPhone;
+end;//TkwEfForbidAutoregistrationCbPhone.cbPhone
 
 class function TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister: AnsiString;
 begin
@@ -855,14 +840,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству cbPhone', aCtx);
 end;//TkwEfForbidAutoregistrationCbPhone.SetValuePrim
 
-function TkwEfForbidAutoregistrationCbEmail.cbEmail(const aCtx: TtfwContext;
- aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
- {* Реализация слова скрипта .TefForbidAutoregistration.cbEmail }
-begin
- Result := aefForbidAutoregistration.cbEmail;
-end;//TkwEfForbidAutoregistrationCbEmail.cbEmail
-
-procedure TkwEfForbidAutoregistrationCbEmail.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfForbidAutoregistrationCbPhone.DoDoIt(const aCtx: TtfwContext);
 var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
  try
@@ -874,8 +852,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(cbEmail(aCtx, l_aefForbidAutoregistration));
-end;//TkwEfForbidAutoregistrationCbEmail.DoDoIt
+ aCtx.rEngine.PushObj(cbPhone(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationCbPhone.DoDoIt
+
+function TkwEfForbidAutoregistrationCbEmail.cbEmail(const aCtx: TtfwContext;
+ aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
+ {* Реализация слова скрипта .TefForbidAutoregistration.cbEmail }
+begin
+ Result := aefForbidAutoregistration.cbEmail;
+end;//TkwEfForbidAutoregistrationCbEmail.cbEmail
 
 class function TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister: AnsiString;
 begin
@@ -902,6 +887,21 @@ procedure TkwEfForbidAutoregistrationCbEmail.SetValuePrim(const aValue: TtfwStac
 begin
  RunnerError('Нельзя присваивать значение readonly свойству cbEmail', aCtx);
 end;//TkwEfForbidAutoregistrationCbEmail.SetValuePrim
+
+procedure TkwEfForbidAutoregistrationCbEmail.DoDoIt(const aCtx: TtfwContext);
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
+begin
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbEmail(aCtx, l_aefForbidAutoregistration));
+end;//TkwEfForbidAutoregistrationCbEmail.DoDoIt
 
 initialization
  Tkw_Form_ForbidAutoregistration.RegisterInEngine;

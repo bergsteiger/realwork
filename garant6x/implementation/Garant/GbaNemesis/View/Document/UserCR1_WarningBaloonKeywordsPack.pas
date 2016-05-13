@@ -86,8 +86,8 @@ type
     aUserCR1_WarningBaloonForm: TUserCR1_WarningBaloonForm): TnscEditor;
     {* Реализация слова скрипта .TUserCR1_WarningBaloonForm.Viewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aUserCR1_WarningBaloonForm.Viewer;
 end;//TkwUserCR1WarningBaloonFormViewer.Viewer
 
-procedure TkwUserCR1WarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-var l_aUserCR1_WarningBaloonForm: TUserCR1_WarningBaloonForm;
-begin
- try
-  l_aUserCR1_WarningBaloonForm := TUserCR1_WarningBaloonForm(aCtx.rEngine.PopObjAs(TUserCR1_WarningBaloonForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aUserCR1_WarningBaloonForm: TUserCR1_WarningBaloonForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Viewer(aCtx, l_aUserCR1_WarningBaloonForm));
-end;//TkwUserCR1WarningBaloonFormViewer.DoDoIt
-
 class function TkwUserCR1WarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TUserCR1_WarningBaloonForm.Viewer';
@@ -180,6 +165,21 @@ procedure TkwUserCR1WarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStack
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwUserCR1WarningBaloonFormViewer.SetValuePrim
+
+procedure TkwUserCR1WarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
+var l_aUserCR1_WarningBaloonForm: TUserCR1_WarningBaloonForm;
+begin
+ try
+  l_aUserCR1_WarningBaloonForm := TUserCR1_WarningBaloonForm(aCtx.rEngine.PopObjAs(TUserCR1_WarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aUserCR1_WarningBaloonForm: TUserCR1_WarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aUserCR1_WarningBaloonForm));
+end;//TkwUserCR1WarningBaloonFormViewer.DoDoIt
 
 initialization
  Tkw_Form_UserCR1_WarningBaloon.RegisterInEngine;

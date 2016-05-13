@@ -36,8 +36,8 @@ type
     aHideField: TvtCustomHideField): Boolean;
     {* Реализация слова скрипта pop:HideField:IsExpanded }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -52,8 +52,8 @@ type
     aValue: Boolean);
     {* Реализация слова скрипта pop:HideField:SetExpanded }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -67,8 +67,8 @@ type
     aHideField: TvtCustomHideField): AnsiString;
     {* Реализация слова скрипта pop:HideField:GetCaption }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -78,28 +78,13 @@ type
 function TkwPopHideFieldIsExpanded.IsExpanded(const aCtx: TtfwContext;
  aHideField: TvtCustomHideField): Boolean;
  {* Реализация слова скрипта pop:HideField:IsExpanded }
-//#UC START# *552FB05F003F_A0AE99A180FB_var*
-//#UC END# *552FB05F003F_A0AE99A180FB_var*
+//#UC START# *552FB05F003F_552FB05F003F_4E732D8B0291_Word_var*
+//#UC END# *552FB05F003F_552FB05F003F_4E732D8B0291_Word_var*
 begin
-//#UC START# *552FB05F003F_A0AE99A180FB_impl*
+//#UC START# *552FB05F003F_552FB05F003F_4E732D8B0291_Word_impl*
  Result := (aHideField.State = hfsShow);
-//#UC END# *552FB05F003F_A0AE99A180FB_impl*
+//#UC END# *552FB05F003F_552FB05F003F_4E732D8B0291_Word_impl*
 end;//TkwPopHideFieldIsExpanded.IsExpanded
-
-procedure TkwPopHideFieldIsExpanded.DoDoIt(const aCtx: TtfwContext);
-var l_aHideField: TvtCustomHideField;
-begin
- try
-  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsExpanded(aCtx, l_aHideField));
-end;//TkwPopHideFieldIsExpanded.DoDoIt
 
 class function TkwPopHideFieldIsExpanded.GetWordNameForRegister: AnsiString;
 begin
@@ -121,20 +106,55 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldIsExpanded.ParamsTypes
 
+procedure TkwPopHideFieldIsExpanded.DoDoIt(const aCtx: TtfwContext);
+var l_aHideField: TvtCustomHideField;
+begin
+ try
+  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsExpanded(aCtx, l_aHideField));
+end;//TkwPopHideFieldIsExpanded.DoDoIt
+
 procedure TkwPopHideFieldSetExpanded.SetExpanded(const aCtx: TtfwContext;
  aHideField: TvtCustomHideField;
  aValue: Boolean);
  {* Реализация слова скрипта pop:HideField:SetExpanded }
-//#UC START# *552FB071025A_D92EF59DAD00_var*
-//#UC END# *552FB071025A_D92EF59DAD00_var*
+//#UC START# *552FB071025A_552FB071025A_4E732D8B0291_Word_var*
+//#UC END# *552FB071025A_552FB071025A_4E732D8B0291_Word_var*
 begin
-//#UC START# *552FB071025A_D92EF59DAD00_impl*
+//#UC START# *552FB071025A_552FB071025A_4E732D8B0291_Word_impl*
  if aValue then
   aHideField.State := hfsShow
  else
   aHideField.State := hfsHide;
-//#UC END# *552FB071025A_D92EF59DAD00_impl*
+//#UC END# *552FB071025A_552FB071025A_4E732D8B0291_Word_impl*
 end;//TkwPopHideFieldSetExpanded.SetExpanded
+
+class function TkwPopHideFieldSetExpanded.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:HideField:SetExpanded';
+end;//TkwPopHideFieldSetExpanded.GetWordNameForRegister
+
+function TkwPopHideFieldSetExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopHideFieldSetExpanded.GetResultTypeInfo
+
+function TkwPopHideFieldSetExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopHideFieldSetExpanded.GetAllParamsCount
+
+function TkwPopHideFieldSetExpanded.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField), TypeInfo(Boolean)]);
+end;//TkwPopHideFieldSetExpanded.ParamsTypes
 
 procedure TkwPopHideFieldSetExpanded.DoDoIt(const aCtx: TtfwContext);
 var l_aHideField: TvtCustomHideField;
@@ -161,51 +181,16 @@ begin
  SetExpanded(aCtx, l_aHideField, l_aValue);
 end;//TkwPopHideFieldSetExpanded.DoDoIt
 
-class function TkwPopHideFieldSetExpanded.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:HideField:SetExpanded';
-end;//TkwPopHideFieldSetExpanded.GetWordNameForRegister
-
-function TkwPopHideFieldSetExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopHideFieldSetExpanded.GetResultTypeInfo
-
-function TkwPopHideFieldSetExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopHideFieldSetExpanded.GetAllParamsCount
-
-function TkwPopHideFieldSetExpanded.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField), TypeInfo(Boolean)]);
-end;//TkwPopHideFieldSetExpanded.ParamsTypes
-
 function TkwPopHideFieldGetCaption.GetCaption(const aCtx: TtfwContext;
  aHideField: TvtCustomHideField): AnsiString;
  {* Реализация слова скрипта pop:HideField:GetCaption }
-//#UC START# *552FB09D0396_D34E3A240E95_var*
-//#UC END# *552FB09D0396_D34E3A240E95_var*
+//#UC START# *552FB09D0396_552FB09D0396_4E732D8B0291_Word_var*
+//#UC END# *552FB09D0396_552FB09D0396_4E732D8B0291_Word_var*
 begin
-//#UC START# *552FB09D0396_D34E3A240E95_impl*
+//#UC START# *552FB09D0396_552FB09D0396_4E732D8B0291_Word_impl*
  Result := aHideField.Caption;
-//#UC END# *552FB09D0396_D34E3A240E95_impl*
+//#UC END# *552FB09D0396_552FB09D0396_4E732D8B0291_Word_impl*
 end;//TkwPopHideFieldGetCaption.GetCaption
-
-procedure TkwPopHideFieldGetCaption.DoDoIt(const aCtx: TtfwContext);
-var l_aHideField: TvtCustomHideField;
-begin
- try
-  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(GetCaption(aCtx, l_aHideField));
-end;//TkwPopHideFieldGetCaption.DoDoIt
 
 class function TkwPopHideFieldGetCaption.GetWordNameForRegister: AnsiString;
 begin
@@ -226,6 +211,21 @@ function TkwPopHideFieldGetCaption.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldGetCaption.ParamsTypes
+
+procedure TkwPopHideFieldGetCaption.DoDoIt(const aCtx: TtfwContext);
+var l_aHideField: TvtCustomHideField;
+begin
+ try
+  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(GetCaption(aCtx, l_aHideField));
+end;//TkwPopHideFieldGetCaption.DoDoIt
 
 initialization
  TkwPopHideFieldIsExpanded.RegisterInEngine;

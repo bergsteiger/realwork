@@ -144,8 +144,8 @@ type
     aContactListForm: TContactListForm): TvtPanel;
     {* Реализация слова скрипта .TContactListForm.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -161,8 +161,8 @@ type
     aContactListForm: TContactListForm): TnscContextFilter;
     {* Реализация слова скрипта .TContactListForm.ContextFilter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -178,8 +178,8 @@ type
     aContactListForm: TContactListForm): TeeTreeView;
     {* Реализация слова скрипта .TContactListForm.trContactList }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -286,21 +286,6 @@ begin
  Result := aContactListForm.BackgroundPanel;
 end;//TkwContactListFormBackgroundPanel.BackgroundPanel
 
-procedure TkwContactListFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aContactListForm: TContactListForm;
-begin
- try
-  l_aContactListForm := TContactListForm(aCtx.rEngine.PopObjAs(TContactListForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aContactListForm: TContactListForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContactListForm));
-end;//TkwContactListFormBackgroundPanel.DoDoIt
-
 class function TkwContactListFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TContactListForm.BackgroundPanel';
@@ -327,14 +312,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwContactListFormBackgroundPanel.SetValuePrim
 
-function TkwContactListFormContextFilter.ContextFilter(const aCtx: TtfwContext;
- aContactListForm: TContactListForm): TnscContextFilter;
- {* Реализация слова скрипта .TContactListForm.ContextFilter }
-begin
- Result := aContactListForm.ContextFilter;
-end;//TkwContactListFormContextFilter.ContextFilter
-
-procedure TkwContactListFormContextFilter.DoDoIt(const aCtx: TtfwContext);
+procedure TkwContactListFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aContactListForm: TContactListForm;
 begin
  try
@@ -346,8 +324,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContactListForm));
-end;//TkwContactListFormContextFilter.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContactListForm));
+end;//TkwContactListFormBackgroundPanel.DoDoIt
+
+function TkwContactListFormContextFilter.ContextFilter(const aCtx: TtfwContext;
+ aContactListForm: TContactListForm): TnscContextFilter;
+ {* Реализация слова скрипта .TContactListForm.ContextFilter }
+begin
+ Result := aContactListForm.ContextFilter;
+end;//TkwContactListFormContextFilter.ContextFilter
 
 class function TkwContactListFormContextFilter.GetWordNameForRegister: AnsiString;
 begin
@@ -375,14 +360,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwContactListFormContextFilter.SetValuePrim
 
-function TkwContactListFormTrContactList.trContactList(const aCtx: TtfwContext;
- aContactListForm: TContactListForm): TeeTreeView;
- {* Реализация слова скрипта .TContactListForm.trContactList }
-begin
- Result := aContactListForm.trContactList;
-end;//TkwContactListFormTrContactList.trContactList
-
-procedure TkwContactListFormTrContactList.DoDoIt(const aCtx: TtfwContext);
+procedure TkwContactListFormContextFilter.DoDoIt(const aCtx: TtfwContext);
 var l_aContactListForm: TContactListForm;
 begin
  try
@@ -394,8 +372,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(trContactList(aCtx, l_aContactListForm));
-end;//TkwContactListFormTrContactList.DoDoIt
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContactListForm));
+end;//TkwContactListFormContextFilter.DoDoIt
+
+function TkwContactListFormTrContactList.trContactList(const aCtx: TtfwContext;
+ aContactListForm: TContactListForm): TeeTreeView;
+ {* Реализация слова скрипта .TContactListForm.trContactList }
+begin
+ Result := aContactListForm.trContactList;
+end;//TkwContactListFormTrContactList.trContactList
 
 class function TkwContactListFormTrContactList.GetWordNameForRegister: AnsiString;
 begin
@@ -422,6 +407,21 @@ procedure TkwContactListFormTrContactList.SetValuePrim(const aValue: TtfwStackVa
 begin
  RunnerError('Нельзя присваивать значение readonly свойству trContactList', aCtx);
 end;//TkwContactListFormTrContactList.SetValuePrim
+
+procedure TkwContactListFormTrContactList.DoDoIt(const aCtx: TtfwContext);
+var l_aContactListForm: TContactListForm;
+begin
+ try
+  l_aContactListForm := TContactListForm(aCtx.rEngine.PopObjAs(TContactListForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContactListForm: TContactListForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(trContactList(aCtx, l_aContactListForm));
+end;//TkwContactListFormTrContactList.DoDoIt
 
 initialization
  Tkw_Form_ContactList.RegisterInEngine;

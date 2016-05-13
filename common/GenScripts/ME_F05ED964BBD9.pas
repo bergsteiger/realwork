@@ -113,8 +113,8 @@ type
     aListAnalizerForm: TListAnalizerForm): TvtPanel;
     {* Реализация слова скрипта .TListAnalizerForm.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -130,8 +130,8 @@ type
     aListAnalizerForm: TListAnalizerForm): TeeTreeView;
     {* Реализация слова скрипта .TListAnalizerForm.ListTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -211,21 +211,6 @@ begin
  Result := aListAnalizerForm.BackgroundPanel;
 end;//TkwListAnalizerFormBackgroundPanel.BackgroundPanel
 
-procedure TkwListAnalizerFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aListAnalizerForm: TListAnalizerForm;
-begin
- try
-  l_aListAnalizerForm := TListAnalizerForm(aCtx.rEngine.PopObjAs(TListAnalizerForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aListAnalizerForm: TListAnalizerForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aListAnalizerForm));
-end;//TkwListAnalizerFormBackgroundPanel.DoDoIt
-
 class function TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TListAnalizerForm.BackgroundPanel';
@@ -252,14 +237,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
-function TkwListAnalizerFormListTree.ListTree(const aCtx: TtfwContext;
- aListAnalizerForm: TListAnalizerForm): TeeTreeView;
- {* Реализация слова скрипта .TListAnalizerForm.ListTree }
-begin
- Result := aListAnalizerForm.ListTree;
-end;//TkwListAnalizerFormListTree.ListTree
-
-procedure TkwListAnalizerFormListTree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwListAnalizerFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aListAnalizerForm: TListAnalizerForm;
 begin
  try
@@ -271,8 +249,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ListTree(aCtx, l_aListAnalizerForm));
-end;//TkwListAnalizerFormListTree.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aListAnalizerForm));
+end;//TkwListAnalizerFormBackgroundPanel.DoDoIt
+
+function TkwListAnalizerFormListTree.ListTree(const aCtx: TtfwContext;
+ aListAnalizerForm: TListAnalizerForm): TeeTreeView;
+ {* Реализация слова скрипта .TListAnalizerForm.ListTree }
+begin
+ Result := aListAnalizerForm.ListTree;
+end;//TkwListAnalizerFormListTree.ListTree
 
 class function TkwListAnalizerFormListTree.GetWordNameForRegister: AnsiString;
 begin
@@ -299,6 +284,21 @@ procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
 end;//TkwListAnalizerFormListTree.SetValuePrim
+
+procedure TkwListAnalizerFormListTree.DoDoIt(const aCtx: TtfwContext);
+var l_aListAnalizerForm: TListAnalizerForm;
+begin
+ try
+  l_aListAnalizerForm := TListAnalizerForm(aCtx.rEngine.PopObjAs(TListAnalizerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aListAnalizerForm: TListAnalizerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ListTree(aCtx, l_aListAnalizerForm));
+end;//TkwListAnalizerFormListTree.DoDoIt
 
 initialization
  Tkw_Form_ListAnalizer.RegisterInEngine;

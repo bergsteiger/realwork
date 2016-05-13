@@ -84,8 +84,8 @@ type
     aenFoldersTree: TenFoldersTree): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TenFoldersTree.FoldersTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aenFoldersTree.FoldersTree;
 end;//TkwEnFoldersTreeFoldersTree.FoldersTree
 
-procedure TkwEnFoldersTreeFoldersTree.DoDoIt(const aCtx: TtfwContext);
-var l_aenFoldersTree: TenFoldersTree;
-begin
- try
-  l_aenFoldersTree := TenFoldersTree(aCtx.rEngine.PopObjAs(TenFoldersTree));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenFoldersTree: TenFoldersTree : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(FoldersTree(aCtx, l_aenFoldersTree));
-end;//TkwEnFoldersTreeFoldersTree.DoDoIt
-
 class function TkwEnFoldersTreeFoldersTree.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenFoldersTree.FoldersTree';
@@ -178,6 +163,21 @@ procedure TkwEnFoldersTreeFoldersTree.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству FoldersTree', aCtx);
 end;//TkwEnFoldersTreeFoldersTree.SetValuePrim
+
+procedure TkwEnFoldersTreeFoldersTree.DoDoIt(const aCtx: TtfwContext);
+var l_aenFoldersTree: TenFoldersTree;
+begin
+ try
+  l_aenFoldersTree := TenFoldersTree(aCtx.rEngine.PopObjAs(TenFoldersTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersTree: TenFoldersTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FoldersTree(aCtx, l_aenFoldersTree));
+end;//TkwEnFoldersTreeFoldersTree.DoDoIt
 
 initialization
  Tkw_Form_FoldersTree.RegisterInEngine;

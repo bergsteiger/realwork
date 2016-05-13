@@ -37,8 +37,8 @@ type
     aComboTree: TvtComboTree): Il3SimpleNode;
     {* Реализация слова скрипта pop:ComboTree:CurrentNode }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -48,28 +48,13 @@ type
 function TkwPopComboTreeCurrentNode.CurrentNode(const aCtx: TtfwContext;
  aComboTree: TvtComboTree): Il3SimpleNode;
  {* Реализация слова скрипта pop:ComboTree:CurrentNode }
-//#UC START# *55B783230053_9F9FF0616B3E_var*
-//#UC END# *55B783230053_9F9FF0616B3E_var*
+//#UC START# *55B783230053_55B783230053_55B780E60398_Word_var*
+//#UC END# *55B783230053_55B783230053_55B780E60398_Word_var*
 begin
-//#UC START# *55B783230053_9F9FF0616B3E_impl*
+//#UC START# *55B783230053_55B783230053_55B780E60398_Word_impl*
  Result := aComboTree.Tree.GetCurrentNode;
-//#UC END# *55B783230053_9F9FF0616B3E_impl*
+//#UC END# *55B783230053_55B783230053_55B780E60398_Word_impl*
 end;//TkwPopComboTreeCurrentNode.CurrentNode
-
-procedure TkwPopComboTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
-var l_aComboTree: TvtComboTree;
-begin
- try
-  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree), TypeInfo(Il3SimpleNode));
-end;//TkwPopComboTreeCurrentNode.DoDoIt
 
 class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;
 begin
@@ -90,6 +75,21 @@ function TkwPopComboTreeCurrentNode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeCurrentNode.ParamsTypes
+
+procedure TkwPopComboTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
+var l_aComboTree: TvtComboTree;
+begin
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree), TypeInfo(Il3SimpleNode));
+end;//TkwPopComboTreeCurrentNode.DoDoIt
 
 initialization
  TkwPopComboTreeCurrentNode.RegisterInEngine;

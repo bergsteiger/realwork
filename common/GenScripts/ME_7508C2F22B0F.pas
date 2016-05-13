@@ -86,8 +86,8 @@ type
     aen_TasksPanel: Ten_TasksPanel): TnscTasksPanelView;
     {* Реализация слова скрипта .Ten_TasksPanel.tpvMain }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aen_TasksPanel.tpvMain;
 end;//TkwEnTasksPanelTpvMain.tpvMain
 
-procedure TkwEnTasksPanelTpvMain.DoDoIt(const aCtx: TtfwContext);
-var l_aen_TasksPanel: Ten_TasksPanel;
-begin
- try
-  l_aen_TasksPanel := Ten_TasksPanel(aCtx.rEngine.PopObjAs(Ten_TasksPanel));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_TasksPanel: Ten_TasksPanel : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(tpvMain(aCtx, l_aen_TasksPanel));
-end;//TkwEnTasksPanelTpvMain.DoDoIt
-
 class function TkwEnTasksPanelTpvMain.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_TasksPanel.tpvMain';
@@ -180,6 +165,21 @@ procedure TkwEnTasksPanelTpvMain.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству tpvMain', aCtx);
 end;//TkwEnTasksPanelTpvMain.SetValuePrim
+
+procedure TkwEnTasksPanelTpvMain.DoDoIt(const aCtx: TtfwContext);
+var l_aen_TasksPanel: Ten_TasksPanel;
+begin
+ try
+  l_aen_TasksPanel := Ten_TasksPanel(aCtx.rEngine.PopObjAs(Ten_TasksPanel));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TasksPanel: Ten_TasksPanel : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tpvMain(aCtx, l_aen_TasksPanel));
+end;//TkwEnTasksPanelTpvMain.DoDoIt
 
 initialization
  Tkw_Form_TasksPanel.RegisterInEngine;

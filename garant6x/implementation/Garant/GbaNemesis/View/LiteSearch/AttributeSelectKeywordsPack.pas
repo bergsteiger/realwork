@@ -142,8 +142,8 @@ type
     acfAttributeSelect: TcfAttributeSelect): TvtProportionalPanel;
     {* Реализация слова скрипта .TcfAttributeSelect.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -159,8 +159,8 @@ type
     acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
     {* Реализация слова скрипта .TcfAttributeSelect.SelectedZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -176,8 +176,8 @@ type
     acfAttributeSelect: TcfAttributeSelect): TvtPanel;
     {* Реализация слова скрипта .TcfAttributeSelect.ValuesZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -284,21 +284,6 @@ begin
  Result := acfAttributeSelect.BackgroundPanel;
 end;//TkwCfAttributeSelectBackgroundPanel.BackgroundPanel
 
-procedure TkwCfAttributeSelectBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_acfAttributeSelect: TcfAttributeSelect;
-begin
- try
-  l_acfAttributeSelect := TcfAttributeSelect(aCtx.rEngine.PopObjAs(TcfAttributeSelect));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра acfAttributeSelect: TcfAttributeSelect : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAttributeSelect));
-end;//TkwCfAttributeSelectBackgroundPanel.DoDoIt
-
 class function TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TcfAttributeSelect.BackgroundPanel';
@@ -325,14 +310,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
 
-function TkwCfAttributeSelectSelectedZone.SelectedZone(const aCtx: TtfwContext;
- acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
- {* Реализация слова скрипта .TcfAttributeSelect.SelectedZone }
-begin
- Result := acfAttributeSelect.SelectedZone;
-end;//TkwCfAttributeSelectSelectedZone.SelectedZone
-
-procedure TkwCfAttributeSelectSelectedZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfAttributeSelectBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_acfAttributeSelect: TcfAttributeSelect;
 begin
  try
@@ -344,8 +322,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(SelectedZone(aCtx, l_acfAttributeSelect));
-end;//TkwCfAttributeSelectSelectedZone.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAttributeSelect));
+end;//TkwCfAttributeSelectBackgroundPanel.DoDoIt
+
+function TkwCfAttributeSelectSelectedZone.SelectedZone(const aCtx: TtfwContext;
+ acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
+ {* Реализация слова скрипта .TcfAttributeSelect.SelectedZone }
+begin
+ Result := acfAttributeSelect.SelectedZone;
+end;//TkwCfAttributeSelectSelectedZone.SelectedZone
 
 class function TkwCfAttributeSelectSelectedZone.GetWordNameForRegister: AnsiString;
 begin
@@ -373,14 +358,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству SelectedZone', aCtx);
 end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
 
-function TkwCfAttributeSelectValuesZone.ValuesZone(const aCtx: TtfwContext;
- acfAttributeSelect: TcfAttributeSelect): TvtPanel;
- {* Реализация слова скрипта .TcfAttributeSelect.ValuesZone }
-begin
- Result := acfAttributeSelect.ValuesZone;
-end;//TkwCfAttributeSelectValuesZone.ValuesZone
-
-procedure TkwCfAttributeSelectValuesZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfAttributeSelectSelectedZone.DoDoIt(const aCtx: TtfwContext);
 var l_acfAttributeSelect: TcfAttributeSelect;
 begin
  try
@@ -392,8 +370,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ValuesZone(aCtx, l_acfAttributeSelect));
-end;//TkwCfAttributeSelectValuesZone.DoDoIt
+ aCtx.rEngine.PushObj(SelectedZone(aCtx, l_acfAttributeSelect));
+end;//TkwCfAttributeSelectSelectedZone.DoDoIt
+
+function TkwCfAttributeSelectValuesZone.ValuesZone(const aCtx: TtfwContext;
+ acfAttributeSelect: TcfAttributeSelect): TvtPanel;
+ {* Реализация слова скрипта .TcfAttributeSelect.ValuesZone }
+begin
+ Result := acfAttributeSelect.ValuesZone;
+end;//TkwCfAttributeSelectValuesZone.ValuesZone
 
 class function TkwCfAttributeSelectValuesZone.GetWordNameForRegister: AnsiString;
 begin
@@ -420,6 +405,21 @@ procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackVal
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ValuesZone', aCtx);
 end;//TkwCfAttributeSelectValuesZone.SetValuePrim
+
+procedure TkwCfAttributeSelectValuesZone.DoDoIt(const aCtx: TtfwContext);
+var l_acfAttributeSelect: TcfAttributeSelect;
+begin
+ try
+  l_acfAttributeSelect := TcfAttributeSelect(aCtx.rEngine.PopObjAs(TcfAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAttributeSelect: TcfAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ValuesZone(aCtx, l_acfAttributeSelect));
+end;//TkwCfAttributeSelectValuesZone.DoDoIt
 
 initialization
  Tkw_Form_AttributeSelect.RegisterInEngine;

@@ -41,8 +41,8 @@ type
     const aName: AnsiString): TvgObject;
     {* Реализация слова скрипта pop:Control:FindVGControlByName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -53,7 +53,7 @@ function TkwPopControlFindVGControlByName.FindVGControlByName(const aCtx: TtfwCo
  aControl: TWinControl;
  const aName: AnsiString): TvgObject;
  {* Реализация слова скрипта pop:Control:FindVGControlByName }
-//#UC START# *551D4AA003A2_BAFBA1D026AA_var*
+//#UC START# *551D4AA003A2_551D4AA003A2_47E124E90272_Word_var*
 
  function DoFindVGObject(aVgControl: TvgObject; const aName: AnsiString): TvgObject;
  var
@@ -103,12 +103,32 @@ function TkwPopControlFindVGControlByName.FindVGControlByName(const aCtx: TtfwCo
   Result := nil;
  end;
  
-//#UC END# *551D4AA003A2_BAFBA1D026AA_var*
+//#UC END# *551D4AA003A2_551D4AA003A2_47E124E90272_Word_var*
 begin
-//#UC START# *551D4AA003A2_BAFBA1D026AA_impl*
+//#UC START# *551D4AA003A2_551D4AA003A2_47E124E90272_Word_impl*
  Result := DoFindWinControl(aControl, aName);
-//#UC END# *551D4AA003A2_BAFBA1D026AA_impl*
+//#UC END# *551D4AA003A2_551D4AA003A2_47E124E90272_Word_impl*
 end;//TkwPopControlFindVGControlByName.FindVGControlByName
+
+class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:FindVGControlByName';
+end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
+
+function TkwPopControlFindVGControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvgObject);
+end;//TkwPopControlFindVGControlByName.GetResultTypeInfo
+
+function TkwPopControlFindVGControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopControlFindVGControlByName.GetAllParamsCount
+
+function TkwPopControlFindVGControlByName.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TWinControl), @tfw_tiString]);
+end;//TkwPopControlFindVGControlByName.ParamsTypes
 
 procedure TkwPopControlFindVGControlByName.DoDoIt(const aCtx: TtfwContext);
 var l_aControl: TWinControl;
@@ -134,26 +154,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushObj(FindVGControlByName(aCtx, l_aControl, l_aName));
 end;//TkwPopControlFindVGControlByName.DoDoIt
-
-class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Control:FindVGControlByName';
-end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
-
-function TkwPopControlFindVGControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TvgObject);
-end;//TkwPopControlFindVGControlByName.GetResultTypeInfo
-
-function TkwPopControlFindVGControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopControlFindVGControlByName.GetAllParamsCount
-
-function TkwPopControlFindVGControlByName.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TWinControl), @tfw_tiString]);
-end;//TkwPopControlFindVGControlByName.ParamsTypes
 
 initialization
  TkwPopControlFindVGControlByName.RegisterInEngine;

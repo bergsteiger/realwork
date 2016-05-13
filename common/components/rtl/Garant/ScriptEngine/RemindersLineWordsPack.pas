@@ -32,6 +32,10 @@ uses
 ;
 
 type
+ TvgRemindersLineFriend = {abstract} class(TvgRemindersLine)
+  {* Друг к классу TvgRemindersLine }
+ end;//TvgRemindersLineFriend
+
  TkwPopRemindersLineClientToScreen = {final} class(TtfwClassLike)
   {* Слово скрипта pop:RemindersLine:ClientToScreen }
   private
@@ -40,8 +44,8 @@ type
     const aPoint: TPoint): TPoint;
     {* Реализация слова скрипта pop:RemindersLine:ClientToScreen }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -56,8 +60,8 @@ type
     anIndex: Integer): TvgReminder;
     {* Реализация слова скрипта pop:RemindersLine:GetReminder }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -71,8 +75,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:AbsLeft }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -88,8 +92,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:AbsTop }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -105,8 +109,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:Count }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -122,8 +126,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:Height }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -139,8 +143,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:Left }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -156,8 +160,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:Top }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -173,8 +177,8 @@ type
     aRemindersLine: TvgRemindersLine): Boolean;
     {* Реализация слова скрипта pop:RemindersLine:Visible }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -190,8 +194,8 @@ type
     aRemindersLine: TvgRemindersLine): Integer;
     {* Реализация слова скрипта pop:RemindersLine:Width }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -200,21 +204,37 @@ type
     const aCtx: TtfwContext); override;
  end;//TkwPopRemindersLineWidth
 
- TvgRemindersLineFriend = {abstract} class(TvgRemindersLine)
-  {* Друг к классу TvgRemindersLine }
- end;//TvgRemindersLineFriend
-
 function TkwPopRemindersLineClientToScreen.ClientToScreen(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine;
  const aPoint: TPoint): TPoint;
  {* Реализация слова скрипта pop:RemindersLine:ClientToScreen }
-//#UC START# *5500582C0070_9653AE4CDED4_var*
-//#UC END# *5500582C0070_9653AE4CDED4_var*
+//#UC START# *5500582C0070_5500582C0070_532322D901A3_Word_var*
+//#UC END# *5500582C0070_5500582C0070_532322D901A3_Word_var*
 begin
-//#UC START# *5500582C0070_9653AE4CDED4_impl*
+//#UC START# *5500582C0070_5500582C0070_532322D901A3_Word_impl*
  Result := TvgRemindersLineFriend(aRemindersLine).Form.ClientToScreen(aPoint);
-//#UC END# *5500582C0070_9653AE4CDED4_impl*
+//#UC END# *5500582C0070_5500582C0070_532322D901A3_Word_impl*
 end;//TkwPopRemindersLineClientToScreen.ClientToScreen
+
+class function TkwPopRemindersLineClientToScreen.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:ClientToScreen';
+end;//TkwPopRemindersLineClientToScreen.GetWordNameForRegister
+
+function TkwPopRemindersLineClientToScreen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiStruct;
+end;//TkwPopRemindersLineClientToScreen.GetResultTypeInfo
+
+function TkwPopRemindersLineClientToScreen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopRemindersLineClientToScreen.GetAllParamsCount
+
+function TkwPopRemindersLineClientToScreen.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine), @tfw_tiStruct]);
+end;//TkwPopRemindersLineClientToScreen.ParamsTypes
 
 procedure TkwPopRemindersLineClientToScreen.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
@@ -241,39 +261,39 @@ begin
  aCtx.rEngine.PushPoint(ClientToScreen(aCtx, l_aRemindersLine, l_aPoint));
 end;//TkwPopRemindersLineClientToScreen.DoDoIt
 
-class function TkwPopRemindersLineClientToScreen.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:ClientToScreen';
-end;//TkwPopRemindersLineClientToScreen.GetWordNameForRegister
-
-function TkwPopRemindersLineClientToScreen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiStruct;
-end;//TkwPopRemindersLineClientToScreen.GetResultTypeInfo
-
-function TkwPopRemindersLineClientToScreen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopRemindersLineClientToScreen.GetAllParamsCount
-
-function TkwPopRemindersLineClientToScreen.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine), @tfw_tiStruct]);
-end;//TkwPopRemindersLineClientToScreen.ParamsTypes
-
 function TkwPopRemindersLineGetReminder.GetReminder(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine;
  anIndex: Integer): TvgReminder;
  {* Реализация слова скрипта pop:RemindersLine:GetReminder }
-//#UC START# *550058BD036F_FF04F6E03205_var*
-//#UC END# *550058BD036F_FF04F6E03205_var*
+//#UC START# *550058BD036F_550058BD036F_532322D901A3_Word_var*
+//#UC END# *550058BD036F_550058BD036F_532322D901A3_Word_var*
 begin
-//#UC START# *550058BD036F_FF04F6E03205_impl*
+//#UC START# *550058BD036F_550058BD036F_532322D901A3_Word_impl*
  RunnerAssert(anIndex >= 0, 'Индекс не может быть отрицательным', aCtx);
  RunnerAssert(anIndex < aRemindersLine.Count, 'Индекс не может быть больше количества медалей', aCtx);
  Result := aRemindersLine.Reminder[anIndex];
-//#UC END# *550058BD036F_FF04F6E03205_impl*
+//#UC END# *550058BD036F_550058BD036F_532322D901A3_Word_impl*
 end;//TkwPopRemindersLineGetReminder.GetReminder
+
+class function TkwPopRemindersLineGetReminder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:RemindersLine:GetReminder';
+end;//TkwPopRemindersLineGetReminder.GetWordNameForRegister
+
+function TkwPopRemindersLineGetReminder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvgReminder);
+end;//TkwPopRemindersLineGetReminder.GetResultTypeInfo
+
+function TkwPopRemindersLineGetReminder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopRemindersLineGetReminder.GetAllParamsCount
+
+function TkwPopRemindersLineGetReminder.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine), TypeInfo(Integer)]);
+end;//TkwPopRemindersLineGetReminder.ParamsTypes
 
 procedure TkwPopRemindersLineGetReminder.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
@@ -300,47 +320,12 @@ begin
  aCtx.rEngine.PushObj(GetReminder(aCtx, l_aRemindersLine, l_anIndex));
 end;//TkwPopRemindersLineGetReminder.DoDoIt
 
-class function TkwPopRemindersLineGetReminder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:RemindersLine:GetReminder';
-end;//TkwPopRemindersLineGetReminder.GetWordNameForRegister
-
-function TkwPopRemindersLineGetReminder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TvgReminder);
-end;//TkwPopRemindersLineGetReminder.GetResultTypeInfo
-
-function TkwPopRemindersLineGetReminder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopRemindersLineGetReminder.GetAllParamsCount
-
-function TkwPopRemindersLineGetReminder.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvgRemindersLine), TypeInfo(Integer)]);
-end;//TkwPopRemindersLineGetReminder.ParamsTypes
-
 function TkwPopRemindersLineAbsLeft.AbsLeft(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Integer;
  {* Реализация слова скрипта pop:RemindersLine:AbsLeft }
 begin
  Result := aRemindersLine.AbsLeft;
 end;//TkwPopRemindersLineAbsLeft.AbsLeft
-
-procedure TkwPopRemindersLineAbsLeft.DoDoIt(const aCtx: TtfwContext);
-var l_aRemindersLine: TvgRemindersLine;
-begin
- try
-  l_aRemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(AbsLeft(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineAbsLeft.DoDoIt
 
 class function TkwPopRemindersLineAbsLeft.GetWordNameForRegister: AnsiString;
 begin
@@ -368,14 +353,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству AbsLeft', aCtx);
 end;//TkwPopRemindersLineAbsLeft.SetValuePrim
 
-function TkwPopRemindersLineAbsTop.AbsTop(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Integer;
- {* Реализация слова скрипта pop:RemindersLine:AbsTop }
-begin
- Result := aRemindersLine.AbsTop;
-end;//TkwPopRemindersLineAbsTop.AbsTop
-
-procedure TkwPopRemindersLineAbsTop.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineAbsLeft.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -387,8 +365,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(AbsTop(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineAbsTop.DoDoIt
+ aCtx.rEngine.PushInt(AbsLeft(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineAbsLeft.DoDoIt
+
+function TkwPopRemindersLineAbsTop.AbsTop(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Integer;
+ {* Реализация слова скрипта pop:RemindersLine:AbsTop }
+begin
+ Result := aRemindersLine.AbsTop;
+end;//TkwPopRemindersLineAbsTop.AbsTop
 
 class function TkwPopRemindersLineAbsTop.GetWordNameForRegister: AnsiString;
 begin
@@ -416,14 +401,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству AbsTop', aCtx);
 end;//TkwPopRemindersLineAbsTop.SetValuePrim
 
-function TkwPopRemindersLineCount.Count(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Integer;
- {* Реализация слова скрипта pop:RemindersLine:Count }
-begin
- Result := aRemindersLine.Count;
-end;//TkwPopRemindersLineCount.Count
-
-procedure TkwPopRemindersLineCount.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineAbsTop.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -435,8 +413,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Count(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineCount.DoDoIt
+ aCtx.rEngine.PushInt(AbsTop(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineAbsTop.DoDoIt
+
+function TkwPopRemindersLineCount.Count(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Integer;
+ {* Реализация слова скрипта pop:RemindersLine:Count }
+begin
+ Result := aRemindersLine.Count;
+end;//TkwPopRemindersLineCount.Count
 
 class function TkwPopRemindersLineCount.GetWordNameForRegister: AnsiString;
 begin
@@ -464,14 +449,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
 end;//TkwPopRemindersLineCount.SetValuePrim
 
-function TkwPopRemindersLineHeight.Height(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Integer;
- {* Реализация слова скрипта pop:RemindersLine:Height }
-begin
- Result := aRemindersLine.Height;
-end;//TkwPopRemindersLineHeight.Height
-
-procedure TkwPopRemindersLineHeight.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineCount.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -483,8 +461,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Height(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineHeight.DoDoIt
+ aCtx.rEngine.PushInt(Count(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineCount.DoDoIt
+
+function TkwPopRemindersLineHeight.Height(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Integer;
+ {* Реализация слова скрипта pop:RemindersLine:Height }
+begin
+ Result := aRemindersLine.Height;
+end;//TkwPopRemindersLineHeight.Height
 
 class function TkwPopRemindersLineHeight.GetWordNameForRegister: AnsiString;
 begin
@@ -512,14 +497,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Height', aCtx);
 end;//TkwPopRemindersLineHeight.SetValuePrim
 
-function TkwPopRemindersLineLeft.Left(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Integer;
- {* Реализация слова скрипта pop:RemindersLine:Left }
-begin
- Result := aRemindersLine.Left;
-end;//TkwPopRemindersLineLeft.Left
-
-procedure TkwPopRemindersLineLeft.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineHeight.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -531,8 +509,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Left(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineLeft.DoDoIt
+ aCtx.rEngine.PushInt(Height(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineHeight.DoDoIt
+
+function TkwPopRemindersLineLeft.Left(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Integer;
+ {* Реализация слова скрипта pop:RemindersLine:Left }
+begin
+ Result := aRemindersLine.Left;
+end;//TkwPopRemindersLineLeft.Left
 
 class function TkwPopRemindersLineLeft.GetWordNameForRegister: AnsiString;
 begin
@@ -560,14 +545,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Left', aCtx);
 end;//TkwPopRemindersLineLeft.SetValuePrim
 
-function TkwPopRemindersLineTop.Top(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Integer;
- {* Реализация слова скрипта pop:RemindersLine:Top }
-begin
- Result := aRemindersLine.Top;
-end;//TkwPopRemindersLineTop.Top
-
-procedure TkwPopRemindersLineTop.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineLeft.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -579,8 +557,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Top(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineTop.DoDoIt
+ aCtx.rEngine.PushInt(Left(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineLeft.DoDoIt
+
+function TkwPopRemindersLineTop.Top(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Integer;
+ {* Реализация слова скрипта pop:RemindersLine:Top }
+begin
+ Result := aRemindersLine.Top;
+end;//TkwPopRemindersLineTop.Top
 
 class function TkwPopRemindersLineTop.GetWordNameForRegister: AnsiString;
 begin
@@ -608,18 +593,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Top', aCtx);
 end;//TkwPopRemindersLineTop.SetValuePrim
 
-function TkwPopRemindersLineVisible.Visible(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Boolean;
- {* Реализация слова скрипта pop:RemindersLine:Visible }
-//#UC START# *E53E3CB7238C_002E70A99E5D_var*
-//#UC END# *E53E3CB7238C_002E70A99E5D_var*
-begin
-//#UC START# *E53E3CB7238C_002E70A99E5D_impl*
- Result := TvgRemindersLineFriend(aRemindersLine).Form.Visible
-//#UC END# *E53E3CB7238C_002E70A99E5D_impl*
-end;//TkwPopRemindersLineVisible.Visible
-
-procedure TkwPopRemindersLineVisible.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineTop.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -631,8 +605,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(Visible(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineVisible.DoDoIt
+ aCtx.rEngine.PushInt(Top(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineTop.DoDoIt
+
+function TkwPopRemindersLineVisible.Visible(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Boolean;
+ {* Реализация слова скрипта pop:RemindersLine:Visible }
+//#UC START# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_var*
+//#UC END# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_var*
+begin
+//#UC START# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_impl*
+ Result := TvgRemindersLineFriend(aRemindersLine).Form.Visible
+//#UC END# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_impl*
+end;//TkwPopRemindersLineVisible.Visible
 
 class function TkwPopRemindersLineVisible.GetWordNameForRegister: AnsiString;
 begin
@@ -660,14 +645,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
 end;//TkwPopRemindersLineVisible.SetValuePrim
 
-function TkwPopRemindersLineWidth.Width(const aCtx: TtfwContext;
- aRemindersLine: TvgRemindersLine): Integer;
- {* Реализация слова скрипта pop:RemindersLine:Width }
-begin
- Result := aRemindersLine.Width;
-end;//TkwPopRemindersLineWidth.Width
-
-procedure TkwPopRemindersLineWidth.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopRemindersLineVisible.DoDoIt(const aCtx: TtfwContext);
 var l_aRemindersLine: TvgRemindersLine;
 begin
  try
@@ -679,8 +657,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Width(aCtx, l_aRemindersLine));
-end;//TkwPopRemindersLineWidth.DoDoIt
+ aCtx.rEngine.PushBool(Visible(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineVisible.DoDoIt
+
+function TkwPopRemindersLineWidth.Width(const aCtx: TtfwContext;
+ aRemindersLine: TvgRemindersLine): Integer;
+ {* Реализация слова скрипта pop:RemindersLine:Width }
+begin
+ Result := aRemindersLine.Width;
+end;//TkwPopRemindersLineWidth.Width
 
 class function TkwPopRemindersLineWidth.GetWordNameForRegister: AnsiString;
 begin
@@ -707,6 +692,21 @@ procedure TkwPopRemindersLineWidth.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Width', aCtx);
 end;//TkwPopRemindersLineWidth.SetValuePrim
+
+procedure TkwPopRemindersLineWidth.DoDoIt(const aCtx: TtfwContext);
+var l_aRemindersLine: TvgRemindersLine;
+begin
+ try
+  l_aRemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Width(aCtx, l_aRemindersLine));
+end;//TkwPopRemindersLineWidth.DoDoIt
 
 initialization
  TkwPopRemindersLineClientToScreen.RegisterInEngine;

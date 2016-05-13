@@ -98,8 +98,8 @@ type
     aenQueryCard: TenQueryCard): TevQueryCardEditor;
     {* Реализация слова скрипта .TenQueryCard.Editor }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -115,8 +115,8 @@ type
     aenQueryCard: TenQueryCard): TevTextSource;
     {* Реализация слова скрипта .TenQueryCard.TextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -185,21 +185,6 @@ begin
  Result := aenQueryCard.Editor;
 end;//TkwEnQueryCardEditor.Editor
 
-procedure TkwEnQueryCardEditor.DoDoIt(const aCtx: TtfwContext);
-var l_aenQueryCard: TenQueryCard;
-begin
- try
-  l_aenQueryCard := TenQueryCard(aCtx.rEngine.PopObjAs(TenQueryCard));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenQueryCard: TenQueryCard : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Editor(aCtx, l_aenQueryCard));
-end;//TkwEnQueryCardEditor.DoDoIt
-
 class function TkwEnQueryCardEditor.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenQueryCard.Editor';
@@ -226,14 +211,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
 end;//TkwEnQueryCardEditor.SetValuePrim
 
-function TkwEnQueryCardTextSource.TextSource(const aCtx: TtfwContext;
- aenQueryCard: TenQueryCard): TevTextSource;
- {* Реализация слова скрипта .TenQueryCard.TextSource }
-begin
- Result := aenQueryCard.TextSource;
-end;//TkwEnQueryCardTextSource.TextSource
-
-procedure TkwEnQueryCardTextSource.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnQueryCardEditor.DoDoIt(const aCtx: TtfwContext);
 var l_aenQueryCard: TenQueryCard;
 begin
  try
@@ -245,8 +223,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TextSource(aCtx, l_aenQueryCard));
-end;//TkwEnQueryCardTextSource.DoDoIt
+ aCtx.rEngine.PushObj(Editor(aCtx, l_aenQueryCard));
+end;//TkwEnQueryCardEditor.DoDoIt
+
+function TkwEnQueryCardTextSource.TextSource(const aCtx: TtfwContext;
+ aenQueryCard: TenQueryCard): TevTextSource;
+ {* Реализация слова скрипта .TenQueryCard.TextSource }
+begin
+ Result := aenQueryCard.TextSource;
+end;//TkwEnQueryCardTextSource.TextSource
 
 class function TkwEnQueryCardTextSource.GetWordNameForRegister: AnsiString;
 begin
@@ -273,6 +258,21 @@ procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwEnQueryCardTextSource.SetValuePrim
+
+procedure TkwEnQueryCardTextSource.DoDoIt(const aCtx: TtfwContext);
+var l_aenQueryCard: TenQueryCard;
+begin
+ try
+  l_aenQueryCard := TenQueryCard(aCtx.rEngine.PopObjAs(TenQueryCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenQueryCard: TenQueryCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aenQueryCard));
+end;//TkwEnQueryCardTextSource.DoDoIt
 
 initialization
  Tkw_Form_QueryCard.RegisterInEngine;

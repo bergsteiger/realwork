@@ -37,8 +37,8 @@ type
     aForm: TCustomForm): TFormStyle;
     {* Реализация слова скрипта pop:form:FormStyle }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -54,28 +54,13 @@ type
 function TkwPopFormFormStyle.pop_form_FormStyle(const aCtx: TtfwContext;
  aForm: TCustomForm): TFormStyle;
  {* Реализация слова скрипта pop:form:FormStyle }
-//#UC START# *553252FA01E0_3ADE91F9FA16_var*
-//#UC END# *553252FA01E0_3ADE91F9FA16_var*
+//#UC START# *553252FA01E0_553252FA01E0_484529DC0276_Word_var*
+//#UC END# *553252FA01E0_553252FA01E0_484529DC0276_Word_var*
 begin
-//#UC START# *553252FA01E0_3ADE91F9FA16_impl*
+//#UC START# *553252FA01E0_553252FA01E0_484529DC0276_Word_impl*
  Result := TForm(aForm).FormStyle;
-//#UC END# *553252FA01E0_3ADE91F9FA16_impl*
+//#UC END# *553252FA01E0_553252FA01E0_484529DC0276_Word_impl*
 end;//TkwPopFormFormStyle.pop_form_FormStyle
-
-procedure TkwPopFormFormStyle.DoDoIt(const aCtx: TtfwContext);
-var l_aForm: TCustomForm;
-begin
- try
-  l_aForm := TCustomForm(aCtx.rEngine.PopObjAs(TCustomForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aForm: TCustomForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(Ord(pop_form_FormStyle(aCtx, l_aForm)));
-end;//TkwPopFormFormStyle.DoDoIt
 
 class function TkwPopFormFormStyle.GetWordNameForRegister: AnsiString;
 begin
@@ -96,6 +81,21 @@ function TkwPopFormFormStyle.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomForm)]);
 end;//TkwPopFormFormStyle.ParamsTypes
+
+procedure TkwPopFormFormStyle.DoDoIt(const aCtx: TtfwContext);
+var l_aForm: TCustomForm;
+begin
+ try
+  l_aForm := TCustomForm(aCtx.rEngine.PopObjAs(TCustomForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TCustomForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Ord(pop_form_FormStyle(aCtx, l_aForm)));
+end;//TkwPopFormFormStyle.DoDoIt
 
 class function TCustomFormProcessingPackResNameGetter.ResName: AnsiString;
 begin

@@ -172,8 +172,8 @@ type
     acfSaveLoad: TcfSaveLoad): TvtPanel;
     {* Реализация слова скрипта .TcfSaveLoad.pnHeader }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -189,8 +189,8 @@ type
     acfSaveLoad: TcfSaveLoad): TvtLabel;
     {* Реализация слова скрипта .TcfSaveLoad.lbHeader }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -206,8 +206,8 @@ type
     acfSaveLoad: TcfSaveLoad): TPaintBox;
     {* Реализация слова скрипта .TcfSaveLoad.pbHeader }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -223,8 +223,8 @@ type
     acfSaveLoad: TcfSaveLoad): TvtPanel;
     {* Реализация слова скрипта .TcfSaveLoad.ParentZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -358,21 +358,6 @@ begin
  Result := acfSaveLoad.pnHeader;
 end;//TkwCfSaveLoadPnHeader.pnHeader
 
-procedure TkwCfSaveLoadPnHeader.DoDoIt(const aCtx: TtfwContext);
-var l_acfSaveLoad: TcfSaveLoad;
-begin
- try
-  l_acfSaveLoad := TcfSaveLoad(aCtx.rEngine.PopObjAs(TcfSaveLoad));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра acfSaveLoad: TcfSaveLoad : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(pnHeader(aCtx, l_acfSaveLoad));
-end;//TkwCfSaveLoadPnHeader.DoDoIt
-
 class function TkwCfSaveLoadPnHeader.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TcfSaveLoad.pnHeader';
@@ -399,14 +384,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
 end;//TkwCfSaveLoadPnHeader.SetValuePrim
 
-function TkwCfSaveLoadLbHeader.lbHeader(const aCtx: TtfwContext;
- acfSaveLoad: TcfSaveLoad): TvtLabel;
- {* Реализация слова скрипта .TcfSaveLoad.lbHeader }
-begin
- Result := acfSaveLoad.lbHeader;
-end;//TkwCfSaveLoadLbHeader.lbHeader
-
-procedure TkwCfSaveLoadLbHeader.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfSaveLoadPnHeader.DoDoIt(const aCtx: TtfwContext);
 var l_acfSaveLoad: TcfSaveLoad;
 begin
  try
@@ -418,8 +396,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbHeader(aCtx, l_acfSaveLoad));
-end;//TkwCfSaveLoadLbHeader.DoDoIt
+ aCtx.rEngine.PushObj(pnHeader(aCtx, l_acfSaveLoad));
+end;//TkwCfSaveLoadPnHeader.DoDoIt
+
+function TkwCfSaveLoadLbHeader.lbHeader(const aCtx: TtfwContext;
+ acfSaveLoad: TcfSaveLoad): TvtLabel;
+ {* Реализация слова скрипта .TcfSaveLoad.lbHeader }
+begin
+ Result := acfSaveLoad.lbHeader;
+end;//TkwCfSaveLoadLbHeader.lbHeader
 
 class function TkwCfSaveLoadLbHeader.GetWordNameForRegister: AnsiString;
 begin
@@ -447,14 +432,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
 end;//TkwCfSaveLoadLbHeader.SetValuePrim
 
-function TkwCfSaveLoadPbHeader.pbHeader(const aCtx: TtfwContext;
- acfSaveLoad: TcfSaveLoad): TPaintBox;
- {* Реализация слова скрипта .TcfSaveLoad.pbHeader }
-begin
- Result := acfSaveLoad.pbHeader;
-end;//TkwCfSaveLoadPbHeader.pbHeader
-
-procedure TkwCfSaveLoadPbHeader.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfSaveLoadLbHeader.DoDoIt(const aCtx: TtfwContext);
 var l_acfSaveLoad: TcfSaveLoad;
 begin
  try
@@ -466,8 +444,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbHeader(aCtx, l_acfSaveLoad));
-end;//TkwCfSaveLoadPbHeader.DoDoIt
+ aCtx.rEngine.PushObj(lbHeader(aCtx, l_acfSaveLoad));
+end;//TkwCfSaveLoadLbHeader.DoDoIt
+
+function TkwCfSaveLoadPbHeader.pbHeader(const aCtx: TtfwContext;
+ acfSaveLoad: TcfSaveLoad): TPaintBox;
+ {* Реализация слова скрипта .TcfSaveLoad.pbHeader }
+begin
+ Result := acfSaveLoad.pbHeader;
+end;//TkwCfSaveLoadPbHeader.pbHeader
 
 class function TkwCfSaveLoadPbHeader.GetWordNameForRegister: AnsiString;
 begin
@@ -495,14 +480,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
 end;//TkwCfSaveLoadPbHeader.SetValuePrim
 
-function TkwCfSaveLoadParentZone.ParentZone(const aCtx: TtfwContext;
- acfSaveLoad: TcfSaveLoad): TvtPanel;
- {* Реализация слова скрипта .TcfSaveLoad.ParentZone }
-begin
- Result := acfSaveLoad.ParentZone;
-end;//TkwCfSaveLoadParentZone.ParentZone
-
-procedure TkwCfSaveLoadParentZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCfSaveLoadPbHeader.DoDoIt(const aCtx: TtfwContext);
 var l_acfSaveLoad: TcfSaveLoad;
 begin
  try
@@ -514,8 +492,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfSaveLoad));
-end;//TkwCfSaveLoadParentZone.DoDoIt
+ aCtx.rEngine.PushObj(pbHeader(aCtx, l_acfSaveLoad));
+end;//TkwCfSaveLoadPbHeader.DoDoIt
+
+function TkwCfSaveLoadParentZone.ParentZone(const aCtx: TtfwContext;
+ acfSaveLoad: TcfSaveLoad): TvtPanel;
+ {* Реализация слова скрипта .TcfSaveLoad.ParentZone }
+begin
+ Result := acfSaveLoad.ParentZone;
+end;//TkwCfSaveLoadParentZone.ParentZone
 
 class function TkwCfSaveLoadParentZone.GetWordNameForRegister: AnsiString;
 begin
@@ -542,6 +527,21 @@ procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwCfSaveLoadParentZone.SetValuePrim
+
+procedure TkwCfSaveLoadParentZone.DoDoIt(const aCtx: TtfwContext);
+var l_acfSaveLoad: TcfSaveLoad;
+begin
+ try
+  l_acfSaveLoad := TcfSaveLoad(aCtx.rEngine.PopObjAs(TcfSaveLoad));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfSaveLoad: TcfSaveLoad : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfSaveLoad));
+end;//TkwCfSaveLoadParentZone.DoDoIt
 
 initialization
  Tkw_Form_SaveLoad.RegisterInEngine;

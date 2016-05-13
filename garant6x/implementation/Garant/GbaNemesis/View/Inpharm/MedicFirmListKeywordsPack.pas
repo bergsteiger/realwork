@@ -144,8 +144,8 @@ type
     aen_MedicFirmList: Ten_MedicFirmList): TvtPanel;
     {* Реализация слова скрипта .Ten_MedicFirmList.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -161,8 +161,8 @@ type
     aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
     {* Реализация слова скрипта .Ten_MedicFirmList.ContextFilter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -178,8 +178,8 @@ type
     aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .Ten_MedicFirmList.ListTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -286,21 +286,6 @@ begin
  Result := aen_MedicFirmList.BackgroundPanel;
 end;//TkwEnMedicFirmListBackgroundPanel.BackgroundPanel
 
-procedure TkwEnMedicFirmListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aen_MedicFirmList: Ten_MedicFirmList;
-begin
- try
-  l_aen_MedicFirmList := Ten_MedicFirmList(aCtx.rEngine.PopObjAs(Ten_MedicFirmList));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_MedicFirmList: Ten_MedicFirmList : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_MedicFirmList));
-end;//TkwEnMedicFirmListBackgroundPanel.DoDoIt
-
 class function TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_MedicFirmList.BackgroundPanel';
@@ -327,14 +312,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnMedicFirmListBackgroundPanel.SetValuePrim
 
-function TkwEnMedicFirmListContextFilter.ContextFilter(const aCtx: TtfwContext;
- aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
- {* Реализация слова скрипта .Ten_MedicFirmList.ContextFilter }
-begin
- Result := aen_MedicFirmList.ContextFilter;
-end;//TkwEnMedicFirmListContextFilter.ContextFilter
-
-procedure TkwEnMedicFirmListContextFilter.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnMedicFirmListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aen_MedicFirmList: Ten_MedicFirmList;
 begin
  try
@@ -346,8 +324,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_MedicFirmList));
-end;//TkwEnMedicFirmListContextFilter.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_MedicFirmList));
+end;//TkwEnMedicFirmListBackgroundPanel.DoDoIt
+
+function TkwEnMedicFirmListContextFilter.ContextFilter(const aCtx: TtfwContext;
+ aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
+ {* Реализация слова скрипта .Ten_MedicFirmList.ContextFilter }
+begin
+ Result := aen_MedicFirmList.ContextFilter;
+end;//TkwEnMedicFirmListContextFilter.ContextFilter
 
 class function TkwEnMedicFirmListContextFilter.GetWordNameForRegister: AnsiString;
 begin
@@ -375,14 +360,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnMedicFirmListContextFilter.SetValuePrim
 
-function TkwEnMedicFirmListListTree.ListTree(const aCtx: TtfwContext;
- aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
- {* Реализация слова скрипта .Ten_MedicFirmList.ListTree }
-begin
- Result := aen_MedicFirmList.ListTree;
-end;//TkwEnMedicFirmListListTree.ListTree
-
-procedure TkwEnMedicFirmListListTree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnMedicFirmListContextFilter.DoDoIt(const aCtx: TtfwContext);
 var l_aen_MedicFirmList: Ten_MedicFirmList;
 begin
  try
@@ -394,8 +372,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ListTree(aCtx, l_aen_MedicFirmList));
-end;//TkwEnMedicFirmListListTree.DoDoIt
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_MedicFirmList));
+end;//TkwEnMedicFirmListContextFilter.DoDoIt
+
+function TkwEnMedicFirmListListTree.ListTree(const aCtx: TtfwContext;
+ aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
+ {* Реализация слова скрипта .Ten_MedicFirmList.ListTree }
+begin
+ Result := aen_MedicFirmList.ListTree;
+end;//TkwEnMedicFirmListListTree.ListTree
 
 class function TkwEnMedicFirmListListTree.GetWordNameForRegister: AnsiString;
 begin
@@ -422,6 +407,21 @@ procedure TkwEnMedicFirmListListTree.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
 end;//TkwEnMedicFirmListListTree.SetValuePrim
+
+procedure TkwEnMedicFirmListListTree.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MedicFirmList: Ten_MedicFirmList;
+begin
+ try
+  l_aen_MedicFirmList := Ten_MedicFirmList(aCtx.rEngine.PopObjAs(Ten_MedicFirmList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MedicFirmList: Ten_MedicFirmList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ListTree(aCtx, l_aen_MedicFirmList));
+end;//TkwEnMedicFirmListListTree.DoDoIt
 
 initialization
  Tkw_Form_MedicFirmList.RegisterInEngine;

@@ -37,8 +37,8 @@ type
     aRadioButton: TRadioButton): Boolean;
     {* Реализация слова скрипта pop:RadioButton:Checked }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -53,21 +53,6 @@ function TkwPopRadioButtonChecked.Checked(const aCtx: TtfwContext;
 begin
  Result := aRadioButton.Checked;
 end;//TkwPopRadioButtonChecked.Checked
-
-procedure TkwPopRadioButtonChecked.DoDoIt(const aCtx: TtfwContext);
-var l_aRadioButton: TRadioButton;
-begin
- try
-  l_aRadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aRadioButton: TRadioButton : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(Checked(aCtx, l_aRadioButton));
-end;//TkwPopRadioButtonChecked.DoDoIt
 
 class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
 begin
@@ -104,6 +89,21 @@ begin
  end;//try..except
  l_RadioButton.Checked := aValue.AsBoolean;
 end;//TkwPopRadioButtonChecked.SetValuePrim
+
+procedure TkwPopRadioButtonChecked.DoDoIt(const aCtx: TtfwContext);
+var l_aRadioButton: TRadioButton;
+begin
+ try
+  l_aRadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRadioButton: TRadioButton : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Checked(aCtx, l_aRadioButton));
+end;//TkwPopRadioButtonChecked.DoDoIt
 
 initialization
  TkwPopRadioButtonChecked.RegisterInEngine;

@@ -102,8 +102,8 @@ type
     aefListInfo: TefListInfo): TnscEditor;
     {* Реализация слова скрипта .TefListInfo.ListInfoViewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -119,8 +119,8 @@ type
     aefListInfo: TefListInfo): TnscTextSource;
     {* Реализация слова скрипта .TefListInfo.TextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -189,21 +189,6 @@ begin
  Result := aefListInfo.ListInfoViewer;
 end;//TkwEfListInfoListInfoViewer.ListInfoViewer
 
-procedure TkwEfListInfoListInfoViewer.DoDoIt(const aCtx: TtfwContext);
-var l_aefListInfo: TefListInfo;
-begin
- try
-  l_aefListInfo := TefListInfo(aCtx.rEngine.PopObjAs(TefListInfo));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefListInfo: TefListInfo : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ListInfoViewer(aCtx, l_aefListInfo));
-end;//TkwEfListInfoListInfoViewer.DoDoIt
-
 class function TkwEfListInfoListInfoViewer.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefListInfo.ListInfoViewer';
@@ -230,14 +215,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ListInfoViewer', aCtx);
 end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
-function TkwEfListInfoTextSource.TextSource(const aCtx: TtfwContext;
- aefListInfo: TefListInfo): TnscTextSource;
- {* Реализация слова скрипта .TefListInfo.TextSource }
-begin
- Result := aefListInfo.TextSource;
-end;//TkwEfListInfoTextSource.TextSource
-
-procedure TkwEfListInfoTextSource.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfListInfoListInfoViewer.DoDoIt(const aCtx: TtfwContext);
 var l_aefListInfo: TefListInfo;
 begin
  try
@@ -249,8 +227,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TextSource(aCtx, l_aefListInfo));
-end;//TkwEfListInfoTextSource.DoDoIt
+ aCtx.rEngine.PushObj(ListInfoViewer(aCtx, l_aefListInfo));
+end;//TkwEfListInfoListInfoViewer.DoDoIt
+
+function TkwEfListInfoTextSource.TextSource(const aCtx: TtfwContext;
+ aefListInfo: TefListInfo): TnscTextSource;
+ {* Реализация слова скрипта .TefListInfo.TextSource }
+begin
+ Result := aefListInfo.TextSource;
+end;//TkwEfListInfoTextSource.TextSource
 
 class function TkwEfListInfoTextSource.GetWordNameForRegister: AnsiString;
 begin
@@ -277,6 +262,21 @@ procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwEfListInfoTextSource.SetValuePrim
+
+procedure TkwEfListInfoTextSource.DoDoIt(const aCtx: TtfwContext);
+var l_aefListInfo: TefListInfo;
+begin
+ try
+  l_aefListInfo := TefListInfo(aCtx.rEngine.PopObjAs(TefListInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefListInfo: TefListInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aefListInfo));
+end;//TkwEfListInfoTextSource.DoDoIt
 
 initialization
  Tkw_Form_ListInfo.RegisterInEngine;

@@ -37,8 +37,8 @@ type
     anIndex: Integer): TvtStatusPanel;
     {* Реализация слова скрипта pop:vtStatusBar:GetPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -49,13 +49,33 @@ function TkwPopStatusBarGetPanel.GetPanel(const aCtx: TtfwContext;
  aStatusBar: TvtStatusBar;
  anIndex: Integer): TvtStatusPanel;
  {* Реализация слова скрипта pop:vtStatusBar:GetPanel }
-//#UC START# *552E3EE00284_0B36D9E86F88_var*
-//#UC END# *552E3EE00284_0B36D9E86F88_var*
+//#UC START# *552E3EE00284_552E3EE00284_4E15A00502A3_Word_var*
+//#UC END# *552E3EE00284_552E3EE00284_4E15A00502A3_Word_var*
 begin
-//#UC START# *552E3EE00284_0B36D9E86F88_impl*
+//#UC START# *552E3EE00284_552E3EE00284_4E15A00502A3_Word_impl*
  Result := aStatusBar.Panels.Items[anIndex];
-//#UC END# *552E3EE00284_0B36D9E86F88_impl*
+//#UC END# *552E3EE00284_552E3EE00284_4E15A00502A3_Word_impl*
 end;//TkwPopStatusBarGetPanel.GetPanel
+
+class function TkwPopStatusBarGetPanel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:vtStatusBar:GetPanel';
+end;//TkwPopStatusBarGetPanel.GetWordNameForRegister
+
+function TkwPopStatusBarGetPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TvtStatusPanel);
+end;//TkwPopStatusBarGetPanel.GetResultTypeInfo
+
+function TkwPopStatusBarGetPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopStatusBarGetPanel.GetAllParamsCount
+
+function TkwPopStatusBarGetPanel.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TvtStatusBar), TypeInfo(Integer)]);
+end;//TkwPopStatusBarGetPanel.ParamsTypes
 
 procedure TkwPopStatusBarGetPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aStatusBar: TvtStatusBar;
@@ -81,26 +101,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushObj(GetPanel(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwPopStatusBarGetPanel.DoDoIt
-
-class function TkwPopStatusBarGetPanel.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:vtStatusBar:GetPanel';
-end;//TkwPopStatusBarGetPanel.GetWordNameForRegister
-
-function TkwPopStatusBarGetPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TvtStatusPanel);
-end;//TkwPopStatusBarGetPanel.GetResultTypeInfo
-
-function TkwPopStatusBarGetPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopStatusBarGetPanel.GetAllParamsCount
-
-function TkwPopStatusBarGetPanel.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TvtStatusBar), TypeInfo(Integer)]);
-end;//TkwPopStatusBarGetPanel.ParamsTypes
 
 initialization
  TkwPopStatusBarGetPanel.RegisterInEngine;

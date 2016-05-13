@@ -86,8 +86,8 @@ type
     aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm): TnscEditor;
     {* Реализация слова скрипта .TTranslation_WarningBaloonForm.Viewer }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -140,21 +140,6 @@ begin
  Result := aTranslation_WarningBaloonForm.Viewer;
 end;//TkwTranslationWarningBaloonFormViewer.Viewer
 
-procedure TkwTranslationWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-var l_aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm;
-begin
- try
-  l_aTranslation_WarningBaloonForm := TTranslation_WarningBaloonForm(aCtx.rEngine.PopObjAs(TTranslation_WarningBaloonForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Viewer(aCtx, l_aTranslation_WarningBaloonForm));
-end;//TkwTranslationWarningBaloonFormViewer.DoDoIt
-
 class function TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TTranslation_WarningBaloonForm.Viewer';
@@ -180,6 +165,21 @@ procedure TkwTranslationWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwS
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwTranslationWarningBaloonFormViewer.SetValuePrim
+
+procedure TkwTranslationWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
+var l_aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm;
+begin
+ try
+  l_aTranslation_WarningBaloonForm := TTranslation_WarningBaloonForm(aCtx.rEngine.PopObjAs(TTranslation_WarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aTranslation_WarningBaloonForm));
+end;//TkwTranslationWarningBaloonFormViewer.DoDoIt
 
 initialization
  Tkw_Form_Translation_WarningBaloon.RegisterInEngine;

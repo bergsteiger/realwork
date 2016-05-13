@@ -84,8 +84,8 @@ type
     aen_MedicListSynchroView: Ten_MedicListSynchroView): TvtPanel;
     {* Реализация слова скрипта .Ten_MedicListSynchroView.ztChild }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aen_MedicListSynchroView.ztChild;
 end;//TkwEnMedicListSynchroViewZtChild.ztChild
 
-procedure TkwEnMedicListSynchroViewZtChild.DoDoIt(const aCtx: TtfwContext);
-var l_aen_MedicListSynchroView: Ten_MedicListSynchroView;
-begin
- try
-  l_aen_MedicListSynchroView := Ten_MedicListSynchroView(aCtx.rEngine.PopObjAs(Ten_MedicListSynchroView));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_MedicListSynchroView: Ten_MedicListSynchroView : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ztChild(aCtx, l_aen_MedicListSynchroView));
-end;//TkwEnMedicListSynchroViewZtChild.DoDoIt
-
 class function TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_MedicListSynchroView.ztChild';
@@ -178,6 +163,21 @@ procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackV
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ztChild', aCtx);
 end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
+
+procedure TkwEnMedicListSynchroViewZtChild.DoDoIt(const aCtx: TtfwContext);
+var l_aen_MedicListSynchroView: Ten_MedicListSynchroView;
+begin
+ try
+  l_aen_MedicListSynchroView := Ten_MedicListSynchroView(aCtx.rEngine.PopObjAs(Ten_MedicListSynchroView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MedicListSynchroView: Ten_MedicListSynchroView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ztChild(aCtx, l_aen_MedicListSynchroView));
+end;//TkwEnMedicListSynchroViewZtChild.DoDoIt
 
 initialization
  Tkw_Form_MedicListSynchroView.RegisterInEngine;

@@ -38,8 +38,8 @@ type
     aFlash: TvtShockwaveFlashEx): Integer;
     {* Реализация слова скрипта pop:flash:GetFrame }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -49,28 +49,13 @@ type
 function TkwPopFlashGetFrame.GetFrame(const aCtx: TtfwContext;
  aFlash: TvtShockwaveFlashEx): Integer;
  {* Реализация слова скрипта pop:flash:GetFrame }
-//#UC START# *552FAF500391_4E9CC5473030_var*
-//#UC END# *552FAF500391_4E9CC5473030_var*
+//#UC START# *552FAF500391_552FAF500391_4981A4AE0282_Word_var*
+//#UC END# *552FAF500391_552FAF500391_4981A4AE0282_Word_var*
 begin
-//#UC START# *552FAF500391_4E9CC5473030_impl*
+//#UC START# *552FAF500391_552FAF500391_4981A4AE0282_Word_impl*
  Result := aFlash.FrameNum;
-//#UC END# *552FAF500391_4E9CC5473030_impl*
+//#UC END# *552FAF500391_552FAF500391_4981A4AE0282_Word_impl*
 end;//TkwPopFlashGetFrame.GetFrame
-
-procedure TkwPopFlashGetFrame.DoDoIt(const aCtx: TtfwContext);
-var l_aFlash: TvtShockwaveFlashEx;
-begin
- try
-  l_aFlash := TvtShockwaveFlashEx(aCtx.rEngine.PopObjAs(TvtShockwaveFlashEx));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aFlash: TvtShockwaveFlashEx : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(GetFrame(aCtx, l_aFlash));
-end;//TkwPopFlashGetFrame.DoDoIt
 
 class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
 begin
@@ -91,6 +76,21 @@ function TkwPopFlashGetFrame.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtShockwaveFlashEx)]);
 end;//TkwPopFlashGetFrame.ParamsTypes
+
+procedure TkwPopFlashGetFrame.DoDoIt(const aCtx: TtfwContext);
+var l_aFlash: TvtShockwaveFlashEx;
+begin
+ try
+  l_aFlash := TvtShockwaveFlashEx(aCtx.rEngine.PopObjAs(TvtShockwaveFlashEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFlash: TvtShockwaveFlashEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetFrame(aCtx, l_aFlash));
+end;//TkwPopFlashGetFrame.DoDoIt
 
 initialization
  TkwPopFlashGetFrame.RegisterInEngine;

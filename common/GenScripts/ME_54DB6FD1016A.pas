@@ -36,8 +36,8 @@ type
     aStatusBarButton: TnscStatusBarButton): Boolean;
     {* Реализация слова скрипта pop:StatusBarButton:IsDown }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 function TkwPopStatusBarButtonIsDown.IsDown(const aCtx: TtfwContext;
  aStatusBarButton: TnscStatusBarButton): Boolean;
  {* Реализация слова скрипта pop:StatusBarButton:IsDown }
-//#UC START# *552FC9C10154_33C559B72437_var*
-//#UC END# *552FC9C10154_33C559B72437_var*
+//#UC START# *552FC9C10154_552FC9C10154_503DE6F30027_Word_var*
+//#UC END# *552FC9C10154_552FC9C10154_503DE6F30027_Word_var*
 begin
-//#UC START# *552FC9C10154_33C559B72437_impl*
+//#UC START# *552FC9C10154_552FC9C10154_503DE6F30027_Word_impl*
  Result := aStatusBarButton.Down;
-//#UC END# *552FC9C10154_33C559B72437_impl*
+//#UC END# *552FC9C10154_552FC9C10154_503DE6F30027_Word_impl*
 end;//TkwPopStatusBarButtonIsDown.IsDown
-
-procedure TkwPopStatusBarButtonIsDown.DoDoIt(const aCtx: TtfwContext);
-var l_aStatusBarButton: TnscStatusBarButton;
-begin
- try
-  l_aStatusBarButton := TnscStatusBarButton(aCtx.rEngine.PopObjAs(TnscStatusBarButton));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aStatusBarButton: TnscStatusBarButton : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsDown(aCtx, l_aStatusBarButton));
-end;//TkwPopStatusBarButtonIsDown.DoDoIt
 
 class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopStatusBarButtonIsDown.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnscStatusBarButton)]);
 end;//TkwPopStatusBarButtonIsDown.ParamsTypes
+
+procedure TkwPopStatusBarButtonIsDown.DoDoIt(const aCtx: TtfwContext);
+var l_aStatusBarButton: TnscStatusBarButton;
+begin
+ try
+  l_aStatusBarButton := TnscStatusBarButton(aCtx.rEngine.PopObjAs(TnscStatusBarButton));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBarButton: TnscStatusBarButton : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsDown(aCtx, l_aStatusBarButton));
+end;//TkwPopStatusBarButtonIsDown.DoDoIt
 
 initialization
  TkwPopStatusBarButtonIsDown.RegisterInEngine;

@@ -37,8 +37,8 @@ type
     aTB97Button: TCustomToolbarButton97): Boolean;
     {* Реализация слова скрипта pop:TB97Button:Down }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -53,21 +53,6 @@ function TkwPopTB97ButtonDown.Down(const aCtx: TtfwContext;
 begin
  Result := aTB97Button.Down;
 end;//TkwPopTB97ButtonDown.Down
-
-procedure TkwPopTB97ButtonDown.DoDoIt(const aCtx: TtfwContext);
-var l_aTB97Button: TCustomToolbarButton97;
-begin
- try
-  l_aTB97Button := TCustomToolbarButton97(aCtx.rEngine.PopObjAs(TCustomToolbarButton97));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTB97Button: TCustomToolbarButton97 : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(Down(aCtx, l_aTB97Button));
-end;//TkwPopTB97ButtonDown.DoDoIt
 
 class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
 begin
@@ -94,6 +79,21 @@ procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Down', aCtx);
 end;//TkwPopTB97ButtonDown.SetValuePrim
+
+procedure TkwPopTB97ButtonDown.DoDoIt(const aCtx: TtfwContext);
+var l_aTB97Button: TCustomToolbarButton97;
+begin
+ try
+  l_aTB97Button := TCustomToolbarButton97(aCtx.rEngine.PopObjAs(TCustomToolbarButton97));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTB97Button: TCustomToolbarButton97 : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Down(aCtx, l_aTB97Button));
+end;//TkwPopTB97ButtonDown.DoDoIt
 
 initialization
  TkwPopTB97ButtonDown.RegisterInEngine;

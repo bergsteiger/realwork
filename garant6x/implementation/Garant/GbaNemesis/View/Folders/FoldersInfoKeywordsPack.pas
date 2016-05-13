@@ -84,8 +84,8 @@ type
     acfFoldersInfo: TcfFoldersInfo): TvtPanel;
     {* Реализация слова скрипта .TcfFoldersInfo.ChildZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := acfFoldersInfo.ChildZone;
 end;//TkwCfFoldersInfoChildZone.ChildZone
 
-procedure TkwCfFoldersInfoChildZone.DoDoIt(const aCtx: TtfwContext);
-var l_acfFoldersInfo: TcfFoldersInfo;
-begin
- try
-  l_acfFoldersInfo := TcfFoldersInfo(aCtx.rEngine.PopObjAs(TcfFoldersInfo));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра acfFoldersInfo: TcfFoldersInfo : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfFoldersInfo));
-end;//TkwCfFoldersInfoChildZone.DoDoIt
-
 class function TkwCfFoldersInfoChildZone.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TcfFoldersInfo.ChildZone';
@@ -178,6 +163,21 @@ procedure TkwCfFoldersInfoChildZone.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
 end;//TkwCfFoldersInfoChildZone.SetValuePrim
+
+procedure TkwCfFoldersInfoChildZone.DoDoIt(const aCtx: TtfwContext);
+var l_acfFoldersInfo: TcfFoldersInfo;
+begin
+ try
+  l_acfFoldersInfo := TcfFoldersInfo(aCtx.rEngine.PopObjAs(TcfFoldersInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfFoldersInfo: TcfFoldersInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_acfFoldersInfo));
+end;//TkwCfFoldersInfoChildZone.DoDoIt
 
 initialization
  Tkw_Form_FoldersInfo.RegisterInEngine;

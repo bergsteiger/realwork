@@ -84,8 +84,8 @@ type
     aen_ConfigurationList: Ten_ConfigurationList): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .Ten_ConfigurationList.tvConfs }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aen_ConfigurationList.tvConfs;
 end;//TkwEnConfigurationListTvConfs.tvConfs
 
-procedure TkwEnConfigurationListTvConfs.DoDoIt(const aCtx: TtfwContext);
-var l_aen_ConfigurationList: Ten_ConfigurationList;
-begin
- try
-  l_aen_ConfigurationList := Ten_ConfigurationList(aCtx.rEngine.PopObjAs(Ten_ConfigurationList));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_ConfigurationList: Ten_ConfigurationList : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(tvConfs(aCtx, l_aen_ConfigurationList));
-end;//TkwEnConfigurationListTvConfs.DoDoIt
-
 class function TkwEnConfigurationListTvConfs.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_ConfigurationList.tvConfs';
@@ -178,6 +163,21 @@ procedure TkwEnConfigurationListTvConfs.SetValuePrim(const aValue: TtfwStackValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству tvConfs', aCtx);
 end;//TkwEnConfigurationListTvConfs.SetValuePrim
+
+procedure TkwEnConfigurationListTvConfs.DoDoIt(const aCtx: TtfwContext);
+var l_aen_ConfigurationList: Ten_ConfigurationList;
+begin
+ try
+  l_aen_ConfigurationList := Ten_ConfigurationList(aCtx.rEngine.PopObjAs(Ten_ConfigurationList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_ConfigurationList: Ten_ConfigurationList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvConfs(aCtx, l_aen_ConfigurationList));
+end;//TkwEnConfigurationListTvConfs.DoDoIt
 
 initialization
  Tkw_Form_ConfigurationList.RegisterInEngine;

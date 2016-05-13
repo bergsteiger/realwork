@@ -38,8 +38,8 @@ type
     const anActionName: AnsiString): TContainedAction;
     {* Реализация слова скрипта pop:ActionList:FindAction }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -50,12 +50,12 @@ function TkwPopActionListFindAction.FindAction(const aCtx: TtfwContext;
  aActionList: TActionList;
  const anActionName: AnsiString): TContainedAction;
  {* Реализация слова скрипта pop:ActionList:FindAction }
-//#UC START# *55B8E46F00AF_E7F049DA4A74_var*
+//#UC START# *55B8E46F00AF_55B8E46F00AF_4EF32DDB0235_Word_var*
 var
  l_Index : Integer;
-//#UC END# *55B8E46F00AF_E7F049DA4A74_var*
+//#UC END# *55B8E46F00AF_55B8E46F00AF_4EF32DDB0235_Word_var*
 begin
-//#UC START# *55B8E46F00AF_E7F049DA4A74_impl*
+//#UC START# *55B8E46F00AF_55B8E46F00AF_4EF32DDB0235_Word_impl*
  Result := nil;
  for l_Index := 0 to aActionList.ActionCount - 1 do
  begin
@@ -65,8 +65,28 @@ begin
   else
    Result := nil;
  end; // for i := 0 to l_ActList.ActionCount - 1 do
-//#UC END# *55B8E46F00AF_E7F049DA4A74_impl*
+//#UC END# *55B8E46F00AF_55B8E46F00AF_4EF32DDB0235_Word_impl*
 end;//TkwPopActionListFindAction.FindAction
+
+class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ActionList:FindAction';
+end;//TkwPopActionListFindAction.GetWordNameForRegister
+
+function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TContainedAction);
+end;//TkwPopActionListFindAction.GetResultTypeInfo
+
+function TkwPopActionListFindAction.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopActionListFindAction.GetAllParamsCount
+
+function TkwPopActionListFindAction.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TActionList), @tfw_tiString]);
+end;//TkwPopActionListFindAction.ParamsTypes
 
 procedure TkwPopActionListFindAction.DoDoIt(const aCtx: TtfwContext);
 var l_aActionList: TActionList;
@@ -92,26 +112,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushObj(FindAction(aCtx, l_aActionList, l_anActionName));
 end;//TkwPopActionListFindAction.DoDoIt
-
-class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ActionList:FindAction';
-end;//TkwPopActionListFindAction.GetWordNameForRegister
-
-function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TContainedAction);
-end;//TkwPopActionListFindAction.GetResultTypeInfo
-
-function TkwPopActionListFindAction.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopActionListFindAction.GetAllParamsCount
-
-function TkwPopActionListFindAction.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TActionList), @tfw_tiString]);
-end;//TkwPopActionListFindAction.ParamsTypes
 
 initialization
  TkwPopActionListFindAction.RegisterInEngine;

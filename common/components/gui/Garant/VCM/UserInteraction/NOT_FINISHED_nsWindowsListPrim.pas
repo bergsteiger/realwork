@@ -19,15 +19,12 @@ uses
  , vcmInterfaces
  , vcmEntityForm
  , l3TabbedContainersDispatcher
- , vcmExternalInterfaces
  , l3Core
 ;
 
 type
  TnsUniqueName = class(Tl3ProtoObject)
   {* класс позвол€ющий получать уникальные имена в списке благодар€ добавлению в конце повтор€ющихс€ слов значение счетчика повторени€. Ќапример —лово, —лово (1), —лово (2) и т.д }
-  private
-   f_Unique: IvcmStrings;
   private
    function MakeName(const aName: Il3CString): Il3CString;
     {* возвращает уникальное им€ }
@@ -176,7 +173,6 @@ end;//TnsWindowsListPrim.CheckLength
 function TnsWindowsListPrim.FindNode(const aForm: IvcmEntityForm): Il3Node;
  {* возвращает Il3Node дл€ формы aForm }
 var l_Window: InsWindow;
-var l_Child: Il3Node;
 //#UC START# *4ADC54290390_4ADC5146016D_var*
 //#UC END# *4ADC54290390_4ADC5146016D_var*
 begin

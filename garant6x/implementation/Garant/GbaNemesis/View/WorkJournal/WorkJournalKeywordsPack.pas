@@ -84,8 +84,8 @@ type
     aWorkJournalForm: TWorkJournalForm): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TWorkJournalForm.JournalTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aWorkJournalForm.JournalTree;
 end;//TkwWorkJournalFormJournalTree.JournalTree
 
-procedure TkwWorkJournalFormJournalTree.DoDoIt(const aCtx: TtfwContext);
-var l_aWorkJournalForm: TWorkJournalForm;
-begin
- try
-  l_aWorkJournalForm := TWorkJournalForm(aCtx.rEngine.PopObjAs(TWorkJournalForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWorkJournalForm: TWorkJournalForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(JournalTree(aCtx, l_aWorkJournalForm));
-end;//TkwWorkJournalFormJournalTree.DoDoIt
-
 class function TkwWorkJournalFormJournalTree.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TWorkJournalForm.JournalTree';
@@ -178,6 +163,21 @@ procedure TkwWorkJournalFormJournalTree.SetValuePrim(const aValue: TtfwStackValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству JournalTree', aCtx);
 end;//TkwWorkJournalFormJournalTree.SetValuePrim
+
+procedure TkwWorkJournalFormJournalTree.DoDoIt(const aCtx: TtfwContext);
+var l_aWorkJournalForm: TWorkJournalForm;
+begin
+ try
+  l_aWorkJournalForm := TWorkJournalForm(aCtx.rEngine.PopObjAs(TWorkJournalForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWorkJournalForm: TWorkJournalForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(JournalTree(aCtx, l_aWorkJournalForm));
+end;//TkwWorkJournalFormJournalTree.DoDoIt
 
 initialization
  Tkw_Form_WorkJournal.RegisterInEngine;

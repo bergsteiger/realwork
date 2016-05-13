@@ -84,8 +84,8 @@ type
     aenPostingsList: TenPostingsList): TeeTreeView;
     {* Реализация слова скрипта .TenPostingsList.tvPostings }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aenPostingsList.tvPostings;
 end;//TkwEnPostingsListTvPostings.tvPostings
 
-procedure TkwEnPostingsListTvPostings.DoDoIt(const aCtx: TtfwContext);
-var l_aenPostingsList: TenPostingsList;
-begin
- try
-  l_aenPostingsList := TenPostingsList(aCtx.rEngine.PopObjAs(TenPostingsList));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenPostingsList: TenPostingsList : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(tvPostings(aCtx, l_aenPostingsList));
-end;//TkwEnPostingsListTvPostings.DoDoIt
-
 class function TkwEnPostingsListTvPostings.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenPostingsList.tvPostings';
@@ -178,6 +163,21 @@ procedure TkwEnPostingsListTvPostings.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству tvPostings', aCtx);
 end;//TkwEnPostingsListTvPostings.SetValuePrim
+
+procedure TkwEnPostingsListTvPostings.DoDoIt(const aCtx: TtfwContext);
+var l_aenPostingsList: TenPostingsList;
+begin
+ try
+  l_aenPostingsList := TenPostingsList(aCtx.rEngine.PopObjAs(TenPostingsList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenPostingsList: TenPostingsList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvPostings(aCtx, l_aenPostingsList));
+end;//TkwEnPostingsListTvPostings.DoDoIt
 
 initialization
  Tkw_Form_PostingsList.RegisterInEngine;
