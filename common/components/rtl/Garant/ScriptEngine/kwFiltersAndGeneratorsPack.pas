@@ -42,8 +42,8 @@ type
     const aFileName: AnsiString);
     {* Реализация слова скрипта generators:Execute }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -58,8 +58,8 @@ type
     const aGenHead: Ik2TagGenerator): Ik2TagGenerator;
     {* Реализация слова скрипта generators:Link }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -76,16 +76,16 @@ procedure TkwGeneratorsExecute.generators_Execute(const aCtx: TtfwContext;
  const aTagGenerator: Ik2TagGenerator;
  const aFileName: AnsiString);
  {* Реализация слова скрипта generators:Execute }
-//#UC START# *552BD7AD0110_825779F5AD08_var*
+//#UC START# *552BD7AD0110_552BD7AD0110_4678160E01BE_Word_var*
 var
  l_Filt: Ik2TagGenerator;
  l_InFN: AnsiString;
  l_OutFN: AnsiString;
  l_Reader: Il3Reader;
  l_Writer: Ik2TagGenerator;
-//#UC END# *552BD7AD0110_825779F5AD08_var*
+//#UC END# *552BD7AD0110_552BD7AD0110_4678160E01BE_Word_var*
 begin
-//#UC START# *552BD7AD0110_825779F5AD08_impl*
+//#UC START# *552BD7AD0110_552BD7AD0110_4678160E01BE_Word_impl*
  l_InFN := aFileName;
  l_OutFN := aCtx.rCaller.ResolveOutputFilePath(l_InFN);
  l_InFN := aCtx.rCaller.ResolveInputFilePath(l_InFN);
@@ -105,8 +105,28 @@ begin
  finally
   l_Reader := nil;
  end;//try..finally
-//#UC END# *552BD7AD0110_825779F5AD08_impl*
+//#UC END# *552BD7AD0110_552BD7AD0110_4678160E01BE_Word_impl*
 end;//TkwGeneratorsExecute.generators_Execute
+
+class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'generators:Execute';
+end;//TkwGeneratorsExecute.GetWordNameForRegister
+
+function TkwGeneratorsExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwGeneratorsExecute.GetResultTypeInfo
+
+function TkwGeneratorsExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwGeneratorsExecute.GetAllParamsCount
+
+function TkwGeneratorsExecute.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), @tfw_tiString]);
+end;//TkwGeneratorsExecute.ParamsTypes
 
 procedure TkwGeneratorsExecute.DoDoIt(const aCtx: TtfwContext);
 var l_aTagGenerator: Ik2TagGenerator;
@@ -133,43 +153,43 @@ begin
  generators_Execute(aCtx, l_aTagGenerator, l_aFileName);
 end;//TkwGeneratorsExecute.DoDoIt
 
-class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
-begin
- Result := 'generators:Execute';
-end;//TkwGeneratorsExecute.GetWordNameForRegister
-
-function TkwGeneratorsExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwGeneratorsExecute.GetResultTypeInfo
-
-function TkwGeneratorsExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwGeneratorsExecute.GetAllParamsCount
-
-function TkwGeneratorsExecute.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), @tfw_tiString]);
-end;//TkwGeneratorsExecute.ParamsTypes
-
 function TkwGeneratorsLink.generators_Link(const aCtx: TtfwContext;
  const aTagGenerator: Ik2TagGenerator;
  const aGenHead: Ik2TagGenerator): Ik2TagGenerator;
  {* Реализация слова скрипта generators:Link }
-//#UC START# *552BD8F60043_E6DB290D23D7_var*
+//#UC START# *552BD8F60043_552BD8F60043_4678160E01BE_Word_var*
 var
  l_GenHead: Ik2TagGenerator;
-//#UC END# *552BD8F60043_E6DB290D23D7_var*
+//#UC END# *552BD8F60043_552BD8F60043_4678160E01BE_Word_var*
 begin
-//#UC START# *552BD8F60043_E6DB290D23D7_impl*
+//#UC START# *552BD8F60043_552BD8F60043_4678160E01BE_Word_impl*
  l_GenHead := aGenHead;
  while (l_GenHead.NextGenerator <> nil) do
   l_GenHead := l_GenHead.NextGenerator;
  l_GenHead.NextGenerator := aTagGenerator;
  Result := aGenHead;
-//#UC END# *552BD8F60043_E6DB290D23D7_impl*
+//#UC END# *552BD8F60043_552BD8F60043_4678160E01BE_Word_impl*
 end;//TkwGeneratorsLink.generators_Link
+
+class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'generators:Link';
+end;//TkwGeneratorsLink.GetWordNameForRegister
+
+function TkwGeneratorsLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Ik2TagGenerator);
+end;//TkwGeneratorsLink.GetResultTypeInfo
+
+function TkwGeneratorsLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwGeneratorsLink.GetAllParamsCount
+
+function TkwGeneratorsLink.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), TypeInfo(Ik2TagGenerator)]);
+end;//TkwGeneratorsLink.ParamsTypes
 
 procedure TkwGeneratorsLink.DoDoIt(const aCtx: TtfwContext);
 var l_aTagGenerator: Ik2TagGenerator;
@@ -195,26 +215,6 @@ begin
  end;//try..except
  aCtx.rEngine.PushIntf(generators_Link(aCtx, l_aTagGenerator, l_aGenHead), TypeInfo(Ik2TagGenerator));
 end;//TkwGeneratorsLink.DoDoIt
-
-class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
-begin
- Result := 'generators:Link';
-end;//TkwGeneratorsLink.GetWordNameForRegister
-
-function TkwGeneratorsLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Ik2TagGenerator);
-end;//TkwGeneratorsLink.GetResultTypeInfo
-
-function TkwGeneratorsLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwGeneratorsLink.GetAllParamsCount
-
-function TkwGeneratorsLink.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), TypeInfo(Ik2TagGenerator)]);
-end;//TkwGeneratorsLink.ParamsTypes
 
 class function TkwFiltersAndGeneratorsPackResNameGetter.ResName: AnsiString;
 begin

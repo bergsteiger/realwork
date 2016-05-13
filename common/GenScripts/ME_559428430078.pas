@@ -37,8 +37,8 @@ type
     aCompiledWordWorkerWord: TkwCompiledWordWorkerWord): TtfwWord;
     {* Реализация слова скрипта pop:CompiledWordWorkerWord:Compiled }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -53,21 +53,6 @@ function TkwPopCompiledWordWorkerWordCompiled.Compiled(const aCtx: TtfwContext;
 begin
  Result := aCompiledWordWorkerWord.Compiled;
 end;//TkwPopCompiledWordWorkerWordCompiled.Compiled
-
-procedure TkwPopCompiledWordWorkerWordCompiled.DoDoIt(const aCtx: TtfwContext);
-var l_aCompiledWordWorkerWord: TkwCompiledWordWorkerWord;
-begin
- try
-  l_aCompiledWordWorkerWord := TkwCompiledWordWorkerWord(aCtx.rEngine.PopObjAs(TkwCompiledWordWorkerWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aCompiledWordWorkerWord: TkwCompiledWordWorkerWord : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Compiled(aCtx, l_aCompiledWordWorkerWord));
-end;//TkwPopCompiledWordWorkerWordCompiled.DoDoIt
 
 class function TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister: AnsiString;
 begin
@@ -94,6 +79,21 @@ procedure TkwPopCompiledWordWorkerWordCompiled.SetValuePrim(const aValue: TtfwSt
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Compiled', aCtx);
 end;//TkwPopCompiledWordWorkerWordCompiled.SetValuePrim
+
+procedure TkwPopCompiledWordWorkerWordCompiled.DoDoIt(const aCtx: TtfwContext);
+var l_aCompiledWordWorkerWord: TkwCompiledWordWorkerWord;
+begin
+ try
+  l_aCompiledWordWorkerWord := TkwCompiledWordWorkerWord(aCtx.rEngine.PopObjAs(TkwCompiledWordWorkerWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCompiledWordWorkerWord: TkwCompiledWordWorkerWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Compiled(aCtx, l_aCompiledWordWorkerWord));
+end;//TkwPopCompiledWordWorkerWordCompiled.DoDoIt
 
 initialization
  TkwPopCompiledWordWorkerWordCompiled.RegisterInEngine;

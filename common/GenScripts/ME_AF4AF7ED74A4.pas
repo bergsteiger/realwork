@@ -78,21 +78,14 @@ type
  end;//Tkw_OutlinerForm_Control_TreeControl_Push
 
  TkwOutlinerFormFormTreeControl = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TOutlinerFormForm.TreeControl
-[panel]Контрол TreeControl формы TOutlinerFormForm[panel]
-*Тип результата:* TvtOutlinerControl
-*Пример:*
-[code]
-OBJECT VAR l_TvtOutlinerControl
- aOutlinerFormForm .TOutlinerFormForm.TreeControl >>> l_TvtOutlinerControl
-[code]  }
+  {* Слово скрипта .TOutlinerFormForm.TreeControl }
   private
    function TreeControl(const aCtx: TtfwContext;
     aOutlinerFormForm: TOutlinerFormForm): TvtOutlinerControl;
     {* Реализация слова скрипта .TOutlinerFormForm.TreeControl }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -145,21 +138,6 @@ begin
  Result := aOutlinerFormForm.TreeControl;
 end;//TkwOutlinerFormFormTreeControl.TreeControl
 
-procedure TkwOutlinerFormFormTreeControl.DoDoIt(const aCtx: TtfwContext);
-var l_aOutlinerFormForm: TOutlinerFormForm;
-begin
- try
-  l_aOutlinerFormForm := TOutlinerFormForm(aCtx.rEngine.PopObjAs(TOutlinerFormForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aOutlinerFormForm: TOutlinerFormForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(TreeControl(aCtx, l_aOutlinerFormForm));
-end;//TkwOutlinerFormFormTreeControl.DoDoIt
-
 class function TkwOutlinerFormFormTreeControl.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TOutlinerFormForm.TreeControl';
@@ -185,6 +163,21 @@ procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackVal
 begin
  RunnerError('Нельзя присваивать значение readonly свойству TreeControl', aCtx);
 end;//TkwOutlinerFormFormTreeControl.SetValuePrim
+
+procedure TkwOutlinerFormFormTreeControl.DoDoIt(const aCtx: TtfwContext);
+var l_aOutlinerFormForm: TOutlinerFormForm;
+begin
+ try
+  l_aOutlinerFormForm := TOutlinerFormForm(aCtx.rEngine.PopObjAs(TOutlinerFormForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aOutlinerFormForm: TOutlinerFormForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TreeControl(aCtx, l_aOutlinerFormForm));
+end;//TkwOutlinerFormFormTreeControl.DoDoIt
 
 initialization
  Tkw_Form_OutlinerForm.RegisterInEngine;

@@ -20,7 +20,7 @@ implementation
 uses
  l3ImplUses
  , kwCompiledProcedure
- , tfwRegisterableWord
+ , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
@@ -29,7 +29,7 @@ uses
 ;
 
 type
- TkwCompiledProcedureCreate = {final} class(TtfwRegisterableWord)
+ TkwCompiledProcedureCreate = {final} class(TtfwClassLike)
   {* Слово скрипта CompiledProcedure:Create }
   private
    function Create(const aCtx: TtfwContext): TkwCompiledProcedure;
@@ -45,12 +45,12 @@ type
 
 function TkwCompiledProcedureCreate.Create(const aCtx: TtfwContext): TkwCompiledProcedure;
  {* Реализация слова скрипта CompiledProcedure:Create }
-//#UC START# *5673E7D50121_87E51971436F_var*
-//#UC END# *5673E7D50121_87E51971436F_var*
+//#UC START# *5673E7D50121_5673E7D50121_4F216D8D01A0_Word_var*
+//#UC END# *5673E7D50121_5673E7D50121_4F216D8D01A0_Word_var*
 begin
-//#UC START# *5673E7D50121_87E51971436F_impl*
+//#UC START# *5673E7D50121_5673E7D50121_4F216D8D01A0_Word_impl*
  Result := TkwCompiledProcedure.Create(nil{Prodicer}, Self{nil}{Finder}, aCtx.rTypeInfo, aCtx, {nil}Key);
-//#UC END# *5673E7D50121_87E51971436F_impl*
+//#UC END# *5673E7D50121_5673E7D50121_4F216D8D01A0_Word_impl*
 end;//TkwCompiledProcedureCreate.Create
 
 class function TkwCompiledProcedureCreate.GetWordNameForRegister: AnsiString;

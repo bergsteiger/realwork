@@ -38,8 +38,8 @@ type
     aTreeNode: TTreeNode): Boolean;
     {* Реализация слова скрипта pop:TreeNode:IsNodeFolder }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -55,28 +55,13 @@ type
 function TkwPopTreeNodeIsNodeFolder.IsNodeFolder(const aCtx: TtfwContext;
  aTreeNode: TTreeNode): Boolean;
  {* Реализация слова скрипта pop:TreeNode:IsNodeFolder }
-//#UC START# *55C9F3B6011B_565CDF98FF94_var*
-//#UC END# *55C9F3B6011B_565CDF98FF94_var*
+//#UC START# *55C9F3B6011B_55C9F3B6011B_512F3FCB02F3_Word_var*
+//#UC END# *55C9F3B6011B_55C9F3B6011B_512F3FCB02F3_Word_var*
 begin
-//#UC START# *55C9F3B6011B_565CDF98FF94_impl*
+//#UC START# *55C9F3B6011B_55C9F3B6011B_512F3FCB02F3_Word_impl*
  Result := FolderSupport.IsNodeFolder(aTreeNode);
-//#UC END# *55C9F3B6011B_565CDF98FF94_impl*
+//#UC END# *55C9F3B6011B_55C9F3B6011B_512F3FCB02F3_Word_impl*
 end;//TkwPopTreeNodeIsNodeFolder.IsNodeFolder
-
-procedure TkwPopTreeNodeIsNodeFolder.DoDoIt(const aCtx: TtfwContext);
-var l_aTreeNode: TTreeNode;
-begin
- try
-  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsNodeFolder(aCtx, l_aTreeNode));
-end;//TkwPopTreeNodeIsNodeFolder.DoDoIt
 
 class function TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister: AnsiString;
 begin
@@ -97,6 +82,21 @@ function TkwPopTreeNodeIsNodeFolder.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeIsNodeFolder.ParamsTypes
+
+procedure TkwPopTreeNodeIsNodeFolder.DoDoIt(const aCtx: TtfwContext);
+var l_aTreeNode: TTreeNode;
+begin
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsNodeFolder(aCtx, l_aTreeNode));
+end;//TkwPopTreeNodeIsNodeFolder.DoDoIt
 
 class function TTTreeNodeForTestsWordsPackResNameGetter.ResName: AnsiString;
 begin

@@ -108,21 +108,14 @@ type
  end;//Tkw_F1LikeTextLoad_Component_LoadManager
 
  TkwF1LikeTextLoadFormText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeTextLoadForm.Text
-[panel]Контрол Text формы TF1LikeTextLoadForm[panel]
-*Тип результата:* TeeEditorExport
-*Пример:*
-[code]
-OBJECT VAR l_TeeEditorExport
- aF1LikeTextLoadForm .TF1LikeTextLoadForm.Text >>> l_TeeEditorExport
-[code]  }
+  {* Слово скрипта .TF1LikeTextLoadForm.Text }
   private
    function Text(const aCtx: TtfwContext;
     aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeEditorExport;
     {* Реализация слова скрипта .TF1LikeTextLoadForm.Text }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -132,21 +125,14 @@ OBJECT VAR l_TeeEditorExport
  end;//TkwF1LikeTextLoadFormText
 
  TkwF1LikeTextLoadFormTextSource = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeTextLoadForm.TextSource
-[panel]Контрол TextSource формы TF1LikeTextLoadForm[panel]
-*Тип результата:* TeeTextSourceExport
-*Пример:*
-[code]
-OBJECT VAR l_TeeTextSourceExport
- aF1LikeTextLoadForm .TF1LikeTextLoadForm.TextSource >>> l_TeeTextSourceExport
-[code]  }
+  {* Слово скрипта .TF1LikeTextLoadForm.TextSource }
   private
    function TextSource(const aCtx: TtfwContext;
     aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeTextSourceExport;
     {* Реализация слова скрипта .TF1LikeTextLoadForm.TextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -156,21 +142,14 @@ OBJECT VAR l_TeeTextSourceExport
  end;//TkwF1LikeTextLoadFormTextSource
 
  TkwF1LikeTextLoadFormLoadManager = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeTextLoadForm.LoadManager
-[panel]Контрол LoadManager формы TF1LikeTextLoadForm[panel]
-*Тип результата:* TevLoadDocumentManager
-*Пример:*
-[code]
-OBJECT VAR l_TevLoadDocumentManager
- aF1LikeTextLoadForm .TF1LikeTextLoadForm.LoadManager >>> l_TevLoadDocumentManager
-[code]  }
+  {* Слово скрипта .TF1LikeTextLoadForm.LoadManager }
   private
    function LoadManager(const aCtx: TtfwContext;
     aF1LikeTextLoadForm: TF1LikeTextLoadForm): TevLoadDocumentManager;
     {* Реализация слова скрипта .TF1LikeTextLoadForm.LoadManager }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -255,21 +234,6 @@ begin
  Result := aF1LikeTextLoadForm.Text;
 end;//TkwF1LikeTextLoadFormText.Text
 
-procedure TkwF1LikeTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
-var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
-begin
- try
-  l_aF1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aF1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeTextLoadForm));
-end;//TkwF1LikeTextLoadFormText.DoDoIt
-
 class function TkwF1LikeTextLoadFormText.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TF1LikeTextLoadForm.Text';
@@ -296,14 +260,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwF1LikeTextLoadFormText.SetValuePrim
 
-function TkwF1LikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
- aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeTextSourceExport;
- {* Реализация слова скрипта .TF1LikeTextLoadForm.TextSource }
-begin
- Result := aF1LikeTextLoadForm.TextSource;
-end;//TkwF1LikeTextLoadFormTextSource.TextSource
-
-procedure TkwF1LikeTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
+procedure TkwF1LikeTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
 var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
  try
@@ -315,8 +272,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeTextLoadForm));
-end;//TkwF1LikeTextLoadFormTextSource.DoDoIt
+ aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeTextLoadForm));
+end;//TkwF1LikeTextLoadFormText.DoDoIt
+
+function TkwF1LikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
+ aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeTextSourceExport;
+ {* Реализация слова скрипта .TF1LikeTextLoadForm.TextSource }
+begin
+ Result := aF1LikeTextLoadForm.TextSource;
+end;//TkwF1LikeTextLoadFormTextSource.TextSource
 
 class function TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
 begin
@@ -344,14 +308,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwF1LikeTextLoadFormTextSource.SetValuePrim
 
-function TkwF1LikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
- aF1LikeTextLoadForm: TF1LikeTextLoadForm): TevLoadDocumentManager;
- {* Реализация слова скрипта .TF1LikeTextLoadForm.LoadManager }
-begin
- Result := aF1LikeTextLoadForm.LoadManager;
-end;//TkwF1LikeTextLoadFormLoadManager.LoadManager
-
-procedure TkwF1LikeTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
+procedure TkwF1LikeTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
 var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
  try
@@ -363,8 +320,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeTextLoadForm));
-end;//TkwF1LikeTextLoadFormLoadManager.DoDoIt
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeTextLoadForm));
+end;//TkwF1LikeTextLoadFormTextSource.DoDoIt
+
+function TkwF1LikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
+ aF1LikeTextLoadForm: TF1LikeTextLoadForm): TevLoadDocumentManager;
+ {* Реализация слова скрипта .TF1LikeTextLoadForm.LoadManager }
+begin
+ Result := aF1LikeTextLoadForm.LoadManager;
+end;//TkwF1LikeTextLoadFormLoadManager.LoadManager
 
 class function TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
 begin
@@ -391,6 +355,21 @@ procedure TkwF1LikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackV
 begin
  RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
 end;//TkwF1LikeTextLoadFormLoadManager.SetValuePrim
+
+procedure TkwF1LikeTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
+var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
+begin
+ try
+  l_aF1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeTextLoadForm));
+end;//TkwF1LikeTextLoadFormLoadManager.DoDoIt
 
 initialization
  Tkw_Form_F1LikeTextLoad.RegisterInEngine;

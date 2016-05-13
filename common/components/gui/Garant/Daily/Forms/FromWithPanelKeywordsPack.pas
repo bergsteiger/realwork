@@ -78,21 +78,14 @@ type
  end;//Tkw_FromWithPanel_Control_WorkSpace_Push
 
  TkwFromWithPanelFormWorkSpace = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TFromWithPanelForm.WorkSpace
-[panel]Контрол WorkSpace формы TFromWithPanelForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aFromWithPanelForm .TFromWithPanelForm.WorkSpace >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TFromWithPanelForm.WorkSpace }
   private
    function WorkSpace(const aCtx: TtfwContext;
     aFromWithPanelForm: TFromWithPanelForm): TvtPanel;
     {* Реализация слова скрипта .TFromWithPanelForm.WorkSpace }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -145,21 +138,6 @@ begin
  Result := aFromWithPanelForm.WorkSpace;
 end;//TkwFromWithPanelFormWorkSpace.WorkSpace
 
-procedure TkwFromWithPanelFormWorkSpace.DoDoIt(const aCtx: TtfwContext);
-var l_aFromWithPanelForm: TFromWithPanelForm;
-begin
- try
-  l_aFromWithPanelForm := TFromWithPanelForm(aCtx.rEngine.PopObjAs(TFromWithPanelForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aFromWithPanelForm: TFromWithPanelForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(WorkSpace(aCtx, l_aFromWithPanelForm));
-end;//TkwFromWithPanelFormWorkSpace.DoDoIt
-
 class function TkwFromWithPanelFormWorkSpace.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TFromWithPanelForm.WorkSpace';
@@ -185,6 +163,21 @@ procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству WorkSpace', aCtx);
 end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
+
+procedure TkwFromWithPanelFormWorkSpace.DoDoIt(const aCtx: TtfwContext);
+var l_aFromWithPanelForm: TFromWithPanelForm;
+begin
+ try
+  l_aFromWithPanelForm := TFromWithPanelForm(aCtx.rEngine.PopObjAs(TFromWithPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFromWithPanelForm: TFromWithPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WorkSpace(aCtx, l_aFromWithPanelForm));
+end;//TkwFromWithPanelFormWorkSpace.DoDoIt
 
 initialization
  Tkw_Form_FromWithPanel.RegisterInEngine;

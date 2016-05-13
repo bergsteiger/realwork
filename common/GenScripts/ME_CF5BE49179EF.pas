@@ -139,21 +139,14 @@ type
  end;//Tkw_F1LikeFormWithBS_Component_LoadManager
 
  TkwF1LikeFormWithBSFormBaseSearchControl = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeFormWithBSForm.BaseSearchControl
-[panel]Контрол BaseSearchControl формы TF1LikeFormWithBSForm[panel]
-*Тип результата:* TnscTreeComboWithHistoryAndOperations
-*Пример:*
-[code]
-OBJECT VAR l_TnscTreeComboWithHistoryAndOperations
- aF1LikeFormWithBSForm .TF1LikeFormWithBSForm.BaseSearchControl >>> l_TnscTreeComboWithHistoryAndOperations
-[code]  }
+  {* Слово скрипта .TF1LikeFormWithBSForm.BaseSearchControl }
   private
    function BaseSearchControl(const aCtx: TtfwContext;
     aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TnscTreeComboWithHistoryAndOperations;
     {* Реализация слова скрипта .TF1LikeFormWithBSForm.BaseSearchControl }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -163,21 +156,14 @@ OBJECT VAR l_TnscTreeComboWithHistoryAndOperations
  end;//TkwF1LikeFormWithBSFormBaseSearchControl
 
  TkwF1LikeFormWithBSFormText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeFormWithBSForm.Text
-[panel]Контрол Text формы TF1LikeFormWithBSForm[panel]
-*Тип результата:* TeeEditorExport
-*Пример:*
-[code]
-OBJECT VAR l_TeeEditorExport
- aF1LikeFormWithBSForm .TF1LikeFormWithBSForm.Text >>> l_TeeEditorExport
-[code]  }
+  {* Слово скрипта .TF1LikeFormWithBSForm.Text }
   private
    function Text(const aCtx: TtfwContext;
     aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeEditorExport;
     {* Реализация слова скрипта .TF1LikeFormWithBSForm.Text }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -187,21 +173,14 @@ OBJECT VAR l_TeeEditorExport
  end;//TkwF1LikeFormWithBSFormText
 
  TkwF1LikeFormWithBSFormTextSource = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeFormWithBSForm.TextSource
-[panel]Контрол TextSource формы TF1LikeFormWithBSForm[panel]
-*Тип результата:* TeeTextSourceExport
-*Пример:*
-[code]
-OBJECT VAR l_TeeTextSourceExport
- aF1LikeFormWithBSForm .TF1LikeFormWithBSForm.TextSource >>> l_TeeTextSourceExport
-[code]  }
+  {* Слово скрипта .TF1LikeFormWithBSForm.TextSource }
   private
    function TextSource(const aCtx: TtfwContext;
     aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeTextSourceExport;
     {* Реализация слова скрипта .TF1LikeFormWithBSForm.TextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -211,21 +190,14 @@ OBJECT VAR l_TeeTextSourceExport
  end;//TkwF1LikeFormWithBSFormTextSource
 
  TkwF1LikeFormWithBSFormLoadManager = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TF1LikeFormWithBSForm.LoadManager
-[panel]Контрол LoadManager формы TF1LikeFormWithBSForm[panel]
-*Тип результата:* TevLoadDocumentManager
-*Пример:*
-[code]
-OBJECT VAR l_TevLoadDocumentManager
- aF1LikeFormWithBSForm .TF1LikeFormWithBSForm.LoadManager >>> l_TevLoadDocumentManager
-[code]  }
+  {* Слово скрипта .TF1LikeFormWithBSForm.LoadManager }
   private
    function LoadManager(const aCtx: TtfwContext;
     aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TevLoadDocumentManager;
     {* Реализация слова скрипта .TF1LikeFormWithBSForm.LoadManager }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -337,21 +309,6 @@ begin
  Result := aF1LikeFormWithBSForm.BaseSearchControl;
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.BaseSearchControl
 
-procedure TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt(const aCtx: TtfwContext);
-var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
-begin
- try
-  l_aF1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aF1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BaseSearchControl(aCtx, l_aF1LikeFormWithBSForm));
-end;//TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt
-
 class function TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TF1LikeFormWithBSForm.BaseSearchControl';
@@ -378,14 +335,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BaseSearchControl', aCtx);
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim
 
-function TkwF1LikeFormWithBSFormText.Text(const aCtx: TtfwContext;
- aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeEditorExport;
- {* Реализация слова скрипта .TF1LikeFormWithBSForm.Text }
-begin
- Result := aF1LikeFormWithBSForm.Text;
-end;//TkwF1LikeFormWithBSFormText.Text
-
-procedure TkwF1LikeFormWithBSFormText.DoDoIt(const aCtx: TtfwContext);
+procedure TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt(const aCtx: TtfwContext);
 var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
  try
@@ -397,8 +347,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeFormWithBSForm));
-end;//TkwF1LikeFormWithBSFormText.DoDoIt
+ aCtx.rEngine.PushObj(BaseSearchControl(aCtx, l_aF1LikeFormWithBSForm));
+end;//TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt
+
+function TkwF1LikeFormWithBSFormText.Text(const aCtx: TtfwContext;
+ aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeEditorExport;
+ {* Реализация слова скрипта .TF1LikeFormWithBSForm.Text }
+begin
+ Result := aF1LikeFormWithBSForm.Text;
+end;//TkwF1LikeFormWithBSFormText.Text
 
 class function TkwF1LikeFormWithBSFormText.GetWordNameForRegister: AnsiString;
 begin
@@ -426,14 +383,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwF1LikeFormWithBSFormText.SetValuePrim
 
-function TkwF1LikeFormWithBSFormTextSource.TextSource(const aCtx: TtfwContext;
- aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeTextSourceExport;
- {* Реализация слова скрипта .TF1LikeFormWithBSForm.TextSource }
-begin
- Result := aF1LikeFormWithBSForm.TextSource;
-end;//TkwF1LikeFormWithBSFormTextSource.TextSource
-
-procedure TkwF1LikeFormWithBSFormTextSource.DoDoIt(const aCtx: TtfwContext);
+procedure TkwF1LikeFormWithBSFormText.DoDoIt(const aCtx: TtfwContext);
 var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
  try
@@ -445,8 +395,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeFormWithBSForm));
-end;//TkwF1LikeFormWithBSFormTextSource.DoDoIt
+ aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeFormWithBSForm));
+end;//TkwF1LikeFormWithBSFormText.DoDoIt
+
+function TkwF1LikeFormWithBSFormTextSource.TextSource(const aCtx: TtfwContext;
+ aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TeeTextSourceExport;
+ {* Реализация слова скрипта .TF1LikeFormWithBSForm.TextSource }
+begin
+ Result := aF1LikeFormWithBSForm.TextSource;
+end;//TkwF1LikeFormWithBSFormTextSource.TextSource
 
 class function TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister: AnsiString;
 begin
@@ -474,14 +431,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwF1LikeFormWithBSFormTextSource.SetValuePrim
 
-function TkwF1LikeFormWithBSFormLoadManager.LoadManager(const aCtx: TtfwContext;
- aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TevLoadDocumentManager;
- {* Реализация слова скрипта .TF1LikeFormWithBSForm.LoadManager }
-begin
- Result := aF1LikeFormWithBSForm.LoadManager;
-end;//TkwF1LikeFormWithBSFormLoadManager.LoadManager
-
-procedure TkwF1LikeFormWithBSFormLoadManager.DoDoIt(const aCtx: TtfwContext);
+procedure TkwF1LikeFormWithBSFormTextSource.DoDoIt(const aCtx: TtfwContext);
 var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
  try
@@ -493,8 +443,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeFormWithBSForm));
-end;//TkwF1LikeFormWithBSFormLoadManager.DoDoIt
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeFormWithBSForm));
+end;//TkwF1LikeFormWithBSFormTextSource.DoDoIt
+
+function TkwF1LikeFormWithBSFormLoadManager.LoadManager(const aCtx: TtfwContext;
+ aF1LikeFormWithBSForm: TF1LikeFormWithBSForm): TevLoadDocumentManager;
+ {* Реализация слова скрипта .TF1LikeFormWithBSForm.LoadManager }
+begin
+ Result := aF1LikeFormWithBSForm.LoadManager;
+end;//TkwF1LikeFormWithBSFormLoadManager.LoadManager
 
 class function TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister: AnsiString;
 begin
@@ -521,6 +478,21 @@ procedure TkwF1LikeFormWithBSFormLoadManager.SetValuePrim(const aValue: TtfwStac
 begin
  RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
 end;//TkwF1LikeFormWithBSFormLoadManager.SetValuePrim
+
+procedure TkwF1LikeFormWithBSFormLoadManager.DoDoIt(const aCtx: TtfwContext);
+var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
+begin
+ try
+  l_aF1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeFormWithBSForm));
+end;//TkwF1LikeFormWithBSFormLoadManager.DoDoIt
 
 initialization
  Tkw_Form_F1LikeFormWithBS.RegisterInEngine;

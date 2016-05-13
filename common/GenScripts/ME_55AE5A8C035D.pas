@@ -52,8 +52,8 @@ type
     aDictionaryEx: TtfwDictionaryEx): Il3CString;
     {* Реализация слова скрипта pop:DictionaryEx:FileName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -67,8 +67,8 @@ type
     aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
     {* Реализация слова скрипта pop:DictionaryEx:UsedDictionaries }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -82,8 +82,8 @@ type
     aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
     {* Реализация слова скрипта pop:DictionaryEx:ExportedDictionaries }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -98,8 +98,8 @@ type
     aDictionary: TtfwDictionaryEx);
     {* Реализация слова скрипта pop:DictionaryEx:ExportDictionary }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -114,8 +114,8 @@ type
     aDictionary: TtfwDictionaryEx);
     {* Реализация слова скрипта pop:DictionaryEx:UseDictionary }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -129,8 +129,8 @@ type
     aDictionaryEx: TtfwDictionaryEx): AnsiString;
     {* Реализация слова скрипта pop:DictionaryEx:FileDateTime }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -144,8 +144,8 @@ type
     aDictionaryEx: TtfwDictionaryEx);
     {* Реализация слова скрипта pop:DictionaryEx:RemoveFromCache }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -161,28 +161,13 @@ type
 function TkwPopDictionaryExFileName.FileName(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx): Il3CString;
  {* Реализация слова скрипта pop:DictionaryEx:FileName }
-//#UC START# *55AE62910135_06E8451D9B30_var*
-//#UC END# *55AE62910135_06E8451D9B30_var*
+//#UC START# *55AE62910135_55AE62910135_559E8B2E0385_Word_var*
+//#UC END# *55AE62910135_55AE62910135_559E8B2E0385_Word_var*
 begin
-//#UC START# *55AE62910135_06E8451D9B30_impl*
+//#UC START# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
  Result := aDictionaryEx.FileName;
-//#UC END# *55AE62910135_06E8451D9B30_impl*
+//#UC END# *55AE62910135_55AE62910135_559E8B2E0385_Word_impl*
 end;//TkwPopDictionaryExFileName.FileName
-
-procedure TkwPopDictionaryExFileName.DoDoIt(const aCtx: TtfwContext);
-var l_aDictionaryEx: TtfwDictionaryEx;
-begin
- try
-  l_aDictionaryEx := TtfwDictionaryEx(aCtx.rEngine.PopObjAs(TtfwDictionaryEx));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aDictionaryEx: TtfwDictionaryEx : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(FileName(aCtx, l_aDictionaryEx));
-end;//TkwPopDictionaryExFileName.DoDoIt
 
 class function TkwPopDictionaryExFileName.GetWordNameForRegister: AnsiString;
 begin
@@ -204,18 +189,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExFileName.ParamsTypes
 
-function TkwPopDictionaryExUsedDictionaries.UsedDictionaries(const aCtx: TtfwContext;
- aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
- {* Реализация слова скрипта pop:DictionaryEx:UsedDictionaries }
-//#UC START# *55AE6569010C_B94C35EBE3DE_var*
-//#UC END# *55AE6569010C_B94C35EBE3DE_var*
-begin
-//#UC START# *55AE6569010C_B94C35EBE3DE_impl*
- Result := TtfwUsedDictionariesIterator.Make(aDictionaryEx);
-//#UC END# *55AE6569010C_B94C35EBE3DE_impl*
-end;//TkwPopDictionaryExUsedDictionaries.UsedDictionaries
-
-procedure TkwPopDictionaryExUsedDictionaries.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopDictionaryExFileName.DoDoIt(const aCtx: TtfwContext);
 var l_aDictionaryEx: TtfwDictionaryEx;
 begin
  try
@@ -227,8 +201,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushList(UsedDictionaries(aCtx, l_aDictionaryEx));
-end;//TkwPopDictionaryExUsedDictionaries.DoDoIt
+ aCtx.rEngine.PushString(FileName(aCtx, l_aDictionaryEx));
+end;//TkwPopDictionaryExFileName.DoDoIt
+
+function TkwPopDictionaryExUsedDictionaries.UsedDictionaries(const aCtx: TtfwContext;
+ aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
+ {* Реализация слова скрипта pop:DictionaryEx:UsedDictionaries }
+//#UC START# *55AE6569010C_55AE6569010C_559E8B2E0385_Word_var*
+//#UC END# *55AE6569010C_55AE6569010C_559E8B2E0385_Word_var*
+begin
+//#UC START# *55AE6569010C_55AE6569010C_559E8B2E0385_Word_impl*
+ Result := TtfwUsedDictionariesIterator.Make(aDictionaryEx);
+//#UC END# *55AE6569010C_55AE6569010C_559E8B2E0385_Word_impl*
+end;//TkwPopDictionaryExUsedDictionaries.UsedDictionaries
 
 class function TkwPopDictionaryExUsedDictionaries.GetWordNameForRegister: AnsiString;
 begin
@@ -250,18 +235,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExUsedDictionaries.ParamsTypes
 
-function TkwPopDictionaryExExportedDictionaries.ExportedDictionaries(const aCtx: TtfwContext;
- aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
- {* Реализация слова скрипта pop:DictionaryEx:ExportedDictionaries }
-//#UC START# *55AE657A03C8_6AF5E6295E46_var*
-//#UC END# *55AE657A03C8_6AF5E6295E46_var*
-begin
-//#UC START# *55AE657A03C8_6AF5E6295E46_impl*
- Result := TtfwExportedDictionariesIterator.Make(aDictionaryEx);
-//#UC END# *55AE657A03C8_6AF5E6295E46_impl*
-end;//TkwPopDictionaryExExportedDictionaries.ExportedDictionaries
-
-procedure TkwPopDictionaryExExportedDictionaries.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopDictionaryExUsedDictionaries.DoDoIt(const aCtx: TtfwContext);
 var l_aDictionaryEx: TtfwDictionaryEx;
 begin
  try
@@ -273,8 +247,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushList(ExportedDictionaries(aCtx, l_aDictionaryEx));
-end;//TkwPopDictionaryExExportedDictionaries.DoDoIt
+ aCtx.rEngine.PushList(UsedDictionaries(aCtx, l_aDictionaryEx));
+end;//TkwPopDictionaryExUsedDictionaries.DoDoIt
+
+function TkwPopDictionaryExExportedDictionaries.ExportedDictionaries(const aCtx: TtfwContext;
+ aDictionaryEx: TtfwDictionaryEx): ItfwValueList;
+ {* Реализация слова скрипта pop:DictionaryEx:ExportedDictionaries }
+//#UC START# *55AE657A03C8_55AE657A03C8_559E8B2E0385_Word_var*
+//#UC END# *55AE657A03C8_55AE657A03C8_559E8B2E0385_Word_var*
+begin
+//#UC START# *55AE657A03C8_55AE657A03C8_559E8B2E0385_Word_impl*
+ Result := TtfwExportedDictionariesIterator.Make(aDictionaryEx);
+//#UC END# *55AE657A03C8_55AE657A03C8_559E8B2E0385_Word_impl*
+end;//TkwPopDictionaryExExportedDictionaries.ExportedDictionaries
 
 class function TkwPopDictionaryExExportedDictionaries.GetWordNameForRegister: AnsiString;
 begin
@@ -296,17 +281,52 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExExportedDictionaries.ParamsTypes
 
+procedure TkwPopDictionaryExExportedDictionaries.DoDoIt(const aCtx: TtfwContext);
+var l_aDictionaryEx: TtfwDictionaryEx;
+begin
+ try
+  l_aDictionaryEx := TtfwDictionaryEx(aCtx.rEngine.PopObjAs(TtfwDictionaryEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionaryEx: TtfwDictionaryEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushList(ExportedDictionaries(aCtx, l_aDictionaryEx));
+end;//TkwPopDictionaryExExportedDictionaries.DoDoIt
+
 procedure TkwPopDictionaryExExportDictionary.ExportDictionary(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx;
  aDictionary: TtfwDictionaryEx);
  {* Реализация слова скрипта pop:DictionaryEx:ExportDictionary }
-//#UC START# *55AE65FD001D_4A28BCF78342_var*
-//#UC END# *55AE65FD001D_4A28BCF78342_var*
+//#UC START# *55AE65FD001D_55AE65FD001D_559E8B2E0385_Word_var*
+//#UC END# *55AE65FD001D_55AE65FD001D_559E8B2E0385_Word_var*
 begin
-//#UC START# *55AE65FD001D_4A28BCF78342_impl*
+//#UC START# *55AE65FD001D_55AE65FD001D_559E8B2E0385_Word_impl*
  aDictionaryEx.ExportDictionary(aDictionary);
-//#UC END# *55AE65FD001D_4A28BCF78342_impl*
+//#UC END# *55AE65FD001D_55AE65FD001D_559E8B2E0385_Word_impl*
 end;//TkwPopDictionaryExExportDictionary.ExportDictionary
+
+class function TkwPopDictionaryExExportDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:ExportDictionary';
+end;//TkwPopDictionaryExExportDictionary.GetWordNameForRegister
+
+function TkwPopDictionaryExExportDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopDictionaryExExportDictionary.GetResultTypeInfo
+
+function TkwPopDictionaryExExportDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopDictionaryExExportDictionary.GetAllParamsCount
+
+function TkwPopDictionaryExExportDictionary.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), TypeInfo(TtfwDictionaryEx)]);
+end;//TkwPopDictionaryExExportDictionary.ParamsTypes
 
 procedure TkwPopDictionaryExExportDictionary.DoDoIt(const aCtx: TtfwContext);
 var l_aDictionaryEx: TtfwDictionaryEx;
@@ -333,37 +353,37 @@ begin
  ExportDictionary(aCtx, l_aDictionaryEx, l_aDictionary);
 end;//TkwPopDictionaryExExportDictionary.DoDoIt
 
-class function TkwPopDictionaryExExportDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:ExportDictionary';
-end;//TkwPopDictionaryExExportDictionary.GetWordNameForRegister
-
-function TkwPopDictionaryExExportDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopDictionaryExExportDictionary.GetResultTypeInfo
-
-function TkwPopDictionaryExExportDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopDictionaryExExportDictionary.GetAllParamsCount
-
-function TkwPopDictionaryExExportDictionary.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), TypeInfo(TtfwDictionaryEx)]);
-end;//TkwPopDictionaryExExportDictionary.ParamsTypes
-
 procedure TkwPopDictionaryExUseDictionary.UseDictionary(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx;
  aDictionary: TtfwDictionaryEx);
  {* Реализация слова скрипта pop:DictionaryEx:UseDictionary }
-//#UC START# *55AE661B00DA_F63A2FD719D9_var*
-//#UC END# *55AE661B00DA_F63A2FD719D9_var*
+//#UC START# *55AE661B00DA_55AE661B00DA_559E8B2E0385_Word_var*
+//#UC END# *55AE661B00DA_55AE661B00DA_559E8B2E0385_Word_var*
 begin
-//#UC START# *55AE661B00DA_F63A2FD719D9_impl*
+//#UC START# *55AE661B00DA_55AE661B00DA_559E8B2E0385_Word_impl*
  aDictionaryEx.UseDictionary(aDictionary);
-//#UC END# *55AE661B00DA_F63A2FD719D9_impl*
+//#UC END# *55AE661B00DA_55AE661B00DA_559E8B2E0385_Word_impl*
 end;//TkwPopDictionaryExUseDictionary.UseDictionary
+
+class function TkwPopDictionaryExUseDictionary.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:DictionaryEx:UseDictionary';
+end;//TkwPopDictionaryExUseDictionary.GetWordNameForRegister
+
+function TkwPopDictionaryExUseDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopDictionaryExUseDictionary.GetResultTypeInfo
+
+function TkwPopDictionaryExUseDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopDictionaryExUseDictionary.GetAllParamsCount
+
+function TkwPopDictionaryExUseDictionary.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), TypeInfo(TtfwDictionaryEx)]);
+end;//TkwPopDictionaryExUseDictionary.ParamsTypes
 
 procedure TkwPopDictionaryExUseDictionary.DoDoIt(const aCtx: TtfwContext);
 var l_aDictionaryEx: TtfwDictionaryEx;
@@ -390,51 +410,16 @@ begin
  UseDictionary(aCtx, l_aDictionaryEx, l_aDictionary);
 end;//TkwPopDictionaryExUseDictionary.DoDoIt
 
-class function TkwPopDictionaryExUseDictionary.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:DictionaryEx:UseDictionary';
-end;//TkwPopDictionaryExUseDictionary.GetWordNameForRegister
-
-function TkwPopDictionaryExUseDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopDictionaryExUseDictionary.GetResultTypeInfo
-
-function TkwPopDictionaryExUseDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopDictionaryExUseDictionary.GetAllParamsCount
-
-function TkwPopDictionaryExUseDictionary.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx), TypeInfo(TtfwDictionaryEx)]);
-end;//TkwPopDictionaryExUseDictionary.ParamsTypes
-
 function TkwPopDictionaryExFileDateTime.FileDateTime(const aCtx: TtfwContext;
  aDictionaryEx: TtfwDictionaryEx): AnsiString;
  {* Реализация слова скрипта pop:DictionaryEx:FileDateTime }
-//#UC START# *55AE66560055_308455C44800_var*
-//#UC END# *55AE66560055_308455C44800_var*
+//#UC START# *55AE66560055_55AE66560055_559E8B2E0385_Word_var*
+//#UC END# *55AE66560055_55AE66560055_559E8B2E0385_Word_var*
 begin
-//#UC START# *55AE66560055_308455C44800_impl*
+//#UC START# *55AE66560055_55AE66560055_559E8B2E0385_Word_impl*
  Result := l3DateTimeToStr(aDictionaryEx.FileDateTime);
-//#UC END# *55AE66560055_308455C44800_impl*
+//#UC END# *55AE66560055_55AE66560055_559E8B2E0385_Word_impl*
 end;//TkwPopDictionaryExFileDateTime.FileDateTime
-
-procedure TkwPopDictionaryExFileDateTime.DoDoIt(const aCtx: TtfwContext);
-var l_aDictionaryEx: TtfwDictionaryEx;
-begin
- try
-  l_aDictionaryEx := TtfwDictionaryEx(aCtx.rEngine.PopObjAs(TtfwDictionaryEx));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aDictionaryEx: TtfwDictionaryEx : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(FileDateTime(aCtx, l_aDictionaryEx));
-end;//TkwPopDictionaryExFileDateTime.DoDoIt
 
 class function TkwPopDictionaryExFileDateTime.GetWordNameForRegister: AnsiString;
 begin
@@ -456,31 +441,7 @@ begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExFileDateTime.ParamsTypes
 
-procedure TkwPopDictionaryExRemoveFromCache.RemoveFromCache(const aCtx: TtfwContext;
- aDictionaryEx: TtfwDictionaryEx);
- {* Реализация слова скрипта pop:DictionaryEx:RemoveFromCache }
-//#UC START# *55AE84FA0076_B74ACC6F66BC_var*
-{$IfDef seCacheDict}
-var
- l_D : TtfwDictionaryEx;
-{$EndIf seCacheDict}
-//#UC END# *55AE84FA0076_B74ACC6F66BC_var*
-begin
-//#UC START# *55AE84FA0076_B74ACC6F66BC_impl*
- {$IfDef seCacheDict}
- l_D := aDictionaryEx.Use;
- try
-  TtfwDictionaryCache.Instance.Remove(l_D);
-  if (l_D Is TtfwMainDictionary) then
-   TtfwMainDictionaryCache.Instance.Remove(TtfwMainDictionary(l_D));
- finally
-  FreeAndNil(l_D);
- end;//try..finally
- {$EndIf seCacheDict}
-//#UC END# *55AE84FA0076_B74ACC6F66BC_impl*
-end;//TkwPopDictionaryExRemoveFromCache.RemoveFromCache
-
-procedure TkwPopDictionaryExRemoveFromCache.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopDictionaryExFileDateTime.DoDoIt(const aCtx: TtfwContext);
 var l_aDictionaryEx: TtfwDictionaryEx;
 begin
  try
@@ -492,8 +453,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- RemoveFromCache(aCtx, l_aDictionaryEx);
-end;//TkwPopDictionaryExRemoveFromCache.DoDoIt
+ aCtx.rEngine.PushString(FileDateTime(aCtx, l_aDictionaryEx));
+end;//TkwPopDictionaryExFileDateTime.DoDoIt
+
+procedure TkwPopDictionaryExRemoveFromCache.RemoveFromCache(const aCtx: TtfwContext;
+ aDictionaryEx: TtfwDictionaryEx);
+ {* Реализация слова скрипта pop:DictionaryEx:RemoveFromCache }
+//#UC START# *55AE84FA0076_55AE84FA0076_559E8B2E0385_Word_var*
+{$IfDef seCacheDict}
+var
+ l_D : TtfwDictionaryEx;
+{$EndIf seCacheDict}
+//#UC END# *55AE84FA0076_55AE84FA0076_559E8B2E0385_Word_var*
+begin
+//#UC START# *55AE84FA0076_55AE84FA0076_559E8B2E0385_Word_impl*
+ {$IfDef seCacheDict}
+ l_D := aDictionaryEx.Use;
+ try
+  TtfwDictionaryCache.Instance.Remove(l_D);
+  if (l_D Is TtfwMainDictionary) then
+   TtfwMainDictionaryCache.Instance.Remove(TtfwMainDictionary(l_D));
+ finally
+  FreeAndNil(l_D);
+ end;//try..finally
+ {$EndIf seCacheDict}
+//#UC END# *55AE84FA0076_55AE84FA0076_559E8B2E0385_Word_impl*
+end;//TkwPopDictionaryExRemoveFromCache.RemoveFromCache
 
 class function TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister: AnsiString;
 begin
@@ -514,6 +499,21 @@ function TkwPopDictionaryExRemoveFromCache.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwDictionaryEx)]);
 end;//TkwPopDictionaryExRemoveFromCache.ParamsTypes
+
+procedure TkwPopDictionaryExRemoveFromCache.DoDoIt(const aCtx: TtfwContext);
+var l_aDictionaryEx: TtfwDictionaryEx;
+begin
+ try
+  l_aDictionaryEx := TtfwDictionaryEx(aCtx.rEngine.PopObjAs(TtfwDictionaryEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionaryEx: TtfwDictionaryEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemoveFromCache(aCtx, l_aDictionaryEx);
+end;//TkwPopDictionaryExRemoveFromCache.DoDoIt
 
 class function TtfwDictionaryExWordsPackResNameGetter.ResName: AnsiString;
 begin

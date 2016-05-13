@@ -106,21 +106,14 @@ type
  end;//Tkw_TextLoad_Component_LoadManager
 
  TkwTextLoadFormText = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextLoadForm.Text
-[panel]Контрол Text формы TTextLoadForm[panel]
-*Тип результата:* TevEditor
-*Пример:*
-[code]
-OBJECT VAR l_TevEditor
- aTextLoadForm .TTextLoadForm.Text >>> l_TevEditor
-[code]  }
+  {* Слово скрипта .TTextLoadForm.Text }
   private
    function Text(const aCtx: TtfwContext;
     aTextLoadForm: TTextLoadForm): TevEditor;
     {* Реализация слова скрипта .TTextLoadForm.Text }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -130,21 +123,14 @@ OBJECT VAR l_TevEditor
  end;//TkwTextLoadFormText
 
  TkwTextLoadFormTextSource = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextLoadForm.TextSource
-[panel]Контрол TextSource формы TTextLoadForm[panel]
-*Тип результата:* TevTextSource
-*Пример:*
-[code]
-OBJECT VAR l_TevTextSource
- aTextLoadForm .TTextLoadForm.TextSource >>> l_TevTextSource
-[code]  }
+  {* Слово скрипта .TTextLoadForm.TextSource }
   private
    function TextSource(const aCtx: TtfwContext;
     aTextLoadForm: TTextLoadForm): TevTextSource;
     {* Реализация слова скрипта .TTextLoadForm.TextSource }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -154,21 +140,14 @@ OBJECT VAR l_TevTextSource
  end;//TkwTextLoadFormTextSource
 
  TkwTextLoadFormLoadManager = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TTextLoadForm.LoadManager
-[panel]Контрол LoadManager формы TTextLoadForm[panel]
-*Тип результата:* TevLoadDocumentManager
-*Пример:*
-[code]
-OBJECT VAR l_TevLoadDocumentManager
- aTextLoadForm .TTextLoadForm.LoadManager >>> l_TevLoadDocumentManager
-[code]  }
+  {* Слово скрипта .TTextLoadForm.LoadManager }
   private
    function LoadManager(const aCtx: TtfwContext;
     aTextLoadForm: TTextLoadForm): TevLoadDocumentManager;
     {* Реализация слова скрипта .TTextLoadForm.LoadManager }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -253,21 +232,6 @@ begin
  Result := aTextLoadForm.Text;
 end;//TkwTextLoadFormText.Text
 
-procedure TkwTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
-var l_aTextLoadForm: TTextLoadForm;
-begin
- try
-  l_aTextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Text(aCtx, l_aTextLoadForm));
-end;//TkwTextLoadFormText.DoDoIt
-
 class function TkwTextLoadFormText.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TTextLoadForm.Text';
@@ -294,14 +258,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwTextLoadFormText.SetValuePrim
 
-function TkwTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
- aTextLoadForm: TTextLoadForm): TevTextSource;
- {* Реализация слова скрипта .TTextLoadForm.TextSource }
-begin
- Result := aTextLoadForm.TextSource;
-end;//TkwTextLoadFormTextSource.TextSource
-
-procedure TkwTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
+procedure TkwTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
 var l_aTextLoadForm: TTextLoadForm;
 begin
  try
@@ -313,8 +270,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(TextSource(aCtx, l_aTextLoadForm));
-end;//TkwTextLoadFormTextSource.DoDoIt
+ aCtx.rEngine.PushObj(Text(aCtx, l_aTextLoadForm));
+end;//TkwTextLoadFormText.DoDoIt
+
+function TkwTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
+ aTextLoadForm: TTextLoadForm): TevTextSource;
+ {* Реализация слова скрипта .TTextLoadForm.TextSource }
+begin
+ Result := aTextLoadForm.TextSource;
+end;//TkwTextLoadFormTextSource.TextSource
 
 class function TkwTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
 begin
@@ -342,14 +306,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwTextLoadFormTextSource.SetValuePrim
 
-function TkwTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
- aTextLoadForm: TTextLoadForm): TevLoadDocumentManager;
- {* Реализация слова скрипта .TTextLoadForm.LoadManager }
-begin
- Result := aTextLoadForm.LoadManager;
-end;//TkwTextLoadFormLoadManager.LoadManager
-
-procedure TkwTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
+procedure TkwTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
 var l_aTextLoadForm: TTextLoadForm;
 begin
  try
@@ -361,8 +318,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LoadManager(aCtx, l_aTextLoadForm));
-end;//TkwTextLoadFormLoadManager.DoDoIt
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aTextLoadForm));
+end;//TkwTextLoadFormTextSource.DoDoIt
+
+function TkwTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
+ aTextLoadForm: TTextLoadForm): TevLoadDocumentManager;
+ {* Реализация слова скрипта .TTextLoadForm.LoadManager }
+begin
+ Result := aTextLoadForm.LoadManager;
+end;//TkwTextLoadFormLoadManager.LoadManager
 
 class function TkwTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
 begin
@@ -389,6 +353,21 @@ procedure TkwTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
 end;//TkwTextLoadFormLoadManager.SetValuePrim
+
+procedure TkwTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
+var l_aTextLoadForm: TTextLoadForm;
+begin
+ try
+  l_aTextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aTextLoadForm));
+end;//TkwTextLoadFormLoadManager.DoDoIt
 
 initialization
  Tkw_Form_TextLoad.RegisterInEngine;

@@ -39,8 +39,8 @@ type
     const aNode: Il3SimpleNode): Boolean;
     {* Реализация слова скрипта Node:IsFirst }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -56,8 +56,8 @@ type
     const aNode: Il3SimpleNode): Boolean;
     {* Реализация слова скрипта Node:IsLast }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -73,8 +73,8 @@ type
     const aNode: Il3SimpleNode): Integer;
     {* Реализация слова скрипта Node:Flags }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,8 +90,8 @@ type
     const aNode: Il3SimpleNode): Tl3WString;
     {* Реализация слова скрипта Node:Text }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -112,21 +112,6 @@ function TkwNodeIsFirst.IsFirst(const aCtx: TtfwContext;
 begin
  Result := aNode.IsFirst;
 end;//TkwNodeIsFirst.IsFirst
-
-procedure TkwNodeIsFirst.DoDoIt(const aCtx: TtfwContext);
-var l_aNode: Il3SimpleNode;
-begin
- try
-  l_aNode := Il3SimpleNode(aCtx.rEngine.PopIntf(Il3SimpleNode));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aNode: Il3SimpleNode : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsFirst(aCtx, l_aNode));
-end;//TkwNodeIsFirst.DoDoIt
 
 class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
 begin
@@ -154,14 +139,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsFirst', aCtx);
 end;//TkwNodeIsFirst.SetValuePrim
 
-function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
- const aNode: Il3SimpleNode): Boolean;
- {* Реализация слова скрипта Node:IsLast }
-begin
- Result := aNode.IsLast;
-end;//TkwNodeIsLast.IsLast
-
-procedure TkwNodeIsLast.DoDoIt(const aCtx: TtfwContext);
+procedure TkwNodeIsFirst.DoDoIt(const aCtx: TtfwContext);
 var l_aNode: Il3SimpleNode;
 begin
  try
@@ -173,8 +151,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsLast(aCtx, l_aNode));
-end;//TkwNodeIsLast.DoDoIt
+ aCtx.rEngine.PushBool(IsFirst(aCtx, l_aNode));
+end;//TkwNodeIsFirst.DoDoIt
+
+function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Boolean;
+ {* Реализация слова скрипта Node:IsLast }
+begin
+ Result := aNode.IsLast;
+end;//TkwNodeIsLast.IsLast
 
 class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
 begin
@@ -202,14 +187,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsLast', aCtx);
 end;//TkwNodeIsLast.SetValuePrim
 
-function TkwNodeFlags.Flags(const aCtx: TtfwContext;
- const aNode: Il3SimpleNode): Integer;
- {* Реализация слова скрипта Node:Flags }
-begin
- Result := aNode.Flags;
-end;//TkwNodeFlags.Flags
-
-procedure TkwNodeFlags.DoDoIt(const aCtx: TtfwContext);
+procedure TkwNodeIsLast.DoDoIt(const aCtx: TtfwContext);
 var l_aNode: Il3SimpleNode;
 begin
  try
@@ -221,8 +199,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Flags(aCtx, l_aNode));
-end;//TkwNodeFlags.DoDoIt
+ aCtx.rEngine.PushBool(IsLast(aCtx, l_aNode));
+end;//TkwNodeIsLast.DoDoIt
+
+function TkwNodeFlags.Flags(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Integer;
+ {* Реализация слова скрипта Node:Flags }
+begin
+ Result := aNode.Flags;
+end;//TkwNodeFlags.Flags
 
 class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
 begin
@@ -250,14 +235,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Flags', aCtx);
 end;//TkwNodeFlags.SetValuePrim
 
-function TkwNodeText.Text(const aCtx: TtfwContext;
- const aNode: Il3SimpleNode): Tl3WString;
- {* Реализация слова скрипта Node:Text }
-begin
- Result := aNode.Text;
-end;//TkwNodeText.Text
-
-procedure TkwNodeText.DoDoIt(const aCtx: TtfwContext);
+procedure TkwNodeFlags.DoDoIt(const aCtx: TtfwContext);
 var l_aNode: Il3SimpleNode;
 begin
  try
@@ -269,8 +247,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(Text(aCtx, l_aNode));
-end;//TkwNodeText.DoDoIt
+ aCtx.rEngine.PushInt(Flags(aCtx, l_aNode));
+end;//TkwNodeFlags.DoDoIt
+
+function TkwNodeText.Text(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Tl3WString;
+ {* Реализация слова скрипта Node:Text }
+begin
+ Result := aNode.Text;
+end;//TkwNodeText.Text
 
 class function TkwNodeText.GetWordNameForRegister: AnsiString;
 begin
@@ -297,6 +282,21 @@ procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwNodeText.SetValuePrim
+
+procedure TkwNodeText.DoDoIt(const aCtx: TtfwContext);
+var l_aNode: Il3SimpleNode;
+begin
+ try
+  l_aNode := Il3SimpleNode(aCtx.rEngine.PopIntf(Il3SimpleNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3SimpleNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Text(aCtx, l_aNode));
+end;//TkwNodeText.DoDoIt
 
 class function Tl3NodesKeyWordsPackResNameGetter.ResName: AnsiString;
 begin

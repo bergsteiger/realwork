@@ -42,8 +42,8 @@ type
     const aScriptEngine: ItfwScriptEngine): TtfwKeywordFinder;
     {* Реализация слова скрипта pop:ScriptEngine:AsKeywordFinder }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -58,8 +58,8 @@ type
     aWord: TtfwWord);
     {* Реализация слова скрипта pop:ScriptEngine:AddInitialization }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -73,8 +73,8 @@ type
     const aScriptEngine: ItfwScriptEngine): TtfwDictionaryEx;
     {* Реализация слова скрипта pop:ScriptEngine:CurrentCompilingDictionary }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -89,8 +89,8 @@ type
     aWord: TtfwWord);
     {* Реализация слова скрипта pop:ScriptEngine:DisableForHelp }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -100,28 +100,13 @@ type
 function TkwPopScriptEngineAsKeywordFinder.AsKeywordFinder(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:ScriptEngine:AsKeywordFinder }
-//#UC START# *559BD88103B1_63D6AB9D9B8E_var*
-//#UC END# *559BD88103B1_63D6AB9D9B8E_var*
+//#UC START# *559BD88103B1_559BD88103B1_4DB008DD01BD_Word_var*
+//#UC END# *559BD88103B1_559BD88103B1_4DB008DD01BD_Word_var*
 begin
-//#UC START# *559BD88103B1_63D6AB9D9B8E_impl*
+//#UC START# *559BD88103B1_559BD88103B1_4DB008DD01BD_Word_impl*
  Result := aScriptEngine.KeywordFinder(aCtx);
-//#UC END# *559BD88103B1_63D6AB9D9B8E_impl*
+//#UC END# *559BD88103B1_559BD88103B1_4DB008DD01BD_Word_impl*
 end;//TkwPopScriptEngineAsKeywordFinder.AsKeywordFinder
-
-procedure TkwPopScriptEngineAsKeywordFinder.DoDoIt(const aCtx: TtfwContext);
-var l_aScriptEngine: ItfwScriptEngine;
-begin
- try
-  l_aScriptEngine := ItfwScriptEngine(aCtx.rEngine.PopIntf(ItfwScriptEngine));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aScriptEngine: ItfwScriptEngine : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(AsKeywordFinder(aCtx, l_aScriptEngine));
-end;//TkwPopScriptEngineAsKeywordFinder.DoDoIt
 
 class function TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister: AnsiString;
 begin
@@ -143,17 +128,52 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine)]);
 end;//TkwPopScriptEngineAsKeywordFinder.ParamsTypes
 
+procedure TkwPopScriptEngineAsKeywordFinder.DoDoIt(const aCtx: TtfwContext);
+var l_aScriptEngine: ItfwScriptEngine;
+begin
+ try
+  l_aScriptEngine := ItfwScriptEngine(aCtx.rEngine.PopIntf(ItfwScriptEngine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aScriptEngine: ItfwScriptEngine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(AsKeywordFinder(aCtx, l_aScriptEngine));
+end;//TkwPopScriptEngineAsKeywordFinder.DoDoIt
+
 procedure TkwPopScriptEngineAddInitialization.AddInitialization(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine;
  aWord: TtfwWord);
  {* Реализация слова скрипта pop:ScriptEngine:AddInitialization }
-//#UC START# *55A3DFCE00D9_F4290567147F_var*
-//#UC END# *55A3DFCE00D9_F4290567147F_var*
+//#UC START# *55A3DFCE00D9_55A3DFCE00D9_4DB008DD01BD_Word_var*
+//#UC END# *55A3DFCE00D9_55A3DFCE00D9_4DB008DD01BD_Word_var*
 begin
-//#UC START# *55A3DFCE00D9_F4290567147F_impl*
+//#UC START# *55A3DFCE00D9_55A3DFCE00D9_4DB008DD01BD_Word_impl*
  aCtx.rEngine.AddInitialization(aCtx, aWord);
-//#UC END# *55A3DFCE00D9_F4290567147F_impl*
+//#UC END# *55A3DFCE00D9_55A3DFCE00D9_4DB008DD01BD_Word_impl*
 end;//TkwPopScriptEngineAddInitialization.AddInitialization
+
+class function TkwPopScriptEngineAddInitialization.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScriptEngine:AddInitialization';
+end;//TkwPopScriptEngineAddInitialization.GetWordNameForRegister
+
+function TkwPopScriptEngineAddInitialization.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopScriptEngineAddInitialization.GetResultTypeInfo
+
+function TkwPopScriptEngineAddInitialization.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopScriptEngineAddInitialization.GetAllParamsCount
+
+function TkwPopScriptEngineAddInitialization.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine), TypeInfo(TtfwWord)]);
+end;//TkwPopScriptEngineAddInitialization.ParamsTypes
 
 procedure TkwPopScriptEngineAddInitialization.DoDoIt(const aCtx: TtfwContext);
 var l_aScriptEngine: ItfwScriptEngine;
@@ -180,51 +200,16 @@ begin
  AddInitialization(aCtx, l_aScriptEngine, l_aWord);
 end;//TkwPopScriptEngineAddInitialization.DoDoIt
 
-class function TkwPopScriptEngineAddInitialization.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScriptEngine:AddInitialization';
-end;//TkwPopScriptEngineAddInitialization.GetWordNameForRegister
-
-function TkwPopScriptEngineAddInitialization.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopScriptEngineAddInitialization.GetResultTypeInfo
-
-function TkwPopScriptEngineAddInitialization.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopScriptEngineAddInitialization.GetAllParamsCount
-
-function TkwPopScriptEngineAddInitialization.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine), TypeInfo(TtfwWord)]);
-end;//TkwPopScriptEngineAddInitialization.ParamsTypes
-
 function TkwPopScriptEngineCurrentCompilingDictionary.CurrentCompilingDictionary(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine): TtfwDictionaryEx;
  {* Реализация слова скрипта pop:ScriptEngine:CurrentCompilingDictionary }
-//#UC START# *55AE5A4303B3_1C1FE481A9C3_var*
-//#UC END# *55AE5A4303B3_1C1FE481A9C3_var*
+//#UC START# *55AE5A4303B3_55AE5A4303B3_4DB008DD01BD_Word_var*
+//#UC END# *55AE5A4303B3_55AE5A4303B3_4DB008DD01BD_Word_var*
 begin
-//#UC START# *55AE5A4303B3_1C1FE481A9C3_impl*
+//#UC START# *55AE5A4303B3_55AE5A4303B3_4DB008DD01BD_Word_impl*
  Result := aScriptEngine.CurrentCompilingDictionary As TtfwDictionaryEx;
-//#UC END# *55AE5A4303B3_1C1FE481A9C3_impl*
+//#UC END# *55AE5A4303B3_55AE5A4303B3_4DB008DD01BD_Word_impl*
 end;//TkwPopScriptEngineCurrentCompilingDictionary.CurrentCompilingDictionary
-
-procedure TkwPopScriptEngineCurrentCompilingDictionary.DoDoIt(const aCtx: TtfwContext);
-var l_aScriptEngine: ItfwScriptEngine;
-begin
- try
-  l_aScriptEngine := ItfwScriptEngine(aCtx.rEngine.PopIntf(ItfwScriptEngine));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aScriptEngine: ItfwScriptEngine : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(CurrentCompilingDictionary(aCtx, l_aScriptEngine));
-end;//TkwPopScriptEngineCurrentCompilingDictionary.DoDoIt
 
 class function TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister: AnsiString;
 begin
@@ -246,17 +231,52 @@ begin
  Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine)]);
 end;//TkwPopScriptEngineCurrentCompilingDictionary.ParamsTypes
 
+procedure TkwPopScriptEngineCurrentCompilingDictionary.DoDoIt(const aCtx: TtfwContext);
+var l_aScriptEngine: ItfwScriptEngine;
+begin
+ try
+  l_aScriptEngine := ItfwScriptEngine(aCtx.rEngine.PopIntf(ItfwScriptEngine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aScriptEngine: ItfwScriptEngine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CurrentCompilingDictionary(aCtx, l_aScriptEngine));
+end;//TkwPopScriptEngineCurrentCompilingDictionary.DoDoIt
+
 procedure TkwPopScriptEngineDisableForHelp.DisableForHelp(const aCtx: TtfwContext;
  const aScriptEngine: ItfwScriptEngine;
  aWord: TtfwWord);
  {* Реализация слова скрипта pop:ScriptEngine:DisableForHelp }
-//#UC START# *55AFBAE40273_B7DCC24F906E_var*
-//#UC END# *55AFBAE40273_B7DCC24F906E_var*
+//#UC START# *55AFBAE40273_55AFBAE40273_4DB008DD01BD_Word_var*
+//#UC END# *55AFBAE40273_55AFBAE40273_4DB008DD01BD_Word_var*
 begin
-//#UC START# *55AFBAE40273_B7DCC24F906E_impl*
+//#UC START# *55AFBAE40273_55AFBAE40273_4DB008DD01BD_Word_impl*
  aScriptEngine.DisableForHelp(aWord);
-//#UC END# *55AFBAE40273_B7DCC24F906E_impl*
+//#UC END# *55AFBAE40273_55AFBAE40273_4DB008DD01BD_Word_impl*
 end;//TkwPopScriptEngineDisableForHelp.DisableForHelp
+
+class function TkwPopScriptEngineDisableForHelp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:ScriptEngine:DisableForHelp';
+end;//TkwPopScriptEngineDisableForHelp.GetWordNameForRegister
+
+function TkwPopScriptEngineDisableForHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopScriptEngineDisableForHelp.GetResultTypeInfo
+
+function TkwPopScriptEngineDisableForHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopScriptEngineDisableForHelp.GetAllParamsCount
+
+function TkwPopScriptEngineDisableForHelp.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine), TypeInfo(TtfwWord)]);
+end;//TkwPopScriptEngineDisableForHelp.ParamsTypes
 
 procedure TkwPopScriptEngineDisableForHelp.DoDoIt(const aCtx: TtfwContext);
 var l_aScriptEngine: ItfwScriptEngine;
@@ -282,26 +302,6 @@ begin
  end;//try..except
  DisableForHelp(aCtx, l_aScriptEngine, l_aWord);
 end;//TkwPopScriptEngineDisableForHelp.DoDoIt
-
-class function TkwPopScriptEngineDisableForHelp.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:ScriptEngine:DisableForHelp';
-end;//TkwPopScriptEngineDisableForHelp.GetWordNameForRegister
-
-function TkwPopScriptEngineDisableForHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopScriptEngineDisableForHelp.GetResultTypeInfo
-
-function TkwPopScriptEngineDisableForHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopScriptEngineDisableForHelp.GetAllParamsCount
-
-function TkwPopScriptEngineDisableForHelp.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ItfwScriptEngine), TypeInfo(TtfwWord)]);
-end;//TkwPopScriptEngineDisableForHelp.ParamsTypes
 
 initialization
  TkwPopScriptEngineAsKeywordFinder.RegisterInEngine;

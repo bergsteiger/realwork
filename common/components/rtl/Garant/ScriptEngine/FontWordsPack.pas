@@ -39,8 +39,8 @@ type
     const aFont: Il3FontInfo): Tl3Color;
     {* Реализация слова скрипта Font:Color }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -56,8 +56,8 @@ type
     const aFont: Il3FontInfo): Tl3Color;
     {* Реализация слова скрипта Font:BackColor }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -73,8 +73,8 @@ type
     const aFont: Il3FontInfo): Boolean;
     {* Реализация слова скрипта Font:IsBold }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,8 +90,8 @@ type
     const aFont: Il3FontInfo): Boolean;
     {* Реализация слова скрипта Font:IsItalic }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -107,8 +107,8 @@ type
     const aFont: Il3FontInfo): Boolean;
     {* Реализация слова скрипта Font:IsUnderline }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -124,8 +124,8 @@ type
     const aFont: Il3FontInfo): Boolean;
     {* Реализация слова скрипта Font:IsStrikeOut }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -141,8 +141,8 @@ type
     const aFont: Il3FontInfo): AnsiString;
     {* Реализация слова скрипта Font:Name }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -158,8 +158,8 @@ type
     const aFont: Il3FontInfo): Integer;
     {* Реализация слова скрипта Font:Size }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -177,28 +177,13 @@ type
 function TkwFontColor.Color(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
  {* Реализация слова скрипта Font:Color }
-//#UC START# *69F0C68E7956_B42B6353E972_var*
-//#UC END# *69F0C68E7956_B42B6353E972_var*
+//#UC START# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_var*
+//#UC END# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_var*
 begin
-//#UC START# *69F0C68E7956_B42B6353E972_impl*
+//#UC START# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_impl*
  Result := aFont.ForeColor;
-//#UC END# *69F0C68E7956_B42B6353E972_impl*
+//#UC END# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_impl*
 end;//TkwFontColor.Color
-
-procedure TkwFontColor.DoDoIt(const aCtx: TtfwContext);
-var l_aFont: Il3FontInfo;
-begin
- try
-  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aFont)));
-end;//TkwFontColor.DoDoIt
 
 class function TkwFontColor.GetWordNameForRegister: AnsiString;
 begin
@@ -226,18 +211,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Color', aCtx);
 end;//TkwFontColor.SetValuePrim
 
-function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): Tl3Color;
- {* Реализация слова скрипта Font:BackColor }
-//#UC START# *F9B0C6DC0985_ADDA8C159EED_var*
-//#UC END# *F9B0C6DC0985_ADDA8C159EED_var*
-begin
-//#UC START# *F9B0C6DC0985_ADDA8C159EED_impl*
- Result := aFont.BackColor;
-//#UC END# *F9B0C6DC0985_ADDA8C159EED_impl*
-end;//TkwFontBackColor.BackColor
-
-procedure TkwFontBackColor.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontColor.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -249,8 +223,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Integer(BackColor(aCtx, l_aFont)));
-end;//TkwFontBackColor.DoDoIt
+ aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aFont)));
+end;//TkwFontColor.DoDoIt
+
+function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): Tl3Color;
+ {* Реализация слова скрипта Font:BackColor }
+//#UC START# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_var*
+//#UC END# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_var*
+begin
+//#UC START# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_impl*
+ Result := aFont.BackColor;
+//#UC END# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_impl*
+end;//TkwFontBackColor.BackColor
 
 class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
 begin
@@ -278,18 +263,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackColor', aCtx);
 end;//TkwFontBackColor.SetValuePrim
 
-function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): Boolean;
- {* Реализация слова скрипта Font:IsBold }
-//#UC START# *42937118B88F_6426AF77D4E5_var*
-//#UC END# *42937118B88F_6426AF77D4E5_var*
-begin
-//#UC START# *42937118B88F_6426AF77D4E5_impl*
- Result := aFont.Bold;
-//#UC END# *42937118B88F_6426AF77D4E5_impl*
-end;//TkwFontIsBold.IsBold
-
-procedure TkwFontIsBold.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontBackColor.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -301,8 +275,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsBold(aCtx, l_aFont));
-end;//TkwFontIsBold.DoDoIt
+ aCtx.rEngine.PushInt(Integer(BackColor(aCtx, l_aFont)));
+end;//TkwFontBackColor.DoDoIt
+
+function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): Boolean;
+ {* Реализация слова скрипта Font:IsBold }
+//#UC START# *42937118B88F_42937118B88F_46A60B17028B_Word_var*
+//#UC END# *42937118B88F_42937118B88F_46A60B17028B_Word_var*
+begin
+//#UC START# *42937118B88F_42937118B88F_46A60B17028B_Word_impl*
+ Result := aFont.Bold;
+//#UC END# *42937118B88F_42937118B88F_46A60B17028B_Word_impl*
+end;//TkwFontIsBold.IsBold
 
 class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
 begin
@@ -330,18 +315,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsBold', aCtx);
 end;//TkwFontIsBold.SetValuePrim
 
-function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): Boolean;
- {* Реализация слова скрипта Font:IsItalic }
-//#UC START# *451C4035B290_FAD60EB55765_var*
-//#UC END# *451C4035B290_FAD60EB55765_var*
-begin
-//#UC START# *451C4035B290_FAD60EB55765_impl*
- Result := aFont.Italic;
-//#UC END# *451C4035B290_FAD60EB55765_impl*
-end;//TkwFontIsItalic.IsItalic
-
-procedure TkwFontIsItalic.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontIsBold.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -353,8 +327,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsItalic(aCtx, l_aFont));
-end;//TkwFontIsItalic.DoDoIt
+ aCtx.rEngine.PushBool(IsBold(aCtx, l_aFont));
+end;//TkwFontIsBold.DoDoIt
+
+function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): Boolean;
+ {* Реализация слова скрипта Font:IsItalic }
+//#UC START# *451C4035B290_451C4035B290_46A60B17028B_Word_var*
+//#UC END# *451C4035B290_451C4035B290_46A60B17028B_Word_var*
+begin
+//#UC START# *451C4035B290_451C4035B290_46A60B17028B_Word_impl*
+ Result := aFont.Italic;
+//#UC END# *451C4035B290_451C4035B290_46A60B17028B_Word_impl*
+end;//TkwFontIsItalic.IsItalic
 
 class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
 begin
@@ -382,18 +367,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsItalic', aCtx);
 end;//TkwFontIsItalic.SetValuePrim
 
-function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): Boolean;
- {* Реализация слова скрипта Font:IsUnderline }
-//#UC START# *6B90D10D9839_0A56585439B0_var*
-//#UC END# *6B90D10D9839_0A56585439B0_var*
-begin
-//#UC START# *6B90D10D9839_0A56585439B0_impl*
- Result := aFont.Underline;
-//#UC END# *6B90D10D9839_0A56585439B0_impl*
-end;//TkwFontIsUnderline.IsUnderline
-
-procedure TkwFontIsUnderline.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontIsItalic.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -405,8 +379,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsUnderline(aCtx, l_aFont));
-end;//TkwFontIsUnderline.DoDoIt
+ aCtx.rEngine.PushBool(IsItalic(aCtx, l_aFont));
+end;//TkwFontIsItalic.DoDoIt
+
+function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): Boolean;
+ {* Реализация слова скрипта Font:IsUnderline }
+//#UC START# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_var*
+//#UC END# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_var*
+begin
+//#UC START# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_impl*
+ Result := aFont.Underline;
+//#UC END# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_impl*
+end;//TkwFontIsUnderline.IsUnderline
 
 class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
 begin
@@ -434,18 +419,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsUnderline', aCtx);
 end;//TkwFontIsUnderline.SetValuePrim
 
-function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): Boolean;
- {* Реализация слова скрипта Font:IsStrikeOut }
-//#UC START# *07EFCC131FBD_48690441DF69_var*
-//#UC END# *07EFCC131FBD_48690441DF69_var*
-begin
-//#UC START# *07EFCC131FBD_48690441DF69_impl*
- Result := aFont.Strikeout;
-//#UC END# *07EFCC131FBD_48690441DF69_impl*
-end;//TkwFontIsStrikeOut.IsStrikeOut
-
-procedure TkwFontIsStrikeOut.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontIsUnderline.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -457,8 +431,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsStrikeOut(aCtx, l_aFont));
-end;//TkwFontIsStrikeOut.DoDoIt
+ aCtx.rEngine.PushBool(IsUnderline(aCtx, l_aFont));
+end;//TkwFontIsUnderline.DoDoIt
+
+function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): Boolean;
+ {* Реализация слова скрипта Font:IsStrikeOut }
+//#UC START# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_var*
+//#UC END# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_var*
+begin
+//#UC START# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_impl*
+ Result := aFont.Strikeout;
+//#UC END# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_impl*
+end;//TkwFontIsStrikeOut.IsStrikeOut
 
 class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
 begin
@@ -486,18 +471,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsStrikeOut', aCtx);
 end;//TkwFontIsStrikeOut.SetValuePrim
 
-function TkwFontName.Name(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): AnsiString;
- {* Реализация слова скрипта Font:Name }
-//#UC START# *F619DAD50B87_7A73CF636A32_var*
-//#UC END# *F619DAD50B87_7A73CF636A32_var*
-begin
-//#UC START# *F619DAD50B87_7A73CF636A32_impl*
- Result := aFont.Name;
-//#UC END# *F619DAD50B87_7A73CF636A32_impl*
-end;//TkwFontName.Name
-
-procedure TkwFontName.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontIsStrikeOut.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -509,8 +483,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(Name(aCtx, l_aFont));
-end;//TkwFontName.DoDoIt
+ aCtx.rEngine.PushBool(IsStrikeOut(aCtx, l_aFont));
+end;//TkwFontIsStrikeOut.DoDoIt
+
+function TkwFontName.Name(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): AnsiString;
+ {* Реализация слова скрипта Font:Name }
+//#UC START# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_var*
+//#UC END# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_var*
+begin
+//#UC START# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_impl*
+ Result := aFont.Name;
+//#UC END# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_impl*
+end;//TkwFontName.Name
 
 class function TkwFontName.GetWordNameForRegister: AnsiString;
 begin
@@ -538,18 +523,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
 end;//TkwFontName.SetValuePrim
 
-function TkwFontSize.Size(const aCtx: TtfwContext;
- const aFont: Il3FontInfo): Integer;
- {* Реализация слова скрипта Font:Size }
-//#UC START# *B6BEEE7F8558_F76B0EA46A07_var*
-//#UC END# *B6BEEE7F8558_F76B0EA46A07_var*
-begin
-//#UC START# *B6BEEE7F8558_F76B0EA46A07_impl*
- Result := aFont.Size;
-//#UC END# *B6BEEE7F8558_F76B0EA46A07_impl*
-end;//TkwFontSize.Size
-
-procedure TkwFontSize.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFontName.DoDoIt(const aCtx: TtfwContext);
 var l_aFont: Il3FontInfo;
 begin
  try
@@ -561,8 +535,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt(Size(aCtx, l_aFont));
-end;//TkwFontSize.DoDoIt
+ aCtx.rEngine.PushString(Name(aCtx, l_aFont));
+end;//TkwFontName.DoDoIt
+
+function TkwFontSize.Size(const aCtx: TtfwContext;
+ const aFont: Il3FontInfo): Integer;
+ {* Реализация слова скрипта Font:Size }
+//#UC START# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_var*
+//#UC END# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_var*
+begin
+//#UC START# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_impl*
+ Result := aFont.Size;
+//#UC END# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_impl*
+end;//TkwFontSize.Size
 
 class function TkwFontSize.GetWordNameForRegister: AnsiString;
 begin
@@ -589,6 +574,21 @@ procedure TkwFontSize.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Size', aCtx);
 end;//TkwFontSize.SetValuePrim
+
+procedure TkwFontSize.DoDoIt(const aCtx: TtfwContext);
+var l_aFont: Il3FontInfo;
+begin
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Size(aCtx, l_aFont));
+end;//TkwFontSize.DoDoIt
 
 class function TFontWordsPackResNameGetter.ResName: AnsiString;
 begin

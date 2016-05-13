@@ -39,8 +39,8 @@ type
     const aName: Il3CString): TtfwKeyWord;
     {* Реализация слова скрипта pop:KeywordFinder:KeywordByName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -54,8 +54,8 @@ type
     aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
     {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -68,13 +68,33 @@ function TkwPopKeywordFinderKeywordByName.KeywordByName(const aCtx: TtfwContext;
  aKeywordFinder: TtfwKeywordFinder;
  const aName: Il3CString): TtfwKeyWord;
  {* Реализация слова скрипта pop:KeywordFinder:KeywordByName }
-//#UC START# *559BCEFC0315_D73628563892_var*
-//#UC END# *559BCEFC0315_D73628563892_var*
+//#UC START# *559BCEFC0315_559BCEFC0315_559D5D4400D3_Word_var*
+//#UC END# *559BCEFC0315_559BCEFC0315_559D5D4400D3_Word_var*
 begin
-//#UC START# *559BCEFC0315_D73628563892_impl*
+//#UC START# *559BCEFC0315_559BCEFC0315_559D5D4400D3_Word_impl*
  Result := TtfwKeyWord(aKeywordFinder.KeywordByName(aName));
-//#UC END# *559BCEFC0315_D73628563892_impl*
+//#UC END# *559BCEFC0315_559BCEFC0315_559D5D4400D3_Word_impl*
 end;//TkwPopKeywordFinderKeywordByName.KeywordByName
+
+class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeywordFinder:KeywordByName';
+end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
+
+function TkwPopKeywordFinderKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwKeyWord);
+end;//TkwPopKeywordFinderKeywordByName.GetResultTypeInfo
+
+function TkwPopKeywordFinderKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopKeywordFinderKeywordByName.GetAllParamsCount
+
+function TkwPopKeywordFinderKeywordByName.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder), @tfw_tiString]);
+end;//TkwPopKeywordFinderKeywordByName.ParamsTypes
 
 procedure TkwPopKeywordFinderKeywordByName.DoDoIt(const aCtx: TtfwContext);
 var l_aKeywordFinder: TtfwKeywordFinder;
@@ -101,51 +121,16 @@ begin
  aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aKeywordFinder, l_aName));
 end;//TkwPopKeywordFinderKeywordByName.DoDoIt
 
-class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeywordFinder:KeywordByName';
-end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
-
-function TkwPopKeywordFinderKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TtfwKeyWord);
-end;//TkwPopKeywordFinderKeywordByName.GetResultTypeInfo
-
-function TkwPopKeywordFinderKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopKeywordFinderKeywordByName.GetAllParamsCount
-
-function TkwPopKeywordFinderKeywordByName.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder), @tfw_tiString]);
-end;//TkwPopKeywordFinderKeywordByName.ParamsTypes
-
 function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
  aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
-//#UC START# *4DFEE1DE515C_F60851FE16E3_var*
-//#UC END# *4DFEE1DE515C_F60851FE16E3_var*
+//#UC START# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_var*
+//#UC END# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_var*
 begin
-//#UC START# *4DFEE1DE515C_F60851FE16E3_impl*
+//#UC START# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_impl*
  Result := aKeywordFinder.ParentFinder;
-//#UC END# *4DFEE1DE515C_F60851FE16E3_impl*
+//#UC END# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_impl*
 end;//TkwPopKeywordFinderParentFinder.ParentFinder
-
-procedure TkwPopKeywordFinderParentFinder.DoDoIt(const aCtx: TtfwContext);
-var l_aKeywordFinder: TtfwKeywordFinder;
-begin
- try
-  l_aKeywordFinder := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aKeywordFinder: TtfwKeywordFinder : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ParentFinder(aCtx, l_aKeywordFinder));
-end;//TkwPopKeywordFinderParentFinder.DoDoIt
 
 class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
 begin
@@ -172,6 +157,21 @@ procedure TkwPopKeywordFinderParentFinder.SetValuePrim(const aValue: TtfwStackVa
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentFinder', aCtx);
 end;//TkwPopKeywordFinderParentFinder.SetValuePrim
+
+procedure TkwPopKeywordFinderParentFinder.DoDoIt(const aCtx: TtfwContext);
+var l_aKeywordFinder: TtfwKeywordFinder;
+begin
+ try
+  l_aKeywordFinder := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aKeywordFinder: TtfwKeywordFinder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentFinder(aCtx, l_aKeywordFinder));
+end;//TkwPopKeywordFinderParentFinder.DoDoIt
 
 initialization
  TkwPopKeywordFinderKeywordByName.RegisterInEngine;

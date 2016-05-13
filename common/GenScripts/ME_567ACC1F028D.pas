@@ -20,7 +20,7 @@ implementation
 uses
  l3ImplUses
  , kwKeyValues
- , tfwRegisterableWord
+ , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo
  , SysUtils
@@ -29,7 +29,7 @@ uses
 ;
 
 type
- TkwKeyValuesCreate = {final} class(TtfwRegisterableWord)
+ TkwKeyValuesCreate = {final} class(TtfwClassLike)
   {* Слово скрипта KeyValues:Create }
   private
    function Create(const aCtx: TtfwContext): TkwKeyValues;
@@ -45,12 +45,12 @@ type
 
 function TkwKeyValuesCreate.Create(const aCtx: TtfwContext): TkwKeyValues;
  {* Реализация слова скрипта KeyValues:Create }
-//#UC START# *567ACC37033D_6CD721531904_var*
-//#UC END# *567ACC37033D_6CD721531904_var*
+//#UC START# *567ACC37033D_567ACC37033D_567ACBF70376_Word_var*
+//#UC END# *567ACC37033D_567ACC37033D_567ACBF70376_Word_var*
 begin
-//#UC START# *567ACC37033D_6CD721531904_impl*
+//#UC START# *567ACC37033D_567ACC37033D_567ACBF70376_Word_impl*
  Result := TkwKeyValues.Create(nil{Prodicer}, Self{nil}{Finder}, aCtx.rTypeInfo, aCtx, {nil}Key);
-//#UC END# *567ACC37033D_6CD721531904_impl*
+//#UC END# *567ACC37033D_567ACC37033D_567ACBF70376_Word_impl*
 end;//TkwKeyValuesCreate.Create
 
 class function TkwKeyValuesCreate.GetWordNameForRegister: AnsiString;

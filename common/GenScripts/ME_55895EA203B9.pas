@@ -73,8 +73,8 @@ type
     const aName: Il3CString): TtfwKeyWord;
     {* Реализация слова скрипта pop:NewWordDefinitor:CheckWord }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,8 +90,8 @@ type
     const aName: Il3CString): TtfwWord;
     {* Реализация слова скрипта pop:NewWordDefinitor:CheckVar }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -107,8 +107,8 @@ type
     aStereo: TtfwWord): TtfwWord;
     {* Реализация слова скрипта pop:NewWordDefinitor:DefineInParameter }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -124,8 +124,8 @@ type
     const aName: Il3CString): TtfwWord;
     {* Реализация слова скрипта pop:NewWordDefinitor:CheckRefcountVar }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -139,8 +139,8 @@ type
     aNewWordDefinitor: TtfwNewWordDefinitor): TtfwKeywordFinder;
     {* Реализация слова скрипта pop:NewWordDefinitor:KeywordFinder }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -268,6 +268,26 @@ begin
  Result := aNewWordDefinitor.CheckWord(aName);
 end;//TkwPopNewWordDefinitorCheckWord.CheckWord
 
+class function TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewWordDefinitor:CheckWord';
+end;//TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister
+
+function TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwKeyWord);
+end;//TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo
+
+function TkwPopNewWordDefinitorCheckWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopNewWordDefinitorCheckWord.GetAllParamsCount
+
+function TkwPopNewWordDefinitorCheckWord.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), @tfw_tiString]);
+end;//TkwPopNewWordDefinitorCheckWord.ParamsTypes
+
 procedure TkwPopNewWordDefinitorCheckWord.DoDoIt(const aCtx: TtfwContext);
 var l_aNewWordDefinitor: TtfwNewWordDefinitor;
 var l_aName: Il3CString;
@@ -293,38 +313,18 @@ begin
  aCtx.rEngine.PushObj(CheckWord(aCtx, l_aNewWordDefinitor, l_aName));
 end;//TkwPopNewWordDefinitorCheckWord.DoDoIt
 
-class function TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:NewWordDefinitor:CheckWord';
-end;//TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister
-
-function TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TtfwKeyWord);
-end;//TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo
-
-function TkwPopNewWordDefinitorCheckWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopNewWordDefinitorCheckWord.GetAllParamsCount
-
-function TkwPopNewWordDefinitorCheckWord.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), @tfw_tiString]);
-end;//TkwPopNewWordDefinitorCheckWord.ParamsTypes
-
 function TkwPopNewWordDefinitorCheckVar.CheckVar(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor;
  aLocal: Boolean;
  const aName: Il3CString): TtfwWord;
  {* Реализация слова скрипта pop:NewWordDefinitor:CheckVar }
-//#UC START# *5589A2F10199_0518A66C4F49_var*
+//#UC START# *5589A2F10199_5589A2F10199_4DC95E96023B_Word_var*
 var
  l_KW : TtfwKeyWord;
  l_W : TtfwWord;
-//#UC END# *5589A2F10199_0518A66C4F49_var*
+//#UC END# *5589A2F10199_5589A2F10199_4DC95E96023B_Word_var*
 begin
-//#UC START# *5589A2F10199_0518A66C4F49_impl*
+//#UC START# *5589A2F10199_5589A2F10199_4DC95E96023B_Word_impl*
  l_KW := aNewWordDefinitor.CheckWord(aName);
  l_W := l_KW.Word;
  if (l_W = nil) then
@@ -350,8 +350,28 @@ begin
  end//l_W = nil
  else
   Result := l_W;
-//#UC END# *5589A2F10199_0518A66C4F49_impl*
+//#UC END# *5589A2F10199_5589A2F10199_4DC95E96023B_Word_impl*
 end;//TkwPopNewWordDefinitorCheckVar.CheckVar
+
+class function TkwPopNewWordDefinitorCheckVar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewWordDefinitor:CheckVar';
+end;//TkwPopNewWordDefinitorCheckVar.GetWordNameForRegister
+
+function TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwWord);
+end;//TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo
+
+function TkwPopNewWordDefinitorCheckVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwPopNewWordDefinitorCheckVar.GetAllParamsCount
+
+function TkwPopNewWordDefinitorCheckVar.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), TypeInfo(Boolean), @tfw_tiString]);
+end;//TkwPopNewWordDefinitorCheckVar.ParamsTypes
 
 procedure TkwPopNewWordDefinitorCheckVar.DoDoIt(const aCtx: TtfwContext);
 var l_aNewWordDefinitor: TtfwNewWordDefinitor;
@@ -388,38 +408,38 @@ begin
  aCtx.rEngine.PushObj(CheckVar(aCtx, l_aNewWordDefinitor, l_aLocal, l_aName));
 end;//TkwPopNewWordDefinitorCheckVar.DoDoIt
 
-class function TkwPopNewWordDefinitorCheckVar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:NewWordDefinitor:CheckVar';
-end;//TkwPopNewWordDefinitorCheckVar.GetWordNameForRegister
-
-function TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TtfwWord);
-end;//TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo
-
-function TkwPopNewWordDefinitorCheckVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwPopNewWordDefinitorCheckVar.GetAllParamsCount
-
-function TkwPopNewWordDefinitorCheckVar.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), TypeInfo(Boolean), @tfw_tiString]);
-end;//TkwPopNewWordDefinitorCheckVar.ParamsTypes
-
 function TkwPopNewWordDefinitorDefineInParameter.DefineInParameter(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor;
  const aParamName: Il3CString;
  aStereo: TtfwWord): TtfwWord;
  {* Реализация слова скрипта pop:NewWordDefinitor:DefineInParameter }
-//#UC START# *559D266D0010_CDFCC0A90AF7_var*
-//#UC END# *559D266D0010_CDFCC0A90AF7_var*
+//#UC START# *559D266D0010_559D266D0010_4DC95E96023B_Word_var*
+//#UC END# *559D266D0010_559D266D0010_4DC95E96023B_Word_var*
 begin
-//#UC START# *559D266D0010_CDFCC0A90AF7_impl*
+//#UC START# *559D266D0010_559D266D0010_4DC95E96023B_Word_impl*
  Result := aNewWordDefinitor.DefineInParameter(aCtx, aParamName, aStereo, aCtx.rTypeInfo);
-//#UC END# *559D266D0010_CDFCC0A90AF7_impl*
+//#UC END# *559D266D0010_559D266D0010_4DC95E96023B_Word_impl*
 end;//TkwPopNewWordDefinitorDefineInParameter.DefineInParameter
+
+class function TkwPopNewWordDefinitorDefineInParameter.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewWordDefinitor:DefineInParameter';
+end;//TkwPopNewWordDefinitorDefineInParameter.GetWordNameForRegister
+
+function TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwWord);
+end;//TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo
+
+function TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount
+
+function TkwPopNewWordDefinitorDefineInParameter.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), @tfw_tiString, TypeInfo(TtfwWord)]);
+end;//TkwPopNewWordDefinitorDefineInParameter.ParamsTypes
 
 procedure TkwPopNewWordDefinitorDefineInParameter.DoDoIt(const aCtx: TtfwContext);
 var l_aNewWordDefinitor: TtfwNewWordDefinitor;
@@ -456,38 +476,18 @@ begin
  aCtx.rEngine.PushObj(DefineInParameter(aCtx, l_aNewWordDefinitor, l_aParamName, l_aStereo));
 end;//TkwPopNewWordDefinitorDefineInParameter.DoDoIt
 
-class function TkwPopNewWordDefinitorDefineInParameter.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:NewWordDefinitor:DefineInParameter';
-end;//TkwPopNewWordDefinitorDefineInParameter.GetWordNameForRegister
-
-function TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TtfwWord);
-end;//TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo
-
-function TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount
-
-function TkwPopNewWordDefinitorDefineInParameter.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), @tfw_tiString, TypeInfo(TtfwWord)]);
-end;//TkwPopNewWordDefinitorDefineInParameter.ParamsTypes
-
 function TkwPopNewWordDefinitorCheckRefcountVar.CheckRefcountVar(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor;
  aLocal: Boolean;
  const aName: Il3CString): TtfwWord;
  {* Реализация слова скрипта pop:NewWordDefinitor:CheckRefcountVar }
-//#UC START# *5673DD6F001B_61662B3659A7_var*
+//#UC START# *5673DD6F001B_5673DD6F001B_4DC95E96023B_Word_var*
 var
  l_KW : TtfwKeyWord;
  l_W : TtfwWord;
-//#UC END# *5673DD6F001B_61662B3659A7_var*
+//#UC END# *5673DD6F001B_5673DD6F001B_4DC95E96023B_Word_var*
 begin
-//#UC START# *5673DD6F001B_61662B3659A7_impl*
+//#UC START# *5673DD6F001B_5673DD6F001B_4DC95E96023B_Word_impl*
  l_KW := aNewWordDefinitor.CheckWord(aName);
  l_W := l_KW.Word;
  if (l_W = nil) then
@@ -513,8 +513,28 @@ begin
  end//l_W = nil
  else
   Result := l_W;
-//#UC END# *5673DD6F001B_61662B3659A7_impl*
+//#UC END# *5673DD6F001B_5673DD6F001B_4DC95E96023B_Word_impl*
 end;//TkwPopNewWordDefinitorCheckRefcountVar.CheckRefcountVar
+
+class function TkwPopNewWordDefinitorCheckRefcountVar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:NewWordDefinitor:CheckRefcountVar';
+end;//TkwPopNewWordDefinitorCheckRefcountVar.GetWordNameForRegister
+
+function TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwWord);
+end;//TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo
+
+function TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount
+
+function TkwPopNewWordDefinitorCheckRefcountVar.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), TypeInfo(Boolean), @tfw_tiString]);
+end;//TkwPopNewWordDefinitorCheckRefcountVar.ParamsTypes
 
 procedure TkwPopNewWordDefinitorCheckRefcountVar.DoDoIt(const aCtx: TtfwContext);
 var l_aNewWordDefinitor: TtfwNewWordDefinitor;
@@ -551,51 +571,16 @@ begin
  aCtx.rEngine.PushObj(CheckRefcountVar(aCtx, l_aNewWordDefinitor, l_aLocal, l_aName));
 end;//TkwPopNewWordDefinitorCheckRefcountVar.DoDoIt
 
-class function TkwPopNewWordDefinitorCheckRefcountVar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:NewWordDefinitor:CheckRefcountVar';
-end;//TkwPopNewWordDefinitorCheckRefcountVar.GetWordNameForRegister
-
-function TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TtfwWord);
-end;//TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo
-
-function TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 3;
-end;//TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount
-
-function TkwPopNewWordDefinitorCheckRefcountVar.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwNewWordDefinitor), TypeInfo(Boolean), @tfw_tiString]);
-end;//TkwPopNewWordDefinitorCheckRefcountVar.ParamsTypes
-
 function TkwPopNewWordDefinitorKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:NewWordDefinitor:KeywordFinder }
-//#UC START# *D45F1476C5EF_C919B8A4B92C_var*
-//#UC END# *D45F1476C5EF_C919B8A4B92C_var*
+//#UC START# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_var*
+//#UC END# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_var*
 begin
-//#UC START# *D45F1476C5EF_C919B8A4B92C_impl*
+//#UC START# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_impl*
  Result := aNewWordDefinitor.KeywordFinder(aCtx);
-//#UC END# *D45F1476C5EF_C919B8A4B92C_impl*
+//#UC END# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_impl*
 end;//TkwPopNewWordDefinitorKeywordFinder.KeywordFinder
-
-procedure TkwPopNewWordDefinitorKeywordFinder.DoDoIt(const aCtx: TtfwContext);
-var l_aNewWordDefinitor: TtfwNewWordDefinitor;
-begin
- try
-  l_aNewWordDefinitor := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aNewWordDefinitor: TtfwNewWordDefinitor : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(KeywordFinder(aCtx, l_aNewWordDefinitor));
-end;//TkwPopNewWordDefinitorKeywordFinder.DoDoIt
 
 class function TkwPopNewWordDefinitorKeywordFinder.GetWordNameForRegister: AnsiString;
 begin
@@ -622,6 +607,21 @@ procedure TkwPopNewWordDefinitorKeywordFinder.SetValuePrim(const aValue: TtfwSta
 begin
  RunnerError('Нельзя присваивать значение readonly свойству KeywordFinder', aCtx);
 end;//TkwPopNewWordDefinitorKeywordFinder.SetValuePrim
+
+procedure TkwPopNewWordDefinitorKeywordFinder.DoDoIt(const aCtx: TtfwContext);
+var l_aNewWordDefinitor: TtfwNewWordDefinitor;
+begin
+ try
+  l_aNewWordDefinitor := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewWordDefinitor: TtfwNewWordDefinitor : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(KeywordFinder(aCtx, l_aNewWordDefinitor));
+end;//TkwPopNewWordDefinitorKeywordFinder.DoDoIt
 
 initialization
  TkwGlobalVar.RegisterClass;

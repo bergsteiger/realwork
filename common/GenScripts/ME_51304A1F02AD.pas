@@ -20,13 +20,12 @@ implementation
 uses
  l3ImplUses
  , GUITestRunner
- , tfwRegisterableWord
+ , tfwGlobalKeyWord
  , tfwScriptingInterfaces
  , TypInfo
  , tfwClassLike
  , TestFrameWork
  , ComCtrls
- , tfwGlobalKeyWord
  , tfwAxiomaticsResNameGetter
  , ITestWordsPack
  , TTreeNodeForTestsWordsPack
@@ -40,7 +39,24 @@ uses
 ;
 
 type
- TkwGUITestRunnerPushDUnitForm = {final} class(TtfwRegisterableWord)
+ TkwDeleteEtalons = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта DeleteEtalons }
+  private
+   procedure DeleteEtalons(const aCtx: TtfwContext;
+    const aName: AnsiString;
+    const aSubFolder: AnsiString;
+    anIsScript: Boolean);
+    {* Реализация слова скрипта DeleteEtalons }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwDeleteEtalons
+
+ TkwGUITestRunnerPushDUnitForm = {final} class(TtfwClassLike)
   {* Слово скрипта GUITestRunner:push:DUnitForm }
   private
    function push_DUnitForm(const aCtx: TtfwContext): TGUITestRunner;
@@ -62,128 +78,19 @@ type
     aNode: TTreeNode): ITest;
     {* Реализация слова скрипта pop:GUITestRunner:NodeToTest }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopGUITestRunnerNodeToTest
 
- TkwDeleteEtalons = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта DeleteEtalons }
-  private
-   procedure DeleteEtalons(const aCtx: TtfwContext;
-    const aName: AnsiString;
-    const aSubFolder: AnsiString;
-    anIsScript: Boolean);
-    {* Реализация слова скрипта DeleteEtalons }
-  protected
-   class function GetWordNameForRegister: AnsiString; override;
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwDeleteEtalons
-
  TkwKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
  end;//TkwKeyWordsPackResNameGetter
-
-function TkwGUITestRunnerPushDUnitForm.push_DUnitForm(const aCtx: TtfwContext): TGUITestRunner;
- {* Реализация слова скрипта GUITestRunner:push:DUnitForm }
-//#UC START# *55C9F42D0261_0200DD1E29D8_var*
-//#UC END# *55C9F42D0261_0200DD1E29D8_var*
-begin
-//#UC START# *55C9F42D0261_0200DD1E29D8_impl*
- Result := TestForm4Scripts.GetTestForm;
-//#UC END# *55C9F42D0261_0200DD1E29D8_impl*
-end;//TkwGUITestRunnerPushDUnitForm.push_DUnitForm
-
-class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
-begin
- Result := 'GUITestRunner:push:DUnitForm';
-end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
-
-function TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(TGUITestRunner);
-end;//TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo
-
-function TkwGUITestRunnerPushDUnitForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 0;
-end;//TkwGUITestRunnerPushDUnitForm.GetAllParamsCount
-
-function TkwGUITestRunnerPushDUnitForm.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TGUITestRunner)]);
-end;//TkwGUITestRunnerPushDUnitForm.ParamsTypes
-
-procedure TkwGUITestRunnerPushDUnitForm.DoDoIt(const aCtx: TtfwContext);
-begin
- aCtx.rEngine.PushObj(push_DUnitForm(aCtx));
-end;//TkwGUITestRunnerPushDUnitForm.DoDoIt
-
-function TkwPopGUITestRunnerNodeToTest.NodeToTest(const aCtx: TtfwContext;
- aGUITestRunner: TGUITestRunner;
- aNode: TTreeNode): ITest;
- {* Реализация слова скрипта pop:GUITestRunner:NodeToTest }
-//#UC START# *55C9F44A003C_D7892D333B1E_var*
-//#UC END# *55C9F44A003C_D7892D333B1E_var*
-begin
-//#UC START# *55C9F44A003C_D7892D333B1E_impl*
- Result := aGUITestRunner.NodeToTest(aNode)
-//#UC END# *55C9F44A003C_D7892D333B1E_impl*
-end;//TkwPopGUITestRunnerNodeToTest.NodeToTest
-
-procedure TkwPopGUITestRunnerNodeToTest.DoDoIt(const aCtx: TtfwContext);
-var l_aGUITestRunner: TGUITestRunner;
-var l_aNode: TTreeNode;
-begin
- try
-  l_aGUITestRunner := TGUITestRunner(aCtx.rEngine.PopObjAs(TGUITestRunner));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aGUITestRunner: TGUITestRunner : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- try
-  l_aNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aNode: TTreeNode : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode), TypeInfo(ITest));
-end;//TkwPopGUITestRunnerNodeToTest.DoDoIt
-
-class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:GUITestRunner:NodeToTest';
-end;//TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister
-
-function TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(ITest);
-end;//TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo
-
-function TkwPopGUITestRunnerNodeToTest.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopGUITestRunnerNodeToTest.GetAllParamsCount
-
-function TkwPopGUITestRunnerNodeToTest.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TGUITestRunner), TypeInfo(TTreeNode)]);
-end;//TkwPopGUITestRunnerNodeToTest.ParamsTypes
 
 procedure TkwDeleteEtalons.DeleteEtalons(const aCtx: TtfwContext;
  const aName: AnsiString;
@@ -253,6 +160,98 @@ begin
  DeleteEtalons(aCtx, l_aName, l_aSubFolder, l_anIsScript);
 end;//TkwDeleteEtalons.DoDoIt
 
+function TkwGUITestRunnerPushDUnitForm.push_DUnitForm(const aCtx: TtfwContext): TGUITestRunner;
+ {* Реализация слова скрипта GUITestRunner:push:DUnitForm }
+//#UC START# *55C9F42D0261_55C9F42D0261_4DA30F0F02C1_Word_var*
+//#UC END# *55C9F42D0261_55C9F42D0261_4DA30F0F02C1_Word_var*
+begin
+//#UC START# *55C9F42D0261_55C9F42D0261_4DA30F0F02C1_Word_impl*
+ Result := TestForm4Scripts.GetTestForm;
+//#UC END# *55C9F42D0261_55C9F42D0261_4DA30F0F02C1_Word_impl*
+end;//TkwGUITestRunnerPushDUnitForm.push_DUnitForm
+
+class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'GUITestRunner:push:DUnitForm';
+end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
+
+function TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TGUITestRunner);
+end;//TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo
+
+function TkwGUITestRunnerPushDUnitForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwGUITestRunnerPushDUnitForm.GetAllParamsCount
+
+function TkwGUITestRunnerPushDUnitForm.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TGUITestRunner)]);
+end;//TkwGUITestRunnerPushDUnitForm.ParamsTypes
+
+procedure TkwGUITestRunnerPushDUnitForm.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushObj(push_DUnitForm(aCtx));
+end;//TkwGUITestRunnerPushDUnitForm.DoDoIt
+
+function TkwPopGUITestRunnerNodeToTest.NodeToTest(const aCtx: TtfwContext;
+ aGUITestRunner: TGUITestRunner;
+ aNode: TTreeNode): ITest;
+ {* Реализация слова скрипта pop:GUITestRunner:NodeToTest }
+//#UC START# *55C9F44A003C_55C9F44A003C_4DA30F0F02C1_Word_var*
+//#UC END# *55C9F44A003C_55C9F44A003C_4DA30F0F02C1_Word_var*
+begin
+//#UC START# *55C9F44A003C_55C9F44A003C_4DA30F0F02C1_Word_impl*
+ Result := aGUITestRunner.NodeToTest(aNode)
+//#UC END# *55C9F44A003C_55C9F44A003C_4DA30F0F02C1_Word_impl*
+end;//TkwPopGUITestRunnerNodeToTest.NodeToTest
+
+class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:GUITestRunner:NodeToTest';
+end;//TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister
+
+function TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(ITest);
+end;//TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo
+
+function TkwPopGUITestRunnerNodeToTest.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopGUITestRunnerNodeToTest.GetAllParamsCount
+
+function TkwPopGUITestRunnerNodeToTest.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TGUITestRunner), TypeInfo(TTreeNode)]);
+end;//TkwPopGUITestRunnerNodeToTest.ParamsTypes
+
+procedure TkwPopGUITestRunnerNodeToTest.DoDoIt(const aCtx: TtfwContext);
+var l_aGUITestRunner: TGUITestRunner;
+var l_aNode: TTreeNode;
+begin
+ try
+  l_aGUITestRunner := TGUITestRunner(aCtx.rEngine.PopObjAs(TGUITestRunner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aGUITestRunner: TGUITestRunner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode), TypeInfo(ITest));
+end;//TkwPopGUITestRunnerNodeToTest.DoDoIt
+
 class function TkwKeyWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'kwKeyWordsPack';
@@ -261,12 +260,12 @@ end;//TkwKeyWordsPackResNameGetter.ResName
  {$R kwKeyWordsPack.res}
 
 initialization
+ TkwDeleteEtalons.RegisterInEngine;
+ {* Регистрация DeleteEtalons }
  TkwGUITestRunnerPushDUnitForm.RegisterInEngine;
  {* Регистрация GUITestRunner_push_DUnitForm }
  TkwPopGUITestRunnerNodeToTest.RegisterInEngine;
  {* Регистрация pop_GUITestRunner_NodeToTest }
- TkwDeleteEtalons.RegisterInEngine;
- {* Регистрация DeleteEtalons }
  TkwKeyWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TGUITestRunner));

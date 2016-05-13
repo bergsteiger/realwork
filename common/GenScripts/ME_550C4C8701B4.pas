@@ -20,13 +20,13 @@ implementation
 uses
  l3ImplUses
  , tfwTypeInfo
- , tfwClassLike
+ , tfwGlobalKeyWord
  , tfwScriptingInterfaces
+ , tfwScriptingTypes
  , TypInfo
  , l3Interfaces
- , tfwGlobalKeyWord
- , tfwScriptingTypes
  , tfwMainDictionary
+ , tfwClassLike
  , tfwAxiomaticsResNameGetter
  , l3String
  , tfwScriptEngineExInterfaces
@@ -40,187 +40,6 @@ uses
 ;
 
 type
- TkwIsArray = {final} class(TtfwClassLike)
-  {* Слово скрипта IsArray }
-  private
-   function IsArray(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsArray }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsArray
-
- TkwIsVoid = {final} class(TtfwClassLike)
-  {* Слово скрипта IsVoid }
-  private
-   function IsVoid(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsVoid }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsVoid
-
- TkwIsObj = {final} class(TtfwClassLike)
-  {* Слово скрипта IsObj }
-  private
-   function IsObj(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsObj }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsObj
-
- TkwIsIntf = {final} class(TtfwClassLike)
-  {* Слово скрипта IsIntf }
-  private
-   function IsIntf(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsIntf }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsIntf
-
- TkwIsChar = {final} class(TtfwClassLike)
-  {* Слово скрипта IsChar }
-  private
-   function IsChar(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsChar }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsChar
-
- TkwIsString = {final} class(TtfwClassLike)
-  {* Слово скрипта IsString }
-  private
-   function IsString(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsString }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsString
-
- TkwIsInt = {final} class(TtfwClassLike)
-  {* Слово скрипта IsInt }
-  private
-   function IsInt(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsInt }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsInt
-
- TkwIsClass = {final} class(TtfwClassLike)
-  {* Слово скрипта IsClass }
-  private
-   function IsClass(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsClass }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsClass
-
- TkwToPrintable = {final} class(TtfwClassLike)
-  {* Слово скрипта ToPrintable }
-  private
-   function ToPrintable(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Il3CString;
-    {* Реализация слова скрипта ToPrintable }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwToPrintable
-
- TkwIsBool = {final} class(TtfwClassLike)
-  {* Слово скрипта IsBool }
-  private
-   function IsBool(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsBool }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsBool
-
- TkwIsTypeOf = {final} class(TtfwClassLike)
-  {* Слово скрипта IsTypeOf }
-  private
-   function IsTypeOf(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue;
-    aType: TtfwValueType): Boolean;
-    {* Реализация слова скрипта IsTypeOf }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsTypeOf
-
- TkwIsNil = {final} class(TtfwClassLike)
-  {* Слово скрипта IsNil }
-  private
-   function IsNil(const aCtx: TtfwContext;
-    const aSV: TtfwStackValue): Boolean;
-    {* Реализация слова скрипта IsNil }
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   class function GetWordNameForRegister: AnsiString; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsNil
-
  TkwCtxIncludeModifier = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта Ctx:IncludeModifier }
   private
@@ -576,602 +395,192 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCtxDisabledForHelp
 
+ TkwIsArray = {final} class(TtfwClassLike)
+  {* Слово скрипта IsArray }
+  private
+   function IsArray(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsArray }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsArray
+
+ TkwIsVoid = {final} class(TtfwClassLike)
+  {* Слово скрипта IsVoid }
+  private
+   function IsVoid(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsVoid }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsVoid
+
+ TkwIsObj = {final} class(TtfwClassLike)
+  {* Слово скрипта IsObj }
+  private
+   function IsObj(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsObj }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsObj
+
+ TkwIsIntf = {final} class(TtfwClassLike)
+  {* Слово скрипта IsIntf }
+  private
+   function IsIntf(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsIntf }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsIntf
+
+ TkwIsChar = {final} class(TtfwClassLike)
+  {* Слово скрипта IsChar }
+  private
+   function IsChar(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsChar }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsChar
+
+ TkwIsString = {final} class(TtfwClassLike)
+  {* Слово скрипта IsString }
+  private
+   function IsString(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsString }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsString
+
+ TkwIsInt = {final} class(TtfwClassLike)
+  {* Слово скрипта IsInt }
+  private
+   function IsInt(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsInt }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsInt
+
+ TkwIsClass = {final} class(TtfwClassLike)
+  {* Слово скрипта IsClass }
+  private
+   function IsClass(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsClass }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsClass
+
+ TkwToPrintable = {final} class(TtfwClassLike)
+  {* Слово скрипта ToPrintable }
+  private
+   function ToPrintable(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Il3CString;
+    {* Реализация слова скрипта ToPrintable }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwToPrintable
+
+ TkwIsBool = {final} class(TtfwClassLike)
+  {* Слово скрипта IsBool }
+  private
+   function IsBool(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsBool }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsBool
+
+ TkwIsTypeOf = {final} class(TtfwClassLike)
+  {* Слово скрипта IsTypeOf }
+  private
+   function IsTypeOf(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue;
+    aType: TtfwValueType): Boolean;
+    {* Реализация слова скрипта IsTypeOf }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsTypeOf
+
+ TkwIsNil = {final} class(TtfwClassLike)
+  {* Слово скрипта IsNil }
+  private
+   function IsNil(const aCtx: TtfwContext;
+    const aSV: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта IsNil }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsNil
+
  TTypeInfoPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
  end;//TTypeInfoPackResNameGetter
-
-function TkwIsArray.IsArray(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsArray }
-//#UC START# *550C4CAD0164_758F80018751_var*
-//#UC END# *550C4CAD0164_758F80018751_var*
-begin
-//#UC START# *550C4CAD0164_758F80018751_impl*
- Result := (aSV.rType = tfw_vtList);
-//#UC END# *550C4CAD0164_758F80018751_impl*
-end;//TkwIsArray.IsArray
-
-procedure TkwIsArray.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsArray(aCtx, l_aSV));
-end;//TkwIsArray.DoDoIt
-
-class function TkwIsArray.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsArray';
-end;//TkwIsArray.GetWordNameForRegister
-
-function TkwIsArray.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsArray.GetResultTypeInfo
-
-function TkwIsArray.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsArray.GetAllParamsCount
-
-function TkwIsArray.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsArray.ParamsTypes
-
-function TkwIsVoid.IsVoid(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsVoid }
-//#UC START# *550C4CC90359_0707D9C010E3_var*
-//#UC END# *550C4CC90359_0707D9C010E3_var*
-begin
-//#UC START# *550C4CC90359_0707D9C010E3_impl*
- Result := (aSV.rType = tfw_vtVoid);
-//#UC END# *550C4CC90359_0707D9C010E3_impl*
-end;//TkwIsVoid.IsVoid
-
-procedure TkwIsVoid.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsVoid(aCtx, l_aSV));
-end;//TkwIsVoid.DoDoIt
-
-class function TkwIsVoid.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsVoid';
-end;//TkwIsVoid.GetWordNameForRegister
-
-function TkwIsVoid.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsVoid.GetResultTypeInfo
-
-function TkwIsVoid.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsVoid.GetAllParamsCount
-
-function TkwIsVoid.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsVoid.ParamsTypes
-
-function TkwIsObj.IsObj(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsObj }
-//#UC START# *550C4CD40062_257BCAC433BA_var*
-//#UC END# *550C4CD40062_257BCAC433BA_var*
-begin
-//#UC START# *550C4CD40062_257BCAC433BA_impl*
- Result := (aSV.rType = tfw_vtObj);
-//#UC END# *550C4CD40062_257BCAC433BA_impl*
-end;//TkwIsObj.IsObj
-
-procedure TkwIsObj.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsObj(aCtx, l_aSV));
-end;//TkwIsObj.DoDoIt
-
-class function TkwIsObj.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsObj';
-end;//TkwIsObj.GetWordNameForRegister
-
-function TkwIsObj.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsObj.GetResultTypeInfo
-
-function TkwIsObj.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsObj.GetAllParamsCount
-
-function TkwIsObj.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsObj.ParamsTypes
-
-function TkwIsIntf.IsIntf(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsIntf }
-//#UC START# *550C4CE80144_475E881B9090_var*
-//#UC END# *550C4CE80144_475E881B9090_var*
-begin
-//#UC START# *550C4CE80144_475E881B9090_impl*
- Result := (aSV.rType = tfw_vtIntf);
-//#UC END# *550C4CE80144_475E881B9090_impl*
-end;//TkwIsIntf.IsIntf
-
-procedure TkwIsIntf.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsIntf(aCtx, l_aSV));
-end;//TkwIsIntf.DoDoIt
-
-class function TkwIsIntf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsIntf';
-end;//TkwIsIntf.GetWordNameForRegister
-
-function TkwIsIntf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsIntf.GetResultTypeInfo
-
-function TkwIsIntf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsIntf.GetAllParamsCount
-
-function TkwIsIntf.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsIntf.ParamsTypes
-
-function TkwIsChar.IsChar(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsChar }
-//#UC START# *550C4D090151_ACCFB9C57546_var*
-//#UC END# *550C4D090151_ACCFB9C57546_var*
-begin
-//#UC START# *550C4D090151_ACCFB9C57546_impl*
- Result := (aSV.rType = tfw_vtChar);
-//#UC END# *550C4D090151_ACCFB9C57546_impl*
-end;//TkwIsChar.IsChar
-
-procedure TkwIsChar.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsChar(aCtx, l_aSV));
-end;//TkwIsChar.DoDoIt
-
-class function TkwIsChar.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsChar';
-end;//TkwIsChar.GetWordNameForRegister
-
-function TkwIsChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsChar.GetResultTypeInfo
-
-function TkwIsChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsChar.GetAllParamsCount
-
-function TkwIsChar.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsChar.ParamsTypes
-
-function TkwIsString.IsString(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsString }
-//#UC START# *550C4D18007D_689D96A305FE_var*
-//#UC END# *550C4D18007D_689D96A305FE_var*
-begin
-//#UC START# *550C4D18007D_689D96A305FE_impl*
- Result := (aSV.rType = tfw_vtStr);
-//#UC END# *550C4D18007D_689D96A305FE_impl*
-end;//TkwIsString.IsString
-
-procedure TkwIsString.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsString(aCtx, l_aSV));
-end;//TkwIsString.DoDoIt
-
-class function TkwIsString.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsString';
-end;//TkwIsString.GetWordNameForRegister
-
-function TkwIsString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsString.GetResultTypeInfo
-
-function TkwIsString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsString.GetAllParamsCount
-
-function TkwIsString.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsString.ParamsTypes
-
-function TkwIsInt.IsInt(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsInt }
-//#UC START# *550C4D2701DA_1E29EA0B90A4_var*
-//#UC END# *550C4D2701DA_1E29EA0B90A4_var*
-begin
-//#UC START# *550C4D2701DA_1E29EA0B90A4_impl*
- Result := (aSV.rType = tfw_vtInt);
-//#UC END# *550C4D2701DA_1E29EA0B90A4_impl*
-end;//TkwIsInt.IsInt
-
-procedure TkwIsInt.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsInt(aCtx, l_aSV));
-end;//TkwIsInt.DoDoIt
-
-class function TkwIsInt.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsInt';
-end;//TkwIsInt.GetWordNameForRegister
-
-function TkwIsInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsInt.GetResultTypeInfo
-
-function TkwIsInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsInt.GetAllParamsCount
-
-function TkwIsInt.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsInt.ParamsTypes
-
-function TkwIsClass.IsClass(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsClass }
-//#UC START# *550C4D490048_D8E9C4F61308_var*
-//#UC END# *550C4D490048_D8E9C4F61308_var*
-begin
-//#UC START# *550C4D490048_D8E9C4F61308_impl*
- Result := (aSV.rType = tfw_vtClass);
-//#UC END# *550C4D490048_D8E9C4F61308_impl*
-end;//TkwIsClass.IsClass
-
-procedure TkwIsClass.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsClass(aCtx, l_aSV));
-end;//TkwIsClass.DoDoIt
-
-class function TkwIsClass.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsClass';
-end;//TkwIsClass.GetWordNameForRegister
-
-function TkwIsClass.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsClass.GetResultTypeInfo
-
-function TkwIsClass.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsClass.GetAllParamsCount
-
-function TkwIsClass.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsClass.ParamsTypes
-
-function TkwToPrintable.ToPrintable(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Il3CString;
- {* Реализация слова скрипта ToPrintable }
-//#UC START# *550C4D5800ED_0B39C51FE7D1_var*
-//#UC END# *550C4D5800ED_0B39C51FE7D1_var*
-begin
-//#UC START# *550C4D5800ED_0B39C51FE7D1_impl*
- Result := aSV.AsPrintable;
-//#UC END# *550C4D5800ED_0B39C51FE7D1_impl*
-end;//TkwToPrintable.ToPrintable
-
-procedure TkwToPrintable.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(ToPrintable(aCtx, l_aSV));
-end;//TkwToPrintable.DoDoIt
-
-class function TkwToPrintable.GetWordNameForRegister: AnsiString;
-begin
- Result := 'ToPrintable';
-end;//TkwToPrintable.GetWordNameForRegister
-
-function TkwToPrintable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiString;
-end;//TkwToPrintable.GetResultTypeInfo
-
-function TkwToPrintable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwToPrintable.GetAllParamsCount
-
-function TkwToPrintable.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwToPrintable.ParamsTypes
-
-function TkwIsBool.IsBool(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsBool }
-//#UC START# *55194C770296_805A190E934E_var*
-//#UC END# *55194C770296_805A190E934E_var*
-begin
-//#UC START# *55194C770296_805A190E934E_impl*
- Result := (aSV.rType = tfw_vtBool);
-//#UC END# *55194C770296_805A190E934E_impl*
-end;//TkwIsBool.IsBool
-
-procedure TkwIsBool.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsBool(aCtx, l_aSV));
-end;//TkwIsBool.DoDoIt
-
-class function TkwIsBool.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsBool';
-end;//TkwIsBool.GetWordNameForRegister
-
-function TkwIsBool.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsBool.GetResultTypeInfo
-
-function TkwIsBool.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsBool.GetAllParamsCount
-
-function TkwIsBool.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsBool.ParamsTypes
-
-function TkwIsTypeOf.IsTypeOf(const aCtx: TtfwContext;
- const aSV: TtfwStackValue;
- aType: TtfwValueType): Boolean;
- {* Реализация слова скрипта IsTypeOf }
-//#UC START# *556C4FAF0177_482D1ABE67DA_var*
-//#UC END# *556C4FAF0177_482D1ABE67DA_var*
-begin
-//#UC START# *556C4FAF0177_482D1ABE67DA_impl*
- Result := (aSV.rType = aType);
-//#UC END# *556C4FAF0177_482D1ABE67DA_impl*
-end;//TkwIsTypeOf.IsTypeOf
-
-procedure TkwIsTypeOf.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-var l_aType: TtfwValueType;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- try
-  l_aType := TtfwValueType(aCtx.rEngine.PopInt);
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aType: TtfwValueType : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsTypeOf(aCtx, l_aSV, l_aType));
-end;//TkwIsTypeOf.DoDoIt
-
-class function TkwIsTypeOf.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsTypeOf';
-end;//TkwIsTypeOf.GetWordNameForRegister
-
-function TkwIsTypeOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsTypeOf.GetResultTypeInfo
-
-function TkwIsTypeOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwIsTypeOf.GetAllParamsCount
-
-function TkwIsTypeOf.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct, TypeInfo(TtfwValueType)]);
-end;//TkwIsTypeOf.ParamsTypes
-
-function TkwIsNil.IsNil(const aCtx: TtfwContext;
- const aSV: TtfwStackValue): Boolean;
- {* Реализация слова скрипта IsNil }
-//#UC START# *559BF785003F_1D17EAE13A3E_var*
-//#UC END# *559BF785003F_1D17EAE13A3E_var*
-begin
-//#UC START# *559BF785003F_1D17EAE13A3E_impl*
- Case aSV.rType of
-  tfw_vtNil:
-   Result := true;
-  tfw_vtVoid:
-   Result := false;
-  tfw_vtInt:
-   Result := false;
-  tfw_vtBool:
-   Result := false;
-  tfw_vtChar:
-   Result := false;
-  tfw_vtClass:
-   Result := (aSV.AsClass = nil);
-  tfw_vtObj:
-   Result := (aSV.AsObject = nil);
-  tfw_vtIntf:
-   Result := (aSV.AsIntf = nil);
-  tfw_vtFile:
-   Result := (aSV.AsIntf = nil);
-  tfw_vtList:
-   Result := (aSV.AsIntf = nil);
-  tfw_vtStr:
-   Result := l3IsNil(aSV.AsString);
-  else
-  begin
-   Result := false;
-   BadValueType(aSV.rType, aCtx);
-  end;//else
- end;//Case aSV.rType
-//#UC END# *559BF785003F_1D17EAE13A3E_impl*
-end;//TkwIsNil.IsNil
-
-procedure TkwIsNil.DoDoIt(const aCtx: TtfwContext);
-var l_aSV: TtfwStackValue;
-begin
- try
-  l_aSV := aCtx.rEngine.Pop;
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsNil(aCtx, l_aSV));
-end;//TkwIsNil.DoDoIt
-
-class function TkwIsNil.GetWordNameForRegister: AnsiString;
-begin
- Result := 'IsNil';
-end;//TkwIsNil.GetWordNameForRegister
-
-function TkwIsNil.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwIsNil.GetResultTypeInfo
-
-function TkwIsNil.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwIsNil.GetAllParamsCount
-
-function TkwIsNil.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([@tfw_tiStruct]);
-end;//TkwIsNil.ParamsTypes
 
 procedure TkwCtxIncludeModifier.Ctx_IncludeModifier(const aCtx: TtfwContext;
  aModifier: TtfwWordModifier);
@@ -2158,6 +1567,597 @@ begin
  aCtx.rEngine.PushList(Ctx_DisabledForHelp(aCtx));
 end;//TkwCtxDisabledForHelp.DoDoIt
 
+function TkwIsArray.IsArray(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsArray }
+//#UC START# *550C4CAD0164_550C4CAD0164_4DB00A510300_Word_var*
+//#UC END# *550C4CAD0164_550C4CAD0164_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4CAD0164_550C4CAD0164_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtList);
+//#UC END# *550C4CAD0164_550C4CAD0164_4DB00A510300_Word_impl*
+end;//TkwIsArray.IsArray
+
+class function TkwIsArray.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsArray';
+end;//TkwIsArray.GetWordNameForRegister
+
+function TkwIsArray.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsArray.GetResultTypeInfo
+
+function TkwIsArray.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsArray.GetAllParamsCount
+
+function TkwIsArray.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsArray.ParamsTypes
+
+procedure TkwIsArray.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsArray(aCtx, l_aSV));
+end;//TkwIsArray.DoDoIt
+
+function TkwIsVoid.IsVoid(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsVoid }
+//#UC START# *550C4CC90359_550C4CC90359_4DB00A510300_Word_var*
+//#UC END# *550C4CC90359_550C4CC90359_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4CC90359_550C4CC90359_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtVoid);
+//#UC END# *550C4CC90359_550C4CC90359_4DB00A510300_Word_impl*
+end;//TkwIsVoid.IsVoid
+
+class function TkwIsVoid.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsVoid';
+end;//TkwIsVoid.GetWordNameForRegister
+
+function TkwIsVoid.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsVoid.GetResultTypeInfo
+
+function TkwIsVoid.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsVoid.GetAllParamsCount
+
+function TkwIsVoid.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsVoid.ParamsTypes
+
+procedure TkwIsVoid.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsVoid(aCtx, l_aSV));
+end;//TkwIsVoid.DoDoIt
+
+function TkwIsObj.IsObj(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsObj }
+//#UC START# *550C4CD40062_550C4CD40062_4DB00A510300_Word_var*
+//#UC END# *550C4CD40062_550C4CD40062_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4CD40062_550C4CD40062_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtObj);
+//#UC END# *550C4CD40062_550C4CD40062_4DB00A510300_Word_impl*
+end;//TkwIsObj.IsObj
+
+class function TkwIsObj.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsObj';
+end;//TkwIsObj.GetWordNameForRegister
+
+function TkwIsObj.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsObj.GetResultTypeInfo
+
+function TkwIsObj.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsObj.GetAllParamsCount
+
+function TkwIsObj.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsObj.ParamsTypes
+
+procedure TkwIsObj.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsObj(aCtx, l_aSV));
+end;//TkwIsObj.DoDoIt
+
+function TkwIsIntf.IsIntf(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsIntf }
+//#UC START# *550C4CE80144_550C4CE80144_4DB00A510300_Word_var*
+//#UC END# *550C4CE80144_550C4CE80144_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4CE80144_550C4CE80144_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtIntf);
+//#UC END# *550C4CE80144_550C4CE80144_4DB00A510300_Word_impl*
+end;//TkwIsIntf.IsIntf
+
+class function TkwIsIntf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsIntf';
+end;//TkwIsIntf.GetWordNameForRegister
+
+function TkwIsIntf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsIntf.GetResultTypeInfo
+
+function TkwIsIntf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsIntf.GetAllParamsCount
+
+function TkwIsIntf.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsIntf.ParamsTypes
+
+procedure TkwIsIntf.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsIntf(aCtx, l_aSV));
+end;//TkwIsIntf.DoDoIt
+
+function TkwIsChar.IsChar(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsChar }
+//#UC START# *550C4D090151_550C4D090151_4DB00A510300_Word_var*
+//#UC END# *550C4D090151_550C4D090151_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4D090151_550C4D090151_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtChar);
+//#UC END# *550C4D090151_550C4D090151_4DB00A510300_Word_impl*
+end;//TkwIsChar.IsChar
+
+class function TkwIsChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsChar';
+end;//TkwIsChar.GetWordNameForRegister
+
+function TkwIsChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsChar.GetResultTypeInfo
+
+function TkwIsChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsChar.GetAllParamsCount
+
+function TkwIsChar.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsChar.ParamsTypes
+
+procedure TkwIsChar.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsChar(aCtx, l_aSV));
+end;//TkwIsChar.DoDoIt
+
+function TkwIsString.IsString(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsString }
+//#UC START# *550C4D18007D_550C4D18007D_4DB00A510300_Word_var*
+//#UC END# *550C4D18007D_550C4D18007D_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4D18007D_550C4D18007D_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtStr);
+//#UC END# *550C4D18007D_550C4D18007D_4DB00A510300_Word_impl*
+end;//TkwIsString.IsString
+
+class function TkwIsString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsString';
+end;//TkwIsString.GetWordNameForRegister
+
+function TkwIsString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsString.GetResultTypeInfo
+
+function TkwIsString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsString.GetAllParamsCount
+
+function TkwIsString.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsString.ParamsTypes
+
+procedure TkwIsString.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsString(aCtx, l_aSV));
+end;//TkwIsString.DoDoIt
+
+function TkwIsInt.IsInt(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsInt }
+//#UC START# *550C4D2701DA_550C4D2701DA_4DB00A510300_Word_var*
+//#UC END# *550C4D2701DA_550C4D2701DA_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4D2701DA_550C4D2701DA_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtInt);
+//#UC END# *550C4D2701DA_550C4D2701DA_4DB00A510300_Word_impl*
+end;//TkwIsInt.IsInt
+
+class function TkwIsInt.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsInt';
+end;//TkwIsInt.GetWordNameForRegister
+
+function TkwIsInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsInt.GetResultTypeInfo
+
+function TkwIsInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsInt.GetAllParamsCount
+
+function TkwIsInt.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsInt.ParamsTypes
+
+procedure TkwIsInt.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsInt(aCtx, l_aSV));
+end;//TkwIsInt.DoDoIt
+
+function TkwIsClass.IsClass(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsClass }
+//#UC START# *550C4D490048_550C4D490048_4DB00A510300_Word_var*
+//#UC END# *550C4D490048_550C4D490048_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4D490048_550C4D490048_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtClass);
+//#UC END# *550C4D490048_550C4D490048_4DB00A510300_Word_impl*
+end;//TkwIsClass.IsClass
+
+class function TkwIsClass.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsClass';
+end;//TkwIsClass.GetWordNameForRegister
+
+function TkwIsClass.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsClass.GetResultTypeInfo
+
+function TkwIsClass.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsClass.GetAllParamsCount
+
+function TkwIsClass.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsClass.ParamsTypes
+
+procedure TkwIsClass.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsClass(aCtx, l_aSV));
+end;//TkwIsClass.DoDoIt
+
+function TkwToPrintable.ToPrintable(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Il3CString;
+ {* Реализация слова скрипта ToPrintable }
+//#UC START# *550C4D5800ED_550C4D5800ED_4DB00A510300_Word_var*
+//#UC END# *550C4D5800ED_550C4D5800ED_4DB00A510300_Word_var*
+begin
+//#UC START# *550C4D5800ED_550C4D5800ED_4DB00A510300_Word_impl*
+ Result := aSV.AsPrintable;
+//#UC END# *550C4D5800ED_550C4D5800ED_4DB00A510300_Word_impl*
+end;//TkwToPrintable.ToPrintable
+
+class function TkwToPrintable.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'ToPrintable';
+end;//TkwToPrintable.GetWordNameForRegister
+
+function TkwToPrintable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwToPrintable.GetResultTypeInfo
+
+function TkwToPrintable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwToPrintable.GetAllParamsCount
+
+function TkwToPrintable.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwToPrintable.ParamsTypes
+
+procedure TkwToPrintable.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(ToPrintable(aCtx, l_aSV));
+end;//TkwToPrintable.DoDoIt
+
+function TkwIsBool.IsBool(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsBool }
+//#UC START# *55194C770296_55194C770296_4DB00A510300_Word_var*
+//#UC END# *55194C770296_55194C770296_4DB00A510300_Word_var*
+begin
+//#UC START# *55194C770296_55194C770296_4DB00A510300_Word_impl*
+ Result := (aSV.rType = tfw_vtBool);
+//#UC END# *55194C770296_55194C770296_4DB00A510300_Word_impl*
+end;//TkwIsBool.IsBool
+
+class function TkwIsBool.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsBool';
+end;//TkwIsBool.GetWordNameForRegister
+
+function TkwIsBool.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsBool.GetResultTypeInfo
+
+function TkwIsBool.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsBool.GetAllParamsCount
+
+function TkwIsBool.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsBool.ParamsTypes
+
+procedure TkwIsBool.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsBool(aCtx, l_aSV));
+end;//TkwIsBool.DoDoIt
+
+function TkwIsTypeOf.IsTypeOf(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue;
+ aType: TtfwValueType): Boolean;
+ {* Реализация слова скрипта IsTypeOf }
+//#UC START# *556C4FAF0177_556C4FAF0177_4DB00A510300_Word_var*
+//#UC END# *556C4FAF0177_556C4FAF0177_4DB00A510300_Word_var*
+begin
+//#UC START# *556C4FAF0177_556C4FAF0177_4DB00A510300_Word_impl*
+ Result := (aSV.rType = aType);
+//#UC END# *556C4FAF0177_556C4FAF0177_4DB00A510300_Word_impl*
+end;//TkwIsTypeOf.IsTypeOf
+
+class function TkwIsTypeOf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsTypeOf';
+end;//TkwIsTypeOf.GetWordNameForRegister
+
+function TkwIsTypeOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsTypeOf.GetResultTypeInfo
+
+function TkwIsTypeOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwIsTypeOf.GetAllParamsCount
+
+function TkwIsTypeOf.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct, TypeInfo(TtfwValueType)]);
+end;//TkwIsTypeOf.ParamsTypes
+
+procedure TkwIsTypeOf.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+var l_aType: TtfwValueType;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aType := TtfwValueType(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aType: TtfwValueType : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsTypeOf(aCtx, l_aSV, l_aType));
+end;//TkwIsTypeOf.DoDoIt
+
+function TkwIsNil.IsNil(const aCtx: TtfwContext;
+ const aSV: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта IsNil }
+//#UC START# *559BF785003F_559BF785003F_4DB00A510300_Word_var*
+//#UC END# *559BF785003F_559BF785003F_4DB00A510300_Word_var*
+begin
+//#UC START# *559BF785003F_559BF785003F_4DB00A510300_Word_impl*
+ Case aSV.rType of
+  tfw_vtNil:
+   Result := true;
+  tfw_vtVoid:
+   Result := false;
+  tfw_vtInt:
+   Result := false;
+  tfw_vtBool:
+   Result := false;
+  tfw_vtChar:
+   Result := false;
+  tfw_vtClass:
+   Result := (aSV.AsClass = nil);
+  tfw_vtObj:
+   Result := (aSV.AsObject = nil);
+  tfw_vtIntf:
+   Result := (aSV.AsIntf = nil);
+  tfw_vtFile:
+   Result := (aSV.AsIntf = nil);
+  tfw_vtList:
+   Result := (aSV.AsIntf = nil);
+  tfw_vtStr:
+   Result := l3IsNil(aSV.AsString);
+  else
+  begin
+   Result := false;
+   BadValueType(aSV.rType, aCtx);
+  end;//else
+ end;//Case aSV.rType
+//#UC END# *559BF785003F_559BF785003F_4DB00A510300_Word_impl*
+end;//TkwIsNil.IsNil
+
+class function TkwIsNil.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IsNil';
+end;//TkwIsNil.GetWordNameForRegister
+
+function TkwIsNil.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwIsNil.GetResultTypeInfo
+
+function TkwIsNil.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwIsNil.GetAllParamsCount
+
+function TkwIsNil.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
+end;//TkwIsNil.ParamsTypes
+
+procedure TkwIsNil.DoDoIt(const aCtx: TtfwContext);
+var l_aSV: TtfwStackValue;
+begin
+ try
+  l_aSV := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSV: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsNil(aCtx, l_aSV));
+end;//TkwIsNil.DoDoIt
+
 class function TTypeInfoPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'TypeInfoPack';
@@ -2166,30 +2166,6 @@ end;//TTypeInfoPackResNameGetter.ResName
  {$R TypeInfoPack.res}
 
 initialization
- TkwIsArray.RegisterInEngine;
- {* Регистрация IsArray }
- TkwIsVoid.RegisterInEngine;
- {* Регистрация IsVoid }
- TkwIsObj.RegisterInEngine;
- {* Регистрация IsObj }
- TkwIsIntf.RegisterInEngine;
- {* Регистрация IsIntf }
- TkwIsChar.RegisterInEngine;
- {* Регистрация IsChar }
- TkwIsString.RegisterInEngine;
- {* Регистрация IsString }
- TkwIsInt.RegisterInEngine;
- {* Регистрация IsInt }
- TkwIsClass.RegisterInEngine;
- {* Регистрация IsClass }
- TkwToPrintable.RegisterInEngine;
- {* Регистрация ToPrintable }
- TkwIsBool.RegisterInEngine;
- {* Регистрация IsBool }
- TkwIsTypeOf.RegisterInEngine;
- {* Регистрация IsTypeOf }
- TkwIsNil.RegisterInEngine;
- {* Регистрация IsNil }
  TkwCtxIncludeModifier.RegisterInEngine;
  {* Регистрация Ctx_IncludeModifier }
  TkwCtxPushCompiler.RegisterInEngine;
@@ -2240,6 +2216,30 @@ initialization
  {* Регистрация Ctx_InitedDictionaries }
  TkwCtxDisabledForHelp.RegisterInEngine;
  {* Регистрация Ctx_DisabledForHelp }
+ TkwIsArray.RegisterInEngine;
+ {* Регистрация IsArray }
+ TkwIsVoid.RegisterInEngine;
+ {* Регистрация IsVoid }
+ TkwIsObj.RegisterInEngine;
+ {* Регистрация IsObj }
+ TkwIsIntf.RegisterInEngine;
+ {* Регистрация IsIntf }
+ TkwIsChar.RegisterInEngine;
+ {* Регистрация IsChar }
+ TkwIsString.RegisterInEngine;
+ {* Регистрация IsString }
+ TkwIsInt.RegisterInEngine;
+ {* Регистрация IsInt }
+ TkwIsClass.RegisterInEngine;
+ {* Регистрация IsClass }
+ TkwToPrintable.RegisterInEngine;
+ {* Регистрация ToPrintable }
+ TkwIsBool.RegisterInEngine;
+ {* Регистрация IsBool }
+ TkwIsTypeOf.RegisterInEngine;
+ {* Регистрация IsTypeOf }
+ TkwIsNil.RegisterInEngine;
+ {* Регистрация IsNil }
  TTypeInfoPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);

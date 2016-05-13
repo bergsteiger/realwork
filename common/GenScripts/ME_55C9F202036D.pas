@@ -20,11 +20,11 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
- , tfwPropertyLike
+ , tfwGlobalKeyWord
  , tfwScriptingInterfaces
  , TypInfo
+ , tfwPropertyLike
  , tfwTypeInfo
- , tfwGlobalKeyWord
  , tfwAxiomaticsResNameGetter
  , SysUtils
  , TtfwTypeRegistrator_Proxy
@@ -32,6 +32,20 @@ uses
 ;
 
 type
+ TkwTestShouldStop = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта test:ShouldStop }
+  private
+   function test_ShouldStop(const aCtx: TtfwContext): Boolean;
+    {* Реализация слова скрипта test:ShouldStop }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTestShouldStop
+
  TkwPopTestName = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Test:Name }
   private
@@ -39,8 +53,8 @@ type
     const aTest: ITest): AnsiString;
     {* Реализация слова скрипта pop:Test:Name }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -56,8 +70,8 @@ type
     const aTest: ITest): Boolean;
     {* Реализация слова скрипта pop:Test:Enabled }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -73,8 +87,8 @@ type
     const aTest: ITest): AnsiString;
     {* Реализация слова скрипта pop:Test:SubFolder }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,8 +104,8 @@ type
     const aTest: ITest): Boolean;
     {* Реализация слова скрипта pop:Test:HasScriptChildren }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -100,221 +114,11 @@ type
     const aCtx: TtfwContext); override;
  end;//TkwPopTestHasScriptChildren
 
- TkwTestShouldStop = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта test:ShouldStop }
-  private
-   function test_ShouldStop(const aCtx: TtfwContext): Boolean;
-    {* Реализация слова скрипта test:ShouldStop }
-  protected
-   class function GetWordNameForRegister: AnsiString; override;
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTestShouldStop
-
  TITestWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
    class function ResName: AnsiString; override;
  end;//TITestWordsPackResNameGetter
-
-function TkwPopTestName.Name(const aCtx: TtfwContext;
- const aTest: ITest): AnsiString;
- {* Реализация слова скрипта pop:Test:Name }
-begin
- Result := aTest.Name;
-end;//TkwPopTestName.Name
-
-procedure TkwPopTestName.DoDoIt(const aCtx: TtfwContext);
-var l_aTest: ITest;
-begin
- try
-  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(Name(aCtx, l_aTest));
-end;//TkwPopTestName.DoDoIt
-
-class function TkwPopTestName.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:Name';
-end;//TkwPopTestName.GetWordNameForRegister
-
-function TkwPopTestName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiString;
-end;//TkwPopTestName.GetResultTypeInfo
-
-function TkwPopTestName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwPopTestName.GetAllParamsCount
-
-function TkwPopTestName.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ITest)]);
-end;//TkwPopTestName.ParamsTypes
-
-procedure TkwPopTestName.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-begin
- RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
-end;//TkwPopTestName.SetValuePrim
-
-function TkwPopTestEnabled.Enabled(const aCtx: TtfwContext;
- const aTest: ITest): Boolean;
- {* Реализация слова скрипта pop:Test:Enabled }
-begin
- Result := aTest.Enabled;
-end;//TkwPopTestEnabled.Enabled
-
-procedure TkwPopTestEnabled.DoDoIt(const aCtx: TtfwContext);
-var l_aTest: ITest;
-begin
- try
-  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(Enabled(aCtx, l_aTest));
-end;//TkwPopTestEnabled.DoDoIt
-
-class function TkwPopTestEnabled.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:Enabled';
-end;//TkwPopTestEnabled.GetWordNameForRegister
-
-function TkwPopTestEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwPopTestEnabled.GetResultTypeInfo
-
-function TkwPopTestEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwPopTestEnabled.GetAllParamsCount
-
-function TkwPopTestEnabled.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ITest)]);
-end;//TkwPopTestEnabled.ParamsTypes
-
-procedure TkwPopTestEnabled.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-begin
- RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
-end;//TkwPopTestEnabled.SetValuePrim
-
-function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
- const aTest: ITest): AnsiString;
- {* Реализация слова скрипта pop:Test:SubFolder }
-//#UC START# *024726117628_4638C704D78B_var*
-//#UC END# *024726117628_4638C704D78B_var*
-begin
-//#UC START# *024726117628_4638C704D78B_impl*
- Result := aTest.GetSubFolder;
-//#UC END# *024726117628_4638C704D78B_impl*
-end;//TkwPopTestSubFolder.SubFolder
-
-procedure TkwPopTestSubFolder.DoDoIt(const aCtx: TtfwContext);
-var l_aTest: ITest;
-begin
- try
-  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushString(SubFolder(aCtx, l_aTest));
-end;//TkwPopTestSubFolder.DoDoIt
-
-class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:SubFolder';
-end;//TkwPopTestSubFolder.GetWordNameForRegister
-
-function TkwPopTestSubFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiString;
-end;//TkwPopTestSubFolder.GetResultTypeInfo
-
-function TkwPopTestSubFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwPopTestSubFolder.GetAllParamsCount
-
-function TkwPopTestSubFolder.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ITest)]);
-end;//TkwPopTestSubFolder.ParamsTypes
-
-procedure TkwPopTestSubFolder.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-begin
- RunnerError('Нельзя присваивать значение readonly свойству SubFolder', aCtx);
-end;//TkwPopTestSubFolder.SetValuePrim
-
-function TkwPopTestHasScriptChildren.HasScriptChildren(const aCtx: TtfwContext;
- const aTest: ITest): Boolean;
- {* Реализация слова скрипта pop:Test:HasScriptChildren }
-begin
- Result := aTest.HasScriptChildren;
-end;//TkwPopTestHasScriptChildren.HasScriptChildren
-
-procedure TkwPopTestHasScriptChildren.DoDoIt(const aCtx: TtfwContext);
-var l_aTest: ITest;
-begin
- try
-  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(HasScriptChildren(aCtx, l_aTest));
-end;//TkwPopTestHasScriptChildren.DoDoIt
-
-class function TkwPopTestHasScriptChildren.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:Test:HasScriptChildren';
-end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
-
-function TkwPopTestHasScriptChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := TypeInfo(Boolean);
-end;//TkwPopTestHasScriptChildren.GetResultTypeInfo
-
-function TkwPopTestHasScriptChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwPopTestHasScriptChildren.GetAllParamsCount
-
-function TkwPopTestHasScriptChildren.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(ITest)]);
-end;//TkwPopTestHasScriptChildren.ParamsTypes
-
-procedure TkwPopTestHasScriptChildren.SetValuePrim(const aValue: TtfwStackValue;
- const aCtx: TtfwContext);
-begin
- RunnerError('Нельзя присваивать значение readonly свойству HasScriptChildren', aCtx);
-end;//TkwPopTestHasScriptChildren.SetValuePrim
 
 function TkwTestShouldStop.test_ShouldStop(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта test:ShouldStop }
@@ -351,6 +155,202 @@ begin
  aCtx.rEngine.PushBool(test_ShouldStop(aCtx));
 end;//TkwTestShouldStop.DoDoIt
 
+function TkwPopTestName.Name(const aCtx: TtfwContext;
+ const aTest: ITest): AnsiString;
+ {* Реализация слова скрипта pop:Test:Name }
+begin
+ Result := aTest.Name;
+end;//TkwPopTestName.Name
+
+class function TkwPopTestName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:Name';
+end;//TkwPopTestName.GetWordNameForRegister
+
+function TkwPopTestName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwPopTestName.GetResultTypeInfo
+
+function TkwPopTestName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopTestName.GetAllParamsCount
+
+function TkwPopTestName.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
+end;//TkwPopTestName.ParamsTypes
+
+procedure TkwPopTestName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
+end;//TkwPopTestName.SetValuePrim
+
+procedure TkwPopTestName.DoDoIt(const aCtx: TtfwContext);
+var l_aTest: ITest;
+begin
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Name(aCtx, l_aTest));
+end;//TkwPopTestName.DoDoIt
+
+function TkwPopTestEnabled.Enabled(const aCtx: TtfwContext;
+ const aTest: ITest): Boolean;
+ {* Реализация слова скрипта pop:Test:Enabled }
+begin
+ Result := aTest.Enabled;
+end;//TkwPopTestEnabled.Enabled
+
+class function TkwPopTestEnabled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:Enabled';
+end;//TkwPopTestEnabled.GetWordNameForRegister
+
+function TkwPopTestEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwPopTestEnabled.GetResultTypeInfo
+
+function TkwPopTestEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopTestEnabled.GetAllParamsCount
+
+function TkwPopTestEnabled.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
+end;//TkwPopTestEnabled.ParamsTypes
+
+procedure TkwPopTestEnabled.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
+end;//TkwPopTestEnabled.SetValuePrim
+
+procedure TkwPopTestEnabled.DoDoIt(const aCtx: TtfwContext);
+var l_aTest: ITest;
+begin
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Enabled(aCtx, l_aTest));
+end;//TkwPopTestEnabled.DoDoIt
+
+function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
+ const aTest: ITest): AnsiString;
+ {* Реализация слова скрипта pop:Test:SubFolder }
+//#UC START# *024726117628_024726117628_4B2F420202F4_Word_var*
+//#UC END# *024726117628_024726117628_4B2F420202F4_Word_var*
+begin
+//#UC START# *024726117628_024726117628_4B2F420202F4_Word_impl*
+ Result := aTest.GetSubFolder;
+//#UC END# *024726117628_024726117628_4B2F420202F4_Word_impl*
+end;//TkwPopTestSubFolder.SubFolder
+
+class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:SubFolder';
+end;//TkwPopTestSubFolder.GetWordNameForRegister
+
+function TkwPopTestSubFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwPopTestSubFolder.GetResultTypeInfo
+
+function TkwPopTestSubFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopTestSubFolder.GetAllParamsCount
+
+function TkwPopTestSubFolder.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
+end;//TkwPopTestSubFolder.ParamsTypes
+
+procedure TkwPopTestSubFolder.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству SubFolder', aCtx);
+end;//TkwPopTestSubFolder.SetValuePrim
+
+procedure TkwPopTestSubFolder.DoDoIt(const aCtx: TtfwContext);
+var l_aTest: ITest;
+begin
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(SubFolder(aCtx, l_aTest));
+end;//TkwPopTestSubFolder.DoDoIt
+
+function TkwPopTestHasScriptChildren.HasScriptChildren(const aCtx: TtfwContext;
+ const aTest: ITest): Boolean;
+ {* Реализация слова скрипта pop:Test:HasScriptChildren }
+begin
+ Result := aTest.HasScriptChildren;
+end;//TkwPopTestHasScriptChildren.HasScriptChildren
+
+class function TkwPopTestHasScriptChildren.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:HasScriptChildren';
+end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
+
+function TkwPopTestHasScriptChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwPopTestHasScriptChildren.GetResultTypeInfo
+
+function TkwPopTestHasScriptChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopTestHasScriptChildren.GetAllParamsCount
+
+function TkwPopTestHasScriptChildren.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
+end;//TkwPopTestHasScriptChildren.ParamsTypes
+
+procedure TkwPopTestHasScriptChildren.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству HasScriptChildren', aCtx);
+end;//TkwPopTestHasScriptChildren.SetValuePrim
+
+procedure TkwPopTestHasScriptChildren.DoDoIt(const aCtx: TtfwContext);
+var l_aTest: ITest;
+begin
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(HasScriptChildren(aCtx, l_aTest));
+end;//TkwPopTestHasScriptChildren.DoDoIt
+
 class function TITestWordsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'ITestWordsPack';
@@ -359,6 +359,8 @@ end;//TITestWordsPackResNameGetter.ResName
  {$R ITestWordsPack.res}
 
 initialization
+ TkwTestShouldStop.RegisterInEngine;
+ {* Регистрация test_ShouldStop }
  TkwPopTestName.RegisterInEngine;
  {* Регистрация pop_Test_Name }
  TkwPopTestEnabled.RegisterInEngine;
@@ -367,8 +369,6 @@ initialization
  {* Регистрация pop_Test_SubFolder }
  TkwPopTestHasScriptChildren.RegisterInEngine;
  {* Регистрация pop_Test_HasScriptChildren }
- TkwTestShouldStop.RegisterInEngine;
- {* Регистрация test_ShouldStop }
  TITestWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ITest));

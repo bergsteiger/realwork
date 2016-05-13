@@ -36,8 +36,8 @@ type
     aMainDictionary: TtfwMainDictionary): TtfwWord;
     {* Реализация слова скрипта pop:MainDictionary:CompiledCode }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 function TkwPopMainDictionaryCompiledCode.CompiledCode(const aCtx: TtfwContext;
  aMainDictionary: TtfwMainDictionary): TtfwWord;
  {* Реализация слова скрипта pop:MainDictionary:CompiledCode }
-//#UC START# *55ED491201A9_FA2C6FCB48FD_var*
-//#UC END# *55ED491201A9_FA2C6FCB48FD_var*
+//#UC START# *55ED491201A9_55ED491201A9_55A0005D02CC_Word_var*
+//#UC END# *55ED491201A9_55ED491201A9_55A0005D02CC_Word_var*
 begin
-//#UC START# *55ED491201A9_FA2C6FCB48FD_impl*
+//#UC START# *55ED491201A9_55ED491201A9_55A0005D02CC_Word_impl*
  Result := aMainDictionary.CompiledCode;
-//#UC END# *55ED491201A9_FA2C6FCB48FD_impl*
+//#UC END# *55ED491201A9_55ED491201A9_55A0005D02CC_Word_impl*
 end;//TkwPopMainDictionaryCompiledCode.CompiledCode
-
-procedure TkwPopMainDictionaryCompiledCode.DoDoIt(const aCtx: TtfwContext);
-var l_aMainDictionary: TtfwMainDictionary;
-begin
- try
-  l_aMainDictionary := TtfwMainDictionary(aCtx.rEngine.PopObjAs(TtfwMainDictionary));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aMainDictionary: TtfwMainDictionary : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(CompiledCode(aCtx, l_aMainDictionary));
-end;//TkwPopMainDictionaryCompiledCode.DoDoIt
 
 class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopMainDictionaryCompiledCode.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwMainDictionary)]);
 end;//TkwPopMainDictionaryCompiledCode.ParamsTypes
+
+procedure TkwPopMainDictionaryCompiledCode.DoDoIt(const aCtx: TtfwContext);
+var l_aMainDictionary: TtfwMainDictionary;
+begin
+ try
+  l_aMainDictionary := TtfwMainDictionary(aCtx.rEngine.PopObjAs(TtfwMainDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainDictionary: TtfwMainDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CompiledCode(aCtx, l_aMainDictionary));
+end;//TkwPopMainDictionaryCompiledCode.DoDoIt
 
 initialization
  TkwPopMainDictionaryCompiledCode.RegisterInEngine;

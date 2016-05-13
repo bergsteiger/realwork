@@ -36,8 +36,8 @@ type
     const aWordBox: ItfwWordBox): TtfwWord;
     {* Реализация слова скрипта pop:WordBox:Boxed }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 function TkwPopWordBoxBoxed.Boxed(const aCtx: TtfwContext;
  const aWordBox: ItfwWordBox): TtfwWord;
  {* Реализация слова скрипта pop:WordBox:Boxed }
-//#UC START# *567A8EC50138_72ECED106E06_var*
-//#UC END# *567A8EC50138_72ECED106E06_var*
+//#UC START# *567A8EC50138_567A8EC50138_567A8D710267_Word_var*
+//#UC END# *567A8EC50138_567A8EC50138_567A8D710267_Word_var*
 begin
-//#UC START# *567A8EC50138_72ECED106E06_impl*
+//#UC START# *567A8EC50138_567A8EC50138_567A8D710267_Word_impl*
  Result := aWordBox.Boxed;
-//#UC END# *567A8EC50138_72ECED106E06_impl*
+//#UC END# *567A8EC50138_567A8EC50138_567A8D710267_Word_impl*
 end;//TkwPopWordBoxBoxed.Boxed
-
-procedure TkwPopWordBoxBoxed.DoDoIt(const aCtx: TtfwContext);
-var l_aWordBox: ItfwWordBox;
-begin
- try
-  l_aWordBox := ItfwWordBox(aCtx.rEngine.PopIntf(ItfwWordBox));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWordBox: ItfwWordBox : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Boxed(aCtx, l_aWordBox));
-end;//TkwPopWordBoxBoxed.DoDoIt
 
 class function TkwPopWordBoxBoxed.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopWordBoxBoxed.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(ItfwWordBox)]);
 end;//TkwPopWordBoxBoxed.ParamsTypes
+
+procedure TkwPopWordBoxBoxed.DoDoIt(const aCtx: TtfwContext);
+var l_aWordBox: ItfwWordBox;
+begin
+ try
+  l_aWordBox := ItfwWordBox(aCtx.rEngine.PopIntf(ItfwWordBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWordBox: ItfwWordBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Boxed(aCtx, l_aWordBox));
+end;//TkwPopWordBoxBoxed.DoDoIt
 
 initialization
  TkwPopWordBoxBoxed.RegisterInEngine;

@@ -60,21 +60,14 @@ type
  end;//Tkw_elCustomEdit_Component_Edit
 
  TkwElCustomEditFormEdit = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TelCustomEditForm.Edit
-[panel]Контрол Edit формы TelCustomEditForm[panel]
-*Тип результата:* TelCustomEdit
-*Пример:*
-[code]
-OBJECT VAR l_TelCustomEdit
- aelCustomEditForm .TelCustomEditForm.Edit >>> l_TelCustomEdit
-[code]  }
+  {* Слово скрипта .TelCustomEditForm.Edit }
   private
    function Edit(const aCtx: TtfwContext;
     aelCustomEditForm: TelCustomEditForm): TelCustomEdit;
     {* Реализация слова скрипта .TelCustomEditForm.Edit }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -116,21 +109,6 @@ begin
  Result := aelCustomEditForm.Edit;
 end;//TkwElCustomEditFormEdit.Edit
 
-procedure TkwElCustomEditFormEdit.DoDoIt(const aCtx: TtfwContext);
-var l_aelCustomEditForm: TelCustomEditForm;
-begin
- try
-  l_aelCustomEditForm := TelCustomEditForm(aCtx.rEngine.PopObjAs(TelCustomEditForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aelCustomEditForm: TelCustomEditForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Edit(aCtx, l_aelCustomEditForm));
-end;//TkwElCustomEditFormEdit.DoDoIt
-
 class function TkwElCustomEditFormEdit.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TelCustomEditForm.Edit';
@@ -156,6 +134,21 @@ procedure TkwElCustomEditFormEdit.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Edit', aCtx);
 end;//TkwElCustomEditFormEdit.SetValuePrim
+
+procedure TkwElCustomEditFormEdit.DoDoIt(const aCtx: TtfwContext);
+var l_aelCustomEditForm: TelCustomEditForm;
+begin
+ try
+  l_aelCustomEditForm := TelCustomEditForm(aCtx.rEngine.PopObjAs(TelCustomEditForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aelCustomEditForm: TelCustomEditForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Edit(aCtx, l_aelCustomEditForm));
+end;//TkwElCustomEditFormEdit.DoDoIt
 
 initialization
  Tkw_Form_elCustomEdit.RegisterInEngine;

@@ -340,8 +340,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
     {* Реализация слова скрипта .Ten_ConsultationMark.gbMark }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -357,8 +357,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
     {* Реализация слова скрипта .Ten_ConsultationMark.rbNotSure }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -374,8 +374,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
     {* Реализация слова скрипта .Ten_ConsultationMark.rbTwo }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -391,8 +391,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
     {* Реализация слова скрипта .Ten_ConsultationMark.rbThree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -408,8 +408,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
     {* Реализация слова скрипта .Ten_ConsultationMark.rbFour }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -425,8 +425,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
     {* Реализация слова скрипта .Ten_ConsultationMark.rbFive }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -442,8 +442,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtPanel;
     {* Реализация слова скрипта .Ten_ConsultationMark.pnlHelp }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -459,8 +459,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtLabel;
     {* Реализация слова скрипта .Ten_ConsultationMark.lblHelp }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -476,8 +476,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
     {* Реализация слова скрипта .Ten_ConsultationMark.gbComment }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -493,8 +493,8 @@ type
     aen_ConsultationMark: Ten_ConsultationMark): TeeMemoWithEditOperations;
     {* Реализация слова скрипта .Ten_ConsultationMark.mComment }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -790,21 +790,6 @@ begin
  Result := aen_ConsultationMark.gbMark;
 end;//TkwEnConsultationMarkGbMark.gbMark
 
-procedure TkwEnConsultationMarkGbMark.DoDoIt(const aCtx: TtfwContext);
-var l_aen_ConsultationMark: Ten_ConsultationMark;
-begin
- try
-  l_aen_ConsultationMark := Ten_ConsultationMark(aCtx.rEngine.PopObjAs(Ten_ConsultationMark));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aen_ConsultationMark: Ten_ConsultationMark : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(gbMark(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkGbMark.DoDoIt
-
 class function TkwEnConsultationMarkGbMark.GetWordNameForRegister: AnsiString;
 begin
  Result := '.Ten_ConsultationMark.gbMark';
@@ -831,14 +816,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству gbMark', aCtx);
 end;//TkwEnConsultationMarkGbMark.SetValuePrim
 
-function TkwEnConsultationMarkRbNotSure.rbNotSure(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
- {* Реализация слова скрипта .Ten_ConsultationMark.rbNotSure }
-begin
- Result := aen_ConsultationMark.rbNotSure;
-end;//TkwEnConsultationMarkRbNotSure.rbNotSure
-
-procedure TkwEnConsultationMarkRbNotSure.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkGbMark.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -850,8 +828,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbNotSure(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkRbNotSure.DoDoIt
+ aCtx.rEngine.PushObj(gbMark(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkGbMark.DoDoIt
+
+function TkwEnConsultationMarkRbNotSure.rbNotSure(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_ConsultationMark.rbNotSure }
+begin
+ Result := aen_ConsultationMark.rbNotSure;
+end;//TkwEnConsultationMarkRbNotSure.rbNotSure
 
 class function TkwEnConsultationMarkRbNotSure.GetWordNameForRegister: AnsiString;
 begin
@@ -879,14 +864,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbNotSure', aCtx);
 end;//TkwEnConsultationMarkRbNotSure.SetValuePrim
 
-function TkwEnConsultationMarkRbTwo.rbTwo(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
- {* Реализация слова скрипта .Ten_ConsultationMark.rbTwo }
-begin
- Result := aen_ConsultationMark.rbTwo;
-end;//TkwEnConsultationMarkRbTwo.rbTwo
-
-procedure TkwEnConsultationMarkRbTwo.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkRbNotSure.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -898,8 +876,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbTwo(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkRbTwo.DoDoIt
+ aCtx.rEngine.PushObj(rbNotSure(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkRbNotSure.DoDoIt
+
+function TkwEnConsultationMarkRbTwo.rbTwo(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_ConsultationMark.rbTwo }
+begin
+ Result := aen_ConsultationMark.rbTwo;
+end;//TkwEnConsultationMarkRbTwo.rbTwo
 
 class function TkwEnConsultationMarkRbTwo.GetWordNameForRegister: AnsiString;
 begin
@@ -927,14 +912,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbTwo', aCtx);
 end;//TkwEnConsultationMarkRbTwo.SetValuePrim
 
-function TkwEnConsultationMarkRbThree.rbThree(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
- {* Реализация слова скрипта .Ten_ConsultationMark.rbThree }
-begin
- Result := aen_ConsultationMark.rbThree;
-end;//TkwEnConsultationMarkRbThree.rbThree
-
-procedure TkwEnConsultationMarkRbThree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkRbTwo.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -946,8 +924,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbThree(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkRbThree.DoDoIt
+ aCtx.rEngine.PushObj(rbTwo(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkRbTwo.DoDoIt
+
+function TkwEnConsultationMarkRbThree.rbThree(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_ConsultationMark.rbThree }
+begin
+ Result := aen_ConsultationMark.rbThree;
+end;//TkwEnConsultationMarkRbThree.rbThree
 
 class function TkwEnConsultationMarkRbThree.GetWordNameForRegister: AnsiString;
 begin
@@ -975,14 +960,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbThree', aCtx);
 end;//TkwEnConsultationMarkRbThree.SetValuePrim
 
-function TkwEnConsultationMarkRbFour.rbFour(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
- {* Реализация слова скрипта .Ten_ConsultationMark.rbFour }
-begin
- Result := aen_ConsultationMark.rbFour;
-end;//TkwEnConsultationMarkRbFour.rbFour
-
-procedure TkwEnConsultationMarkRbFour.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkRbThree.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -994,8 +972,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbFour(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkRbFour.DoDoIt
+ aCtx.rEngine.PushObj(rbThree(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkRbThree.DoDoIt
+
+function TkwEnConsultationMarkRbFour.rbFour(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_ConsultationMark.rbFour }
+begin
+ Result := aen_ConsultationMark.rbFour;
+end;//TkwEnConsultationMarkRbFour.rbFour
 
 class function TkwEnConsultationMarkRbFour.GetWordNameForRegister: AnsiString;
 begin
@@ -1023,14 +1008,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbFour', aCtx);
 end;//TkwEnConsultationMarkRbFour.SetValuePrim
 
-function TkwEnConsultationMarkRbFive.rbFive(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
- {* Реализация слова скрипта .Ten_ConsultationMark.rbFive }
-begin
- Result := aen_ConsultationMark.rbFive;
-end;//TkwEnConsultationMarkRbFive.rbFive
-
-procedure TkwEnConsultationMarkRbFive.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkRbFour.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -1042,8 +1020,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(rbFive(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkRbFive.DoDoIt
+ aCtx.rEngine.PushObj(rbFour(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkRbFour.DoDoIt
+
+function TkwEnConsultationMarkRbFive.rbFive(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtRadioButton;
+ {* Реализация слова скрипта .Ten_ConsultationMark.rbFive }
+begin
+ Result := aen_ConsultationMark.rbFive;
+end;//TkwEnConsultationMarkRbFive.rbFive
 
 class function TkwEnConsultationMarkRbFive.GetWordNameForRegister: AnsiString;
 begin
@@ -1071,14 +1056,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству rbFive', aCtx);
 end;//TkwEnConsultationMarkRbFive.SetValuePrim
 
-function TkwEnConsultationMarkPnlHelp.pnlHelp(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtPanel;
- {* Реализация слова скрипта .Ten_ConsultationMark.pnlHelp }
-begin
- Result := aen_ConsultationMark.pnlHelp;
-end;//TkwEnConsultationMarkPnlHelp.pnlHelp
-
-procedure TkwEnConsultationMarkPnlHelp.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkRbFive.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -1090,8 +1068,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnlHelp(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkPnlHelp.DoDoIt
+ aCtx.rEngine.PushObj(rbFive(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkRbFive.DoDoIt
+
+function TkwEnConsultationMarkPnlHelp.pnlHelp(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtPanel;
+ {* Реализация слова скрипта .Ten_ConsultationMark.pnlHelp }
+begin
+ Result := aen_ConsultationMark.pnlHelp;
+end;//TkwEnConsultationMarkPnlHelp.pnlHelp
 
 class function TkwEnConsultationMarkPnlHelp.GetWordNameForRegister: AnsiString;
 begin
@@ -1119,14 +1104,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnlHelp', aCtx);
 end;//TkwEnConsultationMarkPnlHelp.SetValuePrim
 
-function TkwEnConsultationMarkLblHelp.lblHelp(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtLabel;
- {* Реализация слова скрипта .Ten_ConsultationMark.lblHelp }
-begin
- Result := aen_ConsultationMark.lblHelp;
-end;//TkwEnConsultationMarkLblHelp.lblHelp
-
-procedure TkwEnConsultationMarkLblHelp.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkPnlHelp.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -1138,8 +1116,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lblHelp(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkLblHelp.DoDoIt
+ aCtx.rEngine.PushObj(pnlHelp(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkPnlHelp.DoDoIt
+
+function TkwEnConsultationMarkLblHelp.lblHelp(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtLabel;
+ {* Реализация слова скрипта .Ten_ConsultationMark.lblHelp }
+begin
+ Result := aen_ConsultationMark.lblHelp;
+end;//TkwEnConsultationMarkLblHelp.lblHelp
 
 class function TkwEnConsultationMarkLblHelp.GetWordNameForRegister: AnsiString;
 begin
@@ -1167,14 +1152,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lblHelp', aCtx);
 end;//TkwEnConsultationMarkLblHelp.SetValuePrim
 
-function TkwEnConsultationMarkGbComment.gbComment(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
- {* Реализация слова скрипта .Ten_ConsultationMark.gbComment }
-begin
- Result := aen_ConsultationMark.gbComment;
-end;//TkwEnConsultationMarkGbComment.gbComment
-
-procedure TkwEnConsultationMarkGbComment.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkLblHelp.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -1186,8 +1164,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(gbComment(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkGbComment.DoDoIt
+ aCtx.rEngine.PushObj(lblHelp(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkLblHelp.DoDoIt
+
+function TkwEnConsultationMarkGbComment.gbComment(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TvtGroupBox;
+ {* Реализация слова скрипта .Ten_ConsultationMark.gbComment }
+begin
+ Result := aen_ConsultationMark.gbComment;
+end;//TkwEnConsultationMarkGbComment.gbComment
 
 class function TkwEnConsultationMarkGbComment.GetWordNameForRegister: AnsiString;
 begin
@@ -1215,14 +1200,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству gbComment', aCtx);
 end;//TkwEnConsultationMarkGbComment.SetValuePrim
 
-function TkwEnConsultationMarkMComment.mComment(const aCtx: TtfwContext;
- aen_ConsultationMark: Ten_ConsultationMark): TeeMemoWithEditOperations;
- {* Реализация слова скрипта .Ten_ConsultationMark.mComment }
-begin
- Result := aen_ConsultationMark.mComment;
-end;//TkwEnConsultationMarkMComment.mComment
-
-procedure TkwEnConsultationMarkMComment.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEnConsultationMarkGbComment.DoDoIt(const aCtx: TtfwContext);
 var l_aen_ConsultationMark: Ten_ConsultationMark;
 begin
  try
@@ -1234,8 +1212,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(mComment(aCtx, l_aen_ConsultationMark));
-end;//TkwEnConsultationMarkMComment.DoDoIt
+ aCtx.rEngine.PushObj(gbComment(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkGbComment.DoDoIt
+
+function TkwEnConsultationMarkMComment.mComment(const aCtx: TtfwContext;
+ aen_ConsultationMark: Ten_ConsultationMark): TeeMemoWithEditOperations;
+ {* Реализация слова скрипта .Ten_ConsultationMark.mComment }
+begin
+ Result := aen_ConsultationMark.mComment;
+end;//TkwEnConsultationMarkMComment.mComment
 
 class function TkwEnConsultationMarkMComment.GetWordNameForRegister: AnsiString;
 begin
@@ -1262,6 +1247,21 @@ procedure TkwEnConsultationMarkMComment.SetValuePrim(const aValue: TtfwStackValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству mComment', aCtx);
 end;//TkwEnConsultationMarkMComment.SetValuePrim
+
+procedure TkwEnConsultationMarkMComment.DoDoIt(const aCtx: TtfwContext);
+var l_aen_ConsultationMark: Ten_ConsultationMark;
+begin
+ try
+  l_aen_ConsultationMark := Ten_ConsultationMark(aCtx.rEngine.PopObjAs(Ten_ConsultationMark));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_ConsultationMark: Ten_ConsultationMark : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(mComment(aCtx, l_aen_ConsultationMark));
+end;//TkwEnConsultationMarkMComment.DoDoIt
 
 initialization
  Tkw_Form_ConsultationMark.RegisterInEngine;

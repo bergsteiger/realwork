@@ -41,8 +41,8 @@ type
     aWord: TtfwWord);
     {* Реализация слова скрипта pop:KeyWord:SetWord }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -56,8 +56,8 @@ type
     aKeyWord: TtfwKeyWord): TtfwWord;
     {* Реализация слова скрипта pop:KeyWord:Word }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -73,8 +73,8 @@ type
     aKeyWord: TtfwKeyWord): Il3CString;
     {* Реализация слова скрипта pop:KeyWord:Name }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -90,8 +90,8 @@ type
     aKeyWord: TtfwKeyWord): TtfwDictionary;
     {* Реализация слова скрипта pop:KeyWord:Dictionary }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -104,18 +104,38 @@ procedure TkwPopKeyWordSetWord.SetWord(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord;
  aWord: TtfwWord);
  {* Реализация слова скрипта pop:KeyWord:SetWord }
-//#UC START# *5673CF480040_DA7B06A59C14_var*
+//#UC START# *5673CF480040_5673CF480040_4DAEF23D00EE_Word_var*
 var
  l_Key : TtfwKeyWord;
-//#UC END# *5673CF480040_DA7B06A59C14_var*
+//#UC END# *5673CF480040_5673CF480040_4DAEF23D00EE_Word_var*
 begin
-//#UC START# *5673CF480040_DA7B06A59C14_impl*
+//#UC START# *5673CF480040_5673CF480040_4DAEF23D00EE_Word_impl*
  l_Key := aWord.Key As TtfwKeyWord;
  aKeyWord.SetWord(aCtx, aWord);
  if (l_Key <> nil) then
   aWord.Key := l_Key;
-//#UC END# *5673CF480040_DA7B06A59C14_impl*
+//#UC END# *5673CF480040_5673CF480040_4DAEF23D00EE_Word_impl*
 end;//TkwPopKeyWordSetWord.SetWord
+
+class function TkwPopKeyWordSetWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:KeyWord:SetWord';
+end;//TkwPopKeyWordSetWord.GetWordNameForRegister
+
+function TkwPopKeyWordSetWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwPopKeyWordSetWord.GetResultTypeInfo
+
+function TkwPopKeyWordSetWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopKeyWordSetWord.GetAllParamsCount
+
+function TkwPopKeyWordSetWord.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord), TypeInfo(TtfwWord)]);
+end;//TkwPopKeyWordSetWord.ParamsTypes
 
 procedure TkwPopKeyWordSetWord.DoDoIt(const aCtx: TtfwContext);
 var l_aKeyWord: TtfwKeyWord;
@@ -142,47 +162,12 @@ begin
  SetWord(aCtx, l_aKeyWord, l_aWord);
 end;//TkwPopKeyWordSetWord.DoDoIt
 
-class function TkwPopKeyWordSetWord.GetWordNameForRegister: AnsiString;
-begin
- Result := 'pop:KeyWord:SetWord';
-end;//TkwPopKeyWordSetWord.GetWordNameForRegister
-
-function TkwPopKeyWordSetWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwPopKeyWordSetWord.GetResultTypeInfo
-
-function TkwPopKeyWordSetWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwPopKeyWordSetWord.GetAllParamsCount
-
-function TkwPopKeyWordSetWord.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwKeyWord), TypeInfo(TtfwWord)]);
-end;//TkwPopKeyWordSetWord.ParamsTypes
-
 function TkwPopKeyWordWord.Word(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwWord;
  {* Реализация слова скрипта pop:KeyWord:Word }
 begin
  Result := aKeyWord.Word;
 end;//TkwPopKeyWordWord.Word
-
-procedure TkwPopKeyWordWord.DoDoIt(const aCtx: TtfwContext);
-var l_aKeyWord: TtfwKeyWord;
-begin
- try
-  l_aKeyWord := TtfwKeyWord(aCtx.rEngine.PopObjAs(TtfwKeyWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aKeyWord: TtfwKeyWord : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(Word(aCtx, l_aKeyWord));
-end;//TkwPopKeyWordWord.DoDoIt
 
 class function TkwPopKeyWordWord.GetWordNameForRegister: AnsiString;
 begin
@@ -210,18 +195,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Word', aCtx);
 end;//TkwPopKeyWordWord.SetValuePrim
 
-function TkwPopKeyWordName.Name(const aCtx: TtfwContext;
- aKeyWord: TtfwKeyWord): Il3CString;
- {* Реализация слова скрипта pop:KeyWord:Name }
-//#UC START# *95D794E63B77_F4F627A63039_var*
-//#UC END# *95D794E63B77_F4F627A63039_var*
-begin
-//#UC START# *95D794E63B77_F4F627A63039_impl*
- Result := aKeyWord.AsCStr;
-//#UC END# *95D794E63B77_F4F627A63039_impl*
-end;//TkwPopKeyWordName.Name
-
-procedure TkwPopKeyWordName.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopKeyWordWord.DoDoIt(const aCtx: TtfwContext);
 var l_aKeyWord: TtfwKeyWord;
 begin
  try
@@ -233,8 +207,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString(Name(aCtx, l_aKeyWord));
-end;//TkwPopKeyWordName.DoDoIt
+ aCtx.rEngine.PushObj(Word(aCtx, l_aKeyWord));
+end;//TkwPopKeyWordWord.DoDoIt
+
+function TkwPopKeyWordName.Name(const aCtx: TtfwContext;
+ aKeyWord: TtfwKeyWord): Il3CString;
+ {* Реализация слова скрипта pop:KeyWord:Name }
+//#UC START# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_var*
+//#UC END# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_var*
+begin
+//#UC START# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_impl*
+ Result := aKeyWord.AsCStr;
+//#UC END# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_impl*
+end;//TkwPopKeyWordName.Name
 
 class function TkwPopKeyWordName.GetWordNameForRegister: AnsiString;
 begin
@@ -262,18 +247,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
 end;//TkwPopKeyWordName.SetValuePrim
 
-function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
- aKeyWord: TtfwKeyWord): TtfwDictionary;
- {* Реализация слова скрипта pop:KeyWord:Dictionary }
-//#UC START# *BA5A99900884_668B733FDAFB_var*
-//#UC END# *BA5A99900884_668B733FDAFB_var*
-begin
-//#UC START# *BA5A99900884_668B733FDAFB_impl*
- Result := aKeyWord.Dictionary As TtfwDictionary;
-//#UC END# *BA5A99900884_668B733FDAFB_impl*
-end;//TkwPopKeyWordDictionary.Dictionary
-
-procedure TkwPopKeyWordDictionary.DoDoIt(const aCtx: TtfwContext);
+procedure TkwPopKeyWordName.DoDoIt(const aCtx: TtfwContext);
 var l_aKeyWord: TtfwKeyWord;
 begin
  try
@@ -285,8 +259,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(Dictionary(aCtx, l_aKeyWord));
-end;//TkwPopKeyWordDictionary.DoDoIt
+ aCtx.rEngine.PushString(Name(aCtx, l_aKeyWord));
+end;//TkwPopKeyWordName.DoDoIt
+
+function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
+ aKeyWord: TtfwKeyWord): TtfwDictionary;
+ {* Реализация слова скрипта pop:KeyWord:Dictionary }
+//#UC START# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_var*
+//#UC END# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_var*
+begin
+//#UC START# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_impl*
+ Result := aKeyWord.Dictionary As TtfwDictionary;
+//#UC END# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_impl*
+end;//TkwPopKeyWordDictionary.Dictionary
 
 class function TkwPopKeyWordDictionary.GetWordNameForRegister: AnsiString;
 begin
@@ -313,6 +298,21 @@ procedure TkwPopKeyWordDictionary.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Dictionary', aCtx);
 end;//TkwPopKeyWordDictionary.SetValuePrim
+
+procedure TkwPopKeyWordDictionary.DoDoIt(const aCtx: TtfwContext);
+var l_aKeyWord: TtfwKeyWord;
+begin
+ try
+  l_aKeyWord := TtfwKeyWord(aCtx.rEngine.PopObjAs(TtfwKeyWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aKeyWord: TtfwKeyWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Dictionary(aCtx, l_aKeyWord));
+end;//TkwPopKeyWordDictionary.DoDoIt
 
 initialization
  TkwPopKeyWordSetWord.RegisterInEngine;
