@@ -60,16 +60,93 @@ var
 //#UC END# *38481B365F20cit*
 //#UC START# *38481B365F20publ*
 //#UC END# *38481B365F20publ*
+//#UC START# *55324FF900D2_55324FF900D2_4952591E0263_Word_impl*
+ Result := aForm.ActiveMDIChild;
+//#UC END# *55324FF900D2_55324FF900D2_4952591E0263_Word_impl*
+//#UC START# *55324FF900D2_55324FF900D2_4952591E0263_Word_var*
+//#UC END# *55324FF900D2_55324FF900D2_4952591E0263_Word_var*
 //#UC START# *55324FF900D2_90DD5B736D00_impl*
  Result := aForm.ActiveMDIChild;
 //#UC END# *55324FF900D2_90DD5B736D00_impl*
 //#UC START# *55324FF900D2_90DD5B736D00_var*
 //#UC END# *55324FF900D2_90DD5B736D00_var*
+//#UC START# *5532502900D6_5532502900D6_4952591E0263_Word_impl*
+ aForm.Close;
+//#UC END# *5532502900D6_5532502900D6_4952591E0263_Word_impl*
+//#UC START# *5532502900D6_5532502900D6_4952591E0263_Word_var*
+//#UC END# *5532502900D6_5532502900D6_4952591E0263_Word_var*
 //#UC START# *5532502900D6_EF68563BBDE0_impl*
  aForm.Close;
 //#UC END# *5532502900D6_EF68563BBDE0_impl*
 //#UC START# *5532502900D6_EF68563BBDE0_var*
 //#UC END# *5532502900D6_EF68563BBDE0_var*
+//#UC START# *5532506100DC_5532506100DC_4952591E0263_Word_impl*
+ l_Menu := FindMainMenu(aForm);
+ RunnerAssert(Assigned(l_Menu), 'На форме нет меню', aCtx);
+ {$IfDef l3HackedVCL}
+ l_Menu.Items.CallInitiateActions;
+ {$EndIf l3HackedVCL}
+ l_Menu.Items.RethinkHotkeys;
+ l_Menu.Items.RethinkLines;
+ l_Path := aName;
+ l_Item := l_Menu.Items;
+ {$IfDef l3HackedVCL}
+ while GetNextItem(l_Item, l_Path) do
+  l_Item.CallInitiateActions;
+ {$EndIf l3HackedVCL}
+ l_Item.RethinkHotkeys;
+ l_Item.RethinkLines;
+ Result := l_Item;
+//#UC END# *5532506100DC_5532506100DC_4952591E0263_Word_impl*
+//#UC START# *5532506100DC_5532506100DC_4952591E0263_Word_var*
+const
+ cDelimiter = '/';
+
+ function FindMainMenu(aComponent: TComponent): TMainMenu;
+ var
+  I: Integer;
+ begin
+  Result := nil;
+  for I := 0 to aComponent.ComponentCount - 1 do
+   if aComponent.Components[I] is TMainMenu then
+   begin
+    Result := aComponent.Components[I] as TMainMenu;
+    Exit;
+   end;    
+  for I := 0 to aComponent.ComponentCount - 1 do
+  begin
+   Result := FindMainMenu(aComponent.Components[I]);
+   if Assigned(Result) then
+    Exit;
+  end;
+ end;
+
+ function GetNextItem(var anItem: TMenuItem; var aPath: AnsiString): Boolean;
+ var
+  I: Integer;
+  l_DelimiterIndex: Integer;
+  l_Name: AnsiString;
+  l_FindItem: TMenuItem;
+ begin
+  l_DelimiterIndex := Pos(cDelimiter, aPath);
+  if l_DelimiterIndex = 0 then
+   l_Name := aPath
+  else
+  begin
+   l_Name := Copy(aPath, 1, l_DelimiterIndex - 1);
+   aPath := Copy(aPath, l_DelimiterIndex + 1, MaxInt);
+  end;
+  l_FindItem := anItem.Find(l_Name);
+  Result := Assigned(l_FindItem);
+  if Result then
+   anItem := l_FindItem;
+ end;
+               
+var
+ l_Path: AnsiString;
+ l_Menu: TMainMenu;
+ l_Item: TMenuItem;
+//#UC END# *5532506100DC_5532506100DC_4952591E0263_Word_var*
 //#UC START# *5532506100DC_CCC0609B3BF5_impl*
  l_Menu := FindMainMenu(aForm);
  RunnerAssert(Assigned(l_Menu), 'На форме нет меню', aCtx);
@@ -137,11 +214,21 @@ var
  l_Menu: TMainMenu;
  l_Item: TMenuItem;
 //#UC END# *5532506100DC_CCC0609B3BF5_var*
+//#UC START# *55325098003C_55325098003C_4952591E0263_Word_impl*
+ Result := aForm.WindowState;
+//#UC END# *55325098003C_55325098003C_4952591E0263_Word_impl*
+//#UC START# *55325098003C_55325098003C_4952591E0263_Word_var*
+//#UC END# *55325098003C_55325098003C_4952591E0263_Word_var*
 //#UC START# *55325098003C_DA5ACD40FDF6_impl*
  Result := aForm.WindowState;
 //#UC END# *55325098003C_DA5ACD40FDF6_impl*
 //#UC START# *55325098003C_DA5ACD40FDF6_var*
 //#UC END# *55325098003C_DA5ACD40FDF6_var*
+//#UC START# *553250E10218_553250E10218_4952591E0263_Word_impl*
+ Result := (aForm.FindChildControl(aName) <> nil);
+//#UC END# *553250E10218_553250E10218_4952591E0263_Word_impl*
+//#UC START# *553250E10218_553250E10218_4952591E0263_Word_var*
+//#UC END# *553250E10218_553250E10218_4952591E0263_Word_var*
 //#UC START# *553250E10218_AF277B657685_impl*
  Result := (aForm.FindChildControl(aName) <> nil);
 //#UC END# *553250E10218_AF277B657685_impl*
@@ -152,6 +239,16 @@ var
 //#UC END# *553251110023_2C52284D1B9B_impl*
 //#UC START# *553251110023_2C52284D1B9B_var*
 //#UC END# *553251110023_2C52284D1B9B_var*
+//#UC START# *553251110023_553251110023_4952591E0263_Word_impl*
+ Result := aForm.MDIChildCount;
+//#UC END# *553251110023_553251110023_4952591E0263_Word_impl*
+//#UC START# *553251110023_553251110023_4952591E0263_Word_var*
+//#UC END# *553251110023_553251110023_4952591E0263_Word_var*
+//#UC START# *5532513202C9_5532513202C9_4952591E0263_Word_impl*
+ Result := aForm.MDIChildren[anIndex];
+//#UC END# *5532513202C9_5532513202C9_4952591E0263_Word_impl*
+//#UC START# *5532513202C9_5532513202C9_4952591E0263_Word_var*
+//#UC END# *5532513202C9_5532513202C9_4952591E0263_Word_var*
 //#UC START# *5532513202C9_8D30B82D3D31_impl*
  Result := aForm.MDIChildren[anIndex];
 //#UC END# *5532513202C9_8D30B82D3D31_impl*
@@ -163,16 +260,32 @@ var
 //#UC END# *5532516A0153_320C0D058217_impl*
 //#UC START# *5532516A0153_320C0D058217_var*
 //#UC END# *5532516A0153_320C0D058217_var*
+//#UC START# *5532516A0153_5532516A0153_4952591E0263_Word_impl*
+ RunnerAssert(fsModal in aForm.FormState, 'Это не модальная форма!', aCtx);
+ Result := aForm.ModalResult;
+//#UC END# *5532516A0153_5532516A0153_4952591E0263_Word_impl*
+//#UC START# *5532516A0153_5532516A0153_4952591E0263_Word_var*
+//#UC END# *5532516A0153_5532516A0153_4952591E0263_Word_var*
 //#UC START# *5532518700A2_12E2A5A1963A_impl*
  aForm.Next;
 //#UC END# *5532518700A2_12E2A5A1963A_impl*
 //#UC START# *5532518700A2_12E2A5A1963A_var*
 //#UC END# *5532518700A2_12E2A5A1963A_var*
+//#UC START# *5532518700A2_5532518700A2_4952591E0263_Word_impl*
+ aForm.Next;
+//#UC END# *5532518700A2_5532518700A2_4952591E0263_Word_impl*
+//#UC START# *5532518700A2_5532518700A2_4952591E0263_Word_var*
+//#UC END# *5532518700A2_5532518700A2_4952591E0263_Word_var*
 //#UC START# *553251B101E3_062C119864B2_impl*
  aForm.WindowState := aValue;
 //#UC END# *553251B101E3_062C119864B2_impl*
 //#UC START# *553251B101E3_062C119864B2_var*
 //#UC END# *553251B101E3_062C119864B2_var*
+//#UC START# *553251B101E3_553251B101E3_4952591E0263_Word_impl*
+ aForm.WindowState := aValue;
+//#UC END# *553251B101E3_553251B101E3_4952591E0263_Word_impl*
+//#UC START# *553251B101E3_553251B101E3_4952591E0263_Word_var*
+//#UC END# *553251B101E3_553251B101E3_4952591E0263_Word_var*
 //#UC START# *5532520C033E_5532520C033E_Word_impl*
  l_FormsList := Tl3ObjectList.Create;
  try
@@ -221,6 +334,31 @@ var
  I: Integer;
  l_FormsList: Tl3ObjectList;
 //#UC END# *5532520C033E_DBFEA799BB20_var*
+//#UC START# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_impl*
+ Result := nil;
+ l_Component := aForm.FindComponent(aListName);
+ if (l_Component = nil) then
+ // Попробуем спросить у дочерних фреймов...
+ begin
+  for i := 0 to aForm.ControlCount - 1 do
+  begin
+   l_Control := aForm.Controls[i];
+   if (l_Control is TFrame) then
+   begin
+    l_Component := l_Control.FindComponent(aListName);
+    if (l_Component <> nil) then
+     Break;
+   end // if l_Control is TFrame then
+  end; // for i := 0 to aForm.ControlCount - 1 do
+ end; // if l_Component = nil then
+ Result := l_Component As TActionList;
+//#UC END# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_impl*
+//#UC START# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_var*
+var
+ l_Component : TComponent;
+ i : Integer;
+ l_Control : TControl;
+//#UC END# *55B8E3B403B6_55B8E3B403B6_4952591E0263_Word_var*
 //#UC START# *55B8E3B403B6_76B7945239DF_impl*
  Result := nil;
  l_Component := aForm.FindComponent(aListName);

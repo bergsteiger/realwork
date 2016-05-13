@@ -146,6 +146,7 @@ f _SpellWordsForParent
 // - иньекция
 	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%f_clear_list(KEYS)\
 
 	%S<{}{%C#f_IsKeyword()=true}\
@@ -157,7 +158,8 @@ f _SpellWordsForParent
 	%f_SpellWordByOp(%1,%C)\
 	>\
 
-	%f_clear_list(KEYS)
+	%f_clear_list(KEYS)\
+	]
 
 f _AddParamToRegister
 	[{%SN!=void}\

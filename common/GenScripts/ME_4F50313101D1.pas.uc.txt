@@ -1,3 +1,11 @@
+//#UC START# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := 0
+ else
+  Result := aArray.Count; 
+//#UC END# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_impl*
+//#UC START# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_var*
+//#UC END# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_var*
 //#UC START# *044C5FFA728B_F4E1D8EB306A_impl*
  if (aArray = nil) then
   Result := 0
@@ -7,7 +15,10 @@
 //#UC START# *044C5FFA728B_F4E1D8EB306A_var*
 //#UC END# *044C5FFA728B_F4E1D8EB306A_var*
 //#UC START# *155569C67894_68189B4B7D71_impl*
- Result := TtfwRevertedArrayView.Make(aArray);
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwRevertedArrayView.Make(aArray);
 //#UC END# *155569C67894_68189B4B7D71_impl*
 //#UC START# *155569C67894_68189B4B7D71_var*
 //#UC END# *155569C67894_68189B4B7D71_var*
@@ -19,7 +30,10 @@
 //#UC START# *2550EECFAAC1_E14E90E5EF2D_var*
 //#UC END# *2550EECFAAC1_E14E90E5EF2D_var*
 //#UC START# *3CA55B4BDAA5_BD92B7361A83_impl*
- Result := TtfwTruncatedArrayView.Make(aArray, aLambda);
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwTruncatedArrayView.Make(aArray, aLambda);
 //#UC END# *3CA55B4BDAA5_BD92B7361A83_impl*
 //#UC START# *3CA55B4BDAA5_BD92B7361A83_var*
 //#UC END# *3CA55B4BDAA5_BD92B7361A83_var*
@@ -90,12 +104,32 @@ var
 //#UC END# *52CFC11603C8_52EB991C028Fget_impl*
 //#UC START# *52CFC11603C8_52EB991C028Fget_var*
 //#UC END# *52CFC11603C8_52EB991C028Fget_var*
+//#UC START# *551012E802AF_551012E802AF_4DCC12FC0125_Word_impl*
+ if (aArray <> nil) then
+  aArray.Clear;
+//#UC END# *551012E802AF_551012E802AF_4DCC12FC0125_Word_impl*
+//#UC START# *551012E802AF_551012E802AF_4DCC12FC0125_Word_var*
+//#UC END# *551012E802AF_551012E802AF_4DCC12FC0125_Word_var*
 //#UC START# *551012E802AF_878FE88B604D_impl*
  if (aArray <> nil) then
   aArray.Clear;
 //#UC END# *551012E802AF_878FE88B604D_impl*
 //#UC START# *551012E802AF_878FE88B604D_var*
 //#UC END# *551012E802AF_878FE88B604D_var*
+//#UC START# *551012F603D4_4DCC12FC0125_Word_DoSetValue_551012F603D4_4DCC12FC0125_Word_impl*
+ //RunnerAssert(anIndex >= 0, 'Мне нужно положительное число.', aCtx);
+ //RunnerAssert(anIndex < aArray.Count, 'В массиве нет столько элементов.', aCtx);
+ aArray.SetItem(anIndex, aValue);
+//#UC END# *551012F603D4_4DCC12FC0125_Word_DoSetValue_551012F603D4_4DCC12FC0125_Word_impl*
+//#UC START# *551012F603D4_4DCC12FC0125_Word_DoSetValue_551012F603D4_4DCC12FC0125_Word_var*
+//#UC END# *551012F603D4_4DCC12FC0125_Word_DoSetValue_551012F603D4_4DCC12FC0125_Word_var*
+//#UC START# *551012F603D4_551012F603D4_4DCC12FC0125_Word_impl*
+ RunnerAssert(anIndex >= 0, 'Мне нужно положительное число.', aCtx);
+ RunnerAssert(anIndex < aArray.Count, 'В массиве нет столько элементов.', aCtx);
+ Result := aArray.Items[anIndex];
+//#UC END# *551012F603D4_551012F603D4_4DCC12FC0125_Word_impl*
+//#UC START# *551012F603D4_551012F603D4_4DCC12FC0125_Word_var*
+//#UC END# *551012F603D4_551012F603D4_4DCC12FC0125_Word_var*
 //#UC START# *551012F603D4_E14E90E5EF2D_impl*
  RunnerAssert(anIndex >= 0, 'Мне нужно положительное число.', aCtx);
  RunnerAssert(anIndex < aArray.Count, 'В массиве нет столько элементов.', aCtx);
@@ -103,6 +137,14 @@ var
 //#UC END# *551012F603D4_E14E90E5EF2D_impl*
 //#UC START# *551012F603D4_E14E90E5EF2D_var*
 //#UC END# *551012F603D4_E14E90E5EF2D_var*
+//#UC START# *5510147F0057_5510147F0057_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwRevertedArrayView.Make(aArray);
+//#UC END# *5510147F0057_5510147F0057_4DCC12FC0125_Word_impl*
+//#UC START# *5510147F0057_5510147F0057_4DCC12FC0125_Word_var*
+//#UC END# *5510147F0057_5510147F0057_4DCC12FC0125_Word_var*
 //#UC START# *5510147F0057_68189B4B7D71_impl*
  if (aArray = nil) then
   Result := nil
@@ -111,6 +153,14 @@ var
 //#UC END# *5510147F0057_68189B4B7D71_impl*
 //#UC START# *5510147F0057_68189B4B7D71_var*
 //#UC END# *5510147F0057_68189B4B7D71_var*
+//#UC START# *55101ABC0102_55101ABC0102_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwFilteredArrayView.Make(aArray, aLambda);
+//#UC END# *55101ABC0102_55101ABC0102_4DCC12FC0125_Word_impl*
+//#UC START# *55101ABC0102_55101ABC0102_4DCC12FC0125_Word_var*
+//#UC END# *55101ABC0102_55101ABC0102_4DCC12FC0125_Word_var*
 //#UC START# *55101ABC0102_BE2AD2FE44CF_impl*
  if (aArray = nil) then
   Result := nil
@@ -127,12 +177,31 @@ var
 //#UC END# *55101AE0033E_4D82A8E4E72B_impl*
 //#UC START# *55101AE0033E_4D82A8E4E72B_var*
 //#UC END# *55101AE0033E_4D82A8E4E72B_var*
+//#UC START# *55101AE0033E_55101AE0033E_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwMappedArrayView.Make(aArray, aLambda);
+//#UC END# *55101AE0033E_55101AE0033E_4DCC12FC0125_Word_impl*
+//#UC START# *55101AE0033E_55101AE0033E_4DCC12FC0125_Word_var*
+//#UC END# *55101AE0033E_55101AE0033E_4DCC12FC0125_Word_var*
+//#UC START# *55101BDF0235_55101BDF0235_4DCC12FC0125_Word_impl*
+ if (aArray <> nil) then
+  aArray.ForEach(aLambda, aCtx);
+//#UC END# *55101BDF0235_55101BDF0235_4DCC12FC0125_Word_impl*
+//#UC START# *55101BDF0235_55101BDF0235_4DCC12FC0125_Word_var*
+//#UC END# *55101BDF0235_55101BDF0235_4DCC12FC0125_Word_var*
 //#UC START# *55101BDF0235_67F9FD4545C9_impl*
  if (aArray <> nil) then
   aArray.ForEach(aLambda, aCtx);
 //#UC END# *55101BDF0235_67F9FD4545C9_impl*
 //#UC START# *55101BDF0235_67F9FD4545C9_var*
 //#UC END# *55101BDF0235_67F9FD4545C9_var*
+//#UC START# *551038F0003A_551038F0003A_4DCC12FC0125_Word_impl*
+ Result := TtfwIteratorFromFunctor.Make(aLambda);
+//#UC END# *551038F0003A_551038F0003A_4DCC12FC0125_Word_impl*
+//#UC START# *551038F0003A_551038F0003A_4DCC12FC0125_Word_var*
+//#UC END# *551038F0003A_551038F0003A_4DCC12FC0125_Word_var*
 //#UC START# *551038F0003A_AC4DA64FB94F_impl*
  Result := TtfwIteratorFromFunctor.Make(aLambda);
 //#UC END# *551038F0003A_AC4DA64FB94F_impl*
@@ -143,6 +212,22 @@ var
 //#UC END# *551544E2001A_52EB991C028F_impl*
 //#UC START# *551544E2001A_52EB991C028F_var*
 //#UC END# *551544E2001A_52EB991C028F_var*
+//#UC START# *55E02C110223_55E02C110223_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+ begin
+  if (anOther = nil) then
+   Result := nil
+  else
+   Result := anOther; 
+ end//aArray = nil
+ else
+ if (anOther = nil) then
+  Result := aArray
+ else 
+  Result := TtfwJoinIterator.Make(aArray, anOther);
+//#UC END# *55E02C110223_55E02C110223_4DCC12FC0125_Word_impl*
+//#UC START# *55E02C110223_55E02C110223_4DCC12FC0125_Word_var*
+//#UC END# *55E02C110223_55E02C110223_4DCC12FC0125_Word_var*
 //#UC START# *55E02C110223_F83E51FB5EAA_impl*
  if (aArray = nil) then
  begin
@@ -159,6 +244,14 @@ var
 //#UC END# *55E02C110223_F83E51FB5EAA_impl*
 //#UC START# *55E02C110223_F83E51FB5EAA_var*
 //#UC END# *55E02C110223_F83E51FB5EAA_var*
+//#UC START# *55E0410603CA_55E0410603CA_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwTruncatedArrayView.Make(aArray, aLambda);
+//#UC END# *55E0410603CA_55E0410603CA_4DCC12FC0125_Word_impl*
+//#UC START# *55E0410603CA_55E0410603CA_4DCC12FC0125_Word_var*
+//#UC END# *55E0410603CA_55E0410603CA_4DCC12FC0125_Word_var*
 //#UC START# *55E0410603CA_BD92B7361A83_impl*
  if (aArray = nil) then
   Result := nil
@@ -175,6 +268,14 @@ var
 //#UC END# *55E59002038C_2892AD069398_impl*
 //#UC START# *55E59002038C_2892AD069398_var*
 //#UC END# *55E59002038C_2892AD069398_var*
+//#UC START# *55E59002038C_55E59002038C_4DCC12FC0125_Word_impl*
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwSliceView.Make(aArray, aCount);
+//#UC END# *55E59002038C_55E59002038C_4DCC12FC0125_Word_impl*
+//#UC START# *55E59002038C_55E59002038C_4DCC12FC0125_Word_var*
+//#UC END# *55E59002038C_55E59002038C_4DCC12FC0125_Word_var*
 //#UC START# *5617C8A30023_E14E90E5EF2D_impl*
  Result := true;
 //#UC END# *5617C8A30023_E14E90E5EF2D_impl*
@@ -188,17 +289,24 @@ var
 //#UC START# *66E011EC054E_E14E90E5EF2D_var*
 //#UC END# *66E011EC054E_E14E90E5EF2D_var*
 //#UC START# *781431CE844D_BE2AD2FE44CF_impl*
- Result := TtfwFilteredArrayView.Make(aArray, aLambda);
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwFilteredArrayView.Make(aArray, aLambda);
 //#UC END# *781431CE844D_BE2AD2FE44CF_impl*
 //#UC START# *781431CE844D_BE2AD2FE44CF_var*
 //#UC END# *781431CE844D_BE2AD2FE44CF_var*
 //#UC START# *78836988FFF5_67F9FD4545C9_impl*
- aArray.ForEach(aLambda, aCtx);
+ if (aArray <> nil) then
+  aArray.ForEach(aLambda, aCtx);
 //#UC END# *78836988FFF5_67F9FD4545C9_impl*
 //#UC START# *78836988FFF5_67F9FD4545C9_var*
 //#UC END# *78836988FFF5_67F9FD4545C9_var*
 //#UC START# *7FA64661B5E5_4D82A8E4E72B_impl*
- Result := TtfwMappedArrayView.Make(aArray, aLambda);
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwMappedArrayView.Make(aArray, aLambda);
 //#UC END# *7FA64661B5E5_4D82A8E4E72B_impl*
 //#UC START# *7FA64661B5E5_4D82A8E4E72B_var*
 //#UC END# *7FA64661B5E5_4D82A8E4E72B_var*
@@ -211,12 +319,26 @@ var
 //#UC START# *87ED8662D31C_F4E1D8EB306A_var*
 //#UC END# *87ED8662D31C_F4E1D8EB306A_var*
 //#UC START# *A24C2DBFCDED_2892AD069398_impl*
- Result := TtfwSliceView.Make(aArray, aCount);
+ if (aArray = nil) then
+  Result := nil
+ else
+  Result := TtfwSliceView.Make(aArray, aCount);
 //#UC END# *A24C2DBFCDED_2892AD069398_impl*
 //#UC START# *A24C2DBFCDED_2892AD069398_var*
 //#UC END# *A24C2DBFCDED_2892AD069398_var*
 //#UC START# *AE1CCBE76617_F83E51FB5EAA_impl*
- Result := TtfwJoinIterator.Make(aArray, anOther);
+ if (aArray = nil) then
+ begin
+  if (anOther = nil) then
+   Result := nil
+  else
+   Result := anOther; 
+ end//aArray = nil
+ else
+ if (anOther = nil) then
+  Result := aArray
+ else 
+  Result := TtfwJoinIterator.Make(aArray, anOther);
 //#UC END# *AE1CCBE76617_F83E51FB5EAA_impl*
 //#UC START# *AE1CCBE76617_F83E51FB5EAA_var*
 //#UC END# *AE1CCBE76617_F83E51FB5EAA_var*

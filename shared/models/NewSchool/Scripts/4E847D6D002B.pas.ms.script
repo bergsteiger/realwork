@@ -609,6 +609,39 @@ ref; // ME_56D9300D018D_ME_56D9305C01DD TuningHTMLGenerator
 
 ref; // ME_56D9305C01DD EVDtoHTMLWithExternalHyperlinks
 
+FORWARD ME_573591C90195
+
+: ME_56D9300D018D_ME_573591C90195
+ : Original ME_56D9300D018D // TuningHTMLGenerator
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_56D9300D018D_ME_573591C90195 TuningHTMLGenerator
+
+: ME_573591C90195
+ CONST UID '573591C90195'
+ CONST Name 'EVDtoHTMLwoCSS'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4E847D6D002B // HTML
+ ;
+ : Inherits
+   Seq: ( ME_516E734901D3 // EVDtoHTMLTest
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_56D9300D018D_ME_573591C90195 // TuningHTMLGenerator
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoHTMLwoCSS.pas'
+ CONST extprop:pas:TypeName 'TEVDtoHTMLwoCSS'
+ CONST extprop:rc:SelfName 'EVDtoHTMLwoCSS'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_573591C90195 EVDtoHTMLwoCSS
+
 : ME_4E847D6D002B
  CONST UID '4E847D6D002B'
  CONST Name 'HTML'
@@ -627,6 +660,7 @@ ref; // ME_56D9305C01DD EVDtoHTMLWithExternalHyperlinks
  ME_56C1AB8700F9 // HTMLtoEVDWithApplyTextCorrections
  ME_56D6CCB60125 // HTMLtoEVDFull
  ME_56D9305C01DD // EVDtoHTMLWithExternalHyperlinks
+ ME_573591C90195 // EVDtoHTMLwoCSS
  )
  ; // Children
  : Depends

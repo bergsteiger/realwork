@@ -1922,47 +1922,6 @@ ref; // ME_4DAEEDE10285_ME_7241BE7680A1 DoDoIt
 
 ref; // ME_7241BE7680A1 Tkw_PostingsList_Control_tvPostings_Push
 
-FORWARD ME_CE1AA7EF42F8
-
-FORWARD ME_901756EC93AA
-
-: ME_4DAEEDE10285_ME_901756EC93AA
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_901756EC93AA DoDoIt
-
-: ME_901756EC93AA
- CONST UID '901756EC93AA'
- CONST Name 'enPostingsList_tvPostings'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта .TenPostingsList.tvPostings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_5619169603BE' '55CCADD2013D.pas.ms.script' // TtfwPropertyLike
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_901756EC93AA // DoDoIt
- )
- ; // Implemented
- CONST "NameForScript" '.TenPostingsList.tvPostings'
- CONST extprop:pas:TypeName 'TkwEnPostingsListTvPostings'
- CONST extprop:rc:SelfName 'EnPostingsListTvPostings'
- CONST extprop:rc:isAcceptableForScripts true
- : Speller ME_4AAFA16202D3 // PostingsList
- ;
- : SpelledFor ME_CE1AA7EF42F8 // tvPostings
- ;
-
-ref; // ME_901756EC93AA enPostingsList_tvPostings
-
 : ME_A47A28A49282
  CONST UID 'A47A28A49282'
  CONST Name 'tvPostings'
@@ -1999,8 +1958,6 @@ ref; // ME_A47A28A49282 tvPostings
  CONST "mapped" true
  CONST extprop:prop_stereo 'readonly'
  CONST extprop:prop_name 'tvPostings'
- : Speller ME_901756EC93AA // enPostingsList_tvPostings
- ;
 
 ref; // ME_CE1AA7EF42F8 tvPostings
 
@@ -2062,7 +2019,6 @@ ref; // ME_4BDAF7B803CF_ME_1C12379D921C Wrap
    Seq: ( ME_B32E48C9C5F6 // Tkw_Form_PostingsList
  ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
  ME_7241BE7680A1 // Tkw_PostingsList_Control_tvPostings_Push
- ME_901756EC93AA // enPostingsList_tvPostings
  )
  ; // Children
  : Dependencies
@@ -3179,7 +3135,6 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
- WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends

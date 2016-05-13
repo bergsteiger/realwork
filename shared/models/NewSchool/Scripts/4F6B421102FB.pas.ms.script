@@ -8,20 +8,6 @@ FORWARD ME_4ADC5146016D
 
 FORWARD ME_4ADC55470317
 
-: ME_4ADC55FC02BB
- CONST UID '4ADC55FC02BB'
- CONST Name 'f_Unique'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4ADC55470317 // TnsUniqueName
- ;
- : Target WL 'ME_4683CF0601DB' '467BAB7F021E.pas.ms.script' // IvcmStrings
- ;
-
-ref; // ME_4ADC55FC02BB f_Unique
-
 FORWARD ME_4ADC560A0041
 
 : ME_521B85A20242
@@ -162,10 +148,6 @@ ref; // ME_479731C50290_ME_4ADC55470317 Cleanup
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
  )
  ; // Inherits
- : Attributes
-   Seq: ( ME_4ADC55FC02BB // f_Unique
- )
- ; // Attributes
  : Operations
    Seq: ( ME_4ADC560A0041 // MakeName
  ME_4ADC55A200AD // Create
@@ -280,22 +262,6 @@ FORWARD ME_4ADC54290390
 
 ref; // ME_5273A25A0018 Window
 
-: ME_4ADC593A0338
- CONST UID '4ADC593A0338'
- CONST Name 'Child'
- CONST Class class_Attribute
- : Stereotype st_var::Attribute ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_4ADC54290390 // FindNode
- ;
- : Target WL 'ME_476BF22B03E1' '476BF10A0280.pas.ms.script' // Il3Node
- ;
- CONST "IsResult" false
-
-ref; // ME_4ADC593A0338 Child
-
 : ME_4ADC544E0216
  CONST Name 'aForm'
  CONST Class class_Parameter
@@ -335,7 +301,6 @@ ref; // ME_4ADC5447034A DoIt
  ;
  : Attributes
    Seq: ( ME_5273A25A0018 // Window
- ME_4ADC593A0338 // Child
  )
  ; // Attributes
  : Operations

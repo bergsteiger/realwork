@@ -1,3 +1,10 @@
+//#UC START# *4DAEEDE10285_552FAFAA0226_Word_impl*
+ with TvtHintManager.Instance do
+  if Count > 0 then
+   ShowWindow(Item[Count - 1].Handle, SW_HIDE);
+//#UC END# *4DAEEDE10285_552FAFAA0226_Word_impl*
+//#UC START# *4DAEEDE10285_552FAFAA0226_Word_var*
+//#UC END# *4DAEEDE10285_552FAFAA0226_Word_var*
 //#UC START# *4DAEEDE10285_602888D14BF8_impl*
 // Application.CancelHint;
  with TvtHintManager.Instance do
@@ -12,6 +19,21 @@
 //#UC END# *552FAFB6009F_0EF7A152CBB4_impl*
 //#UC START# *552FAFB6009F_0EF7A152CBB4_var*
 //#UC END# *552FAFB6009F_0EF7A152CBB4_var*
+//#UC START# *552FAFB6009F_552FAFB6009F_Word_impl*
+ with TvtHintManager.Instance do
+  Result := ((Count > 0) and IsWindowVisible(Item[Count - 1].Handle));
+//#UC END# *552FAFB6009F_552FAFB6009F_Word_impl*
+//#UC START# *552FAFB6009F_552FAFB6009F_Word_var*
+//#UC END# *552FAFB6009F_552FAFB6009F_Word_var*
+//#UC START# *552FAFDC0324_552FAFDC0324_Word_impl*
+ with TvtHintManager.Instance do
+  if Count > 0 then
+   Result := Item[Count - 1].LastHint
+  else
+   Result := TtfwCStringFactory.C('');
+//#UC END# *552FAFDC0324_552FAFDC0324_Word_impl*
+//#UC START# *552FAFDC0324_552FAFDC0324_Word_var*
+//#UC END# *552FAFDC0324_552FAFDC0324_Word_var*
 //#UC START# *552FAFDC0324_64C2DF1C9241_impl*
  with TvtHintManager.Instance do
   if Count > 0 then

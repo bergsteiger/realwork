@@ -6,88 +6,6 @@ FORWARD ME_505AD9C20338
 
 FORWARD ME_505AFAF6026B
 
-FORWARD ME_552BD7AD0110
-
-FORWARD ME_825779F5AD08
-
-: ME_4DAEEDE10285_ME_825779F5AD08
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_825779F5AD08 DoDoIt
-
-: ME_825779F5AD08
- CONST UID '825779F5AD08'
- CONST Name 'generators_Execute'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта generators:Execute' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_825779F5AD08 // DoDoIt
- )
- ; // Implemented
- CONST "NameForScript" 'generators:Execute'
- CONST extprop:pas:TypeName 'TkwGeneratorsExecute'
- CONST extprop:rc:SelfName 'GeneratorsExecute'
- CONST extprop:rc:isAcceptableForScripts true
- : Speller WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
- : SpelledFor ME_552BD7AD0110 // generators_Execute
- ;
-
-ref; // ME_825779F5AD08 generators_Execute
-
-FORWARD ME_552BD8F60043
-
-FORWARD ME_E6DB290D23D7
-
-: ME_4DAEEDE10285_ME_E6DB290D23D7
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_E6DB290D23D7 DoDoIt
-
-: ME_E6DB290D23D7
- CONST UID 'E6DB290D23D7'
- CONST Name 'generators_Link'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта generators:Link' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_505AFAF6026B // kwFiltersAndGeneratorsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_E6DB290D23D7 // DoDoIt
- )
- ; // Implemented
- CONST "NameForScript" 'generators:Link'
- CONST extprop:pas:TypeName 'TkwGeneratorsLink'
- CONST extprop:rc:SelfName 'GeneratorsLink'
- CONST extprop:rc:isAcceptableForScripts true
- : Speller WL 'ME_4678160E01BE' '47913B47006E.pas.ms.script' // Ik2TagGenerator
- ;
- : SpelledFor ME_552BD8F60043 // generators_Link
- ;
-
-ref; // ME_E6DB290D23D7 generators_Link
-
 : ME_552BD7FA0110
  CONST Name 'aFileName'
  CONST Class class_Parameter
@@ -111,8 +29,6 @@ ref; // ME_552BD7FA0110 aFileName
    Seq: ( ME_552BD7FA0110 // aFileName
  )
  ; // Parameters
- : Speller ME_825779F5AD08 // generators_Execute
- ;
 
 ref; // ME_552BD7AD0110 generators_Execute
 
@@ -141,8 +57,6 @@ ref; // ME_552BD9280319 aGenHead
    Seq: ( ME_552BD9280319 // aGenHead
  )
  ; // Parameters
- : Speller ME_E6DB290D23D7 // generators_Link
- ;
 
 ref; // ME_552BD8F60043 generators_Link
 
@@ -368,11 +282,6 @@ ref; // ME_533C0C71011C_ME_505AFAF6026B Context
  ME_533C0C71011C_ME_505AFAF6026B // Context
  )
  ; // Implemented
- : Children
-   Seq: ( ME_825779F5AD08 // generators_Execute
- ME_E6DB290D23D7 // generators_Link
- )
- ; // Children
  : Dependencies
    Seq: ( ME_552BE8F800BE // Tk2TagGenerator
  ME_55701B120158 // Tk2EVDReaderService
@@ -409,7 +318,6 @@ ref; // ME_505AFAF6026B kwFiltersAndGeneratorsPack
  WL 'ME_482D6E960087' '482D6E960087.pas.ms.script' // Readers
  WL 'ME_483E80C9025F' '483E80C9025F.pas.ms.script' // Readers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
- WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'

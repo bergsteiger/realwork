@@ -141,7 +141,6 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
 108. Определить raises для keyword. И эти исключения тоже регистрировать. Например ListError для Array.
 109. Изжить TtfwScriptEngineEx. А нужную аксиоматику типа USES etc привязать к TtfwScriptEngine.
 110. Сделать IncludePrim (DoInclude, InclideDictionary). НЕ Immediate. Чтобы звать из блоков EXECUTE ([EXECUTE]). Чтобы съэмулировать ifdef.
-139. TLogicOperation опубликовать в скрипты.
 140. Перенести в новый генератор:
 	[{%Gx!=true}\
 	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
@@ -274,4 +273,16 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
   ]);
   
 145. Удалить NeedsKeywordDocumentation.
-146. 
+146. Переделать Injected на внешние файлы, которые получать через препроцессинг файлов модели. Пример ArrayProcessingPack.
+  Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary >>> l_OurDict
+
+  l_OurDict pop:DictionaryEx:UsedDictionaries ==> (
+   TtfwDictionaryEx IN aDict
+  - так можно добраться к используемым словарям
+  pop:DictionaryEx:FileName - имя файла
+  pop:Dictionary:WordsIterator - состав словаря
+  
+  т.е. можно взять текущий файл (как LoadOnDemand), от него взять USES там получить словарь для текущего слова, а там перебрать все элементы и для каждого перебрать Dependencies Injects
+147. Script failed: W:\shared\models\NewSchool\Scripts\49480CD20303.pas.ms.script.runner
+ 49480CD20303.pas.ms.script.runner : Ошибка выполнения: "После выполнения функции остался мусор на стеке". Главный файл: W:\shared\models\NewSchool\Scripts\49480CD20303.pas.ms.script.runner. Класс: TkwCompiledFunction. Слово: .ChildrenEx Producer: elem_func Parent: 
+148.
