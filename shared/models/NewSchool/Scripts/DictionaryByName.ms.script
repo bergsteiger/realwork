@@ -138,18 +138,19 @@ B
  FILE VAR l_Out
  aRec -> Target '.pas.ms.script.inj' Cat File:OpenWrite >>> l_Out
  TRY
-/*{ 
- aRec -> Sources
- .map> pop:WordBox:Boxed
- .map> (
-   IN aRec
-  [ 
-   'SourceFile: ' aRec -> SourceFile 
-   'Source:' aRec -> Source
-  ] 
- ) // .map>
- .
-}*/ 
+  aRec -> Sources
+  .map> pop:WordBox:Boxed
+  .map> (
+    IN aRec
+   [ 
+    'SourceFile: ' aRec -> SourceFile 
+    ' '
+    'Source:' aRec -> Source
+   ] strings:Cat
+  ) // .map>
+  .for> (
+   l_Out File:WriteWStrLn
+  ) // .for>
  FINALLY
   nil >>> l_Out
  END
