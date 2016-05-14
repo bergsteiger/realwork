@@ -34,7 +34,7 @@ USES
 : KeyValuesCreateAndDo:
   ^ IN aLambda
  VAR l_Param 
- KeyValues:Create >>> l_Param
+ KeyValues:Create &gt;&gt;&gt; l_Param
  TRY 
   l_Param aLambda DO
  FINALLY
@@ -46,7 +46,7 @@ INTERFACE FUNCTION KeyValuesCreate:
   ^ IN aLambda
  KeyValuesCreateAndDo: (
    IN aMade
-  aMade pop:Word:Box >>> Result
+  aMade pop:Word:Box &gt;&gt;&gt; Result
   aMade aLambda DO
  ) // KeyValuesCreateAndDo:
 ; // DecorateMethod:
@@ -55,89 +55,89 @@ ARRAY FUNCTION ProcessDict
   IN aDictName
 
  [
-  //aDictName sysutils:ExtractFileName >>> aDictName
+  aDictName sysutils:ExtractFileName &gt;&gt;&gt; aDictName
   VAR l_Dict
-  aDictName DictionaryByName >>> l_Dict
+  aDictName DictionaryByName &gt;&gt;&gt; l_Dict
   
   VAR l_DictFileName
-  l_Dict pop:DictionaryEx:FileName sysutils:ExtractFileName >>> l_DictFileName
+  l_Dict pop:DictionaryEx:FileName sysutils:ExtractFileName &gt;&gt;&gt; l_DictFileName
   
   l_Dict pop:Dictionary:WordsIterator 
-  .for> (
+  .for&gt; (
     IN aWord
    aWord .Dependencies
-   .filter> ( .IsStereotype st_injects::Dependency )
-   .for> (
+   .filter&gt; ( .IsStereotype st_injects::Dependency )
+   .for&gt; (
      IN aDep
     KeyValuesCreate: (
       IN aMade
-     aMade -> SourceFile := l_DictFileName
-     aMade -> Source := ( aWord .UID )
-     aMade -> Target := ( aDep .Target .UID )
+     aMade -&gt; SourceFile := l_DictFileName
+     aMade -&gt; Source := ( aWord .UID )
+     aMade -&gt; Target := ( aDep .Target .UID )
     ) // KeyValuesCreate:
-   ) // .for>
-  ) // .for>
+   ) // .for&gt;
+  ) // .for&gt;
  ]
- >>> Result
+ &gt;&gt;&gt; Result
 ; // ProcessDict
 
 ARRAY VAR A
 [ 
  @ ProcessDict '*.pas.ms.script' 'W:\shared\models\NewSchool\Scripts\' ProcessFilesWithMask
-] >>> A
+] &gt;&gt;&gt; A
 
 ARRAY VAR B
-[] >>> B
+[] &gt;&gt;&gt; B
 
-A .for> (
- .map> pop:WordBox:Boxed
- .for> (
+A .for&gt; (
+ .map&gt; pop:WordBox:Boxed
+ .for&gt; (
    IN aRec
   VAR l_Rec
   B
-  .map> pop:WordBox:Boxed
-  .filter> (
+  .map&gt; pop:WordBox:Boxed
+  .filter&gt; (
     IN anItem
-   anItem -> Target aRec -> Target ==
+   anItem -&gt; Target aRec -&gt; Target ==
   )
-  .FirstElement >>> l_Rec
+  .FirstElement &gt;&gt;&gt; l_Rec
   
   : MakePair
    KeyValuesCreate: (
      IN aPair
-    aPair -> SourceFile := ( aRec -> SourceFile )
-    aPair -> Source := ( aRec -> Source )
+    aPair -&gt; SourceFile := ( aRec -&gt; SourceFile )
+    aPair -&gt; Source := ( aRec -&gt; Source )
    ) // KeyValuesCreate:
   ; // MakePair
   
   if ( l_Rec .NotIsNil ) then
   begin
-   MakePair .AddToArray: ( l_Rec -> Sources )
+   MakePair .AddToArray: ( l_Rec -&gt; Sources )
   end // ( l_Rec .NotIsNil )
   else
   begin
    KeyValuesCreate: (
      IN aMade
-    aMade -> Target := ( aRec -> Target )
-    aMade -> Sources := [ MakePair ]
+    aMade -&gt; Target := ( aRec -&gt; Target )
+    aMade -&gt; Sources := [ MakePair ]
    ) .AddToArray: B
   end // ( l_Rec .NotIsNil )
- ) // .for>
-) // .for>
+ ) // .for&gt;
+) // .for&gt;
 
 B 
-.map> pop:WordBox:Boxed
-.for> (
+.map&gt; pop:WordBox:Boxed
+.for&gt; (
    IN aRec
- [ 'Target:' aRec -> Target ] .
- aRec -> Sources
- .map> pop:WordBox:Boxed
- .map> (
+ [ 'Target:' aRec -&gt; Target ] .
+ aRec -&gt; Sources
+ .map&gt; pop:WordBox:Boxed
+ .map&gt; (
    IN aRec
   [ 
-   'SourceFile: ' aRec -> SourceFile 
-   'Source:' aRec -> Source
+   'SourceFile: ' aRec -&gt; SourceFile 
+   'Source:' aRec -&gt; Source
   ] 
- ) // .map>
+ ) // .map&gt;
  .
-) // .for>
+) // .for&gt;
