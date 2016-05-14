@@ -115,8 +115,8 @@ type
     aChildForm: TChildForm): TnscFormsPageControl;
     {* Реализация слова скрипта .TChildForm.ChildZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -132,8 +132,8 @@ type
     aChildForm: TChildForm): TElTabSheet;
     {* Реализация слова скрипта .TChildForm.MainPageTab }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -213,21 +213,6 @@ begin
  Result := aChildForm.ChildZone;
 end;//TkwChildFormChildZone.ChildZone
 
-procedure TkwChildFormChildZone.DoDoIt(const aCtx: TtfwContext);
-var l_aChildForm: TChildForm;
-begin
- try
-  l_aChildForm := TChildForm(aCtx.rEngine.PopObjAs(TChildForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aChildForm: TChildForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ChildZone(aCtx, l_aChildForm));
-end;//TkwChildFormChildZone.DoDoIt
-
 class function TkwChildFormChildZone.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TChildForm.ChildZone';
@@ -254,14 +239,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
 end;//TkwChildFormChildZone.SetValuePrim
 
-function TkwChildFormMainPageTab.MainPageTab(const aCtx: TtfwContext;
- aChildForm: TChildForm): TElTabSheet;
- {* Реализация слова скрипта .TChildForm.MainPageTab }
-begin
- Result := aChildForm.MainPageTab;
-end;//TkwChildFormMainPageTab.MainPageTab
-
-procedure TkwChildFormMainPageTab.DoDoIt(const aCtx: TtfwContext);
+procedure TkwChildFormChildZone.DoDoIt(const aCtx: TtfwContext);
 var l_aChildForm: TChildForm;
 begin
  try
@@ -273,8 +251,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(MainPageTab(aCtx, l_aChildForm));
-end;//TkwChildFormMainPageTab.DoDoIt
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_aChildForm));
+end;//TkwChildFormChildZone.DoDoIt
+
+function TkwChildFormMainPageTab.MainPageTab(const aCtx: TtfwContext;
+ aChildForm: TChildForm): TElTabSheet;
+ {* Реализация слова скрипта .TChildForm.MainPageTab }
+begin
+ Result := aChildForm.MainPageTab;
+end;//TkwChildFormMainPageTab.MainPageTab
 
 class function TkwChildFormMainPageTab.GetWordNameForRegister: AnsiString;
 begin
@@ -301,6 +286,21 @@ procedure TkwChildFormMainPageTab.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству MainPageTab', aCtx);
 end;//TkwChildFormMainPageTab.SetValuePrim
+
+procedure TkwChildFormMainPageTab.DoDoIt(const aCtx: TtfwContext);
+var l_aChildForm: TChildForm;
+begin
+ try
+  l_aChildForm := TChildForm(aCtx.rEngine.PopObjAs(TChildForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChildForm: TChildForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MainPageTab(aCtx, l_aChildForm));
+end;//TkwChildFormMainPageTab.DoDoIt
 
 initialization
  Tkw_Form_Child.RegisterInEngine;

@@ -286,21 +286,14 @@ type
 {$IfEnd} // Defined(HasRightNavigator)
 
  TkwMainFormStatusBar = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.StatusBar
-[panel]Контрол StatusBar формы TMainForm[panel]
-*Тип результата:* TnscStatusBar
-*Пример:*
-[code]
-OBJECT VAR l_TnscStatusBar
- aMainForm .TMainForm.StatusBar >>> l_TnscStatusBar
-[code]  }
+  {* Слово скрипта .TMainForm.StatusBar }
   private
    function StatusBar(const aCtx: TtfwContext;
     aMainForm: TMainForm): TnscStatusBar;
     {* Реализация слова скрипта .TMainForm.StatusBar }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -310,21 +303,14 @@ OBJECT VAR l_TnscStatusBar
  end;//TkwMainFormStatusBar
 
  TkwMainFormClientZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.ClientZone
-[panel]Контрол ClientZone формы TMainForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMainForm .TMainForm.ClientZone >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TMainForm.ClientZone }
   private
    function ClientZone(const aCtx: TtfwContext;
     aMainForm: TMainForm): TvtPanel;
     {* Реализация слова скрипта .TMainForm.ClientZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -334,21 +320,14 @@ OBJECT VAR l_TvtPanel
  end;//TkwMainFormClientZone
 
  TkwMainFormMainZone = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.MainZone
-[panel]Контрол MainZone формы TMainForm[panel]
-*Тип результата:* TvtProportionalPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtProportionalPanel
- aMainForm .TMainForm.MainZone >>> l_TvtProportionalPanel
-[code]  }
+  {* Слово скрипта .TMainForm.MainZone }
   private
    function MainZone(const aCtx: TtfwContext;
     aMainForm: TMainForm): TvtProportionalPanel;
     {* Реализация слова скрипта .TMainForm.MainZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -358,21 +337,14 @@ OBJECT VAR l_TvtProportionalPanel
  end;//TkwMainFormMainZone
 
  TkwMainFormParentZonePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.ParentZonePanel
-[panel]Контрол ParentZonePanel формы TMainForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMainForm .TMainForm.ParentZonePanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TMainForm.ParentZonePanel }
   private
    function ParentZonePanel(const aCtx: TtfwContext;
     aMainForm: TMainForm): TvtPanel;
     {* Реализация слова скрипта .TMainForm.ParentZonePanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -382,21 +354,14 @@ OBJECT VAR l_TvtPanel
  end;//TkwMainFormParentZonePanel
 
  TkwMainFormChildZonePanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.ChildZonePanel
-[panel]Контрол ChildZonePanel формы TMainForm[panel]
-*Тип результата:* TvtSizeablePanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtSizeablePanel
- aMainForm .TMainForm.ChildZonePanel >>> l_TvtSizeablePanel
-[code]  }
+  {* Слово скрипта .TMainForm.ChildZonePanel }
   private
    function ChildZonePanel(const aCtx: TtfwContext;
     aMainForm: TMainForm): TvtSizeablePanel;
     {* Реализация слова скрипта .TMainForm.ChildZonePanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -406,21 +371,14 @@ OBJECT VAR l_TvtSizeablePanel
  end;//TkwMainFormChildZonePanel
 
  TkwMainFormBaseSearchPanel = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.BaseSearchPanel
-[panel]Контрол BaseSearchPanel формы TMainForm[panel]
-*Тип результата:* TvtPanel
-*Пример:*
-[code]
-OBJECT VAR l_TvtPanel
- aMainForm .TMainForm.BaseSearchPanel >>> l_TvtPanel
-[code]  }
+  {* Слово скрипта .TMainForm.BaseSearchPanel }
   private
    function BaseSearchPanel(const aCtx: TtfwContext;
     aMainForm: TMainForm): TvtPanel;
     {* Реализация слова скрипта .TMainForm.BaseSearchPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -430,21 +388,14 @@ OBJECT VAR l_TvtPanel
  end;//TkwMainFormBaseSearchPanel
 
  TkwMainFormLeftNavigator = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.LeftNavigator
-[panel]Контрол LeftNavigator формы TMainForm[panel]
-*Тип результата:* TnscNavigator
-*Пример:*
-[code]
-OBJECT VAR l_TnscNavigator
- aMainForm .TMainForm.LeftNavigator >>> l_TnscNavigator
-[code]  }
+  {* Слово скрипта .TMainForm.LeftNavigator }
   private
    function LeftNavigator(const aCtx: TtfwContext;
     aMainForm: TMainForm): TnscNavigator;
     {* Реализация слова скрипта .TMainForm.LeftNavigator }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -455,21 +406,14 @@ OBJECT VAR l_TnscNavigator
 
 {$If Defined(HasRightNavigator)}
  TkwMainFormRightNavigator = {final} class(TtfwPropertyLike)
-  {* Слово скрипта .TMainForm.RightNavigator
-[panel]Контрол RightNavigator формы TMainForm[panel]
-*Тип результата:* TnscNavigator
-*Пример:*
-[code]
-OBJECT VAR l_TnscNavigator
- aMainForm .TMainForm.RightNavigator >>> l_TnscNavigator
-[code]  }
+  {* Слово скрипта .TMainForm.RightNavigator }
   private
    function RightNavigator(const aCtx: TtfwContext;
     aMainForm: TMainForm): TnscNavigator;
     {* Реализация слова скрипта .TMainForm.RightNavigator }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -716,21 +660,6 @@ begin
  Result := aMainForm.StatusBar;
 end;//TkwMainFormStatusBar.StatusBar
 
-procedure TkwMainFormStatusBar.DoDoIt(const aCtx: TtfwContext);
-var l_aMainForm: TMainForm;
-begin
- try
-  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(StatusBar(aCtx, l_aMainForm));
-end;//TkwMainFormStatusBar.DoDoIt
-
 class function TkwMainFormStatusBar.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TMainForm.StatusBar';
@@ -757,14 +686,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству StatusBar', aCtx);
 end;//TkwMainFormStatusBar.SetValuePrim
 
-function TkwMainFormClientZone.ClientZone(const aCtx: TtfwContext;
- aMainForm: TMainForm): TvtPanel;
- {* Реализация слова скрипта .TMainForm.ClientZone }
-begin
- Result := aMainForm.ClientZone;
-end;//TkwMainFormClientZone.ClientZone
-
-procedure TkwMainFormClientZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormStatusBar.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -776,8 +698,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ClientZone(aCtx, l_aMainForm));
-end;//TkwMainFormClientZone.DoDoIt
+ aCtx.rEngine.PushObj(StatusBar(aCtx, l_aMainForm));
+end;//TkwMainFormStatusBar.DoDoIt
+
+function TkwMainFormClientZone.ClientZone(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TvtPanel;
+ {* Реализация слова скрипта .TMainForm.ClientZone }
+begin
+ Result := aMainForm.ClientZone;
+end;//TkwMainFormClientZone.ClientZone
 
 class function TkwMainFormClientZone.GetWordNameForRegister: AnsiString;
 begin
@@ -805,14 +734,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ClientZone', aCtx);
 end;//TkwMainFormClientZone.SetValuePrim
 
-function TkwMainFormMainZone.MainZone(const aCtx: TtfwContext;
- aMainForm: TMainForm): TvtProportionalPanel;
- {* Реализация слова скрипта .TMainForm.MainZone }
-begin
- Result := aMainForm.MainZone;
-end;//TkwMainFormMainZone.MainZone
-
-procedure TkwMainFormMainZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormClientZone.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -824,8 +746,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(MainZone(aCtx, l_aMainForm));
-end;//TkwMainFormMainZone.DoDoIt
+ aCtx.rEngine.PushObj(ClientZone(aCtx, l_aMainForm));
+end;//TkwMainFormClientZone.DoDoIt
+
+function TkwMainFormMainZone.MainZone(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TvtProportionalPanel;
+ {* Реализация слова скрипта .TMainForm.MainZone }
+begin
+ Result := aMainForm.MainZone;
+end;//TkwMainFormMainZone.MainZone
 
 class function TkwMainFormMainZone.GetWordNameForRegister: AnsiString;
 begin
@@ -853,14 +782,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
 end;//TkwMainFormMainZone.SetValuePrim
 
-function TkwMainFormParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
- aMainForm: TMainForm): TvtPanel;
- {* Реализация слова скрипта .TMainForm.ParentZonePanel }
-begin
- Result := aMainForm.ParentZonePanel;
-end;//TkwMainFormParentZonePanel.ParentZonePanel
-
-procedure TkwMainFormParentZonePanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormMainZone.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -872,8 +794,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aMainForm));
-end;//TkwMainFormParentZonePanel.DoDoIt
+ aCtx.rEngine.PushObj(MainZone(aCtx, l_aMainForm));
+end;//TkwMainFormMainZone.DoDoIt
+
+function TkwMainFormParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TvtPanel;
+ {* Реализация слова скрипта .TMainForm.ParentZonePanel }
+begin
+ Result := aMainForm.ParentZonePanel;
+end;//TkwMainFormParentZonePanel.ParentZonePanel
 
 class function TkwMainFormParentZonePanel.GetWordNameForRegister: AnsiString;
 begin
@@ -901,14 +830,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentZonePanel', aCtx);
 end;//TkwMainFormParentZonePanel.SetValuePrim
 
-function TkwMainFormChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
- aMainForm: TMainForm): TvtSizeablePanel;
- {* Реализация слова скрипта .TMainForm.ChildZonePanel }
-begin
- Result := aMainForm.ChildZonePanel;
-end;//TkwMainFormChildZonePanel.ChildZonePanel
-
-procedure TkwMainFormChildZonePanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormParentZonePanel.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -920,8 +842,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aMainForm));
-end;//TkwMainFormChildZonePanel.DoDoIt
+ aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aMainForm));
+end;//TkwMainFormParentZonePanel.DoDoIt
+
+function TkwMainFormChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TvtSizeablePanel;
+ {* Реализация слова скрипта .TMainForm.ChildZonePanel }
+begin
+ Result := aMainForm.ChildZonePanel;
+end;//TkwMainFormChildZonePanel.ChildZonePanel
 
 class function TkwMainFormChildZonePanel.GetWordNameForRegister: AnsiString;
 begin
@@ -949,14 +878,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ChildZonePanel', aCtx);
 end;//TkwMainFormChildZonePanel.SetValuePrim
 
-function TkwMainFormBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
- aMainForm: TMainForm): TvtPanel;
- {* Реализация слова скрипта .TMainForm.BaseSearchPanel }
-begin
- Result := aMainForm.BaseSearchPanel;
-end;//TkwMainFormBaseSearchPanel.BaseSearchPanel
-
-procedure TkwMainFormBaseSearchPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormChildZonePanel.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -968,8 +890,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aMainForm));
-end;//TkwMainFormBaseSearchPanel.DoDoIt
+ aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aMainForm));
+end;//TkwMainFormChildZonePanel.DoDoIt
+
+function TkwMainFormBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TvtPanel;
+ {* Реализация слова скрипта .TMainForm.BaseSearchPanel }
+begin
+ Result := aMainForm.BaseSearchPanel;
+end;//TkwMainFormBaseSearchPanel.BaseSearchPanel
 
 class function TkwMainFormBaseSearchPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -997,14 +926,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BaseSearchPanel', aCtx);
 end;//TkwMainFormBaseSearchPanel.SetValuePrim
 
-function TkwMainFormLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
- aMainForm: TMainForm): TnscNavigator;
- {* Реализация слова скрипта .TMainForm.LeftNavigator }
-begin
- Result := aMainForm.LeftNavigator;
-end;//TkwMainFormLeftNavigator.LeftNavigator
-
-procedure TkwMainFormLeftNavigator.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormBaseSearchPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -1016,8 +938,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aMainForm));
-end;//TkwMainFormLeftNavigator.DoDoIt
+ aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aMainForm));
+end;//TkwMainFormBaseSearchPanel.DoDoIt
+
+function TkwMainFormLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TnscNavigator;
+ {* Реализация слова скрипта .TMainForm.LeftNavigator }
+begin
+ Result := aMainForm.LeftNavigator;
+end;//TkwMainFormLeftNavigator.LeftNavigator
 
 class function TkwMainFormLeftNavigator.GetWordNameForRegister: AnsiString;
 begin
@@ -1045,15 +974,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству LeftNavigator', aCtx);
 end;//TkwMainFormLeftNavigator.SetValuePrim
 
-{$If Defined(HasRightNavigator)}
-function TkwMainFormRightNavigator.RightNavigator(const aCtx: TtfwContext;
- aMainForm: TMainForm): TnscNavigator;
- {* Реализация слова скрипта .TMainForm.RightNavigator }
-begin
- Result := aMainForm.RightNavigator;
-end;//TkwMainFormRightNavigator.RightNavigator
-
-procedure TkwMainFormRightNavigator.DoDoIt(const aCtx: TtfwContext);
+procedure TkwMainFormLeftNavigator.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
 begin
  try
@@ -1065,8 +986,16 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aMainForm));
-end;//TkwMainFormRightNavigator.DoDoIt
+ aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aMainForm));
+end;//TkwMainFormLeftNavigator.DoDoIt
+
+{$If Defined(HasRightNavigator)}
+function TkwMainFormRightNavigator.RightNavigator(const aCtx: TtfwContext;
+ aMainForm: TMainForm): TnscNavigator;
+ {* Реализация слова скрипта .TMainForm.RightNavigator }
+begin
+ Result := aMainForm.RightNavigator;
+end;//TkwMainFormRightNavigator.RightNavigator
 
 class function TkwMainFormRightNavigator.GetWordNameForRegister: AnsiString;
 begin
@@ -1093,6 +1022,21 @@ procedure TkwMainFormRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству RightNavigator', aCtx);
 end;//TkwMainFormRightNavigator.SetValuePrim
+
+procedure TkwMainFormRightNavigator.DoDoIt(const aCtx: TtfwContext);
+var l_aMainForm: TMainForm;
+begin
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aMainForm));
+end;//TkwMainFormRightNavigator.DoDoIt
 {$IfEnd} // Defined(HasRightNavigator)
 
 initialization

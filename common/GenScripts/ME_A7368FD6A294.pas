@@ -84,8 +84,8 @@ type
     aParentForm: TParentForm): TvtPanel;
     {* Реализация слова скрипта .TParentForm.ParentZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aParentForm.ParentZone;
 end;//TkwParentFormParentZone.ParentZone
 
-procedure TkwParentFormParentZone.DoDoIt(const aCtx: TtfwContext);
-var l_aParentForm: TParentForm;
-begin
- try
-  l_aParentForm := TParentForm(aCtx.rEngine.PopObjAs(TParentForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aParentForm: TParentForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ParentZone(aCtx, l_aParentForm));
-end;//TkwParentFormParentZone.DoDoIt
-
 class function TkwParentFormParentZone.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TParentForm.ParentZone';
@@ -178,6 +163,21 @@ procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwParentFormParentZone.SetValuePrim
+
+procedure TkwParentFormParentZone.DoDoIt(const aCtx: TtfwContext);
+var l_aParentForm: TParentForm;
+begin
+ try
+  l_aParentForm := TParentForm(aCtx.rEngine.PopObjAs(TParentForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParentForm: TParentForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_aParentForm));
+end;//TkwParentFormParentZone.DoDoIt
 
 initialization
  Tkw_Form_Parent.RegisterInEngine;

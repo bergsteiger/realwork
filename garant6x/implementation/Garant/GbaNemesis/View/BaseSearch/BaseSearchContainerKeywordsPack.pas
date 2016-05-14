@@ -200,8 +200,8 @@ type
     aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
     {* Реализация слова скрипта .TBaseSearchContainerForm.ChildZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -217,8 +217,8 @@ type
     aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
     {* Реализация слова скрипта .TBaseSearchContainerForm.pnHeader }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -234,8 +234,8 @@ type
     aBaseSearchContainerForm: TBaseSearchContainerForm): TvtLabel;
     {* Реализация слова скрипта .TBaseSearchContainerForm.lbHeader }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -251,8 +251,8 @@ type
     aBaseSearchContainerForm: TBaseSearchContainerForm): TPaintBox;
     {* Реализация слова скрипта .TBaseSearchContainerForm.pbHeader }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -268,8 +268,8 @@ type
     aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
     {* Реализация слова скрипта .TBaseSearchContainerForm.ParentZone }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -430,21 +430,6 @@ begin
  Result := aBaseSearchContainerForm.ChildZone;
 end;//TkwBaseSearchContainerFormChildZone.ChildZone
 
-procedure TkwBaseSearchContainerFormChildZone.DoDoIt(const aCtx: TtfwContext);
-var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
-begin
- try
-  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(ChildZone(aCtx, l_aBaseSearchContainerForm));
-end;//TkwBaseSearchContainerFormChildZone.DoDoIt
-
 class function TkwBaseSearchContainerFormChildZone.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TBaseSearchContainerForm.ChildZone';
@@ -471,14 +456,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
 end;//TkwBaseSearchContainerFormChildZone.SetValuePrim
 
-function TkwBaseSearchContainerFormPnHeader.pnHeader(const aCtx: TtfwContext;
- aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
- {* Реализация слова скрипта .TBaseSearchContainerForm.pnHeader }
-begin
- Result := aBaseSearchContainerForm.pnHeader;
-end;//TkwBaseSearchContainerFormPnHeader.pnHeader
-
-procedure TkwBaseSearchContainerFormPnHeader.DoDoIt(const aCtx: TtfwContext);
+procedure TkwBaseSearchContainerFormChildZone.DoDoIt(const aCtx: TtfwContext);
 var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
  try
@@ -490,8 +468,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pnHeader(aCtx, l_aBaseSearchContainerForm));
-end;//TkwBaseSearchContainerFormPnHeader.DoDoIt
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_aBaseSearchContainerForm));
+end;//TkwBaseSearchContainerFormChildZone.DoDoIt
+
+function TkwBaseSearchContainerFormPnHeader.pnHeader(const aCtx: TtfwContext;
+ aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TBaseSearchContainerForm.pnHeader }
+begin
+ Result := aBaseSearchContainerForm.pnHeader;
+end;//TkwBaseSearchContainerFormPnHeader.pnHeader
 
 class function TkwBaseSearchContainerFormPnHeader.GetWordNameForRegister: AnsiString;
 begin
@@ -519,14 +504,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
 end;//TkwBaseSearchContainerFormPnHeader.SetValuePrim
 
-function TkwBaseSearchContainerFormLbHeader.lbHeader(const aCtx: TtfwContext;
- aBaseSearchContainerForm: TBaseSearchContainerForm): TvtLabel;
- {* Реализация слова скрипта .TBaseSearchContainerForm.lbHeader }
-begin
- Result := aBaseSearchContainerForm.lbHeader;
-end;//TkwBaseSearchContainerFormLbHeader.lbHeader
-
-procedure TkwBaseSearchContainerFormLbHeader.DoDoIt(const aCtx: TtfwContext);
+procedure TkwBaseSearchContainerFormPnHeader.DoDoIt(const aCtx: TtfwContext);
 var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
  try
@@ -538,8 +516,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(lbHeader(aCtx, l_aBaseSearchContainerForm));
-end;//TkwBaseSearchContainerFormLbHeader.DoDoIt
+ aCtx.rEngine.PushObj(pnHeader(aCtx, l_aBaseSearchContainerForm));
+end;//TkwBaseSearchContainerFormPnHeader.DoDoIt
+
+function TkwBaseSearchContainerFormLbHeader.lbHeader(const aCtx: TtfwContext;
+ aBaseSearchContainerForm: TBaseSearchContainerForm): TvtLabel;
+ {* Реализация слова скрипта .TBaseSearchContainerForm.lbHeader }
+begin
+ Result := aBaseSearchContainerForm.lbHeader;
+end;//TkwBaseSearchContainerFormLbHeader.lbHeader
 
 class function TkwBaseSearchContainerFormLbHeader.GetWordNameForRegister: AnsiString;
 begin
@@ -567,14 +552,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
 end;//TkwBaseSearchContainerFormLbHeader.SetValuePrim
 
-function TkwBaseSearchContainerFormPbHeader.pbHeader(const aCtx: TtfwContext;
- aBaseSearchContainerForm: TBaseSearchContainerForm): TPaintBox;
- {* Реализация слова скрипта .TBaseSearchContainerForm.pbHeader }
-begin
- Result := aBaseSearchContainerForm.pbHeader;
-end;//TkwBaseSearchContainerFormPbHeader.pbHeader
-
-procedure TkwBaseSearchContainerFormPbHeader.DoDoIt(const aCtx: TtfwContext);
+procedure TkwBaseSearchContainerFormLbHeader.DoDoIt(const aCtx: TtfwContext);
 var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
  try
@@ -586,8 +564,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(pbHeader(aCtx, l_aBaseSearchContainerForm));
-end;//TkwBaseSearchContainerFormPbHeader.DoDoIt
+ aCtx.rEngine.PushObj(lbHeader(aCtx, l_aBaseSearchContainerForm));
+end;//TkwBaseSearchContainerFormLbHeader.DoDoIt
+
+function TkwBaseSearchContainerFormPbHeader.pbHeader(const aCtx: TtfwContext;
+ aBaseSearchContainerForm: TBaseSearchContainerForm): TPaintBox;
+ {* Реализация слова скрипта .TBaseSearchContainerForm.pbHeader }
+begin
+ Result := aBaseSearchContainerForm.pbHeader;
+end;//TkwBaseSearchContainerFormPbHeader.pbHeader
 
 class function TkwBaseSearchContainerFormPbHeader.GetWordNameForRegister: AnsiString;
 begin
@@ -615,14 +600,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
 end;//TkwBaseSearchContainerFormPbHeader.SetValuePrim
 
-function TkwBaseSearchContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
- aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
- {* Реализация слова скрипта .TBaseSearchContainerForm.ParentZone }
-begin
- Result := aBaseSearchContainerForm.ParentZone;
-end;//TkwBaseSearchContainerFormParentZone.ParentZone
-
-procedure TkwBaseSearchContainerFormParentZone.DoDoIt(const aCtx: TtfwContext);
+procedure TkwBaseSearchContainerFormPbHeader.DoDoIt(const aCtx: TtfwContext);
 var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
  try
@@ -634,8 +612,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ParentZone(aCtx, l_aBaseSearchContainerForm));
-end;//TkwBaseSearchContainerFormParentZone.DoDoIt
+ aCtx.rEngine.PushObj(pbHeader(aCtx, l_aBaseSearchContainerForm));
+end;//TkwBaseSearchContainerFormPbHeader.DoDoIt
+
+function TkwBaseSearchContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
+ aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
+ {* Реализация слова скрипта .TBaseSearchContainerForm.ParentZone }
+begin
+ Result := aBaseSearchContainerForm.ParentZone;
+end;//TkwBaseSearchContainerFormParentZone.ParentZone
 
 class function TkwBaseSearchContainerFormParentZone.GetWordNameForRegister: AnsiString;
 begin
@@ -662,6 +647,21 @@ procedure TkwBaseSearchContainerFormParentZone.SetValuePrim(const aValue: TtfwSt
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwBaseSearchContainerFormParentZone.SetValuePrim
+
+procedure TkwBaseSearchContainerFormParentZone.DoDoIt(const aCtx: TtfwContext);
+var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
+begin
+ try
+  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_aBaseSearchContainerForm));
+end;//TkwBaseSearchContainerFormParentZone.DoDoIt
 
 initialization
  Tkw_Form_BaseSearchContainer.RegisterInEngine;

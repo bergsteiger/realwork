@@ -84,8 +84,8 @@ type
     aenFilters: TenFilters): TnscTreeViewWithAdapterDragDrop;
     {* Реализация слова скрипта .TenFilters.FiltersList }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -138,21 +138,6 @@ begin
  Result := aenFilters.FiltersList;
 end;//TkwEnFiltersFiltersList.FiltersList
 
-procedure TkwEnFiltersFiltersList.DoDoIt(const aCtx: TtfwContext);
-var l_aenFilters: TenFilters;
-begin
- try
-  l_aenFilters := TenFilters(aCtx.rEngine.PopObjAs(TenFilters));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aenFilters: TenFilters : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(FiltersList(aCtx, l_aenFilters));
-end;//TkwEnFiltersFiltersList.DoDoIt
-
 class function TkwEnFiltersFiltersList.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TenFilters.FiltersList';
@@ -178,6 +163,21 @@ procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству FiltersList', aCtx);
 end;//TkwEnFiltersFiltersList.SetValuePrim
+
+procedure TkwEnFiltersFiltersList.DoDoIt(const aCtx: TtfwContext);
+var l_aenFilters: TenFilters;
+begin
+ try
+  l_aenFilters := TenFilters(aCtx.rEngine.PopObjAs(TenFilters));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFilters: TenFilters : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FiltersList(aCtx, l_aenFilters));
+end;//TkwEnFiltersFiltersList.DoDoIt
 
 initialization
  Tkw_Form_Filters.RegisterInEngine;

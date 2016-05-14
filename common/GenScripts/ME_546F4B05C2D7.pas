@@ -115,8 +115,8 @@ type
     aCreateFilterForm: TCreateFilterForm): TvtLabel;
     {* Реализация слова скрипта .TCreateFilterForm.NameLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -132,8 +132,8 @@ type
     aCreateFilterForm: TCreateFilterForm): TnscEdit;
     {* Реализация слова скрипта .TCreateFilterForm.FilterName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -213,21 +213,6 @@ begin
  Result := aCreateFilterForm.NameLabel;
 end;//TkwCreateFilterFormNameLabel.NameLabel
 
-procedure TkwCreateFilterFormNameLabel.DoDoIt(const aCtx: TtfwContext);
-var l_aCreateFilterForm: TCreateFilterForm;
-begin
- try
-  l_aCreateFilterForm := TCreateFilterForm(aCtx.rEngine.PopObjAs(TCreateFilterForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aCreateFilterForm: TCreateFilterForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(NameLabel(aCtx, l_aCreateFilterForm));
-end;//TkwCreateFilterFormNameLabel.DoDoIt
-
 class function TkwCreateFilterFormNameLabel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TCreateFilterForm.NameLabel';
@@ -254,14 +239,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству NameLabel', aCtx);
 end;//TkwCreateFilterFormNameLabel.SetValuePrim
 
-function TkwCreateFilterFormFilterName.FilterName(const aCtx: TtfwContext;
- aCreateFilterForm: TCreateFilterForm): TnscEdit;
- {* Реализация слова скрипта .TCreateFilterForm.FilterName }
-begin
- Result := aCreateFilterForm.FilterName;
-end;//TkwCreateFilterFormFilterName.FilterName
-
-procedure TkwCreateFilterFormFilterName.DoDoIt(const aCtx: TtfwContext);
+procedure TkwCreateFilterFormNameLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aCreateFilterForm: TCreateFilterForm;
 begin
  try
@@ -273,8 +251,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(FilterName(aCtx, l_aCreateFilterForm));
-end;//TkwCreateFilterFormFilterName.DoDoIt
+ aCtx.rEngine.PushObj(NameLabel(aCtx, l_aCreateFilterForm));
+end;//TkwCreateFilterFormNameLabel.DoDoIt
+
+function TkwCreateFilterFormFilterName.FilterName(const aCtx: TtfwContext;
+ aCreateFilterForm: TCreateFilterForm): TnscEdit;
+ {* Реализация слова скрипта .TCreateFilterForm.FilterName }
+begin
+ Result := aCreateFilterForm.FilterName;
+end;//TkwCreateFilterFormFilterName.FilterName
 
 class function TkwCreateFilterFormFilterName.GetWordNameForRegister: AnsiString;
 begin
@@ -301,6 +286,21 @@ procedure TkwCreateFilterFormFilterName.SetValuePrim(const aValue: TtfwStackValu
 begin
  RunnerError('Нельзя присваивать значение readonly свойству FilterName', aCtx);
 end;//TkwCreateFilterFormFilterName.SetValuePrim
+
+procedure TkwCreateFilterFormFilterName.DoDoIt(const aCtx: TtfwContext);
+var l_aCreateFilterForm: TCreateFilterForm;
+begin
+ try
+  l_aCreateFilterForm := TCreateFilterForm(aCtx.rEngine.PopObjAs(TCreateFilterForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCreateFilterForm: TCreateFilterForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FilterName(aCtx, l_aCreateFilterForm));
+end;//TkwCreateFilterFormFilterName.DoDoIt
 
 initialization
  Tkw_Form_CreateFilter.RegisterInEngine;

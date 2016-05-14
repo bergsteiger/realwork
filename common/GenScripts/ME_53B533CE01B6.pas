@@ -43,8 +43,8 @@ type
     const aFilterNode: InsFilterNode): Boolean;
     {* Реализация слова скрипта FilterNode:AutoApplied }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -60,8 +60,8 @@ type
     const aFilterNode: InsFilterNode): Boolean;
     {* Реализация слова скрипта FilterNode:IsUsed }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -77,8 +77,8 @@ type
     const aFilterNode: InsFilterNode): Boolean;
     {* Реализация слова скрипта FilterNode:IsDeleted }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -94,8 +94,8 @@ type
     const aFilterNode: InsFilterNode): Boolean;
     {* Реализация слова скрипта FilterNode:IsChangeable }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -116,21 +116,6 @@ function TkwFilterNodeAutoApplied.AutoApplied(const aCtx: TtfwContext;
 begin
  Result := aFilterNode.AutoApplied;
 end;//TkwFilterNodeAutoApplied.AutoApplied
-
-procedure TkwFilterNodeAutoApplied.DoDoIt(const aCtx: TtfwContext);
-var l_aFilterNode: InsFilterNode;
-begin
- try
-  l_aFilterNode := InsFilterNode(aCtx.rEngine.PopIntf(InsFilterNode));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aFilterNode: InsFilterNode : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(AutoApplied(aCtx, l_aFilterNode));
-end;//TkwFilterNodeAutoApplied.DoDoIt
 
 class function TkwFilterNodeAutoApplied.GetWordNameForRegister: AnsiString;
 begin
@@ -168,18 +153,7 @@ begin
  l_FilterNode.AutoApplied := aValue.AsBoolean;
 end;//TkwFilterNodeAutoApplied.SetValuePrim
 
-function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
- const aFilterNode: InsFilterNode): Boolean;
- {* Реализация слова скрипта FilterNode:IsUsed }
-//#UC START# *0B8C389F0B1C_3EAB6B490CA4_var*
-//#UC END# *0B8C389F0B1C_3EAB6B490CA4_var*
-begin
-//#UC START# *0B8C389F0B1C_3EAB6B490CA4_impl*
- Result := aFilterNode.UsedStatus;
-//#UC END# *0B8C389F0B1C_3EAB6B490CA4_impl*
-end;//TkwFilterNodeIsUsed.IsUsed
-
-procedure TkwFilterNodeIsUsed.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFilterNodeAutoApplied.DoDoIt(const aCtx: TtfwContext);
 var l_aFilterNode: InsFilterNode;
 begin
  try
@@ -191,8 +165,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsUsed(aCtx, l_aFilterNode));
-end;//TkwFilterNodeIsUsed.DoDoIt
+ aCtx.rEngine.PushBool(AutoApplied(aCtx, l_aFilterNode));
+end;//TkwFilterNodeAutoApplied.DoDoIt
+
+function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
+ const aFilterNode: InsFilterNode): Boolean;
+ {* Реализация слова скрипта FilterNode:IsUsed }
+//#UC START# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_var*
+//#UC END# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_var*
+begin
+//#UC START# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_impl*
+ Result := aFilterNode.UsedStatus;
+//#UC END# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_impl*
+end;//TkwFilterNodeIsUsed.IsUsed
 
 class function TkwFilterNodeIsUsed.GetWordNameForRegister: AnsiString;
 begin
@@ -220,18 +205,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsUsed', aCtx);
 end;//TkwFilterNodeIsUsed.SetValuePrim
 
-function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
- const aFilterNode: InsFilterNode): Boolean;
- {* Реализация слова скрипта FilterNode:IsDeleted }
-//#UC START# *B12C875B9E52_2F875C7C1CA3_var*
-//#UC END# *B12C875B9E52_2F875C7C1CA3_var*
-begin
-//#UC START# *B12C875B9E52_2F875C7C1CA3_impl*
- Result := aFilterNode.DeletedStatus;
-//#UC END# *B12C875B9E52_2F875C7C1CA3_impl*
-end;//TkwFilterNodeIsDeleted.IsDeleted
-
-procedure TkwFilterNodeIsDeleted.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFilterNodeIsUsed.DoDoIt(const aCtx: TtfwContext);
 var l_aFilterNode: InsFilterNode;
 begin
  try
@@ -243,8 +217,19 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsDeleted(aCtx, l_aFilterNode));
-end;//TkwFilterNodeIsDeleted.DoDoIt
+ aCtx.rEngine.PushBool(IsUsed(aCtx, l_aFilterNode));
+end;//TkwFilterNodeIsUsed.DoDoIt
+
+function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
+ const aFilterNode: InsFilterNode): Boolean;
+ {* Реализация слова скрипта FilterNode:IsDeleted }
+//#UC START# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_var*
+//#UC END# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_var*
+begin
+//#UC START# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_impl*
+ Result := aFilterNode.DeletedStatus;
+//#UC END# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_impl*
+end;//TkwFilterNodeIsDeleted.IsDeleted
 
 class function TkwFilterNodeIsDeleted.GetWordNameForRegister: AnsiString;
 begin
@@ -272,26 +257,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству IsDeleted', aCtx);
 end;//TkwFilterNodeIsDeleted.SetValuePrim
 
-function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
- const aFilterNode: InsFilterNode): Boolean;
- {* Реализация слова скрипта FilterNode:IsChangeable }
-//#UC START# *CA5586C3178F_008D699CFE74_var*
-var
- l_F: IFilterFromQuery;
-//#UC END# *CA5586C3178F_008D699CFE74_var*
-begin
-//#UC START# *CA5586C3178F_008D699CFE74_impl*
- Supports(aFilterNode, IFilterFromQuery, l_F);
- RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
- try
-  Result := l_F.GetChangeable;
- finally
-  l_F := nil;
- end;//try..finally
-//#UC END# *CA5586C3178F_008D699CFE74_impl*
-end;//TkwFilterNodeIsChangeable.IsChangeable
-
-procedure TkwFilterNodeIsChangeable.DoDoIt(const aCtx: TtfwContext);
+procedure TkwFilterNodeIsDeleted.DoDoIt(const aCtx: TtfwContext);
 var l_aFilterNode: InsFilterNode;
 begin
  try
@@ -303,8 +269,27 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool(IsChangeable(aCtx, l_aFilterNode));
-end;//TkwFilterNodeIsChangeable.DoDoIt
+ aCtx.rEngine.PushBool(IsDeleted(aCtx, l_aFilterNode));
+end;//TkwFilterNodeIsDeleted.DoDoIt
+
+function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
+ const aFilterNode: InsFilterNode): Boolean;
+ {* Реализация слова скрипта FilterNode:IsChangeable }
+//#UC START# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_var*
+var
+ l_F: IFilterFromQuery;
+//#UC END# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_var*
+begin
+//#UC START# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_impl*
+ Supports(aFilterNode, IFilterFromQuery, l_F);
+ RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
+ try
+  Result := l_F.GetChangeable;
+ finally
+  l_F := nil;
+ end;//try..finally
+//#UC END# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_impl*
+end;//TkwFilterNodeIsChangeable.IsChangeable
 
 class function TkwFilterNodeIsChangeable.GetWordNameForRegister: AnsiString;
 begin
@@ -331,6 +316,21 @@ procedure TkwFilterNodeIsChangeable.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству IsChangeable', aCtx);
 end;//TkwFilterNodeIsChangeable.SetValuePrim
+
+procedure TkwFilterNodeIsChangeable.DoDoIt(const aCtx: TtfwContext);
+var l_aFilterNode: InsFilterNode;
+begin
+ try
+  l_aFilterNode := InsFilterNode(aCtx.rEngine.PopIntf(InsFilterNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFilterNode: InsFilterNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsChangeable(aCtx, l_aFilterNode));
+end;//TkwFilterNodeIsChangeable.DoDoIt
 
 class function TInsFilterNodeWordsPackResNameGetter.ResName: AnsiString;
 begin
