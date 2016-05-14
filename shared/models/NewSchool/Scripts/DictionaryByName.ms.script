@@ -83,7 +83,13 @@ ARRAY FUNCTION ProcessDict
 
 ARRAY VAR A
 [ 
- @ ProcessDict '*.pas.ms.script' 'W:\shared\models\NewSchool\Scripts\' ProcessFilesWithMask
+ @ ProcessDict 
+ '*.pas.ms.script' 
+ //thisDictionary pop:DictionaryEx:FileName Msg
+ //Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath
+ //thisDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath
+ 'W:\shared\models\NewSchool\Scripts\' 
+ ProcessFilesWithMask
 ] >>> A
 
 ARRAY VAR B
@@ -123,6 +129,30 @@ A .for> (
    ) .AddToArray: B
   end // ( l_Rec .NotIsNil )
  ) // .for>
+) // .for>
+
+B 
+.map> pop:WordBox:Boxed
+.for> (
+   IN aRec
+ FILE VAR l_Out
+ aRec -> Target '.pas.ms.script.inj' Cat File:OpenWrite >>> l_Out
+ TRY
+/*{ 
+ aRec -> Sources
+ .map> pop:WordBox:Boxed
+ .map> (
+   IN aRec
+  [ 
+   'SourceFile: ' aRec -> SourceFile 
+   'Source:' aRec -> Source
+  ] 
+ ) // .map>
+ .
+}*/ 
+ FINALLY
+  nil >>> l_Out
+ END
 ) // .for>
 
 B 

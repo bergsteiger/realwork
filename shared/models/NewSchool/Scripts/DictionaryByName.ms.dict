@@ -4,10 +4,15 @@ USES
  FirstElement.ms.dict
 ;
 
+IMMEDIATE MACRO thisDictionary
+ Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary CompileValue
+; // thisDictionary
+
 OBJECT FUNCTION DictionaryByName
   IN aDictName
  nil >>> Result
  STRING VAR l_Code 
+ //[ 'INCLUDE ' '''' aDictName '''' ' thisDictionary ' ] strings:Cat >>> l_Code 
  [ 'INCLUDE ' '''' aDictName '''' ' [EXECUTE] ( Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary CompileValue ) ' ] strings:Cat >>> l_Code 
  l_Code script:CompileStringAndProcess ( 
   DO
