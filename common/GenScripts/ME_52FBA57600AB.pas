@@ -35,8 +35,6 @@ type
    f_Password: AnsiString;
    f_UserName: AnsiString;
   protected
-   function pm_GetExportPriority: TdaPriority; virtual;
-   function pm_GetImportPriority: TdaPriority; virtual;
    procedure Save(aStream: TStream);
    procedure Load(aStream: TStream);
    function Get_ID: TdaUserID;
@@ -59,41 +57,9 @@ type
    procedure Set_Password(const aValue: AnsiString);
    function Get_UserName: AnsiString;
    procedure Set_UserName(const aValue: AnsiString);
-   procedure ClearFields; override;
   public
    constructor Create(aCalcPriorityCallback: TdaCalcPriorityCallBack); reintroduce;
    class function Make(aCalcPriorityCallback: TdaCalcPriorityCallBack): IdaArchiUser; reintroduce;
-  public
-   property ID: TdaUserID
-    read f_ID
-    write f_ID;
-   property ExportPriority: TdaPriority
-    read pm_GetExportPriority
-    write f_ExportPriority;
-   property ImportPriority: TdaPriority
-    read pm_GetImportPriority
-    write f_ImportPriority;
-   property Active: Boolean
-    read f_Active
-    write f_Active;
-   property HasAdminRights: Boolean
-    read f_HasAdminRights
-    write f_HasAdminRights;
-   property IP: AnsiString
-    read f_IP
-    write f_IP;
-   property LoginDate: TDateTime
-    read f_LoginDate
-    write f_LoginDate;
-   property LoginName: AnsiString
-    read f_LoginName
-    write f_LoginName;
-   property Password: AnsiString
-    read f_Password
-    write f_Password;
-   property UserName: AnsiString
-    read f_UserName
-    write f_UserName;
  end;//TdaArchiUser
 
 implementation
@@ -105,24 +71,6 @@ uses
 
 const
  cPriorityNeedCalc: TdaPriority = daTypes.TdaPriority(-3);
-
-function TdaArchiUser.pm_GetExportPriority: TdaPriority;
-//#UC START# *572B22B0011C_52FBA57600ABget_var*
-//#UC END# *572B22B0011C_52FBA57600ABget_var*
-begin
-//#UC START# *572B22B0011C_52FBA57600ABget_impl*
- Result := Get_ExportPriority;
-//#UC END# *572B22B0011C_52FBA57600ABget_impl*
-end;//TdaArchiUser.pm_GetExportPriority
-
-function TdaArchiUser.pm_GetImportPriority: TdaPriority;
-//#UC START# *572B22BF003A_52FBA57600ABget_var*
-//#UC END# *572B22BF003A_52FBA57600ABget_var*
-begin
-//#UC START# *572B22BF003A_52FBA57600ABget_impl*
- Result := Get_ImportPriority;
-//#UC END# *572B22BF003A_52FBA57600ABget_impl*
-end;//TdaArchiUser.pm_GetImportPriority
 
 constructor TdaArchiUser.Create(aCalcPriorityCallback: TdaCalcPriorityCallBack);
 //#UC START# *572B1324003C_52FBA57600AB_var*
@@ -375,14 +323,5 @@ begin
  f_UserName := aValue;
 //#UC END# *572B12AE028C_52FBA57600ABset_impl*
 end;//TdaArchiUser.Set_UserName
-
-procedure TdaArchiUser.ClearFields;
-begin
- IP := '';
- LoginName := '';
- Password := '';
- UserName := '';
- inherited;
-end;//TdaArchiUser.ClearFields
 
 end.

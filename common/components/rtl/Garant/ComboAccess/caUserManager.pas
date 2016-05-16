@@ -22,6 +22,9 @@ type
   private
    f_HTManager: IdaUserManager;
    f_PGManager: IdaUserManager;
+  private
+   function IsUsersEqual(const aLeft: IdaArchiUser;
+    const aRight: IdaArchiUser): Boolean;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -36,6 +39,17 @@ type
     var aExportPriority: TdaPriority): Boolean;
    procedure ReSortUserList;
    function Get_ArchiUsersCount: Integer;
+   function UserByID(aID: TdaUserID): IdaArchiUser;
+   function UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+   procedure UpdateUserInfo(aUserID: TdaUserID;
+    aIsGroup: Boolean);
+   procedure MakeFullArchiUsersList;
+   function GetUserDisplayName(anID: TdaUserID): AnsiString;
+   function IsUserExists(anID: TdaUserID): Boolean;
+   procedure RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+   procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+   procedure NotifyUserActiveChanged(anUserID: TdaUserID;
+    anActive: Boolean);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -80,6 +94,24 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TcaUserManager.Make
+
+function TcaUserManager.IsUsersEqual(const aLeft: IdaArchiUser;
+ const aRight: IdaArchiUser): Boolean;
+//#UC START# *57359E8903CF_56C428E4014A_var*
+//#UC END# *57359E8903CF_56C428E4014A_var*
+begin
+//#UC START# *57359E8903CF_56C428E4014A_impl*
+ Result := (aLeft = nil) = (aRight = nil);
+ if Result and Assigned(aLeft) then
+  Result := (aLeft.ID = aRight.ID) and
+   (aLeft.Active = aRight.Active) and
+   (aLeft.HasAdminRights = aRight.HasAdminRights) and
+   (aLeft.IP = aRight.IP) and
+   (aLeft.LoginName = aRight.LoginName) and
+   (aLeft.Password = aRight.Password) and
+   (aLeft.UserName = aRight.UserName);
+//#UC END# *57359E8903CF_56C428E4014A_impl*
+end;//TcaUserManager.IsUsersEqual
 
 function TcaUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
@@ -174,6 +206,101 @@ begin
  f_HTManager.ForEachF(anAction);
 //#UC END# *5729DD530330_56C428E4014A_impl*
 end;//TcaUserManager.IterateArchiUsersF
+
+function TcaUserManager.UserByID(aID: TdaUserID): IdaArchiUser;
+//#UC START# *57358B940211_56C428E4014A_var*
+var
+ l_Check: IdaArchiUser;
+//#UC END# *57358B940211_56C428E4014A_var*
+begin
+//#UC START# *57358B940211_56C428E4014A_impl*
+ Result := f_HTManager.UserByID(aID);
+ l_Check := f_PGManager.UserByID(aID);
+ Assert(IsUsersEqual(Result, l_Check));
+//#UC END# *57358B940211_56C428E4014A_impl*
+end;//TcaUserManager.UserByID
+
+function TcaUserManager.UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+//#UC START# *57358BCB0360_56C428E4014A_var*
+var
+ l_Check: IdaArchiUser;
+//#UC END# *57358BCB0360_56C428E4014A_var*
+begin
+//#UC START# *57358BCB0360_56C428E4014A_impl*
+ Result := f_HTManager.UserByLogin(aLogin);
+ l_Check := f_PGManager.UserByLogin(aLogin);
+ Assert(IsUsersEqual(Result, l_Check));
+//#UC END# *57358BCB0360_56C428E4014A_impl*
+end;//TcaUserManager.UserByLogin
+
+procedure TcaUserManager.UpdateUserInfo(aUserID: TdaUserID;
+ aIsGroup: Boolean);
+//#UC START# *5735AE4D0017_56C428E4014A_var*
+//#UC END# *5735AE4D0017_56C428E4014A_var*
+begin
+//#UC START# *5735AE4D0017_56C428E4014A_impl*
+ f_HTManager.UpdateUserInfo(aUserID, aIsGroup);
+ f_PGManager.UpdateUserInfo(aUserID, aIsGroup);
+//#UC END# *5735AE4D0017_56C428E4014A_impl*
+end;//TcaUserManager.UpdateUserInfo
+
+procedure TcaUserManager.MakeFullArchiUsersList;
+//#UC START# *5735AE7F0071_56C428E4014A_var*
+//#UC END# *5735AE7F0071_56C428E4014A_var*
+begin
+//#UC START# *5735AE7F0071_56C428E4014A_impl*
+ f_HTManager.MakeFullArchiUsersList;
+ f_PGManager.MakeFullArchiUsersList;
+//#UC END# *5735AE7F0071_56C428E4014A_impl*
+end;//TcaUserManager.MakeFullArchiUsersList
+
+function TcaUserManager.GetUserDisplayName(anID: TdaUserID): AnsiString;
+//#UC START# *5735AECA0121_56C428E4014A_var*
+//#UC END# *5735AECA0121_56C428E4014A_var*
+begin
+//#UC START# *5735AECA0121_56C428E4014A_impl*
+ Result := f_HTManager.GetUserDisplayName(anID);
+ Assert(Result = f_PGManager.GetUserDisplayName(anID));
+//#UC END# *5735AECA0121_56C428E4014A_impl*
+end;//TcaUserManager.GetUserDisplayName
+
+function TcaUserManager.IsUserExists(anID: TdaUserID): Boolean;
+//#UC START# *5739732402E4_56C428E4014A_var*
+//#UC END# *5739732402E4_56C428E4014A_var*
+begin
+//#UC START# *5739732402E4_56C428E4014A_impl*
+ Result := f_HTManager.IsUserExists(anID);
+ Assert(Result = f_PGManager.IsUserExists(anID));
+//#UC END# *5739732402E4_56C428E4014A_impl*
+end;//TcaUserManager.IsUserExists
+
+procedure TcaUserManager.RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+//#UC START# *5739832A00A2_56C428E4014A_var*
+//#UC END# *5739832A00A2_56C428E4014A_var*
+begin
+//#UC START# *5739832A00A2_56C428E4014A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739832A00A2_56C428E4014A_impl*
+end;//TcaUserManager.RegisterUserStatusChangedSubscriber
+
+procedure TcaUserManager.UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+//#UC START# *5739834700B2_56C428E4014A_var*
+//#UC END# *5739834700B2_56C428E4014A_var*
+begin
+//#UC START# *5739834700B2_56C428E4014A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739834700B2_56C428E4014A_impl*
+end;//TcaUserManager.UnRegisterUserStatusChangedSubscriber
+
+procedure TcaUserManager.NotifyUserActiveChanged(anUserID: TdaUserID;
+ anActive: Boolean);
+//#UC START# *5739835200CF_56C428E4014A_var*
+//#UC END# *5739835200CF_56C428E4014A_var*
+begin
+//#UC START# *5739835200CF_56C428E4014A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739835200CF_56C428E4014A_impl*
+end;//TcaUserManager.NotifyUserActiveChanged
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

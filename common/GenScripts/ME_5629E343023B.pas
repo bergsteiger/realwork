@@ -12,12 +12,15 @@ uses
  l3IntfUses
  , l3ProtoObject
  , daInterfaces
+ , daUserStatusChangedSubscriberList
  , daTypes
  , l3DatLst
 ;
 
 type
  ThtUserManager = class(Tl3ProtoObject, IdaUserManager)
+  private
+   f_UserStatusChangedSubscriberList: TdaUserStatusChangedSubscriberList;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -32,6 +35,19 @@ type
     var aExportPriority: TdaPriority): Boolean;
    procedure ReSortUserList;
    function Get_ArchiUsersCount: Integer;
+   function UserByID(aID: TdaUserID): IdaArchiUser;
+   function UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+   procedure UpdateUserInfo(aUserID: TdaUserID;
+    aIsGroup: Boolean);
+   procedure MakeFullArchiUsersList;
+   function GetUserDisplayName(anID: TdaUserID): AnsiString;
+   function IsUserExists(anID: TdaUserID): Boolean;
+   procedure RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+   procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+   procedure NotifyUserActiveChanged(anUserID: TdaUserID;
+    anActive: Boolean);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
   public
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
@@ -48,6 +64,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Serv
  {$IfEnd} // NOT Defined(Nemesis)
+ , SysUtils
  , l3Base
 ;
 
@@ -175,5 +192,110 @@ begin
  end;//try..finally
 //#UC END# *5729DD530330_5629E343023B_impl*
 end;//ThtUserManager.IterateArchiUsersF
+
+function ThtUserManager.UserByID(aID: TdaUserID): IdaArchiUser;
+//#UC START# *57358B940211_5629E343023B_var*
+//#UC END# *57358B940211_5629E343023B_var*
+begin
+//#UC START# *57358B940211_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxUserByID(aID);
+//#UC END# *57358B940211_5629E343023B_impl*
+end;//ThtUserManager.UserByID
+
+function ThtUserManager.UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+//#UC START# *57358BCB0360_5629E343023B_var*
+//#UC END# *57358BCB0360_5629E343023B_var*
+begin
+//#UC START# *57358BCB0360_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxUserByLogin(aLogin);
+//#UC END# *57358BCB0360_5629E343023B_impl*
+end;//ThtUserManager.UserByLogin
+
+procedure ThtUserManager.UpdateUserInfo(aUserID: TdaUserID;
+ aIsGroup: Boolean);
+//#UC START# *5735AE4D0017_5629E343023B_var*
+//#UC END# *5735AE4D0017_5629E343023B_var*
+begin
+//#UC START# *5735AE4D0017_5629E343023B_impl*
+ dt_User.UserManager.xxxUpdateUserInfo(aUserID, aIsGroup);
+//#UC END# *5735AE4D0017_5629E343023B_impl*
+end;//ThtUserManager.UpdateUserInfo
+
+procedure ThtUserManager.MakeFullArchiUsersList;
+//#UC START# *5735AE7F0071_5629E343023B_var*
+//#UC END# *5735AE7F0071_5629E343023B_var*
+begin
+//#UC START# *5735AE7F0071_5629E343023B_impl*
+ dt_User.UserManager.xxxmakeFullUsersList;
+//#UC END# *5735AE7F0071_5629E343023B_impl*
+end;//ThtUserManager.MakeFullArchiUsersList
+
+function ThtUserManager.GetUserDisplayName(anID: TdaUserID): AnsiString;
+//#UC START# *5735AECA0121_5629E343023B_var*
+//#UC END# *5735AECA0121_5629E343023B_var*
+begin
+//#UC START# *5735AECA0121_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxGetUserDisplayName(anID);
+//#UC END# *5735AECA0121_5629E343023B_impl*
+end;//ThtUserManager.GetUserDisplayName
+
+function ThtUserManager.IsUserExists(anID: TdaUserID): Boolean;
+//#UC START# *5739732402E4_5629E343023B_var*
+//#UC END# *5739732402E4_5629E343023B_var*
+begin
+//#UC START# *5739732402E4_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxIsUserExists(anID);
+//#UC END# *5739732402E4_5629E343023B_impl*
+end;//ThtUserManager.IsUserExists
+
+procedure ThtUserManager.RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+//#UC START# *5739832A00A2_5629E343023B_var*
+//#UC END# *5739832A00A2_5629E343023B_var*
+begin
+//#UC START# *5739832A00A2_5629E343023B_impl*
+ if f_UserStatusChangedSubscriberList.IndexOf(aSubscriber) = -1 then
+  f_UserStatusChangedSubscriberList.Add(aSubscriber);
+//#UC END# *5739832A00A2_5629E343023B_impl*
+end;//ThtUserManager.RegisterUserStatusChangedSubscriber
+
+procedure ThtUserManager.UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+//#UC START# *5739834700B2_5629E343023B_var*
+//#UC END# *5739834700B2_5629E343023B_var*
+begin
+//#UC START# *5739834700B2_5629E343023B_impl*
+ f_UserStatusChangedSubscriberList.Remove(aSubscriber);
+//#UC END# *5739834700B2_5629E343023B_impl*
+end;//ThtUserManager.UnRegisterUserStatusChangedSubscriber
+
+procedure ThtUserManager.NotifyUserActiveChanged(anUserID: TdaUserID;
+ anActive: Boolean);
+//#UC START# *5739835200CF_5629E343023B_var*
+
+ type
+  PIdaUserStatusChangedSubscriber = ^IdaUserStatusChangedSubscriber;
+
+ function DoIt(aData : PIdaUserStatusChangedSubscriber; anIndex : Integer) : Boolean;
+ begin
+  aData^.UserStatusChanged(anUserID, anActive);
+  Result := True;
+ end;
+
+//#UC END# *5739835200CF_5629E343023B_var*
+begin
+//#UC START# *5739835200CF_5629E343023B_impl*
+ f_UserStatusChangedSubscriberList.IterateAllF(l3L2IA(@DoIt));
+//#UC END# *5739835200CF_5629E343023B_impl*
+end;//ThtUserManager.NotifyUserActiveChanged
+
+procedure ThtUserManager.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_5629E343023B_var*
+//#UC END# *479731C50290_5629E343023B_var*
+begin
+//#UC START# *479731C50290_5629E343023B_impl*
+ FreeAndNil(f_UserStatusChangedSubscriberList);
+ inherited;
+//#UC END# *479731C50290_5629E343023B_impl*
+end;//ThtUserManager.Cleanup
 
 end.

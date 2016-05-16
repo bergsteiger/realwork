@@ -15,6 +15,7 @@ uses
  , daInterfaces
  , l3DatLst
  , daArchiUserList
+ , daUserStatusChangedSubscriberList
  , daTypes
 ;
 
@@ -28,6 +29,7 @@ type
    f_AllGroups: Tl3StringDataList;
    f_UserNameQuery: IdaTabledQuery;
    f_ArchiUsers: TdaArchiUserList;
+   f_UserStatusChangedSubscriberList: TdaUserStatusChangedSubscriberList;
   private
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
@@ -38,7 +40,6 @@ type
    procedure FillAllGroups(aList: Tl3StringDataList);
    procedure SortUsersInList(aList: Tl3StringDataList);
    function UserNameQuery: IdaTabledQuery;
-   procedure MakeFullArchiUsersList;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -53,6 +54,17 @@ type
     var aExportPriority: TdaPriority): Boolean;
    procedure ReSortUserList;
    function Get_ArchiUsersCount: Integer;
+   function UserByID(aID: TdaUserID): IdaArchiUser;
+   function UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+   procedure UpdateUserInfo(aUserID: TdaUserID;
+    aIsGroup: Boolean);
+   procedure MakeFullArchiUsersList;
+   function GetUserDisplayName(anID: TdaUserID): AnsiString;
+   function IsUserExists(anID: TdaUserID): Boolean;
+   procedure RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+   procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+   procedure NotifyUserActiveChanged(anUserID: TdaUserID;
+    anActive: Boolean);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -214,16 +226,6 @@ begin
 //#UC END# *5718C16B036E_5629FC88034B_impl*
 end;//TpgUserManager.UserNameQuery
 
-procedure TpgUserManager.MakeFullArchiUsersList;
-//#UC START# *57347AFF018E_5629FC88034B_var*
-//#UC END# *57347AFF018E_5629FC88034B_var*
-begin
-//#UC START# *57347AFF018E_5629FC88034B_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
-//#UC END# *57347AFF018E_5629FC88034B_impl*
-end;//TpgUserManager.MakeFullArchiUsersList
-
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
  RequireAdminRights: Boolean;
@@ -382,6 +384,159 @@ begin
 //!! !!! Needs to be implemented !!!
 //#UC END# *5729DD530330_5629FC88034B_impl*
 end;//TpgUserManager.IterateArchiUsersF
+
+function TpgUserManager.UserByID(aID: TdaUserID): IdaArchiUser;
+//#UC START# *57358B940211_5629FC88034B_var*
+var
+ i: Integer;
+ l_AU: IdaArchiUser;
+//#UC END# *57358B940211_5629FC88034B_var*
+begin
+//#UC START# *57358B940211_5629FC88034B_impl*
+ Result := nil;
+ if f_ArchiUsers.Count = 0 then
+  MakeFullArchiUsersList;
+
+ for i := 0 to f_ArchiUsers.Hi do
+ begin
+  l_AU := f_ArchiUsers.Items[i];
+  if l_AU.ID = aID then
+  begin
+   Result := l_AU;
+   break;
+  end;
+ end
+//#UC END# *57358B940211_5629FC88034B_impl*
+end;//TpgUserManager.UserByID
+
+function TpgUserManager.UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+//#UC START# *57358BCB0360_5629FC88034B_var*
+var
+ i: Integer;
+ l_AU: IdaArchiUser;
+//#UC END# *57358BCB0360_5629FC88034B_var*
+begin
+//#UC START# *57358BCB0360_5629FC88034B_impl*
+ Result := nil;
+ if f_ArchiUsers.Count = 0 then
+  MakeFullArchiUsersList;
+
+ for i := 0 to f_ArchiUsers.Hi do
+ begin
+  l_AU := f_ArchiUsers.Items[i];
+  if CompareText(l_AU.LoginName, aLogin) = 0 then
+  begin
+   Result := l_AU;
+   break;
+  end;
+ end
+//#UC END# *57358BCB0360_5629FC88034B_impl*
+end;//TpgUserManager.UserByLogin
+
+procedure TpgUserManager.UpdateUserInfo(aUserID: TdaUserID;
+ aIsGroup: Boolean);
+//#UC START# *5735AE4D0017_5629FC88034B_var*
+//#UC END# *5735AE4D0017_5629FC88034B_var*
+begin
+//#UC START# *5735AE4D0017_5629FC88034B_impl*
+ MakeFullArchiUsersList;
+(*
+ if not aIsGroup then
+ begin
+  GetUserInfo(aUserID, l_Username, l_LoginName, l_AFlag);
+
+  l_AU:= xxxUserByID(aUserID);
+  if l_AU = nil then
+  begin
+   l_AU:= IdaArchiUser.Make(CalcUserPriorities);
+   try
+    l_AU.ID:= aUserID;
+    l_AU.UserName:= l_UserName;
+    l_AU.LoginName:= l_LoginName;
+    l_AU.Active := Boolean(l_AFlag);
+
+   finally
+    l3Free(l_AU);
+   end;
+  end;
+ end;
+*)
+//#UC END# *5735AE4D0017_5629FC88034B_impl*
+end;//TpgUserManager.UpdateUserInfo
+
+procedure TpgUserManager.MakeFullArchiUsersList;
+//#UC START# *5735AE7F0071_5629FC88034B_var*
+//#UC END# *5735AE7F0071_5629FC88034B_var*
+begin
+//#UC START# *5735AE7F0071_5629FC88034B_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *5735AE7F0071_5629FC88034B_impl*
+end;//TpgUserManager.MakeFullArchiUsersList
+
+function TpgUserManager.GetUserDisplayName(anID: TdaUserID): AnsiString;
+//#UC START# *5735AECA0121_5629FC88034B_var*
+var
+ l_Name  : AnsiString;
+ l_Flags : Byte;
+ lUser : IdaArchiUser;
+//#UC END# *5735AECA0121_5629FC88034B_var*
+begin
+//#UC START# *5735AECA0121_5629FC88034B_impl*
+ lUser := UserByID(anID);
+ if lUser <> nil then
+  l_Name := lUser.UserName;
+ if l_Name = '' then
+  l_Name := 'Пользователь #'+ IntToStr(anID);
+
+ Result := ConcatRegionAndUserNames(GetRegionStringFromUserID(anID), l_Name);
+//#UC END# *5735AECA0121_5629FC88034B_impl*
+end;//TpgUserManager.GetUserDisplayName
+
+function TpgUserManager.IsUserExists(anID: TdaUserID): Boolean;
+//#UC START# *5739732402E4_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *5739732402E4_5629FC88034B_var*
+begin
+//#UC START# *5739732402E4_5629FC88034B_impl*
+ UserNameQuery.Param['p_UserID'].AsLargeInt := anID;
+ l_ResultSet := UserNameQuery.OpenResultSet;
+ try
+  Result := not l_ResultSet.IsEmpty;
+ finally
+  l_ResultSet := nil;
+ end;
+//#UC END# *5739732402E4_5629FC88034B_impl*
+end;//TpgUserManager.IsUserExists
+
+procedure TpgUserManager.RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+//#UC START# *5739832A00A2_5629FC88034B_var*
+//#UC END# *5739832A00A2_5629FC88034B_var*
+begin
+//#UC START# *5739832A00A2_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739832A00A2_5629FC88034B_impl*
+end;//TpgUserManager.RegisterUserStatusChangedSubscriber
+
+procedure TpgUserManager.UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+//#UC START# *5739834700B2_5629FC88034B_var*
+//#UC END# *5739834700B2_5629FC88034B_var*
+begin
+//#UC START# *5739834700B2_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739834700B2_5629FC88034B_impl*
+end;//TpgUserManager.UnRegisterUserStatusChangedSubscriber
+
+procedure TpgUserManager.NotifyUserActiveChanged(anUserID: TdaUserID;
+ anActive: Boolean);
+//#UC START# *5739835200CF_5629FC88034B_var*
+//#UC END# *5739835200CF_5629FC88034B_var*
+begin
+//#UC START# *5739835200CF_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739835200CF_5629FC88034B_impl*
+end;//TpgUserManager.NotifyUserActiveChanged
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

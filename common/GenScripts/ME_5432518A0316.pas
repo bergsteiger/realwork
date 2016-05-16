@@ -566,6 +566,12 @@ type
   function AddParam(const aParamDesc: IdaParamDescription): IdaParam;
  end;//IdaComboAccessQueryHelper
 
+ IdaUserStatusChangedSubscriber = interface
+  ['{5F83C989-1A53-47A7-8B14-D063CE89575F}']
+  procedure UserStatusChanged(UserID: TdaUserID;
+   Active: Boolean);
+ end;//IdaUserStatusChangedSubscriber
+
  IdaUserManager = interface
   ['{43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3}']
   function Get_AllUsers: Tl3StringDataList;
@@ -581,6 +587,17 @@ type
    var aImportPriority: TdaPriority;
    var aExportPriority: TdaPriority): Boolean;
   procedure ReSortUserList;
+  function UserByID(aID: TdaUserID): IdaArchiUser;
+  function UserByLogin(const aLogin: AnsiString): IdaArchiUser;
+  procedure UpdateUserInfo(aUserID: TdaUserID;
+   aIsGroup: Boolean);
+  procedure MakeFullArchiUsersList;
+  function GetUserDisplayName(anID: TdaUserID): AnsiString;
+  function IsUserExists(anID: TdaUserID): Boolean;
+  procedure RegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+  procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
+  procedure NotifyUserActiveChanged(anUserID: TdaUserID;
+   anActive: Boolean);
   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
   property AllUsers: Tl3StringDataList
    read Get_AllUsers;
