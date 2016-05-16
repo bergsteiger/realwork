@@ -74,82 +74,6 @@ ref; // ME_54F88EA40108 Flags
 
 ref; // ME_54F88F19036A Text
 
-: ME_28E83A98DA41
- CONST UID '28E83A98DA41'
- CONST Name 'IsFirst'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Узел первый?' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'IsFirst'
-
-ref; // ME_28E83A98DA41 IsFirst
-
-: ME_F4B48E1A7036
- CONST UID 'F4B48E1A7036'
- CONST Name 'IsLast'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Узел последний?' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'IsLast'
-
-ref; // ME_F4B48E1A7036 IsLast
-
-: ME_EAF97A7DA286
- CONST UID 'EAF97A7DA286'
- CONST Name 'Flags'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Флаги узла' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'Flags'
-
-ref; // ME_EAF97A7DA286 Flags
-
-: ME_D385122C0424
- CONST UID 'D385122C0424'
- CONST Name 'Text'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Текст узла' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54EF449A0213 // l3NodesKeyWordsPack
- ;
- : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'Text'
-
-ref; // ME_D385122C0424 Text
-
 : ME_3D9666E90F19
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -329,13 +253,6 @@ ref; // ME_47B5759A03C0_ME_54EF449A0213 Prev
  ME_54F88F19036A // Text
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_28E83A98DA41 // IsFirst
- ME_F4B48E1A7036 // IsLast
- ME_EAF97A7DA286 // Flags
- ME_D385122C0424 // Text
- )
- ; // Operations
  : Implemented
    Seq: ( ME_47723CDB00A4_ME_54EF449A0213 // IsFirst
  ME_47723CFF0148_ME_54EF449A0213 // IsLast

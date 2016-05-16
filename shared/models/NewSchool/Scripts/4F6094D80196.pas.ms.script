@@ -208,23 +208,6 @@ FORWARD ME_552E413F010E
 
 ref; // ME_552E41740211 Value
 
-: ME_FFBFE1E95F74
- CONST UID 'FFBFE1E95F74'
- CONST Name 'Value'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552E413F010E // SpinEditWordsPack
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:prop_stereo 'property'
- CONST extprop:prop_name 'Value'
-
-ref; // ME_FFBFE1E95F74 Value
-
 : ME_5E9C4EDE6DA3
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -254,10 +237,6 @@ ref; // ME_5E9C4EDE6DA3
    Seq: ( ME_552E41740211 // Value
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_FFBFE1E95F74 // Value
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_5E9C4EDE6DA3 // TvtSpinEdit
  )
@@ -352,24 +331,6 @@ ref; // ME_552E485701AB GetSelected
 
 ref; // ME_552E48AF00FD FooterCaption
 
-: ME_0A9E3CD4EF7A
- CONST UID '0A9E3CD4EF7A'
- CONST Name 'Current'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_552E47C10290 // ListerWordsPack
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'Current'
-
-ref; // ME_0A9E3CD4EF7A Current
-
 : ME_552E47E403B6
  CONST Class class_Dependency
  : Stereotype st_friend::Dependency ;
@@ -419,7 +380,6 @@ ref; // ME_46A5AA4B003C_ME_552E47C10290 Invalidate
    Seq: ( ME_552E482B0030 // SelectWithShift
  ME_552E485701AB // GetSelected
  ME_552E48AF00FD // FooterCaption
- ME_0A9E3CD4EF7A // Current
  )
  ; // Operations
  : Implemented

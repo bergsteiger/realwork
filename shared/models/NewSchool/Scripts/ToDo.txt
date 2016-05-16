@@ -141,13 +141,6 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
 108. Определить raises для keyword. И эти исключения тоже регистрировать. Например ListError для Array.
 109. Изжить TtfwScriptEngineEx. А нужную аксиоматику типа USES etc привязать к TtfwScriptEngine.
 110. Сделать IncludePrim (DoInclude, InclideDictionary). НЕ Immediate. Чтобы звать из блоков EXECUTE ([EXECUTE]). Чтобы съэмулировать ifdef.
-140. Перенести в новый генератор:
-	[{%Gx!=true}\
-	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
-	%S%f_make_accessable(%{TtfwRegisterableWord}U)\
-	%f_addG(%S,%{TtfwRegisterableWord})\
-        ]\
- - Для начала для [{%S#f_is_virtual()=true}.        
 141. Убрать Exports.script оставить только Exports.ms.dict.
 142. VCMWordsPack поставить NeedsScript и перенести туда ANYUSERTYPE. А также:
   {$IfNDef NoVCM}
@@ -272,7 +265,6 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
    '; // RunLegislationReviewSearch'
   ]);
   
-145. Удалить NeedsKeywordDocumentation.
 146. Переделать Injected на внешние файлы, которые получать через препроцессинг файлов модели. Пример ArrayProcessingPack.
   Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary >>> l_OurDict
 
@@ -283,6 +275,5 @@ M:\NewSchool\Scripts\MDProcess_ForDelphi.tpi.script
   pop:Dictionary:WordsIterator - состав словаря
   
   т.е. можно взять текущий файл (как LoadOnDemand), от него взять USES там получить словарь для текущего слова, а там перебрать все элементы и для каждого перебрать Dependencies Injects
-147. Script failed: W:\shared\models\NewSchool\Scripts\49480CD20303.pas.ms.script.runner
- 49480CD20303.pas.ms.script.runner : Ошибка выполнения: "После выполнения функции остался мусор на стеке". Главный файл: W:\shared\models\NewSchool\Scripts\49480CD20303.pas.ms.script.runner. Класс: TkwCompiledFunction. Слово: .ChildrenEx Producer: elem_func Parent: 
-148.
+148. extprop:prop_stereo и extprop:prop_name переделать на ссылку на свойство.
+149. 

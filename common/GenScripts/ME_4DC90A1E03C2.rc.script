@@ -128,19 +128,6 @@ TtfwWord OPERATOR pop:Word:GetRefDeep
   ( Result DO @SELF DO @ Result pop:Word:SetValue )
 ; // pop:Word:GetRefDeep
 
-TtfwWord OPERATOR pop:Word:GetRefDeepest
- TtfwWord IN aSelf
- aSelf pop:Word:GetRef @ Result pop:Word:SetValue
- if ( class::TkwLeftParam Result pop:Object:Inherits )
-  ( Result DO @SELF DO @ Result pop:Word:SetValue )
- else 
- if ( class::TkwCompiledVar Result pop:Object:Inherits )
-  ( Result DO @SELF DO @ Result pop:Word:SetValue )
- else 
- if ( class::TkwRefcountVar Result pop:Object:Inherits )
-  ( Result DO @SELF DO @ Result pop:Word:SetValue )
-; // pop:Word:GetRefDeepest
-
 VOID IMMEDIATE OPERATOR %SUMMARY
  Ctx:ClearTypeInfo
  @SELF Ctx:SetWordProducerForCompiledClass
@@ -162,13 +149,6 @@ TtfwWord OPERATOR |^@
  %SUMMARY 'Получает ссылку на параметр слева' ;
  aSelf pop:Word:GetRefDeep @ Result pop:Word:SetValue
 ; // |^@
-
-TtfwWord OPERATOR |^@Deepest
-  ^@ IN aSelf
-  
- %SUMMARY 'Получает ссылку на параметр слева' ;
- aSelf pop:Word:GetRefDeepest @ Result pop:Word:SetValue
-; // |^@Deepest
 
 //REDEFINITION
  VOID IMMEDIATE OPERATOR >>>
@@ -1900,6 +1880,47 @@ WordAlias Reverted Array:Reverted
  l_Res >>> Result
 ; // ::
  
+USES
+ axiom:WordBox
+;
+
+TtfwWord INTERFACE TYPE ElementWithMembers
+
+TtfwWord FUNCTION WeakRef
+  ElementWithMembers IN Self
+ %SUMMARY 
+  'Возвращает СЛАБУЮ ссылку на элемент.'
+ ;
+ RULES
+  ( Self IsIntf )
+   ( Self pop:WordBox:Boxed )
+  DEFAULT
+   Self 
+ ; // RULES
+ >>> Result
+; // WeakRef
+
+TtfwWord OPERATOR pop:Word:GetRefDeepest
+  ElementWithMembers IN aSelf
+ aSelf WeakRef >>> aSelf
+ aSelf pop:Word:GetRef @ Result pop:Word:SetValue
+ if ( class::TkwLeftParam Result pop:Object:Inherits )
+  ( Result DO @SELF DO @ Result pop:Word:SetValue )
+ else 
+ if ( class::TkwCompiledVar Result pop:Object:Inherits )
+  ( Result DO @SELF DO @ Result pop:Word:SetValue )
+ else 
+ if ( class::TkwRefcountVar Result pop:Object:Inherits )
+  ( Result DO @SELF DO @ Result pop:Word:SetValue )
+; // pop:Word:GetRefDeepest
+
+TtfwWord OPERATOR |^@Deepest
+  ^@ IN aSelf
+  
+ %SUMMARY 'Получает ссылку на параметр слева' ;
+ aSelf pop:Word:GetRefDeepest @ Result pop:Word:SetValue
+; // |^@Deepest
+
 OBJECT operator ->^
  ^@ IN aSelf
  ^ IN aName

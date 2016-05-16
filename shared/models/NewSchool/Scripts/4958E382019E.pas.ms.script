@@ -15467,86 +15467,6 @@ ref; // ME_4012F63246A3 pbHeader
 
 ref; // ME_2E21CEC9AF19 ParentZone
 
-: ME_54F2571C262C
- CONST UID '54F2571C262C'
- CONST Name 'pnHeader'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол pnHeader формы TcfSaveLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEA950D49586 // SaveLoadKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TcfSaveLoad.pnHeader'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'pnHeader'
-
-ref; // ME_54F2571C262C pnHeader
-
-: ME_D85123D37409
- CONST UID 'D85123D37409'
- CONST Name 'lbHeader'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол lbHeader формы TcfSaveLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEA950D49586 // SaveLoadKeywordsPack
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
- CONST "NameForScript" '.TcfSaveLoad.lbHeader'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'lbHeader'
-
-ref; // ME_D85123D37409 lbHeader
-
-: ME_AB3E194FAA80
- CONST UID 'AB3E194FAA80'
- CONST Name 'pbHeader'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол pbHeader формы TcfSaveLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEA950D49586 // SaveLoadKeywordsPack
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
- CONST "NameForScript" '.TcfSaveLoad.pbHeader'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'pbHeader'
-
-ref; // ME_AB3E194FAA80 pbHeader
-
-: ME_C23E32EC8801
- CONST UID 'C23E32EC8801'
- CONST Name 'ParentZone'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ParentZone формы TcfSaveLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEA950D49586 // SaveLoadKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TcfSaveLoad.ParentZone'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ParentZone'
-
-ref; // ME_C23E32EC8801 ParentZone
-
 : ME_C7B227F6157E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -15581,13 +15501,6 @@ ref; // ME_C7B227F6157E
  ME_2E21CEC9AF19 // ParentZone
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_54F2571C262C // pnHeader
- ME_D85123D37409 // lbHeader
- ME_AB3E194FAA80 // pbHeader
- ME_C23E32EC8801 // ParentZone
- )
- ; // Operations
  : Children
    Seq: ( ME_577D804DEED5 // Tkw_Form_SaveLoad
  ME_EF00184E37A8 // Tkw_SaveLoad_Control_pnHeader
@@ -15866,46 +15779,6 @@ ref; // ME_782306F1FDD6 Editor
 
 ref; // ME_CCDB137BF862 TextSource
 
-: ME_9F522A2F970F
- CONST UID '9F522A2F970F'
- CONST Name 'Editor'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол Editor формы TenQueryCard' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_ED7E2BA7F4EF // QueryCardKeywordsPack
- ;
- : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
- ;
- CONST "NameForScript" '.TenQueryCard.Editor'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'Editor'
-
-ref; // ME_9F522A2F970F Editor
-
-: ME_CEE829907673
- CONST UID 'CEE829907673'
- CONST Name 'TextSource'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол TextSource формы TenQueryCard' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_ED7E2BA7F4EF // QueryCardKeywordsPack
- ;
- : Target WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
- ;
- CONST "NameForScript" '.TenQueryCard.TextSource'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'TextSource'
-
-ref; // ME_CEE829907673 TextSource
-
 : ME_9B7A8CC27599
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -16088,11 +15961,6 @@ ref; // ME_4A7C1F420169_ME_ED7E2BA7F4EF ShowInfo
  ME_CCDB137BF862 // TextSource
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_9F522A2F970F // Editor
- ME_CEE829907673 // TextSource
- )
- ; // Operations
  : Implemented
    Seq: ( ME_494F89C30197_ME_ED7E2BA7F4EF // Delete
  ME_4951284902BD_ME_ED7E2BA7F4EF // Copy
@@ -16289,26 +16157,6 @@ ref; // ME_679CF569D061 Tkw_PreviewForm_Control_PreviewPanel_Push
 
 ref; // ME_1212509B9E09 PreviewPanel
 
-: ME_45D229DB14C0
- CONST UID '45D229DB14C0'
- CONST Name 'PreviewPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол PreviewPanel формы TefPreviewForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_EF7E3D9D8F7D // PreviewFormKeywordsPack
- ;
- : Target WL 'ME_4AC6113D038A' '495119A901CE.pas.ms.script' // TnscPreviewPanel
- ;
- CONST "NameForScript" '.TefPreviewForm.PreviewPanel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'PreviewPanel'
-
-ref; // ME_45D229DB14C0 PreviewPanel
-
 : ME_4EDEC4B80445
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -16370,10 +16218,6 @@ ref; // ME_495235F401C0_ME_EF7E3D9D8F7D Save
    Seq: ( ME_1212509B9E09 // PreviewPanel
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_45D229DB14C0 // PreviewPanel
- )
- ; // Operations
  : Implemented
    Seq: ( ME_495220F2033A_ME_EF7E3D9D8F7D // PrintPreview
  ME_495235F401C0_ME_EF7E3D9D8F7D // Save
@@ -16722,46 +16566,6 @@ ref; // ME_1678663C8ECA PreviewGroupBox
 
 ref; // ME_B56296E20247 SettingsPageControl
 
-: ME_0208442F5781
- CONST UID '0208442F5781'
- CONST Name 'PreviewGroupBox'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол PreviewGroupBox формы Ten_PageSetup' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_0BBFEB6E713F // PageSetupKeywordsPack
- ;
- : Target WL 'ME_4AC608E40294' '4AC5DA5A01AD.pas.ms.script' // TvtGroupBox
- ;
- CONST "NameForScript" '.Ten_PageSetup.PreviewGroupBox'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'PreviewGroupBox'
-
-ref; // ME_0208442F5781 PreviewGroupBox
-
-: ME_44013264ABD4
- CONST UID '44013264ABD4'
- CONST Name 'SettingsPageControl'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол SettingsPageControl формы Ten_PageSetup' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_0BBFEB6E713F // PageSetupKeywordsPack
- ;
- : Target WL 'ME_4AC60C4B00AA' '4AC5E84C02AA.pas.ms.script' // TnscPageControl
- ;
- CONST "NameForScript" '.Ten_PageSetup.SettingsPageControl'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'SettingsPageControl'
-
-ref; // ME_44013264ABD4 SettingsPageControl
-
 : ME_BFAAB4D6DBDC
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -16794,11 +16598,6 @@ ref; // ME_BFAAB4D6DBDC
  ME_B56296E20247 // SettingsPageControl
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_0208442F5781 // PreviewGroupBox
- ME_44013264ABD4 // SettingsPageControl
- )
- ; // Operations
  : Children
    Seq: ( ME_B3AC908036D8 // Tkw_Form_PageSetup
  ME_772D544984D2 // Tkw_PageSetup_Control_PreviewGroupBox
@@ -18404,246 +18203,6 @@ ref; // ME_BF8A2874B9D5 cbPrinter
 
 ref; // ME_986AA33E94DA cbPrintInfo
 
-: ME_73C7EDE7148A
- CONST UID '73C7EDE7148A'
- CONST Name 'poDocumentNames'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол poDocumentNames формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
- CONST "NameForScript" '.Ten_PrintDialog.poDocumentNames'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'poDocumentNames'
-
-ref; // ME_73C7EDE7148A poDocumentNames
-
-: ME_246D0012FCAC
- CONST UID '246D0012FCAC'
- CONST Name 'rbPrintSelected'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол rbPrintSelected формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
- CONST "NameForScript" '.Ten_PrintDialog.rbPrintSelected'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'rbPrintSelected'
-
-ref; // ME_246D0012FCAC rbPrintSelected
-
-: ME_C32D76B12B26
- CONST UID 'C32D76B12B26'
- CONST Name 'rbPrintCurrent'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол rbPrintCurrent формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
- CONST "NameForScript" '.Ten_PrintDialog.rbPrintCurrent'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'rbPrintCurrent'
-
-ref; // ME_C32D76B12B26 rbPrintCurrent
-
-: ME_6E2E8B5616BC
- CONST UID '6E2E8B5616BC'
- CONST Name 'edPrintInterval'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол edPrintInterval формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_4C52BF200205' '495119A901CE.pas.ms.script' // TnscEditWithoutPlusMinusShortcut
- ;
- CONST "NameForScript" '.Ten_PrintDialog.edPrintInterval'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'edPrintInterval'
-
-ref; // ME_6E2E8B5616BC edPrintInterval
-
-: ME_0C24E69FF03B
- CONST UID '0C24E69FF03B'
- CONST Name 'edCopyCount'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол edCopyCount формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_4C52C0600246' '4C52C05501D8.pas.ms.script' // TvtSpinEdit
- ;
- CONST "NameForScript" '.Ten_PrintDialog.edCopyCount'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'edCopyCount'
-
-ref; // ME_0C24E69FF03B edCopyCount
-
-: ME_F03AA565A1A2
- CONST UID 'F03AA565A1A2'
- CONST Name 'CollateCheckBox'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол CollateCheckBox формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
- CONST "NameForScript" '.Ten_PrintDialog.CollateCheckBox'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'CollateCheckBox'
-
-ref; // ME_F03AA565A1A2 CollateCheckBox
-
-: ME_7BF96794231A
- CONST UID '7BF96794231A'
- CONST Name 'cbOddEven'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол cbOddEven формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
- CONST "NameForScript" '.Ten_PrintDialog.cbOddEven'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'cbOddEven'
-
-ref; // ME_7BF96794231A cbOddEven
-
-: ME_5B8FB55F98A3
- CONST UID '5B8FB55F98A3'
- CONST Name 'poDocumentTexts'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол poDocumentTexts формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
- CONST "NameForScript" '.Ten_PrintDialog.poDocumentTexts'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'poDocumentTexts'
-
-ref; // ME_5B8FB55F98A3 poDocumentTexts
-
-: ME_F7D60571A268
- CONST UID 'F7D60571A268'
- CONST Name 'rbPrintAll'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол rbPrintAll формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
- CONST "NameForScript" '.Ten_PrintDialog.rbPrintAll'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'rbPrintAll'
-
-ref; // ME_F7D60571A268 rbPrintAll
-
-: ME_77407BE209F7
- CONST UID '77407BE209F7'
- CONST Name 'rbPrintInterval'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол rbPrintInterval формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
- CONST "NameForScript" '.Ten_PrintDialog.rbPrintInterval'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'rbPrintInterval'
-
-ref; // ME_77407BE209F7 rbPrintInterval
-
-: ME_1492BE7E7D79
- CONST UID '1492BE7E7D79'
- CONST Name 'cbPrinter'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол cbPrinter формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
- CONST "NameForScript" '.Ten_PrintDialog.cbPrinter'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'cbPrinter'
-
-ref; // ME_1492BE7E7D79 cbPrinter
-
-: ME_2D7F64F85C2B
- CONST UID '2D7F64F85C2B'
- CONST Name 'cbPrintInfo'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол cbPrintInfo формы Ten_PrintDialog' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1127EF0E219F // PrintDialogKeywordsPack
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
- CONST "NameForScript" '.Ten_PrintDialog.cbPrintInfo'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'cbPrintInfo'
-
-ref; // ME_2D7F64F85C2B cbPrintInfo
-
 : ME_259FF4D02E22
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -18686,21 +18245,6 @@ ref; // ME_259FF4D02E22
  ME_986AA33E94DA // cbPrintInfo
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_73C7EDE7148A // poDocumentNames
- ME_246D0012FCAC // rbPrintSelected
- ME_C32D76B12B26 // rbPrintCurrent
- ME_6E2E8B5616BC // edPrintInterval
- ME_0C24E69FF03B // edCopyCount
- ME_F03AA565A1A2 // CollateCheckBox
- ME_7BF96794231A // cbOddEven
- ME_5B8FB55F98A3 // poDocumentTexts
- ME_F7D60571A268 // rbPrintAll
- ME_77407BE209F7 // rbPrintInterval
- ME_1492BE7E7D79 // cbPrinter
- ME_2D7F64F85C2B // cbPrintInfo
- )
- ; // Operations
  : Children
    Seq: ( ME_3401F167740D // Tkw_Form_PrintDialog
  ME_B819FFC34360 // Tkw_PrintDialog_Control_poDocumentNames

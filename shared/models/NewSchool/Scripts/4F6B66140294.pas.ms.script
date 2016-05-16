@@ -2351,26 +2351,6 @@ ref; // ME_B1138181AE50 Tkw_Parent_Control_ParentZone_Push
 
 ref; // ME_1CA9B7FE1B52 ParentZone
 
-: ME_9D20DC53896A
- CONST UID '9D20DC53896A'
- CONST Name 'ParentZone'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ParentZone формы TParentForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_A7368FD6A294 // ParentKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TParentForm.ParentZone'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ParentZone'
-
-ref; // ME_9D20DC53896A ParentZone
-
 : ME_6739F7D39C4D
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2402,10 +2382,6 @@ ref; // ME_6739F7D39C4D
    Seq: ( ME_1CA9B7FE1B52 // ParentZone
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_9D20DC53896A // ParentZone
- )
- ; // Operations
  : Children
    Seq: ( ME_6975EF93CBDF // Tkw_Form_Parent
  ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
@@ -2714,46 +2690,6 @@ ref; // ME_4B67108B812B ChildZone
 
 ref; // ME_161A4BE9659B MainPageTab
 
-: ME_13E414C54850
- CONST UID '13E414C54850'
- CONST Name 'ChildZone'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ChildZone формы TChildForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
- ;
- CONST "NameForScript" '.TChildForm.ChildZone'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ChildZone'
-
-ref; // ME_13E414C54850 ChildZone
-
-: ME_472E607E0BB3
- CONST UID '472E607E0BB3'
- CONST Name 'MainPageTab'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол MainPageTab формы TChildForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
- ;
- CONST "NameForScript" '.TChildForm.MainPageTab'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'MainPageTab'
-
-ref; // ME_472E607E0BB3 MainPageTab
-
 : ME_FDE7583158CE
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -2786,11 +2722,6 @@ ref; // ME_FDE7583158CE
  ME_161A4BE9659B // MainPageTab
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_13E414C54850 // ChildZone
- ME_472E607E0BB3 // MainPageTab
- )
- ; // Operations
  : Children
    Seq: ( ME_AB3A39A6155F // Tkw_Form_Child
  ME_75A5E92F5203 // Tkw_Child_Control_ChildZone

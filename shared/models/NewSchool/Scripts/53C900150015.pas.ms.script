@@ -508,16 +508,6 @@ ref; // ME_53CE3CBD02EE
 
 ref; // ME_53CE3CE2038A 
 
-: ME_53CE3D2A011E
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
- ;
- : Target WL 'ME_53CD0E83039E' '52FBA554014B.pas.ms.script' // dt_User
- ;
-
-ref; // ME_53CE3D2A011E 
-
 : ME_53CE3D7403C2
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -557,6 +547,26 @@ ref; // ME_53D1000700AC
  ;
 
 ref; // ME_55C2FEB80349 
+
+: ME_5735C11201C5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_551A7D9602DC' '54F85B2500FB.pas.ms.script' // GlobalDataProvider
+ ;
+
+ref; // ME_5735C11201C5 
+
+: ME_5735C5D101C8
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CDF9FE006B // TalcuSubmitterWorkPool
+ ;
+ : Target WL 'ME_53CD0E83039E' '52FBA554014B.pas.ms.script' // dt_User
+ ;
+
+ref; // ME_5735C5D101C8 
 
 : ME_53D0E2CD0227_ME_53CDF9FE006B
  : Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.pas.ms.script' // TaskFinished
@@ -625,11 +635,12 @@ ref; // ME_479731C50290_ME_53CDF9FE006B Cleanup
  ME_53CE384300C2 // PLong
  ME_53CE3CBD02EE // l3L2IA
  ME_53CE3CE2038A // Windows
- ME_53CE3D2A011E // dt_User
  ME_53CE3D7403C2 // FreeAndNil
  ME_53CE3E92007A // UserConsts
  ME_53D1000700AC // TcsTaskStatus
  ME_55C2FEB80349 // l3Interlocked
+ ME_5735C11201C5 // GlobalDataProvider
+ ME_5735C5D101C8 // dt_User
  )
  ; // Dependencies
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuSubmitterWorkPool.pas'
@@ -1520,6 +1531,7 @@ ref; // ME_53C900CA012E alcuAsyncSubmitter
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_53CCB94A02A5' '53CCB94A02A5.pas.ms.script' // alcuServerAsyncExecutionInterfaces
  WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ WL 'ME_54F85B2500FB' '54F85B2500FB.pas.ms.script' // Provider
  )
  ; // Depends
  CONST "ifdef" 'AppServerSide'

@@ -61,7 +61,6 @@ p ifndef:s=NoScripts ?
 
 	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
 	%f_addCDep(%S,%{TypeInfoExt})\
-	]\
 
 	%f_clear_list(PROPS)\
 
@@ -84,6 +83,7 @@ p ifndef:s=NoScripts ?
 	%f_SpellFriends(%S)\
 
 	%f_clear_list(PARAMS)\
+	]\
 
 	<{}{%t_isAcceptableForScripts(%G)=true}\
 	%f_SpellWordsForParent(%S,%G,"true")\
@@ -93,9 +93,9 @@ p ifndef:s=NoScripts ?
 	%f_SpellWordsForParent(%S,%R,"false")\
 	>\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%f_clear_list(KEYS)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%S<{}{%C#f_IsGlobalKeyword()=true}\
 	%f_add_to_list(KEYS,C)\
 	>\

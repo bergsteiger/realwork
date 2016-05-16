@@ -9329,66 +9329,6 @@ ref; // ME_D6D37BAF5C23 ParentZone
 
 ref; // ME_9E9A55379813 ChildZone
 
-: ME_630A2D9043BB
- CONST UID '630A2D9043BB'
- CONST Name 'BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол BackgroundPanel формы TcfFolders' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEAC79654954 // FoldersKeywordsPack
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
- CONST "NameForScript" '.TcfFolders.BackgroundPanel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'BackgroundPanel'
-
-ref; // ME_630A2D9043BB BackgroundPanel
-
-: ME_35CF67338D07
- CONST UID '35CF67338D07'
- CONST Name 'ParentZone'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ParentZone формы TcfFolders' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEAC79654954 // FoldersKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TcfFolders.ParentZone'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ParentZone'
-
-ref; // ME_35CF67338D07 ParentZone
-
-: ME_1A2E5A261121
- CONST UID '1A2E5A261121'
- CONST Name 'ChildZone'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ChildZone формы TcfFolders' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_CEAC79654954 // FoldersKeywordsPack
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
- CONST "NameForScript" '.TcfFolders.ChildZone'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ChildZone'
-
-ref; // ME_1A2E5A261121 ChildZone
-
 : ME_A02744DD0B71
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -9422,12 +9362,6 @@ ref; // ME_A02744DD0B71
  ME_9E9A55379813 // ChildZone
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_630A2D9043BB // BackgroundPanel
- ME_35CF67338D07 // ParentZone
- ME_1A2E5A261121 // ChildZone
- )
- ; // Operations
  : Children
    Seq: ( ME_64DF2498465B // Tkw_Form_Folders
  ME_9008088480A5 // Tkw_Folders_Control_BackgroundPanel
@@ -9614,26 +9548,6 @@ ref; // ME_353880F31000 Tkw_FoldersInfo_Control_ChildZone_Push
 
 ref; // ME_8EE8694A1D02 ChildZone
 
-: ME_3138F11FC589
- CONST UID '3138F11FC589'
- CONST Name 'ChildZone'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ChildZone формы TcfFoldersInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_9910530E861F // FoldersInfoKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TcfFoldersInfo.ChildZone'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ChildZone'
-
-ref; // ME_3138F11FC589 ChildZone
-
 : ME_8745EA197E98
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -9695,10 +9609,6 @@ ref; // ME_4AC5D61E0284_ME_9910530E861F Cancel
    Seq: ( ME_8EE8694A1D02 // ChildZone
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_3138F11FC589 // ChildZone
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4A97EBE702F8_ME_9910530E861F // Ok
  ME_4AC5D61E0284_ME_9910530E861F // Cancel
@@ -9886,26 +9796,6 @@ ref; // ME_EF0DEE51AEA8 Tkw_FoldersTree_Control_FoldersTree_Push
 
 ref; // ME_3FFF1E912BE3 FoldersTree
 
-: ME_82A89DDFA572
- CONST UID '82A89DDFA572'
- CONST Name 'FoldersTree'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол FoldersTree формы TenFoldersTree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_1ED005CF8083 // FoldersTreeKeywordsPack
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
- CONST "NameForScript" '.TenFoldersTree.FoldersTree'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'FoldersTree'
-
-ref; // ME_82A89DDFA572 FoldersTree
-
 : ME_4142DF4A65F9
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -9967,10 +9857,6 @@ ref; // ME_4BDAF7B803CF_ME_1ED005CF8083 Wrap
    Seq: ( ME_3FFF1E912BE3 // FoldersTree
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_82A89DDFA572 // FoldersTree
- )
- ; // Operations
  : Implemented
    Seq: ( ME_494F89C30197_ME_1ED005CF8083 // Delete
  ME_4BDAF7B803CF_ME_1ED005CF8083 // Wrap
@@ -11292,206 +11178,6 @@ ref; // ME_B5915E176F95 cbShared
 
 ref; // ME_3CB5E91DED8E InfoName
 
-: ME_9A4AE088C82F
- CONST UID '9A4AE088C82F'
- CONST Name 'CommentPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол CommentPanel формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.CommentPanel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'CommentPanel'
-
-ref; // ME_9A4AE088C82F CommentPanel
-
-: ME_95BAA85CF996
- CONST UID '95BAA85CF996'
- CONST Name 'ElementComment'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ElementComment формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4AC5D3380185' '4952683C007B.pas.ms.script' // TeeMemoWithEditOperations
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.ElementComment'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ElementComment'
-
-ref; // ME_95BAA85CF996 ElementComment
-
-: ME_9DD80A727592
- CONST UID '9DD80A727592'
- CONST Name 'CaptionPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол CaptionPanel формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.CaptionPanel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'CaptionPanel'
-
-ref; // ME_9DD80A727592 CaptionPanel
-
-: ME_DF1DF10E874F
- CONST UID 'DF1DF10E874F'
- CONST Name 'lblComment'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол lblComment формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.lblComment'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'lblComment'
-
-ref; // ME_DF1DF10E874F lblComment
-
-: ME_E549FAFB41D7
- CONST UID 'E549FAFB41D7'
- CONST Name 'TopPanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол TopPanel формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.TopPanel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'TopPanel'
-
-ref; // ME_E549FAFB41D7 TopPanel
-
-: ME_0F2B18E4632F
- CONST UID '0F2B18E4632F'
- CONST Name 'NamePanel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол NamePanel формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.NamePanel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'NamePanel'
-
-ref; // ME_0F2B18E4632F NamePanel
-
-: ME_7819D2E7C7FE
- CONST UID '7819D2E7C7FE'
- CONST Name 'lblElementName'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол lblElementName формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.lblElementName'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'lblElementName'
-
-ref; // ME_7819D2E7C7FE lblElementName
-
-: ME_281E94B82395
- CONST UID '281E94B82395'
- CONST Name 'ElementName'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол ElementName формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4AF46F430293' '495119A901CE.pas.ms.script' // TnscComboBoxWithReadOnly
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.ElementName'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ElementName'
-
-ref; // ME_281E94B82395 ElementName
-
-: ME_2F5093FB44AE
- CONST UID '2F5093FB44AE'
- CONST Name 'cbShared'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол cbShared формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.cbShared'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'cbShared'
-
-ref; // ME_2F5093FB44AE cbShared
-
-: ME_EE163B49B7FA
- CONST UID 'EE163B49B7FA'
- CONST Name 'InfoName'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол InfoName формы TenFoldersElementInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_F42993E6E810 // FoldersElementInfoKeywordsPack
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
- CONST "NameForScript" '.TenFoldersElementInfo.InfoName'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'InfoName'
-
-ref; // ME_EE163B49B7FA InfoName
-
 : ME_77E39795285F
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -11532,19 +11218,6 @@ ref; // ME_77E39795285F
  ME_3CB5E91DED8E // InfoName
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_9A4AE088C82F // CommentPanel
- ME_95BAA85CF996 // ElementComment
- ME_9DD80A727592 // CaptionPanel
- ME_DF1DF10E874F // lblComment
- ME_E549FAFB41D7 // TopPanel
- ME_0F2B18E4632F // NamePanel
- ME_7819D2E7C7FE // lblElementName
- ME_281E94B82395 // ElementName
- ME_2F5093FB44AE // cbShared
- ME_EE163B49B7FA // InfoName
- )
- ; // Operations
  : Children
    Seq: ( ME_62255BAB72F3 // Tkw_Form_FoldersElementInfo
  ME_09E958E65FBC // Tkw_FoldersElementInfo_Control_CommentPanel

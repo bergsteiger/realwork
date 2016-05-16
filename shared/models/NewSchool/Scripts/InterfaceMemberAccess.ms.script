@@ -1,0 +1,96 @@
+PROGRAM InterfaceMemberAccess.ms.script
+
+USES
+ axiom:WordBox
+;
+
+TtfwWord INTERFACE TYPE ElementWithMembers
+
+TtfwWord FUNCTION WeakRef
+  ElementWithMembers IN Self
+ %SUMMARY 
+  'Возвращает СЛАБУЮ ссылку на элемент.'
+ ;
+ RULES
+  ( Self IsIntf )
+   ( Self pop:WordBox:Boxed )
+  DEFAULT
+   Self 
+ ; // RULES
+ >>> Result
+; // WeakRef
+
+TtfwWord OPERATOR pop:Word:GetRefDeepest
+  ElementWithMembers IN aSelf
+ aSelf WeakRef >>> aSelf
+ aSelf pop:Word:GetRef @ Result pop:Word:SetValue
+ if ( class::TkwLeftParam Result pop:Object:Inherits )
+  ( Result DO @SELF DO @ Result pop:Word:SetValue )
+ else 
+ if ( class::TkwCompiledVar Result pop:Object:Inherits )
+  ( Result DO @SELF DO @ Result pop:Word:SetValue )
+ else 
+ if ( class::TkwRefcountVar Result pop:Object:Inherits )
+  ( Result DO @SELF DO @ Result pop:Word:SetValue )
+; // pop:Word:GetRefDeepest
+
+ElementWithMembers OPERATOR |^@Deepest
+  ^@ IN aSelf
+  
+ %SUMMARY 'Получает ссылку на параметр слева' ;
+ aSelf pop:Word:GetRefDeepest @ Result pop:Word:SetValue
+; // |^@Deepest
+
+OBJECT operator ->^
+ ^@ IN aSelf
+ ^ IN aName
+ 
+ STRING VAR l_Name
+ aName DO >>> l_Name
+ 
+ OBJECT VAR l_Self
+ aSelf |^@Deepest >>> l_Self
+ 
+ if ( l_Self pop:object:IsNil ) then
+ begin
+  nil >>> Result
+ end 
+ else 
+ begin
+  VAR l_NewVar
+  
+  l_Name l_Self pop:NewWordDefinitor:CheckWord pop:KeyWord:Word >>> l_NewVar
+  
+  if ( l_NewVar pop:object:IsNil ) then
+   (
+    l_Name false l_Self pop:NewWordDefinitor:CheckVar
+    
+     >>> l_NewVar
+    Ctx:ClearTypeInfo
+    
+    @ VAR l_NewVar pop:Word:SetProducer
+   )
+  
+  l_NewVar >>> Result
+ end // l_Self pop:object:IsNil
+; // ->^
+
+^@ operator ->
+ ^@ IN aSelf
+ ^L IN aName
+
+ aSelf ->^ ( aName |N ) >>> Result
+; // ->
+
+USES
+ KeyValuesCreateAndDo.ms.dict
+;
+
+VAR X
+
+KeyValuesCreate: ( 
+  IN aMade
+ aMade -> A := 10 
+) >>> X
+
+X -> A .

@@ -1,3 +1,9 @@
+//#UC START# *479731C50290_5629E343023B_impl*
+ FreeAndNil(f_UserStatusChangedSubscriberList);
+ inherited;
+//#UC END# *479731C50290_5629E343023B_impl*
+//#UC START# *479731C50290_5629E343023B_var*
+//#UC END# *479731C50290_5629E343023B_var*
 //#UC START# *5628D14D0151_5629E343023B_impl*
  l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, RequireAdminRights);
  if l_Result then
@@ -17,6 +23,7 @@ var
 //#UC END# *5628D14D0151_5629E343023B_var*
 //#UC START# *5629F0F901C8_5629E343023B_impl*
  inherited Create;
+ f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
 //#UC END# *5629F0F901C8_5629E343023B_impl*
 //#UC START# *5629F0F901C8_5629E343023B_var*
 //#UC END# *5629F0F901C8_5629E343023B_var*
@@ -68,17 +75,17 @@ var
 //#UC START# *5715E78F013E_5629E343023B_var*
 //#UC END# *5715E78F013E_5629E343023B_var*
 //#UC START# *5718B5CF0399_5629E343023B_impl*
- Result := dt_User.UserManager.GetUserName(anUserID);
+ Result := dt_User.UserManager.xxxGetUserName(anUserID);
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 //#UC START# *5718B5CF0399_5629E343023B_var*
 //#UC END# *5718B5CF0399_5629E343023B_var*
 //#UC START# *571DCFB50217_5629E343023B_impl*
- !!! Needs to be implemented !!!
+ Result := dt_User.UserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
 //#UC END# *571DCFB50217_5629E343023B_impl*
 //#UC START# *571DCFB50217_5629E343023B_var*
 //#UC END# *571DCFB50217_5629E343023B_var*
 //#UC START# *5721F5E60367_5629E343023B_impl*
- !!! Needs to be implemented !!!
+ dt_User.UserManager.xxxReSortUserList;
 //#UC END# *5721F5E60367_5629E343023B_impl*
 //#UC START# *5721F5E60367_5629E343023B_var*
 //#UC END# *5721F5E60367_5629E343023B_var*
@@ -98,3 +105,59 @@ var
 var
  Hack : Pointer absolute anAction;
 //#UC END# *5729DD530330_5629E343023B_var*
+//#UC START# *57358B940211_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxUserByID(aID);
+//#UC END# *57358B940211_5629E343023B_impl*
+//#UC START# *57358B940211_5629E343023B_var*
+//#UC END# *57358B940211_5629E343023B_var*
+//#UC START# *57358BCB0360_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxUserByLogin(aLogin);
+//#UC END# *57358BCB0360_5629E343023B_impl*
+//#UC START# *57358BCB0360_5629E343023B_var*
+//#UC END# *57358BCB0360_5629E343023B_var*
+//#UC START# *5735AE4D0017_5629E343023B_impl*
+ dt_User.UserManager.xxxUpdateUserInfo(aUserID, aIsGroup);
+//#UC END# *5735AE4D0017_5629E343023B_impl*
+//#UC START# *5735AE4D0017_5629E343023B_var*
+//#UC END# *5735AE4D0017_5629E343023B_var*
+//#UC START# *5735AE7F0071_5629E343023B_impl*
+ dt_User.UserManager.xxxmakeFullUsersList;
+//#UC END# *5735AE7F0071_5629E343023B_impl*
+//#UC START# *5735AE7F0071_5629E343023B_var*
+//#UC END# *5735AE7F0071_5629E343023B_var*
+//#UC START# *5735AECA0121_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxGetUserDisplayName(anID);
+//#UC END# *5735AECA0121_5629E343023B_impl*
+//#UC START# *5735AECA0121_5629E343023B_var*
+//#UC END# *5735AECA0121_5629E343023B_var*
+//#UC START# *5739732402E4_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxIsUserExists(anID);
+//#UC END# *5739732402E4_5629E343023B_impl*
+//#UC START# *5739732402E4_5629E343023B_var*
+//#UC END# *5739732402E4_5629E343023B_var*
+//#UC START# *5739832A00A2_5629E343023B_impl*
+ if f_UserStatusChangedSubscriberList.IndexOf(aSubscriber) = -1 then
+  f_UserStatusChangedSubscriberList.Add(aSubscriber);
+//#UC END# *5739832A00A2_5629E343023B_impl*
+//#UC START# *5739832A00A2_5629E343023B_var*
+//#UC END# *5739832A00A2_5629E343023B_var*
+//#UC START# *5739834700B2_5629E343023B_impl*
+ f_UserStatusChangedSubscriberList.Remove(aSubscriber);
+//#UC END# *5739834700B2_5629E343023B_impl*
+//#UC START# *5739834700B2_5629E343023B_var*
+//#UC END# *5739834700B2_5629E343023B_var*
+//#UC START# *5739835200CF_5629E343023B_impl*
+ f_UserStatusChangedSubscriberList.IterateAllF(l3L2IA(@DoIt));
+//#UC END# *5739835200CF_5629E343023B_impl*
+//#UC START# *5739835200CF_5629E343023B_var*
+
+ type
+  PIdaUserStatusChangedSubscriber = ^IdaUserStatusChangedSubscriber;
+
+ function DoIt(aData : PIdaUserStatusChangedSubscriber; anIndex : Integer) : Boolean;
+ begin
+  aData^.UserStatusChanged(anUserID, anActive);
+  Result := True;
+ end;
+
+//#UC END# *5739835200CF_5629E343023B_var*

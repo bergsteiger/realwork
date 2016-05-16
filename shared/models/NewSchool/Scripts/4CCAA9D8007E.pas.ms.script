@@ -3812,26 +3812,6 @@ ref; // ME_922109FC93A4 Tkw_Filters_Control_FiltersList_Push
 
 ref; // ME_DE18E0E4769E FiltersList
 
-: ME_875023BD0163
- CONST UID '875023BD0163'
- CONST Name 'FiltersList'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол FiltersList формы TenFilters' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_19A54BCEF2DC // FiltersKeywordsPack
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
- CONST "NameForScript" '.TenFilters.FiltersList'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'FiltersList'
-
-ref; // ME_875023BD0163 FiltersList
-
 : ME_D60E8223285C
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -3893,10 +3873,6 @@ ref; // ME_4C3740FA02D7_ME_19A54BCEF2DC FiltersList
    Seq: ( ME_DE18E0E4769E // FiltersList
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_875023BD0163 // FiltersList
- )
- ; // Operations
  : Implemented
    Seq: ( ME_494F89C30197_ME_19A54BCEF2DC // Delete
  ME_4C3740FA02D7_ME_19A54BCEF2DC // FiltersList
@@ -4210,46 +4186,6 @@ ref; // ME_DD04EF925E3E NameLabel
 
 ref; // ME_151792EC11EA FilterName
 
-: ME_465F44F3DE42
- CONST UID '465F44F3DE42'
- CONST Name 'NameLabel'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол NameLabel формы TCreateFilterForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
- CONST "NameForScript" '.TCreateFilterForm.NameLabel'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'NameLabel'
-
-ref; // ME_465F44F3DE42 NameLabel
-
-: ME_20E6B8770592
- CONST UID '20E6B8770592'
- CONST Name 'FilterName'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- %SUMMARY 'Контрол FilterName формы TCreateFilterForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
- CONST "NameForScript" '.TCreateFilterForm.FilterName'
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'FilterName'
-
-ref; // ME_20E6B8770592 FilterName
-
 : ME_7A6AD30075F1
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -4327,11 +4263,6 @@ ref; // ME_4AC5D61E0284_ME_546F4B05C2D7 Cancel
  ME_151792EC11EA // FilterName
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_465F44F3DE42 // NameLabel
- ME_20E6B8770592 // FilterName
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4A8AD47D0357_ME_546F4B05C2D7 // OkExt
  ME_4A97EBE702F8_ME_546F4B05C2D7 // Ok
@@ -4781,75 +4712,6 @@ ref; // ME_54F9DEC402CD IsDeleted
 
 ref; // ME_54F9DEE200D2 IsChangeable
 
-: ME_FC607A3EC90D
- CONST UID 'FC607A3EC90D'
- CONST Name 'AutoApplied'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53B533CE01B6 // InsFilterNodeWordsPack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'property'
- CONST extprop:prop_name 'AutoApplied'
-
-ref; // ME_FC607A3EC90D AutoApplied
-
-: ME_0B8C389F0B1C
- CONST UID '0B8C389F0B1C'
- CONST Name 'IsUsed'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53B533CE01B6 // InsFilterNodeWordsPack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'IsUsed'
-
-ref; // ME_0B8C389F0B1C IsUsed
-
-: ME_B12C875B9E52
- CONST UID 'B12C875B9E52'
- CONST Name 'IsDeleted'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53B533CE01B6 // InsFilterNodeWordsPack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'IsDeleted'
-
-ref; // ME_B12C875B9E52 IsDeleted
-
-: ME_CA5586C3178F
- CONST UID 'CA5586C3178F'
- CONST Name 'IsChangeable'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53B533CE01B6 // InsFilterNodeWordsPack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'IsChangeable'
-
-ref; // ME_CA5586C3178F IsChangeable
-
 : ME_54F9DE18030E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4937,13 +4799,6 @@ ref; // ME_4FD9E3F900B3_ME_53B533CE01B6 ID
  ME_54F9DEE200D2 // IsChangeable
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_FC607A3EC90D // AutoApplied
- ME_0B8C389F0B1C // IsUsed
- ME_B12C875B9E52 // IsDeleted
- ME_CA5586C3178F // IsChangeable
- )
- ; // Operations
  : Implemented
    Seq: ( ME_499189000111_ME_53B533CE01B6 // UsedStatus
  ME_4991890D03D6_ME_53B533CE01B6 // DeletedStatus

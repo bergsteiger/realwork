@@ -1072,3 +1072,52 @@ PROCEDURE "Открыть окно поиска c учетом чекбокса 'Выставить галочку' и проверить
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
 	 END
 ;
+
+PROCEDURE "Выбрать кнопку по координатам для поиска" INTEGER IN aX INTEGER IN aY
+	OBJECT VAR l_Control 
+		"Контрол по имени {("Кнопка выбора типа поиска")}" >>> l_Control
+		@ ( l_Control pop:Control:Click ) MODAL (
+			"Установить курсор мыши по координатам {(aX aY)} относительно контрола {(l_Control)}"
+			"Клик левой кнопкой мыши"
+		)
+		"Клик левой кнопкой мыши"
+;
+
+PROCEDURE "Выбрать в выпадающем списке комбобокса строковое значение" STRING IN aComboBoxName STRING IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {(aComboBoxName)}" >>> l_Combobox
+	aValue l_Combobox pop:ComboBox:IndexOf >>> l_Index
+	"Открыть и закрыть выпадающий список {(l_Combobox)}"
+	aValue l_Combobox pop:ComboBox:SelectItem
+	"Обработать сообщения"
+;
+
+PROCEDURE "Выбрать в выпадающем списке комбобокса значение индекса" STRING IN aComboBoxName INTEGER IN aValue
+	OBJECT VAR l_Combobox
+	INTEGER VAR l_Index
+	"Контрол по имени {(aComboBoxName)}" >>> l_Combobox
+	aValue l_Combobox pop:ComboBox:SetItemIndex
+	"Обработать сообщения"
+;
+
+PROCEDURE "Выделить фрагмент в документе со всеми редакциями"
+	5 раз "Нажать вниз с зажатым Shift"
+;
+
+PROCEDURE "Выбрать тип поиска 'Стиль'"
+   "Выбрать кнопку по координатам {(10 50)} для поиска"
+;
+
+PROCEDURE "Выбрать стиль в окне поиска" STRING IN aValueStyle
+	 	"Вызывать окно поиска"
+	 TRY
+		"Выбрать тип поиска 'Стиль'"
+		1500 SLEEP 
+		"Выбрать в выпадающем списке комбобокса {('STextComboBox')}  строковое значение {(aValueStyle)}"
+		1500 SLEEP
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;

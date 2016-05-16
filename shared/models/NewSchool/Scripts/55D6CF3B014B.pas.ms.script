@@ -3498,6 +3498,20 @@ ref; // ME_5718C14D027F f_UserNameQuery
 
 ref; // ME_57347AD502EA f_ArchiUsers
 
+: ME_5739943300C7
+ CONST UID '5739943300C7'
+ CONST Name 'f_UserStatusChangedSubscriberList'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Target WL 'ME_573983CB019E' '57234C1A014C.pas.ms.script' // TdaUserStatusChangedSubscriberList
+ ;
+
+ref; // ME_5739943300C7 f_UserStatusChangedSubscriberList
+
 FORWARD ME_562A074E0321
 
 : ME_562DCE95018B
@@ -3806,19 +3820,6 @@ ref; // ME_5718C1770234 DoIt
 
 ref; // ME_5718C16B036E UserNameQuery
 
-: ME_57347AFF018E
- CONST UID '57347AFF018E'
- CONST Name 'MakeFullArchiUsersList'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5629FC88034B // TpgUserManager
- ;
-
-ref; // ME_57347AFF018E MakeFullArchiUsersList
-
 : ME_562A031E02CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3958,6 +3959,60 @@ ref; // ME_5729C59E00D5_ME_5629FC88034B ArchiUsersCount
  CONST "needs result" false
 ref; // ME_5729DD530330_ME_5629FC88034B IterateArchiUsersF
 
+: ME_57358B940211_ME_5629FC88034B
+ : Original WL 'ME_57358B940211' '5432518A0316.pas.ms.script' // UserByID
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_57358B940211_ME_5629FC88034B UserByID
+
+: ME_57358BCB0360_ME_5629FC88034B
+ : Original WL 'ME_57358BCB0360' '5432518A0316.pas.ms.script' // UserByLogin
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_57358BCB0360_ME_5629FC88034B UserByLogin
+
+: ME_5735AE4D0017_ME_5629FC88034B
+ : Original WL 'ME_5735AE4D0017' '5432518A0316.pas.ms.script' // UpdateUserInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5735AE4D0017_ME_5629FC88034B UpdateUserInfo
+
+: ME_5735AE7F0071_ME_5629FC88034B
+ : Original WL 'ME_5735AE7F0071' '5432518A0316.pas.ms.script' // MakeFullArchiUsersList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5735AE7F0071_ME_5629FC88034B MakeFullArchiUsersList
+
+: ME_5735AECA0121_ME_5629FC88034B
+ : Original WL 'ME_5735AECA0121' '5432518A0316.pas.ms.script' // GetUserDisplayName
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5735AECA0121_ME_5629FC88034B GetUserDisplayName
+
+: ME_5739732402E4_ME_5629FC88034B
+ : Original WL 'ME_5739732402E4' '5432518A0316.pas.ms.script' // IsUserExists
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5739732402E4_ME_5629FC88034B IsUserExists
+
+: ME_5739832A00A2_ME_5629FC88034B
+ : Original WL 'ME_5739832A00A2' '5432518A0316.pas.ms.script' // RegisterUserStatusChangedSubscriber
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5739832A00A2_ME_5629FC88034B RegisterUserStatusChangedSubscriber
+
+: ME_5739834700B2_ME_5629FC88034B
+ : Original WL 'ME_5739834700B2' '5432518A0316.pas.ms.script' // UnRegisterUserStatusChangedSubscriber
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5739834700B2_ME_5629FC88034B UnRegisterUserStatusChangedSubscriber
+
+: ME_5739835200CF_ME_5629FC88034B
+ : Original WL 'ME_5739835200CF' '5432518A0316.pas.ms.script' // NotifyUserActiveChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5739835200CF_ME_5629FC88034B NotifyUserActiveChanged
+
 : ME_479731C50290_ME_5629FC88034B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -3990,6 +4045,7 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_571891F1031A // f_AllGroups
  ME_5718C14D027F // f_UserNameQuery
  ME_57347AD502EA // f_ArchiUsers
+ ME_5739943300C7 // f_UserStatusChangedSubscriberList
  )
  ; // Attributes
  : Operations
@@ -4000,7 +4056,6 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5715E74402CA // FillAllGroups
  ME_5715ED0002E0 // SortUsersInList
  ME_5718C16B036E // UserNameQuery
- ME_57347AFF018E // MakeFullArchiUsersList
  )
  ; // Operations
  : Implemented
@@ -4013,6 +4068,15 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5721F5E60367_ME_5629FC88034B // ReSortUserList
  ME_5729C59E00D5_ME_5629FC88034B // ArchiUsersCount
  ME_5729DD530330_ME_5629FC88034B // IterateArchiUsersF
+ ME_57358B940211_ME_5629FC88034B // UserByID
+ ME_57358BCB0360_ME_5629FC88034B // UserByLogin
+ ME_5735AE4D0017_ME_5629FC88034B // UpdateUserInfo
+ ME_5735AE7F0071_ME_5629FC88034B // MakeFullArchiUsersList
+ ME_5735AECA0121_ME_5629FC88034B // GetUserDisplayName
+ ME_5739732402E4_ME_5629FC88034B // IsUserExists
+ ME_5739832A00A2_ME_5629FC88034B // RegisterUserStatusChangedSubscriber
+ ME_5739834700B2_ME_5629FC88034B // UnRegisterUserStatusChangedSubscriber
+ ME_5739835200CF_ME_5629FC88034B // NotifyUserActiveChanged
  )
  ; // Implemented
  : Overridden

@@ -40,6 +40,25 @@ var
 var
  I, l_PageNum: Integer;
 //#UC END# *552E497A03E2_39ABBBDC9493_var*
+//#UC START# *552E497A03E2_552E497A03E2_4E36C0C3014B_Word_impl*
+ l_PageNum := 0;
+ for I := 0 to aPageControl.PageCount - 1 do
+  if aPageControl.Pages[I].TabVisible then
+  begin
+   if l3Same(aPageControl.Pages[I].Caption, aCaption) then
+   begin
+    Result := l_PageNum;
+    Exit;
+   end;
+   Inc(l_PageNum);
+  end;
+ RunnerError('Вкладка не найдена!', aCtx);
+ Result := -1;
+//#UC END# *552E497A03E2_552E497A03E2_4E36C0C3014B_Word_impl*
+//#UC START# *552E497A03E2_552E497A03E2_4E36C0C3014B_Word_var*
+var
+ I, l_PageNum: Integer;
+//#UC END# *552E497A03E2_552E497A03E2_4E36C0C3014B_Word_var*
 //#UC START# *552E49BC0078_1C7B18964322_impl*
  RunnerAssert(anIndex >= 0, 'Давай положительное число!', aCtx);
  RunnerAssert(anIndex < aPageControl.PageCount, 'На PageControl меньше вкладок!', aCtx);
@@ -58,6 +77,31 @@ var
 var
  I : Integer;
 //#UC END# *552E49BC0078_1C7B18964322_var*
+//#UC START# *552E49BC0078_552E49BC0078_4E36C0C3014B_Word_impl*
+ RunnerAssert(anIndex >= 0, 'Давай положительное число!', aCtx);
+ RunnerAssert(anIndex < aPageControl.PageCount, 'На PageControl меньше вкладок!', aCtx);
+ for I := 0 to aPageControl.PageCount - 1 do
+  if aPageControl.Pages[I].TabVisible then
+  begin
+   if anIndex = 0 then
+   begin
+    Result := aPageControl.Pages[I].Caption;
+    Break;
+   end;
+   Dec(anIndex);
+  end;
+//#UC END# *552E49BC0078_552E49BC0078_4E36C0C3014B_Word_impl*
+//#UC START# *552E49BC0078_552E49BC0078_4E36C0C3014B_Word_var*
+var
+ I : Integer;
+//#UC END# *552E49BC0078_552E49BC0078_4E36C0C3014B_Word_var*
+//#UC START# *552E49E00306_552E49E00306_4E36C0C3014B_Word_impl*
+ RunnerAssert(anIndex >= 0, 'Давай положительное число!', aCtx);
+ RunnerAssert(anIndex < aPageControl.PageCount, 'На PageControl меньше вкладок!', aCtx);
+ Result := aPageControl.Pages[anIndex];
+//#UC END# *552E49E00306_552E49E00306_4E36C0C3014B_Word_impl*
+//#UC START# *552E49E00306_552E49E00306_4E36C0C3014B_Word_var*
+//#UC END# *552E49E00306_552E49E00306_4E36C0C3014B_Word_var*
 //#UC START# *552E49E00306_CF3FBFFD21B3_impl*
  RunnerAssert(anIndex >= 0, 'Давай положительное число!', aCtx);
  RunnerAssert(anIndex < aPageControl.PageCount, 'На PageControl меньше вкладок!', aCtx);
@@ -81,6 +125,22 @@ var
  l_Captions: AnsiString;
  I: Integer;
 //#UC END# *552E4A5E02C9_2A5E921BA82F_var*
+//#UC START# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_impl*
+ l_Captions := '';
+ for I := 0 to aPageControl.PageCount - 1 do
+  if aPageControl.Pages[I].TabVisible then
+   if (Length(l_Captions) > 0) then
+    l_Captions := l_Captions + ' | ' + l3Str(aPageControl.Pages[I].Caption)
+   else
+    l_Captions := l3Str(aPageControl.Pages[I].Caption);
+
+ Result := l_Captions;
+//#UC END# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_impl*
+//#UC START# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_var*
+var
+ l_Captions: AnsiString;
+ I: Integer;
+//#UC END# *552E4A5E02C9_552E4A5E02C9_4E36C0C3014B_Word_var*
 //#UC START# *600644323CE8_1C7B18964322_impl*
  RunnerAssert(anIndex >= 0, 'Давай положительное число!', aCtx);
  RunnerAssert(anIndex < aPageControl.PageCount, 'На PageControl меньше вкладок!', aCtx);

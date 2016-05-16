@@ -3042,47 +3042,6 @@ ref; // ME_4DB0614603C8_ME_4E0A095C0324 GetWordNameForRegister
 
 ref; // ME_4E0A095C0324 TkwArchiNewDocument
 
-FORWARD ME_55B6651703CB
-
-FORWARD ME_1E0CF5C9A3AF
-
-: ME_4DAEEDE10285_ME_1E0CF5C9A3AF
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_1E0CF5C9A3AF DoDoIt
-
-: ME_1E0CF5C9A3AF
- CONST UID '1E0CF5C9A3AF'
- CONST Name 'DocEditorWindow_IsNeedSaveDocument'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта DocEditorWindow:IsNeedSaveDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B664E00149 // archiDocEditorWindowWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_1E0CF5C9A3AF // DoDoIt
- )
- ; // Implemented
- CONST "NameForScript" 'DocEditorWindow:IsNeedSaveDocument'
- CONST extprop:pas:TypeName 'TkwDocEditorWindowIsNeedSaveDocument'
- CONST extprop:rc:SelfName 'DocEditorWindowIsNeedSaveDocument'
- CONST extprop:rc:isAcceptableForScripts true
- : Speller WL 'ME_4DFB4B01001D' '4DFB49C40350.pas.ms.script' // TDocEditorWindow
- ;
- : SpelledFor ME_55B6651703CB // IsNeedSaveDocument
- ;
-
-ref; // ME_1E0CF5C9A3AF DocEditorWindow_IsNeedSaveDocument
-
 : ME_55B6651703CB
  CONST UID '55B6651703CB'
  CONST Name 'IsNeedSaveDocument'
@@ -3093,8 +3052,6 @@ ref; // ME_1E0CF5C9A3AF DocEditorWindow_IsNeedSaveDocument
  : Parent ME_55B664E00149 // archiDocEditorWindowWordsPack
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Speller ME_1E0CF5C9A3AF // DocEditorWindow_IsNeedSaveDocument
  ;
 
 ref; // ME_55B6651703CB IsNeedSaveDocument
@@ -3128,10 +3085,6 @@ ref; // ME_0936F83112BC
    Seq: ( ME_55B6651703CB // IsNeedSaveDocument
  )
  ; // Operations
- : Children
-   Seq: ( ME_1E0CF5C9A3AF // DocEditorWindow_IsNeedSaveDocument
- )
- ; // Children
  : Dependencies
    Seq: ( ME_0936F83112BC // TDocEditorWindow
  )
@@ -3232,7 +3185,6 @@ ref; // ME_55B664E00149 archiDocEditorWindowWordsPack
  WL 'ME_5486E32B0191' '5486E32B0191.pas.ms.script' // StorageHolder
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55B7A3160128' '55B7A3160128.pas.ms.script' // ScriptedAxiomatics
- WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends
 

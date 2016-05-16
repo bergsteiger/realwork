@@ -1,3 +1,5 @@
+PROGRAM DictionaryByName.ms.script
+
 USES
  axiom_push.ms.dict
 ; 
@@ -31,25 +33,9 @@ USES
  FirstElement.ms.dict
 ;
 
-: KeyValuesCreateAndDo:
-  ^ IN aLambda
- VAR l_Param 
- KeyValues:Create >>> l_Param
- TRY 
-  l_Param aLambda DO
- FINALLY
-  l_Param pop:Word:DecRef 
- END // TRY..FINALLY
-; // KeyValuesCreateAndDo:
-
-INTERFACE FUNCTION KeyValuesCreate:
-  ^ IN aLambda
- KeyValuesCreateAndDo: (
-   IN aMade
-  aMade pop:Word:Box >>> Result
-  aMade aLambda DO
- ) // KeyValuesCreateAndDo:
-; // DecorateMethod:
+USES
+ KeyValuesCreateAndDo.ms.dict
+;
 
 ARRAY FUNCTION ProcessDict
   IN aDictName
@@ -85,10 +71,14 @@ ARRAY VAR A
 [ 
  @ ProcessDict 
  '*.pas.ms.script' 
- //thisDictionary pop:DictionaryEx:FileName Msg
- //Ctx:Engine pop:ScriptEngine:CurrentCompilingDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath
- //thisDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath
- 'W:\shared\models\NewSchool\Scripts\' 
+ VAR l_Dir
+ thisDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath >>> l_Dir
+ if ( l_Dir IsNil ) then
+ begin
+  sysutils:GetCurrentDir >>> l_Dir
+ end // ( l_Dir IsNil )
+ //l_Dir .
+ l_Dir
  ProcessFilesWithMask
 ] >>> A
 
@@ -138,19 +128,22 @@ B
  FILE VAR l_Out
  aRec -> Target '.pas.ms.script.inj' Cat File:OpenWrite >>> l_Out
  TRY
+  'Seq: (' l_Out File:WriteWStrLn
   aRec -> Sources
   .map> pop:WordBox:Boxed
   .map> (
     IN aRec
    [ 
-    'SourceFile: ' aRec -> SourceFile 
+    'WL' ' '
+    '''' aRec -> Source ''''
     ' '
-    'Source:' aRec -> Source
+    '''' aRec -> SourceFile '.pas.ms.script' '''' 
    ] strings:Cat
   ) // .map>
   .for> (
    l_Out File:WriteWStrLn
   ) // .for>
+  ')' l_Out File:WriteWStrLn
  FINALLY
   nil >>> l_Out
  END

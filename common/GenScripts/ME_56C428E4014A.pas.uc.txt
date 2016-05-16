@@ -29,12 +29,14 @@ var
 //#UC START# *56EA993D0218_56C428E4014A_var*
 //#UC END# *56EA993D0218_56C428E4014A_var*
 //#UC START# *5715DEF20209_56C428E4014Aget_impl*
- !!! Needs to be implemented !!!
+ Result := f_HTManager.AllUsers;
+ Assert(l3IsIdenticalLists(Result, f_PGManager.AllUsers));
 //#UC END# *5715DEF20209_56C428E4014Aget_impl*
 //#UC START# *5715DEF20209_56C428E4014Aget_var*
 //#UC END# *5715DEF20209_56C428E4014Aget_var*
 //#UC START# *5715DF0D03C2_56C428E4014Aget_impl*
- !!! Needs to be implemented !!!
+ Result := f_HTManager.AllGroups;
+ Assert(l3IsIdenticalLists(Result, f_PGManager.AllGroups));
 //#UC END# *5715DF0D03C2_56C428E4014Aget_impl*
 //#UC START# *5715DF0D03C2_56C428E4014Aget_var*
 //#UC END# *5715DF0D03C2_56C428E4014Aget_var*
@@ -45,12 +47,23 @@ var
 //#UC START# *5718B5CF0399_56C428E4014A_var*
 //#UC END# *5718B5CF0399_56C428E4014A_var*
 //#UC START# *571DCFB50217_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ l_ImportPriority := aImportPriority;
+ l_ExportPriority := aExportPriority;
+ Result := f_HTManager.GetUserPriorities(aGroupId, aImportPriority, aExportPriority);
+ l_Check := f_PGManager.GetUserPriorities(aGroupId, l_ImportPriority, l_ExportPriority);
+ Assert(l_Check = Result);
+ if Result then
+  Assert((aImportPriority = l_ImportPriority) and (aExportPriority = l_ExportPriority));
 //#UC END# *571DCFB50217_56C428E4014A_impl*
 //#UC START# *571DCFB50217_56C428E4014A_var*
+var
+ l_ImportPriority: TdaPriority;
+ l_ExportPriority: TdaPriority;
+ l_Check: Boolean;
 //#UC END# *571DCFB50217_56C428E4014A_var*
 //#UC START# *5721F5E60367_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ f_HTManager.ReSortUserList;
+ f_PGManager.ReSortUserList;
 //#UC END# *5721F5E60367_56C428E4014A_impl*
 //#UC START# *5721F5E60367_56C428E4014A_var*
 //#UC END# *5721F5E60367_56C428E4014A_var*
@@ -61,7 +74,65 @@ var
 //#UC START# *5729C59E00D5_56C428E4014Aget_var*
 //#UC END# *5729C59E00D5_56C428E4014Aget_var*
 //#UC START# *5729DD530330_56C428E4014A_impl*
- f_HTManager.ForEachF(anAction);
+ f_HTManager.IterateArchiUsersF(anAction);
+ f_PGManager.IterateArchiUsersF(anAction); // ??? Неоднозначно.
+                                           // Если накапливаем в список - излишне.
+                                           // Если модифицируем пользователей - необходимо
 //#UC END# *5729DD530330_56C428E4014A_impl*
 //#UC START# *5729DD530330_56C428E4014A_var*
 //#UC END# *5729DD530330_56C428E4014A_var*
+//#UC START# *57358B940211_56C428E4014A_impl*
+ Result := f_HTManager.UserByID(aID);
+ l_Check := f_PGManager.UserByID(aID);
+ Assert(IsUsersEqual(Result, l_Check));
+//#UC END# *57358B940211_56C428E4014A_impl*
+//#UC START# *57358B940211_56C428E4014A_var*
+var
+ l_Check: IdaArchiUser;
+//#UC END# *57358B940211_56C428E4014A_var*
+//#UC START# *57358BCB0360_56C428E4014A_impl*
+ Result := f_HTManager.UserByLogin(aLogin);
+ l_Check := f_PGManager.UserByLogin(aLogin);
+ Assert(IsUsersEqual(Result, l_Check));
+//#UC END# *57358BCB0360_56C428E4014A_impl*
+//#UC START# *57358BCB0360_56C428E4014A_var*
+var
+ l_Check: IdaArchiUser;
+//#UC END# *57358BCB0360_56C428E4014A_var*
+//#UC START# *57359E8903CF_56C428E4014A_impl*
+ Result := (aLeft = nil) = (aRight = nil);
+ if Result and Assigned(aLeft) then
+  Result := (aLeft.ID = aRight.ID) and
+   (aLeft.Active = aRight.Active) and
+   (aLeft.HasAdminRights = aRight.HasAdminRights) and
+   (aLeft.IP = aRight.IP) and
+   (aLeft.LoginName = aRight.LoginName) and
+   (aLeft.Password = aRight.Password) and
+   (aLeft.UserName = aRight.UserName);
+//#UC END# *57359E8903CF_56C428E4014A_impl*
+//#UC START# *57359E8903CF_56C428E4014A_var*
+//#UC END# *57359E8903CF_56C428E4014A_var*
+//#UC START# *5735AE4D0017_56C428E4014A_impl*
+ f_HTManager.UpdateUserInfo(aUserID, aIsGroup);
+ f_PGManager.UpdateUserInfo(aUserID, aIsGroup);
+//#UC END# *5735AE4D0017_56C428E4014A_impl*
+//#UC START# *5735AE4D0017_56C428E4014A_var*
+//#UC END# *5735AE4D0017_56C428E4014A_var*
+//#UC START# *5735AE7F0071_56C428E4014A_impl*
+ f_HTManager.MakeFullArchiUsersList;
+ f_PGManager.MakeFullArchiUsersList;
+//#UC END# *5735AE7F0071_56C428E4014A_impl*
+//#UC START# *5735AE7F0071_56C428E4014A_var*
+//#UC END# *5735AE7F0071_56C428E4014A_var*
+//#UC START# *5735AECA0121_56C428E4014A_impl*
+ Result := f_HTManager.GetUserDisplayName(anID);
+ Assert(Result = f_PGManager.GetUserDisplayName(anID));
+//#UC END# *5735AECA0121_56C428E4014A_impl*
+//#UC START# *5735AECA0121_56C428E4014A_var*
+//#UC END# *5735AECA0121_56C428E4014A_var*
+//#UC START# *5739732402E4_56C428E4014A_impl*
+ Result := f_HTManager.IsUserExists(anID);
+ Assert(Result = f_PGManager.IsUserExists(anID));
+//#UC END# *5739732402E4_56C428E4014A_impl*
+//#UC START# *5739732402E4_56C428E4014A_var*
+//#UC END# *5739732402E4_56C428E4014A_var*

@@ -345,47 +345,6 @@ ref; // ME_532172770248
 
 ref; // ME_5321724703A5 IsPreviewInProgress
 
-FORWARD ME_55B665ED0380
-
-FORWARD ME_BB6D8477DC61
-
-: ME_4DAEEDE10285_ME_BB6D8477DC61
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_4DAEEDE10285_ME_BB6D8477DC61 DoDoIt
-
-: ME_BB6D8477DC61
- CONST UID 'BB6D8477DC61'
- CONST Name 'IsNeedSaveDocument'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово скрипта IsNeedSaveDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_55B665AE01A8 // archiEditorWindowWordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_55CCAE000335' '55CCADD2013D.pas.ms.script' // TtfwClassLike
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_4DAEEDE10285_ME_BB6D8477DC61 // DoDoIt
- )
- ; // Implemented
- CONST "NameForScript" 'IsNeedSaveDocument'
- CONST extprop:pas:TypeName 'TkwIsNeedSaveDocument'
- CONST extprop:rc:SelfName 'IsNeedSaveDocument'
- CONST extprop:rc:isAcceptableForScripts true
- : Speller WL 'ME_5146CA34003E' '512DBAE001FA.pas.ms.script' // TEditorWindow
- ;
- : SpelledFor ME_55B665ED0380 // IsNeedSaveDocument
- ;
-
-ref; // ME_BB6D8477DC61 IsNeedSaveDocument
-
 : ME_55B665ED0380
  CONST UID '55B665ED0380'
  CONST Name 'IsNeedSaveDocument'
@@ -396,8 +355,6 @@ ref; // ME_BB6D8477DC61 IsNeedSaveDocument
  : Parent ME_55B665AE01A8 // archiEditorWindowWordsPack
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Speller ME_BB6D8477DC61 // IsNeedSaveDocument
  ;
 
 ref; // ME_55B665ED0380 IsNeedSaveDocument
@@ -431,10 +388,6 @@ ref; // ME_90B66189794B
    Seq: ( ME_55B665ED0380 // IsNeedSaveDocument
  )
  ; // Operations
- : Children
-   Seq: ( ME_BB6D8477DC61 // IsNeedSaveDocument
- )
- ; // Children
  : Dependencies
    Seq: ( ME_90B66189794B // TEditorWindow
  )
@@ -472,7 +425,6 @@ ref; // ME_55B665AE01A8 archiEditorWindowWordsPack
  WL 'ME_50741A080229' '50741A080229.pas.ms.script' // FormsProcessing
  WL 'ME_512DBAE001FA' '512DBAE001FA.pas.ms.script' // MainUnits
  WL 'ME_512DBB1F005F' '512DBB1F005F.pas.ms.script' // EverestLiteTestUnit
- WL 'ME_55CCADD2013D' '55CCADD2013D.pas.ms.script' // ClassLikeMapping
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'

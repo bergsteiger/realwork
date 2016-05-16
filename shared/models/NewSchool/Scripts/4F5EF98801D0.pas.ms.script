@@ -1262,6 +1262,43 @@ ref; // ME_571766C80011 sysutils_CodePage
 
 ref; // ME_5718D0250329 sysutils_GetACP
 
+: ME_5739906F006E
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5739906F006E aValue
+
+: ME_5739906F0104
+ CONST Name 'aDigits'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5739906F0104 aDigits
+
+: ME_573990470097
+ CONST UID '573990470097'
+ CONST Name 'IntToHex'
+ CONST Class class_Operation
+ : Stereotype st_globalkeyword::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F5EFA23015A // SysUtilsPack
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5739906F006E // aValue
+ ME_5739906F0104 // aDigits
+ )
+ ; // Parameters
+
+ref; // ME_573990470097 IntToHex
+
 : ME_555F0CAF0032
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1484,6 +1521,7 @@ ref; // ME_55E5D5C20359
  ME_571766B60308 // sysutils_Locale
  ME_571766C80011 // sysutils_CodePage
  ME_5718D0250329 // sysutils_GetACP
+ ME_573990470097 // IntToHex
  )
  ; // Operations
  : Dependencies

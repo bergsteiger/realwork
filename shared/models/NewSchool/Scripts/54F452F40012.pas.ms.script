@@ -109,60 +109,6 @@ ref; // ME_54F9BCFD026C aName
 
 ref; // ME_54F9BCE8003D FindComponent
 
-: ME_918356319D5F
- CONST UID '918356319D5F'
- CONST Name 'ComponentCount'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F452710048 // ComponentsProcessingPack
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'ComponentCount'
-
-ref; // ME_918356319D5F ComponentCount
-
-: ME_ECF2AFE484DC
- CONST UID 'ECF2AFE484DC'
- CONST Name 'Owner'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F452710048 // ComponentsProcessingPack
- ;
- : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'Owner'
-
-ref; // ME_ECF2AFE484DC Owner
-
-: ME_65A5CCEFB4C4
- CONST UID '65A5CCEFB4C4'
- CONST Name 'Name'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_keyword::Operation ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54F452710048 // ComponentsProcessingPack
- ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST "mapped" true
- CONST extprop:prop_stereo 'readonly'
- CONST extprop:prop_name 'Name'
-
-ref; // ME_65A5CCEFB4C4 Name
-
 : ME_7EDD59639FC5
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -197,9 +143,6 @@ ref; // ME_7EDD59639FC5
  : Operations
    Seq: ( ME_54F9BCB401D4 // GetComponent
  ME_54F9BCE8003D // FindComponent
- ME_918356319D5F // ComponentCount
- ME_ECF2AFE484DC // Owner
- ME_65A5CCEFB4C4 // Name
  )
  ; // Operations
  : Dependencies

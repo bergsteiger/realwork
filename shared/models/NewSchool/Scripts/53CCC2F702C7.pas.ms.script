@@ -100,16 +100,6 @@ ref; // ME_53CCF63B0139 Create
 
 ref; // ME_53CCF6A902D8 Make
 
-: ME_53CD0F330252
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53CCC324034B // TalcuAsyncSubmitterManager
- ;
- : Target WL 'ME_53CD0EC701F6' '52FBA554014B.pas.ms.script' // TUserManager
- ;
-
-ref; // ME_53CD0F330252 
-
 : ME_53CD21C3003D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -169,6 +159,16 @@ ref; // ME_5406A86C037B
  ;
 
 ref; // ME_573441CE0049 
+
+: ME_573598B50212
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53CCC324034B // TalcuAsyncSubmitterManager
+ ;
+ : Target WL 'ME_551A7D9602DC' '54F85B2500FB.pas.ms.script' // GlobalDataProvider
+ ;
+
+ref; // ME_573598B50212 
 
 : ME_53CCB9F20088_ME_53CCC324034B
  : Original WL 'ME_53CCB9F20088' '53CCB94A02A5.pas.ms.script' // ServerHostName
@@ -263,13 +263,13 @@ ref; // ME_479731C50290_ME_53CCC324034B Cleanup
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_53CD0F330252 // TUserManager
- ME_53CD21C3003D // FreeAndNil
+   Seq: ( ME_53CD21C3003D // FreeAndNil
  ME_53CF9518031E // TCsNotificationType
  ME_53D0BBEB002C // PLong
  ME_53D0BBF001E8 // l3L2IA
  ME_5406A86C037B // UserIsService
  ME_573441CE0049 // IdaArchiUser
+ ME_573598B50212 // GlobalDataProvider
  )
  ; // Dependencies
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas'

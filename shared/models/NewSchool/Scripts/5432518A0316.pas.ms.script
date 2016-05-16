@@ -4659,6 +4659,62 @@ ref; // ME_5549D2510373 BlankSession
 
 ref; // ME_5549D23F016E SessionConst
 
+FORWARD ME_573982D4024B
+
+: ME_573983050373
+ CONST Name 'UserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_573983050373 UserID
+
+: ME_573983050393
+ CONST Name 'Active'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_573983050393 Active
+
+: ME_573982F6007F
+ CONST UID '573982F6007F'
+ CONST Name 'UserStatusChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_573982D4024B // IdaUserStatusChangedSubscriber
+ ;
+ : Parameters
+   Seq: ( ME_573983050373 // UserID
+ ME_573983050393 // Active
+ )
+ ; // Parameters
+
+ref; // ME_573982F6007F UserStatusChanged
+
+: ME_573982D4024B
+ CONST UID '573982D4024B'
+ CONST GUID '5F83C989-1A53-47A7-8B14-D063CE89575F'
+ CONST Name 'IdaUserStatusChangedSubscriber'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Operations
+   Seq: ( ME_573982F6007F // UserStatusChanged
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'daUserStatusChangedSubscriber'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_573982D4024B IdaUserStatusChangedSubscriber
+
 FORWARD ME_5628D14000F6
 
 : ME_5715DEF20209
@@ -4875,6 +4931,237 @@ ref; // ME_571DCFB50217 GetUserPriorities
 
 ref; // ME_5721F5E60367 ReSortUserList
 
+: ME_57358B9D029F
+ CONST Name 'aID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_57358B9D029F aID
+
+: ME_57358B940211
+ CONST UID '57358B940211'
+ CONST Name 'UserByID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target ME_5729DCE2003D // IdaArchiUser
+ ;
+ : Parameters
+   Seq: ( ME_57358B9D029F // aID
+ )
+ ; // Parameters
+
+ref; // ME_57358B940211 UserByID
+
+: ME_57358BD301DD
+ CONST Name 'aLogin'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57358BD301DD aLogin
+
+: ME_57358BCB0360
+ CONST UID '57358BCB0360'
+ CONST Name 'UserByLogin'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target ME_5729DCE2003D // IdaArchiUser
+ ;
+ : Parameters
+   Seq: ( ME_57358BD301DD // aLogin
+ )
+ ; // Parameters
+
+ref; // ME_57358BCB0360 UserByLogin
+
+: ME_5735AE5901C7
+ CONST Name 'aUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5735AE5901C7 aUserID
+
+: ME_5735AE590206
+ CONST Name 'aIsGroup'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5735AE590206 aIsGroup
+
+: ME_5735AE4D0017
+ CONST UID '5735AE4D0017'
+ CONST Name 'UpdateUserInfo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Parameters
+   Seq: ( ME_5735AE5901C7 // aUserID
+ ME_5735AE590206 // aIsGroup
+ )
+ ; // Parameters
+
+ref; // ME_5735AE4D0017 UpdateUserInfo
+
+: ME_5735AE7F0071
+ CONST UID '5735AE7F0071'
+ CONST Name 'MakeFullArchiUsersList'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+
+ref; // ME_5735AE7F0071 MakeFullArchiUsersList
+
+: ME_5735AED40056
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_5735AED40056 anID
+
+: ME_5735AECA0121
+ CONST UID '5735AECA0121'
+ CONST Name 'GetUserDisplayName'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Parameters
+   Seq: ( ME_5735AED40056 // anID
+ )
+ ; // Parameters
+
+ref; // ME_5735AECA0121 GetUserDisplayName
+
+: ME_57397333026E
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_57397333026E anID
+
+: ME_5739732402E4
+ CONST UID '5739732402E4'
+ CONST Name 'IsUserExists'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_57397333026E // anID
+ )
+ ; // Parameters
+
+ref; // ME_5739732402E4 IsUserExists
+
+: ME_5739834202EC
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_573982D4024B // IdaUserStatusChangedSubscriber
+ ;
+
+ref; // ME_5739834202EC aSubscriber
+
+: ME_5739832A00A2
+ CONST UID '5739832A00A2'
+ CONST Name 'RegisterUserStatusChangedSubscriber'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Parameters
+   Seq: ( ME_5739834202EC // aSubscriber
+ )
+ ; // Parameters
+
+ref; // ME_5739832A00A2 RegisterUserStatusChangedSubscriber
+
+: ME_5739834B034B
+ CONST Name 'aSubscriber'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_573982D4024B // IdaUserStatusChangedSubscriber
+ ;
+
+ref; // ME_5739834B034B aSubscriber
+
+: ME_5739834700B2
+ CONST UID '5739834700B2'
+ CONST Name 'UnRegisterUserStatusChangedSubscriber'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Parameters
+   Seq: ( ME_5739834B034B // aSubscriber
+ )
+ ; // Parameters
+
+ref; // ME_5739834700B2 UnRegisterUserStatusChangedSubscriber
+
+: ME_573983880267
+ CONST Name 'anUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_573983880267 anUserID
+
+: ME_5739838802A5
+ CONST Name 'anActive'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5739838802A5 anActive
+
+: ME_5739835200CF
+ CONST UID '5739835200CF'
+ CONST Name 'NotifyUserActiveChanged'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Parameters
+   Seq: ( ME_573983880267 // anUserID
+ ME_5739838802A5 // anActive
+ )
+ ; // Parameters
+
+ref; // ME_5739835200CF NotifyUserActiveChanged
+
 : ME_5729DD530330_ME_5628D14000F6
  : Original ME_5729DD530330 // IterateArchiUsersF
  ;
@@ -4910,6 +5197,15 @@ ref; // ME_5729DD530330_ME_5628D14000F6 IterateArchiUsersF
  ME_5718B5CF0399 // GetUserName
  ME_571DCFB50217 // GetUserPriorities
  ME_5721F5E60367 // ReSortUserList
+ ME_57358B940211 // UserByID
+ ME_57358BCB0360 // UserByLogin
+ ME_5735AE4D0017 // UpdateUserInfo
+ ME_5735AE7F0071 // MakeFullArchiUsersList
+ ME_5735AECA0121 // GetUserDisplayName
+ ME_5739732402E4 // IsUserExists
+ ME_5739832A00A2 // RegisterUserStatusChangedSubscriber
+ ME_5739834700B2 // UnRegisterUserStatusChangedSubscriber
+ ME_5739835200CF // NotifyUserActiveChanged
  )
  ; // Operations
  : Implemented
@@ -5892,6 +6188,7 @@ ref; // ME_54EDC87C00B5 IdaDataProvider
  ME_56BC63EF028D // IdaComboAccessDataProviderHelper
  ME_56C193DB0058 // IdaComboAccessJournalHelper
  ME_56E153570073 // IdaComboAccessQueryHelper
+ ME_573982D4024B // IdaUserStatusChangedSubscriber
  ME_5628D14000F6 // IdaUserManager
  ME_54EDC87C00B5 // IdaDataProvider
  )

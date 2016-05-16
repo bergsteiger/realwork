@@ -37,11 +37,34 @@ var
 var
  l_Table: IedTable;
 //#UC END# *4F994DADAE61_AA4E45C58AA3_var*
+//#UC START# *55E46D7201BC_55E46D7201BC_4829D89703D2_Word_impl*
+ aEditor.InsertTable(aColNum, aRowNum);
+//#UC END# *55E46D7201BC_55E46D7201BC_4829D89703D2_Word_impl*
+//#UC START# *55E46D7201BC_55E46D7201BC_4829D89703D2_Word_var*
+//#UC END# *55E46D7201BC_55E46D7201BC_4829D89703D2_Word_var*
 //#UC START# *55E46D7201BC_A1BCB5D9397E_impl*
  aEditor.InsertTable(aColNum, aRowNum);
 //#UC END# *55E46D7201BC_A1BCB5D9397E_impl*
 //#UC START# *55E46D7201BC_A1BCB5D9397E_var*
 //#UC END# *55E46D7201BC_A1BCB5D9397E_var*
+//#UC START# *55E46F51016A_55E46F51016A_4829D89703D2_Word_impl*
+ l_Range := aEditor.Range;
+ if (l_Range = nil) then
+  RunnerError('Не удалось получить выделение.', aCtx);
+ l_Table := l_Range.Table;
+ if (l_Table = nil) then
+  RunnerError('Не удалось получить таблицу!', aCtx);
+ l_Cells := l_Table.Cells;
+ if (l_Cells = nil) then
+  RunnerError('Не удалось получить диапазон ячеек!', aCtx);
+ l_Cells.Merge(anAlgorytm);
+//#UC END# *55E46F51016A_55E46F51016A_4829D89703D2_Word_impl*
+//#UC START# *55E46F51016A_55E46F51016A_4829D89703D2_Word_var*
+var
+ l_Table     : IedTable;
+ l_Range     : IedRange;
+ l_Cells     : IedCells;
+//#UC END# *55E46F51016A_55E46F51016A_4829D89703D2_Word_var*
 //#UC START# *55E46F51016A_A451D154F580_impl*
  l_Range := aEditor.Range;
  if (l_Range = nil) then
@@ -79,6 +102,36 @@ var
  l_Cell : IedCell;
  l_Table: IedTable;
 //#UC END# *55E46FDE02F7_3AC5FB50949B_var*
+//#UC START# *55E46FDE02F7_55E46FDE02F7_4829D89703D2_Word_impl*
+ l_Table := aEditor.Range.Table;
+ if (l_Table <> nil) then
+ begin
+  l_Cell := l_Table.Cell;
+  if (l_Cell <> nil) then
+  begin
+   if aVert then
+    l_Cell.Split(ev_orVertical)
+   else
+    l_Cell.Split(ev_orHorizontal);
+  end;//l_Cell <> nil
+ end;//l_Table <> nil
+//#UC END# *55E46FDE02F7_55E46FDE02F7_4829D89703D2_Word_impl*
+//#UC START# *55E46FDE02F7_55E46FDE02F7_4829D89703D2_Word_var*
+var
+ l_Cell : IedCell;
+ l_Table: IedTable;
+//#UC END# *55E46FDE02F7_55E46FDE02F7_4829D89703D2_Word_var*
+//#UC START# *55E4714B033F_55E4714B033F_4829D89703D2_Word_impl*
+ l_Table := aEditor.Range.Table;
+ if (l_Table = nil) then
+  RunnerError('Курсор не находится в таблице.', aCtx)
+ else
+  aCtx.rCaller.Check(l_Table.Split(aEditor.TextSource.Indicator), 'Разделение таблицы закончелось неудачей.')
+//#UC END# *55E4714B033F_55E4714B033F_4829D89703D2_Word_impl*
+//#UC START# *55E4714B033F_55E4714B033F_4829D89703D2_Word_var*
+var
+ l_Table: IedTable;
+//#UC END# *55E4714B033F_55E4714B033F_4829D89703D2_Word_var*
 //#UC START# *55E4714B033F_AA4E45C58AA3_impl*
  l_Table := aEditor.Range.Table;
  if (l_Table = nil) then
@@ -90,6 +143,17 @@ var
 var
  l_Table: IedTable;
 //#UC END# *55E4714B033F_AA4E45C58AA3_var*
+//#UC START# *55E471580016_55E471580016_4829D89703D2_Word_impl*
+ l_Table := aEditor.Range.Table;
+ if (l_Table = nil) then
+  RunnerError('Курсор не находится в таблице.', aCtx)
+ else
+  aCtx.rCaller.Check(l_Table.Merge(aEditor.TextSource.Indicator), 'Объединение таблицы закончелось неудачей.')
+//#UC END# *55E471580016_55E471580016_4829D89703D2_Word_impl*
+//#UC START# *55E471580016_55E471580016_4829D89703D2_Word_var*
+var
+ l_Table: IedTable;
+//#UC END# *55E471580016_55E471580016_4829D89703D2_Word_var*
 //#UC START# *55E471580016_E73997E799CF_impl*
  l_Table := aEditor.Range.Table;
  if (l_Table = nil) then
@@ -101,16 +165,31 @@ var
 var
  l_Table: IedTable;
 //#UC END# *55E471580016_E73997E799CF_var*
+//#UC START# *55E471E9011E_55E471E9011E_4829D89703D2_Word_impl*
+ aEditor.InsertPageBreak(True, aPageOrientation);
+//#UC END# *55E471E9011E_55E471E9011E_4829D89703D2_Word_impl*
+//#UC START# *55E471E9011E_55E471E9011E_4829D89703D2_Word_var*
+//#UC END# *55E471E9011E_55E471E9011E_4829D89703D2_Word_var*
 //#UC START# *55E471E9011E_5C1388B33B3A_impl*
  aEditor.InsertPageBreak(True, aPageOrientation);
 //#UC END# *55E471E9011E_5C1388B33B3A_impl*
 //#UC START# *55E471E9011E_5C1388B33B3A_var*
 //#UC END# *55E471E9011E_5C1388B33B3A_var*
+//#UC START# *55E47282036F_55E47282036F_4829D89703D2_Word_impl*
+ aEditor.PrevHyperlink(False);
+//#UC END# *55E47282036F_55E47282036F_4829D89703D2_Word_impl*
+//#UC START# *55E47282036F_55E47282036F_4829D89703D2_Word_var*
+//#UC END# *55E47282036F_55E47282036F_4829D89703D2_Word_var*
 //#UC START# *55E47282036F_B77C574814C1_impl*
  aEditor.PrevHyperlink(False);
 //#UC END# *55E47282036F_B77C574814C1_impl*
 //#UC START# *55E47282036F_B77C574814C1_var*
 //#UC END# *55E47282036F_B77C574814C1_var*
+//#UC START# *55E4728F01D8_55E4728F01D8_4829D89703D2_Word_impl*
+ aEditor.NextHyperlink(False);
+//#UC END# *55E4728F01D8_55E4728F01D8_4829D89703D2_Word_impl*
+//#UC START# *55E4728F01D8_55E4728F01D8_4829D89703D2_Word_var*
+//#UC END# *55E4728F01D8_55E4728F01D8_4829D89703D2_Word_var*
 //#UC START# *55E4728F01D8_F05E0D5E838A_impl*
  aEditor.NextHyperlink(False);
 //#UC END# *55E4728F01D8_F05E0D5E838A_impl*
@@ -121,6 +200,11 @@ var
 //#UC END# *55E5A3D40355_47D4B4C536FD_impl*
 //#UC START# *55E5A3D40355_47D4B4C536FD_var*
 //#UC END# *55E5A3D40355_47D4B4C536FD_var*
+//#UC START# *55E5A3D40355_55E5A3D40355_4829D89703D2_Word_impl*
+ Result := aEditor.Range;
+//#UC END# *55E5A3D40355_55E5A3D40355_4829D89703D2_Word_impl*
+//#UC START# *55E5A3D40355_55E5A3D40355_4829D89703D2_Word_var*
+//#UC END# *55E5A3D40355_55E5A3D40355_4829D89703D2_Word_var*
 //#UC START# *7884E20C97ED_47D4B4C536FD_impl*
  Result := aEditor.Range;
 //#UC END# *7884E20C97ED_47D4B4C536FD_impl*
