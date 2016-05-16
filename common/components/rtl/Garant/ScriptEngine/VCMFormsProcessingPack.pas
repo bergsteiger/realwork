@@ -245,12 +245,12 @@ end;//TkwPopFormUserType.DoDoIt
 function TkwPopFormFormID.FormID(const aCtx: TtfwContext;
  aForm: TvcmEntityForm): AnsiString;
  {* Реализация слова скрипта pop:Form:FormID }
-//#UC START# *27D13BB1D318_27D13BB1D318_49525B34022A_Word_var*
-//#UC END# *27D13BB1D318_27D13BB1D318_49525B34022A_Word_var*
+//#UC START# *55003BED00FC_55003BED00FC_49525B34022A_Word_var*
+//#UC END# *55003BED00FC_55003BED00FC_49525B34022A_Word_var*
 begin
-//#UC START# *27D13BB1D318_27D13BB1D318_49525B34022A_Word_impl*
- Result := aForm.FormID.rName;
-//#UC END# *27D13BB1D318_27D13BB1D318_49525B34022A_Word_impl*
+//#UC START# *55003BED00FC_55003BED00FC_49525B34022A_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55003BED00FC_55003BED00FC_49525B34022A_Word_impl*
 end;//TkwPopFormFormID.FormID
 
 class function TkwPopFormFormID.GetWordNameForRegister: AnsiString;

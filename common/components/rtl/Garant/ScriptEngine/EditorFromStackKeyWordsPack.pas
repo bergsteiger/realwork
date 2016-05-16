@@ -821,23 +821,23 @@ end;//TkwPopEditorSelectWord.DoDoIt
 class procedure TkwPopEditorCaretVisible.DoSetValue(aEditor: TevCustomEditorWindow;
  aValue: Boolean);
  {* Метод установки значения свойства CaretVisible }
-//#UC START# *9BDC571BB6C6_4829D92A037B_Word_DoSetValue_9BDC571BB6C6_4829D92A037B_Word_var*
-//#UC END# *9BDC571BB6C6_4829D92A037B_Word_DoSetValue_9BDC571BB6C6_4829D92A037B_Word_var*
+//#UC START# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_var*
+//#UC END# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_var*
 begin
-//#UC START# *9BDC571BB6C6_4829D92A037B_Word_DoSetValue_9BDC571BB6C6_4829D92A037B_Word_impl*
+//#UC START# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_impl*
  !!! Needs to be implemented !!!
-//#UC END# *9BDC571BB6C6_4829D92A037B_Word_DoSetValue_9BDC571BB6C6_4829D92A037B_Word_impl*
+//#UC END# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_impl*
 end;//TkwPopEditorCaretVisible.DoSetValue
 
 function TkwPopEditorCaretVisible.CaretVisible(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:CaretVisible }
-//#UC START# *9BDC571BB6C6_9BDC571BB6C6_4829D92A037B_Word_var*
-//#UC END# *9BDC571BB6C6_9BDC571BB6C6_4829D92A037B_Word_var*
+//#UC START# *55D5F5430178_55D5F5430178_4829D92A037B_Word_var*
+//#UC END# *55D5F5430178_55D5F5430178_4829D92A037B_Word_var*
 begin
-//#UC START# *9BDC571BB6C6_9BDC571BB6C6_4829D92A037B_Word_impl*
- Result := aEditor.Selection.Caret.Visible;
-//#UC END# *9BDC571BB6C6_9BDC571BB6C6_4829D92A037B_Word_impl*
+//#UC START# *55D5F5430178_55D5F5430178_4829D92A037B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55D5F5430178_55D5F5430178_4829D92A037B_Word_impl*
 end;//TkwPopEditorCaretVisible.CaretVisible
 
 class function TkwPopEditorCaretVisible.GetWordNameForRegister: AnsiString;
@@ -1068,12 +1068,12 @@ end;//TkwPopEditorDrawSpecial.DoDoIt
 function TkwPopEditorDocumentTailVisible.DocumentTailVisible(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:DocumentTailVisible }
-//#UC START# *4D8865E49C68_4D8865E49C68_4829D92A037B_Word_var*
-//#UC END# *4D8865E49C68_4D8865E49C68_4829D92A037B_Word_var*
+//#UC START# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_var*
+//#UC END# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_var*
 begin
-//#UC START# *4D8865E49C68_4D8865E49C68_4829D92A037B_Word_impl*
- Result := aEditor.View.IsDocumentTailVisible;
-//#UC END# *4D8865E49C68_4D8865E49C68_4829D92A037B_Word_impl*
+//#UC START# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_impl*
 end;//TkwPopEditorDocumentTailVisible.DocumentTailVisible
 
 class function TkwPopEditorDocumentTailVisible.GetWordNameForRegister: AnsiString;
@@ -1168,23 +1168,23 @@ end;//TkwPopEditorModified.DoDoIt
 class procedure TkwPopEditorDrawLines.DoSetValue(aEditor: TevCustomEditorWindow;
  aValue: Boolean);
  {* Метод установки значения свойства DrawLines }
-//#UC START# *A434474CBB34_4829D92A037B_Word_DoSetValue_A434474CBB34_4829D92A037B_Word_var*
-//#UC END# *A434474CBB34_4829D92A037B_Word_DoSetValue_A434474CBB34_4829D92A037B_Word_var*
+//#UC START# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_var*
+//#UC END# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_var*
 begin
-//#UC START# *A434474CBB34_4829D92A037B_Word_DoSetValue_A434474CBB34_4829D92A037B_Word_impl*
+//#UC START# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_impl*
  !!! Needs to be implemented !!!
-//#UC END# *A434474CBB34_4829D92A037B_Word_DoSetValue_A434474CBB34_4829D92A037B_Word_impl*
+//#UC END# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_impl*
 end;//TkwPopEditorDrawLines.DoSetValue
 
 function TkwPopEditorDrawLines.DrawLines(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:DrawLines }
-//#UC START# *A434474CBB34_A434474CBB34_4829D92A037B_Word_var*
-//#UC END# *A434474CBB34_A434474CBB34_4829D92A037B_Word_var*
+//#UC START# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_var*
+//#UC END# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_var*
 begin
-//#UC START# *A434474CBB34_A434474CBB34_4829D92A037B_Word_impl*
- Result := aEditor.Selection.DrawLines;
-//#UC END# *A434474CBB34_A434474CBB34_4829D92A037B_Word_impl*
+//#UC START# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_impl*
 end;//TkwPopEditorDrawLines.DrawLines
 
 class function TkwPopEditorDrawLines.GetWordNameForRegister: AnsiString;

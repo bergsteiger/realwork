@@ -53,23 +53,23 @@ type
 class procedure TkwPopSpinEditValue.DoSetValue(aSpinEdit: TvtSpinEdit;
  aValue: Integer);
  {* Метод установки значения свойства Value }
-//#UC START# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_var*
-//#UC END# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_var*
+//#UC START# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_var*
+//#UC END# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_var*
 begin
-//#UC START# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_impl*
+//#UC START# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_impl*
  !!! Needs to be implemented !!!
-//#UC END# *FFBFE1E95F74_4C52C0600246_Word_DoSetValue_FFBFE1E95F74_4C52C0600246_Word_impl*
+//#UC END# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_impl*
 end;//TkwPopSpinEditValue.DoSetValue
 
 function TkwPopSpinEditValue.Value(const aCtx: TtfwContext;
  aSpinEdit: TvtSpinEdit): Integer;
  {* Реализация слова скрипта pop:SpinEdit:Value }
-//#UC START# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_var*
-//#UC END# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_var*
+//#UC START# *552E41740211_552E41740211_4C52C0600246_Word_var*
+//#UC END# *552E41740211_552E41740211_4C52C0600246_Word_var*
 begin
-//#UC START# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_impl*
- Result := aSpinEdit.AsInteger;
-//#UC END# *FFBFE1E95F74_FFBFE1E95F74_4C52C0600246_Word_impl*
+//#UC START# *552E41740211_552E41740211_4C52C0600246_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *552E41740211_552E41740211_4C52C0600246_Word_impl*
 end;//TkwPopSpinEditValue.Value
 
 class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;

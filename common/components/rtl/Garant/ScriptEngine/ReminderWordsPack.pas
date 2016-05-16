@@ -598,12 +598,12 @@ end;//TkwPopReminderUserType.DoDoIt
 function TkwPopReminderIsBaloonVisible.IsBaloonVisible(const aCtx: TtfwContext;
  aReminder: TvgReminder): Boolean;
  {* Реализация слова скрипта pop:Reminder:IsBaloonVisible }
-//#UC START# *C9DABDBEC583_C9DABDBEC583_532973740186_Word_var*
-//#UC END# *C9DABDBEC583_C9DABDBEC583_532973740186_Word_var*
+//#UC START# *550047F201E5_550047F201E5_532973740186_Word_var*
+//#UC END# *550047F201E5_550047F201E5_532973740186_Word_var*
 begin
-//#UC START# *C9DABDBEC583_C9DABDBEC583_532973740186_Word_impl*
- Result := ((aReminder.PopupForm <> nil) and aReminder.PopupForm.Visible);
-//#UC END# *C9DABDBEC583_C9DABDBEC583_532973740186_Word_impl*
+//#UC START# *550047F201E5_550047F201E5_532973740186_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550047F201E5_550047F201E5_532973740186_Word_impl*
 end;//TkwPopReminderIsBaloonVisible.IsBaloonVisible
 
 class function TkwPopReminderIsBaloonVisible.GetWordNameForRegister: AnsiString;
@@ -794,12 +794,12 @@ end;//TkwPopReminderFlash.DoDoIt
 function TkwPopReminderTextBackColor.TextBackColor(const aCtx: TtfwContext;
  aReminder: TvgReminder): AnsiString;
  {* Реализация слова скрипта pop:Reminder:TextBackColor }
-//#UC START# *963DF9269ADB_963DF9269ADB_532973740186_Word_var*
-//#UC END# *963DF9269ADB_963DF9269ADB_532973740186_Word_var*
+//#UC START# *550048F80073_550048F80073_532973740186_Word_var*
+//#UC END# *550048F80073_550048F80073_532973740186_Word_var*
 begin
-//#UC START# *963DF9269ADB_963DF9269ADB_532973740186_Word_impl*
- Result := aReminder.vgTextRect.Fill.Color;
-//#UC END# *963DF9269ADB_963DF9269ADB_532973740186_Word_impl*
+//#UC START# *550048F80073_550048F80073_532973740186_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550048F80073_550048F80073_532973740186_Word_impl*
 end;//TkwPopReminderTextBackColor.TextBackColor
 
 class function TkwPopReminderTextBackColor.GetWordNameForRegister: AnsiString;

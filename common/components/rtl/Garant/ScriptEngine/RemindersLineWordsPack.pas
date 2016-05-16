@@ -611,12 +611,12 @@ end;//TkwPopRemindersLineTop.DoDoIt
 function TkwPopRemindersLineVisible.Visible(const aCtx: TtfwContext;
  aRemindersLine: TvgRemindersLine): Boolean;
  {* Реализация слова скрипта pop:RemindersLine:Visible }
-//#UC START# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_var*
-//#UC END# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_var*
+//#UC START# *55005964029E_55005964029E_532322D901A3_Word_var*
+//#UC END# *55005964029E_55005964029E_532322D901A3_Word_var*
 begin
-//#UC START# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_impl*
- Result := TvgRemindersLineFriend(aRemindersLine).Form.Visible
-//#UC END# *E53E3CB7238C_E53E3CB7238C_532322D901A3_Word_impl*
+//#UC START# *55005964029E_55005964029E_532322D901A3_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55005964029E_55005964029E_532322D901A3_Word_impl*
 end;//TkwPopRemindersLineVisible.Visible
 
 class function TkwPopRemindersLineVisible.GetWordNameForRegister: AnsiString;
