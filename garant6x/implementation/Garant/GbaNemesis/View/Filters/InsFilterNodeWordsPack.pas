@@ -171,12 +171,12 @@ end;//TkwFilterNodeAutoApplied.DoDoIt
 function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsUsed }
-//#UC START# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_var*
-//#UC END# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_var*
+//#UC START# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_var*
+//#UC END# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_var*
 begin
-//#UC START# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_impl*
- Result := aFilterNode.UsedStatus;
-//#UC END# *0B8C389F0B1C_0B8C389F0B1C_4991887A031F_Word_impl*
+//#UC START# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_impl*
 end;//TkwFilterNodeIsUsed.IsUsed
 
 class function TkwFilterNodeIsUsed.GetWordNameForRegister: AnsiString;
@@ -223,12 +223,12 @@ end;//TkwFilterNodeIsUsed.DoDoIt
 function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsDeleted }
-//#UC START# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_var*
-//#UC END# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_var*
+//#UC START# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_var*
+//#UC END# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_var*
 begin
-//#UC START# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_impl*
- Result := aFilterNode.DeletedStatus;
-//#UC END# *B12C875B9E52_B12C875B9E52_4991887A031F_Word_impl*
+//#UC START# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_impl*
 end;//TkwFilterNodeIsDeleted.IsDeleted
 
 class function TkwFilterNodeIsDeleted.GetWordNameForRegister: AnsiString;
@@ -275,20 +275,12 @@ end;//TkwFilterNodeIsDeleted.DoDoIt
 function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsChangeable }
-//#UC START# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_var*
-var
- l_F: IFilterFromQuery;
-//#UC END# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_var*
+//#UC START# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_var*
+//#UC END# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_var*
 begin
-//#UC START# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_impl*
- Supports(aFilterNode, IFilterFromQuery, l_F);
- RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
- try
-  Result := l_F.GetChangeable;
- finally
-  l_F := nil;
- end;//try..finally
-//#UC END# *CA5586C3178F_CA5586C3178F_4991887A031F_Word_impl*
+//#UC START# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_impl*
 end;//TkwFilterNodeIsChangeable.IsChangeable
 
 class function TkwFilterNodeIsChangeable.GetWordNameForRegister: AnsiString;
