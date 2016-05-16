@@ -113,8 +113,8 @@ type
     aefGroupList: TefGroupList): TvtPanel;
     {* Реализация слова скрипта .TefGroupList.BackgroundPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -130,8 +130,8 @@ type
     aefGroupList: TefGroupList): TeeTreeView;
     {* Реализация слова скрипта .TefGroupList.GroupsTree }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -211,21 +211,6 @@ begin
  Result := aefGroupList.BackgroundPanel;
 end;//TkwEfGroupListBackgroundPanel.BackgroundPanel
 
-procedure TkwEfGroupListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-var l_aefGroupList: TefGroupList;
-begin
- try
-  l_aefGroupList := TefGroupList(aCtx.rEngine.PopObjAs(TefGroupList));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefGroupList: TefGroupList : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefGroupList));
-end;//TkwEfGroupListBackgroundPanel.DoDoIt
-
 class function TkwEfGroupListBackgroundPanel.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefGroupList.BackgroundPanel';
@@ -252,14 +237,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEfGroupListBackgroundPanel.SetValuePrim
 
-function TkwEfGroupListGroupsTree.GroupsTree(const aCtx: TtfwContext;
- aefGroupList: TefGroupList): TeeTreeView;
- {* Реализация слова скрипта .TefGroupList.GroupsTree }
-begin
- Result := aefGroupList.GroupsTree;
-end;//TkwEfGroupListGroupsTree.GroupsTree
-
-procedure TkwEfGroupListGroupsTree.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfGroupListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefGroupList: TefGroupList;
 begin
  try
@@ -271,8 +249,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(GroupsTree(aCtx, l_aefGroupList));
-end;//TkwEfGroupListGroupsTree.DoDoIt
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefGroupList));
+end;//TkwEfGroupListBackgroundPanel.DoDoIt
+
+function TkwEfGroupListGroupsTree.GroupsTree(const aCtx: TtfwContext;
+ aefGroupList: TefGroupList): TeeTreeView;
+ {* Реализация слова скрипта .TefGroupList.GroupsTree }
+begin
+ Result := aefGroupList.GroupsTree;
+end;//TkwEfGroupListGroupsTree.GroupsTree
 
 class function TkwEfGroupListGroupsTree.GetWordNameForRegister: AnsiString;
 begin
@@ -299,6 +284,21 @@ procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
 begin
  RunnerError('Нельзя присваивать значение readonly свойству GroupsTree', aCtx);
 end;//TkwEfGroupListGroupsTree.SetValuePrim
+
+procedure TkwEfGroupListGroupsTree.DoDoIt(const aCtx: TtfwContext);
+var l_aefGroupList: TefGroupList;
+begin
+ try
+  l_aefGroupList := TefGroupList(aCtx.rEngine.PopObjAs(TefGroupList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefGroupList: TefGroupList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GroupsTree(aCtx, l_aefGroupList));
+end;//TkwEfGroupListGroupsTree.DoDoIt
 
 initialization
  Tkw_Form_GroupList.RegisterInEngine;

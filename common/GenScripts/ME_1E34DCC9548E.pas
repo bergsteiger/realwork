@@ -678,8 +678,8 @@ type
     aefUserProperty: TefUserProperty): TvtPanel;
     {* Реализация слова скрипта .TefUserProperty.pnMainData }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -695,8 +695,8 @@ type
     aefUserProperty: TefUserProperty): TvtPanel;
     {* Реализация слова скрипта .TefUserProperty.f_TopPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -712,8 +712,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.UserNameLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -729,8 +729,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.PasswordLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -746,8 +746,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.LoginLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -763,8 +763,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.EMailLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -780,8 +780,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.ConfirmPasswordLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -797,8 +797,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.GroupLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -814,8 +814,8 @@ type
     aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
     {* Реализация слова скрипта .TefUserProperty.edPassword }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -831,8 +831,8 @@ type
     aefUserProperty: TefUserProperty): TnscEdit;
     {* Реализация слова скрипта .TefUserProperty.edUserName }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -848,8 +848,8 @@ type
     aefUserProperty: TefUserProperty): TnscEdit;
     {* Реализация слова скрипта .TefUserProperty.edLogin }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -865,8 +865,8 @@ type
     aefUserProperty: TefUserProperty): TnscEdit;
     {* Реализация слова скрипта .TefUserProperty.edEmail }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -882,8 +882,8 @@ type
     aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
     {* Реализация слова скрипта .TefUserProperty.edConfirm }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -899,8 +899,8 @@ type
     aefUserProperty: TefUserProperty): TvtComboBoxQS;
     {* Реализация слова скрипта .TefUserProperty.edGroup }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -916,8 +916,8 @@ type
     aefUserProperty: TefUserProperty): TvtPanel;
     {* Реализация слова скрипта .TefUserProperty.f_MiddlePanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -933,8 +933,8 @@ type
     aefUserProperty: TefUserProperty): TvtCheckBox;
     {* Реализация слова скрипта .TefUserProperty.edPrivilegedUser }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -950,8 +950,8 @@ type
     aefUserProperty: TefUserProperty): TvtCheckBox;
     {* Реализация слова скрипта .TefUserProperty.edBuyConsulting }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -967,8 +967,8 @@ type
     aefUserProperty: TefUserProperty): TvtPanel;
     {* Реализация слова скрипта .TefUserProperty.f_DontDeleteIdleUserPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -984,8 +984,8 @@ type
     aefUserProperty: TefUserProperty): TvtCheckBox;
     {* Реализация слова скрипта .TefUserProperty.edDontDeleteIdleUser }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1001,8 +1001,8 @@ type
     aefUserProperty: TefUserProperty): TvtPanel;
     {* Реализация слова скрипта .TefUserProperty.f_BottomPanel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1018,8 +1018,8 @@ type
     aefUserProperty: TefUserProperty): TvtLabel;
     {* Реализация слова скрипта .TefUserProperty.InfoLabel }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1035,8 +1035,8 @@ type
     aefUserProperty: TefUserProperty): TvtCheckBox;
     {* Реализация слова скрипта .TefUserProperty.edHasSharedFilters }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -1656,21 +1656,6 @@ begin
  Result := aefUserProperty.pnMainData;
 end;//TkwEfUserPropertyPnMainData.pnMainData
 
-procedure TkwEfUserPropertyPnMainData.DoDoIt(const aCtx: TtfwContext);
-var l_aefUserProperty: TefUserProperty;
-begin
- try
-  l_aefUserProperty := TefUserProperty(aCtx.rEngine.PopObjAs(TefUserProperty));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aefUserProperty: TefUserProperty : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushObj(pnMainData(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyPnMainData.DoDoIt
-
 class function TkwEfUserPropertyPnMainData.GetWordNameForRegister: AnsiString;
 begin
  Result := '.TefUserProperty.pnMainData';
@@ -1697,14 +1682,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству pnMainData', aCtx);
 end;//TkwEfUserPropertyPnMainData.SetValuePrim
 
-function TkwEfUserPropertyFTopPanel.f_TopPanel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtPanel;
- {* Реализация слова скрипта .TefUserProperty.f_TopPanel }
-begin
- Result := aefUserProperty.f_TopPanel;
-end;//TkwEfUserPropertyFTopPanel.f_TopPanel
-
-procedure TkwEfUserPropertyFTopPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyPnMainData.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -1716,8 +1694,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(f_TopPanel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyFTopPanel.DoDoIt
+ aCtx.rEngine.PushObj(pnMainData(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyPnMainData.DoDoIt
+
+function TkwEfUserPropertyFTopPanel.f_TopPanel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtPanel;
+ {* Реализация слова скрипта .TefUserProperty.f_TopPanel }
+begin
+ Result := aefUserProperty.f_TopPanel;
+end;//TkwEfUserPropertyFTopPanel.f_TopPanel
 
 class function TkwEfUserPropertyFTopPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -1745,14 +1730,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству f_TopPanel', aCtx);
 end;//TkwEfUserPropertyFTopPanel.SetValuePrim
 
-function TkwEfUserPropertyUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.UserNameLabel }
-begin
- Result := aefUserProperty.UserNameLabel;
-end;//TkwEfUserPropertyUserNameLabel.UserNameLabel
-
-procedure TkwEfUserPropertyUserNameLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyFTopPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -1764,8 +1742,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyUserNameLabel.DoDoIt
+ aCtx.rEngine.PushObj(f_TopPanel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyFTopPanel.DoDoIt
+
+function TkwEfUserPropertyUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.UserNameLabel }
+begin
+ Result := aefUserProperty.UserNameLabel;
+end;//TkwEfUserPropertyUserNameLabel.UserNameLabel
 
 class function TkwEfUserPropertyUserNameLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1793,14 +1778,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
 end;//TkwEfUserPropertyUserNameLabel.SetValuePrim
 
-function TkwEfUserPropertyPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.PasswordLabel }
-begin
- Result := aefUserProperty.PasswordLabel;
-end;//TkwEfUserPropertyPasswordLabel.PasswordLabel
-
-procedure TkwEfUserPropertyPasswordLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyUserNameLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -1812,8 +1790,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyPasswordLabel.DoDoIt
+ aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyUserNameLabel.DoDoIt
+
+function TkwEfUserPropertyPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.PasswordLabel }
+begin
+ Result := aefUserProperty.PasswordLabel;
+end;//TkwEfUserPropertyPasswordLabel.PasswordLabel
 
 class function TkwEfUserPropertyPasswordLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1841,14 +1826,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству PasswordLabel', aCtx);
 end;//TkwEfUserPropertyPasswordLabel.SetValuePrim
 
-function TkwEfUserPropertyLoginLabel.LoginLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.LoginLabel }
-begin
- Result := aefUserProperty.LoginLabel;
-end;//TkwEfUserPropertyLoginLabel.LoginLabel
-
-procedure TkwEfUserPropertyLoginLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyPasswordLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -1860,8 +1838,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyLoginLabel.DoDoIt
+ aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyPasswordLabel.DoDoIt
+
+function TkwEfUserPropertyLoginLabel.LoginLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.LoginLabel }
+begin
+ Result := aefUserProperty.LoginLabel;
+end;//TkwEfUserPropertyLoginLabel.LoginLabel
 
 class function TkwEfUserPropertyLoginLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1889,14 +1874,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
 end;//TkwEfUserPropertyLoginLabel.SetValuePrim
 
-function TkwEfUserPropertyEMailLabel.EMailLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.EMailLabel }
-begin
- Result := aefUserProperty.EMailLabel;
-end;//TkwEfUserPropertyEMailLabel.EMailLabel
-
-procedure TkwEfUserPropertyEMailLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyLoginLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -1908,8 +1886,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEMailLabel.DoDoIt
+ aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyLoginLabel.DoDoIt
+
+function TkwEfUserPropertyEMailLabel.EMailLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.EMailLabel }
+begin
+ Result := aefUserProperty.EMailLabel;
+end;//TkwEfUserPropertyEMailLabel.EMailLabel
 
 class function TkwEfUserPropertyEMailLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1937,14 +1922,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
 end;//TkwEfUserPropertyEMailLabel.SetValuePrim
 
-function TkwEfUserPropertyConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.ConfirmPasswordLabel }
-begin
- Result := aefUserProperty.ConfirmPasswordLabel;
-end;//TkwEfUserPropertyConfirmPasswordLabel.ConfirmPasswordLabel
-
-procedure TkwEfUserPropertyConfirmPasswordLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEMailLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -1956,8 +1934,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyConfirmPasswordLabel.DoDoIt
+ aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEMailLabel.DoDoIt
+
+function TkwEfUserPropertyConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.ConfirmPasswordLabel }
+begin
+ Result := aefUserProperty.ConfirmPasswordLabel;
+end;//TkwEfUserPropertyConfirmPasswordLabel.ConfirmPasswordLabel
 
 class function TkwEfUserPropertyConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -1985,14 +1970,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству ConfirmPasswordLabel', aCtx);
 end;//TkwEfUserPropertyConfirmPasswordLabel.SetValuePrim
 
-function TkwEfUserPropertyGroupLabel.GroupLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.GroupLabel }
-begin
- Result := aefUserProperty.GroupLabel;
-end;//TkwEfUserPropertyGroupLabel.GroupLabel
-
-procedure TkwEfUserPropertyGroupLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyConfirmPasswordLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2004,8 +1982,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(GroupLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyGroupLabel.DoDoIt
+ aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyConfirmPasswordLabel.DoDoIt
+
+function TkwEfUserPropertyGroupLabel.GroupLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.GroupLabel }
+begin
+ Result := aefUserProperty.GroupLabel;
+end;//TkwEfUserPropertyGroupLabel.GroupLabel
 
 class function TkwEfUserPropertyGroupLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -2033,14 +2018,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству GroupLabel', aCtx);
 end;//TkwEfUserPropertyGroupLabel.SetValuePrim
 
-function TkwEfUserPropertyEdPassword.edPassword(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
- {* Реализация слова скрипта .TefUserProperty.edPassword }
-begin
- Result := aefUserProperty.edPassword;
-end;//TkwEfUserPropertyEdPassword.edPassword
-
-procedure TkwEfUserPropertyEdPassword.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyGroupLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2052,8 +2030,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edPassword(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdPassword.DoDoIt
+ aCtx.rEngine.PushObj(GroupLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyGroupLabel.DoDoIt
+
+function TkwEfUserPropertyEdPassword.edPassword(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
+ {* Реализация слова скрипта .TefUserProperty.edPassword }
+begin
+ Result := aefUserProperty.edPassword;
+end;//TkwEfUserPropertyEdPassword.edPassword
 
 class function TkwEfUserPropertyEdPassword.GetWordNameForRegister: AnsiString;
 begin
@@ -2081,14 +2066,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
 end;//TkwEfUserPropertyEdPassword.SetValuePrim
 
-function TkwEfUserPropertyEdUserName.edUserName(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TnscEdit;
- {* Реализация слова скрипта .TefUserProperty.edUserName }
-begin
- Result := aefUserProperty.edUserName;
-end;//TkwEfUserPropertyEdUserName.edUserName
-
-procedure TkwEfUserPropertyEdUserName.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdPassword.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2100,8 +2078,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edUserName(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdUserName.DoDoIt
+ aCtx.rEngine.PushObj(edPassword(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdPassword.DoDoIt
+
+function TkwEfUserPropertyEdUserName.edUserName(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TnscEdit;
+ {* Реализация слова скрипта .TefUserProperty.edUserName }
+begin
+ Result := aefUserProperty.edUserName;
+end;//TkwEfUserPropertyEdUserName.edUserName
 
 class function TkwEfUserPropertyEdUserName.GetWordNameForRegister: AnsiString;
 begin
@@ -2129,14 +2114,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
 end;//TkwEfUserPropertyEdUserName.SetValuePrim
 
-function TkwEfUserPropertyEdLogin.edLogin(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TnscEdit;
- {* Реализация слова скрипта .TefUserProperty.edLogin }
-begin
- Result := aefUserProperty.edLogin;
-end;//TkwEfUserPropertyEdLogin.edLogin
-
-procedure TkwEfUserPropertyEdLogin.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdUserName.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2148,8 +2126,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edLogin(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdLogin.DoDoIt
+ aCtx.rEngine.PushObj(edUserName(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdUserName.DoDoIt
+
+function TkwEfUserPropertyEdLogin.edLogin(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TnscEdit;
+ {* Реализация слова скрипта .TefUserProperty.edLogin }
+begin
+ Result := aefUserProperty.edLogin;
+end;//TkwEfUserPropertyEdLogin.edLogin
 
 class function TkwEfUserPropertyEdLogin.GetWordNameForRegister: AnsiString;
 begin
@@ -2177,14 +2162,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edLogin', aCtx);
 end;//TkwEfUserPropertyEdLogin.SetValuePrim
 
-function TkwEfUserPropertyEdEmail.edEmail(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TnscEdit;
- {* Реализация слова скрипта .TefUserProperty.edEmail }
-begin
- Result := aefUserProperty.edEmail;
-end;//TkwEfUserPropertyEdEmail.edEmail
-
-procedure TkwEfUserPropertyEdEmail.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdLogin.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2196,8 +2174,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edEmail(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdEmail.DoDoIt
+ aCtx.rEngine.PushObj(edLogin(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdLogin.DoDoIt
+
+function TkwEfUserPropertyEdEmail.edEmail(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TnscEdit;
+ {* Реализация слова скрипта .TefUserProperty.edEmail }
+begin
+ Result := aefUserProperty.edEmail;
+end;//TkwEfUserPropertyEdEmail.edEmail
 
 class function TkwEfUserPropertyEdEmail.GetWordNameForRegister: AnsiString;
 begin
@@ -2225,14 +2210,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
 end;//TkwEfUserPropertyEdEmail.SetValuePrim
 
-function TkwEfUserPropertyEdConfirm.edConfirm(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
- {* Реализация слова скрипта .TefUserProperty.edConfirm }
-begin
- Result := aefUserProperty.edConfirm;
-end;//TkwEfUserPropertyEdConfirm.edConfirm
-
-procedure TkwEfUserPropertyEdConfirm.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdEmail.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2244,8 +2222,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edConfirm(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdConfirm.DoDoIt
+ aCtx.rEngine.PushObj(edEmail(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdEmail.DoDoIt
+
+function TkwEfUserPropertyEdConfirm.edConfirm(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TnscComboBoxWithPwdChar;
+ {* Реализация слова скрипта .TefUserProperty.edConfirm }
+begin
+ Result := aefUserProperty.edConfirm;
+end;//TkwEfUserPropertyEdConfirm.edConfirm
 
 class function TkwEfUserPropertyEdConfirm.GetWordNameForRegister: AnsiString;
 begin
@@ -2273,14 +2258,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edConfirm', aCtx);
 end;//TkwEfUserPropertyEdConfirm.SetValuePrim
 
-function TkwEfUserPropertyEdGroup.edGroup(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtComboBoxQS;
- {* Реализация слова скрипта .TefUserProperty.edGroup }
-begin
- Result := aefUserProperty.edGroup;
-end;//TkwEfUserPropertyEdGroup.edGroup
-
-procedure TkwEfUserPropertyEdGroup.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdConfirm.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2292,8 +2270,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edGroup(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdGroup.DoDoIt
+ aCtx.rEngine.PushObj(edConfirm(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdConfirm.DoDoIt
+
+function TkwEfUserPropertyEdGroup.edGroup(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtComboBoxQS;
+ {* Реализация слова скрипта .TefUserProperty.edGroup }
+begin
+ Result := aefUserProperty.edGroup;
+end;//TkwEfUserPropertyEdGroup.edGroup
 
 class function TkwEfUserPropertyEdGroup.GetWordNameForRegister: AnsiString;
 begin
@@ -2321,14 +2306,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edGroup', aCtx);
 end;//TkwEfUserPropertyEdGroup.SetValuePrim
 
-function TkwEfUserPropertyFMiddlePanel.f_MiddlePanel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtPanel;
- {* Реализация слова скрипта .TefUserProperty.f_MiddlePanel }
-begin
- Result := aefUserProperty.f_MiddlePanel;
-end;//TkwEfUserPropertyFMiddlePanel.f_MiddlePanel
-
-procedure TkwEfUserPropertyFMiddlePanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdGroup.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2340,8 +2318,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(f_MiddlePanel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyFMiddlePanel.DoDoIt
+ aCtx.rEngine.PushObj(edGroup(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdGroup.DoDoIt
+
+function TkwEfUserPropertyFMiddlePanel.f_MiddlePanel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtPanel;
+ {* Реализация слова скрипта .TefUserProperty.f_MiddlePanel }
+begin
+ Result := aefUserProperty.f_MiddlePanel;
+end;//TkwEfUserPropertyFMiddlePanel.f_MiddlePanel
 
 class function TkwEfUserPropertyFMiddlePanel.GetWordNameForRegister: AnsiString;
 begin
@@ -2369,14 +2354,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству f_MiddlePanel', aCtx);
 end;//TkwEfUserPropertyFMiddlePanel.SetValuePrim
 
-function TkwEfUserPropertyEdPrivilegedUser.edPrivilegedUser(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtCheckBox;
- {* Реализация слова скрипта .TefUserProperty.edPrivilegedUser }
-begin
- Result := aefUserProperty.edPrivilegedUser;
-end;//TkwEfUserPropertyEdPrivilegedUser.edPrivilegedUser
-
-procedure TkwEfUserPropertyEdPrivilegedUser.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyFMiddlePanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2388,8 +2366,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edPrivilegedUser(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdPrivilegedUser.DoDoIt
+ aCtx.rEngine.PushObj(f_MiddlePanel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyFMiddlePanel.DoDoIt
+
+function TkwEfUserPropertyEdPrivilegedUser.edPrivilegedUser(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtCheckBox;
+ {* Реализация слова скрипта .TefUserProperty.edPrivilegedUser }
+begin
+ Result := aefUserProperty.edPrivilegedUser;
+end;//TkwEfUserPropertyEdPrivilegedUser.edPrivilegedUser
 
 class function TkwEfUserPropertyEdPrivilegedUser.GetWordNameForRegister: AnsiString;
 begin
@@ -2417,14 +2402,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edPrivilegedUser', aCtx);
 end;//TkwEfUserPropertyEdPrivilegedUser.SetValuePrim
 
-function TkwEfUserPropertyEdBuyConsulting.edBuyConsulting(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtCheckBox;
- {* Реализация слова скрипта .TefUserProperty.edBuyConsulting }
-begin
- Result := aefUserProperty.edBuyConsulting;
-end;//TkwEfUserPropertyEdBuyConsulting.edBuyConsulting
-
-procedure TkwEfUserPropertyEdBuyConsulting.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdPrivilegedUser.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2436,8 +2414,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edBuyConsulting(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdBuyConsulting.DoDoIt
+ aCtx.rEngine.PushObj(edPrivilegedUser(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdPrivilegedUser.DoDoIt
+
+function TkwEfUserPropertyEdBuyConsulting.edBuyConsulting(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtCheckBox;
+ {* Реализация слова скрипта .TefUserProperty.edBuyConsulting }
+begin
+ Result := aefUserProperty.edBuyConsulting;
+end;//TkwEfUserPropertyEdBuyConsulting.edBuyConsulting
 
 class function TkwEfUserPropertyEdBuyConsulting.GetWordNameForRegister: AnsiString;
 begin
@@ -2465,14 +2450,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edBuyConsulting', aCtx);
 end;//TkwEfUserPropertyEdBuyConsulting.SetValuePrim
 
-function TkwEfUserPropertyFDontDeleteIdleUserPanel.f_DontDeleteIdleUserPanel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtPanel;
- {* Реализация слова скрипта .TefUserProperty.f_DontDeleteIdleUserPanel }
-begin
- Result := aefUserProperty.f_DontDeleteIdleUserPanel;
-end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.f_DontDeleteIdleUserPanel
-
-procedure TkwEfUserPropertyFDontDeleteIdleUserPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdBuyConsulting.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2484,8 +2462,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(f_DontDeleteIdleUserPanel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.DoDoIt
+ aCtx.rEngine.PushObj(edBuyConsulting(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdBuyConsulting.DoDoIt
+
+function TkwEfUserPropertyFDontDeleteIdleUserPanel.f_DontDeleteIdleUserPanel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtPanel;
+ {* Реализация слова скрипта .TefUserProperty.f_DontDeleteIdleUserPanel }
+begin
+ Result := aefUserProperty.f_DontDeleteIdleUserPanel;
+end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.f_DontDeleteIdleUserPanel
 
 class function TkwEfUserPropertyFDontDeleteIdleUserPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -2513,14 +2498,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству f_DontDeleteIdleUserPanel', aCtx);
 end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.SetValuePrim
 
-function TkwEfUserPropertyEdDontDeleteIdleUser.edDontDeleteIdleUser(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtCheckBox;
- {* Реализация слова скрипта .TefUserProperty.edDontDeleteIdleUser }
-begin
- Result := aefUserProperty.edDontDeleteIdleUser;
-end;//TkwEfUserPropertyEdDontDeleteIdleUser.edDontDeleteIdleUser
-
-procedure TkwEfUserPropertyEdDontDeleteIdleUser.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyFDontDeleteIdleUserPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2532,8 +2510,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edDontDeleteIdleUser(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdDontDeleteIdleUser.DoDoIt
+ aCtx.rEngine.PushObj(f_DontDeleteIdleUserPanel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.DoDoIt
+
+function TkwEfUserPropertyEdDontDeleteIdleUser.edDontDeleteIdleUser(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtCheckBox;
+ {* Реализация слова скрипта .TefUserProperty.edDontDeleteIdleUser }
+begin
+ Result := aefUserProperty.edDontDeleteIdleUser;
+end;//TkwEfUserPropertyEdDontDeleteIdleUser.edDontDeleteIdleUser
 
 class function TkwEfUserPropertyEdDontDeleteIdleUser.GetWordNameForRegister: AnsiString;
 begin
@@ -2561,14 +2546,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству edDontDeleteIdleUser', aCtx);
 end;//TkwEfUserPropertyEdDontDeleteIdleUser.SetValuePrim
 
-function TkwEfUserPropertyFBottomPanel.f_BottomPanel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtPanel;
- {* Реализация слова скрипта .TefUserProperty.f_BottomPanel }
-begin
- Result := aefUserProperty.f_BottomPanel;
-end;//TkwEfUserPropertyFBottomPanel.f_BottomPanel
-
-procedure TkwEfUserPropertyFBottomPanel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyEdDontDeleteIdleUser.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2580,8 +2558,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(f_BottomPanel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyFBottomPanel.DoDoIt
+ aCtx.rEngine.PushObj(edDontDeleteIdleUser(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdDontDeleteIdleUser.DoDoIt
+
+function TkwEfUserPropertyFBottomPanel.f_BottomPanel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtPanel;
+ {* Реализация слова скрипта .TefUserProperty.f_BottomPanel }
+begin
+ Result := aefUserProperty.f_BottomPanel;
+end;//TkwEfUserPropertyFBottomPanel.f_BottomPanel
 
 class function TkwEfUserPropertyFBottomPanel.GetWordNameForRegister: AnsiString;
 begin
@@ -2609,14 +2594,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству f_BottomPanel', aCtx);
 end;//TkwEfUserPropertyFBottomPanel.SetValuePrim
 
-function TkwEfUserPropertyInfoLabel.InfoLabel(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtLabel;
- {* Реализация слова скрипта .TefUserProperty.InfoLabel }
-begin
- Result := aefUserProperty.InfoLabel;
-end;//TkwEfUserPropertyInfoLabel.InfoLabel
-
-procedure TkwEfUserPropertyInfoLabel.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyFBottomPanel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2628,8 +2606,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyInfoLabel.DoDoIt
+ aCtx.rEngine.PushObj(f_BottomPanel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyFBottomPanel.DoDoIt
+
+function TkwEfUserPropertyInfoLabel.InfoLabel(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtLabel;
+ {* Реализация слова скрипта .TefUserProperty.InfoLabel }
+begin
+ Result := aefUserProperty.InfoLabel;
+end;//TkwEfUserPropertyInfoLabel.InfoLabel
 
 class function TkwEfUserPropertyInfoLabel.GetWordNameForRegister: AnsiString;
 begin
@@ -2657,14 +2642,7 @@ begin
  RunnerError('Нельзя присваивать значение readonly свойству InfoLabel', aCtx);
 end;//TkwEfUserPropertyInfoLabel.SetValuePrim
 
-function TkwEfUserPropertyEdHasSharedFilters.edHasSharedFilters(const aCtx: TtfwContext;
- aefUserProperty: TefUserProperty): TvtCheckBox;
- {* Реализация слова скрипта .TefUserProperty.edHasSharedFilters }
-begin
- Result := aefUserProperty.edHasSharedFilters;
-end;//TkwEfUserPropertyEdHasSharedFilters.edHasSharedFilters
-
-procedure TkwEfUserPropertyEdHasSharedFilters.DoDoIt(const aCtx: TtfwContext);
+procedure TkwEfUserPropertyInfoLabel.DoDoIt(const aCtx: TtfwContext);
 var l_aefUserProperty: TefUserProperty;
 begin
  try
@@ -2676,8 +2654,15 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj(edHasSharedFilters(aCtx, l_aefUserProperty));
-end;//TkwEfUserPropertyEdHasSharedFilters.DoDoIt
+ aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyInfoLabel.DoDoIt
+
+function TkwEfUserPropertyEdHasSharedFilters.edHasSharedFilters(const aCtx: TtfwContext;
+ aefUserProperty: TefUserProperty): TvtCheckBox;
+ {* Реализация слова скрипта .TefUserProperty.edHasSharedFilters }
+begin
+ Result := aefUserProperty.edHasSharedFilters;
+end;//TkwEfUserPropertyEdHasSharedFilters.edHasSharedFilters
 
 class function TkwEfUserPropertyEdHasSharedFilters.GetWordNameForRegister: AnsiString;
 begin
@@ -2704,6 +2689,21 @@ procedure TkwEfUserPropertyEdHasSharedFilters.SetValuePrim(const aValue: TtfwSta
 begin
  RunnerError('Нельзя присваивать значение readonly свойству edHasSharedFilters', aCtx);
 end;//TkwEfUserPropertyEdHasSharedFilters.SetValuePrim
+
+procedure TkwEfUserPropertyEdHasSharedFilters.DoDoIt(const aCtx: TtfwContext);
+var l_aefUserProperty: TefUserProperty;
+begin
+ try
+  l_aefUserProperty := TefUserProperty(aCtx.rEngine.PopObjAs(TefUserProperty));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefUserProperty: TefUserProperty : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edHasSharedFilters(aCtx, l_aefUserProperty));
+end;//TkwEfUserPropertyEdHasSharedFilters.DoDoIt
 
 initialization
  Tkw_Form_UserProperty.RegisterInEngine;
