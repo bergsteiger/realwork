@@ -39,8 +39,8 @@ type
     anAttrID: TdtAttribute);
     {* Реализация слова скрипта AttrExplorer:GotoOnAttrNode }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -57,13 +57,33 @@ procedure TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode(const aCtx: TtfwContext;
  aAttrExplorer: TAttrExplorer;
  anAttrID: TdtAttribute);
  {* Реализация слова скрипта AttrExplorer:GotoOnAttrNode }
-//#UC START# *553109D90010_50112451BECA_var*
-//#UC END# *553109D90010_50112451BECA_var*
+//#UC START# *553109D90010_553109D90010_528A0B9E02C7_Word_var*
+//#UC END# *553109D90010_553109D90010_528A0B9E02C7_Word_var*
 begin
-//#UC START# *553109D90010_50112451BECA_impl*
+//#UC START# *553109D90010_553109D90010_528A0B9E02C7_Word_impl*
  aAttrExplorer.GotoOnAttrNode(anAttrID);
-//#UC END# *553109D90010_50112451BECA_impl*
+//#UC END# *553109D90010_553109D90010_528A0B9E02C7_Word_impl*
 end;//TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode
+
+class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'AttrExplorer:GotoOnAttrNode';
+end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
+
+function TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo
+
+function TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount
+
+function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TAttrExplorer), TypeInfo(TdtAttribute)]);
+end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
 
 procedure TkwAttrExplorerGotoOnAttrNode.DoDoIt(const aCtx: TtfwContext);
 var l_aAttrExplorer: TAttrExplorer;
@@ -89,26 +109,6 @@ begin
  end;//try..except
  GotoOnAttrNode(aCtx, l_aAttrExplorer, l_anAttrID);
 end;//TkwAttrExplorerGotoOnAttrNode.DoDoIt
-
-class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
-begin
- Result := 'AttrExplorer:GotoOnAttrNode';
-end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
-
-function TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo
-
-function TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 2;
-end;//TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount
-
-function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TAttrExplorer), TypeInfo(TdtAttribute)]);
-end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
 
 class function TAttributeExplorerWordsPackResNameGetter.ResName: AnsiString;
 begin
