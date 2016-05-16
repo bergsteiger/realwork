@@ -1199,23 +1199,23 @@ end;//TkwControlFocusedControlPush.DoDoIt
 class procedure TkwPopControlColor.DoSetValue(aControl: TControl;
  aValue: TColor);
  {* Метод установки значения свойства Color }
-//#UC START# *ACC5312E1C3D_47E1201703C3_Word_DoSetValue_ACC5312E1C3D_47E1201703C3_Word_var*
-//#UC END# *ACC5312E1C3D_47E1201703C3_Word_DoSetValue_ACC5312E1C3D_47E1201703C3_Word_var*
+//#UC START# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_var*
+//#UC END# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_var*
 begin
-//#UC START# *ACC5312E1C3D_47E1201703C3_Word_DoSetValue_ACC5312E1C3D_47E1201703C3_Word_impl*
- TControlFriend(aControl).Color := aValue;
-//#UC END# *ACC5312E1C3D_47E1201703C3_Word_DoSetValue_ACC5312E1C3D_47E1201703C3_Word_impl*
+//#UC START# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_impl*
 end;//TkwPopControlColor.DoSetValue
 
 function TkwPopControlColor.Color(const aCtx: TtfwContext;
  aControl: TControl): TColor;
  {* Реализация слова скрипта pop:Control:Color }
-//#UC START# *ACC5312E1C3D_ACC5312E1C3D_47E1201703C3_Word_var*
-//#UC END# *ACC5312E1C3D_ACC5312E1C3D_47E1201703C3_Word_var*
+//#UC START# *54FED42200C0_54FED42200C0_47E1201703C3_Word_var*
+//#UC END# *54FED42200C0_54FED42200C0_47E1201703C3_Word_var*
 begin
-//#UC START# *ACC5312E1C3D_ACC5312E1C3D_47E1201703C3_Word_impl*
- Result := TControlFriend(aControl).Color;
-//#UC END# *ACC5312E1C3D_ACC5312E1C3D_47E1201703C3_Word_impl*
+//#UC START# *54FED42200C0_54FED42200C0_47E1201703C3_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54FED42200C0_54FED42200C0_47E1201703C3_Word_impl*
 end;//TkwPopControlColor.Color
 
 class function TkwPopControlColor.GetWordNameForRegister: AnsiString;
@@ -1512,12 +1512,12 @@ end;//TkwPopControlShowHint.DoDoIt
 function TkwPopControlCaption.Caption(const aCtx: TtfwContext;
  aControl: TControl): AnsiString;
  {* Реализация слова скрипта pop:Control:Caption }
-//#UC START# *DED31F73A44E_DED31F73A44E_47E1201703C3_Word_var*
-//#UC END# *DED31F73A44E_DED31F73A44E_47E1201703C3_Word_var*
+//#UC START# *54FED5F90129_54FED5F90129_47E1201703C3_Word_var*
+//#UC END# *54FED5F90129_54FED5F90129_47E1201703C3_Word_var*
 begin
-//#UC START# *DED31F73A44E_DED31F73A44E_47E1201703C3_Word_impl*
- Result := TControlFriend(aControl).Caption;
-//#UC END# *DED31F73A44E_DED31F73A44E_47E1201703C3_Word_impl*
+//#UC START# *54FED5F90129_54FED5F90129_47E1201703C3_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54FED5F90129_54FED5F90129_47E1201703C3_Word_impl*
 end;//TkwPopControlCaption.Caption
 
 class function TkwPopControlCaption.GetWordNameForRegister: AnsiString;
@@ -1844,12 +1844,12 @@ end;//TkwPopControlParent.DoDoIt
 function TkwPopControlFont.Font(const aCtx: TtfwContext;
  aControl: TControl): Il3FontInfo;
  {* Реализация слова скрипта pop:Control:Font }
-//#UC START# *6F77A6446D98_6F77A6446D98_47E1201703C3_Word_var*
-//#UC END# *6F77A6446D98_6F77A6446D98_47E1201703C3_Word_var*
+//#UC START# *556F26B303CB_556F26B303CB_47E1201703C3_Word_var*
+//#UC END# *556F26B303CB_556F26B303CB_47E1201703C3_Word_var*
 begin
-//#UC START# *6F77A6446D98_6F77A6446D98_47E1201703C3_Word_impl*
- Result := Tl3ControlFontService.Instance.GetFont(aControl);
-//#UC END# *6F77A6446D98_6F77A6446D98_47E1201703C3_Word_impl*
+//#UC START# *556F26B303CB_556F26B303CB_47E1201703C3_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F26B303CB_556F26B303CB_47E1201703C3_Word_impl*
 end;//TkwPopControlFont.Font
 
 class function TkwPopControlFont.GetWordNameForRegister: AnsiString;

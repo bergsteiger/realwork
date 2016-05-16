@@ -1033,15 +1033,15 @@ end;//TkwArraySlice.DoDoIt
 function TkwArrayCount.Count(const aCtx: TtfwContext;
  const aArray: ItfwValueList): Integer;
  {* Реализация слова скрипта Array:Count }
-//#UC START# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_var*
-//#UC END# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_var*
+//#UC START# *5510142301A5_5510142301A5_4DCC12FC0125_Word_var*
+//#UC END# *5510142301A5_5510142301A5_4DCC12FC0125_Word_var*
 begin
-//#UC START# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_impl*
+//#UC START# *5510142301A5_5510142301A5_4DCC12FC0125_Word_impl*
  if (aArray = nil) then
   Result := 0
  else
   Result := aArray.Count; 
-//#UC END# *044C5FFA728B_044C5FFA728B_4DCC12FC0125_Word_impl*
+//#UC END# *5510142301A5_5510142301A5_4DCC12FC0125_Word_impl*
 end;//TkwArrayCount.Count
 
 class function TkwArrayCount.GetWordNameForRegister: AnsiString;
