@@ -124,12 +124,12 @@ end;//TkwPopKeywordFinderKeywordByName.DoDoIt
 function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
  aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
-//#UC START# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_var*
-//#UC END# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_var*
+//#UC START# *559BCF500182_559BCF500182_559D5D4400D3_Word_var*
+//#UC END# *559BCF500182_559BCF500182_559D5D4400D3_Word_var*
 begin
-//#UC START# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_impl*
- Result := aKeywordFinder.ParentFinder;
-//#UC END# *4DFEE1DE515C_4DFEE1DE515C_559D5D4400D3_Word_impl*
+//#UC START# *559BCF500182_559BCF500182_559D5D4400D3_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559BCF500182_559BCF500182_559D5D4400D3_Word_impl*
 end;//TkwPopKeywordFinderParentFinder.ParentFinder
 
 class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;

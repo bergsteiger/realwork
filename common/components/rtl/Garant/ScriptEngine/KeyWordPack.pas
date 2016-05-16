@@ -213,12 +213,12 @@ end;//TkwPopKeyWordWord.DoDoIt
 function TkwPopKeyWordName.Name(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): Il3CString;
  {* Реализация слова скрипта pop:KeyWord:Name }
-//#UC START# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_var*
-//#UC END# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_var*
+//#UC START# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_var*
+//#UC END# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_var*
 begin
-//#UC START# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_impl*
- Result := aKeyWord.AsCStr;
-//#UC END# *95D794E63B77_95D794E63B77_4DAEF23D00EE_Word_impl*
+//#UC START# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_impl*
 end;//TkwPopKeyWordName.Name
 
 class function TkwPopKeyWordName.GetWordNameForRegister: AnsiString;
@@ -265,12 +265,12 @@ end;//TkwPopKeyWordName.DoDoIt
 function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwDictionary;
  {* Реализация слова скрипта pop:KeyWord:Dictionary }
-//#UC START# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_var*
-//#UC END# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_var*
+//#UC START# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_var*
+//#UC END# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_var*
 begin
-//#UC START# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_impl*
- Result := aKeyWord.Dictionary As TtfwDictionary;
-//#UC END# *BA5A99900884_BA5A99900884_4DAEF23D00EE_Word_impl*
+//#UC START# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_impl*
 end;//TkwPopKeyWordDictionary.Dictionary
 
 class function TkwPopKeyWordDictionary.GetWordNameForRegister: AnsiString;

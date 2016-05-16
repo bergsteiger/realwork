@@ -355,12 +355,12 @@ end;//TkwPopCompilerAddCodePartValue.DoDoIt
 function TkwPopCompilerKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:Compiler:KeywordFinder }
-//#UC START# *D8B128B94337_D8B128B94337_4DB6E2EE0259_Word_var*
-//#UC END# *D8B128B94337_D8B128B94337_4DB6E2EE0259_Word_var*
+//#UC START# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_var*
+//#UC END# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_var*
 begin
-//#UC START# *D8B128B94337_D8B128B94337_4DB6E2EE0259_Word_impl*
- Result := aCompiler.KeywordFinder(aCtx);
-//#UC END# *D8B128B94337_D8B128B94337_4DB6E2EE0259_Word_impl*
+//#UC START# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_impl*
 end;//TkwPopCompilerKeywordFinder.KeywordFinder
 
 class function TkwPopCompilerKeywordFinder.GetWordNameForRegister: AnsiString;
@@ -407,12 +407,12 @@ end;//TkwPopCompilerKeywordFinder.DoDoIt
 function TkwPopCompilerNewWordDefinitor.NewWordDefinitor(const aCtx: TtfwContext;
  aCompiler: TtfwCompiler): TtfwNewWordDefinitor;
  {* Реализация слова скрипта pop:Compiler:NewWordDefinitor }
-//#UC START# *590E9BCDEE40_590E9BCDEE40_4DB6E2EE0259_Word_var*
-//#UC END# *590E9BCDEE40_590E9BCDEE40_4DB6E2EE0259_Word_var*
+//#UC START# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_var*
+//#UC END# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_var*
 begin
-//#UC START# *590E9BCDEE40_590E9BCDEE40_4DB6E2EE0259_Word_impl*
- Result := aCompiler.NewWordDefinitor;
-//#UC END# *590E9BCDEE40_590E9BCDEE40_4DB6E2EE0259_Word_impl*
+//#UC START# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_impl*
 end;//TkwPopCompilerNewWordDefinitor.NewWordDefinitor
 
 class function TkwPopCompilerNewWordDefinitor.GetWordNameForRegister: AnsiString;

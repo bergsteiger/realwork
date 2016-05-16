@@ -1780,12 +1780,12 @@ end;//TkwPopWordBox.DoDoIt
 function TkwPopWordDirectives.Directives(const aCtx: TtfwContext;
  aWord: TtfwWord): Il3CString;
  {* Реализация слова скрипта pop:Word:Directives }
-//#UC START# *1AA373FAA740_1AA373FAA740_4DAEED140007_Word_var*
-//#UC END# *1AA373FAA740_1AA373FAA740_4DAEED140007_Word_var*
+//#UC START# *550C26A10073_550C26A10073_4DAEED140007_Word_var*
+//#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_var*
 begin
-//#UC START# *1AA373FAA740_1AA373FAA740_4DAEED140007_Word_impl*
- Result := GetWordDirectives(aCtx, aWord);
-//#UC END# *1AA373FAA740_1AA373FAA740_4DAEED140007_Word_impl*
+//#UC START# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
 end;//TkwPopWordDirectives.Directives
 
 class function TkwPopWordDirectives.GetWordNameForRegister: AnsiString;
@@ -1832,25 +1832,12 @@ end;//TkwPopWordDirectives.DoDoIt
 function TkwPopWordEndBracket.EndBracket(const aCtx: TtfwContext;
  aWord: TtfwWord): AnsiString;
  {* Реализация слова скрипта pop:Word:EndBracket }
-//#UC START# *5E243BEF8990_5E243BEF8990_4DAEED140007_Word_var*
-var
- l_B : RtfwWord;
-//#UC END# *5E243BEF8990_5E243BEF8990_4DAEED140007_Word_var*
+//#UC START# *550C274E00CA_550C274E00CA_4DAEED140007_Word_var*
+//#UC END# *550C274E00CA_550C274E00CA_4DAEED140007_Word_var*
 begin
-//#UC START# *5E243BEF8990_5E243BEF8990_4DAEED140007_Word_impl*
- try
-  if (aWord = nil) then
-   l_B := nil
-  else
-   l_B := aWord.GetEndBracket(aCtx, true);
- except
-  l_B := nil;
- end;//try..except
- if (l_B = nil) then
-  Result := ''
- else
-  Result := aCtx.rEngine.KeywordByName(TtfwCStringFactory.C(l_B.NameForRegister)).AsString;
-//#UC END# *5E243BEF8990_5E243BEF8990_4DAEED140007_Word_impl*
+//#UC START# *550C274E00CA_550C274E00CA_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550C274E00CA_550C274E00CA_4DAEED140007_Word_impl*
 end;//TkwPopWordEndBracket.EndBracket
 
 class function TkwPopWordEndBracket.GetWordNameForRegister: AnsiString;
@@ -1897,12 +1884,12 @@ end;//TkwPopWordEndBracket.DoDoIt
 function TkwPopWordLeftWordRefValuesCount.LeftWordRefValuesCount(const aCtx: TtfwContext;
  aWord: TtfwWord): Integer;
  {* Реализация слова скрипта pop:Word:LeftWordRefValuesCount }
-//#UC START# *4DBCF595CED4_4DBCF595CED4_4DAEED140007_Word_var*
-//#UC END# *4DBCF595CED4_4DBCF595CED4_4DAEED140007_Word_var*
+//#UC START# *550C27EA0141_550C27EA0141_4DAEED140007_Word_var*
+//#UC END# *550C27EA0141_550C27EA0141_4DAEED140007_Word_var*
 begin
-//#UC START# *4DBCF595CED4_4DBCF595CED4_4DAEED140007_Word_impl*
- Result := aWord.LeftWordRefValuesCount(aCtx);
-//#UC END# *4DBCF595CED4_4DBCF595CED4_4DAEED140007_Word_impl*
+//#UC START# *550C27EA0141_550C27EA0141_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550C27EA0141_550C27EA0141_4DAEED140007_Word_impl*
 end;//TkwPopWordLeftWordRefValuesCount.LeftWordRefValuesCount
 
 class function TkwPopWordLeftWordRefValuesCount.GetWordNameForRegister: AnsiString;
@@ -1949,15 +1936,12 @@ end;//TkwPopWordLeftWordRefValuesCount.DoDoIt
 function TkwPopWordName.Name(const aCtx: TtfwContext;
  aWord: TtfwWord): Il3CString;
  {* Реализация слова скрипта pop:Word:Name }
-//#UC START# *C4839440B912_C4839440B912_4DAEED140007_Word_var*
-//#UC END# *C4839440B912_C4839440B912_4DAEED140007_Word_var*
+//#UC START# *550C28100270_550C28100270_4DAEED140007_Word_var*
+//#UC END# *550C28100270_550C28100270_4DAEED140007_Word_var*
 begin
-//#UC START# *C4839440B912_C4839440B912_4DAEED140007_Word_impl*
- if (aWord = nil) then
-  Result := TtfwCStringFactory.C('??? Unexisting word ???')
- else
-  Result := aWord.WordName;
-//#UC END# *C4839440B912_C4839440B912_4DAEED140007_Word_impl*
+//#UC START# *550C28100270_550C28100270_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550C28100270_550C28100270_4DAEED140007_Word_impl*
 end;//TkwPopWordName.Name
 
 class function TkwPopWordName.GetWordNameForRegister: AnsiString;
@@ -2004,12 +1988,12 @@ end;//TkwPopWordName.DoDoIt
 function TkwPopWordParent.Parent(const aCtx: TtfwContext;
  aWord: TtfwWord): TtfwWord;
  {* Реализация слова скрипта pop:Word:Parent }
-//#UC START# *63BD58111A04_63BD58111A04_4DAEED140007_Word_var*
-//#UC END# *63BD58111A04_63BD58111A04_4DAEED140007_Word_var*
+//#UC START# *550C283B01A0_550C283B01A0_4DAEED140007_Word_var*
+//#UC END# *550C283B01A0_550C283B01A0_4DAEED140007_Word_var*
 begin
-//#UC START# *63BD58111A04_63BD58111A04_4DAEED140007_Word_impl*
- Result := aWord.ParentWord;
-//#UC END# *63BD58111A04_63BD58111A04_4DAEED140007_Word_impl*
+//#UC START# *550C283B01A0_550C283B01A0_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550C283B01A0_550C283B01A0_4DAEED140007_Word_impl*
 end;//TkwPopWordParent.Parent
 
 class function TkwPopWordParent.GetWordNameForRegister: AnsiString;
@@ -2056,12 +2040,12 @@ end;//TkwPopWordParent.DoDoIt
 function TkwPopWordProducer.Producer(const aCtx: TtfwContext;
  aWord: TtfwWord): TtfwWord;
  {* Реализация слова скрипта pop:Word:Producer }
-//#UC START# *148F599718BC_148F599718BC_4DAEED140007_Word_var*
-//#UC END# *148F599718BC_148F599718BC_4DAEED140007_Word_var*
+//#UC START# *550C286D0202_550C286D0202_4DAEED140007_Word_var*
+//#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_var*
 begin
-//#UC START# *148F599718BC_148F599718BC_4DAEED140007_Word_impl*
- Result := aWord.WordProducer;
-//#UC END# *148F599718BC_148F599718BC_4DAEED140007_Word_impl*
+//#UC START# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
 end;//TkwPopWordProducer.Producer
 
 class function TkwPopWordProducer.GetWordNameForRegister: AnsiString;

@@ -574,12 +574,12 @@ end;//TkwPopNewWordDefinitorCheckRefcountVar.DoDoIt
 function TkwPopNewWordDefinitorKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor): TtfwKeywordFinder;
  {* Реализация слова скрипта pop:NewWordDefinitor:KeywordFinder }
-//#UC START# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_var*
-//#UC END# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_var*
+//#UC START# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_var*
+//#UC END# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_var*
 begin
-//#UC START# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_impl*
- Result := aNewWordDefinitor.KeywordFinder(aCtx);
-//#UC END# *D45F1476C5EF_D45F1476C5EF_4DC95E96023B_Word_impl*
+//#UC START# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_impl*
 end;//TkwPopNewWordDefinitorKeywordFinder.KeywordFinder
 
 class function TkwPopNewWordDefinitorKeywordFinder.GetWordNameForRegister: AnsiString;
