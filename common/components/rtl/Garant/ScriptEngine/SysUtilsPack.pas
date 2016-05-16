@@ -788,6 +788,22 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwSysutilsGetACP
 
+ TkwIntToHex = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта IntToHex }
+  private
+   function IntToHex(const aCtx: TtfwContext;
+    aValue: Integer;
+    aDigits: Integer): AnsiString;
+    {* Реализация слова скрипта IntToHex }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIntToHex
+
  TSysUtilsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
@@ -3240,6 +3256,63 @@ begin
  aCtx.rEngine.PushInt(sysutils_GetACP(aCtx));
 end;//TkwSysutilsGetACP.DoDoIt
 
+function TkwIntToHex.IntToHex(const aCtx: TtfwContext;
+ aValue: Integer;
+ aDigits: Integer): AnsiString;
+ {* Реализация слова скрипта IntToHex }
+//#UC START# *573990470097_573990470097_Word_var*
+//#UC END# *573990470097_573990470097_Word_var*
+begin
+//#UC START# *573990470097_573990470097_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *573990470097_573990470097_Word_impl*
+end;//TkwIntToHex.IntToHex
+
+class function TkwIntToHex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'IntToHex';
+end;//TkwIntToHex.GetWordNameForRegister
+
+function TkwIntToHex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwIntToHex.GetResultTypeInfo
+
+function TkwIntToHex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwIntToHex.GetAllParamsCount
+
+function TkwIntToHex.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer)]);
+end;//TkwIntToHex.ParamsTypes
+
+procedure TkwIntToHex.DoDoIt(const aCtx: TtfwContext);
+var l_aValue: Integer;
+var l_aDigits: Integer;
+begin
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDigits := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDigits: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(IntToHex(aCtx, l_aValue, l_aDigits));
+end;//TkwIntToHex.DoDoIt
+
 class function TSysUtilsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'SysUtilsPack';
@@ -3350,6 +3423,8 @@ initialization
  {* Регистрация sysutils_CodePage }
  TkwSysutilsGetACP.RegisterInEngine;
  {* Регистрация sysutils_GetACP }
+ TkwIntToHex.RegisterInEngine;
+ {* Регистрация IntToHex }
  TSysUtilsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

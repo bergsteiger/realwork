@@ -93,12 +93,12 @@ type
 function TkwNodeCaption.Caption(const aCtx: TtfwContext;
  const aNode: Il3Node): Tl3WString;
  {* Реализация слова скрипта Node:Caption }
-//#UC START# *4F99944CAE02_4F99944CAE02_476BF22B03E1_Word_var*
-//#UC END# *4F99944CAE02_4F99944CAE02_476BF22B03E1_Word_var*
+//#UC START# *54F99E960080_54F99E960080_476BF22B03E1_Word_var*
+//#UC END# *54F99E960080_54F99E960080_476BF22B03E1_Word_var*
 begin
-//#UC START# *4F99944CAE02_4F99944CAE02_476BF22B03E1_Word_impl*
- Result := aNode.Text;
-//#UC END# *4F99944CAE02_4F99944CAE02_476BF22B03E1_Word_impl*
+//#UC START# *54F99E960080_54F99E960080_476BF22B03E1_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54F99E960080_54F99E960080_476BF22B03E1_Word_impl*
 end;//TkwNodeCaption.Caption
 
 class function TkwNodeCaption.GetWordNameForRegister: AnsiString;
@@ -145,12 +145,12 @@ end;//TkwNodeCaption.DoDoIt
 function TkwNodeIndex.Index(const aCtx: TtfwContext;
  const aNode: Il3Node): Integer;
  {* Реализация слова скрипта Node:Index }
-//#UC START# *5ED2FC5C7948_5ED2FC5C7948_476BF22B03E1_Word_var*
-//#UC END# *5ED2FC5C7948_5ED2FC5C7948_476BF22B03E1_Word_var*
+//#UC START# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_var*
+//#UC END# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_var*
 begin
-//#UC START# *5ED2FC5C7948_5ED2FC5C7948_476BF22B03E1_Word_impl*
- Result := aNode.GetNumInParent;
-//#UC END# *5ED2FC5C7948_5ED2FC5C7948_476BF22B03E1_Word_impl*
+//#UC START# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_impl*
 end;//TkwNodeIndex.Index
 
 class function TkwNodeIndex.GetWordNameForRegister: AnsiString;
@@ -197,25 +197,12 @@ end;//TkwNodeIndex.DoDoIt
 function TkwNodeIndexInTree.IndexInTree(const aCtx: TtfwContext;
  const aNode: Il3Node): Integer;
  {* Реализация слова скрипта Node:IndexInTree }
-//#UC START# *B48811A42410_B48811A42410_476BF22B03E1_Word_var*
-var
- l_Index: Integer;
- l_P: Il3Node;
-//#UC END# *B48811A42410_B48811A42410_476BF22B03E1_Word_var*
+//#UC START# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_var*
+//#UC END# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_var*
 begin
-//#UC START# *B48811A42410_B48811A42410_476BF22B03E1_Word_impl*
- l_Index := aNode.GetNumInParent;
- l_P := aNode.ParentNode;
- try
-  while Assigned(l_P) do
-  begin
-   l_Index := l_Index + l_P.GetNumInParent;
-   l_P := l_P.ParentNode;
-  end;//while Assigned(l_P)
- finally
-  l_P := nil;
- end;//try..finally
-//#UC END# *B48811A42410_B48811A42410_476BF22B03E1_Word_impl*
+//#UC START# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_impl*
 end;//TkwNodeIndexInTree.IndexInTree
 
 class function TkwNodeIndexInTree.GetWordNameForRegister: AnsiString;

@@ -177,12 +177,12 @@ type
 function TkwFontColor.Color(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
  {* Реализация слова скрипта Font:Color }
-//#UC START# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_var*
-//#UC END# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_var*
+//#UC START# *556F27CA0030_556F27CA0030_46A60B17028B_Word_var*
+//#UC END# *556F27CA0030_556F27CA0030_46A60B17028B_Word_var*
 begin
-//#UC START# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_impl*
- Result := aFont.ForeColor;
-//#UC END# *69F0C68E7956_69F0C68E7956_46A60B17028B_Word_impl*
+//#UC START# *556F27CA0030_556F27CA0030_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F27CA0030_556F27CA0030_46A60B17028B_Word_impl*
 end;//TkwFontColor.Color
 
 class function TkwFontColor.GetWordNameForRegister: AnsiString;
@@ -229,12 +229,12 @@ end;//TkwFontColor.DoDoIt
 function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Tl3Color;
  {* Реализация слова скрипта Font:BackColor }
-//#UC START# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_var*
-//#UC END# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_var*
+//#UC START# *556F27D901F0_556F27D901F0_46A60B17028B_Word_var*
+//#UC END# *556F27D901F0_556F27D901F0_46A60B17028B_Word_var*
 begin
-//#UC START# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_impl*
- Result := aFont.BackColor;
-//#UC END# *F9B0C6DC0985_F9B0C6DC0985_46A60B17028B_Word_impl*
+//#UC START# *556F27D901F0_556F27D901F0_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F27D901F0_556F27D901F0_46A60B17028B_Word_impl*
 end;//TkwFontBackColor.BackColor
 
 class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
@@ -281,12 +281,12 @@ end;//TkwFontBackColor.DoDoIt
 function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsBold }
-//#UC START# *42937118B88F_42937118B88F_46A60B17028B_Word_var*
-//#UC END# *42937118B88F_42937118B88F_46A60B17028B_Word_var*
+//#UC START# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_var*
+//#UC END# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_var*
 begin
-//#UC START# *42937118B88F_42937118B88F_46A60B17028B_Word_impl*
- Result := aFont.Bold;
-//#UC END# *42937118B88F_42937118B88F_46A60B17028B_Word_impl*
+//#UC START# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_impl*
 end;//TkwFontIsBold.IsBold
 
 class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
@@ -333,12 +333,12 @@ end;//TkwFontIsBold.DoDoIt
 function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsItalic }
-//#UC START# *451C4035B290_451C4035B290_46A60B17028B_Word_var*
-//#UC END# *451C4035B290_451C4035B290_46A60B17028B_Word_var*
+//#UC START# *556F280F0160_556F280F0160_46A60B17028B_Word_var*
+//#UC END# *556F280F0160_556F280F0160_46A60B17028B_Word_var*
 begin
-//#UC START# *451C4035B290_451C4035B290_46A60B17028B_Word_impl*
- Result := aFont.Italic;
-//#UC END# *451C4035B290_451C4035B290_46A60B17028B_Word_impl*
+//#UC START# *556F280F0160_556F280F0160_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F280F0160_556F280F0160_46A60B17028B_Word_impl*
 end;//TkwFontIsItalic.IsItalic
 
 class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
@@ -385,12 +385,12 @@ end;//TkwFontIsItalic.DoDoIt
 function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsUnderline }
-//#UC START# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_var*
-//#UC END# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_var*
+//#UC START# *556F281A0381_556F281A0381_46A60B17028B_Word_var*
+//#UC END# *556F281A0381_556F281A0381_46A60B17028B_Word_var*
 begin
-//#UC START# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_impl*
- Result := aFont.Underline;
-//#UC END# *6B90D10D9839_6B90D10D9839_46A60B17028B_Word_impl*
+//#UC START# *556F281A0381_556F281A0381_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F281A0381_556F281A0381_46A60B17028B_Word_impl*
 end;//TkwFontIsUnderline.IsUnderline
 
 class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
@@ -437,12 +437,12 @@ end;//TkwFontIsUnderline.DoDoIt
 function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Boolean;
  {* Реализация слова скрипта Font:IsStrikeOut }
-//#UC START# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_var*
-//#UC END# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_var*
+//#UC START# *556F282902E9_556F282902E9_46A60B17028B_Word_var*
+//#UC END# *556F282902E9_556F282902E9_46A60B17028B_Word_var*
 begin
-//#UC START# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_impl*
- Result := aFont.Strikeout;
-//#UC END# *07EFCC131FBD_07EFCC131FBD_46A60B17028B_Word_impl*
+//#UC START# *556F282902E9_556F282902E9_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F282902E9_556F282902E9_46A60B17028B_Word_impl*
 end;//TkwFontIsStrikeOut.IsStrikeOut
 
 class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
@@ -489,12 +489,12 @@ end;//TkwFontIsStrikeOut.DoDoIt
 function TkwFontName.Name(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): AnsiString;
  {* Реализация слова скрипта Font:Name }
-//#UC START# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_var*
-//#UC END# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_var*
+//#UC START# *556F2856019F_556F2856019F_46A60B17028B_Word_var*
+//#UC END# *556F2856019F_556F2856019F_46A60B17028B_Word_var*
 begin
-//#UC START# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_impl*
- Result := aFont.Name;
-//#UC END# *F619DAD50B87_F619DAD50B87_46A60B17028B_Word_impl*
+//#UC START# *556F2856019F_556F2856019F_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F2856019F_556F2856019F_46A60B17028B_Word_impl*
 end;//TkwFontName.Name
 
 class function TkwFontName.GetWordNameForRegister: AnsiString;
@@ -541,12 +541,12 @@ end;//TkwFontName.DoDoIt
 function TkwFontSize.Size(const aCtx: TtfwContext;
  const aFont: Il3FontInfo): Integer;
  {* Реализация слова скрипта Font:Size }
-//#UC START# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_var*
-//#UC END# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_var*
+//#UC START# *556F2867022F_556F2867022F_46A60B17028B_Word_var*
+//#UC END# *556F2867022F_556F2867022F_46A60B17028B_Word_var*
 begin
-//#UC START# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_impl*
- Result := aFont.Size;
-//#UC END# *B6BEEE7F8558_B6BEEE7F8558_46A60B17028B_Word_impl*
+//#UC START# *556F2867022F_556F2867022F_46A60B17028B_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *556F2867022F_556F2867022F_46A60B17028B_Word_impl*
 end;//TkwFontSize.Size
 
 class function TkwFontSize.GetWordNameForRegister: AnsiString;

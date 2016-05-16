@@ -254,12 +254,12 @@ end;//TkwPopTestEnabled.DoDoIt
 function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
  const aTest: ITest): AnsiString;
  {* Реализация слова скрипта pop:Test:SubFolder }
-//#UC START# *024726117628_024726117628_4B2F420202F4_Word_var*
-//#UC END# *024726117628_024726117628_4B2F420202F4_Word_var*
+//#UC START# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_var*
+//#UC END# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_var*
 begin
-//#UC START# *024726117628_024726117628_4B2F420202F4_Word_impl*
- Result := aTest.GetSubFolder;
-//#UC END# *024726117628_024726117628_4B2F420202F4_Word_impl*
+//#UC START# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_impl*
 end;//TkwPopTestSubFolder.SubFolder
 
 class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;

@@ -844,6 +844,21 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStringTransliterate
 
+ TkwStringHash48 = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Hash48 }
+  private
+   function string_Hash48(const aCtx: TtfwContext;
+    const aString: Il3CString): AnsiString;
+    {* Реализация слова скрипта string:Hash48 }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringHash48
+
  TtfwIl3CStringPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
@@ -3763,6 +3778,52 @@ begin
  aCtx.rEngine.PushString(string_Transliterate(aCtx, l_aString));
 end;//TkwStringTransliterate.DoDoIt
 
+function TkwStringHash48.string_Hash48(const aCtx: TtfwContext;
+ const aString: Il3CString): AnsiString;
+ {* Реализация слова скрипта string:Hash48 }
+//#UC START# *5739908903BB_5739908903BB_46780DA40383_Word_var*
+//#UC END# *5739908903BB_5739908903BB_46780DA40383_Word_var*
+begin
+//#UC START# *5739908903BB_5739908903BB_46780DA40383_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5739908903BB_5739908903BB_46780DA40383_Word_impl*
+end;//TkwStringHash48.string_Hash48
+
+class function TkwStringHash48.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Hash48';
+end;//TkwStringHash48.GetWordNameForRegister
+
+function TkwStringHash48.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringHash48.GetResultTypeInfo
+
+function TkwStringHash48.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringHash48.GetAllParamsCount
+
+function TkwStringHash48.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringHash48.ParamsTypes
+
+procedure TkwStringHash48.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Hash48(aCtx, l_aString));
+end;//TkwStringHash48.DoDoIt
+
 class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'tfwIl3CStringPack';
@@ -3871,6 +3932,8 @@ initialization
  {* Регистрация string_SmallHash_New }
  TkwStringTransliterate.RegisterInEngine;
  {* Регистрация string_Transliterate }
+ TkwStringHash48.RegisterInEngine;
+ {* Регистрация string_Hash48 }
  TtfwIl3CStringPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
