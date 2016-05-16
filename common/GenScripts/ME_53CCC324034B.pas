@@ -69,9 +69,6 @@ implementation
 {$If Defined(AppServerSide)}
 uses
  l3ImplUses
- {$If NOT Defined(Nemesis)}
- , dt_User
- {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  {$If NOT Defined(Nemesis)}
  , CsNotification
@@ -80,6 +77,7 @@ uses
  , l3Base
  , daUtils
  , daInterfaces
+ , daDataProvider
 ;
 
 constructor TalcuAsyncSubmitterManager.Create(const aBaseEngineHolder: TalcuBaseEngineHolder);

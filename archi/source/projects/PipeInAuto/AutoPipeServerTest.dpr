@@ -2273,12 +2273,13 @@ uses
  {$If Defined(ServerTasks)}
  , alcuAsyncTaskFinishedNotifierList in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas'
  {$IfEnd} // Defined(ServerTasks)
- {$If NOT Defined(Nemesis)}
- , dt_User in 'w:\common\components\rtl\Garant\DT\dt_User.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  , daInterfaces in 'w:\common\components\rtl\Garant\DA\daInterfaces.pas'
  , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , l3Languages in 'w:\common\components\rtl\Garant\L3\l3Languages.pas'
+ , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_User in 'w:\common\components\rtl\Garant\DT\dt_User.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , alcuBaseEngineHolder in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
  , alcuBaseEngine in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngine.pas'
  {$If Defined(ServerTasks)}
@@ -2305,7 +2306,6 @@ uses
  , CsNotification in 'w:\common\components\rtl\Garant\cs\CsNotification.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , daUtils in 'w:\common\components\rtl\Garant\DA\daUtils.pas'
- , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
  {$If Defined(ServerTasks)}
  , alcuGetReadyToDeliveryTasksExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuGetReadyToDeliveryTasksExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)

@@ -853,9 +853,6 @@ uses
  , alcuAsyncTaskFinishedNotifierList in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuAsyncTaskFinishedNotifierList.pas'
  {$IfEnd} // Defined(ServerTasks)
  , l3Base64 in 'w:\common\components\rtl\Garant\L3\l3Base64.pas'
- {$If NOT Defined(Nemesis)}
- , dt_User in 'w:\common\components\rtl\Garant\DT\dt_User.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  , daInterfaces in 'w:\common\components\rtl\Garant\DA\daInterfaces.pas'
  , l3Tree_TLB in 'w:\common\components\rtl\Garant\L3\l3Tree_TLB.pas'
  , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
@@ -1715,6 +1712,10 @@ uses
  , multimon in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\multimon.pas'
  , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
  , l3Languages in 'w:\common\components\rtl\Garant\L3\l3Languages.pas'
+ , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_User in 'w:\common\components\rtl\Garant\DT\dt_User.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , alcuBaseEngineHolder in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngineHolder.pas'
  , alcuBaseEngine in 'w:\archi\source\projects\PipeInAuto\Server\alcuBaseEngine.pas'
  {$If Defined(ServerTasks)}
@@ -1741,7 +1742,6 @@ uses
  , CsNotification in 'w:\common\components\rtl\Garant\cs\CsNotification.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , daUtils in 'w:\common\components\rtl\Garant\DA\daUtils.pas'
- , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
  {$If Defined(ServerTasks)}
  , alcuGetReadyToDeliveryTasksExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuGetReadyToDeliveryTasksExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)

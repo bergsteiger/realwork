@@ -71,15 +71,16 @@ uses
  , l3Types
  , l3Base
  , Windows
- {$If NOT Defined(Nemesis)}
- , dt_User
- {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  , daInterfaces
  {$If NOT Defined(Nemesis)}
  , csTaskTypes
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Interlocked
+ , daDataProvider
+ {$If NOT Defined(Nemesis)}
+ , dt_User
+ {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 procedure TalcuSubmitterWorkPool.pm_SetWorkThreadCount(aValue: integer);
