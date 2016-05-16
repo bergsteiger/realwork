@@ -36,8 +36,8 @@ type
     aSpellCheckDlg: TSpellCheckDlg);
     {* Реализация слова скрипта pop:SpellCheckDlg:Fake }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 procedure TkwPopSpellCheckDlgFake.Fake(const aCtx: TtfwContext;
  aSpellCheckDlg: TSpellCheckDlg);
  {* Реализация слова скрипта pop:SpellCheckDlg:Fake }
-//#UC START# *55C8CE2102C9_B3D7A1E7CA69_var*
-//#UC END# *55C8CE2102C9_B3D7A1E7CA69_var*
+//#UC START# *55C8CE2102C9_55C8CE2102C9_4F22A92D007F_Word_var*
+//#UC END# *55C8CE2102C9_55C8CE2102C9_4F22A92D007F_Word_var*
 begin
-//#UC START# *55C8CE2102C9_B3D7A1E7CA69_impl*
+//#UC START# *55C8CE2102C9_55C8CE2102C9_4F22A92D007F_Word_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *55C8CE2102C9_B3D7A1E7CA69_impl*
+//#UC END# *55C8CE2102C9_55C8CE2102C9_4F22A92D007F_Word_impl*
 end;//TkwPopSpellCheckDlgFake.Fake
-
-procedure TkwPopSpellCheckDlgFake.DoDoIt(const aCtx: TtfwContext);
-var l_aSpellCheckDlg: TSpellCheckDlg;
-begin
- try
-  l_aSpellCheckDlg := TSpellCheckDlg(aCtx.rEngine.PopObjAs(TSpellCheckDlg));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aSpellCheckDlg: TSpellCheckDlg : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Fake(aCtx, l_aSpellCheckDlg);
-end;//TkwPopSpellCheckDlgFake.DoDoIt
 
 class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopSpellCheckDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TSpellCheckDlg)]);
 end;//TkwPopSpellCheckDlgFake.ParamsTypes
+
+procedure TkwPopSpellCheckDlgFake.DoDoIt(const aCtx: TtfwContext);
+var l_aSpellCheckDlg: TSpellCheckDlg;
+begin
+ try
+  l_aSpellCheckDlg := TSpellCheckDlg(aCtx.rEngine.PopObjAs(TSpellCheckDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSpellCheckDlg: TSpellCheckDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aSpellCheckDlg);
+end;//TkwPopSpellCheckDlgFake.DoDoIt
 
 initialization
  TkwPopSpellCheckDlgFake.RegisterInEngine;

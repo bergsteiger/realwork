@@ -36,8 +36,8 @@ type
     aNewSubDlg: TNewSubDlg);
     {* Реализация слова скрипта pop:NewSubDlg:Fake }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 procedure TkwPopNewSubDlgFake.Fake(const aCtx: TtfwContext;
  aNewSubDlg: TNewSubDlg);
  {* Реализация слова скрипта pop:NewSubDlg:Fake }
-//#UC START# *55C8CE1E0042_744BF601F735_var*
-//#UC END# *55C8CE1E0042_744BF601F735_var*
+//#UC START# *55C8CE1E0042_55C8CE1E0042_4DFB50A6024F_Word_var*
+//#UC END# *55C8CE1E0042_55C8CE1E0042_4DFB50A6024F_Word_var*
 begin
-//#UC START# *55C8CE1E0042_744BF601F735_impl*
+//#UC START# *55C8CE1E0042_55C8CE1E0042_4DFB50A6024F_Word_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *55C8CE1E0042_744BF601F735_impl*
+//#UC END# *55C8CE1E0042_55C8CE1E0042_4DFB50A6024F_Word_impl*
 end;//TkwPopNewSubDlgFake.Fake
-
-procedure TkwPopNewSubDlgFake.DoDoIt(const aCtx: TtfwContext);
-var l_aNewSubDlg: TNewSubDlg;
-begin
- try
-  l_aNewSubDlg := TNewSubDlg(aCtx.rEngine.PopObjAs(TNewSubDlg));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aNewSubDlg: TNewSubDlg : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Fake(aCtx, l_aNewSubDlg);
-end;//TkwPopNewSubDlgFake.DoDoIt
 
 class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopNewSubDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TNewSubDlg)]);
 end;//TkwPopNewSubDlgFake.ParamsTypes
+
+procedure TkwPopNewSubDlgFake.DoDoIt(const aCtx: TtfwContext);
+var l_aNewSubDlg: TNewSubDlg;
+begin
+ try
+  l_aNewSubDlg := TNewSubDlg(aCtx.rEngine.PopObjAs(TNewSubDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewSubDlg: TNewSubDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aNewSubDlg);
+end;//TkwPopNewSubDlgFake.DoDoIt
 
 initialization
  TkwPopNewSubDlgFake.RegisterInEngine;

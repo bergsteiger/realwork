@@ -36,8 +36,8 @@ type
     aTableConvParamDialog: TTableConvParamDialog);
     {* Реализация слова скрипта pop:TableConvParamDialog:Fake }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 procedure TkwPopTableConvParamDialogFake.Fake(const aCtx: TtfwContext;
  aTableConvParamDialog: TTableConvParamDialog);
  {* Реализация слова скрипта pop:TableConvParamDialog:Fake }
-//#UC START# *55C8CE120197_0BE0E0D34519_var*
-//#UC END# *55C8CE120197_0BE0E0D34519_var*
+//#UC START# *55C8CE120197_55C8CE120197_4F683ACF03C5_Word_var*
+//#UC END# *55C8CE120197_55C8CE120197_4F683ACF03C5_Word_var*
 begin
-//#UC START# *55C8CE120197_0BE0E0D34519_impl*
+//#UC START# *55C8CE120197_55C8CE120197_4F683ACF03C5_Word_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *55C8CE120197_0BE0E0D34519_impl*
+//#UC END# *55C8CE120197_55C8CE120197_4F683ACF03C5_Word_impl*
 end;//TkwPopTableConvParamDialogFake.Fake
-
-procedure TkwPopTableConvParamDialogFake.DoDoIt(const aCtx: TtfwContext);
-var l_aTableConvParamDialog: TTableConvParamDialog;
-begin
- try
-  l_aTableConvParamDialog := TTableConvParamDialog(aCtx.rEngine.PopObjAs(TTableConvParamDialog));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aTableConvParamDialog: TTableConvParamDialog : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Fake(aCtx, l_aTableConvParamDialog);
-end;//TkwPopTableConvParamDialogFake.DoDoIt
 
 class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopTableConvParamDialogFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TTableConvParamDialog)]);
 end;//TkwPopTableConvParamDialogFake.ParamsTypes
+
+procedure TkwPopTableConvParamDialogFake.DoDoIt(const aCtx: TtfwContext);
+var l_aTableConvParamDialog: TTableConvParamDialog;
+begin
+ try
+  l_aTableConvParamDialog := TTableConvParamDialog(aCtx.rEngine.PopObjAs(TTableConvParamDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTableConvParamDialog: TTableConvParamDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aTableConvParamDialog);
+end;//TkwPopTableConvParamDialogFake.DoDoIt
 
 initialization
  TkwPopTableConvParamDialogFake.RegisterInEngine;

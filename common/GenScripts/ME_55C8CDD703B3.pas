@@ -36,8 +36,8 @@ type
     aPicSizeEditDlg: TPicSizeEditDlg);
     {* Реализация слова скрипта pop:PicSizeEditDlg:Fake }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -47,28 +47,13 @@ type
 procedure TkwPopPicSizeEditDlgFake.Fake(const aCtx: TtfwContext;
  aPicSizeEditDlg: TPicSizeEditDlg);
  {* Реализация слова скрипта pop:PicSizeEditDlg:Fake }
-//#UC START# *55C8CE2502B9_DF6A0ECD8244_var*
-//#UC END# *55C8CE2502B9_DF6A0ECD8244_var*
+//#UC START# *55C8CE2502B9_55C8CE2502B9_4F5760C202E6_Word_var*
+//#UC END# *55C8CE2502B9_55C8CE2502B9_4F5760C202E6_Word_var*
 begin
-//#UC START# *55C8CE2502B9_DF6A0ECD8244_impl*
+//#UC START# *55C8CE2502B9_55C8CE2502B9_4F5760C202E6_Word_impl*
  RunnerError('fake-метод только для регистрации класса формы', aCtx);
-//#UC END# *55C8CE2502B9_DF6A0ECD8244_impl*
+//#UC END# *55C8CE2502B9_55C8CE2502B9_4F5760C202E6_Word_impl*
 end;//TkwPopPicSizeEditDlgFake.Fake
-
-procedure TkwPopPicSizeEditDlgFake.DoDoIt(const aCtx: TtfwContext);
-var l_aPicSizeEditDlg: TPicSizeEditDlg;
-begin
- try
-  l_aPicSizeEditDlg := TPicSizeEditDlg(aCtx.rEngine.PopObjAs(TPicSizeEditDlg));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aPicSizeEditDlg: TPicSizeEditDlg : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Fake(aCtx, l_aPicSizeEditDlg);
-end;//TkwPopPicSizeEditDlgFake.DoDoIt
 
 class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
 begin
@@ -89,6 +74,21 @@ function TkwPopPicSizeEditDlgFake.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TPicSizeEditDlg)]);
 end;//TkwPopPicSizeEditDlgFake.ParamsTypes
+
+procedure TkwPopPicSizeEditDlgFake.DoDoIt(const aCtx: TtfwContext);
+var l_aPicSizeEditDlg: TPicSizeEditDlg;
+begin
+ try
+  l_aPicSizeEditDlg := TPicSizeEditDlg(aCtx.rEngine.PopObjAs(TPicSizeEditDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPicSizeEditDlg: TPicSizeEditDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aPicSizeEditDlg);
+end;//TkwPopPicSizeEditDlgFake.DoDoIt
 
 initialization
  TkwPopPicSizeEditDlgFake.RegisterInEngine;
