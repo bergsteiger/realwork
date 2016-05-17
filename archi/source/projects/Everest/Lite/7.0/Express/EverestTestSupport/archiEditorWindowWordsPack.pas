@@ -35,8 +35,8 @@ type
     aEditor: TEditorWindow): Boolean;
     {* Реализация слова скрипта IsNeedSaveDocument }
   protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
   public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
@@ -52,28 +52,13 @@ type
 function TkwIsNeedSaveDocument.IsNeedSaveDocument(const aCtx: TtfwContext;
  aEditor: TEditorWindow): Boolean;
  {* Реализация слова скрипта IsNeedSaveDocument }
-//#UC START# *55B665ED0380_BB6D8477DC61_var*
-//#UC END# *55B665ED0380_BB6D8477DC61_var*
+//#UC START# *55B665ED0380_55B665ED0380_5146CA34003E_Word_var*
+//#UC END# *55B665ED0380_55B665ED0380_5146CA34003E_Word_var*
 begin
-//#UC START# *55B665ED0380_BB6D8477DC61_impl*
+//#UC START# *55B665ED0380_55B665ED0380_5146CA34003E_Word_impl*
  Result := aEditor.IsNeedSaveDocument;
-//#UC END# *55B665ED0380_BB6D8477DC61_impl*
+//#UC END# *55B665ED0380_55B665ED0380_5146CA34003E_Word_impl*
 end;//TkwIsNeedSaveDocument.IsNeedSaveDocument
-
-procedure TkwIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
-var l_aEditor: TEditorWindow;
-begin
- try
-  l_aEditor := TEditorWindow(aCtx.rEngine.PopObjAs(TEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aEditor: TEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aEditor));
-end;//TkwIsNeedSaveDocument.DoDoIt
 
 class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
 begin
@@ -94,6 +79,21 @@ function TkwIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TEditorWindow)]);
 end;//TkwIsNeedSaveDocument.ParamsTypes
+
+procedure TkwIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
+var l_aEditor: TEditorWindow;
+begin
+ try
+  l_aEditor := TEditorWindow(aCtx.rEngine.PopObjAs(TEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aEditor));
+end;//TkwIsNeedSaveDocument.DoDoIt
 
 class function TarchiEditorWindowWordsPackResNameGetter.ResName: AnsiString;
 begin
