@@ -13,21 +13,23 @@
  if not TtfwAutoregisteredDiction.Instance.AllAxiomaticsDefined then
  try
 
-  for l_Index := 0 to Pred(TtfwTypesForRegister.Instance.Count) do
-   tfwTypeRegistrator.TtfwTypeRegistrator.RegisterType(TtfwTypesForRegister.Instance.Items[l_Index]);
-
-  for l_Index := 0 to Pred(TtfwClassesForRegister.Instance.Count) do
-   tfwClassRef.TtfwClassRef.Register(TtfwClassesForRegister.Instance.Items[l_Index]);
-
   CompileResScriptToAxiomatics(theNewContext.rPrev^, 'res:kwMain');
 
   CompileScriptToAxiomatics(theNewContext.rPrev^, [
    {$IfNDef NoVCM}
-   'CONST ANYUSERTYPE 31'
+   'CONST ANYUSERTYPE 31',
    {$EndIf  NoVCM}
 
    {$IfDef Nemesis}
-   ,
+   {$IfNDef Admin}
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=284164589
+   'CONST LLO_AND 1',
+   'CONST LLO_OR 2',
+   'CONST LLO_AND_NOT 3',
+   'CONST LLO_NONE 4',
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=284164589
+   {$EndIf  Admin}
+
    'PROCEDURE "Задержка имени Жени Кусакина"',
    ' 3 LOOP OnTest',
    ' 200 SLEEP',
@@ -36,7 +38,12 @@
    ' // http://mdp.garant.ru/pages/viewpage.action?pageId=296627734',
    ';',
 
-   'WordAlias "Дождаться переключения вкладок" "Задержка имени Жени Кусакина"'
+   'WordAlias "Дождаться переключения вкладок" "Задержка имени Жени Кусакина"',
+
+   'CONST fsNormal 0',
+   'CONST fsMDIChild 1',
+   'CONST fsMDIForm 2',
+   'CONST fsStayOnTop 3'
    {$EndIf Nemesis}
   ]);
   
