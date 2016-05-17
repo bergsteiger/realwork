@@ -202,40 +202,6 @@ implementation @ <<ScriptKeyword>>
 
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Нужно ли документацию к слову скрипта, которое представляет элемента
-//%f _NeedsKeywordDocumentation
-: NeedsKeywordDocumentation OBJECT IN %S
-// возвращаемый результат: boolean
-//#UC START# *4F30B869036Efor4F2C0D86003E*
-//	[{%Sa=abstract}{\
- if ( ( %S |a ) %== 'abstract' ) then
- begin
-//	false\
-   false 
-//	]
- end // if
- else
- begin
-//	[{%S%f_IsMixIn()=true}{\
-  if ( ( %S %f IsMixIn %( )% ) %==  true ) then
-  begin
-//	false\
-    false 
-//	]\
-  end // if
-  else
-  begin
-//	true\
-    true 
-//	}\
-  end // else
-//	}\
- end // else
-//#UC END# *4F30B869036Efor4F2C0D86003E*
-; // NeedsKeywordDocumentation
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Выводит спец-метку класса
 //%f _pas_OutClassMark
 : pas_OutClassMark OBJECT IN %S

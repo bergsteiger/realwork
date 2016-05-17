@@ -2021,8 +2021,8 @@ FORWARD ME_4F6B66CB0200
 
 ref; // ME_11C4BBC32B0E Ini_Reg_Class
 
-: ME_D14DE5EA8184
- CONST UID 'D14DE5EA8184'
+: ME_40853F4CF892
+ CONST UID '40853F4CF892'
  CONST Name 'Ini_FormFactory_Parent'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -2035,7 +2035,7 @@ ref; // ME_11C4BBC32B0E Ini_Reg_Class
  : SpelledFor ME_4F6B66CB0200 // Parent
  ;
 
-ref; // ME_D14DE5EA8184 Ini_FormFactory_Parent
+ref; // ME_40853F4CF892 Ini_FormFactory_Parent
 
 : ME_BBB293908FC5
  CONST IsSummoned true
@@ -2047,8 +2047,6 @@ ref; // ME_D14DE5EA8184 Ini_FormFactory_Parent
  ;
 
 ref; // ME_BBB293908FC5 
-
-FORWARD ME_6739F7D39C4D
 
 : ME_4F6B66CB0200
  CONST UID '4F6B66CB0200'
@@ -2070,17 +2068,13 @@ FORWARD ME_6739F7D39C4D
  ; // Implements
  : Operations
    Seq: ( ME_11C4BBC32B0E // Ini_Reg_Class
- ME_D14DE5EA8184 // Ini_FormFactory_Parent
+ ME_40853F4CF892 // Ini_FormFactory_Parent
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_BBB293908FC5 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_6739F7D39C4D // Parent
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "finished dfm" true
@@ -2112,8 +2106,8 @@ FORWARD ME_4F6B66DB0384
 
 ref; // ME_BEC85DF915C7 Ini_Reg_Class
 
-: ME_08B213FD0AA1
- CONST UID '08B213FD0AA1'
+: ME_86D0CEDB2066
+ CONST UID '86D0CEDB2066'
  CONST Name 'Ini_FormFactory_Child'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -2126,7 +2120,7 @@ ref; // ME_BEC85DF915C7 Ini_Reg_Class
  : SpelledFor ME_4F6B66DB0384 // Child
  ;
 
-ref; // ME_08B213FD0AA1 Ini_FormFactory_Child
+ref; // ME_86D0CEDB2066 Ini_FormFactory_Child
 
 : ME_99B624705FB2
  CONST IsSummoned true
@@ -2138,8 +2132,6 @@ ref; // ME_08B213FD0AA1 Ini_FormFactory_Child
  ;
 
 ref; // ME_99B624705FB2 
-
-FORWARD ME_FDE7583158CE
 
 : ME_4F6B66DB0384
  CONST UID '4F6B66DB0384'
@@ -2161,17 +2153,13 @@ FORWARD ME_FDE7583158CE
  ; // Implements
  : Operations
    Seq: ( ME_BEC85DF915C7 // Ini_Reg_Class
- ME_08B213FD0AA1 // Ini_FormFactory_Child
+ ME_86D0CEDB2066 // Ini_FormFactory_Child
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_99B624705FB2 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_FDE7583158CE // Child
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true
@@ -2185,561 +2173,6 @@ FORWARD ME_FDE7583158CE
  CONST extprop:pas:UnitName 'Child_Form'
 
 ref; // ME_4F6B66DB0384 Child
-
-FORWARD ME_A7368FD6A294
-
-FORWARD ME_6975EF93CBDF
-
-: ME_4DDFD2EA0116_ME_6975EF93CBDF
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_6975EF93CBDF GetString
-
-: ME_6975EF93CBDF
- CONST UID '6975EF93CBDF'
- CONST Name 'Tkw_Form_Parent'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы Parent'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Parent TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A7368FD6A294 // ParentKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_6975EF93CBDF // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::Parent'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_Parent'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B66CB0200 // Parent
- ;
-
-ref; // ME_6975EF93CBDF Tkw_Form_Parent
-
-FORWARD ME_B90C8FAA769A
-
-: ME_CE9F2C46D80A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_CE9F2C46D80A 
-
-: ME_155B0233893F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_155B0233893F 
-
-: ME_4DDFD2EA0116_ME_B90C8FAA769A
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_B90C8FAA769A GetString
-
-: ME_52A086150180_ME_B90C8FAA769A
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_B90C8FAA769A RegisterInEngine
-
-: ME_B90C8FAA769A
- CONST UID 'B90C8FAA769A'
- CONST Name 'Tkw_Parent_Control_ParentZone'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола ParentZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZone TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A7368FD6A294 // ParentKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_B90C8FAA769A // GetString
- ME_52A086150180_ME_B90C8FAA769A // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_CE9F2C46D80A // TvtPanel
- ME_155B0233893F // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::ParentZone'
- CONST extprop:rc:SelfName '_Parent_Control_ParentZone'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B6B7D01BB // ParentZone
- ;
-
-ref; // ME_B90C8FAA769A Tkw_Parent_Control_ParentZone
-
-FORWARD ME_B1138181AE50
-
-: ME_4DAEEDE10285_ME_B1138181AE50
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_B1138181AE50 DoDoIt
-
-: ME_B1138181AE50
- CONST UID 'B1138181AE50'
- CONST Name 'Tkw_Parent_Control_ParentZone_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола ParentZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A7368FD6A294 // ParentKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_B1138181AE50 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::ParentZone:push'
- CONST extprop:rc:SelfName '_Parent_Control_ParentZone_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B6B7D01BB // ParentZone
- ;
-
-ref; // ME_B1138181AE50 Tkw_Parent_Control_ParentZone_Push
-
-: ME_1CA9B7FE1B52
- CONST UID '1CA9B7FE1B52'
- CONST Name 'ParentZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол ParentZone формы TParentForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_A7368FD6A294 // ParentKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TParentForm.ParentZone'
- CONST "mapped" true
-
-ref; // ME_1CA9B7FE1B52 ParentZone
-
-: ME_6739F7D39C4D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_A7368FD6A294 // ParentKeywordsPack
- ;
- : Target ME_4F6B66CB0200 // Parent
- ;
-
-ref; // ME_6739F7D39C4D 
-
-: ME_A7368FD6A294
- CONST UID 'A7368FD6A294'
- CONST Name 'ParentKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Parent' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Inherits
-   Seq: ( ME_4F6B66CB0200 // Parent
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_1CA9B7FE1B52 // ParentZone
- )
- ; // Attributes
- : Children
-   Seq: ( ME_6975EF93CBDF // Tkw_Form_Parent
- ME_B90C8FAA769A // Tkw_Parent_Control_ParentZone
- ME_B1138181AE50 // Tkw_Parent_Control_ParentZone_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_6739F7D39C4D // Parent
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas'
-
-ref; // ME_A7368FD6A294 ParentKeywordsPack
-
-FORWARD ME_D1FA54869B3C
-
-FORWARD ME_AB3A39A6155F
-
-: ME_4DDFD2EA0116_ME_AB3A39A6155F
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_AB3A39A6155F GetString
-
-: ME_AB3A39A6155F
- CONST UID 'AB3A39A6155F'
- CONST Name 'Tkw_Form_Child'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы Child'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Child TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_AB3A39A6155F // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::Child'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_Child'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B66DB0384 // Child
- ;
-
-ref; // ME_AB3A39A6155F Tkw_Form_Child
-
-FORWARD ME_75A5E92F5203
-
-: ME_9DA7E4E4A429
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
- ;
- : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
- ;
-
-ref; // ME_9DA7E4E4A429 
-
-: ME_637FD66242AF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_637FD66242AF 
-
-: ME_4DDFD2EA0116_ME_75A5E92F5203
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_75A5E92F5203 GetString
-
-: ME_52A086150180_ME_75A5E92F5203
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_75A5E92F5203 RegisterInEngine
-
-: ME_75A5E92F5203
- CONST UID '75A5E92F5203'
- CONST Name 'Tkw_Child_Control_ChildZone'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола ChildZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZone TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_75A5E92F5203 // GetString
- ME_52A086150180_ME_75A5E92F5203 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9DA7E4E4A429 // TnscFormsPageControl
- ME_637FD66242AF // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::ChildZone'
- CONST extprop:rc:SelfName '_Child_Control_ChildZone'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B69A902A6 // ChildZone
- ;
-
-ref; // ME_75A5E92F5203 Tkw_Child_Control_ChildZone
-
-FORWARD ME_2C415D2A7542
-
-: ME_4DAEEDE10285_ME_2C415D2A7542
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_2C415D2A7542 DoDoIt
-
-: ME_2C415D2A7542
- CONST UID '2C415D2A7542'
- CONST Name 'Tkw_Child_Control_ChildZone_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола ChildZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_2C415D2A7542 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::ChildZone:push'
- CONST extprop:rc:SelfName '_Child_Control_ChildZone_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B69A902A6 // ChildZone
- ;
-
-ref; // ME_2C415D2A7542 Tkw_Child_Control_ChildZone_Push
-
-FORWARD ME_0FFE16CCAC95
-
-: ME_A79E4AF5CACE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
- ;
- : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
- ;
-
-ref; // ME_A79E4AF5CACE 
-
-: ME_542D5E5A4A9E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_542D5E5A4A9E 
-
-: ME_4DDFD2EA0116_ME_0FFE16CCAC95
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_0FFE16CCAC95 GetString
-
-: ME_52A086150180_ME_0FFE16CCAC95
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_0FFE16CCAC95 RegisterInEngine
-
-: ME_0FFE16CCAC95
- CONST UID '0FFE16CCAC95'
- CONST Name 'Tkw_Child_Control_MainPageTab'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола MainPageTab'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainPageTab TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_0FFE16CCAC95 // GetString
- ME_52A086150180_ME_0FFE16CCAC95 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A79E4AF5CACE // TElTabSheet
- ME_542D5E5A4A9E // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::MainPageTab'
- CONST extprop:rc:SelfName '_Child_Control_MainPageTab'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B6A9200A8 // MainPageTab
- ;
-
-ref; // ME_0FFE16CCAC95 Tkw_Child_Control_MainPageTab
-
-FORWARD ME_1A451665A611
-
-: ME_4DAEEDE10285_ME_1A451665A611
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_1A451665A611 DoDoIt
-
-: ME_1A451665A611
- CONST UID '1A451665A611'
- CONST Name 'Tkw_Child_Control_MainPageTab_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола MainPageTab'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainPageTab:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_1A451665A611 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::MainPageTab:push'
- CONST extprop:rc:SelfName '_Child_Control_MainPageTab_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4F6B6A9200A8 // MainPageTab
- ;
-
-ref; // ME_1A451665A611 Tkw_Child_Control_MainPageTab_Push
-
-: ME_4B67108B812B
- CONST UID '4B67108B812B'
- CONST Name 'ChildZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол ChildZone формы TChildForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Target WL 'ME_4AF296620379' '4AC5E84C02AA.pas.ms.script' // TnscFormsPageControl
- ;
- CONST "NameForScript" '.TChildForm.ChildZone'
- CONST "mapped" true
-
-ref; // ME_4B67108B812B ChildZone
-
-: ME_161A4BE9659B
- CONST UID '161A4BE9659B'
- CONST Name 'MainPageTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол MainPageTab формы TChildForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Target WL 'ME_499ABF9802AC' '499ABF4F02A1.pas.ms.script' // TElTabSheet
- ;
- CONST "NameForScript" '.TChildForm.MainPageTab'
- CONST "mapped" true
-
-ref; // ME_161A4BE9659B MainPageTab
-
-: ME_FDE7583158CE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_D1FA54869B3C // ChildKeywordsPack
- ;
- : Target ME_4F6B66DB0384 // Child
- ;
-
-ref; // ME_FDE7583158CE 
-
-: ME_D1FA54869B3C
- CONST UID 'D1FA54869B3C'
- CONST Name 'ChildKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Child' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66260326 // ParentAndChildPrim
- ;
- : Inherits
-   Seq: ( ME_4F6B66DB0384 // Child
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_4B67108B812B // ChildZone
- ME_161A4BE9659B // MainPageTab
- )
- ; // Attributes
- : Children
-   Seq: ( ME_AB3A39A6155F // Tkw_Form_Child
- ME_75A5E92F5203 // Tkw_Child_Control_ChildZone
- ME_2C415D2A7542 // Tkw_Child_Control_ChildZone_Push
- ME_0FFE16CCAC95 // Tkw_Child_Control_MainPageTab
- ME_1A451665A611 // Tkw_Child_Control_MainPageTab_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_FDE7583158CE // Child
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas'
-
-ref; // ME_D1FA54869B3C ChildKeywordsPack
 
 FORWARD ME_4F6B67820382
 
@@ -2876,8 +2309,6 @@ ref; // ME_67B6714CC55B
  : Children
    Seq: ( ME_4F6B66CB0200 // Parent
  ME_4F6B66DB0384 // Child
- ME_A7368FD6A294 // ParentKeywordsPack
- ME_D1FA54869B3C // ChildKeywordsPack
  )
  ; // Children
  : Dependencies

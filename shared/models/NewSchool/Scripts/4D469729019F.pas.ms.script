@@ -351,8 +351,8 @@ ref; // ME_AA5E1352163B f_TreeControl
 
 ref; // ME_4726A74F4EC3 Ini_Reg_Class
 
-: ME_C6BEE77081EA
- CONST UID 'C6BEE77081EA'
+: ME_711B618C77E3
+ CONST UID '711B618C77E3'
  CONST Name 'Ini_FormFactory_OutlinerForm'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -365,7 +365,7 @@ ref; // ME_4726A74F4EC3 Ini_Reg_Class
  : SpelledFor ME_4D4697F30281 // OutlinerForm
  ;
 
-ref; // ME_C6BEE77081EA Ini_FormFactory_OutlinerForm$Def
+ref; // ME_711B618C77E3 Ini_FormFactory_OutlinerForm$Def
 
 : ME_9C4BBAC5532C
  CONST UID '9C4BBAC5532C'
@@ -434,8 +434,6 @@ ref; // ME_5D319DCCB666
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
 
-FORWARD ME_245F1A6BCEAD
-
 : ME_4D4697F30281
  CONST UID '4D4697F30281'
  CONST Name 'OutlinerForm'
@@ -462,7 +460,7 @@ FORWARD ME_245F1A6BCEAD
  ; // Attributes
  : Operations
    Seq: ( ME_4726A74F4EC3 // Ini_Reg_Class
- ME_C6BEE77081EA // Ini_FormFactory_OutlinerForm$Def
+ ME_711B618C77E3 // Ini_FormFactory_OutlinerForm$Def
  ME_9C4BBAC5532C // Init_Str_ut_OutlinerFormCaption
  )
  ; // Operations
@@ -487,10 +485,6 @@ FORWARD ME_245F1A6BCEAD
  ME_5D319DCCB666 // Tl3MessageID
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_245F1A6BCEAD // OutlinerForm
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Инишев Д.А.'
@@ -505,219 +499,6 @@ FORWARD ME_245F1A6BCEAD
 
 ref; // ME_4D4697F30281 OutlinerForm
 
-FORWARD ME_AF4AF7ED74A4
-
-FORWARD ME_09DAEB2FD8D0
-
-: ME_4DDFD2EA0116_ME_09DAEB2FD8D0
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_09DAEB2FD8D0 GetString
-
-: ME_09DAEB2FD8D0
- CONST UID '09DAEB2FD8D0'
- CONST Name 'Tkw_Form_OutlinerForm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы OutlinerForm'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::OutlinerForm TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_09DAEB2FD8D0 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::OutlinerForm'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_OutlinerForm'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4D4697F30281 // OutlinerForm
- ;
-
-ref; // ME_09DAEB2FD8D0 Tkw_Form_OutlinerForm
-
-FORWARD ME_C286239A9B7E
-
-: ME_03D806115229
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
- ;
- : Target WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
- ;
-
-ref; // ME_03D806115229 
-
-: ME_1992380AF2AD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1992380AF2AD 
-
-: ME_4DDFD2EA0116_ME_C286239A9B7E
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_C286239A9B7E GetString
-
-: ME_52A086150180_ME_C286239A9B7E
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_C286239A9B7E RegisterInEngine
-
-: ME_C286239A9B7E
- CONST UID 'C286239A9B7E'
- CONST Name 'Tkw_OutlinerForm_Control_TreeControl'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола TreeControl'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::TreeControl TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_C286239A9B7E // GetString
- ME_52A086150180_ME_C286239A9B7E // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_03D806115229 // TvtOutlinerControl
- ME_1992380AF2AD // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::TreeControl'
- CONST extprop:rc:SelfName '_OutlinerForm_Control_TreeControl'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4D469966011E // TreeControl
- ;
-
-ref; // ME_C286239A9B7E Tkw_OutlinerForm_Control_TreeControl
-
-FORWARD ME_B86AAC3D28B3
-
-: ME_4DAEEDE10285_ME_B86AAC3D28B3
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_B86AAC3D28B3 DoDoIt
-
-: ME_B86AAC3D28B3
- CONST UID 'B86AAC3D28B3'
- CONST Name 'Tkw_OutlinerForm_Control_TreeControl_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола TreeControl'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::TreeControl:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_B86AAC3D28B3 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::TreeControl:push'
- CONST extprop:rc:SelfName '_OutlinerForm_Control_TreeControl_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4D469966011E // TreeControl
- ;
-
-ref; // ME_B86AAC3D28B3 Tkw_OutlinerForm_Control_TreeControl_Push
-
-: ME_CFE47B957B4A
- CONST UID 'CFE47B957B4A'
- CONST Name 'TreeControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол TreeControl формы TOutlinerFormForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Target WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
- ;
- CONST "NameForScript" '.TOutlinerFormForm.TreeControl'
- CONST "mapped" true
-
-ref; // ME_CFE47B957B4A TreeControl
-
-: ME_245F1A6BCEAD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
- ;
- : Target ME_4D4697F30281 // OutlinerForm
- ;
-
-ref; // ME_245F1A6BCEAD 
-
-: ME_AF4AF7ED74A4
- CONST UID 'AF4AF7ED74A4'
- CONST Name 'OutlinerFormKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы OutlinerForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4D469729019F // Outliner
- ;
- : Inherits
-   Seq: ( ME_4D4697F30281 // OutlinerForm
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_CFE47B957B4A // TreeControl
- )
- ; // Attributes
- : Children
-   Seq: ( ME_09DAEB2FD8D0 // Tkw_Form_OutlinerForm
- ME_C286239A9B7E // Tkw_OutlinerForm_Control_TreeControl
- ME_B86AAC3D28B3 // Tkw_OutlinerForm_Control_TreeControl_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_245F1A6BCEAD // OutlinerForm
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas'
-
-ref; // ME_AF4AF7ED74A4 OutlinerFormKeywordsPack
-
 : ME_4D469729019F
  CONST UID '4D469729019F'
  CONST Name 'Outliner'
@@ -729,7 +510,6 @@ ref; // ME_AF4AF7ED74A4 OutlinerFormKeywordsPack
  ;
  : Children
    Seq: ( ME_4D4697F30281 // OutlinerForm
- ME_AF4AF7ED74A4 // OutlinerFormKeywordsPack
  )
  ; // Children
  : Depends

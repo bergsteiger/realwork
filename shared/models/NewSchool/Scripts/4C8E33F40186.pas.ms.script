@@ -328,8 +328,6 @@ ref; // ME_08900F1462DE
 
 ref; // ME_80BD527BC501 
 
-FORWARD ME_8372929CC16D
-
 : ME_4C8E42D40131
  CONST UID '4C8E42D40131'
  CONST Name 'CustomizeTools'
@@ -359,10 +357,6 @@ FORWARD ME_8372929CC16D
  ME_80BD527BC501 // Tl3MessageID
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_8372929CC16D // CustomizeTools
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -425,122 +419,6 @@ ref; // ME_4C90B2B20022 ItemType
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4C90B27C032C TIvcmToolbarsCustomizeListenerPtrList
-
-FORWARD ME_E027F36407CE
-
-FORWARD ME_9A898DB9E71E
-
-: ME_CE225F93F4CB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9A898DB9E71E // Tkw_Form_CustomizeTools
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CE225F93F4CB 
-
-: ME_FF2F474670C2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9A898DB9E71E // Tkw_Form_CustomizeTools
- ;
- : Target ME_4C8E42D40131 // CustomizeTools
- ;
-
-ref; // ME_FF2F474670C2 
-
-: ME_4DDFD2EA0116_ME_9A898DB9E71E
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_9A898DB9E71E GetString
-
-: ME_52A086150180_ME_9A898DB9E71E
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_9A898DB9E71E RegisterInEngine
-
-: ME_9A898DB9E71E
- CONST UID '9A898DB9E71E'
- CONST Name 'Tkw_Form_CustomizeTools'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы CustomizeTools'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::CustomizeTools TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_E027F36407CE // CustomizeToolsKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_9A898DB9E71E // GetString
- ME_52A086150180_ME_9A898DB9E71E // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_CE225F93F4CB // TtfwClassRef
- ME_FF2F474670C2 // CustomizeTools
- )
- ; // Dependencies
- CONST "NameForScript" 'форма::CustomizeTools'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_CustomizeTools'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4C8E42D40131 // CustomizeTools
- ;
-
-ref; // ME_9A898DB9E71E Tkw_Form_CustomizeTools
-
-: ME_8372929CC16D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_E027F36407CE // CustomizeToolsKeywordsPack
- ;
- : Target ME_4C8E42D40131 // CustomizeTools
- ;
-
-ref; // ME_8372929CC16D 
-
-: ME_E027F36407CE
- CONST UID 'E027F36407CE'
- CONST Name 'CustomizeToolsKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы CustomizeTools' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4C8E340C0148 // PrimToolbarMenu
- ;
- : Inherits
-   Seq: ( ME_4C8E42D40131 // CustomizeTools
- )
- ; // Inherits
- : Children
-   Seq: ( ME_9A898DB9E71E // Tkw_Form_CustomizeTools
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_8372929CC16D // CustomizeTools
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas'
-
-ref; // ME_E027F36407CE CustomizeToolsKeywordsPack
 
 : ME_4C8E3C930236
  CONST UID '4C8E3C930236'
@@ -1093,7 +971,6 @@ ref; // ME_47D1602000C6_ME_4C8E340C0148 Create
  : Children
    Seq: ( ME_4C8E42D40131 // CustomizeTools
  ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
- ME_E027F36407CE // CustomizeToolsKeywordsPack
  )
  ; // Children
  : Dependencies

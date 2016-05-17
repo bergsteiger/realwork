@@ -1698,8 +1698,8 @@ FORWARD ME_4AAFA16202D3
 
 ref; // ME_5AA26A2C79C6 Ini_Reg_Class
 
-: ME_AE6B9019FBDE
- CONST UID 'AE6B9019FBDE'
+: ME_12A5052FDD0E
+ CONST UID '12A5052FDD0E'
  CONST Name 'Ini_FormFactory_PostingsList'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -1712,7 +1712,7 @@ ref; // ME_5AA26A2C79C6 Ini_Reg_Class
  : SpelledFor ME_4AAFA16202D3 // PostingsList
  ;
 
-ref; // ME_AE6B9019FBDE Ini_FormFactory_PostingsList
+ref; // ME_12A5052FDD0E Ini_FormFactory_PostingsList
 
 : ME_AAA814ABFA33
  CONST IsSummoned true
@@ -1724,8 +1724,6 @@ ref; // ME_AE6B9019FBDE Ini_FormFactory_PostingsList
  ;
 
 ref; // ME_AAA814ABFA33 
-
-FORWARD ME_1F56928356FC
 
 : ME_4AAFA16202D3
  CONST UID '4AAFA16202D3'
@@ -1748,17 +1746,13 @@ FORWARD ME_1F56928356FC
  ; // Implements
  : Operations
    Seq: ( ME_5AA26A2C79C6 // Ini_Reg_Class
- ME_AE6B9019FBDE // Ini_FormFactory_PostingsList
+ ME_12A5052FDD0E // Ini_FormFactory_PostingsList
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_AAA814ABFA33 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_1F56928356FC // PostingsList
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -1775,238 +1769,6 @@ FORWARD ME_1F56928356FC
  CONST extprop:pas:UnitName 'PostingsList_Form'
 
 ref; // ME_4AAFA16202D3 PostingsList
-
-FORWARD ME_1C12379D921C
-
-FORWARD ME_B32E48C9C5F6
-
-: ME_4DDFD2EA0116_ME_B32E48C9C5F6
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_B32E48C9C5F6 GetString
-
-: ME_B32E48C9C5F6
- CONST UID 'B32E48C9C5F6'
- CONST Name 'Tkw_Form_PostingsList'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы PostingsList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::PostingsList TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_B32E48C9C5F6 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::PostingsList'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_PostingsList'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4AAFA16202D3 // PostingsList
- ;
-
-ref; // ME_B32E48C9C5F6 Tkw_Form_PostingsList
-
-FORWARD ME_9246E180CAF0
-
-: ME_858F56FD255C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
- ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
-
-ref; // ME_858F56FD255C 
-
-: ME_D28A241F9006
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D28A241F9006 
-
-: ME_4DDFD2EA0116_ME_9246E180CAF0
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_9246E180CAF0 GetString
-
-: ME_52A086150180_ME_9246E180CAF0
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_9246E180CAF0 RegisterInEngine
-
-: ME_9246E180CAF0
- CONST UID '9246E180CAF0'
- CONST Name 'Tkw_PostingsList_Control_tvPostings'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола tvPostings'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::tvPostings TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_9246E180CAF0 // GetString
- ME_52A086150180_ME_9246E180CAF0 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_858F56FD255C // TeeTreeView
- ME_D28A241F9006 // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::tvPostings'
- CONST extprop:rc:SelfName '_PostingsList_Control_tvPostings'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4C84F2B3000F // tvPostings
- ;
-
-ref; // ME_9246E180CAF0 Tkw_PostingsList_Control_tvPostings
-
-FORWARD ME_7241BE7680A1
-
-: ME_4DAEEDE10285_ME_7241BE7680A1
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_7241BE7680A1 DoDoIt
-
-: ME_7241BE7680A1
- CONST UID '7241BE7680A1'
- CONST Name 'Tkw_PostingsList_Control_tvPostings_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола tvPostings'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::tvPostings:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_7241BE7680A1 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::tvPostings:push'
- CONST extprop:rc:SelfName '_PostingsList_Control_tvPostings_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4C84F2B3000F // tvPostings
- ;
-
-ref; // ME_7241BE7680A1 Tkw_PostingsList_Control_tvPostings_Push
-
-: ME_A47A28A49282
- CONST UID 'A47A28A49282'
- CONST Name 'tvPostings'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол tvPostings формы TenPostingsList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
- CONST "NameForScript" '.TenPostingsList.tvPostings'
- CONST "mapped" true
-
-ref; // ME_A47A28A49282 tvPostings
-
-: ME_1F56928356FC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_1C12379D921C // PostingsListKeywordsPack
- ;
- : Target ME_4AAFA16202D3 // PostingsList
- ;
-
-ref; // ME_1F56928356FC 
-
-: ME_4BDAF7B803CF_ME_1C12379D921C
- : Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.pas.ms.script' // Wrap
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4BDAF7B803CF_ME_1C12379D921C Wrap
-
-: ME_1C12379D921C
- CONST UID '1C12379D921C'
- CONST Name 'PostingsListKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы PostingsList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AA919B200AB // CommonPost
- ;
- : Inherits
-   Seq: ( ME_4AAFA16202D3 // PostingsList
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_A47A28A49282 // tvPostings
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_4BDAF7B803CF_ME_1C12379D921C // Wrap
- )
- ; // Implemented
- : Children
-   Seq: ( ME_B32E48C9C5F6 // Tkw_Form_PostingsList
- ME_9246E180CAF0 // Tkw_PostingsList_Control_tvPostings
- ME_7241BE7680A1 // Tkw_PostingsList_Control_tvPostings_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_1F56928356FC // PostingsList
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\PostingsListKeywordsPack.pas'
-
-ref; // ME_1C12379D921C PostingsListKeywordsPack
 
 FORWARD ME_4AA9304801B8
 
@@ -2960,7 +2722,6 @@ ref; // ME_E2BFE5F0DA18
  ; // Operations
  : Children
    Seq: ( ME_4AAFA16202D3 // PostingsList
- ME_1C12379D921C // PostingsListKeywordsPack
  )
  ; // Children
  : Dependencies
@@ -3104,12 +2865,10 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_5267C3880201' '5267C3880201.pas.ms.script' // Search
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

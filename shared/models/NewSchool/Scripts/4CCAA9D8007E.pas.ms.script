@@ -3499,8 +3499,8 @@ FORWARD ME_4ABCD2BC0302
 
 ref; // ME_15C6ABFE36AF Ini_Reg_Class
 
-: ME_3DA2C90000B3
- CONST UID '3DA2C90000B3'
+: ME_29C81B698BDF
+ CONST UID '29C81B698BDF'
  CONST Name 'Ini_FormFactory_Filters'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -3513,7 +3513,7 @@ ref; // ME_15C6ABFE36AF Ini_Reg_Class
  : SpelledFor ME_4ABCD2BC0302 // Filters
  ;
 
-ref; // ME_3DA2C90000B3 Ini_FormFactory_Filters
+ref; // ME_29C81B698BDF Ini_FormFactory_Filters
 
 : ME_8548FA021AB9
  CONST IsSummoned true
@@ -3525,8 +3525,6 @@ ref; // ME_3DA2C90000B3 Ini_FormFactory_Filters
  ;
 
 ref; // ME_8548FA021AB9 
-
-FORWARD ME_D60E8223285C
 
 : ME_4ABCD2BC0302
  CONST UID '4ABCD2BC0302'
@@ -3549,17 +3547,13 @@ FORWARD ME_D60E8223285C
  ; // Implements
  : Operations
    Seq: ( ME_15C6ABFE36AF // Ini_Reg_Class
- ME_3DA2C90000B3 // Ini_FormFactory_Filters
+ ME_29C81B698BDF // Ini_FormFactory_Filters
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_8548FA021AB9 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_D60E8223285C // Filters
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -3603,8 +3597,6 @@ ref; // ME_EFA2B2E20D27 Ini_Reg_Class
 
 ref; // ME_6A601BECF715 
 
-FORWARD ME_7A6AD30075F1
-
 : ME_4CB6DBE6009F
  CONST UID '4CB6DBE6009F'
  CONST Name 'CreateFilter'
@@ -3627,10 +3619,6 @@ FORWARD ME_7A6AD30075F1
    Seq: ( ME_6A601BECF715 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_7A6AD30075F1 // CreateFilter$Form
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Modal'
  CONST "author" 'Лукьянец Р.В.'
@@ -3646,647 +3634,6 @@ FORWARD ME_7A6AD30075F1
  CONST extprop:pas:UnitName 'CreateFilter_Form'
 
 ref; // ME_4CB6DBE6009F CreateFilter$Form
-
-FORWARD ME_19A54BCEF2DC
-
-FORWARD ME_D5CE8D7E34D4
-
-: ME_4DDFD2EA0116_ME_D5CE8D7E34D4
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_D5CE8D7E34D4 GetString
-
-: ME_D5CE8D7E34D4
- CONST UID 'D5CE8D7E34D4'
- CONST Name 'Tkw_Form_Filters'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы Filters'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Filters TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_19A54BCEF2DC // FiltersKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_D5CE8D7E34D4 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::Filters'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_Filters'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4ABCD2BC0302 // Filters
- ;
-
-ref; // ME_D5CE8D7E34D4 Tkw_Form_Filters
-
-FORWARD ME_B20CBB26D548
-
-: ME_08A7873CADDC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B20CBB26D548 // Tkw_Filters_Control_FiltersList
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_08A7873CADDC 
-
-: ME_4AB14FFF6426
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B20CBB26D548 // Tkw_Filters_Control_FiltersList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4AB14FFF6426 
-
-: ME_4DDFD2EA0116_ME_B20CBB26D548
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_B20CBB26D548 GetString
-
-: ME_52A086150180_ME_B20CBB26D548
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_B20CBB26D548 RegisterInEngine
-
-: ME_B20CBB26D548
- CONST UID 'B20CBB26D548'
- CONST Name 'Tkw_Filters_Control_FiltersList'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола FiltersList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::FiltersList TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_19A54BCEF2DC // FiltersKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_B20CBB26D548 // GetString
- ME_52A086150180_ME_B20CBB26D548 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_08A7873CADDC // TnscTreeViewWithAdapterDragDrop
- ME_4AB14FFF6426 // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::FiltersList'
- CONST extprop:rc:SelfName '_Filters_Control_FiltersList'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4AEED6F7020B // FiltersList
- ;
-
-ref; // ME_B20CBB26D548 Tkw_Filters_Control_FiltersList
-
-FORWARD ME_922109FC93A4
-
-: ME_4DAEEDE10285_ME_922109FC93A4
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_922109FC93A4 DoDoIt
-
-: ME_922109FC93A4
- CONST UID '922109FC93A4'
- CONST Name 'Tkw_Filters_Control_FiltersList_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола FiltersList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::FiltersList:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_19A54BCEF2DC // FiltersKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_922109FC93A4 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::FiltersList:push'
- CONST extprop:rc:SelfName '_Filters_Control_FiltersList_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4AEED6F7020B // FiltersList
- ;
-
-ref; // ME_922109FC93A4 Tkw_Filters_Control_FiltersList_Push
-
-: ME_DE18E0E4769E
- CONST UID 'DE18E0E4769E'
- CONST Name 'FiltersList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол FiltersList формы TenFilters' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_19A54BCEF2DC // FiltersKeywordsPack
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
- CONST "NameForScript" '.TenFilters.FiltersList'
- CONST "mapped" true
-
-ref; // ME_DE18E0E4769E FiltersList
-
-: ME_D60E8223285C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_19A54BCEF2DC // FiltersKeywordsPack
- ;
- : Target ME_4ABCD2BC0302 // Filters
- ;
-
-ref; // ME_D60E8223285C 
-
-: ME_494F89C30197_ME_19A54BCEF2DC
- : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_494F89C30197_ME_19A54BCEF2DC Delete
-
-: ME_4C3740FA02D7_ME_19A54BCEF2DC
- : Original WL 'ME_4C3740FA02D7' '4A9807DB01A5.pas.ms.script' // FiltersList
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4C3740FA02D7_ME_19A54BCEF2DC FiltersList
-
-: ME_19A54BCEF2DC
- CONST UID '19A54BCEF2DC'
- CONST Name 'FiltersKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы Filters' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CCAA9E50274 // Filters$FP
- ;
- : Inherits
-   Seq: ( ME_4ABCD2BC0302 // Filters
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_DE18E0E4769E // FiltersList
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_494F89C30197_ME_19A54BCEF2DC // Delete
- ME_4C3740FA02D7_ME_19A54BCEF2DC // FiltersList
- )
- ; // Implemented
- : Children
-   Seq: ( ME_D5CE8D7E34D4 // Tkw_Form_Filters
- ME_B20CBB26D548 // Tkw_Filters_Control_FiltersList
- ME_922109FC93A4 // Tkw_Filters_Control_FiltersList_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_D60E8223285C // Filters
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\FiltersKeywordsPack.pas'
-
-ref; // ME_19A54BCEF2DC FiltersKeywordsPack
-
-FORWARD ME_546F4B05C2D7
-
-FORWARD ME_5D16DB1881EC
-
-: ME_4DDFD2EA0116_ME_5D16DB1881EC
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_5D16DB1881EC GetString
-
-: ME_5D16DB1881EC
- CONST UID '5D16DB1881EC'
- CONST Name 'Tkw_Form_CreateFilter'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы CreateFilter$Form'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::CreateFilter TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_5D16DB1881EC // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::CreateFilter'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_CreateFilter'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4CB6DBE6009F // CreateFilter$Form
- ;
-
-ref; // ME_5D16DB1881EC Tkw_Form_CreateFilter
-
-FORWARD ME_AD1738B646F9
-
-: ME_7A7AEABE4C2F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AD1738B646F9 // Tkw_CreateFilter_Control_NameLabel
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_7A7AEABE4C2F 
-
-: ME_20CCD71E201F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AD1738B646F9 // Tkw_CreateFilter_Control_NameLabel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_20CCD71E201F 
-
-: ME_4DDFD2EA0116_ME_AD1738B646F9
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_AD1738B646F9 GetString
-
-: ME_52A086150180_ME_AD1738B646F9
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_AD1738B646F9 RegisterInEngine
-
-: ME_AD1738B646F9
- CONST UID 'AD1738B646F9'
- CONST Name 'Tkw_CreateFilter_Control_NameLabel'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола NameLabel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::NameLabel TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_AD1738B646F9 // GetString
- ME_52A086150180_ME_AD1738B646F9 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7A7AEABE4C2F // TvtLabel
- ME_20CCD71E201F // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::NameLabel'
- CONST extprop:rc:SelfName '_CreateFilter_Control_NameLabel'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4CBED37D0160 // NameLabel
- ;
-
-ref; // ME_AD1738B646F9 Tkw_CreateFilter_Control_NameLabel
-
-FORWARD ME_44E18ABC1F46
-
-: ME_4DAEEDE10285_ME_44E18ABC1F46
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_44E18ABC1F46 DoDoIt
-
-: ME_44E18ABC1F46
- CONST UID '44E18ABC1F46'
- CONST Name 'Tkw_CreateFilter_Control_NameLabel_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола NameLabel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::NameLabel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_44E18ABC1F46 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::NameLabel:push'
- CONST extprop:rc:SelfName '_CreateFilter_Control_NameLabel_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4CBED37D0160 // NameLabel
- ;
-
-ref; // ME_44E18ABC1F46 Tkw_CreateFilter_Control_NameLabel_Push
-
-FORWARD ME_B0B6940E79AA
-
-: ME_ADCCB386D806
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B0B6940E79AA // Tkw_CreateFilter_Control_FilterName
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_ADCCB386D806 
-
-: ME_5668894CEC50
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_B0B6940E79AA // Tkw_CreateFilter_Control_FilterName
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5668894CEC50 
-
-: ME_4DDFD2EA0116_ME_B0B6940E79AA
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_B0B6940E79AA GetString
-
-: ME_52A086150180_ME_B0B6940E79AA
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_B0B6940E79AA RegisterInEngine
-
-: ME_B0B6940E79AA
- CONST UID 'B0B6940E79AA'
- CONST Name 'Tkw_CreateFilter_Control_FilterName'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола FilterName'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::FilterName TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_B0B6940E79AA // GetString
- ME_52A086150180_ME_B0B6940E79AA // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_ADCCB386D806 // TnscEdit
- ME_5668894CEC50 // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::FilterName'
- CONST extprop:rc:SelfName '_CreateFilter_Control_FilterName'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4CBED3A1022F // FilterName
- ;
-
-ref; // ME_B0B6940E79AA Tkw_CreateFilter_Control_FilterName
-
-FORWARD ME_2DAD804284AD
-
-: ME_4DAEEDE10285_ME_2DAD804284AD
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_2DAD804284AD DoDoIt
-
-: ME_2DAD804284AD
- CONST UID '2DAD804284AD'
- CONST Name 'Tkw_CreateFilter_Control_FilterName_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола FilterName'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::FilterName:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_2DAD804284AD // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::FilterName:push'
- CONST extprop:rc:SelfName '_CreateFilter_Control_FilterName_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4CBED3A1022F // FilterName
- ;
-
-ref; // ME_2DAD804284AD Tkw_CreateFilter_Control_FilterName_Push
-
-: ME_DD04EF925E3E
- CONST UID 'DD04EF925E3E'
- CONST Name 'NameLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол NameLabel формы TCreateFilterForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
- CONST "NameForScript" '.TCreateFilterForm.NameLabel'
- CONST "mapped" true
-
-ref; // ME_DD04EF925E3E NameLabel
-
-: ME_151792EC11EA
- CONST UID '151792EC11EA'
- CONST Name 'FilterName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол FilterName формы TCreateFilterForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
- CONST "NameForScript" '.TCreateFilterForm.FilterName'
- CONST "mapped" true
-
-ref; // ME_151792EC11EA FilterName
-
-: ME_7A6AD30075F1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_546F4B05C2D7 // CreateFilterKeywordsPack
- ;
- : Target ME_4CB6DBE6009F // CreateFilter$Form
- ;
-
-ref; // ME_7A6AD30075F1 
-
-: ME_4A8AD47D0357_ME_546F4B05C2D7
- : Original WL 'ME_4A8AD47D0357' '4A8AD3DE0008.pas.ms.script' // OkExt
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4A8AD47D0357_ME_546F4B05C2D7 OkExt
-
-: ME_4A97EBE702F8_ME_546F4B05C2D7
- : Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.pas.ms.script' // Ok
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4A97EBE702F8_ME_546F4B05C2D7 Ok
-
-: ME_4AC5D61E0284_ME_546F4B05C2D7
- : Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.pas.ms.script' // Cancel
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4AC5D61E0284_ME_546F4B05C2D7 Cancel
-
-: ME_546F4B05C2D7
- CONST UID '546F4B05C2D7'
- CONST Name 'CreateFilterKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы CreateFilter$Form' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CCAA9E50274 // Filters$FP
- ;
- : Inherits
-   Seq: ( ME_4CB6DBE6009F // CreateFilter$Form
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_DD04EF925E3E // NameLabel
- ME_151792EC11EA // FilterName
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_4A8AD47D0357_ME_546F4B05C2D7 // OkExt
- ME_4A97EBE702F8_ME_546F4B05C2D7 // Ok
- ME_4AC5D61E0284_ME_546F4B05C2D7 // Cancel
- )
- ; // Implemented
- : Children
-   Seq: ( ME_5D16DB1881EC // Tkw_Form_CreateFilter
- ME_AD1738B646F9 // Tkw_CreateFilter_Control_NameLabel
- ME_44E18ABC1F46 // Tkw_CreateFilter_Control_NameLabel_Push
- ME_B0B6940E79AA // Tkw_CreateFilter_Control_FilterName
- ME_2DAD804284AD // Tkw_CreateFilter_Control_FilterName_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_7A6AD30075F1 // CreateFilter$Form
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\CreateFilterKeywordsPack.pas'
-
-ref; // ME_546F4B05C2D7 CreateFilterKeywordsPack
 
 FORWARD ME_4AC09F1D0356
 
@@ -4629,8 +3976,6 @@ ref; // ME_4694EAE9BB73
  : Children
    Seq: ( ME_4ABCD2BC0302 // Filters
  ME_4CB6DBE6009F // CreateFilter$Form
- ME_19A54BCEF2DC // FiltersKeywordsPack
- ME_546F4B05C2D7 // CreateFilterKeywordsPack
  )
  ; // Children
  : Dependencies
@@ -5081,9 +4426,7 @@ ref; // ME_571E1AF302D6 FiltersProcessingWordsPack
  WL 'ME_4CCAACFB0312' '4CCAACFB0312.pas.ms.script' // Filters
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

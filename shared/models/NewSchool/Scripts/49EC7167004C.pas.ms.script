@@ -2700,8 +2700,8 @@ ref; // ME_36BF14AE3334 InternetAgent$F$Def
 
 ref; // ME_6B2A80D2DD09 Ini_Reg_Class
 
-: ME_E08A7820A450
- CONST UID 'E08A7820A450'
+: ME_A52D967E41C5
+ CONST UID 'A52D967E41C5'
  CONST Name 'Ini_FormFactory_InternetAgent'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -2714,7 +2714,7 @@ ref; // ME_6B2A80D2DD09 Ini_Reg_Class
  : SpelledFor ME_49EC74D002B8 // InternetAgent$F
  ;
 
-ref; // ME_E08A7820A450 Ini_FormFactory_InternetAgent$F$Def
+ref; // ME_A52D967E41C5 Ini_FormFactory_InternetAgent$F$Def
 
 : ME_0A227548E081
  CONST IsSummoned true
@@ -2726,8 +2726,6 @@ ref; // ME_E08A7820A450 Ini_FormFactory_InternetAgent$F$Def
  ;
 
 ref; // ME_0A227548E081 
-
-FORWARD ME_2FF07503D0DF
 
 : ME_49EC74D002B8
  CONST UID '49EC74D002B8'
@@ -2750,7 +2748,7 @@ FORWARD ME_2FF07503D0DF
  ; // Implements
  : Operations
    Seq: ( ME_6B2A80D2DD09 // Ini_Reg_Class
- ME_E08A7820A450 // Ini_FormFactory_InternetAgent$F$Def
+ ME_A52D967E41C5 // Ini_FormFactory_InternetAgent$F$Def
  )
  ; // Operations
  : Children
@@ -2761,10 +2759,6 @@ FORWARD ME_2FF07503D0DF
    Seq: ( ME_0A227548E081 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_2FF07503D0DF // InternetAgent$F
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -3183,87 +3177,6 @@ ref; // ME_4B14DF7401B1
 
 ref; // ME_4B14DF1F0101 TnsOpenInternetAgentEvent
 
-FORWARD ME_A85B3F2265CC
-
-FORWARD ME_688265610B11
-
-: ME_4DDFD2EA0116_ME_688265610B11
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_688265610B11 GetString
-
-: ME_688265610B11
- CONST UID '688265610B11'
- CONST Name 'Tkw_Form_InternetAgent'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы InternetAgent$F'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::InternetAgent TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A85B3F2265CC // InternetAgentKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_688265610B11 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::InternetAgent'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_InternetAgent'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_49EC74D002B8 // InternetAgent$F
- ;
-
-ref; // ME_688265610B11 Tkw_Form_InternetAgent
-
-: ME_2FF07503D0DF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_A85B3F2265CC // InternetAgentKeywordsPack
- ;
- : Target ME_49EC74D002B8 // InternetAgent$F
- ;
-
-ref; // ME_2FF07503D0DF 
-
-: ME_A85B3F2265CC
- CONST UID 'A85B3F2265CC'
- CONST Name 'InternetAgentKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы InternetAgent$F' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_49EC739C0100 // PrimInternetAgent$FP
- ;
- : Inherits
-   Seq: ( ME_49EC74D002B8 // InternetAgent$F
- )
- ; // Inherits
- : Children
-   Seq: ( ME_688265610B11 // Tkw_Form_InternetAgent
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_2FF07503D0DF // InternetAgent$F
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\InternetAgentKeywordsPack.pas'
-
-ref; // ME_A85B3F2265CC InternetAgentKeywordsPack
-
 FORWARD ME_49ECAADA03C7
 
 : ME_49EDE7BB03BC
@@ -3494,7 +3407,6 @@ ref; // ME_352D4DA4371B
    Seq: ( ME_49EC74D002B8 // InternetAgent$F
  ME_49F586610347 // InternetAgent
  ME_4B14DF1F0101 // TnsOpenInternetAgentEvent
- ME_A85B3F2265CC // InternetAgentKeywordsPack
  )
  ; // Children
  : Dependencies
@@ -3742,7 +3654,6 @@ ref; // ME_F132DC06DD1C Tkw_InternetAgent_opInternetAgent
  WL 'ME_5278E45101D3' '5278E45101D3.pas.ms.script' // ScalingSupport
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
  WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends

@@ -1218,8 +1218,8 @@ ref; // ME_ED055FCF64DC WorkJournal$Def
 
 ref; // ME_F1C9671A095A Ini_Reg_Class
 
-: ME_B24C513C9096
- CONST UID 'B24C513C9096'
+: ME_F17A163F736E
+ CONST UID 'F17A163F736E'
  CONST Name 'Ini_FormFactory_WorkJournal'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -1232,7 +1232,7 @@ ref; // ME_F1C9671A095A Ini_Reg_Class
  : SpelledFor ME_4A811C620210 // WorkJournal
  ;
 
-ref; // ME_B24C513C9096 Ini_FormFactory_WorkJournal$Def
+ref; // ME_F17A163F736E Ini_FormFactory_WorkJournal$Def
 
 : ME_78CED255B4F8
  CONST IsSummoned true
@@ -1244,8 +1244,6 @@ ref; // ME_B24C513C9096 Ini_FormFactory_WorkJournal$Def
  ;
 
 ref; // ME_78CED255B4F8 
-
-FORWARD ME_CC8BA3F9FE5F
 
 : ME_4A811C620210
  CONST UID '4A811C620210'
@@ -1268,7 +1266,7 @@ FORWARD ME_CC8BA3F9FE5F
  ; // Implements
  : Operations
    Seq: ( ME_F1C9671A095A // Ini_Reg_Class
- ME_B24C513C9096 // Ini_FormFactory_WorkJournal$Def
+ ME_F17A163F736E // Ini_FormFactory_WorkJournal$Def
  )
  ; // Operations
  : Children
@@ -1279,10 +1277,6 @@ FORWARD ME_CC8BA3F9FE5F
    Seq: ( ME_78CED255B4F8 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_CC8BA3F9FE5F // WorkJournal
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -1296,254 +1290,6 @@ FORWARD ME_CC8BA3F9FE5F
  CONST extprop:pas:UnitName 'WorkJournal_Form'
 
 ref; // ME_4A811C620210 WorkJournal
-
-FORWARD ME_B772BF700C99
-
-FORWARD ME_228AAA176ABA
-
-: ME_4DDFD2EA0116_ME_228AAA176ABA
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_228AAA176ABA GetString
-
-: ME_228AAA176ABA
- CONST UID '228AAA176ABA'
- CONST Name 'Tkw_Form_WorkJournal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы WorkJournal'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::WorkJournal TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_228AAA176ABA // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::WorkJournal'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_WorkJournal'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4A811C620210 // WorkJournal
- ;
-
-ref; // ME_228AAA176ABA Tkw_Form_WorkJournal
-
-FORWARD ME_E8E6940573D8
-
-: ME_FCDE3929CE80
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E8E6940573D8 // Tkw_WorkJournal_Control_JournalTree
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_FCDE3929CE80 
-
-: ME_87BD74B18332
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_E8E6940573D8 // Tkw_WorkJournal_Control_JournalTree
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_87BD74B18332 
-
-: ME_4DDFD2EA0116_ME_E8E6940573D8
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_E8E6940573D8 GetString
-
-: ME_52A086150180_ME_E8E6940573D8
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_E8E6940573D8 RegisterInEngine
-
-: ME_E8E6940573D8
- CONST UID 'E8E6940573D8'
- CONST Name 'Tkw_WorkJournal_Control_JournalTree'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола JournalTree'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::JournalTree TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_E8E6940573D8 // GetString
- ME_52A086150180_ME_E8E6940573D8 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_FCDE3929CE80 // TnscTreeViewWithAdapterDragDrop
- ME_87BD74B18332 // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::JournalTree'
- CONST extprop:rc:SelfName '_WorkJournal_Control_JournalTree'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4C3F30AF012E // JournalTree
- ;
-
-ref; // ME_E8E6940573D8 Tkw_WorkJournal_Control_JournalTree
-
-FORWARD ME_C5BABF360A3C
-
-: ME_4DAEEDE10285_ME_C5BABF360A3C
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_C5BABF360A3C DoDoIt
-
-: ME_C5BABF360A3C
- CONST UID 'C5BABF360A3C'
- CONST Name 'Tkw_WorkJournal_Control_JournalTree_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола JournalTree'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::JournalTree:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_C5BABF360A3C // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::JournalTree:push'
- CONST extprop:rc:SelfName '_WorkJournal_Control_JournalTree_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4C3F30AF012E // JournalTree
- ;
-
-ref; // ME_C5BABF360A3C Tkw_WorkJournal_Control_JournalTree_Push
-
-: ME_84E78E81C2CE
- CONST UID '84E78E81C2CE'
- CONST Name 'JournalTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол JournalTree формы TWorkJournalForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
- CONST "NameForScript" '.TWorkJournalForm.JournalTree'
- CONST "mapped" true
-
-ref; // ME_84E78E81C2CE JournalTree
-
-: ME_CC8BA3F9FE5F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_B772BF700C99 // WorkJournalKeywordsPack
- ;
- : Target ME_4A811C620210 // WorkJournal
- ;
-
-ref; // ME_CC8BA3F9FE5F 
-
-: ME_4BDAF7B803CF_ME_B772BF700C99
- : Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.pas.ms.script' // Wrap
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4BDAF7B803CF_ME_B772BF700C99 Wrap
-
-: ME_4C7D0CC90052_ME_B772BF700C99
- : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4C7D0CC90052_ME_B772BF700C99 Delete
-
-: ME_B772BF700C99
- CONST UID 'B772BF700C99'
- CONST Name 'WorkJournalKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы WorkJournal' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A811C1A0293 // BaseWorkJournal
- ;
- : Inherits
-   Seq: ( ME_4A811C620210 // WorkJournal
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_84E78E81C2CE // JournalTree
- )
- ; // Attributes
- : Implemented
-   Seq: ( ME_4BDAF7B803CF_ME_B772BF700C99 // Wrap
- ME_4C7D0CC90052_ME_B772BF700C99 // Delete
- )
- ; // Implemented
- : Children
-   Seq: ( ME_228AAA176ABA // Tkw_Form_WorkJournal
- ME_E8E6940573D8 // Tkw_WorkJournal_Control_JournalTree
- ME_C5BABF360A3C // Tkw_WorkJournal_Control_JournalTree_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_CC8BA3F9FE5F // WorkJournal
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\WorkJournalKeywordsPack.pas'
-
-ref; // ME_B772BF700C99 WorkJournalKeywordsPack
 
 FORWARD ME_4A827E40004E
 
@@ -1657,7 +1403,6 @@ ref; // ME_3204EEE6F3FE
  ; // Operations
  : Children
    Seq: ( ME_4A811C620210 // WorkJournal
- ME_B772BF700C99 // WorkJournalKeywordsPack
  )
  ; // Children
  : Dependencies
@@ -1782,10 +1527,8 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends

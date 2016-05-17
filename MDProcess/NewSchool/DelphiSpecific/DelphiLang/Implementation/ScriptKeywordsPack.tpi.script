@@ -108,68 +108,70 @@ implementation @ <<ScriptKeywordsPack>>
   end // if
 //	%f_addCDep(%S,%{TypeInfoExt})\
   [%f] addCDep %( %S %, ( get_global_var ( 'TypeInfoExt' ) ) )% 
-//	]\
- end // if
 
 //	%f_clear_list(PROPS)\
- [%f] clear_list %( 'PROPS' )% 
+  [%f] clear_list %( 'PROPS' )% 
 
 //	<{}{%CS=property|%CS=readonly}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C |S ) %== 'property' OR 
-   ( ( %C |S ) %== 'readonly'  ) ) then
-  begin
-//	%f_add_to_list(PROPS,C)\
-   [%f] add_to_list %( 'PROPS' %, 'C' )% 
-//	>\
-
-   ++! l_Counter
-  end // if
- end // for C
-
-//	%{PROPS}<{}{}{%C}\
- ( get_global_var ( 'PROPS' ) ) 
- bind ( 
-  OBJECT VAR %S
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
    OBJECT IN %C
-   if true then
+   if ( ( %C |S ) %== 'property' OR 
+    ( ( %C |S ) %== 'readonly'  ) ) then
    begin
-
-
-//	%1%f_add_operation(%1U_%CU_get,keyword,\
-    %1 %f add_operation %( %1 |U '_'
-    %C |U '_get' %, 'keyword' %, 
-//	%CN (): %C%TU,Op_Instance)\
-    %C |N ' (): '
-    %C ->T |U  %, 'Op_Instance' )% 
-//	%{Op_Instance}%f_set_up(NameForScript,%C{NameForScript})\
-    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'NameForScript' %, %C get_up ( 'NameForScript' ) )% ) 
-
-//	%f_TuneGS(%{Op_Instance},%C)\
-    [%f] TuneGS %( ( get_global_var ( 'Op_Instance' ) ) %, %C )% 
-
+//	%f_add_to_list(PROPS,C)\
+    [%f] add_to_list %( 'PROPS' %, 'C' )% 
 //	>\
 
     ++! l_Counter
    end // if
   end // for C
 
- ) // bind
+
+//	%{PROPS}<{}{}{%C}\
+  ( get_global_var ( 'PROPS' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+
+
+//	%1%f_add_operation(%1U_%CU_get,keyword,\
+     %1 %f add_operation %( %1 |U '_'
+     %C |U '_get' %, 'keyword' %, 
+//	%CN (): %C%TU,Op_Instance)\
+     %C |N ' (): '
+     %C ->T |U  %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_up(NameForScript,%C{NameForScript})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'NameForScript' %, %C get_up ( 'NameForScript' ) )% ) 
+
+//	%f_TuneGS(%{Op_Instance},%C)\
+     [%f] TuneGS %( ( get_global_var ( 'Op_Instance' ) ) %, %C )% 
+
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+
 
 //	%f_clear_list(PROPS)\
- [%f] clear_list %( 'PROPS' )% 
+  [%f] clear_list %( 'PROPS' )% 
 
 //	%f_SpellFriends(%S)\
- [%f] SpellFriends %( %S )% 
+  [%f] SpellFriends %( %S )% 
 
 //	%f_clear_list(PARAMS)\
- [%f] clear_list %( 'PARAMS' )% 
+  [%f] clear_list %( 'PARAMS' )% 
+//	]\
+ end // if
 
 //	<{}{%t_isAcceptableForScripts(%G)=true}\
  INTEGER VAR l_Counter l_Counter := 0
@@ -201,12 +203,12 @@ implementation @ <<ScriptKeywordsPack>>
   end // if
  end // for R
 
-//	%f_clear_list(KEYS)\
- [%f] clear_list %( 'KEYS' )% 
-
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	%f_clear_list(KEYS)\
+  [%f] clear_list %( 'KEYS' )% 
+
 //	%S<{}{%C#f_IsGlobalKeyword()=true}\
   %S
   bind ( 
@@ -351,53 +353,60 @@ end. // <<ScriptKeywordsPack>>
 //	]\
  end // if
 
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%f_clear_list(KEYS)\
- [%f] clear_list %( 'KEYS' )% 
+  [%f] clear_list %( 'KEYS' )% 
 
 //	%S<{}{%C#f_IsKeyword()=true}\
- %S
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C %?f IsKeyword %( )% ) %==  true ) then
+  %S
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
    begin
+    OBJECT IN %C
+    if ( ( %C %?f IsKeyword %( )% ) %==  true ) then
+    begin
 //	%f_add_to_list(KEYS,C)\
-    [%f] add_to_list %( 'KEYS' %, 'C' )% 
+     [%f] add_to_list %( 'KEYS' %, 'C' )% 
 //	>\
 
-    ++! l_Counter
-   end // if
-  end // for C
+     ++! l_Counter
+    end // if
+   end // for C
 
- ) // bind
+  ) // bind
  
+
 //	%f_set_var(GEN,1)\
- [%f] set_var %( 'GEN' %, 1 )% 
+  [%f] set_var %( 'GEN' %, 1 )% 
 //	%{KEYS}<{}{}{%C}\
- ( get_global_var ( 'KEYS' ) ) 
- bind ( 
-  OBJECT VAR %S
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if true then
+  ( get_global_var ( 'KEYS' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
    begin
+    OBJECT IN %C
+    if true then
+    begin
 //	%f_SpellWordByOp(%1,%C)\
-    [%f] SpellWordByOp %( %1 %, %C )% 
+     [%f] SpellWordByOp %( %1 %, %C )% 
 //	>\
 
-    ++! l_Counter
-   end // if
-  end // for C
+     ++! l_Counter
+    end // if
+   end // for C
 
- ) // bind
+  ) // bind
 
-//	%f_clear_list(KEYS)
- [%f] clear_list %( 'KEYS' )% 
+
+//	%f_clear_list(KEYS)\
+  [%f] clear_list %( 'KEYS' )% 
+//	]
+ end // if
 
 //f _AddParamToRegister
 ; // SpellWordsForParent

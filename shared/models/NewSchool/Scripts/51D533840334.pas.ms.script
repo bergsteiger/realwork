@@ -351,8 +351,8 @@ ref; // ME_EBA4A169B7BD f_WorkSpace
 
 ref; // ME_6EDDA27DE2DB Ini_Reg_Class
 
-: ME_DF64362141A0
- CONST UID 'DF64362141A0'
+: ME_48AC75E96F90
+ CONST UID '48AC75E96F90'
  CONST Name 'Ini_FormFactory_FromWithPanel'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -365,7 +365,7 @@ ref; // ME_6EDDA27DE2DB Ini_Reg_Class
  : SpelledFor ME_51D534260378 // FromWithPanel
  ;
 
-ref; // ME_DF64362141A0 Ini_FormFactory_FromWithPanel$Def
+ref; // ME_48AC75E96F90 Ini_FormFactory_FromWithPanel$Def
 
 : ME_62697209BC9B
  CONST UID '62697209BC9B'
@@ -434,8 +434,6 @@ ref; // ME_60644F5AE5B2
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_51D534260378 InitControls
 
-FORWARD ME_E2DBF02FE0BB
-
 : ME_51D534260378
  CONST UID '51D534260378'
  CONST Name 'FromWithPanel'
@@ -461,7 +459,7 @@ FORWARD ME_E2DBF02FE0BB
  ; // Attributes
  : Operations
    Seq: ( ME_6EDDA27DE2DB // Ini_Reg_Class
- ME_DF64362141A0 // Ini_FormFactory_FromWithPanel$Def
+ ME_48AC75E96F90 // Ini_FormFactory_FromWithPanel$Def
  ME_62697209BC9B // Init_Str_ut_FromWithPanelCaption
  )
  ; // Operations
@@ -486,10 +484,6 @@ FORWARD ME_E2DBF02FE0BB
  ME_60644F5AE5B2 // Tl3MessageID
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_E2DBF02FE0BB // FromWithPanel
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Инишев Д.А.'
@@ -504,219 +498,6 @@ FORWARD ME_E2DBF02FE0BB
 
 ref; // ME_51D534260378 FromWithPanel
 
-FORWARD ME_0DCE11DEABEB
-
-FORWARD ME_2B5A54A6E5EB
-
-: ME_4DDFD2EA0116_ME_2B5A54A6E5EB
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_2B5A54A6E5EB GetString
-
-: ME_2B5A54A6E5EB
- CONST UID '2B5A54A6E5EB'
- CONST Name 'Tkw_Form_FromWithPanel'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы FromWithPanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::FromWithPanel TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_2B5A54A6E5EB // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::FromWithPanel'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_FromWithPanel'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_51D534260378 // FromWithPanel
- ;
-
-ref; // ME_2B5A54A6E5EB Tkw_Form_FromWithPanel
-
-FORWARD ME_5BBF7B69BE1D
-
-: ME_F90213F43D11
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_F90213F43D11 
-
-: ME_529279979E31
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_529279979E31 
-
-: ME_4DDFD2EA0116_ME_5BBF7B69BE1D
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_5BBF7B69BE1D GetString
-
-: ME_52A086150180_ME_5BBF7B69BE1D
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_5BBF7B69BE1D RegisterInEngine
-
-: ME_5BBF7B69BE1D
- CONST UID '5BBF7B69BE1D'
- CONST Name 'Tkw_FromWithPanel_Control_WorkSpace'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола WorkSpace'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::WorkSpace TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_5BBF7B69BE1D // GetString
- ME_52A086150180_ME_5BBF7B69BE1D // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_F90213F43D11 // TvtPanel
- ME_529279979E31 // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::WorkSpace'
- CONST extprop:rc:SelfName '_FromWithPanel_Control_WorkSpace'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_51D5346A02B5 // WorkSpace
- ;
-
-ref; // ME_5BBF7B69BE1D Tkw_FromWithPanel_Control_WorkSpace
-
-FORWARD ME_B42BC0D3240E
-
-: ME_4DAEEDE10285_ME_B42BC0D3240E
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_B42BC0D3240E DoDoIt
-
-: ME_B42BC0D3240E
- CONST UID 'B42BC0D3240E'
- CONST Name 'Tkw_FromWithPanel_Control_WorkSpace_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола WorkSpace'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::WorkSpace:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_B42BC0D3240E // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::WorkSpace:push'
- CONST extprop:rc:SelfName '_FromWithPanel_Control_WorkSpace_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_51D5346A02B5 // WorkSpace
- ;
-
-ref; // ME_B42BC0D3240E Tkw_FromWithPanel_Control_WorkSpace_Push
-
-: ME_B17B543E327C
- CONST UID 'B17B543E327C'
- CONST Name 'WorkSpace'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- %SUMMARY 'Контрол WorkSpace формы TFromWithPanelForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
- CONST "NameForScript" '.TFromWithPanelForm.WorkSpace'
- CONST "mapped" true
-
-ref; // ME_B17B543E327C WorkSpace
-
-: ME_E2DBF02FE0BB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_0DCE11DEABEB // FromWithPanelKeywordsPack
- ;
- : Target ME_51D534260378 // FromWithPanel
- ;
-
-ref; // ME_E2DBF02FE0BB 
-
-: ME_0DCE11DEABEB
- CONST UID '0DCE11DEABEB'
- CONST Name 'FromWithPanelKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы FromWithPanel' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_51D533840334 // FormWithPanel
- ;
- : Inherits
-   Seq: ( ME_51D534260378 // FromWithPanel
- )
- ; // Inherits
- : Attributes
-   Seq: ( ME_B17B543E327C // WorkSpace
- )
- ; // Attributes
- : Children
-   Seq: ( ME_2B5A54A6E5EB // Tkw_Form_FromWithPanel
- ME_5BBF7B69BE1D // Tkw_FromWithPanel_Control_WorkSpace
- ME_B42BC0D3240E // Tkw_FromWithPanel_Control_WorkSpace_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_E2DBF02FE0BB // FromWithPanel
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas'
-
-ref; // ME_0DCE11DEABEB FromWithPanelKeywordsPack
-
 : ME_51D533840334
  CONST UID '51D533840334'
  CONST Name 'FormWithPanel'
@@ -728,7 +509,6 @@ ref; // ME_0DCE11DEABEB FromWithPanelKeywordsPack
  ;
  : Children
    Seq: ( ME_51D534260378 // FromWithPanel
- ME_0DCE11DEABEB // FromWithPanelKeywordsPack
  )
  ; // Children
  : Depends

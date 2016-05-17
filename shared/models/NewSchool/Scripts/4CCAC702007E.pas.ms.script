@@ -2346,8 +2346,8 @@ FORWARD ME_4ABCD2D80364
 
 ref; // ME_0A06685896D6 Ini_Reg_Class
 
-: ME_0421C33162E1
- CONST UID '0421C33162E1'
+: ME_21D95C049A30
+ CONST UID '21D95C049A30'
  CONST Name 'Ini_FormFactory_UnderControl'
  CONST IsSummoned true
  CONST Class class_Operation
@@ -2360,7 +2360,7 @@ ref; // ME_0A06685896D6 Ini_Reg_Class
  : SpelledFor ME_4ABCD2D80364 // UnderControl
  ;
 
-ref; // ME_0421C33162E1 Ini_FormFactory_UnderControl
+ref; // ME_21D95C049A30 Ini_FormFactory_UnderControl
 
 : ME_F956D6101C29
  CONST IsSummoned true
@@ -2372,8 +2372,6 @@ ref; // ME_0421C33162E1 Ini_FormFactory_UnderControl
  ;
 
 ref; // ME_F956D6101C29 
-
-FORWARD ME_3AF98C61ABEF
 
 : ME_4ABCD2D80364
  CONST UID '4ABCD2D80364'
@@ -2396,17 +2394,13 @@ FORWARD ME_3AF98C61ABEF
  ; // Implements
  : Operations
    Seq: ( ME_0A06685896D6 // Ini_Reg_Class
- ME_0421C33162E1 // Ini_FormFactory_UnderControl
+ ME_21D95C049A30 // Ini_FormFactory_UnderControl
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_F956D6101C29 // TtfwClassRef
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_3AF98C61ABEF // UnderControl
- )
- ; // Injected
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -2421,375 +2415,6 @@ FORWARD ME_3AF98C61ABEF
  CONST extprop:pas:UnitName 'UnderControl_Form'
 
 ref; // ME_4ABCD2D80364 UnderControl
-
-FORWARD ME_F4128D86DA56
-
-FORWARD ME_FB556AE39FAA
-
-: ME_4DDFD2EA0116_ME_FB556AE39FAA
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_FB556AE39FAA GetString
-
-: ME_FB556AE39FAA
- CONST UID 'FB556AE39FAA'
- CONST Name 'Tkw_Form_UnderControl'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы UnderControl'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::UnderControl TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4128D86DA56 // UnderControlKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_FB556AE39FAA // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::UnderControl'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_UnderControl'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4ABCD2D80364 // UnderControl
- ;
-
-ref; // ME_FB556AE39FAA Tkw_Form_UnderControl
-
-FORWARD ME_1B916B997821
-
-: ME_F0F3C9B24C0C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1B916B997821 // Tkw_UnderControl_Control_UnderControlList
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_F0F3C9B24C0C 
-
-: ME_7BA2CB8B5494
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1B916B997821 // Tkw_UnderControl_Control_UnderControlList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7BA2CB8B5494 
-
-: ME_4DDFD2EA0116_ME_1B916B997821
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_1B916B997821 GetString
-
-: ME_52A086150180_ME_1B916B997821
- : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_52A086150180_ME_1B916B997821 RegisterInEngine
-
-: ME_1B916B997821
- CONST UID '1B916B997821'
- CONST Name 'Tkw_UnderControl_Control_UnderControlList'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора контрола UnderControlList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::UnderControlList TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4128D86DA56 // UnderControlKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_1B916B997821 // GetString
- ME_52A086150180_ME_1B916B997821 // RegisterInEngine
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_F0F3C9B24C0C // TnscTreeViewWithAdapterDragDrop
- ME_7BA2CB8B5494 // TtfwClassRef
- )
- ; // Dependencies
- CONST "NameForScript" 'контрол::UnderControlList'
- CONST extprop:rc:SelfName '_UnderControl_Control_UnderControlList'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4DEE1DAC02D9 // UnderControlList
- ;
-
-ref; // ME_1B916B997821 Tkw_UnderControl_Control_UnderControlList
-
-FORWARD ME_D9AD25D19806
-
-: ME_4DAEEDE10285_ME_D9AD25D19806
- : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DAEEDE10285_ME_D9AD25D19806 DoDoIt
-
-: ME_D9AD25D19806
- CONST UID 'D9AD25D19806'
- CONST Name 'Tkw_UnderControl_Control_UnderControlList_Push'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для контрола UnderControlList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::UnderControlList:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_F4128D86DA56 // UnderControlKeywordsPack
- ;
- : Inherits
-   Seq: ( WL 'ME_4F2141AD0203' '4F69DF560034.pas.ms.script' // byname_control_push
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DAEEDE10285_ME_D9AD25D19806 // DoDoIt
- )
- ; // Overridden
- CONST "NameForScript" 'контрол::UnderControlList:push'
- CONST extprop:rc:SelfName '_UnderControl_Control_UnderControlList_Push'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor ME_4DEE1DAC02D9 // UnderControlList
- ;
-
-ref; // ME_D9AD25D19806 Tkw_UnderControl_Control_UnderControlList_Push
-
-: ME_3AF98C61ABEF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_F4128D86DA56 // UnderControlKeywordsPack
- ;
- : Target ME_4ABCD2D80364 // UnderControl
- ;
-
-ref; // ME_3AF98C61ABEF 
-
-: ME_494F89C30197_ME_F4128D86DA56
- : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" true
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_494F89C30197_ME_F4128D86DA56 Delete
-
-: ME_4951284902BD_ME_F4128D86DA56
- : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4951284902BD_ME_F4128D86DA56 Copy
-
-: ME_4951285702E1_ME_F4128D86DA56
- : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4951285702E1_ME_F4128D86DA56 Cut
-
-: ME_49512B5D0009_ME_F4128D86DA56
- : Original WL 'ME_49512B5D0009' '495127DD017C.pas.ms.script' // FindContext
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49512B5D0009_ME_F4128D86DA56 FindContext
-
-: ME_495130C40123_ME_F4128D86DA56
- : Original WL 'ME_495130C40123' '495127DD017C.pas.ms.script' // FindNext
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_495130C40123_ME_F4128D86DA56 FindNext
-
-: ME_49EDFCA2006D_ME_F4128D86DA56
- : Original WL 'ME_49EDFCA2006D' '495127DD017C.pas.ms.script' // Undo
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EDFCA2006D_ME_F4128D86DA56 Undo
-
-: ME_49EDFCB100BC_ME_F4128D86DA56
- : Original WL 'ME_49EDFCB100BC' '495127DD017C.pas.ms.script' // Redo
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EDFCB100BC_ME_F4128D86DA56 Redo
-
-: ME_49EE01AA02BE_ME_F4128D86DA56
- : Original WL 'ME_49EE01AA02BE' '495127DD017C.pas.ms.script' // SelectAll
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EE01AA02BE_ME_F4128D86DA56 SelectAll
-
-: ME_49EE01BC022E_ME_F4128D86DA56
- : Original WL 'ME_49EE01BC022E' '495127DD017C.pas.ms.script' // Deselect
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49EE01BC022E_ME_F4128D86DA56 Deselect
-
-: ME_49FEDE4703B8_ME_F4128D86DA56
- : Original WL 'ME_49FEDE4703B8' '495127DD017C.pas.ms.script' // FindPrev
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_49FEDE4703B8_ME_F4128D86DA56 FindPrev
-
-: ME_4BDAF7B803CF_ME_F4128D86DA56
- : Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.pas.ms.script' // Wrap
- ;
- CONST OpKind opkind_Implemented
- CONST "AutoFocus" false
- CONST "AutoLock" false
- CONST "LongProcess" false
- CONST "ShowInContextMenu" 'undefined'
- CONST "ShowInToolbar" 'undefined'
- CONST "has states" false
- CONST "is FormActivate" false
- CONST "is query" false
- CONST "no prefix" false
-ref; // ME_4BDAF7B803CF_ME_F4128D86DA56 Wrap
-
-: ME_F4128D86DA56
- CONST UID 'F4128D86DA56'
- CONST Name 'UnderControlKeywordsPack'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeywordsPack ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы UnderControl' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CCAC71C0347 // UnderControl$FP
- ;
- : Inherits
-   Seq: ( ME_4ABCD2D80364 // UnderControl
- )
- ; // Inherits
- : Implemented
-   Seq: ( ME_494F89C30197_ME_F4128D86DA56 // Delete
- ME_4951284902BD_ME_F4128D86DA56 // Copy
- ME_4951285702E1_ME_F4128D86DA56 // Cut
- ME_49512B5D0009_ME_F4128D86DA56 // FindContext
- ME_495130C40123_ME_F4128D86DA56 // FindNext
- ME_49EDFCA2006D_ME_F4128D86DA56 // Undo
- ME_49EDFCB100BC_ME_F4128D86DA56 // Redo
- ME_49EE01AA02BE_ME_F4128D86DA56 // SelectAll
- ME_49EE01BC022E_ME_F4128D86DA56 // Deselect
- ME_49FEDE4703B8_ME_F4128D86DA56 // FindPrev
- ME_4BDAF7B803CF_ME_F4128D86DA56 // Wrap
- )
- ; // Implemented
- : Children
-   Seq: ( ME_FB556AE39FAA // Tkw_Form_UnderControl
- ME_1B916B997821 // Tkw_UnderControl_Control_UnderControlList
- ME_D9AD25D19806 // Tkw_UnderControl_Control_UnderControlList_Push
- )
- ; // Children
- : Dependencies
-   Seq: ( ME_3AF98C61ABEF // UnderControl
- )
- ; // Dependencies
- CONST "UseNewGen" true
- CONST "ifndef" 'NoScripts'
- CONST "no_pop" true
- CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControlKeywordsPack.pas'
-
-ref; // ME_F4128D86DA56 UnderControlKeywordsPack
 
 FORWARD ME_4ABCE38D00B4
 
@@ -3350,7 +2975,6 @@ ref; // ME_DFC0F9A42525
  ; // Operations
  : Children
    Seq: ( ME_4ABCD2D80364 // UnderControl
- ME_F4128D86DA56 // UnderControlKeywordsPack
  )
  ; // Children
  : Dependencies
@@ -3429,12 +3053,10 @@ ref; // ME_4CCAC71C0347 UnderControl$FP
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4CCACDDC0101' '4CCACDDC0101.pas.ms.script' // Strange
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_4F9BB1120134' '4F9BB1120134.pas.ms.script' // Сюда вынес все сообщения из StdRes с Choices
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

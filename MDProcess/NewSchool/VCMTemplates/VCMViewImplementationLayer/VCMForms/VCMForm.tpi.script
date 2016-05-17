@@ -734,15 +734,15 @@ implementation @ <<VCMForm>>
 //	[{%S{finished}=true}{\
     if ( ( %S get_up ( 'finished' ) ) %==  true ) then
     begin
-//	%S%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%RN (),Op_Instance)\
-     %S %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini_FormFactory_'
+//	%S%f_add_operation(%SU_Ini,ini,Ini_FormFactory_%RN (),Op_Instance)\
+     %S %f add_operation %( %S |U '_Ini' %, 'ini' %, 'Ini_FormFactory_'
      %R |N ' ()' %, 'Op_Instance' )% 
 //	]\
     end // if
     else
     begin
-//	%P%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%SN_%RN (),Op_Instance)\
-     %P %f add_operation %( ( get_global_var ( 'Word_Inst' ) |U ) '_Ini' %, 'ini' %, 'Ini_FormFactory_'
+//	%P%f_add_operation(%SU_Ini,ini,Ini_FormFactory_%SN_%RN (),Op_Instance)\
+     %P %f add_operation %( %S |U '_Ini' %, 'ini' %, 'Ini_FormFactory_'
      %S |N '_'
      %R |N ' ()' %, 'Op_Instance' )% 
 //	}\
@@ -780,517 +780,44 @@ implementation @ <<VCMForm>>
 //	[{%Sa=final}\
  if ( ( %S |a ) %== 'final' ) then
  begin
-
-
-//	%f_clear_list(CONTROLS)\
-  [%f] clear_list %( 'CONTROLS' )% 
-//	%f_CollectControls(%S)\
-  [%f] CollectControls %( %S )% 
 //	%f_set_var(SELF,S)\
   [%f] set_var %( 'SELF' %, 'S' )% 
-
 //	%{SELF}%f_set_visibility_type(PublicAccess)\
   ( get_global_var ( 'SELF' ) %f set_visibility_type %( 'PublicAccess' )% ) 
 //	%{SELF}%P%f_add_class(%{SELF}U_Pack,ScriptKeywordsPack,%f_N(%{SELF})KeywordsPack,Pack_Inst)\
-  ( get_global_var ( 'SELF' )  ->P %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_Pack' %, 'ScriptKeywordsPack' %, [%f] N %( ( get_global_var ( 'SELF' ) ) )% 'KeywordsPack' %, 'Pack_Inst' )% ) 
+
+//	%{Pack_Inst}%f_set_var(SpelledFor,S)\
+
 //	%f_addG(%{Pack_Inst},%{SELF})\
-  [%f] addG %( ( get_global_var ( 'Pack_Inst' ) ) %, ( get_global_var ( 'SELF' ) ) )% 
+
 //	%{Pack_Inst}%f_set_visibility_type(PublicAccess)\
-  ( get_global_var ( 'Pack_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+
 //	%{Pack_Inst}%f_set_documentation(Набор слов словаря для доступа к экземплярам контролов формы %{SELF}N)\
-  ( get_global_var ( 'Pack_Inst' ) %f set_documentation %( 'Набор слов словаря для доступа к экземплярам контролов формы '
-  ( get_global_var ( 'SELF' ) |N ) )% ) 
+
 //	%{Pack_Inst}%f_set_up(UseNewGen,true)\
-  ( get_global_var ( 'Pack_Inst' ) %f set_up %( 'UseNewGen' %, true )% ) 
+
 //	%{Pack_Inst}%f_set_up(noRegistrator,true)\
-  ( get_global_var ( 'Pack_Inst' ) %f set_up %( 'noRegistrator' %, true )% ) 
+
 //	%{Pack_Inst}%f_set_up(no_pop,true)\
-  ( get_global_var ( 'Pack_Inst' ) %f set_up %( 'no_pop' %, true )% ) 
+
 //	%{Pack_Inst}%f_set_up(ifdef,%{SELF}{ifdef})\
-  ( get_global_var ( 'Pack_Inst' ) %f set_up %( 'ifdef' %, ( get_global_var ( 'SELF' ) get_up ( 'ifdef' ) ) )% ) 
+
 //	[{"%{SELF}{ifndef}"!=""}{\
-  if ( ( ( get_global_var ( 'SELF' ) get_up ( 'ifndef' ) ) ) %!= '' ) then
-  begin
-//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)%{SELF}{ifndef})\
-   ( get_global_var ( 'Pack_Inst' ) %f set_up %( 'ifndef' %, 'NoScripts'
-   [%f] comma %( %S )% ( get_global_var ( 'SELF' ) get_up ( 'ifndef' ) ) )% ) 
-//	]\
-  end // if
-  else
-  begin
-//	%{Pack_Inst}%f_set_up(ifndef,NoScripts)\
-   ( get_global_var ( 'Pack_Inst' ) %f set_up %( 'ifndef' %, 'NoScripts' )% ) 
+
+//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)NoVCL)\
+
 //	}\
-  end // else
 
+//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)NoVCL%f_comma(%S)%{SELF}{ifndef})\
 
-//	%{Pack_Inst}%f_add_class(%SU_Word,ScriptKeyword,Tkw_Form_%f_N(%S),Word_Inst)\
-  ( get_global_var ( 'Pack_Inst' ) %f add_class %( %S |U '_Word' %, 'ScriptKeyword' %, 'Tkw_Form_'
-  [%f] N %( %S )% %, 'Word_Inst' )% ) 
-//	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NotStripUnderline' %, true )% ) 
-//	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifndef' %, 'NoScripts' )% ) 
-
-//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
-  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
-  if ( ( ( get_global_var ( 'TtfwControlString' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'TtfwControlString' %, 'TtfwControlString' )% 
-  end // if
-
-//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
-//	%f_addG(%{Word_Inst},%{TtfwControlString})\
-  [%f] addG %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwControlString' ) ) )% 
-
-//	%{Word_Inst}%f_set_up(NameForScript,форма::%f_str_replace(%f_N(%S), ,_))\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 'форма::'
-  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% )% ) 
-
-//	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора формы %SN
-  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для идентификатора формы '
-  %S |N 
-//	----
-  '----'
-//	*Пример использования*:
-  '*Пример использования*:'
-//	\{code\}
-  '{code}'
-//	'aControl' %f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
-  '''aControl'' '
-  [%f] loc_GetNameForScript %( ( get_global_var ( 'Word_Inst' ) ) )% ' TryFocus ASSERT'
-//	\{code\})\
-  '{code}' )% ) 
-//	%{Word_Inst}%f_set_var(SpelledFor,S)\
-  ( get_global_var ( 'Word_Inst' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
-
-//	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
-  if ( ( ( get_global_var ( 'TtfwControlString.GetString' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '4DDFD2EA0116' %, 'TtfwControlString.GetString' )% 
-  end // if
-//	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
-  ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwControlString.GetString' ) |U ) )% ) 
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
-
-//	 {-}\
-
-//	)\
-
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
-
-//	 Result := '%f_cut_prefix(%f_pas_TypeName(%S),T)';\
-
-//	)\
-
-
-//	[{%S{finished}!=true}\
-  if ( ( %S get_up ( 'finished' ) ) %!=  true ) then
-  begin
-//	[{"%{TtfwClassRef}N"=""}%f_find_element(561F9F9400BC,TtfwClassRef)]\
-   if ( ( ( get_global_var ( 'TtfwClassRef' ) |N ) ) %== '' ) then
-   begin
-    [%f] find_element %( '561F9F9400BC' %, 'TtfwClassRef' )% 
-   end // if
-//	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
-   ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwClassRef' ) |U ) )% ) 
-//	%f_addCDep(%{Word_Inst},%{TtfwClassRef})\
-   [%f] addCDep %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwClassRef' ) ) )% 
-//	%f_addCDep(%{Word_Inst},%S)\
-   [%f] addCDep %( ( get_global_var ( 'Word_Inst' ) ) %, %S )% 
-
-//	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
-   if ( ( ( get_global_var ( 'TtfwRegisterableWordPrim.RegisterInEngine' ) |N ) ) %== '' ) then
-   begin
-    [%f] find_element %( '52A086150180' %, 'TtfwRegisterableWordPrim.RegisterInEngine' )% 
-   end // if
-//	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
-   ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwRegisterableWordPrim.RegisterInEngine' ) |U ) )% ) 
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
-
-//	 {-}\
-
-//	)\
-
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
-
-//	 inherited;
-
-//	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
-
-//	)\
 //	]\
-  end // if
-
-
-//	%{Word_Inst}%f_set_abstraction_type(final)\
-  ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
-
-//	%f_set_var(NAMEDPARENT,S)\
-  [%f] set_var %( 'NAMEDPARENT' %, 'S' )% 
-//	%f_set_var(PARENT,{Pack_Inst})\
-  [%f] set_var %( 'PARENT' %, '{Pack_Inst}' )% 
-
-//	%{CONTROLS}<{}{}{%C}\
-  ( get_global_var ( 'CONTROLS' ) ) 
-  bind ( 
-   OBJECT VAR %S
-   INTEGER VAR l_Counter l_Counter := 0
-   for %S%C
-   begin
-    OBJECT IN %C
-    if true then
-    begin
-//	%C#f_CheckG()\
-     %C %?f CheckG %( )% 
-//	%f_SpellControl(%C)\
-     [%f] SpellControl %( %C )% 
-
-//	[{""=""}\
-     if ( '' %== '' ) then
-     begin
-
-// - специально так хитро закомментировано
-//	[{%CV=PublicAccess}\
-      if ( ( %C |V ) %== 'PublicAccess' ) then
-      begin
-//	[{"%C%GU"!=""}\
-       if ( ( %C ->G |U  ) %!= '' ) then
-       begin
-//	%{Pack_Inst}%f_make_accessable(%C%GU)\
-        ( get_global_var ( 'Pack_Inst' ) %f make_accessable %( %C ->G |U  )% ) 
-//	%{Pack_Inst}%f_add_attribute(%{Pack_Inst}U_%CU_Control,readonly,\
-        ( get_global_var ( 'Pack_Inst' ) %f add_attribute %( ( get_global_var ( 'Pack_Inst' ) |U ) '_'
-        %C |U '_Control' %, 'readonly' %, 
-//	%f_N(%C) : %C%GU,\
-        [%f] N %( %C )% ' : '
-        %C ->G |U  %, 
-//	Attr_Inst)\
-        'Attr_Inst' )% ) 
-//	%{Attr_Inst}%f_set_documentation(Контрол %CN формы %f_pas_TypeName(%{SELF}))\
-        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Контрол '
-        %C |N ' формы '
-        [%f] pas_TypeName %( ( get_global_var ( 'SELF' ) ) )% )% ) 
-//	%{Attr_Inst}%f_set_up(NameForScript,.%f_pas_TypeName(%{SELF}).%f_N(%C))\
-        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'NameForScript' %, '.'
-        [%f] pas_TypeName %( ( get_global_var ( 'SELF' ) ) )% '.'
-        [%f] N %( %C )% )% ) 
-//	%{Attr_Inst}%f_set_up(mapped,true)\
-        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'mapped' %, true )% ) 
-//	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
-        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
-//	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
-        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
-//	]\
-       end // if
-//	]\
-      end // if
-//	]\
-     end // if
-
-
-//	>\
-
-     ++! l_Counter
-    end // if
-   end // for C
-
-  ) // bind
-
-
-//	%f_clear_list(CONTROLS)\
-  [%f] clear_list %( 'CONTROLS' )% 
 //	]
  end // if
 
-//f _SpellControl
+//f _IsFormFactory
 ; // DoSpell
 
 end. // <<VCMForm>>
-
-: SpellControl OBJECT IN %S
-//	%{PARENT}%f_add_class(%SU_Word,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S),Word_Inst)\
- ( get_global_var ( 'PARENT' ) %f add_class %( %S |U '_Word' %, 'ScriptKeyword' %, 'Tkw_'
- [%f] N %( ( get_global_var ( 'NAMEDPARENT' ) ) )% '_'
- if ( ( %S |S ) %!= 'Component' ) then
- begin
-  'Control' 
- end // if
- else
- begin
-  'Component' 
- end // else
- '_'
- [%f] N %( %S )% %, 'Word_Inst' )% ) 
-//	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NotStripUnderline' %, true )% ) 
-//	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
- if ( ( ( get_global_var ( 'TtfwControlString' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( 'TtfwControlString' %, 'TtfwControlString' )% 
- end // if
-//	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
-//	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
-//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
-//	%f_addG(%{Word_Inst},%{TtfwControlString})\
- [%f] addG %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwControlString' ) ) )% 
-//	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
-
-//	[{%Gx=true}\
- if ( ( %G |x ) %==  true ) then
- begin
-//	%f_addCDep(%{Word_Inst},%G)\
-  [%f] addCDep %( ( get_global_var ( 'Word_Inst' ) ) %, %G )% 
-//	]\
- end // if
-
-//	%{Word_Inst}%f_set_up(NameForScript,\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 
-//	[{%SS!=Component}{\
- if ( ( %S |S ) %!= 'Component' ) then
- begin
-//	контрол\
-  'контрол'
-//	]\
- end // if
- else
- begin
-//	компонент\
-  'компонент'
-//	}\
- end // else
-//	::%f_str_replace(%f_N(%S), ,_))\
- '::'
- [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% )% ) 
-
-//	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора контрола %SN
- ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для идентификатора контрола '
- %S |N 
-//	----
- '----'
-//	*Пример использования*:
- '*Пример использования*:'
-//	\{code\}
- '{code}'
-//	%f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
- [%f] loc_GetNameForScript %( ( get_global_var ( 'Word_Inst' ) ) )% ' TryFocus ASSERT'
-//	\{code\})\
- '{code}' )% ) 
-//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
- ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	%{Word_Inst}%f_set_abstraction_type(final)\
- ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
-//	%{Word_Inst}%f_set_var(SpelledFor,S)\
- ( get_global_var ( 'Word_Inst' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
-
-//	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
- if ( ( ( get_global_var ( 'TtfwControlString.GetString' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( '4DDFD2EA0116' %, 'TtfwControlString.GetString' )% 
- end // if
-//	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
- ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwControlString.GetString' ) |U ) )% ) 
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
-//	 Result := '%f_N(%S)';\
-//	)\
-
-//	[{"%{TtfwClassRef}N"=""}%f_find_element(TtfwClassRef,TtfwClassRef)]\
- if ( ( ( get_global_var ( 'TtfwClassRef' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( 'TtfwClassRef' %, 'TtfwClassRef' )% 
- end // if
-//	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
- ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwClassRef' ) |U ) )% ) 
-//	%f_addCDep(%{Word_Inst},%{TtfwClassRef})\
- [%f] addCDep %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwClassRef' ) ) )% 
-
-//	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
- if ( ( ( get_global_var ( 'TtfwRegisterableWordPrim.RegisterInEngine' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( '52A086150180' %, 'TtfwRegisterableWordPrim.RegisterInEngine' )% 
- end // if
-//	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
- ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwRegisterableWordPrim.RegisterInEngine' ) |U ) )% ) 
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
-//	 inherited;
-//	 TtfwClassRef.Register(%S%f_pas_ResultTypeName());\
-//	)\
-
-//	[{%SS!=Component}\
- if ( ( %S |S ) %!= 'Component' ) then
- begin
-//	%{PARENT}%f_add_class(%SU_Word_Push,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S)_Push,Word_Inst)\
-  ( get_global_var ( 'PARENT' ) %f add_class %( %S |U '_Word_Push' %, 'ScriptKeyword' %, 'Tkw_'
-  [%f] N %( ( get_global_var ( 'NAMEDPARENT' ) ) )% '_'
-  if ( ( %S |S ) %!= 'Component' ) then
-  begin
-   'Control' 
-  end // if
-  else
-  begin
-   'Component' 
-  end // else
-  '_'
-  [%f] N %( %S )% '_Push' %, 'Word_Inst' )% ) 
-//	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NotStripUnderline' %, true )% ) 
-//	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifdef' %, %S get_up ( 'ifdef' ) )% ) 
-//	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifndef' %, %S get_up ( 'ifndef' ) )% ) 
-//	[{"%{TkwControlPush}N"=""}%f_find_element(byname_control_push,TkwControlPush)]\
-  if ( ( ( get_global_var ( 'TkwControlPush' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( 'byname_control_push' %, 'TkwControlPush' )% 
-  end // if
-
-//	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
-//	%f_addG(%{Word_Inst},%{TkwControlPush})\
-  [%f] addG %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TkwControlPush' ) ) )% 
-
-
-//	[{"%{TtfwContext}N"=""}%f_find_element(TtfwContext,TtfwContext)]\
-
-//	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
-
-//	%f_addCDep(%{Word_Inst},%{TtfwContext})\
-
-
-//	%{Word_Inst}%f_set_var(SpelledFor,S)\
-  ( get_global_var ( 'Word_Inst' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
-
-//	%{Word_Inst}%f_set_up(NameForScript,\
-  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 
-//	[{%SS!=Component}{\
-  if ( ( %S |S ) %!= 'Component' ) then
-  begin
-//	контрол\
-   'контрол'
-//	]\
-  end // if
-  else
-  begin
-//	компонент\
-   'компонент'
-//	}\
-  end // else
-//	::%f_str_replace(%f_N(%S), ,_):push)\
-  '::'
-  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% ':push' )% ) 
-
-//	%{Word_Inst}%f_set_documentation(Слово словаря для контрола %SN
-  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для контрола '
-  %S |N 
-//	----
-  '----'
-//	*Пример использования*:
-  '*Пример использования*:'
-//	\{code\}
-  '{code}'
-//	%f_loc_GetNameForScript(%{Word_Inst}) pop:control:SetFocus ASSERT
-  [%f] loc_GetNameForScript %( ( get_global_var ( 'Word_Inst' ) ) )% ' pop:control:SetFocus ASSERT'
-//	\{code\})\
-  '{code}' )% ) 
-//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
-  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	%{Word_Inst}%f_set_abstraction_type(final)\
-  ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
-
-//	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
-  if ( ( ( get_global_var ( 'TtfwWord.DoDoIt' ) |N ) ) %== '' ) then
-  begin
-   [%f] find_element %( '4DAEEDE10285' %, 'TtfwWord.DoDoIt' )% 
-  end // if
-//	%{Word_Inst}%f_add_override(%{TtfwWord.DoDoIt}U)\
-  ( get_global_var ( 'Word_Inst' ) %f add_override %( ( get_global_var ( 'TtfwWord.DoDoIt' ) |U ) )% ) 
-//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_var,\
-
-//	 {-}\
-
-//	)\
-
-//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_impl,\
-
-//	 aCtx.rEngine.PushString('%f_N(%S)');
-
-//	 inherited;\
-
-//	)\
-//	]
- end // if
-
-//f _CollectControlsPrim
-; // SpellControl
-
-: CollectControlsPrim OBJECT IN %S
-//	<{}{%C#f_IsControl()=true}{}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if ( ( %C %?f IsControl %( )% ) %==  true ) then
-  begin
-//	[{%C#f_IsOverride()!=true}\
-   if ( ( %C %?f IsOverride %( )% ) %!=  true ) then
-   begin
-//	[{%f_exists_in_list(CONTROLS,C)!=true}\
-    if ( ( [%f] exists_in_list %( 'CONTROLS' %, 'C' )% ) %!=  true ) then
-    begin
-//	%f_add_to_list(CONTROLS,C)\
-     [%f] add_to_list %( 'CONTROLS' %, 'C' )% 
-//	]\
-    end // if
-//	]\
-   end // if
-//	%f_CollectControlsPrim(%C)\
-   [%f] CollectControlsPrim %( %C )% 
-//	>
-
-   ++! l_Counter
-  end // if
- end // for C
-
-//f _CollectControls
-; // CollectControlsPrim
-
-: CollectControls OBJECT IN %S
-//	%f_CollectControlsPrim(%S)\
- [%f] CollectControlsPrim %( %S )% 
-//	<%f_CollectControls(%G)>\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%G
- begin
-  OBJECT IN %G
-  if true then
-  begin
-   [%f] CollectControls %( %G )% 
-   ++! l_Counter
-  end // if
- end // for G
-//	<%f_CollectControls(%R)>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%R
- begin
-  OBJECT IN %R
-  if true then
-  begin
-   [%f] CollectControls %( %R )% 
-   ++! l_Counter
-  end // if
- end // for R
-
-//f _IsFormFactory
-; // CollectControls
 
 : IsFormFactory OBJECT IN %S
 //	[{%SN=Make}{false}[{%SS=factory|%SS=Factory}{false}true]]
@@ -1431,11 +958,19 @@ implementation @ <<VCMForm>>
     %O %?f OperationsToUses %( )% 
 //	]\
    end // if
-//	>
+//	>\
 
    ++! l_Counter
   end // if
  end // for O
+//	[{%Sa=final}\
+ if ( ( %S |a ) %== 'final' ) then
+ begin
+//	%f_pas_PutToUses("%f_N(%S)KeywordsPack")\
+  [%f] pas_PutToUses %( [%f] N %( %S )% 'KeywordsPack' )% 
+// - времянка, чтобы подключить Pack. До полного переноса в новый генератор
+//	]
+ end // if
 //#UC END# *4948EB2601FAfor4B5DA84A00DD*
 ; // pas_ImplUses
 

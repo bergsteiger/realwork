@@ -1532,12 +1532,12 @@ PROCEDURE "Выполнить с ожиданием 'Да' 'Проверка орфографии'. Нажимать кнопку 'За
 	)
 ;
 
+// Поиск текста c RadioGroup
 PROCEDURE "Выбрать группу 'Точка начала'"
 	INTEGER IN l_Index 
 	"Контрол по имени {("Точка начала")}" pop:RadioGroup:ItemIndex := l_Index
 ;
 
-// Поиск текста c RadioGroup
 PROCEDURE "Поиск текста в 'Точка начала'" STRING IN aFindString IN aIndexRadioGroup
 	 	"Вызывать окно поиска"
  		aIndexRadioGroup "Выбрать группу 'Точка начала'"
@@ -1548,6 +1548,44 @@ PROCEDURE "Поиск текста в 'Точка начала'" STRING IN aFindString IN aIndexRadioGr
 	 FINALLY
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
 	 END 
+;
+
+PROCEDURE "Выбрать группу 'Область поиска'"
+	INTEGER IN l_Index 
+	"Контрол по имени {("Область поиска")}" pop:RadioGroup:ItemIndex := l_Index
+;
+
+PROCEDURE "Поиск текста в 'Область поиска'" STRING IN aFindString IN aIndexRadioGroup
+	 	"Вызывать окно поиска"
+ 		aIndexRadioGroup "Выбрать группу 'Область поиска'"
+	 TRY
+	 	"Набить текст {(aFindString)}"
+	 	"Обработать сообщения"
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click 
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
+;
+
+PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку' и выбрать группу 'Область поиска' с радиокнопкой" STRING IN aFindString IN aCheckBoxName IN aIndexRadioGroup
+	 	"Вызывать окно поиска"
+	 TRY
+
+	 	"Набить текст {(aFindString)}"
+
+		aIndexRadioGroup "Выбрать группу 'Область поиска'"
+
+		OBJECT VAR l_Control 
+		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		OBJECT VAR l_Result
+		"Найти контрол {(aCheckBoxName)} на форме {(l_Control)}"  >>> l_Result
+		Если ( "Чекбокс {(l_Result)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_Result)}" )
+	 	"Обработать сообщения"
+		
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
 ;
 
 // Поиск текста c CheckBox

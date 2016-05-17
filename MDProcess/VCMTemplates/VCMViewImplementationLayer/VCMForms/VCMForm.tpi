@@ -219,9 +219,9 @@ p restrict form def:tribool=undefined ?
 	<{}{%RS=VCMFormDefinition}\
 	[{%f_HasFactory(%S)!=true}\
 	[{%S{finished}=true}{\
-	%P%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%SN_%RN (),Op_Instance)\
+	%P%f_add_operation(%SU_Ini,ini,Ini_FormFactory_%SN_%RN (),Op_Instance)\
 	}\
-	%S%f_add_operation(%{Word_Inst}U_Ini,ini,Ini_FormFactory_%RN (),Op_Instance)\
+	%S%f_add_operation(%SU_Ini,ini,Ini_FormFactory_%RN (),Op_Instance)\
 	]\
 	%{Op_Instance}%f_set_documentation(Регистрация фабрики формы %SN)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
@@ -236,214 +236,23 @@ p restrict form def:tribool=undefined ?
 	>\
 
 	[{%Sa=final}\
-
-	%f_clear_list(CONTROLS)\
-	%f_CollectControls(%S)\
 	%f_set_var(SELF,S)\
-
 	%{SELF}%f_set_visibility_type(PublicAccess)\
-	%{SELF}%P%f_add_class(%{SELF}U_Pack,ScriptKeywordsPack,%f_N(%{SELF})KeywordsPack,Pack_Inst)\
-	%f_addG(%{Pack_Inst},%{SELF})\
-	%{Pack_Inst}%f_set_visibility_type(PublicAccess)\
-	%{Pack_Inst}%f_set_documentation(Набор слов словаря для доступа к экземплярам контролов формы %{SELF}N)\
-	%{Pack_Inst}%f_set_up(UseNewGen,true)\
-	%{Pack_Inst}%f_set_up(noRegistrator,true)\
-	%{Pack_Inst}%f_set_up(no_pop,true)\
-	%{Pack_Inst}%f_set_up(ifdef,%{SELF}{ifdef})\
-	[{"%{SELF}{ifndef}"!=""}{\
-	%{Pack_Inst}%f_set_up(ifndef,NoScripts)\
-	}\
-	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)%{SELF}{ifndef})\
-	]\
-
-	%{Pack_Inst}%f_add_class(%SU_Word,ScriptKeyword,Tkw_Form_%f_N(%S),Word_Inst)\
-	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
-
-	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
-	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
-//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
-	%f_addG(%{Word_Inst},%{TtfwControlString})\
-
-	%{Word_Inst}%f_set_up(NameForScript,форма::%f_str_replace(%f_N(%S), ,_))\
-
-	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора формы %SN
-	----
-	*Пример использования*:
-	\{code\}
-	'aControl' %f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
-	\{code\})\
-	%{Word_Inst}%f_set_var(SpelledFor,S)\
-
-	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
-	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
-//	 Result := '%f_cut_prefix(%f_pas_TypeName(%S),T)';\
-//	)\
-
-	[{%S{finished}!=true}\
-	[{"%{TtfwClassRef}N"=""}%f_find_element(561F9F9400BC,TtfwClassRef)]\
-	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
-	%f_addCDep(%{Word_Inst},%{TtfwClassRef})\
-	%f_addCDep(%{Word_Inst},%S)\
-
-	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
-	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
-//	 inherited;
-//	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
-//	)\
-	]\
-
-	%{Word_Inst}%f_set_abstraction_type(final)\
-
-	%f_set_var(NAMEDPARENT,S)\
-	%f_set_var(PARENT,{Pack_Inst})\
-
-	%{CONTROLS}<{}{}{%C}\
-	%C#f_CheckG()\
-	%f_SpellControl(%C)\
-
-	[{""=""}\
-// - специально так хитро закомментировано
-	[{%CV=PublicAccess}\
-	[{"%C%GU"!=""}\
-	%{Pack_Inst}%f_make_accessable(%C%GU)\
-	%{Pack_Inst}%f_add_attribute(%{Pack_Inst}U_%CU_Control,readonly,\
-	%f_N(%C) : %C%GU,\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_documentation(Контрол %CN формы %f_pas_TypeName(%{SELF}))\
-	%{Attr_Inst}%f_set_up(NameForScript,.%f_pas_TypeName(%{SELF}).%f_N(%C))\
-	%{Attr_Inst}%f_set_up(mapped,true)\
-	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
-	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
-	]\
-	]\
-	]\
-
-	>\
-
-	%f_clear_list(CONTROLS)\
+//	%{SELF}%P%f_add_class(%{SELF}U_Pack,ScriptKeywordsPack,%f_N(%{SELF})KeywordsPack,Pack_Inst)\
+//	%{Pack_Inst}%f_set_var(SpelledFor,S)\
+//	%f_addG(%{Pack_Inst},%{SELF})\
+//	%{Pack_Inst}%f_set_visibility_type(PublicAccess)\
+//	%{Pack_Inst}%f_set_documentation(Набор слов словаря для доступа к экземплярам контролов формы %{SELF}N)\
+//	%{Pack_Inst}%f_set_up(UseNewGen,true)\
+//	%{Pack_Inst}%f_set_up(noRegistrator,true)\
+//	%{Pack_Inst}%f_set_up(no_pop,true)\
+//	%{Pack_Inst}%f_set_up(ifdef,%{SELF}{ifdef})\
+//	[{"%{SELF}{ifndef}"!=""}{\
+//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)NoVCL)\
+//	}\
+//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)NoVCL%f_comma(%S)%{SELF}{ifndef})\
+//	]\
 	]
-
-f _SpellControl
-	%{PARENT}%f_add_class(%SU_Word,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S),Word_Inst)\
-	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
-	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
-	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
-//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
-	%f_addG(%{Word_Inst},%{TtfwControlString})\
-	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
-
-	[{%Gx=true}\
-	%f_addCDep(%{Word_Inst},%G)\
-	]\
-
-	%{Word_Inst}%f_set_up(NameForScript,\
-	[{%SS!=Component}{\
-	компонент\
-	}\
-	контрол\
-	]\
-	::%f_str_replace(%f_N(%S), ,_))\
-
-	%{Word_Inst}%f_set_documentation(Слово словаря для идентификатора контрола %SN
-	----
-	*Пример использования*:
-	\{code\}
-	%f_loc_GetNameForScript(%{Word_Inst}) TryFocus ASSERT
-	\{code\})\
-	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
-	%{Word_Inst}%f_set_abstraction_type(final)\
-	%{Word_Inst}%f_set_var(SpelledFor,S)\
-
-	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
-	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
-//	 Result := '%f_N(%S)';\
-//	)\
-
-	[{"%{TtfwClassRef}N"=""}%f_find_element(TtfwClassRef,TtfwClassRef)]\
-	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
-	%f_addCDep(%{Word_Inst},%{TtfwClassRef})\
-
-	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
-	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
-//	 inherited;
-//	 TtfwClassRef.Register(%S%f_pas_ResultTypeName());\
-//	)\
-
-	[{%SS!=Component}\
-	%{PARENT}%f_add_class(%SU_Word_Push,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S)_Push,Word_Inst)\
-	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
-	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
-	[{"%{TkwControlPush}N"=""}%f_find_element(byname_control_push,TkwControlPush)]\
-//	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
-	%f_addG(%{Word_Inst},%{TkwControlPush})\
-
-//	[{"%{TtfwContext}N"=""}%f_find_element(TtfwContext,TtfwContext)]\
-//	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
-//	%f_addCDep(%{Word_Inst},%{TtfwContext})\
-
-	%{Word_Inst}%f_set_var(SpelledFor,S)\
-
-	%{Word_Inst}%f_set_up(NameForScript,\
-	[{%SS!=Component}{\
-	компонент\
-	}\
-	контрол\
-	]\
-	::%f_str_replace(%f_N(%S), ,_):push)\
-
-	%{Word_Inst}%f_set_documentation(Слово словаря для контрола %SN
-	----
-	*Пример использования*:
-	\{code\}
-	%f_loc_GetNameForScript(%{Word_Inst}) pop:control:SetFocus ASSERT
-	\{code\})\
-	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
-	%{Word_Inst}%f_set_abstraction_type(final)\
-
-	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
-	%{Word_Inst}%f_add_override(%{TtfwWord.DoDoIt}U)\
-//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_var,\
-//	 {-}\
-//	)\
-//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_impl,\
-//	 aCtx.rEngine.PushString('%f_N(%S)');
-//	 inherited;\
-//	)\
-	]
-
-f _CollectControlsPrim
-	<{}{%C#f_IsControl()=true}{}\
-	[{%C#f_IsOverride()!=true}\
-	[{%f_exists_in_list(CONTROLS,C)!=true}\
-	%f_add_to_list(CONTROLS,C)\
-	]\
-	]\
-	%f_CollectControlsPrim(%C)\
-	>
-
-f _CollectControls
-	%f_CollectControlsPrim(%S)\
-	<%f_CollectControls(%G)>\
-	<%f_CollectControls(%R)>
 
 f _IsFormFactory
 	[{%SN=Make}{false}[{%SS=factory|%SS=Factory}{false}true]]
@@ -478,7 +287,11 @@ f _HasFactory
 	[{"%O{ShowInContextMenu}"!=""|%O{ShowInContextMenu}!=undefined|"%O{ContextMenuWeight}"!=""|"%O{ShowInToolbar}"!=""|%O{ShowInToolbar}!=undefined}\
 	%O#f_OperationsToUses()\
 	]\
-	>
+	>\
+	[{%Sa=final}\
+	%f_pas_PutToUses("%f_N(%S)KeywordsPack")\
+// - времянка, чтобы подключить Pack. До полного переноса в новый генератор
+	]
 //#UC END# *4948EB2601FAfor4B5DA84A00DD*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
