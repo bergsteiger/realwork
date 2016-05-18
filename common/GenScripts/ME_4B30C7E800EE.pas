@@ -68,10 +68,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TextLoadKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , TextLoad_ut_TextLoad_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TextLoadKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

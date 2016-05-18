@@ -43,10 +43,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , LoginKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , Login_ut_Login_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LoginKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

@@ -58,9 +58,6 @@ uses
  , DataAdapter
  , fsTips
  , StartupTips_Form
- {$If NOT Defined(NoScripts)}
- , StartupTipsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

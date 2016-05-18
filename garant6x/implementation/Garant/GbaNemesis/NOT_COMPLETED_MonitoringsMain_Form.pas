@@ -40,11 +40,11 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , MonitoringsMainKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MonitoringsMainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 initialization

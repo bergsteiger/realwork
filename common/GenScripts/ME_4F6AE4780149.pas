@@ -2462,15 +2462,15 @@ uses
  {$If Defined(Nemesis)}
  , eeShortCutEdit in 'w:\common\components\gui\Garant\Everest_Engine\eeShortCutEdit.pas'
  {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
- , CustomizeToolsKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , CustomizeTools_ut_CustomizeTools_UserType in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_ut_CustomizeTools_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomizeToolsKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeToolsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , OfficeLikeMain_Form in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2525,21 +2525,21 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmCustOpsRepGroupList in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\vcmCustOpsRepGroupList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
- , CustomizeTasksPanelKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\CustomizeTasksPanelKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomizeTasksPanelKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moParentAndChild in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
  , ParentAndChildPrim_Module in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
  , Parent_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas'
  , PrimParent_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas'
  , PrimParent_utHistory_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas'
  , F1Like_FormDefinitions_Controls in 'w:\common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas'
- {$If NOT Defined(NoScripts)}
- , ParentKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ParentKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\ParentKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Child_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.pas'
  , PrimChild_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas'
  , F1Like_InternalOperations_Controls in 'w:\common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas'
@@ -2551,9 +2551,9 @@ uses
  , vtProportionalPanel in 'w:\common\components\gui\Garant\VT\vtProportionalPanel.pas'
  , PrimChild_cutUsual_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutUsual_UserType.pas'
  , PrimChild_cutForDiction_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutForDiction_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ChildKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChildKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\ChildKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , MainPrim_Form in 'w:\common\components\gui\Garant\VCM\View\MainPrim_Form.pas'
  {$If NOT Defined(NoVCM)}
  , OfficeLike_System_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_System_Controls.pas'
@@ -2766,10 +2766,10 @@ uses
  , nsSettingsConst in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsSettingsConst.pas'
  , NewGenMainPrim_Form in 'w:\MDProcess\NewGen\NewGenMainPrim_Form.pas'
  , Main_Form in 'w:\MDProcess\NewGen\Main_Form.pas'
- {$If NOT Defined(NoScripts)}
- , MainKeywordsPack in 'w:\MDProcess\NewGen\MainKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , Main_ut_Main_UserType in 'w:\MDProcess\NewGen\Main_ut_Main_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MainKeywordsPack in 'w:\MDProcess\NewGen\MainKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , l3MouseWheelHelper in 'w:\common\components\rtl\Garant\L3\l3MouseWheelHelper.pas'
 ;
 {$IfEnd} // Defined(NewGen)

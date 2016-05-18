@@ -355,6 +355,7 @@ uses
  , BaloonWarningUserTypes_remTimeMachineWarning_UserType
  , ListUserTypes_lftSimilarDocumentsToFragment_UserType
  , nsListExceptions
+ , l3DialogService
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

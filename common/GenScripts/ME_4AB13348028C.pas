@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , DocNumberQueryKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , DocNumberQuery_ut_DocNumberQuery_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DocNumberQueryKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

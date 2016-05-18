@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , DefineSearchDateKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , DefineSearchDate_ut_DefineSearchDate_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DefineSearchDateKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

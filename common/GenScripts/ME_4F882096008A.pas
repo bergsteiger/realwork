@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , MemoryUsageKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , MemoryUsage_ut_MemoryUsage_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MemoryUsageKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

@@ -55,10 +55,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , FromWithPanelKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , FromWithPanel_ut_FromWithPanel_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , FromWithPanelKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

@@ -300,66 +300,54 @@ var
 //#UC START# *48C7925A02E5_52BACEF001CB_var*
 //#UC END# *48C7925A02E5_52BACEF001CB_var*
 //#UC START# *48E22B250241_52B9B0AA0105_impl*
- l_CurPt := Point(X, Y);
- l_WasRealMoving := (Abs(f_LastMovingPoint.X - X) > cRealMovingThreshold) or
-  (Abs(f_LastMovingPoint.Y - Y) > cRealMovingThreshold);
- // http://mdp.garant.ru/pages/viewpage.action?pageId=622830711
  l_TME.cbSize := SizeOf(TTrackMouseEvent);
  l_TME.dwFlags := TME_LEAVE;
  l_TME.hwndTrack := Handle;
  TrackMouseEvent(l_TME);
- try
-  // Курсор вышел за пределы сплиттера, освободим захват курсора:
-  if not PtInRect(ClientRect, l_CurPt) then
-  begin
-   // Если перетаскивают, то ничего делать не нужно:
-   if not IsMouseDown and (GetCapture = Handle) then
-     ReleaseCapture;
-   // Мы перетаскиваем поэтому подсказку надо спрятать:
-   splHideHint;
-  end;//if not PtInRect(ClientRect, Point(X, Y)) then
-  if not (ssLeft in Shift) then
-  begin
-   if (not GetParentForm(Self).Active) and (not f_Surface.Navigator.IsMinimized) then
-    Exit;
-   l_Button := PtInRect(GetButtonRect, l_CurPt);
-   // Установим курсор:
-   UpdateCursor(l_Button);
-   // Покажем подсказку:
-   if l_Button then
-    splShowHint(X, Y)
-   else
-    splHideHint;
-  end//not (ssLeft in Shift)
+
+ // Курсор вышел за пределы сплиттера, освободим захват курсора:
+ if not PtInRect(ClientRect, Point(X, Y)) then
+ begin
+  // Если перетаскивают, то ничего делать не нужно:
+  if not IsMouseDown and (GetCapture = Handle) then
+    ReleaseCapture;
+  // Мы перетаскиваем поэтому подсказку надо спрятать:
+  splHideHint;
+ end;//if not PtInRect(ClientRect, Point(X, Y)) then
+ if not (ssLeft in Shift) then
+ begin
+  if not GetParentForm(Self).Active then
+   Exit;
+  l_Button := PtInRect(GetButtonRect, Point(X, Y));
+  // Установим курсор:
+  UpdateCursor(l_Button);
+  // Покажем подсказку:
+  if l_Button then
+   splShowHint(X, Y)
   else
-  // Сплиттер перетаскивают:
-  if IsMouseDown and l_WasRealMoving then
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=622830711
+   splHideHint;
+ end//not (ssLeft in Shift) 
+ else
+ // Сплиттер перетаскивают:
+ if IsMouseDown then
+ begin
+  l_Types := [dstErase, dstPaint];
+  if IsHideButtonDown then
   begin
-   l_Types := [dstErase, dstPaint];
-   if IsHideButtonDown then
-   begin
-    // Отожмем кнопку:
-    IsHideButtonDown := False;
-    // изменим курсор
-    UpdateCursor(False);
-    // Первая отрисовка, очищать не надо:
-    l_Types := [dstPaint];
-   end;//IsHideButtonDown
-   // Нарисуем сплиттер:
-   with Mouse.CursorPos do
-    f_Surface.Navigator.PaintSpliter(X, Y, l_Types);
-  end;//if IsMouseDown then
- finally
-  f_LastMovingPoint := l_CurPt;
- end;
+   // Отожмем кнопку:
+   IsHideButtonDown := False;
+   // изменим курсор
+   UpdateCursor(False);
+   // Первая отрисовка, очищать не надо:
+   l_Types := [dstPaint];
+  end;//IsHideButtonDown
+  // Нарисуем сплиттер:
+  with Mouse.CursorPos do
+   f_Surface.Navigator.PaintSpliter(X, Y, l_Types);
+ end;//if IsMouseDown then
 //#UC END# *48E22B250241_52B9B0AA0105_impl*
 //#UC START# *48E22B250241_52B9B0AA0105_var*
-const
- cRealMovingThreshold: Integer = 4;
 var
- l_CurPt: TPoint;
- l_WasRealMoving: Boolean;
  l_Types  : TnpDrawSplitterTypes;
  l_Button : Boolean;
  l_TME: TTrackMouseEvent;
@@ -674,9 +662,8 @@ var
  (* сбрасываем значения f_SizeNormal, которые были установлены навигатору до
     появления закладок в SetBounds, чтобы при нормализации он не был
     равен свернутому состоянию *)
- if (f_PageControl.PageCount = 1) and (f_State = nsMinimized) and (not f_SizeNormalLoaded) then
+ if (f_PageControl.PageCount = 1) and (f_State = nsMinimized) then
   f_SizeNormal := cDefaultNormalSize;
- // http://mdp.garant.ru/pages/viewpage.action?pageId=622830691
  UpdateState;
  {$IfDef Nemesis}
  if f_Float then
@@ -2253,7 +2240,6 @@ var
 //#UC START# *52BC36B202C9_52BAD1C40174set_var*
 //#UC END# *52BC36B202C9_52BAD1C40174set_var*
 //#UC START# *52BC36FC016D_52BAD1C40174set_impl*
- f_SizeNormalLoaded := False;
  f_SizeNormal := aValue;
  (* Не закладок не нужно и размер устанавливать *)
  if not Assigned(f_PageControl) or (f_PageControl.PageCount = 0) then
@@ -3031,10 +3017,7 @@ var
 //#UC START# *52BD63660252_52BAD1C40174_impl*
  Result := -1;
  if Assigned(f_OnLoadSize) then
- begin
   f_OnLoadSize(Self, Result);
-  f_SizeNormalLoaded := True;
- end;
 //#UC END# *52BD63660252_52BAD1C40174_impl*
 //#UC START# *52BD63660252_52BAD1C40174_var*
 //#UC END# *52BD63660252_52BAD1C40174_var*

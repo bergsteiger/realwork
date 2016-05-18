@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , StyleEditorFontKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , StyleEditorFont_ut_StyleEditorFont_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StyleEditorFontKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

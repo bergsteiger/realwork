@@ -145,18 +145,6 @@ uses
  , FoldersInfo_Form
  , FoldersTree_Form
  , FoldersElementInfo_Form
- {$If NOT Defined(NoScripts)}
- , FoldersKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FoldersInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FoldersTreeKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FoldersElementInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

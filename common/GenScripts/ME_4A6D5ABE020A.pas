@@ -164,6 +164,7 @@ uses
  , nsConst
  , nsQuestions
  , nsExternalObjectModelPart
+ , l3DialogService
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit

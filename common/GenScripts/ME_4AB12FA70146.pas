@@ -32,10 +32,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , PictureInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , PictureInfo_ut_PictureInfo_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PictureInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

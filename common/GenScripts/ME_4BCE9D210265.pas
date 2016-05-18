@@ -57,10 +57,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , elCustomEditKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , elCustomEdit_ut_elCustomEdit_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , elCustomEditKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

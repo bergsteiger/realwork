@@ -363,6 +363,7 @@ uses
  , evTypes
  , nsQuestions
  , nsExternalObjectModelPart
+ , l3DialogService
  , eeInterfacesEx
  {$If Defined(Nemesis)}
  , eePara

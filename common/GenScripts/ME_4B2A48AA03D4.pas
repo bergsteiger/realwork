@@ -2172,12 +2172,12 @@ uses
  , elCustomEdit_Form in 'w:\common\components\gui\Garant\Daily\Forms\elCustomEdit_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , elCustomEditKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\elCustomEditKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
- {$If NOT Defined(NoVCM)}
  , elCustomEdit_ut_elCustomEdit_UserType in 'w:\common\components\gui\Garant\Daily\Forms\elCustomEdit_ut_elCustomEdit_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , elCustomEditKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\elCustomEditKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
+ , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
  , evdSchema in 'w:\common\components\gui\Garant\Everest\evdSchema.pas'
  , evNative_Schema in 'w:\common\components\gui\Garant\Everest\evNative_Schema.pas'
  , evdNative_Schema in 'w:\common\components\rtl\Garant\EVD\evdNative_Schema.pas'
@@ -2216,11 +2216,11 @@ uses
  , evEditor in 'w:\common\components\gui\Garant\Everest\evEditor.pas'
  , evTunedEditor in 'w:\common\components\gui\Garant\Everest\evTunedEditor.pas'
  {$If NOT Defined(NoVCM)}
- , TextLoadKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\TextLoadKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , TextLoad_ut_TextLoad_UserType in 'w:\common\components\gui\Garant\Daily\Forms\TextLoad_ut_TextLoad_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , TextLoadKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\TextLoadKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , F1LikeTextLoad_Form in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoad_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2256,11 +2256,11 @@ uses
  , eeTextSourceExport in 'w:\common\components\gui\Garant\Everest_Engine\eeTextSourceExport.pas'
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
- , F1LikeTextLoadKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoadKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , F1LikeTextLoad_ut_F1LikeTextLoad_UserType in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoad_ut_F1LikeTextLoad_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , F1LikeTextLoadKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoadKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , QFLikeTextLoad_Form in 'w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2316,11 +2316,11 @@ uses
  , evDropCalendar in 'w:\common\components\gui\Garant\Everest\qf\evDropCalendar.pas'
  , evDropTree in 'w:\common\components\gui\Garant\Everest\qf\evDropTree.pas'
  {$If NOT Defined(NoVCM)}
- , QFLikeTextLoadKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoadKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , QFLikeTextLoad_ut_QFLikeTextLoad_UserType in 'w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_ut_QFLikeTextLoad_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , QFLikeTextLoadKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoadKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , F1LikeFormWithBS_Form in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2343,11 +2343,11 @@ uses
  , nscConst in 'w:\common\components\gui\Garant\Nemesis\nscConst.pas'
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
- , F1LikeFormWithBSKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBSKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , F1LikeFormWithBSKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBSKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
  , ddSectionRepair in 'w:\common\components\rtl\Garant\dd\ddSectionRepair.pas'
  {$If NOT Defined(NoVCM)}
  , TestFormsTest_OutlinerTests_TestUnit in 'w:\common\components\gui\Garant\Daily\TestFormsTest_OutlinerTests_TestUnit.pas'
@@ -2760,11 +2760,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , vtOutlinerControl in 'w:\common\components\gui\Garant\VT\vtOutlinerControl.pas'
  {$If NOT Defined(NoVCM)}
- , OutlinerFormKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , OutlinerForm_ut_OutlinerForm_UserType in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerForm_ut_OutlinerForm_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , OutlinerFormKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
  , evTreeGenerator in 'w:\common\components\gui\Garant\Everest\evTreeGenerator.pas'
  , K252524029 in 'w:\common\components\rtl\Garant\Daily\K252524029.pas'
  , InsertPictureTest in 'w:\common\components\rtl\Garant\Abstract_Tests\InsertPictureTest.pas'
@@ -3065,11 +3065,11 @@ uses
  , FromWithPanel_Form in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , FromWithPanelKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , FromWithPanel_ut_FromWithPanel_UserType in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanel_ut_FromWithPanel_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVCL)}
+ , FromWithPanelKeywordsPack in 'w:\common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVCL)
  , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
  , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
  , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'

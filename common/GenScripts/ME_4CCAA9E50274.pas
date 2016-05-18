@@ -52,12 +52,6 @@ uses
  , deFilter
  , Filters_Form
  , CreateFilter_Form
- {$If NOT Defined(NoScripts)}
- , FiltersKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , CreateFilterKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -42,9 +42,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , bsWorkJournal
  , WorkJournal_Form
- {$If NOT Defined(NoScripts)}
- , WorkJournalKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

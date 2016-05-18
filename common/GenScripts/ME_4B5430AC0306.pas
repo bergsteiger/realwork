@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , SelfInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , SelfInfo_ut_SelfInfo_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SelfInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

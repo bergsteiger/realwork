@@ -32,12 +32,12 @@ uses
  , l3RangeManager
  , l3MessageID
  {$If NOT Defined(NoScripts)}
- , PrintDialogKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrintDialog_ut_PrintDialog_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PrintDialogKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

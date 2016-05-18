@@ -51,9 +51,6 @@ uses
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
  , ChangesBetweenEditons_Form
- {$If NOT Defined(NoScripts)}
- , ChangesBetweenEditonsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -232,15 +232,6 @@ uses
  , DefineSearchDate_Form
  , OldSituationSearch_Form
  , TreeAttributeFirstLevel_Form
- {$If NOT Defined(NoScripts)}
- , DefineSearchDateKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , OldSituationSearchKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , TreeAttributeFirstLevelKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

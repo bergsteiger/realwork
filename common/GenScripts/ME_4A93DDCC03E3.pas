@@ -43,10 +43,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , LongProcessKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , LongProcess_ut_LongProcess_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LongProcessKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

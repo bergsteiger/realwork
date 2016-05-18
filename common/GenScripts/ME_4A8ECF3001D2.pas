@@ -105,9 +105,6 @@ uses
  , NewsLine_Form
  , fsAutoreferat
  , fsAutoreferatAfterSearch
- {$If NOT Defined(NoScripts)}
- , NewsLineKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

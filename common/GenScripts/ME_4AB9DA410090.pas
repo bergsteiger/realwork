@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , StartupTipsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , StartupTips_ut_StartupTips_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StartupTipsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

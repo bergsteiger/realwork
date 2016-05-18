@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , RememberPasswordKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , RememberPassword_ut_RememberPassword_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RememberPasswordKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

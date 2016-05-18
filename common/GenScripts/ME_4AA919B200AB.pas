@@ -97,9 +97,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsOpenUtils
  , PostingsList_Form
- {$If NOT Defined(NoScripts)}
- , PostingsListKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

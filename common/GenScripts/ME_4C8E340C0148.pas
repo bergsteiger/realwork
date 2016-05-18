@@ -103,9 +103,6 @@ uses
  , RTLConsts
  , SysUtils
  , CustomizeTools_Form
- {$If NOT Defined(NoScripts)}
- , CustomizeToolsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type _Instance_R_ = TIvcmToolbarsCustomizeListenerPtrList;

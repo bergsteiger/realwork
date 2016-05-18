@@ -116,15 +116,6 @@ uses
  , MedicFirmList_Form
  , MedicListSynchroView_Form
  , fsInpharmMainMenu
- {$If NOT Defined(NoScripts)}
- , MedicMainMenuKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , MedicFirmListKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , MedicListSynchroViewKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

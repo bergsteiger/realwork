@@ -82,15 +82,6 @@ uses
  , fsDiction
  , DictionContainer_Form
  , CommonDiction_Form
- {$If NOT Defined(NoScripts)}
- , DictionKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , DictionContainerKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , CommonDictionKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

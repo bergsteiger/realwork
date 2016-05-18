@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , ForbidAutoregistrationKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , ForbidAutoregistration_ut_ForbidAutoregistration_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ForbidAutoregistrationKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

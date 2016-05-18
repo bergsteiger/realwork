@@ -2469,15 +2469,15 @@ uses
  {$If Defined(Nemesis)}
  , eeShortCutEdit in 'w:\common\components\gui\Garant\Everest_Engine\eeShortCutEdit.pas'
  {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
- , CustomizeToolsKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , CustomizeTools_ut_CustomizeTools_UserType in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_ut_CustomizeTools_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomizeToolsKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeToolsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , tfwControlString in 'w:\common\components\rtl\Garant\ScriptEngine\tfwControlString.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , OfficeLikeMain_Form in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeMain_Form.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2532,21 +2532,21 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmCustOpsRepGroupList in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\vcmCustOpsRepGroupList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
- , CustomizeTasksPanelKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\CustomizeTasksPanelKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType.pas'
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomizeTasksPanelKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moParentAndChild in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas'
  , ParentAndChildPrim_Module in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
  , Parent_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Parent_Form.pas'
  , PrimParent_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas'
  , PrimParent_utHistory_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas'
  , F1Like_FormDefinitions_Controls in 'w:\common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas'
- {$If NOT Defined(NoScripts)}
- , ParentKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ParentKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\ParentKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Child_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.pas'
  , PrimChild_Form in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas'
  , F1Like_InternalOperations_Controls in 'w:\common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas'
@@ -2558,9 +2558,9 @@ uses
  , vtProportionalPanel in 'w:\common\components\gui\Garant\VT\vtProportionalPanel.pas'
  , PrimChild_cutUsual_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutUsual_UserType.pas'
  , PrimChild_cutForDiction_UserType in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_cutForDiction_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ChildKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChildKeywordsPack in 'w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\ChildKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , MainPrim_Form in 'w:\common\components\gui\Garant\VCM\View\MainPrim_Form.pas'
  {$If NOT Defined(NoVCM)}
  , OfficeLike_System_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_System_Controls.pas'
@@ -2918,9 +2918,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls in 'w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Result_Controls.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TreeAttributeSelectKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\TreeAttributeSelectKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TreeAttributeSelectKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelectKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , AttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\AttributeSelect_Form.pas'
  , PrimAttributeSelectOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelectOptions_Form.pas'
  , PrimAttributeSelect_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_Form.pas'
@@ -2937,9 +2937,9 @@ uses
  , l3VirtualNode in 'w:\common\components\rtl\Garant\L3\l3VirtualNode.pas'
  , nsWrapperNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsWrapperNode.pas'
  , OldTreeInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\OldTreeInterfaces.pas'
- {$If NOT Defined(NoScripts)}
- , AttributeSelectKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\AttributeSelectKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AttributeSelectKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\AttributeSelectKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , SelectedAttributes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\SelectedAttributes_Form.pas'
  , PrimSelectedAttributesOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributesOptions_Form.pas'
  , PrimSelectedAttributes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_Form.pas'
@@ -3005,9 +3005,9 @@ uses
  , nsNodeBaseList in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsNodeBaseList.pas'
  , nsSelectedTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\nsSelectedTreeStruct.pas'
  , PrimSelectedAttributes_utSelectedAttributes_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_utSelectedAttributes_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , SelectedAttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\SelectedAttributesKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SelectedAttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\SelectedAttributesKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moRealCommon in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas'
  , PrimCommon_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas'
  , F1_Application_Template_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas'
@@ -3015,9 +3015,9 @@ uses
  , PrimShutDown_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_Form.pas'
  , f1NotificationManager in 'w:\garant6x\implementation\Garant\GbaNemesis\View\f1NotificationManager.pas'
  , PrimShutDown_sftNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_sftNone_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ShutDownKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\ShutDownKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ShutDownKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDownKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Login_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_Form.pas'
  , PrimLogin_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_Form.pas'
  {$If Defined(Nemesis)}
@@ -3028,18 +3028,18 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , nsStartupSupport in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas'
  , nsFlashWindow in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFlashWindow.pas'
- {$If NOT Defined(NoScripts)}
- , LoginKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LoginKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , Login_ut_Login_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_ut_Login_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LoginKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LoginKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , LongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_Form.pas'
  , PrimLongProcess_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLongProcess_Form.pas'
  , vtGradientWaitbar in 'w:\common\components\gui\Garant\VT\vtGradientWaitbar.pas'
  , l3AsincMessageWindowRes in 'w:\common\components\rtl\Garant\L3\l3AsincMessageWindowRes.pas'
- {$If NOT Defined(NoScripts)}
- , LongProcessKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LongProcessKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , LongProcess_ut_LongProcess_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcess_ut_LongProcess_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LongProcessKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LongProcessKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , DebugStr in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\DebugStr.pas'
  {$If Defined(Nemesis)}
  , F1_Schema in 'w:\common\components\gui\Garant\Everest_Engine\F1_Schema.pas'
@@ -3082,10 +3082,10 @@ uses
  {$IfEnd} // Defined(DesignTimeLibrary)
  , Design_AttrValues in 'w:\common\components\gui\Garant\Everest\Design_AttrValues.pas'
  , Logo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_Form.pas'
- {$If NOT Defined(NoScripts)}
- , LogoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LogoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , Logo_ut_Logo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Logo_ut_Logo_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LogoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\LogoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , nsAppTitleData in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsAppTitleData.pas'
  , f1StartupCompletedService in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompletedService.pas'
  , StartUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\StartUnit.pas'
@@ -3160,9 +3160,9 @@ uses
  , PrimSaveLoadUserTypes_slqtAttribute_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtAttribute_UserType.pas'
  , PrimSaveLoadUserTypes_slqtConsult_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtConsult_UserType.pas'
  , PrimSaveLoadUserTypes_slqtInpharmSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtInpharmSearch_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , SaveLoadKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\SaveLoadKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SaveLoadKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\SaveLoadKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , QueryCard_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\QueryCard_Form.pas'
  , PrimQueryCardOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCardOptions_Form.pas'
  , PrimQueryCard_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCard_Form.pas'
@@ -3289,9 +3289,9 @@ uses
  , evBlocksButNotCommentsEliminator in 'w:\common\components\gui\Garant\Everest\evBlocksButNotCommentsEliminator.pas'
  , evStrictContentsElementEliminator in 'w:\common\components\gui\Garant\EverestCommon\evStrictContentsElementEliminator.pas'
  , ComObj in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas'
- {$If NOT Defined(NoScripts)}
- , QueryCardKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\QueryCardKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , QueryCardKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\QueryCardKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Preview_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\Preview_Form.pas'
  , PrimPreview_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPreview_Form.pas'
  , Search_ScalingSupport_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search_ScalingSupport_Controls.pas'
@@ -3302,9 +3302,9 @@ uses
  , vtCustomPreviewPanel in 'w:\common\components\gui\Garant\VT\vtCustomPreviewPanel.pas'
  , nsTrialSupport in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsTrialSupport.pas'
  , PrimPreview_utPrintPreview_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPreview_utPrintPreview_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , PreviewFormKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PreviewFormKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PreviewFormKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PreviewFormKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , PageSetup_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PageSetup_Form.pas'
  , PrimPageSetupOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetupOptions_Form.pas'
  , PrimPageSetup_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_Form.pas'
@@ -3313,9 +3313,9 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , nsPageSetup in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsPageSetup.pas'
  , PrimPageSetup_pstNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_pstNone_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , PageSetupKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PageSetupKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PageSetupKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PageSetupKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , PrintDialog_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrintDialog_Form.pas'
  , PrimPrintDialogOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPrintDialogOptions_Form.pas'
  , PrimPrintDialog_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPrintDialog_Form.pas'
@@ -3326,10 +3326,10 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PreviewInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Model\PreviewInterfaces.pas'
  , l3RangeManager in 'w:\common\components\rtl\Garant\L3\l3RangeManager.pas'
- {$If NOT Defined(NoScripts)}
- , PrintDialogKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrintDialogKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , PrintDialog_ut_PrintDialog_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrintDialog_ut_PrintDialog_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PrintDialogKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrintDialogKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , tasSaveLoadRealization in 'w:\garant6x\implementation\Garant\GbaNemesis\View\tasSaveLoadRealization.pas'
  , ShellAndMonitoringsMain_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsMain_Form.pas'
  , MedicMainMenuRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MedicMainMenuRes.pas'
@@ -3417,10 +3417,10 @@ uses
  , MemoryUsagePrim_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsagePrim_Form.pas'
  , F1_Without_Usecases_DocumentsCacheOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_DocumentsCacheOperations_Controls.pas'
  , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
- {$If NOT Defined(NoScripts)}
- , MemoryUsageKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsageKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , MemoryUsage_ut_MemoryUsage_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsage_ut_MemoryUsage_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MemoryUsageKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsageKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , l3AsincMessageWindow in 'w:\common\components\rtl\Garant\L3\l3AsincMessageWindow.pas'
  , IntegrationProjectUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\IntegrationProjectUnit.pas'
  , HelpIntfs in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\HelpIntfs.pas'
@@ -3444,9 +3444,9 @@ uses
  , BaloonWarningUserTypes_WarnPreActive_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnPreActive_UserType.pas'
  , BaloonWarningUserTypes_WarnJuror_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnJuror_UserType.pas'
  , BaloonWarningUserTypes_Fake_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_Fake_UserType.pas'
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , MainWindowKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainWindowKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moCompareEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moCompareEditions.pas'
  , BaseEditions_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\BaseEditions_Module.pas'
  , EditionsInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas'
@@ -3724,6 +3724,8 @@ uses
  , nsDocumentPrintPreviewEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsDocumentPrintPreviewEvent.pas'
  , nsBaseTextOperationsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseTextOperationsConst.pas'
  , f1MultilinkResolver in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\f1MultilinkResolver.pas'
+ , l3DialogService in 'w:\common\components\rtl\Garant\L3\l3DialogService.pas'
+ , l3DialogServiceImpl in 'w:\common\components\rtl\Garant\L3\l3DialogServiceImpl.pas'
  {$If Defined(Nemesis)}
  , eeParaTools in 'w:\common\components\gui\Garant\Everest_Engine\eeParaTools.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -3753,22 +3755,22 @@ uses
  , nsEditionsUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsEditionsUtils.pas'
  , PrimLeftEdition_utLeftEdition_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_utLeftEdition_UserType.pas'
  , CompareEditions_FormDefinitions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_FormDefinitions_Controls.pas'
- {$If NOT Defined(NoScripts)}
- , LeftEditionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\LeftEditionKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , LeftEditionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\LeftEditionKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , RightEdition_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\RightEdition_Form.pas'
  , PrimRightEdition_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_Form.pas'
  , PrimRightEdition_utRightEdition_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_utRightEdition_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , RightEditionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\RightEditionKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RightEditionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\RightEditionKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , EditionsContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainer_Form.pas'
  , PrimEditionsContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_Form.pas'
  , Common_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common_Strange_Controls.pas'
  , PrimEditionsContainer_utEditionsContainer_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_utEditionsContainer_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , EditionsContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\EditionsContainerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , EditionsContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsCompareEditions in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\fsCompareEditions.pas'
  , moInternetAgent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moInternetAgent.pas'
  , PrimInternetAgent_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\PrimInternetAgent_Module.pas'
@@ -3794,9 +3796,9 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , l3RegEx in 'w:\common\components\rtl\Garant\L3\l3RegEx.pas'
  , PrimInternetAgent_utInternetAgent_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_utInternetAgent_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , InternetAgentKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\InternetAgentKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , InternetAgentKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\InternetAgentKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsInternetAgent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\fsInternetAgent.pas'
  , moFolders in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas'
  , PrimFolders_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas'
@@ -3821,27 +3823,27 @@ uses
  , PrimFolders_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFolders_Form.pas'
  , Folders_Result_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders_Result_Controls.pas'
  , PrimFolders_utFolders_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFolders_utFolders_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , FoldersKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , FoldersKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsFolders in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\fsFolders.pas'
  , PrimFoldersElementInfo_utFoldersProperty_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersElementInfo_utFoldersProperty_UserType.pas'
  , FoldersInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersInfo_Form.pas'
  , PrimFoldersInfoOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersInfoOptions_Form.pas'
  , PrimFoldersInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersInfo_Form.pas'
  , PrimFoldersInfo_utFoldersInfoContainer_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersInfo_utFoldersInfoContainer_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , FoldersInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersInfoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , FoldersInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersInfoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , FoldersTree_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersTree_Form.pas'
  , PrimFoldersTreeOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTreeOptions_Form.pas'
  , PrimFoldersTree_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_Form.pas'
  , FoldersRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\FoldersRes.pas'
  , nsFolderNodes in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsFolderNodes.pas'
  , vtSaveDialog in 'w:\common\components\gui\Garant\VT\vtSaveDialog.pas'
- {$If NOT Defined(NoScripts)}
- , FoldersTreeKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersTreeKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , FoldersTreeKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersTreeKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , FoldersElementInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersElementInfo_Form.pas'
  , PrimFoldersElementInfoOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersElementInfoOptions_Form.pas'
  , PrimFoldersElementInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersElementInfo_Form.pas'
@@ -3849,9 +3851,9 @@ uses
  , eeMemo in 'w:\common\components\gui\Garant\Everest_Engine\eeMemo.pas'
  , nsSaveQueryEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveQueryEvent.pas'
  , nsSaveDocumentToFoldersEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveDocumentToFoldersEvent.pas'
- {$If NOT Defined(NoScripts)}
- , FoldersElementInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersElementInfoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , FoldersElementInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersElementInfoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moChat in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moChat.pas'
  , BaseChat_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\BaseChat_Module.pas'
  , ChatInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Chat\ChatInterfaces.pas'
@@ -3887,9 +3889,9 @@ uses
  , PrimContactList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_Form.pas'
  , Base_Operations_Chat_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Chat_Controls.pas'
  , ChatRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ChatRes.pas'
- {$If NOT Defined(NoScripts)}
- , ContactListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ContactListKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ContactListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ContactListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ChatWindow_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatWindow_Form.pas'
  , BaseChatWindowOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindowOptions_Form.pas'
  , BaseChatWindow_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_Form.pas'
@@ -3914,14 +3916,14 @@ uses
  , nscCustomChatMemoProcessor in 'w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoProcessor.pas'
  {$IfEnd} // Defined(Nemesis)
  , evdAllDocumentSubsEliminator in 'w:\common\components\rtl\Garant\EVD\evdAllDocumentSubsEliminator.pas'
- {$If NOT Defined(NoScripts)}
- , ChatWindowKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ChatWindowKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChatWindowKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatWindowKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ChatHistory_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatHistory_Form.pas'
  , BaseHistoryWindow_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_Form.pas'
- {$If NOT Defined(NoScripts)}
- , ChatHistoryKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\ChatHistoryKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChatHistoryKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatHistoryKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moWorkJournal in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moWorkJournal.pas'
  , BaseWorkJournal_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\BaseWorkJournal_Module.pas'
  , WorkJournalInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournalInterfaces.pas'
@@ -3938,9 +3940,9 @@ uses
  , PrimWorkJournalOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournalOptions_Form.pas'
  , PrimWorkJournal_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_Form.pas'
  , WorkJournal_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal_Strange_Controls.pas'
- {$If NOT Defined(NoScripts)}
- , WorkJournalKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\WorkJournalKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , WorkJournalKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\WorkJournalKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moMonitorings in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moMonitorings.pas'
  , PrimMonitorings_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas'
  , Autoreferat_InternalOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Autoreferat_InternalOperations_Controls.pas'
@@ -4008,14 +4010,14 @@ uses
  , PrimPostingsListOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsListOptions_Form.pas'
  , PrimPostingsList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_Form.pas'
  , PrimPostingsList_MyPostingList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_MyPostingList_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , PostingsListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\PostingsListKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PostingsListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , NewsLine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas'
  , PrimNewsLineOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLineOptions_Form.pas'
- {$If NOT Defined(NoScripts)}
- , NewsLineKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\NewsLineKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , NewsLineKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLineKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsAutoreferat in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferat.pas'
  , fsAutoreferatAfterSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferatAfterSearch.pas'
  , moCommon in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moCommon.pas'
@@ -4057,28 +4059,28 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , RememberPassword_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPassword_Form.pas'
  , PrimRememberPassword_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimRememberPassword_Form.pas'
- {$If NOT Defined(NoScripts)}
- , RememberPasswordKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\RememberPasswordKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , RememberPassword_ut_RememberPassword_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPassword_ut_RememberPassword_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RememberPasswordKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RememberPasswordKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ProgressIndicator_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\ProgressIndicator_Form.pas'
  , PrimProgressIndicator_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas'
  , PrimProgressIndicator_utProgressIndicator_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_utProgressIndicator_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ProgressIndicatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\ProgressIndicatorKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ProgressIndicatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\ProgressIndicatorKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , EULA_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\EULA_Form.pas'
  , PrimEULA_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimEULA_Form.pas'
- {$If NOT Defined(NoScripts)}
- , EULAKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\EULAKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , EULA_ut_EULA_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\EULA_ut_EULA_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , EULAKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\EULAKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , About_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\About_Form.pas'
  , ComplectUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\ComplectUnit.pas'
- {$If NOT Defined(NoScripts)}
- , AboutKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\AboutKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , About_ut_About_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\About_ut_About_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AboutKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\AboutKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , CompInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_Form.pas'
  , PrimCompInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimCompInfo_Form.pas'
  , nsComplectInfoTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsComplectInfoTreeStruct.pas'
@@ -4087,16 +4089,16 @@ uses
  , ComplectInfoRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\ComplectInfoRes.pas'
  , Gauges in 'w:\common\components\rtl\external\Borland\Delphi\Samples\Gauges.pas'
  , vtGauge in 'w:\common\components\gui\Garant\VT\vtGauge.pas'
- {$If NOT Defined(NoScripts)}
- , CompInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\CompInfoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , CompInfo_ut_CompInfo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_ut_CompInfo_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CompInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Registration_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\Registration_Form.pas'
  , PrimRegistration_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimRegistration_Form.pas'
- {$If NOT Defined(NoScripts)}
- , RegistrationFormKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\RegistrationFormKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , RegistrationForm_ut_RegistrationForm_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RegistrationForm_ut_RegistrationForm_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RegistrationFormKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RegistrationFormKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , TasksPanel_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TasksPanel_Form.pas'
  , PrimTasksPanel_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_Form.pas'
  {$If Defined(Nemesis)}
@@ -4142,25 +4144,25 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
  , TaskPanelWords in 'w:\common\components\rtl\Garant\ScriptEngine\TaskPanelWords.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TasksPanelKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\TasksPanelKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TasksPanelKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TasksPanelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Navigator_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\Navigator_Form.pas'
  , PrimNavigatorOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigatorOptions_Form.pas'
  , PrimNavigator_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_Form.pas'
  , NavigatorRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\NavigatorRes.pas'
  , nsNavigatorTreeStruct in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsNavigatorTreeStruct.pas'
  , PrimNavigator_utNavigator_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_utNavigator_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , NavigatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\NavigatorKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , NavigatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\NavigatorKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , TurnOffTimeMachine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TurnOffTimeMachine_Form.pas'
  , PrimTurnOffTimeMachineOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTurnOffTimeMachineOptions_Form.pas'
  , PrimTurnOffTimeMachine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTurnOffTimeMachine_Form.pas'
- {$If NOT Defined(NoScripts)}
- , TurnOffTimeMachineKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\TurnOffTimeMachineKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TurnOffTimeMachineKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TurnOffTimeMachineKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , nsDataExchangeRealization in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDataExchangeRealization.pas'
  , deListSet in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deListSet.pas'
  , deDocumentList in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deDocumentList.pas'
@@ -4272,9 +4274,9 @@ uses
  , nsHyperlinkToDocumentProducerConst in 'w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\nsHyperlinkToDocumentProducerConst.pas'
  , evBitmapDataObject in 'w:\common\components\gui\Garant\Everest\evBitmapDataObject.pas'
  , nsObjectPreview in 'w:\garant6x\implementation\Garant\GbaNemesis\Printing\nsObjectPreview.pas'
- {$If NOT Defined(NoScripts)}
- , DocumentWithFlashKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\DocumentWithFlashKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DocumentWithFlashKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocumentWithFlashKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Text_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Text_Form.pas'
  , ExTextOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExTextOptions_Form.pas'
  , ExText_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExText_Form.pas'
@@ -4369,16 +4371,16 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , nsTimeMachineOffEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsTimeMachineOffEvent.pas'
  , bsUtilsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\Document\bsUtilsConst.pas'
- {$If NOT Defined(NoScripts)}
- , TextKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TextKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TextKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TextKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Redactions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Redactions_Form.pas'
  , PrimRedactionsOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimRedactionsOptions_Form.pas'
  , PrimRedactions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimRedactions_Form.pas'
  , nsEditionTree in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsEditionTree.pas'
- {$If NOT Defined(NoScripts)}
- , RedactionsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\RedactionsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RedactionsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\RedactionsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Contents_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Contents_Form.pas'
  , PrimContentsOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContentsOptions_Form.pas'
  , PrimContents_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContents_Form.pas'
@@ -4403,9 +4405,9 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , nsContentsListForFiltering in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsContentsListForFiltering.pas'
  , nevFlatSubsList in 'w:\common\components\gui\Garant\Everest\new\nevFlatSubsList.pas'
- {$If NOT Defined(NoScripts)}
- , ContentsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\ContentsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ContentsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ContentsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\fsDocument.pas'
  , fsAbstractDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\View\fsAbstractDocument.pas'
  , AttributesUserTypes_fDocAttribute_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fDocAttribute_UserType.pas'
@@ -4450,31 +4452,31 @@ uses
  , giflzw in 'w:\common\components\rtl\external\ImageEn\src\giflzw.pas'
  {$IfEnd} // NOT Defined(NoImageEn)
  , PrimPicture_pfImage_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPicture_pfImage_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , PictureKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\PictureKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PictureKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , PictureInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_Form.pas'
  , PrimPictureInfoOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPictureInfoOptions_Form.pas'
  , PrimPictureInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPictureInfo_Form.pas'
- {$If NOT Defined(NoScripts)}
- , PictureInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\PictureInfoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , PictureInfo_ut_PictureInfo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_ut_PictureInfo_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PictureInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , DocNumberQuery_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocNumberQuery_Form.pas'
  , PrimDocNumberQueryOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocNumberQueryOptions_Form.pas'
  , PrimDocNumberQuery_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocNumberQuery_Form.pas'
- {$If NOT Defined(NoScripts)}
- , DocNumberQueryKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\DocNumberQueryKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , DocNumberQuery_ut_DocNumberQuery_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocNumberQuery_ut_DocNumberQuery_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DocNumberQueryKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\DocNumberQueryKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Warning_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Warning_Form.pas'
  , PrimDockedWarning_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDockedWarning_Form.pas'
  , PrimWarningOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarningOptions_Form.pas'
  , PrimWarning_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarning_Form.pas'
  , nsWarningDocumentContainer in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsWarningDocumentContainer.pas'
- {$If NOT Defined(NoScripts)}
- , WarningKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\WarningKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , WarningKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\WarningKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Attributes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Attributes_Form.pas'
  , PrimAttributesOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimAttributesOptions_Form.pas'
  , PrimAttributes_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimAttributes_Form.pas'
@@ -4482,43 +4484,43 @@ uses
  , nsSingleAttributeDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeDataObject.pas'
  , nsSingleAttributeStorable in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeStorable.pas'
  , evTreeDataObject in 'w:\common\components\gui\Garant\Everest\evTreeDataObject.pas'
- {$If NOT Defined(NoScripts)}
- , AttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\AttributesKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\AttributesKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , SynchroView_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_Form.pas'
  , PrimSynchroViewOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroViewOptions_Form.pas'
  , PrimSynchroView_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroView_Form.pas'
- {$If NOT Defined(NoScripts)}
- , SynchroViewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\SynchroViewKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SynchroViewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroViewKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , TurnOnTimeMachine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_Form.pas'
  , PrimTurnOnTimeMachineOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimTurnOnTimeMachineOptions_Form.pas'
  , PrimTurnOnTimeMachine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimTurnOnTimeMachine_Form.pas'
- {$If NOT Defined(NoScripts)}
- , TurnOnTimeMachineKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachineKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TurnOnTimeMachineKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachineKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , WarningBaloon_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\WarningBaloon_Form.pas'
  , PrimWarningBaloonOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarningBaloonOptions_Form.pas'
- {$If NOT Defined(NoScripts)}
- , WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\WarningBaloonKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\WarningBaloonKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , SynchroView_WarningBaloon_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_WarningBaloon_Form.pas'
- {$If NOT Defined(NoScripts)}
- , SynchroView_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\SynchroView_WarningBaloonKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SynchroView_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_WarningBaloonKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Translation_WarningBaloon_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Translation_WarningBaloon_Form.pas'
- {$If NOT Defined(NoScripts)}
- , Translation_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Translation_WarningBaloonKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , Translation_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Translation_WarningBaloonKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , UserCR1_WarningBaloon_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\UserCR1_WarningBaloon_Form.pas'
- {$If NOT Defined(NoScripts)}
- , UserCR1_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\UserCR1_WarningBaloonKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , UserCR1_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\UserCR1_WarningBaloonKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , UserCR2_WarningBaloon_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\UserCR2_WarningBaloon_Form.pas'
- {$If NOT Defined(NoScripts)}
- , UserCR2_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\UserCR2_WarningBaloonKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , UserCR2_WarningBaloonKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\UserCR2_WarningBaloonKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moList in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moList.pas'
  , List_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas'
  , bsOpenListInfo in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsOpenListInfo.pas'
@@ -4546,21 +4548,21 @@ uses
  {$If NOT Defined(NoScripts)}
  , nscTreeViewForDocumentListWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\nscTreeViewForDocumentListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ListInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListInfo_Form.pas'
  , PrimListInfoOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfoOptions_Form.pas'
  , PrimListInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfo_Form.pas'
- {$If NOT Defined(NoScripts)}
- , ListInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListInfoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ListInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListInfoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ListAnalizer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizer_Form.pas'
  , PrimListAnalizer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_Form.pas'
  , PrimListAnalizer_listAnalize_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_listAnalize_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ListAnalizerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListAnalizerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ListAnalizerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsList in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\fsList.pas'
  , ListInfoUserTypes_liListInfo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes_liListInfo_UserType.pas'
  , FiltersUserTypes_utFilters_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes_utFilters_UserType.pas'
@@ -4569,9 +4571,9 @@ uses
  , AttributesUserTypes_fAttributeSynchroView_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fAttributeSynchroView_UserType.pas'
  , ListAnalize_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalize_Form.pas'
  , PrimListAnalize_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalize_Form.pas'
- {$If NOT Defined(NoScripts)}
- , ListAnalizeKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\ListAnalizeKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ListAnalizeKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizeKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moDiction in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moDiction.pas'
  , Diction_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas'
  , nsLangToContextMap in 'w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLangToContextMap.pas'
@@ -4609,25 +4611,25 @@ uses
  , Diction_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction_Strange_Controls.pas'
  , DictionRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\DictionRes.pas'
  , PrimDiction_utDiction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDiction_utDiction_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , DictionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\DictionKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DictionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\DictionKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsDiction in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\fsDiction.pas'
  , DictionContainerUserTypes_slqtDiction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtDiction_UserType.pas'
  , DictionContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\DictionContainer_Form.pas'
  , PrimDictionContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDictionContainer_Form.pas'
  , DictionContainerUserTypes_slqtMedicDiction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtMedicDiction_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , DictionContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\DictionContainerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DictionContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\DictionContainerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , CommonDiction_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\CommonDiction_Form.pas'
  , PrimCommonDictionOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDictionOptions_Form.pas'
  , PrimCommonDiction_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_Form.pas'
  , PrimCommonDiction_utTips_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_utTips_UserType.pas'
  , PrimCommonDiction_utMedicDiction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_utMedicDiction_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , CommonDictionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\CommonDictionKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CommonDictionKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\CommonDictionKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moTips in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moTips.pas'
  , DayTips_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas'
  , DayTipsInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\DayTips\DayTipsInterfaces.pas'
@@ -4648,10 +4650,10 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , evCursorShapeMisc in 'w:\common\components\gui\Garant\Everest\evCursorShapeMisc.pas'
  {$IfEnd} // Defined(evUseVisibleCursors)
- {$If NOT Defined(NoScripts)}
- , StartupTipsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\StartupTipsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , StartupTips_ut_StartupTips_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTips_ut_StartupTips_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StartupTipsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\StartupTipsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moInpharm in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moInpharm.pas'
  , Inpharm_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas'
  , InpharmMainMenu_ut_mmmMain_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_ut_mmmMain_UserType.pas'
@@ -4724,21 +4726,21 @@ uses
  , mmmReferencePharmaceuticalInformation in 'w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmReferencePharmaceuticalInformation.pas'
  , mmmRegulatoryInformation in 'w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmRegulatoryInformation.pas'
  , mmmReferencesAndDictionaries in 'w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmReferencesAndDictionaries.pas'
- {$If NOT Defined(NoScripts)}
- , MedicMainMenuKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\MedicMainMenuKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MedicMainMenuKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicMainMenuKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , MedicFirmList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicFirmList_Form.pas'
  , PrimMedicFirmListOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicFirmListOptions_Form.pas'
  , PrimMedicFirmList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicFirmList_Form.pas'
  , Inpharm_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm_Strange_Controls.pas'
- {$If NOT Defined(NoScripts)}
- , MedicFirmListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\MedicFirmListKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MedicFirmListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicFirmListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , MedicListSynchroView_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicListSynchroView_Form.pas'
  , PrimMedicListSynchroView_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_Form.pas'
- {$If NOT Defined(NoScripts)}
- , MedicListSynchroViewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\MedicListSynchroViewKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MedicListSynchroViewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicListSynchroViewKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsInpharmMainMenu in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\fsInpharmMainMenu.pas'
  , moRubricator in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moRubricator.pas'
  , Rubricator_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Rubricator_Module.pas'
@@ -4749,9 +4751,9 @@ uses
  , RubricatorInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Rubricator\RubricatorInterfaces.pas'
  , nsRubricatorList in 'w:\garant6x\implementation\Garant\GbaNemesis\Rubricator\nsRubricatorList.pas'
  , PrimRubricator_utRubricatorList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\PrimRubricator_utRubricatorList_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , RubricatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\RubricatorKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RubricatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\RubricatorKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moSettings in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moSettings.pas'
  , Settings_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Settings_Module.pas'
  , PrimStyleEditorExample_utStyleEditorExample_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_utStyleEditorExample_UserType.pas'
@@ -4777,33 +4779,33 @@ uses
  , SelfInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_Form.pas'
  , PrimSelfInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSelfInfo_Form.pas'
  , nsUserProperty in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserProperty.pas'
- {$If NOT Defined(NoScripts)}
- , SelfInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\SelfInfoKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , SelfInfo_ut_SelfInfo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_ut_SelfInfo_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SelfInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfoKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , StyleEditorContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorContainer_Form.pas'
  , PrimStyleEditorContainerOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainerOptions_Form.pas'
  , PrimStyleEditorContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainer_Form.pas'
  , Settings_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings_Strange_Controls.pas'
  , PrimStyleEditorContainer_utStyleEditorContainer_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainer_utStyleEditorContainer_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , StyleEditorContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorContainerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StyleEditorContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorContainerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , StyleEditorFont_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_Form.pas'
  , PrimStyleEditorFont_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorFont_Form.pas'
  , vtColorBox in 'w:\common\components\gui\Garant\VT\vtColorBox.pas'
  , vtColorBoxStrings in 'w:\common\components\gui\Garant\VT\vtColorBoxStrings.pas'
- {$If NOT Defined(NoScripts)}
- , StyleEditorFontKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorFontKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , StyleEditorFont_ut_StyleEditorFont_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_ut_StyleEditorFont_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StyleEditorFontKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFontKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , StyleEditorNavigator_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorNavigator_Form.pas'
  , PrimStyleEditorNavigator_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_Form.pas'
  , StyleTableRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\StyleTableRes.pas'
  , PrimStyleEditorNavigator_utStyleEditorNavigator_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_utStyleEditorNavigator_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , StyleEditorNavigatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorNavigatorKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StyleEditorNavigatorKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorNavigatorKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , ConfigurationList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\ConfigurationList_Form.pas'
  , PrimConfigurationList_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_Form.pas'
  , ConfigurationListRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\ConfigurationListRes.pas'
@@ -4811,9 +4813,9 @@ uses
  , PrimConfigurationListWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\PrimConfigurationListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimConfigurationList_utConfigurationList_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_utConfigurationList_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ConfigurationListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\ConfigurationListKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ConfigurationListKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\ConfigurationListKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , Settings_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\Settings_Form.pas'
  , PrimSettings_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSettings_Form.pas'
  , nsAppConfig in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\nsAppConfig.pas'
@@ -4843,15 +4845,15 @@ uses
  , nsAppConfigRes in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\nsAppConfigRes.pas'
  , nsConfigurationProperties in 'w:\garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationProperties.pas'
  , PrimSettings_cutSettings_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSettings_cutSettings_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , SettingsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\SettingsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SettingsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SettingsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , StyleEditorExample_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorExample_Form.pas'
  , PrimStyleEditorExample_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_Form.pas'
  , eeEditorWithoutOperations in 'w:\common\components\gui\Garant\Everest_Engine\eeEditorWithoutOperations.pas'
- {$If NOT Defined(NoScripts)}
- , StyleEditorExampleKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\StyleEditorExampleKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StyleEditorExampleKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorExampleKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moMainMenu in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moMainMenu.pas'
  , MainMenu_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenu_Module.pas'
  , MainMenuChangeableMainMenuTypeSettingRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuChangeableMainMenuTypeSettingRes.pas'
@@ -4885,9 +4887,9 @@ uses
  {$If NOT Defined(NoImageEn)}
  , iemview in 'w:\common\components\rtl\external\ImageEn\src\iemview.pas'
  {$IfEnd} // NOT Defined(NoImageEn)
- {$If NOT Defined(NoScripts)}
- , MainMenuNewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuNewKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MainMenuNewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuNewKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , MainMenuWithProfNews_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuWithProfNews_Form.pas'
  , PrimMainMenuWithProfNews_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenuWithProfNews_Form.pas'
  {$If Defined(Nemesis)}
@@ -4900,9 +4902,9 @@ uses
  , smSectionTree in 'w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smSectionTree.pas'
  , nsMainMenuSectionNode in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsMainMenuSectionNode.pas'
  , smMainMenuTree2016 in 'w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smMainMenuTree2016.pas'
- {$If NOT Defined(NoScripts)}
- , MainMenuWithProfNewsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuWithProfNewsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MainMenuWithProfNewsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuWithProfNewsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moConsultations in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moConsultations.pas'
  , Consultation_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Consultation_Module.pas'
  , sdsConsultation in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsConsultation.pas'
@@ -4927,9 +4929,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , ConsultationWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\ConsultationWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ConsultationMarkKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\ConsultationMarkKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ConsultationMarkKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\ConsultationMarkKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moBaseSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moBaseSearch.pas'
  , BaseSearch_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas'
  , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType.pas'
@@ -4938,10 +4940,10 @@ uses
  {$If Defined(Nemesis)}
  , nscLister in 'w:\common\components\gui\Garant\Nemesis\nscLister.pas'
  {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoScripts)}
- , BaseSearchCardKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearchCardKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , BaseSearchCard_ut_BaseSearchCard_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCard_ut_BaseSearchCard_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , BaseSearchCardKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCardKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , NewBaseSearch_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearch_Form.pas'
  , NewBaseSearchForDFM_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchForDFM_Form.pas'
  , PrimBaseSearchOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchOptions_Form.pas'
@@ -4964,15 +4966,15 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , nsBaseSearchFormGUIDFactory in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\nsBaseSearchFormGUIDFactory.pas'
  , PrimBaseSearch_BaseSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_BaseSearch_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , NewBaseSearchKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\NewBaseSearchKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , NewBaseSearchKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , BaseSearchContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchContainer_Form.pas'
  , PrimBaseSearchContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchContainer_Form.pas'
  , PrimSaveLoadOptionsForBaseSearch_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsForBaseSearch_Form.pas'
- {$If NOT Defined(NoScripts)}
- , BaseSearchContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearchContainerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , BaseSearchContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchContainerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moFilters in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moFilters.pas'
  , Filters_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Filters_Module.pas'
  , PrimCreateFilter_cfRename_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_cfRename_UserType.pas'
@@ -4990,14 +4992,14 @@ uses
  {$If NOT Defined(NoScripts)}
  , FiltersProcessingWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\FiltersProcessingWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FiltersKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\FiltersKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , FiltersKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\FiltersKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , CreateFilter_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\CreateFilter_Form.pas'
  , PrimCreateFilter_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_Form.pas'
- {$If NOT Defined(NoScripts)}
- , CreateFilterKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\CreateFilterKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CreateFilterKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\CreateFilterKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moUnderControl in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moUnderControl.pas'
  , UnderControl_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControl_Module.pas'
  , UnderControl_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\UnderControl_Form.pas'
@@ -5005,9 +5007,9 @@ uses
  , PrimUnderControl_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\PrimUnderControl_Form.pas'
  , PrimUnderControl_utUnderControl_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\PrimUnderControl_utUnderControl_UserType.pas'
  , UnderControl_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl_Strange_Controls.pas'
- {$If NOT Defined(NoScripts)}
- , UnderControlKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\UnderControlKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , UnderControlKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\UnderControlKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moDocumentListFromFile in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moDocumentListFromFile.pas'
  , PrimDocumentListFromFile_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentListFromFile\PrimDocumentListFromFile_Module.pas'
  {$If NOT Defined(NoScripts)}
@@ -5026,9 +5028,9 @@ uses
  , ChangesBetweenEditons_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditons_Form.pas'
  , PrimChangesBetweenEditons_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas'
  , PrimChangesBetweenEditons_DocumentChanges_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_DocumentChanges_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , ChangesBetweenEditonsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditonsKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChangesBetweenEditonsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\ChangesBetweenEditonsKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moSearch in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moSearch.pas'
  , Search_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas'
  {$If NOT Defined(NoScripts)}
@@ -5078,22 +5080,22 @@ uses
  , DefineSearchDate_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDate_Form.pas'
  , PrimDefineSearchDate_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimDefineSearchDate_Form.pas'
  , DefineSearchDateUtils in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateUtils.pas'
- {$If NOT Defined(NoScripts)}
- , DefineSearchDateKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
  , DefineSearchDate_ut_DefineSearchDate_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDate_ut_DefineSearchDate_UserType.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DefineSearchDateKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDateKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , OldSituationSearch_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\OldSituationSearch_Form.pas'
  , PrimOldSituationSearchOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearchOptions_Form.pas'
  , PrimOldSituationSearch_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearch_Form.pas'
  , PrimOldSituationSearch_cutOldKeyWord_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearch_cutOldKeyWord_UserType.pas'
- {$If NOT Defined(NoScripts)}
- , OldSituationSearchKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\OldSituationSearchKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , OldSituationSearchKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\OldSituationSearchKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , TreeAttributeFirstLevel_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\TreeAttributeFirstLevel_Form.pas'
  , PrimTreeAttributeFirstLevel_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimTreeAttributeFirstLevel_Form.pas'
- {$If NOT Defined(NoScripts)}
- , TreeAttributeFirstLevelKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\TreeAttributeFirstLevelKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TreeAttributeFirstLevelKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\TreeAttributeFirstLevelKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , moAAC in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moAAC.pas'
  , AACPrim_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\AACPrim_Module.pas'
  , sdsAAC in 'w:\garant6x\implementation\Garant\GbaNemesis\AAC\sdsAAC.pas'
@@ -5104,13 +5106,13 @@ uses
  , dsAACDocumentRight in 'w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentRight.pas'
  , nsAACRightDocumentContainer in 'w:\garant6x\implementation\Garant\GbaNemesis\AAC\nsAACRightDocumentContainer.pas'
  , AACContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainer_Form.pas'
- {$If NOT Defined(NoScripts)}
- , AACContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\AACContainerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AACContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , AACContentsContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContentsContainer_Form.pas'
- {$If NOT Defined(NoScripts)}
- , AACContentsContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\AACContentsContainerKeywordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AACContentsContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContentsContainerKeywordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsAACContents in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAACContents.pas'
  , fsAAC in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\fsAAC.pas'
  , moCommonPost in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moCommonPost.pas'

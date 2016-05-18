@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TurnOnTimeMachineKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TurnOnTimeMachineKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

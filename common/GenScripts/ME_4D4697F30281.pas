@@ -57,10 +57,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , OutlinerFormKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , OutlinerForm_ut_OutlinerForm_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , OutlinerFormKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

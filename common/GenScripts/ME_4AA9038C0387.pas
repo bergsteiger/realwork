@@ -46,9 +46,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimMonitoringsMain_Form
  , MonitoringsMain_Form
- {$If NOT Defined(NoScripts)}
- , MonitoringsMainKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes

@@ -73,10 +73,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , QFLikeTextLoadKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , QFLikeTextLoad_ut_QFLikeTextLoad_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , QFLikeTextLoadKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

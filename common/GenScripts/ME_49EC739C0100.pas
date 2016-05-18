@@ -70,9 +70,6 @@ uses
  , LoggingUnit
  , InternetAgent_Form
  , fsInternetAgent
- {$If NOT Defined(NoScripts)}
- , InternetAgentKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

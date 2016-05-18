@@ -200,6 +200,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , nsTabbedInterfaceTypes
+ , l3DialogService
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

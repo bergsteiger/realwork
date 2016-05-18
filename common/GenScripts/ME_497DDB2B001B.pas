@@ -770,6 +770,7 @@ uses
  , vtLister
  , Graphics
  , IOUnit
+ , l3DialogService
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

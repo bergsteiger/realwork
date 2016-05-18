@@ -69,11 +69,11 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , PageSetupKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PageSetupKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 {$If NOT Defined(NoVCM)}

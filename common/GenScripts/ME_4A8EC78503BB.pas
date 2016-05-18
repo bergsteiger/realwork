@@ -48,15 +48,6 @@ uses
  , ShutDown_Form
  , Login_Form
  , LongProcess_Form
- {$If NOT Defined(NoScripts)}
- , ShutDownKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , LoginKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , LongProcessKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

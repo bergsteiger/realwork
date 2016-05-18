@@ -31,9 +31,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , RightEditionKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -70,6 +70,7 @@ uses
  , nsConst
  , nsQuestions
  , nsExternalObjectModelPart
+ , l3DialogService
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit

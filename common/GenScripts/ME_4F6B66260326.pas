@@ -39,12 +39,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Parent_Form
  , Child_Form
- {$If NOT Defined(NoScripts)}
- , ParentKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ChildKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

@@ -47,9 +47,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimAdminMain_Form
  , AdminMain_Form
- {$If NOT Defined(NoScripts)}
- , AdminMainKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
  {$If NOT Defined(NoVCM)}
  , StdRes

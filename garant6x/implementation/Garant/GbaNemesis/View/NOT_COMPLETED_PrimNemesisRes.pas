@@ -84,9 +84,6 @@ uses
  , MainOptions_Form
  , Main_Form
  , MainWithReminders_Form
- {$If NOT Defined(NoScripts)}
- , MainWindowKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
 ;
 

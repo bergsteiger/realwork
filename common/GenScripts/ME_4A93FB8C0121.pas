@@ -46,10 +46,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , EULAKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , EULA_ut_EULA_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , EULAKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

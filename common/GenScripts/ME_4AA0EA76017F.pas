@@ -56,15 +56,6 @@ uses
  , TreeAttributeSelect_Form
  , AttributeSelect_Form
  , SelectedAttributes_Form
- {$If NOT Defined(NoScripts)}
- , TreeAttributeSelectKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , AttributeSelectKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , SelectedAttributesKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 {$If NOT Defined(NoVCM)}

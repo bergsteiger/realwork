@@ -938,6 +938,7 @@ uses
  , f1MultilinkResolver
  , nsQuestions
  , nsExternalObjectModelPart
+ , l3DialogService
  , evdBlockNameAdder
  , nsSearchInDocumentEvent
  , nsSearchInDocumentDoneEvent

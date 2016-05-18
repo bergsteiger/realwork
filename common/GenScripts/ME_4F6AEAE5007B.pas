@@ -46,12 +46,12 @@ uses
  , l3StringIDEx
  , l3MessageID
  {$If NOT Defined(NoScripts)}
- , MainKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , Main_ut_Main_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

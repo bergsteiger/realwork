@@ -154,10 +154,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , AboutKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , About_ut_About_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AboutKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 {$If NOT Defined(NoVCM)}

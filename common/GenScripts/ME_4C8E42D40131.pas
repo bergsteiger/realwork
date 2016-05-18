@@ -31,12 +31,12 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , l3MessageID
  {$If NOT Defined(NoScripts)}
- , CustomizeToolsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , CustomizeTools_ut_CustomizeTools_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CustomizeToolsKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const

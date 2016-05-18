@@ -53,9 +53,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , NewGenMainPrim_Form
  , Main_Form
- {$If NOT Defined(NoScripts)}
- , MainKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , evExtFormat
 ;
 

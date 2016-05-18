@@ -78,10 +78,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- {$If NOT Defined(NoScripts)}
- , F1LikeFormWithBSKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , F1LikeFormWithBSKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 const
