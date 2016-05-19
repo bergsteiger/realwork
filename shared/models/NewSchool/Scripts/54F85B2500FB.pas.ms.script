@@ -2855,7 +2855,7 @@ ref; // ME_5549F64503AD aData
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5549F6220397 // LogEvent
+ : Parent ME_5549F6220397 // DoLogEvent
  ;
  : Parameters
    Seq: ( ME_5549F64502E2 // aOperation
@@ -2869,7 +2869,7 @@ ref; // ME_5549F6300101 DoIt
 
 : ME_5549F6220397
  CONST UID '5549F6220397'
- CONST Name 'LogEvent'
+ CONST Name 'DoLogEvent'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -2882,7 +2882,7 @@ ref; // ME_5549F6300101 DoIt
  )
  ; // Operations
 
-ref; // ME_5549F6220397 LogEvent
+ref; // ME_5549F6220397 DoLogEvent
 
 FORWARD ME_559B6A290200
 
@@ -3253,23 +3253,23 @@ ref; // ME_559CF9D300FA MakeResultSet
 
 FORWARD ME_55657CD20360
 
-: ME_559E2BE2032D
+: ME_573AF45C0177
  CONST Name 'FromDate'
  CONST Class class_Parameter
  : Stereotype st_inout ;
  : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
  ;
 
-ref; // ME_559E2BE2032D FromDate
+ref; // ME_573AF45C0177 FromDate
 
-: ME_559E2BE2032E
+: ME_573AF45C0186
  CONST Name 'ToDate'
  CONST Class class_Parameter
- : Stereotype st_in ;
+ : Stereotype st_inout ;
  : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
  ;
 
-ref; // ME_559E2BE2032E ToDate
+ref; // ME_573AF45C0186 ToDate
 
 : ME_55657CED021D
  CONST UID '55657CED021D'
@@ -3280,8 +3280,8 @@ ref; // ME_559E2BE2032E ToDate
  : Parent ME_55657CD20360 // CorrectDates
  ;
  : Parameters
-   Seq: ( ME_559E2BE2032D // FromDate
- ME_559E2BE2032E // ToDate
+   Seq: ( ME_573AF45C0177 // FromDate
+ ME_573AF45C0186 // ToDate
  )
  ; // Parameters
 
@@ -3367,6 +3367,95 @@ ref; // ME_56F271E40285 DoIt
  ; // Operations
 
 ref; // ME_56F271D602AB NeedLogSessionEnd
+
+FORWARD ME_573C3BC601D1
+
+: ME_573C3C1300E6
+ CONST Name 'aOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_553F86E201D2' '5432448401BC.pas.ms.script' // TdaJournalOperation
+ ;
+
+ref; // ME_573C3C1300E6 aOperation
+
+: ME_573C3C130105
+ CONST Name 'aFamilyID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DD302E0' '5432448401BC.pas.ms.script' // TdaFamilyID
+ ;
+
+ref; // ME_573C3C130105 aFamilyID
+
+: ME_573C3C130124
+ CONST Name 'aExtID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_573C3C130124 aExtID
+
+: ME_573C3C130134
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_573C3C130134 aData
+
+: ME_573C3C0F014A
+ CONST UID '573C3C0F014A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_573C3BC601D1 // LogEvent
+ ;
+ : Parameters
+   Seq: ( ME_573C3C1300E6 // aOperation
+ ME_573C3C130105 // aFamilyID
+ ME_573C3C130124 // aExtID
+ ME_573C3C130134 // aData
+ )
+ ; // Parameters
+
+ref; // ME_573C3C0F014A DoIt
+
+FORWARD ME_55228D9D03B2
+
+: ME_573C43040281
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573C3BC601D1 // LogEvent
+ ;
+ : Target ME_55228D9D03B2 // UserIsService
+ ;
+
+ref; // ME_573C43040281 
+
+: ME_573C3BC601D1
+ CONST UID '573C3BC601D1'
+ CONST Name 'LogEvent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_559A3BD901CC // TdaJournal
+ ;
+ : Operations
+   Seq: ( ME_573C3C0F014A // DoIt
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_573C43040281 // UserIsService
+ )
+ ; // Dependencies
+
+ref; // ME_573C3BC601D1 LogEvent
 
 : ME_559B638402DE
  CONST Class class_Dependency
@@ -3579,6 +3668,18 @@ ref; // ME_56EBDD1F0184_ME_559A3BD901CC CurSessionID
  CONST OpKind opkind_Implemented
 ref; // ME_56F2627200AE_ME_559A3BD901CC IsSessionActive
 
+: ME_573C4C3B031D_ME_559A3BD901CC
+ : Original WL 'ME_573C4C3B031D' '5432518A0316.pas.ms.script' // AlienCheckUser
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_573C4C3B031D_ME_559A3BD901CC AlienCheckUser
+
+: ME_573C4C4903B7_ME_559A3BD901CC
+ : Original WL 'ME_573C4C4903B7' '5432518A0316.pas.ms.script' // AlienUserChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_573C4C4903B7_ME_559A3BD901CC AlienUserChanged
+
 : ME_479731C50290_ME_559A3BD901CC
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -3613,7 +3714,7 @@ ref; // ME_479731C50290_ME_559A3BD901CC Cleanup
  ; // Attributes
  : Operations
    Seq: ( ME_559A424301EE // Create
- ME_5549F6220397 // LogEvent
+ ME_5549F6220397 // DoLogEvent
  ME_559B6A290200 // CheckUser
  ME_559B6A7C03AA // UserChanged
  ME_559B6A8C0034 // SessionChanged
@@ -3625,6 +3726,7 @@ ref; // ME_479731C50290_ME_559A3BD901CC Cleanup
  ME_55657CD20360 // CorrectDates
  ME_56F2622600C7 // NeedLogSessionBegin
  ME_56F271D602AB // NeedLogSessionEnd
+ ME_573C3BC601D1 // LogEvent
  )
  ; // Operations
  : Implemented
@@ -3651,6 +3753,8 @@ ref; // ME_479731C50290_ME_559A3BD901CC Cleanup
  ME_56E2B57C01FA_ME_559A3BD901CC // MakeAlienResultSet
  ME_56EBDD1F0184_ME_559A3BD901CC // CurSessionID
  ME_56F2627200AE_ME_559A3BD901CC // IsSessionActive
+ ME_573C4C3B031D_ME_559A3BD901CC // AlienCheckUser
+ ME_573C4C4903B7_ME_559A3BD901CC // AlienUserChanged
  )
  ; // Implemented
  : Overridden
@@ -3911,8 +4015,6 @@ ref; // ME_552288010384 DoIt
  ; // Operations
 
 ref; // ME_552287F70191 UserIDBelongsToRegion
-
-FORWARD ME_55228D9D03B2
 
 : ME_55228DC60087
  CONST Name 'aUserID'

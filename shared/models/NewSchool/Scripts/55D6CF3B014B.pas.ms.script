@@ -3512,6 +3512,20 @@ ref; // ME_57347AD502EA f_ArchiUsers
 
 ref; // ME_5739943300C7 f_UserStatusChangedSubscriberList
 
+: ME_573B085A0143
+ CONST UID '573B085A0143'
+ CONST Name 'f_UserLoginQuery'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_573B085A0143 f_UserLoginQuery
+
 FORWARD ME_562A074E0321
 
 : ME_562DCE95018B
@@ -3820,6 +3834,38 @@ ref; // ME_5718C1770234 DoIt
 
 ref; // ME_5718C16B036E UserNameQuery
 
+FORWARD ME_573B0837013B
+
+: ME_573B08460346
+ CONST UID '573B08460346'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_573B0837013B // UserLoginQuery
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_573B08460346 DoIt
+
+: ME_573B0837013B
+ CONST UID '573B0837013B'
+ CONST Name 'UserLoginQuery'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Operations
+   Seq: ( ME_573B08460346 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_573B0837013B UserLoginQuery
+
 : ME_562A031E02CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4013,6 +4059,18 @@ ref; // ME_5739834700B2_ME_5629FC88034B UnRegisterUserStatusChangedSubscriber
  CONST OpKind opkind_Implemented
 ref; // ME_5739835200CF_ME_5629FC88034B NotifyUserActiveChanged
 
+: ME_573AC17202BF_ME_5629FC88034B
+ : Original WL 'ME_573AC17202BF' '5432518A0316.pas.ms.script' // CSCheckPassword
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_573AC17202BF_ME_5629FC88034B CSCheckPassword
+
+: ME_573AEE9902DF_ME_5629FC88034B
+ : Original WL 'ME_573AEE9902DF' '5432518A0316.pas.ms.script' // GetUserInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_573AEE9902DF_ME_5629FC88034B GetUserInfo
+
 : ME_479731C50290_ME_5629FC88034B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -4046,6 +4104,7 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5718C14D027F // f_UserNameQuery
  ME_57347AD502EA // f_ArchiUsers
  ME_5739943300C7 // f_UserStatusChangedSubscriberList
+ ME_573B085A0143 // f_UserLoginQuery
  )
  ; // Attributes
  : Operations
@@ -4056,6 +4115,7 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5715E74402CA // FillAllGroups
  ME_5715ED0002E0 // SortUsersInList
  ME_5718C16B036E // UserNameQuery
+ ME_573B0837013B // UserLoginQuery
  )
  ; // Operations
  : Implemented
@@ -4077,6 +4137,8 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5739832A00A2_ME_5629FC88034B // RegisterUserStatusChangedSubscriber
  ME_5739834700B2_ME_5629FC88034B // UnRegisterUserStatusChangedSubscriber
  ME_5739835200CF_ME_5629FC88034B // NotifyUserActiveChanged
+ ME_573AC17202BF_ME_5629FC88034B // CSCheckPassword
+ ME_573AEE9902DF_ME_5629FC88034B // GetUserInfo
  )
  ; // Implemented
  : Overridden
@@ -4736,10 +4798,10 @@ ref; // ME_564B006D033B
 ref; // ME_564B05270383 
 
 : ME_5549F6220397_ME_5602A0790033
- : Original WL 'ME_5549F6220397' '54F85B2500FB.pas.ms.script' // LogEvent
+ : Original WL 'ME_5549F6220397' '54F85B2500FB.pas.ms.script' // DoLogEvent
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5549F6220397_ME_5602A0790033 LogEvent
+ref; // ME_5549F6220397_ME_5602A0790033 DoLogEvent
 
 : ME_559A42120304_ME_5602A0790033
  : Original WL 'ME_559A42120304' '54F85B2500FB.pas.ms.script' // CurStatTree
@@ -4820,7 +4882,7 @@ ref; // ME_479731C50290_ME_5602A0790033 Cleanup
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5549F6220397_ME_5602A0790033 // LogEvent
+   Seq: ( ME_5549F6220397_ME_5602A0790033 // DoLogEvent
  ME_559A42120304_ME_5602A0790033 // CurStatTree
  ME_559B6A290200_ME_5602A0790033 // CheckUser
  ME_559B6A7C03AA_ME_5602A0790033 // UserChanged

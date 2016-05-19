@@ -3156,108 +3156,6 @@ ref; // ME_4C7F6D8800EE DiffOptions
 
 FORWARD ME_4A6D5A80013C
 
-FORWARD ME_4BD7056800D3
-
-FORWARD ME_03ADFF983588
-
-: ME_D7EEFF2FC66A
- CONST UID 'D7EEFF2FC66A'
- CONST Name 'utLeftEditionName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Предыдущая редакция"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_03ADFF983588 // utLeftEditionConstants
- ;
- CONST Value '''utLeftEdition'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utLeftEdition'''
-
-ref; // ME_D7EEFF2FC66A utLeftEditionName
-
-: ME_48C349D0F8A8
- CONST UID '48C349D0F8A8'
- CONST Name 'utLeftEdition'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Предыдущая редакция' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_03ADFF983588 // utLeftEditionConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_48C349D0F8A8 utLeftEdition
-
-: ME_03ADFF983588
- CONST UID '03ADFF983588'
- CONST Name 'utLeftEditionConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utLeftEdition' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD7056800D3 // utLeftEdition
- ;
- : Attributes
-   Seq: ( ME_D7EEFF2FC66A // utLeftEditionName
- ME_48C349D0F8A8 // utLeftEdition
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_03ADFF983588 utLeftEditionConstants
-
-FORWARD ME_C9D5F993AB03
-
-: ME_4EE1DC8903BB_ME_C9D5F993AB03
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_C9D5F993AB03 GetInteger
-
-: ME_C9D5F993AB03
- CONST UID 'C9D5F993AB03'
- CONST Name 'Tkw_FormUserType_utLeftEdition'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utLeftEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD7056800D3 // utLeftEdition
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_C9D5F993AB03 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utLeftEdition'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utLeftEdition'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_C9D5F993AB03 Tkw_FormUserType_utLeftEdition
-
 : ME_4BD7056800D3
  CONST UID '4BD7056800D3'
  CONST Name 'utLeftEdition'
@@ -3269,14 +3167,6 @@ ref; // ME_C9D5F993AB03 Tkw_FormUserType_utLeftEdition
  CONST Abstraction at_final
  : Parent ME_4A6D5A80013C // PrimLeftEdition
  ;
- : Children
-   Seq: ( ME_C9D5F993AB03 // Tkw_FormUserType_utLeftEdition
- )
- ; // Children
- : Constants
-   Seq: ( ME_03ADFF983588 // utLeftEditionConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_utLeftEdition_UserType.pas'
@@ -3655,108 +3545,6 @@ FORWARD ME_4A796FD0019E
 
 ref; // ME_4A798550031D Right
 
-FORWARD ME_4BD705C900FF
-
-FORWARD ME_C293EB19FEC8
-
-: ME_91561052FDDE
- CONST UID '91561052FDDE'
- CONST Name 'utEditionsContainerName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Сравнение редакций документа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C293EB19FEC8 // utEditionsContainerConstants
- ;
- CONST Value '''utEditionsContainer'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utEditionsContainer'''
-
-ref; // ME_91561052FDDE utEditionsContainerName
-
-: ME_1DCF085C0702
- CONST UID '1DCF085C0702'
- CONST Name 'utEditionsContainer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Сравнение редакций документа' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C293EB19FEC8 // utEditionsContainerConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_1DCF085C0702 utEditionsContainer
-
-: ME_C293EB19FEC8
- CONST UID 'C293EB19FEC8'
- CONST Name 'utEditionsContainerConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utEditionsContainer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD705C900FF // utEditionsContainer
- ;
- : Attributes
-   Seq: ( ME_91561052FDDE // utEditionsContainerName
- ME_1DCF085C0702 // utEditionsContainer
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_C293EB19FEC8 utEditionsContainerConstants
-
-FORWARD ME_A4DABEFFB270
-
-: ME_4EE1DC8903BB_ME_A4DABEFFB270
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_A4DABEFFB270 GetInteger
-
-: ME_A4DABEFFB270
- CONST UID 'A4DABEFFB270'
- CONST Name 'Tkw_FormUserType_utEditionsContainer'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utEditionsContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD705C900FF // utEditionsContainer
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_A4DABEFFB270 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utEditionsContainer'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utEditionsContainer'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A4DABEFFB270 Tkw_FormUserType_utEditionsContainer
-
 : ME_4BD705C900FF
  CONST UID '4BD705C900FF'
  CONST Name 'utEditionsContainer'
@@ -3768,14 +3556,6 @@ ref; // ME_A4DABEFFB270 Tkw_FormUserType_utEditionsContainer
  CONST Abstraction at_final
  : Parent ME_4A6EC0D0020C // PrimEditionsContainer
  ;
- : Children
-   Seq: ( ME_A4DABEFFB270 // Tkw_FormUserType_utEditionsContainer
- )
- ; // Children
- : Constants
-   Seq: ( ME_C293EB19FEC8 // utEditionsContainerConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_utEditionsContainer_UserType.pas'
@@ -3984,6 +3764,10 @@ FORWARD ME_4A7ADAEA035D
    Seq: ( WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4A7985290240 // Left
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -4004,6 +3788,10 @@ ref; // ME_4A796FC101A9 pnLeft
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4A798550031D // Right
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -4795,108 +4583,6 @@ ref; // ME_4A6EC0D0020C PrimEditionsContainer
 
 FORWARD ME_4A6D5ABE020A
 
-FORWARD ME_4BD705A001E0
-
-FORWARD ME_A807A7621BAB
-
-: ME_3EC1D6C48ED2
- CONST UID '3EC1D6C48ED2'
- CONST Name 'utRightEditionName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Текущая редакция"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_A807A7621BAB // utRightEditionConstants
- ;
- CONST Value '''utRightEdition'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utRightEdition'''
-
-ref; // ME_3EC1D6C48ED2 utRightEditionName
-
-: ME_ABBA18A7412C
- CONST UID 'ABBA18A7412C'
- CONST Name 'utRightEdition'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Текущая редакция' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_A807A7621BAB // utRightEditionConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_ABBA18A7412C utRightEdition
-
-: ME_A807A7621BAB
- CONST UID 'A807A7621BAB'
- CONST Name 'utRightEditionConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utRightEdition' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD705A001E0 // utRightEdition
- ;
- : Attributes
-   Seq: ( ME_3EC1D6C48ED2 // utRightEditionName
- ME_ABBA18A7412C // utRightEdition
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_A807A7621BAB utRightEditionConstants
-
-FORWARD ME_4BB7B372B85A
-
-: ME_4EE1DC8903BB_ME_4BB7B372B85A
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_4BB7B372B85A GetInteger
-
-: ME_4BB7B372B85A
- CONST UID '4BB7B372B85A'
- CONST Name 'Tkw_FormUserType_utRightEdition'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utRightEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD705A001E0 // utRightEdition
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_4BB7B372B85A // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utRightEdition'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utRightEdition'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4BB7B372B85A Tkw_FormUserType_utRightEdition
-
 : ME_4BD705A001E0
  CONST UID '4BD705A001E0'
  CONST Name 'utRightEdition'
@@ -4908,14 +4594,6 @@ ref; // ME_4BB7B372B85A Tkw_FormUserType_utRightEdition
  CONST Abstraction at_final
  : Parent ME_4A6D5ABE020A // PrimRightEdition
  ;
- : Children
-   Seq: ( ME_4BB7B372B85A // Tkw_FormUserType_utRightEdition
- )
- ; // Children
- : Constants
-   Seq: ( ME_A807A7621BAB // utRightEditionConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_utRightEdition_UserType.pas'
@@ -8386,7 +8064,6 @@ ref; // ME_571A22D2007A DiffFormWordsPack
  WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.pas.ms.script' // DocInfo
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
  WL 'ME_4EDCC335011E' '4EDCC335011E.pas.ms.script' // Editions$Forms
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F546F810266' '4F546F810266.pas.ms.script' // HAF
  WL 'ME_4FD078FF017D' '4FD078FF017D.pas.ms.script' // vtImgLists
  WL 'ME_4FFC670F012B' '4FFC670F012B.pas.ms.script' // FormDefinitions

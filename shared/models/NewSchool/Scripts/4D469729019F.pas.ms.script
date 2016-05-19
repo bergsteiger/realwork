@@ -6,108 +6,6 @@ FORWARD ME_4D469729019F
 
 FORWARD ME_4D4697F30281
 
-FORWARD ME_2404FCE7338E
-
-FORWARD ME_7CD8D9AEF620
-
-: ME_C34D25F79F66
- CONST UID 'C34D25F79F66'
- CONST Name 'ut_OutlinerFormName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Форма для тестирования списка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7CD8D9AEF620 // ut_OutlinerFormConstants
- ;
- CONST Value '''ut_OutlinerForm'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_OutlinerForm'''
-
-ref; // ME_C34D25F79F66 ut_OutlinerFormName
-
-: ME_931041DAB5D1
- CONST UID '931041DAB5D1'
- CONST Name 'ut_OutlinerForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Форма для тестирования списка' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7CD8D9AEF620 // ut_OutlinerFormConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_931041DAB5D1 ut_OutlinerForm
-
-: ME_7CD8D9AEF620
- CONST UID '7CD8D9AEF620'
- CONST Name 'ut_OutlinerFormConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_OutlinerForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_2404FCE7338E // ut_OutlinerForm
- ;
- : Attributes
-   Seq: ( ME_C34D25F79F66 // ut_OutlinerFormName
- ME_931041DAB5D1 // ut_OutlinerForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_7CD8D9AEF620 ut_OutlinerFormConstants
-
-FORWARD ME_DD7ED0CC7020
-
-: ME_4EE1DC8903BB_ME_DD7ED0CC7020
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_DD7ED0CC7020 GetInteger
-
-: ME_DD7ED0CC7020
- CONST UID 'DD7ED0CC7020'
- CONST Name 'Tkw_FormUserType_ut_OutlinerForm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_OutlinerForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_2404FCE7338E // ut_OutlinerForm
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_DD7ED0CC7020 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_OutlinerForm'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_OutlinerForm'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_DD7ED0CC7020 Tkw_FormUserType_ut_OutlinerForm
-
 : ME_2404FCE7338E
  CONST UID '2404FCE7338E'
  CONST Name 'ut_OutlinerForm'
@@ -120,14 +18,6 @@ ref; // ME_DD7ED0CC7020 Tkw_FormUserType_ut_OutlinerForm
  CONST Abstraction at_final
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
- : Children
-   Seq: ( ME_DD7ED0CC7020 // Tkw_FormUserType_ut_OutlinerForm
- )
- ; // Children
- : Constants
-   Seq: ( ME_7CD8D9AEF620 // ut_OutlinerFormConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -320,37 +210,6 @@ ref; // ME_4E813F56A930 LCImplut_OutlinerFormLocalConstants
 
 ref; // ME_4D469966011E TreeControl
 
-: ME_AA5E1352163B
- CONST UID 'AA5E1352163B'
- CONST Name 'f_TreeControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TreeControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Target WL 'ME_4D46A125003A' '4B97E7FD006C.pas.ms.script' // TvtOutlinerControl
- ;
-
-ref; // ME_AA5E1352163B f_TreeControl
-
-: ME_4726A74F4EC3
- CONST UID '4726A74F4EC3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация OutlinerForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4726A74F4EC3 Ini_Reg_Class
-
 : ME_711B618C77E3
  CONST UID '711B618C77E3'
  CONST Name 'Ini_FormFactory_OutlinerForm'
@@ -367,24 +226,6 @@ ref; // ME_4726A74F4EC3 Ini_Reg_Class
 
 ref; // ME_711B618C77E3 Ini_FormFactory_OutlinerForm$Def
 
-: ME_9C4BBAC5532C
- CONST UID '9C4BBAC5532C'
- CONST Name 'Init_Str_ut_OutlinerFormCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_OutlinerFormCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Speller ME_22395E715F87 // ut_OutlinerFormCaption
- ;
- : SpelledFor ME_4FF1F5BCCD4D // ut_OutlinerFormCaption
- ;
-
-ref; // ME_9C4BBAC5532C Init_Str_ut_OutlinerFormCaption
-
 : ME_4D47C399028D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -394,17 +235,6 @@ ref; // ME_9C4BBAC5532C Init_Str_ut_OutlinerFormCaption
  ;
 
 ref; // ME_4D47C399028D 
-
-: ME_05551F31A843
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_05551F31A843 
 
 : ME_F9A353A98EF4
  CONST IsSummoned true
@@ -455,13 +285,10 @@ ref; // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
  ; // Implements
  : Attributes
    Seq: ( ME_4D469966011E // TreeControl
- ME_AA5E1352163B // f_TreeControl
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_4726A74F4EC3 // Ini_Reg_Class
- ME_711B618C77E3 // Ini_FormFactory_OutlinerForm$Def
- ME_9C4BBAC5532C // Init_Str_ut_OutlinerFormCaption
+   Seq: ( ME_711B618C77E3 // Ini_FormFactory_OutlinerForm$Def
  )
  ; // Operations
  : Overridden
@@ -480,7 +307,6 @@ ref; // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
  ; // Constants
  : Dependencies
    Seq: ( ME_4D47C399028D // TAlign
- ME_05551F31A843 // TtfwClassRef
  ME_F9A353A98EF4 // Tl3StringIDEx
  ME_5D319DCCB666 // Tl3MessageID
  )
@@ -516,13 +342,8 @@ ref; // ME_4D4697F30281 OutlinerForm
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

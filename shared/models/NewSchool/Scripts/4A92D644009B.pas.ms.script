@@ -6,108 +6,6 @@ FORWARD ME_4A92D644009B
 
 FORWARD ME_497EBEC4031D
 
-FORWARD ME_4BD71E1103CD
-
-FORWARD ME_8B7ECF9FC84F
-
-: ME_966C849AEC98
- CONST UID '966C849AEC98'
- CONST Name 'nltMainName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8B7ECF9FC84F // nltMainConstants
- ;
- CONST Value '''nltMain'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''nltMain'''
-
-ref; // ME_966C849AEC98 nltMainName
-
-: ME_05D33FC5DFA5
- CONST UID '05D33FC5DFA5'
- CONST Name 'nltMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8B7ECF9FC84F // nltMainConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_05D33FC5DFA5 nltMain
-
-: ME_8B7ECF9FC84F
- CONST UID '8B7ECF9FC84F'
- CONST Name 'nltMainConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы nltMain' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD71E1103CD // nltMain
- ;
- : Attributes
-   Seq: ( ME_966C849AEC98 // nltMainName
- ME_05D33FC5DFA5 // nltMain
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_8B7ECF9FC84F nltMainConstants
-
-FORWARD ME_DE9F1EABEF55
-
-: ME_4EE1DC8903BB_ME_DE9F1EABEF55
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_DE9F1EABEF55 GetInteger
-
-: ME_DE9F1EABEF55
- CONST UID 'DE9F1EABEF55'
- CONST Name 'Tkw_FormUserType_nltMain'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы nltMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD71E1103CD // nltMain
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_DE9F1EABEF55 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::nltMain'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_nltMain'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_DE9F1EABEF55 Tkw_FormUserType_nltMain
-
 : ME_4BD71E1103CD
  CONST UID '4BD71E1103CD'
  CONST Name 'nltMain'
@@ -119,14 +17,6 @@ ref; // ME_DE9F1EABEF55 Tkw_FormUserType_nltMain
  CONST Abstraction at_final
  : Parent ME_497EBEC4031D // PrimNewsLine
  ;
- : Children
-   Seq: ( ME_DE9F1EABEF55 // Tkw_FormUserType_nltMain
- )
- ; // Children
- : Constants
-   Seq: ( ME_8B7ECF9FC84F // nltMainConstants
- )
- ; // Constants
  CONST "CanClose" false
  CONST "ImageIndex" 145
  CONST "SettingsCaption" 'ПРАЙМ. Моя новостная лента (вкладка)'
@@ -5573,7 +5463,6 @@ ref; // ME_787EB19E7B3F Tkw_Monitorings_opOpenLegislationReview
  WL 'ME_4C84EDB403D2' '4C84EDB403D2.pas.ms.script' // Strange
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_5267C3880201' '5267C3880201.pas.ms.script' // Search
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike

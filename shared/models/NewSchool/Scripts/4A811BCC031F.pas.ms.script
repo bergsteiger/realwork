@@ -6,108 +6,6 @@ FORWARD ME_4A811BCC031F
 
 FORWARD ME_4BD6D6EA0075
 
-FORWARD ME_4BD6D74C0111
-
-FORWARD ME_C58AE6F9A3D3
-
-: ME_BB23DE9EE30B
- CONST UID 'BB23DE9EE30B'
- CONST Name 'utWorkJournalName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Журнал работы"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C58AE6F9A3D3 // utWorkJournalConstants
- ;
- CONST Value '''utWorkJournal'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utWorkJournal'''
-
-ref; // ME_BB23DE9EE30B utWorkJournalName
-
-: ME_12CF5A43B44D
- CONST UID '12CF5A43B44D'
- CONST Name 'utWorkJournal'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Журнал работы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C58AE6F9A3D3 // utWorkJournalConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_12CF5A43B44D utWorkJournal
-
-: ME_C58AE6F9A3D3
- CONST UID 'C58AE6F9A3D3'
- CONST Name 'utWorkJournalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utWorkJournal' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6D74C0111 // utWorkJournal
- ;
- : Attributes
-   Seq: ( ME_BB23DE9EE30B // utWorkJournalName
- ME_12CF5A43B44D // utWorkJournal
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_C58AE6F9A3D3 utWorkJournalConstants
-
-FORWARD ME_ED6BA4A365F7
-
-: ME_4EE1DC8903BB_ME_ED6BA4A365F7
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_ED6BA4A365F7 GetInteger
-
-: ME_ED6BA4A365F7
- CONST UID 'ED6BA4A365F7'
- CONST Name 'Tkw_FormUserType_utWorkJournal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utWorkJournal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6D74C0111 // utWorkJournal
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_ED6BA4A365F7 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utWorkJournal'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utWorkJournal'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_ED6BA4A365F7 Tkw_FormUserType_utWorkJournal
-
 : ME_4BD6D74C0111
  CONST UID '4BD6D74C0111'
  CONST Name 'utWorkJournal'
@@ -119,14 +17,6 @@ ref; // ME_ED6BA4A365F7 Tkw_FormUserType_utWorkJournal
  CONST Abstraction at_final
  : Parent ME_4BD6D6EA0075 // PrimWorkJournal
  ;
- : Children
-   Seq: ( ME_ED6BA4A365F7 // Tkw_FormUserType_utWorkJournal
- )
- ; // Children
- : Constants
-   Seq: ( ME_C58AE6F9A3D3 // utWorkJournalConstants
- )
- ; // Constants
  CONST "ImageIndex" 128
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_utWorkJournal_UserType.pas'
@@ -1512,7 +1402,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
  WL 'ME_494F898C013E' '494F898C013E.pas.ms.script' // Usual
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
  WL 'ME_4A7FF5F301B2' '4A7FF5F301B2.pas.ms.script' // UserJournal
  WL 'ME_4A825D5D0235' '4A825D5D0235.pas.ms.script' // WorkJournalInterfaces
@@ -1526,7 +1415,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_4C3F34640373' '4C3F34640373.pas.ms.script' // Strange
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine

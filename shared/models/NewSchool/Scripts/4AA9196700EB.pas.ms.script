@@ -6,108 +6,6 @@ FORWARD ME_4AA9196700EB
 
 FORWARD ME_4AAFA13C01B0
 
-FORWARD ME_4BD71E5E01D4
-
-FORWARD ME_B9787F2065DD
-
-: ME_B1C6F9B4F78E
- CONST UID 'B1C6F9B4F78E'
- CONST Name 'MyPostingListName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B9787F2065DD // MyPostingListConstants
- ;
- CONST Value '''MyPostingList'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''MyPostingList'''
-
-ref; // ME_B1C6F9B4F78E MyPostingListName
-
-: ME_BEEDDA6A7469
- CONST UID 'BEEDDA6A7469'
- CONST Name 'MyPostingList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B9787F2065DD // MyPostingListConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_BEEDDA6A7469 MyPostingList
-
-: ME_B9787F2065DD
- CONST UID 'B9787F2065DD'
- CONST Name 'MyPostingListConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы MyPostingList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD71E5E01D4 // MyPostingList
- ;
- : Attributes
-   Seq: ( ME_B1C6F9B4F78E // MyPostingListName
- ME_BEEDDA6A7469 // MyPostingList
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_B9787F2065DD MyPostingListConstants
-
-FORWARD ME_89846AB44F41
-
-: ME_4EE1DC8903BB_ME_89846AB44F41
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_89846AB44F41 GetInteger
-
-: ME_89846AB44F41
- CONST UID '89846AB44F41'
- CONST Name 'Tkw_FormUserType_MyPostingList'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы MyPostingList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD71E5E01D4 // MyPostingList
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_89846AB44F41 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::MyPostingList'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_MyPostingList'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_89846AB44F41 Tkw_FormUserType_MyPostingList
-
 : ME_4BD71E5E01D4
  CONST UID '4BD71E5E01D4'
  CONST Name 'MyPostingList'
@@ -119,14 +17,6 @@ ref; // ME_89846AB44F41 Tkw_FormUserType_MyPostingList
  CONST Abstraction at_final
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
  ;
- : Children
-   Seq: ( ME_89846AB44F41 // Tkw_FormUserType_MyPostingList
- )
- ; // Children
- : Constants
-   Seq: ( ME_B9787F2065DD // MyPostingListConstants
- )
- ; // Constants
  CONST "CanClose" false
  CONST "ImageIndex" 145
  CONST "Weight" '-1'
@@ -2847,7 +2737,6 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_4912DD020283' '4912DD020283.pas.ms.script' // eeInterfaces
  WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
  WL 'ME_4958E382019E' '4958E382019E.pas.ms.script' // Search$Presentation for F1 and Monitorings
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
@@ -2864,7 +2753,6 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_4C84EDB403D2' '4C84EDB403D2.pas.ms.script' // Strange
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_5267C3880201' '5267C3880201.pas.ms.script' // Search
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike

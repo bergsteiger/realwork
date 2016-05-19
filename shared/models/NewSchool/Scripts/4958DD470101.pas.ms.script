@@ -931,108 +931,6 @@ ref; // ME_4B716BCB01A7 c_SearchLabelDistance
 
 ref; // ME_4B716BB002AC SearchLabelsLayout
 
-FORWARD ME_4BDAF8340011
-
-FORWARD ME_DCFB77BD2AF2
-
-: ME_8E3F3A120DFC
- CONST UID '8E3F3A120DFC'
- CONST Name 'utMainMenuNewName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Основное меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DCFB77BD2AF2 // utMainMenuNewConstants
- ;
- CONST Value '''utMainMenuNew'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utMainMenuNew'''
-
-ref; // ME_8E3F3A120DFC utMainMenuNewName
-
-: ME_1D1F26B11B43
- CONST UID '1D1F26B11B43'
- CONST Name 'utMainMenuNew'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Основное меню' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DCFB77BD2AF2 // utMainMenuNewConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_1D1F26B11B43 utMainMenuNew
-
-: ME_DCFB77BD2AF2
- CONST UID 'DCFB77BD2AF2'
- CONST Name 'utMainMenuNewConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utMainMenuNew' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BDAF8340011 // utMainMenuNew
- ;
- : Attributes
-   Seq: ( ME_8E3F3A120DFC // utMainMenuNewName
- ME_1D1F26B11B43 // utMainMenuNew
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_DCFB77BD2AF2 utMainMenuNewConstants
-
-FORWARD ME_8EA1C7C45CD4
-
-: ME_4EE1DC8903BB_ME_8EA1C7C45CD4
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_8EA1C7C45CD4 GetInteger
-
-: ME_8EA1C7C45CD4
- CONST UID '8EA1C7C45CD4'
- CONST Name 'Tkw_FormUserType_utMainMenuNew'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utMainMenuNew' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BDAF8340011 // utMainMenuNew
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_8EA1C7C45CD4 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utMainMenuNew'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utMainMenuNew'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_8EA1C7C45CD4 Tkw_FormUserType_utMainMenuNew
-
 : ME_4BDAF8340011
  CONST UID '4BDAF8340011'
  CONST Name 'utMainMenuNew'
@@ -1044,14 +942,6 @@ ref; // ME_8EA1C7C45CD4 Tkw_FormUserType_utMainMenuNew
  CONST Abstraction at_final
  : Parent ME_4958E1F700C0 // PrimMainMenuNew
  ;
- : Children
-   Seq: ( ME_8EA1C7C45CD4 // Tkw_FormUserType_utMainMenuNew
- )
- ; // Children
- : Constants
-   Seq: ( ME_DCFB77BD2AF2 // utMainMenuNewConstants
- )
- ; // Constants
  CONST "ImageIndex" 44
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -1247,6 +1137,10 @@ FORWARD ME_4ACA059C011E
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4ACA069E0145 // BaseSearchZone
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -4117,108 +4011,6 @@ FORWARD ME_56FA947B027C
 
 ref; // ME_56FA992D00DC BaseSearchZone
 
-FORWARD ME_56FACF1F00E0
-
-FORWARD ME_57BD0D138078
-
-: ME_9E0DA5B285A0
- CONST UID '9E0DA5B285A0'
- CONST Name 'utMainMenuWithProfNewsName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Основное меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_57BD0D138078 // utMainMenuWithProfNewsConstants
- ;
- CONST Value '''utMainMenuWithProfNews'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utMainMenuWithProfNews'''
-
-ref; // ME_9E0DA5B285A0 utMainMenuWithProfNewsName
-
-: ME_00DA5028873A
- CONST UID '00DA5028873A'
- CONST Name 'utMainMenuWithProfNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Основное меню' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_57BD0D138078 // utMainMenuWithProfNewsConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_00DA5028873A utMainMenuWithProfNews
-
-: ME_57BD0D138078
- CONST UID '57BD0D138078'
- CONST Name 'utMainMenuWithProfNewsConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utMainMenuWithProfNews' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_56FACF1F00E0 // utMainMenuWithProfNews
- ;
- : Attributes
-   Seq: ( ME_9E0DA5B285A0 // utMainMenuWithProfNewsName
- ME_00DA5028873A // utMainMenuWithProfNews
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_57BD0D138078 utMainMenuWithProfNewsConstants
-
-FORWARD ME_4353FCF0CD7D
-
-: ME_4EE1DC8903BB_ME_4353FCF0CD7D
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_4353FCF0CD7D GetInteger
-
-: ME_4353FCF0CD7D
- CONST UID '4353FCF0CD7D'
- CONST Name 'Tkw_FormUserType_utMainMenuWithProfNews'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utMainMenuWithProfNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FACF1F00E0 // utMainMenuWithProfNews
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_4353FCF0CD7D // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utMainMenuWithProfNews'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utMainMenuWithProfNews'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4353FCF0CD7D Tkw_FormUserType_utMainMenuWithProfNews
-
 : ME_56FACF1F00E0
  CONST UID '56FACF1F00E0'
  CONST Name 'utMainMenuWithProfNews'
@@ -4230,14 +4022,6 @@ ref; // ME_4353FCF0CD7D Tkw_FormUserType_utMainMenuWithProfNews
  CONST Abstraction at_final
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Children
-   Seq: ( ME_4353FCF0CD7D // Tkw_FormUserType_utMainMenuWithProfNews
- )
- ; // Children
- : Constants
-   Seq: ( ME_57BD0D138078 // utMainMenuWithProfNewsConstants
- )
- ; // Constants
  CONST "ImageIndex" 44
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -5424,6 +5208,10 @@ FORWARD ME_56FA8CEC0217
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_56FA992D00DC // BaseSearchZone
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -9724,7 +9512,6 @@ ref; // ME_98CD882A435E TstMainMenuChangeableMainMenuTypeItem
  WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
  WL 'ME_4909EECE01D5' '4909EECE01D5.pas.ms.script' // MainMenu
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
  WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.pas.ms.script' // Labels
@@ -9747,7 +9534,6 @@ ref; // ME_98CD882A435E TstMainMenuChangeableMainMenuTypeItem
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4DD24BD40021' '4DD24BD40021.pas.ms.script' // MainMenu
  WL 'ME_4E732D5D02FE' '4E732D5D02FE.pas.ms.script' // HideFields
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_4FD078FF017D' '4FD078FF017D.pas.ms.script' // vtImgLists
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources

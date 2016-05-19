@@ -21,9 +21,9 @@ var
  l_Row : TevRow;
 //#UC END# *4FC4942400EF_4FC493C90289_var*
 //#UC START# *4FC49F620379_4FC493C90289_impl*
- Result := ed_Null;
+ Result := ed_rtNull;
  if TagInst.ChildrenCount = 1 then
-  Result := ed_SingleCell
+  Result := ed_rtSingleCell
  else
  begin
   l_Iterator := pm_GetCellsIterator;
@@ -31,7 +31,7 @@ var
    l_Cell := l_Iterator.First(False);
    l_FirstCell := l_Cell;
    l_Index := 1;
-   Result := ed_NumericCels;
+   Result := ed_rtNumericCels;
    l_EmptyCount := 0;
    l_RowWidth := 0;
    l_WasHead := False;
@@ -43,28 +43,28 @@ var
    begin
     if l_Cell.MergeStatus <> ev_msNone then
     begin
-     Result := ed_HasMergedCell;
+     Result := ed_rtHasMergedCell;
      if l_Cell.MergeStatus = ev_msHead then l_WasHead := True;
      if not l_WasHead and (l_Cell.MergeStatus = ev_msContinue) then Inc(l_ContinueCount);
     end; // if l_Cell.MergeStatus <> ev_msNone then
-    if Result <> ed_HasMergedCell then
+    if Result <> ed_rtHasMergedCell then
     begin
      if Pos('____', l_Cell.GetFirstLineText) > 0 then
      begin
-      Result := ev_FormCells;
+      Result := ev_rtFormCells;
       Break;
      end; // if Pos('____', l_Cell.GetFirstLineText) then
-     if (l_Index <> l_Cell.TextAsInteger) and (Result = ed_NumericCels) then
-      Result := ed_SimpleWithoutEmpty;
+     if (l_Index <> l_Cell.TextAsInteger) and (Result = ed_rtNumericCels) then
+      Result := ed_rtSimpleWithoutEmpty;
     end; // if Result <> ed_HasMergedCell then
     if l_Cell.IsEmptyCell then
     begin
      Inc(l_EmptyCount);
-     if Result <> ed_HasMergedCell then
-      Result := ed_SimpleCells;
+     if Result <> ed_rtHasMergedCell then
+      Result := ed_rtSimpleCells;
     end; // if l_Cell.IsEmptyCell then
     l_CellType := l_Cell.GetCellType;
-    if (Result in [ed_SimpleCells, ed_HasMergedCell]) and (l_CellType = ed_SmallText) then
+    if (Result in [ed_rtSimpleCells, ed_rtHasMergedCell]) and (l_CellType = ed_ctSmallText) then
      if evEqualOffset(l_AverageWidth, l_Cell.Width) then
       Inc(l_AverWidthCount)
      else
@@ -81,19 +81,19 @@ var
     l_Cell := l_Iterator.Next;
     Inc(l_Index);
    end; // while l_Cell <> nil do
-   if (Result = ed_SimpleCells) and ((l_CellsCount - l_EmptyCount) = 1) then
+   if (Result = ed_rtSimpleCells) and ((l_CellsCount - l_EmptyCount) = 1) then
     if not l_FirstCell.IsEmptyCell and (l_FirstCell.Width > l_RowWidth div 2) then
-     Result := ed_PsevdoSingleCells;
-   if (Result = ed_SimpleCells) and (l_CellsCount = l_EmptyCount) then
-    Result := ed_SimpleEmptyCells;
-   if (Result in [ed_SimpleCells, ed_HasMergedCell]) and (l_CellsCount > cnMinCellsCount4ChessTableRow) and ((l_CellsCount - l_AverWidthCount) <= cnMinDelta4ChessTaqbleRow) then
-    Result := ed_ChessTableRow;
-   if Result = ed_HasMergedCell then
+     Result := ed_rtPsevdoSingleCells;
+   if (Result = ed_rtSimpleCells) and (l_CellsCount = l_EmptyCount) then
+    Result := ed_rtSimpleEmptyCells;
+   if (Result in [ed_rtSimpleCells, ed_rtHasMergedCell]) and (l_CellsCount > cnMinCellsCount4ChessTableRow) and ((l_CellsCount - l_AverWidthCount) <= cnMinDelta4ChessTaqbleRow) then
+    Result := ed_rtChessTableRow;
+   if Result = ed_rtHasMergedCell then
     if l_WasHead and (l_ContinueCount = 0) then
-     Result := ed_HasHeadCells
+     Result := ed_rtHasHeadCells
     else
      if not l_WasHead and (l_ContinueCount > 0) and ((l_CellsCount - l_EmptyCount - l_ContinueCount) = 1) then
-      Result := ed_EmptyWithContnueCells;
+      Result := ed_rtEmptyWithContnueCells;
   finally
    l_Iterator := nil;
   end;

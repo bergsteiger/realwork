@@ -6,108 +6,6 @@ FORWARD ME_4DDBAF0A0029
 
 FORWARD ME_4DDCD636016C
 
-FORWARD ME_4DDCDE8F01B8
-
-FORWARD ME_88F3599F15C4
-
-: ME_C73369CF628F
- CONST UID 'C73369CF628F'
- CONST Name 'DocumentChangesName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Изменения в документе"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_88F3599F15C4 // DocumentChangesConstants
- ;
- CONST Value '''DocumentChanges'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''DocumentChanges'''
-
-ref; // ME_C73369CF628F DocumentChangesName
-
-: ME_58D6C174964C
- CONST UID '58D6C174964C'
- CONST Name 'DocumentChanges'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Изменения в документе' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_88F3599F15C4 // DocumentChangesConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_58D6C174964C DocumentChanges
-
-: ME_88F3599F15C4
- CONST UID '88F3599F15C4'
- CONST Name 'DocumentChangesConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы DocumentChanges' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4DDCDE8F01B8 // DocumentChanges
- ;
- : Attributes
-   Seq: ( ME_C73369CF628F // DocumentChangesName
- ME_58D6C174964C // DocumentChanges
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_88F3599F15C4 DocumentChangesConstants
-
-FORWARD ME_E2A92BF2B601
-
-: ME_4EE1DC8903BB_ME_E2A92BF2B601
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_E2A92BF2B601 GetInteger
-
-: ME_E2A92BF2B601
- CONST UID 'E2A92BF2B601'
- CONST Name 'Tkw_FormUserType_DocumentChanges'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы DocumentChanges' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCDE8F01B8 // DocumentChanges
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_E2A92BF2B601 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::DocumentChanges'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_DocumentChanges'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_E2A92BF2B601 Tkw_FormUserType_DocumentChanges
-
 : ME_4DDCDE8F01B8
  CONST UID '4DDCDE8F01B8'
  CONST Name 'DocumentChanges'
@@ -119,14 +17,6 @@ ref; // ME_E2A92BF2B601 Tkw_FormUserType_DocumentChanges
  CONST Abstraction at_final
  : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
  ;
- : Children
-   Seq: ( ME_E2A92BF2B601 // Tkw_FormUserType_DocumentChanges
- )
- ; // Children
- : Constants
-   Seq: ( ME_88F3599F15C4 // DocumentChangesConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_DocumentChanges_UserType.pas'
@@ -1879,7 +1769,6 @@ ref; // ME_4DDBAF2B0028 ChangesBetweenEditions
  WL 'ME_4DDCD71E027C' '4DDCD71E027C.pas.ms.script' // ChangesBetweenEditionsInterfaces
  WL 'ME_4DDCD7B600D5' '4DDCD7B600D5.pas.ms.script' // ChangesBetweenEditionsImplementation
  WL 'ME_4EDCC335011E' '4EDCC335011E.pas.ms.script' // Editions$Forms
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F546F810266' '4F546F810266.pas.ms.script' // HAF
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

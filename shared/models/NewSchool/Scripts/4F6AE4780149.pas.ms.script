@@ -74,108 +74,6 @@ ref; // ME_4F6AF44B016B Local
 
 FORWARD ME_4F6AEAE5007B
 
-FORWARD ME_A8FD32960190
-
-FORWARD ME_220CD3DDF540
-
-: ME_35E76AD16B0B
- CONST UID '35E76AD16B0B'
- CONST Name 'ut_MainName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "НЕ Роза"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_220CD3DDF540 // ut_MainConstants
- ;
- CONST Value '''ut_Main'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_Main'''
-
-ref; // ME_35E76AD16B0B ut_MainName
-
-: ME_FCDA102DA73A
- CONST UID 'FCDA102DA73A'
- CONST Name 'ut_Main'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'НЕ Роза' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_220CD3DDF540 // ut_MainConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_FCDA102DA73A ut_Main
-
-: ME_220CD3DDF540
- CONST UID '220CD3DDF540'
- CONST Name 'ut_MainConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_Main' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_A8FD32960190 // ut_Main
- ;
- : Attributes
-   Seq: ( ME_35E76AD16B0B // ut_MainName
- ME_FCDA102DA73A // ut_Main
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_220CD3DDF540 ut_MainConstants
-
-FORWARD ME_CA85ECD2CEE2
-
-: ME_4EE1DC8903BB_ME_CA85ECD2CEE2
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_CA85ECD2CEE2 GetInteger
-
-: ME_CA85ECD2CEE2
- CONST UID 'CA85ECD2CEE2'
- CONST Name 'Tkw_FormUserType_ut_Main'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_Main' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A8FD32960190 // ut_Main
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_CA85ECD2CEE2 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_Main'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_Main'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_CA85ECD2CEE2 Tkw_FormUserType_ut_Main
-
 : ME_A8FD32960190
  CONST UID 'A8FD32960190'
  CONST Name 'ut_Main'
@@ -188,14 +86,6 @@ ref; // ME_CA85ECD2CEE2 Tkw_FormUserType_ut_Main
  CONST Abstraction at_final
  : Parent ME_4F6AEAE5007B // Main
  ;
- : Children
-   Seq: ( ME_CA85ECD2CEE2 // Tkw_FormUserType_ut_Main
- )
- ; // Children
- : Constants
-   Seq: ( ME_220CD3DDF540 // ut_MainConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -673,7 +563,6 @@ ref; // ME_4F6AE4A6014D NewGen
  WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
  WL 'ME_49871D5103B9' '49871D5103B9.pas.ms.script' // StatusBar
  WL 'ME_499ABF2A0338' '499ABF2A0338.pas.ms.script' // Navigator
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4ADDE3D70311' '4ADDE3D70311.pas.ms.script' // OfficeLikeAppInterfaces
@@ -681,8 +570,6 @@ ref; // ME_4F6AE4A6014D NewGen
  WL 'ME_4C8DD8970344' '4C8DD8970344.pas.ms.script' // View
  WL 'ME_4C8DD8B8006C' '4C8DD8B8006C.pas.ms.script' // TasksPanel
  WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_4F6B421102FB' '4F6B421102FB.pas.ms.script' // WindowsListSupport
  WL 'ME_4F6B439D0095' '4F6B439D0095.pas.ms.script' // System
  WL 'ME_4F6B65EA0392' '4F6B65EA0392.pas.ms.script' // F1Like
@@ -690,15 +577,12 @@ ref; // ME_4F6AE4A6014D NewGen
  WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
  WL 'ME_4F6B66F8001B' '4F6B66F8001B.pas.ms.script' // FormDefinitions
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
- WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
- WL 'ME_54DB92A80279' '54DB92A80279.pas.ms.script' // ScriptEngine$RTLandVCL
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  )
  ; // Depends
  CONST "F1Like" false
  CONST "needs second icon" false
  CONST "vendor" 'none'
  CONST intf.pas:Path 'MDProcess\NewGen\NewGen.dpr'
- CONST Version 0
+ CONST Version 2
 
 ref; // ME_4F6AE4780149 NewGen

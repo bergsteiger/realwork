@@ -6,108 +6,6 @@ FORWARD ME_4CCAC702007E
 
 FORWARD ME_4A7C349D02CB
 
-FORWARD ME_4BD7296F02E0
-
-FORWARD ME_D850224F2898
-
-: ME_46F1C2072925
- CONST UID '46F1C2072925'
- CONST Name 'utUnderControlName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Документы на контроле"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_D850224F2898 // utUnderControlConstants
- ;
- CONST Value '''utUnderControl'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utUnderControl'''
-
-ref; // ME_46F1C2072925 utUnderControlName
-
-: ME_E52AC1323BF7
- CONST UID 'E52AC1323BF7'
- CONST Name 'utUnderControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Документы на контроле' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_D850224F2898 // utUnderControlConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_E52AC1323BF7 utUnderControl
-
-: ME_D850224F2898
- CONST UID 'D850224F2898'
- CONST Name 'utUnderControlConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utUnderControl' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD7296F02E0 // utUnderControl
- ;
- : Attributes
-   Seq: ( ME_46F1C2072925 // utUnderControlName
- ME_E52AC1323BF7 // utUnderControl
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_D850224F2898 utUnderControlConstants
-
-FORWARD ME_EE8F02089F6B
-
-: ME_4EE1DC8903BB_ME_EE8F02089F6B
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_EE8F02089F6B GetInteger
-
-: ME_EE8F02089F6B
- CONST UID 'EE8F02089F6B'
- CONST Name 'Tkw_FormUserType_utUnderControl'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utUnderControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD7296F02E0 // utUnderControl
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_EE8F02089F6B // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utUnderControl'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utUnderControl'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_EE8F02089F6B Tkw_FormUserType_utUnderControl
-
 : ME_4BD7296F02E0
  CONST UID '4BD7296F02E0'
  CONST Name 'utUnderControl'
@@ -119,14 +17,6 @@ ref; // ME_EE8F02089F6B Tkw_FormUserType_utUnderControl
  CONST Abstraction at_final
  : Parent ME_4A7C349D02CB // PrimUnderControl
  ;
- : Children
-   Seq: ( ME_EE8F02089F6B // Tkw_FormUserType_utUnderControl
- )
- ; // Children
- : Constants
-   Seq: ( ME_D850224F2898 // utUnderControlConstants
- )
- ; // Constants
  CONST "ImageIndex" 67
  CONST "SettingsCaption" 'Документы на контроле (вкладка)'
  CONST "Weight" '-1'
@@ -3039,7 +2929,6 @@ ref; // ME_4CCAC71C0347 UnderControl$FP
  WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
  WL 'ME_499192F203B4' '499192F203B4.pas.ms.script' // L10nInterfaces
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A77058200BA' '4A77058200BA.pas.ms.script' // Editions
  WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
  WL 'ME_4A9807DB01A5' '4A9807DB01A5.pas.ms.script' // Strange
@@ -3052,7 +2941,6 @@ ref; // ME_4CCAC71C0347 UnderControl$FP
  WL 'ME_4BD856E802F9' '4BD856E802F9.pas.ms.script' // FormDefinitions
  WL 'ME_4BDAF7510113' '4BDAF7510113.pas.ms.script' // Tree
  WL 'ME_4CCACDDC0101' '4CCACDDC0101.pas.ms.script' // Strange
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F9BB1120134' '4F9BB1120134.pas.ms.script' // Сюда вынес все сообщения из StdRes с Choices
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD

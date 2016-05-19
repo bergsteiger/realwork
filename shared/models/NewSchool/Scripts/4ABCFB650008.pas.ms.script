@@ -43,108 +43,6 @@ ref; // ME_4C84E4B70371 c_TextCommentLen
 
 ref; // ME_4C84E4AC0171 Constants
 
-FORWARD ME_4CD142B70232
-
-FORWARD ME_6AF16D1D6654
-
-: ME_3166DCF164E4
- CONST UID '3166DCF164E4'
- CONST Name 'utcmMainName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Оценка ответа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6AF16D1D6654 // utcmMainConstants
- ;
- CONST Value '''utcmMain'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utcmMain'''
-
-ref; // ME_3166DCF164E4 utcmMainName
-
-: ME_A25DB5826EC4
- CONST UID 'A25DB5826EC4'
- CONST Name 'utcmMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Оценка ответа' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6AF16D1D6654 // utcmMainConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_A25DB5826EC4 utcmMain
-
-: ME_6AF16D1D6654
- CONST UID '6AF16D1D6654'
- CONST Name 'utcmMainConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utcmMain' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4CD142B70232 // utcmMain
- ;
- : Attributes
-   Seq: ( ME_3166DCF164E4 // utcmMainName
- ME_A25DB5826EC4 // utcmMain
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_6AF16D1D6654 utcmMainConstants
-
-FORWARD ME_A4A4295DF23B
-
-: ME_4EE1DC8903BB_ME_A4A4295DF23B
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_A4A4295DF23B GetInteger
-
-: ME_A4A4295DF23B
- CONST UID 'A4A4295DF23B'
- CONST Name 'Tkw_FormUserType_utcmMain'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utcmMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CD142B70232 // utcmMain
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_A4A4295DF23B // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utcmMain'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utcmMain'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A4A4295DF23B Tkw_FormUserType_utcmMain
-
 : ME_4CD142B70232
  CONST UID '4CD142B70232'
  CONST Name 'utcmMain'
@@ -156,14 +54,6 @@ ref; // ME_A4A4295DF23B Tkw_FormUserType_utcmMain
  CONST Abstraction at_final
  : Parent ME_497EDC5003D1 // PrimConsultationMark
  ;
- : Children
-   Seq: ( ME_A4A4295DF23B // Tkw_FormUserType_utcmMain
- )
- ; // Children
- : Constants
-   Seq: ( ME_6AF16D1D6654 // utcmMainConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -3487,7 +3377,6 @@ ref; // ME_571A296801DD ConsultationWordsPack
  WL 'ME_4BD856E802F9' '4BD856E802F9.pas.ms.script' // FormDefinitions
  WL 'ME_4BD97FDB031A' '4BD97FDB031A.pas.ms.script' // FormDefinitions
  WL 'ME_4C43D64C0168' '4C43D64C0168.pas.ms.script' // Buttons
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends

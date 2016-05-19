@@ -62,22 +62,6 @@ ref; // ME_4C9B21D20187 TextSource
 
 ref; // ME_4C9B21E400A4 Text
 
-: ME_A260CB66B939
- CONST UID 'A260CB66B939'
- CONST Name 'f_LoadManager'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LoadManager' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C9B20790302 // PrimTextLoad
- ;
- : Target WL 'ME_4B322B9C0326' '4B322B67038B.pas.ms.script' // TevLoadDocumentManager
- ;
-
-ref; // ME_A260CB66B939 f_LoadManager
-
 FORWARD ME_4F15435202B5
 
 : ME_4F154366025B
@@ -108,21 +92,6 @@ ref; // ME_4F154366025B DoIt
 
 ref; // ME_4F15435202B5 AfterLoad
 
-: ME_D631E8C426CA
- CONST UID 'D631E8C426CA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C9B20790302 // PrimTextLoad
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D631E8C426CA Ini_Reg_Class
-
 : ME_4C9B212A02F8
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -142,17 +111,6 @@ ref; // ME_4C9B212A02F8
  ;
 
 ref; // ME_4C9B212E03BB 
-
-: ME_02F5EBDC4D62
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C9B20790302 // PrimTextLoad
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_02F5EBDC4D62 
 
 : ME_4A8E8F2E0195_ME_4C9B20790302
  : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
@@ -178,12 +136,10 @@ ref; // ME_4A8E8F2E0195_ME_4C9B20790302 InitControls
    Seq: ( ME_4B322C0803CE // LoadManager
  ME_4C9B21D20187 // TextSource
  ME_4C9B21E400A4 // Text
- ME_A260CB66B939 // f_LoadManager
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4F15435202B5 // AfterLoad
- ME_D631E8C426CA // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -193,7 +149,6 @@ ref; // ME_4A8E8F2E0195_ME_4C9B20790302 InitControls
  : Dependencies
    Seq: ( ME_4C9B212A02F8 // TWindowState
  ME_4C9B212E03BB // TAlign
- ME_02F5EBDC4D62 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -214,108 +169,6 @@ ref; // ME_4C9B20790302 PrimTextLoad
 
 FORWARD ME_4BCE9D210265
 
-FORWARD ME_ADA641CE296E
-
-FORWARD ME_0EE243838917
-
-: ME_FBCC7EB0F7DE
- CONST UID 'FBCC7EB0F7DE'
- CONST Name 'ut_elCustomEditName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Форма для тестирования TelCustomEdit"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0EE243838917 // ut_elCustomEditConstants
- ;
- CONST Value '''ut_elCustomEdit'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_elCustomEdit'''
-
-ref; // ME_FBCC7EB0F7DE ut_elCustomEditName
-
-: ME_41636EE3FCB9
- CONST UID '41636EE3FCB9'
- CONST Name 'ut_elCustomEdit'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Форма для тестирования TelCustomEdit' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0EE243838917 // ut_elCustomEditConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_41636EE3FCB9 ut_elCustomEdit
-
-: ME_0EE243838917
- CONST UID '0EE243838917'
- CONST Name 'ut_elCustomEditConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_elCustomEdit' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_ADA641CE296E // ut_elCustomEdit
- ;
- : Attributes
-   Seq: ( ME_FBCC7EB0F7DE // ut_elCustomEditName
- ME_41636EE3FCB9 // ut_elCustomEdit
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_0EE243838917 ut_elCustomEditConstants
-
-FORWARD ME_2FA1157B0C46
-
-: ME_4EE1DC8903BB_ME_2FA1157B0C46
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_2FA1157B0C46 GetInteger
-
-: ME_2FA1157B0C46
- CONST UID '2FA1157B0C46'
- CONST Name 'Tkw_FormUserType_ut_elCustomEdit'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_elCustomEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_ADA641CE296E // ut_elCustomEdit
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_2FA1157B0C46 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_elCustomEdit'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_elCustomEdit'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2FA1157B0C46 Tkw_FormUserType_ut_elCustomEdit
-
 : ME_ADA641CE296E
  CONST UID 'ADA641CE296E'
  CONST Name 'ut_elCustomEdit'
@@ -328,14 +181,6 @@ ref; // ME_2FA1157B0C46 Tkw_FormUserType_ut_elCustomEdit
  CONST Abstraction at_final
  : Parent ME_4BCE9D210265 // elCustomEdit
  ;
- : Children
-   Seq: ( ME_2FA1157B0C46 // Tkw_FormUserType_ut_elCustomEdit
- )
- ; // Children
- : Constants
-   Seq: ( ME_0EE243838917 // ut_elCustomEditConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -529,37 +374,6 @@ ref; // ME_84DF9E495A26 LCImplut_elCustomEditLocalConstants
 
 ref; // ME_4BCE9D760012 Edit
 
-: ME_CC41B260A4E4
- CONST UID 'CC41B260A4E4'
- CONST Name 'f_Edit'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Edit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Target WL 'ME_482ACC330173' '48342A280198.pas.ms.script' // TelCustomEdit
- ;
-
-ref; // ME_CC41B260A4E4 f_Edit
-
-: ME_964C857B4AA2
- CONST UID '964C857B4AA2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация elCustomEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_964C857B4AA2 Ini_Reg_Class
-
 : ME_34F2918AA12E
  CONST UID '34F2918AA12E'
  CONST Name 'Ini_FormFactory_elCustomEdit'
@@ -576,24 +390,6 @@ ref; // ME_964C857B4AA2 Ini_Reg_Class
 
 ref; // ME_34F2918AA12E Ini_FormFactory_elCustomEdit$Def
 
-: ME_E3E1C7A6D5C7
- CONST UID 'E3E1C7A6D5C7'
- CONST Name 'Init_Str_ut_elCustomEditCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_elCustomEditCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Speller ME_D42C6E3C6913 // ut_elCustomEditCaption
- ;
- : SpelledFor ME_E6AC561A3E03 // ut_elCustomEditCaption
- ;
-
-ref; // ME_E3E1C7A6D5C7 Init_Str_ut_elCustomEditCaption
-
 : ME_4BCEAE3C009B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -603,17 +399,6 @@ ref; // ME_E3E1C7A6D5C7 Init_Str_ut_elCustomEditCaption
  ;
 
 ref; // ME_4BCEAE3C009B 
-
-: ME_A0254BEA6186
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A0254BEA6186 
 
 : ME_47F3AFFEACA4
  CONST IsSummoned true
@@ -664,13 +449,10 @@ ref; // ME_4A8E8F2E0195_ME_4BCE9D210265 InitControls
  ; // Implements
  : Attributes
    Seq: ( ME_4BCE9D760012 // Edit
- ME_CC41B260A4E4 // f_Edit
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_964C857B4AA2 // Ini_Reg_Class
- ME_34F2918AA12E // Ini_FormFactory_elCustomEdit$Def
- ME_E3E1C7A6D5C7 // Init_Str_ut_elCustomEditCaption
+   Seq: ( ME_34F2918AA12E // Ini_FormFactory_elCustomEdit$Def
  )
  ; // Operations
  : Overridden
@@ -689,7 +471,6 @@ ref; // ME_4A8E8F2E0195_ME_4BCE9D210265 InitControls
  ; // Constants
  : Dependencies
    Seq: ( ME_4BCEAE3C009B // Forms
- ME_A0254BEA6186 // TtfwClassRef
  ME_47F3AFFEACA4 // Tl3StringIDEx
  ME_DD2B1282A869 // Tl3MessageID
  )
@@ -709,108 +490,6 @@ ref; // ME_4BCE9D210265 elCustomEdit
 
 FORWARD ME_4B30C7E800EE
 
-FORWARD ME_A419F118ED8E
-
-FORWARD ME_F55226819ABA
-
-: ME_8B4700D8D19D
- CONST UID '8B4700D8D19D'
- CONST Name 'ut_TextLoadName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Форма для загрузки документа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F55226819ABA // ut_TextLoadConstants
- ;
- CONST Value '''ut_TextLoad'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_TextLoad'''
-
-ref; // ME_8B4700D8D19D ut_TextLoadName
-
-: ME_63C1058E6938
- CONST UID '63C1058E6938'
- CONST Name 'ut_TextLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Форма для загрузки документа' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F55226819ABA // ut_TextLoadConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_63C1058E6938 ut_TextLoad
-
-: ME_F55226819ABA
- CONST UID 'F55226819ABA'
- CONST Name 'ut_TextLoadConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_TextLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_A419F118ED8E // ut_TextLoad
- ;
- : Attributes
-   Seq: ( ME_8B4700D8D19D // ut_TextLoadName
- ME_63C1058E6938 // ut_TextLoad
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_F55226819ABA ut_TextLoadConstants
-
-FORWARD ME_4338AD16B0E8
-
-: ME_4EE1DC8903BB_ME_4338AD16B0E8
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_4338AD16B0E8 GetInteger
-
-: ME_4338AD16B0E8
- CONST UID '4338AD16B0E8'
- CONST Name 'Tkw_FormUserType_ut_TextLoad'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_TextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A419F118ED8E // ut_TextLoad
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_4338AD16B0E8 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_TextLoad'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_TextLoad'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4338AD16B0E8 Tkw_FormUserType_ut_TextLoad
-
 : ME_A419F118ED8E
  CONST UID 'A419F118ED8E'
  CONST Name 'ut_TextLoad'
@@ -823,14 +502,6 @@ ref; // ME_4338AD16B0E8 Tkw_FormUserType_ut_TextLoad
  CONST Abstraction at_final
  : Parent ME_4B30C7E800EE // TextLoad
  ;
- : Children
-   Seq: ( ME_4338AD16B0E8 // Tkw_FormUserType_ut_TextLoad
- )
- ; // Children
- : Constants
-   Seq: ( ME_F55226819ABA // ut_TextLoadConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -1045,53 +716,6 @@ ref; // ME_4B322A36019F Text
 
 ref; // ME_4B322AC50048 TextSource
 
-: ME_5D7EB05F56C5
- CONST UID '5D7EB05F56C5'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Target WL 'ME_484544370206' '4829D7D50156.pas.ms.script' // TevEditor
- ;
-
-ref; // ME_5D7EB05F56C5 f_Text
-
-: ME_FAFD94FBDA41
- CONST UID 'FAFD94FBDA41'
- CONST Name 'f_TextSource'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TextSource' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Target WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
- ;
-
-ref; // ME_FAFD94FBDA41 f_TextSource
-
-: ME_2883AB55F4A2
- CONST UID '2883AB55F4A2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2883AB55F4A2 Ini_Reg_Class
-
 : ME_92ED638D8A30
  CONST UID '92ED638D8A30'
  CONST Name 'Ini_FormFactory_TextLoad'
@@ -1107,24 +731,6 @@ ref; // ME_2883AB55F4A2 Ini_Reg_Class
  ;
 
 ref; // ME_92ED638D8A30 Ini_FormFactory_TextLoad$Def
-
-: ME_A9D816C88B84
- CONST UID 'A9D816C88B84'
- CONST Name 'Init_Str_ut_TextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_TextLoadCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Speller ME_824498D15E5A // ut_TextLoadCaption
- ;
- : SpelledFor ME_1FD1A5E1E95F // ut_TextLoadCaption
- ;
-
-ref; // ME_A9D816C88B84 Init_Str_ut_TextLoadCaption
 
 : ME_4B32392A023A
  CONST Class class_Dependency
@@ -1156,17 +762,6 @@ ref; // ME_4B323A55004A
  CONST "isHighPriority" true
 
 ref; // ME_4B98F827038E 
-
-: ME_2B01AF04A1ED
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2B01AF04A1ED 
 
 : ME_015675C94C8F
  CONST IsSummoned true
@@ -1228,14 +823,10 @@ ref; // ME_4C9B21E400A4_ME_4B30C7E800EE Text
  : Attributes
    Seq: ( ME_4B322A36019F // Text
  ME_4B322AC50048 // TextSource
- ME_5D7EB05F56C5 // f_Text
- ME_FAFD94FBDA41 // f_TextSource
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_2883AB55F4A2 // Ini_Reg_Class
- ME_92ED638D8A30 // Ini_FormFactory_TextLoad$Def
- ME_A9D816C88B84 // Init_Str_ut_TextLoadCaption
+   Seq: ( ME_92ED638D8A30 // Ini_FormFactory_TextLoad$Def
  )
  ; // Operations
  : Implemented
@@ -1257,7 +848,6 @@ ref; // ME_4C9B21E400A4_ME_4B30C7E800EE Text
    Seq: ( ME_4B32392A023A // TAlign
  ME_4B323A55004A // TWindowState
  ME_4B98F827038E // TvcmStringIDExHelper
- ME_2B01AF04A1ED // TtfwClassRef
  ME_015675C94C8F // Tl3StringIDEx
  ME_8A94083BE771 // Tl3MessageID
  )
@@ -1280,108 +870,6 @@ ref; // ME_4B30C7E800EE TextLoad
 
 FORWARD ME_4C9B31190392
 
-FORWARD ME_EB591A36290E
-
-FORWARD ME_6BE505C7A364
-
-: ME_3FBA761BCC72
- CONST UID '3FBA761BCC72'
- CONST Name 'ut_F1LikeTextLoadName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "F1LikeTextLoad"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6BE505C7A364 // ut_F1LikeTextLoadConstants
- ;
- CONST Value '''ut_F1LikeTextLoad'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_F1LikeTextLoad'''
-
-ref; // ME_3FBA761BCC72 ut_F1LikeTextLoadName
-
-: ME_04A22ECA286A
- CONST UID '04A22ECA286A'
- CONST Name 'ut_F1LikeTextLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'F1LikeTextLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6BE505C7A364 // ut_F1LikeTextLoadConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_04A22ECA286A ut_F1LikeTextLoad
-
-: ME_6BE505C7A364
- CONST UID '6BE505C7A364'
- CONST Name 'ut_F1LikeTextLoadConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_F1LikeTextLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_EB591A36290E // ut_F1LikeTextLoad
- ;
- : Attributes
-   Seq: ( ME_3FBA761BCC72 // ut_F1LikeTextLoadName
- ME_04A22ECA286A // ut_F1LikeTextLoad
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_6BE505C7A364 ut_F1LikeTextLoadConstants
-
-FORWARD ME_D5B867FBE4DC
-
-: ME_4EE1DC8903BB_ME_D5B867FBE4DC
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_D5B867FBE4DC GetInteger
-
-: ME_D5B867FBE4DC
- CONST UID 'D5B867FBE4DC'
- CONST Name 'Tkw_FormUserType_ut_F1LikeTextLoad'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_F1LikeTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_EB591A36290E // ut_F1LikeTextLoad
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_D5B867FBE4DC // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_F1LikeTextLoad'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_F1LikeTextLoad'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_D5B867FBE4DC Tkw_FormUserType_ut_F1LikeTextLoad
-
 : ME_EB591A36290E
  CONST UID 'EB591A36290E'
  CONST Name 'ut_F1LikeTextLoad'
@@ -1394,14 +882,6 @@ ref; // ME_D5B867FBE4DC Tkw_FormUserType_ut_F1LikeTextLoad
  CONST Abstraction at_final
  : Parent ME_4C9B31190392 // F1LikeTextLoad
  ;
- : Children
-   Seq: ( ME_D5B867FBE4DC // Tkw_FormUserType_ut_F1LikeTextLoad
- )
- ; // Children
- : Constants
-   Seq: ( ME_6BE505C7A364 // ut_F1LikeTextLoadConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -1616,53 +1096,6 @@ ref; // ME_4C9B316B032B Text
 
 ref; // ME_4C9B31AA01A0 TextSource
 
-: ME_77D2AE2DB8B2
- CONST UID '77D2AE2DB8B2'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Target WL 'ME_4952693000EA' '4952683C007B.pas.ms.script' // TeeEditorExport
- ;
-
-ref; // ME_77D2AE2DB8B2 f_Text
-
-: ME_719AA6C17817
- CONST UID '719AA6C17817'
- CONST Name 'f_TextSource'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TextSource' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Target WL 'ME_47542EDE038A' '47542EA70394.pas.ms.script' // TeeTextSourceExport
- ;
-
-ref; // ME_719AA6C17817 f_TextSource
-
-: ME_2E43EA14CC1B
- CONST UID '2E43EA14CC1B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация F1LikeTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2E43EA14CC1B Ini_Reg_Class
-
 : ME_16DE576D8ED2
  CONST UID '16DE576D8ED2'
  CONST Name 'Ini_FormFactory_F1LikeTextLoad'
@@ -1678,35 +1111,6 @@ ref; // ME_2E43EA14CC1B Ini_Reg_Class
  ;
 
 ref; // ME_16DE576D8ED2 Ini_FormFactory_F1LikeTextLoad$Def
-
-: ME_3F3F6A438455
- CONST UID '3F3F6A438455'
- CONST Name 'Init_Str_ut_F1LikeTextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_F1LikeTextLoadCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Speller ME_81E64E9B479D // ut_F1LikeTextLoadCaption
- ;
- : SpelledFor ME_9BF3CFC49545 // ut_F1LikeTextLoadCaption
- ;
-
-ref; // ME_3F3F6A438455 Init_Str_ut_F1LikeTextLoadCaption
-
-: ME_5C734701F277
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5C734701F277 
 
 : ME_D5097A5A449E
  CONST IsSummoned true
@@ -1767,14 +1171,10 @@ ref; // ME_4C9B21E400A4_ME_4C9B31190392 Text
  : Attributes
    Seq: ( ME_4C9B316B032B // Text
  ME_4C9B31AA01A0 // TextSource
- ME_77D2AE2DB8B2 // f_Text
- ME_719AA6C17817 // f_TextSource
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_2E43EA14CC1B // Ini_Reg_Class
- ME_16DE576D8ED2 // Ini_FormFactory_F1LikeTextLoad$Def
- ME_3F3F6A438455 // Init_Str_ut_F1LikeTextLoadCaption
+   Seq: ( ME_16DE576D8ED2 // Ini_FormFactory_F1LikeTextLoad$Def
  )
  ; // Operations
  : Implemented
@@ -1793,8 +1193,7 @@ ref; // ME_4C9B21E400A4_ME_4C9B31190392 Text
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_5C734701F277 // TtfwClassRef
- ME_D5097A5A449E // Tl3StringIDEx
+   Seq: ( ME_D5097A5A449E // Tl3StringIDEx
  ME_083EF9697688 // Tl3MessageID
  )
  ; // Dependencies
@@ -1816,108 +1215,6 @@ ref; // ME_4C9B31190392 F1LikeTextLoad
 
 FORWARD ME_4CA090120212
 
-FORWARD ME_15CBBB7D03D3
-
-FORWARD ME_1D346FD7E58A
-
-: ME_766FC279AF79
- CONST UID '766FC279AF79'
- CONST Name 'ut_QFLikeTextLoadName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Форма для работы с КЗ"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1D346FD7E58A // ut_QFLikeTextLoadConstants
- ;
- CONST Value '''ut_QFLikeTextLoad'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_QFLikeTextLoad'''
-
-ref; // ME_766FC279AF79 ut_QFLikeTextLoadName
-
-: ME_A94C781DC274
- CONST UID 'A94C781DC274'
- CONST Name 'ut_QFLikeTextLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Форма для работы с КЗ' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1D346FD7E58A // ut_QFLikeTextLoadConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_A94C781DC274 ut_QFLikeTextLoad
-
-: ME_1D346FD7E58A
- CONST UID '1D346FD7E58A'
- CONST Name 'ut_QFLikeTextLoadConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_QFLikeTextLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_15CBBB7D03D3 // ut_QFLikeTextLoad
- ;
- : Attributes
-   Seq: ( ME_766FC279AF79 // ut_QFLikeTextLoadName
- ME_A94C781DC274 // ut_QFLikeTextLoad
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_1D346FD7E58A ut_QFLikeTextLoadConstants
-
-FORWARD ME_8F0C627F25DD
-
-: ME_4EE1DC8903BB_ME_8F0C627F25DD
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_8F0C627F25DD GetInteger
-
-: ME_8F0C627F25DD
- CONST UID '8F0C627F25DD'
- CONST Name 'Tkw_FormUserType_ut_QFLikeTextLoad'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_QFLikeTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_15CBBB7D03D3 // ut_QFLikeTextLoad
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_8F0C627F25DD // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_QFLikeTextLoad'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_QFLikeTextLoad'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_8F0C627F25DD Tkw_FormUserType_ut_QFLikeTextLoad
-
 : ME_15CBBB7D03D3
  CONST UID '15CBBB7D03D3'
  CONST Name 'ut_QFLikeTextLoad'
@@ -1930,14 +1227,6 @@ ref; // ME_8F0C627F25DD Tkw_FormUserType_ut_QFLikeTextLoad
  CONST Abstraction at_final
  : Parent ME_4CA090120212 // QFLikeTextLoad
  ;
- : Children
-   Seq: ( ME_8F0C627F25DD // Tkw_FormUserType_ut_QFLikeTextLoad
- )
- ; // Children
- : Constants
-   Seq: ( ME_1D346FD7E58A // ut_QFLikeTextLoadConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -2166,53 +1455,6 @@ ref; // ME_4CA09097007F Text
 
 ref; // ME_4F1546E9029B f_QueryCard
 
-: ME_7846F3003AAD
- CONST UID '7846F3003AAD'
- CONST Name 'f_TextSource'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TextSource' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Target WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
- ;
-
-ref; // ME_7846F3003AAD f_TextSource
-
-: ME_20CE19A607CC
- CONST UID '20CE19A607CC'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
- ;
-
-ref; // ME_20CE19A607CC f_Text
-
-: ME_9DC0EDBFE74A
- CONST UID '9DC0EDBFE74A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация QFLikeTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9DC0EDBFE74A Ini_Reg_Class
-
 : ME_776CC0B72850
  CONST UID '776CC0B72850'
  CONST Name 'Ini_FormFactory_QFLikeTextLoad'
@@ -2228,24 +1470,6 @@ ref; // ME_9DC0EDBFE74A Ini_Reg_Class
  ;
 
 ref; // ME_776CC0B72850 Ini_FormFactory_QFLikeTextLoad$Def
-
-: ME_72228D028497
- CONST UID '72228D028497'
- CONST Name 'Init_Str_ut_QFLikeTextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_QFLikeTextLoadCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Speller ME_2F96A31D8DB6 // ut_QFLikeTextLoadCaption
- ;
- : SpelledFor ME_3336EADB4737 // ut_QFLikeTextLoadCaption
- ;
-
-ref; // ME_72228D028497 Init_Str_ut_QFLikeTextLoadCaption
 
 : ME_4F1543A60027
  CONST Class class_Dependency
@@ -2286,17 +1510,6 @@ ref; // ME_4F15444C013F
  ;
 
 ref; // ME_4F15446B0109 
-
-: ME_17FA511690A9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_17FA511690A9 
 
 : ME_5FBB1BAA7F4E
  CONST IsSummoned true
@@ -2377,14 +1590,10 @@ ref; // ME_4F15435202B5_ME_4CA090120212 AfterLoad
    Seq: ( ME_4CA0906401D3 // TextSource
  ME_4CA09097007F // Text
  ME_4F1546E9029B // f_QueryCard
- ME_7846F3003AAD // f_TextSource
- ME_20CE19A607CC // f_Text
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_9DC0EDBFE74A // Ini_Reg_Class
- ME_776CC0B72850 // Ini_FormFactory_QFLikeTextLoad$Def
- ME_72228D028497 // Init_Str_ut_QFLikeTextLoadCaption
+   Seq: ( ME_776CC0B72850 // Ini_FormFactory_QFLikeTextLoad$Def
  )
  ; // Operations
  : Implemented
@@ -2413,7 +1622,6 @@ ref; // ME_4F15435202B5_ME_4CA090120212 AfterLoad
  ME_4F1543F400B2 // TevControlContainerEX
  ME_4F15444C013F // InevQueryDocumentContainer
  ME_4F15446B0109 // l3IOK
- ME_17FA511690A9 // TtfwClassRef
  ME_5FBB1BAA7F4E // Tl3StringIDEx
  ME_CA05121E3651 // Tl3MessageID
  )
@@ -2433,108 +1641,6 @@ ref; // ME_4CA090120212 QFLikeTextLoad
 
 FORWARD ME_4D6CB4B7035F
 
-FORWARD ME_7865160AD7D7
-
-FORWARD ME_2CF675EA583E
-
-: ME_0AD38A7187DD
- CONST UID '0AD38A7187DD'
- CONST Name 'ut_F1LikeFormWithBSName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Форма с текстовым редактором с базовым поиском."' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2CF675EA583E // ut_F1LikeFormWithBSConstants
- ;
- CONST Value '''ut_F1LikeFormWithBS'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_F1LikeFormWithBS'''
-
-ref; // ME_0AD38A7187DD ut_F1LikeFormWithBSName
-
-: ME_03B2CBEB7957
- CONST UID '03B2CBEB7957'
- CONST Name 'ut_F1LikeFormWithBS'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Форма с текстовым редактором с базовым поиском.' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2CF675EA583E // ut_F1LikeFormWithBSConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_03B2CBEB7957 ut_F1LikeFormWithBS
-
-: ME_2CF675EA583E
- CONST UID '2CF675EA583E'
- CONST Name 'ut_F1LikeFormWithBSConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_F1LikeFormWithBS' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_7865160AD7D7 // ut_F1LikeFormWithBS
- ;
- : Attributes
-   Seq: ( ME_0AD38A7187DD // ut_F1LikeFormWithBSName
- ME_03B2CBEB7957 // ut_F1LikeFormWithBS
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_2CF675EA583E ut_F1LikeFormWithBSConstants
-
-FORWARD ME_2457FA59D4DF
-
-: ME_4EE1DC8903BB_ME_2457FA59D4DF
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_2457FA59D4DF GetInteger
-
-: ME_2457FA59D4DF
- CONST UID '2457FA59D4DF'
- CONST Name 'Tkw_FormUserType_ut_F1LikeFormWithBS'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_F1LikeFormWithBS' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7865160AD7D7 // ut_F1LikeFormWithBS
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_2457FA59D4DF // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_F1LikeFormWithBS'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_F1LikeFormWithBS'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2457FA59D4DF Tkw_FormUserType_ut_F1LikeFormWithBS
-
 : ME_7865160AD7D7
  CONST UID '7865160AD7D7'
  CONST Name 'ut_F1LikeFormWithBS'
@@ -2547,14 +1653,6 @@ ref; // ME_2457FA59D4DF Tkw_FormUserType_ut_F1LikeFormWithBS
  CONST Abstraction at_final
  : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
  ;
- : Children
-   Seq: ( ME_2457FA59D4DF // Tkw_FormUserType_ut_F1LikeFormWithBS
- )
- ; // Children
- : Constants
-   Seq: ( ME_2CF675EA583E // ut_F1LikeFormWithBSConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -2790,69 +1888,6 @@ ref; // ME_4D6CBF74024C Text
 
 ref; // ME_4D6CBF8803B5 TextSource
 
-: ME_A3A991290B1E
- CONST UID 'A3A991290B1E'
- CONST Name 'f_BaseSearchControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BaseSearchControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Target WL 'ME_4CF4D14700AE' '495119A901CE.pas.ms.script' // TnscTreeComboWithHistoryAndOperations
- ;
-
-ref; // ME_A3A991290B1E f_BaseSearchControl
-
-: ME_350D08FC35D8
- CONST UID '350D08FC35D8'
- CONST Name 'f_Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Target WL 'ME_4952693000EA' '4952683C007B.pas.ms.script' // TeeEditorExport
- ;
-
-ref; // ME_350D08FC35D8 f_Text
-
-: ME_3BFD8A95B3C6
- CONST UID '3BFD8A95B3C6'
- CONST Name 'f_TextSource'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TextSource' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Target WL 'ME_47542EDE038A' '47542EA70394.pas.ms.script' // TeeTextSourceExport
- ;
-
-ref; // ME_3BFD8A95B3C6 f_TextSource
-
-: ME_07EBED58A58D
- CONST UID '07EBED58A58D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация F1LikeFormWithBS' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_07EBED58A58D Ini_Reg_Class
-
 : ME_9758D60096D2
  CONST UID '9758D60096D2'
  CONST Name 'Ini_FormFactory_F1LikeFormWithBS'
@@ -2868,24 +1903,6 @@ ref; // ME_07EBED58A58D Ini_Reg_Class
  ;
 
 ref; // ME_9758D60096D2 Ini_FormFactory_F1LikeFormWithBS$Def
-
-: ME_6A22B15F6D0C
- CONST UID '6A22B15F6D0C'
- CONST Name 'Init_Str_ut_F1LikeFormWithBSCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_F1LikeFormWithBSCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Speller ME_1EE0288E3E6F // ut_F1LikeFormWithBSCaption
- ;
- : SpelledFor ME_BA7AC9E8B6CD // ut_F1LikeFormWithBSCaption
- ;
-
-ref; // ME_6A22B15F6D0C Init_Str_ut_F1LikeFormWithBSCaption
 
 : ME_4D6CD49803CD
  CONST Class class_Dependency
@@ -2906,17 +1923,6 @@ ref; // ME_4D6CD49803CD
  ;
 
 ref; // ME_4D6CF48D0045 
-
-: ME_ACB39F24EF60
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_ACB39F24EF60 
 
 : ME_2D3D32CA000D
  CONST IsSummoned true
@@ -2985,15 +1991,10 @@ ref; // ME_4A8E8F2E0195_ME_4D6CB4B7035F InitControls
    Seq: ( ME_4D6CB56A0031 // BaseSearchControl
  ME_4D6CBF74024C // Text
  ME_4D6CBF8803B5 // TextSource
- ME_A3A991290B1E // f_BaseSearchControl
- ME_350D08FC35D8 // f_Text
- ME_3BFD8A95B3C6 // f_TextSource
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_07EBED58A58D // Ini_Reg_Class
- ME_9758D60096D2 // Ini_FormFactory_F1LikeFormWithBS$Def
- ME_6A22B15F6D0C // Init_Str_ut_F1LikeFormWithBSCaption
+   Seq: ( ME_9758D60096D2 // Ini_FormFactory_F1LikeFormWithBS$Def
  )
  ; // Operations
  : Implemented
@@ -3018,7 +2019,6 @@ ref; // ME_4A8E8F2E0195_ME_4D6CB4B7035F InitControls
  : Dependencies
    Seq: ( ME_4D6CD49803CD // TAlign
  ME_4D6CF48D0045 // TWindowState
- ME_ACB39F24EF60 // TtfwClassRef
  ME_2D3D32CA000D // Tl3StringIDEx
  ME_59432134DF4B // Tl3MessageID
  )
@@ -3070,14 +2070,9 @@ ref; // ME_4D6CB4B7035F F1LikeFormWithBS
  WL 'ME_48E225F102A3' '48E225F102A3.pas.ms.script' // QueryCard
  WL 'ME_495119A901CE' '495119A901CE.pas.ms.script' // Editor
  WL 'ME_4952683C007B' '4952683C007B.pas.ms.script' // Editor
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4B322B67038B' '4B322B67038B.pas.ms.script' // ext
  WL 'ME_4DFA0AB5029C' '4DFA0AB5029C.pas.ms.script' // QueryCardControlContainers
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

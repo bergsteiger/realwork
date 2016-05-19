@@ -811,7 +811,7 @@ var
  l_NewActive: Boolean;
 //#UC END# *55321ADE02E9_4AB791130260_var*
 //#UC START# *55B9F0BD0069_4AB791130260_impl*
- Result := {not MainMenuLikeBaseSearch}True;
+ Result := False; // Не сохраняем в историю никогда
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 //#UC START# *55B9F0BD0069_4AB791130260_var*
 //#UC END# *55B9F0BD0069_4AB791130260_var*
@@ -836,3 +836,22 @@ var
 //#UC END# *56F5028901D2_4AB791130260get_impl*
 //#UC START# *56F5028901D2_4AB791130260get_var*
 //#UC END# *56F5028901D2_4AB791130260get_var*
+//#UC START# *573AFFE5038D_4AB791130260_impl*
+ Result := nil;
+ l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(aContainer.AsForm);
+ try
+  l_SearchWindow := l_BaseSearcher.SearchWindow;
+  try
+   Supports(l_SearchWindow, IvcmEntityForm, Result); 
+  finally
+   l_SearchWindow := nil;
+  end;
+ finally
+  l_BaseSearcher := nil;
+ end;
+//#UC END# *573AFFE5038D_4AB791130260_impl*
+//#UC START# *573AFFE5038D_4AB791130260_var*
+var
+ l_BaseSearcher: InsBaseSearcher;
+ l_SearchWindow: InsSearchWindow;
+//#UC END# *573AFFE5038D_4AB791130260_var*

@@ -217,108 +217,6 @@ ref; // ME_4AA78D2C012A_ME_4AA78D4B020B LinkType
 
 ref; // ME_4AA78D4B020B TnsRubricatorState
 
-FORWARD ME_4BD728AC00C0
-
-FORWARD ME_3AD66E5BC619
-
-: ME_9C3CE37251DB
- CONST UID '9C3CE37251DB'
- CONST Name 'utRubricatorListName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Правовой навигатор (линейное представление)"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3AD66E5BC619 // utRubricatorListConstants
- ;
- CONST Value '''utRubricatorList'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utRubricatorList'''
-
-ref; // ME_9C3CE37251DB utRubricatorListName
-
-: ME_2B4415849636
- CONST UID '2B4415849636'
- CONST Name 'utRubricatorList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Правовой навигатор (линейное представление)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3AD66E5BC619 // utRubricatorListConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_2B4415849636 utRubricatorList
-
-: ME_3AD66E5BC619
- CONST UID '3AD66E5BC619'
- CONST Name 'utRubricatorListConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utRubricatorList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD728AC00C0 // utRubricatorList
- ;
- : Attributes
-   Seq: ( ME_9C3CE37251DB // utRubricatorListName
- ME_2B4415849636 // utRubricatorList
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_3AD66E5BC619 utRubricatorListConstants
-
-FORWARD ME_3CB913A0F911
-
-: ME_4EE1DC8903BB_ME_3CB913A0F911
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_3CB913A0F911 GetInteger
-
-: ME_3CB913A0F911
- CONST UID '3CB913A0F911'
- CONST Name 'Tkw_FormUserType_utRubricatorList'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utRubricatorList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD728AC00C0 // utRubricatorList
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_3CB913A0F911 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utRubricatorList'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utRubricatorList'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_3CB913A0F911 Tkw_FormUserType_utRubricatorList
-
 : ME_4BD728AC00C0
  CONST UID '4BD728AC00C0'
  CONST Name 'utRubricatorList'
@@ -330,14 +228,6 @@ ref; // ME_3CB913A0F911 Tkw_FormUserType_utRubricatorList
  CONST Abstraction at_final
  : Parent ME_4AA68CA10101 // PrimRubricator
  ;
- : Children
-   Seq: ( ME_3CB913A0F911 // Tkw_FormUserType_utRubricatorList
- )
- ; // Children
- : Constants
-   Seq: ( ME_3AD66E5BC619 // utRubricatorListConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "SettingsCaption" 'Правовой навигатор'
  CONST "Weight" '-1'
@@ -2849,7 +2739,6 @@ ref; // ME_4AA790E300D4 RubricatorRes
  WL 'ME_494F898C013E' '494F898C013E.pas.ms.script' // Usual
  WL 'ME_495119A901CE' '495119A901CE.pas.ms.script' // Editor
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A1FCBA0014C' '4A1FCBA0014C.pas.ms.script' // nevGUIInterfaces
  WL 'ME_4A23935A0282' '4A23935A0282.pas.ms.script' // afwNavigation
  WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
@@ -2870,7 +2759,6 @@ ref; // ME_4AA790E300D4 RubricatorRes
  WL 'ME_4E1352A60292' '4E1352A60292.pas.ms.script' // Editors
  WL 'ME_4E365B6002CA' '4E365B6002CA.pas.ms.script' // Отображение списков
  WL 'ME_4E7AFECB03CB' '4E7AFECB03CB.pas.ms.script' // RubricatorInterfaces
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike

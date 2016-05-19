@@ -247,60 +247,6 @@ ref; // ME_4F212C120371 kwControlFromStackWord
 
 FORWARD ME_508527F30183
 
-FORWARD ME_508528490090
-
-: ME_5085286902DF
- CONST Name 'aName'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_5085286902DF aName
-
-: ME_508528690318
- CONST Name 'aClass'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476775CB036A' '4AB0C3C60310.pas.ms.script' // TClass
- ;
-
-ref; // ME_508528690318 aClass
-
-: ME_50852857013B
- CONST UID '50852857013B'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_508528490090 // Register
- ;
- : Parameters
-   Seq: ( ME_5085286902DF // aName
- ME_508528690318 // aClass
- )
- ; // Parameters
-
-ref; // ME_50852857013B DoIt
-
-: ME_508528490090
- CONST UID '508528490090'
- CONST Name 'Register'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_508527F30183 // TtfwControlString
- ;
- : Operations
-   Seq: ( ME_50852857013B // DoIt
- )
- ; // Operations
- CONST "is static" true
-
-ref; // ME_508528490090 Register
-
 : ME_50852885016F
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -376,10 +322,6 @@ ref; // ME_54DB70CB02F2
    Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_508528490090 // Register
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_50852885016F // l3CStr
  ME_5085288A0398 // El3DuplicateItem

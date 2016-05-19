@@ -798,108 +798,6 @@ ref; // ME_4A93EC4B03CC PrimRememberPassword
 
 FORWARD ME_4A93F1980324
 
-FORWARD ME_50F667D30021
-
-FORWARD ME_3A0316F0F347
-
-: ME_65106FC2DCED
- CONST UID '65106FC2DCED'
- CONST Name 'utProgressIndicatorName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Ход выполнения"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3A0316F0F347 // utProgressIndicatorConstants
- ;
- CONST Value '''utProgressIndicator'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utProgressIndicator'''
-
-ref; // ME_65106FC2DCED utProgressIndicatorName
-
-: ME_365723F59CDE
- CONST UID '365723F59CDE'
- CONST Name 'utProgressIndicator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Ход выполнения' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3A0316F0F347 // utProgressIndicatorConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_365723F59CDE utProgressIndicator
-
-: ME_3A0316F0F347
- CONST UID '3A0316F0F347'
- CONST Name 'utProgressIndicatorConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utProgressIndicator' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_50F667D30021 // utProgressIndicator
- ;
- : Attributes
-   Seq: ( ME_65106FC2DCED // utProgressIndicatorName
- ME_365723F59CDE // utProgressIndicator
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_3A0316F0F347 utProgressIndicatorConstants
-
-FORWARD ME_5EF78E745D46
-
-: ME_4EE1DC8903BB_ME_5EF78E745D46
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_5EF78E745D46 GetInteger
-
-: ME_5EF78E745D46
- CONST UID '5EF78E745D46'
- CONST Name 'Tkw_FormUserType_utProgressIndicator'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utProgressIndicator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_50F667D30021 // utProgressIndicator
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_5EF78E745D46 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utProgressIndicator'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utProgressIndicator'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5EF78E745D46 Tkw_FormUserType_utProgressIndicator
-
 : ME_50F667D30021
  CONST UID '50F667D30021'
  CONST Name 'utProgressIndicator'
@@ -911,14 +809,6 @@ ref; // ME_5EF78E745D46 Tkw_FormUserType_utProgressIndicator
  CONST Abstraction at_final
  : Parent ME_4A93F1980324 // PrimProgressIndicator
  ;
- : Children
-   Seq: ( ME_5EF78E745D46 // Tkw_FormUserType_utProgressIndicator
- )
- ; // Children
- : Constants
-   Seq: ( ME_3A0316F0F347 // utProgressIndicatorConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "SettingsCaption" 'Ход выполнения'
  CONST "Weight" '-1'
@@ -2259,108 +2149,6 @@ ref; // ME_4A93FB6B018F PrimEULA
 
 FORWARD ME_4AEEE269033F
 
-FORWARD ME_4BD72ACA02F6
-
-FORWARD ME_8E3ED763E6D7
-
-: ME_B9E50345B541
- CONST UID 'B9E50345B541'
- CONST Name 'utNavigatorName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8E3ED763E6D7 // utNavigatorConstants
- ;
- CONST Value '''utNavigator'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utNavigator'''
-
-ref; // ME_B9E50345B541 utNavigatorName
-
-: ME_985B7756FE56
- CONST UID '985B7756FE56'
- CONST Name 'utNavigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Меню' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8E3ED763E6D7 // utNavigatorConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_985B7756FE56 utNavigator
-
-: ME_8E3ED763E6D7
- CONST UID '8E3ED763E6D7'
- CONST Name 'utNavigatorConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utNavigator' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD72ACA02F6 // utNavigator
- ;
- : Attributes
-   Seq: ( ME_B9E50345B541 // utNavigatorName
- ME_985B7756FE56 // utNavigator
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_8E3ED763E6D7 utNavigatorConstants
-
-FORWARD ME_94E2342F4ECF
-
-: ME_4EE1DC8903BB_ME_94E2342F4ECF
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_94E2342F4ECF GetInteger
-
-: ME_94E2342F4ECF
- CONST UID '94E2342F4ECF'
- CONST Name 'Tkw_FormUserType_utNavigator'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD72ACA02F6 // utNavigator
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_94E2342F4ECF // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utNavigator'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utNavigator'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_94E2342F4ECF Tkw_FormUserType_utNavigator
-
 : ME_4BD72ACA02F6
  CONST UID '4BD72ACA02F6'
  CONST Name 'utNavigator'
@@ -2372,14 +2160,6 @@ ref; // ME_94E2342F4ECF Tkw_FormUserType_utNavigator
  CONST Abstraction at_final
  : Parent ME_4AEEE269033F // PrimNavigator
  ;
- : Children
-   Seq: ( ME_94E2342F4ECF // Tkw_FormUserType_utNavigator
- )
- ; // Children
- : Constants
-   Seq: ( ME_8E3ED763E6D7 // utNavigatorConstants
- )
- ; // Constants
  CONST "ImageIndex" 44
  CONST "SettingsCaption" 'Меню (вкладка)'
  CONST "Weight" 10
@@ -3790,108 +3570,6 @@ ref; // ME_4B13A26203DB_ME_4B13C75E02D1 EventID
 
 ref; // ME_4B13C75E02D1 TnsUseTaskPanelOperationEvent
 
-FORWARD ME_4BD6D9AE030B
-
-FORWARD ME_B060518DF869
-
-: ME_C309B03C2994
- CONST UID 'C309B03C2994'
- CONST Name 'tpMainName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Панель задач"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B060518DF869 // tpMainConstants
- ;
- CONST Value '''tpMain'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''tpMain'''
-
-ref; // ME_C309B03C2994 tpMainName
-
-: ME_62974C25A790
- CONST UID '62974C25A790'
- CONST Name 'tpMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Панель задач' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B060518DF869 // tpMainConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_62974C25A790 tpMain
-
-: ME_B060518DF869
- CONST UID 'B060518DF869'
- CONST Name 'tpMainConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы tpMain' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6D9AE030B // tpMain
- ;
- : Attributes
-   Seq: ( ME_C309B03C2994 // tpMainName
- ME_62974C25A790 // tpMain
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_B060518DF869 tpMainConstants
-
-FORWARD ME_2A36C22ABCFA
-
-: ME_4EE1DC8903BB_ME_2A36C22ABCFA
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_2A36C22ABCFA GetInteger
-
-: ME_2A36C22ABCFA
- CONST UID '2A36C22ABCFA'
- CONST Name 'Tkw_FormUserType_tpMain'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы tpMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6D9AE030B // tpMain
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_2A36C22ABCFA // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::tpMain'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_tpMain'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2A36C22ABCFA Tkw_FormUserType_tpMain
-
 : ME_4BD6D9AE030B
  CONST UID '4BD6D9AE030B'
  CONST Name 'tpMain'
@@ -3903,14 +3581,6 @@ ref; // ME_2A36C22ABCFA Tkw_FormUserType_tpMain
  CONST Abstraction at_final
  : Parent ME_4B13C72F0167 // PrimTasksPanel
  ;
- : Children
-   Seq: ( ME_2A36C22ABCFA // Tkw_FormUserType_tpMain
- )
- ; // Children
- : Constants
-   Seq: ( ME_B060518DF869 // tpMainConstants
- )
- ; // Constants
  CONST "CanClose" true
  CONST "ImageIndex" 165
  CONST "VisibleToUser" false
@@ -6826,108 +6496,6 @@ ref; // ME_516FC52E034F PrimCompInfo
 
 FORWARD ME_4D80D26F0341
 
-FORWARD ME_4BD729B70260
-
-FORWARD ME_9B4F5EF81816
-
-: ME_56AD67300221
- CONST UID '56AD67300221'
- CONST Name 'utFiltersName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Фильтры"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9B4F5EF81816 // utFiltersConstants
- ;
- CONST Value '''utFilters'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utFilters'''
-
-ref; // ME_56AD67300221 utFiltersName
-
-: ME_9CED9298F989
- CONST UID '9CED9298F989'
- CONST Name 'utFilters'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Фильтры' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9B4F5EF81816 // utFiltersConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_9CED9298F989 utFilters
-
-: ME_9B4F5EF81816
- CONST UID '9B4F5EF81816'
- CONST Name 'utFiltersConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utFilters' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD729B70260 // utFilters
- ;
- : Attributes
-   Seq: ( ME_56AD67300221 // utFiltersName
- ME_9CED9298F989 // utFilters
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_9B4F5EF81816 utFiltersConstants
-
-FORWARD ME_642B2BA2B61E
-
-: ME_4EE1DC8903BB_ME_642B2BA2B61E
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_642B2BA2B61E GetInteger
-
-: ME_642B2BA2B61E
- CONST UID '642B2BA2B61E'
- CONST Name 'Tkw_FormUserType_utFilters'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utFilters' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD729B70260 // utFilters
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_642B2BA2B61E // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utFilters'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utFilters'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_642B2BA2B61E Tkw_FormUserType_utFilters
-
 : ME_4BD729B70260
  CONST UID '4BD729B70260'
  CONST Name 'utFilters'
@@ -6939,14 +6507,6 @@ ref; // ME_642B2BA2B61E Tkw_FormUserType_utFilters
  CONST Abstraction at_final
  : Parent ME_4D80D26F0341 // FiltersUserTypes
  ;
- : Children
-   Seq: ( ME_642B2BA2B61E // Tkw_FormUserType_utFilters
- )
- ; // Children
- : Constants
-   Seq: ( ME_9B4F5EF81816 // utFiltersConstants
- )
- ; // Constants
  CONST "ImageIndex" 40
  CONST "SettingsCaption" 'Фильтры (вкладка)'
  CONST "Weight" 50
@@ -9868,108 +9428,6 @@ FORWARD ME_4A92C1380380
 
 FORWARD ME_4A93EC78039E
 
-FORWARD ME_76478A82A459
-
-FORWARD ME_33E2E27646E6
-
-: ME_20954E5B2864
- CONST UID '20954E5B2864'
- CONST Name 'ut_RememberPasswordName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Забыли пароль?"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_33E2E27646E6 // ut_RememberPasswordConstants
- ;
- CONST Value '''ut_RememberPassword'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_RememberPassword'''
-
-ref; // ME_20954E5B2864 ut_RememberPasswordName
-
-: ME_A7DCCD8DFE2B
- CONST UID 'A7DCCD8DFE2B'
- CONST Name 'ut_RememberPassword'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Забыли пароль?' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_33E2E27646E6 // ut_RememberPasswordConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_A7DCCD8DFE2B ut_RememberPassword
-
-: ME_33E2E27646E6
- CONST UID '33E2E27646E6'
- CONST Name 'ut_RememberPasswordConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_RememberPassword' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_76478A82A459 // ut_RememberPassword
- ;
- : Attributes
-   Seq: ( ME_20954E5B2864 // ut_RememberPasswordName
- ME_A7DCCD8DFE2B // ut_RememberPassword
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_33E2E27646E6 ut_RememberPasswordConstants
-
-FORWARD ME_93BA0FA16516
-
-: ME_4EE1DC8903BB_ME_93BA0FA16516
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_93BA0FA16516 GetInteger
-
-: ME_93BA0FA16516
- CONST UID '93BA0FA16516'
- CONST Name 'Tkw_FormUserType_ut_RememberPassword'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_RememberPassword' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_76478A82A459 // ut_RememberPassword
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_93BA0FA16516 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_RememberPassword'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_RememberPassword'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_93BA0FA16516 Tkw_FormUserType_ut_RememberPassword
-
 : ME_76478A82A459
  CONST UID '76478A82A459'
  CONST Name 'ut_RememberPassword'
@@ -9982,14 +9440,6 @@ ref; // ME_93BA0FA16516 Tkw_FormUserType_ut_RememberPassword
  CONST Abstraction at_final
  : Parent ME_4A93EC78039E // RememberPassword
  ;
- : Children
-   Seq: ( ME_93BA0FA16516 // Tkw_FormUserType_ut_RememberPassword
- )
- ; // Children
- : Constants
-   Seq: ( ME_33E2E27646E6 // ut_RememberPasswordConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -10424,108 +9874,6 @@ ref; // ME_4A93F1CC01A8 ProgressIndicator
 
 FORWARD ME_4A93FB8C0121
 
-FORWARD ME_88631209C038
-
-FORWARD ME_88972B232923
-
-: ME_4FDF7569929F
- CONST UID '4FDF7569929F'
- CONST Name 'ut_EULAName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Условия использования"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_88972B232923 // ut_EULAConstants
- ;
- CONST Value '''ut_EULA'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_EULA'''
-
-ref; // ME_4FDF7569929F ut_EULAName
-
-: ME_C1DAD25E6253
- CONST UID 'C1DAD25E6253'
- CONST Name 'ut_EULA'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Условия использования' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_88972B232923 // ut_EULAConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_C1DAD25E6253 ut_EULA
-
-: ME_88972B232923
- CONST UID '88972B232923'
- CONST Name 'ut_EULAConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_EULA' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_88631209C038 // ut_EULA
- ;
- : Attributes
-   Seq: ( ME_4FDF7569929F // ut_EULAName
- ME_C1DAD25E6253 // ut_EULA
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_88972B232923 ut_EULAConstants
-
-FORWARD ME_FDC5D3C0E4E8
-
-: ME_4EE1DC8903BB_ME_FDC5D3C0E4E8
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_FDC5D3C0E4E8 GetInteger
-
-: ME_FDC5D3C0E4E8
- CONST UID 'FDC5D3C0E4E8'
- CONST Name 'Tkw_FormUserType_ut_EULA'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_EULA' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_88631209C038 // ut_EULA
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_FDC5D3C0E4E8 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_EULA'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_EULA'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_FDC5D3C0E4E8 Tkw_FormUserType_ut_EULA
-
 : ME_88631209C038
  CONST UID '88631209C038'
  CONST Name 'ut_EULA'
@@ -10538,14 +9886,6 @@ ref; // ME_FDC5D3C0E4E8 Tkw_FormUserType_ut_EULA
  CONST Abstraction at_final
  : Parent ME_4A93FB8C0121 // EULA
  ;
- : Children
-   Seq: ( ME_FDC5D3C0E4E8 // Tkw_FormUserType_ut_EULA
- )
- ; // Children
- : Constants
-   Seq: ( ME_88972B232923 // ut_EULAConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -10857,108 +10197,6 @@ ref; // ME_4A93FB8C0121 EULA
 
 FORWARD ME_4ABB6F3F001B
 
-FORWARD ME_FF4420B11953
-
-FORWARD ME_5255A2AD7EF0
-
-: ME_8EA3737108AD
- CONST UID '8EA3737108AD'
- CONST Name 'ut_AboutName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "О программе"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5255A2AD7EF0 // ut_AboutConstants
- ;
- CONST Value '''ut_About'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_About'''
-
-ref; // ME_8EA3737108AD ut_AboutName
-
-: ME_388D8D91C764
- CONST UID '388D8D91C764'
- CONST Name 'ut_About'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'О программе' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5255A2AD7EF0 // ut_AboutConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_388D8D91C764 ut_About
-
-: ME_5255A2AD7EF0
- CONST UID '5255A2AD7EF0'
- CONST Name 'ut_AboutConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_About' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_FF4420B11953 // ut_About
- ;
- : Attributes
-   Seq: ( ME_8EA3737108AD // ut_AboutName
- ME_388D8D91C764 // ut_About
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_5255A2AD7EF0 ut_AboutConstants
-
-FORWARD ME_729A736612CC
-
-: ME_4EE1DC8903BB_ME_729A736612CC
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_729A736612CC GetInteger
-
-: ME_729A736612CC
- CONST UID '729A736612CC'
- CONST Name 'Tkw_FormUserType_ut_About'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_About' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_FF4420B11953 // ut_About
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_729A736612CC // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_About'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_About'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_729A736612CC Tkw_FormUserType_ut_About
-
 : ME_FF4420B11953
  CONST UID 'FF4420B11953'
  CONST Name 'ut_About'
@@ -10971,14 +10209,6 @@ ref; // ME_729A736612CC Tkw_FormUserType_ut_About
  CONST Abstraction at_final
  : Parent ME_4ABB6F3F001B // About
  ;
- : Children
-   Seq: ( ME_729A736612CC // Tkw_FormUserType_ut_About
- )
- ; // Children
- : Constants
-   Seq: ( ME_5255A2AD7EF0 // ut_AboutConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -12318,108 +11548,6 @@ ref; // ME_4ABB6F3F001B About
 
 FORWARD ME_4ABB769903BF
 
-FORWARD ME_A462190E3592
-
-FORWARD ME_58AF8BFC6971
-
-: ME_C7C2F3DDD4B6
- CONST UID 'C7C2F3DDD4B6'
- CONST Name 'ut_CompInfoName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Информация о комплекте"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_58AF8BFC6971 // ut_CompInfoConstants
- ;
- CONST Value '''ut_CompInfo'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_CompInfo'''
-
-ref; // ME_C7C2F3DDD4B6 ut_CompInfoName
-
-: ME_3036239346D4
- CONST UID '3036239346D4'
- CONST Name 'ut_CompInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Информация о комплекте' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_58AF8BFC6971 // ut_CompInfoConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_3036239346D4 ut_CompInfo
-
-: ME_58AF8BFC6971
- CONST UID '58AF8BFC6971'
- CONST Name 'ut_CompInfoConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_CompInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_A462190E3592 // ut_CompInfo
- ;
- : Attributes
-   Seq: ( ME_C7C2F3DDD4B6 // ut_CompInfoName
- ME_3036239346D4 // ut_CompInfo
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_58AF8BFC6971 ut_CompInfoConstants
-
-FORWARD ME_7C1A07489CB5
-
-: ME_4EE1DC8903BB_ME_7C1A07489CB5
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_7C1A07489CB5 GetInteger
-
-: ME_7C1A07489CB5
- CONST UID '7C1A07489CB5'
- CONST Name 'Tkw_FormUserType_ut_CompInfo'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_CompInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_A462190E3592 // ut_CompInfo
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_7C1A07489CB5 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_CompInfo'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_CompInfo'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_7C1A07489CB5 Tkw_FormUserType_ut_CompInfo
-
 : ME_A462190E3592
  CONST UID 'A462190E3592'
  CONST Name 'ut_CompInfo'
@@ -12432,14 +11560,6 @@ ref; // ME_7C1A07489CB5 Tkw_FormUserType_ut_CompInfo
  CONST Abstraction at_final
  : Parent ME_4ABB769903BF // CompInfo
  ;
- : Children
-   Seq: ( ME_7C1A07489CB5 // Tkw_FormUserType_ut_CompInfo
- )
- ; // Children
- : Constants
-   Seq: ( ME_58AF8BFC6971 // ut_CompInfoConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -12683,108 +11803,6 @@ ref; // ME_4ABB769903BF CompInfo
 
 FORWARD ME_4ABB7ACB00E7
 
-FORWARD ME_D488F1933FE9
-
-FORWARD ME_1F811A98FEE7
-
-: ME_0DC68A42A0F3
- CONST UID '0DC68A42A0F3'
- CONST Name 'ut_RegistrationFormName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Регистрация"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1F811A98FEE7 // ut_RegistrationFormConstants
- ;
- CONST Value '''ut_RegistrationForm'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_RegistrationForm'''
-
-ref; // ME_0DC68A42A0F3 ut_RegistrationFormName
-
-: ME_D51E5E4DE239
- CONST UID 'D51E5E4DE239'
- CONST Name 'ut_RegistrationForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Регистрация' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1F811A98FEE7 // ut_RegistrationFormConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_D51E5E4DE239 ut_RegistrationForm
-
-: ME_1F811A98FEE7
- CONST UID '1F811A98FEE7'
- CONST Name 'ut_RegistrationFormConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_RegistrationForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_D488F1933FE9 // ut_RegistrationForm
- ;
- : Attributes
-   Seq: ( ME_0DC68A42A0F3 // ut_RegistrationFormName
- ME_D51E5E4DE239 // ut_RegistrationForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_1F811A98FEE7 ut_RegistrationFormConstants
-
-FORWARD ME_2EA6C4E08A71
-
-: ME_4EE1DC8903BB_ME_2EA6C4E08A71
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_2EA6C4E08A71 GetInteger
-
-: ME_2EA6C4E08A71
- CONST UID '2EA6C4E08A71'
- CONST Name 'Tkw_FormUserType_ut_RegistrationForm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_RegistrationForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_D488F1933FE9 // ut_RegistrationForm
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_2EA6C4E08A71 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_RegistrationForm'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_RegistrationForm'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2EA6C4E08A71 Tkw_FormUserType_ut_RegistrationForm
-
 : ME_D488F1933FE9
  CONST UID 'D488F1933FE9'
  CONST Name 'ut_RegistrationForm'
@@ -12797,14 +11815,6 @@ ref; // ME_2EA6C4E08A71 Tkw_FormUserType_ut_RegistrationForm
  CONST Abstraction at_final
  : Parent ME_4ABB7ACB00E7 // RegistrationForm
  ;
- : Children
-   Seq: ( ME_2EA6C4E08A71 // Tkw_FormUserType_ut_RegistrationForm
- )
- ; // Children
- : Constants
-   Seq: ( ME_1F811A98FEE7 // ut_RegistrationFormConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -13274,108 +12284,6 @@ ref; // ME_4ABBB23903D8 Navigator
 
 FORWARD ME_4AB135AC01DE
 
-FORWARD ME_B9684F81B84D
-
-FORWARD ME_9DA203459E3C
-
-: ME_EE11416D62E3
- CONST UID 'EE11416D62E3'
- CONST Name 'ut_TurnOffTimeMachineName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Выключить Машину времени / Изменить дату"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9DA203459E3C // ut_TurnOffTimeMachineConstants
- ;
- CONST Value '''ut_TurnOffTimeMachine'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_TurnOffTimeMachine'''
-
-ref; // ME_EE11416D62E3 ut_TurnOffTimeMachineName
-
-: ME_BDFFDFDFBF51
- CONST UID 'BDFFDFDFBF51'
- CONST Name 'ut_TurnOffTimeMachine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Выключить Машину времени / Изменить дату' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9DA203459E3C // ut_TurnOffTimeMachineConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_BDFFDFDFBF51 ut_TurnOffTimeMachine
-
-: ME_9DA203459E3C
- CONST UID '9DA203459E3C'
- CONST Name 'ut_TurnOffTimeMachineConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_TurnOffTimeMachine' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_B9684F81B84D // ut_TurnOffTimeMachine
- ;
- : Attributes
-   Seq: ( ME_EE11416D62E3 // ut_TurnOffTimeMachineName
- ME_BDFFDFDFBF51 // ut_TurnOffTimeMachine
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_9DA203459E3C ut_TurnOffTimeMachineConstants
-
-FORWARD ME_B733FC283F2B
-
-: ME_4EE1DC8903BB_ME_B733FC283F2B
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_B733FC283F2B GetInteger
-
-: ME_B733FC283F2B
- CONST UID 'B733FC283F2B'
- CONST Name 'Tkw_FormUserType_ut_TurnOffTimeMachine'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_TurnOffTimeMachine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_B9684F81B84D // ut_TurnOffTimeMachine
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_B733FC283F2B // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_TurnOffTimeMachine'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_TurnOffTimeMachine'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_B733FC283F2B Tkw_FormUserType_ut_TurnOffTimeMachine
-
 : ME_B9684F81B84D
  CONST UID 'B9684F81B84D'
  CONST Name 'ut_TurnOffTimeMachine'
@@ -13388,14 +12296,6 @@ ref; // ME_B733FC283F2B Tkw_FormUserType_ut_TurnOffTimeMachine
  CONST Abstraction at_final
  : Parent ME_4AB135AC01DE // TurnOffTimeMachine
  ;
- : Children
-   Seq: ( ME_B733FC283F2B // Tkw_FormUserType_ut_TurnOffTimeMachine
- )
- ; // Children
- : Constants
-   Seq: ( ME_9DA203459E3C // ut_TurnOffTimeMachineConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -16952,7 +15852,6 @@ ref; // ME_FD67982952E3 Tkw_Common_opOpenIntranet
  WL 'ME_499164F501ED' '499164F501ED.pas.ms.script' // ConfigInterfaces
  WL 'ME_49940C8E00DA' '49940C8E00DA.pas.ms.script' // vcmTaskPanelInterfaces
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_49F02FDF02B9' '49F02FDF02B9.pas.ms.script' // ContextFilter
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4A83EE0E0002' '4A83EE0E0002.pas.ms.script' // Combos
@@ -16982,7 +15881,6 @@ ref; // ME_FD67982952E3 Tkw_Common_opOpenIntranet
  WL 'ME_4D3424960025' '4D3424960025.pas.ms.script' // TasksPanel
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_5226F7CC03C6' '5226F7CC03C6.pas.ms.script' // Samples

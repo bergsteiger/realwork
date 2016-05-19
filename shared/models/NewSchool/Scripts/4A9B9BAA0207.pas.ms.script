@@ -55,6 +55,10 @@ ref; // ME_4C03EAB40015 AllowTranslateReturn
  CONST Abstraction at_regular
  : Parent ME_4A9B9BAA0207 // Labels
  ;
+ : Inherits
+   Seq: ( WL 'ME_48BBF1470238' '467BA8C8017E.pas.ms.script' // TafwTextControl
+ )
+ ; // Inherits
  : Operations
    Seq: ( ME_4B61371503B9 // NeedUnderLine
  ME_4C03EAA20362 // AllowClickByKeyBoard
@@ -955,6 +959,217 @@ ref; // ME_57039747002E TvtImageLabel
 
 ref; // ME_4AE8541A01AE TvtLabel
 
+FORWARD ME_573B55E900C9
+
+: ME_573B562D011B
+ CONST UID '573B562D011B'
+ CONST Name 'StyleId'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_5110DBDD0004' '47C695A10172.pas.ms.script' // TevStyleId
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_573B562D011B StyleId
+
+: ME_573DC5DE03C7
+ CONST UID '573DC5DE03C7'
+ CONST Name 'ActiveStyleId'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_5110DBDD0004' '47C695A10172.pas.ms.script' // TevStyleId
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_573DC5DE03C7 ActiveStyleId
+
+: ME_573DC799008E
+ CONST UID '573DC799008E'
+ CONST Name 'f_IsActive'
+ CONST Class class_Attribute
+ %SUMMARY 'мышь над ссылкой' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_573DC799008E f_IsActive
+
+: ME_573DD172019F
+ CONST Name 'Msg'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
+ ;
+
+ref; // ME_573DD172019F Msg
+
+: ME_573DD16B0002
+ CONST UID '573DD16B0002'
+ CONST Name 'WMMouseLeave'
+ CONST Class class_Operation
+ : Stereotype st_message::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Parameters
+   Seq: ( ME_573DD172019F // Msg
+ )
+ ; // Parameters
+ CONST "Message ID" 'WM_MOUSELEAVE'
+
+ref; // ME_573DD16B0002 WMMouseLeave
+
+: ME_573B561E03CE
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_47ECB297037D' '47ECB2870309.pas.ms.script' // evStyleTableSpy
+ ;
+
+ref; // ME_573B561E03CE 
+
+: ME_573B562102B6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_480DB927035A' '47ECB2870309.pas.ms.script' // TevStyleInterface
+ ;
+
+ref; // ME_573B562102B6 
+
+: ME_573B562302FC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_485683750360' '48492FC0029D.pas.ms.script' // TextPara
+ ;
+
+ref; // ME_573B562302FC 
+
+: ME_573B56250234
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_484D2CBA0213' '484A470100DD.pas.ms.script' // TextStyle
+ ;
+
+ref; // ME_573B56250234 
+
+: ME_573DC81A030E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573B55E900C9 // TvtStyledFocusLabel
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_573DC81A030E 
+
+: ME_467D2CB10135_ME_573B55E900C9
+ : Original WL 'ME_467D2CB10135' '467823B7002C.pas.ms.script' // StyleTableChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_467D2CB10135_ME_573B55E900C9 StyleTableChanged
+
+: ME_479731C50290_ME_573B55E900C9
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_573B55E900C9 Cleanup
+
+: ME_47A042E100E2_ME_573B55E900C9
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_573B55E900C9 InitFields
+
+: ME_48E22B250241_ME_573B55E900C9
+ : Original WL 'ME_48E22B250241' '4799D29F033F.pas.ms.script' // MouseMove
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_48E22B250241_ME_573B55E900C9 MouseMove
+
+: ME_4B61371503B9_ME_573B55E900C9
+ : Original ME_4B61371503B9 // NeedUnderLine
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4B61371503B9_ME_573B55E900C9 NeedUnderLine
+
+: ME_573B55E900C9
+ CONST UID '573B55E900C9'
+ CONST Name 'TvtStyledFocusLabel'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A9B9BAA0207 // Labels
+ ;
+ : Inherits
+   Seq: ( ME_4A9B9BC00258 // TvtFocusLabel
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.pas.ms.script' // IafwStyleTableSpy
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_573B562D011B // StyleId
+ ME_573DC5DE03C7 // ActiveStyleId
+ ME_573DC799008E // f_IsActive
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_573DD16B0002 // WMMouseLeave
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_467D2CB10135_ME_573B55E900C9 // StyleTableChanged
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_573B55E900C9 // Cleanup
+ ME_47A042E100E2_ME_573B55E900C9 // InitFields
+ ME_48E22B250241_ME_573B55E900C9 // MouseMove
+ ME_4B61371503B9_ME_573B55E900C9 // NeedUnderLine
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_573B561E03CE // evStyleTableSpy
+ ME_573B562102B6 // TevStyleInterface
+ ME_573B562302FC // TextPara
+ ME_573B56250234 // TextStyle
+ ME_573DC81A030E // Windows
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\vtStyledFocusLabel.pas'
+ CONST extprop:rc:SelfName 'StyledFocusLabel'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'vtStyledFocusLabel'
+
+ref; // ME_573B55E900C9 TvtStyledFocusLabel
+
 : ME_4A9B9BAA0207
  CONST UID '4A9B9BAA0207'
  CONST Name 'Labels'
@@ -968,6 +1183,7 @@ ref; // ME_4AE8541A01AE TvtLabel
  : Children
    Seq: ( ME_4A9B9BC00258 // TvtFocusLabel
  ME_4AE8541A01AE // TvtLabel
+ ME_573B55E900C9 // TvtStyledFocusLabel
  )
  ; // Children
  : Depends
@@ -975,6 +1191,7 @@ ref; // ME_4AE8541A01AE TvtLabel
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_467823B7002C' '467823B7002C.pas.ms.script' // afwInterfaces
+ WL 'ME_467BA8C8017E' '467BA8C8017E.pas.ms.script' // afwControl
  WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
  WL 'ME_473C3BEE0334' '473C3BEE0334.pas.ms.script' // l3Canvas
  WL 'ME_476F78840219' '476F78840219.pas.ms.script' // Messages
@@ -987,6 +1204,7 @@ ref; // ME_4AE8541A01AE TvtLabel
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics

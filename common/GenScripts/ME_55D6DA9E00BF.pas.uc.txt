@@ -422,14 +422,21 @@ var
 //#UC START# *561795EA02BF_55D6DA9E00BFget_var*
 //#UC END# *561795EA02BF_55D6DA9E00BFget_var*
 //#UC START# *561796070253_55D6DA9E00BF_impl*
- if f_ImpersonatedUserID <> usNone then
-  l3System.Msg2Log('ALERT ImpersonateUser');
- f_ImpersonatedUserID := anUserID;
+ inc(f_ImpersonateCounter);
+ if f_ImpersonateCounter = 1 then
+  f_ImpersonatedUserID := anUserID
+ else
+  if f_ImpersonatedUserID <> anUserID then
+   l3System.Msg2Log('ALERT ImpersonateUser');
 //#UC END# *561796070253_55D6DA9E00BF_impl*
 //#UC START# *561796070253_55D6DA9E00BF_var*
 //#UC END# *561796070253_55D6DA9E00BF_var*
 //#UC START# *5617961F0105_55D6DA9E00BF_impl*
- f_ImpersonatedUserID := usNone;
+ Dec(f_ImpersonateCounter);
+ if f_ImpersonateCounter = 0 then
+  f_ImpersonatedUserID := usNone;
+ if f_ImpersonateCounter < 0 then
+  f_ImpersonateCounter := 0;
 //#UC END# *5617961F0105_55D6DA9E00BF_impl*
 //#UC START# *5617961F0105_55D6DA9E00BF_var*
 //#UC END# *5617961F0105_55D6DA9E00BF_var*

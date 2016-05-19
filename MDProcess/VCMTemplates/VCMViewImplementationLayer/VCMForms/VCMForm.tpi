@@ -236,22 +236,7 @@ p restrict form def:tribool=undefined ?
 	>\
 
 	[{%Sa=final}\
-	%f_set_var(SELF,S)\
-	%{SELF}%f_set_visibility_type(PublicAccess)\
-//	%{SELF}%P%f_add_class(%{SELF}U_Pack,ScriptKeywordsPack,%f_N(%{SELF})KeywordsPack,Pack_Inst)\
-//	%{Pack_Inst}%f_set_var(SpelledFor,S)\
-//	%f_addG(%{Pack_Inst},%{SELF})\
-//	%{Pack_Inst}%f_set_visibility_type(PublicAccess)\
-//	%{Pack_Inst}%f_set_documentation(Набор слов словаря для доступа к экземплярам контролов формы %{SELF}N)\
-//	%{Pack_Inst}%f_set_up(UseNewGen,true)\
-//	%{Pack_Inst}%f_set_up(noRegistrator,true)\
-//	%{Pack_Inst}%f_set_up(no_pop,true)\
-//	%{Pack_Inst}%f_set_up(ifdef,%{SELF}{ifdef})\
-//	[{"%{SELF}{ifndef}"!=""}{\
-//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)NoVCL)\
-//	}\
-//	%{Pack_Inst}%f_set_up(ifndef,NoScripts%f_comma(%S)NoVCL%f_comma(%S)%{SELF}{ifndef})\
-//	]\
+	%S%f_set_visibility_type(PublicAccess)\
 	]
 
 f _IsFormFactory
@@ -288,9 +273,11 @@ f _HasFactory
 	%O#f_OperationsToUses()\
 	]\
 	>\
+	[{%S#f_UseNewGenRec()!=true}\
 	[{%Sa=final}\
 	%f_pas_PutToUses("%f_N(%S)KeywordsPack")\
 // - времянка, чтобы подключить Pack. До полного переноса в новый генератор
+	]\
 	]
 //#UC END# *4948EB2601FAfor4B5DA84A00DD*
 

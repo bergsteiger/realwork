@@ -187,7 +187,10 @@ PROCEDURE "Сохранить изображение контрола и сравнить с эталоном" BOOLEAN IN aNee
 	INTEGER VAR l_Height 	
 	l_Editor pop:Control:Height >>> l_Height	
 	Если ( aNeedRepaint ) то 
-	 ( l_Editor pop:Control:Repaint )
+	 ( 
+	   l_Editor pop:Control:Repaint 
+	   "Обработать сообщения" 
+	  )
 	BOOLEAN VAR l_IsEditor
 	l_Editor ЯВЛЯЕТСЯ class::TevEditor >>> l_IsEditor
 	INTEGER VAR l_Handle
@@ -234,8 +237,14 @@ PROCEDURE "Выполнить до теста"
         END
 ;
 
-PROCEDURE "Параметры до теста"
-	BOOLEAN VAR g_WasException
+PROCEDURE "Сделать активной главную форму"
+	BOOLEAN VAR l_Result
+	push:MainForm pop:Control:SetFocus >>> l_Result // Не оставляем результат на стеке...
+;
+
+PROCEDURE "Подготовка теста"
+	"Сделать активной главную форму"
+	false >>> g_WasException
 	g_BeforeStart CASE
 		cnNoBeforeTestParams ( )
 		cnPictureSave ( "Выставить флаг записи картинок" )
@@ -244,7 +253,7 @@ PROCEDURE "Параметры до теста"
 
 VOID WORDWORKER Выполнить			
 	Если ( ( g_WasInit IsVoid ) ИЛИ ( g_WasInit =0 ) ) то ( "Первоначальные параметры" )	
-	"Параметры до теста"
+	"Подготовка теста"
 	TRY
 		"Создать или открыть"
 		"Изменить размеры"		

@@ -6,108 +6,6 @@ FORWARD ME_51D533840334
 
 FORWARD ME_51D534260378
 
-FORWARD ME_C8D510D2786B
-
-FORWARD ME_146BAB726A49
-
-: ME_2B6312FE03C2
- CONST UID '2B6312FE03C2'
- CONST Name 'ut_FromWithPanelName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "FromWithPanel"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_146BAB726A49 // ut_FromWithPanelConstants
- ;
- CONST Value '''ut_FromWithPanel'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_FromWithPanel'''
-
-ref; // ME_2B6312FE03C2 ut_FromWithPanelName
-
-: ME_93CF77697EF4
- CONST UID '93CF77697EF4'
- CONST Name 'ut_FromWithPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'FromWithPanel' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_146BAB726A49 // ut_FromWithPanelConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_93CF77697EF4 ut_FromWithPanel
-
-: ME_146BAB726A49
- CONST UID '146BAB726A49'
- CONST Name 'ut_FromWithPanelConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_FromWithPanel' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_C8D510D2786B // ut_FromWithPanel
- ;
- : Attributes
-   Seq: ( ME_2B6312FE03C2 // ut_FromWithPanelName
- ME_93CF77697EF4 // ut_FromWithPanel
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_146BAB726A49 ut_FromWithPanelConstants
-
-FORWARD ME_5B8F2FD9B7F1
-
-: ME_4EE1DC8903BB_ME_5B8F2FD9B7F1
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_5B8F2FD9B7F1 GetInteger
-
-: ME_5B8F2FD9B7F1
- CONST UID '5B8F2FD9B7F1'
- CONST Name 'Tkw_FormUserType_ut_FromWithPanel'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_FromWithPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_C8D510D2786B // ut_FromWithPanel
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_5B8F2FD9B7F1 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_FromWithPanel'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_FromWithPanel'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_5B8F2FD9B7F1 Tkw_FormUserType_ut_FromWithPanel
-
 : ME_C8D510D2786B
  CONST UID 'C8D510D2786B'
  CONST Name 'ut_FromWithPanel'
@@ -120,14 +18,6 @@ ref; // ME_5B8F2FD9B7F1 Tkw_FormUserType_ut_FromWithPanel
  CONST Abstraction at_final
  : Parent ME_51D534260378 // FromWithPanel
  ;
- : Children
-   Seq: ( ME_5B8F2FD9B7F1 // Tkw_FormUserType_ut_FromWithPanel
- )
- ; // Children
- : Constants
-   Seq: ( ME_146BAB726A49 // ut_FromWithPanelConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -320,37 +210,6 @@ ref; // ME_4EB210042F4A LCImplut_FromWithPanelLocalConstants
 
 ref; // ME_51D5346A02B5 WorkSpace
 
-: ME_EBA4A169B7BD
- CONST UID 'EBA4A169B7BD'
- CONST Name 'f_WorkSpace'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WorkSpace' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_EBA4A169B7BD f_WorkSpace
-
-: ME_6EDDA27DE2DB
- CONST UID '6EDDA27DE2DB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация FromWithPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D534260378 // FromWithPanel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6EDDA27DE2DB Ini_Reg_Class
-
 : ME_48AC75E96F90
  CONST UID '48AC75E96F90'
  CONST Name 'Ini_FormFactory_FromWithPanel'
@@ -367,24 +226,6 @@ ref; // ME_6EDDA27DE2DB Ini_Reg_Class
 
 ref; // ME_48AC75E96F90 Ini_FormFactory_FromWithPanel$Def
 
-: ME_62697209BC9B
- CONST UID '62697209BC9B'
- CONST Name 'Init_Str_ut_FromWithPanelCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_FromWithPanelCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Speller ME_502E9BA2E9A1 // ut_FromWithPanelCaption
- ;
- : SpelledFor ME_1B83072744DF // ut_FromWithPanelCaption
- ;
-
-ref; // ME_62697209BC9B Init_Str_ut_FromWithPanelCaption
-
 : ME_51D565B10103
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -394,17 +235,6 @@ ref; // ME_62697209BC9B Init_Str_ut_FromWithPanelCaption
  ;
 
 ref; // ME_51D565B10103 
-
-: ME_96C02BD84106
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_96C02BD84106 
 
 : ME_138DF24BF065
  CONST IsSummoned true
@@ -454,13 +284,10 @@ ref; // ME_4A8E8F2E0195_ME_51D534260378 InitControls
  ; // Implements
  : Attributes
    Seq: ( ME_51D5346A02B5 // WorkSpace
- ME_EBA4A169B7BD // f_WorkSpace
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_6EDDA27DE2DB // Ini_Reg_Class
- ME_48AC75E96F90 // Ini_FormFactory_FromWithPanel$Def
- ME_62697209BC9B // Init_Str_ut_FromWithPanelCaption
+   Seq: ( ME_48AC75E96F90 // Ini_FormFactory_FromWithPanel$Def
  )
  ; // Operations
  : Overridden
@@ -479,7 +306,6 @@ ref; // ME_4A8E8F2E0195_ME_51D534260378 InitControls
  ; // Constants
  : Dependencies
    Seq: ( ME_51D565B10103 // TAlign
- ME_96C02BD84106 // TtfwClassRef
  ME_138DF24BF065 // Tl3StringIDEx
  ME_60644F5AE5B2 // Tl3MessageID
  )
@@ -515,13 +341,8 @@ ref; // ME_51D534260378 FromWithPanel
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

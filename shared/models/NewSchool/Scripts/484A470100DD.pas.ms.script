@@ -7148,6 +7148,139 @@ ref; // ME_570655B500EE SchedulerTaskType
 
 ref; // ME_5706552C0169 SchedulerProxyTask
 
+FORWARD ME_573D84C30337
+
+: ME_573D84E703D1
+ CONST UID '573D84E703D1'
+ CONST Name 'TaskType'
+ CONST Class class_Attribute
+ : Stereotype st_override::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ CONST Value 'Ord(cs_ttMdpSyncStages)'
+ CONST extprop:pas:Value 'Ord(cs_ttMdpSyncStages)'
+
+ref; // ME_573D84E703D1 TaskType
+
+: ME_573D8A6E007A
+ CONST UID '573D8A6E007A'
+ CONST Name 'SyncURL'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
+ ;
+
+ref; // ME_573D8A6E007A SyncURL
+
+: ME_573D8A83033B
+ CONST UID '573D8A83033B'
+ CONST Name 'UseProxy'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
+ ;
+
+ref; // ME_573D8A83033B UseProxy
+
+: ME_573D8A94003C
+ CONST UID '573D8A94003C'
+ CONST Name 'ProxyServer'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
+ ;
+
+ref; // ME_573D8A94003C ProxyServer
+
+: ME_573D8AA4014C
+ CONST UID '573D8AA4014C'
+ CONST Name 'ProxyPort'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
+ ;
+
+ref; // ME_573D8AA4014C ProxyPort
+
+: ME_573D8AB002F5
+ CONST UID '573D8AB002F5'
+ CONST Name 'ProxyLogin'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
+ ;
+
+ref; // ME_573D8AB002F5 ProxyLogin
+
+: ME_573D8ABE01C6
+ CONST UID '573D8ABE01C6'
+ CONST Name 'ProxyPassword'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_573D84C30337 // mdpSyncStages
+ ;
+ : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
+ ;
+
+ref; // ME_573D8ABE01C6 ProxyPassword
+
+: ME_573D84C30337
+ CONST UID '573D84C30337'
+ CONST Name 'mdpSyncStages'
+ CONST Class class_Class
+ : Stereotype st_Tag ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537DFE740339 // evdTasks
+ ;
+ : Inherits
+   Seq: ( ME_53A95D9F02E9 // ProcessTask
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_573D84E703D1 // TaskType
+ ME_573D8A6E007A // SyncURL
+ ME_573D8A83033B // UseProxy
+ ME_573D8A94003C // ProxyServer
+ ME_573D8AA4014C // ProxyPort
+ ME_573D8AB002F5 // ProxyLogin
+ ME_573D8ABE01C6 // ProxyPassword
+ )
+ ; // Attributes
+ CONST "Defines CompareTagWithInt" false
+ CONST "Defines CompareTags" false
+ CONST intf.pas:Path 'common\components\rtl\Garant\EVD\mdpSyncStages_Const.pas'
+ CONST extprop:pas:TypeName 'mdpSyncStagesTag'
+ CONST extprop:pas:UnitName 'mdpSyncStages_Const'
+
+ref; // ME_573D84C30337 mdpSyncStages
+
 : ME_537DFE740339
  CONST UID '537DFE740339'
  CONST Name 'evdTasks'
@@ -7244,6 +7377,7 @@ ref; // ME_5706552C0169 SchedulerProxyTask
  ME_56A86C8401FD // ComboAccessProviderParams
  ME_56FE456C0292 // ContainerTask
  ME_5706552C0169 // SchedulerProxyTask
+ ME_573D84C30337 // mdpSyncStages
  )
  ; // Children
  : Injected

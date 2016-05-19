@@ -3178,10 +3178,10 @@ FORWARD ME_56F3EDEA024E
  : Parent ME_56F3EDEA024E // ExSearchPanel
  ;
  : Inherits
-   Seq: ( WL 'ME_4A9B9BC00258' '4A9B9BAA0207.pas.ms.script' // TvtFocusLabel
+   Seq: ( WL 'ME_573B55E900C9' '4A9B9BAA0207.pas.ms.script' // TvtStyledFocusLabel
  )
  ; // Inherits
- CONST "ControlClass" 'TvtFocusLabel'
+ CONST "ControlClass" 'TvtStyledFocusLabel'
  CONST "pm" true
  CONST "put to dfm" true
 
@@ -3603,7 +3603,7 @@ ref; // ME_AFB40540A8B1 f_ExSearchPanel
  CONST LinkType lt_ref
  : Parent ME_497DDB2B001B // PrimList
  ;
- : Target WL 'ME_4A9B9BC00258' '4A9B9BAA0207.pas.ms.script' // TvtFocusLabel
+ : Target WL 'ME_573B55E900C9' '4A9B9BAA0207.pas.ms.script' // TvtStyledFocusLabel
  ;
 
 ref; // ME_08D7DA385B3E f_ExSearchLabel
@@ -7252,6 +7252,12 @@ ref; // ME_49FEB3960023_ME_497DDB2B001B FindBackEnabled
  CONST OpKind opkind_Implemented
 ref; // ME_49FFD8230333_ME_497DDB2B001B FragmentsCountSuffix
 
+: ME_4A485B710126_ME_497DDB2B001B
+ : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4A485B710126_ME_497DDB2B001B DoStyleTableChanged
+
 : ME_4A8E5E4702C6_ME_497DDB2B001B
  : Original WL 'ME_4A8E5E4702C6' '4A8E5B58037D.pas.ms.script' // FillList
  ;
@@ -8284,7 +8290,8 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  )
  ; // Inherits
  : Implements
-   Seq: ( WL 'ME_4951282D0269' '495127DD017C.pas.ms.script' // Edit
+   Seq: ( WL 'ME_480DA68701CE' '47ECB2870309.pas.ms.script' // evStyleTableListener
+ WL 'ME_4951282D0269' '495127DD017C.pas.ms.script' // Edit
  WL 'ME_49513222021F' '4A9F98B901A5.pas.ms.script' // InsContextSearcher
  WL 'ME_496B4C2700D5' '4A9F98B901A5.pas.ms.script' // InsBaseSearchPresentation
  WL 'ME_496B51660087' '4A9F98B901A5.pas.ms.script' // InsBaseSearchVisibleWatcher
@@ -8460,6 +8467,7 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_49FEB37C02FB_ME_497DDB2B001B // FindBackSupported
  ME_49FEB3960023_ME_497DDB2B001B // FindBackEnabled
  ME_49FFD8230333_ME_497DDB2B001B // FragmentsCountSuffix
+ ME_4A485B710126_ME_497DDB2B001B // DoStyleTableChanged
  ME_4A8E5E4702C6_ME_497DDB2B001B // FillList
  ME_4AA4E63900F9_ME_497DDB2B001B // AllowPrompts
  ME_4AA4E64E0395_ME_497DDB2B001B // PromptsInfo
@@ -9286,108 +9294,6 @@ ref; // ME_497DEC900012 PrimListInfo
 
 FORWARD ME_4AA0CE2B0073
 
-FORWARD ME_4BD71C5800C2
-
-FORWARD ME_F6864E0AEEF8
-
-: ME_F8D5AE6AF2FB
- CONST UID 'F8D5AE6AF2FB'
- CONST Name 'listAnalizeName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Анализ списка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F6864E0AEEF8 // listAnalizeConstants
- ;
- CONST Value '''listAnalize'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''listAnalize'''
-
-ref; // ME_F8D5AE6AF2FB listAnalizeName
-
-: ME_10C1EB34F942
- CONST UID '10C1EB34F942'
- CONST Name 'listAnalize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Анализ списка' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F6864E0AEEF8 // listAnalizeConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_10C1EB34F942 listAnalize
-
-: ME_F6864E0AEEF8
- CONST UID 'F6864E0AEEF8'
- CONST Name 'listAnalizeConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы listAnalize' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD71C5800C2 // listAnalize
- ;
- : Attributes
-   Seq: ( ME_F8D5AE6AF2FB // listAnalizeName
- ME_10C1EB34F942 // listAnalize
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_F6864E0AEEF8 listAnalizeConstants
-
-FORWARD ME_958708F4203C
-
-: ME_4EE1DC8903BB_ME_958708F4203C
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_958708F4203C GetInteger
-
-: ME_958708F4203C
- CONST UID '958708F4203C'
- CONST Name 'Tkw_FormUserType_listAnalize'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы listAnalize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD71C5800C2 // listAnalize
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_958708F4203C // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::listAnalize'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_listAnalize'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_958708F4203C Tkw_FormUserType_listAnalize
-
 : ME_4BD71C5800C2
  CONST UID '4BD71C5800C2'
  CONST Name 'listAnalize'
@@ -9399,14 +9305,6 @@ ref; // ME_958708F4203C Tkw_FormUserType_listAnalize
  CONST Abstraction at_final
  : Parent ME_4AA0CE2B0073 // PrimListAnalizer
  ;
- : Children
-   Seq: ( ME_958708F4203C // Tkw_FormUserType_listAnalize
- )
- ; // Children
- : Constants
-   Seq: ( ME_F6864E0AEEF8 // listAnalizeConstants
- )
- ; // Constants
  CONST "CanClose" false
  CONST "ImageIndex" '-1'
  CONST "Weight" 0
@@ -10951,6 +10849,10 @@ ref; // ME_4F7EE5630070 remTimeMachineWarning
  ME_4F7EE5630070 // remTimeMachineWarning
  )
  ; // Attributes
+ : Zones
+   Seq: ( ME_4F7EE5B501F3 // RemindersLineZone
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "need Caption" false
  CONST "pm" true
@@ -24308,6 +24210,7 @@ ref; // ME_5130D80002C1 nscTreeViewForDocumentListWordsPack
  WL 'ME_47EA4BB502F9' '47EA4BB502F9.pas.ms.script' // afwMixIns
  WL 'ME_47EA968D0155' '47EA968D0155.pas.ms.script' // Printing
  WL 'ME_47ECAAF901F8' '47ECAAF901F8.pas.ms.script' // bsInterfaces
+ WL 'ME_47ECB2870309' '47ECB2870309.pas.ms.script' // StyleTable
  WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
  WL 'ME_47F22C7501F6' '47F22C7501F6.pas.ms.script' // Document
  WL 'ME_47F260DC003F' '47F260DC003F.pas.ms.script' // ns
@@ -24380,7 +24283,6 @@ ref; // ME_5130D80002C1 nscTreeViewForDocumentListWordsPack
  WL 'ME_4DDA34AA023B' '4DDA34AA023B.pas.ms.script' // Dialogs
  WL 'ME_4E030FC801EB' '4E030FC801EB.pas.ms.script' // BatchServices
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
  WL 'ME_4F9BB1120134' '4F9BB1120134.pas.ms.script' // Сюда вынес все сообщения из StdRes с Choices

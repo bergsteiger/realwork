@@ -6,108 +6,6 @@ FORWARD ME_4F5DB66F02F7
 
 FORWARD ME_4F5DB67E02FA
 
-FORWARD ME_4D77A52C0374
-
-FORWARD ME_3092DFBFE887
-
-: ME_BB4A79555590
- CONST UID 'BB4A79555590'
- CONST Name 'slqtDictionName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Толковый словарь"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3092DFBFE887 // slqtDictionConstants
- ;
- CONST Value '''slqtDiction'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''slqtDiction'''
-
-ref; // ME_BB4A79555590 slqtDictionName
-
-: ME_8EEF7B3B85BA
- CONST UID '8EEF7B3B85BA'
- CONST Name 'slqtDiction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Толковый словарь' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3092DFBFE887 // slqtDictionConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_8EEF7B3B85BA slqtDiction
-
-: ME_3092DFBFE887
- CONST UID '3092DFBFE887'
- CONST Name 'slqtDictionConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы slqtDiction' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4D77A52C0374 // slqtDiction
- ;
- : Attributes
-   Seq: ( ME_BB4A79555590 // slqtDictionName
- ME_8EEF7B3B85BA // slqtDiction
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_3092DFBFE887 slqtDictionConstants
-
-FORWARD ME_43AB039DAFE1
-
-: ME_4EE1DC8903BB_ME_43AB039DAFE1
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_43AB039DAFE1 GetInteger
-
-: ME_43AB039DAFE1
- CONST UID '43AB039DAFE1'
- CONST Name 'Tkw_FormUserType_slqtDiction'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы slqtDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D77A52C0374 // slqtDiction
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_43AB039DAFE1 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::slqtDiction'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_slqtDiction'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_43AB039DAFE1 Tkw_FormUserType_slqtDiction
-
 : ME_4D77A52C0374
  CONST UID '4D77A52C0374'
  CONST Name 'slqtDiction'
@@ -119,123 +17,12 @@ ref; // ME_43AB039DAFE1 Tkw_FormUserType_slqtDiction
  CONST Abstraction at_final
  : Parent ME_4F5DB67E02FA // DictionContainerUserTypes
  ;
- : Children
-   Seq: ( ME_43AB039DAFE1 // Tkw_FormUserType_slqtDiction
- )
- ; // Children
- : Constants
-   Seq: ( ME_3092DFBFE887 // slqtDictionConstants
- )
- ; // Constants
  CONST "ImageIndex" 60
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtDiction_UserType.pas'
  CONST extprop:pas:UnitName 'DictionContainerUserTypes_slqtDiction_UserType'
 
 ref; // ME_4D77A52C0374 slqtDiction
-
-FORWARD ME_4D81EE030156
-
-FORWARD ME_E80662B2CFE5
-
-: ME_1F2691620C7A
- CONST UID '1F2691620C7A'
- CONST Name 'slqtMedicDictionName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Словарь медицинских терминов"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E80662B2CFE5 // slqtMedicDictionConstants
- ;
- CONST Value '''slqtMedicDiction'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''slqtMedicDiction'''
-
-ref; // ME_1F2691620C7A slqtMedicDictionName
-
-: ME_4C17038EC107
- CONST UID '4C17038EC107'
- CONST Name 'slqtMedicDiction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Словарь медицинских терминов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E80662B2CFE5 // slqtMedicDictionConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'slqtDiction'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(slqtDiction + 1)'
-
-ref; // ME_4C17038EC107 slqtMedicDiction
-
-: ME_E80662B2CFE5
- CONST UID 'E80662B2CFE5'
- CONST Name 'slqtMedicDictionConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы slqtMedicDiction' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4D81EE030156 // slqtMedicDiction
- ;
- : Attributes
-   Seq: ( ME_1F2691620C7A // slqtMedicDictionName
- ME_4C17038EC107 // slqtMedicDiction
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_E80662B2CFE5 slqtMedicDictionConstants
-
-FORWARD ME_6959F067223A
-
-: ME_4EE1DC8903BB_ME_6959F067223A
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_6959F067223A GetInteger
-
-: ME_6959F067223A
- CONST UID '6959F067223A'
- CONST Name 'Tkw_FormUserType_slqtMedicDiction'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы slqtMedicDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D81EE030156 // slqtMedicDiction
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_6959F067223A // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::slqtMedicDiction'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_slqtMedicDiction'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_6959F067223A Tkw_FormUserType_slqtMedicDiction
 
 : ME_4D81EE030156
  CONST UID '4D81EE030156'
@@ -252,14 +39,6 @@ ref; // ME_6959F067223A Tkw_FormUserType_slqtMedicDiction
    Seq: ( ME_4D77A52C0374 // slqtDiction
  )
  ; // Inherits
- : Children
-   Seq: ( ME_6959F067223A // Tkw_FormUserType_slqtMedicDiction
- )
- ; // Children
- : Constants
-   Seq: ( ME_E80662B2CFE5 // slqtMedicDictionConstants
- )
- ; // Constants
  CONST "ImageIndex" 182
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtMedicDiction_UserType.pas'
@@ -574,8 +353,6 @@ ref; // ME_4F5DB67E02FA DictionContainerUserTypes
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F9BDEEE01BC' '4F9BDEEE01BC.pas.ms.script' // Поддержка локализованных сообщений
  )
  ; // Depends

@@ -131,6 +131,7 @@ r {""=""}: {}
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor4B0402290215*
 	%S%[inherited]\
+	[{%S#f_UseNewGenRec()!=true}\
 	%S%f_add_class(%SU_Constants,Constants,%SNConstants,Constants_Inst)\
 	%{Constants_Inst}%f_set_documentation(Константы для типа формы %SN)\
 
@@ -151,6 +152,7 @@ r {""=""}: {}
 	%{Attr_Inst}%f_set_up(is define,true)\
 	%{Attr_Inst}%f_set_up(no unit prefix,true)\
 	%{Attr_Inst}%f_set_documentation(%SD)\
+	]\
 
 	%P%f_add_class(%SU_Local_Constants,LocalConst,%SNLocalConstants,LocalConstants_Inst)\
 	%{LocalConstants_Inst}%f_set_visibility_type(PrivateAccess)\
@@ -166,6 +168,7 @@ r {""=""}: {}
 	%{Attr_Inst}%f_set_documentation(Заголовок пользовательского типа "%SD" для настройки панелей инструментов)\
 	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%S%f_add_class(%SU_Word,ScriptKeyword,Tkw_FormUserType_%f_N(%S),Word_Inst)\
 	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
 	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
@@ -178,19 +181,18 @@ r {""=""}: {}
 
 	[{"%{TtfwInteger.GetInteger}N"=""}%f_find_element(4EE1DC8903BB,TtfwInteger.GetInteger)]\
 	%{Word_Inst}%f_add_override(4EE1DC8903BB)\
-	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_var,\
 	 {-}\
 	)\
 	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_impl,\
 	 Result := %f_N(%S);\
 	)\
-	]\
 
 	%{Word_Inst}%f_set_up(NameForScript,тип_формы::%f_str_replace(%f_N(%S), ,_))\
 	%{Word_Inst}%f_set_abstraction_type(final)\
 
-	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)
+	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
+	]
 //#UC END# *4B2A19E3038Bfor4B0402290215*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator

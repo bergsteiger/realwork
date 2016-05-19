@@ -6,108 +6,6 @@ FORWARD ME_4979D3B10102
 
 FORWARD ME_4979D40E0180
 
-FORWARD ME_4BD71EBC00ED
-
-FORWARD ME_8A29C916FF0B
-
-: ME_A026E2265000
- CONST UID 'A026E2265000'
- CONST Name 'utDictionName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Толковый словарь"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8A29C916FF0B // utDictionConstants
- ;
- CONST Value '''utDiction'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utDiction'''
-
-ref; // ME_A026E2265000 utDictionName
-
-: ME_5F098119C180
- CONST UID '5F098119C180'
- CONST Name 'utDiction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Толковый словарь' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8A29C916FF0B // utDictionConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_5F098119C180 utDiction
-
-: ME_8A29C916FF0B
- CONST UID '8A29C916FF0B'
- CONST Name 'utDictionConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utDiction' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD71EBC00ED // utDiction
- ;
- : Attributes
-   Seq: ( ME_A026E2265000 // utDictionName
- ME_5F098119C180 // utDiction
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_8A29C916FF0B utDictionConstants
-
-FORWARD ME_C45471D0B7D4
-
-: ME_4EE1DC8903BB_ME_C45471D0B7D4
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_C45471D0B7D4 GetInteger
-
-: ME_C45471D0B7D4
- CONST UID 'C45471D0B7D4'
- CONST Name 'Tkw_FormUserType_utDiction'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD71EBC00ED // utDiction
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_C45471D0B7D4 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utDiction'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utDiction'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_C45471D0B7D4 Tkw_FormUserType_utDiction
-
 : ME_4BD71EBC00ED
  CONST UID '4BD71EBC00ED'
  CONST Name 'utDiction'
@@ -119,14 +17,6 @@ ref; // ME_C45471D0B7D4 Tkw_FormUserType_utDiction
  CONST Abstraction at_final
  : Parent ME_4979D40E0180 // PrimDiction
  ;
- : Children
-   Seq: ( ME_C45471D0B7D4 // Tkw_FormUserType_utDiction
- )
- ; // Children
- : Constants
-   Seq: ( ME_8A29C916FF0B // utDictionConstants
- )
- ; // Constants
  CONST "CanClose" false
  CONST "ImageIndex" 60
  CONST "SettingsCaption" 'Толковый словарь: Список терминов (вкладка)'
@@ -2360,6 +2250,10 @@ FORWARD ME_4D7A6C630193
    Seq: ( WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4D7A6D6A0341 // Navigator
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "needs field" true
  CONST "pm" true
@@ -2405,6 +2299,10 @@ ref; // ME_4D7A6CC801A6 ParentZone
    Seq: ( WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4D7A7B9601CD // Child
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "needs field" true
  CONST "pm" true
@@ -2888,108 +2786,6 @@ ref; // ME_51B860F20280 PrimDictionOptions
 
 FORWARD ME_497ED770029D
 
-FORWARD ME_4BD6F164037F
-
-FORWARD ME_1EDC2F82E809
-
-: ME_23B6D3CCE1DC
- CONST UID '23B6D3CCE1DC'
- CONST Name 'utTipsName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1EDC2F82E809 // utTipsConstants
- ;
- CONST Value '''utTips'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utTips'''
-
-ref; // ME_23B6D3CCE1DC utTipsName
-
-: ME_3FAF305607F7
- CONST UID '3FAF305607F7'
- CONST Name 'utTips'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Совет дня' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1EDC2F82E809 // utTipsConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_3FAF305607F7 utTips
-
-: ME_1EDC2F82E809
- CONST UID '1EDC2F82E809'
- CONST Name 'utTipsConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utTips' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6F164037F // utTips
- ;
- : Attributes
-   Seq: ( ME_23B6D3CCE1DC // utTipsName
- ME_3FAF305607F7 // utTips
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_1EDC2F82E809 utTipsConstants
-
-FORWARD ME_0D91B8A5959C
-
-: ME_4EE1DC8903BB_ME_0D91B8A5959C
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_0D91B8A5959C GetInteger
-
-: ME_0D91B8A5959C
- CONST UID '0D91B8A5959C'
- CONST Name 'Tkw_FormUserType_utTips'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utTips' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6F164037F // utTips
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_0D91B8A5959C // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utTips'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utTips'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_0D91B8A5959C Tkw_FormUserType_utTips
-
 : ME_4BD6F164037F
  CONST UID '4BD6F164037F'
  CONST Name 'utTips'
@@ -3001,14 +2797,6 @@ ref; // ME_0D91B8A5959C Tkw_FormUserType_utTips
  CONST Abstraction at_final
  : Parent ME_497ED770029D // PrimCommonDiction
  ;
- : Children
-   Seq: ( ME_0D91B8A5959C // Tkw_FormUserType_utTips
- )
- ; // Children
- : Constants
-   Seq: ( ME_1EDC2F82E809 // utTipsConstants
- )
- ; // Constants
  CONST "CanClose" false
  CONST "ImageIndex" 175
  CONST "SettingsCaption" 'Совет дня: Список советов (вкладка)'
@@ -3017,109 +2805,6 @@ ref; // ME_0D91B8A5959C Tkw_FormUserType_utTips
  CONST extprop:pas:UnitName 'PrimCommonDiction_utTips_UserType'
 
 ref; // ME_4BD6F164037F utTips
-
-FORWARD ME_4BD6F18301FD
-
-FORWARD ME_4D43625BAEEF
-
-: ME_226CD8781381
- CONST UID '226CD8781381'
- CONST Name 'utMedicDictionName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Словарь медицинских терминов"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4D43625BAEEF // utMedicDictionConstants
- ;
- CONST Value '''utMedicDiction'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utMedicDiction'''
-
-ref; // ME_226CD8781381 utMedicDictionName
-
-: ME_F3105E5F2980
- CONST UID 'F3105E5F2980'
- CONST Name 'utMedicDiction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Словарь медицинских терминов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4D43625BAEEF // utMedicDictionConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'utTips'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(utTips + 1)'
-
-ref; // ME_F3105E5F2980 utMedicDiction
-
-: ME_4D43625BAEEF
- CONST UID '4D43625BAEEF'
- CONST Name 'utMedicDictionConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utMedicDiction' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6F18301FD // utMedicDiction
- ;
- : Attributes
-   Seq: ( ME_226CD8781381 // utMedicDictionName
- ME_F3105E5F2980 // utMedicDiction
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_4D43625BAEEF utMedicDictionConstants
-
-FORWARD ME_A8087406DA62
-
-: ME_4EE1DC8903BB_ME_A8087406DA62
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_A8087406DA62 GetInteger
-
-: ME_A8087406DA62
- CONST UID 'A8087406DA62'
- CONST Name 'Tkw_FormUserType_utMedicDiction'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utMedicDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6F18301FD // utMedicDiction
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_A8087406DA62 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utMedicDiction'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utMedicDiction'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A8087406DA62 Tkw_FormUserType_utMedicDiction
 
 : ME_4BD6F18301FD
  CONST UID '4BD6F18301FD'
@@ -3136,14 +2821,6 @@ ref; // ME_A8087406DA62 Tkw_FormUserType_utMedicDiction
    Seq: ( ME_4BD6F164037F // utTips
  )
  ; // Inherits
- : Children
-   Seq: ( ME_A8087406DA62 // Tkw_FormUserType_utMedicDiction
- )
- ; // Children
- : Constants
-   Seq: ( ME_4D43625BAEEF // utMedicDictionConstants
- )
- ; // Constants
  CONST "CanClose" false
  CONST "ImageIndex" 182
  CONST "SettingsCaption" 'Словарь медицинских терминов: Список терминов (вкладка)'
@@ -7825,7 +7502,6 @@ ref; // ME_BEB9AA7B4638 Tkw_Diction_opOpenDict
  WL 'ME_4C850F97017C' '4C850F97017C.pas.ms.script' // Strange
  WL 'ME_4D1B85BF03E4' '4D1B85BF03E4.pas.ms.script' // BaseDocumentWithAttributesInterfaces
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F5DB66F02F7' '4F5DB66F02F7.pas.ms.script' // DictionLikeForms
  WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
  WL 'ME_4F6B66F8001B' '4F6B66F8001B.pas.ms.script' // FormDefinitions

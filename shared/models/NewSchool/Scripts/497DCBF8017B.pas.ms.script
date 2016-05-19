@@ -10,106 +10,6 @@ FORWARD ME_4BD6EB3F017A
 
 FORWARD ME_4BD6EB140266
 
-FORWARD ME_907864408960
-
-: ME_9A8FF5945962
- CONST UID '9A8FF5945962'
- CONST Name 'utFoldersTreeName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Мои документы (вкладка)"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_907864408960 // utFoldersTreeConstants
- ;
- CONST Value '''utFoldersTree'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utFoldersTree'''
-
-ref; // ME_9A8FF5945962 utFoldersTreeName
-
-: ME_23C5CAF8C7BA
- CONST UID '23C5CAF8C7BA'
- CONST Name 'utFoldersTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Мои документы (вкладка)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_907864408960 // utFoldersTreeConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_23C5CAF8C7BA utFoldersTree
-
-: ME_907864408960
- CONST UID '907864408960'
- CONST Name 'utFoldersTreeConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utFoldersTree' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6EB140266 // utFoldersTree
- ;
- : Attributes
-   Seq: ( ME_9A8FF5945962 // utFoldersTreeName
- ME_23C5CAF8C7BA // utFoldersTree
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_907864408960 utFoldersTreeConstants
-
-FORWARD ME_4868C6D617D1
-
-: ME_4EE1DC8903BB_ME_4868C6D617D1
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_4868C6D617D1 GetInteger
-
-: ME_4868C6D617D1
- CONST UID '4868C6D617D1'
- CONST Name 'Tkw_FormUserType_utFoldersTree'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utFoldersTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6EB140266 // utFoldersTree
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_4868C6D617D1 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utFoldersTree'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utFoldersTree'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4868C6D617D1 Tkw_FormUserType_utFoldersTree
-
 : ME_4BD6EB5F015F
  CONST UID '4BD6EB5F015F'
  CONST Name 'UseToolbarOfUserTypeName'
@@ -140,14 +40,6 @@ ref; // ME_4BD6EB5F015F UseToolbarOfUserTypeName
    Seq: ( ME_4BD6EB5F015F // UseToolbarOfUserTypeName
  )
  ; // Attributes
- : Children
-   Seq: ( ME_4868C6D617D1 // Tkw_FormUserType_utFoldersTree
- )
- ; // Children
- : Constants
-   Seq: ( ME_907864408960 // utFoldersTreeConstants
- )
- ; // Constants
  : Forwarded
    Seq: ( ME_4BD6EB3F017A // utSaveOpen
  )
@@ -159,107 +51,6 @@ ref; // ME_4BD6EB5F015F UseToolbarOfUserTypeName
  CONST extprop:pas:UnitName 'PrimFoldersTree_utFoldersTree_UserType'
 
 ref; // ME_4BD6EB140266 utFoldersTree
-
-FORWARD ME_181F8EBFD4A5
-
-: ME_03EA3BF38E98
- CONST UID '03EA3BF38E98'
- CONST Name 'utSaveOpenName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Мои документы"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_181F8EBFD4A5 // utSaveOpenConstants
- ;
- CONST Value '''utSaveOpen'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utSaveOpen'''
-
-ref; // ME_03EA3BF38E98 utSaveOpenName
-
-: ME_F2297877B474
- CONST UID 'F2297877B474'
- CONST Name 'utSaveOpen'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Мои документы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_181F8EBFD4A5 // utSaveOpenConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'utFoldersTree'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(utFoldersTree + 1)'
-
-ref; // ME_F2297877B474 utSaveOpen
-
-: ME_181F8EBFD4A5
- CONST UID '181F8EBFD4A5'
- CONST Name 'utSaveOpenConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utSaveOpen' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6EB3F017A // utSaveOpen
- ;
- : Attributes
-   Seq: ( ME_03EA3BF38E98 // utSaveOpenName
- ME_F2297877B474 // utSaveOpen
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_181F8EBFD4A5 utSaveOpenConstants
-
-FORWARD ME_A6360CBFAE1D
-
-: ME_4EE1DC8903BB_ME_A6360CBFAE1D
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_A6360CBFAE1D GetInteger
-
-: ME_A6360CBFAE1D
- CONST UID 'A6360CBFAE1D'
- CONST Name 'Tkw_FormUserType_utSaveOpen'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utSaveOpen' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6EB3F017A // utSaveOpen
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_A6360CBFAE1D // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utSaveOpen'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utSaveOpen'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A6360CBFAE1D Tkw_FormUserType_utSaveOpen
 
 : ME_4BD6EB3F017A
  CONST UID '4BD6EB3F017A'
@@ -276,14 +67,6 @@ ref; // ME_A6360CBFAE1D Tkw_FormUserType_utSaveOpen
    Seq: ( ME_4BD6EB140266 // utFoldersTree
  )
  ; // Inherits
- : Children
-   Seq: ( ME_A6360CBFAE1D // Tkw_FormUserType_utSaveOpen
- )
- ; // Children
- : Constants
-   Seq: ( ME_181F8EBFD4A5 // utSaveOpenConstants
- )
- ; // Constants
  CONST "ImageIndex" 65
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_utSaveOpen_UserType.pas'
@@ -2117,108 +1900,6 @@ FORWARD ME_4A97E82C034E
 
 ref; // ME_4A97E87C0390 ChildZone
 
-FORWARD ME_4BD6C62402E7
-
-FORWARD ME_16960CD0EA55
-
-: ME_A241D4306A3C
- CONST UID 'A241D4306A3C'
- CONST Name 'utFoldersName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Мои документы"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_16960CD0EA55 // utFoldersConstants
- ;
- CONST Value '''utFolders'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utFolders'''
-
-ref; // ME_A241D4306A3C utFoldersName
-
-: ME_17A3B495ABA6
- CONST UID '17A3B495ABA6'
- CONST Name 'utFolders'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Мои документы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_16960CD0EA55 // utFoldersConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_17A3B495ABA6 utFolders
-
-: ME_16960CD0EA55
- CONST UID '16960CD0EA55'
- CONST Name 'utFoldersConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utFolders' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6C62402E7 // utFolders
- ;
- : Attributes
-   Seq: ( ME_A241D4306A3C // utFoldersName
- ME_17A3B495ABA6 // utFolders
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_16960CD0EA55 utFoldersConstants
-
-FORWARD ME_A4A35E9DE5BF
-
-: ME_4EE1DC8903BB_ME_A4A35E9DE5BF
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_A4A35E9DE5BF GetInteger
-
-: ME_A4A35E9DE5BF
- CONST UID 'A4A35E9DE5BF'
- CONST Name 'Tkw_FormUserType_utFolders'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utFolders' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6C62402E7 // utFolders
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_A4A35E9DE5BF // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utFolders'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utFolders'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A4A35E9DE5BF Tkw_FormUserType_utFolders
-
 : ME_4BD6C62402E7
  CONST UID '4BD6C62402E7'
  CONST Name 'utFolders'
@@ -2230,14 +1911,6 @@ ref; // ME_A4A35E9DE5BF Tkw_FormUserType_utFolders
  CONST Abstraction at_final
  : Parent ME_4A96B6AE0071 // PrimFolders
  ;
- : Children
-   Seq: ( ME_A4A35E9DE5BF // Tkw_FormUserType_utFolders
- )
- ; // Children
- : Constants
-   Seq: ( ME_16960CD0EA55 // utFoldersConstants
- )
- ; // Constants
  CONST "ImageIndex" 65
  CONST "NeedOnQueryClose" true
  CONST "VisibleToUser" false
@@ -2358,6 +2031,10 @@ FORWARD ME_4A97E7DC03A2
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4A97E85A0297 // ParentZone
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -2378,6 +2055,10 @@ ref; // ME_4A97E81C032B ParentZone
    Seq: ( WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4A97E87C0390 // ChildZone
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -3018,108 +2699,6 @@ ref; // ME_4AE8613502A5 cTypeMap
 
 ref; // ME_4AE85EC302BD cTypeMap
 
-FORWARD ME_4C77DA410141
-
-FORWARD ME_B51317F7CFC5
-
-: ME_35AE856DA2D1
- CONST UID '35AE856DA2D1'
- CONST Name 'utFoldersPropertyName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Панель свойств"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B51317F7CFC5 // utFoldersPropertyConstants
- ;
- CONST Value '''utFoldersProperty'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utFoldersProperty'''
-
-ref; // ME_35AE856DA2D1 utFoldersPropertyName
-
-: ME_99C4CBC2582C
- CONST UID '99C4CBC2582C'
- CONST Name 'utFoldersProperty'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Панель свойств' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B51317F7CFC5 // utFoldersPropertyConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_99C4CBC2582C utFoldersProperty
-
-: ME_B51317F7CFC5
- CONST UID 'B51317F7CFC5'
- CONST Name 'utFoldersPropertyConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utFoldersProperty' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C77DA410141 // utFoldersProperty
- ;
- : Attributes
-   Seq: ( ME_35AE856DA2D1 // utFoldersPropertyName
- ME_99C4CBC2582C // utFoldersProperty
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_B51317F7CFC5 utFoldersPropertyConstants
-
-FORWARD ME_9320523E7455
-
-: ME_4EE1DC8903BB_ME_9320523E7455
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_9320523E7455 GetInteger
-
-: ME_9320523E7455
- CONST UID '9320523E7455'
- CONST Name 'Tkw_FormUserType_utFoldersProperty'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utFoldersProperty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C77DA410141 // utFoldersProperty
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_9320523E7455 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utFoldersProperty'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utFoldersProperty'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_9320523E7455 Tkw_FormUserType_utFoldersProperty
-
 : ME_4C77DA410141
  CONST UID '4C77DA410141'
  CONST Name 'utFoldersProperty'
@@ -3131,14 +2710,6 @@ ref; // ME_9320523E7455 Tkw_FormUserType_utFoldersProperty
  CONST Abstraction at_final
  : Parent ME_4AE706BB029F // PrimFoldersElementInfo
  ;
- : Children
-   Seq: ( ME_9320523E7455 // Tkw_FormUserType_utFoldersProperty
- )
- ; // Children
- : Constants
-   Seq: ( ME_B51317F7CFC5 // utFoldersPropertyConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -5718,108 +5289,6 @@ ref; // ME_4AC0ABB70051 TnsFormCoordinates
 
 FORWARD ME_4AE9BEEF0229
 
-FORWARD ME_4C7E8E76029A
-
-FORWARD ME_EDD55825DDFD
-
-: ME_EF294CB131AF
- CONST UID 'EF294CB131AF'
- CONST Name 'utFoldersInfoContainerName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Свойства папок (модальный диалог)"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EDD55825DDFD // utFoldersInfoContainerConstants
- ;
- CONST Value '''utFoldersInfoContainer'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utFoldersInfoContainer'''
-
-ref; // ME_EF294CB131AF utFoldersInfoContainerName
-
-: ME_4447BA551340
- CONST UID '4447BA551340'
- CONST Name 'utFoldersInfoContainer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Свойства папок (модальный диалог)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EDD55825DDFD // utFoldersInfoContainerConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_4447BA551340 utFoldersInfoContainer
-
-: ME_EDD55825DDFD
- CONST UID 'EDD55825DDFD'
- CONST Name 'utFoldersInfoContainerConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utFoldersInfoContainer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C7E8E76029A // utFoldersInfoContainer
- ;
- : Attributes
-   Seq: ( ME_EF294CB131AF // utFoldersInfoContainerName
- ME_4447BA551340 // utFoldersInfoContainer
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_EDD55825DDFD utFoldersInfoContainerConstants
-
-FORWARD ME_8B8EE681FE68
-
-: ME_4EE1DC8903BB_ME_8B8EE681FE68
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_8B8EE681FE68 GetInteger
-
-: ME_8B8EE681FE68
- CONST UID '8B8EE681FE68'
- CONST Name 'Tkw_FormUserType_utFoldersInfoContainer'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utFoldersInfoContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C7E8E76029A // utFoldersInfoContainer
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_8B8EE681FE68 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utFoldersInfoContainer'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utFoldersInfoContainer'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_8B8EE681FE68 Tkw_FormUserType_utFoldersInfoContainer
-
 : ME_4C7E8E76029A
  CONST UID '4C7E8E76029A'
  CONST Name 'utFoldersInfoContainer'
@@ -5831,14 +5300,6 @@ ref; // ME_8B8EE681FE68 Tkw_FormUserType_utFoldersInfoContainer
  CONST Abstraction at_final
  : Parent ME_4AE9BEEF0229 // PrimFoldersInfo
  ;
- : Children
-   Seq: ( ME_8B8EE681FE68 // Tkw_FormUserType_utFoldersInfoContainer
- )
- ; // Children
- : Constants
-   Seq: ( ME_EDD55825DDFD // utFoldersInfoContainerConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -5978,6 +5439,10 @@ ref; // ME_F10F8DB0FAC5 LCImplutFoldersInfoContainerLocalConstants
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_528239480348 // Child
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -11087,7 +10552,6 @@ ref; // ME_FCFE035FCFBF Tkw_Folders_opOpenFrmAct
  WL 'ME_4CAC5A7402DE' '4CAC5A7402DE.pas.ms.script' // Impl
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_4F9BB1120134' '4F9BB1120134.pas.ms.script' // Сюда вынес все сообщения из StdRes с Choices
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources

@@ -2816,6 +2816,61 @@ ref; // ME_57330A9B03B0 cDeprecatedDicts
 
 ref; // ME_57330A8D03D6 DeprecatedDicts
 
+FORWARD ME_573B0B9402F1
+
+: ME_573B0BC00118
+ CONST UID '573B0BC00118'
+ CONST Name 'c_UnknownLogin'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573B0B9402F1 // cUserNames
+ ;
+ CONST Value '''UNKNOWN USER'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''UNKNOWN USER'''
+
+ref; // ME_573B0BC00118 c_UnknownLogin
+
+: ME_573B0BE4012E
+ CONST UID '573B0BE4012E'
+ CONST Name 'c_UnknownUserName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_573B0B9402F1 // cUserNames
+ ;
+ CONST Value '''Пользователь %s.%d'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '''Пользователь %s.%d'''
+
+ref; // ME_573B0BE4012E c_UnknownUserName
+
+: ME_573B0B9402F1
+ CONST UID '573B0B9402F1'
+ CONST Name 'cUserNames'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432448401BC // daTypes
+ ;
+ : Attributes
+   Seq: ( ME_573B0BC00118 // c_UnknownLogin
+ ME_573B0BE4012E // c_UnknownUserName
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_573B0B9402F1 cUserNames
+
 : ME_5432448401BC
  CONST UID '5432448401BC'
  CONST Name 'daTypes'
@@ -2865,6 +2920,7 @@ ref; // ME_57330A8D03D6 DeprecatedDicts
  ; // Children
  : Constants
    Seq: ( ME_57330A8D03D6 // DeprecatedDicts
+ ME_573B0B9402F1 // cUserNames
  )
  ; // Constants
  : Depends

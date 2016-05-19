@@ -2272,6 +2272,11 @@ f _NeedFinalize
 	 ; // Injected
 	]\
 	[\
+	 : Zones
+	   Seq: (<{}{%ZS=VCMFormZone}{Sg} %Z#f_pas_script_Reference()> )
+	 ; // Zones
+	]\
+	[\
 	 : Depends
 	   Seq: (< %D#f_pas_script_Reference()> )
 	 ; // Depends
@@ -2410,6 +2415,10 @@ f _NeedFinalize
 	[\
 	 CONST extprop:pas:Value %f_out_val(%f_fine_string(%S#f_OutValue()))
 	]\
+	]\
+
+	[{%S#f_NeedsInitEntities()=true}\
+	 CONST extprop:NeedsInitEntities true
 	]\
 
 	[{"%S%{Facet}U"!=""}\

@@ -2080,108 +2080,6 @@ ref; // ME_497DCC17001C PrimFilters
 
 FORWARD ME_4CB6D95D003A
 
-FORWARD ME_4CB6D9AE0083
-
-FORWARD ME_835C66E1EEE0
-
-: ME_3E12B4F2734D
- CONST UID '3E12B4F2734D'
- CONST Name 'cfCreateName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Создать фильтр"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_835C66E1EEE0 // cfCreateConstants
- ;
- CONST Value '''cfCreate'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''cfCreate'''
-
-ref; // ME_3E12B4F2734D cfCreateName
-
-: ME_E9BA686D47AA
- CONST UID 'E9BA686D47AA'
- CONST Name 'cfCreate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Создать фильтр' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_835C66E1EEE0 // cfCreateConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_E9BA686D47AA cfCreate
-
-: ME_835C66E1EEE0
- CONST UID '835C66E1EEE0'
- CONST Name 'cfCreateConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы cfCreate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4CB6D9AE0083 // cfCreate
- ;
- : Attributes
-   Seq: ( ME_3E12B4F2734D // cfCreateName
- ME_E9BA686D47AA // cfCreate
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_835C66E1EEE0 cfCreateConstants
-
-FORWARD ME_7495EA783FA6
-
-: ME_4EE1DC8903BB_ME_7495EA783FA6
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_7495EA783FA6 GetInteger
-
-: ME_7495EA783FA6
- CONST UID '7495EA783FA6'
- CONST Name 'Tkw_FormUserType_cfCreate'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы cfCreate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB6D9AE0083 // cfCreate
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_7495EA783FA6 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::cfCreate'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_cfCreate'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_7495EA783FA6 Tkw_FormUserType_cfCreate
-
 : ME_4CB6D9AE0083
  CONST UID '4CB6D9AE0083'
  CONST Name 'cfCreate'
@@ -2193,123 +2091,12 @@ ref; // ME_7495EA783FA6 Tkw_FormUserType_cfCreate
  CONST Abstraction at_final
  : Parent ME_4CB6D95D003A // PrimCreateFilter
  ;
- : Children
-   Seq: ( ME_7495EA783FA6 // Tkw_FormUserType_cfCreate
- )
- ; // Children
- : Constants
-   Seq: ( ME_835C66E1EEE0 // cfCreateConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_cfCreate_UserType.pas'
  CONST extprop:pas:UnitName 'PrimCreateFilter_cfCreate_UserType'
 
 ref; // ME_4CB6D9AE0083 cfCreate
-
-FORWARD ME_4CB6D9D6011D
-
-FORWARD ME_ABE4417A3617
-
-: ME_632C4EE09479
- CONST UID '632C4EE09479'
- CONST Name 'cfRenameName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Переименовать фильтр"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_ABE4417A3617 // cfRenameConstants
- ;
- CONST Value '''cfRename'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''cfRename'''
-
-ref; // ME_632C4EE09479 cfRenameName
-
-: ME_A4E5C8F31696
- CONST UID 'A4E5C8F31696'
- CONST Name 'cfRename'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Переименовать фильтр' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_ABE4417A3617 // cfRenameConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'cfCreate'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(cfCreate + 1)'
-
-ref; // ME_A4E5C8F31696 cfRename
-
-: ME_ABE4417A3617
- CONST UID 'ABE4417A3617'
- CONST Name 'cfRenameConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы cfRename' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4CB6D9D6011D // cfRename
- ;
- : Attributes
-   Seq: ( ME_632C4EE09479 // cfRenameName
- ME_A4E5C8F31696 // cfRename
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_ABE4417A3617 cfRenameConstants
-
-FORWARD ME_2FF26AB6B8E7
-
-: ME_4EE1DC8903BB_ME_2FF26AB6B8E7
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_2FF26AB6B8E7 GetInteger
-
-: ME_2FF26AB6B8E7
- CONST UID '2FF26AB6B8E7'
- CONST Name 'Tkw_FormUserType_cfRename'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы cfRename' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB6D9D6011D // cfRename
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_2FF26AB6B8E7 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::cfRename'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_cfRename'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2FF26AB6B8E7 Tkw_FormUserType_cfRename
 
 : ME_4CB6D9D6011D
  CONST UID '4CB6D9D6011D'
@@ -2326,14 +2113,6 @@ ref; // ME_2FF26AB6B8E7 Tkw_FormUserType_cfRename
    Seq: ( ME_4CB6D9AE0083 // cfCreate
  )
  ; // Inherits
- : Children
-   Seq: ( ME_2FF26AB6B8E7 // Tkw_FormUserType_cfRename
- )
- ; // Children
- : Constants
-   Seq: ( ME_ABE4417A3617 // cfRenameConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_cfRename_UserType.pas'
@@ -4406,7 +4185,6 @@ ref; // ME_571E1AF302D6 FiltersProcessingWordsPack
  WL 'ME_497ED74F0032' '497ED74F0032.pas.ms.script' // Common
  WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
  WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
  WL 'ME_4A8AD3DE0008' '4A8AD3DE0008.pas.ms.script' // ResultEx
@@ -4425,7 +4203,6 @@ ref; // ME_571E1AF302D6 FiltersProcessingWordsPack
  WL 'ME_4CCAACC703B8' '4CCAACC703B8.pas.ms.script' // FiltersInterfaces
  WL 'ME_4CCAACFB0312' '4CCAACFB0312.pas.ms.script' // Filters
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine

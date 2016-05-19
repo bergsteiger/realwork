@@ -8,108 +8,6 @@ FORWARD ME_4AA517B5037A
 
 FORWARD ME_4AA518EB039C
 
-FORWARD ME_4BD84DBE0387
-
-FORWARD ME_7B5906268726
-
-: ME_56F609E623B7
- CONST UID '56F609E623B7'
- CONST Name 'utEmptyMainWindowName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Главное окно"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7B5906268726 // utEmptyMainWindowConstants
- ;
- CONST Value '''utEmptyMainWindow'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utEmptyMainWindow'''
-
-ref; // ME_56F609E623B7 utEmptyMainWindowName
-
-: ME_9A8886754BBD
- CONST UID '9A8886754BBD'
- CONST Name 'utEmptyMainWindow'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Главное окно' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7B5906268726 // utEmptyMainWindowConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_9A8886754BBD utEmptyMainWindow
-
-: ME_7B5906268726
- CONST UID '7B5906268726'
- CONST Name 'utEmptyMainWindowConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utEmptyMainWindow' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD84DBE0387 // utEmptyMainWindow
- ;
- : Attributes
-   Seq: ( ME_56F609E623B7 // utEmptyMainWindowName
- ME_9A8886754BBD // utEmptyMainWindow
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_7B5906268726 utEmptyMainWindowConstants
-
-FORWARD ME_C60FB7FACB58
-
-: ME_4EE1DC8903BB_ME_C60FB7FACB58
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_C60FB7FACB58 GetInteger
-
-: ME_C60FB7FACB58
- CONST UID 'C60FB7FACB58'
- CONST Name 'Tkw_FormUserType_utEmptyMainWindow'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utEmptyMainWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD84DBE0387 // utEmptyMainWindow
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_C60FB7FACB58 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utEmptyMainWindow'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utEmptyMainWindow'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_C60FB7FACB58 Tkw_FormUserType_utEmptyMainWindow
-
 : ME_4BD84DBE0387
  CONST UID '4BD84DBE0387'
  CONST Name 'utEmptyMainWindow'
@@ -121,14 +19,6 @@ ref; // ME_C60FB7FACB58 Tkw_FormUserType_utEmptyMainWindow
  CONST Abstraction at_final
  : Parent ME_4AA518EB039C // PrimAdminMain
  ;
- : Children
-   Seq: ( ME_C60FB7FACB58 // Tkw_FormUserType_utEmptyMainWindow
- )
- ; // Children
- : Constants
-   Seq: ( ME_7B5906268726 // utEmptyMainWindowConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "SettingsCaption" 'Главная панель инструментов'
  CONST "Weight" '-1'
@@ -715,12 +605,9 @@ ref; // ME_4AA517B5037A AdminApp
  WL 'ME_4954D3580364' '4954D3580364.pas.ms.script' // Admin
  WL 'ME_4986ECDF01F4' '4986ECDF01F4.pas.ms.script' // View
  WL 'ME_499AEC6A0372' '499AEC6A0372.pas.ms.script' // F1Test
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A9FD48B02A5' '4A9FD48B02A5.pas.ms.script' // F1 Application Template
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.pas.ms.script' // View
  WL 'ME_4F7C1E2803C5' '4F7C1E2803C5.pas.ms.script' // MainForm
- WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
  )
  ; // Depends
  CONST "F1Like" 'undefined'
@@ -728,6 +615,6 @@ ref; // ME_4AA517B5037A AdminApp
  CONST "needs second icon" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin.dpr'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
- CONST Version 0
+ CONST Version 5
 
 ref; // ME_4AA5181600DC Admin$Shell

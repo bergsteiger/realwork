@@ -50,107 +50,6 @@ FORWARD ME_4FF2EA3A02C6
 
 ref; // ME_4FF2E9E50337 Right
 
-FORWARD ME_4FF2EADD02A4
-
-FORWARD ME_5965CDC436E9
-
-: ME_FF55AAD4CC2F
- CONST UID 'FF55AAD4CC2F'
- CONST Name 'AACContainerName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа ""' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5965CDC436E9 // AACContainerConstants
- ;
- CONST Value '''AACContainer'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''AACContainer'''
-
-ref; // ME_FF55AAD4CC2F AACContainerName
-
-: ME_F6C80C508248
- CONST UID 'F6C80C508248'
- CONST Name 'AACContainer'
- CONST IsSummoned true
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5965CDC436E9 // AACContainerConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_F6C80C508248 AACContainer
-
-: ME_5965CDC436E9
- CONST UID '5965CDC436E9'
- CONST Name 'AACContainerConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы AACContainer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FF2EADD02A4 // AACContainer
- ;
- : Attributes
-   Seq: ( ME_FF55AAD4CC2F // AACContainerName
- ME_F6C80C508248 // AACContainer
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_5965CDC436E9 AACContainerConstants
-
-FORWARD ME_9A24F5DC6B0C
-
-: ME_4EE1DC8903BB_ME_9A24F5DC6B0C
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_9A24F5DC6B0C GetInteger
-
-: ME_9A24F5DC6B0C
- CONST UID '9A24F5DC6B0C'
- CONST Name 'Tkw_FormUserType_AACContainer'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы AACContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FF2EADD02A4 // AACContainer
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_9A24F5DC6B0C // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::AACContainer'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_AACContainer'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_9A24F5DC6B0C Tkw_FormUserType_AACContainer
-
 : ME_4FF2EADD02A4
  CONST UID '4FF2EADD02A4'
  CONST Name 'AACContainer'
@@ -161,122 +60,12 @@ ref; // ME_9A24F5DC6B0C Tkw_FormUserType_AACContainer
  CONST Abstraction at_final
  : Parent ME_4FF2E935019A // AACContainerPrim
  ;
- : Children
-   Seq: ( ME_9A24F5DC6B0C // Tkw_FormUserType_AACContainer
- )
- ; // Children
- : Constants
-   Seq: ( ME_5965CDC436E9 // AACContainerConstants
- )
- ; // Constants
  CONST "ImageIndex" 21
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContainer_UserType.pas'
  CONST extprop:pas:UnitName 'AACContainerPrim_AACContainer_UserType'
 
 ref; // ME_4FF2EADD02A4 AACContainer
-
-FORWARD ME_504879B60226
-
-FORWARD ME_2386CC20A0B8
-
-: ME_3577B9C095A5
- CONST UID '3577B9C095A5'
- CONST Name 'AACContentsContainerName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа ""' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2386CC20A0B8 // AACContentsContainerConstants
- ;
- CONST Value '''AACContentsContainer'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''AACContentsContainer'''
-
-ref; // ME_3577B9C095A5 AACContentsContainerName
-
-: ME_D85580DF8E1E
- CONST UID 'D85580DF8E1E'
- CONST Name 'AACContentsContainer'
- CONST IsSummoned true
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2386CC20A0B8 // AACContentsContainerConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'AACContainer'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(AACContainer + 1)'
-
-ref; // ME_D85580DF8E1E AACContentsContainer
-
-: ME_2386CC20A0B8
- CONST UID '2386CC20A0B8'
- CONST Name 'AACContentsContainerConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы AACContentsContainer' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_504879B60226 // AACContentsContainer
- ;
- : Attributes
-   Seq: ( ME_3577B9C095A5 // AACContentsContainerName
- ME_D85580DF8E1E // AACContentsContainer
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_2386CC20A0B8 AACContentsContainerConstants
-
-FORWARD ME_E2C75713F39C
-
-: ME_4EE1DC8903BB_ME_E2C75713F39C
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_E2C75713F39C GetInteger
-
-: ME_E2C75713F39C
- CONST UID 'E2C75713F39C'
- CONST Name 'Tkw_FormUserType_AACContentsContainer'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы AACContentsContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_504879B60226 // AACContentsContainer
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_E2C75713F39C // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::AACContentsContainer'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_AACContentsContainer'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_E2C75713F39C Tkw_FormUserType_AACContentsContainer
 
 : ME_504879B60226
  CONST UID '504879B60226'
@@ -292,14 +81,6 @@ ref; // ME_E2C75713F39C Tkw_FormUserType_AACContentsContainer
    Seq: ( ME_4FF2EADD02A4 // AACContainer
  )
  ; // Inherits
- : Children
-   Seq: ( ME_E2C75713F39C // Tkw_FormUserType_AACContentsContainer
- )
- ; // Children
- : Constants
-   Seq: ( ME_2386CC20A0B8 // AACContentsContainerConstants
- )
- ; // Constants
  CONST "ImageIndex" 21
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContentsContainer_UserType.pas'
@@ -517,6 +298,10 @@ FORWARD ME_503CD4E9014C
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4FF2E9E50337 // Right
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -651,6 +436,10 @@ ref; // ME_503CB0C80233 pnlLeftTop
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4FF2E9C50114 // Left
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -4931,7 +4720,6 @@ ref; // ME_4FF2E5C70060 AACPrim
  WL 'ME_4BD856E802F9' '4BD856E802F9.pas.ms.script' // FormDefinitions
  WL 'ME_4D1B548F00EE' '4D1B548F00EE.pas.ms.script' // WorkWithDocumentInterfaces
  WL 'ME_4E1352A60292' '4E1352A60292.pas.ms.script' // Editors
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4FD078FF017D' '4FD078FF017D.pas.ms.script' // vtImgLists
  WL 'ME_4FF2E6570285' '4FF2E6570285.pas.ms.script' // AACInterfaces
  WL 'ME_4FF2E66802B4' '4FF2E66802B4.pas.ms.script' // AACImplementation

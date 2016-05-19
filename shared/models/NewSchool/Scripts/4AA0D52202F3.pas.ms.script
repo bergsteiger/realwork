@@ -2169,108 +2169,6 @@ ref; // ME_4AA12AC20374 Tips
 
 FORWARD ME_4AB9DA410090
 
-FORWARD ME_0F70FC525F19
-
-FORWARD ME_835E27F70690
-
-: ME_D5D672660836
- CONST UID 'D5D672660836'
- CONST Name 'ut_StartupTipsName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_835E27F70690 // ut_StartupTipsConstants
- ;
- CONST Value '''ut_StartupTips'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_StartupTips'''
-
-ref; // ME_D5D672660836 ut_StartupTipsName
-
-: ME_465BBEA6BEDF
- CONST UID '465BBEA6BEDF'
- CONST Name 'ut_StartupTips'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Совет дня' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_835E27F70690 // ut_StartupTipsConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_465BBEA6BEDF ut_StartupTips
-
-: ME_835E27F70690
- CONST UID '835E27F70690'
- CONST Name 'ut_StartupTipsConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_StartupTips' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_0F70FC525F19 // ut_StartupTips
- ;
- : Attributes
-   Seq: ( ME_D5D672660836 // ut_StartupTipsName
- ME_465BBEA6BEDF // ut_StartupTips
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_835E27F70690 ut_StartupTipsConstants
-
-FORWARD ME_6A7E228CDA26
-
-: ME_4EE1DC8903BB_ME_6A7E228CDA26
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_6A7E228CDA26 GetInteger
-
-: ME_6A7E228CDA26
- CONST UID '6A7E228CDA26'
- CONST Name 'Tkw_FormUserType_ut_StartupTips'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_StartupTips' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_0F70FC525F19 // ut_StartupTips
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_6A7E228CDA26 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_StartupTips'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_StartupTips'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_6A7E228CDA26 Tkw_FormUserType_ut_StartupTips
-
 : ME_0F70FC525F19
  CONST UID '0F70FC525F19'
  CONST Name 'ut_StartupTips'
@@ -2283,14 +2181,6 @@ ref; // ME_6A7E228CDA26 Tkw_FormUserType_ut_StartupTips
  CONST Abstraction at_final
  : Parent ME_4AB9DA410090 // StartupTips
  ;
- : Children
-   Seq: ( ME_6A7E228CDA26 // Tkw_FormUserType_ut_StartupTips
- )
- ; // Children
- : Constants
-   Seq: ( ME_835E27F70690 // ut_StartupTipsConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -3049,7 +2939,6 @@ ref; // ME_86D7BA65C042 Tkw_Tips_opShowDayTips
  WL 'ME_4C43D64C0168' '4C43D64C0168.pas.ms.script' // Buttons
  WL 'ME_4D1B85BF03E4' '4D1B85BF03E4.pas.ms.script' // BaseDocumentWithAttributesInterfaces
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F635E1901E5' '4F635E1901E5.pas.ms.script' // l3Listeners
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics

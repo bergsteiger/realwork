@@ -46,108 +46,6 @@ ref; // ME_4AF33037035C CM_AFTER_INIT
 
 ref; // ME_4AF3302C022E Messages
 
-FORWARD ME_4BD72A4C0062
-
-FORWARD ME_B6B4C47D6322
-
-: ME_CEAB9602C7C7
- CONST UID 'CEAB9602C7C7'
- CONST Name 'pfImageName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Просмотр графического объекта"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B6B4C47D6322 // pfImageConstants
- ;
- CONST Value '''pfImage'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''pfImage'''
-
-ref; // ME_CEAB9602C7C7 pfImageName
-
-: ME_09C6745F77C4
- CONST UID '09C6745F77C4'
- CONST Name 'pfImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Просмотр графического объекта' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B6B4C47D6322 // pfImageConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_09C6745F77C4 pfImage
-
-: ME_B6B4C47D6322
- CONST UID 'B6B4C47D6322'
- CONST Name 'pfImageConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы pfImage' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD72A4C0062 // pfImage
- ;
- : Attributes
-   Seq: ( ME_CEAB9602C7C7 // pfImageName
- ME_09C6745F77C4 // pfImage
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_B6B4C47D6322 pfImageConstants
-
-FORWARD ME_2E08800C353B
-
-: ME_4EE1DC8903BB_ME_2E08800C353B
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_2E08800C353B GetInteger
-
-: ME_2E08800C353B
- CONST UID '2E08800C353B'
- CONST Name 'Tkw_FormUserType_pfImage'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы pfImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD72A4C0062 // pfImage
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_2E08800C353B // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::pfImage'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_pfImage'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_2E08800C353B Tkw_FormUserType_pfImage
-
 : ME_4BD72A4C0062
  CONST UID '4BD72A4C0062'
  CONST Name 'pfImage'
@@ -159,14 +57,6 @@ ref; // ME_2E08800C353B Tkw_FormUserType_pfImage
  CONST Abstraction at_final
  : Parent ME_4AAFCFB0014B // PrimPicture
  ;
- : Children
-   Seq: ( ME_2E08800C353B // Tkw_FormUserType_pfImage
- )
- ; // Children
- : Constants
-   Seq: ( ME_B6B4C47D6322 // pfImageConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "SettingsCaption" 'Документ: Просмотр графического объекта'
  CONST "Weight" '-1'
@@ -3073,7 +2963,6 @@ ref; // ME_4C86319003CD PrimPictureInfoOptions
  WL 'ME_498874B90391' '498874B90391.pas.ms.script' // Strange
  WL 'ME_499192F203B4' '499192F203B4.pas.ms.script' // L10nInterfaces
  WL 'ME_4991BD69025E' '4991BD69025E.pas.ms.script' // DocumentDomainInterfaces
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
@@ -3085,7 +2974,6 @@ ref; // ME_4C86319003CD PrimPictureInfoOptions
  WL 'ME_4B4DCD0B0295' '4B4DCD0B0295.pas.ms.script' // Common
  WL 'ME_4CDABA8F024B' '4CDABA8F024B.pas.ms.script' // Printing
  WL 'ME_4DDA34AA023B' '4DDA34AA023B.pas.ms.script' // Dialogs
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
  WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils

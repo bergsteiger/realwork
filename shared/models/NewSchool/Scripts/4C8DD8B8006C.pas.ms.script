@@ -8919,108 +8919,6 @@ FORWARD ME_4C8DD8C602D3
 
 FORWARD ME_4C8E4D4F027D
 
-FORWARD ME_57FDA2BA57FE
-
-FORWARD ME_548818E818DA
-
-: ME_F13973A78DC2
- CONST UID 'F13973A78DC2'
- CONST Name 'ut_CustomizeTasksPanelName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Редактор панели задач"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_548818E818DA // ut_CustomizeTasksPanelConstants
- ;
- CONST Value '''ut_CustomizeTasksPanel'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_CustomizeTasksPanel'''
-
-ref; // ME_F13973A78DC2 ut_CustomizeTasksPanelName
-
-: ME_93CCF8E422C0
- CONST UID '93CCF8E422C0'
- CONST Name 'ut_CustomizeTasksPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Редактор панели задач' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_548818E818DA // ut_CustomizeTasksPanelConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_93CCF8E422C0 ut_CustomizeTasksPanel
-
-: ME_548818E818DA
- CONST UID '548818E818DA'
- CONST Name 'ut_CustomizeTasksPanelConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_CustomizeTasksPanel' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_57FDA2BA57FE // ut_CustomizeTasksPanel
- ;
- : Attributes
-   Seq: ( ME_F13973A78DC2 // ut_CustomizeTasksPanelName
- ME_93CCF8E422C0 // ut_CustomizeTasksPanel
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_548818E818DA ut_CustomizeTasksPanelConstants
-
-FORWARD ME_A14F415491A3
-
-: ME_4EE1DC8903BB_ME_A14F415491A3
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_A14F415491A3 GetInteger
-
-: ME_A14F415491A3
- CONST UID 'A14F415491A3'
- CONST Name 'Tkw_FormUserType_ut_CustomizeTasksPanel'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_CustomizeTasksPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_57FDA2BA57FE // ut_CustomizeTasksPanel
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_A14F415491A3 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_CustomizeTasksPanel'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_CustomizeTasksPanel'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_A14F415491A3 Tkw_FormUserType_ut_CustomizeTasksPanel
-
 : ME_57FDA2BA57FE
  CONST UID '57FDA2BA57FE'
  CONST Name 'ut_CustomizeTasksPanel'
@@ -9033,14 +8931,6 @@ ref; // ME_A14F415491A3 Tkw_FormUserType_ut_CustomizeTasksPanel
  CONST Abstraction at_final
  : Parent ME_4C8E4D4F027D // CustomizeTasksPanel
  ;
- : Children
-   Seq: ( ME_A14F415491A3 // Tkw_FormUserType_ut_CustomizeTasksPanel
- )
- ; // Children
- : Constants
-   Seq: ( ME_548818E818DA // ut_CustomizeTasksPanelConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -9717,7 +9607,6 @@ ref; // ME_13B3667E1781 Tkw_TasksPanelMenu_opCustomize
  WL 'ME_47F485150151' '47F485150151.pas.ms.script' // vtCommon
  WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
  WL 'ME_49940C8E00DA' '49940C8E00DA.pas.ms.script' // vcmTaskPanelInterfaces
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.pas.ms.script' // Labels
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
@@ -9726,11 +9615,8 @@ ref; // ME_13B3667E1781 Tkw_TasksPanelMenu_opCustomize
  WL 'ME_4AC5DA5A01AD' '4AC5DA5A01AD.pas.ms.script' // Radio
  WL 'ME_4C43D64C0168' '4C43D64C0168.pas.ms.script' // Buttons
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- WL 'ME_4F69DF560034' '4F69DF560034.pas.ms.script' // ControlsProcessing
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52A1ACC102FE' '52A1ACC102FE.pas.ms.script' // PopupMenu
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  )
  ; // Depends
  CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\TasksPanel'

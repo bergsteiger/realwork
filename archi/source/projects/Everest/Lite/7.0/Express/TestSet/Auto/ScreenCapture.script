@@ -1,15 +1,21 @@
+// Первый тест на сохранение изображения редактора...
 USES
 	QuickTestsUtils.script
 ;
 
-Тест ScreenCapture
+Тест ScreenCapture	
 	Выполнить (
 		"Делать машиннозависимые эталоны"
+		"Убедиться, что фокус в редакторе"
+		OBJECT VAR l_Editor
+		"Контрол в фокусе" >>> l_Editor
 		INTEGER VAR l_Handle
-		"Контрол в фокусе" pop:Control:Handle >>> l_Handle		
+		l_Editor pop:Control:Handle >>> l_Handle		
 		STRING VAR l_FileName
 		script:FileName '.bmp' sysutils:ChangeFileExt
-		sysutils:ExtractFileName >>> l_FileName		
+		sysutils:ExtractFileName >>> l_FileName	
+		l_Editor pop:Control:Repaint	
+		"Обработать сообщения"
 		l_FileName 230 230 30 30 l_Handle ScreenShot2FileWithCheck
 	)
 ;

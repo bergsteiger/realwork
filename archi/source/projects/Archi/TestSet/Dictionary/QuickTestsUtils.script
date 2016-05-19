@@ -822,6 +822,28 @@ PROCEDURE "Вызвать вставку шаблона из меню 'Alt+Ins', указать номер ссылающегося
 	)
 ;
 
+// Вызвать вставку шаблона из меню 'Alt+Ins' и записать ошибку в эталон
+PROCEDURE "Вызвать вставку шаблона из меню 'Alt+Ins' и указать номер ссылающегося топика и записать ошибку в эталон" STRING IN aNumTopic 
+		STRING VAR l_ErrMsg	
+		BOOLEAN VAR l_WasException
+		false >>> l_WasException
+
+		@ ( "Вызвать из меню дочернего окна 'Alt+Ins'" ) MODAL ( 
+			"Набить текст {(aNumTopic)}"
+			"Нажать Enter"
+		)
+
+		true >>> l_WasException
+		current:exception:ClassName >>> l_ErrMsg
+
+	Если ( l_WasException ) 
+		то (
+			'Запроса параметров не было!' >>> l_ErrMsg
+			l_ErrMsg .
+		)
+	
+;
+
 PROCEDURE "Вставить ссылку на ссылающийся документ"
 	OBJECT VAR l_Control
 	"Контрол по имени {('sbMacros')}" >>> l_Control

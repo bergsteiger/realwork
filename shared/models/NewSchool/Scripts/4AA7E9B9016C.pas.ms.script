@@ -847,108 +847,6 @@ ref; // ME_5391A476038A MemoryUsagePrim
 
 FORWARD ME_4F882096008A
 
-FORWARD ME_06C06D8D5AC2
-
-FORWARD ME_7756D1C8B824
-
-: ME_2A0900039ED5
- CONST UID '2A0900039ED5'
- CONST Name 'ut_MemoryUsageName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Используемые ресурсы"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7756D1C8B824 // ut_MemoryUsageConstants
- ;
- CONST Value '''ut_MemoryUsage'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_MemoryUsage'''
-
-ref; // ME_2A0900039ED5 ut_MemoryUsageName
-
-: ME_B26CFB78289E
- CONST UID 'B26CFB78289E'
- CONST Name 'ut_MemoryUsage'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Используемые ресурсы' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7756D1C8B824 // ut_MemoryUsageConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_B26CFB78289E ut_MemoryUsage
-
-: ME_7756D1C8B824
- CONST UID '7756D1C8B824'
- CONST Name 'ut_MemoryUsageConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_MemoryUsage' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_06C06D8D5AC2 // ut_MemoryUsage
- ;
- : Attributes
-   Seq: ( ME_2A0900039ED5 // ut_MemoryUsageName
- ME_B26CFB78289E // ut_MemoryUsage
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_7756D1C8B824 ut_MemoryUsageConstants
-
-FORWARD ME_821C17E6EC53
-
-: ME_4EE1DC8903BB_ME_821C17E6EC53
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_821C17E6EC53 GetInteger
-
-: ME_821C17E6EC53
- CONST UID '821C17E6EC53'
- CONST Name 'Tkw_FormUserType_ut_MemoryUsage'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_MemoryUsage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_06C06D8D5AC2 // ut_MemoryUsage
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_821C17E6EC53 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_MemoryUsage'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_MemoryUsage'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_821C17E6EC53 Tkw_FormUserType_ut_MemoryUsage
-
 : ME_06C06D8D5AC2
  CONST UID '06C06D8D5AC2'
  CONST Name 'ut_MemoryUsage'
@@ -961,14 +859,6 @@ ref; // ME_821C17E6EC53 Tkw_FormUserType_ut_MemoryUsage
  CONST Abstraction at_final
  : Parent ME_4F882096008A // MemoryUsage
  ;
- : Children
-   Seq: ( ME_821C17E6EC53 // Tkw_FormUserType_ut_MemoryUsage
- )
- ; // Children
- : Constants
-   Seq: ( ME_7756D1C8B824 // ut_MemoryUsageConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -1311,7 +1201,6 @@ ref; // ME_4F882096008A MemoryUsage
  WL 'ME_4908A8A20107' '4908A8A20107.pas.ms.script' // OldTree
  WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
  WL 'ME_49804E310263' '49804E310263.pas.ms.script' // PresentationInterfaces
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
  WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.pas.ms.script' // Labels
@@ -1323,7 +1212,6 @@ ref; // ME_4F882096008A MemoryUsage
  WL 'ME_4ADDE3D70311' '4ADDE3D70311.pas.ms.script' // OfficeLikeAppInterfaces
  WL 'ME_4DC00FC302B7' '4DC00FC302B7.pas.ms.script' // MainWindowInterfaces
  WL 'ME_4DC010B802AF' '4DC010B802AF.pas.ms.script' // MainWindowControllersRealization
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_5391D16303CD' '5391D16303CD.pas.ms.script' // DocumentsCacheOperations
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )

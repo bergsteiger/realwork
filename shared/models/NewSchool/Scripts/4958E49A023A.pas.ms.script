@@ -6,108 +6,6 @@ FORWARD ME_4958E49A023A
 
 FORWARD ME_4958E868009C
 
-FORWARD ME_4BD6DC630189
-
-FORWARD ME_729547708B44
-
-: ME_EC8E230C30D2
- CONST UID 'EC8E230C30D2'
- CONST Name 'ut_mmmMainName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "ГАРАНТ-ИнФарм"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_729547708B44 // ut_mmmMainConstants
- ;
- CONST Value '''ut_mmmMain'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_mmmMain'''
-
-ref; // ME_EC8E230C30D2 ut_mmmMainName
-
-: ME_EE1281907F96
- CONST UID 'EE1281907F96'
- CONST Name 'ut_mmmMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'ГАРАНТ-ИнФарм' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_729547708B44 // ut_mmmMainConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_EE1281907F96 ut_mmmMain
-
-: ME_729547708B44
- CONST UID '729547708B44'
- CONST Name 'ut_mmmMainConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_mmmMain' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6DC630189 // ut_mmmMain
- ;
- : Attributes
-   Seq: ( ME_EC8E230C30D2 // ut_mmmMainName
- ME_EE1281907F96 // ut_mmmMain
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_729547708B44 ut_mmmMainConstants
-
-FORWARD ME_6EAA8C65A00A
-
-: ME_4EE1DC8903BB_ME_6EAA8C65A00A
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_6EAA8C65A00A GetInteger
-
-: ME_6EAA8C65A00A
- CONST UID '6EAA8C65A00A'
- CONST Name 'Tkw_FormUserType_ut_mmmMain'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_mmmMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6DC630189 // ut_mmmMain
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_6EAA8C65A00A // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_mmmMain'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_mmmMain'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_6EAA8C65A00A Tkw_FormUserType_ut_mmmMain
-
 : ME_4BD6DC630189
  CONST UID '4BD6DC630189'
  CONST Name 'ut_mmmMain'
@@ -119,14 +17,6 @@ ref; // ME_6EAA8C65A00A Tkw_FormUserType_ut_mmmMain
  CONST Abstraction at_final
  : Parent ME_4958E868009C // InpharmMainMenu
  ;
- : Children
-   Seq: ( ME_6EAA8C65A00A // Tkw_FormUserType_ut_mmmMain
- )
- ; // Children
- : Constants
-   Seq: ( ME_729547708B44 // ut_mmmMainConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_ut_mmmMain_UserType.pas'
@@ -1976,108 +1866,6 @@ ref; // ME_4958E868009C InpharmMainMenu
 
 FORWARD ME_497EE1F10134
 
-FORWARD ME_4BD6C82400DF
-
-FORWARD ME_0F96810338E7
-
-: ME_9A45A3E52338
- CONST UID '9A45A3E52338'
- CONST Name 'mlsfDrugListName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Синхронный просмотр"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F96810338E7 // mlsfDrugListConstants
- ;
- CONST Value '''mlsfDrugList'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''mlsfDrugList'''
-
-ref; // ME_9A45A3E52338 mlsfDrugListName
-
-: ME_2A8A165884B3
- CONST UID '2A8A165884B3'
- CONST Name 'mlsfDrugList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Синхронный просмотр' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F96810338E7 // mlsfDrugListConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_2A8A165884B3 mlsfDrugList
-
-: ME_0F96810338E7
- CONST UID '0F96810338E7'
- CONST Name 'mlsfDrugListConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы mlsfDrugList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6C82400DF // mlsfDrugList
- ;
- : Attributes
-   Seq: ( ME_9A45A3E52338 // mlsfDrugListName
- ME_2A8A165884B3 // mlsfDrugList
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_0F96810338E7 mlsfDrugListConstants
-
-FORWARD ME_4424CD6F753A
-
-: ME_4EE1DC8903BB_ME_4424CD6F753A
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_4424CD6F753A GetInteger
-
-: ME_4424CD6F753A
- CONST UID '4424CD6F753A'
- CONST Name 'Tkw_FormUserType_mlsfDrugList'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы mlsfDrugList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6C82400DF // mlsfDrugList
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_4424CD6F753A // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::mlsfDrugList'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_mlsfDrugList'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_4424CD6F753A Tkw_FormUserType_mlsfDrugList
-
 : ME_4BD6C82400DF
  CONST UID '4BD6C82400DF'
  CONST Name 'mlsfDrugList'
@@ -2089,14 +1877,6 @@ ref; // ME_4424CD6F753A Tkw_FormUserType_mlsfDrugList
  CONST Abstraction at_final
  : Parent ME_497EE1F10134 // PrimMedicListSynchroView
  ;
- : Children
-   Seq: ( ME_4424CD6F753A // Tkw_FormUserType_mlsfDrugList
- )
- ; // Children
- : Constants
-   Seq: ( ME_0F96810338E7 // mlsfDrugListConstants
- )
- ; // Constants
  CONST "ImageIndex" 84
  CONST "NeedOnQueryClose" true
  CONST "VisibleToUser" false
@@ -2105,109 +1885,6 @@ ref; // ME_4424CD6F753A Tkw_FormUserType_mlsfDrugList
  CONST extprop:pas:UnitName 'PrimMedicListSynchroView_mlsfDrugList_UserType'
 
 ref; // ME_4BD6C82400DF mlsfDrugList
-
-FORWARD ME_4BD6C85300DB
-
-FORWARD ME_24F9616C46AC
-
-: ME_9CD20B1F1072
- CONST UID '9CD20B1F1072'
- CONST Name 'mlsfMedicFirmName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Описание"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_24F9616C46AC // mlsfMedicFirmConstants
- ;
- CONST Value '''mlsfMedicFirm'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''mlsfMedicFirm'''
-
-ref; // ME_9CD20B1F1072 mlsfMedicFirmName
-
-: ME_FD746E894860
- CONST UID 'FD746E894860'
- CONST Name 'mlsfMedicFirm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Описание' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_24F9616C46AC // mlsfMedicFirmConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'mlsfDrugList'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(mlsfDrugList + 1)'
-
-ref; // ME_FD746E894860 mlsfMedicFirm
-
-: ME_24F9616C46AC
- CONST UID '24F9616C46AC'
- CONST Name 'mlsfMedicFirmConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы mlsfMedicFirm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6C85300DB // mlsfMedicFirm
- ;
- : Attributes
-   Seq: ( ME_9CD20B1F1072 // mlsfMedicFirmName
- ME_FD746E894860 // mlsfMedicFirm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_24F9616C46AC mlsfMedicFirmConstants
-
-FORWARD ME_81385E47A8E6
-
-: ME_4EE1DC8903BB_ME_81385E47A8E6
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_81385E47A8E6 GetInteger
-
-: ME_81385E47A8E6
- CONST UID '81385E47A8E6'
- CONST Name 'Tkw_FormUserType_mlsfMedicFirm'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы mlsfMedicFirm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6C85300DB // mlsfMedicFirm
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_81385E47A8E6 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::mlsfMedicFirm'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_mlsfMedicFirm'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_81385E47A8E6 Tkw_FormUserType_mlsfMedicFirm
 
 : ME_4BD6C85300DB
  CONST UID '4BD6C85300DB'
@@ -2224,14 +1901,6 @@ ref; // ME_81385E47A8E6 Tkw_FormUserType_mlsfMedicFirm
    Seq: ( ME_4BD6C82400DF // mlsfDrugList
  )
  ; // Inherits
- : Children
-   Seq: ( ME_81385E47A8E6 // Tkw_FormUserType_mlsfMedicFirm
- )
- ; // Children
- : Constants
-   Seq: ( ME_24F9616C46AC // mlsfMedicFirmConstants
- )
- ; // Constants
  CONST "ImageIndex" 84
  CONST "NeedOnQueryClose" true
  CONST "VisibleToUser" false
@@ -2467,6 +2136,10 @@ ref; // ME_9A66435C7A89 LCImplmlsfMedicFirmLocalConstants
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_4C52ECB90313 // ChildZone
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -2887,108 +2560,6 @@ ref; // ME_497EE1F10134 PrimMedicListSynchroView
 
 FORWARD ME_497EE4EB00CB
 
-FORWARD ME_4BD6DE050133
-
-FORWARD ME_925D272DF282
-
-: ME_D0B71F31E29D
- CONST UID 'D0B71F31E29D'
- CONST Name 'mflMainName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Фармацевтические фирмы (полный список)"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_925D272DF282 // mflMainConstants
- ;
- CONST Value '''mflMain'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''mflMain'''
-
-ref; // ME_D0B71F31E29D mflMainName
-
-: ME_B0AD6D5FAD77
- CONST UID 'B0AD6D5FAD77'
- CONST Name 'mflMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Фармацевтические фирмы (полный список)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_925D272DF282 // mflMainConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_B0AD6D5FAD77 mflMain
-
-: ME_925D272DF282
- CONST UID '925D272DF282'
- CONST Name 'mflMainConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы mflMain' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6DE050133 // mflMain
- ;
- : Attributes
-   Seq: ( ME_D0B71F31E29D // mflMainName
- ME_B0AD6D5FAD77 // mflMain
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_925D272DF282 mflMainConstants
-
-FORWARD ME_78C173DDF573
-
-: ME_4EE1DC8903BB_ME_78C173DDF573
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_78C173DDF573 GetInteger
-
-: ME_78C173DDF573
- CONST UID '78C173DDF573'
- CONST Name 'Tkw_FormUserType_mflMain'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы mflMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6DE050133 // mflMain
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_78C173DDF573 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::mflMain'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_mflMain'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_78C173DDF573 Tkw_FormUserType_mflMain
-
 : ME_4BD6DE050133
  CONST UID '4BD6DE050133'
  CONST Name 'mflMain'
@@ -3000,14 +2571,6 @@ ref; // ME_78C173DDF573 Tkw_FormUserType_mflMain
  CONST Abstraction at_final
  : Parent ME_497EE4EB00CB // PrimMedicFirmList
  ;
- : Children
-   Seq: ( ME_78C173DDF573 // Tkw_FormUserType_mflMain
- )
- ; // Children
- : Constants
-   Seq: ( ME_925D272DF282 // mflMainConstants
- )
- ; // Constants
  CONST "ImageIndex" 178
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicFirmList_mflMain_UserType.pas'
@@ -15624,7 +15187,6 @@ ref; // ME_F85B9444EAAD Tkw_Inpharm_opMedicMainMenu
  WL 'ME_4DDA34AA023B' '4DDA34AA023B.pas.ms.script' // Dialogs
  WL 'ME_4E030FC801EB' '4E030FC801EB.pas.ms.script' // BatchServices
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_4F5DB66F02F7' '4F5DB66F02F7.pas.ms.script' // DictionLikeForms
  WL 'ME_4F6B66F8001B' '4F6B66F8001B.pas.ms.script' // FormDefinitions

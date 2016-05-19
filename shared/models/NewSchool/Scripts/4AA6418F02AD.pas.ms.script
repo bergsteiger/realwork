@@ -1495,108 +1495,6 @@ ref; // ME_4AC6324502DA PrimDefineSearchDate
 
 FORWARD ME_4AE8831A02A5
 
-FORWARD ME_4BD7284F0127
-
-FORWARD ME_DC24C7CE0C1D
-
-: ME_50CC6AEFF4EC
- CONST UID '50CC6AEFF4EC'
- CONST Name 'cutOldKeyWordName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Поиск по ситуации"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DC24C7CE0C1D // cutOldKeyWordConstants
- ;
- CONST Value '''cutOldKeyWord'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''cutOldKeyWord'''
-
-ref; // ME_50CC6AEFF4EC cutOldKeyWordName
-
-: ME_14046A134603
- CONST UID '14046A134603'
- CONST Name 'cutOldKeyWord'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поиск по ситуации' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DC24C7CE0C1D // cutOldKeyWordConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_14046A134603 cutOldKeyWord
-
-: ME_DC24C7CE0C1D
- CONST UID 'DC24C7CE0C1D'
- CONST Name 'cutOldKeyWordConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы cutOldKeyWord' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD7284F0127 // cutOldKeyWord
- ;
- : Attributes
-   Seq: ( ME_50CC6AEFF4EC // cutOldKeyWordName
- ME_14046A134603 // cutOldKeyWord
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_DC24C7CE0C1D cutOldKeyWordConstants
-
-FORWARD ME_7A9F8F493C15
-
-: ME_4EE1DC8903BB_ME_7A9F8F493C15
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_7A9F8F493C15 GetInteger
-
-: ME_7A9F8F493C15
- CONST UID '7A9F8F493C15'
- CONST Name 'Tkw_FormUserType_cutOldKeyWord'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы cutOldKeyWord' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD7284F0127 // cutOldKeyWord
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_7A9F8F493C15 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::cutOldKeyWord'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_cutOldKeyWord'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_7A9F8F493C15 Tkw_FormUserType_cutOldKeyWord
-
 : ME_4BD7284F0127
  CONST UID '4BD7284F0127'
  CONST Name 'cutOldKeyWord'
@@ -1608,14 +1506,6 @@ ref; // ME_7A9F8F493C15 Tkw_FormUserType_cutOldKeyWord
  CONST Abstraction at_final
  : Parent ME_4AE8831A02A5 // PrimOldSituationSearch
  ;
- : Children
-   Seq: ( ME_7A9F8F493C15 // Tkw_FormUserType_cutOldKeyWord
- )
- ; // Children
- : Constants
-   Seq: ( ME_DC24C7CE0C1D // cutOldKeyWordConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "SettingsCaption" 'Поиск: По ситуации (Преемственный)'
  CONST "VisibleToUser" false
@@ -1909,6 +1799,10 @@ FORWARD ME_52442DC40123
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_52455C0C027F // ParentZone
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -1955,6 +1849,10 @@ FORWARD ME_52442DE80157
    Seq: ( WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_52455BA80357 // ChildZone
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtPanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -1975,6 +1873,10 @@ ref; // ME_52442DFA00A8 ChildZone
    Seq: ( WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
  )
  ; // Inherits
+ : Zones
+   Seq: ( ME_52455B950253 // MainZone
+ )
+ ; // Zones
  CONST "ControlClass" 'TvtSizeablePanel'
  CONST "pm" true
  CONST "put to dfm" false
@@ -5361,108 +5263,6 @@ ref; // ME_4AA7A4E3032E SituationFilter
 
 FORWARD ME_4AB8CAF1009C
 
-FORWARD ME_7C299D84FEC0
-
-FORWARD ME_F369BAB28BDC
-
-: ME_CC0CCA6CD8A8
- CONST UID 'CC0CCA6CD8A8'
- CONST Name 'ut_DefineSearchDateName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Дата"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F369BAB28BDC // ut_DefineSearchDateConstants
- ;
- CONST Value '''ut_DefineSearchDate'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_DefineSearchDate'''
-
-ref; // ME_CC0CCA6CD8A8 ut_DefineSearchDateName
-
-: ME_29DCDE48CCF2
- CONST UID '29DCDE48CCF2'
- CONST Name 'ut_DefineSearchDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Дата' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F369BAB28BDC // ut_DefineSearchDateConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_29DCDE48CCF2 ut_DefineSearchDate
-
-: ME_F369BAB28BDC
- CONST UID 'F369BAB28BDC'
- CONST Name 'ut_DefineSearchDateConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_DefineSearchDate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_7C299D84FEC0 // ut_DefineSearchDate
- ;
- : Attributes
-   Seq: ( ME_CC0CCA6CD8A8 // ut_DefineSearchDateName
- ME_29DCDE48CCF2 // ut_DefineSearchDate
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_F369BAB28BDC ut_DefineSearchDateConstants
-
-FORWARD ME_C217EF8D894D
-
-: ME_4EE1DC8903BB_ME_C217EF8D894D
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_C217EF8D894D GetInteger
-
-: ME_C217EF8D894D
- CONST UID 'C217EF8D894D'
- CONST Name 'Tkw_FormUserType_ut_DefineSearchDate'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_DefineSearchDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_7C299D84FEC0 // ut_DefineSearchDate
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_C217EF8D894D // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_DefineSearchDate'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_DefineSearchDate'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_C217EF8D894D Tkw_FormUserType_ut_DefineSearchDate
-
 : ME_7C299D84FEC0
  CONST UID '7C299D84FEC0'
  CONST Name 'ut_DefineSearchDate'
@@ -5475,14 +5275,6 @@ ref; // ME_C217EF8D894D Tkw_FormUserType_ut_DefineSearchDate
  CONST Abstraction at_final
  : Parent ME_4AB8CAF1009C // DefineSearchDate
  ;
- : Children
-   Seq: ( ME_C217EF8D894D // Tkw_FormUserType_ut_DefineSearchDate
- )
- ; // Children
- : Constants
-   Seq: ( ME_F369BAB28BDC // ut_DefineSearchDateConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -9997,7 +9789,6 @@ ref; // ME_EF4F904E1214 Tkw_Search_opAttributeSearch
  WL 'ME_4E030FC801EB' '4E030FC801EB.pas.ms.script' // BatchServices
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54F9EC5B0269' '54F9EC5B0269.pas.ms.script' // ContextHistory

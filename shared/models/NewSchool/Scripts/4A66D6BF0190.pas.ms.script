@@ -633,108 +633,6 @@ ref; // ME_4A6EA4310035 AbstractHistory
 
 FORWARD ME_4A6EA44C0038
 
-FORWARD ME_4BD6D5500287
-
-FORWARD ME_78DF316CD779
-
-: ME_6C0354F6E65C
- CONST UID '6C0354F6E65C'
- CONST Name 'cwChatName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Переписка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_78DF316CD779 // cwChatConstants
- ;
- CONST Value '''cwChat'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''cwChat'''
-
-ref; // ME_6C0354F6E65C cwChatName
-
-: ME_523994D16B5B
- CONST UID '523994D16B5B'
- CONST Name 'cwChat'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Переписка' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_78DF316CD779 // cwChatConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_523994D16B5B cwChat
-
-: ME_78DF316CD779
- CONST UID '78DF316CD779'
- CONST Name 'cwChatConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы cwChat' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6D5500287 // cwChat
- ;
- : Attributes
-   Seq: ( ME_6C0354F6E65C // cwChatName
- ME_523994D16B5B // cwChat
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_78DF316CD779 cwChatConstants
-
-FORWARD ME_867977DAFF7B
-
-: ME_4EE1DC8903BB_ME_867977DAFF7B
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_867977DAFF7B GetInteger
-
-: ME_867977DAFF7B
- CONST UID '867977DAFF7B'
- CONST Name 'Tkw_FormUserType_cwChat'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы cwChat' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6D5500287 // cwChat
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_867977DAFF7B // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::cwChat'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_cwChat'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_867977DAFF7B Tkw_FormUserType_cwChat
-
 : ME_4BD6D5500287
  CONST UID '4BD6D5500287'
  CONST Name 'cwChat'
@@ -746,14 +644,6 @@ ref; // ME_867977DAFF7B Tkw_FormUserType_cwChat
  CONST Abstraction at_final
  : Parent ME_4A6EA44C0038 // BaseChatWindow
  ;
- : Children
-   Seq: ( ME_867977DAFF7B // Tkw_FormUserType_cwChat
- )
- ; // Children
- : Constants
-   Seq: ( ME_78DF316CD779 // cwChatConstants
- )
- ; // Constants
  CONST "ImageIndex" 198
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_cwChat_UserType.pas'
@@ -981,6 +871,10 @@ ref; // ME_4A8A992D036A BottomEditor
    Seq: ( ME_4A8A992D036A // BottomEditor
  )
  ; // Attributes
+ : Zones
+   Seq: ( ME_5023B4610143 // Child
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -1063,6 +957,10 @@ ref; // ME_5022910700E4 HistoryEditor
    Seq: ( ME_5022910700E4 // HistoryEditor
  )
  ; // Attributes
+ : Zones
+   Seq: ( ME_5023B478026C // Parent
+ )
+ ; // Zones
  CONST "ControlClass" 'none'
  CONST "pm" true
  CONST "put to dfm" false
@@ -1545,108 +1443,6 @@ ref; // ME_4A6EA44C0038 BaseChatWindow
 
 FORWARD ME_4A6EA45C01C4
 
-FORWARD ME_4BD5B8B90175
-
-FORWARD ME_1038FCD9C2E5
-
-: ME_99D979580505
- CONST UID '99D979580505'
- CONST Name 'utChatHistoryName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "История переписки"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1038FCD9C2E5 // utChatHistoryConstants
- ;
- CONST Value '''utChatHistory'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utChatHistory'''
-
-ref; // ME_99D979580505 utChatHistoryName
-
-: ME_844AA2697F7F
- CONST UID '844AA2697F7F'
- CONST Name 'utChatHistory'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'История переписки' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1038FCD9C2E5 // utChatHistoryConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_844AA2697F7F utChatHistory
-
-: ME_1038FCD9C2E5
- CONST UID '1038FCD9C2E5'
- CONST Name 'utChatHistoryConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utChatHistory' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD5B8B90175 // utChatHistory
- ;
- : Attributes
-   Seq: ( ME_99D979580505 // utChatHistoryName
- ME_844AA2697F7F // utChatHistory
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_1038FCD9C2E5 utChatHistoryConstants
-
-FORWARD ME_77CD8B7C2E26
-
-: ME_4EE1DC8903BB_ME_77CD8B7C2E26
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_77CD8B7C2E26 GetInteger
-
-: ME_77CD8B7C2E26
- CONST UID '77CD8B7C2E26'
- CONST Name 'Tkw_FormUserType_utChatHistory'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utChatHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD5B8B90175 // utChatHistory
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_77CD8B7C2E26 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utChatHistory'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utChatHistory'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_77CD8B7C2E26 Tkw_FormUserType_utChatHistory
-
 : ME_4BD5B8B90175
  CONST UID '4BD5B8B90175'
  CONST Name 'utChatHistory'
@@ -1658,14 +1454,6 @@ ref; // ME_77CD8B7C2E26 Tkw_FormUserType_utChatHistory
  CONST Abstraction at_final
  : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
  ;
- : Children
-   Seq: ( ME_77CD8B7C2E26 // Tkw_FormUserType_utChatHistory
- )
- ; // Children
- : Constants
-   Seq: ( ME_1038FCD9C2E5 // utChatHistoryConstants
- )
- ; // Constants
  CONST "ImageIndex" 197
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_utChatHistory_UserType.pas'
@@ -1979,108 +1767,6 @@ ref; // ME_4A6EA45C01C4 BaseHistoryWindow
 
 FORWARD ME_4AC4EF5600B4
 
-FORWARD ME_4BD5B59500D6
-
-FORWARD ME_48FA187671B2
-
-: ME_FB38468CACBE
- CONST UID 'FB38468CACBE'
- CONST Name 'chatContactsName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Совещание онлайн"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_48FA187671B2 // chatContactsConstants
- ;
- CONST Value '''chatContacts'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''chatContacts'''
-
-ref; // ME_FB38468CACBE chatContactsName
-
-: ME_401B147C2A71
- CONST UID '401B147C2A71'
- CONST Name 'chatContacts'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Совещание онлайн' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_48FA187671B2 // chatContactsConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_401B147C2A71 chatContacts
-
-: ME_48FA187671B2
- CONST UID '48FA187671B2'
- CONST Name 'chatContactsConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы chatContacts' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD5B59500D6 // chatContacts
- ;
- : Attributes
-   Seq: ( ME_FB38468CACBE // chatContactsName
- ME_401B147C2A71 // chatContacts
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_48FA187671B2 chatContactsConstants
-
-FORWARD ME_E8BD11715A28
-
-: ME_4EE1DC8903BB_ME_E8BD11715A28
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_E8BD11715A28 GetInteger
-
-: ME_E8BD11715A28
- CONST UID 'E8BD11715A28'
- CONST Name 'Tkw_FormUserType_chatContacts'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы chatContacts' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD5B59500D6 // chatContacts
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_E8BD11715A28 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::chatContacts'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_chatContacts'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_E8BD11715A28 Tkw_FormUserType_chatContacts
-
 : ME_4BD5B59500D6
  CONST UID '4BD5B59500D6'
  CONST Name 'chatContacts'
@@ -2092,14 +1778,6 @@ ref; // ME_E8BD11715A28 Tkw_FormUserType_chatContacts
  CONST Abstraction at_final
  : Parent ME_4AC4EF5600B4 // PrimContactList
  ;
- : Children
-   Seq: ( ME_E8BD11715A28 // Tkw_FormUserType_chatContacts
- )
- ; // Children
- : Constants
-   Seq: ( ME_48FA187671B2 // chatContactsConstants
- )
- ; // Constants
  CONST "CanClose" true
  CONST "ImageIndex" 195
  CONST "Weight" '-1'
@@ -2107,109 +1785,6 @@ ref; // ME_E8BD11715A28 Tkw_FormUserType_chatContacts
  CONST extprop:pas:UnitName 'PrimContactList_chatContacts_UserType'
 
 ref; // ME_4BD5B59500D6 chatContacts
-
-FORWARD ME_4BD5B5C8019F
-
-FORWARD ME_16939935F296
-
-: ME_9D54E7F97EE7
- CONST UID '9D54E7F97EE7'
- CONST Name 'chatAddContactName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Добавить контакт"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_16939935F296 // chatAddContactConstants
- ;
- CONST Value '''chatAddContact'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''chatAddContact'''
-
-ref; // ME_9D54E7F97EE7 chatAddContactName
-
-: ME_DC4CCBFF47E2
- CONST UID 'DC4CCBFF47E2'
- CONST Name 'chatAddContact'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Добавить контакт' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_16939935F296 // chatAddContactConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 'chatContacts'
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST "suffix expr" '+ 1'
- CONST extprop:pas:Value 'TvcmUserType(chatContacts + 1)'
-
-ref; // ME_DC4CCBFF47E2 chatAddContact
-
-: ME_16939935F296
- CONST UID '16939935F296'
- CONST Name 'chatAddContactConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы chatAddContact' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD5B5C8019F // chatAddContact
- ;
- : Attributes
-   Seq: ( ME_9D54E7F97EE7 // chatAddContactName
- ME_DC4CCBFF47E2 // chatAddContact
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_16939935F296 chatAddContactConstants
-
-FORWARD ME_8616F34666B0
-
-: ME_4EE1DC8903BB_ME_8616F34666B0
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_8616F34666B0 GetInteger
-
-: ME_8616F34666B0
- CONST UID '8616F34666B0'
- CONST Name 'Tkw_FormUserType_chatAddContact'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы chatAddContact' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD5B5C8019F // chatAddContact
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_8616F34666B0 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::chatAddContact'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_chatAddContact'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_8616F34666B0 Tkw_FormUserType_chatAddContact
 
 : ME_4BD5B5C8019F
  CONST UID '4BD5B5C8019F'
@@ -2226,14 +1801,6 @@ ref; // ME_8616F34666B0 Tkw_FormUserType_chatAddContact
    Seq: ( ME_4BD5B59500D6 // chatContacts
  )
  ; // Inherits
- : Children
-   Seq: ( ME_8616F34666B0 // Tkw_FormUserType_chatAddContact
- )
- ; // Children
- : Constants
-   Seq: ( ME_16939935F296 // chatAddContactConstants
- )
- ; // Constants
  CONST "ImageIndex" 196
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_chatAddContact_UserType.pas'
@@ -5759,7 +5326,6 @@ ref; // ME_D4640548703B Tkw_Chat_opOpenContactList
  WL 'ME_4908545802CA' '4908545802CA.pas.ms.script' // DocumentContainers
  WL 'ME_494B947D0127' '494B947D0127.pas.ms.script' // Tree
  WL 'ME_494F898C013E' '494F898C013E.pas.ms.script' // Usual
- WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_49F02FDF02B9' '49F02FDF02B9.pas.ms.script' // ContextFilter
  WL 'ME_4A66B9840002' '4A66B9840002.pas.ms.script' // ChatTypes
  WL 'ME_4A66DD3C01E8' '4A66DD3C01E8.pas.ms.script' // ChatInterfaces
@@ -5779,7 +5345,6 @@ ref; // ME_D4640548703B Tkw_Chat_opOpenContactList
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner
  WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.pas.ms.script' // DocInfo
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine

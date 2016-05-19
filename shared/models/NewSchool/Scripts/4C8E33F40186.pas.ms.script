@@ -71,108 +71,6 @@ FORWARD ME_4C8E340C0148
 
 FORWARD ME_4C8E42D40131
 
-FORWARD ME_5787C08EFD86
-
-FORWARD ME_81ED809B65DF
-
-: ME_956F16D11447
- CONST UID '956F16D11447'
- CONST Name 'ut_CustomizeToolsName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "CustomizeTools"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_81ED809B65DF // ut_CustomizeToolsConstants
- ;
- CONST Value '''ut_CustomizeTools'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ut_CustomizeTools'''
-
-ref; // ME_956F16D11447 ut_CustomizeToolsName
-
-: ME_C958FE9A8F1E
- CONST UID 'C958FE9A8F1E'
- CONST Name 'ut_CustomizeTools'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'CustomizeTools' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_81ED809B65DF // ut_CustomizeToolsConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_C958FE9A8F1E ut_CustomizeTools
-
-: ME_81ED809B65DF
- CONST UID '81ED809B65DF'
- CONST Name 'ut_CustomizeToolsConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы ut_CustomizeTools' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_5787C08EFD86 // ut_CustomizeTools
- ;
- : Attributes
-   Seq: ( ME_956F16D11447 // ut_CustomizeToolsName
- ME_C958FE9A8F1E // ut_CustomizeTools
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_81ED809B65DF ut_CustomizeToolsConstants
-
-FORWARD ME_8436863EEE7B
-
-: ME_4EE1DC8903BB_ME_8436863EEE7B
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_8436863EEE7B GetInteger
-
-: ME_8436863EEE7B
- CONST UID '8436863EEE7B'
- CONST Name 'Tkw_FormUserType_ut_CustomizeTools'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы ut_CustomizeTools' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5787C08EFD86 // ut_CustomizeTools
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_8436863EEE7B // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::ut_CustomizeTools'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_ut_CustomizeTools'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_8436863EEE7B Tkw_FormUserType_ut_CustomizeTools
-
 : ME_5787C08EFD86
  CONST UID '5787C08EFD86'
  CONST Name 'ut_CustomizeTools'
@@ -185,14 +83,6 @@ ref; // ME_8436863EEE7B Tkw_FormUserType_ut_CustomizeTools
  CONST Abstraction at_final
  : Parent ME_4C8E42D40131 // CustomizeTools
  ;
- : Children
-   Seq: ( ME_8436863EEE7B // Tkw_FormUserType_ut_CustomizeTools
- )
- ; // Children
- : Constants
-   Seq: ( ME_81ED809B65DF // ut_CustomizeToolsConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "VisibleToUser" false
  CONST "Weight" '-1'
@@ -1301,10 +1191,8 @@ ref; // ME_9E97CDBDD43D Tkw_ToolbarMenu_opFasten
  WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
  WL 'ME_4B8E967100D5' '4B8E967100D5.pas.ms.script' // vcmL10nImpl
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54817D330211' '54817D330211.pas.ms.script' // ShortcutEdit
- WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends

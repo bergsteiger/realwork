@@ -819,108 +819,6 @@ ref; // ME_4BB346630393 pi_InternetAgent_Scale
 
 ref; // ME_4BB345E00184 Settings IDs
 
-FORWARD ME_4C6274C701D2
-
-FORWARD ME_7D29C85C535C
-
-: ME_CE36DBC3B17C
- CONST UID 'CE36DBC3B17C'
- CONST Name 'utInternetAgentName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Строковый идентификатор пользовательского типа "Новости онлайн"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7D29C85C535C // utInternetAgentConstants
- ;
- CONST Value '''utInternetAgent'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''utInternetAgent'''
-
-ref; // ME_CE36DBC3B17C utInternetAgentName
-
-: ME_2F4E0A6059C3
- CONST UID '2F4E0A6059C3'
- CONST Name 'utInternetAgent'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Новости онлайн' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7D29C85C535C // utInternetAgentConstants
- ;
- : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST Value 0
- : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" true
- CONST extprop:pas:Value 'TvcmUserType(0)'
-
-ref; // ME_2F4E0A6059C3 utInternetAgent
-
-: ME_7D29C85C535C
- CONST UID '7D29C85C535C'
- CONST Name 'utInternetAgentConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Константы для типа формы utInternetAgent' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C6274C701D2 // utInternetAgent
- ;
- : Attributes
-   Seq: ( ME_CE36DBC3B17C // utInternetAgentName
- ME_2F4E0A6059C3 // utInternetAgent
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_7D29C85C535C utInternetAgentConstants
-
-FORWARD ME_59277CFBE1B1
-
-: ME_4EE1DC8903BB_ME_59277CFBE1B1
- : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4EE1DC8903BB_ME_59277CFBE1B1 GetInteger
-
-: ME_59277CFBE1B1
- CONST UID '59277CFBE1B1'
- CONST Name 'Tkw_FormUserType_utInternetAgent'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для типа формы utInternetAgent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C6274C701D2 // utInternetAgent
- ;
- : Inherits
-   Seq: ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4EE1DC8903BB_ME_59277CFBE1B1 // GetInteger
- )
- ; // Overridden
- CONST "NameForScript" 'тип_формы::utInternetAgent'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_FormUserType_utInternetAgent'
- CONST extprop:rc:isAcceptableForScripts true
-
-ref; // ME_59277CFBE1B1 Tkw_FormUserType_utInternetAgent
-
 : ME_4C6274C701D2
  CONST UID '4C6274C701D2'
  CONST Name 'utInternetAgent'
@@ -932,14 +830,6 @@ ref; // ME_59277CFBE1B1 Tkw_FormUserType_utInternetAgent
  CONST Abstraction at_final
  : Parent ME_49EC746B01E5 // PrimInternetAgent
  ;
- : Children
-   Seq: ( ME_59277CFBE1B1 // Tkw_FormUserType_utInternetAgent
- )
- ; // Children
- : Constants
-   Seq: ( ME_7D29C85C535C // utInternetAgentConstants
- )
- ; // Constants
  CONST "ImageIndex" '-1'
  CONST "Weight" '-1'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_utInternetAgent_UserType.pas'
@@ -3646,7 +3536,6 @@ ref; // ME_F132DC06DD1C Tkw_InternetAgent_opInternetAgent
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
  WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  WL 'ME_4F4B8FA60272' '4F4B8FA60272.pas.ms.script' // Implementation
  WL 'ME_4F6B66140294' '4F6B66140294.pas.ms.script' // ParentAndChild
  WL 'ME_4F9BB1120134' '4F9BB1120134.pas.ms.script' // Сюда вынес все сообщения из StdRes с Choices
