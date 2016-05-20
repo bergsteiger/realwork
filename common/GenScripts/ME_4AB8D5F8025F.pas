@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimTreeAttributeFirstLevel_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefTreeAttributeFirstLevel = {final} class(TPrimTreeAttributeFirstLevelForm, TreeAttributeFirstLevelFormDef)
+   Entities : TvcmEntities;
  end;//TefTreeAttributeFirstLevel
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -33,6 +37,8 @@ uses
  , TreeAttributeFirstLevelKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -67,6 +67,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
@@ -672,6 +675,27 @@ begin
  tvConfs.TreeView.Tree.Root := ConfigurationList.ConfigTree;
 //#UC END# *4A8E8F2E0195_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.InitControls
+
+procedure TPrimConfigurationListForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utConfigurationListName,
+  str_utConfigurationListCaption,
+  str_utConfigurationListSettingsCaption,
+  False,
+  74,
+  30,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utConfigurationListName
+ f_tvConfs := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_tvConfs.Name := 'tvConfs';
+ f_tvConfs.Parent := Self;
+end;//TPrimConfigurationListForm.MakeControls
 
 initialization
  str_utConfigurationListCaption.Init;

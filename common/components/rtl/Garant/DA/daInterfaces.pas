@@ -559,6 +559,8 @@ type
    aDocID: TdaDocID;
    UserOrGroupID: TdaUserID;
    UserGr: Boolean): IdaResultSet;
+  procedure AlienCheckUser(anUserID: TdaUserID);
+  procedure AlienUserChanged(anUserID: TdaUserID);
  end;//IdaComboAccessJournalHelper
 
  IdaComboAccessQueryHelper = interface
@@ -598,6 +600,14 @@ type
   procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
   procedure NotifyUserActiveChanged(anUserID: TdaUserID;
    anActive: Boolean);
+  function CSCheckPassword(const aLogin: AnsiString;
+   const aPassword: AnsiString;
+   RequireAdminRights: Boolean;
+   out theUserID: TdaUserID): Boolean;
+  procedure GetUserInfo(aUser: TdaUserID;
+   var aUserName: AnsiString;
+   var aLoginName: AnsiString;
+   var aActFlag: Byte);
   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
   property AllUsers: Tl3StringDataList
    read Get_AllUsers;

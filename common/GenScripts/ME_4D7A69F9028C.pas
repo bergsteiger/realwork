@@ -24,6 +24,7 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
+ , vtPanel
 ;
 
 type
@@ -61,6 +62,9 @@ type
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Common_ShowSplitter_Execute(aVisible: Boolean);
@@ -235,6 +239,32 @@ begin
  Result := nil;
 //#UC END# *53F1C6EF02C9_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.DoGetTabCaption
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimDictionContainerForm.MakeControls;
+begin
+ inherited;
+ f_pnBackground := TvtProportionalPanel.Create(Self);
+ f_pnBackground.Name := 'pnBackground';
+ f_pnBackground.Parent := Self;
+ f_NavigatorZone := TvtSizeablePanel.Create(Self);
+ f_NavigatorZone.Name := 'NavigatorZone';
+ f_NavigatorZone.Parent := pnBackground;
+ with DefineZone(vcm_ztNavigator, f_NavigatorZone) do
+ begin
+ end;//with DefineZone(vcm_ztNavigator
+ f_pnWorkArea := TvtProportionalPanel.Create(Self);
+ f_pnWorkArea.Name := 'pnWorkArea';
+ f_pnWorkArea.Parent := pnBackground;
+ f_ParentZone.Parent := pnWorkArea;
+ f_ChildZone := TvtSizeablePanel.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := pnWorkArea;
+ with DefineZone(vcm_ztChild, f_ChildZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimDictionContainerForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

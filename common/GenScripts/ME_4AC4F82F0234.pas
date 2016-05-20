@@ -71,6 +71,9 @@ type
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsTurnOffTimeMachine): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -433,6 +436,35 @@ begin
  Position := poScreenCenter;
 //#UC END# *529332B40230_4AC4F82F0234_impl*
 end;//TPrimTurnOffTimeMachineForm.SetupFormLayout
+
+procedure TPrimTurnOffTimeMachineForm.MakeControls;
+begin
+ inherited;
+ f_rb_totmChangeDate := TvtRadioButton.Create(Self);
+ f_rb_totmChangeDate.Name := 'rb_totmChangeDate';
+ f_rb_totmChangeDate.Parent := Self;
+ f_rb_totmStayInCurrentRedaction := TvtRadioButton.Create(Self);
+ f_rb_totmStayInCurrentRedaction.Name := 'rb_totmStayInCurrentRedaction';
+ f_rb_totmStayInCurrentRedaction.Parent := Self;
+ f_rb_totmGotoActualRedaction := TvtRadioButton.Create(Self);
+ f_rb_totmGotoActualRedaction.Name := 'rb_totmGotoActualRedaction';
+ f_rb_totmGotoActualRedaction.Parent := Self;
+ f_deChangeDate := TvtDblClickDateEdit.Create(Self);
+ f_deChangeDate.Name := 'deChangeDate';
+ f_deChangeDate.Parent := Self;
+ f_pbDialogIcon := TPaintBox.Create(Self);
+ f_pbDialogIcon.Name := 'pbDialogIcon';
+ f_pbDialogIcon.Parent := Self;
+ f_lblTurnOnTimeMachineInfo := TvtLabel.Create(Self);
+ f_lblTurnOnTimeMachineInfo.Name := 'lblTurnOnTimeMachineInfo';
+ f_lblTurnOnTimeMachineInfo.Parent := Self;
+ f_btnOk := TvtButton.Create(Self);
+ f_btnOk.Name := 'btnOk';
+ f_btnOk.Parent := Self;
+ f_btnCancel := TvtButton.Create(Self);
+ f_btnCancel.Name := 'btnCancel';
+ f_btnCancel.Parent := Self;
+end;//TPrimTurnOffTimeMachineForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

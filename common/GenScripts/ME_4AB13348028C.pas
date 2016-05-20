@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  TDocNumberQueryForm = {final} class(TPrimDocNumberQueryOptionsForm, DocNumberQueryFormDef)
   {* Открыть документ по номеру }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TDocNumberQueryForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_DocNumberQueryLocalConstants }
  str_ut_DocNumberQueryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_DocNumberQueryCaption'; rValue : 'Открыть документ по номеру');
   {* Заголовок пользовательского типа "Открыть документ по номеру" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TDocNumberQueryForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_DocNumberQueryName,
+  str_ut_DocNumberQueryCaption,
+  str_ut_DocNumberQueryCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_DocNumberQueryName
+end;//TDocNumberQueryForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

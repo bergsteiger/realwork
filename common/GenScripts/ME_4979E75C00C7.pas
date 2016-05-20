@@ -47,6 +47,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
    procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
@@ -165,6 +168,18 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.InitControls
+
+procedure TPrimSynchroViewForm.MakeControls;
+begin
+ inherited;
+ f_DocView := TvtPanel.Create(Self);
+ f_DocView.Name := 'DocView';
+ f_DocView.Parent := Self;
+ with DefineZone(vcm_ztChild, f_DocView) do
+ begin
+  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimSynchroViewForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimFoldersElementInfoOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenFoldersElementInfo = {final} class(TPrimFoldersElementInfoOptionsForm, FoldersElementInfoFormDef)
+   Entities : TvcmEntities;
  end;//TenFoldersElementInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -33,6 +37,8 @@ uses
  , FoldersElementInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

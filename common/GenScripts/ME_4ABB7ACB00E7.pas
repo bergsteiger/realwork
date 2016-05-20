@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  TnsRegistrationForm = {final} class(TPrimRegistrationForm, RegistrationFormFormDef)
   {* Регистрация }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TnsRegistrationForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_RegistrationFormLocalConstants }
  str_ut_RegistrationFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_RegistrationFormCaption'; rValue : 'Регистрация');
   {* Заголовок пользовательского типа "Регистрация" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TnsRegistrationForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_RegistrationFormName,
+  str_ut_RegistrationFormCaption,
+  str_ut_RegistrationFormCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_RegistrationFormName
+end;//TnsRegistrationForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

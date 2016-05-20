@@ -130,6 +130,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function FolderElement_GetState_Execute: TFoldersInfoType;
     {* Возвращает статус элемента }
@@ -1441,6 +1444,54 @@ begin
  f_SavedObject := nil;
  inherited;
 end;//TPrimFoldersElementInfoForm.ClearFields
+
+procedure TPrimFoldersElementInfoForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utFoldersPropertyName,
+  str_utFoldersPropertyCaption,
+  str_utFoldersPropertyCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utFoldersPropertyName
+ f_CommentPanel := TvtPanel.Create(Self);
+ f_CommentPanel.Name := 'CommentPanel';
+ f_CommentPanel.Parent := Self;
+ f_ElementComment := TeeMemoWithEditOperations.Create(Self);
+ f_ElementComment.Name := 'ElementComment';
+ f_ElementComment.Parent := CommentPanel;
+ f_CaptionPanel := TvtPanel.Create(Self);
+ f_CaptionPanel.Name := 'CaptionPanel';
+ f_CaptionPanel.Parent := CommentPanel;
+ f_lblComment := TvtLabel.Create(Self);
+ f_lblComment.Name := 'lblComment';
+ f_lblComment.Parent := CaptionPanel;
+ f_TopPanel := TvtPanel.Create(Self);
+ f_TopPanel.Name := 'TopPanel';
+ f_TopPanel.Parent := Self;
+ f_NamePanel := TvtPanel.Create(Self);
+ f_NamePanel.Name := 'NamePanel';
+ f_NamePanel.Parent := TopPanel;
+ f_lblElementName := TvtLabel.Create(Self);
+ f_lblElementName.Name := 'lblElementName';
+ f_lblElementName.Parent := NamePanel;
+ f_ElementName := TnscComboBoxWithReadOnly.Create(Self);
+ f_ElementName.Name := 'ElementName';
+ f_ElementName.Parent := NamePanel;
+ f_cbShared := TvtCheckBox.Create(Self);
+ f_cbShared.Name := 'cbShared';
+ f_cbShared.Parent := NamePanel;
+ f_InfoName := TvtLabel.Create(Self);
+ f_InfoName.Name := 'InfoName';
+ f_InfoName.Parent := Self;
+end;//TPrimFoldersElementInfoForm.MakeControls
 
 initialization
  str_utFoldersPropertyCaption.Init;

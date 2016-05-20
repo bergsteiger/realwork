@@ -12,6 +12,9 @@
   protected
    procedure svSynchroViewQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события svSynchroView.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_SynchroViewUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -30,6 +33,26 @@ const
  {* Локализуемые строки svSynchroViewLocalConstants }
  str_svSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svSynchroViewCaption'; rValue : 'Синхронный просмотр');
   {* Заголовок пользовательского типа "Синхронный просмотр" }
+
+{$If NOT Defined(NoVCM)}
+procedure _SynchroViewUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(svSynchroViewName,
+  str_svSynchroViewCaption,
+  str_svSynchroViewCaption,
+  False,
+  84,
+  20,
+  '',
+  nil,
+  nil,
+  svSynchroViewQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(svSynchroViewName
+end;//_SynchroViewUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else SynchroViewUserTypes_imp_impl}
 

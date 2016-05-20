@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  TefStartupTips = {final} class(TPrimStartupTipsForm, StartupTipsFormDef)
   {* Совет дня }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TefStartupTips
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_StartupTipsLocalConstants }
  str_ut_StartupTipsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_StartupTipsCaption'; rValue : 'Совет дня');
   {* Заголовок пользовательского типа "Совет дня" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TefStartupTips.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_StartupTipsName,
+  str_ut_StartupTipsCaption,
+  str_ut_StartupTipsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_StartupTipsName
+end;//TefStartupTips.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

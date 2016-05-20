@@ -52,6 +52,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure PageInactive; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
    procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
@@ -285,6 +288,44 @@ begin
 //#UC START# *4C52E81603A9_497EE1F10134_impl*
 //#UC END# *4C52E81603A9_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.PageInactive
+
+procedure TPrimMedicListSynchroViewForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(mlsfDrugListName,
+  str_mlsfDrugListCaption,
+  str_mlsfDrugListCaption,
+  False,
+  84,
+  -1,
+  '',
+  nil,
+  nil,
+  mlsfDrugListQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(mlsfDrugListName
+ with AddUsertype(mlsfMedicFirmName,
+  str_mlsfMedicFirmCaption,
+  str_mlsfMedicFirmCaption,
+  False,
+  84,
+  -1,
+  '',
+  nil,
+  nil,
+  mlsfMedicFirmQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(mlsfMedicFirmName
+ f_ztChild := TvtPanel.Create(Self);
+ f_ztChild.Name := 'ztChild';
+ f_ztChild.Parent := Self;
+ with DefineZone(vcm_ztChild, f_ztChild) do
+ begin
+  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimMedicListSynchroViewForm.MakeControls
 
 initialization
  str_mlsfDrugListCaption.Init;

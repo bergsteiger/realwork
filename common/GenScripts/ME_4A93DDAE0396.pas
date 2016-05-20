@@ -83,6 +83,9 @@ type
    {$If NOT Defined(NoVCM)}
    function HasFormFloatingZoneTypeAndVisible: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    constructor Create(const aData: TnsLongProcessData); reintroduce;
    class function Make(const aData: TnsLongProcessData): BadFactoryType; reintroduce;
@@ -431,6 +434,35 @@ begin
  Result := False;
 //#UC END# *523AC062006F_4A93DDAE0396_impl*
 end;//TPrimLongProcessForm.HasFormFloatingZoneTypeAndVisible
+
+procedure TPrimLongProcessForm.MakeControls;
+begin
+ inherited;
+ f_ClientPanel := TvtPanel.Create(Self);
+ f_ClientPanel.Name := 'ClientPanel';
+ f_ClientPanel.Parent := Self;
+ f_MessageLabel := TvtLabel.Create(Self);
+ f_MessageLabel.Name := 'MessageLabel';
+ f_MessageLabel.Parent := ClientPanel;
+ f_BottomPanel := TvtPanel.Create(Self);
+ f_BottomPanel.Name := 'BottomPanel';
+ f_BottomPanel.Parent := Self;
+ f_ProgressBar := TvtGradientWaitbar.Create(Self);
+ f_ProgressBar.Name := 'ProgressBar';
+ f_ProgressBar.Parent := BottomPanel;
+ f_LeftPanel := TvtPanel.Create(Self);
+ f_LeftPanel.Name := 'LeftPanel';
+ f_LeftPanel.Parent := Self;
+ f_Image := TImage.Create(Self);
+ f_Image.Name := 'Image';
+ f_Image.Parent := LeftPanel;
+ f_ButtonPanel := TvtPanel.Create(Self);
+ f_ButtonPanel.Name := 'ButtonPanel';
+ f_ButtonPanel.Parent := Self;
+ f_btnExit := TvtButton.Create(Self);
+ f_btnExit.Name := 'btnExit';
+ f_btnExit.Parent := ButtonPanel;
+end;//TPrimLongProcessForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimDictionOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenDiction = {final} class(TPrimDictionOptionsForm, DictionFormDef)
   {* Толковый словарь }
+   Entities : TvcmEntities;
  end;//TenDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , DictionKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

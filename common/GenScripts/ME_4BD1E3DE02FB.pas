@@ -37,6 +37,9 @@
     {* Обработчик события dftDrugSynchroView.OnQueryOpen }
    procedure dftChronologyQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события dftChronology.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_DocumentUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -162,6 +165,328 @@ const
   {* Заголовок пользовательского типа "Хронология судебного дела" }
  str_dftChronologySettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftChronologySettingsCaption'; rValue : 'Документ: Хронология судебного дела');
   {* Заголовок пользовательского типа "Хронология судебного дела" для настройки панелей инструментов }
+
+{$If NOT Defined(NoVCM)}
+procedure _DocumentUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(dftNoneName,
+  str_dftNoneCaption,
+  str_dftNoneCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftNoneName
+ with AddUsertype(dftDocumentName,
+  str_dftDocumentCaption,
+  str_dftDocumentSettingsCaption,
+  False,
+  21,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftDocumentName
+ with AddUsertype(dftRelatedDocName,
+  str_dftRelatedDocCaption,
+  str_dftRelatedDocSettingsCaption,
+  False,
+  20,
+  30,
+  dftAnnotationName,
+  nil,
+  nil,
+  dftRelatedDocQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftRelatedDocName
+ with AddUsertype(dftDocSynchroViewName,
+  str_dftDocSynchroViewCaption,
+  str_dftDocSynchroViewSettingsCaption,
+  False,
+  30,
+  -1,
+  '',
+  dftDocSynchroViewQueryMaximized,
+  dftDocSynchroViewQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftDocSynchroViewName
+ with AddUsertype(dftRelatedSynchroViewName,
+  str_dftRelatedSynchroViewCaption,
+  str_dftRelatedSynchroViewSettingsCaption,
+  False,
+  30,
+  -1,
+  dftAnnotationSynchroViewName,
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftRelatedSynchroViewName
+ with AddUsertype(dftDictEntryName,
+  str_dftDictEntryCaption,
+  str_dftDictEntrySettingsCaption,
+  False,
+  21,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftDictEntryName
+ with AddUsertype(dftDictSubEntryName,
+  str_dftDictSubEntryCaption,
+  str_dftDictSubEntrySettingsCaption,
+  False,
+  21,
+  -1,
+  '',
+  nil,
+  nil,
+  dftDictSubEntryQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftDictSubEntryName
+ with AddUsertype(dftAnnotationName,
+  str_dftAnnotationCaption,
+  str_dftAnnotationSettingsCaption,
+  False,
+  143,
+  35,
+  '',
+  nil,
+  nil,
+  dftAnnotationQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftAnnotationName
+ with AddUsertype(dftAutoreferatAfterSearchName,
+  str_dftAutoreferatAfterSearchCaption,
+  str_dftAutoreferatAfterSearchSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftAutoreferatAfterSearchName
+ with AddUsertype(dftConsultationName,
+  str_dftConsultationCaption,
+  str_dftConsultationSettingsCaption,
+  False,
+  155,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftConsultationName
+ with AddUsertype(dftTranslationName,
+  str_dftTranslationCaption,
+  str_dftTranslationSettingsCaption,
+  False,
+  167,
+  110,
+  '',
+  dftTranslationQueryMaximized,
+  dftTranslationQueryOpen,
+  dftTranslationQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftTranslationName
+ with AddUsertype(dftAnnotationSynchroViewName,
+  str_dftAnnotationSynchroViewCaption,
+  str_dftAnnotationSynchroViewSettingsCaption,
+  False,
+  143,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftAnnotationSynchroViewName
+ with AddUsertype(dftTipsName,
+  str_dftTipsCaption,
+  str_dftTipsSettingsCaption,
+  False,
+  175,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftTipsName
+ with AddUsertype(dftMedDictEntryName,
+  str_dftMedDictEntryCaption,
+  str_dftMedDictEntrySettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftMedDictEntryName
+ with AddUsertype(dftAutoreferatName,
+  str_dftAutoreferatCaption,
+  str_dftAutoreferatSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftAutoreferatName
+ with AddUsertype(dftDrugName,
+  str_dftDrugCaption,
+  str_dftDrugCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftDrugName
+ with AddUsertype(dftMedicFirmName,
+  str_dftMedicFirmCaption,
+  str_dftMedicFirmCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftMedicFirmName
+ with AddUsertype(dftMedicFirmSynchroViewName,
+  str_dftMedicFirmSynchroViewCaption,
+  str_dftMedicFirmSynchroViewSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  dftMedicFirmSynchroViewQueryMaximized,
+  dftMedicFirmSynchroViewQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftMedicFirmSynchroViewName
+ with AddUsertype(dftDrugSynchroViewName,
+  str_dftDrugSynchroViewCaption,
+  str_dftDrugSynchroViewSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  dftDrugSynchroViewQueryMaximized,
+  dftDrugSynchroViewQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftDrugSynchroViewName
+ with AddUsertype(dftAACLeftName,
+  str_dftAACLeftCaption,
+  str_dftAACLeftSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftAACLeftName
+ with AddUsertype(dftAACRightName,
+  str_dftAACRightCaption,
+  str_dftAACRightSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+  CanHaveToolbars := false;
+ end;//with AddUsertype(dftAACRightName
+ with AddUsertype(dftAACContentsLeftName,
+  str_dftAACContentsLeftCaption,
+  str_dftAACContentsLeftCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+  CanHaveToolbars := false;
+ end;//with AddUsertype(dftAACContentsLeftName
+ with AddUsertype(dftAACContentsRightName,
+  str_dftAACContentsRightCaption,
+  str_dftAACContentsRightCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+  CanHaveToolbars := false;
+ end;//with AddUsertype(dftAACContentsRightName
+ with AddUsertype(dftChronologyName,
+  str_dftChronologyCaption,
+  str_dftChronologySettingsCaption,
+  False,
+  211,
+  130,
+  dftRelatedDocName,
+  nil,
+  nil,
+  dftChronologyQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(dftChronologyName
+end;//_DocumentUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else DocumentUserTypes_imp_impl}
 

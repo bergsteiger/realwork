@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimWarningBaloonOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TTranslation_WarningBaloonForm = {final} class(TPrimWarningBaloonOptionsForm, Translation_WarningBaloonFormDef)
   {* Балон с предупреждением для перевода }
+   Entities : TvcmEntities;
  end;//TTranslation_WarningBaloonForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , Translation_WarningBaloonKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -119,6 +119,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    constructor Create(aOwner: TComponent;
     const aLogin: Il3CString;
@@ -715,6 +718,59 @@ begin
 //#UC END# *520B42AF0115_4A93D80F014F_impl*
 end;//TPrimLoginForm.ShowModal
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimLoginForm.MakeControls;
+begin
+ inherited;
+ f_RegisteredGroupBox := TvtGroupBox.Create(Self);
+ f_RegisteredGroupBox.Name := 'RegisteredGroupBox';
+ f_RegisteredGroupBox.Parent := Self;
+ f_lblLogin := TvtLabel.Create(Self);
+ f_lblLogin.Name := 'lblLogin';
+ f_lblLogin.Parent := RegisteredGroupBox;
+ f_lblPassword := TvtLabel.Create(Self);
+ f_lblPassword.Name := 'lblPassword';
+ f_lblPassword.Parent := RegisteredGroupBox;
+ f_EnterPaintBox := TPaintBox.Create(Self);
+ f_EnterPaintBox.Name := 'EnterPaintBox';
+ f_EnterPaintBox.Parent := RegisteredGroupBox;
+ f_edUserName := TnscComboBoxWithReadOnly.Create(Self);
+ f_edUserName.Name := 'edUserName';
+ f_edUserName.Parent := RegisteredGroupBox;
+ f_edPassword := TnscComboBoxWithPwdChar.Create(Self);
+ f_edPassword.Name := 'edPassword';
+ f_edPassword.Parent := RegisteredGroupBox;
+ f_lblForgetPassword := TvtFocusLabel.Create(Self);
+ f_lblForgetPassword.Name := 'lblForgetPassword';
+ f_lblForgetPassword.Parent := RegisteredGroupBox;
+ f_cbAutoLogin := TvtCheckBox.Create(Self);
+ f_cbAutoLogin.Name := 'cbAutoLogin';
+ f_cbAutoLogin.Parent := RegisteredGroupBox;
+ f_btnOk := TElPopupButton.Create(Self);
+ f_btnOk.Name := 'btnOk';
+ f_btnOk.Parent := RegisteredGroupBox;
+ f_NewUserGroupBox := TvtGroupBox.Create(Self);
+ f_NewUserGroupBox.Name := 'NewUserGroupBox';
+ f_NewUserGroupBox.Parent := Self;
+ f_NewUserLabel := TvtLabel.Create(Self);
+ f_NewUserLabel.Name := 'NewUserLabel';
+ f_NewUserLabel.Parent := NewUserGroupBox;
+ f_NewUserPaintBox := TPaintBox.Create(Self);
+ f_NewUserPaintBox.Name := 'NewUserPaintBox';
+ f_NewUserPaintBox.Parent := NewUserGroupBox;
+ f_lblNewUser := TvtFocusLabel.Create(Self);
+ f_lblNewUser.Name := 'lblNewUser';
+ f_lblNewUser.Parent := NewUserGroupBox;
+ f_HelpPanel := TvtPanel.Create(Self);
+ f_HelpPanel.Name := 'HelpPanel';
+ f_HelpPanel.Parent := Self;
+ f_HelpPaintBox := TPaintBox.Create(Self);
+ f_HelpPaintBox.Name := 'HelpPaintBox';
+ f_HelpPaintBox.Parent := HelpPanel;
+ f_HelpLabel := TvtFocusLabel.Create(Self);
+ f_HelpLabel.Name := 'HelpLabel';
+ f_HelpLabel.Parent := HelpPanel;
+end;//TPrimLoginForm.MakeControls
 
 initialization
 //#UC START# *520B5769020F*

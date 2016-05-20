@@ -41,6 +41,9 @@ type
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsLinkedObjectDescription): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -156,6 +159,14 @@ begin
  ClientWidth := 340;
 //#UC END# *529332B40230_4AB12F7601D3_impl*
 end;//TPrimPictureInfoForm.SetupFormLayout
+
+procedure TPrimPictureInfoForm.MakeControls;
+begin
+ inherited;
+ f_Info := TeeMemoWithEditOperations.Create(Self);
+ f_Info.Name := 'Info';
+ f_Info.Parent := Self;
+end;//TPrimPictureInfoForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,7 @@ type
 
  Tcf_Settings = {final} class(TPrimSettingsForm, SettingsFormDef)
   {* Настройка конфигурации }
+   Entities : TvcmEntities;
  end;//Tcf_Settings
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -48,6 +52,8 @@ uses
  , SettingsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

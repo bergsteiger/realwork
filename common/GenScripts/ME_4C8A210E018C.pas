@@ -13,10 +13,18 @@ uses
  l3IntfUses
  , PrimMain_Form
  , F1_Application_Template_InternalOperations_Controls
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscNavigator
+ {$IfEnd} // Defined(Nemesis)
 ;
 
 type
  TPrimMainOptionsForm = class(TPrimMainForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
    procedure Help_HelpTopics_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -56,6 +64,19 @@ begin
  Application.HelpSystem.ShowTopicHelp(cHelpStartPage, '');
 //#UC END# *4C8A27DA0087_4C8A210E018Cexec_impl*
 end;//TPrimMainOptionsForm.Help_HelpTopics_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMainOptionsForm.MakeControls;
+begin
+ inherited;
+ f_ClientZone.Parent := Self;
+ f_LeftNavigator.Parent := ClientZone;
+{$If Defined(HasRightNavigator)}
+ f_RightNavigator.Parent := ClientZone;
+{$IfEnd} // Defined(HasRightNavigator)
+
+end;//TPrimMainOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

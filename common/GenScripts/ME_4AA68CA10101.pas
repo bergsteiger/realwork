@@ -149,6 +149,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Rubricator_SetListRoot_Execute(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
@@ -779,6 +782,41 @@ begin
 //#UC END# *543E3AA801D0_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimRubricatorForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utRubricatorListName,
+  str_utRubricatorListCaption,
+  str_utRubricatorListSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utRubricatorListName
+ f_RubricatorList := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_RubricatorList.Name := 'RubricatorList';
+ f_RubricatorList.Parent := Self;
+ f_TopPanel := TvtPanel.Create(Self);
+ f_TopPanel.Name := 'TopPanel';
+ f_TopPanel.Parent := Self;
+ f_PaintBox := TPaintBox.Create(Self);
+ f_PaintBox.Name := 'PaintBox';
+ f_PaintBox.Parent := TopPanel;
+ f_NewDocLabel := TnscSimpleEditor.Create(Self);
+ f_NewDocLabel.Name := 'NewDocLabel';
+ f_NewDocLabel.Parent := TopPanel;
+ f_DelimiterPanel := TvtPanel.Create(Self);
+ f_DelimiterPanel.Name := 'DelimiterPanel';
+ f_DelimiterPanel.Parent := Self;
+ f_ExampleTextSource := TnscTextSource.Create(Self);
+ f_ExampleTextSource.Name := 'ExampleTextSource';
+end;//TPrimRubricatorForm.MakeControls
 
 initialization
  str_utRubricatorListCaption.Init;

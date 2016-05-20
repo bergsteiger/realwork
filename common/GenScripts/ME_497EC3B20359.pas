@@ -81,6 +81,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
    procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
@@ -547,6 +550,27 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.InitControls
+
+procedure TPrimSelectedAttributesForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utSelectedAttributesName,
+  str_utSelectedAttributesCaption,
+  str_utSelectedAttributesCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utSelectedAttributesName
+ f_SelectedTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_SelectedTree.Name := 'SelectedTree';
+ f_SelectedTree.Parent := Self;
+end;//TPrimSelectedAttributesForm.MakeControls
 
 initialization
  str_utSelectedAttributesCaption.Init;

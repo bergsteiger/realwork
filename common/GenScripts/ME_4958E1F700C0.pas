@@ -173,6 +173,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property ieIO: TImageEnIO
     read f_ieIO;
@@ -1288,6 +1291,95 @@ begin
 //#UC END# *543E3AA801D0_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMainMenuNewForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utMainMenuNewName,
+  str_utMainMenuNewCaption,
+  str_utMainMenuNewCaption,
+  False,
+  44,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utMainMenuNewName
+ f_pnlMain.Parent := Self;
+ f_pnlBaseSearch := TvtPanel.Create(Self);
+ f_pnlBaseSearch.Name := 'pnlBaseSearch';
+ f_pnlBaseSearch.Parent := pnlMain;
+ f_pnlBaseSearchZone := TvtPanel.Create(Self);
+ f_pnlBaseSearchZone.Name := 'pnlBaseSearchZone';
+ f_pnlBaseSearchZone.Parent := pnlBaseSearch;
+ with DefineZone(vcm_ztMain, f_pnlBaseSearchZone) do
+ begin
+ end;//with DefineZone(vcm_ztMain
+ f_pnlLogo := TvtPanel.Create(Self);
+ f_pnlLogo.Name := 'pnlLogo';
+ f_pnlLogo.Parent := pnlMain;
+ f_pbLogo := TPaintBox.Create(Self);
+ f_pbLogo.Name := 'pbLogo';
+ f_pbLogo.Parent := pnlLogo;
+ f_pnlSearches := TvtPanel.Create(Self);
+ f_pnlSearches.Name := 'pnlSearches';
+ f_pnlSearches.Parent := pnlMain;
+ f_flAttributeSearch := TnscFocusLabel.Create(Self);
+ f_flAttributeSearch.Name := 'flAttributeSearch';
+ f_flAttributeSearch.Parent := pnlSearches;
+ f_flSituationSearch := TnscFocusLabel.Create(Self);
+ f_flSituationSearch.Name := 'flSituationSearch';
+ f_flSituationSearch.Parent := pnlSearches;
+ f_flPublishedSourceSearch := TnscFocusLabel.Create(Self);
+ f_flPublishedSourceSearch.Name := 'flPublishedSourceSearch';
+ f_flPublishedSourceSearch.Parent := pnlSearches;
+ f_flDictionSearch := TnscFocusLabel.Create(Self);
+ f_flDictionSearch.Name := 'flDictionSearch';
+ f_flDictionSearch.Parent := pnlSearches;
+ f_pnlExpert := TvtPanel.Create(Self);
+ f_pnlExpert.Name := 'pnlExpert';
+ f_pnlExpert.Parent := pnlMain;
+ f_pbExpert := TPaintBox.Create(Self);
+ f_pbExpert.Name := 'pbExpert';
+ f_pbExpert.Parent := pnlExpert;
+ f_pnlOnLine := TvtPanel.Create(Self);
+ f_pnlOnLine.Name := 'pnlOnLine';
+ f_pnlOnLine.Parent := pnlMain;
+ f_pbOnLine := TPaintBox.Create(Self);
+ f_pbOnLine.Name := 'pbOnLine';
+ f_pbOnLine.Parent := pnlOnLine;
+ f_pbIntranet := TPaintBox.Create(Self);
+ f_pbIntranet.Name := 'pbIntranet';
+ f_pbIntranet.Parent := pnlOnLine;
+ f_pbCourtsOnline := TPaintBox.Create(Self);
+ f_pbCourtsOnline.Name := 'pbCourtsOnline';
+ f_pbCourtsOnline.Parent := pnlOnLine;
+ f_pbCourtsOnline.Caption := 'Онлайн-архив';
+ f_hfTaxes := TnscHideField.Create(Self);
+ f_hfTaxes.Name := 'hfTaxes';
+ f_hfTaxes.Parent := pnlMain;
+ f_tvTaxes := TnscTreeViewHotTruck.Create(Self);
+ f_tvTaxes.Name := 'tvTaxes';
+ f_tvTaxes.Parent := hfTaxes;
+ f_pnlBanner := TvtPanel.Create(Self);
+ f_pnlBanner.Name := 'pnlBanner';
+ f_pnlBanner.Parent := pnlMain;
+ f_ieBanner := TImageEnView.Create(Self);
+ f_ieBanner.Name := 'ieBanner';
+ f_ieBanner.Parent := pnlBanner;
+ f_hfLastOpenDocs.Parent := pnlMain;
+ f_hfLastOpenDocs.Caption := 'Последние открытые документы';
+ f_hfLastOpenDocsRightEdge := TvtPanel.Create(Self);
+ f_hfLastOpenDocsRightEdge.Name := 'hfLastOpenDocsRightEdge';
+ f_hfLastOpenDocsRightEdge.Parent := hfLastOpenDocs;
+ f_ieIO := TImageEnIO.Create(Self);
+ f_ieIO.Name := 'ieIO';
+end;//TPrimMainMenuNewForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utMainMenuNewCaption.Init;

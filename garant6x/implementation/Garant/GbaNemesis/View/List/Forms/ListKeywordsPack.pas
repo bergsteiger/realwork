@@ -31,12 +31,15 @@ uses
  {$If Defined(Nemesis)}
  , nscReminder
  {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
  , vtPanel
  , nscDocumentListTreeView
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
- , vtFocusLabel
+ , vtStyledFocusLabel
  , tfwControlString
  , kwBynameControlPush
  , TtfwClassRef_Proxy
@@ -114,6 +117,23 @@ type
     const aCtx: TtfwContext); override;
  end;//TkwEfListRemTimeMachineWarning
 
+ TkwEfListEmptyListEditor = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TefList.EmptyListEditor }
+  private
+   function EmptyListEditor(const aCtx: TtfwContext;
+    aefList: TefList): TnscEditor;
+    {* Реализация слова скрипта .TefList.EmptyListEditor }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+ end;//TkwEfListEmptyListEditor
+
  TkwEfListListPanel = {final} class(TtfwPropertyLike)
   {* Слово скрипта .TefList.ListPanel }
   private
@@ -186,7 +206,7 @@ type
   {* Слово скрипта .TefList.ExSearchLabel }
   private
    function ExSearchLabel(const aCtx: TtfwContext;
-    aefList: TefList): TvtFocusLabel;
+    aefList: TefList): TvtStyledFocusLabel;
     {* Реализация слова скрипта .TefList.ExSearchLabel }
   protected
    class function GetWordNameForRegister: AnsiString; override;
@@ -293,6 +313,27 @@ type
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_List_Control_remTimeMachineWarning_Push
+
+ Tkw_List_Control_EmptyListEditor = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола EmptyListEditor
+----
+*Пример использования*:
+[code]контрол::EmptyListEditor TryFocus ASSERT[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_List_Control_EmptyListEditor
+
+ Tkw_List_Control_EmptyListEditor_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола EmptyListEditor
+----
+*Пример использования*:
+[code]контрол::EmptyListEditor:push pop:control:SetFocus ASSERT[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_List_Control_EmptyListEditor_Push
 
  Tkw_List_Control_ListPanel = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола ListPanel
@@ -591,6 +632,54 @@ begin
  aCtx.rEngine.PushObj(remTimeMachineWarning(aCtx, l_aefList));
 end;//TkwEfListRemTimeMachineWarning.DoDoIt
 
+function TkwEfListEmptyListEditor.EmptyListEditor(const aCtx: TtfwContext;
+ aefList: TefList): TnscEditor;
+ {* Реализация слова скрипта .TefList.EmptyListEditor }
+begin
+ Result := aefList.EmptyListEditor;
+end;//TkwEfListEmptyListEditor.EmptyListEditor
+
+class function TkwEfListEmptyListEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TefList.EmptyListEditor';
+end;//TkwEfListEmptyListEditor.GetWordNameForRegister
+
+function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TnscEditor);
+end;//TkwEfListEmptyListEditor.GetResultTypeInfo
+
+function TkwEfListEmptyListEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwEfListEmptyListEditor.GetAllParamsCount
+
+function TkwEfListEmptyListEditor.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
+end;//TkwEfListEmptyListEditor.ParamsTypes
+
+procedure TkwEfListEmptyListEditor.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству EmptyListEditor', aCtx);
+end;//TkwEfListEmptyListEditor.SetValuePrim
+
+procedure TkwEfListEmptyListEditor.DoDoIt(const aCtx: TtfwContext);
+var l_aefList: TefList;
+begin
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EmptyListEditor(aCtx, l_aefList));
+end;//TkwEfListEmptyListEditor.DoDoIt
+
 function TkwEfListListPanel.ListPanel(const aCtx: TtfwContext;
  aefList: TefList): TvtPanel;
  {* Реализация слова скрипта .TefList.ListPanel }
@@ -784,7 +873,7 @@ begin
 end;//TkwEfListExSearchPanel.DoDoIt
 
 function TkwEfListExSearchLabel.ExSearchLabel(const aCtx: TtfwContext;
- aefList: TefList): TvtFocusLabel;
+ aefList: TefList): TvtStyledFocusLabel;
  {* Реализация слова скрипта .TefList.ExSearchLabel }
 begin
  Result := aefList.ExSearchLabel;
@@ -797,7 +886,7 @@ end;//TkwEfListExSearchLabel.GetWordNameForRegister
 
 function TkwEfListExSearchLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := TypeInfo(TvtFocusLabel);
+ Result := TypeInfo(TvtStyledFocusLabel);
 end;//TkwEfListExSearchLabel.GetResultTypeInfo
 
 function TkwEfListExSearchLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -955,6 +1044,33 @@ begin
  Result := 'контрол::remTimeMachineWarning:push';
 end;//Tkw_List_Control_remTimeMachineWarning_Push.GetWordNameForRegister
 
+function Tkw_List_Control_EmptyListEditor.GetString: AnsiString;
+begin
+ Result := 'EmptyListEditor';
+end;//Tkw_List_Control_EmptyListEditor.GetString
+
+class procedure Tkw_List_Control_EmptyListEditor.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
+end;//Tkw_List_Control_EmptyListEditor.RegisterInEngine
+
+class function Tkw_List_Control_EmptyListEditor.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EmptyListEditor';
+end;//Tkw_List_Control_EmptyListEditor.GetWordNameForRegister
+
+procedure Tkw_List_Control_EmptyListEditor_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('EmptyListEditor');
+ inherited;
+end;//Tkw_List_Control_EmptyListEditor_Push.DoDoIt
+
+class function Tkw_List_Control_EmptyListEditor_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::EmptyListEditor:push';
+end;//Tkw_List_Control_EmptyListEditor_Push.GetWordNameForRegister
+
 function Tkw_List_Control_ListPanel.GetString: AnsiString;
 begin
  Result := 'ListPanel';
@@ -1071,7 +1187,7 @@ end;//Tkw_List_Control_ExSearchLabel.GetString
 class procedure Tkw_List_Control_ExSearchLabel.RegisterInEngine;
 begin
  inherited;
- TtfwClassRef.Register(TvtFocusLabel);
+ TtfwClassRef.Register(TvtStyledFocusLabel);
 end;//Tkw_List_Control_ExSearchLabel.RegisterInEngine
 
 class function Tkw_List_Control_ExSearchLabel.GetWordNameForRegister: AnsiString;
@@ -1099,6 +1215,8 @@ initialization
  {* Регистрация efList_remListModified }
  TkwEfListRemTimeMachineWarning.RegisterInEngine;
  {* Регистрация efList_remTimeMachineWarning }
+ TkwEfListEmptyListEditor.RegisterInEngine;
+ {* Регистрация efList_EmptyListEditor }
  TkwEfListListPanel.RegisterInEngine;
  {* Регистрация efList_ListPanel }
  TkwEfListTvList.RegisterInEngine;
@@ -1127,6 +1245,10 @@ initialization
  {* Регистрация Tkw_List_Control_remTimeMachineWarning }
  Tkw_List_Control_remTimeMachineWarning_Push.RegisterInEngine;
  {* Регистрация Tkw_List_Control_remTimeMachineWarning_Push }
+ Tkw_List_Control_EmptyListEditor.RegisterInEngine;
+ {* Регистрация Tkw_List_Control_EmptyListEditor }
+ Tkw_List_Control_EmptyListEditor_Push.RegisterInEngine;
+ {* Регистрация Tkw_List_Control_EmptyListEditor_Push }
  Tkw_List_Control_ListPanel.RegisterInEngine;
  {* Регистрация Tkw_List_Control_ListPanel }
  Tkw_List_Control_ListPanel_Push.RegisterInEngine;
@@ -1153,14 +1275,16 @@ initialization
  {* Регистрация типа TnscRemindersLine }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));
  {* Регистрация типа TnscReminder }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
+ {* Регистрация типа TnscEditor }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscDocumentListTreeView));
  {* Регистрация типа TnscDocumentListTreeView }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));
  {* Регистрация типа TnscContextFilter }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TvtFocusLabel));
- {* Регистрация типа TvtFocusLabel }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStyledFocusLabel));
+ {* Регистрация типа TvtStyledFocusLabel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

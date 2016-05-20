@@ -76,6 +76,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure ListInfo_BecomeActive_Execute;
    procedure ListInfo_BecomeActive(const aParams: IvcmExecuteParamsPrim);
@@ -290,6 +293,16 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DEC900012_impl*
 end;//TPrimListInfoForm.InitControls
+
+procedure TPrimListInfoForm.MakeControls;
+begin
+ inherited;
+ f_ListInfoViewer := TnscEditor.Create(Self);
+ f_ListInfoViewer.Name := 'ListInfoViewer';
+ f_ListInfoViewer.Parent := Self;
+ f_TextSource := TnscTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+end;//TPrimListInfoForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

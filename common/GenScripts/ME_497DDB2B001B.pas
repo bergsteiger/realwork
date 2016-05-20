@@ -37,7 +37,7 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
- , vtFocusLabel
+ , vtStyledFocusLabel
  , FoldersDomainInterfaces
  , l3TreeInterfaces
  , FiltersUnit
@@ -220,7 +220,9 @@ type
 
  _ListUserTypes_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas}
- _PageControlNotification_Parent_ = _ListUserTypes_;
+ _evStyleTableListener_Parent_ = _ListUserTypes_;
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
+ _PageControlNotification_Parent_ = _evStyleTableListener_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _BaseDocument_Parent_ = _PageControlNotification_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
@@ -243,7 +245,7 @@ type
     {* Поле для свойства cfList }
    f_ExSearchPanel: TvtPanel;
     {* Поле для свойства ExSearchPanel }
-   f_ExSearchLabel: TvtFocusLabel;
+   f_ExSearchLabel: TvtStyledFocusLabel;
     {* Поле для свойства ExSearchLabel }
    f_CanSwithToFullList: Boolean;
     {* Поле для свойства CanSwithToFullList }
@@ -390,6 +392,9 @@ type
    function FindBackSupported: Boolean;
    function FindBackEnabled: Boolean;
    function FragmentsCountSuffix: Il3CString;
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure DoStyleTableChanged; override;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure FillList(const aList: InscStatusBarItemDefsList); override;
     {* Заполняет список операций. Для перекрытия в потомках }
    function AllowPrompts: Boolean;
@@ -519,6 +524,9 @@ type
    {$If NOT Defined(NoVCM)}
    function NeedLoadFormStateForClone(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure OpenDocument(const aDoc: IdeDocInfo;
@@ -775,6 +783,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -1052,6 +1063,8 @@ begin
 end;//TPrimListFormState.FinishDataUpdate
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas}
+
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
@@ -2788,6 +2801,23 @@ begin
  Result := nil;
 //#UC END# *49FFD8230333_497DDB2B001B_impl*
 end;//TPrimListForm.FragmentsCountSuffix
+
+{$If NOT Defined(DesignTimeLibrary)}
+procedure TPrimListForm.DoStyleTableChanged;
+//#UC START# *4A485B710126_497DDB2B001B_var*
+//#UC END# *4A485B710126_497DDB2B001B_var*
+begin
+//#UC START# *4A485B710126_497DDB2B001B_impl*
+ IafwStyleTableSpy(ExSearchLabel).StyleTableChanged;
+
+ with ExSearchLabel do
+ begin
+  Left := ExSearchPanel.ClientWidth - 15 - Width;
+  ExSearchPanel.Height := Height + 5;
+ end;
+//#UC END# *4A485B710126_497DDB2B001B_impl*
+end;//TPrimListForm.DoStyleTableChanged
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TPrimListForm.FillList(const aList: InscStatusBarItemDefsList);
  {* Заполняет список операций. Для перекрытия в потомках }
@@ -4541,6 +4571,26 @@ begin
  Result := False;
 //#UC END# *561CB1350027_497DDB2B001B_impl*
 end;//TPrimListForm.NeedLoadFormStateForClone
+
+procedure TPrimListForm.MakeControls;
+begin
+ inherited;
+ f_ListPanel := TvtPanel.Create(Self);
+ f_ListPanel.Name := 'ListPanel';
+ f_ListPanel.Parent := Self;
+ f_tvList := TnscDocumentListTreeView.Create(Self);
+ f_tvList.Name := 'tvList';
+ f_tvList.Parent := ListPanel;
+ f_cfList := TnscContextFilter.Create(Self);
+ f_cfList.Name := 'cfList';
+ f_cfList.Parent := ListPanel;
+ f_ExSearchPanel := TvtPanel.Create(Self);
+ f_ExSearchPanel.Name := 'ExSearchPanel';
+ f_ExSearchPanel.Parent := ListPanel;
+ f_ExSearchLabel := TvtStyledFocusLabel.Create(Self);
+ f_ExSearchLabel.Name := 'ExSearchLabel';
+ f_ExSearchLabel.Parent := ExSearchPanel;
+end;//TPrimListForm.MakeControls
 
 initialization
  str_ListFooterCaption.Init;

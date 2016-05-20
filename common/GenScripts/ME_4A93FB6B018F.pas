@@ -43,6 +43,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property ShellCaptionLabel: TvtLabel
     read f_ShellCaptionLabel;
@@ -155,6 +158,20 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A93FB6B018F_impl*
 end;//TPrimEULAForm.InitControls
+
+procedure TPrimEULAForm.MakeControls;
+begin
+ inherited;
+ f_ShellCaptionLabel := TvtLabel.Create(Self);
+ f_ShellCaptionLabel.Name := 'ShellCaptionLabel';
+ f_ShellCaptionLabel.Parent := Self;
+ f_OkButton := TvtButton.Create(Self);
+ f_OkButton.Name := 'OkButton';
+ f_OkButton.Parent := Self;
+ f_eeMemoWithEditOperations1 := TeeMemoWithEditOperations.Create(Self);
+ f_eeMemoWithEditOperations1.Name := 'eeMemoWithEditOperations1';
+ f_eeMemoWithEditOperations1.Parent := Self;
+end;//TPrimEULAForm.MakeControls
 
 initialization
  str_EULAText.Init;

@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -32,6 +35,7 @@ type
 
  TShutDownForm = {final} class(TPrimShutDownForm, ShutDownFormDef)
   {* Предупреждение }
+   Entities : TvcmEntities;
  end;//TShutDownForm
 
 implementation
@@ -45,6 +49,8 @@ uses
  , ShutDownKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

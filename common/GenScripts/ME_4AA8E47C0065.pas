@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimUserPropertyOptions_Form
  , Admin_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefUserProperty = {final} class(TPrimUserPropertyOptionsForm, UserPropertyFormDef)
   {* Свойства пользователя }
+   Entities : TvcmEntities;
  end;//TefUserProperty
 {$IfEnd} // Defined(Admin)
 
@@ -35,6 +39,8 @@ uses
  , UserPropertyKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimContentsOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TContentsForm = {final} class(TPrimContentsOptionsForm, ContentsFormDef)
   {* Структура документа }
+   Entities : TvcmEntities;
  end;//TContentsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , ContentsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

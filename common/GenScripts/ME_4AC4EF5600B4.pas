@@ -127,6 +127,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild: IbsContactList; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -792,6 +795,46 @@ begin
  Windows.SetFocus(trContactList.Handle);
 //#UC END# *4F7C65380244_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.FormInsertedIntoContainer
+
+procedure TPrimContactListForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(chatContactsName,
+  str_chatContactsCaption,
+  str_chatContactsCaption,
+  False,
+  195,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccEnable) do
+ begin
+ end;//with AddUsertype(chatContactsName
+ with AddUsertype(chatAddContactName,
+  str_chatAddContactCaption,
+  str_chatAddContactCaption,
+  False,
+  196,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(chatAddContactName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_trContactList := TeeTreeView.Create(Self);
+ f_trContactList.Name := 'trContactList';
+ f_trContactList.Parent := BackgroundPanel;
+end;//TPrimContactListForm.MakeControls
 
 initialization
  str_chatContactsCaption.Init;

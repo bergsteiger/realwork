@@ -141,6 +141,9 @@ type
    function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function nsIsQueryTypeCompatibleToQueryFormType(aQueryType: TQueryType;
     aFormType: TvcmUserType): Boolean;
@@ -2043,6 +2046,27 @@ begin
  end;
 //#UC END# *55127A5401DE_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.IsAcceptable
+
+procedure TPrimSaveLoadForm.MakeControls;
+begin
+ inherited;
+ f_pnHeader := TvtPanel.Create(Self);
+ f_pnHeader.Name := 'pnHeader';
+ f_pnHeader.Parent := Self;
+ f_lbHeader := TvtLabel.Create(Self);
+ f_lbHeader.Name := 'lbHeader';
+ f_lbHeader.Parent := pnHeader;
+ f_pbHeader := TPaintBox.Create(Self);
+ f_pbHeader.Name := 'pbHeader';
+ f_pbHeader.Parent := pnHeader;
+ f_ParentZone := TvtPanel.Create(Self);
+ f_ParentZone.Name := 'ParentZone';
+ f_ParentZone.Parent := Self;
+ with DefineZone(vcm_ztParent, f_ParentZone) do
+ begin
+  FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimSaveLoadForm.MakeControls
 
 initialization
  str_WellDone.Init;

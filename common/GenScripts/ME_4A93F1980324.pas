@@ -68,6 +68,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aProgress: InsProgressIndicator;
     const aCaption: Il3CString;
@@ -290,6 +293,24 @@ begin
  f_Scene.ActiveControl := f_CancelButton;
 //#UC END# *4A8E8F2E0195_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.InitControls
+
+procedure TPrimProgressIndicatorForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utProgressIndicatorName,
+  str_utProgressIndicatorCaption,
+  str_utProgressIndicatorSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utProgressIndicatorName
+end;//TPrimProgressIndicatorForm.MakeControls
 
 initialization
  str_utProgressIndicatorCaption.Init;

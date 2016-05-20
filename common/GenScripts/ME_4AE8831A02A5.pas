@@ -109,6 +109,9 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function SearchParameters_IsQueryEmpty_Execute: Boolean;
    procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
@@ -464,6 +467,58 @@ begin
  f_FormState := nil;
  inherited;
 end;//TPrimOldSituationSearchForm.ClearFields
+
+procedure TPrimOldSituationSearchForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(cutOldKeyWordName,
+  str_cutOldKeyWordCaption,
+  str_cutOldKeyWordSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cutOldKeyWordName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_InnerBackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_InnerBackgroundPanel.Name := 'InnerBackgroundPanel';
+ f_InnerBackgroundPanel.Parent := BackgroundPanel;
+ f_BotomPanel := TvtSizeablePanel.Create(Self);
+ f_BotomPanel.Name := 'BotomPanel';
+ f_BotomPanel.Parent := InnerBackgroundPanel;
+ f_ParentZone := TvtPanel.Create(Self);
+ f_ParentZone.Name := 'ParentZone';
+ f_ParentZone.Parent := BotomPanel;
+ with DefineZone(vcm_ztParent, f_ParentZone) do
+ begin
+  FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
+ end;//with DefineZone(vcm_ztParent
+ f_ZoneContainer := TvtProportionalPanel.Create(Self);
+ f_ZoneContainer.Name := 'ZoneContainer';
+ f_ZoneContainer.Parent := InnerBackgroundPanel;
+ f_ChildZone := TvtPanel.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := ZoneContainer;
+ with DefineZone(vcm_ztChild, f_ChildZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_MainZone := TvtSizeablePanel.Create(Self);
+ f_MainZone.Name := 'MainZone';
+ f_MainZone.Parent := ZoneContainer;
+ with DefineZone(vcm_ztMain, f_MainZone) do
+ begin
+ end;//with DefineZone(vcm_ztMain
+end;//TPrimOldSituationSearchForm.MakeControls
 
 initialization
  str_cutOldKeyWordCaption.Init;

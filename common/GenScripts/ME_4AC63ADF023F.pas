@@ -61,6 +61,9 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    {$If NOT Defined(NoVCM)}
    procedure DoOnShowModal; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsConfigSettingsInfo): Il3CommandTarget; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -362,6 +365,24 @@ begin
  //http://mdp.garant.ru/pages/viewpage.action?pageId=567555348
 //#UC END# *5445EA440078_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.DoOnShowModal
+
+procedure TPrimSettingsForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(cutSettingsName,
+  str_cutSettingsCaption,
+  str_cutSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cutSettingsName
+end;//TPrimSettingsForm.MakeControls
 
 initialization
  str_cutSettingsCaption.Init;

@@ -193,6 +193,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Openable_OpenInNewWindow_Test(const aParams: IvcmTestParamsPrim);
    procedure Openable_OpenInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -1942,6 +1945,37 @@ begin
   l_RH.ReleaseResources;
 //#UC END# *538C374A00B7_4C7F801D0304_impl*
 end;//TExTextOptionsForm.ReleaseResources
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TExTextOptionsForm.MakeControls;
+begin
+ inherited;
+ f_RemindersLine := TnscRemindersLine.Create(Self);
+ f_RemindersLine.Name := 'RemindersLine';
+ f_RemindersLine.Parent := Self;
+ with DefineZone(vcm_ztChild, f_RemindersLine) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_WarnTimeMachineException := TnscReminder.Create(RemindersLine);
+ f_WarnTimeMachineException.Name := 'WarnTimeMachineException';
+ f_WarnIsAbolished := TnscReminder.Create(RemindersLine);
+ f_WarnIsAbolished.Name := 'WarnIsAbolished';
+ f_WarnPreActive := TnscReminder.Create(RemindersLine);
+ f_WarnPreActive.Name := 'WarnPreActive';
+ f_WarnTimeMachineWarning := TnscReminder.Create(RemindersLine);
+ f_WarnTimeMachineWarning.Name := 'WarnTimeMachineWarning';
+ f_WarnOnControl := TnscReminder.Create(RemindersLine);
+ f_WarnOnControl.Name := 'WarnOnControl';
+ f_WarnJuror := TnscReminder.Create(RemindersLine);
+ f_WarnJuror.Name := 'WarnJuror';
+ f_WarnRedaction := TnscReminder.Create(RemindersLine);
+ f_WarnRedaction.Name := 'WarnRedaction';
+ f_WarnInactualDocument := TnscReminder.Create(RemindersLine);
+ f_WarnInactualDocument.Name := 'WarnInactualDocument';
+ f_WarnTimeMachineOn := TnscReminder.Create(RemindersLine);
+ f_WarnTimeMachineOn.Name := 'WarnTimeMachineOn';
+end;//TExTextOptionsForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

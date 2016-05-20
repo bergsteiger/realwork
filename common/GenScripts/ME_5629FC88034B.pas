@@ -30,6 +30,7 @@ type
    f_UserNameQuery: IdaTabledQuery;
    f_ArchiUsers: TdaArchiUserList;
    f_UserStatusChangedSubscriberList: TdaUserStatusChangedSubscriberList;
+   f_UserLoginQuery: IdaTabledQuery;
   private
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
@@ -40,6 +41,7 @@ type
    procedure FillAllGroups(aList: Tl3StringDataList);
    procedure SortUsersInList(aList: Tl3StringDataList);
    function UserNameQuery: IdaTabledQuery;
+   function UserLoginQuery: IdaTabledQuery;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -65,6 +67,14 @@ type
    procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
    procedure NotifyUserActiveChanged(anUserID: TdaUserID;
     anActive: Boolean);
+   function CSCheckPassword(const aLogin: AnsiString;
+    const aPassword: AnsiString;
+    RequireAdminRights: Boolean;
+    out theUserID: TdaUserID): Boolean;
+   procedure GetUserInfo(aUser: TdaUserID;
+    var aUserName: AnsiString;
+    var aLoginName: AnsiString;
+    var aActFlag: Byte);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -225,6 +235,23 @@ begin
  Result := f_UserNameQuery;
 //#UC END# *5718C16B036E_5629FC88034B_impl*
 end;//TpgUserManager.UserNameQuery
+
+function TpgUserManager.UserLoginQuery: IdaTabledQuery;
+//#UC START# *573B0837013B_5629FC88034B_var*
+//#UC END# *573B0837013B_5629FC88034B_var*
+begin
+//#UC START# *573B0837013B_5629FC88034B_impl*
+ if f_UserLoginQuery = nil then
+ begin
+  f_UserLoginQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtPassword));
+  f_UserNameQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+  f_UserNameQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtPassword)['ShortName']));
+  f_UserNameQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtPassword)['User_ID'], da_copEqual, 'p_UserID');
+  f_UserNameQuery.Prepare;
+ end;
+ Result := f_UserLoginQuery;
+//#UC END# *573B0837013B_5629FC88034B_impl*
+end;//TpgUserManager.UserLoginQuery
 
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
@@ -537,6 +564,75 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5739835200CF_5629FC88034B_impl*
 end;//TpgUserManager.NotifyUserActiveChanged
+
+function TpgUserManager.CSCheckPassword(const aLogin: AnsiString;
+ const aPassword: AnsiString;
+ RequireAdminRights: Boolean;
+ out theUserID: TdaUserID): Boolean;
+//#UC START# *573AC17202BF_5629FC88034B_var*
+var
+ l_AU: IdaArchiUser;
+ l_HasAdminRights: Boolean;
+//#UC END# *573AC17202BF_5629FC88034B_var*
+begin
+//#UC START# *573AC17202BF_5629FC88034B_impl*
+ Result := False;
+ if (AnsiLowerCase(aLogin) = c_SupervisorUserName) and not RequireAdminRights then
+  Exit;
+ l_AU := UserByLogin(aLogin);
+ if l_AU <> nil then
+ begin
+  Result := l_AU.Active and ((l_AU.Password = '') or (AnsiCompareText(aPassword, l_AU.Password) = 0));
+  if Result and RequireAdminRights then
+   Result := l_AU.HasAdminRights;
+  if Result then
+  begin
+   l_AU.LoginDate := Now;
+   theUserID := l_AU.ID;
+  end;
+ end; // l_AU <> nil
+//#UC END# *573AC17202BF_5629FC88034B_impl*
+end;//TpgUserManager.CSCheckPassword
+
+procedure TpgUserManager.GetUserInfo(aUser: TdaUserID;
+ var aUserName: AnsiString;
+ var aLoginName: AnsiString;
+ var aActFlag: Byte);
+//#UC START# *573AEE9902DF_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *573AEE9902DF_5629FC88034B_var*
+begin
+//#UC START# *573AEE9902DF_5629FC88034B_impl*
+ UserLoginQuery.Param['p_UserID'].AsLargeInt := aUser;
+ l_ResultSet := UserLoginQuery.OpenResultSet;
+ try
+  if not l_ResultSet.IsEmpty then
+   aLoginName := l_ResultSet.Field['ShoreName'].AsString
+  else
+   aLoginName := c_UnknownLogin;
+ finally
+  l_ResultSet := nil;
+ end;
+ f_UserFlagsQuery.Param['p_UserID'].AsLargeInt := aUser;
+ l_ResultSet := f_UserFlagsQuery.OpenResultSet;
+ try
+  if not l_ResultSet.IsEmpty then
+  begin
+   aUserName := l_ResultSet.Field['user_name'].AsString;
+   aActFlag := l_ResultSet.Field['Active'].AsByte;
+  end
+  else
+  begin
+   aUserName := Format(c_UnknownUserName, [GetRegionStringFromUserID(aUser), aUser]);
+   aActFlag := 0; // не активный и не админ
+  end;
+ finally
+  l_ResultSet := nil;
+ end;
+
+//#UC END# *573AEE9902DF_5629FC88034B_impl*
+end;//TpgUserManager.GetUserInfo
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

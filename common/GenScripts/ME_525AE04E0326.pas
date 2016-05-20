@@ -124,6 +124,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure IncreaseLogin;
    class function Make(aIsAutoLogin: Boolean;
@@ -835,6 +838,80 @@ begin
 //#UC END# *4B0E846D022B_525AE04E0326_impl*
 end;//TPrimRegistrationForm.IsRealInstance
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimRegistrationForm.MakeControls;
+begin
+ inherited;
+ f_pnMainData := TvtPanel.Create(Self);
+ f_pnMainData.Name := 'pnMainData';
+ f_pnMainData.Parent := Self;
+ f_UserNameLabel := TvtLabel.Create(Self);
+ f_UserNameLabel.Name := 'UserNameLabel';
+ f_UserNameLabel.Parent := pnMainData;
+ f_PasswordLabel := TvtLabel.Create(Self);
+ f_PasswordLabel.Name := 'PasswordLabel';
+ f_PasswordLabel.Parent := pnMainData;
+ f_LoginLabel := TvtLabel.Create(Self);
+ f_LoginLabel.Name := 'LoginLabel';
+ f_LoginLabel.Parent := pnMainData;
+ f_InfoLabel := TvtLabel.Create(Self);
+ f_InfoLabel.Name := 'InfoLabel';
+ f_InfoLabel.Parent := pnMainData;
+ f_EMailLabel := TvtLabel.Create(Self);
+ f_EMailLabel.Name := 'EMailLabel';
+ f_EMailLabel.Parent := pnMainData;
+ f_ConfirmPasswordLabel := TvtLabel.Create(Self);
+ f_ConfirmPasswordLabel.Name := 'ConfirmPasswordLabel';
+ f_ConfirmPasswordLabel.Parent := pnMainData;
+ f_vtAsteriskLabelLogin := TvtLabel.Create(Self);
+ f_vtAsteriskLabelLogin.Name := 'vtAsteriskLabelLogin';
+ f_vtAsteriskLabelLogin.Parent := pnMainData;
+ f_vtAsteriskLabelFIO := TvtLabel.Create(Self);
+ f_vtAsteriskLabelFIO.Name := 'vtAsteriskLabelFIO';
+ f_vtAsteriskLabelFIO.Parent := pnMainData;
+ f_edPassword := TnscComboBoxWithPwdChar.Create(Self);
+ f_edPassword.Name := 'edPassword';
+ f_edPassword.Parent := pnMainData;
+ f_edUserName := TnscEdit.Create(Self);
+ f_edUserName.Name := 'edUserName';
+ f_edUserName.Parent := pnMainData;
+ f_edLogin := TnscEdit.Create(Self);
+ f_edLogin.Name := 'edLogin';
+ f_edLogin.Parent := pnMainData;
+ f_edEmail := TnscEdit.Create(Self);
+ f_edEmail.Name := 'edEmail';
+ f_edEmail.Parent := pnMainData;
+ f_edConfirm := TnscComboBoxWithPwdChar.Create(Self);
+ f_edConfirm.Name := 'edConfirm';
+ f_edConfirm.Parent := pnMainData;
+ f_cbAutoLogin := TvtCheckBox.Create(Self);
+ f_cbAutoLogin.Name := 'cbAutoLogin';
+ f_cbAutoLogin.Parent := pnMainData;
+ f_NewUserGroupBox := TvtGroupBox.Create(Self);
+ f_NewUserGroupBox.Name := 'NewUserGroupBox';
+ f_NewUserGroupBox.Parent := pnMainData;
+ f_NewUserLabel := TvtLabel.Create(Self);
+ f_NewUserLabel.Name := 'NewUserLabel';
+ f_NewUserLabel.Parent := NewUserGroupBox;
+ f_NewUserPaintBox := TPaintBox.Create(Self);
+ f_NewUserPaintBox.Name := 'NewUserPaintBox';
+ f_NewUserPaintBox.Parent := NewUserGroupBox;
+ f_BottomPanel := TvtPanel.Create(Self);
+ f_BottomPanel.Name := 'BottomPanel';
+ f_BottomPanel.Parent := Self;
+ f_RegisterButton := TElPopupButton.Create(Self);
+ f_RegisterButton.Name := 'RegisterButton';
+ f_RegisterButton.Parent := BottomPanel;
+ f_HelpPanel := TvtPanel.Create(Self);
+ f_HelpPanel.Name := 'HelpPanel';
+ f_HelpPanel.Parent := BottomPanel;
+ f_HelpPaintBox := TPaintBox.Create(Self);
+ f_HelpPaintBox.Name := 'HelpPaintBox';
+ f_HelpPaintBox.Parent := HelpPanel;
+ f_HelpLabel := TvtFocusLabel.Create(Self);
+ f_HelpLabel.Name := 'HelpLabel';
+ f_HelpLabel.Parent := HelpPanel;
+end;//TPrimRegistrationForm.MakeControls
 
 initialization
  str_edPasswordHint.Init;

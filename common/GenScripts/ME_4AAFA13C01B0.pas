@@ -74,6 +74,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure PostingToolBar_ptNewTheme_Test(const aParams: IvcmTestParamsPrim);
    procedure PostingToolBar_ptNewTheme_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -514,6 +517,27 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.InitControls
+
+procedure TPrimPostingsListForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(MyPostingListName,
+  str_MyPostingListCaption,
+  str_MyPostingListCaption,
+  False,
+  145,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(MyPostingListName
+ f_tvPostings := TeeTreeView.Create(Self);
+ f_tvPostings.Name := 'tvPostings';
+ f_tvPostings.Parent := Self;
+end;//TPrimPostingsListForm.MakeControls
 
 initialization
  str_MyPostingListCaption.Init;

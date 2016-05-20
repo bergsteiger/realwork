@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  Ten_TurnOnTimeMachine = {final} class(TPrimTurnOnTimeMachineOptionsForm, TurnOnTimeMachineFormDef)
   {* Включить Машину времени }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//Ten_TurnOnTimeMachine
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_TurnOnTimeMachineLocalConstants }
  str_ut_TurnOnTimeMachineCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TurnOnTimeMachineCaption'; rValue : 'Включить Машину времени');
   {* Заголовок пользовательского типа "Включить Машину времени" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_TurnOnTimeMachine.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_TurnOnTimeMachineName,
+  str_ut_TurnOnTimeMachineCaption,
+  str_ut_TurnOnTimeMachineCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_TurnOnTimeMachineName
+end;//Ten_TurnOnTimeMachine.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

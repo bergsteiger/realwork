@@ -98,6 +98,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure GetDates(const aDateReq: IqaDateReqDataHolder);
    procedure SetDates(const aDateReq: IqaDateReqDataHolder);
@@ -636,6 +639,50 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.InitControls
+
+procedure TPrimDefineSearchDateForm.MakeControls;
+begin
+ inherited;
+ f_Panel1 := TvtPanel.Create(Self);
+ f_Panel1.Name := 'Panel1';
+ f_Panel1.Parent := Self;
+ f_ElLabel1 := TvtLabel.Create(Self);
+ f_ElLabel1.Name := 'ElLabel1';
+ f_ElLabel1.Parent := Panel1;
+ f_ElLabel2 := TvtLabel.Create(Self);
+ f_ElLabel2.Name := 'ElLabel2';
+ f_ElLabel2.Parent := Panel1;
+ f_ElLabel3 := TvtLabel.Create(Self);
+ f_ElLabel3.Name := 'ElLabel3';
+ f_ElLabel3.Parent := Panel1;
+ f_dD1EqD2 := TvtDblClickDateEdit.Create(Self);
+ f_dD1EqD2.Name := 'dD1EqD2';
+ f_dD1EqD2.Parent := Panel1;
+ f_rbEq := TvtRadioButton.Create(Self);
+ f_rbEq.Name := 'rbEq';
+ f_rbEq.Parent := Panel1;
+ f_rbInt := TvtRadioButton.Create(Self);
+ f_rbInt.Name := 'rbInt';
+ f_rbInt.Parent := Panel1;
+ f_rbD2Only := TvtRadioButton.Create(Self);
+ f_rbD2Only.Name := 'rbD2Only';
+ f_rbD2Only.Parent := Panel1;
+ f_dD1Only := TvtDblClickDateEdit.Create(Self);
+ f_dD1Only.Name := 'dD1Only';
+ f_dD1Only.Parent := Panel1;
+ f_dD2Only := TvtDblClickDateEdit.Create(Self);
+ f_dD2Only.Name := 'dD2Only';
+ f_dD2Only.Parent := Panel1;
+ f_dD1 := TvtDblClickDateEdit.Create(Self);
+ f_dD1.Name := 'dD1';
+ f_dD1.Parent := Panel1;
+ f_rbD1Only := TvtRadioButton.Create(Self);
+ f_rbD1Only.Name := 'rbD1Only';
+ f_rbD1Only.Parent := Panel1;
+ f_dD2 := TvtDblClickDateEdit.Create(Self);
+ f_dD2.Name := 'dD2';
+ f_dD2.Parent := Panel1;
+end;//TPrimDefineSearchDateForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

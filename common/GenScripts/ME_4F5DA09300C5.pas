@@ -19,6 +19,9 @@ type
  TPrimSaveLoadOptionsForBaseSearchForm = class(TPrimSaveLoadOptionsForm)
   protected
    class function IsBaseSearchLike: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimSaveLoadOptionsForBaseSearchForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -61,6 +64,26 @@ begin
  Result := true;
 //#UC END# *502289FB008D_4F5DA09300C5_impl*
 end;//TPrimSaveLoadOptionsForBaseSearchForm.IsBaseSearchLike
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimSaveLoadOptionsForBaseSearchForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(slqtBaseSearchName,
+  str_slqtBaseSearchCaption,
+  str_slqtBaseSearchCaption,
+  False,
+  102,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(slqtBaseSearchName
+end;//TPrimSaveLoadOptionsForBaseSearchForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_slqtBaseSearchCaption.Init;

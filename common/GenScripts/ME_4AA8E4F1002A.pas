@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimAdminOptions_Form
  , Admin_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TcfAdminForm = {final} class(TPrimAdminOptionsForm, AdminFormFormDef)
   {* Администрирование пользователей }
+   Entities : TvcmEntities;
  end;//TcfAdminForm
 {$IfEnd} // Defined(Admin)
 
@@ -35,6 +39,8 @@ uses
  , AdminFormKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

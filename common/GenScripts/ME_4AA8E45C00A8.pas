@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimUserListOptions_Form
  , Admin_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefUserList = {final} class(TPrimUserListOptionsForm, UserListFormDef)
+   Entities : TvcmEntities;
  end;//TefUserList
 {$IfEnd} // Defined(Admin)
 
@@ -33,6 +37,8 @@ uses
  , UserListKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

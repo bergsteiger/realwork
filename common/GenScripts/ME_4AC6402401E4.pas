@@ -65,6 +65,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
    procedure StyleEditor_ReloadStyleTable_Execute;
@@ -256,6 +259,48 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.InitControls
+
+procedure TPrimStyleEditorContainerForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utStyleEditorContainerName,
+  str_utStyleEditorContainerCaption,
+  str_utStyleEditorContainerCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utStyleEditorContainerName
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_MainZone := TvtPanel.Create(Self);
+ f_MainZone.Name := 'MainZone';
+ f_MainZone.Parent := BackgroundPanel;
+ f_ParentZone := TvtSizeablePanel.Create(Self);
+ f_ParentZone.Name := 'ParentZone';
+ f_ParentZone.Parent := MainZone;
+ with DefineZone(vcm_ztParent, f_ParentZone) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+ f_ChildZone := TvtPanel.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := MainZone;
+ with DefineZone(vcm_ztChild, f_ChildZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_NavigatorZone := TvtSizeablePanel.Create(Self);
+ f_NavigatorZone.Name := 'NavigatorZone';
+ f_NavigatorZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztNavigator, f_NavigatorZone) do
+ begin
+ end;//with DefineZone(vcm_ztNavigator
+end;//TPrimStyleEditorContainerForm.MakeControls
 
 initialization
  str_utStyleEditorContainerCaption.Init;

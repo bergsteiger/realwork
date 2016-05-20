@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimTasksPanel_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_TasksPanel = {final} class(TPrimTasksPanelForm, TasksPanelFormDef)
   {* Панель задач }
+   Entities : TvcmEntities;
  end;//Ten_TasksPanel
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , TasksPanelKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

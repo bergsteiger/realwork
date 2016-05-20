@@ -101,6 +101,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
@@ -575,6 +578,22 @@ begin
  f_ContextFilterState := nil;
  inherited;
 end;//TPrimCommonDictionOptionsForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimCommonDictionOptionsForm.MakeControls;
+begin
+ inherited;
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_WordsTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_WordsTree.Name := 'WordsTree';
+ f_WordsTree.Parent := BackgroundPanel;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+end;//TPrimCommonDictionOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -112,6 +112,9 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Lang_Russian_Test(const aParams: IvcmTestParamsPrim);
    procedure Lang_Russian_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -795,6 +798,33 @@ begin
  f_ContextMap := nil;
  inherited;
 end;//TPrimDictionForm.ClearFields
+
+procedure TPrimDictionForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utDictionName,
+  str_utDictionCaption,
+  str_utDictionSettingsCaption,
+  False,
+  60,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(utDictionName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_WordsTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_WordsTree.Name := 'WordsTree';
+ f_WordsTree.Parent := BackgroundPanel;
+end;//TPrimDictionForm.MakeControls
 
 initialization
  str_utDictionCaption.Init;

@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -32,6 +35,11 @@ type
 
  TLongProcessForm = {final} class(TPrimLongProcessForm, LongProcessFormDef)
   {* Информация }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TLongProcessForm
 
 implementation
@@ -53,6 +61,28 @@ const
  {* Локализуемые строки ut_LongProcessLocalConstants }
  str_ut_LongProcessCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LongProcessCaption'; rValue : 'Информация');
   {* Заголовок пользовательского типа "Информация" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TLongProcessForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_LongProcessName,
+  str_ut_LongProcessCaption,
+  str_ut_LongProcessCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_LongProcessName
+end;//TLongProcessForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

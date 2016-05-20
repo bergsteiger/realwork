@@ -168,6 +168,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AttributeTree_ExternalCharPressed_Execute(const aChar: Il3CString);
    procedure AttributeTree_ExternalCharPressed(const aParams: IvcmExecuteParamsPrim);
@@ -1976,6 +1979,87 @@ begin
  end;//not IsOldSchoolNone
 //#UC END# *4D78E2BB0211_497ECC0E0325_impl*
 end;//TPrimTreeAttributeSelectForm.NotifyUserTypeSet
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(astNoneName,
+  str_astNoneCaption,
+  str_astNoneCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(astNoneName
+ with AddUsertype(astOneLevelName,
+  str_astOneLevelCaption,
+  str_astOneLevelCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(astOneLevelName
+ with AddUsertype(astFirstLevelName,
+  str_astFirstLevelCaption,
+  str_astFirstLevelCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(astFirstLevelName
+ with AddUsertype(astTaxesPublishSearchName,
+  str_astTaxesPublishSearchCaption,
+  str_astTaxesPublishSearchCaption,
+  False,
+  -1,
+  -1,
+  astNoneName,
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(astTaxesPublishSearchName
+ with AddUsertype(astPharmPublishSearchName,
+  str_astPharmPublishSearchCaption,
+  str_astPharmPublishSearchCaption,
+  False,
+  -1,
+  -1,
+  astNoneName,
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(astPharmPublishSearchName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_AttributeTree := TnscTreeViewHotTruck.Create(Self);
+ f_AttributeTree.Name := 'AttributeTree';
+ f_AttributeTree.Parent := BackgroundPanel;
+end;//TPrimTreeAttributeSelectForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

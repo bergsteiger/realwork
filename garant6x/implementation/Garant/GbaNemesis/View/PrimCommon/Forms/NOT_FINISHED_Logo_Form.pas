@@ -11,6 +11,9 @@ interface
 
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -18,6 +21,11 @@ type
  TvcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
  )
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TLogoForm
 
 implementation
@@ -40,6 +48,26 @@ const
  {* Локализуемые строки ut_LogoLocalConstants }
  str_ut_LogoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LogoCaption'; rValue : 'Logo');
   {* Заголовок пользовательского типа "Logo" }
+
+{$R *.DFM}
+
+procedure TLogoForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_LogoName,
+  str_ut_LogoCaption,
+  str_ut_LogoCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_LogoName
+end;//TLogoForm.MakeControls
 
 initialization
  str_ut_LogoCaption.Init;

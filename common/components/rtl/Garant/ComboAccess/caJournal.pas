@@ -24,7 +24,7 @@ type
    f_HTJournal: IdaJournal;
    f_PGJournal: IdaJournal;
   protected
-   procedure LogEvent(aOperation: TdaJournalOperation;
+   procedure DoLogEvent(aOperation: TdaJournalOperation;
     aFamilyID: TdaFamilyID;
     aExtID: LongInt;
     aData: LongInt); override;
@@ -90,7 +90,7 @@ begin
  end;//try..finally
 end;//TcaJournal.Make
 
-procedure TcaJournal.LogEvent(aOperation: TdaJournalOperation;
+procedure TcaJournal.DoLogEvent(aOperation: TdaJournalOperation;
  aFamilyID: TdaFamilyID;
  aExtID: LongInt;
  aData: LongInt);
@@ -101,7 +101,7 @@ begin
  (f_HTJournal as IdaComboAccessJournalHelper).LogAlienEvent(aOperation, aFamilyID, aExtID, aData);
  (f_PGJournal as IdaComboAccessJournalHelper).LogAlienEvent(aOperation, aFamilyID, aExtID, aData);
 //#UC END# *5549F6220397_56BD8F200154_impl*
-end;//TcaJournal.LogEvent
+end;//TcaJournal.DoLogEvent
 
 procedure TcaJournal.CheckUser(anUserID: TdaUserID);
 //#UC START# *559B6A290200_56BD8F200154_var*

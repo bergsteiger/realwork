@@ -52,6 +52,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsOpenDocOnNumberData); reintroduce;
   public
@@ -244,6 +247,20 @@ begin
  f_Results := nil;
  inherited;
 end;//TPrimDocNumberQueryForm.ClearFields
+
+procedure TPrimDocNumberQueryForm.MakeControls;
+begin
+ inherited;
+ f_Label1 := TvtLabel.Create(Self);
+ f_Label1.Name := 'Label1';
+ f_Label1.Parent := Self;
+ f_edNumber := TnscComboBox.Create(Self);
+ f_edNumber.Name := 'edNumber';
+ f_edNumber.Parent := Self;
+ f_cbInternal := TvtCheckBox.Create(Self);
+ f_cbInternal.Name := 'cbInternal';
+ f_cbInternal.Parent := Self;
+end;//TPrimDocNumberQueryForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

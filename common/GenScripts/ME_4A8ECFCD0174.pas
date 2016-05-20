@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimNewsLineOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenNewsLine = {final} class(TPrimNewsLineOptionsForm, NewsLineFormDef)
   {* ПРАЙМ. Моя новостная лента }
+   Entities : TvcmEntities;
  end;//TenNewsLine
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , NewsLineKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

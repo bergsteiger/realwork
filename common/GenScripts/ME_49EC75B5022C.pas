@@ -83,6 +83,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
@@ -471,6 +474,30 @@ begin
  UpdateStatusInfo; 
 //#UC END# *4A8E8F2E0195_49EC75B5022C_impl*
 end;//TPrimGroupListForm.InitControls
+
+procedure TPrimGroupListForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(admGroupListName,
+  str_admGroupListCaption,
+  str_admGroupListSettingsCaption,
+  False,
+  -1,
+  10,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(admGroupListName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_GroupsTree := TeeTreeView.Create(Self);
+ f_GroupsTree.Name := 'GroupsTree';
+ f_GroupsTree.Parent := BackgroundPanel;
+end;//TPrimGroupListForm.MakeControls
 
 initialization
  str_admGroupListCaption.Init;

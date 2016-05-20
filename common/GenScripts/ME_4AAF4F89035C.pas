@@ -13,10 +13,14 @@ uses
  l3IntfUses
  , PrimAttributeSelectOptions_Form
  , SearchLite_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TcfAttributeSelect = {final} class(TPrimAttributeSelectOptionsForm, AttributeSelectFormDef)
+   Entities : TvcmEntities;
  end;//TcfAttributeSelect
 
 implementation
@@ -31,6 +35,8 @@ uses
  , AttributeSelectKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

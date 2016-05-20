@@ -8,6 +8,7 @@ unit l3DialogServiceImpl;
 
 interface
 
+{$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , l3ProtoObject
@@ -26,9 +27,11 @@ type
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3DialogServiceImpl
+{$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
+{$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , l3BatchService
@@ -86,5 +89,6 @@ end;//Tl3DialogServiceImpl.Exists
 initialization
  Tl3DialogService.Instance.Alien := Tl3DialogServiceImpl.Instance;
  {* Регистрация Tl3DialogServiceImpl }
+{$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

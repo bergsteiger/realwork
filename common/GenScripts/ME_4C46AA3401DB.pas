@@ -52,6 +52,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , l3StringIDEx
+ , vtPanel
 ;
 
 const
@@ -144,6 +145,9 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
@@ -363,6 +367,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , nscTreeViewForDocumentListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -2183,6 +2190,29 @@ begin
  end;
 //#UC END# *53F1C6EF02C9_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.DoGetTabCaption
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.MakeControls;
+begin
+ inherited;
+ f_RemindersLine := TnscRemindersLine.Create(Self);
+ f_RemindersLine.Name := 'RemindersLine';
+ f_RemindersLine.Parent := Self;
+ with DefineZone(vcm_ztChild, f_RemindersLine) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_remListFiltered := TnscReminder.Create(RemindersLine);
+ f_remListFiltered.Name := 'remListFiltered';
+ f_remListModified := TnscReminder.Create(RemindersLine);
+ f_remListModified.Name := 'remListModified';
+ f_remTimeMachineWarning := TnscReminder.Create(RemindersLine);
+ f_remTimeMachineWarning.Name := 'remTimeMachineWarning';
+ f_ListPanel.Parent := Self;
+ f_EmptyListEditor := TnscEditor.Create(Self);
+ f_EmptyListEditor.Name := 'EmptyListEditor';
+ f_EmptyListEditor.Parent := ListPanel;
+end;//TPrimListOptionsForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

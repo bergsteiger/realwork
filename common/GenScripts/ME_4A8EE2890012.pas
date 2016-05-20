@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimRedactionsOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TRedactionsForm = {final} class(TPrimRedactionsOptionsForm, RedactionsFormDef)
   {* Редакции }
+   Entities : TvcmEntities;
  end;//TRedactionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , RedactionsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

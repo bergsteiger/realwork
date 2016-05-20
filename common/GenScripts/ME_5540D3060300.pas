@@ -43,7 +43,7 @@ type
     const ToDate: TStDate;
     aDocID: TdaDocID): ISab;
   protected
-   procedure LogEvent(aOperation: TdaJournalOperation;
+   procedure DoLogEvent(aOperation: TdaJournalOperation;
     aFamilyID: TdaFamilyID;
     aExtID: LongInt;
     aData: LongInt); override;
@@ -234,7 +234,7 @@ begin
 //#UC END# *556328D003C8_5540D3060300_impl*
 end;//ThtJournal.GetDocStatistic
 
-procedure ThtJournal.LogEvent(aOperation: TdaJournalOperation;
+procedure ThtJournal.DoLogEvent(aOperation: TdaJournalOperation;
  aFamilyID: TdaFamilyID;
  aExtID: LongInt;
  aData: LongInt);
@@ -267,7 +267,7 @@ begin
 
 
 //#UC END# *5549F6220397_5540D3060300_impl*
-end;//ThtJournal.LogEvent
+end;//ThtJournal.DoLogEvent
 
 procedure ThtJournal.CheckUser(anUserID: TdaUserID);
 //#UC START# *559B6A290200_5540D3060300_var*

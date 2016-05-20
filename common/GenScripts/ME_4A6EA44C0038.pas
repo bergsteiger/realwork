@@ -57,6 +57,9 @@ type
    procedure InitEditors; override;
    function HistoryLimit: Integer; override;
    function NeedClose: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
@@ -308,6 +311,45 @@ begin
  Result := False;
 //#UC END# *4B1633CF01C2_4A6EA44C0038_impl*
 end;//TBaseChatWindowForm.NeedClose
+
+{$If NOT Defined(NoVCM)}
+procedure TBaseChatWindowForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(cwChatName,
+  str_cwChatCaption,
+  str_cwChatCaption,
+  False,
+  198,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cwChatName
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_BottomPanel := TvtSizeablePanel.Create(Self);
+ f_BottomPanel.Name := 'BottomPanel';
+ f_BottomPanel.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, f_BottomPanel) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_BottomEditor := TnscChatMemo.Create(Self);
+ f_BottomEditor.Name := 'BottomEditor';
+ f_BottomEditor.Parent := BottomPanel;
+ f_TopPanel := TvtPanel.Create(Self);
+ f_TopPanel.Name := 'TopPanel';
+ f_TopPanel.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztParent, f_TopPanel) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+ f_HistoryEditor.Parent := TopPanel;
+end;//TBaseChatWindowForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_cwChatCaption.Init;

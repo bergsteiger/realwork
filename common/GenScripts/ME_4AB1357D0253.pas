@@ -15,11 +15,20 @@ uses
  l3IntfUses
  , PrimAttributesOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nscTreeViewWithAdapterDragDrop
 ;
 
 type
  TAttributesForm = {final} class(TPrimAttributesOptionsForm, AttributesFormDef)
   {* Информация о документе }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TAttributesForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +44,16 @@ uses
  , AttributesKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TAttributesForm.MakeControls;
+begin
+ inherited;
+ f_tvAttributes.Parent := Self;
+end;//TAttributesForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

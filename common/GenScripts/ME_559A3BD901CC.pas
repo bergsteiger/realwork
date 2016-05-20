@@ -28,8 +28,12 @@ type
   private
    function GetNewSessionID: TdaSessionID;
    procedure AnalyseLog(const aLog: IdaResultSet);
-  protected
    procedure LogEvent(aOperation: TdaJournalOperation;
+    aFamilyID: TdaFamilyID;
+    aExtID: LongInt;
+    aData: LongInt);
+  protected
+   procedure DoLogEvent(aOperation: TdaJournalOperation;
     aFamilyID: TdaFamilyID;
     aExtID: LongInt;
     aData: LongInt); virtual; abstract;
@@ -44,7 +48,7 @@ type
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): IdaResultSet; virtual; abstract;
    procedure CorrectDates(var FromDate: TStDate;
-    const ToDate: TStDate);
+    var ToDate: TStDate);
    function NeedLogSessionBegin: Boolean; virtual;
    function NeedLogSessionEnd: Boolean; virtual;
    function Get_CurStatisticTreeRoot: Il3RootNode;
@@ -98,6 +102,8 @@ type
     UserGr: Boolean): IdaResultSet;
    function Get_CurSessionID: TdaSessionID;
    function IsSessionActive: Boolean;
+   procedure AlienCheckUser(anUserID: TdaUserID);
+   procedure AlienUserChanged(anUserID: TdaUserID);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -123,6 +129,7 @@ uses
  , daDataProvider
  , l3Nodes
  , l3TreeInterfaces
+ , daUtils
 ;
 
 constructor TdaJournal.Create(const aFactory: IdaTableQueryFactory);
@@ -425,7 +432,7 @@ begin
 end;//TdaJournal.AnalyseLog
 
 procedure TdaJournal.CorrectDates(var FromDate: TStDate;
- const ToDate: TStDate);
+ var ToDate: TStDate);
 //#UC START# *55657CD20360_559A3BD901CC_var*
 //#UC END# *55657CD20360_559A3BD901CC_var*
 begin
@@ -454,6 +461,19 @@ begin
  Result := True;
 //#UC END# *56F271D602AB_559A3BD901CC_impl*
 end;//TdaJournal.NeedLogSessionEnd
+
+procedure TdaJournal.LogEvent(aOperation: TdaJournalOperation;
+ aFamilyID: TdaFamilyID;
+ aExtID: LongInt;
+ aData: LongInt);
+//#UC START# *573C3BC601D1_559A3BD901CC_var*
+//#UC END# *573C3BC601D1_559A3BD901CC_var*
+begin
+//#UC START# *573C3BC601D1_559A3BD901CC_impl*
+ if not UserIsService(f_CurUser) then
+  DoLogEvent(aOperation, aFamilyID, aExtID, aData);
+//#UC END# *573C3BC601D1_559A3BD901CC_impl*
+end;//TdaJournal.LogEvent
 
 function TdaJournal.Get_CurStatisticTreeRoot: Il3RootNode;
 //#UC START# *554092F701E2_559A3BD901CCget_var*
@@ -751,6 +771,24 @@ begin
  Result := f_CurSessionID <> BlankSession;
 //#UC END# *56F2627200AE_559A3BD901CC_impl*
 end;//TdaJournal.IsSessionActive
+
+procedure TdaJournal.AlienCheckUser(anUserID: TdaUserID);
+//#UC START# *573C4C3B031D_559A3BD901CC_var*
+//#UC END# *573C4C3B031D_559A3BD901CC_var*
+begin
+//#UC START# *573C4C3B031D_559A3BD901CC_impl*
+ CheckUser(anUserID);
+//#UC END# *573C4C3B031D_559A3BD901CC_impl*
+end;//TdaJournal.AlienCheckUser
+
+procedure TdaJournal.AlienUserChanged(anUserID: TdaUserID);
+//#UC START# *573C4C4903B7_559A3BD901CC_var*
+//#UC END# *573C4C4903B7_559A3BD901CC_var*
+begin
+//#UC START# *573C4C4903B7_559A3BD901CC_impl*
+ UserChanged(anUserID);
+//#UC END# *573C4C4903B7_559A3BD901CC_impl*
+end;//TdaJournal.AlienUserChanged
 
 procedure TdaJournal.Cleanup;
  {* Функция очистки полей объекта. }

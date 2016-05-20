@@ -13,13 +13,32 @@ interface
 uses
  l3IntfUses
  , PrimPrintDialogOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_PrintDialog = {final} class(TPrimPrintDialogOptionsForm)
+   Entities : TvcmEntities;
+   poDocumentNames : TvtRadioButton;
+   rbPrintSelected : TvtRadioButton;
+   rbPrintCurrent : TvtRadioButton;
+   edPrintInterval : TnscEditWithoutPlusMinusShortcut;
+   edCopyCount : TvtSpinEdit;
+   CollateCheckBox : TvtCheckBox;
+   cbOddEven : TvtComboBoxQS;
+   poDocumentTexts : TvtRadioButton;
+   rbPrintAll : TvtRadioButton;
+   rbPrintInterval : TvtRadioButton;
+   cbPrinter : TvtComboBoxQS;
+   cbPrintInfo : TvtCheckBox;
   protected
    procedure UpdateState; override;
    function UpdatePrintersList: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//Ten_PrintDialog
 {$IfEnd} // NOT Defined(Admin)
 
@@ -45,6 +64,8 @@ const
  str_ut_PrintDialogCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PrintDialogCaption'; rValue : 'PrintDialog');
   {* Заголовок пользовательского типа "PrintDialog" }
 
+{$R *.DFM}
+
 procedure Ten_PrintDialog.UpdateState;
 //#UC START# *4AC6228101B1_4AAF8EAC01FC_var*
 //#UC END# *4AC6228101B1_4AAF8EAC01FC_var*
@@ -62,6 +83,26 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4AF8271C0033_4AAF8EAC01FC_impl*
 end;//Ten_PrintDialog.UpdatePrintersList
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PrintDialog.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_PrintDialogName,
+  str_ut_PrintDialogCaption,
+  str_ut_PrintDialogCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_PrintDialogName
+end;//Ten_PrintDialog.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_ut_PrintDialogCaption.Init;

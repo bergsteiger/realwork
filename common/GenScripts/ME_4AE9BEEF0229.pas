@@ -38,6 +38,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
    procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
@@ -116,6 +119,30 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE9BEEF0229_impl*
 end;//TPrimFoldersInfoForm.InitControls
+
+procedure TPrimFoldersInfoForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utFoldersInfoContainerName,
+  str_utFoldersInfoContainerCaption,
+  str_utFoldersInfoContainerCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utFoldersInfoContainerName
+ f_ChildZone := TvtPanel.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := Self;
+ with DefineZone(vcm_ztChild, f_ChildZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimFoldersInfoForm.MakeControls
 
 initialization
  str_utFoldersInfoContainerCaption.Init;

@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimPreview_Form
  , Search_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefPreviewForm = {final} class(TPrimPreviewForm, PreviewFormDef)
   {* Предварительный просмотр }
+   Entities : TvcmEntities;
  end;//TefPreviewForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -38,6 +42,8 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

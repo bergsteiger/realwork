@@ -12,6 +12,9 @@
   protected
    procedure WarningQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события Warning.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_WarningUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -32,6 +35,26 @@ const
   {* Заголовок пользовательского типа "Предупреждение" }
  str_WarningSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarningSettingsCaption'; rValue : 'Документ: Предупреждение');
   {* Заголовок пользовательского типа "Предупреждение" для настройки панелей инструментов }
+
+{$If NOT Defined(NoVCM)}
+procedure _WarningUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(WarningName,
+  str_WarningCaption,
+  str_WarningSettingsCaption,
+  False,
+  127,
+  10,
+  '',
+  nil,
+  nil,
+  WarningQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(WarningName
+end;//_WarningUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else WarningUserTypes_imp_impl}
 

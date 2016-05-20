@@ -24,6 +24,9 @@ type
    procedure DoInit(aFromHistory: Boolean); override;
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimAdminMainForm
 {$IfEnd} // Defined(Admin)
 
@@ -74,6 +77,26 @@ begin
  TdmStdRes.OpenUserList(Self);
 //#UC END# *49803F5503AA_4AA518EB039C_impl*
 end;//TPrimAdminMainForm.DoInit
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAdminMainForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utEmptyMainWindowName,
+  str_utEmptyMainWindowCaption,
+  str_utEmptyMainWindowSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utEmptyMainWindowName
+end;//TPrimAdminMainForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

@@ -185,6 +185,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property ieIO: TImageEnIO
     read f_ieIO;
@@ -709,7 +712,7 @@ begin
   AttachedImageEn := ieBanner;
  end;//ieIO
  try
-  if Supports(lblProfNews.TreeStruct.Nodes[lblProfNews.CurrentItem], IMainMenuSection, l_Section) then
+  if Supports(lblTaxes.TreeStruct.Nodes[lblTaxes.CurrentItem], IMainMenuSection, l_Section) then
    l_Section.GetBanner(f_Banner);
  except
   on ECannotFindData do
@@ -1387,6 +1390,131 @@ begin
 //#UC END# *543E3AA801D0_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMainMenuWithProfNewsForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utMainMenuWithProfNewsName,
+  str_utMainMenuWithProfNewsCaption,
+  str_utMainMenuWithProfNewsCaption,
+  False,
+  44,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utMainMenuWithProfNewsName
+ f_pnlMain.Parent := Self;
+ f_pnlLeft := TvtPanel.Create(Self);
+ f_pnlLeft.Name := 'pnlLeft';
+ f_pnlLeft.Parent := pnlMain;
+ f_bvlLeftTop := TBevel.Create(Self);
+ f_bvlLeftTop.Name := 'bvlLeftTop';
+ f_bvlLeftTop.Parent := pnlLeft;
+ f_pnlLogo := TvtPanel.Create(Self);
+ f_pnlLogo.Name := 'pnlLogo';
+ f_pnlLogo.Parent := pnlLeft;
+ f_pbLogo := TPaintBox.Create(Self);
+ f_pbLogo.Name := 'pbLogo';
+ f_pbLogo.Parent := pnlLogo;
+ f_pnlBanner := TvtPanel.Create(Self);
+ f_pnlBanner.Name := 'pnlBanner';
+ f_pnlBanner.Parent := pnlLeft;
+ f_ieBanner := TImageEnView.Create(Self);
+ f_ieBanner.Name := 'ieBanner';
+ f_ieBanner.Parent := pnlBanner;
+ f_pnlFeedback := TvtPanel.Create(Self);
+ f_pnlFeedback.Name := 'pnlFeedback';
+ f_pnlFeedback.Parent := pnlLeft;
+ f_pbFeedback := TPaintBox.Create(Self);
+ f_pbFeedback.Name := 'pbFeedback';
+ f_pbFeedback.Parent := pnlFeedback;
+ f_pnlOnlineResources := TvtPanel.Create(Self);
+ f_pnlOnlineResources.Name := 'pnlOnlineResources';
+ f_pnlOnlineResources.Parent := pnlLeft;
+ f_pbOnlineResources := TPaintBox.Create(Self);
+ f_pbOnlineResources.Name := 'pbOnlineResources';
+ f_pbOnlineResources.Parent := pnlOnlineResources;
+ f_pnlWebVersion := TvtPanel.Create(Self);
+ f_pnlWebVersion.Name := 'pnlWebVersion';
+ f_pnlWebVersion.Parent := pnlLeft;
+ f_pbWebVersion := TPaintBox.Create(Self);
+ f_pbWebVersion.Name := 'pbWebVersion';
+ f_pbWebVersion.Parent := pnlWebVersion;
+ f_pnlClient := TvtPanel.Create(Self);
+ f_pnlClient.Name := 'pnlClient';
+ f_pnlClient.Parent := pnlMain;
+ f_pnlNews := TvtPanel.Create(Self);
+ f_pnlNews.Name := 'pnlNews';
+ f_pnlNews.Parent := pnlClient;
+ f_tvProfNews := TnscTreeViewHotTruck.Create(Self);
+ f_tvProfNews.Name := 'tvProfNews';
+ f_tvProfNews.Parent := pnlNews;
+ f_tvLawNews.Parent := pnlNews;
+ f_lblProfNews := TnscComboLabel.Create(Self);
+ f_lblProfNews.Name := 'lblProfNews';
+ f_lblProfNews.Parent := pnlNews;
+ f_lblLawNews := TvtStyledLabel.Create(Self);
+ f_lblLawNews.Name := 'lblLawNews';
+ f_lblLawNews.Parent := pnlNews;
+ f_pnlBaseSearch := TvtPanel.Create(Self);
+ f_pnlBaseSearch.Name := 'pnlBaseSearch';
+ f_pnlBaseSearch.Parent := pnlClient;
+ f_pnlBaseSearchZone := TvtPanel.Create(Self);
+ f_pnlBaseSearchZone.Name := 'pnlBaseSearchZone';
+ f_pnlBaseSearchZone.Parent := pnlBaseSearch;
+ with DefineZone(vcm_ztMain, f_pnlBaseSearchZone) do
+ begin
+ end;//with DefineZone(vcm_ztMain
+ f_pnlSearches := TvtPanel.Create(Self);
+ f_pnlSearches.Name := 'pnlSearches';
+ f_pnlSearches.Parent := pnlBaseSearch;
+ f_flAttributeSearch := TnscFocusLabel.Create(Self);
+ f_flAttributeSearch.Name := 'flAttributeSearch';
+ f_flAttributeSearch.Parent := pnlSearches;
+ f_flDictionSearch := TnscFocusLabel.Create(Self);
+ f_flDictionSearch.Name := 'flDictionSearch';
+ f_flDictionSearch.Parent := pnlSearches;
+ f_flPublishedSourceSearch := TnscFocusLabel.Create(Self);
+ f_flPublishedSourceSearch.Name := 'flPublishedSourceSearch';
+ f_flPublishedSourceSearch.Parent := pnlSearches;
+ f_flSituationSearch := TnscFocusLabel.Create(Self);
+ f_flSituationSearch.Name := 'flSituationSearch';
+ f_flSituationSearch.Parent := pnlSearches;
+ f_pnlTrees := TvtPanel.Create(Self);
+ f_pnlTrees.Name := 'pnlTrees';
+ f_pnlTrees.Parent := pnlClient;
+ f_tvTaxes := TnscTreeViewHotTruck.Create(Self);
+ f_tvTaxes.Name := 'tvTaxes';
+ f_tvTaxes.Parent := pnlTrees;
+ f_tvReferences.Parent := pnlTrees;
+ f_lblReferences := TvtStyledLabel.Create(Self);
+ f_lblReferences.Name := 'lblReferences';
+ f_lblReferences.Parent := pnlTrees;
+ f_lblTaxes := TnscComboLabel.Create(Self);
+ f_lblTaxes.Name := 'lblTaxes';
+ f_lblTaxes.Parent := pnlTrees;
+ f_pnlLastOpenDocs := TvtPanel.Create(Self);
+ f_pnlLastOpenDocs.Name := 'pnlLastOpenDocs';
+ f_pnlLastOpenDocs.Parent := pnlClient;
+ f_tvLastOpenDocs.Parent := pnlLastOpenDocs;
+ f_lblLastOpenDocs := TvtStyledLabel.Create(Self);
+ f_lblLastOpenDocs.Name := 'lblLastOpenDocs';
+ f_lblLastOpenDocs.Parent := pnlLastOpenDocs;
+ f_bvlLeft := TBevel.Create(Self);
+ f_bvlLeft.Name := 'bvlLeft';
+ f_bvlLeft.Parent := pnlMain;
+ f_bvlRight := TBevel.Create(Self);
+ f_bvlRight.Name := 'bvlRight';
+ f_bvlRight.Parent := pnlMain;
+ f_ieIO := TImageEnIO.Create(Self);
+ f_ieIO.Name := 'ieIO';
+end;//TPrimMainMenuWithProfNewsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utMainMenuWithProfNewsCaption.Init;

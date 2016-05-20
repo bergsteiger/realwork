@@ -131,6 +131,9 @@ type
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
    function CaneHaveDocumentCompareEditionsOperation: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Editions_SetCurrent_Execute(const aDocument: IDocument);
     {* Установить текущую }
@@ -780,6 +783,16 @@ begin
  Result := not IsModalForm;
 //#UC END# *4EF354C8018B_497A12850078_impl*
 end;//TPrimRedactionsForm.CaneHaveDocumentCompareEditionsOperation
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRedactionsForm.MakeControls;
+begin
+ inherited;
+ f_RedactionTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_RedactionTree.Name := 'RedactionTree';
+ f_RedactionTree.Parent := Self;
+end;//TPrimRedactionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

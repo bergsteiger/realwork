@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  TRememberPasswordForm = {final} class(TPrimRememberPasswordForm, RememberPasswordFormDef)
   {* Забыли пароль? }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TRememberPasswordForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_RememberPasswordLocalConstants }
  str_ut_RememberPasswordCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_RememberPasswordCaption'; rValue : 'Забыли пароль?');
   {* Заголовок пользовательского типа "Забыли пароль?" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TRememberPasswordForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_RememberPasswordName,
+  str_ut_RememberPasswordCaption,
+  str_ut_RememberPasswordCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_RememberPasswordName
+end;//TRememberPasswordForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

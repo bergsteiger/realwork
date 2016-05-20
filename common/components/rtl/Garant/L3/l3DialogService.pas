@@ -53,7 +53,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
  , l3DialogServiceImpl
+ {$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
  , SysUtils
  , l3Base
 ;

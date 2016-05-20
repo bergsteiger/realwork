@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimQueryCardOptions_Form
  , Search_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenQueryCard = {final} class(TPrimQueryCardOptionsForm, QueryCardFormDef)
   {* Карточка запросов }
+   Entities : TvcmEntities;
  end;//TenQueryCard
 {$IfEnd} // NOT Defined(Admin)
 
@@ -35,6 +39,8 @@ uses
  , QueryCardKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

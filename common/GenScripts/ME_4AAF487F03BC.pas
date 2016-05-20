@@ -14,11 +14,15 @@ uses
  l3IntfUses
  , PrimTreeAttributeSelectOptions_Form
  , SearchLite_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefTreeAttributeSelect = {final} class(TPrimTreeAttributeSelectOptionsForm, TreeAttributeSelectFormDef)
   {* ¬ыбор значений древовидного атрибута }
+   Entities : TvcmEntities;
  end;//TefTreeAttributeSelect
 
 implementation
@@ -32,6 +36,8 @@ uses
  , TreeAttributeSelectKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

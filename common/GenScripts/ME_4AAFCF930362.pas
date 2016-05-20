@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AAFCF930362intf_uses*
  //#UC END# *4AAFCF930362intf_uses*
 ;
@@ -39,6 +42,7 @@ type
  //#UC END# *4AAFCF930362cit*
  TPictureForm = {final} class(TPrimPictureOptionsForm, PictureFormDef)
   {* Рисунок }
+   Entities : TvcmEntities;
  //#UC START# *4AAFCF930362publ*
   published
    property Scale;
@@ -60,6 +64,8 @@ uses
  //#UC START# *4AAFCF930362impl_uses*
  //#UC END# *4AAFCF930362impl_uses*
 ;
+
+{$R *.DFM}
 
 //#UC START# *4AAFCF930362impl*
 //#UC END# *4AAFCF930362impl*

@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimGroupListOptions_Form
  , Admin_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefGroupList = {final} class(TPrimGroupListOptionsForm, GroupListFormDef)
   {* Группы пользователей }
+   Entities : TvcmEntities;
  end;//TefGroupList
 {$IfEnd} // Defined(Admin)
 
@@ -35,6 +39,8 @@ uses
  , GroupListKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

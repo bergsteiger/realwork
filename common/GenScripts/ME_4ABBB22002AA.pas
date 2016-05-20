@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimCommonDictionOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_CommonDiction = {final} class(TPrimCommonDictionOptionsForm, CommonDictionFormDef)
   {* Совет дня }
+   Entities : TvcmEntities;
  end;//Ten_CommonDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , CommonDictionKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

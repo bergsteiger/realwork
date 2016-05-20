@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -31,6 +34,8 @@ type
  end;//ProgressIndicatorFormDef
 
  TefProgressIndicator = {final} class(TPrimProgressIndicatorForm, ProgressIndicatorFormDef)
+   Entities : TvcmEntities;
+   ProgressBar : TProgressBar;
  end;//TefProgressIndicator
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -46,6 +51,8 @@ uses
  , ProgressIndicatorKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

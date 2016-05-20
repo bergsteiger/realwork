@@ -105,6 +105,9 @@ type
    procedure ClearFields; override;
    function GetDocumentShortName(const aDoc: IDocument;
     aExportSelection: Boolean): Il3CString; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
     {* Сохранить в папки }
@@ -665,8 +668,21 @@ begin
   Result := nil;
 //#UC END# *53D8E4B702E4_495118ED00F6_impl*
 end;//_PrimText_.GetDocumentShortName
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _PrimText_.MakeControls;
+begin
+ inherited;
+ f_SubPanel := TeeSubPanel.Create(Self);
+ f_SubPanel.Name := 'SubPanel';
+ f_SubPanel.Parent := Self;
+ f_HScroll := TvtScrollBar.Create(Self);
+ f_HScroll.Name := 'HScroll';
+ f_HScroll.Parent := Self;
+end;//_PrimText_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf PrimText_imp_impl}
 
 {$EndIf PrimText_imp}

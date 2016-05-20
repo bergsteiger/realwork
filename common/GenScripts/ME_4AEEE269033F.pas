@@ -65,6 +65,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Navigator_SetCurrent_Execute(const aNode: Il3SimpleNode);
    procedure Navigator_SetCurrent(const aParams: IvcmExecuteParamsPrim);
@@ -317,6 +320,33 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.InitControls
+
+procedure TPrimNavigatorForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utNavigatorName,
+  str_utNavigatorCaption,
+  str_utNavigatorSettingsCaption,
+  False,
+  44,
+  10,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utNavigatorName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_NavigatorTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_NavigatorTree.Name := 'NavigatorTree';
+ f_NavigatorTree.Parent := BackgroundPanel;
+end;//TPrimNavigatorForm.MakeControls
 
 initialization
  str_utNavigatorCaption.Init;

@@ -46,6 +46,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
   public
    property tpvMain: TnscTasksPanelView
@@ -176,6 +179,27 @@ begin
  end;{try..finally}
 //#UC END# *4A8E8F2E0195_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.InitControls
+
+procedure TPrimTasksPanelForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(tpMainName,
+  str_tpMainCaption,
+  str_tpMainCaption,
+  False,
+  165,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccEnable) do
+ begin
+ end;//with AddUsertype(tpMainName
+ f_tpvMain := TnscTasksPanelView.Create(Self);
+ f_tpvMain.Name := 'tpvMain';
+ f_tpvMain.Parent := Self;
+end;//TPrimTasksPanelForm.MakeControls
 
 initialization
  str_tpMainCaption.Init;

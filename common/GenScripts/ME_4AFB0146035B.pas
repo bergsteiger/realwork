@@ -42,6 +42,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
@@ -119,6 +122,39 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AFB0146035B_impl*
 end;//TPrimAdminForm.InitControls
+
+procedure TPrimAdminForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utAdminName,
+  str_utAdminCaption,
+  str_utAdminCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utAdminName
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_PropertyZone := TvtSizeablePanel.Create(Self);
+ f_PropertyZone.Name := 'PropertyZone';
+ f_PropertyZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, f_PropertyZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_TreeZone := TvtPanel.Create(Self);
+ f_TreeZone.Name := 'TreeZone';
+ f_TreeZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztParent, f_TreeZone) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimAdminForm.MakeControls
 
 initialization
  str_utAdminCaption.Init;

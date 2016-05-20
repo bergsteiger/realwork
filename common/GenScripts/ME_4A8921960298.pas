@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimListOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefList = {final} class(TPrimListOptionsForm, ListFormDef)
   {* Список }
+   Entities : TvcmEntities;
  end;//TefList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -40,6 +44,8 @@ uses
  , ListKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

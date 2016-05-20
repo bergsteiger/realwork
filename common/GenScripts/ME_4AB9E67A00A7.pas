@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , InpharmMainMenu_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_MedicMainMenu = {final} class(TInpharmMainMenuForm, MedicMainMenuFormDef)
   {* справочник ГАРАНТ-ИнФарм: Лекарства и фирмы }
+   Entities : TvcmEntities;
  end;//Ten_MedicMainMenu
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -43,6 +47,8 @@ uses
  , SysUtils
  , afwFacade
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

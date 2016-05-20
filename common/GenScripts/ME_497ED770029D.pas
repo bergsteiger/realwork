@@ -28,6 +28,9 @@ type
    function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
@@ -100,6 +103,37 @@ begin
  Result := dsCommonDiction.IsDataAvailable;
 //#UC END# *55127A5401DE_497ED770029D_impl*
 end;//TPrimCommonDictionForm.IsAcceptable
+
+procedure TPrimCommonDictionForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utTipsName,
+  str_utTipsCaption,
+  str_utTipsSettingsCaption,
+  False,
+  175,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(utTipsName
+ with AddUsertype(utMedicDictionName,
+  str_utMedicDictionCaption,
+  str_utMedicDictionSettingsCaption,
+  False,
+  182,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(utMedicDictionName
+end;//TPrimCommonDictionForm.MakeControls
 
 initialization
  str_utTipsCaption.Init;

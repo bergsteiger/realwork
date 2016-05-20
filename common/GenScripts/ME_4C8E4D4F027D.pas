@@ -14,11 +14,15 @@ interface
 uses
  l3IntfUses
  , PrimCustomizeTasksPanel_Form
+ , vcmEntities
 ;
 
 type
  TCustomizeTasksPanelForm = {final} class(TPrimCustomizeTasksPanelForm)
   {* Редактор панели задач }
+   Entities : TvcmEntities;
+  protected
+   procedure MakeControls; override;
  end;//TCustomizeTasksPanelForm
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -43,6 +47,26 @@ const
  {* Локализуемые строки ut_CustomizeTasksPanelLocalConstants }
  str_ut_CustomizeTasksPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeTasksPanelCaption'; rValue : 'Редактор панели задач');
   {* Заголовок пользовательского типа "Редактор панели задач" }
+
+{$R *.DFM}
+
+procedure TCustomizeTasksPanelForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_CustomizeTasksPanelName,
+  str_ut_CustomizeTasksPanelCaption,
+  str_ut_CustomizeTasksPanelCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_CustomizeTasksPanelName
+end;//TCustomizeTasksPanelForm.MakeControls
 
 initialization
  str_ut_CustomizeTasksPanelCaption.Init;

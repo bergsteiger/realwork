@@ -46,6 +46,14 @@ type
    procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
    procedure NotifyUserActiveChanged(anUserID: TdaUserID;
     anActive: Boolean);
+   function CSCheckPassword(const aLogin: AnsiString;
+    const aPassword: AnsiString;
+    RequireAdminRights: Boolean;
+    out theUserID: TdaUserID): Boolean;
+   procedure GetUserInfo(aUser: TdaUserID;
+    var aUserName: AnsiString;
+    var aLoginName: AnsiString;
+    var aActFlag: Byte);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -286,6 +294,35 @@ begin
  f_UserStatusChangedSubscriberList.IterateAllF(l3L2IA(@DoIt));
 //#UC END# *5739835200CF_5629E343023B_impl*
 end;//ThtUserManager.NotifyUserActiveChanged
+
+function ThtUserManager.CSCheckPassword(const aLogin: AnsiString;
+ const aPassword: AnsiString;
+ RequireAdminRights: Boolean;
+ out theUserID: TdaUserID): Boolean;
+//#UC START# *573AC17202BF_5629E343023B_var*
+//#UC END# *573AC17202BF_5629E343023B_var*
+begin
+//#UC START# *573AC17202BF_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxCSCheckPassword(aLogin, aPassword, RequireAdminRights, theUserID);
+//#UC END# *573AC17202BF_5629E343023B_impl*
+end;//ThtUserManager.CSCheckPassword
+
+procedure ThtUserManager.GetUserInfo(aUser: TdaUserID;
+ var aUserName: AnsiString;
+ var aLoginName: AnsiString;
+ var aActFlag: Byte);
+//#UC START# *573AEE9902DF_5629E343023B_var*
+var
+ l_UserName: ShortString;
+ l_LoginName: ShortString;
+//#UC END# *573AEE9902DF_5629E343023B_var*
+begin
+//#UC START# *573AEE9902DF_5629E343023B_impl*
+ dt_User.UserManager.xxxGetUserInfo(aUser, l_UserName, l_LoginName, aActFlag);
+ aUserName := l_UserName;
+ aLoginName := l_LoginName;
+//#UC END# *573AEE9902DF_5629E343023B_impl*
+end;//ThtUserManager.GetUserInfo
 
 procedure ThtUserManager.Cleanup;
  {* Функция очистки полей объекта. }

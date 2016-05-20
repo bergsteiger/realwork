@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -31,6 +34,7 @@ type
  end;//FoldersInfoFormDef
 
  TcfFoldersInfo = {final} class(TPrimFoldersInfoOptionsForm, FoldersInfoFormDef)
+   Entities : TvcmEntities;
  end;//TcfFoldersInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -46,6 +50,8 @@ uses
  , FoldersInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

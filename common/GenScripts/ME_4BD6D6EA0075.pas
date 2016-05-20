@@ -58,6 +58,9 @@ type
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
@@ -445,6 +448,27 @@ begin
  Height := 478;
 //#UC END# *529332B40230_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.SetupFormLayout
+
+procedure TPrimWorkJournalForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utWorkJournalName,
+  str_utWorkJournalCaption,
+  str_utWorkJournalCaption,
+  False,
+  128,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utWorkJournalName
+ f_JournalTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_JournalTree.Name := 'JournalTree';
+ f_JournalTree.Parent := Self;
+end;//TPrimWorkJournalForm.MakeControls
 
 initialization
  str_utWorkJournalCaption.Init;

@@ -95,6 +95,9 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetNeedSaveToTabHistory: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild(const aData: InsStartupTips): Il3WndProcListener; reintroduce;
   public
@@ -573,6 +576,53 @@ begin
  Result := False;
 //#UC END# *55B9F0BD0069_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.DoGetNeedSaveToTabHistory
+
+procedure TPrimStartupTipsForm.MakeControls;
+begin
+ inherited;
+ f_TopPanel := TvtPanel.Create(Self);
+ f_TopPanel.Name := 'TopPanel';
+ f_TopPanel.Parent := Self;
+ f_TitlePaintBox := TPaintBox.Create(Self);
+ f_TitlePaintBox.Name := 'TitlePaintBox';
+ f_TitlePaintBox.Parent := TopPanel;
+ f_TitleLabel := TvtLabel.Create(Self);
+ f_TitleLabel.Name := 'TitleLabel';
+ f_TitleLabel.Parent := TopPanel;
+ f_BottomPanel := TvtPanel.Create(Self);
+ f_BottomPanel.Name := 'BottomPanel';
+ f_BottomPanel.Parent := Self;
+ f_HintPanel := TvtPanel.Create(Self);
+ f_HintPanel.Name := 'HintPanel';
+ f_HintPanel.Parent := BottomPanel;
+ f_TipLabel := TvtLabel.Create(Self);
+ f_TipLabel.Name := 'TipLabel';
+ f_TipLabel.Parent := HintPanel;
+ f_DetailLabel := TvtFocusLabel.Create(Self);
+ f_DetailLabel.Name := 'DetailLabel';
+ f_DetailLabel.Parent := HintPanel;
+ f_ShowCheckBox := TvtCheckBox.Create(Self);
+ f_ShowCheckBox.Name := 'ShowCheckBox';
+ f_ShowCheckBox.Parent := BottomPanel;
+ f_wwwPanel := TvtPanel.Create(Self);
+ f_wwwPanel.Name := 'wwwPanel';
+ f_wwwPanel.Parent := BottomPanel;
+ f_wwwPaintBox := TPaintBox.Create(Self);
+ f_wwwPaintBox.Name := 'wwwPaintBox';
+ f_wwwPaintBox.Parent := wwwPanel;
+ f_wwwLabel := TvtFocusLabel.Create(Self);
+ f_wwwLabel.Name := 'wwwLabel';
+ f_wwwLabel.Parent := wwwPanel;
+ f_NextButton := TElPopupButton.Create(Self);
+ f_NextButton.Name := 'NextButton';
+ f_NextButton.Parent := BottomPanel;
+ f_PrevButton := TElPopupButton.Create(Self);
+ f_PrevButton.Name := 'PrevButton';
+ f_PrevButton.Parent := BottomPanel;
+ f_CloseButton := TElPopupButton.Create(Self);
+ f_CloseButton.Name := 'CloseButton';
+ f_CloseButton.Parent := BottomPanel;
+end;//TPrimStartupTipsForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

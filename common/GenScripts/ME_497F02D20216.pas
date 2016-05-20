@@ -123,6 +123,9 @@ type
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property pnMainData: TvtPanel
     read f_pnMainData;
@@ -840,6 +843,90 @@ begin
  Height := 276;
 //#UC END# *529332B40230_497F02D20216_impl*
 end;//TPrimUserPropertyForm.SetupFormLayout
+
+procedure TPrimUserPropertyForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(admUsePropertiesName,
+  str_admUsePropertiesCaption,
+  str_admUsePropertiesCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(admUsePropertiesName
+ f_pnMainData := TvtPanel.Create(Self);
+ f_pnMainData.Name := 'pnMainData';
+ f_pnMainData.Parent := Self;
+ f_f_TopPanel := TvtPanel.Create(Self);
+ f_f_TopPanel.Name := 'f_TopPanel';
+ f_f_TopPanel.Parent := pnMainData;
+ f_UserNameLabel := TvtLabel.Create(Self);
+ f_UserNameLabel.Name := 'UserNameLabel';
+ f_UserNameLabel.Parent := f_TopPanel;
+ f_PasswordLabel := TvtLabel.Create(Self);
+ f_PasswordLabel.Name := 'PasswordLabel';
+ f_PasswordLabel.Parent := f_TopPanel;
+ f_LoginLabel := TvtLabel.Create(Self);
+ f_LoginLabel.Name := 'LoginLabel';
+ f_LoginLabel.Parent := f_TopPanel;
+ f_EMailLabel := TvtLabel.Create(Self);
+ f_EMailLabel.Name := 'EMailLabel';
+ f_EMailLabel.Parent := f_TopPanel;
+ f_ConfirmPasswordLabel := TvtLabel.Create(Self);
+ f_ConfirmPasswordLabel.Name := 'ConfirmPasswordLabel';
+ f_ConfirmPasswordLabel.Parent := f_TopPanel;
+ f_GroupLabel := TvtLabel.Create(Self);
+ f_GroupLabel.Name := 'GroupLabel';
+ f_GroupLabel.Parent := f_TopPanel;
+ f_edPassword := TnscComboBoxWithPwdChar.Create(Self);
+ f_edPassword.Name := 'edPassword';
+ f_edPassword.Parent := f_TopPanel;
+ f_edUserName := TnscEdit.Create(Self);
+ f_edUserName.Name := 'edUserName';
+ f_edUserName.Parent := f_TopPanel;
+ f_edLogin := TnscEdit.Create(Self);
+ f_edLogin.Name := 'edLogin';
+ f_edLogin.Parent := f_TopPanel;
+ f_edEmail := TnscEdit.Create(Self);
+ f_edEmail.Name := 'edEmail';
+ f_edEmail.Parent := f_TopPanel;
+ f_edConfirm := TnscComboBoxWithPwdChar.Create(Self);
+ f_edConfirm.Name := 'edConfirm';
+ f_edConfirm.Parent := f_TopPanel;
+ f_edGroup := TvtComboBoxQS.Create(Self);
+ f_edGroup.Name := 'edGroup';
+ f_edGroup.Parent := f_TopPanel;
+ f_f_MiddlePanel := TvtPanel.Create(Self);
+ f_f_MiddlePanel.Name := 'f_MiddlePanel';
+ f_f_MiddlePanel.Parent := pnMainData;
+ f_edPrivilegedUser := TvtCheckBox.Create(Self);
+ f_edPrivilegedUser.Name := 'edPrivilegedUser';
+ f_edPrivilegedUser.Parent := f_MiddlePanel;
+ f_edBuyConsulting := TvtCheckBox.Create(Self);
+ f_edBuyConsulting.Name := 'edBuyConsulting';
+ f_edBuyConsulting.Parent := f_MiddlePanel;
+ f_f_DontDeleteIdleUserPanel := TvtPanel.Create(Self);
+ f_f_DontDeleteIdleUserPanel.Name := 'f_DontDeleteIdleUserPanel';
+ f_f_DontDeleteIdleUserPanel.Parent := pnMainData;
+ f_edDontDeleteIdleUser := TvtCheckBox.Create(Self);
+ f_edDontDeleteIdleUser.Name := 'edDontDeleteIdleUser';
+ f_edDontDeleteIdleUser.Parent := f_DontDeleteIdleUserPanel;
+ f_f_BottomPanel := TvtPanel.Create(Self);
+ f_f_BottomPanel.Name := 'f_BottomPanel';
+ f_f_BottomPanel.Parent := pnMainData;
+ f_InfoLabel := TvtLabel.Create(Self);
+ f_InfoLabel.Name := 'InfoLabel';
+ f_InfoLabel.Parent := f_BottomPanel;
+ f_edHasSharedFilters := TvtCheckBox.Create(Self);
+ f_edHasSharedFilters.Name := 'edHasSharedFilters';
+ f_edHasSharedFilters.Parent := f_BottomPanel;
+end;//TPrimUserPropertyForm.MakeControls
 
 initialization
  str_admUsePropertiesCaption.Init;

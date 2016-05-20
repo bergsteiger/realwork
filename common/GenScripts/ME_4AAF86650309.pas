@@ -14,11 +14,17 @@ interface
 uses
  l3IntfUses
  , PrimPageSetupOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_PageSetup = {final} class(TPrimPageSetupOptionsForm)
   {* Настройка страницы }
+   Entities : TvcmEntities;
+   PreviewGroupBox : TvtGroupBox;
+   SettingsPageControl : TnscPageControl;
   protected
    procedure ReadPageFormats; override;
    procedure SetColontitulComboBoxItemIndex(aIndex: Integer); override;
@@ -75,6 +81,8 @@ uses
  , PageSetupKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 {$If NOT Defined(NoVCM)}
 procedure Ten_PageSetup.File_Save_Test(const aParams: IvcmTestParamsPrim);

@@ -466,6 +466,9 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetNeedAddFormToTasksPanel: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Коллеги, это что? }
@@ -7203,6 +7206,14 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=588809860
 //#UC END# *54F458DD01CE_49539DBA029D_impl*
 end;//TExTextForm.DoGetNeedAddFormToTasksPanel
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TExTextForm.MakeControls;
+begin
+ inherited;
+ f_Text.Parent := Self;
+end;//TExTextForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

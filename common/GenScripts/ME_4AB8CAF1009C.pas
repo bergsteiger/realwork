@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  Ten_DefineSearchDate = {final} class(TPrimDefineSearchDateForm, DefineSearchDateFormDef)
   {* Дата }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//Ten_DefineSearchDate
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_DefineSearchDateLocalConstants }
  str_ut_DefineSearchDateCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_DefineSearchDateCaption'; rValue : 'Дата');
   {* Заголовок пользовательского типа "Дата" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_DefineSearchDate.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_DefineSearchDateName,
+  str_ut_DefineSearchDateCaption,
+  str_ut_DefineSearchDateCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_DefineSearchDateName
+end;//Ten_DefineSearchDate.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

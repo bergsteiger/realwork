@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimSaveLoadOptionsWithUserTypes_Form
  , Search_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TcfSaveLoad = {final} class(TPrimSaveLoadOptionsWithUserTypesForm, SaveLoadFormDef)
+   Entities : TvcmEntities;
  end;//TcfSaveLoad
 {$IfEnd} // NOT Defined(Admin)
 
@@ -33,6 +37,8 @@ uses
  , SaveLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

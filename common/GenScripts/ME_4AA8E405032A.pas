@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,11 @@ type
 
  TefForbidAutoregistration = {final} class(TPrimForbidAutoregistrationOptionsForm, ForbidAutoregistrationFormDef)
   {* Запретить авторегистрацию }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TefForbidAutoregistration
 {$IfEnd} // Defined(Admin)
 
@@ -56,6 +64,28 @@ const
  {* Локализуемые строки ut_ForbidAutoregistrationLocalConstants }
  str_ut_ForbidAutoregistrationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_ForbidAutoregistrationCaption'; rValue : 'Запретить авторегистрацию');
   {* Заголовок пользовательского типа "Запретить авторегистрацию" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TefForbidAutoregistration.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_ForbidAutoregistrationName,
+  str_ut_ForbidAutoregistrationCaption,
+  str_ut_ForbidAutoregistrationCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_ForbidAutoregistrationName
+end;//TefForbidAutoregistration.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

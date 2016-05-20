@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimDictionContainer_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TDictionContainerForm = {final} class(TPrimDictionContainerForm, DictionContainerFormDef)
+   Entities : TvcmEntities;
  end;//TDictionContainerForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -33,6 +37,8 @@ uses
  , DictionContainerKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

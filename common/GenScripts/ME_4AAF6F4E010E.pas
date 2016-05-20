@@ -67,6 +67,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: IafwDocumentPreview): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -381,6 +384,27 @@ begin
 //#UC END# *543E3AA801D0_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimPreviewForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utPrintPreviewName,
+  str_utPrintPreviewCaption,
+  str_utPrintPreviewCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utPrintPreviewName
+ f_PreviewPanel := TnscPreviewPanel.Create(Self);
+ f_PreviewPanel.Name := 'PreviewPanel';
+ f_PreviewPanel.Parent := Self;
+end;//TPrimPreviewForm.MakeControls
 
 initialization
  str_utPrintPreviewCaption.Init;

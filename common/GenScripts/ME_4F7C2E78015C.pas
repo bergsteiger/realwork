@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -31,6 +34,7 @@ type
  end;//MonitoringsMainFormDef
 
  TMonitoringsMainForm = {final} class(TPrimMonitoringsMainForm, MonitoringsMainFormDef)
+   Entities : TvcmEntities;
  end;//TMonitoringsMainForm
 {$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
@@ -46,6 +50,8 @@ uses
  , MonitoringsMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
  fm_MonitoringsMainForm.SetFactory(TMonitoringsMainForm.Make);

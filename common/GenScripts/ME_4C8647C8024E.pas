@@ -28,6 +28,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ , nscTreeViewWithAdapterDragDrop
 ;
 
 type
@@ -51,6 +52,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
@@ -372,6 +376,14 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4C8647C8024E_impl*
 end;//TPrimAttributesOptionsForm.InitControls
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.MakeControls;
+begin
+ inherited;
+ f_tvAttributes.Parent := Self;
+end;//TPrimAttributesOptionsForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

@@ -208,6 +208,9 @@ type
    procedure CheckFloatingVisibility; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Contents_SetCurrent_Execute(aSub: Integer);
    procedure Contents_SetCurrent(const aParams: IvcmExecuteParamsPrim);
@@ -328,6 +331,9 @@ uses
  , vcmRepOperationsCollectionItem
  {$IfEnd} // NOT Defined(NoVCM)
  , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -2423,6 +2429,32 @@ begin
  Finalize(f_ListForFiltering);
  inherited;
 end;//TPrimContentsForm.ClearFields
+
+procedure TPrimContentsForm.MakeControls;
+begin
+ inherited;
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_lstBookmarks := TvtLister.Create(Self);
+ f_lstBookmarks.Name := 'lstBookmarks';
+ f_lstBookmarks.Parent := BackgroundPanel;
+ f_lstComments := TvtLister.Create(Self);
+ f_lstComments.Name := 'lstComments';
+ f_lstComments.Parent := BackgroundPanel;
+ f_lstExternalObjects := TvtLister.Create(Self);
+ f_lstExternalObjects.Name := 'lstExternalObjects';
+ f_lstExternalObjects.Parent := BackgroundPanel;
+ f_ContentsTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_ContentsTree.Name := 'ContentsTree';
+ f_ContentsTree.Parent := BackgroundPanel;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_Tasks := TnscTasksPanelView.Create(Self);
+ f_Tasks.Name := 'Tasks';
+ f_Tasks.Parent := BackgroundPanel;
+end;//TPrimContentsForm.MakeControls
 
 initialization
  str_ContentsPrintTitle.Init;

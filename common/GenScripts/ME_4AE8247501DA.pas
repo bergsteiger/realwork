@@ -61,6 +61,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure StyleEditor_ReloadStylesTree_Execute(const aStyleName: Il3CString);
     {* ReloadStylesTree }
@@ -423,6 +426,27 @@ begin
  PostMessage(Handle, WM_AFTERINSERT, 0, 0);
 //#UC END# *4F7C65380244_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.FormInsertedIntoContainer
+
+procedure TPrimStyleEditorNavigatorForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utStyleEditorNavigatorName,
+  str_utStyleEditorNavigatorCaption,
+  str_utStyleEditorNavigatorSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utStyleEditorNavigatorName
+ f_StyleTreeView := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_StyleTreeView.Name := 'StyleTreeView';
+ f_StyleTreeView.Parent := Self;
+end;//TPrimStyleEditorNavigatorForm.MakeControls
 
 initialization
  str_utStyleEditorNavigatorCaption.Init;

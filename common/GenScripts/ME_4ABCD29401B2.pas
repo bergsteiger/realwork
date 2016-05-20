@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimFoldersTreeOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenFoldersTree = {final} class(TPrimFoldersTreeOptionsForm, FoldersTreeFormDef)
+   Entities : TvcmEntities;
  end;//TenFoldersTree
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -33,6 +37,8 @@ uses
  , FoldersTreeKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

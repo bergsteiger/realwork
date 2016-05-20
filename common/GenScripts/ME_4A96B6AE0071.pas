@@ -63,6 +63,9 @@ type
    {$If NOT Defined(NoVCL)}
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
@@ -467,6 +470,40 @@ begin
 //#UC END# *4A97E78202FC_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.SetParent
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimFoldersForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utFoldersName,
+  str_utFoldersCaption,
+  str_utFoldersCaption,
+  False,
+  65,
+  20,
+  '',
+  nil,
+  nil,
+  utFoldersQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utFoldersName
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ParentZone := TvtPanel.Create(Self);
+ f_ParentZone.Name := 'ParentZone';
+ f_ParentZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztParent, f_ParentZone) do
+ begin
+  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
+ end;//with DefineZone(vcm_ztParent
+ f_ChildZone := TvtSizeablePanel.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, f_ChildZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimFoldersForm.MakeControls
 
 initialization
  str_utFoldersCaption.Init;

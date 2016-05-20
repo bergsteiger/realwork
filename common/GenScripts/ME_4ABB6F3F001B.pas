@@ -22,6 +22,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -41,6 +44,7 @@ type
  {$IfEnd} // NOT Defined(NoVCM)
  , AboutFormDef)
   {* О программе }
+   Entities : TvcmEntities;
   private
    f_pbLogo: TPaintBox;
     {* Поле для свойства pbLogo }
@@ -88,6 +92,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property pbLogo: TPaintBox
@@ -165,6 +172,8 @@ const
  {* Локализуемые строки ut_AboutLocalConstants }
  str_ut_AboutCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_AboutCaption'; rValue : 'О программе');
   {* Заголовок пользовательского типа "О программе" }
+
+{$R *.DFM}
 
 procedure TefAbout.UpdateInfoOnForm;
 //#UC START# *5006D2A60192_4ABB6F3F001B_var*
@@ -573,6 +582,78 @@ begin
 
 //#UC END# *4A8E8F2E0195_4ABB6F3F001B_impl*
 end;//TefAbout.InitControls
+
+procedure TefAbout.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_AboutName,
+  str_ut_AboutCaption,
+  str_ut_AboutCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_AboutName
+ f_pbLogo := TPaintBox.Create(Self);
+ f_pbLogo.Name := 'pbLogo';
+ f_pbLogo.Parent := Self;
+ f_ShellInfoLabel := TvtLabel.Create(Self);
+ f_ShellInfoLabel.Name := 'ShellInfoLabel';
+ f_ShellInfoLabel.Parent := Self;
+ f_AdapterInfoLabel := TvtLabel.Create(Self);
+ f_AdapterInfoLabel.Name := 'AdapterInfoLabel';
+ f_AdapterInfoLabel.Parent := Self;
+ f_UserCountLabel := TvtLabel.Create(Self);
+ f_UserCountLabel.Name := 'UserCountLabel';
+ f_UserCountLabel.Parent := Self;
+ f_OwnerLabel := TvtLabel.Create(Self);
+ f_OwnerLabel.Name := 'OwnerLabel';
+ f_OwnerLabel.Parent := Self;
+ f_ShellCaptionLabel := TvtLabel.Create(Self);
+ f_ShellCaptionLabel.Name := 'ShellCaptionLabel';
+ f_ShellCaptionLabel.Parent := Self;
+ f_OwnerCaptionLabel := TvtLabel.Create(Self);
+ f_OwnerCaptionLabel.Name := 'OwnerCaptionLabel';
+ f_OwnerCaptionLabel.Parent := Self;
+ f_UserInfoGroupBox := TvtGroupBox.Create(Self);
+ f_UserInfoGroupBox.Name := 'UserInfoGroupBox';
+ f_UserInfoGroupBox.Parent := Self;
+ f_EMailCaptionLabel := TvtLabel.Create(Self);
+ f_EMailCaptionLabel.Name := 'EMailCaptionLabel';
+ f_EMailCaptionLabel.Parent := UserInfoGroupBox;
+ f_EMailLabel := TvtLabel.Create(Self);
+ f_EMailLabel.Name := 'EMailLabel';
+ f_EMailLabel.Parent := UserInfoGroupBox;
+ f_LoginCaptionLabel := TvtLabel.Create(Self);
+ f_LoginCaptionLabel.Name := 'LoginCaptionLabel';
+ f_LoginCaptionLabel.Parent := UserInfoGroupBox;
+ f_UserCaptionLabel := TvtLabel.Create(Self);
+ f_UserCaptionLabel.Name := 'UserCaptionLabel';
+ f_UserCaptionLabel.Parent := UserInfoGroupBox;
+ f_UserNameLabel := TvtLabel.Create(Self);
+ f_UserNameLabel.Name := 'UserNameLabel';
+ f_UserNameLabel.Parent := UserInfoGroupBox;
+ f_LoginLabel := TvtLabel.Create(Self);
+ f_LoginLabel.Name := 'LoginLabel';
+ f_LoginLabel.Parent := UserInfoGroupBox;
+ f_CopyrightCaptionLabel := TvtLabel.Create(Self);
+ f_CopyrightCaptionLabel.Name := 'CopyrightCaptionLabel';
+ f_CopyrightCaptionLabel.Parent := Self;
+ f_OkButton := TvtButton.Create(Self);
+ f_OkButton.Name := 'OkButton';
+ f_OkButton.Parent := Self;
+ f_UserCountCaptionLabel := TvtLabel.Create(Self);
+ f_UserCountCaptionLabel.Name := 'UserCountCaptionLabel';
+ f_UserCountCaptionLabel.Parent := Self;
+ f_AdapterCaptionLabel := TvtLabel.Create(Self);
+ f_AdapterCaptionLabel.Name := 'AdapterCaptionLabel';
+ f_AdapterCaptionLabel.Parent := Self;
+end;//TefAbout.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

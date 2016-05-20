@@ -493,6 +493,7 @@ type
     {* Инициализация формы. Для перекрытия в потомках }
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
   public
    class function Make(const aPanel: IvcmCustOps); reintroduce;
     {* Фабрика }
@@ -1610,6 +1611,125 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4A8E8F2E0195_4C8E4D21001F_impl*
 end;//TPrimCustomizeTasksPanelForm.InitControls
+
+procedure TPrimCustomizeTasksPanelForm.MakeControls;
+begin
+ inherited;
+ f_spRight := TvtSplitter.Create(Self);
+ f_spRight.Name := 'spRight';
+ f_spRight.Parent := Self;
+ f_pnlBottom := TvtPanel.Create(Self);
+ f_pnlBottom.Name := 'pnlBottom';
+ f_pnlBottom.Parent := Self;
+ f_lblConfirmSave := TvtLabel.Create(Self);
+ f_lblConfirmSave.Name := 'lblConfirmSave';
+ f_lblConfirmSave.Parent := pnlBottom;
+ f_lblAvailableOpsCaption := TvtLabel.Create(Self);
+ f_lblAvailableOpsCaption.Name := 'lblAvailableOpsCaption';
+ f_lblAvailableOpsCaption.Parent := pnlBottom;
+ f_btOk := TvtButton.Create(Self);
+ f_btOk.Name := 'btOk';
+ f_btOk.Parent := pnlBottom;
+ f_btCancel := TvtButton.Create(Self);
+ f_btCancel.Name := 'btCancel';
+ f_btCancel.Parent := pnlBottom;
+ f_btApply := TvtButton.Create(Self);
+ f_btApply.Name := 'btApply';
+ f_btApply.Parent := pnlBottom;
+ f_pnlRep := TvtPanel.Create(Self);
+ f_pnlRep.Name := 'pnlRep';
+ f_pnlRep.Parent := Self;
+ f_splRep := TvtSplitter.Create(Self);
+ f_splRep.Name := 'splRep';
+ f_splRep.Parent := pnlRep;
+ f_gbAvailableGroups := TvtGroupBox.Create(Self);
+ f_gbAvailableGroups.Name := 'gbAvailableGroups';
+ f_gbAvailableGroups.Parent := pnlRep;
+ f_tvRepGroups := TeeTreeView.Create(Self);
+ f_tvRepGroups.Name := 'tvRepGroups';
+ f_tvRepGroups.Parent := gbAvailableGroups;
+ f_vtPanel1 := TvtPanel.Create(Self);
+ f_vtPanel1.Name := 'vtPanel1';
+ f_vtPanel1.Parent := gbAvailableGroups;
+ f_cbGroupName := TvtComboBox.Create(Self);
+ f_cbGroupName.Name := 'cbGroupName';
+ f_cbGroupName.Parent := vtPanel1;
+ f_btnAddGroup := TeeButton.Create(Self);
+ f_btnAddGroup.Name := 'btnAddGroup';
+ f_btnAddGroup.Parent := vtPanel1;
+ f_btnChangeGroup := TeeButton.Create(Self);
+ f_btnChangeGroup.Name := 'btnChangeGroup';
+ f_btnChangeGroup.Parent := vtPanel1;
+ f_btnDeleteGroup := TeeButton.Create(Self);
+ f_btnDeleteGroup.Name := 'btnDeleteGroup';
+ f_btnDeleteGroup.Parent := vtPanel1;
+ f_gbAvailableOperations := TvtGroupBox.Create(Self);
+ f_gbAvailableOperations.Name := 'gbAvailableOperations';
+ f_gbAvailableOperations.Parent := pnlRep;
+ f_tvRepOps := TeeTreeView.Create(Self);
+ f_tvRepOps.Name := 'tvRepOps';
+ f_tvRepOps.Parent := gbAvailableOperations;
+ f_pnlForms := TvtPanel.Create(Self);
+ f_pnlForms.Name := 'pnlForms';
+ f_pnlForms.Parent := Self;
+ f_lblForms := TvtLabel.Create(Self);
+ f_lblForms.Name := 'lblForms';
+ f_lblForms.Parent := pnlForms;
+ f_cbForms := TComboBox.Create(Self);
+ f_cbForms.Name := 'cbForms';
+ f_cbForms.Parent := pnlForms;
+ f_pnlMain := TvtPanel.Create(Self);
+ f_pnlMain.Name := 'pnlMain';
+ f_pnlMain.Parent := Self;
+ f_pnlLeft := TvtPanel.Create(Self);
+ f_pnlLeft.Name := 'pnlLeft';
+ f_pnlLeft.Parent := pnlMain;
+ f_btnMoveOpToPanel := TBitBtn.Create(Self);
+ f_btnMoveOpToPanel.Name := 'btnMoveOpToPanel';
+ f_btnMoveOpToPanel.Parent := pnlLeft;
+ f_btnMoveOpToRep := TBitBtn.Create(Self);
+ f_btnMoveOpToRep.Name := 'btnMoveOpToRep';
+ f_btnMoveOpToRep.Parent := pnlLeft;
+ f_btnMoveGroupToPanel := TBitBtn.Create(Self);
+ f_btnMoveGroupToPanel.Name := 'btnMoveGroupToPanel';
+ f_btnMoveGroupToPanel.Parent := pnlLeft;
+ f_btnMoveGroupToRep := TBitBtn.Create(Self);
+ f_btnMoveGroupToRep.Name := 'btnMoveGroupToRep';
+ f_btnMoveGroupToRep.Parent := pnlLeft;
+ f_pnlTasksPanel := TvtPanel.Create(Self);
+ f_pnlTasksPanel.Name := 'pnlTasksPanel';
+ f_pnlTasksPanel.Parent := pnlMain;
+ f_gbTasksPanel := TvtGroupBox.Create(Self);
+ f_gbTasksPanel.Name := 'gbTasksPanel';
+ f_gbTasksPanel.Parent := pnlTasksPanel;
+ f_tvTasksPanel := TeeTreeView.Create(Self);
+ f_tvTasksPanel.Name := 'tvTasksPanel';
+ f_tvTasksPanel.Parent := gbTasksPanel;
+ f_vtGroupBox3 := TvtGroupBox.Create(Self);
+ f_vtGroupBox3.Name := 'vtGroupBox3';
+ f_vtGroupBox3.Parent := gbTasksPanel;
+ f_lblCaption := TvtLabel.Create(Self);
+ f_lblCaption.Name := 'lblCaption';
+ f_lblCaption.Parent := vtGroupBox3;
+ f_edChange := TvtComboBox.Create(Self);
+ f_edChange.Name := 'edChange';
+ f_edChange.Parent := vtGroupBox3;
+ f_cbForAllUseCases := TeeCheckBox.Create(Self);
+ f_cbForAllUseCases.Name := 'cbForAllUseCases';
+ f_cbForAllUseCases.Parent := vtGroupBox3;
+ f_btnChangeItem := TeeButton.Create(Self);
+ f_btnChangeItem.Name := 'btnChangeItem';
+ f_btnChangeItem.Parent := vtGroupBox3;
+ f_pnlOperationPos := TvtPanel.Create(Self);
+ f_pnlOperationPos.Name := 'pnlOperationPos';
+ f_pnlOperationPos.Parent := pnlTasksPanel;
+ f_UpBitBtn := TBitBtn.Create(Self);
+ f_UpBitBtn.Name := 'UpBitBtn';
+ f_UpBitBtn.Parent := pnlOperationPos;
+ f_DownBitBtn := TBitBtn.Create(Self);
+ f_DownBitBtn.Name := 'DownBitBtn';
+ f_DownBitBtn.Parent := pnlOperationPos;
+end;//TPrimCustomizeTasksPanelForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

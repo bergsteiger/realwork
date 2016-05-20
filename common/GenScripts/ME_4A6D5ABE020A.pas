@@ -82,6 +82,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure BecomeVisible; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure RightEdition_ReturnToDocument_Execute;
     {* Вернуться в текст документа }
@@ -538,6 +541,26 @@ begin
  Result := true;
 //#UC END# *501174B10018_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.GetIsMainObjectForm
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRightEditionForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utRightEditionName,
+  str_utRightEditionCaption,
+  str_utRightEditionCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utRightEditionName
+end;//TPrimRightEditionForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

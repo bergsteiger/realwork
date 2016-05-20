@@ -15,11 +15,19 @@ uses
  l3IntfUses
  , PrimCompInfo_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenCompInfo = {final} class(TPrimCompInfoForm, CompInfoFormDef)
   {* Информация о комплекте }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TenCompInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -46,6 +54,28 @@ const
  {* Локализуемые строки ut_CompInfoLocalConstants }
  str_ut_CompInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CompInfoCaption'; rValue : 'Информация о комплекте');
   {* Заголовок пользовательского типа "Информация о комплекте" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TenCompInfo.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_CompInfoName,
+  str_ut_CompInfoCaption,
+  str_ut_CompInfoCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_CompInfoName
+end;//TenCompInfo.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

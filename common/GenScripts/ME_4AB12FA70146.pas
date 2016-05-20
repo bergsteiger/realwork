@@ -14,11 +14,19 @@ interface
 uses
  l3IntfUses
  , PrimPictureInfoOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_PictureInfo = {final} class(TPrimPictureInfoOptionsForm)
   {* Информация о картинке }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//Ten_PictureInfo
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -42,6 +50,28 @@ const
  {* Локализуемые строки ut_PictureInfoLocalConstants }
  str_ut_PictureInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PictureInfoCaption'; rValue : 'Информация о картинке');
   {* Заголовок пользовательского типа "Информация о картинке" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure Ten_PictureInfo.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_PictureInfoName,
+  str_ut_PictureInfoCaption,
+  str_ut_PictureInfoCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_PictureInfoName
+end;//Ten_PictureInfo.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

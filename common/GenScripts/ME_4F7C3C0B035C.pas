@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -31,6 +34,7 @@ type
  end;//AdminMainFormDef
 
  TAdminMainForm = {final} class(TPrimAdminMainForm, AdminMainFormDef)
+   Entities : TvcmEntities;
  end;//TAdminMainForm
 {$IfEnd} // Defined(Admin)
 
@@ -46,6 +50,8 @@ uses
  , AdminMainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
  fm_AdminMainForm.SetFactory(TAdminMainForm.Make);

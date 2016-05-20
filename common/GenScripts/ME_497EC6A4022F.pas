@@ -63,6 +63,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AttributeTree_SetParent_Execute(const aParent: Il3SimpleNode);
    procedure AttributeTree_SetParent(const aParams: IvcmExecuteParamsPrim);
@@ -345,6 +348,29 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC6A4022F_impl*
 end;//TPrimTreeAttributeFirstLevelForm.InitControls
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeFirstLevelForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(flSituationName,
+  str_flSituationCaption,
+  str_flSituationSettingsCaption,
+  False,
+  29,
+  40,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(flSituationName
+ f_FirstLevelContent := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_FirstLevelContent.Name := 'FirstLevelContent';
+ f_FirstLevelContent.Parent := Self;
+end;//TPrimTreeAttributeFirstLevelForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimPostingsListOptions_Form
  , PostingOrder_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenPostingsList = {final} class(TPrimPostingsListOptionsForm, PostingsListFormDef)
   {* ПРАЙМ. Моя новостная лента }
+   Entities : TvcmEntities;
  end;//TenPostingsList
 {$IfEnd} // NOT Defined(Admin)
 
@@ -35,6 +39,8 @@ uses
  , PostingsListKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

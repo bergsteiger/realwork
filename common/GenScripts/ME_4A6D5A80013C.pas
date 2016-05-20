@@ -20,6 +20,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
 ;
 
 type
@@ -38,6 +39,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimLeftEditionForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -174,6 +178,26 @@ begin
  end;//with EditionChoose*)
 //#UC END# *4A8E8F2E0195_4A6D5A80013C_impl*
 end;//TPrimLeftEditionForm.InitControls
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimLeftEditionForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utLeftEditionName,
+  str_utLeftEditionCaption,
+  str_utLeftEditionCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utLeftEditionName
+end;//TPrimLeftEditionForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

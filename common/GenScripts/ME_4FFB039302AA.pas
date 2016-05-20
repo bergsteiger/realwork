@@ -9,6 +9,10 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _ContentsUserTypes_ = {abstract} class(_ContentsUserTypes_Parent_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_ContentsUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -34,6 +38,39 @@ const
   {* Заголовок пользовательского типа "Структура препарата" }
  str_utDrugContentsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsSettingsCaption'; rValue : 'Препарат: Структура (вкладка)');
   {* Заголовок пользовательского типа "Структура препарата" для настройки панелей инструментов }
+
+{$If NOT Defined(NoVCM)}
+procedure _ContentsUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utContentsName,
+  str_utContentsCaption,
+  str_utContentsSettingsCaption,
+  False,
+  66,
+  40,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccEnable) do
+ begin
+ end;//with AddUsertype(utContentsName
+ with AddUsertype(utDrugContentsName,
+  str_utDrugContentsCaption,
+  str_utDrugContentsSettingsCaption,
+  False,
+  66,
+  40,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccEnable) do
+ begin
+ end;//with AddUsertype(utDrugContentsName
+end;//_ContentsUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else ContentsUserTypes_imp_impl}
 

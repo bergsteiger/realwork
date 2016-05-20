@@ -15,6 +15,10 @@ uses
  , SysUtils
 ;
 
+const
+ c_UnknownLogin = 'UNKNOWN USER';
+ c_UnknownUserName = 'Пользователь %s.%d';
+
 type
  PdaDocEditRec = ^TdaDocEditRec;
 

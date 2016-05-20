@@ -69,6 +69,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -380,6 +383,47 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_5391A476038A_impl*
 end;//TMemoryUsagePrimForm.InitControls
+
+procedure TMemoryUsagePrimForm.MakeControls;
+begin
+ inherited;
+ f_pnTagTree := TvtPanel.Create(Self);
+ f_pnTagTree.Name := 'pnTagTree';
+ f_pnTagTree.Parent := Self;
+ f_TagTree := TeeTreeView.Create(Self);
+ f_TagTree.Name := 'TagTree';
+ f_TagTree.Parent := pnTagTree;
+ f_pnMemClasses := TvtSizeablePanel.Create(Self);
+ f_pnMemClasses.Name := 'pnMemClasses';
+ f_pnMemClasses.Parent := pnTagTree;
+ f_memClasses := TevMemo.Create(Self);
+ f_memClasses.Name := 'memClasses';
+ f_memClasses.Parent := pnMemClasses;
+ f_pnSummary := TvtSizeablePanel.Create(Self);
+ f_pnSummary.Name := 'pnSummary';
+ f_pnSummary.Parent := Self;
+ f_lbLocalMemory := TvtLabel.Create(Self);
+ f_lbLocalMemory.Name := 'lbLocalMemory';
+ f_lbLocalMemory.Parent := pnSummary;
+ f_lbObjectMemory := TvtLabel.Create(Self);
+ f_lbObjectMemory.Name := 'lbObjectMemory';
+ f_lbObjectMemory.Parent := pnSummary;
+ f_lbObjectCount := TvtLabel.Create(Self);
+ f_lbObjectCount.Name := 'lbObjectCount';
+ f_lbObjectCount.Parent := pnSummary;
+ f_lbGlobalMemory := TvtLabel.Create(Self);
+ f_lbGlobalMemory.Name := 'lbGlobalMemory';
+ f_lbGlobalMemory.Parent := pnSummary;
+ f_lbDocumentsInCacheCount := TvtLabel.Create(Self);
+ f_lbDocumentsInCacheCount.Name := 'lbDocumentsInCacheCount';
+ f_lbDocumentsInCacheCount.Parent := pnSummary;
+ f_lbAllLocalMemory := TvtLabel.Create(Self);
+ f_lbAllLocalMemory.Name := 'lbAllLocalMemory';
+ f_lbAllLocalMemory.Parent := pnSummary;
+ f_lbTotalMemory := TvtLabel.Create(Self);
+ f_lbTotalMemory.Name := 'lbTotalMemory';
+ f_lbTotalMemory.Parent := pnSummary;
+end;//TMemoryUsagePrimForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

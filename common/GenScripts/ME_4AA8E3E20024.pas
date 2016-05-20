@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,7 @@ type
 
  TefGroupProperty = {final} class(TPrimGroupPropertyOptionsForm, GroupPropertyFormDef)
   {* Свойства группы }
+   Entities : TvcmEntities;
  end;//TefGroupProperty
 {$IfEnd} // Defined(Admin)
 
@@ -48,6 +52,8 @@ uses
  , GroupPropertyKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -13,10 +13,14 @@ uses
  l3IntfUses
  , PrimSelectedAttributesOptions_Form
  , SearchLite_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenSelectedAttributes = {final} class(TPrimSelectedAttributesOptionsForm, SelectedAttributesFormDef)
+   Entities : TvcmEntities;
  end;//TenSelectedAttributes
 
 implementation
@@ -30,6 +34,8 @@ uses
  , SelectedAttributesKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

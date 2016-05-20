@@ -24,6 +24,9 @@ type
   protected
    procedure RegisterInDispatcher; override;
    procedure UnRegisterInDispatcher; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Chat_ClearHistory_Test(const aParams: IvcmTestParamsPrim);
     {* Очистить историю }
@@ -97,6 +100,26 @@ begin
  HistoryEditor.TextSource.New;
 //#UC END# *4A8AE24D003F_4A6EA45C01C4exec_impl*
 end;//TBaseHistoryWindowForm.Chat_ClearHistory_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TBaseHistoryWindowForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utChatHistoryName,
+  str_utChatHistoryCaption,
+  str_utChatHistoryCaption,
+  False,
+  197,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utChatHistoryName
+end;//TBaseHistoryWindowForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_utChatHistoryCaption.Init;

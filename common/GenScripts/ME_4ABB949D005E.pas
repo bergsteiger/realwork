@@ -14,10 +14,14 @@ uses
  l3IntfUses
  , PrimMainMenuNew_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_MainMenuNew = {final} class(TPrimMainMenuNewForm, MainMenuNewFormDef)
+   Entities : TvcmEntities;
  end;//Ten_MainMenuNew
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -41,6 +45,8 @@ uses
  , SysUtils
  , afwFacade
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

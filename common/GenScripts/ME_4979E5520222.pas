@@ -95,6 +95,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
    procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
@@ -399,6 +402,14 @@ begin
  (Viewer.TextSource As TeeTextSourceExport).OnMakeDocumentContainer := Self.MakeDocumentContainer;
 //#UC END# *4A8E8F2E0195_4979E5520222_impl*
 end;//TPrimWarningForm.InitControls
+
+procedure TPrimWarningForm.MakeControls;
+begin
+ inherited;
+ f_Viewer := TnscEditor.Create(Self);
+ f_Viewer.Name := 'Viewer';
+ f_Viewer.Parent := Self;
+end;//TPrimWarningForm.MakeControls
 
 //#UC START# *4979E5520222impl*
 //#UC END# *4979E5520222impl*

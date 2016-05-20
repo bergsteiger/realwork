@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimMedicFirmListOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_MedicFirmList = {final} class(TPrimMedicFirmListOptionsForm, MedicFirmListFormDef)
   {* Фармацевтические фирмы (полный список) }
+   Entities : TvcmEntities;
  end;//Ten_MedicFirmList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , MedicFirmListKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -46,6 +46,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: IbsEditGroupName): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -214,6 +217,43 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC4ED6801F3_impl*
 end;//TPrimGroupPropertyForm.InitControls
+
+procedure TPrimGroupPropertyForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(admCreateGroupName,
+  str_admCreateGroupCaption,
+  str_admCreateGroupCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(admCreateGroupName
+ with AddUsertype(admRenameGroupName,
+  str_admRenameGroupCaption,
+  str_admRenameGroupCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(admRenameGroupName
+ f_edName := TnscEdit.Create(Self);
+ f_edName.Name := 'edName';
+ f_edName.Parent := Self;
+ f_Label1 := TvtLabel.Create(Self);
+ f_Label1.Name := 'Label1';
+ f_Label1.Parent := Self;
+end;//TPrimGroupPropertyForm.MakeControls
 
 initialization
  str_admCreateGroupCaption.Init;

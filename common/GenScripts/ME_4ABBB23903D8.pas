@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimNavigatorOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  Ten_Navigator = {final} class(TPrimNavigatorOptionsForm, NavigatorFormDef)
   {* Μενώ }
+   Entities : TvcmEntities;
  end;//Ten_Navigator
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , NavigatorKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

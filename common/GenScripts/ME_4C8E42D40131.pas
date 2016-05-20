@@ -13,10 +13,14 @@ interface
 uses
  l3IntfUses
  , PrimCustomizeTools_Form
+ , vcmEntities
 ;
 
 type
  TCustomizeToolsForm = {final} class(TPrimCustomizeToolsForm)
+   Entities : TvcmEntities;
+  protected
+   procedure MakeControls; override;
  end;//TCustomizeToolsForm
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -43,6 +47,26 @@ const
  {* Локализуемые строки ut_CustomizeToolsLocalConstants }
  str_ut_CustomizeToolsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeToolsCaption'; rValue : 'CustomizeTools');
   {* Заголовок пользовательского типа "CustomizeTools" }
+
+{$R *.DFM}
+
+procedure TCustomizeToolsForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_CustomizeToolsName,
+  str_ut_CustomizeToolsCaption,
+  str_ut_CustomizeToolsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_CustomizeToolsName
+end;//TCustomizeToolsForm.MakeControls
 
 initialization
  str_ut_CustomizeToolsCaption.Init;

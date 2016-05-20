@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimEditionsContainer_Form
  , CompareEditions_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TEditionsContainerForm = {final} class(TPrimEditionsContainerForm, EditionsContainerFormDef)
   {* Сравнение редакций документа }
+   Entities : TvcmEntities;
  end;//TEditionsContainerForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , EditionsContainerKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

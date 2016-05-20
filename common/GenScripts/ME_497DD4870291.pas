@@ -88,6 +88,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure FolderElement_InternalEditByFoldersNode_Execute(const aNode: IFoldersNode;
     aInternalCall: Boolean = True);
@@ -828,6 +831,40 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.InitControls
+
+procedure TPrimFoldersTreeForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utFoldersTreeName,
+  str_utFoldersTreeCaption,
+  str_utFoldersTreeCaption,
+  False,
+  65,
+  -1,
+  utSaveOpenName,
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utFoldersTreeName
+ with AddUsertype(utSaveOpenName,
+  str_utSaveOpenCaption,
+  str_utSaveOpenCaption,
+  False,
+  65,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utSaveOpenName
+ f_FoldersTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_FoldersTree.Name := 'FoldersTree';
+ f_FoldersTree.Parent := Self;
+end;//TPrimFoldersTreeForm.MakeControls
 
 initialization
  str_utFoldersTreeCaption.Init;

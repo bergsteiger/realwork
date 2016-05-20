@@ -104,6 +104,9 @@
     {* Обработчик события lftSimilarDocumentsToFragment.OnQueryOpen }
    procedure lftSimilarDocumentsToFragmentQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события lftSimilarDocumentsToFragment.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_ListUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -216,6 +219,286 @@ const
   {* Заголовок пользовательского типа "Похожие к фрагменту" }
  str_lftSimilarDocumentsToFragmentSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsToFragmentSettingsCaption'; rValue : 'Список: Похожие к фрагменту');
   {* Заголовок пользовательского типа "Похожие к фрагменту" для настройки панелей инструментов }
+
+{$If NOT Defined(NoVCM)}
+procedure _ListUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(lftNoneName,
+  str_lftNoneCaption,
+  str_lftNoneCaption,
+  False,
+  64,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftNoneName
+ with AddUsertype(lftRespondentName,
+  str_lftRespondentCaption,
+  str_lftRespondentSettingsCaption,
+  False,
+  17,
+  40,
+  '',
+  lftRespondentQueryMaximized,
+  lftRespondentQueryOpen,
+  lftRespondentQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftRespondentName
+ with AddUsertype(lftCorrespondentName,
+  str_lftCorrespondentCaption,
+  str_lftCorrespondentSettingsCaption,
+  False,
+  18,
+  50,
+  lftRespondentName,
+  lftCorrespondentQueryMaximized,
+  lftCorrespondentQueryOpen,
+  lftCorrespondentQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftCorrespondentName
+ with AddUsertype(lftSynchroViewName,
+  str_lftSynchroViewCaption,
+  str_lftSynchroViewSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  lftSynchroViewQueryMaximized,
+  lftSynchroViewQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftSynchroViewName
+ with AddUsertype(lftCToPartName,
+  str_lftCToPartCaption,
+  str_lftCToPartSettingsCaption,
+  False,
+  -1,
+  60,
+  lftRespondentName,
+  lftCToPartQueryMaximized,
+  lftCToPartQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftCToPartName
+ with AddUsertype(lftUserCR1Name,
+  str_lftUserCR1Caption,
+  str_lftUserCR1SettingsCaption,
+  False,
+  -1,
+  80,
+  '',
+  lftUserCR1QueryMaximized,
+  lftUserCR1QueryOpen,
+  lftUserCR1QueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftUserCR1Name
+ with AddUsertype(lftUserCR2Name,
+  str_lftUserCR2Caption,
+  str_lftUserCR2SettingsCaption,
+  False,
+  -1,
+  100,
+  lftUserCR1Name,
+  lftUserCR2QueryMaximized,
+  lftUserCR2QueryOpen,
+  lftUserCR2QueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftUserCR2Name
+ with AddUsertype(lftConsultationName,
+  str_lftConsultationCaption,
+  str_lftConsultationSettingsCaption,
+  False,
+  64,
+  -1,
+  '',
+  lftConsultationQueryMaximized,
+  lftConsultationQueryOpen,
+  lftConsultationQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftConsultationName
+ with AddUsertype(lftSimilarDocumentsName,
+  str_lftSimilarDocumentsCaption,
+  str_lftSimilarDocumentsSettingsCaption,
+  False,
+  166,
+  120,
+  '',
+  lftSimilarDocumentsQueryMaximized,
+  lftSimilarDocumentsQueryOpen,
+  lftSimilarDocumentsQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftSimilarDocumentsName
+ with AddUsertype(lftSimilarDocumentsSynchroViewName,
+  str_lftSimilarDocumentsSynchroViewCaption,
+  str_lftSimilarDocumentsSynchroViewSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  lftSimilarDocumentsSynchroViewQueryMaximized,
+  lftSimilarDocumentsSynchroViewQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftSimilarDocumentsSynchroViewName
+ with AddUsertype(lftCorrespondentsSynchroFormName,
+  str_lftCorrespondentsSynchroFormCaption,
+  str_lftCorrespondentsSynchroFormSettingsCaption,
+  False,
+  18,
+  -1,
+  '',
+  lftCorrespondentsSynchroFormQueryMaximized,
+  lftCorrespondentsSynchroFormQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftCorrespondentsSynchroFormName
+ with AddUsertype(lftRespondentsSynchroFormName,
+  str_lftRespondentsSynchroFormCaption,
+  str_lftRespondentsSynchroFormSettingsCaption,
+  False,
+  17,
+  -1,
+  '',
+  lftRespondentsSynchroFormQueryMaximized,
+  lftRespondentsSynchroFormQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftRespondentsSynchroFormName
+ with AddUsertype(lftUserCRList1_SynchorFormName,
+  str_lftUserCRList1_SynchorFormCaption,
+  str_lftUserCRList1_SynchorFormSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  lftUserCRList1_SynchorFormQueryMaximized,
+  lftUserCRList1_SynchorFormQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftUserCRList1_SynchorFormName
+ with AddUsertype(lftUserCRList2_SynchorFormName,
+  str_lftUserCRList2_SynchorFormCaption,
+  str_lftUserCRList2_SynchorFormSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  lftUserCRList2_SynchorFormQueryMaximized,
+  lftUserCRList2_SynchorFormQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftUserCRList2_SynchorFormName
+ with AddUsertype(lftDrugListName,
+  str_lftDrugListCaption,
+  str_lftDrugListCaption,
+  False,
+  180,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftDrugListName
+ with AddUsertype(lftDrugInternationalNameSynonymsName,
+  str_lftDrugInternationalNameSynonymsCaption,
+  str_lftDrugInternationalNameSynonymsCaption,
+  False,
+  181,
+  -1,
+  '',
+  lftDrugInternationalNameSynonymsQueryMaximized,
+  lftDrugInternationalNameSynonymsQueryOpen,
+  lftDrugInternationalNameSynonymsQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftDrugInternationalNameSynonymsName
+ with AddUsertype(lftProducedDrugsName,
+  str_lftProducedDrugsCaption,
+  str_lftProducedDrugsCaption,
+  False,
+  183,
+  -1,
+  '',
+  lftProducedDrugsQueryMaximized,
+  lftProducedDrugsQueryOpen,
+  lftProducedDrugsQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftProducedDrugsName
+ with AddUsertype(lftProducedDrugsSynchroFormName,
+  str_lftProducedDrugsSynchroFormCaption,
+  str_lftProducedDrugsSynchroFormSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  lftProducedDrugsSynchroFormQueryMaximized,
+  lftProducedDrugsSynchroFormQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftProducedDrugsSynchroFormName
+ with AddUsertype(lftDrugInternationalNameSynonymsSynchroFormName,
+  str_lftDrugInternationalNameSynonymsSynchroFormCaption,
+  str_lftDrugInternationalNameSynonymsSynchroFormSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  lftDrugInternationalNameSynonymsSynchroFormQueryMaximized,
+  lftDrugInternationalNameSynonymsSynchroFormQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftDrugInternationalNameSynonymsSynchroFormName
+ with AddUsertype(lftRToPartName,
+  str_lftRToPartCaption,
+  str_lftRToPartSettingsCaption,
+  False,
+  -1,
+  61,
+  lftRespondentName,
+  lftRToPartQueryMaximized,
+  lftRToPartQueryOpen,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftRToPartName
+ with AddUsertype(lftSimilarDocumentsToFragmentName,
+  str_lftSimilarDocumentsToFragmentCaption,
+  str_lftSimilarDocumentsToFragmentSettingsCaption,
+  False,
+  166,
+  25,
+  lftSimilarDocumentsName,
+  lftSimilarDocumentsToFragmentQueryMaximized,
+  lftSimilarDocumentsToFragmentQueryOpen,
+  lftSimilarDocumentsToFragmentQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(lftSimilarDocumentsToFragmentName
+end;//_ListUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else ListUserTypes_imp_impl}
 

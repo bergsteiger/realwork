@@ -127,6 +127,9 @@ type
    function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
@@ -952,6 +955,33 @@ begin
  Result := dsMedicFirmList.IsDataAvailable;
 //#UC END# *55127A5401DE_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.IsAcceptable
+
+procedure TPrimMedicFirmListForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(mflMainName,
+  str_mflMainCaption,
+  str_mflMainCaption,
+  False,
+  178,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(mflMainName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_ListTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_ListTree.Name := 'ListTree';
+ f_ListTree.Parent := BackgroundPanel;
+end;//TPrimMedicFirmListForm.MakeControls
 
 initialization
  str_mflMainCaption.Init;

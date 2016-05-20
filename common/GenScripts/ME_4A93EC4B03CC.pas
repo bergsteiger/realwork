@@ -65,6 +65,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make: BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCL)}
@@ -279,6 +282,26 @@ begin
 //#UC END# *4B0E846D022B_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.IsRealInstance
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimRememberPasswordForm.MakeControls;
+begin
+ inherited;
+ f_EMailLabel := TvtLabel.Create(Self);
+ f_EMailLabel.Name := 'EMailLabel';
+ f_EMailLabel.Parent := Self;
+ f_HintLabel := TvtLabel.Create(Self);
+ f_HintLabel.Name := 'HintLabel';
+ f_HintLabel.Parent := Self;
+ f_btnCancel := TElPopupButton.Create(Self);
+ f_btnCancel.Name := 'btnCancel';
+ f_btnCancel.Parent := Self;
+ f_btnSend := TElPopupButton.Create(Self);
+ f_btnSend.Name := 'btnSend';
+ f_btnSend.Parent := Self;
+ f_edEmail := TnscEdit.Create(Self);
+ f_edEmail.Name := 'edEmail';
+ f_edEmail.Parent := Self;
+end;//TPrimRememberPasswordForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

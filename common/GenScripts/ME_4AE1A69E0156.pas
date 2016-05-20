@@ -48,6 +48,9 @@
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
@@ -640,6 +643,18 @@ begin
  Text.OnMakeExportFilters := Self.DoMakeExportFilters;
 //#UC END# *4A8E8F2E0195_4AE1A69E0156_impl*
 end;//_BaseTextOperations_.InitControls
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _BaseTextOperations_.MakeControls;
+begin
+ inherited;
+ f_Text := TnscEditor.Create(Self);
+ f_Text.Name := 'Text';
+ f_Text.Parent := Self;
+ f_TextSource := TnscTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+end;//_BaseTextOperations_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

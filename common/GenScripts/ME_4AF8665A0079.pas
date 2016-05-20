@@ -54,6 +54,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
@@ -242,6 +245,32 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AF8665A0079_impl*
 end;//TPrimStyleEditorExampleForm.InitControls
+
+procedure TPrimStyleEditorExampleForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utStyleEditorExampleName,
+  str_utStyleEditorExampleCaption,
+  str_utStyleEditorExampleCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utStyleEditorExampleName
+ f_TextSource := TnscTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+ f_EditorPanel := TvtPanel.Create(Self);
+ f_EditorPanel.Name := 'EditorPanel';
+ f_EditorPanel.Parent := Self;
+ f_Editor := TeeEditorWithoutOperations.Create(Self);
+ f_Editor.Name := 'Editor';
+ f_Editor.Parent := EditorPanel;
+end;//TPrimStyleEditorExampleForm.MakeControls
 
 //#UC START# *4AF8665A0079impl*
 {$R PrimStyleEditorExample_Form.res}

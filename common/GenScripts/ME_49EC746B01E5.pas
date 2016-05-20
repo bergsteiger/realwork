@@ -131,6 +131,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
@@ -1143,6 +1146,24 @@ begin
 //#UC END# *543E3AA801D0_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimInternetAgentForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utInternetAgentName,
+  str_utInternetAgentCaption,
+  str_utInternetAgentCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utInternetAgentName
+end;//TPrimInternetAgentForm.MakeControls
 
 initialization
  str_utInternetAgentCaption.Init;

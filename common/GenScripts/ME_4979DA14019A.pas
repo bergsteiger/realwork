@@ -40,6 +40,9 @@ type
     {* Обработчик события fDocAttribute.OnQueryClose }
    procedure DoTabActivate; override;
     {* Реакция на переключение вкладки }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property tvAttributes: TnscTreeViewWithAdapterDragDrop
     read f_tvAttributes;
@@ -117,6 +120,16 @@ begin
   TnsViewDocumentAttributesEvent.Log(sdsBaseDocument.DocInfo.Doc);
 //#UC END# *497F16AC015A_4979DA14019A_impl*
 end;//TPrimAttributesForm.DoTabActivate
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesForm.MakeControls;
+begin
+ inherited;
+ f_tvAttributes := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_tvAttributes.Name := 'tvAttributes';
+ f_tvAttributes.Parent := Self;
+end;//TPrimAttributesForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

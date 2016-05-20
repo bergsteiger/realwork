@@ -58,6 +58,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: Il3SimpleTree): BadFactoryType; reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -315,6 +318,30 @@ begin
  end;        
 //#UC END# *4A8E8F2E0195_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.InitControls
+
+procedure TPrimListAnalizerForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(listAnalizeName,
+  str_listAnalizeCaption,
+  str_listAnalizeCaption,
+  False,
+  -1,
+  0,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(listAnalizeName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ListTree := TeeTreeView.Create(Self);
+ f_ListTree.Name := 'ListTree';
+ f_ListTree.Parent := BackgroundPanel;
+end;//TPrimListAnalizerForm.MakeControls
 
 initialization
  str_listAnalizeCaption.Init;

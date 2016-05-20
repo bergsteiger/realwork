@@ -84,6 +84,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild(anUID: TbsUserID;
     const aName: Il3CString): IbsAbstractChatWindow; reintroduce;
@@ -425,6 +428,14 @@ begin
  end;//with HistoryEditor
 //#UC END# *4A8E8F2E0195_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.InitControls
+
+procedure TAbstractHistoryForm.MakeControls;
+begin
+ inherited;
+ f_HistoryEditor := TnscChatMemo.Create(Self);
+ f_HistoryEditor.Name := 'HistoryEditor';
+ f_HistoryEditor.Parent := Self;
+end;//TAbstractHistoryForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

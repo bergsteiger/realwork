@@ -62,6 +62,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make: BadFactoryType; reintroduce;
   public
@@ -202,6 +205,32 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.InitControls
+
+procedure TPrimForbidAutoregistrationForm.MakeControls;
+begin
+ inherited;
+ f_lblReference := TvtLabel.Create(Self);
+ f_lblReference.Name := 'lblReference';
+ f_lblReference.Parent := Self;
+ f_gbInfo := TvtGroupBox.Create(Self);
+ f_gbInfo.Name := 'gbInfo';
+ f_gbInfo.Parent := Self;
+ f_lblPhone := TvtLabel.Create(Self);
+ f_lblPhone.Name := 'lblPhone';
+ f_lblPhone.Parent := gbInfo;
+ f_lblEmail := TvtLabel.Create(Self);
+ f_lblEmail.Name := 'lblEmail';
+ f_lblEmail.Parent := gbInfo;
+ f_lblHint := TvtLabel.Create(Self);
+ f_lblHint.Name := 'lblHint';
+ f_lblHint.Parent := gbInfo;
+ f_cbPhone := TnscEdit.Create(Self);
+ f_cbPhone.Name := 'cbPhone';
+ f_cbPhone.Parent := gbInfo;
+ f_cbEmail := TnscEdit.Create(Self);
+ f_cbEmail.Name := 'cbEmail';
+ f_cbEmail.Parent := gbInfo;
+end;//TPrimForbidAutoregistrationForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

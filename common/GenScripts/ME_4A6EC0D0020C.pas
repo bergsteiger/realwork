@@ -93,6 +93,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Sync(const aPara: TnsParaCoord);
     {* Синхронизировать позицию }
@@ -515,6 +518,39 @@ begin
  inherited;
 //#UC END# *4F7C65380244_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.FormInsertedIntoContainer
+
+procedure TPrimEditionsContainerForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utEditionsContainerName,
+  str_utEditionsContainerCaption,
+  str_utEditionsContainerCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utEditionsContainerName
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_pnLeft := TvtSizeablePanel.Create(Self);
+ f_pnLeft.Name := 'pnLeft';
+ f_pnLeft.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, f_pnLeft) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_pnRight := TvtPanel.Create(Self);
+ f_pnRight.Name := 'pnRight';
+ f_pnRight.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztMain, f_pnRight) do
+ begin
+ end;//with DefineZone(vcm_ztMain
+end;//TPrimEditionsContainerForm.MakeControls
 
 initialization
  str_utEditionsContainerCaption.Init;

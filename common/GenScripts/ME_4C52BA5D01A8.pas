@@ -65,6 +65,9 @@ type
    function pm_GetrbPrintInterval: TvtRadioButton;
    function pm_GetcbPrinter: TvtComboBoxQS;
    function pm_GetcbPrintInfo: TvtCheckBox;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -419,6 +422,13 @@ begin
  State := st_user_Result_Ok_Print;
 //#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
 end;//TPrimPrintDialogOptionsForm.Result_Ok_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimPrintDialogOptionsForm.MakeControls;
+begin
+ inherited;
+end;//TPrimPrintDialogOptionsForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

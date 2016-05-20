@@ -12,6 +12,9 @@
   protected
    procedure liListInfoQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события liListInfo.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_ListInfoUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -32,6 +35,26 @@ const
   {* Заголовок пользовательского типа "Справка к списку" }
  str_liListInfoSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'liListInfoSettingsCaption'; rValue : 'Список: Справка к списку');
   {* Заголовок пользовательского типа "Справка к списку" для настройки панелей инструментов }
+
+{$If NOT Defined(NoVCM)}
+procedure _ListInfoUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(liListInfoName,
+  str_liListInfoCaption,
+  str_liListInfoSettingsCaption,
+  False,
+  20,
+  10,
+  '',
+  nil,
+  nil,
+  liListInfoQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(liListInfoName
+end;//_ListInfoUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else ListInfoUserTypes_imp_impl}
 

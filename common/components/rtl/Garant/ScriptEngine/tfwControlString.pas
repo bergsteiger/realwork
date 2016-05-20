@@ -18,9 +18,6 @@ uses
 type
  TtfwControlString = {abstract} class(TtfwString)
   {* Слово для регистрации контрола и его класса }
-  public
-   class procedure Register(const aName: AnsiString;
-    aClass: TClass);
  end;//TtfwControlString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -35,17 +32,6 @@ uses
  , SysUtils
  , StrUtils
 ;
-
-class procedure TtfwControlString.Register(const aName: AnsiString;
- aClass: TClass);
-//#UC START# *508528490090_508527F30183_var*
-//#UC END# *508528490090_508527F30183_var*
-begin
-//#UC START# *508528490090_508527F30183_impl*
- inherited Register(aName);
- TtfwClassRef.Register(aClass);
-//#UC END# *508528490090_508527F30183_impl*
-end;//TtfwControlString.Register
 
 initialization
  TtfwControlString.RegisterClass;

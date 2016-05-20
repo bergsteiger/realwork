@@ -24,6 +24,9 @@ type
    procedure DoInit(aFromHistory: Boolean); override;
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimMonitoringsMainForm
 {$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
@@ -74,6 +77,26 @@ begin
  TdmStdRes.StartOpen(Self, False);
 //#UC END# *49803F5503AA_4AA919040176_impl*
 end;//TPrimMonitoringsMainForm.DoInit
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMonitoringsMainForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utEmptyMainWindowName,
+  str_utEmptyMainWindowCaption,
+  str_utEmptyMainWindowSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utEmptyMainWindowName
+end;//TPrimMonitoringsMainForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

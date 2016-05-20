@@ -162,6 +162,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Picture_InitNewContent_Execute(const aData: InsLinkedObjectData);
    procedure Picture_InitNewContent(const aParams: IvcmExecuteParamsPrim);
@@ -664,6 +667,31 @@ begin
 //#UC END# *543E3AA801D0_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimPictureForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(pfImageName,
+  str_pfImageCaption,
+  str_pfImageSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(pfImageName
+ f_ieIO := TImageEnIO.Create(Self);
+ f_ieIO.Name := 'ieIO';
+ f_ieViewer := TImageEnView.Create(Self);
+ f_ieViewer.Name := 'ieViewer';
+ f_ieViewer.Parent := Self;
+ f_ieProc := TImageEnProc.Create(Self);
+ f_ieProc.Name := 'ieProc';
+end;//TPrimPictureForm.MakeControls
 
 initialization
 //#UC START# *52496599037C*

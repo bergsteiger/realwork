@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimListAnalize_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TListAnalizeForm = {final} class(TPrimListAnalizeForm, ListAnalizeFormDef)
   {* Анализ списка }
+   Entities : TvcmEntities;
  end;//TListAnalizeForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , ListAnalizeKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

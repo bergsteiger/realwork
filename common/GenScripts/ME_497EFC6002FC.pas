@@ -91,6 +91,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
@@ -564,6 +567,52 @@ begin
  f_Tag := nil;
  inherited;
 end;//TPrimAttributeSelectForm.ClearFields
+
+procedure TPrimAttributeSelectForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utAttributeSelectName,
+  str_utAttributeSelectCaption,
+  str_utAttributeSelectCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utAttributeSelectName
+ with AddUsertype(utSingleSearchName,
+  str_utSingleSearchCaption,
+  str_utSingleSearchCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utSingleSearchName
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_SelectedZone := TvtSizeablePanel.Create(Self);
+ f_SelectedZone.Name := 'SelectedZone';
+ f_SelectedZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, f_SelectedZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_ValuesZone := TvtPanel.Create(Self);
+ f_ValuesZone.Name := 'ValuesZone';
+ f_ValuesZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztParent, f_ValuesZone) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimAttributeSelectForm.MakeControls
 
 initialization
  str_utAttributeSelectCaption.Init;

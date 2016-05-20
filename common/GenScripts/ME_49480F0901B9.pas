@@ -120,6 +120,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
@@ -1196,6 +1199,33 @@ begin
  f_FilterMap := nil;
  inherited;
 end;//TPrimUserListForm.ClearFields
+
+procedure TPrimUserListForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(admUserListName,
+  str_admUserListCaption,
+  str_admUserListCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(admUserListName
+ f_BackgroundPanel := TvtPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_ContextFilter := TnscContextFilter.Create(Self);
+ f_ContextFilter.Name := 'ContextFilter';
+ f_ContextFilter.Parent := BackgroundPanel;
+ f_trUserList := TeeTreeView.Create(Self);
+ f_trUserList.Name := 'trUserList';
+ f_trUserList.Parent := BackgroundPanel;
+end;//TPrimUserListForm.MakeControls
 
 initialization
  str_admUserListCaption.Init;

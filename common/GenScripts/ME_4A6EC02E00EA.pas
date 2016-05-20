@@ -15,11 +15,19 @@ uses
  l3IntfUses
  , PrimLeftEdition_Form
  , CompareEditions_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TLeftEditionForm = {final} class(TPrimLeftEditionForm, LeftEditionFormDef)
   {* Предыдущая редакция }
+   Entities : TvcmEntities;
+   Header : TvtPanel;
+   pnLeft : TvtPanel;
+   EditionLink : TvtFocusLabel;
+   pnCaption : TvtPanel;
  end;//TLeftEditionForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -87,6 +95,8 @@ uses
  , evCustomEditor
  , evEditorWithOperations
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

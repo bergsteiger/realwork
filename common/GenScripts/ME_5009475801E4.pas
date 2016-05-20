@@ -12,6 +12,9 @@
   protected
    procedure utRedactionQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события utRedaction.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_RedactionsUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -32,6 +35,26 @@ const
   {* Заголовок пользовательского типа "Редакции" }
  str_utRedactionSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRedactionSettingsCaption'; rValue : 'Документ: Редакции (вкладка)');
   {* Заголовок пользовательского типа "Редакции" для настройки панелей инструментов }
+
+{$If NOT Defined(NoVCM)}
+procedure _RedactionsUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utRedactionName,
+  str_utRedactionCaption,
+  str_utRedactionSettingsCaption,
+  False,
+  46,
+  60,
+  '',
+  nil,
+  nil,
+  utRedactionQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utRedactionName
+end;//_RedactionsUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else RedactionsUserTypes_imp_impl}
 

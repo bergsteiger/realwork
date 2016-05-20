@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimRubricator_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TefRubricator = {final} class(TPrimRubricatorForm, RubricatorFormDef)
   {* Правовой навигатор }
+   Entities : TvcmEntities;
  end;//TefRubricator
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , RubricatorKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

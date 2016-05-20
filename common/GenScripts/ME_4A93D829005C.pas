@@ -16,6 +16,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -32,6 +35,11 @@ type
 
  TLoginForm = {final} class(TPrimLoginForm, LoginFormDef)
   {* Вход в систему ГАРАНТ }
+   Entities : TvcmEntities;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TLoginForm
 
 implementation
@@ -53,6 +61,28 @@ const
  {* Локализуемые строки ut_LoginLocalConstants }
  str_ut_LoginCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LoginCaption'; rValue : 'Вход в систему ГАРАНТ');
   {* Заголовок пользовательского типа "Вход в систему ГАРАНТ" }
+
+{$R *.DFM}
+
+{$If NOT Defined(NoVCM)}
+procedure TLoginForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_LoginName,
+  str_ut_LoginCaption,
+  str_ut_LoginCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_LoginName
+end;//TLoginForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

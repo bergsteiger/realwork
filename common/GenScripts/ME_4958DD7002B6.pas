@@ -111,6 +111,9 @@ type
     aForClone: Boolean): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   private
    property Grid: InscArrangeGrid
     read f_Grid;
@@ -511,6 +514,20 @@ begin
  f_Grid := nil;
  inherited;
 end;//TPrimMainMenuForm.ClearFields
+
+procedure TPrimMainMenuForm.MakeControls;
+begin
+ inherited;
+ f_pnlMain := TvtPanel.Create(Self);
+ f_pnlMain.Name := 'pnlMain';
+ f_pnlMain.Parent := Self;
+ f_hfLastOpenDocs := TnscHideField.Create(Self);
+ f_hfLastOpenDocs.Name := 'hfLastOpenDocs';
+ f_hfLastOpenDocs.Parent := pnlMain;
+ f_tvLastOpenDocs := TnscTreeViewHotTruck.Create(Self);
+ f_tvLastOpenDocs.Name := 'tvLastOpenDocs';
+ f_tvLastOpenDocs.Parent := hfLastOpenDocs;
+end;//TPrimMainMenuForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

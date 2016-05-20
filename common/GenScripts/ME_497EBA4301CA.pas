@@ -128,6 +128,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure DoBeforeHistoryNavigate; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild(aIsFilter: Boolean); reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -1548,6 +1551,81 @@ begin
  inherited;
 //#UC END# *562E15F20132_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoBeforeHistoryNavigate
+
+procedure TPrimQueryCardForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utqcAttributeSearchName,
+  str_utqcAttributeSearchCaption,
+  str_utqcAttributeSearchCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utqcAttributeSearchName
+ with AddUsertype(utqcPostingOrderName,
+  str_utqcPostingOrderCaption,
+  str_utqcPostingOrderCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utqcPostingOrderName
+ with AddUsertype(utqcLegislationReviewName,
+  str_utqcLegislationReviewCaption,
+  str_utqcLegislationReviewCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utqcLegislationReviewName
+ with AddUsertype(utqcSendConsultationName,
+  str_utqcSendConsultationCaption,
+  str_utqcSendConsultationCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utqcSendConsultationName
+ with AddUsertype(utqcInpharmSearchName,
+  str_utqcInpharmSearchCaption,
+  str_utqcInpharmSearchCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utqcInpharmSearchName
+ f_Editor := TevQueryCardEditor.Create(Self);
+ f_Editor.Name := 'Editor';
+ f_Editor.Parent := Self;
+ f_TextSource := TevTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+end;//TPrimQueryCardForm.MakeControls
 
 initialization
  str_utqcAttributeSearchCaption.Init;

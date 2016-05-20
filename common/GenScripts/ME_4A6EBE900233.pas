@@ -253,6 +253,9 @@ type
    {$If NOT Defined(NoVCM)}
    function NeedNotifyContainerOnCaptionChanged: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Sync(const aPara: TnsParaCoord);
     {* Синхронизировать позицию }
@@ -1842,6 +1845,19 @@ begin
  Result := False;
 //#UC END# *546304500231_4A6EBE900233_impl*
 end;//TDiffForm.NeedNotifyContainerOnCaptionChanged
+
+procedure TDiffForm.MakeControls;
+begin
+ inherited;
+ f_Text.Parent := Self;
+ f_Text.Caption := 'Текст редакции';
+ f_pbIcon := TPaintBox.Create(Self);
+ f_pbIcon.Name := 'pbIcon';
+ f_pbIcon.Parent := pnLeft;
+ f_EditionChoose := TvtComboBoxQS.Create(Self);
+ f_EditionChoose.Name := 'EditionChoose';
+ f_EditionChoose.Parent := pnCaption;
+end;//TDiffForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

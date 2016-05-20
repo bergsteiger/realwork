@@ -78,6 +78,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   private
    property ControlsToFree: Tl3ObjectList
     read pm_GetControlsToFree;
@@ -454,6 +457,26 @@ begin
 //#UC END# *543E3AA801D0_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimCompInfoForm.MakeControls;
+begin
+ inherited;
+ f_tvComplectInfo := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_tvComplectInfo.Name := 'tvComplectInfo';
+ f_tvComplectInfo.Parent := Self;
+ f_pnBottom := TvtPanel.Create(Self);
+ f_pnBottom.Name := 'pnBottom';
+ f_pnBottom.Parent := Self;
+ f_pnVisualRepresentationData := TvtPanel.Create(Self);
+ f_pnVisualRepresentationData.Name := 'pnVisualRepresentationData';
+ f_pnVisualRepresentationData.Parent := pnBottom;
+ f_pnVisualRepresentationDataCaption := TvtPanel.Create(Self);
+ f_pnVisualRepresentationDataCaption.Name := 'pnVisualRepresentationDataCaption';
+ f_pnVisualRepresentationDataCaption.Parent := pnVisualRepresentationData;
+ f_lblVisualRepresentationData := TvtLabel.Create(Self);
+ f_lblVisualRepresentationData.Name := 'lblVisualRepresentationData';
+ f_lblVisualRepresentationData.Parent := pnVisualRepresentationDataCaption;
+end;//TPrimCompInfoForm.MakeControls
 
 initialization
  str_Name.Init;

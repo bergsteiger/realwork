@@ -131,6 +131,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure DoSaveInSettings; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Switcher_BecomeActive_Execute;
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
@@ -552,6 +555,27 @@ begin
  Result := True;
 //#UC END# *4FC38C4C0119_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.NeedSaveInSettings
+
+procedure TPrimNewsLineForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(nltMainName,
+  str_nltMainCaption,
+  str_nltMainSettingsCaption,
+  False,
+  145,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccDisable) do
+ begin
+ end;//with AddUsertype(nltMainName
+ f_DateList := TnscTreeViewForNewsLine.Create(Self);
+ f_DateList.Name := 'DateList';
+ f_DateList.Parent := Self;
+end;//TPrimNewsLineForm.MakeControls
 
 initialization
  str_nltMainCaption.Init;

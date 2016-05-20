@@ -12,6 +12,9 @@
   protected
    procedure fDocAttributeQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события fDocAttribute.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_AttributesUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -33,6 +36,39 @@ const
  {* Локализуемые строки fAttributeSynchroViewLocalConstants }
  str_fAttributeSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fAttributeSynchroViewCaption'; rValue : 'Информация о документе (синхронный просмотр)');
   {* Заголовок пользовательского типа "Информация о документе (синхронный просмотр)" }
+
+{$If NOT Defined(NoVCM)}
+procedure _AttributesUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(fDocAttributeName,
+  str_fDocAttributeCaption,
+  str_fDocAttributeCaption,
+  False,
+  19,
+  20,
+  '',
+  nil,
+  nil,
+  fDocAttributeQueryClose,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(fDocAttributeName
+ with AddUsertype(fAttributeSynchroViewName,
+  str_fAttributeSynchroViewCaption,
+  str_fAttributeSynchroViewCaption,
+  False,
+  19,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(fAttributeSynchroViewName
+end;//_AttributesUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else AttributesUserTypes_imp_impl}
 

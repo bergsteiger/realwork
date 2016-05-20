@@ -50,6 +50,14 @@ type
    procedure UnRegisterUserStatusChangedSubscriber(const aSubscriber: IdaUserStatusChangedSubscriber);
    procedure NotifyUserActiveChanged(anUserID: TdaUserID;
     anActive: Boolean);
+   function CSCheckPassword(const aLogin: AnsiString;
+    const aPassword: AnsiString;
+    RequireAdminRights: Boolean;
+    out theUserID: TdaUserID): Boolean;
+   procedure GetUserInfo(aUser: TdaUserID;
+    var aUserName: AnsiString;
+    var aLoginName: AnsiString;
+    var aActFlag: Byte);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -301,6 +309,43 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5739835200CF_56C428E4014A_impl*
 end;//TcaUserManager.NotifyUserActiveChanged
+
+function TcaUserManager.CSCheckPassword(const aLogin: AnsiString;
+ const aPassword: AnsiString;
+ RequireAdminRights: Boolean;
+ out theUserID: TdaUserID): Boolean;
+//#UC START# *573AC17202BF_56C428E4014A_var*
+var
+ l_Check: Boolean;
+ l_CheckUser: TdaUserID;
+//#UC END# *573AC17202BF_56C428E4014A_var*
+begin
+//#UC START# *573AC17202BF_56C428E4014A_impl*
+ Result := f_HTManager.CSCheckPassword(aLogin, aPassword, RequireAdminRights, theUserID);
+ l_Check := f_PGManager.CSCheckPassword(aLogin, aPassword, RequireAdminRights, l_CheckUser);
+ Assert(Result = l_Check);
+ if Result then
+  Assert(theUserID = l_CheckUser);
+//#UC END# *573AC17202BF_56C428E4014A_impl*
+end;//TcaUserManager.CSCheckPassword
+
+procedure TcaUserManager.GetUserInfo(aUser: TdaUserID;
+ var aUserName: AnsiString;
+ var aLoginName: AnsiString;
+ var aActFlag: Byte);
+//#UC START# *573AEE9902DF_56C428E4014A_var*
+var
+ l_UserName: AnsiString;
+ l_LoginName: AnsiString;
+ l_ActFlag: Byte;
+//#UC END# *573AEE9902DF_56C428E4014A_var*
+begin
+//#UC START# *573AEE9902DF_56C428E4014A_impl*
+ f_HTManager.GetUserInfo(aUser, aUserName, aLoginName, aActFlag);
+ f_PGManager.GetUserInfo(aUser, l_UserName, l_LoginName, l_ActFlag);
+ Assert((aUserName = l_UserName) and (aLoginName = l_LoginName) and (aActFlag = l_ActFlag));
+//#UC END# *573AEE9902DF_56C428E4014A_impl*
+end;//TcaUserManager.GetUserInfo
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

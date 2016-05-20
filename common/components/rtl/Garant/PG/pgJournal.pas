@@ -32,7 +32,7 @@ type
    procedure PurgeCache;
    function Modifier: TpgTableModifier;
   protected
-   procedure LogEvent(aOperation: TdaJournalOperation;
+   procedure DoLogEvent(aOperation: TdaJournalOperation;
     aFamilyID: TdaFamilyID;
     aExtID: LongInt;
     aData: LongInt); override;
@@ -117,7 +117,7 @@ begin
 //#UC END# *564B218C013C_5602A0790033_impl*
 end;//TpgJournal.Modifier
 
-procedure TpgJournal.LogEvent(aOperation: TdaJournalOperation;
+procedure TpgJournal.DoLogEvent(aOperation: TdaJournalOperation;
  aFamilyID: TdaFamilyID;
  aExtID: LongInt;
  aData: LongInt);
@@ -139,7 +139,7 @@ begin
  else
   f_Cache.Add(TpgJournalCacheRec_C(aOperation, aFamilyID, aExtID, aData)); 
 //#UC END# *5549F6220397_5602A0790033_impl*
-end;//TpgJournal.LogEvent
+end;//TpgJournal.DoLogEvent
 
 procedure TpgJournal.CheckUser(anUserID: TdaUserID);
 //#UC START# *559B6A290200_5602A0790033_var*

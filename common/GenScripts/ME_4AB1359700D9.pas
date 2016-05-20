@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimSynchroViewOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TfcSynchroView = {final} class(TPrimSynchroViewOptionsForm, SynchroViewFormDef)
   {* Синхронный просмотр }
+   Entities : TvcmEntities;
  end;//TfcSynchroView
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , SynchroViewKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -46,6 +46,9 @@ type
    procedure ToGUIMargins; virtual; abstract;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsPageSettingsInfo): BadFactoryType; reintroduce;
   public
@@ -116,6 +119,24 @@ begin
  inherited;
 //#UC END# *479731C50290_4AAF8637036A_impl*
 end;//TPrimPageSetupForm.Cleanup
+
+procedure TPrimPageSetupForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(pstNoneName,
+  str_pstNoneCaption,
+  str_pstNoneCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(pstNoneName
+end;//TPrimPageSetupForm.MakeControls
 
 initialization
  str_pstNoneCaption.Init;

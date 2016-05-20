@@ -88,6 +88,9 @@ type
    {$If NOT Defined(NoVCL)}
    procedure DoClose(var Action: TCloseAction); override;
    {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure System_InitShutdown_Execute(aShotdown: Boolean;
     aCloseInterval: Integer);
@@ -417,6 +420,53 @@ begin
 //#UC END# *5576E05C0204_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.DoClose
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimShutDownForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(sftNoneName,
+  str_sftNoneCaption,
+  str_sftNoneCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(sftNoneName
+ f_ShutdownTimer := TTimer.Create(Self);
+ f_ShutdownTimer.Name := 'ShutdownTimer';
+ f_vtPanel1 := TvtPanel.Create(Self);
+ f_vtPanel1.Name := 'vtPanel1';
+ f_vtPanel1.Parent := Self;
+ f_LeftPanel := TvtPanel.Create(Self);
+ f_LeftPanel.Name := 'LeftPanel';
+ f_LeftPanel.Parent := vtPanel1;
+ f_Image := TImage.Create(Self);
+ f_Image.Name := 'Image';
+ f_Image.Parent := LeftPanel;
+ f_CenterPanel := TvtPanel.Create(Self);
+ f_CenterPanel.Name := 'CenterPanel';
+ f_CenterPanel.Parent := vtPanel1;
+ f_TopSpacerPanel := TvtPanel.Create(Self);
+ f_TopSpacerPanel.Name := 'TopSpacerPanel';
+ f_TopSpacerPanel.Parent := CenterPanel;
+ f_WarningText := TvtLabel.Create(Self);
+ f_WarningText.Name := 'WarningText';
+ f_WarningText.Parent := CenterPanel;
+ f_RightSpacerPanel := TvtPanel.Create(Self);
+ f_RightSpacerPanel.Name := 'RightSpacerPanel';
+ f_RightSpacerPanel.Parent := vtPanel1;
+ f_pnlBottom := TvtPanel.Create(Self);
+ f_pnlBottom.Name := 'pnlBottom';
+ f_pnlBottom.Parent := Self;
+ f_CloseButton := TvtButton.Create(Self);
+ f_CloseButton.Name := 'CloseButton';
+ f_CloseButton.Parent := pnlBottom;
+end;//TPrimShutDownForm.MakeControls
 
 initialization
  str_sftNoneCaption.Init;

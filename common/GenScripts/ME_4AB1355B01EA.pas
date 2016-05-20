@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimDockedWarning_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TWarningForm = {final} class(TPrimDockedWarningForm, WarningFormDef)
   {* Предупреждение }
+   Entities : TvcmEntities;
  end;//TWarningForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -36,6 +40,8 @@ uses
  , WarningKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}
