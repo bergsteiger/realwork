@@ -10,10 +10,11 @@ interface
 
 uses
  l3IntfUses
+ , afwTextControl
 ;
 
 type
- TvtFocusLabel = class
+ TvtFocusLabel = class(TafwTextControl)
   protected
    function NeedUnderLine: Boolean; virtual;
    function AllowClickByKeyBoard: Boolean; virtual;

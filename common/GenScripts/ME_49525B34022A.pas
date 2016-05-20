@@ -20,6 +20,8 @@ uses
  , vcmExternalInterfaces
  , l3Interfaces
  , vcmUserTypesCollectionItem
+ , vcmBaseTypes
+ , vcmUserControls
  , l3Core
  , vcmEntityFormImplementationModelPart
 ;
@@ -74,6 +76,13 @@ type
    function NeedLoadFormStateForClone(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; virtual;
    procedure DoBeforeHistoryNavigate; virtual;
+   class function GetExistingInstance(const aContainer: IvcmContainer;
+    const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
+    aUserType: TvcmUserType = vcmUserControls.0;
+    aGUID: PGUID = nil;
+    const aDataSource: IvcmFormDataSource = nil;
+    aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; virtual;
    procedure DoInit(aFromHistory: Boolean); virtual;
     {* Инициализация формы. Для перекрытия в потомках }
    function DoSaveState(out theState: IvcmBase;
@@ -374,6 +383,21 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *562E15F20132_49525B34022A_impl*
 end;//TvcmEntityForm.DoBeforeHistoryNavigate
+
+class function TvcmEntityForm.GetExistingInstance(const aContainer: IvcmContainer;
+ const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
+ aUserType: TvcmUserType = vcmUserControls.0;
+ aGUID: PGUID = nil;
+ const aDataSource: IvcmFormDataSource = nil;
+ aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
+//#UC START# *573AFFE5038D_49525B34022A_var*
+//#UC END# *573AFFE5038D_49525B34022A_var*
+begin
+//#UC START# *573AFFE5038D_49525B34022A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *573AFFE5038D_49525B34022A_impl*
+end;//TvcmEntityForm.GetExistingInstance
 
 procedure TvcmEntityForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
