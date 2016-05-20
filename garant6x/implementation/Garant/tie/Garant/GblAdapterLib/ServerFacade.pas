@@ -15,7 +15,7 @@ uses
 type
  ServerFacade = {abstract} class
   public
-   procedure GetServerInterface(facet: PAnsiChar); virtual; abstract; stdcall;
+   function GetServerInterface(facet: PAnsiChar): Object; virtual; abstract; stdcall;
  end;//ServerFacade
 
 implementation
