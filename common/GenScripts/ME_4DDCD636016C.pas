@@ -145,6 +145,9 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    function ContinueSearchInWholeBase: Boolean; override;
    function GetRedactionOnLeftEdition: Integer; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function Document_SetPosition_Execute(aPointID: Cardinal;
     aPointType: TDocumentPositionType = bsTypesNew.dptSub;
@@ -688,6 +691,24 @@ begin
  end;//l_LeftEdition <> nil
 //#UC END# *4F2BEF740060_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.GetRedactionOnLeftEdition
+
+procedure TPrimChangesBetweenEditonsForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(DocumentChangesName,
+  str_DocumentChangesCaption,
+  str_DocumentChangesCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(DocumentChangesName
+end;//TPrimChangesBetweenEditonsForm.MakeControls
 
 initialization
  str_DocumentChangesCaption.Init;

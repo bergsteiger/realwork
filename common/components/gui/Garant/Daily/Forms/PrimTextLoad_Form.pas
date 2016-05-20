@@ -1,96 +1,60 @@
 unit PrimTextLoad_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/PrimTextLoad_Form.pas"
-// Начат: 23.09.2010 13:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::PrimTextLoad
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\PrimTextLoad_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimTextLoad" MUID: (4C9B20790302)
+// Имя типа: "TPrimTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evCustomEditor,
-  evCustomTextSource,
-  vcmEntityForm,
-  evLoadDocumentManager,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , vcmEntityForm
+ , evCustomTextSource
+ , evCustomEditor
+ , evLoadDocumentManager
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 type
- TPrimTextLoadForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_LoadManager : TevLoadDocumentManager;
-    {* Поле для свойства LoadManager}
- protected
-  procedure MakeControls; override;
- protected
- // property methods
+ TPrimTextLoadForm = class(TvcmEntityForm)
+  private
+   f_LoadManager: TevLoadDocumentManager;
+  protected
    function pm_GetTextSource: TevCustomTextSource; virtual; abstract;
    function pm_GetText: TevCustomEditor; virtual; abstract;
- protected
- // overridden protected methods
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
- public
- // public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
+  public
    procedure AfterLoad; virtual;
- public
- // public properties
+  public
    property LoadManager: TevLoadDocumentManager
-     read f_LoadManager;
+    read f_LoadManager;
    property TextSource: TevCustomTextSource
-     read pm_GetTextSource;
+    read pm_GetTextSource;
    property Text: TevCustomEditor
-     read pm_GetText;
+    read pm_GetText;
  end;//TPrimTextLoadForm
-
- TvcmEntityFormRef = TPrimTextLoadForm;
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-// start class TPrimTextLoadForm
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TPrimTextLoadForm.AfterLoad;
 //#UC START# *4F15435202B5_4C9B20790302_var*
@@ -102,6 +66,7 @@ begin
 end;//TPrimTextLoadForm.AfterLoad
 
 procedure TPrimTextLoadForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4C9B20790302_var*
 //#UC END# *4A8E8F2E0195_4C9B20790302_var*
 begin
@@ -119,14 +84,13 @@ begin
  inherited;
  f_LoadManager := TevLoadDocumentManager.Create(Self);
  f_LoadManager.Name := 'LoadManager';
-end;
-
-{$IfEnd} //nsTest AND not NoVCM
+end;//TPrimTextLoadForm.MakeControls
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация PrimTextLoad
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTextLoadForm);
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
+ {* Регистрация PrimTextLoad }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

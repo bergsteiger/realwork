@@ -23,13 +23,13 @@ uses
  , MainWindow_Form
  , tfwPropertyLike
  {$If Defined(Nemesis)}
- , nscRemindersLine
+ , nscReminder
  {$IfEnd} // Defined(Nemesis)
  , tfwScriptingInterfaces
  , TypInfo
  , tfwTypeInfo
  {$If Defined(Nemesis)}
- , nscReminder
+ , nscRemindersLine
  {$IfEnd} // Defined(Nemesis)
  {$If Defined(Nemesis)}
  , nscStatusBar
@@ -49,6 +49,74 @@ uses
 ;
 
 type
+ TkwMainWindowRemOnlineDead = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TnsMainWindow.remOnlineDead }
+  private
+   function remOnlineDead(const aCtx: TtfwContext;
+    aMainWindow: TnsMainWindow): TnscReminder;
+    {* Реализация слова скрипта .TnsMainWindow.remOnlineDead }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+ end;//TkwMainWindowRemOnlineDead
+
+ TkwMainWindowRemNewChatMessages = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TnsMainWindow.remNewChatMessages }
+  private
+   function remNewChatMessages(const aCtx: TtfwContext;
+    aMainWindow: TnsMainWindow): TnscReminder;
+    {* Реализация слова скрипта .TnsMainWindow.remNewChatMessages }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+ end;//TkwMainWindowRemNewChatMessages
+
+ TkwMainWindowTrialModeWarning = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TnsMainWindow.TrialModeWarning }
+  private
+   function TrialModeWarning(const aCtx: TtfwContext;
+    aMainWindow: TnsMainWindow): TnscReminder;
+    {* Реализация слова скрипта .TnsMainWindow.TrialModeWarning }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+ end;//TkwMainWindowTrialModeWarning
+
+ TkwMainWindowOldBaseWarning = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TnsMainWindow.OldBaseWarning }
+  private
+   function OldBaseWarning(const aCtx: TtfwContext;
+    aMainWindow: TnsMainWindow): TnscReminder;
+    {* Реализация слова скрипта .TnsMainWindow.OldBaseWarning }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+ end;//TkwMainWindowOldBaseWarning
+
  TkwMainWindowRemindersLine = {final} class(TtfwPropertyLike)
   {* Слово скрипта .TnsMainWindow.RemindersLine }
   private
@@ -248,6 +316,90 @@ type
    class procedure RegisterInEngine; override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MainWindow
+
+ Tkw_MainWindow_Control_remOnlineDead = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола remOnlineDead
+----
+*Пример использования*:
+[code]контрол::remOnlineDead TryFocus ASSERT[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_remOnlineDead
+
+ Tkw_MainWindow_Control_remOnlineDead_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола remOnlineDead
+----
+*Пример использования*:
+[code]контрол::remOnlineDead:push pop:control:SetFocus ASSERT[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_remOnlineDead_Push
+
+ Tkw_MainWindow_Control_remNewChatMessages = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола remNewChatMessages
+----
+*Пример использования*:
+[code]контрол::remNewChatMessages TryFocus ASSERT[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_remNewChatMessages
+
+ Tkw_MainWindow_Control_remNewChatMessages_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола remNewChatMessages
+----
+*Пример использования*:
+[code]контрол::remNewChatMessages:push pop:control:SetFocus ASSERT[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_remNewChatMessages_Push
+
+ Tkw_MainWindow_Control_TrialModeWarning = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола TrialModeWarning
+----
+*Пример использования*:
+[code]контрол::TrialModeWarning TryFocus ASSERT[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_TrialModeWarning
+
+ Tkw_MainWindow_Control_TrialModeWarning_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола TrialModeWarning
+----
+*Пример использования*:
+[code]контрол::TrialModeWarning:push pop:control:SetFocus ASSERT[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_TrialModeWarning_Push
+
+ Tkw_MainWindow_Control_OldBaseWarning = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола OldBaseWarning
+----
+*Пример использования*:
+[code]контрол::OldBaseWarning TryFocus ASSERT[code] }
+  protected
+   function GetString: AnsiString; override;
+   class procedure RegisterInEngine; override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_OldBaseWarning
+
+ Tkw_MainWindow_Control_OldBaseWarning_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола OldBaseWarning
+----
+*Пример использования*:
+[code]контрол::OldBaseWarning:push pop:control:SetFocus ASSERT[code] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+ end;//Tkw_MainWindow_Control_OldBaseWarning_Push
 
  Tkw_MainWindow_Control_RemindersLine = {final} class(TtfwControlString)
   {* Слово словаря для идентификатора контрола RemindersLine
@@ -483,6 +635,198 @@ type
    class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_MainWindow_Control_RightNavigator_Push
 {$IfEnd} // Defined(HasRightNavigator)
+
+function TkwMainWindowRemOnlineDead.remOnlineDead(const aCtx: TtfwContext;
+ aMainWindow: TnsMainWindow): TnscReminder;
+ {* Реализация слова скрипта .TnsMainWindow.remOnlineDead }
+begin
+ Result := aMainWindow.remOnlineDead;
+end;//TkwMainWindowRemOnlineDead.remOnlineDead
+
+class function TkwMainWindowRemOnlineDead.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsMainWindow.remOnlineDead';
+end;//TkwMainWindowRemOnlineDead.GetWordNameForRegister
+
+function TkwMainWindowRemOnlineDead.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TnscReminder);
+end;//TkwMainWindowRemOnlineDead.GetResultTypeInfo
+
+function TkwMainWindowRemOnlineDead.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwMainWindowRemOnlineDead.GetAllParamsCount
+
+function TkwMainWindowRemOnlineDead.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
+end;//TkwMainWindowRemOnlineDead.ParamsTypes
+
+procedure TkwMainWindowRemOnlineDead.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству remOnlineDead', aCtx);
+end;//TkwMainWindowRemOnlineDead.SetValuePrim
+
+procedure TkwMainWindowRemOnlineDead.DoDoIt(const aCtx: TtfwContext);
+var l_aMainWindow: TnsMainWindow;
+begin
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remOnlineDead(aCtx, l_aMainWindow));
+end;//TkwMainWindowRemOnlineDead.DoDoIt
+
+function TkwMainWindowRemNewChatMessages.remNewChatMessages(const aCtx: TtfwContext;
+ aMainWindow: TnsMainWindow): TnscReminder;
+ {* Реализация слова скрипта .TnsMainWindow.remNewChatMessages }
+begin
+ Result := aMainWindow.remNewChatMessages;
+end;//TkwMainWindowRemNewChatMessages.remNewChatMessages
+
+class function TkwMainWindowRemNewChatMessages.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsMainWindow.remNewChatMessages';
+end;//TkwMainWindowRemNewChatMessages.GetWordNameForRegister
+
+function TkwMainWindowRemNewChatMessages.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TnscReminder);
+end;//TkwMainWindowRemNewChatMessages.GetResultTypeInfo
+
+function TkwMainWindowRemNewChatMessages.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwMainWindowRemNewChatMessages.GetAllParamsCount
+
+function TkwMainWindowRemNewChatMessages.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
+end;//TkwMainWindowRemNewChatMessages.ParamsTypes
+
+procedure TkwMainWindowRemNewChatMessages.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству remNewChatMessages', aCtx);
+end;//TkwMainWindowRemNewChatMessages.SetValuePrim
+
+procedure TkwMainWindowRemNewChatMessages.DoDoIt(const aCtx: TtfwContext);
+var l_aMainWindow: TnsMainWindow;
+begin
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remNewChatMessages(aCtx, l_aMainWindow));
+end;//TkwMainWindowRemNewChatMessages.DoDoIt
+
+function TkwMainWindowTrialModeWarning.TrialModeWarning(const aCtx: TtfwContext;
+ aMainWindow: TnsMainWindow): TnscReminder;
+ {* Реализация слова скрипта .TnsMainWindow.TrialModeWarning }
+begin
+ Result := aMainWindow.TrialModeWarning;
+end;//TkwMainWindowTrialModeWarning.TrialModeWarning
+
+class function TkwMainWindowTrialModeWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsMainWindow.TrialModeWarning';
+end;//TkwMainWindowTrialModeWarning.GetWordNameForRegister
+
+function TkwMainWindowTrialModeWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TnscReminder);
+end;//TkwMainWindowTrialModeWarning.GetResultTypeInfo
+
+function TkwMainWindowTrialModeWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwMainWindowTrialModeWarning.GetAllParamsCount
+
+function TkwMainWindowTrialModeWarning.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
+end;//TkwMainWindowTrialModeWarning.ParamsTypes
+
+procedure TkwMainWindowTrialModeWarning.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству TrialModeWarning', aCtx);
+end;//TkwMainWindowTrialModeWarning.SetValuePrim
+
+procedure TkwMainWindowTrialModeWarning.DoDoIt(const aCtx: TtfwContext);
+var l_aMainWindow: TnsMainWindow;
+begin
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TrialModeWarning(aCtx, l_aMainWindow));
+end;//TkwMainWindowTrialModeWarning.DoDoIt
+
+function TkwMainWindowOldBaseWarning.OldBaseWarning(const aCtx: TtfwContext;
+ aMainWindow: TnsMainWindow): TnscReminder;
+ {* Реализация слова скрипта .TnsMainWindow.OldBaseWarning }
+begin
+ Result := aMainWindow.OldBaseWarning;
+end;//TkwMainWindowOldBaseWarning.OldBaseWarning
+
+class function TkwMainWindowOldBaseWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := '.TnsMainWindow.OldBaseWarning';
+end;//TkwMainWindowOldBaseWarning.GetWordNameForRegister
+
+function TkwMainWindowOldBaseWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TnscReminder);
+end;//TkwMainWindowOldBaseWarning.GetResultTypeInfo
+
+function TkwMainWindowOldBaseWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwMainWindowOldBaseWarning.GetAllParamsCount
+
+function TkwMainWindowOldBaseWarning.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
+end;//TkwMainWindowOldBaseWarning.ParamsTypes
+
+procedure TkwMainWindowOldBaseWarning.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+begin
+ RunnerError('Нельзя присваивать значение readonly свойству OldBaseWarning', aCtx);
+end;//TkwMainWindowOldBaseWarning.SetValuePrim
+
+procedure TkwMainWindowOldBaseWarning.DoDoIt(const aCtx: TtfwContext);
+var l_aMainWindow: TnsMainWindow;
+begin
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(OldBaseWarning(aCtx, l_aMainWindow));
+end;//TkwMainWindowOldBaseWarning.DoDoIt
 
 function TkwMainWindowRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscRemindersLine;
@@ -1030,6 +1374,114 @@ begin
  Result := 'форма::MainWindow';
 end;//Tkw_Form_MainWindow.GetWordNameForRegister
 
+function Tkw_MainWindow_Control_remOnlineDead.GetString: AnsiString;
+begin
+ Result := 'remOnlineDead';
+end;//Tkw_MainWindow_Control_remOnlineDead.GetString
+
+class procedure Tkw_MainWindow_Control_remOnlineDead.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
+end;//Tkw_MainWindow_Control_remOnlineDead.RegisterInEngine
+
+class function Tkw_MainWindow_Control_remOnlineDead.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remOnlineDead';
+end;//Tkw_MainWindow_Control_remOnlineDead.GetWordNameForRegister
+
+procedure Tkw_MainWindow_Control_remOnlineDead_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('remOnlineDead');
+ inherited;
+end;//Tkw_MainWindow_Control_remOnlineDead_Push.DoDoIt
+
+class function Tkw_MainWindow_Control_remOnlineDead_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remOnlineDead:push';
+end;//Tkw_MainWindow_Control_remOnlineDead_Push.GetWordNameForRegister
+
+function Tkw_MainWindow_Control_remNewChatMessages.GetString: AnsiString;
+begin
+ Result := 'remNewChatMessages';
+end;//Tkw_MainWindow_Control_remNewChatMessages.GetString
+
+class procedure Tkw_MainWindow_Control_remNewChatMessages.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
+end;//Tkw_MainWindow_Control_remNewChatMessages.RegisterInEngine
+
+class function Tkw_MainWindow_Control_remNewChatMessages.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remNewChatMessages';
+end;//Tkw_MainWindow_Control_remNewChatMessages.GetWordNameForRegister
+
+procedure Tkw_MainWindow_Control_remNewChatMessages_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('remNewChatMessages');
+ inherited;
+end;//Tkw_MainWindow_Control_remNewChatMessages_Push.DoDoIt
+
+class function Tkw_MainWindow_Control_remNewChatMessages_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::remNewChatMessages:push';
+end;//Tkw_MainWindow_Control_remNewChatMessages_Push.GetWordNameForRegister
+
+function Tkw_MainWindow_Control_TrialModeWarning.GetString: AnsiString;
+begin
+ Result := 'TrialModeWarning';
+end;//Tkw_MainWindow_Control_TrialModeWarning.GetString
+
+class procedure Tkw_MainWindow_Control_TrialModeWarning.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
+end;//Tkw_MainWindow_Control_TrialModeWarning.RegisterInEngine
+
+class function Tkw_MainWindow_Control_TrialModeWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TrialModeWarning';
+end;//Tkw_MainWindow_Control_TrialModeWarning.GetWordNameForRegister
+
+procedure Tkw_MainWindow_Control_TrialModeWarning_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('TrialModeWarning');
+ inherited;
+end;//Tkw_MainWindow_Control_TrialModeWarning_Push.DoDoIt
+
+class function Tkw_MainWindow_Control_TrialModeWarning_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::TrialModeWarning:push';
+end;//Tkw_MainWindow_Control_TrialModeWarning_Push.GetWordNameForRegister
+
+function Tkw_MainWindow_Control_OldBaseWarning.GetString: AnsiString;
+begin
+ Result := 'OldBaseWarning';
+end;//Tkw_MainWindow_Control_OldBaseWarning.GetString
+
+class procedure Tkw_MainWindow_Control_OldBaseWarning.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
+end;//Tkw_MainWindow_Control_OldBaseWarning.RegisterInEngine
+
+class function Tkw_MainWindow_Control_OldBaseWarning.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::OldBaseWarning';
+end;//Tkw_MainWindow_Control_OldBaseWarning.GetWordNameForRegister
+
+procedure Tkw_MainWindow_Control_OldBaseWarning_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('OldBaseWarning');
+ inherited;
+end;//Tkw_MainWindow_Control_OldBaseWarning_Push.DoDoIt
+
+class function Tkw_MainWindow_Control_OldBaseWarning_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::OldBaseWarning:push';
+end;//Tkw_MainWindow_Control_OldBaseWarning_Push.GetWordNameForRegister
+
 function Tkw_MainWindow_Control_RemindersLine.GetString: AnsiString;
 begin
  Result := 'RemindersLine';
@@ -1332,6 +1784,14 @@ end;//Tkw_MainWindow_Control_RightNavigator_Push.GetWordNameForRegister
 {$IfEnd} // Defined(HasRightNavigator)
 
 initialization
+ TkwMainWindowRemOnlineDead.RegisterInEngine;
+ {* Регистрация MainWindow_remOnlineDead }
+ TkwMainWindowRemNewChatMessages.RegisterInEngine;
+ {* Регистрация MainWindow_remNewChatMessages }
+ TkwMainWindowTrialModeWarning.RegisterInEngine;
+ {* Регистрация MainWindow_TrialModeWarning }
+ TkwMainWindowOldBaseWarning.RegisterInEngine;
+ {* Регистрация MainWindow_OldBaseWarning }
  TkwMainWindowRemindersLine.RegisterInEngine;
  {* Регистрация MainWindow_RemindersLine }
  TkwMainWindowControlledChangingWarning.RegisterInEngine;
@@ -1358,6 +1818,22 @@ initialization
 {$IfEnd} // Defined(HasRightNavigator)
  Tkw_Form_MainWindow.RegisterInEngine;
  {* Регистрация Tkw_Form_MainWindow }
+ Tkw_MainWindow_Control_remOnlineDead.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_remOnlineDead }
+ Tkw_MainWindow_Control_remOnlineDead_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_remOnlineDead_Push }
+ Tkw_MainWindow_Control_remNewChatMessages.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_remNewChatMessages }
+ Tkw_MainWindow_Control_remNewChatMessages_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_remNewChatMessages_Push }
+ Tkw_MainWindow_Control_TrialModeWarning.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_TrialModeWarning }
+ Tkw_MainWindow_Control_TrialModeWarning_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_TrialModeWarning_Push }
+ Tkw_MainWindow_Control_OldBaseWarning.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_OldBaseWarning }
+ Tkw_MainWindow_Control_OldBaseWarning_Push.RegisterInEngine;
+ {* Регистрация Tkw_MainWindow_Control_OldBaseWarning_Push }
  Tkw_MainWindow_Control_RemindersLine.RegisterInEngine;
  {* Регистрация Tkw_MainWindow_Control_RemindersLine }
  Tkw_MainWindow_Control_RemindersLine_Push.RegisterInEngine;
@@ -1408,10 +1884,10 @@ initialization
 {$IfEnd} // Defined(HasRightNavigator)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnsMainWindow));
  {* Регистрация типа TnsMainWindow }
- TtfwTypeRegistrator.RegisterType(TypeInfo(TnscRemindersLine));
- {* Регистрация типа TnscRemindersLine }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));
  {* Регистрация типа TnscReminder }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnscRemindersLine));
+ {* Регистрация типа TnscRemindersLine }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBar));
  {* Регистрация типа TnscStatusBar }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));

@@ -22,6 +22,9 @@ uses
  , nscReminder
  {$IfEnd} // Defined(Nemesis)
  , l3StringIDEx
+ {$If Defined(Nemesis)}
+ , nscRemindersLine
+ {$IfEnd} // Defined(Nemesis)
 ;
 
 const
@@ -84,6 +87,9 @@ type
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure BecomeInvisible; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Reminder_RemMWControlledChangingWarning_Test(const aParams: IvcmTestParamsPrim);
@@ -501,6 +507,25 @@ begin
   RemindersLine.Visible := Visible;
 //#UC END# *537C9007038A_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.BecomeInvisible
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainWithRemindersForm.MakeControls;
+begin
+ inherited;
+ f_RemindersLine.Parent := Self;
+ with DefineZone(vcm_ztReminder, f_RemindersLine) do
+ begin
+ end;//with DefineZone(vcm_ztReminder
+ f_remOnlineDead := TnscReminder.Create(RemindersLine);
+ f_remOnlineDead.Name := 'remOnlineDead';
+ f_remNewChatMessages := TnscReminder.Create(RemindersLine);
+ f_remNewChatMessages.Name := 'remNewChatMessages';
+ f_TrialModeWarning := TnscReminder.Create(RemindersLine);
+ f_TrialModeWarning.Name := 'TrialModeWarning';
+ f_OldBaseWarning := TnscReminder.Create(RemindersLine);
+ f_OldBaseWarning.Name := 'OldBaseWarning';
+end;//TMainWithRemindersForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

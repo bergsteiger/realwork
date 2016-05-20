@@ -15,11 +15,12 @@ uses
  l3IntfUses
  , PrimTextLoad_Form
  , evQueryCardInt
- , evTextSource
- , evQueryCardEditor
  , evCustomTextSource
  , evCustomEditor
  , vcmInterfaces
+ , vcmEntities
+ , evTextSource
+ , evQueryCardEditor
 ;
 
 const
@@ -36,12 +37,11 @@ type
 
  TQFLikeTextLoadForm = {final} class(TPrimTextLoadForm, QFLikeTextLoadFormDef)
   {* Форма для работы с КЗ }
+   Entities : TvcmEntities;
   private
    f_QueryCard: IevQueryCard;
    f_TextSource: TevTextSource;
-    {* Поле для свойства TextSource }
    f_Text: TevQueryCardEditor;
-    {* Поле для свойства Text }
   protected
    function pm_GetTextSource: TevCustomTextSource; override;
    function pm_GetText: TevCustomEditor; override;
@@ -49,6 +49,7 @@ type
     {* Функция очистки полей объекта. }
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
   public
    procedure AfterLoad; override;
   public
@@ -69,10 +70,10 @@ uses
  , evControlContainerEX
  , nevTools
  , l3InterfacesMisc
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , QFLikeTextLoad_ut_QFLikeTextLoad_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , QFLikeTextLoadKeywordsPack
@@ -83,6 +84,8 @@ const
  {* Локализуемые строки ut_QFLikeTextLoadLocalConstants }
  str_ut_QFLikeTextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_QFLikeTextLoadCaption'; rValue : 'Форма для работы с КЗ');
   {* Заголовок пользовательского типа "Форма для работы с КЗ" }
+
+{$R *.DFM}
 
 function TQFLikeTextLoadForm.pm_GetTextSource: TevCustomTextSource;
 //#UC START# *4C9B21D20187_4CA090120212get_var*
@@ -137,15 +140,38 @@ begin
 //#UC END# *4F15435202B5_4CA090120212_impl*
 end;//TQFLikeTextLoadForm.AfterLoad
 
+procedure TQFLikeTextLoadForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_QFLikeTextLoadName,
+  str_ut_QFLikeTextLoadCaption,
+  str_ut_QFLikeTextLoadCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_QFLikeTextLoadName
+ f_TextSource := TevTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+ f_Text := TevQueryCardEditor.Create(Self);
+ f_Text.Name := 'Text';
+ f_Text.Parent := Self;
+end;//TQFLikeTextLoadForm.MakeControls
+
 initialization
+ str_ut_QFLikeTextLoadCaption.Init;
+ {* Инициализация str_ut_QFLikeTextLoadCaption }
+ fm_QFLikeTextLoadForm.SetFactory(TQFLikeTextLoadForm.Make);
+ {* Регистрация фабрики формы QFLikeTextLoad }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TQFLikeTextLoadForm);
  {* Регистрация QFLikeTextLoad }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_QFLikeTextLoadForm.SetFactory(TQFLikeTextLoadForm.Make);
- {* Регистрация фабрики формы QFLikeTextLoad }
- str_ut_QFLikeTextLoadCaption.Init;
- {* Инициализация str_ut_QFLikeTextLoadCaption }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

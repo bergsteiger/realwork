@@ -143,6 +143,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
@@ -920,6 +923,14 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DCC17001C_impl*
 end;//TPrimFiltersForm.InitControls
+
+procedure TPrimFiltersForm.MakeControls;
+begin
+ inherited;
+ f_FiltersList := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_FiltersList.Name := 'FiltersList';
+ f_FiltersList.Parent := Self;
+end;//TPrimFiltersForm.MakeControls
 
 initialization
  str_CreateFilter.Init;

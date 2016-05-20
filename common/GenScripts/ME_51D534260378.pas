@@ -13,8 +13,9 @@ interface
 uses
  l3IntfUses
  , vcmEntityForm
- , vtPanel
  , vcmInterfaces
+ , vcmEntities
+ , vtPanel
 ;
 
 const
@@ -30,12 +31,13 @@ type
  end;//FromWithPanelFormDef
 
  TFromWithPanelForm = {final} class(TvcmEntityForm, FromWithPanelFormDef)
+   Entities : TvcmEntities;
   private
    f_WorkSpace: TvtPanel;
-    {* Поле для свойства WorkSpace }
   protected
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
   public
    property WorkSpace: TvtPanel
     read f_WorkSpace;
@@ -51,10 +53,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , FromWithPanel_ut_FromWithPanel_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , FromWithPanelKeywordsPack
@@ -65,6 +67,8 @@ const
  {* Локализуемые строки ut_FromWithPanelLocalConstants }
  str_ut_FromWithPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_FromWithPanelCaption'; rValue : 'FromWithPanel');
   {* Заголовок пользовательского типа "FromWithPanel" }
+
+{$R *.DFM}
 
 procedure TFromWithPanelForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -77,15 +81,36 @@ begin
 //#UC END# *4A8E8F2E0195_51D534260378_impl*
 end;//TFromWithPanelForm.InitControls
 
+procedure TFromWithPanelForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_FromWithPanelName,
+  str_ut_FromWithPanelCaption,
+  str_ut_FromWithPanelCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_FromWithPanelName
+ f_WorkSpace := TvtPanel.Create(Self);
+ f_WorkSpace.Name := 'WorkSpace';
+ f_WorkSpace.Parent := Self;
+end;//TFromWithPanelForm.MakeControls
+
 initialization
+ str_ut_FromWithPanelCaption.Init;
+ {* Инициализация str_ut_FromWithPanelCaption }
+ fm_FromWithPanelForm.SetFactory(TFromWithPanelForm.Make);
+ {* Регистрация фабрики формы FromWithPanel }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TFromWithPanelForm);
  {* Регистрация FromWithPanel }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_FromWithPanelForm.SetFactory(TFromWithPanelForm.Make);
- {* Регистрация фабрики формы FromWithPanel }
- str_ut_FromWithPanelCaption.Init;
- {* Инициализация str_ut_FromWithPanelCaption }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

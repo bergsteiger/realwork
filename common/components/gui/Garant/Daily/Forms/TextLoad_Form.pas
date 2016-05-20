@@ -1,130 +1,86 @@
 unit TextLoad_Form;
+ {* Форма для загрузки документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/TextLoad_Form.pas"
-// Начат: 22.12.2009 16:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::TextLoad
-//
-// Форма для загрузки документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\TextLoad_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "TextLoad" MUID: (4B30C7E800EE)
+// Имя типа: "TTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  evTextSource,
-  evEditor,
-  vcmUserControls,
-  l3StringIDEx,
-  PrimTextLoad_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  TextLoad_ut_TextLoad_UserType,
-  evCustomTextSource,
-  evCustomEditor,
-  evLoadDocumentManager,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , PrimTextLoad_Form
+ , evCustomTextSource
+ , evCustomEditor
+ , vcmInterfaces
+ , vcmEntities
+ , evEditor
+ , evTextSource
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 const
-   { TextLoadIDs }
-  fm_TextLoadForm : TvcmFormDescriptor = (rFormID : (rName : 'TextLoadForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TTextLoadForm }
+ fm_TextLoadForm: TvcmFormDescriptor = (rFormID : (rName : 'TextLoadForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TTextLoadForm }
 
 type
- TextLoadFormDef = interface(IUnknown)
+ TTextLoadForm = class;
+
+ TextLoadFormDef = interface
   {* Идентификатор формы TextLoad }
-   ['{0D52D59A-6EBD-46A6-AA44-2467ABBFDC5C}']
+  ['{0D52D59A-6EBD-46A6-AA44-2467ABBFDC5C}']
  end;//TextLoadFormDef
 
- TTextLoadForm = {final form} class(TPrimTextLoadForm, TextLoadFormDef)
+ TTextLoadForm = {final} class(TPrimTextLoadForm, TextLoadFormDef)
   {* Форма для загрузки документа }
-  Entities : TvcmEntities;
- private
- // private fields
-   f_Text : TevEditor;
-    {* Поле для свойства Text}
-   f_TextSource : TevTextSource;
-    {* Поле для свойства TextSource}
- protected
-  procedure MakeControls; override;
- protected
- // realized methods
+   Entities : TvcmEntities;
+  private
+   f_Text: TevEditor;
+   f_TextSource: TevTextSource;
+  protected
    function pm_GetTextSource: TevCustomTextSource; override;
    function pm_GetText: TevCustomEditor; override;
- public
- // public properties
+   procedure MakeControls; override;
+  public
    property Text: TevEditor
-     read f_Text;
+    read f_Text;
    property TextSource: TevTextSource
-     read f_TextSource;
+    read f_TextSource;
  end;//TTextLoadForm
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$R *.DFM}
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmStringIDExHelper
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  TextLoadKeywordsPack
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmStringIDExHelper
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , TextLoad_ut_TextLoad_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TextLoadKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+const
+ {* Локализуемые строки ut_TextLoadLocalConstants }
+ str_ut_TextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TextLoadCaption'; rValue : 'Форма для загрузки документа');
+  {* Заголовок пользовательского типа "Форма для загрузки документа" }
 
-var
-   { Локализуемые строки ut_TextLoadLocalConstants }
-  str_ut_TextLoadCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TextLoadCaption'; rValue : 'Форма для загрузки документа');
-   { Заголовок пользовательского типа "Форма для загрузки документа" }
-
-// start class TTextLoadForm
+{$R *.DFM}
 
 function TTextLoadForm.pm_GetTextSource: TevCustomTextSource;
 //#UC START# *4C9B21D20187_4B30C7E800EEget_var*
@@ -147,15 +103,10 @@ end;//TTextLoadForm.pm_GetText
 procedure TTextLoadForm.MakeControls;
 begin
  inherited;
- f_Text := TevEditor.Create(Self);
- f_Text.Name := 'Text';
- f_Text.Parent := Self;
- f_TextSource := TevTextSource.Create(Self);
- f_TextSource.Name := 'TextSource';
  with AddUsertype(ut_TextLoadName,
   str_ut_TextLoadCaption,
   str_ut_TextLoadCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -165,22 +116,22 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_TextLoadName
-end;
-
-{$IfEnd} //nsTest AND not NoVCM
+ f_Text := TevEditor.Create(Self);
+ f_Text.Name := 'Text';
+ f_Text.Parent := Self;
+ f_TextSource := TevTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+end;//TTextLoadForm.MakeControls
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TextLoad
- TtfwClassRef.Register(TTextLoadForm);
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Регистрация фабрики формы TextLoad
- fm_TextLoadForm.SetFactory(TTextLoadForm.Make);
-{$IfEnd} //nsTest AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Инициализация str_ut_TextLoadCaption
  str_ut_TextLoadCaption.Init;
-{$IfEnd} //nsTest AND not NoVCM
+ {* Инициализация str_ut_TextLoadCaption }
+ fm_TextLoadForm.SetFactory(TTextLoadForm.Make);
+ {* Регистрация фабрики формы TextLoad }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TTextLoadForm);
+ {* Регистрация TextLoad }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

@@ -132,6 +132,9 @@ type
     aOpenLast: Boolean;
     const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
@@ -792,6 +795,26 @@ begin
 //#UC END# *5566C7BD037F_4958D2EA00CC_impl*
 end;//TNemesisMainForm.DoOpenNew
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TNemesisMainForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utMainWindowName,
+  str_utMainWindowCaption,
+  str_utMainWindowSettingsCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utMainWindowName
+end;//TNemesisMainForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_CarrierLost.Init;

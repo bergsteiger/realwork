@@ -25,6 +25,9 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , evCustomEditorWindow
+ , vtProportionalPanel
+ , vtScrollBar
+ , vtSizeablePanel
 ;
 
 const
@@ -76,6 +79,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure DoSetJumpTo(aJumpTo: TevJumpToEvent); override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TAACTextContainerPrimForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -96,7 +102,6 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , Classes
  , Graphics
- , vtScrollBar
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -356,6 +361,40 @@ begin
  edWriteToUs.OnJumpTo := aJumpTo;
 //#UC END# *503CE3500038_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.DoSetJumpTo
+
+{$If NOT Defined(NoVCM)}
+procedure TAACTextContainerPrimForm.MakeControls;
+begin
+ inherited;
+ f_pnBack.Parent := Self;
+ f_pnRightEx.Parent := pnBack;
+ f_scrRight.Parent := pnRightEx;
+ f_pnRightForScroll.Parent := pnRightEx;
+ f_pnWriteToUs := TvtPanel.Create(Self);
+ f_pnWriteToUs.Name := 'pnWriteToUs';
+ f_pnWriteToUs.Parent := pnRightForScroll;
+ f_edWriteToUs := TnscSimpleEditorForDialogs.Create(Self);
+ f_edWriteToUs.Name := 'edWriteToUs';
+ f_edWriteToUs.Parent := pnWriteToUs;
+ f_pnRight.Parent := pnRightForScroll;
+ f_pnSeeAlso := TvtPanel.Create(Self);
+ f_pnSeeAlso.Name := 'pnSeeAlso';
+ f_pnSeeAlso.Parent := pnRightForScroll;
+ f_lblSeeAlso := TvtLabel.Create(Self);
+ f_lblSeeAlso.Name := 'lblSeeAlso';
+ f_lblSeeAlso.Parent := pnSeeAlso;
+ f_pnLeftEx.Parent := pnBack;
+ f_scrLeft.Parent := pnLeftEx;
+ f_pnLeftForScroll.Parent := pnLeftEx;
+ f_pnLinkToContent := TvtPanel.Create(Self);
+ f_pnLinkToContent.Name := 'pnLinkToContent';
+ f_pnLinkToContent.Parent := pnLeftForScroll;
+ f_pbLinkToContent := TPaintBox.Create(Self);
+ f_pbLinkToContent.Name := 'pbLinkToContent';
+ f_pbLinkToContent.Parent := pnLinkToContent;
+ f_pnLeft.Parent := pnLeftForScroll;
+end;//TAACTextContainerPrimForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
  str_WriteToUsDoc.Init;

@@ -81,6 +81,9 @@ type
    {$If NOT Defined(NoVCL)}
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AdjustSizeToFixed;
    procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
@@ -555,6 +558,47 @@ begin
 //#UC END# *4F71E1460089_4F6B6646037F_impl*
 end;//TPrimChildForm.SetParent
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimChildForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(cutUsualName,
+  str_cutUsualCaption,
+  str_cutUsualCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cutUsualName
+ with AddUsertype(cutForDictionName,
+  str_cutForDictionCaption,
+  str_cutForDictionCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cutForDictionName
+ f_ChildZone := TnscFormsPageControl.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := Self;
+ with DefineZone(vcm_ztChild, f_ChildZone) do
+ begin
+  CanClose := vcm_ccEnable;
+ end;//with DefineZone(vcm_ztChild
+ f_MainPageTab := TElTabSheet.Create(Self);
+ f_MainPageTab.Name := 'MainPageTab';
+ f_MainPageTab.Parent := ChildZone;
+end;//TPrimChildForm.MakeControls
 
 initialization
  str_cutUsualCaption.Init;

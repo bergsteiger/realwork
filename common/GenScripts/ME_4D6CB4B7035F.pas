@@ -14,6 +14,10 @@ interface
 uses
  l3IntfUses
  , PrimTextLoad_Form
+ , evCustomTextSource
+ , evCustomEditor
+ , vcmInterfaces
+ , vcmEntities
  {$If Defined(Nemesis)}
  , nscTreeComboWithHistoryAndOperations
  {$IfEnd} // Defined(Nemesis)
@@ -21,9 +25,6 @@ uses
  {$If Defined(Nemesis)}
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
- , evCustomTextSource
- , evCustomEditor
- , vcmInterfaces
 ;
 
 const
@@ -40,18 +41,17 @@ type
 
  TF1LikeFormWithBSForm = {final} class(TPrimTextLoadForm, F1LikeFormWithBSFormDef)
   {* Форма с текстовым редактором с базовым поиском. }
+   Entities : TvcmEntities;
   private
    f_BaseSearchControl: TnscTreeComboWithHistoryAndOperations;
-    {* Поле для свойства BaseSearchControl }
    f_Text: TeeEditorExport;
-    {* Поле для свойства Text }
    f_TextSource: TeeTextSourceExport;
-    {* Поле для свойства TextSource }
   protected
    function pm_GetTextSource: TevCustomTextSource; override;
    function pm_GetText: TevCustomEditor; override;
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
   public
    property BaseSearchControl: TnscTreeComboWithHistoryAndOperations
     read f_BaseSearchControl;
@@ -74,10 +74,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , F1LikeFormWithBSKeywordsPack
@@ -88,6 +88,8 @@ const
  {* Локализуемые строки ut_F1LikeFormWithBSLocalConstants }
  str_ut_F1LikeFormWithBSCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_F1LikeFormWithBSCaption'; rValue : 'Форма с текстовым редактором с базовым поиском.');
   {* Заголовок пользовательского типа "Форма с текстовым редактором с базовым поиском." }
+
+{$R *.DFM}
 
 function TF1LikeFormWithBSForm.pm_GetTextSource: TevCustomTextSource;
 //#UC START# *4C9B21D20187_4D6CB4B7035Fget_var*
@@ -122,15 +124,41 @@ begin
 //#UC END# *4A8E8F2E0195_4D6CB4B7035F_impl*
 end;//TF1LikeFormWithBSForm.InitControls
 
+procedure TF1LikeFormWithBSForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_F1LikeFormWithBSName,
+  str_ut_F1LikeFormWithBSCaption,
+  str_ut_F1LikeFormWithBSCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_F1LikeFormWithBSName
+ f_BaseSearchControl := TnscTreeComboWithHistoryAndOperations.Create(Self);
+ f_BaseSearchControl.Name := 'BaseSearchControl';
+ f_BaseSearchControl.Parent := Self;
+ f_Text := TeeEditorExport.Create(Self);
+ f_Text.Name := 'Text';
+ f_Text.Parent := Self;
+ f_TextSource := TeeTextSourceExport.Create(Self);
+ f_TextSource.Name := 'TextSource';
+end;//TF1LikeFormWithBSForm.MakeControls
+
 initialization
+ str_ut_F1LikeFormWithBSCaption.Init;
+ {* Инициализация str_ut_F1LikeFormWithBSCaption }
+ fm_F1LikeFormWithBSForm.SetFactory(TF1LikeFormWithBSForm.Make);
+ {* Регистрация фабрики формы F1LikeFormWithBS }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TF1LikeFormWithBSForm);
  {* Регистрация F1LikeFormWithBS }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_F1LikeFormWithBSForm.SetFactory(TF1LikeFormWithBSForm.Make);
- {* Регистрация фабрики формы F1LikeFormWithBS }
- str_ut_F1LikeFormWithBSCaption.Init;
- {* Инициализация str_ut_F1LikeFormWithBSCaption }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

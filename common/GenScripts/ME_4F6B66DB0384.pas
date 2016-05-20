@@ -13,10 +13,14 @@ uses
  l3IntfUses
  , PrimChild_Form
  , F1Like_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TChildForm = {final} class(TPrimChildForm, ChildFormDef)
+   Entities : TvcmEntities;
  end;//TChildForm
 
 implementation
@@ -30,6 +34,8 @@ uses
  , ChildKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

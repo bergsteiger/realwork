@@ -14,8 +14,9 @@ interface
 uses
  l3IntfUses
  , vcmEntityForm
- , vtOutlinerControl
  , vcmInterfaces
+ , vcmEntities
+ , vtOutlinerControl
 ;
 
 const
@@ -32,12 +33,13 @@ type
 
  TOutlinerFormForm = {final} class(TvcmEntityForm, OutlinerFormFormDef)
   {* Форма для тестирования списка }
+   Entities : TvcmEntities;
   private
    f_TreeControl: TvtOutlinerControl;
-    {* Поле для свойства TreeControl }
   protected
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
   public
    property TreeControl: TvtOutlinerControl
     read f_TreeControl;
@@ -53,10 +55,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , OutlinerForm_ut_OutlinerForm_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , OutlinerFormKeywordsPack
@@ -67,6 +69,8 @@ const
  {* Локализуемые строки ut_OutlinerFormLocalConstants }
  str_ut_OutlinerFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_OutlinerFormCaption'; rValue : 'Форма для тестирования списка');
   {* Заголовок пользовательского типа "Форма для тестирования списка" }
+
+{$R *.DFM}
 
 procedure TOutlinerFormForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -79,15 +83,36 @@ begin
 //#UC END# *4A8E8F2E0195_4D4697F30281_impl*
 end;//TOutlinerFormForm.InitControls
 
+procedure TOutlinerFormForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(ut_OutlinerFormName,
+  str_ut_OutlinerFormCaption,
+  str_ut_OutlinerFormCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_OutlinerFormName
+ f_TreeControl := TvtOutlinerControl.Create(Self);
+ f_TreeControl.Name := 'TreeControl';
+ f_TreeControl.Parent := Self;
+end;//TOutlinerFormForm.MakeControls
+
 initialization
+ str_ut_OutlinerFormCaption.Init;
+ {* Инициализация str_ut_OutlinerFormCaption }
+ fm_OutlinerFormForm.SetFactory(TOutlinerFormForm.Make);
+ {* Регистрация фабрики формы OutlinerForm }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TOutlinerFormForm);
  {* Регистрация OutlinerForm }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_OutlinerFormForm.SetFactory(TOutlinerFormForm.Make);
- {* Регистрация фабрики формы OutlinerForm }
- str_ut_OutlinerFormCaption.Init;
- {* Инициализация str_ut_OutlinerFormCaption }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

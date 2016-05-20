@@ -22,12 +22,12 @@ type
  TPrimTextLoadForm = class(TvcmEntityForm)
   private
    f_LoadManager: TevLoadDocumentManager;
-    {* Поле для свойства LoadManager }
   protected
    function pm_GetTextSource: TevCustomTextSource; virtual; abstract;
    function pm_GetText: TevCustomEditor; virtual; abstract;
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
   public
    procedure AfterLoad; virtual;
   public
@@ -78,6 +78,13 @@ begin
  Text.TextSource := Self.TextSource;
 //#UC END# *4A8E8F2E0195_4C9B20790302_impl*
 end;//TPrimTextLoadForm.InitControls
+
+procedure TPrimTextLoadForm.MakeControls;
+begin
+ inherited;
+ f_LoadManager := TevLoadDocumentManager.Create(Self);
+ f_LoadManager.Name := 'LoadManager';
+end;//TPrimTextLoadForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -132,6 +132,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -719,6 +722,23 @@ begin
  Tl3ListenersManager.Add(Self as Il3Listener);
 //#UC END# *4F7C65380244_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.FormInsertedIntoContainer
+
+procedure TPrimBaseSearchCardForm.MakeControls;
+begin
+ inherited;
+ f_pnlMain := TvtPanel.Create(Self);
+ f_pnlMain.Name := 'pnlMain';
+ f_pnlMain.Parent := Self;
+ f_hfBaseSearch := TnscHideField.Create(Self);
+ f_hfBaseSearch.Name := 'hfBaseSearch';
+ f_hfBaseSearch.Parent := pnlMain;
+ f_lrBaseSearch := TnscLister.Create(Self);
+ f_lrBaseSearch.Name := 'lrBaseSearch';
+ f_lrBaseSearch.Parent := hfBaseSearch;
+ f_CardTextLabel := TnscSimpleEditor.Create(Self);
+ f_CardTextLabel.Name := 'CardTextLabel';
+ f_CardTextLabel.Parent := pnlMain;
+end;//TPrimBaseSearchCardForm.MakeControls
 
 initialization
  str_BaseSearch.Init;

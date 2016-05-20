@@ -1,116 +1,79 @@
 unit Outliner_Form;
+ {* Форма для тестирования списка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Автор: Инишев Д.А.
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/Outliner_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Outliner::OutlinerForm
-//
-// Форма для тестирования списка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\Outliner_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "OutlinerForm" MUID: (4D4697F30281)
+// Имя типа: "TOutlinerFormForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmEntityForm,
-  vcmUserControls,
-  l3StringIDEx,
-  vtOutlinerControl
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  OutlinerForm_ut_OutlinerForm_UserType,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a}
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , vcmEntityForm
+ , vcmInterfaces
+ , vcmEntities
+ , vtOutlinerControl
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 const
-   { OutlinerFormIDs }
-  fm_OutlinerFormForm : TvcmFormDescriptor = (rFormID : (rName : 'OutlinerFormForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TOutlinerFormForm }
+ fm_OutlinerFormForm: TvcmFormDescriptor = (rFormID : (rName : 'OutlinerFormForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TOutlinerFormForm }
 
 type
- OutlinerFormFormDef = interface(IUnknown)
+ TOutlinerFormForm = class;
+
+ OutlinerFormFormDef = interface
   {* Идентификатор формы OutlinerForm }
-   ['{0BC56D56-6AF0-47F9-9D0B-4AE7FEEE4483}']
+  ['{0BC56D56-6AF0-47F9-9D0B-4AE7FEEE4483}']
  end;//OutlinerFormFormDef
 
- TOutlinerFormForm = {final form} class(TvcmEntityForm, OutlinerFormFormDef)
+ TOutlinerFormForm = {final} class(TvcmEntityForm, OutlinerFormFormDef)
   {* Форма для тестирования списка }
-  Entities : TvcmEntities;
- private
- // private fields
-   f_TreeControl : TvtOutlinerControl;
-    {* Поле для свойства TreeControl}
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
+   Entities : TvcmEntities;
+  private
+   f_TreeControl: TvtOutlinerControl;
+  protected
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
+  public
    property TreeControl: TvtOutlinerControl
-     read f_TreeControl;
+    read f_TreeControl;
  end;//TOutlinerFormForm
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , OutlinerForm_ut_OutlinerForm_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , OutlinerFormKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
+const
+ {* Локализуемые строки ut_OutlinerFormLocalConstants }
+ str_ut_OutlinerFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_OutlinerFormCaption'; rValue : 'Форма для тестирования списка');
+  {* Заголовок пользовательского типа "Форма для тестирования списка" }
+
 {$R *.DFM}
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  OutlinerFormKeywordsPack
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-var
-   { Локализуемые строки ut_OutlinerFormLocalConstants }
-  str_ut_OutlinerFormCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_OutlinerFormCaption'; rValue : 'Форма для тестирования списка');
-   { Заголовок пользовательского типа "Форма для тестирования списка" }
-
-// start class TOutlinerFormForm
-
 procedure TOutlinerFormForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4D4697F30281_var*
 //#UC END# *4A8E8F2E0195_4D4697F30281_var*
 begin
@@ -123,13 +86,10 @@ end;//TOutlinerFormForm.InitControls
 procedure TOutlinerFormForm.MakeControls;
 begin
  inherited;
- f_TreeControl := TvtOutlinerControl.Create(Self);
- f_TreeControl.Name := 'TreeControl';
- f_TreeControl.Parent := Self;
  with AddUsertype(ut_OutlinerFormName,
   str_ut_OutlinerFormCaption,
   str_ut_OutlinerFormCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -139,22 +99,20 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_OutlinerFormName
-end;
-
-{$IfEnd} //nsTest AND not NoVCM
+ f_TreeControl := TvtOutlinerControl.Create(Self);
+ f_TreeControl.Name := 'TreeControl';
+ f_TreeControl.Parent := Self;
+end;//TOutlinerFormForm.MakeControls
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация OutlinerForm
- TtfwClassRef.Register(TOutlinerFormForm);
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Регистрация фабрики формы OutlinerForm
- fm_OutlinerFormForm.SetFactory(TOutlinerFormForm.Make);
-{$IfEnd} //nsTest AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Инициализация str_ut_OutlinerFormCaption
  str_ut_OutlinerFormCaption.Init;
-{$IfEnd} //nsTest AND not NoVCM
+ {* Инициализация str_ut_OutlinerFormCaption }
+ fm_OutlinerFormForm.SetFactory(TOutlinerFormForm.Make);
+ {* Регистрация фабрики формы OutlinerForm }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TOutlinerFormForm);
+ {* Регистрация OutlinerForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

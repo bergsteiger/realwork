@@ -149,6 +149,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ApplyCurrentExample; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    function NeedSetMyFocus: Boolean; override;
@@ -1307,6 +1310,13 @@ begin
   Result := inherited NeedSetMyFocus;
 //#UC END# *4B4F13E80365_4CFCBB3600E0_impl*
 end;//TNewBaseSearchForDFMForm.NeedSetMyFocus
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TNewBaseSearchForDFMForm.MakeControls;
+begin
+ inherited;
+end;//TNewBaseSearchForDFMForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

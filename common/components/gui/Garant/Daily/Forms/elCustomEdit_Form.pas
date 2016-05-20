@@ -1,115 +1,79 @@
 unit elCustomEdit_Form;
+ {* Форма для тестирования TelCustomEdit }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/elCustomEdit_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::elCustomEdit
-//
-// Форма для тестирования TelCustomEdit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\elCustomEdit_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "elCustomEdit" MUID: (4BCE9D210265)
+// Имя типа: "TelCustomEditForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  elCustomEdit,
-  vcmEntityForm,
-  vcmUserControls,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  elCustomEdit_ut_elCustomEdit_UserType,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a}
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , vcmEntityForm
+ , vcmInterfaces
+ , vcmEntities
+ , elCustomEdit
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 const
-   { elCustomEditIDs }
-  fm_elCustomEditForm : TvcmFormDescriptor = (rFormID : (rName : 'elCustomEditForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TelCustomEditForm }
+ fm_elCustomEditForm: TvcmFormDescriptor = (rFormID : (rName : 'elCustomEditForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TelCustomEditForm }
 
 type
- elCustomEditFormDef = interface(IUnknown)
+ TelCustomEditForm = class;
+
+ elCustomEditFormDef = interface
   {* Идентификатор формы elCustomEdit }
-   ['{83F3F220-AFBC-45DC-8C59-16D7972E06BB}']
+  ['{83F3F220-AFBC-45DC-8C59-16D7972E06BB}']
  end;//elCustomEditFormDef
 
- TelCustomEditForm = {final form} class(TvcmEntityForm, elCustomEditFormDef)
+ TelCustomEditForm = {final} class(TvcmEntityForm, elCustomEditFormDef)
   {* Форма для тестирования TelCustomEdit }
-  Entities : TvcmEntities;
- private
- // private fields
-   f_Edit : TelCustomEdit;
-    {* Поле для свойства Edit}
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
+   Entities : TvcmEntities;
+  private
+   f_Edit: TelCustomEdit;
+  protected
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
+  public
    property Edit: TelCustomEdit
-     read f_Edit;
+    read f_Edit;
  end;//TelCustomEditForm
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , elCustomEdit_ut_elCustomEdit_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , elCustomEditKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
+const
+ {* Локализуемые строки ut_elCustomEditLocalConstants }
+ str_ut_elCustomEditCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_elCustomEditCaption'; rValue : 'Форма для тестирования TelCustomEdit');
+  {* Заголовок пользовательского типа "Форма для тестирования TelCustomEdit" }
+
 {$R *.DFM}
 
-{$If defined(nsTest) AND not defined(NoVCM)}
-uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  elCustomEditKeywordsPack
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
-
-{$If defined(nsTest) AND not defined(NoVCM)}
-
-var
-   { Локализуемые строки ut_elCustomEditLocalConstants }
-  str_ut_elCustomEditCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_elCustomEditCaption'; rValue : 'Форма для тестирования TelCustomEdit');
-   { Заголовок пользовательского типа "Форма для тестирования TelCustomEdit" }
-
-// start class TelCustomEditForm
-
 procedure TelCustomEditForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4BCE9D210265_var*
 //#UC END# *4A8E8F2E0195_4BCE9D210265_var*
 begin
@@ -124,12 +88,10 @@ end;//TelCustomEditForm.InitControls
 procedure TelCustomEditForm.MakeControls;
 begin
  inherited;
- f_Edit := TelCustomEdit.Create(Self);
- f_Edit.Name := 'Edit';
  with AddUsertype(ut_elCustomEditName,
   str_ut_elCustomEditCaption,
   str_ut_elCustomEditCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -139,22 +101,19 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_elCustomEditName
-end;
-
-{$IfEnd} //nsTest AND not NoVCM
+ f_Edit := TelCustomEdit.Create(Self);
+ f_Edit.Name := 'Edit';
+end;//TelCustomEditForm.MakeControls
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация elCustomEdit
- TtfwClassRef.Register(TelCustomEditForm);
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Регистрация фабрики формы elCustomEdit
- fm_elCustomEditForm.SetFactory(TelCustomEditForm.Make);
-{$IfEnd} //nsTest AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Инициализация str_ut_elCustomEditCaption
  str_ut_elCustomEditCaption.Init;
-{$IfEnd} //nsTest AND not NoVCM
+ {* Инициализация str_ut_elCustomEditCaption }
+ fm_elCustomEditForm.SetFactory(TelCustomEditForm.Make);
+ {* Регистрация фабрики формы elCustomEdit }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TelCustomEditForm);
+ {* Регистрация elCustomEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

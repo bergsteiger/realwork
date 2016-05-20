@@ -88,6 +88,9 @@ type
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
@@ -714,6 +717,27 @@ begin
  Height := 480;
 //#UC END# *529332B40230_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.SetupFormLayout
+
+procedure TPrimUnderControlForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utUnderControlName,
+  str_utUnderControlCaption,
+  str_utUnderControlSettingsCaption,
+  False,
+  67,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utUnderControlName
+ f_UnderControlList := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_UnderControlList.Name := 'UnderControlList';
+ f_UnderControlList.Parent := Self;
+end;//TPrimUnderControlForm.MakeControls
 
 initialization
  str_utUnderControlCaption.Init;

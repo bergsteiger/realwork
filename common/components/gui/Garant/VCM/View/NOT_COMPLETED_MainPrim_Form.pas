@@ -154,6 +154,9 @@ type
    procedure DispatcherCreated; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Common_ShowSplitter_Execute(aVisible: Boolean);
    procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
@@ -1124,6 +1127,64 @@ begin
  f_OldCaption := nil;
  inherited;
 end;//TMainPrimForm.ClearFields
+
+procedure TMainPrimForm.MakeControls;
+begin
+ inherited;
+ f_StatusBar := TnscStatusBar.Create(Self);
+ f_StatusBar.Name := 'StatusBar';
+ f_StatusBar.Parent := Self;
+ f_ClientZone := TvtPanel.Create(Self);
+ f_ClientZone.Name := 'ClientZone';
+ f_ClientZone.Parent := Self;
+ f_MainZone := TvtProportionalPanel.Create(Self);
+ f_MainZone.Name := 'MainZone';
+ f_MainZone.Parent := ClientZone;
+ f_ParentZonePanel := TvtPanel.Create(Self);
+ f_ParentZonePanel.Name := 'ParentZonePanel';
+ f_ParentZonePanel.Parent := MainZone;
+ with DefineZone(vcm_ztParent, f_ParentZonePanel) do
+ begin
+  //#UC START# *4F6B3F20007B*
+  !!!
+  //#UC END# *4F6B3F20007B*
+ end;//with DefineZone(vcm_ztParent
+ f_ChildZonePanel := TvtSizeablePanel.Create(Self);
+ f_ChildZonePanel.Name := 'ChildZonePanel';
+ f_ChildZonePanel.Parent := MainZone;
+ with DefineZone(vcm_ztChild, f_ChildZonePanel) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_BaseSearchPanel := TvtPanel.Create(Self);
+ f_BaseSearchPanel.Name := 'BaseSearchPanel';
+ f_BaseSearchPanel.Parent := ClientZone;
+ with DefineZone(vcm_ztMain, f_BaseSearchPanel) do
+ begin
+ end;//with DefineZone(vcm_ztMain
+ f_LeftNavigator := TnscNavigator.Create(Self);
+ f_LeftNavigator.Name := 'LeftNavigator';
+ f_LeftNavigator.Parent := ClientZone;
+ with DefineZone(vcm_ztNavigator, f_LeftNavigator) do
+ begin
+  CanClose := vcm_ccEnable;
+  //#UC START# *4F6B38FB0206*
+  !!!
+  //#UC END# *4F6B38FB0206*
+ end;//with DefineZone(vcm_ztNavigator
+{$If Defined(HasRightNavigator)}
+ f_RightNavigator := TnscNavigator.Create(Self);
+ f_RightNavigator.Name := 'RightNavigator';
+ f_RightNavigator.Parent := ClientZone;
+ with DefineZone(vcm_ztNavigator, f_RightNavigator) do
+ begin
+  CanClose := vcm_ccEnable;
+  //#UC START# *4F6B391B022C*
+  !!!
+  //#UC END# *4F6B391B022C*
+ end;//with DefineZone(vcm_ztNavigator
+{$IfEnd} // Defined(HasRightNavigator)
+
+end;//TMainPrimForm.MakeControls
 
 initialization
 {$If NOT Defined(NoScripts)}

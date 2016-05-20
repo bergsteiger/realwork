@@ -1,131 +1,91 @@
 unit QFLikeTextLoad_Form;
+ {* Форма для работы с КЗ }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Forms"
-// Модуль: "w:/common/components/gui/Garant/Daily/Forms/QFLikeTextLoad_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> Shared Delphi Operations For Tests::TestForms::Forms::Everest::QFLikeTextLoad
-//
-// Форма для работы с КЗ
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "QFLikeTextLoad" MUID: (4CA090120212)
+// Имя типа: "TQFLikeTextLoadForm"
 
 {$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  evQueryCardInt,
-  evTextSource,
-  evQueryCardEditor,
-  vcmUserControls,
-  l3StringIDEx,
-  PrimTextLoad_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  QFLikeTextLoad_ut_QFLikeTextLoad_UserType,
-  evCustomTextSource,
-  evCustomEditor,
-  evLoadDocumentManager,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3IntfUses
+ , PrimTextLoad_Form
+ , evQueryCardInt
+ , evCustomTextSource
+ , evCustomEditor
+ , vcmInterfaces
+ , vcmEntities
+ , evTextSource
+ , evQueryCardEditor
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
 const
-   { QFLikeTextLoadIDs }
-  fm_QFLikeTextLoadForm : TvcmFormDescriptor = (rFormID : (rName : 'QFLikeTextLoadForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TQFLikeTextLoadForm }
+ fm_QFLikeTextLoadForm: TvcmFormDescriptor = (rFormID : (rName : 'QFLikeTextLoadForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TQFLikeTextLoadForm }
 
 type
- QFLikeTextLoadFormDef = interface(IUnknown)
+ TQFLikeTextLoadForm = class;
+
+ QFLikeTextLoadFormDef = interface
   {* Идентификатор формы QFLikeTextLoad }
-   ['{41C944FD-8129-43F8-89E8-75E7D231D870}']
+  ['{41C944FD-8129-43F8-89E8-75E7D231D870}']
  end;//QFLikeTextLoadFormDef
 
- TQFLikeTextLoadForm = {final form} class(TPrimTextLoadForm, QFLikeTextLoadFormDef)
+ TQFLikeTextLoadForm = {final} class(TPrimTextLoadForm, QFLikeTextLoadFormDef)
   {* Форма для работы с КЗ }
-  Entities : TvcmEntities;
- private
- // private fields
-   f_QueryCard : IevQueryCard;
-   f_TextSource : TevTextSource;
-    {* Поле для свойства TextSource}
-   f_Text : TevQueryCardEditor;
-    {* Поле для свойства Text}
- protected
-  procedure MakeControls; override;
- protected
- // realized methods
+   Entities : TvcmEntities;
+  private
+   f_QueryCard: IevQueryCard;
+   f_TextSource: TevTextSource;
+   f_Text: TevQueryCardEditor;
+  protected
    function pm_GetTextSource: TevCustomTextSource; override;
    function pm_GetText: TevCustomEditor; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
- public
- // overridden public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   procedure MakeControls; override;
+  public
    procedure AfterLoad; override;
- public
- // public properties
+  public
    property TextSource: TevTextSource
-     read f_TextSource;
+    read f_TextSource;
    property Text: TevQueryCardEditor
-     read f_Text;
+    read f_Text;
  end;//TQFLikeTextLoadForm
-{$IfEnd} //nsTest AND not NoVCM
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 implementation
 
-{$R *.DFM}
-
-{$If defined(nsTest) AND not defined(NoVCM)}
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
-  evQueryDocumentContainer,
-  evControlContainerEX,
-  nevTools,
-  l3InterfacesMisc
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  QFLikeTextLoadKeywordsPack
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //nsTest AND not NoVCM
+ l3ImplUses
+ , l3StringIDEx
+ , evQueryDocumentContainer
+ , evControlContainerEX
+ , nevTools
+ , l3InterfacesMisc
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , QFLikeTextLoad_ut_QFLikeTextLoad_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , QFLikeTextLoadKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
 
-{$If defined(nsTest) AND not defined(NoVCM)}
+const
+ {* Локализуемые строки ut_QFLikeTextLoadLocalConstants }
+ str_ut_QFLikeTextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_QFLikeTextLoadCaption'; rValue : 'Форма для работы с КЗ');
+  {* Заголовок пользовательского типа "Форма для работы с КЗ" }
 
-var
-   { Локализуемые строки ut_QFLikeTextLoadLocalConstants }
-  str_ut_QFLikeTextLoadCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_QFLikeTextLoadCaption'; rValue : 'Форма для работы с КЗ');
-   { Заголовок пользовательского типа "Форма для работы с КЗ" }
-
-// start class TQFLikeTextLoadForm
+{$R *.DFM}
 
 function TQFLikeTextLoadForm.pm_GetTextSource: TevCustomTextSource;
 //#UC START# *4C9B21D20187_4CA090120212get_var*
@@ -146,6 +106,7 @@ begin
 end;//TQFLikeTextLoadForm.pm_GetText
 
 procedure TQFLikeTextLoadForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CA090120212_var*
 //#UC END# *479731C50290_4CA090120212_var*
 begin
@@ -156,6 +117,7 @@ begin
 end;//TQFLikeTextLoadForm.Cleanup
 
 procedure TQFLikeTextLoadForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4CA090120212_var*
 //#UC END# *4A8E8F2E0195_4CA090120212_var*
 begin
@@ -181,15 +143,10 @@ end;//TQFLikeTextLoadForm.AfterLoad
 procedure TQFLikeTextLoadForm.MakeControls;
 begin
  inherited;
- f_TextSource := TevTextSource.Create(Self);
- f_TextSource.Name := 'TextSource';
- f_Text := TevQueryCardEditor.Create(Self);
- f_Text.Name := 'Text';
- f_Text.Parent := Self;
  with AddUsertype(ut_QFLikeTextLoadName,
   str_ut_QFLikeTextLoadCaption,
   str_ut_QFLikeTextLoadCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -199,22 +156,22 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_QFLikeTextLoadName
-end;
-
-{$IfEnd} //nsTest AND not NoVCM
+ f_TextSource := TevTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
+ f_Text := TevQueryCardEditor.Create(Self);
+ f_Text.Name := 'Text';
+ f_Text.Parent := Self;
+end;//TQFLikeTextLoadForm.MakeControls
 
 initialization
-{$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация QFLikeTextLoad
- TtfwClassRef.Register(TQFLikeTextLoadForm);
-{$IfEnd} //nsTest AND not NoScripts AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Регистрация фабрики формы QFLikeTextLoad
- fm_QFLikeTextLoadForm.SetFactory(TQFLikeTextLoadForm.Make);
-{$IfEnd} //nsTest AND not NoVCM
-{$If defined(nsTest) AND not defined(NoVCM)}
-// Инициализация str_ut_QFLikeTextLoadCaption
  str_ut_QFLikeTextLoadCaption.Init;
-{$IfEnd} //nsTest AND not NoVCM
+ {* Инициализация str_ut_QFLikeTextLoadCaption }
+ fm_QFLikeTextLoadForm.SetFactory(TQFLikeTextLoadForm.Make);
+ {* Регистрация фабрики формы QFLikeTextLoad }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TQFLikeTextLoadForm);
+ {* Регистрация QFLikeTextLoad }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

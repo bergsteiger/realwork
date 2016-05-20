@@ -69,6 +69,9 @@ type
    {$If NOT Defined(NoVCM)}
    procedure SetTabCaption(const aTabCaption: IvcmCString); override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function AACTextContainer_GetVScrollBar_Execute(aLeft: Boolean): TvtScrollBar;
    procedure AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParamsPrim);
@@ -254,6 +257,76 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=565492823
 //#UC END# *542A6DA20026_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.SetTabCaption
+
+procedure TAACContainerPrimForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(AACContainerName,
+  str_AACContainerCaption,
+  str_AACContainerCaption,
+  False,
+  21,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(AACContainerName
+ with AddUsertype(AACContentsContainerName,
+  str_AACContentsContainerCaption,
+  str_AACContentsContainerCaption,
+  False,
+  21,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(AACContentsContainerName
+ f_pnBack := TvtProportionalPanel.Create(Self);
+ f_pnBack.Name := 'pnBack';
+ f_pnBack.Parent := Self;
+ f_pnRightEx := TvtPanel.Create(Self);
+ f_pnRightEx.Name := 'pnRightEx';
+ f_pnRightEx.Parent := pnBack;
+ f_pnRightForScroll := TvtPanel.Create(Self);
+ f_pnRightForScroll.Name := 'pnRightForScroll';
+ f_pnRightForScroll.Parent := pnRightEx;
+ f_pnRight := TvtPanel.Create(Self);
+ f_pnRight.Name := 'pnRight';
+ f_pnRight.Parent := pnRightForScroll;
+ with DefineZone(vcm_ztMain, f_pnRight) do
+ begin
+ end;//with DefineZone(vcm_ztMain
+ f_pnlRightTop := TvtPanel.Create(Self);
+ f_pnlRightTop.Name := 'pnlRightTop';
+ f_pnlRightTop.Parent := pnRightForScroll;
+ f_scrRight := TvtScrollBar.Create(Self);
+ f_scrRight.Name := 'scrRight';
+ f_scrRight.Parent := pnRightEx;
+ f_pnLeftEx := TvtSizeablePanel.Create(Self);
+ f_pnLeftEx.Name := 'pnLeftEx';
+ f_pnLeftEx.Parent := pnBack;
+ f_pnLeftForScroll := TvtPanel.Create(Self);
+ f_pnLeftForScroll.Name := 'pnLeftForScroll';
+ f_pnLeftForScroll.Parent := pnLeftEx;
+ f_pnlLeftTop := TvtPanel.Create(Self);
+ f_pnlLeftTop.Name := 'pnlLeftTop';
+ f_pnlLeftTop.Parent := pnLeftForScroll;
+ f_pnLeft := TvtPanel.Create(Self);
+ f_pnLeft.Name := 'pnLeft';
+ f_pnLeft.Parent := pnLeftForScroll;
+ with DefineZone(vcm_ztChild, f_pnLeft) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_scrLeft := TvtScrollBar.Create(Self);
+ f_scrLeft.Name := 'scrLeft';
+ f_scrLeft.Parent := pnLeftEx;
+end;//TAACContainerPrimForm.MakeControls
 
 initialization
  str_AACContainerCaption.Init;

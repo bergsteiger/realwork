@@ -71,6 +71,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property gbMark: TvtGroupBox
     read f_gbMark;
@@ -292,6 +295,54 @@ begin
   mComment.TextSource.DocumentContainer.DocumentLimits.BruttoCharLimit := c_TextCommentLen;
 //#UC END# *4A8E8F2E0195_497EDC5003D1_impl*
 end;//TPrimConsultationMarkForm.InitControls
+
+procedure TPrimConsultationMarkForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utcmMainName,
+  str_utcmMainCaption,
+  str_utcmMainCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utcmMainName
+ f_gbMark := TvtGroupBox.Create(Self);
+ f_gbMark.Name := 'gbMark';
+ f_gbMark.Parent := Self;
+ f_rbNotSure := TvtRadioButton.Create(Self);
+ f_rbNotSure.Name := 'rbNotSure';
+ f_rbNotSure.Parent := gbMark;
+ f_rbTwo := TvtRadioButton.Create(Self);
+ f_rbTwo.Name := 'rbTwo';
+ f_rbTwo.Parent := gbMark;
+ f_rbThree := TvtRadioButton.Create(Self);
+ f_rbThree.Name := 'rbThree';
+ f_rbThree.Parent := gbMark;
+ f_rbFour := TvtRadioButton.Create(Self);
+ f_rbFour.Name := 'rbFour';
+ f_rbFour.Parent := gbMark;
+ f_rbFive := TvtRadioButton.Create(Self);
+ f_rbFive.Name := 'rbFive';
+ f_rbFive.Parent := gbMark;
+ f_pnlHelp := TvtPanel.Create(Self);
+ f_pnlHelp.Name := 'pnlHelp';
+ f_pnlHelp.Parent := Self;
+ f_lblHelp := TvtLabel.Create(Self);
+ f_lblHelp.Name := 'lblHelp';
+ f_lblHelp.Parent := pnlHelp;
+ f_gbComment := TvtGroupBox.Create(Self);
+ f_gbComment.Name := 'gbComment';
+ f_gbComment.Parent := Self;
+ f_mComment := TeeMemoWithEditOperations.Create(Self);
+ f_mComment.Name := 'mComment';
+ f_mComment.Parent := gbComment;
+end;//TPrimConsultationMarkForm.MakeControls
 
 initialization
  str_utcmMainCaption.Init;

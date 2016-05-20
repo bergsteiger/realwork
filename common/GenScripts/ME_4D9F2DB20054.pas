@@ -3718,7 +3718,9 @@ uses
  , nsBaseTextOperationsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseTextOperationsConst.pas'
  , f1MultilinkResolver in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\f1MultilinkResolver.pas'
  , l3DialogService in 'w:\common\components\rtl\Garant\L3\l3DialogService.pas'
+ {$If NOT Defined(NoScripts)}
  , l3DialogServiceImpl in 'w:\common\components\rtl\Garant\L3\l3DialogServiceImpl.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(Nemesis)}
  , eeParaTools in 'w:\common\components\gui\Garant\Everest_Engine\eeParaTools.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -4537,6 +4539,7 @@ uses
  , WorkWithList_StatusBar_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_StatusBar_Controls.pas'
  , WorkWithList_ListOperations_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_ListOperations_Controls.pas'
  , nscDocumentListTreeView in 'w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentListTreeView.pas'
+ , vtStyledFocusLabel in 'w:\common\components\gui\Garant\VT\vtStyledFocusLabel.pas'
  , nsListSortTypeMap in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\nsListSortTypeMap.pas'
  {$If NOT Defined(NoScripts)}
  , nscTreeViewForDocumentListWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\nscTreeViewForDocumentListWordsPack.pas'

@@ -15,11 +15,15 @@ uses
  l3IntfUses
  , PrimUnderControlOptions_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TenUnderControl = {final} class(TPrimUnderControlOptionsForm, UnderControlFormDef)
   {* На контроле }
+   Entities : TvcmEntities;
  end;//TenUnderControl
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -35,6 +39,8 @@ uses
  , UnderControlKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

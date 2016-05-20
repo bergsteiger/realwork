@@ -9,6 +9,10 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _DictionContainerUserTypes_ = {abstract} class(_DictionContainerUserTypes_Parent_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_DictionContainerUserTypes_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -30,6 +34,39 @@ const
  {* Локализуемые строки slqtMedicDictionLocalConstants }
  str_slqtMedicDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtMedicDictionCaption'; rValue : 'Словарь медицинских терминов');
   {* Заголовок пользовательского типа "Словарь медицинских терминов" }
+
+{$If NOT Defined(NoVCM)}
+procedure _DictionContainerUserTypes_.MakeControls;
+begin
+ inherited;
+ with AddUsertype(slqtDictionName,
+  str_slqtDictionCaption,
+  str_slqtDictionCaption,
+  False,
+  60,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(slqtDictionName
+ with AddUsertype(slqtMedicDictionName,
+  str_slqtMedicDictionCaption,
+  str_slqtMedicDictionCaption,
+  False,
+  182,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(slqtMedicDictionName
+end;//_DictionContainerUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$Else DictionContainerUserTypes_imp_impl}
 

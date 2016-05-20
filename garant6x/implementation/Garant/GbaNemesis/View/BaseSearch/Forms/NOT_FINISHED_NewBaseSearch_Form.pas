@@ -14,10 +14,33 @@ uses
  l3IntfUses
  , NewBaseSearchForDFM_Form
  , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TNewBaseSearchForm = {final} class(TNewBaseSearchForDFMForm, NewBaseSearchFormDef)
+   Entities : TvcmEntities;
+   FindBtn : TvgPathButton;
+   FindBackBtn : TvgPathButton;
+   CloseBtn : TvgCloseButton;
+   AreaCombo : TvgComboBox;
+   QueryExampleLabel : TvgText;
+   DropButton : TvgButton;
+   FoundCountLabel : TvgText;
+   ExampleLabel : TvgText;
+   ContextEditPanel : TvgNonVGLayout;
+   Layout1 : TvgLayout;
+   Layout2 : TvgLayout;
+   Layout3 : TvgLayout;
+   vgScene1 : TvgScene;
+   MoreTab : TvgComboBox;
+   Border : TvgRectangle;
+   InnerBorder : TvgRectangle;
+   MostOuterRectangle : TvgRectangle;
+   Rectangle1 : TvgRectangle;
+   ContextEdit : TnscTreeComboWithHistoryAndOperations;
  end;//TNewBaseSearchForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -33,6 +56,8 @@ uses
  , NewBaseSearchKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

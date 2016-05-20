@@ -49,6 +49,9 @@ type
    function GetNeedSetFocusToMainObjectFormOnRefresh: Boolean; override;
     {* Надо ли передвигать фокус в главную форму при изменении сборки }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    property ParentZone: TvtPanel
     read f_ParentZone;
@@ -140,6 +143,30 @@ begin
  Result := True;
 //#UC END# *541011910033_4F6B665B0143_impl*
 end;//TPrimParentForm.GetNeedSetFocusToMainObjectFormOnRefresh
+
+procedure TPrimParentForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utHistoryName,
+  str_utHistoryCaption,
+  str_utHistoryCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utHistoryName
+ f_ParentZone := TvtPanel.Create(Self);
+ f_ParentZone.Name := 'ParentZone';
+ f_ParentZone.Parent := Self;
+ with DefineZone(vcm_ztParent, f_ParentZone) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimParentForm.MakeControls
 
 initialization
  str_utHistoryCaption.Init;

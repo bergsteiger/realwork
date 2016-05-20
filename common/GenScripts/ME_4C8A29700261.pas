@@ -77,6 +77,9 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    procedure DoInitContainedForm(aForm: TvcmMainForm); override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
@@ -591,6 +594,20 @@ begin
 //#UC END# *546464260137_4C8A29700261_impl*
 end;//TMainOptionsForm.DoInitContainedForm
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainOptionsForm.MakeControls;
+begin
+ inherited;
+ f_RemindersLine := TnscRemindersLine.Create(Self);
+ f_RemindersLine.Name := 'RemindersLine';
+ f_RemindersLine.Parent := Self;
+ f_ControlledChangingWarning := TnscReminder.Create(RemindersLine);
+ f_ControlledChangingWarning.Name := 'ControlledChangingWarning';
+ f_remUnreadConsultations := TnscReminder.Create(RemindersLine);
+ f_remUnreadConsultations.Name := 'remUnreadConsultations';
+end;//TMainOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 //#UC START# *4C8A47F102D1*

@@ -53,6 +53,9 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: IdsCreateFilter); reintroduce;
    {$If NOT Defined(NoVCM)}
@@ -196,6 +199,43 @@ begin
  Position := poScreenCenter;
 //#UC END# *4A8E8F2E0195_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.InitControls
+
+procedure TPrimCreateFilterForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(cfCreateName,
+  str_cfCreateCaption,
+  str_cfCreateCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cfCreateName
+ with AddUsertype(cfRenameName,
+  str_cfRenameCaption,
+  str_cfRenameCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(cfRenameName
+ f_NameLabel := TvtLabel.Create(Self);
+ f_NameLabel.Name := 'NameLabel';
+ f_NameLabel.Parent := Self;
+ f_FilterName := TnscEdit.Create(Self);
+ f_FilterName.Name := 'FilterName';
+ f_FilterName.Parent := Self;
+end;//TPrimCreateFilterForm.MakeControls
 
 initialization
  str_cfCreateCaption.Init;

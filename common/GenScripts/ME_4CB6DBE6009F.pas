@@ -13,10 +13,14 @@ interface
 uses
  l3IntfUses
  , PrimCreateFilter_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TCreateFilterForm = {final} class(TPrimCreateFilterForm)
+   Entities : TvcmEntities;
  end;//TCreateFilterForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -32,6 +36,8 @@ uses
  , CreateFilterKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -43,6 +43,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBaseTypes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
  , l3Region
  , nsCounterEvent
@@ -223,6 +229,18 @@ type
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    function DoGetNeedSaveToTabHistory: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   class function GetExistingInstance(const aContainer: IvcmContainer;
+    const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
+    aUserType: TvcmUserType = vcmUserControls.0;
+    aGUID: PGUID = nil;
+    const aDataSource: IvcmFormDataSource = nil;
+    aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild(const aData: InsBaseSearcherWindowData): InsSearchWindow; reintroduce;
@@ -1602,6 +1620,55 @@ begin
  Result := {not MainMenuLikeBaseSearch}True;
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoGetNeedSaveToTabHistory
+
+class function TPrimBaseSearchForm.GetExistingInstance(const aContainer: IvcmContainer;
+ const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
+ aUserType: TvcmUserType = vcmUserControls.0;
+ aGUID: PGUID = nil;
+ const aDataSource: IvcmFormDataSource = nil;
+ aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
+//#UC START# *573AFFE5038D_4AB791130260_var*
+var
+ l_BaseSearcher: InsBaseSearcher;
+ l_SearchWindow: InsSearchWindow;
+//#UC END# *573AFFE5038D_4AB791130260_var*
+begin
+//#UC START# *573AFFE5038D_4AB791130260_impl*
+ Result := nil;
+ l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(aContainer.AsForm);
+ try
+  l_SearchWindow := l_BaseSearcher.SearchWindow;
+  try
+   Supports(l_SearchWindow, IvcmEntityForm, Result); 
+  finally
+   l_SearchWindow := nil;
+  end;
+ finally
+  l_BaseSearcher := nil;
+ end;
+//#UC END# *573AFFE5038D_4AB791130260_impl*
+end;//TPrimBaseSearchForm.GetExistingInstance
+
+procedure TPrimBaseSearchForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(BaseSearchName,
+  str_BaseSearchCaption,
+  str_BaseSearchCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(BaseSearchName
+ f_FlashTimer := TTimer.Create(Self);
+ f_FlashTimer.Name := 'FlashTimer';
+end;//TPrimBaseSearchForm.MakeControls
 
 initialization
  str_BaseSearchCaption.Init;
