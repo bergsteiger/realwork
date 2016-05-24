@@ -277,10 +277,10 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , WinControlsProcessingPack
+ , ControlsProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , ControlsProcessingPack
+ , WinControlsProcessingPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

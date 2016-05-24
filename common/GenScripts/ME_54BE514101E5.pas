@@ -39,6 +39,8 @@ uses
  l3ImplUses
  , eeTextParaCursor
  , eeTextCursorPair
+ , TextPara
+ , DecorTextPara
 ;
 
 {$If Defined(k2ForEditor)}

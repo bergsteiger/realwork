@@ -39,6 +39,7 @@ uses
  l3ImplUses
  , eeDocumentCursor
  , eeDocumentCursorPair
+ , Document
 ;
 
 {$If Defined(k2ForEditor)}
