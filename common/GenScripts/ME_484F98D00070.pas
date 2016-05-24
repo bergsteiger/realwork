@@ -22,6 +22,7 @@ implementation
 uses
  l3ImplUses
  , k2Tags
+ , Sub_Const
 ;
 
 end.

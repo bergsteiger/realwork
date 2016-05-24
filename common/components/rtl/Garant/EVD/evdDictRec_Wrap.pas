@@ -21,6 +21,7 @@ implementation
 
 uses
  l3ImplUses
+ , DictRec_Const
 ;
 
 end.

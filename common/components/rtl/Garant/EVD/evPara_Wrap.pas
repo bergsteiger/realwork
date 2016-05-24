@@ -33,6 +33,7 @@ implementation
 
 uses
  l3ImplUses
+ , Para_Const
 ;
 
 class function TevdParaModifier.MarkModified(aTag: Tl3Variant): Boolean;

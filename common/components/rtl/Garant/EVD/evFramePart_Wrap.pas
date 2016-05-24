@@ -22,6 +22,7 @@ implementation
 uses
  l3ImplUses
  , k2Base
+ , FramePart_Const
 ;
 
 end.

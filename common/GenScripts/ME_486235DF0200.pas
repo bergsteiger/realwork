@@ -21,6 +21,7 @@ implementation
 
 uses
  l3ImplUses
+ , evdFrame_Const
 ;
 
 end.

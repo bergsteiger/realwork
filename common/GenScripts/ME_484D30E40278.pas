@@ -26,6 +26,7 @@ uses
  , k2Base
  , k2Tags
  , k2Dictionary
+ , Style_Const
 ;
 
 end.

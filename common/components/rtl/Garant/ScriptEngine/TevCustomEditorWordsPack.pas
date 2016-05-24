@@ -921,7 +921,7 @@ begin
  Result := 'TevCustomEditorWordsPack';
 end;//TTevCustomEditorWordsPackResNameGetter.ResName
 
- {$R TevCustomEditorWordsPack.res}
+{$R TevCustomEditorWordsPack.res}
 
 initialization
  TkwPopEditorInsertTable.RegisterInEngine;

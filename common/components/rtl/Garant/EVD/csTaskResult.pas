@@ -36,7 +36,6 @@ implementation
 
 uses
  l3ImplUses
- , TaskResult_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer
@@ -44,35 +43,26 @@ uses
  , k2TagGen
  , evdNativeReader
  , k2DocumentBuffer
+ , TaskResult_Const
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TcsTaskResult.pm_GetTaskID: AnsiString;
-//#UC START# *96286EAE2E82_53E0D4F50178get_var*
-//#UC END# *96286EAE2E82_53E0D4F50178get_var*
 begin
-//#UC START# *96286EAE2E82_53E0D4F50178get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *96286EAE2E82_53E0D4F50178get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTaskID]);
 end;//TcsTaskResult.pm_GetTaskID
 
 procedure TcsTaskResult.pm_SetTaskID(const aValue: AnsiString);
-//#UC START# *96286EAE2E82_53E0D4F50178set_var*
-//#UC END# *96286EAE2E82_53E0D4F50178set_var*
 begin
-//#UC START# *96286EAE2E82_53E0D4F50178set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *96286EAE2E82_53E0D4F50178set_impl*
+ TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
 end;//TcsTaskResult.pm_SetTaskID
 
 class function TcsTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53E0D4F50178_var*
-//#UC END# *53AC03EE01FD_53E0D4F50178_var*
 begin
-//#UC START# *53AC03EE01FD_53E0D4F50178_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53E0D4F50178_impl*
+ Result := k2_typTaskResult;
 end;//TcsTaskResult.GetTaggedDataType
 
 end.

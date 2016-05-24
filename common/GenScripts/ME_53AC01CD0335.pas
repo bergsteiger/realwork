@@ -1,6 +1,6 @@
 {$IfNDef evdTagHolder_imp}
 
-// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_COMPLETED_evdTagHolder.imp.pas"
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas"
 // Стереотип: "Impurity"
 // Элемент модели: "evdTagHolder" MUID: (53AC01CD0335)
 // Имя типа: "_evdTagHolder_"

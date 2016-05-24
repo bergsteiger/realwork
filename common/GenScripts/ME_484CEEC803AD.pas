@@ -30,6 +30,7 @@ uses
  , k2Interfaces
  , k2Tags
  , k2FontName_Const
+ , Font_Const
 ;
 
 function WevFont.ObjToTag(aValue: TObject): Il3TagRef;

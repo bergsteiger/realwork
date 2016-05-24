@@ -27,6 +27,7 @@ uses
  , l3CustomString
  , SysUtils
  , k2String
+ , k2String_Const
 ;
 
 end.

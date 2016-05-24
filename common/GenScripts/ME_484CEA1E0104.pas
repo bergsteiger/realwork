@@ -32,6 +32,7 @@ uses
  , k2FontName
  , l3LogFont
  , k2FontManager
+ , k2FontName_Const
 ;
 
 function WevFontName.StrToTag(const aValue: AnsiString): Tl3Tag;
