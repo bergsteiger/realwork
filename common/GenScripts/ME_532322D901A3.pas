@@ -400,15 +400,15 @@ uses
  , vgRemindersLineNotificationProxy
  , l3DwmApi
  , vgRemindersLineTabbedContainerNotificationProxy
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)}
  , RemindersLineWordsPack
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)}
  , ReminderWordsPack
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)
  , RTLConsts
 ;
 

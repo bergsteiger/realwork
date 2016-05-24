@@ -8,17 +8,17 @@ unit ReminderWordsPack;
 
 interface
 
-{$If NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , l3Interfaces
  , vtPopupFormModelPart
 ;
-{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , vgRemindersLine
@@ -27,18 +27,12 @@ uses
  , TypInfo
  , Types
  , Classes
- {$If NOT Defined(NoVCL)}
  , Menus
- {$IfEnd} // NOT Defined(NoVCL)
  , tfwPropertyLike
  , tfwTypeInfo
- {$If NOT Defined(NoVCL)}
  , l3PopupMenuHelper
- {$IfEnd} // NOT Defined(NoVCL)
  , RemindersLineWordsPack
- {$If NOT Defined(NoVCL)}
  , Forms
- {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
@@ -1084,6 +1078,6 @@ initialization
  {* Регистрация типа TvtPopupFormModelPart }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TPoint }
-{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 end.

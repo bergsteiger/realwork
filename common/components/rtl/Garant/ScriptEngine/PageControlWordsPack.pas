@@ -8,15 +8,15 @@ unit PageControlWordsPack;
 
 interface
 
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
 ;
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
  , ElPgCtl
@@ -370,6 +370,6 @@ initialization
  {* Регистрация типа TElTabSheet }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа Il3CString }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

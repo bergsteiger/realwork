@@ -856,7 +856,7 @@ begin
  Result := 'evParaWordsPack';
 end;//TevParaWordsPackResNameGetter.ResName
 
- {$R evParaWordsPack.res}
+{$R evParaWordsPack.res}
 
 initialization
  TkwParaBoolA.RegisterInEngine;

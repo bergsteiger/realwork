@@ -1026,7 +1026,7 @@ begin
  Result := 'VGSceneWordsPack';
 end;//TVGSceneWordsPackResNameGetter.ResName
 
- {$R VGSceneWordsPack.res}
+{$R VGSceneWordsPack.res}
 
 initialization
  TkwVgControlVisible.RegisterInEngine;

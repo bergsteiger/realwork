@@ -238,7 +238,7 @@ begin
  Result := 'vcmTabbedMenuWordsPack';
 end;//TvcmTabbedMenuWordsPackResNameGetter.ResName
 
- {$R vcmTabbedMenuWordsPack.res}
+{$R vcmTabbedMenuWordsPack.res}
 
 initialization
  TkwPopMenuForChromeLikeActive.RegisterInEngine;

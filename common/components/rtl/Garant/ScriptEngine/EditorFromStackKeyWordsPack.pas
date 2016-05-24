@@ -1301,7 +1301,7 @@ begin
  Result := 'EditorFromStackKeyWordsPack';
 end;//TEditorFromStackKeyWordsPackResNameGetter.ResName
 
- {$R EditorFromStackKeyWordsPack.res}
+{$R EditorFromStackKeyWordsPack.res}
 
 initialization
  TkwPopEditorScrollBottom.RegisterInEngine;

@@ -8,15 +8,15 @@ unit RemindersLineWordsPack;
 
 interface
 
-{$If NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
 ;
-{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , vgRemindersLine
@@ -739,6 +739,6 @@ initialization
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
-{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
 end.

@@ -363,7 +363,7 @@ begin
  Result := 'VGComboBoxPack';
 end;//TVGComboBoxPackResNameGetter.ResName
 
- {$R VGComboBoxPack.res}
+{$R VGComboBoxPack.res}
 
 initialization
  TkwVgComboBoxGetText.RegisterInEngine;

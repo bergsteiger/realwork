@@ -105,9 +105,9 @@ uses
  , vtPopupForm
  , SysUtils
  , NewRemindersInterfaces
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)}
  , ReminderWordsPack
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL) AND NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

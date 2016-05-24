@@ -8,20 +8,18 @@ unit vtComboBoxWordsPack;
 
 interface
 
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
 ;
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
- {$If NOT Defined(NoVCL)}
  , StdCtrls
- {$IfEnd} // NOT Defined(NoVCL)
  , vtComboTree
  , tfwClassLike
  , tfwScriptingInterfaces
@@ -38,14 +36,11 @@ uses
  , tfwScriptingTypes
 ;
 
-{$If NOT Defined(NoVCL)}
 type
  TCustomComboBoxFriend = {abstract} class(TCustomComboBox)
   {* Друг к классу TCustomComboBox }
  end;//TCustomComboBoxFriend
-{$IfEnd} // NOT Defined(NoVCL)
 
-type
  TkwPopComboBoxDropDown = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ComboBox:DropDown }
   private
@@ -242,8 +237,6 @@ type
    class function ResName: AnsiString; override;
  end;//TvtComboBoxWordsPackResNameGetter
 
-{$If NOT Defined(NoVCL)}
-{$IfEnd} // NOT Defined(NoVCL)
 procedure TkwPopComboBoxDropDown.DropDown(const aCtx: TtfwContext;
  aComboBox: TCustomComboBox;
  aValue: Boolean);
@@ -959,7 +952,7 @@ begin
  Result := 'vtComboBoxWordsPack';
 end;//TvtComboBoxWordsPackResNameGetter.ResName
 
- {$R vtComboBoxWordsPack.res}
+{$R vtComboBoxWordsPack.res}
 
 initialization
  TkwPopComboBoxDropDown.RegisterInEngine;
@@ -998,6 +991,6 @@ initialization
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа AnsiString }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

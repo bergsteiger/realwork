@@ -703,7 +703,7 @@ begin
  Result := 'evSchemaWordsPack';
 end;//TevSchemaWordsPackResNameGetter.ResName
 
- {$R evSchemaWordsPack.res}
+{$R evSchemaWordsPack.res}
 
 initialization
 //#UC START# *53C7C3B90110*
