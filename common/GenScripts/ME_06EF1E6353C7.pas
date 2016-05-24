@@ -263,9 +263,6 @@ uses
  , ActionListWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ActionListWordsPack.pas'
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
- , WinControlsProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCL)}
  , ControlsProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ControlsProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
@@ -294,6 +291,9 @@ uses
  , l3ControlFontService in 'w:\common\components\rtl\Garant\L3\l3ControlFontService.pas'
  {$IfEnd} // NOT Defined(NoVCL)
  , FontWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\FontWordsPack.pas'
+ {$If NOT Defined(NoVCL)}
+ , WinControlsProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
  , ScrollingWinControlWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ScrollingWinControlWordsPack.pas'
  {$IfEnd} // NOT Defined(NoVCL)
@@ -535,6 +535,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , RadioButtonWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , vtComboBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
  , l3Operations in 'w:\common\components\rtl\Garant\L3\l3Operations.pas'
  , l3DropTarget in 'w:\common\components\rtl\Garant\L3\l3DropTarget.pas'
  , l3DropSource in 'w:\common\components\rtl\Garant\L3\l3DropSource.pas'
@@ -589,7 +593,6 @@ uses
  , nevBase in 'w:\common\components\gui\Garant\Everest\new\nevBase.pas'
  , k2Interfaces in 'w:\common\components\rtl\Garant\K2\k2Interfaces.pas'
  , k2PureMixIns in 'w:\common\components\rtl\Garant\K2\k2PureMixIns.pas'
- , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
  , evdTypes in 'w:\common\components\rtl\Garant\EVD\evdTypes.pas'
  , evdStyles in 'w:\common\components\rtl\Garant\EVD\evdStyles.pas'
  , evConst in 'w:\common\components\gui\Garant\Everest\evConst.pas'
@@ -1179,18 +1182,23 @@ uses
  , l3TabStops in 'w:\common\components\rtl\Garant\L3\l3TabStops.pas'
  , vtMultilineHint in 'w:\common\components\gui\Garant\VT\vtMultilineHint.pas'
  , vtHintManager in 'w:\common\components\gui\Garant\VT\vtHintManager.pas'
+ {$If NOT Defined(NoVCL)}
  , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
  , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
  , vtTreeSource in 'w:\common\components\gui\Garant\VT\vtTreeSource.pas'
  , l3Tree in 'w:\common\components\rtl\Garant\L3\l3Tree.pas'
  , l3ItemsStorage in 'w:\common\components\rtl\Garant\L3\l3ItemsStorage.pas'
  , l3TreeUtils in 'w:\common\components\rtl\Garant\L3\l3TreeUtils.pas'
+ {$If NOT Defined(NoVCL)}
  , vtOutlinerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtOutlinerWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
  , l3SimpleTree in 'w:\common\components\rtl\Garant\L3\l3SimpleTree.pas'
  , ctFakeBoxStrings in 'w:\common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas'
  , ComboBoxStrings in 'w:\common\components\gui\Garant\VT\ComboTree\ComboBoxStrings.pas'
  , ctComboBoxStringsItemNode in 'w:\common\components\gui\Garant\VT\ComboTree\ctComboBoxStringsItemNode.pas'
- , vtComboBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas'
  , vtComboTreeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas'
  {$If NOT Defined(NoVCL)}
  , kwKeyWordsPack in 'w:\common\components\rtl\Garant\DUnit_Script_Support\kwKeyWordsPack.pas'
@@ -1997,7 +2005,9 @@ uses
  , vtCustomCommonPanel in 'w:\common\components\gui\Garant\VT\vtCustomCommonPanel.pas'
  , ElPgCtl in 'w:\common\components\gui\Garant\VT\elClone\Source\ElPgCtl.pas'
  , ElXPThemedControl in 'w:\common\components\gui\Garant\VT\elClone\Source\ElXPThemedControl.pas'
+ {$If NOT Defined(NoVCL)}
  , PageControlWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vtNavigatorFormList in 'w:\common\components\gui\Garant\VT\vtNavigatorFormList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -2049,9 +2059,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3DockTree in 'w:\common\components\rtl\Garant\L3\l3DockTree.pas'
  , NewRemindersInterfaces in 'w:\common\components\gui\Garant\VT\NewRemindersInterfaces.pas'
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
+ {$If NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
  , ReminderWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ReminderWordsPack.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
+ {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
  {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
  , vtPopupFormModelPart in 'w:\common\components\gui\Garant\VT\vtPopupFormModelPart.pas'
  {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
@@ -2090,9 +2100,9 @@ uses
  {$If NOT Defined(NoVGScene)}
  , vgRemindersLineTabbedContainerNotificationProxy in 'w:\common\components\gui\Garant\VT\vgRemindersLineTabbedContainerNotificationProxy.pas'
  {$IfEnd} // NOT Defined(NoVGScene)
- {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
+ {$If NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
  , RemindersLineWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RemindersLineWordsPack.pas'
- {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
+ {$IfEnd} // NOT Defined(NoVCL) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , kwVcmHistoryDeleteBackItem in 'w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryDeleteBackItem.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -3063,7 +3073,9 @@ uses
  , Contnrs in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas'
  , ddAppConfigTypesRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypesRes.pas'
  , vtSpinEdit in 'w:\common\components\gui\Garant\VT\vtSpinEdit.pas'
+ {$If NOT Defined(NoVCL)}
  , SpinEditWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
  , vtRadioButton in 'w:\common\components\gui\Garant\VT\vtRadioButton.pas'
  , vtGroupBox in 'w:\common\components\gui\Garant\VT\vtGroupBox.pas'
  , vtButton in 'w:\common\components\gui\Garant\VT\vtButton.pas'
