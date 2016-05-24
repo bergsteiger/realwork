@@ -44,6 +44,7 @@ uses
  {$If Defined(evNeedHotSpot)}
  , evReqCellHotSpot
  {$IfEnd} // Defined(evNeedHotSpot)
+ , ReqCell_Const
 ;
 
 function TevReqCellInterfaceFactory.QueryTool(aTag: Tl3Variant;

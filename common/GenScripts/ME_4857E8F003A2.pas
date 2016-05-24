@@ -37,6 +37,7 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , evQueryCardCursor
  {$IfEnd} // Defined(evUseVisibleCursors)
+ , QueryCard_Const
 ;
 
 function TevQueryCardInterfaceFactory.QueryTool(aTag: Tl3Variant;

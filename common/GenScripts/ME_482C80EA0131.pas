@@ -41,7 +41,7 @@ type
  TAbstractDropDown = class(TctAbstractEdit{$If NOT Defined(NoVCM)}
  , IvcmPopupIgnoresAction
  {$IfEnd} // NOT Defined(NoVCM)
- , Il3WndProcListener, Il3MouseListener)
+ , Il3WndProcListener, Il3MouseListener, Il3MouseWheelListener)
   private
    f_ComboStyle: TComboStyle;
    f_ExtButton: TComponent;
@@ -74,6 +74,7 @@ type
    procedure CloseUp; virtual;
    function GetActiveSub: TWinControl; virtual; abstract;
    procedure HideDropDown; virtual;
+   function GetTreeHandle: THandle; virtual; abstract;
    {$If NOT Defined(NoVCM)}
    function pm_GetPopupIgnoresAction: Boolean;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -81,6 +82,8 @@ type
     aHookStruct: PMouseHookStruct;
     var theResult: Tl3HookProcResult);
    procedure WndProcListenerNotify(Msg: PCWPStruct;
+    var theResult: Tl3HookProcResult);
+   procedure MouseWheelListenerNotify(Msg: PMsg;
     var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -519,6 +522,17 @@ begin
    HideDropDown;
 //#UC END# *4F79CF3400BB_482C80EA0131_impl*
 end;//TAbstractDropDown.WndProcListenerNotify
+
+procedure TAbstractDropDown.MouseWheelListenerNotify(Msg: PMsg;
+ var theResult: Tl3HookProcResult);
+//#UC START# *4F79D08A02C7_482C80EA0131_var*
+//#UC END# *4F79D08A02C7_482C80EA0131_var*
+begin
+//#UC START# *4F79D08A02C7_482C80EA0131_impl*
+ if (Msg.hwnd <> GetTreeHandle) then
+  HideDropDown;
+//#UC END# *4F79D08A02C7_482C80EA0131_impl*
+end;//TAbstractDropDown.MouseWheelListenerNotify
 
 procedure TAbstractDropDown.Cleanup;
  {* Функция очистки полей объекта. }

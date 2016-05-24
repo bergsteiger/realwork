@@ -42,9 +42,9 @@ implementation
 
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtHintWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , SysUtils
  , l3Base
  {$If NOT Defined(NoScripts)}

@@ -56,6 +56,7 @@ uses
  {$IfEnd} // Defined(evUseVisibleCursors)
  , nevControlsBlockIevCommonControlMapper
  , nevControlsBlockModelControlMapper
+ , ControlsBlock_Const
 ;
 
 function TevControlsBlockInterfaceFactory.QueryTool(aTag: Tl3Variant;

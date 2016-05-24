@@ -44,6 +44,7 @@ uses
  {$If Defined(evNeedHotSpot)}
  , evSBSRowHotSpotTester
  {$IfEnd} // Defined(evNeedHotSpot)
+ , SBSRow_Const
 ;
 
 function TevSBSRowInterfaceFactory.QueryTool(aTag: Tl3Variant;

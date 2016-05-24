@@ -34,6 +34,7 @@ uses
  l3ImplUses
  , nevTools
  , nevAutoreferatDocumentAnchor
+ , AutoreferatDocument_Const
 ;
 
 function TevAutoreferatDocumentInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

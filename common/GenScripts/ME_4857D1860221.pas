@@ -36,6 +36,7 @@ uses
  {$If Defined(evNeedPainters)}
  , evSBSCellPainter
  {$IfEnd} // Defined(evNeedPainters)
+ , SBSCell_Const
 ;
 
 function TevSBSCellInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

@@ -57,6 +57,7 @@ uses
  {$IfEnd} // Defined(evUseVisibleCursors)
  , nevDocumentPartAnchor
  , nevDocumentPart
+ , Block_Const
 ;
 
 function TevBlockInterfaceFactory.QueryTool(aTag: Tl3Variant;

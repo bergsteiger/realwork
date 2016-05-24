@@ -42,6 +42,7 @@ uses
  , evReqRowHotSpotTester
  {$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
  , evReqRowModelControlMapper
+ , ReqRow_Const
 ;
 
 function TevReqRowInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

@@ -42,6 +42,7 @@ uses
  {$If Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)}
  , evReqGroupPainter
  {$IfEnd} // Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)
+ , ReqGroup_Const
 ;
 
 function TevReqGroupInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

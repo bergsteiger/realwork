@@ -57,6 +57,7 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , evTableCellCursorPair
  {$IfEnd} // Defined(evUseVisibleCursors)
+ , TableCell_Const
 ;
 
 function TevTableCellInterfaceFactory.QueryTool(aTag: Tl3Variant;

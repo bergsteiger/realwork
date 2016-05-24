@@ -24,9 +24,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , vtComboTreeWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtComboBoxWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

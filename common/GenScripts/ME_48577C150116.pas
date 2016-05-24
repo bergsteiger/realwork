@@ -61,6 +61,7 @@ uses
  , evTextParaStringImpl
  , nevTextParaAnchor
  , nevTextParaInevTextParaMapper
+ , TextPara_Const
 ;
 
 function TevTextParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

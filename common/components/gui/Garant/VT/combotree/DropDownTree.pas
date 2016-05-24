@@ -97,6 +97,7 @@ type
    function TreeImagesStored: Boolean;
     {* "Функция определяющая, что свойство TreeImages сохраняется" }
    function GetActiveSub: TWinControl; override;
+   function GetTreeHandle: THandle; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function GetPaintSelection: InevRange; override;
@@ -708,6 +709,18 @@ begin
  Result := Tree;
 //#UC END# *53EDCF91019F_4831599C0300_impl*
 end;//TDropDownTreePrim.GetActiveSub
+
+function TDropDownTreePrim.GetTreeHandle: THandle;
+//#UC START# *573F0DAA02BB_4831599C0300_var*
+//#UC END# *573F0DAA02BB_4831599C0300_var*
+begin
+//#UC START# *573F0DAA02BB_4831599C0300_impl*
+ if Assigned(Tree) and Tree.HandleAllocated then
+  Result := Tree.Handle
+ else
+  Result := 0;
+//#UC END# *573F0DAA02BB_4831599C0300_impl*
+end;//TDropDownTreePrim.GetTreeHandle
 
 procedure TDropDownTreePrim.Cleanup;
  {* Функция очистки полей объекта. }

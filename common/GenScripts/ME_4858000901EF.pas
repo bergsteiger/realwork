@@ -57,6 +57,7 @@ uses
  {$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
  , nevControlParaIevControlFriendMapper
  , nevControlParaModelControlMapper
+ , ControlPara_Const
 ;
 
 function TevControlParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

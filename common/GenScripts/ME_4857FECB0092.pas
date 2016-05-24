@@ -44,6 +44,7 @@ uses
  , evParaTools
  , SysUtils
  , ReqGroup_Const
+ , ControlPara_Const
 ;
 
 function WevControlPara.GetAtomData(AE: Tl3Variant;

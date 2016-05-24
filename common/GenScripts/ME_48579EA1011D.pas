@@ -58,6 +58,7 @@ uses
  , evParaListHotSpotTester
  {$IfEnd} // Defined(evNeedHotSpot)
  , nevParaListInevParaListMapper
+ , ParaList_Const
 ;
 
 function TevParaListInterfaceFactory.QueryTool(aTag: Tl3Variant;

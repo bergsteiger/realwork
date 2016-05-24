@@ -47,6 +47,7 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , evFormulaCursor
  {$IfEnd} // Defined(evUseVisibleCursors)
+ , Formula_Const
 ;
 
 function TevFormulaInterfaceFactory.QueryTool(aTag: Tl3Variant;

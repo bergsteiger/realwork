@@ -61,6 +61,7 @@ uses
  {$If Defined(evNeedHotSpot)}
  , nevTableIevChangeParamToolMapper
  {$IfEnd} // Defined(evNeedHotSpot)
+ , Table_Const
 ;
 
 function TevTableInterfaceFactory.QueryTool(aTag: Tl3Variant;

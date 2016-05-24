@@ -57,6 +57,7 @@ uses
  {$IfEnd} // Defined(evUseVisibleCursors)
  , nevDocument
  , evDocumentAnchorIndex
+ , Document_Const
 ;
 
 function TevDocumentInterfaceFactory.QueryTool(aTag: Tl3Variant;

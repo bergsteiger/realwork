@@ -20,9 +20,9 @@ implementation
 
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , SpinEditWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

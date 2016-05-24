@@ -54,6 +54,7 @@ uses
  {$If Defined(evNeedHotSpot)}
  , evCommentParaHotSpotTester
  {$IfEnd} // Defined(evNeedHotSpot)
+ , CommentPara_Const
 ;
 
 function TevCommentParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

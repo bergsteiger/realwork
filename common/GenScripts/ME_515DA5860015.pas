@@ -568,9 +568,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtOutlinerWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  //#UC START# *515DA5860015impl_uses*
  , SysUtils
  //#UC END# *515DA5860015impl_uses*

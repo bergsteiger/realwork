@@ -374,9 +374,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , vtHideFieldWords
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  //#UC START# *4E732D7F0082impl_uses*
  //#UC END# *4E732D7F0082impl_uses*
 ;

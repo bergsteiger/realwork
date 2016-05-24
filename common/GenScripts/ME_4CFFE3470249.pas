@@ -1574,9 +1574,9 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , evdTextStyle_Const
  , evStyleTableTools
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ListerWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  //#UC START# *4CFFE3470249impl_uses*
  //#UC END# *4CFFE3470249impl_uses*
 ;

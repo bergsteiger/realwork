@@ -61,6 +61,7 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , nevTableRowBaseLine4Anchor
  {$IfEnd} // Defined(evUseVisibleCursors)
+ , TableRow_Const
 ;
 
 function TevTableRowInterfaceFactory.QueryTool(aTag: Tl3Variant;

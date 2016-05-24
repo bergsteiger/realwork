@@ -27,6 +27,7 @@ implementation
 {$If Defined(k2ForEditor) AND Defined(Archi)}
 uses
  l3ImplUses
+ , arList_Const
 ;
 
 {$IfEnd} // Defined(k2ForEditor) AND Defined(Archi)
