@@ -30,6 +30,7 @@ uses
  , k2Tags
  , evdTypes
  , Para_Const
+ , Document_Const
 ;
 
 function WevDocument.GetAtomData(AE: Tl3Variant;

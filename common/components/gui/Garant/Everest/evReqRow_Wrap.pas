@@ -29,6 +29,7 @@ uses
  l3ImplUses
  , k2Tags
  , nevTools
+ , ReqRow_Const
 ;
 
 function WevReqRow.GetAtomData(AE: Tl3Variant;

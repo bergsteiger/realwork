@@ -29,6 +29,7 @@ uses
  l3ImplUses
  , Graphics
  , k2Tags
+ , ReqGroup_Const
 ;
 
 function WevReqGroup.PreGetAtomData(AE: Tl3Variant;

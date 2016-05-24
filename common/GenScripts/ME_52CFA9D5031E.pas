@@ -122,13 +122,13 @@ type
   , otNumbers
  );//TddOrderType
 
- TddRowType = (
-  dd_rtNone
-  , dd_rtSBS
-  , dd_rtNested
-  , dd_rtAAC
-  , dd_rtNestedAAC
- );//TddRowType
+ TddTableType = (
+  dd_ttNone
+  , dd_ttSBS
+  , dd_ttNested
+  , dd_ttAAC
+  , dd_ttNestedAAC
+ );//TddTableType
 
  IddSaveObjectPath = interface
   ['{F0BCA447-CD86-4385-87BC-4F043822DD02}']

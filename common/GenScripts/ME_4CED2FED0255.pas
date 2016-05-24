@@ -43,6 +43,7 @@ implementation
 
 uses
  l3ImplUses
+ , CommentPara_Const
 ;
 
 class procedure TevCommentStorer.ForceStore(aTag: Tl3Variant);

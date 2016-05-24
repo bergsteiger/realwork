@@ -23,6 +23,7 @@ uses
  l3ImplUses
  , k2Tags
  , k2Base
+ , TextPara_Const
 ;
 
 end.

@@ -51,6 +51,7 @@ uses
  , l3Base
  , l3InternalInterfaces
  , l3Stream
+ , BitmapPara_Const
 ;
 
 class function TevBitmapParaPictureGetter.GetPicture(aTag: Tl3Variant;

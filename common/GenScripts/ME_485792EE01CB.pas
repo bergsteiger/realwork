@@ -28,6 +28,7 @@ uses
  , l3Base
  , l3InternalInterfaces
  , SysUtils
+ , Formula_Const
 ;
 
 end.
