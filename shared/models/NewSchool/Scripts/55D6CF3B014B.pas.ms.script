@@ -6,58 +6,6 @@ FORWARD ME_55D6CF3B014B
 
 FORWARD ME_55D6CFA5009E
 
-: ME_E83633B0ED06
- CONST UID 'E83633B0ED06'
- CONST Name 'DataServerHostName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55D6CFA5009E // TpgDataProviderParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_E83633B0ED06 DataServerHostName
-
-: ME_1BA3D1428743
- CONST UID '1BA3D1428743'
- CONST Name 'DataServerPort'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55D6CFA5009E // TpgDataProviderParams
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_1BA3D1428743 DataServerPort
-
-: ME_739BCF404ADC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55D6CFA5009E // TpgDataProviderParams
- ;
- : Target WL 'ME_543282B3006A' '484A470100DD.pas.ms.script' // PostgresProviderParams
- ;
-
-ref; // ME_739BCF404ADC 
-
-: ME_53AC03EE01FD_ME_55D6CFA5009E
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_55D6CFA5009E GetTaggedDataType
-
 : ME_553A37E902C9_ME_55D6CFA5009E
  : Original WL 'ME_553A37E902C9' '54F85B2500FB.pas.ms.script' // AssignParams
  ;
@@ -82,20 +30,10 @@ ref; // ME_553A37E902C9_ME_55D6CFA5009E AssignParams
    Seq: ( WL 'ME_543282B3006A' '484A470100DD.pas.ms.script' // PostgresProviderParams
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_E83633B0ED06 // DataServerHostName
- ME_1BA3D1428743 // DataServerPort
- )
- ; // Attributes
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_55D6CFA5009E // GetTaggedDataType
- ME_553A37E902C9_ME_55D6CFA5009E // AssignParams
+   Seq: ( ME_553A37E902C9_ME_55D6CFA5009E // AssignParams
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_739BCF404ADC // PostgresProviderParams
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\PG\pgDataProviderParams.pas'
  CONST extprop:rc:SelfName 'pgDataProviderParams'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2095,10 +2033,10 @@ ref; // ME_560B963D002C
 ref; // ME_56C845AD00C5 
 
 : ME_5600FFF80332_ME_55F960D502F6
- : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromTable
+ : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromClause
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5600FFF80332_ME_55F960D502F6 MakeFromTable
+ref; // ME_5600FFF80332_ME_55F960D502F6 MakeFromClause
 
 : ME_566A892A0191_ME_55F960D502F6
  : Original WL 'ME_566A892A0191' '54F85B2500FB.pas.ms.script' // PrepareTable
@@ -2156,7 +2094,7 @@ ref; // ME_560B861302E9_ME_55F960D502F6 MakeParamList
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5600FFF80332_ME_55F960D502F6 // MakeFromTable
+   Seq: ( ME_5600FFF80332_ME_55F960D502F6 // MakeFromClause
  ME_566A892A0191_ME_55F960D502F6 // PrepareTable
  ME_566A893B03C7_ME_55F960D502F6 // UnPrepareTable
  )
@@ -8709,7 +8647,6 @@ ref; // ME_5694BA3500C4 TpgCommandExecutor
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47BF042D029B' '47BF042D029B.pas.ms.script' // m2
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

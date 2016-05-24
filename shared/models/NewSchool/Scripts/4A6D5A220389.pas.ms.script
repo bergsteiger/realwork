@@ -3019,7 +3019,7 @@ FORWARD ME_571A22E9019E
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A22E9019E // Diff
+   Seq: ( ME_571A22E9019E // DiffFormWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" true
@@ -3033,6 +3033,8 @@ FORWARD ME_571A22E9019E
  CONST extprop:rc:SelfName 'DiffForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'Diff_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4A6EBE900233 Diff
 
@@ -3151,6 +3153,7 @@ ref; // ME_495238EB0160_ME_4C7F6D8800EE ToMSWord
  CONST extprop:rc:SelfName 'DiffOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'DiffOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7F6D8800EE DiffOptions
 
@@ -3496,6 +3499,7 @@ ref; // ME_4A8E8F2E0195_ME_4A6D5A80013C InitControls
  CONST extprop:rc:SelfName 'PrimLeftEditionForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimLeftEdition_Form'
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4A6D5A80013C PrimLeftEdition
 
@@ -4578,6 +4582,8 @@ ref; // ME_4F7C65380244_ME_4A6EC0D0020C FormInsertedIntoContainer
  CONST extprop:rc:SelfName 'PrimEditionsContainerForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimEditionsContainer_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4A6EC0D0020C PrimEditionsContainer
 
@@ -5487,6 +5493,8 @@ ref; // ME_501174B10018_ME_4A6D5ABE020A GetIsMainObjectForm
  CONST extprop:rc:SelfName 'PrimRightEditionForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimRightEdition_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4A6D5ABE020A PrimRightEdition
 
@@ -5612,32 +5620,6 @@ ref; // ME_259B13E24D69
 
 ref; // ME_4B5082500342 PrimEditionsRes
 
-: ME_F1E2843F20FD
- CONST UID 'F1E2843F20FD'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация EditionsRes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B50828502D7 // EditionsRes
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F1E2843F20FD Ini_Reg_Class
-
-: ME_088DC183009C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B50828502D7 // EditionsRes
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_088DC183009C 
-
 : ME_4B50828502D7
  CONST UID '4B50828502D7'
  CONST Name 'EditionsRes'
@@ -5652,14 +5634,6 @@ ref; // ME_088DC183009C
    Seq: ( ME_4B5082500342 // PrimEditionsRes
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F1E2843F20FD // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_088DC183009C // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "author" 'Люлин А.В.'
  CONST "finished dfm" false
@@ -5679,21 +5653,6 @@ FORWARD ME_4A6D5F3D03A9
 
 FORWARD ME_4A6EC02E00EA
 
-: ME_833499DB2C39
- CONST UID '833499DB2C39'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация LeftEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC02E00EA // LeftEdition
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_833499DB2C39 Ini_Reg_Class
-
 : ME_3A5A330387A0
  CONST UID '3A5A330387A0'
  CONST Name 'Ini_FormFactory_LeftEdition'
@@ -5709,17 +5668,6 @@ ref; // ME_833499DB2C39 Ini_Reg_Class
  ;
 
 ref; // ME_3A5A330387A0 Ini_FormFactory_LeftEdition
-
-: ME_9AE43BF87831
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EC02E00EA // LeftEdition
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9AE43BF87831 
 
 : ME_4A6EC02E00EA
  CONST UID '4A6EC02E00EA'
@@ -5741,14 +5689,9 @@ ref; // ME_9AE43BF87831
  )
  ; // Implements
  : Operations
-   Seq: ( ME_833499DB2C39 // Ini_Reg_Class
- ME_3A5A330387A0 // Ini_FormFactory_LeftEdition
+   Seq: ( ME_3A5A330387A0 // Ini_FormFactory_LeftEdition
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_9AE43BF87831 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -5768,21 +5711,6 @@ ref; // ME_4A6EC02E00EA LeftEdition
 
 FORWARD ME_4A6EC062005F
 
-: ME_42DE47F519BC
- CONST UID '42DE47F519BC'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация RightEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC062005F // RightEdition
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_42DE47F519BC Ini_Reg_Class
-
 : ME_36BDD98F326D
  CONST UID '36BDD98F326D'
  CONST Name 'Ini_FormFactory_RightEdition'
@@ -5798,17 +5726,6 @@ ref; // ME_42DE47F519BC Ini_Reg_Class
  ;
 
 ref; // ME_36BDD98F326D Ini_FormFactory_RightEdition
-
-: ME_CDB79FC71696
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EC062005F // RightEdition
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CDB79FC71696 
 
 : ME_4A6EC062005F
  CONST UID '4A6EC062005F'
@@ -5830,14 +5747,9 @@ ref; // ME_CDB79FC71696
  )
  ; // Implements
  : Operations
-   Seq: ( ME_42DE47F519BC // Ini_Reg_Class
- ME_36BDD98F326D // Ini_FormFactory_RightEdition
+   Seq: ( ME_36BDD98F326D // Ini_FormFactory_RightEdition
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_CDB79FC71696 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -5857,21 +5769,6 @@ ref; // ME_4A6EC062005F RightEdition
 
 FORWARD ME_4A6EC095039C
 
-: ME_CC42BC6D5C23
- CONST UID 'CC42BC6D5C23'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация EditionsContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC095039C // EditionsContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CC42BC6D5C23 Ini_Reg_Class
-
 : ME_4CDF29F3816A
  CONST UID '4CDF29F3816A'
  CONST Name 'Ini_FormFactory_EditionsContainer'
@@ -5887,17 +5784,6 @@ ref; // ME_CC42BC6D5C23 Ini_Reg_Class
  ;
 
 ref; // ME_4CDF29F3816A Ini_FormFactory_EditionsContainer
-
-: ME_ADD0C0A92FD5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EC095039C // EditionsContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_ADD0C0A92FD5 
 
 : ME_4A6EC095039C
  CONST UID '4A6EC095039C'
@@ -5919,14 +5805,9 @@ ref; // ME_ADD0C0A92FD5
  )
  ; // Implements
  : Operations
-   Seq: ( ME_CC42BC6D5C23 // Ini_Reg_Class
- ME_4CDF29F3816A // Ini_FormFactory_EditionsContainer
+   Seq: ( ME_4CDF29F3816A // Ini_FormFactory_EditionsContainer
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_ADD0C0A92FD5 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

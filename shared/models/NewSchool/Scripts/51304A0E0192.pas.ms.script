@@ -134,17 +134,6 @@ ref; // ME_55C9F3E702CD
 
 ref; // ME_55C9F5070034 
 
-: ME_8EE038A72456
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_51304A1F02AD // kwKeyWordsPack
- ;
- : Target WL 'ME_4DA30F0F02C1' '4B2A0D6A0077.pas.ms.script' // TGUITestRunner
- ;
-
-ref; // ME_8EE038A72456 
-
 : ME_51304A1F02AD
  CONST UID '51304A1F02AD'
  CONST Name 'kwKeyWordsPack'
@@ -170,7 +159,6 @@ ref; // ME_8EE038A72456
  ME_55C9F3970123 // TTreeNodeForTestsWordsPack
  ME_55C9F3E702CD // TestForm4Scripts
  ME_55C9F5070034 // DeleteEtalons
- ME_8EE038A72456 // TGUITestRunner
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -257,17 +245,6 @@ ref; // ME_55C9F2CB0025 HasScriptChildren
 
 ref; // ME_55C9F3150354 test_ShouldStop
 
-: ME_3984CD50E7EE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55C9F202036D // ITestWordsPack
- ;
- : Target WL 'ME_4B2F420202F4' '4B2A0D6A0077.pas.ms.script' // ITest
- ;
-
-ref; // ME_3984CD50E7EE 
-
 : ME_4DCCCFF001A4_ME_55C9F202036D
  : Original WL 'ME_4DCCCFF001A4' '4B2A0D6A0077.pas.ms.script' // HasScriptChildren
  ;
@@ -324,10 +301,6 @@ ref; // ME_51B1DD5F0080_ME_55C9F202036D ClearEtalons
  ME_51B1DD5F0080_ME_55C9F202036D // ClearEtalons
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_3984CD50E7EE // ITest
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "needs script" true
  CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\ITestWordsPack.pas'

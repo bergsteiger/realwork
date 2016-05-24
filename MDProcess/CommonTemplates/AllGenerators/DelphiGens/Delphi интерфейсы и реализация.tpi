@@ -2268,13 +2268,20 @@ f _NeedFinalize
 	]\
 	[\
 	 : Injected
-	   Seq: (<{}{%aC=Dependency&%aS=injects}{Sg} %a#f_pas_script_Reference()> )
+	   Seq: (<{}{%aC=Dependency&%aS=injects&%f_IsSameProject(%S,%a)=true}{Sg} %a#f_pas_script_Reference(%a%P)> )
 	 ; // Injected
 	]\
 	[\
 	 : Zones
 	   Seq: (<{}{%ZS=VCMFormZone}{Sg} %Z#f_pas_script_Reference()> )
 	 ; // Zones
+	]\
+	[{%SS=Atom|%SS=Tag}\
+	[\
+	 : Implementors
+	   Seq: (<{}{%f_IsSameProject(%S,%L)=true}{%LSg} %L#f_pas_script_Reference()> )
+	 ; // Implementors
+	]\
 	]\
 	[\
 	 : Depends
@@ -2291,18 +2298,6 @@ f _NeedFinalize
 	]\
 
 	%S%f_pas_script_GenerateUserProperties()\
-
-//	%f_clear_list(ALL_GENERATORS_ID)\
-//	%f_all_generators(%S)\
-//	[\
-//	 : Generators
-//	 Seq: (
-//	%{ALL_GENERATORS_ID}<{}{%CN!=wiki&%CN!=spell&%f_has_non_empty_gen(1,%CN)=true&"%f_with_gen_id(%CN,%1L)"!=""}{%C}\
-//	 gen_%CN
-//	>\
-//	 )
-//	 ; // Generators
-//	]\
 
 	%f_clear_list(ALL_GENERATORS_ID)\
 	%f_all_generators(%S)\
@@ -2379,6 +2374,12 @@ f _NeedFinalize
 	]\
 	]\
 
+	[{"%S#f_NewTypeName()"!=""}\
+	[\
+	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
+	]\
+	]\
+
 	[{"%S{isGlobal}"!=""}\
 	[\
 	 CONST extprop:isGlobal %f_out_val("%S{isGlobal}")
@@ -2419,6 +2420,10 @@ f _NeedFinalize
 
 	[{%S#f_NeedsInitEntities()=true}\
 	 CONST extprop:NeedsInitEntities true
+	]\
+
+	[{%S#f_HasAnyVCMController()=true}\
+	 CONST extprop:HasAnyVCMController true
 	]\
 
 	[{"%S%{Facet}U"!=""}\
@@ -2464,6 +2469,21 @@ f _NeedFinalize
 	]\
 	
 	ref; // %S%f_pas_script_Name() %SN\n
+
+f _GetProject
+@ %SU
+	[{%S#f_IsProject()=true}{\
+	%f_GetProject(%P)\
+	}\
+	%SU\
+	]
+
+f _IsSameProject
+	[{%f_GetProject(%S)=%f_GetProject(%1)}{\
+	false\
+	}\
+	true\
+	]
 
 f _out_val
 	[{%SN=true|%SN=True}{\
@@ -3061,6 +3081,10 @@ f _IsConstants
 	>\
 	]\
 
+	[{%SS=Atom|%SS=Tag}\
+	<{}{%f_IsSameProject(%S,%L)=true}{%LSg}%L#f_pas_script_GenerateIncludeOrForward()>\
+	]\
+
 	%S%f_pas_script_GenerateDescription()
 
 f _OverrideName
@@ -3142,10 +3166,14 @@ f _OutOverride
 	'%f_pas_script_FileNameForLinkSafe(%S)'\
 	] \
 	// \
+	[{"%1N"!=""}{\
 	[{%SC=Dependency}{\
 	%SN\
 	}\
 	[%SN:]%TN\
+	]\
+	}\
+	%1N\
 	]\
 	\n
 

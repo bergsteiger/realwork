@@ -1490,6 +1490,7 @@ ref; // ME_4A8E8F2E0195_ME_4AC6324502DA InitControls
  CONST extprop:rc:SelfName 'PrimDefineSearchDateForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimDefineSearchDate_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AC6324502DA PrimDefineSearchDate
 
@@ -2697,6 +2698,7 @@ ref; // ME_5000565C019C_ME_4AE8831A02A5 ClearFields
  CONST extprop:rc:SelfName 'PrimOldSituationSearchForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimOldSituationSearch_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AE8831A02A5 PrimOldSituationSearch
 
@@ -5446,50 +5448,6 @@ ref; // ME_AFC9C06F9424 ut_DefineSearchDateCaption
 
 ref; // ME_CE6DE73CF525 LCImplut_DefineSearchDateLocalConstants
 
-: ME_9C4A8B6EE34C
- CONST UID '9C4A8B6EE34C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация DefineSearchDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB8CAF1009C // DefineSearchDate
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9C4A8B6EE34C Ini_Reg_Class
-
-: ME_710719650A0A
- CONST UID '710719650A0A'
- CONST Name 'Init_Str_ut_DefineSearchDateCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_DefineSearchDateCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB8CAF1009C // DefineSearchDate
- ;
- : Speller ME_F06693CD09C3 // ut_DefineSearchDateCaption
- ;
- : SpelledFor ME_AFC9C06F9424 // ut_DefineSearchDateCaption
- ;
-
-ref; // ME_710719650A0A Init_Str_ut_DefineSearchDateCaption
-
-: ME_2CE329A63E68
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB8CAF1009C // DefineSearchDate
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2CE329A63E68 
-
 : ME_A69F374E8600
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -5531,11 +5489,6 @@ ref; // ME_4FA0E0BA90C3
    Seq: ( ME_29734A60170A // DefineSearchDate$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9C4A8B6EE34C // Ini_Reg_Class
- ME_710719650A0A // Init_Str_ut_DefineSearchDateCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_7C299D84FEC0 // ut_DefineSearchDate
  ME_29734A60170A // DefineSearchDate$Def
@@ -5547,8 +5500,7 @@ ref; // ME_4FA0E0BA90C3
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_2CE329A63E68 // TtfwClassRef
- ME_A69F374E8600 // Tl3StringIDEx
+   Seq: ( ME_A69F374E8600 // Tl3StringIDEx
  ME_4FA0E0BA90C3 // Tl3MessageID
  )
  ; // Dependencies
@@ -5639,21 +5591,6 @@ ref; // ME_521325B7C001 OldSituationSearchIDs
 
 ref; // ME_DA935FDF40EA OldSituationSearch$Def
 
-: ME_2F165C2BCE0C
- CONST UID '2F165C2BCE0C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация OldSituationSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB8D885020F // OldSituationSearch
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2F165C2BCE0C Ini_Reg_Class
-
 : ME_4901E1AE4F7C
  CONST UID '4901E1AE4F7C'
  CONST Name 'Ini_FormFactory_OldSituationSearch'
@@ -5669,17 +5606,6 @@ ref; // ME_2F165C2BCE0C Ini_Reg_Class
  ;
 
 ref; // ME_4901E1AE4F7C Ini_FormFactory_OldSituationSearch$Def
-
-: ME_CC62F0F5D59E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB8D885020F // OldSituationSearch
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CC62F0F5D59E 
 
 : ME_4AB8D885020F
  CONST UID '4AB8D885020F'
@@ -5701,18 +5627,13 @@ ref; // ME_CC62F0F5D59E
  )
  ; // Implements
  : Operations
-   Seq: ( ME_2F165C2BCE0C // Ini_Reg_Class
- ME_4901E1AE4F7C // Ini_FormFactory_OldSituationSearch$Def
+   Seq: ( ME_4901E1AE4F7C // Ini_FormFactory_OldSituationSearch$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_DA935FDF40EA // OldSituationSearch$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_CC62F0F5D59E // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -5730,21 +5651,6 @@ ref; // ME_4AB8D885020F OldSituationSearch
 
 FORWARD ME_4AB8D5F8025F
 
-: ME_8CC79008E33A
- CONST UID '8CC79008E33A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TreeAttributeFirstLevel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB8D5F8025F // TreeAttributeFirstLevel
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8CC79008E33A Ini_Reg_Class
-
 : ME_DC2BA1E03464
  CONST UID 'DC2BA1E03464'
  CONST Name 'Ini_FormFactory_TreeAttributeFirstLevel'
@@ -5760,17 +5666,6 @@ ref; // ME_8CC79008E33A Ini_Reg_Class
  ;
 
 ref; // ME_DC2BA1E03464 Ini_FormFactory_TreeAttributeFirstLevel
-
-: ME_EBE8C5268308
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB8D5F8025F // TreeAttributeFirstLevel
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_EBE8C5268308 
 
 : ME_4AB8D5F8025F
  CONST UID '4AB8D5F8025F'
@@ -5791,14 +5686,9 @@ ref; // ME_EBE8C5268308
  )
  ; // Implements
  : Operations
-   Seq: ( ME_8CC79008E33A // Ini_Reg_Class
- ME_DC2BA1E03464 // Ini_FormFactory_TreeAttributeFirstLevel
+   Seq: ( ME_DC2BA1E03464 // Ini_FormFactory_TreeAttributeFirstLevel
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_EBE8C5268308 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -8654,7 +8544,7 @@ FORWARD ME_571A257F00F4
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A257F00F4 // Search
+   Seq: ( ME_571A257F00F4 // SearchModuleWordsPack
  )
  ; // Injected
  CONST "author" 'Люлин А.В.'

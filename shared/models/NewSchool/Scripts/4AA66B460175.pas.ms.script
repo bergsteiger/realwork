@@ -2304,27 +2304,13 @@ ref; // ME_543E3AA801D0_ME_4AA68CA10101 DoGetTabImageIndex
  CONST extprop:rc:SelfName 'PrimRubricatorForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimRubricator_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AA68CA10101 PrimRubricator
 
 FORWARD ME_4AA67768038F
 
 FORWARD ME_4AA68CCA0001
-
-: ME_A9BBAC55A4E6
- CONST UID 'A9BBAC55A4E6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Rubricator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA68CCA0001 // Rubricator
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A9BBAC55A4E6 Ini_Reg_Class
 
 : ME_889D7BDC5B97
  CONST UID '889D7BDC5B97'
@@ -2341,17 +2327,6 @@ ref; // ME_A9BBAC55A4E6 Ini_Reg_Class
  ;
 
 ref; // ME_889D7BDC5B97 Ini_FormFactory_Rubricator
-
-: ME_C303DEF542F4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA68CCA0001 // Rubricator
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C303DEF542F4 
 
 : ME_4AA68CCA0001
  CONST UID '4AA68CCA0001'
@@ -2373,14 +2348,9 @@ ref; // ME_C303DEF542F4
  )
  ; // Implements
  : Operations
-   Seq: ( ME_A9BBAC55A4E6 // Ini_Reg_Class
- ME_889D7BDC5B97 // Ini_FormFactory_Rubricator
+   Seq: ( ME_889D7BDC5B97 // Ini_FormFactory_Rubricator
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_C303DEF542F4 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'

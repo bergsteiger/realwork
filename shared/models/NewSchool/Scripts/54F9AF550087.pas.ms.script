@@ -6,74 +6,6 @@ FORWARD ME_54F9AF550087
 
 FORWARD ME_54F9AF6B00DD
 
-: ME_818595D6D5F9
- CONST UID '818595D6D5F9'
- CONST Name 'StationName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54F9AF6B00DD // ThtDataProviderParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_818595D6D5F9 StationName
-
-: ME_C4877C0D468E
- CONST UID 'C4877C0D468E'
- CONST Name 'TablePath'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54F9AF6B00DD // ThtDataProviderParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C4877C0D468E TablePath
-
-: ME_98857C6A95A2
- CONST UID '98857C6A95A2'
- CONST Name 'TmpDirPath'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54F9AF6B00DD // ThtDataProviderParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_98857C6A95A2 TmpDirPath
-
-: ME_CD710F71E829
- CONST UID 'CD710F71E829'
- CONST Name 'LockPath'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54F9AF6B00DD // ThtDataProviderParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_CD710F71E829 LockPath
-
 : ME_55114DCA0351
  CONST UID '55114DCA0351'
  CONST Name 'MakePathRec'
@@ -117,24 +49,6 @@ ref; // ME_5511762B039F
 
 ref; // ME_551958420072 
 
-: ME_6EE2A60AC863
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54F9AF6B00DD // ThtDataProviderParams
- ;
- : Target WL 'ME_5432829E0143' '484A470100DD.pas.ms.script' // HyTechProviderParams
- ;
-
-ref; // ME_6EE2A60AC863 
-
-: ME_53AC03EE01FD_ME_54F9AF6B00DD
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_54F9AF6B00DD GetTaggedDataType
-
 : ME_55195AE803E0_ME_54F9AF6B00DD
  : Original WL 'ME_55195AE803E0' '54F85B2500FB.pas.ms.script' // ChangeBasePath
  ;
@@ -165,20 +79,12 @@ ref; // ME_553A37E902C9_ME_54F9AF6B00DD AssignParams
    Seq: ( WL 'ME_5432829E0143' '484A470100DD.pas.ms.script' // HyTechProviderParams
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_818595D6D5F9 // StationName
- ME_C4877C0D468E // TablePath
- ME_98857C6A95A2 // TmpDirPath
- ME_CD710F71E829 // LockPath
- )
- ; // Attributes
  : Operations
    Seq: ( ME_55114DCA0351 // MakePathRec
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_54F9AF6B00DD // GetTaggedDataType
- ME_55195AE803E0_ME_54F9AF6B00DD // ChangeBasePath
+   Seq: ( ME_55195AE803E0_ME_54F9AF6B00DD // ChangeBasePath
  ME_553A37E902C9_ME_54F9AF6B00DD // AssignParams
  )
  ; // Overridden
@@ -186,7 +92,6 @@ ref; // ME_553A37E902C9_ME_54F9AF6B00DD AssignParams
    Seq: ( ME_551175D903A3 // ConcatDirName
  ME_5511762B039F // GetWindowsTempFolder
  ME_551958420072 // FreeAndNil
- ME_6EE2A60AC863 // HyTechProviderParams
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\HT\htDataProviderParams.pas'
@@ -2288,10 +2193,10 @@ ref; // ME_55913430027E
 ref; // ME_56011A3C0270 
 
 : ME_5600FFF80332_ME_5551AB1602F4
- : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromTable
+ : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromClause
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5600FFF80332_ME_5551AB1602F4 MakeFromTable
+ref; // ME_5600FFF80332_ME_5551AB1602F4 MakeFromClause
 
 : ME_566A892A0191_ME_5551AB1602F4
  : Original WL 'ME_566A892A0191' '54F85B2500FB.pas.ms.script' // PrepareTable
@@ -2342,7 +2247,7 @@ ref; // ME_56010A7801F2_ME_5551AB1602F4 MakeResultSet
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5600FFF80332_ME_5551AB1602F4 // MakeFromTable
+   Seq: ( ME_5600FFF80332_ME_5551AB1602F4 // MakeFromClause
  ME_566A892A0191_ME_5551AB1602F4 // PrepareTable
  ME_566A893B03C7_ME_5551AB1602F4 // UnPrepareTable
  )
@@ -3896,7 +3801,6 @@ ref; // ME_5629E343023B ThtUserManager
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

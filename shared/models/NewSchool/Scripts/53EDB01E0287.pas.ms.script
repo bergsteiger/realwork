@@ -6,105 +6,6 @@ FORWARD ME_53EDB01E0287
 
 FORWARD ME_53EDB09201BF
 
-: ME_4EEADA1C3DD0
- CONST UID '4EEADA1C3DD0'
- CONST Name 'DocTypeID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_4EEADA1C3DD0 DocTypeID
-
-: ME_E24C1E692D7A
- CONST UID 'E24C1E692D7A'
- CONST Name 'LastUpdateDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "ifndef" 'Region'
- CONST "pm" true
-
-ref; // ME_E24C1E692D7A LastUpdateDate
-
-: ME_43C9B3E0B545
- CONST UID '43C9B3E0B545'
- CONST Name 'NotifyList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_43C9B3E0B545 NotifyList
-
-FORWARD ME_53F19FE300BB
-
-: ME_C4D1E41E73D1
- CONST UID 'C4D1E41E73D1'
- CONST Name 'CourtsList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
- ;
- : Target ME_53F19FE300BB // CourtsListHelper
- ;
- CONST "pm" true
-
-ref; // ME_C4D1E41E73D1 CourtsList
-
-: ME_B67A69AEE25A
- CONST UID 'B67A69AEE25A'
- CONST Name 'IsParamsValid'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_B67A69AEE25A IsParamsValid
-
-: ME_2F1DE7F92BB5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53EDB09201BF // TcsCourtDecisionSabCheckerParams
- ;
- : Target WL 'ME_53ECABA803E2' '484A470100DD.pas.ms.script' // CourtDecisionSabCheckerParams
- ;
-
-ref; // ME_2F1DE7F92BB5 
-
 : ME_53AC03EE01FD_ME_53EDB09201BF
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
@@ -131,22 +32,10 @@ ref; // ME_53AC03EE01FD_ME_53EDB09201BF GetTaggedDataType
  WL 'ME_53ECABA803E2' '484A470100DD.pas.ms.script' // CourtDecisionSabCheckerParams
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_4EEADA1C3DD0 // DocTypeID
- ME_E24C1E692D7A // LastUpdateDate
- ME_43C9B3E0B545 // NotifyList
- ME_C4D1E41E73D1 // CourtsList
- ME_B67A69AEE25A // IsParamsValid
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_53AC03EE01FD_ME_53EDB09201BF // GetTaggedDataType
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_2F1DE7F92BB5 // CourtDecisionSabCheckerParams
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csCourtDecisionSabCheckerParams.pas'
  CONST extprop:rc:SelfName 'csCourtDecisionSabCheckerParams'
  CONST extprop:rc:isAcceptableForScripts true
@@ -155,76 +44,6 @@ ref; // ME_53AC03EE01FD_ME_53EDB09201BF GetTaggedDataType
 ref; // ME_53EDB09201BF TcsCourtDecisionSabCheckerParams
 
 FORWARD ME_53EDB1000048
-
-: ME_1647FA5EBD4E
- CONST UID '1647FA5EBD4E'
- CONST Name 'Name'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB1000048 // TcsCourtDescription
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_1647FA5EBD4E Name
-
-: ME_1604C1884F3C
- CONST UID '1604C1884F3C'
- CONST Name 'SourceID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB1000048 // TcsCourtDescription
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_1604C1884F3C SourceID
-
-: ME_2095F3B6D6AD
- CONST UID '2095F3B6D6AD'
- CONST Name 'NeedProcess'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB1000048 // TcsCourtDescription
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_2095F3B6D6AD NeedProcess
-
-FORWARD ME_53EDDC0402AA
-
-: ME_28B5B5DE52B9
- CONST UID '28B5B5DE52B9'
- CONST Name 'DecisionPhrases'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53EDB1000048 // TcsCourtDescription
- ;
- : Target ME_53EDDC0402AA // DecisionPhrasesHelper
- ;
- CONST "pm" true
-
-ref; // ME_28B5B5DE52B9 DecisionPhrases
 
 FORWARD ME_53EDD3C40089
 
@@ -256,17 +75,6 @@ ref; // ME_53EDD3CF03C2 DoIt
 
 ref; // ME_53EDD3C40089 Clear
 
-: ME_105CF91C4BC4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53EDB1000048 // TcsCourtDescription
- ;
- : Target WL 'ME_53ECAC500028' '484A470100DD.pas.ms.script' // CourtDescription
- ;
-
-ref; // ME_105CF91C4BC4 
-
 : ME_53AC03EE01FD_ME_53EDB1000048
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
@@ -293,13 +101,6 @@ ref; // ME_53AC03EE01FD_ME_53EDB1000048 GetTaggedDataType
  WL 'ME_53ECAC500028' '484A470100DD.pas.ms.script' // CourtDescription
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_1647FA5EBD4E // Name
- ME_1604C1884F3C // SourceID
- ME_2095F3B6D6AD // NeedProcess
- ME_28B5B5DE52B9 // DecisionPhrases
- )
- ; // Attributes
  : Operations
    Seq: ( ME_53EDD3C40089 // Clear
  )
@@ -308,10 +109,6 @@ ref; // ME_53AC03EE01FD_ME_53EDB1000048 GetTaggedDataType
    Seq: ( ME_53AC03EE01FD_ME_53EDB1000048 // GetTaggedDataType
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_105CF91C4BC4 // CourtDescription
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csCourtDescription.pas'
  CONST extprop:rc:SelfName 'csCourtDescription'
  CONST extprop:rc:isAcceptableForScripts true
@@ -320,6 +117,8 @@ ref; // ME_53AC03EE01FD_ME_53EDB1000048 GetTaggedDataType
 ref; // ME_53EDB1000048 TcsCourtDescription
 
 FORWARD ME_53EDECDF01AA
+
+FORWARD ME_53EDDC0402AA
 
 : ME_53BFCD4C03BF_ME_53EDDC0402AA
  : Original WL 'ME_53BFCD4C03BF' '484A470100DD.pas.ms.script' // Count
@@ -486,6 +285,8 @@ ref; // ME_53EDE216017A TDecisionPhrasesHelper
 ref; // ME_53EDECDF01AA csDecisionPhrasesHelper
 
 FORWARD ME_53F19F280320
+
+FORWARD ME_53F19FE300BB
 
 : ME_53F1A0C00041
  CONST UID '53F1A0C00041'
@@ -738,7 +539,6 @@ ref; // ME_53F19F280320 csCourtsListHelper
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

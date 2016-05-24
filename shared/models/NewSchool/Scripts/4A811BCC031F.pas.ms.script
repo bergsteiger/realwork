@@ -916,6 +916,7 @@ ref; // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
  CONST extprop:rc:SelfName 'PrimWorkJournalForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimWorkJournal_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4BD6D6EA0075 PrimWorkJournal
 
@@ -1018,6 +1019,7 @@ ref; // ME_4C3F342E02AF_ME_4CC7E19400DE ExecuteQuery
  CONST extprop:rc:SelfName 'PrimWorkJournalOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimWorkJournalOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4CC7E19400DE PrimWorkJournalOptions
 
@@ -1093,21 +1095,6 @@ ref; // ME_689D83F3CE5F WorkJournalIDs
 
 ref; // ME_ED055FCF64DC WorkJournal$Def
 
-: ME_F1C9671A095A
- CONST UID 'F1C9671A095A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация WorkJournal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A811C620210 // WorkJournal
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F1C9671A095A Ini_Reg_Class
-
 : ME_F17A163F736E
  CONST UID 'F17A163F736E'
  CONST Name 'Ini_FormFactory_WorkJournal'
@@ -1123,17 +1110,6 @@ ref; // ME_F1C9671A095A Ini_Reg_Class
  ;
 
 ref; // ME_F17A163F736E Ini_FormFactory_WorkJournal$Def
-
-: ME_78CED255B4F8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A811C620210 // WorkJournal
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_78CED255B4F8 
 
 : ME_4A811C620210
  CONST UID '4A811C620210'
@@ -1155,18 +1131,13 @@ ref; // ME_78CED255B4F8
  )
  ; // Implements
  : Operations
-   Seq: ( ME_F1C9671A095A // Ini_Reg_Class
- ME_F17A163F736E // Ini_FormFactory_WorkJournal$Def
+   Seq: ( ME_F17A163F736E // Ini_FormFactory_WorkJournal$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_ED055FCF64DC // WorkJournal$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_78CED255B4F8 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true

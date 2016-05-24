@@ -1221,6 +1221,7 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
  CONST extprop:rc:SelfName 'PrimPostingsListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimPostingsList_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AAFA13C01B0 PrimPostingsList
 
@@ -1566,27 +1567,13 @@ ref; // ME_4C84EE1D0024_ME_4DF789BF02EF ptEditPosting
  CONST extprop:rc:SelfName 'PrimPostingsListOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimPostingsListOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4DF789BF02EF PrimPostingsListOptions
 
 FORWARD ME_4AA919B200AB
 
 FORWARD ME_4AAFA16202D3
-
-: ME_5AA26A2C79C6
- CONST UID '5AA26A2C79C6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PostingsList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFA16202D3 // PostingsList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5AA26A2C79C6 Ini_Reg_Class
 
 : ME_12A5052FDD0E
  CONST UID '12A5052FDD0E'
@@ -1603,17 +1590,6 @@ ref; // ME_5AA26A2C79C6 Ini_Reg_Class
  ;
 
 ref; // ME_12A5052FDD0E Ini_FormFactory_PostingsList
-
-: ME_AAA814ABFA33
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFA16202D3 // PostingsList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AAA814ABFA33 
 
 : ME_4AAFA16202D3
  CONST UID '4AAFA16202D3'
@@ -1635,14 +1611,9 @@ ref; // ME_AAA814ABFA33
  )
  ; // Implements
  : Operations
-   Seq: ( ME_5AA26A2C79C6 // Ini_Reg_Class
- ME_12A5052FDD0E // Ini_FormFactory_PostingsList
+   Seq: ( ME_12A5052FDD0E // Ini_FormFactory_PostingsList
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_AAA814ABFA33 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

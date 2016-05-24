@@ -1861,6 +1861,7 @@ ref; // ME_543E3AA801D0_ME_4958E868009C DoGetTabImageIndex
  CONST extprop:rc:SelfName 'InpharmMainMenuForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'InpharmMainMenu_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4958E868009C InpharmMainMenu
 
@@ -2555,6 +2556,8 @@ ref; // ME_4C52E81603A9_ME_497EE1F10134 PageInactive
  CONST extprop:rc:SelfName 'PrimMedicListSynchroViewForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimMedicListSynchroView_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EE1F10134 PrimMedicListSynchroView
 
@@ -5041,6 +5044,8 @@ ref; // ME_55127A5401DE_ME_497EE4EB00CB IsAcceptable
  CONST extprop:rc:SelfName 'PrimMedicFirmListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimMedicFirmList_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EE4EB00CB PrimMedicFirmList
 
@@ -5395,6 +5400,7 @@ ref; // ME_54A2AF9C0157_ME_4C7E3A320074 OpenInNewTab
  CONST extprop:rc:SelfName 'PrimMedicFirmListOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimMedicFirmListOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7E3A320074 PrimMedicFirmListOptions
 
@@ -13280,21 +13286,6 @@ ref; // ME_4AA7A19E01D0 MedicFirmList
 
 FORWARD ME_4AB9E67A00A7
 
-: ME_C00FBAED428A
- CONST UID 'C00FBAED428A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MedicMainMenu' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB9E67A00A7 // MedicMainMenu
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C00FBAED428A Ini_Reg_Class
-
 : ME_3EFBF41481CA
  CONST UID '3EFBF41481CA'
  CONST Name 'Ini_FormFactory_MedicMainMenu'
@@ -13310,17 +13301,6 @@ ref; // ME_C00FBAED428A Ini_Reg_Class
  ;
 
 ref; // ME_3EFBF41481CA Ini_FormFactory_MedicMainMenu
-
-: ME_F8648D77170E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB9E67A00A7 // MedicMainMenu
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F8648D77170E 
 
 : ME_4AB9E67A00A7
  CONST UID '4AB9E67A00A7'
@@ -13342,14 +13322,9 @@ ref; // ME_F8648D77170E
  )
  ; // Implements
  : Operations
-   Seq: ( ME_C00FBAED428A // Ini_Reg_Class
- ME_3EFBF41481CA // Ini_FormFactory_MedicMainMenu
+   Seq: ( ME_3EFBF41481CA // Ini_FormFactory_MedicMainMenu
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_F8648D77170E // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -13367,21 +13342,6 @@ ref; // ME_4AB9E67A00A7 MedicMainMenu
 
 FORWARD ME_4AB9E69C0243
 
-: ME_740E67E28850
- CONST UID '740E67E28850'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MedicFirmList$Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB9E69C0243 // MedicFirmList$Form
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_740E67E28850 Ini_Reg_Class
-
 : ME_8D90B8858B94
  CONST UID '8D90B8858B94'
  CONST Name 'Ini_FormFactory_MedicFirmList'
@@ -13397,17 +13357,6 @@ ref; // ME_740E67E28850 Ini_Reg_Class
  ;
 
 ref; // ME_8D90B8858B94 Ini_FormFactory_MedicFirmList
-
-: ME_D1E2AF3577D2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB9E69C0243 // MedicFirmList$Form
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D1E2AF3577D2 
 
 : ME_4AB9E69C0243
  CONST UID '4AB9E69C0243'
@@ -13429,14 +13378,9 @@ ref; // ME_D1E2AF3577D2
  )
  ; // Implements
  : Operations
-   Seq: ( ME_740E67E28850 // Ini_Reg_Class
- ME_8D90B8858B94 // Ini_FormFactory_MedicFirmList
+   Seq: ( ME_8D90B8858B94 // Ini_FormFactory_MedicFirmList
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_D1E2AF3577D2 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Main'
  CONST "finished dfm" true
@@ -13454,21 +13398,6 @@ ref; // ME_4AB9E69C0243 MedicFirmList$Form
 
 FORWARD ME_4AB9E6D40211
 
-: ME_AEB358F094F3
- CONST UID 'AEB358F094F3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MedicListSynchroView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB9E6D40211 // MedicListSynchroView
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_AEB358F094F3 Ini_Reg_Class
-
 : ME_420C4953C331
  CONST UID '420C4953C331'
  CONST Name 'Ini_FormFactory_MedicListSynchroView'
@@ -13484,17 +13413,6 @@ ref; // ME_AEB358F094F3 Ini_Reg_Class
  ;
 
 ref; // ME_420C4953C331 Ini_FormFactory_MedicListSynchroView
-
-: ME_32A710ED83C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB9E6D40211 // MedicListSynchroView
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_32A710ED83C9 
 
 : ME_4AB9E6D40211
  CONST UID '4AB9E6D40211'
@@ -13516,14 +13434,9 @@ ref; // ME_32A710ED83C9
  )
  ; // Implements
  : Operations
-   Seq: ( ME_AEB358F094F3 // Ini_Reg_Class
- ME_420C4953C331 // Ini_FormFactory_MedicListSynchroView
+   Seq: ( ME_420C4953C331 // Ini_FormFactory_MedicListSynchroView
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_32A710ED83C9 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true

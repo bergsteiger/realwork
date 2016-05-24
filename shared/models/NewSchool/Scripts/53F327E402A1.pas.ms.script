@@ -2076,16 +2076,208 @@ ref; // ME_5715D16B0195 Продолжения поиска
 
 ref; // ME_5715D17C0051 Поиск по фрагменту
 
-: ME_57186C3A0215
- CONST UID '57186C3A0215'
- CONST Name 'Замента текста'
+FORWARD ME_57186C3A0215
+
+: ME_573EA7110089
+ CONST UID '573EA7110089'
+ CONST Name 'Замена текста с учетом регистра'
  CONST Class class_Class
  : Stereotype st_UseCaseRequirement ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA7110089 Замена текста с учетом регистра
+
+: ME_573EA7340209
+ CONST UID '573EA7340209'
+ CONST Name 'Замена только слова целиком'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA7340209 Замена только слова целиком
+
+: ME_573EA74900BF
+ CONST UID '573EA74900BF'
+ CONST Name 'Замена со словоформами'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA74900BF Замена со словоформами
+
+: ME_573EA76A0148
+ CONST UID '573EA76A0148'
+ CONST Name 'Замена с любыми окончаниями'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA76A0148 Замена с любыми окончаниями
+
+: ME_573EA776025D
+ CONST UID '573EA776025D'
+ CONST Name 'Замена с использованием регулярных выражений'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA776025D Замена с использованием регулярных выражений
+
+: ME_573EA7BA007F
+ CONST UID '573EA7BA007F'
+ CONST Name 'Замена с исользованием спецсимволов'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA7BA007F Замена с исользованием спецсимволов
+
+: ME_573EA821024F
+ CONST UID '573EA821024F'
+ CONST Name 'Замена текста на ссылку'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Ссылка - указанный текст преобразуется в гиперссылку на указанный документ. Формат задаётся в форме: DocID.SubID, где DocID - идентификационный номер документа, а SubID - номер метки. Документ должен присутствовать в базе, метка должна быть в документе;' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA821024F Замена текста на ссылку
+
+: ME_573EA86C0100
+ CONST UID '573EA86C0100'
+ CONST Name 'Замена текста на стиль'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Стиль - применяет выбранный стиль к указанному тексту. Если установлена опция Применить к параграфу, то стиль применяется ко всему абзацу, в котором присутствует указанный текст;' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA86C0100 Замена текста на стиль
+
+: ME_573EA87800FC
+ CONST UID '573EA87800FC'
+ CONST Name 'Установка метки на найденный параграф'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Метка - ставится метка на абзац, содержащий указанный текст.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA87800FC Установка метки на найденный параграф
+
+: ME_573EA8940014
+ CONST UID '573EA8940014'
+ CONST Name 'Замена в выделенном фрагменте'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA8940014 Замена в выделенном фрагменте
+
+: ME_573EA8AA01F6
+ CONST UID '573EA8AA01F6'
+ CONST Name 'Замена при поиске от курсора'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA8AA01F6 Замена при поиске от курсора
+
+: ME_573EA8F30206
+ CONST UID '573EA8F30206'
+ CONST Name 'Поиск и замена текста'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Находится текст с помощью кнопки "Найти", а потом нажимается "Замена".' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA8F30206 Поиск и замена текста
+
+: ME_573EA92300E6
+ CONST UID '573EA92300E6'
+ CONST Name 'Заменить все вхождение'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Использование кнопки "Заменить все" приводит к замене всех вхождений текста в документе.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_57186C3A0215 // Замента текста
+ ;
+
+ref; // ME_573EA92300E6 Заменить все вхождение
+
+: ME_57186C3A0215
+ CONST UID '57186C3A0215'
+ CONST Name 'Замента текста'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
  : Parent ME_5715CFEF0244 // Поиск и замена
  ;
+ : Children
+   Seq: ( ME_573EA7110089 // Замена текста с учетом регистра
+ ME_573EA7340209 // Замена только слова целиком
+ ME_573EA74900BF // Замена со словоформами
+ ME_573EA76A0148 // Замена с любыми окончаниями
+ ME_573EA776025D // Замена с использованием регулярных выражений
+ ME_573EA7BA007F // Замена с исользованием спецсимволов
+ ME_573EA821024F // Замена текста на ссылку
+ ME_573EA86C0100 // Замена текста на стиль
+ ME_573EA87800FC // Установка метки на найденный параграф
+ ME_573EA8940014 // Замена в выделенном фрагменте
+ ME_573EA8AA01F6 // Замена при поиске от курсора
+ ME_573EA8F30206 // Поиск и замена текста
+ ME_573EA92300E6 // Заменить все вхождение
+ )
+ ; // Children
 
 ref; // ME_57186C3A0215 Замента текста
 

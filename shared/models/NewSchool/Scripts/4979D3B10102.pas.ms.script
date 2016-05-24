@@ -1806,6 +1806,8 @@ ref; // ME_5000565C019C_ME_4979D40E0180 ClearFields
  CONST extprop:rc:SelfName 'PrimDictionForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimDiction_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4979D40E0180 PrimDiction
 
@@ -2676,6 +2678,7 @@ ref; // ME_53F1C6EF02C9_ME_4D7A69F9028C DoGetTabCaption
  CONST extprop:rc:SelfName 'PrimDictionContainerForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimDictionContainer_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4D7A69F9028C PrimDictionContainer
 
@@ -2781,6 +2784,7 @@ ref; // ME_4BDAF7A2005C_ME_51B860F20280 CollapseAll
  CONST extprop:rc:SelfName 'PrimDictionOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimDictionOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_51B860F20280 PrimDictionOptions
 
@@ -3363,6 +3367,7 @@ ref; // ME_55127A5401DE_ME_497ED770029D IsAcceptable
  CONST extprop:rc:SelfName 'PrimCommonDictionForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimCommonDiction_Form'
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497ED770029D PrimCommonDiction
 
@@ -4882,27 +4887,13 @@ ref; // ME_5000565C019C_ME_4C87A1DF00B4 ClearFields
  CONST extprop:rc:SelfName 'PrimCommonDictionOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimCommonDictionOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C87A1DF00B4 PrimCommonDictionOptions
 
 FORWARD ME_4A9CE5F2036F
 
 FORWARD ME_4A9CEA5001CF
-
-: ME_8A3A5D9FA9BC
- CONST UID '8A3A5D9FA9BC'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Diction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A9CEA5001CF // Diction
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8A3A5D9FA9BC Ini_Reg_Class
 
 : ME_8682F204C911
  CONST UID '8682F204C911'
@@ -4919,17 +4910,6 @@ ref; // ME_8A3A5D9FA9BC Ini_Reg_Class
  ;
 
 ref; // ME_8682F204C911 Ini_FormFactory_Diction
-
-: ME_6D45DD38D370
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A9CEA5001CF // Diction
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6D45DD38D370 
 
 : ME_4A9CEA5001CF
  CONST UID '4A9CEA5001CF'
@@ -4951,14 +4931,9 @@ ref; // ME_6D45DD38D370
  )
  ; // Implements
  : Operations
-   Seq: ( ME_8A3A5D9FA9BC // Ini_Reg_Class
- ME_8682F204C911 // Ini_FormFactory_Diction
+   Seq: ( ME_8682F204C911 // Ini_FormFactory_Diction
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_6D45DD38D370 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -6663,21 +6638,6 @@ ref; // ME_4B14CDEA039C TnsOpenDictionaryEvent
 
 FORWARD ME_4D7A6A2E00F7
 
-: ME_54318387746C
- CONST UID '54318387746C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация DictionContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D7A6A2E00F7 // DictionContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_54318387746C Ini_Reg_Class
-
 : ME_08B8272CA440
  CONST UID '08B8272CA440'
  CONST Name 'Ini_FormFactory_DictionContainer'
@@ -6693,17 +6653,6 @@ ref; // ME_54318387746C Ini_Reg_Class
  ;
 
 ref; // ME_08B8272CA440 Ini_FormFactory_DictionContainer
-
-: ME_75BF4A005C0A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D7A6A2E00F7 // DictionContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_75BF4A005C0A 
 
 : ME_4D7A6A2E00F7
  CONST UID '4D7A6A2E00F7'
@@ -6724,14 +6673,9 @@ ref; // ME_75BF4A005C0A
  )
  ; // Implements
  : Operations
-   Seq: ( ME_54318387746C // Ini_Reg_Class
- ME_08B8272CA440 // Ini_FormFactory_DictionContainer
+   Seq: ( ME_08B8272CA440 // Ini_FormFactory_DictionContainer
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_75BF4A005C0A // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -6751,21 +6695,6 @@ ref; // ME_4D7A6A2E00F7 DictionContainer
 
 FORWARD ME_4ABBB22002AA
 
-: ME_339871C94BD7
- CONST UID '339871C94BD7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация CommonDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABBB22002AA // CommonDiction
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_339871C94BD7 Ini_Reg_Class
-
 : ME_65EC607BB36F
  CONST UID '65EC607BB36F'
  CONST Name 'Ini_FormFactory_CommonDiction'
@@ -6781,17 +6710,6 @@ ref; // ME_339871C94BD7 Ini_Reg_Class
  ;
 
 ref; // ME_65EC607BB36F Ini_FormFactory_CommonDiction
-
-: ME_CB95A8FF8996
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABBB22002AA // CommonDiction
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CB95A8FF8996 
 
 : ME_4ABBB22002AA
  CONST UID '4ABBB22002AA'
@@ -6813,14 +6731,9 @@ ref; // ME_CB95A8FF8996
  )
  ; // Implements
  : Operations
-   Seq: ( ME_339871C94BD7 // Ini_Reg_Class
- ME_65EC607BB36F // Ini_FormFactory_CommonDiction
+   Seq: ( ME_65EC607BB36F // Ini_FormFactory_CommonDiction
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_CB95A8FF8996 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true

@@ -6,6 +6,8 @@ FORWARD ME_52669BFC024E
 
 FORWARD ME_52669C24032B
 
+FORWARD ME_530340010116
+
 : ME_4849290E0318
  CONST UID '4849290E0318'
  CONST Name 'Object'
@@ -17,6 +19,11 @@ FORWARD ME_52669C24032B
  CONST Abstraction at_abstract
  : Parent ME_52669C24032B // k2Core
  ;
+ : Implementors
+   Seq: ( WL 'ME_484CCE17015D' '4849284D0067.pas.ms.script' // WObject
+ ME_530340010116 // TIObject
+ )
+ ; // Implementors
  CONST "ID" 6
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Object_Const.pas'
  CONST extprop:pas:TypeName 'ObjectAtom'
@@ -40,6 +47,10 @@ ref; // ME_4849290E0318 Object
    Seq: ( ME_4849290E0318 // Object
  )
  ; // Inherits
+ : Implementors
+   Seq: ( WL 'ME_4A672FB000A1' '4849284D0067.pas.ms.script' // TIk2SomeDataContainer
+ )
+ ; // Implementors
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2SomeDataContainer_Const.pas'
  CONST extprop:pas:TypeName 'SomeDataContainerAtom'
  CONST extprop:pas:UnitName 'k2SomeDataContainer_Const'
@@ -62,6 +73,7 @@ FORWARD ME_48492AC1023B
  ;
  : Target ME_48492AC1023B // String
  ;
+ CONST extprop:evd:NewTypeName 'String_Value'
 
 ref; // ME_484D0C68034D Value
 
@@ -84,6 +96,11 @@ ref; // ME_484D0C68034D Value
    Seq: ( ME_484D0C68034D // Value
  )
  ; // Attributes
+ : Implementors
+   Seq: ( WL 'ME_484945C0000E' '4849284D0067.pas.ms.script' // Wl3String
+ WL 'ME_484AA16A0178' '4849284D0067.pas.ms.script' // Ik2String
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2String_Const.pas'
@@ -156,6 +173,7 @@ FORWARD ME_48492AD90142
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'OList_Children'
 
 ref; // ME_48493EC101A8 
 
@@ -178,6 +196,11 @@ ref; // ME_48493EC101A8
    Seq: ( ME_48493EC101A8 // 
  )
  ; // Attributes
+ : Implementors
+   Seq: ( WL 'ME_4849461200AA' '4849284D0067.pas.ms.script' // Wl3List
+ WL 'ME_484AA1B401E5' '4849284D0067.pas.ms.script' // Ik2List
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 30
@@ -204,6 +227,10 @@ ref; // ME_48492AD90142 OList
    Seq: ( WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
  )
  ; // Inherits
+ : Implementors
+   Seq: ( WL 'ME_4849423C0299' '4849284D0067.pas.ms.script' // WLong
+ )
+ ; // Implementors
  CONST "ID" 1
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Long_Const.pas'
  CONST extprop:pas:TypeName 'LongAtom'
@@ -228,6 +255,10 @@ ref; // ME_48492A0C00ED Long
    Seq: ( ME_48492A0C00ED // Long
  )
  ; // Inherits
+ : Implementors
+   Seq: ( WL 'ME_484944E301AF' '4849284D0067.pas.ms.script' // WEnumeration
+ )
+ ; // Implementors
  CONST "ID" 2
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Enum_Const.pas'
  CONST extprop:pas:TypeName 'EnumAtom'
@@ -253,6 +284,10 @@ ref; // ME_48492A33037B Enum
  ME_48492A33037B // Enum
  )
  ; // Inherits
+ : Implementors
+   Seq: ( WL 'ME_4849452F013C' '4849284D0067.pas.ms.script' // WBool
+ )
+ ; // Implementors
  CONST "ID" 3
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2Bool_Const.pas'
  CONST extprop:pas:TypeName 'BoolAtom'
@@ -293,6 +328,11 @@ ref; // ME_485798500367
    Seq: ( ME_485798500367 // l3FontManager
  )
  ; // Dependencies
+ : Implementors
+   Seq: ( WL 'ME_484CE988004E' '4849284D0067.pas.ms.script' // TIevdFontName
+ WL 'ME_484CEA1E0104' '4849284D0067.pas.ms.script' // WevFontName
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 35
@@ -345,6 +385,10 @@ ref; // ME_484929A9018E IUnknown
    Seq: ( ME_48492A0C00ED // Long
  )
  ; // Inherits
+ : Implementors
+   Seq: ( WL 'ME_5404252902E9' '4849284D0067.pas.ms.script' // WSetOf
+ )
+ ; // Implementors
  CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2SetOf_Const.pas'
  CONST extprop:pas:TypeName 'SetOfAtom'
  CONST extprop:pas:UnitName 'k2SetOf_Const'

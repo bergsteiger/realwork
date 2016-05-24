@@ -2387,6 +2387,8 @@ ref; // ME_55127A5401DE_ME_4958E3AB0247 IsAcceptable
  CONST extprop:rc:SelfName 'PrimSaveLoadForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSaveLoad_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4958E3AB0247 PrimSaveLoad
 
@@ -5645,7 +5647,7 @@ FORWARD ME_571A240100B0
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A240100B0 // PrimQueryCard
+   Seq: ( ME_571A240100B0 // PrimQueryCardWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" false
@@ -5662,6 +5664,8 @@ FORWARD ME_571A240100B0
  CONST extprop:rc:SelfName 'PrimQueryCardForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimQueryCard_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EBA4301CA PrimQueryCard
 
@@ -6611,6 +6615,8 @@ ref; // ME_4A8E8F2E0195_ME_497EC6A4022F InitControls
  CONST extprop:rc:SelfName 'PrimTreeAttributeFirstLevelForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimTreeAttributeFirstLevel_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EC6A4022F PrimTreeAttributeFirstLevel
 
@@ -7505,6 +7511,7 @@ ref; // ME_543E3AA801D0_ME_4AAF6F4E010E DoGetTabImageIndex
  CONST extprop:rc:SelfName 'PrimPreviewForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimPreview_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AAF6F4E010E PrimPreview
 
@@ -8127,6 +8134,7 @@ ref; // ME_479731C50290_ME_4AAF8E8701C9 Cleanup
  CONST extprop:rc:SelfName 'PrimPrintDialogForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimPrintDialog_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AAF8E8701C9 PrimPrintDialog
 
@@ -8870,6 +8878,7 @@ ref; // ME_4C762AB601E1_ME_4C52BA5D01A8 Cancel
  CONST extprop:rc:SelfName 'PrimPrintDialogOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimPrintDialogOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C52BA5D01A8 PrimPrintDialogOptions
 
@@ -9246,6 +9255,7 @@ ref; // ME_4C2E11960124_ME_4C87C62302CF OpenTreeSelection
  CONST extprop:rc:SelfName 'PrimQueryCardOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimQueryCardOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C87C62302CF PrimQueryCardOptions
 
@@ -9460,6 +9470,7 @@ ref; // ME_4C81191003E5_ME_4C88C4630176 FiltersListOpen
  CONST extprop:rc:SelfName 'PrimSaveLoadOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSaveLoadOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C88C4630176 PrimSaveLoadOptions
 
@@ -10027,6 +10038,7 @@ ref; // ME_4C88D4E8007C_ME_4C88D233003E FilePosition
  CONST extprop:rc:SelfName 'PrimPageSetupOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimPageSetupOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C88D233003E PrimPageSetupOptions
 
@@ -12303,27 +12315,13 @@ ref; // ME_51358BE831DD
  CONST extprop:rc:SelfName 'PrimSaveLoadOptionsWithUserTypesForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSaveLoadOptionsWithUserTypes_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4F5D9FFA031B PrimSaveLoadOptionsWithUserTypes
 
 FORWARD ME_4AA931390118
 
 FORWARD ME_4AA931BF023D
-
-: ME_A1D26BE8A66E
- CONST UID 'A1D26BE8A66E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SaveLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA931BF023D // SaveLoad
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A1D26BE8A66E Ini_Reg_Class
 
 : ME_86B9C6DEB8EC
  CONST UID '86B9C6DEB8EC'
@@ -12340,17 +12338,6 @@ ref; // ME_A1D26BE8A66E Ini_Reg_Class
  ;
 
 ref; // ME_86B9C6DEB8EC Ini_FormFactory_SaveLoad
-
-: ME_360A1F8025B6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA931BF023D // SaveLoad
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_360A1F8025B6 
 
 : ME_4AA931BF023D
  CONST UID '4AA931BF023D'
@@ -12371,14 +12358,9 @@ ref; // ME_360A1F8025B6
  )
  ; // Implements
  : Operations
-   Seq: ( ME_A1D26BE8A66E // Ini_Reg_Class
- ME_86B9C6DEB8EC // Ini_FormFactory_SaveLoad
+   Seq: ( ME_86B9C6DEB8EC // Ini_FormFactory_SaveLoad
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_360A1F8025B6 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Тучнин Д.А.'
@@ -12399,21 +12381,6 @@ ref; // ME_4AA931BF023D SaveLoad
 
 FORWARD ME_4AA9393C0164
 
-: ME_E279AAEF52CA
- CONST UID 'E279AAEF52CA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация QueryCard' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA9393C0164 // QueryCard
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E279AAEF52CA Ini_Reg_Class
-
 : ME_2BDD2E5A8C6B
  CONST UID '2BDD2E5A8C6B'
  CONST Name 'Ini_FormFactory_QueryCard'
@@ -12429,17 +12396,6 @@ ref; // ME_E279AAEF52CA Ini_Reg_Class
  ;
 
 ref; // ME_2BDD2E5A8C6B Ini_FormFactory_QueryCard
-
-: ME_40E0B9600142
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA9393C0164 // QueryCard
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_40E0B9600142 
 
 : ME_4AA9393C0164
  CONST UID '4AA9393C0164'
@@ -12462,14 +12418,9 @@ ref; // ME_40E0B9600142
  )
  ; // Implements
  : Operations
-   Seq: ( ME_E279AAEF52CA // Ini_Reg_Class
- ME_2BDD2E5A8C6B // Ini_FormFactory_QueryCard
+   Seq: ( ME_2BDD2E5A8C6B // Ini_FormFactory_QueryCard
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_40E0B9600142 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "finished dfm" true
@@ -12484,34 +12435,6 @@ ref; // ME_40E0B9600142
  CONST extprop:pas:UnitName 'QueryCard_Form'
 
 ref; // ME_4AA9393C0164 QueryCard
-
-FORWARD ME_4AAF6F8100DB
-
-: ME_E83B3F5746E8
- CONST UID 'E83B3F5746E8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PreviewForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF6F8100DB // PreviewForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E83B3F5746E8 Ini_Reg_Class
-
-: ME_11B690445DE5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF6F8100DB // PreviewForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_11B690445DE5 
 
 : ME_4AAF6F8100DB
  CONST UID '4AAF6F8100DB'
@@ -12532,14 +12455,6 @@ ref; // ME_11B690445DE5
    Seq: ( WL 'ME_4BD989CB0049' '4BD97FDB031A.pas.ms.script' // Preview
  )
  ; // Implements
- : Operations
-   Seq: ( ME_E83B3F5746E8 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_11B690445DE5 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'
@@ -14064,6 +13979,7 @@ ref; // ME_502289FB008D_ME_4F5DA09300C5 IsBaseSearchLike
  CONST extprop:rc:SelfName 'PrimSaveLoadOptionsForBaseSearchForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSaveLoadOptionsForBaseSearch_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4F5DA09300C5 PrimSaveLoadOptionsForBaseSearch
 

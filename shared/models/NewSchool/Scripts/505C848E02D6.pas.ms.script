@@ -74,17 +74,6 @@ ref; // ME_552FC96B007C aControl
 
 ref; // ME_552FC94F0188 OrderIndex
 
-: ME_FD5784AF680E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_505C855C024A // StatusBarWords
- ;
- : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
- ;
-
-ref; // ME_FD5784AF680E 
-
 : ME_505C855C024A
  CONST UID '505C855C024A'
  CONST Name 'StatusBarWords'
@@ -105,10 +94,6 @@ ref; // ME_FD5784AF680E
  ME_552FC94F0188 // OrderIndex
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_FD5784AF680E // TnscStatusBar
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "no class name" false
  CONST "no_pop" true
@@ -132,17 +117,6 @@ FORWARD ME_54DB6FD1016A
 
 ref; // ME_552FC9C10154 IsDown
 
-: ME_95F5D3CF34CC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_54DB6FD1016A // StatusBarButtonWords
- ;
- : Target WL 'ME_503DE6F30027' '49871D5103B9.pas.ms.script' // TnscStatusBarButton
- ;
-
-ref; // ME_95F5D3CF34CC 
-
 : ME_54DB6FD1016A
  CONST UID '54DB6FD1016A'
  CONST Name 'StatusBarButtonWords'
@@ -161,10 +135,6 @@ ref; // ME_95F5D3CF34CC
    Seq: ( ME_552FC9C10154 // IsDown
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_95F5D3CF34CC // TnscStatusBarButton
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas'
 

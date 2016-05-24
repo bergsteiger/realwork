@@ -45,17 +45,6 @@ FORWARD ME_55C9CBB10045
 
 ref; // ME_55C9CBBD028C 
 
-: ME_F3AD6951FB42
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_512F47C80388 // TreeViewWordsPack
- ;
- : Target WL 'ME_512F402F01BA' '4799D29F033F.pas.ms.script' // TTreeView
- ;
-
-ref; // ME_F3AD6951FB42 
-
 : ME_512F47C80388
  CONST UID '512F47C80388'
  CONST Name 'TreeViewWordsPack'
@@ -76,7 +65,6 @@ ref; // ME_F3AD6951FB42
  ; // Operations
  : Dependencies
    Seq: ( ME_55C9CBBD028C // TreeNodeWordsPack
- ME_F3AD6951FB42 // TTreeView
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -235,17 +223,6 @@ ref; // ME_55C9D6390245 aRecurse
 
 ref; // ME_55C9D632015E Expand
 
-: ME_E8F21365B79C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55C9CBB10045 // TreeNodeWordsPack
- ;
- : Target WL 'ME_512F3FCB02F3' '4799D29F033F.pas.ms.script' // TTreeNode
- ;
-
-ref; // ME_E8F21365B79C 
-
 : ME_55C9CBB10045
  CONST UID '55C9CBB10045'
  CONST Name 'TreeNodeWordsPack'
@@ -273,10 +250,6 @@ ref; // ME_E8F21365B79C
  ME_55C9D632015E // Expand
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_E8F21365B79C // TTreeNode
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TreeNodeWordsPack.pas'
 

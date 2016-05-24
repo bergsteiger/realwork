@@ -11712,7 +11712,7 @@ FORWARD ME_571A2137001E
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A2137001E // ExText
+   Seq: ( ME_571A2137001E // ExTextFormWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" false
@@ -11726,6 +11726,8 @@ FORWARD ME_571A2137001E
  CONST extprop:rc:SelfName 'ExTextForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'ExText_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_49539DBA029D ExText
 
@@ -17027,6 +17029,7 @@ ref; // ME_5587AA310201_ME_4C7F801D0304 GetSimilarDocsToBlock
  CONST extprop:rc:SelfName 'ExTextOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'ExTextOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7F801D0304 ExTextOptions
 
@@ -17098,21 +17101,6 @@ FORWARD ME_498B135601B6
 
 FORWARD ME_4989E67D00C0
 
-: ME_13BDDCE4CE5B
- CONST UID '13BDDCE4CE5B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация DocumentWithFlash' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4989E67D00C0 // DocumentWithFlash
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_13BDDCE4CE5B Ini_Reg_Class
-
 : ME_4FC00629655A
  CONST UID '4FC00629655A'
  CONST Name 'Ini_FormFactory_DocumentWithFlash'
@@ -17128,17 +17116,6 @@ ref; // ME_13BDDCE4CE5B Ini_Reg_Class
  ;
 
 ref; // ME_4FC00629655A Ini_FormFactory_DocumentWithFlash
-
-: ME_E37934370E9E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4989E67D00C0 // DocumentWithFlash
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E37934370E9E 
 
 : ME_4989E67D00C0
  CONST UID '4989E67D00C0'
@@ -17159,14 +17136,9 @@ ref; // ME_E37934370E9E
  )
  ; // Implements
  : Operations
-   Seq: ( ME_13BDDCE4CE5B // Ini_Reg_Class
- ME_4FC00629655A // Ini_FormFactory_DocumentWithFlash
+   Seq: ( ME_4FC00629655A // Ini_FormFactory_DocumentWithFlash
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_E37934370E9E // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -17183,21 +17155,6 @@ ref; // ME_4989E67D00C0 DocumentWithFlash
 
 FORWARD ME_4A7709C70002
 
-: ME_F6A86C6C09C7
- CONST UID 'F6A86C6C09C7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Text' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A7709C70002 // Text
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F6A86C6C09C7 Ini_Reg_Class
-
 : ME_3EA1F7334B30
  CONST UID '3EA1F7334B30'
  CONST Name 'Ini_FormFactory_Text'
@@ -17213,17 +17170,6 @@ ref; // ME_F6A86C6C09C7 Ini_Reg_Class
  ;
 
 ref; // ME_3EA1F7334B30 Ini_FormFactory_Text
-
-: ME_D996FC6006FD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A7709C70002 // Text
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D996FC6006FD 
 
 : ME_4A7709C70002
  CONST UID '4A7709C70002'
@@ -17245,14 +17191,9 @@ ref; // ME_D996FC6006FD
  )
  ; // Implements
  : Operations
-   Seq: ( ME_F6A86C6C09C7 // Ini_Reg_Class
- ME_3EA1F7334B30 // Ini_FormFactory_Text
+   Seq: ( ME_3EA1F7334B30 // Ini_FormFactory_Text
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_D996FC6006FD // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'
@@ -17272,21 +17213,6 @@ ref; // ME_4A7709C70002 Text
 
 FORWARD ME_4A8EE2890012
 
-: ME_1A3426E61BB1
- CONST UID '1A3426E61BB1'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Redactions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8EE2890012 // Redactions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1A3426E61BB1 Ini_Reg_Class
-
 : ME_1CAFC4BD9BBD
  CONST UID '1CAFC4BD9BBD'
  CONST Name 'Ini_FormFactory_Redactions'
@@ -17302,17 +17228,6 @@ ref; // ME_1A3426E61BB1 Ini_Reg_Class
  ;
 
 ref; // ME_1CAFC4BD9BBD Ini_FormFactory_Redactions
-
-: ME_8F5724B19B0C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8EE2890012 // Redactions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8F5724B19B0C 
 
 : ME_4A8EE2890012
  CONST UID '4A8EE2890012'
@@ -17334,14 +17249,9 @@ ref; // ME_8F5724B19B0C
  )
  ; // Implements
  : Operations
-   Seq: ( ME_1A3426E61BB1 // Ini_Reg_Class
- ME_1CAFC4BD9BBD // Ini_FormFactory_Redactions
+   Seq: ( ME_1CAFC4BD9BBD // Ini_FormFactory_Redactions
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_8F5724B19B0C // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Крылов М.А.'
@@ -17361,21 +17271,6 @@ ref; // ME_4A8EE2890012 Redactions
 
 FORWARD ME_4A9D51C4026F
 
-: ME_DA1444999A1C
- CONST UID 'DA1444999A1C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Contents' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A9D51C4026F // Contents
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DA1444999A1C Ini_Reg_Class
-
 : ME_00CC094EEFD1
  CONST UID '00CC094EEFD1'
  CONST Name 'Ini_FormFactory_Contents'
@@ -17391,17 +17286,6 @@ ref; // ME_DA1444999A1C Ini_Reg_Class
  ;
 
 ref; // ME_00CC094EEFD1 Ini_FormFactory_Contents
-
-: ME_E2B94E7AB90F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A9D51C4026F // Contents
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E2B94E7AB90F 
 
 : ME_4A9D51C4026F
  CONST UID '4A9D51C4026F'
@@ -17423,14 +17307,9 @@ ref; // ME_E2B94E7AB90F
  )
  ; // Implements
  : Operations
-   Seq: ( ME_DA1444999A1C // Ini_Reg_Class
- ME_00CC094EEFD1 // Ini_FormFactory_Contents
+   Seq: ( ME_00CC094EEFD1 // Ini_FormFactory_Contents
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_E2B94E7AB90F // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "author" 'Люлин А.В.'
@@ -19879,21 +19758,6 @@ ref; // ME_E773D10F2148 PictureIDs
 
 ref; // ME_6CFD2C21BC7B Picture$Def
 
-: ME_33A8899D6C1B
- CONST UID '33A8899D6C1B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Picture' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFCF930362 // Picture
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_33A8899D6C1B Ini_Reg_Class
-
 : ME_7171E291CB0D
  CONST UID '7171E291CB0D'
  CONST Name 'Ini_FormFactory_Picture'
@@ -19909,17 +19773,6 @@ ref; // ME_33A8899D6C1B Ini_Reg_Class
  ;
 
 ref; // ME_7171E291CB0D Ini_FormFactory_Picture$Def
-
-: ME_1ECA873CF0FB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFCF930362 // Picture
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1ECA873CF0FB 
 
 : ME_4AAFCF930362
  CONST UID '4AAFCF930362'
@@ -19941,18 +19794,13 @@ ref; // ME_1ECA873CF0FB
  )
  ; // Implements
  : Operations
-   Seq: ( ME_33A8899D6C1B // Ini_Reg_Class
- ME_7171E291CB0D // Ini_FormFactory_Picture$Def
+   Seq: ( ME_7171E291CB0D // Ini_FormFactory_Picture$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_6CFD2C21BC7B // Picture$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_1ECA873CF0FB // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "finished dfm" true
@@ -20085,50 +19933,6 @@ ref; // ME_AA82E378EAF6 ut_PictureInfoCaption
 
 ref; // ME_9E222115FFE1 LCImplut_PictureInfoLocalConstants
 
-: ME_082721CCECA4
- CONST UID '082721CCECA4'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PictureInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB12FA70146 // PictureInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_082721CCECA4 Ini_Reg_Class
-
-: ME_52F2683EBFE7
- CONST UID '52F2683EBFE7'
- CONST Name 'Init_Str_ut_PictureInfoCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_PictureInfoCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB12FA70146 // PictureInfo
- ;
- : Speller ME_9185EE0C6A84 // ut_PictureInfoCaption
- ;
- : SpelledFor ME_AA82E378EAF6 // ut_PictureInfoCaption
- ;
-
-ref; // ME_52F2683EBFE7 Init_Str_ut_PictureInfoCaption
-
-: ME_EA2017AC0AC8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB12FA70146 // PictureInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_EA2017AC0AC8 
-
 : ME_FC28A6DBFE0E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -20166,11 +19970,6 @@ ref; // ME_62C729458598
    Seq: ( WL 'ME_4C86319003CD' '4D38575C0033.pas.ms.script' // PrimPictureInfoOptions
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_082721CCECA4 // Ini_Reg_Class
- ME_52F2683EBFE7 // Init_Str_ut_PictureInfoCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_42F354FB23DA // ut_PictureInfo
  )
@@ -20181,8 +19980,7 @@ ref; // ME_62C729458598
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_EA2017AC0AC8 // TtfwClassRef
- ME_FC28A6DBFE0E // Tl3StringIDEx
+   Seq: ( ME_FC28A6DBFE0E // Tl3StringIDEx
  ME_62C729458598 // Tl3MessageID
  )
  ; // Dependencies
@@ -20389,50 +20187,6 @@ ref; // ME_AE51B7F8B8E1 ut_DocNumberQueryCaption
 
 ref; // ME_E0277B9687A6 LCImplut_DocNumberQueryLocalConstants
 
-: ME_66ECADFF4AB3
- CONST UID '66ECADFF4AB3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация DocNumberQuery' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB13348028C // DocNumberQuery
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_66ECADFF4AB3 Ini_Reg_Class
-
-: ME_94723D524918
- CONST UID '94723D524918'
- CONST Name 'Init_Str_ut_DocNumberQueryCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_DocNumberQueryCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB13348028C // DocNumberQuery
- ;
- : Speller ME_A18C7DA66F2F // ut_DocNumberQueryCaption
- ;
- : SpelledFor ME_AE51B7F8B8E1 // ut_DocNumberQueryCaption
- ;
-
-ref; // ME_94723D524918 Init_Str_ut_DocNumberQueryCaption
-
-: ME_F2B5EBBB1F26
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB13348028C // DocNumberQuery
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F2B5EBBB1F26 
-
 : ME_2D445ED7ED51
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -20474,11 +20228,6 @@ ref; // ME_ADCE4BD3A429
    Seq: ( ME_378934C66F22 // DocNumberQuery$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_66ECADFF4AB3 // Ini_Reg_Class
- ME_94723D524918 // Init_Str_ut_DocNumberQueryCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_AB56D1A71FAC // ut_DocNumberQuery
  ME_378934C66F22 // DocNumberQuery$Def
@@ -20490,8 +20239,7 @@ ref; // ME_ADCE4BD3A429
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_F2B5EBBB1F26 // TtfwClassRef
- ME_2D445ED7ED51 // Tl3StringIDEx
+   Seq: ( ME_2D445ED7ED51 // Tl3StringIDEx
  ME_ADCE4BD3A429 // Tl3MessageID
  )
  ; // Dependencies
@@ -20512,21 +20260,6 @@ ref; // ME_ADCE4BD3A429
 ref; // ME_4AB13348028C DocNumberQuery
 
 FORWARD ME_4AB1355B01EA
-
-: ME_3B61E1F8EFFF
- CONST UID '3B61E1F8EFFF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Warning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB1355B01EA // Warning
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_3B61E1F8EFFF Ini_Reg_Class
 
 : ME_64EDCB1E3189
  CONST UID '64EDCB1E3189'
@@ -20554,17 +20287,6 @@ ref; // ME_64EDCB1E3189 Ini_FormFactory_Warning
 
 ref; // ME_4DAC3F130187 
 
-: ME_3BA7EBD09990
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB1355B01EA // Warning
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3BA7EBD09990 
-
 : ME_4AB1355B01EA
  CONST UID '4AB1355B01EA'
  CONST Name 'Warning'
@@ -20586,13 +20308,11 @@ ref; // ME_3BA7EBD09990
  )
  ; // Implements
  : Operations
-   Seq: ( ME_3B61E1F8EFFF // Ini_Reg_Class
- ME_64EDCB1E3189 // Ini_FormFactory_Warning
+   Seq: ( ME_64EDCB1E3189 // Ini_FormFactory_Warning
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_4DAC3F130187 // WarningConst
- ME_3BA7EBD09990 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -20765,21 +20485,6 @@ ref; // ME_4C7D0C7B0185_ME_511527FD02EF Copy
 
 ref; // ME_511527FD02EF tvAttributes
 
-: ME_77BB74DE23FE
- CONST UID '77BB74DE23FE'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Attributes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB1357D0253 // Attributes
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_77BB74DE23FE Ini_Reg_Class
-
 : ME_5E482F2D87D2
  CONST UID '5E482F2D87D2'
  CONST Name 'Ini_FormFactory_Attributes'
@@ -20795,17 +20500,6 @@ ref; // ME_77BB74DE23FE Ini_Reg_Class
  ;
 
 ref; // ME_5E482F2D87D2 Ini_FormFactory_Attributes
-
-: ME_5800F9E7EA83
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB1357D0253 // Attributes
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5800F9E7EA83 
 
 : ME_4AB1357D0253
  CONST UID '4AB1357D0253'
@@ -20831,14 +20525,9 @@ ref; // ME_5800F9E7EA83
  )
  ; // Attributes
  : Operations
-   Seq: ( ME_77BB74DE23FE // Ini_Reg_Class
- ME_5E482F2D87D2 // Ini_FormFactory_Attributes
+   Seq: ( ME_5E482F2D87D2 // Ini_FormFactory_Attributes
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_5800F9E7EA83 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true
@@ -20855,21 +20544,6 @@ ref; // ME_4AB1357D0253 Attributes
 
 FORWARD ME_4AB1359700D9
 
-: ME_C0F5C21713CF
- CONST UID 'C0F5C21713CF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SynchroView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB1359700D9 // SynchroView
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C0F5C21713CF Ini_Reg_Class
-
 : ME_BE031364C5E0
  CONST UID 'BE031364C5E0'
  CONST Name 'Ini_FormFactory_SynchroView'
@@ -20885,17 +20559,6 @@ ref; // ME_C0F5C21713CF Ini_Reg_Class
  ;
 
 ref; // ME_BE031364C5E0 Ini_FormFactory_SynchroView
-
-: ME_37C628B60D13
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB1359700D9 // SynchroView
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_37C628B60D13 
 
 : ME_4AB1359700D9
  CONST UID '4AB1359700D9'
@@ -20917,14 +20580,9 @@ ref; // ME_37C628B60D13
  )
  ; // Implements
  : Operations
-   Seq: ( ME_C0F5C21713CF // Ini_Reg_Class
- ME_BE031364C5E0 // Ini_FormFactory_SynchroView
+   Seq: ( ME_BE031364C5E0 // Ini_FormFactory_SynchroView
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_37C628B60D13 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "author" 'Тучнин Д.А.'
@@ -21128,50 +20786,6 @@ ref; // ME_A0F6852D3E28 ut_TurnOnTimeMachineCaption
 
 ref; // ME_65CF9AD20B19 LCImplut_TurnOnTimeMachineLocalConstants
 
-: ME_B28F20D75D37
- CONST UID 'B28F20D75D37'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TurnOnTimeMachine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB135BD01C2 // TurnOnTimeMachine
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B28F20D75D37 Ini_Reg_Class
-
-: ME_BB1D34EE09BD
- CONST UID 'BB1D34EE09BD'
- CONST Name 'Init_Str_ut_TurnOnTimeMachineCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_TurnOnTimeMachineCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB135BD01C2 // TurnOnTimeMachine
- ;
- : Speller ME_749B8D73545F // ut_TurnOnTimeMachineCaption
- ;
- : SpelledFor ME_A0F6852D3E28 // ut_TurnOnTimeMachineCaption
- ;
-
-ref; // ME_BB1D34EE09BD Init_Str_ut_TurnOnTimeMachineCaption
-
-: ME_801C19D113E0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB135BD01C2 // TurnOnTimeMachine
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_801C19D113E0 
-
 : ME_C4C74E279B13
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -21213,11 +20827,6 @@ ref; // ME_384A1D070DC7
    Seq: ( ME_09001A7C3CCE // TurnOnTimeMachine$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B28F20D75D37 // Ini_Reg_Class
- ME_BB1D34EE09BD // Init_Str_ut_TurnOnTimeMachineCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_6E555D981AA9 // ut_TurnOnTimeMachine
  ME_09001A7C3CCE // TurnOnTimeMachine$Def
@@ -21229,8 +20838,7 @@ ref; // ME_384A1D070DC7
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_801C19D113E0 // TtfwClassRef
- ME_C4C74E279B13 // Tl3StringIDEx
+   Seq: ( ME_C4C74E279B13 // Tl3StringIDEx
  ME_384A1D070DC7 // Tl3MessageID
  )
  ; // Dependencies
@@ -21315,21 +20923,6 @@ ref; // ME_4B150A890212 TnsOpenDocumentByNumber
 
 FORWARD ME_4EA58A3903B4
 
-: ME_17C208525F2C
- CONST UID '17C208525F2C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация WarningBaloon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EA58A3903B4 // WarningBaloon
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_17C208525F2C Ini_Reg_Class
-
 : ME_D18A1AF77354
  CONST UID 'D18A1AF77354'
  CONST Name 'Ini_FormFactory_WarningBaloon'
@@ -21345,17 +20938,6 @@ ref; // ME_17C208525F2C Ini_Reg_Class
  ;
 
 ref; // ME_D18A1AF77354 Ini_FormFactory_WarningBaloon
-
-: ME_1382512BFC55
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EA58A3903B4 // WarningBaloon
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1382512BFC55 
 
 : ME_4EA58A3903B4
  CONST UID '4EA58A3903B4'
@@ -21378,14 +20960,9 @@ ref; // ME_1382512BFC55
  )
  ; // Implements
  : Operations
-   Seq: ( ME_17C208525F2C // Ini_Reg_Class
- ME_D18A1AF77354 // Ini_FormFactory_WarningBaloon
+   Seq: ( ME_D18A1AF77354 // Ini_FormFactory_WarningBaloon
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_1382512BFC55 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -21402,21 +20979,6 @@ ref; // ME_4EA58A3903B4 WarningBaloon
 
 FORWARD ME_4EE223D80391
 
-: ME_CCF629BF954E
- CONST UID 'CCF629BF954E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SynchroView_WarningBaloon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EE223D80391 // SynchroView_WarningBaloon
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CCF629BF954E Ini_Reg_Class
-
 : ME_7706FF39C57D
  CONST UID '7706FF39C57D'
  CONST Name 'Ini_FormFactory_SynchroView_WarningBaloon'
@@ -21432,17 +20994,6 @@ ref; // ME_CCF629BF954E Ini_Reg_Class
  ;
 
 ref; // ME_7706FF39C57D Ini_FormFactory_SynchroView_WarningBaloon
-
-: ME_669D5EABF660
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EE223D80391 // SynchroView_WarningBaloon
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_669D5EABF660 
 
 : ME_4EE223D80391
  CONST UID '4EE223D80391'
@@ -21464,14 +21015,9 @@ ref; // ME_669D5EABF660
  )
  ; // Implements
  : Operations
-   Seq: ( ME_CCF629BF954E // Ini_Reg_Class
- ME_7706FF39C57D // Ini_FormFactory_SynchroView_WarningBaloon
+   Seq: ( ME_7706FF39C57D // Ini_FormFactory_SynchroView_WarningBaloon
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_669D5EABF660 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -21488,21 +21034,6 @@ ref; // ME_4EE223D80391 SynchroView_WarningBaloon
 
 FORWARD ME_4EE22F340060
 
-: ME_0216534D2050
- CONST UID '0216534D2050'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Translation_WarningBaloon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EE22F340060 // Translation_WarningBaloon
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0216534D2050 Ini_Reg_Class
-
 : ME_2D74B80A9C4A
  CONST UID '2D74B80A9C4A'
  CONST Name 'Ini_FormFactory_Translation_WarningBaloon'
@@ -21518,17 +21049,6 @@ ref; // ME_0216534D2050 Ini_Reg_Class
  ;
 
 ref; // ME_2D74B80A9C4A Ini_FormFactory_Translation_WarningBaloon
-
-: ME_AD8C4E8A4D86
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EE22F340060 // Translation_WarningBaloon
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AD8C4E8A4D86 
 
 : ME_4EE22F340060
  CONST UID '4EE22F340060'
@@ -21550,14 +21070,9 @@ ref; // ME_AD8C4E8A4D86
  )
  ; // Implements
  : Operations
-   Seq: ( ME_0216534D2050 // Ini_Reg_Class
- ME_2D74B80A9C4A // Ini_FormFactory_Translation_WarningBaloon
+   Seq: ( ME_2D74B80A9C4A // Ini_FormFactory_Translation_WarningBaloon
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_AD8C4E8A4D86 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -21577,21 +21092,6 @@ ref; // ME_4EE22F340060 Translation_WarningBaloon
 
 FORWARD ME_4EF47F2E0348
 
-: ME_317DB535CC99
- CONST UID '317DB535CC99'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация UserCR1_WarningBaloon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EF47F2E0348 // UserCR1_WarningBaloon
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_317DB535CC99 Ini_Reg_Class
-
 : ME_5B7A794CDC6A
  CONST UID '5B7A794CDC6A'
  CONST Name 'Ini_FormFactory_UserCR1_WarningBaloon'
@@ -21607,17 +21107,6 @@ ref; // ME_317DB535CC99 Ini_Reg_Class
  ;
 
 ref; // ME_5B7A794CDC6A Ini_FormFactory_UserCR1_WarningBaloon
-
-: ME_0C3558640E3F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EF47F2E0348 // UserCR1_WarningBaloon
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0C3558640E3F 
 
 : ME_4EF47F2E0348
  CONST UID '4EF47F2E0348'
@@ -21639,14 +21128,9 @@ ref; // ME_0C3558640E3F
  )
  ; // Implements
  : Operations
-   Seq: ( ME_317DB535CC99 // Ini_Reg_Class
- ME_5B7A794CDC6A // Ini_FormFactory_UserCR1_WarningBaloon
+   Seq: ( ME_5B7A794CDC6A // Ini_FormFactory_UserCR1_WarningBaloon
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_0C3558640E3F // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -21666,21 +21150,6 @@ ref; // ME_4EF47F2E0348 UserCR1_WarningBaloon
 
 FORWARD ME_4EF47F5A02F7
 
-: ME_C001BAAE5936
- CONST UID 'C001BAAE5936'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация UserCR2_WarningBaloon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EF47F5A02F7 // UserCR2_WarningBaloon
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C001BAAE5936 Ini_Reg_Class
-
 : ME_29242197B51C
  CONST UID '29242197B51C'
  CONST Name 'Ini_FormFactory_UserCR2_WarningBaloon'
@@ -21696,17 +21165,6 @@ ref; // ME_C001BAAE5936 Ini_Reg_Class
  ;
 
 ref; // ME_29242197B51C Ini_FormFactory_UserCR2_WarningBaloon
-
-: ME_81FE8A39500A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EF47F5A02F7 // UserCR2_WarningBaloon
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_81FE8A39500A 
 
 : ME_4EF47F5A02F7
  CONST UID '4EF47F5A02F7'
@@ -21728,14 +21186,9 @@ ref; // ME_81FE8A39500A
  )
  ; // Implements
  : Operations
-   Seq: ( ME_C001BAAE5936 // Ini_Reg_Class
- ME_29242197B51C // Ini_FormFactory_UserCR2_WarningBaloon
+   Seq: ( ME_29242197B51C // Ini_FormFactory_UserCR2_WarningBaloon
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_81FE8A39500A // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

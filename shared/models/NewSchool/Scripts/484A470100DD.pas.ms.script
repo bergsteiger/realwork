@@ -90,6 +90,7 @@ FORWARD ME_53A9542401D9
  ;
  CONST "ReadOnly" true
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Task_TaskType'
  CONST extprop:pas:Value 'evdTaskTypes.cs_ttUnknown'
 
 ref; // ME_53B57F2C00AD TaskType
@@ -109,6 +110,7 @@ ref; // ME_53B57F2C00AD TaskType
  : ValueType WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
  CONST "HasAfterChangeTrigger" true
+ CONST extprop:evd:NewTypeName 'Task_Priority'
  CONST extprop:pas:Value 'k2Long_Const.k2_50'
 
 ref; // ME_53B67FA701E5 Priority
@@ -127,6 +129,7 @@ ref; // ME_53B67FA701E5 Priority
  CONST Value 1
  : ValueType WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'Task_Version'
  CONST extprop:pas:Value 'k2Long_Const.k2_1'
 
 ref; // ME_53B67FE5023B Version
@@ -143,6 +146,7 @@ ref; // ME_53B67FE5023B Version
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Task_TaskID'
 
 ref; // ME_537DFF440209 TaskID
 
@@ -157,6 +161,7 @@ ref; // ME_537DFF440209 TaskID
  ;
  : Target ME_53C9317B0278 // DateTimeNotNull
  ;
+ CONST extprop:evd:NewTypeName 'Task_Date'
 
 ref; // ME_538738AA038C Date
 
@@ -171,6 +176,7 @@ ref; // ME_538738AA038C Date
  ;
  : Target ME_53B3EA0502FD // ULong
  ;
+ CONST extprop:evd:NewTypeName 'Task_User'
 
 ref; // ME_538738C2019E User
 
@@ -186,6 +192,7 @@ ref; // ME_538738C2019E User
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Task_Description'
 
 ref; // ME_53873906031E Description
 
@@ -201,8 +208,11 @@ ref; // ME_53873906031E Description
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Task_TaskFolder'
 
 ref; // ME_5387394600E3 TaskFolder
+
+FORWARD ME_53C3E67C0258
 
 : ME_537DFEF702E1
  CONST UID '537DFEF702E1'
@@ -230,6 +240,11 @@ ref; // ME_5387394600E3 TaskFolder
  ME_5387394600E3 // TaskFolder
  )
  ; // Attributes
+ : Implementors
+   Seq: ( WL 'ME_53AC018900AE' '53C51B390355.pas.ms.script' // TddTaskItemPrim
+ ME_53C3E67C0258 // WevdTask
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'leaf'
@@ -253,6 +268,7 @@ FORWARD ME_53AC5E8B00CB
  : Parent ME_53AC5E8B00CB // RequestTask
  ;
  CONST Value 'Ord(cs_ttRequest)'
+ CONST extprop:evd:NewTypeName 'RequestTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttRequest)'
 
 ref; // ME_53B5822D025A TaskType
@@ -322,6 +338,7 @@ FORWARD ME_48495E29035B
  CONST Value 0
  : ValueType WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'Address_DocID'
  CONST extprop:pas:Value 'k2Handle_Const.k2_0'
 
 ref; // ME_484AB4DA0122 DocID
@@ -341,6 +358,7 @@ ref; // ME_484AB4DA0122 DocID
  CONST Value 0
  : ValueType WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'Address_SubID'
  CONST extprop:pas:Value 'k2Handle_Const.k2_0'
 
 ref; // ME_484AB4F7030F SubID
@@ -360,6 +378,7 @@ ref; // ME_484AB4F7030F SubID
  CONST Value 'ev_defAddressType'
  : ValueType ME_48495DDB017B // Type
  ;
+ CONST extprop:evd:NewTypeName 'Address_Type'
  CONST extprop:pas:Value 'Type_Const.ev_defAddressType'
 
 ref; // ME_484AB5E902E9 Type
@@ -379,6 +398,7 @@ ref; // ME_484AB5E902E9 Type
  CONST Value 0
  : ValueType WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'Address_Revision'
  CONST extprop:pas:Value 'k2Long_Const.k2_0'
 
 ref; // ME_484AB6570042 Revision
@@ -400,6 +420,7 @@ ref; // ME_484AB6570042 Revision
  ;
  CONST "stored" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Address_ViewKind'
  CONST extprop:pas:Value 'evdTypes.ev_lvkUnknown'
 
 ref; // ME_484AB722023C ViewKind
@@ -417,6 +438,7 @@ ref; // ME_484AB722023C ViewKind
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "stored" false
+ CONST extprop:evd:NewTypeName 'Address_ShortName'
 
 ref; // ME_484AB61800C9 ShortName
 
@@ -432,6 +454,7 @@ ref; // ME_484AB61800C9 ShortName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Address_Name'
 
 ref; // ME_484AB63F0044 Name
 
@@ -444,6 +467,38 @@ ref; // ME_484AB63F0044 Name
  ;
 
 ref; // ME_485651F7004C 
+
+FORWARD ME_53BD2DEA02B3
+
+FORWARD ME_53BD48800095
+
+FORWARD ME_53DA153302E5
+
+FORWARD ME_53DB62BC03B2
+
+FORWARD ME_53E0CACC0298
+
+FORWARD ME_53EB4E2E0382
+
+FORWARD ME_53EC5A0C0323
+
+FORWARD ME_53EC5A69031E
+
+FORWARD ME_53EC5AA0026D
+
+FORWARD ME_53F5A77B01B4
+
+FORWARD ME_53F6EFA601E5
+
+FORWARD ME_53F6EFE50069
+
+FORWARD ME_53F6F015029A
+
+FORWARD ME_53F6F05300BB
+
+FORWARD ME_53FF0C820388
+
+FORWARD ME_53FF16320146
 
 : ME_48495E29035B
  CONST UID '48495E29035B'
@@ -474,6 +529,25 @@ ref; // ME_485651F7004C
    Seq: ( ME_485651F7004C // LinkViewKind
  )
  ; // Dependencies
+ : Implementors
+   Seq: ( ME_53BD2DEA02B3 // DocumentIDListHelper
+ ME_53BD48800095 // SABStreamHelper
+ ME_53DA153302E5 // RegionIDListHelper
+ ME_53DB62BC03B2 // AccGroupsIDListHelper
+ ME_53E0CACC0298 // ImportedDocListHelper
+ ME_53EB4E2E0382 // SourceIDListHelper
+ ME_53EC5A0C0323 // DossierSourceIDListHelper
+ ME_53EC5A69031E // DocTypesIDListHelper
+ ME_53EC5AA0026D // FASSourceIDListHelper
+ ME_53F5A77B01B4 // BelongsIDListHelper
+ ME_53F6EFA601E5 // ExcludeAccGroupsIDListHelper
+ ME_53F6EFE50069 // CommentsIDListHelper
+ ME_53F6F015029A // ExcludeDocTypesIDListHelper
+ ME_53F6F05300BB // ExcludeDocBasesIDListHelper
+ ME_53FF0C820388 // BasesIDListHelper
+ ME_53FF16320146 // InfoIDListHelper
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 77
@@ -497,6 +571,7 @@ FORWARD ME_53A95D9F02E9
  : Parent ME_53A95D9F02E9 // ProcessTask
  ;
  CONST Value 'Ord(cs_ttProcess)'
+ CONST extprop:evd:NewTypeName 'ProcessTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttProcess)'
 
 ref; // ME_53B581A0037B TaskType
@@ -513,6 +588,7 @@ ref; // ME_53B581A0037B TaskType
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "HasAfterChangeTrigger" true
+ CONST extprop:evd:NewTypeName 'ProcessTask_Comment'
 
 ref; // ME_53A95DBE0235 Comment
 
@@ -531,6 +607,7 @@ FORWARD ME_53A9541803CB
  ;
  CONST "HasAfterChangeTrigger" true
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ProcessTask_Status'
 
 ref; // ME_53A9A7250379 Status
 
@@ -549,6 +626,7 @@ ref; // ME_53A9A7250379 Status
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ProcessTask_DocumentIDList'
 
 ref; // ME_53BC24F80301 DocumentIDList
 
@@ -563,8 +641,11 @@ ref; // ME_53BC24F80301 DocumentIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ProcessTask_ReplyAddress'
 
 ref; // ME_53BD65A202E5 ReplyAddress
+
+FORWARD ME_53C4FA890339
 
 : ME_53A95D9F02E9
  CONST UID '53A95D9F02E9'
@@ -588,6 +669,10 @@ ref; // ME_53BD65A202E5 ReplyAddress
  ME_53BD65A202E5 // ReplyAddress
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_53C4FA890339 // WevdProcessTask
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
@@ -609,6 +694,7 @@ FORWARD ME_53AAED68002C
  : Parent ME_53AAED68002C // ExportTask
  ;
  CONST Value 'Ord(cs_ttExport)'
+ CONST extprop:evd:NewTypeName 'ExportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttExport)'
 
 ref; // ME_53B5848E0269 TaskType
@@ -624,6 +710,7 @@ ref; // ME_53B5848E0269 TaskType
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_AnnoTopicFileName'
 
 ref; // ME_53AAED9303E4 AnnoTopicFileName
 
@@ -641,6 +728,7 @@ FORWARD ME_53AAEDD70067
  : Target ME_53AAEDD70067 // TDiapType
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ExportTask_DiapasonType'
 
 ref; // ME_53AAEE300123 DiapasonType
 
@@ -655,6 +743,7 @@ ref; // ME_53AAEE300123 DiapasonType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_DocID'
 
 ref; // ME_53AAEE470382 DocID
 
@@ -669,6 +758,7 @@ ref; // ME_53AAEE470382 DocID
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_DocumentFileNameMask'
 
 ref; // ME_53AAEE6B00FA DocumentFileNameMask
 
@@ -683,6 +773,7 @@ ref; // ME_53AAEE6B00FA DocumentFileNameMask
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportAnnoTopics'
 
 ref; // ME_53AAEE8D024A ExportAnnoTopics
 
@@ -697,6 +788,7 @@ ref; // ME_53AAEE8D024A ExportAnnoTopics
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportDirectory'
 
 ref; // ME_53AAEEAA02DA ExportDirectory
 
@@ -711,6 +803,7 @@ ref; // ME_53AAEEAA02DA ExportDirectory
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportDocImage'
 
 ref; // ME_53AAEEC303D9 ExportDocImage
 
@@ -725,6 +818,7 @@ ref; // ME_53AAEEC303D9 ExportDocImage
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportDocument'
 
 ref; // ME_53AAEECF031A ExportDocument
 
@@ -739,6 +833,7 @@ ref; // ME_53AAEECF031A ExportDocument
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportEmptyKW'
 
 ref; // ME_53AAEEE30369 ExportEmptyKW
 
@@ -753,6 +848,7 @@ ref; // ME_53AAEEE30369 ExportEmptyKW
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportKW'
 
 ref; // ME_53AAEEFA01A1 ExportKW
 
@@ -767,6 +863,7 @@ ref; // ME_53AAEEFA01A1 ExportKW
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportRTFBody'
 
 ref; // ME_53AAEF0C0211 ExportRTFBody
 
@@ -781,6 +878,7 @@ ref; // ME_53AAEF0C0211 ExportRTFBody
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_Family'
 
 ref; // ME_53AAEF2002E2 Family
 
@@ -795,6 +893,7 @@ ref; // ME_53AAEF2002E2 Family
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_InternalFormat'
 
 ref; // ME_53AAEF3C0391 InternalFormat
 
@@ -809,6 +908,7 @@ ref; // ME_53AAEF3C0391 InternalFormat
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_KWFileName'
 
 ref; // ME_53AAEF5E03E1 KWFileName
 
@@ -823,6 +923,7 @@ ref; // ME_53AAEF5E03E1 KWFileName
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_MultiUser'
 
 ref; // ME_53AAEF750338 MultiUser
 
@@ -837,6 +938,7 @@ ref; // ME_53AAEF750338 MultiUser
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ObjTopicFileName'
 
 ref; // ME_53AAEF9F01F9 ObjTopicFileName
 
@@ -851,6 +953,7 @@ ref; // ME_53AAEF9F01F9 ObjTopicFileName
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_OnlyStructure'
 
 ref; // ME_53AAEFBA01AB OnlyStructure
 
@@ -868,6 +971,7 @@ FORWARD ME_51CBFE650178
  : Target ME_51CBFE650178 // TepSupportFileType
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ExportTask_OutFileType'
 
 ref; // ME_53AAEFCF012F OutFileType
 
@@ -882,6 +986,7 @@ ref; // ME_53AAEFCF012F OutFileType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_OutputFileSize'
 
 ref; // ME_53AAEFE40032 OutputFileSize
 
@@ -896,6 +1001,7 @@ ref; // ME_53AAEFE40032 OutputFileSize
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ReferenceFileNameMask'
 
 ref; // ME_53AAEFFC0230 ReferenceFileNameMask
 
@@ -913,6 +1019,7 @@ FORWARD ME_53C3F2C3014E
  : Target ME_53C3F2C3014E // TepDivideBy
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ExportTask_SeparateFiles'
 
 ref; // ME_53AAF0180320 SeparateFiles
 
@@ -927,6 +1034,7 @@ ref; // ME_53AAF0180320 SeparateFiles
  ;
  : Target ME_53B3EA0502FD // ULong
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ToRegion'
 
 ref; // ME_53AAF0420060 ToRegion
 
@@ -941,6 +1049,7 @@ ref; // ME_53AAF0420060 ToRegion
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportReference'
 
 ref; // ME_53AAF0600260 ExportReference
 
@@ -955,6 +1064,7 @@ ref; // ME_53AAF0600260 ExportReference
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportEditions'
 
 ref; // ME_53AAF06C014E ExportEditions
 
@@ -969,6 +1079,7 @@ ref; // ME_53AAF06C014E ExportEditions
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_FormulaAsPicture'
 
 ref; // ME_53AAF07A00B7 FormulaAsPicture
 
@@ -983,6 +1094,7 @@ ref; // ME_53AAF07A00B7 FormulaAsPicture
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_ExportReferences'
 
 ref; // ME_53AC58290027 ExportReferences
 
@@ -1001,6 +1113,7 @@ ref; // ME_53AC58290027 ExportReferences
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ExportTask_SABStream'
 
 ref; // ME_53B5573A0079 SABStream
 
@@ -1015,6 +1128,7 @@ ref; // ME_53B5573A0079 SABStream
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ExportTask_AdditionalProcess'
 
 ref; // ME_53B56AD201A6 AdditionalProcess
 
@@ -1033,6 +1147,7 @@ ref; // ME_53B56AD201A6 AdditionalProcess
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ExportTask_RegionIDList'
 
 ref; // ME_53DA14EF0191 RegionIDList
 
@@ -1105,6 +1220,7 @@ FORWARD ME_53B42F63037B
  : Parent ME_53B42F63037B // DictEditQuery
  ;
  CONST Value 'Ord(cs_ttDictEdit)'
+ CONST extprop:evd:NewTypeName 'DictEditQuery_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttDictEdit)'
 
 ref; // ME_53B587730163 TaskType
@@ -1120,6 +1236,7 @@ ref; // ME_53B587730163 TaskType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DictEditQuery_Family'
 
 ref; // ME_53B4300D0285 Family
 
@@ -1134,6 +1251,7 @@ ref; // ME_53B4300D0285 Family
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DictEditQuery_DictType'
 
 ref; // ME_53B430180015 DictType
 
@@ -1148,6 +1266,7 @@ ref; // ME_53B430180015 DictType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DictEditQuery_Operation'
 
 ref; // ME_53B43021030D Operation
 
@@ -1162,6 +1281,7 @@ ref; // ME_53B43021030D Operation
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DictEditQuery_ID'
 
 ref; // ME_53B4302B00AD ID
 
@@ -1176,6 +1296,7 @@ ref; // ME_53B4302B00AD ID
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DictEditQuery_ParentID'
 
 ref; // ME_53B430350306 ParentID
 
@@ -1190,6 +1311,7 @@ ref; // ME_53B430350306 ParentID
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DictEditQuery_NextID'
 
 ref; // ME_53B4303E0275 NextID
 
@@ -1238,6 +1360,7 @@ FORWARD ME_53B42F8B011B
  : Parent ME_53B42F8B011B // UserEditQuery
  ;
  CONST Value 'Ord(cs_ttUserEdit)'
+ CONST extprop:evd:NewTypeName 'UserEditQuery_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttUserEdit)'
 
 ref; // ME_53B5878801EB TaskType
@@ -1253,6 +1376,7 @@ ref; // ME_53B5878801EB TaskType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'UserEditQuery_ID'
 
 ref; // ME_53B430840054 ID
 
@@ -1267,6 +1391,7 @@ ref; // ME_53B430840054 ID
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'UserEditQuery_IsGroup'
 
 ref; // ME_53B430900214 IsGroup
 
@@ -1311,6 +1436,7 @@ FORWARD ME_54B376DB00A3
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'PlainFile_Name'
 
 ref; // ME_54B3770B017D Name
 
@@ -1354,6 +1480,7 @@ FORWARD ME_53B68033030F
  : Parent ME_53B68033030F // AutoSpellTask
  ;
  CONST Value 'Ord(cs_ttAutoSpellCheck)'
+ CONST extprop:evd:NewTypeName 'AutoSpellTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAutoSpellCheck)'
 
 ref; // ME_53B68044005B TaskType
@@ -1397,6 +1524,7 @@ FORWARD ME_53B6806A02AC
  : Parent ME_53B6806A02AC // CommonDataRequest
  ;
  CONST Value 'Ord(cs_ttCommonData)'
+ CONST extprop:evd:NewTypeName 'CommonDataRequest_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttCommonData)'
 
 ref; // ME_53B6807B003A TaskType
@@ -1440,6 +1568,7 @@ FORWARD ME_53B680A00217
  : Parent ME_53B680A00217 // LineRequest
  ;
  CONST Value 'Ord(cs_ttLine)'
+ CONST extprop:evd:NewTypeName 'LineRequest_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttLine)'
 
 ref; // ME_53B680B0021F TaskType
@@ -1483,6 +1612,7 @@ FORWARD ME_53B680D000EA
  : Parent ME_53B680D000EA // ServerStatusRequest
  ;
  CONST Value 'Ord(cs_ttServerStatus)'
+ CONST extprop:evd:NewTypeName 'ServerStatusRequest_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttServerStatus)'
 
 ref; // ME_53B680E101F2 TaskType
@@ -1526,6 +1656,7 @@ FORWARD ME_53B6810F00CA
  : Parent ME_53B6810F00CA // DeleteDocsQuery
  ;
  CONST Value 'Ord(cs_ttDeleteDocs)'
+ CONST extprop:evd:NewTypeName 'DeleteDocsQuery_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttDeleteDocs)'
 
 ref; // ME_53B6812701F4 TaskType
@@ -1569,6 +1700,7 @@ FORWARD ME_53B681530262
  : Parent ME_53B681530262 // TaskResultRequest
  ;
  CONST Value 'Ord(cs_ttTaskResult)'
+ CONST extprop:evd:NewTypeName 'TaskResultRequest_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttTaskResult)'
 
 ref; // ME_53B681640271 TaskType
@@ -1612,6 +1744,7 @@ FORWARD ME_53B6818301CC
  : Parent ME_53B6818301CC // GetTaskRequest
  ;
  CONST Value 'Ord(cs_ttGetTask)'
+ CONST extprop:evd:NewTypeName 'GetTaskRequest_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttGetTask)'
 
 ref; // ME_53B681930040 TaskType
@@ -1655,6 +1788,7 @@ FORWARD ME_53B681E000B9
  : Parent ME_53B681E000B9 // AutoClassTask
  ;
  CONST Value 'Ord(cs_ttAutoClass)'
+ CONST extprop:evd:NewTypeName 'AutoClassTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAutoClass)'
 
 ref; // ME_53B681F50013 TaskType
@@ -1670,6 +1804,7 @@ ref; // ME_53B681F50013 TaskType
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTask_BuilderFileName'
 
 ref; // ME_53F465100186 BuilderFileName
 
@@ -1684,6 +1819,7 @@ ref; // ME_53F465100186 BuilderFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTask_ResultFileName'
 
 ref; // ME_53F465210088 ResultFileName
 
@@ -1698,6 +1834,7 @@ ref; // ME_53F465210088 ResultFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTask_SourceFolder'
 
 ref; // ME_53F4652C0374 SourceFolder
 
@@ -1712,6 +1849,7 @@ ref; // ME_53F4652C0374 SourceFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTask_LogFileName'
 
 ref; // ME_53F46538027D LogFileName
 
@@ -1726,6 +1864,7 @@ ref; // ME_53F46538027D LogFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTask_eMailNotifyList'
 
 ref; // ME_53F4654503A9 eMailNotifyList
 
@@ -1773,6 +1912,7 @@ FORWARD ME_53B6A4B503E5
  : Parent ME_53B6A4B503E5 // AnnotationTask
  ;
  CONST Value 'Ord(cs_ttAnnoExport)'
+ CONST extprop:evd:NewTypeName 'AnnotationTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAnnoExport)'
 
 ref; // ME_53B6A4CA01A5 TaskType
@@ -1789,6 +1929,7 @@ ref; // ME_53B6A4CA01A5 TaskType
  ;
  CONST Value 'usServerService'
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_User'
  CONST extprop:pas:Value 'usServerService'
 
 ref; // ME_53BBE92F00B3 User
@@ -1804,6 +1945,7 @@ ref; // ME_53BBE92F00B3 User
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_NeedAnalyzeLog'
 
 ref; // ME_53F6E8950339 NeedAnalyzeLog
 
@@ -1818,6 +1960,7 @@ ref; // ME_53F6E8950339 NeedAnalyzeLog
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_TargetFolder'
 
 ref; // ME_53F6E8A8000F TargetFolder
 
@@ -1832,6 +1975,7 @@ ref; // ME_53F6E8A8000F TargetFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_eMailNotifyList'
 
 ref; // ME_53F6E8BE004A eMailNotifyList
 
@@ -1846,6 +1990,7 @@ ref; // ME_53F6E8BE004A eMailNotifyList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_ExternalProcessor'
 
 ref; // ME_53F6E8D30067 ExternalProcessor
 
@@ -1860,6 +2005,7 @@ ref; // ME_53F6E8D30067 ExternalProcessor
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_OutFolder'
 
 ref; // ME_53F6E8E80074 OutFolder
 
@@ -1874,6 +2020,7 @@ ref; // ME_53F6E8E80074 OutFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_PrimeRobotEMail'
 
 ref; // ME_53F6E8F401C8 PrimeRobotEMail
 
@@ -1888,6 +2035,7 @@ ref; // ME_53F6E8F401C8 PrimeRobotEMail
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_ExportDocuments'
 
 ref; // ME_53F6E916003B ExportDocuments
 
@@ -1902,6 +2050,7 @@ ref; // ME_53F6E916003B ExportDocuments
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_DocListFileName'
 
 ref; // ME_53F6E93300B8 DocListFileName
 
@@ -1916,6 +2065,7 @@ ref; // ME_53F6E93300B8 DocListFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_DocListFolder'
 
 ref; // ME_53F6E943032E DocListFolder
 
@@ -1930,6 +2080,7 @@ ref; // ME_53F6E943032E DocListFolder
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_EndDateKind'
 
 ref; // ME_53F6E9E400A7 EndDateKind
 
@@ -1944,6 +2095,7 @@ ref; // ME_53F6E9E400A7 EndDateKind
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_StartDate'
 
 ref; // ME_53F6E9EF039D StartDate
 
@@ -1962,6 +2114,7 @@ ref; // ME_53F6E9EF039D StartDate
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_BelongsIDList'
 
 ref; // ME_53F6E9FF00A0 BelongsIDList
 
@@ -1981,6 +2134,7 @@ ref; // ME_53F6E9FF00A0 BelongsIDList
  CONST "HasStoreChildTrigger" false
  CONST "ifndef" 'Region'
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_ExcludeAccGroupsIDList'
 
 ref; // ME_53F6EA1C02BC ExcludeAccGroupsIDList
 
@@ -1999,6 +2153,7 @@ ref; // ME_53F6EA1C02BC ExcludeAccGroupsIDList
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_AccGroupsIDList'
 
 ref; // ME_53F6EA420007 AccGroupsIDList
 
@@ -2017,6 +2172,7 @@ ref; // ME_53F6EA420007 AccGroupsIDList
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_CommentsIDList'
 
 ref; // ME_53F6EA660175 CommentsIDList
 
@@ -2035,6 +2191,7 @@ ref; // ME_53F6EA660175 CommentsIDList
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_ExcludeDocTypesIDList'
 
 ref; // ME_53F6EA890324 ExcludeDocTypesIDList
 
@@ -2053,6 +2210,7 @@ ref; // ME_53F6EA890324 ExcludeDocTypesIDList
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnnotationTask_ExcludeDocBasesIDList'
 
 ref; // ME_53F6EA9C006F ExcludeDocBasesIDList
 
@@ -2067,6 +2225,7 @@ ref; // ME_53F6EA9C006F ExcludeDocBasesIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTask_AnnoFilenameTemplate'
 
 ref; // ME_5649C2650078 AnnoFilenameTemplate
 
@@ -2128,6 +2287,7 @@ FORWARD ME_53B6A5C200FA
  : Parent ME_53B6A5C200FA // AutoExportTask
  ;
  CONST Value 'Ord(cs_ttAExportDoc)'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAExportDoc)'
 
 ref; // ME_53B6A5D101F9 TaskType
@@ -2144,6 +2304,7 @@ ref; // ME_53B6A5D101F9 TaskType
  ;
  CONST Value 'usServerService'
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_User'
  CONST extprop:pas:Value 'usServerService'
 
 ref; // ME_53BBE9150220 User
@@ -2159,6 +2320,7 @@ ref; // ME_53BBE9150220 User
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_Today'
 
 ref; // ME_53FDD381017C Today
 
@@ -2173,6 +2335,7 @@ ref; // ME_53FDD381017C Today
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_CompileDate'
 
 ref; // ME_53FDD3F00341 CompileDate
 
@@ -2187,6 +2350,7 @@ ref; // ME_53FDD3F00341 CompileDate
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_VersionDate'
 
 ref; // ME_53FDD3FA014D VersionDate
 
@@ -2202,6 +2366,7 @@ ref; // ME_53FDD3FA014D VersionDate
  : Target ME_51CBFE650178 // TepSupportFileType
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_OutFormat'
 
 ref; // ME_53FED2680372 OutFormat
 
@@ -2216,6 +2381,7 @@ ref; // ME_53FED2680372 OutFormat
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_AnnoUseAccGroups'
 
 ref; // ME_53FEF7CB03AF AnnoUseAccGroups
 
@@ -2233,6 +2399,7 @@ FORWARD ME_53FEFB2A00FA
  : Target ME_53FEFB2A00FA // TaeDocSource
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_DocumentsSource'
 
 ref; // ME_53FEFB6A02A3 DocumentsSource
 
@@ -2247,6 +2414,7 @@ ref; // ME_53FEFB6A02A3 DocumentsSource
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_WithEditions'
 
 ref; // ME_53FEFB8602E1 WithEditions
 
@@ -2265,6 +2433,7 @@ ref; // ME_53FEFB8602E1 WithEditions
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_AccGroupsIDList'
 
 ref; // ME_53FEFEEA03B0 AccGroupsIDList
 
@@ -2280,6 +2449,7 @@ ref; // ME_53FEFEEA03B0 AccGroupsIDList
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "ifndef" 'LUK,SGC'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_AnnoTemplate'
 
 ref; // ME_53FF0BD5001C AnnoTemplate
 
@@ -2299,6 +2469,7 @@ ref; // ME_53FF0BD5001C AnnoTemplate
  CONST "HasStoreChildTrigger" false
  CONST "ifndef" 'LUK,SGC'
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_BasesIDList'
 
 ref; // ME_53FF0C4B030B BasesIDList
 
@@ -2314,6 +2485,7 @@ ref; // ME_53FF0C4B030B BasesIDList
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "ifndef" 'LUK,SGC'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_ChangedDocTemplate'
 
 ref; // ME_53FF10AC0013 ChangedDocTemplate
 
@@ -2329,6 +2501,7 @@ ref; // ME_53FF10AC0013 ChangedDocTemplate
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "ifndef" 'LUK,SGC'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_ChangedRelTempate'
 
 ref; // ME_53FF110E00D1 ChangedRelTempate
 
@@ -2343,6 +2516,7 @@ ref; // ME_53FF110E00D1 ChangedRelTempate
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_ExecName'
 
 ref; // ME_53FF11A500E1 ExecName
 
@@ -2357,6 +2531,7 @@ ref; // ME_53FF11A500E1 ExecName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_ExecParams'
 
 ref; // ME_53FF11B00188 ExecParams
 
@@ -2371,6 +2546,7 @@ ref; // ME_53FF11B00188 ExecParams
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_DocQueryFileName'
 
 ref; // ME_53FF139E02E3 DocQueryFileName
 
@@ -2386,6 +2562,7 @@ ref; // ME_53FF139E02E3 DocQueryFileName
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "ifndef" 'AEByBelongs'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_DoneFileName'
 
 ref; // ME_53FF13B702EB DoneFileName
 
@@ -2400,6 +2577,7 @@ ref; // ME_53FF13B702EB DoneFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_ExportFolder'
 
 ref; // ME_53FF13D702A6 ExportFolder
 
@@ -2415,6 +2593,7 @@ ref; // ME_53FF13D702A6 ExportFolder
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "ifndef" 'LUK,SGC'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_IncludedDocTemplate'
 
 ref; // ME_53FF13E6009A IncludedDocTemplate
 
@@ -2430,6 +2609,7 @@ ref; // ME_53FF13E6009A IncludedDocTemplate
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "ifndef" 'LUK,SGC'
+ CONST extprop:evd:NewTypeName 'AutoExportTask_IncludedRelTemplate'
 
 ref; // ME_53FF13F402E3 IncludedRelTemplate
 
@@ -2444,6 +2624,7 @@ ref; // ME_53FF13F402E3 IncludedRelTemplate
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_InfoDocTemplate'
 
 ref; // ME_53FF140001B6 InfoDocTemplate
 
@@ -2462,6 +2643,7 @@ ref; // ME_53FF140001B6 InfoDocTemplate
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_InfoIDList'
 
 ref; // ME_53FF160302C7 InfoIDList
 
@@ -2476,6 +2658,7 @@ ref; // ME_53FF160302C7 InfoIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_InfoRelTemplate'
 
 ref; // ME_53FF168F0149 InfoRelTemplate
 
@@ -2490,6 +2673,7 @@ ref; // ME_53FF168F0149 InfoRelTemplate
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_NeedTopicList'
 
 ref; // ME_53FF16E901F9 NeedTopicList
 
@@ -2504,6 +2688,7 @@ ref; // ME_53FF16E901F9 NeedTopicList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_eMailNotifyList'
 
 ref; // ME_53FF16FA00AF eMailNotifyList
 
@@ -2518,6 +2703,7 @@ ref; // ME_53FF16FA00AF eMailNotifyList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_SMSNotifyList'
 
 ref; // ME_53FF17180264 SMSNotifyList
 
@@ -2532,6 +2718,7 @@ ref; // ME_53FF17180264 SMSNotifyList
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_PartSize'
 
 ref; // ME_53FF174F0027 PartSize
 
@@ -2546,6 +2733,7 @@ ref; // ME_53FF174F0027 PartSize
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_MaxExportCount'
 
 ref; // ME_540023F20366 MaxExportCount
 
@@ -2563,6 +2751,7 @@ FORWARD ME_53FED363011E
  : Target ME_53FED363011E // TaeStagesSet
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoExportTask_Stages'
 
 ref; // ME_54042C030095 Stages
 
@@ -2577,6 +2766,7 @@ ref; // ME_54042C030095 Stages
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_ExpandEditions'
 
 ref; // ME_5566F4AD0133 ExpandEditions
 
@@ -2591,6 +2781,7 @@ ref; // ME_5566F4AD0133 ExpandEditions
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTask_InfoDocsIncludedOnly'
 
 ref; // ME_56BAF51F0190 InfoDocsIncludedOnly
 
@@ -2665,6 +2856,7 @@ FORWARD ME_53B6A6B80318
  : Parent ME_53B6A6B80318 // RunCommandTask
  ;
  CONST Value 'Ord(cs_ttRunCommand)'
+ CONST extprop:evd:NewTypeName 'RunCommandTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttRunCommand)'
 
 ref; // ME_53B6A6CB0081 TaskType
@@ -2712,6 +2904,7 @@ FORWARD ME_53BFCC8503AA
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'File_AdditionalFiles'
 
 ref; // ME_54B3773402D2 AdditionalFiles
 
@@ -2754,6 +2947,7 @@ FORWARD ME_53BA6BF50280
  : Parent ME_53BA6BF50280 // CaseCodeTask
  ;
  CONST Value 'Ord(cs_ttCaseCode)'
+ CONST extprop:evd:NewTypeName 'CaseCodeTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttCaseCode)'
 
 ref; // ME_53BA6C0E0040 TaskType
@@ -2797,6 +2991,7 @@ FORWARD ME_53BA72FA0145
  : Parent ME_53BA72FA0145 // AutoAnnoExportTask
  ;
  CONST Value 'Ord(cs_ttAExportAnno)'
+ CONST extprop:evd:NewTypeName 'AutoAnnoExportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAExportAnno)'
 
 ref; // ME_53BA7311003A TaskType
@@ -2812,6 +3007,7 @@ ref; // ME_53BA7311003A TaskType
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AutoAnnoExportTask_StartDate'
 
 ref; // ME_53F59C4B0130 StartDate
 
@@ -2826,6 +3022,7 @@ ref; // ME_53F59C4B0130 StartDate
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AutoAnnoExportTask_EndDate'
 
 ref; // ME_53F59C58001A EndDate
 
@@ -2844,6 +3041,7 @@ ref; // ME_53F59C58001A EndDate
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoAnnoExportTask_BelongsIDList'
 
 ref; // ME_53F59C8202A3 BelongsIDList
 
@@ -2889,6 +3087,7 @@ FORWARD ME_53AC19E00242
  : Parent ME_53AC19E00242 // ImportTask
  ;
  CONST Value 'Ord(cs_ttImport)'
+ CONST extprop:evd:NewTypeName 'ImportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttImport)'
 
 ref; // ME_53B584A30070 TaskType
@@ -2904,6 +3103,7 @@ ref; // ME_53B584A30070 TaskType
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ImportTask_DeleteIncluded'
 
 ref; // ME_53AC1A6A0045 DeleteIncluded
 
@@ -2918,6 +3118,7 @@ ref; // ME_53AC1A6A0045 DeleteIncluded
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ImportTask_IsAnnotation'
 
 ref; // ME_53AC1A75037C IsAnnotation
 
@@ -2932,6 +3133,7 @@ ref; // ME_53AC1A75037C IsAnnotation
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ImportTask_IsRegion'
 
 ref; // ME_53AC1A82000C IsRegion
 
@@ -2946,6 +3148,7 @@ ref; // ME_53AC1A82000C IsRegion
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ImportTask_SourceDir'
 
 ref; // ME_53AC1A9D01C4 SourceDir
 
@@ -2964,6 +3167,7 @@ ref; // ME_53AC1A9D01C4 SourceDir
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ImportTask_SourceFiles'
 
 ref; // ME_53BFCCCA0365 SourceFiles
 
@@ -2982,6 +3186,7 @@ ref; // ME_53BFCCCA0365 SourceFiles
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ImportTask_RegionIDList'
 
 ref; // ME_53DA15150371 RegionIDList
 
@@ -2996,6 +3201,7 @@ ref; // ME_53DA15150371 RegionIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ImportTask_SafeDir'
 
 ref; // ME_53E0AFCB0379 SafeDir
 
@@ -3010,6 +3216,7 @@ ref; // ME_53E0AFCB0379 SafeDir
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ImportTask_NeedSendMailReport'
 
 ref; // ME_54058DC70010 NeedSendMailReport
 
@@ -3060,6 +3267,7 @@ FORWARD ME_53B2547E0014
  : Parent ME_53B2547E0014 // SpellCorrectTask
  ;
  CONST Value 'Ord(cs_ttSpellCheck)'
+ CONST extprop:evd:NewTypeName 'SpellCorrectTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttSpellCheck)'
 
 ref; // ME_53B58C560352 TaskType
@@ -3080,6 +3288,7 @@ ref; // ME_53B58C560352 TaskType
  CONST "HasStoreChildTrigger" false
  CONST "MaxChildrenCount" 1
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'SpellCorrectTask_ReplacementFile'
 
 ref; // ME_53B254A7024F ReplacementFile
 
@@ -3123,6 +3332,7 @@ FORWARD ME_53B26E3A0093
  : Parent ME_53B26E3A0093 // UserDefinedExportTask
  ;
  CONST Value 'Ord(cs_ttUserDefinedExport)'
+ CONST extprop:evd:NewTypeName 'UserDefinedExportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttUserDefinedExport)'
 
 ref; // ME_53B58BCA0287 TaskType
@@ -3138,6 +3348,7 @@ ref; // ME_53B58BCA0287 TaskType
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'UserDefinedExportTask_QueryFile'
 
 ref; // ME_53B26E8901D9 QueryFile
 
@@ -3152,6 +3363,7 @@ ref; // ME_53B26E8901D9 QueryFile
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'UserDefinedExportTask_TimeToRun'
 
 ref; // ME_53B26EA70272 TimeToRun
 
@@ -3196,6 +3408,7 @@ FORWARD ME_53ECACE50004
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'CourtDecisionPhrase_Phrase'
 
 ref; // ME_53ECAD4A0357 Phrase
 
@@ -3239,6 +3452,7 @@ FORWARD ME_53B243A00171
  : Parent ME_53B243A00171 // ClientMessage
  ;
  CONST Value 'Ord(cs_ttClientMessage)'
+ CONST extprop:evd:NewTypeName 'ClientMessage_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttClientMessage)'
 
 ref; // ME_53B5879803D7 TaskType
@@ -3257,6 +3471,7 @@ FORWARD ME_53B2424703C7
  : Target ME_53B2424703C7 // TCsNotificationType
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ClientMessage_NotifyType'
 
 ref; // ME_53B2440C004D NotifyType
 
@@ -3271,6 +3486,7 @@ ref; // ME_53B2440C004D NotifyType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'ClientMessage_Data'
 
 ref; // ME_53B2443401CE Data
 
@@ -3285,6 +3501,7 @@ ref; // ME_53B2443401CE Data
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ClientMessage_Text'
 
 ref; // ME_53B24452010E Text
 
@@ -3330,6 +3547,7 @@ FORWARD ME_53DB48550331
  : Parent ME_53DB48550331 // AnoncedExportTask
  ;
  CONST Value 'Ord(cs_ttAnoncedExport)'
+ CONST extprop:evd:NewTypeName 'AnoncedExportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAnoncedExport)'
 
 ref; // ME_53DB48760347 TaskType
@@ -3346,6 +3564,7 @@ ref; // ME_53DB48760347 TaskType
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AnoncedExportTask_OnThursdayMode'
 
 ref; // ME_53DB48DE02D1 OnThursdayMode
 
@@ -3360,6 +3579,7 @@ ref; // ME_53DB48DE02D1 OnThursdayMode
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnoncedExportTask_NotifyEMailList'
 
 ref; // ME_53DB491703C4 NotifyEMailList
 
@@ -3374,6 +3594,7 @@ ref; // ME_53DB491703C4 NotifyEMailList
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AnoncedExportTask_AnoncedDate'
 
 ref; // ME_53DB497800AA AnoncedDate
 
@@ -3392,6 +3613,7 @@ ref; // ME_53DB497800AA AnoncedDate
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AnoncedExportTask_AccGroupsIDList'
 
 ref; // ME_53DB49A3008C AccGroupsIDList
 
@@ -3438,6 +3660,7 @@ FORWARD ME_53DF66B20223
  : Parent ME_53DF66B20223 // HavanskyExportTask
  ;
  CONST Value 'ord(cs_ttHavanskyExport)'
+ CONST extprop:evd:NewTypeName 'HavanskyExportTask_TaskType'
  CONST extprop:pas:Value 'ord(cs_ttHavanskyExport)'
 
 ref; // ME_53DF66D80030 TaskType
@@ -3481,6 +3704,7 @@ FORWARD ME_53E0C9390212
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'TaskResult_TaskID'
 
 ref; // ME_53E0C94A0370 TaskID
 
@@ -3502,6 +3726,10 @@ ref; // ME_53E0C94A0370 TaskID
    Seq: ( ME_53E0C94A0370 // TaskID
  )
  ; // Attributes
+ : Implementors
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.pas.ms.script' // TcsTaskResult
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'leaf'
@@ -3524,6 +3752,7 @@ FORWARD ME_53E0C96903D4
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ImportTaskResult_MailBody'
 
 ref; // ME_53E0C9C70041 MailBody
 
@@ -3542,6 +3771,7 @@ ref; // ME_53E0C9C70041 MailBody
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ImportTaskResult_ImportedDocList'
 
 ref; // ME_53E0C9D80027 ImportedDocList
 
@@ -3556,6 +3786,7 @@ ref; // ME_53E0C9D80027 ImportedDocList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ImportTaskResult_UserNotification'
 
 ref; // ME_53E0CA0903C6 UserNotification
 
@@ -3570,6 +3801,7 @@ ref; // ME_53E0CA0903C6 UserNotification
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ImportTaskResult_MailSubject'
 
 ref; // ME_53E0CA2D0302 MailSubject
 
@@ -3584,6 +3816,7 @@ ref; // ME_53E0CA2D0302 MailSubject
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ImportTaskResult_EMailSubject'
 
 ref; // ME_53E0CA4103E5 EMailSubject
 
@@ -3630,6 +3863,7 @@ FORWARD ME_53E325370145
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'RelPublishTaskResult_MailBody'
 
 ref; // ME_53E325BE0081 MailBody
 
@@ -3644,6 +3878,7 @@ ref; // ME_53E325BE0081 MailBody
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'RelPublishTaskResult_IsError'
 
 ref; // ME_53E325DB0341 IsError
 
@@ -3687,6 +3922,7 @@ FORWARD ME_53EB0B5401DC
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AACImportTaskResult_IsSuccess'
 
 ref; // ME_53EB0B8901DA IsSuccess
 
@@ -3701,6 +3937,7 @@ ref; // ME_53EB0B8901DA IsSuccess
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImportTaskResult_AttachFileName'
 
 ref; // ME_53EB0B93033B AttachFileName
 
@@ -3715,6 +3952,7 @@ ref; // ME_53EB0B93033B AttachFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImportTaskResult_MailBody'
 
 ref; // ME_53EB0BA90122 MailBody
 
@@ -3729,6 +3967,7 @@ ref; // ME_53EB0BA90122 MailBody
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AACImportTaskResult_NeedRestart'
 
 ref; // ME_540EF3350239 NeedRestart
 
@@ -3774,6 +4013,7 @@ FORWARD ME_53ECAC500028
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'CourtDescription_Name'
 
 ref; // ME_53ECAC9B0090 Name
 
@@ -3788,6 +4028,7 @@ ref; // ME_53ECAC9B0090 Name
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'CourtDescription_SourceID'
 
 ref; // ME_53ECACA90247 SourceID
 
@@ -3802,6 +4043,7 @@ ref; // ME_53ECACA90247 SourceID
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'CourtDescription_NeedProcess'
 
 ref; // ME_53ECACD1024D NeedProcess
 
@@ -3820,6 +4062,7 @@ ref; // ME_53ECACD1024D NeedProcess
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'CourtDescription_DecisionPhrases'
 
 ref; // ME_53ECAD0A010F DecisionPhrases
 
@@ -3866,6 +4109,7 @@ FORWARD ME_53ECABA803E2
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'CourtDecisionSabCheckerParams_DocTypeID'
 
 ref; // ME_53ECABF601E0 DocTypeID
 
@@ -3881,6 +4125,7 @@ ref; // ME_53ECABF601E0 DocTypeID
  : Target ME_53B4419E02D0 // DateTime
  ;
  CONST "ifndef" 'Region'
+ CONST extprop:evd:NewTypeName 'CourtDecisionSabCheckerParams_LastUpdateDate'
 
 ref; // ME_53ECAC020324 LastUpdateDate
 
@@ -3895,6 +4140,7 @@ ref; // ME_53ECAC020324 LastUpdateDate
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'CourtDecisionSabCheckerParams_NotifyList'
 
 ref; // ME_53ECAC3700EC NotifyList
 
@@ -3913,6 +4159,7 @@ ref; // ME_53ECAC3700EC NotifyList
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'CourtDecisionSabCheckerParams_CourtsList'
 
 ref; // ME_53ECAC670042 CourtsList
 
@@ -3927,6 +4174,7 @@ ref; // ME_53ECAC670042 CourtsList
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'CourtDecisionSabCheckerParams_IsParamsValid'
 
 ref; // ME_53EDB4360001 IsParamsValid
 
@@ -3974,6 +4222,7 @@ FORWARD ME_53B6BD7701FF
  : Parent ME_53B6BD7701FF // AACImport
  ;
  CONST Value 'Ord(cs_ttAACImport)'
+ CONST extprop:evd:NewTypeName 'AACImport_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttAACImport)'
 
 ref; // ME_53B6BDA00275 TaskType
@@ -3989,6 +4238,7 @@ ref; // ME_53B6BDA00275 TaskType
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_ManualMode'
 
 ref; // ME_53E47D200107 ManualMode
 
@@ -4003,6 +4253,7 @@ ref; // ME_53E47D200107 ManualMode
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_CreatedByServer'
 
 ref; // ME_53E8966E012E CreatedByServer
 
@@ -4017,6 +4268,7 @@ ref; // ME_53E8966E012E CreatedByServer
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_LogsFolder'
 
 ref; // ME_53EB0B3A0164 LogsFolder
 
@@ -4031,6 +4283,7 @@ ref; // ME_53EB0B3A0164 LogsFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_DestinationFolder'
 
 ref; // ME_53EB0BCD03C8 DestinationFolder
 
@@ -4045,6 +4298,7 @@ ref; // ME_53EB0BCD03C8 DestinationFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_ZippedLogsFolder'
 
 ref; // ME_53EB327703A9 ZippedLogsFolder
 
@@ -4059,6 +4313,7 @@ ref; // ME_53EB327703A9 ZippedLogsFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_MailToLog'
 
 ref; // ME_53EB32860075 MailToLog
 
@@ -4073,6 +4328,7 @@ ref; // ME_53EB32860075 MailToLog
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_DuplicatesFolder'
 
 ref; // ME_53EB3EAE01A0 DuplicatesFolder
 
@@ -4088,6 +4344,7 @@ ref; // ME_53EB3EAE01A0 DuplicatesFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_LinkDataFile'
 
 ref; // ME_53EB4C810305 LinkDataFile
 
@@ -4103,6 +4360,7 @@ ref; // ME_53EB4C810305 LinkDataFile
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_KeyThemesFile'
 
 ref; // ME_53EB4CDE0001 KeyThemesFile
 
@@ -4121,6 +4379,7 @@ ref; // ME_53EB4CDE0001 KeyThemesFile
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AACImport_SourceIDList'
 
 ref; // ME_53EB4DE30021 SourceIDList
 
@@ -4135,6 +4394,7 @@ ref; // ME_53EB4DE30021 SourceIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_BaseArchiveName'
 
 ref; // ME_53EB6B0A01E4 BaseArchiveName
 
@@ -4153,6 +4413,7 @@ ref; // ME_53EB6B0A01E4 BaseArchiveName
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AACImport_DossierSourceIDList'
 
 ref; // ME_53EC586D03C8 DossierSourceIDList
 
@@ -4167,6 +4428,7 @@ ref; // ME_53EC586D03C8 DossierSourceIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_MisspellsFileName'
 
 ref; // ME_53EC5892036F MisspellsFileName
 
@@ -4181,6 +4443,7 @@ ref; // ME_53EC5892036F MisspellsFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_FASCorrectFileName'
 
 ref; // ME_53EC58AD02A5 FASCorrectFileName
 
@@ -4199,6 +4462,7 @@ ref; // ME_53EC58AD02A5 FASCorrectFileName
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AACImport_DocTypesIDList'
 
 ref; // ME_53EC58C600B4 DocTypesIDList
 
@@ -4217,6 +4481,7 @@ ref; // ME_53EC58C600B4 DocTypesIDList
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AACImport_FASSourceIDList'
 
 ref; // ME_53EC58E90194 FASSourceIDList
 
@@ -4231,6 +4496,7 @@ ref; // ME_53EC58E90194 FASSourceIDList
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_SourceConvertFileName'
 
 ref; // ME_53EC590500C1 SourceConvertFileName
 
@@ -4245,6 +4511,7 @@ ref; // ME_53EC590500C1 SourceConvertFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_TypeRecodeFileName'
 
 ref; // ME_53EC592100FE TypeRecodeFileName
 
@@ -4259,6 +4526,7 @@ ref; // ME_53EC592100FE TypeRecodeFileName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_SourceFileName'
 
 ref; // ME_53EC593A0045 SourceFileName
 
@@ -4273,6 +4541,7 @@ ref; // ME_53EC593A0045 SourceFileName
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_PartialLoadPackSize'
 
 ref; // ME_53EC598A024F PartialLoadPackSize
 
@@ -4287,6 +4556,7 @@ ref; // ME_53EC598A024F PartialLoadPackSize
  ;
  : Target ME_53ECABA803E2 // CourtDecisionSabCheckerParams
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_CourtDecisionSabCheckerParams'
 
 ref; // ME_53EDAF730031 CourtDecisionSabCheckerParams
 
@@ -4301,6 +4571,7 @@ ref; // ME_53EDAF730031 CourtDecisionSabCheckerParams
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AACImport_TaskCountBeforeRun'
 
 ref; // ME_544F77FE00B7 TaskCountBeforeRun
 
@@ -4366,6 +4637,7 @@ FORWARD ME_53F465FA018E
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTaskResult_ReportMessage'
 
 ref; // ME_53F4663200EC ReportMessage
 
@@ -4380,6 +4652,7 @@ ref; // ME_53F4663200EC ReportMessage
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoClassTaskResult_MissedDocsStr'
 
 ref; // ME_53F4664401B9 MissedDocsStr
 
@@ -4398,6 +4671,7 @@ ref; // ME_53F4664401B9 MissedDocsStr
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'AutoClassTaskResult_DocumentIDList'
 
 ref; // ME_53F46692010A DocumentIDList
 
@@ -4442,6 +4716,7 @@ FORWARD ME_53F6EAC1000E
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_NeedReport'
 
 ref; // ME_53F6EB390163 NeedReport
 
@@ -4456,6 +4731,7 @@ ref; // ME_53F6EB390163 NeedReport
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_IsSuccess'
 
 ref; // ME_53F6EB4502D4 IsSuccess
 
@@ -4470,6 +4746,7 @@ ref; // ME_53F6EB4502D4 IsSuccess
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_NextDate'
 
 ref; // ME_53F6EB5502A0 NextDate
 
@@ -4484,6 +4761,7 @@ ref; // ME_53F6EB5502A0 NextDate
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_ReportMessage'
 
 ref; // ME_53F6EB6C02A6 ReportMessage
 
@@ -4498,6 +4776,7 @@ ref; // ME_53F6EB6C02A6 ReportMessage
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_ReportSubject'
 
 ref; // ME_53F6EBD502C1 ReportSubject
 
@@ -4512,6 +4791,7 @@ ref; // ME_53F6EBD502C1 ReportSubject
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_ReportAttach'
 
 ref; // ME_53F6EBE7000A ReportAttach
 
@@ -4526,6 +4806,7 @@ ref; // ME_53F6EBE7000A ReportAttach
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_NeedSendToRobot'
 
 ref; // ME_53FC35B40202 NeedSendToRobot
 
@@ -4540,6 +4821,7 @@ ref; // ME_53FC35B40202 NeedSendToRobot
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_RobotMessage'
 
 ref; // ME_53FC35D401CE RobotMessage
 
@@ -4554,6 +4836,7 @@ ref; // ME_53FC35D401CE RobotMessage
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AnnotationTaskResult_RobotAttach'
 
 ref; // ME_53FC35EA0024 RobotAttach
 
@@ -4604,6 +4887,7 @@ FORWARD ME_53FD7EBB0066
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoSpellTaskResult_ReportMessage'
 
 ref; // ME_53FD7F36025D ReportMessage
 
@@ -4618,6 +4902,7 @@ ref; // ME_53FD7F36025D ReportMessage
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoSpellTaskResult_ReportAttach'
 
 ref; // ME_53FD7F4101F6 ReportAttach
 
@@ -4661,6 +4946,7 @@ FORWARD ME_540018FF02F8
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTaskResult_ReportMessage'
 
 ref; // ME_5400194801BB ReportMessage
 
@@ -4675,6 +4961,7 @@ ref; // ME_5400194801BB ReportMessage
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'AutoExportTaskResult_IsSuccess'
 
 ref; // ME_540556A70042 IsSuccess
 
@@ -4718,6 +5005,7 @@ FORWARD ME_54041A92002E
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_ServerName'
 
 ref; // ME_54041ADF00FD ServerName
 
@@ -4732,6 +5020,7 @@ ref; // ME_54041ADF00FD ServerName
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_Port'
 
 ref; // ME_54041AF101AE Port
 
@@ -4746,6 +5035,7 @@ ref; // ME_54041AF101AE Port
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_Login'
 
 ref; // ME_54041B00030A Login
 
@@ -4760,6 +5050,7 @@ ref; // ME_54041B00030A Login
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_Password'
 
 ref; // ME_54041B0E037C Password
 
@@ -4774,6 +5065,7 @@ ref; // ME_54041B0E037C Password
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_PassiveMode'
 
 ref; // ME_54041B1C0122 PassiveMode
 
@@ -4788,6 +5080,7 @@ ref; // ME_54041B1C0122 PassiveMode
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_RemoteFolder'
 
 ref; // ME_54041B6D02E6 RemoteFolder
 
@@ -4802,6 +5095,7 @@ ref; // ME_54041B6D02E6 RemoteFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'FTPBrowser_LogTitle'
 
 ref; // ME_540464F903AC LogTitle
 
@@ -4851,6 +5145,7 @@ FORWARD ME_5404620A011C
  : Parent ME_5404620A011C // RegionAutoExportTask
  ;
  CONST Value 'Ord(cs_ttRegionAutoExport)'
+ CONST extprop:evd:NewTypeName 'RegionAutoExportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttRegionAutoExport)'
 
 ref; // ME_540462240047 TaskType
@@ -4866,6 +5161,7 @@ ref; // ME_540462240047 TaskType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'RegionAutoExportTask_RegionIndex'
 
 ref; // ME_540462970165 RegionIndex
 
@@ -4880,6 +5176,7 @@ ref; // ME_540462970165 RegionIndex
  ;
  : Target ME_54041A92002E // FTPBrowser
  ;
+ CONST extprop:evd:NewTypeName 'RegionAutoExportTask_FTPParams'
 
 ref; // ME_540462A302ED FTPParams
 
@@ -4894,6 +5191,7 @@ ref; // ME_540462A302ED FTPParams
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'RegionAutoExportTask_FileNameMask'
 
 ref; // ME_54055892013D FileNameMask
 
@@ -4908,6 +5206,7 @@ ref; // ME_54055892013D FileNameMask
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'RegionAutoExportTask_ResultWarehouse'
 
 ref; // ME_54085C1402B2 ResultWarehouse
 
@@ -4954,6 +5253,7 @@ FORWARD ME_5406C7740109
  : Parent ME_5406C7740109 // RegionImportTask
  ;
  CONST Value 'Ord(cs_ttRegionImport)'
+ CONST extprop:evd:NewTypeName 'RegionImportTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttRegionImport)'
 
 ref; // ME_5704C82F0295 TaskType
@@ -4969,6 +5269,7 @@ ref; // ME_5704C82F0295 TaskType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'RegionImportTask_RegionIndex'
 
 ref; // ME_5406C7D70142 RegionIndex
 
@@ -4983,6 +5284,7 @@ ref; // ME_5406C7D70142 RegionIndex
  ;
  : Target ME_54041A92002E // FTPBrowser
  ;
+ CONST extprop:evd:NewTypeName 'RegionImportTask_FTPParams'
 
 ref; // ME_5406C7E5026C FTPParams
 
@@ -4997,6 +5299,7 @@ ref; // ME_5406C7E5026C FTPParams
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'RegionImportTask_FileNameMask'
 
 ref; // ME_5406C7F603BE FileNameMask
 
@@ -5011,6 +5314,7 @@ ref; // ME_5406C7F603BE FileNameMask
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'RegionImportTask_SourceWarehouse'
 
 ref; // ME_54085C280119 SourceWarehouse
 
@@ -5057,6 +5361,7 @@ FORWARD ME_5408637A0060
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'RegionImportTaskResult_HasMoreFilesToProcess'
 
 ref; // ME_540863AC0072 HasMoreFilesToProcess
 
@@ -5099,6 +5404,7 @@ FORWARD ME_54327F640135
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_Login'
 
 ref; // ME_543282E4039A Login
 
@@ -5113,6 +5419,7 @@ ref; // ME_543282E4039A Login
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_Password'
 
 ref; // ME_543282FF00F9 Password
 
@@ -5127,6 +5434,7 @@ ref; // ME_543282FF00F9 Password
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_DocStoragePath'
 
 ref; // ME_543D02A401E9 DocStoragePath
 
@@ -5141,6 +5449,7 @@ ref; // ME_543D02A401E9 DocStoragePath
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_DocImagePath'
 
 ref; // ME_543D02B40346 DocImagePath
 
@@ -5155,6 +5464,7 @@ ref; // ME_543D02B40346 DocImagePath
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_HomeDirPath'
 
 ref; // ME_543D23E20022 HomeDirPath
 
@@ -5169,6 +5479,7 @@ ref; // ME_543D23E20022 HomeDirPath
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_DocBaseVersion'
 
 ref; // ME_5518FA990166 DocBaseVersion
 
@@ -5183,6 +5494,7 @@ ref; // ME_5518FA990166 DocBaseVersion
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'DataProviderParams_AdminBaseVersion'
 
 ref; // ME_5518FAA90219 AdminBaseVersion
 
@@ -5232,6 +5544,7 @@ FORWARD ME_5432829E0143
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'HyTechProviderParams_StationName'
 
 ref; // ME_543D22E9011A StationName
 
@@ -5246,6 +5559,7 @@ ref; // ME_543D22E9011A StationName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'HyTechProviderParams_TablePath'
 
 ref; // ME_543D22F90101 TablePath
 
@@ -5260,6 +5574,7 @@ ref; // ME_543D22F90101 TablePath
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'HyTechProviderParams_TmpDirPath'
 
 ref; // ME_543D23860342 TmpDirPath
 
@@ -5274,6 +5589,7 @@ ref; // ME_543D23860342 TmpDirPath
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'HyTechProviderParams_LockPath'
 
 ref; // ME_543D23B5024D LockPath
 
@@ -5319,6 +5635,7 @@ FORWARD ME_543282B3006A
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'PostgresProviderParams_DataServerHostName'
 
 ref; // ME_543283890207 DataServerHostName
 
@@ -5333,6 +5650,7 @@ ref; // ME_543283890207 DataServerHostName
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'PostgresProviderParams_DataServerPort'
 
 ref; // ME_543283960341 DataServerPort
 
@@ -5383,6 +5701,7 @@ FORWARD ME_5461CFB8002C
  : ValueType ME_5461CFB8002C // TncsMessageKind
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'csMessage_Kind'
  CONST extprop:pas:Value 'evdNcsTypes.ord(ncs_mkSignal)'
 
 ref; // ME_5461CB4202EA Kind
@@ -5399,6 +5718,7 @@ ref; // ME_5461CB4202EA Kind
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csMessage_MessageID'
 
 ref; // ME_544E01DD03DC MessageID
 
@@ -5413,6 +5733,7 @@ ref; // ME_544E01DD03DC MessageID
  ;
  : Target ME_53B4419E02D0 // DateTime
  ;
+ CONST extprop:evd:NewTypeName 'csMessage_TimeStamp'
 
 ref; // ME_545091E702AE TimeStamp
 
@@ -5458,6 +5779,7 @@ FORWARD ME_544E02580378
  : Parent ME_544E02580378 // csLogin
  ;
  CONST Value 'ord(ncs_mkMessage)'
+ CONST extprop:evd:NewTypeName 'csLogin_Kind'
  CONST extprop:pas:Value 'ord(ncs_mkMessage)'
 
 ref; // ME_5461EE1F02CC Kind
@@ -5473,6 +5795,7 @@ ref; // ME_5461EE1F02CC Kind
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csLogin_ServerHost'
 
 ref; // ME_544E029100FE ServerHost
 
@@ -5487,6 +5810,7 @@ ref; // ME_544E029100FE ServerHost
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csLogin_Login'
 
 ref; // ME_544E02BB01AD Login
 
@@ -5501,6 +5825,7 @@ ref; // ME_544E02BB01AD Login
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csLogin_Password'
 
 ref; // ME_544E02C400ED Password
 
@@ -5515,6 +5840,7 @@ ref; // ME_544E02C400ED Password
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'csLogin_ServerPort'
 
 ref; // ME_544E031700EA ServerPort
 
@@ -5561,6 +5887,7 @@ FORWARD ME_5461EDFB01EB
  : Parent ME_5461EDFB01EB // csLoginReply
  ;
  CONST Value 'ord(ncs_mkReply)'
+ CONST extprop:evd:NewTypeName 'csLoginReply_Kind'
  CONST extprop:pas:Value 'ord(ncs_mkReply)'
 
 ref; // ME_547C1D25036B Kind
@@ -5604,6 +5931,7 @@ FORWARD ME_546B3FB60258
  : Parent ME_546B3FB60258 // csMessageWithReply
  ;
  CONST Value 'ord(ncs_mkMessage)'
+ CONST extprop:evd:NewTypeName 'csMessageWithReply_Kind'
  CONST extprop:pas:Value 'ord(ncs_mkMessage)'
 
 ref; // ME_5464590B020E Kind
@@ -5647,8 +5975,11 @@ FORWARD ME_546477C50366
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'TaskID_Name'
 
 ref; // ME_546477D40051 Name
+
+FORWARD ME_54646E8C02EB
 
 : ME_546477C50366
  CONST UID '546477C50366'
@@ -5668,6 +5999,10 @@ ref; // ME_546477D40051 Name
    Seq: ( ME_546477D40051 // Name
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_54646E8C02EB // TasksIDListHelper
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'leaf'
@@ -5690,6 +6025,7 @@ FORWARD ME_546B3F86038D
  : Parent ME_546B3F86038D // csReply
  ;
  CONST Value 'ord(ncs_mkReply)'
+ CONST extprop:evd:NewTypeName 'csReply_Kind'
  CONST extprop:pas:Value 'ord(ncs_mkReply)'
 
 ref; // ME_5464594A0128 Kind
@@ -5737,6 +6073,7 @@ FORWARD ME_5464592501C4
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'csGetReadyToDeliveryTasksReply_TasksIDList'
 
 ref; // ME_546459EA0108 TasksIDList
 
@@ -5779,6 +6116,7 @@ FORWARD ME_546458310155
  ;
  : Target ME_53B3EA0502FD // ULong
  ;
+ CONST extprop:evd:NewTypeName 'csGetReadyToDeliveryTasks_UserID'
 
 ref; // ME_546459BB01D1 UserID
 
@@ -5821,6 +6159,7 @@ FORWARD ME_546B3FE30185
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csGetTaskDescription_TaskID'
 
 ref; // ME_546B401B014D TaskID
 
@@ -5863,6 +6202,7 @@ FORWARD ME_546C4EED0383
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'FileDesc_Name'
 
 ref; // ME_546C4F3F0074 Name
 
@@ -5877,6 +6217,7 @@ ref; // ME_546C4F3F0074 Name
  ;
  : Target ME_53B3EA0502FD // ULong
  ;
+ CONST extprop:evd:NewTypeName 'FileDesc_CRC'
 
 ref; // ME_546C508B0159 CRC
 
@@ -5891,6 +6232,7 @@ ref; // ME_546C508B0159 CRC
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'FileDesc_DateTime'
 
 ref; // ME_546C509E01F6 DateTime
 
@@ -5905,6 +6247,7 @@ ref; // ME_546C509E01F6 DateTime
  ;
  : Target WL 'ME_4E2EA10A004D' '4849284D0067.pas.ms.script' // Int64
  ;
+ CONST extprop:evd:NewTypeName 'FileDesc_Size'
 
 ref; // ME_546C5B5A0288 Size
 
@@ -5951,6 +6294,7 @@ FORWARD ME_546B402F00FF
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csGetTaskDescriptionReply_LocalFolder'
 
 ref; // ME_546B40600110 LocalFolder
 
@@ -5965,6 +6309,7 @@ ref; // ME_546B40600110 LocalFolder
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csGetTaskDescriptionReply_RemoteFolder'
 
 ref; // ME_546B407F0340 RemoteFolder
 
@@ -5983,6 +6328,7 @@ ref; // ME_546B407F0340 RemoteFolder
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'csGetTaskDescriptionReply_FileDesc'
 
 ref; // ME_546EFFFD0346 FileDesc
 
@@ -6027,6 +6373,7 @@ FORWARD ME_546EED6C0081
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'TaskedFileDesc_TaskID'
 
 ref; // ME_546EED940095 TaskID
 
@@ -6041,6 +6388,7 @@ ref; // ME_546EED940095 TaskID
  ;
  : Target WL 'ME_4E2EA10A004D' '4849284D0067.pas.ms.script' // Int64
  ;
+ CONST extprop:evd:NewTypeName 'TaskedFileDesc_CopiedSize'
 
 ref; // ME_5472F3E600E5 CopiedSize
 
@@ -6084,6 +6432,7 @@ FORWARD ME_547467D501F3
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csTaskProgress_TaskID'
 
 ref; // ME_5474680F01F4 TaskID
 
@@ -6098,6 +6447,7 @@ ref; // ME_5474680F01F4 TaskID
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csTaskProgress_Description'
 
 ref; // ME_5474681900FA Description
 
@@ -6112,6 +6462,7 @@ ref; // ME_5474681900FA Description
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'csTaskProgress_Percent'
 
 ref; // ME_547468450371 Percent
 
@@ -6156,6 +6507,7 @@ FORWARD ME_54757F3402F2
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csDeliveryResult_TaskID'
 
 ref; // ME_54757F73007F TaskID
 
@@ -6173,6 +6525,7 @@ FORWARD ME_54996019037A
  : Target ME_54996019037A // TncsResultKind
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'csDeliveryResult_ResultKind'
 
 ref; // ME_54757F81027B ResultKind
 
@@ -6216,6 +6569,7 @@ FORWARD ME_54757F9E023E
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csGetFilePart_TaskID'
 
 ref; // ME_54758018026D TaskID
 
@@ -6231,6 +6585,7 @@ ref; // ME_54758018026D TaskID
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csGetFilePart_FileName'
 
 ref; // ME_5475802000CB FileName
 
@@ -6245,6 +6600,7 @@ ref; // ME_5475802000CB FileName
  ;
  : Target WL 'ME_4E2EA10A004D' '4849284D0067.pas.ms.script' // Int64
  ;
+ CONST extprop:evd:NewTypeName 'csGetFilePart_Offset'
 
 ref; // ME_5475804B023D Offset
 
@@ -6259,6 +6615,7 @@ ref; // ME_5475804B023D Offset
  ;
  : Target WL 'ME_4E2EA10A004D' '4849284D0067.pas.ms.script' // Int64
  ;
+ CONST extprop:evd:NewTypeName 'csGetFilePart_PartSize'
 
 ref; // ME_5475809201F2 PartSize
 
@@ -6304,6 +6661,7 @@ FORWARD ME_54757FAF00AE
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'csGetFilePartReply_IsSuccess'
 
 ref; // ME_548AC5630152 IsSuccess
 
@@ -6390,6 +6748,7 @@ FORWARD ME_5485597C038C
  ;
  : Target WL 'ME_48492B0701D8' '4849284D0067.pas.ms.script' // RawData
  ;
+ CONST extprop:evd:NewTypeName 'csSendTask_Data'
 
 ref; // ME_548559C803C2 Data
 
@@ -6432,6 +6791,7 @@ FORWARD ME_548559940319
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'csSendTaskReply_IsSuccess'
 
 ref; // ME_5485974F007B IsSuccess
 
@@ -6474,6 +6834,7 @@ FORWARD ME_54893DC0002B
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csPushFilePart_TaskID'
 
 ref; // ME_54893E14035F TaskID
 
@@ -6488,6 +6849,7 @@ ref; // ME_54893E14035F TaskID
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csPushFilePart_FileName'
 
 ref; // ME_54893E1F01E7 FileName
 
@@ -6502,6 +6864,7 @@ ref; // ME_54893E1F01E7 FileName
  ;
  : Target WL 'ME_4E2EA10A004D' '4849284D0067.pas.ms.script' // Int64
  ;
+ CONST extprop:evd:NewTypeName 'csPushFilePart_Offset'
 
 ref; // ME_54893E2D0126 Offset
 
@@ -6516,6 +6879,7 @@ ref; // ME_54893E2D0126 Offset
  ;
  : Target WL 'ME_4E2EA10A004D' '4849284D0067.pas.ms.script' // Int64
  ;
+ CONST extprop:evd:NewTypeName 'csPushFilePart_PartSize'
 
 ref; // ME_54893E36032A PartSize
 
@@ -6530,6 +6894,7 @@ ref; // ME_54893E36032A PartSize
  ;
  : Target WL 'ME_48492B0701D8' '4849284D0067.pas.ms.script' // RawData
  ;
+ CONST extprop:evd:NewTypeName 'csPushFilePart_Data'
 
 ref; // ME_54893E3F033C Data
 
@@ -6576,6 +6941,7 @@ FORWARD ME_549AA3D90143
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csCorrectFolder_TaskID'
 
 ref; // ME_549AA4490237 TaskID
 
@@ -6590,6 +6956,7 @@ ref; // ME_549AA4490237 TaskID
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csCorrectFolder_NewFolder'
 
 ref; // ME_549AA45203BE NewFolder
 
@@ -6633,6 +7000,7 @@ FORWARD ME_53BA76BC00D8
  : Parent ME_53BA76BC00D8 // RelPublishTask
  ;
  CONST Value 'Ord(cs_ttRelPublish)'
+ CONST extprop:evd:NewTypeName 'RelPublishTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttRelPublish)'
 
 ref; // ME_53BA76CF0215 TaskType
@@ -6676,6 +7044,7 @@ FORWARD ME_54B66A07038B
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'csGetPartialTaskDescription_FileName'
 
 ref; // ME_54B66A4303CA FileName
 
@@ -6718,6 +7087,7 @@ FORWARD ME_55E96E5502D6
  : Parent ME_55E96E5502D6 // mdpSyncDicts
  ;
  CONST Value 'Ord(cs_ttMdpSyncDicts)'
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttMdpSyncDicts)'
 
 ref; // ME_55E96E6A01BD TaskType
@@ -6733,6 +7103,7 @@ ref; // ME_55E96E6A01BD TaskType
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_SyncFolderMask'
 
 ref; // ME_55E96F0B0221 SyncFolderMask
 
@@ -6747,6 +7118,7 @@ ref; // ME_55E96F0B0221 SyncFolderMask
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_GuardName'
 
 ref; // ME_55ED4DA1031C GuardName
 
@@ -6761,6 +7133,7 @@ ref; // ME_55ED4DA1031C GuardName
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_SyncURL'
 
 ref; // ME_55ED6A300345 SyncURL
 
@@ -6775,6 +7148,7 @@ ref; // ME_55ED6A300345 SyncURL
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_UseProxy'
 
 ref; // ME_55ED6A5202C1 UseProxy
 
@@ -6789,6 +7163,7 @@ ref; // ME_55ED6A5202C1 UseProxy
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_ProxyServer'
 
 ref; // ME_55ED6A620180 ProxyServer
 
@@ -6803,6 +7178,7 @@ ref; // ME_55ED6A620180 ProxyServer
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_ProxyPort'
 
 ref; // ME_55ED6A7002A2 ProxyPort
 
@@ -6817,6 +7193,7 @@ ref; // ME_55ED6A7002A2 ProxyPort
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_ProxyLogin'
 
 ref; // ME_55ED6A880164 ProxyLogin
 
@@ -6831,6 +7208,7 @@ ref; // ME_55ED6A880164 ProxyLogin
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncDicts_ProxyPassword'
 
 ref; // ME_55ED6A94026A ProxyPassword
 
@@ -6881,6 +7259,7 @@ FORWARD ME_55EEBECD01B5
  : Parent ME_55EEBECD01B5 // mdpImportDocs
  ;
  CONST Value 'Ord(cs_ttMdpImportDocs)'
+ CONST extprop:evd:NewTypeName 'mdpImportDocs_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttMdpImportDocs)'
 
 ref; // ME_55EEBEF60186 TaskType
@@ -6896,6 +7275,7 @@ ref; // ME_55EEBEF60186 TaskType
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpImportDocs_Mail'
 
 ref; // ME_55EFE18C021F Mail
 
@@ -6910,6 +7290,7 @@ ref; // ME_55EFE18C021F Mail
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpImportDocs_ErrorMail'
 
 ref; // ME_55EFE19400EB ErrorMail
 
@@ -6924,6 +7305,7 @@ ref; // ME_55EFE19400EB ErrorMail
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'mdpImportDocs_MaxCount'
 
 ref; // ME_55EFE1A501A2 MaxCount
 
@@ -6969,6 +7351,7 @@ FORWARD ME_56A86C8401FD
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ComboAccessProviderParams_DataServerHostName'
 
 ref; // ME_56B998300115 DataServerHostName
 
@@ -6983,6 +7366,7 @@ ref; // ME_56B998300115 DataServerHostName
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'ComboAccessProviderParams_DataServerPort'
 
 ref; // ME_56B998460047 DataServerPort
 
@@ -7026,6 +7410,7 @@ FORWARD ME_56FE456C0292
  : Parent ME_56FE456C0292 // ContainerTask
  ;
  CONST Value 'Ord(cs_ttContainer)'
+ CONST extprop:evd:NewTypeName 'ContainerTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttContainer)'
 
 ref; // ME_56FE46300390 TaskType
@@ -7045,6 +7430,7 @@ ref; // ME_56FE46300390 TaskType
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'ContainerTask_TasksList'
 
 ref; // ME_56FE45A60292 TasksList
 
@@ -7059,6 +7445,7 @@ ref; // ME_56FE45A60292 TasksList
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'ContainerTask_ParallelExecutionMode'
 
 ref; // ME_5703BFC701D0 ParallelExecutionMode
 
@@ -7103,6 +7490,7 @@ FORWARD ME_5706552C0169
  : Parent ME_5706552C0169 // SchedulerProxyTask
  ;
  CONST Value 'Ord(cs_ttSchedulerProxy)'
+ CONST extprop:evd:NewTypeName 'SchedulerProxyTask_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttSchedulerProxy)'
 
 ref; // ME_570655660218 TaskType
@@ -7118,6 +7506,7 @@ ref; // ME_570655660218 TaskType
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'SchedulerProxyTask_SchedulerTaskType'
 
 ref; // ME_570655B500EE SchedulerTaskType
 
@@ -7161,6 +7550,7 @@ FORWARD ME_573D84C30337
  : Parent ME_573D84C30337 // mdpSyncStages
  ;
  CONST Value 'Ord(cs_ttMdpSyncStages)'
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_TaskType'
  CONST extprop:pas:Value 'Ord(cs_ttMdpSyncStages)'
 
 ref; // ME_573D84E703D1 TaskType
@@ -7176,6 +7566,7 @@ ref; // ME_573D84E703D1 TaskType
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_SyncURL'
 
 ref; // ME_573D8A6E007A SyncURL
 
@@ -7190,6 +7581,7 @@ ref; // ME_573D8A6E007A SyncURL
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_UseProxy'
 
 ref; // ME_573D8A83033B UseProxy
 
@@ -7204,6 +7596,7 @@ ref; // ME_573D8A83033B UseProxy
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_ProxyServer'
 
 ref; // ME_573D8A94003C ProxyServer
 
@@ -7218,6 +7611,7 @@ ref; // ME_573D8A94003C ProxyServer
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_ProxyPort'
 
 ref; // ME_573D8AA4014C ProxyPort
 
@@ -7232,6 +7626,7 @@ ref; // ME_573D8AA4014C ProxyPort
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_ProxyLogin'
 
 ref; // ME_573D8AB002F5 ProxyLogin
 
@@ -7246,6 +7641,7 @@ ref; // ME_573D8AB002F5 ProxyLogin
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'mdpSyncStages_ProxyPassword'
 
 ref; // ME_573D8ABE01C6 ProxyPassword
 
@@ -7381,7 +7777,7 @@ ref; // ME_573D84C30337 mdpSyncStages
  )
  ; // Children
  : Injected
-   Seq: ( WL 'ME_53C51E810330' '53C51B390355.pas.ms.script' // evdTasks
+   Seq: ( WL 'ME_53C51E810330' '53C51B390355.pas.ms.script' // TddTaskItemPrim
  )
  ; // Injected
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\evdTasks_Schema.pas'
@@ -8162,8 +8558,13 @@ FORWARD ME_484AB8CD0227
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'ObjectWithHandle_Handle'
 
 ref; // ME_484AB8D701EE Handle
+
+FORWARD ME_484F93E60129
+
+FORWARD ME_485649E10305
 
 : ME_484AB8CD0227
  CONST UID '484AB8CD0227'
@@ -8180,6 +8581,15 @@ ref; // ME_484AB8D701EE Handle
    Seq: ( ME_484AB8D701EE // Handle
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484D2BAB02BB // Frame
+ ME_484D3F82010B // DictRec
+ ME_484F93E60129 // AutoClass
+ ME_484FAF4D03CC // SubLayer
+ ME_484FD1360343 // SegmentsLayer
+ ME_485649E10305 // HyperLink
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 32
@@ -8205,6 +8615,7 @@ ref; // ME_484AB8CD0227 ObjectWithHandle
  : ValueType WL 'ME_46851BB502D6' '4677FBA70343.pas.ms.script' // Tl3FontIndex
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Font_Index'
  CONST extprop:pas:Value 'l3Interfaces.l3_fiNone'
 
 ref; // ME_484CEFEA02E3 Index
@@ -8221,6 +8632,7 @@ ref; // ME_484CEFEA02E3 Index
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'Font_Bold'
 
 ref; // ME_484D0E94014D Bold
 
@@ -8236,6 +8648,7 @@ ref; // ME_484D0E94014D Bold
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'Font_Italic'
 
 ref; // ME_484D0EA40325 Italic
 
@@ -8251,6 +8664,7 @@ ref; // ME_484D0EA40325 Italic
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'Font_Underline'
 
 ref; // ME_484D0EB20282 Underline
 
@@ -8266,6 +8680,7 @@ ref; // ME_484D0EB20282 Underline
  ;
  : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'Font_Strikeout'
 
 ref; // ME_484D0EC1028D Strikeout
 
@@ -8282,6 +8697,7 @@ ref; // ME_484D0EC1028D Strikeout
  : Target WL 'ME_4683FD5B018D' '55C4AEC801CA.pas.ms.script' // TFontPitch
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Font_Pitch'
 
 ref; // ME_484CEF6A005D Pitch
 
@@ -8297,6 +8713,7 @@ ref; // ME_484CEF6A005D Pitch
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'Font_Size'
 
 ref; // ME_484CEF8E0122 Size
 
@@ -8312,6 +8729,7 @@ ref; // ME_484CEF8E0122 Size
  ;
  : Target WL 'ME_484CE9CE0107' '52669BFC024E.pas.ms.script' // FontName
  ;
+ CONST extprop:evd:NewTypeName 'Font_Name'
 
 ref; // ME_484CF010033E Name
 
@@ -8327,6 +8745,7 @@ ref; // ME_484CF010033E Name
  ;
  : Target WL 'ME_48492A930358' '4849284D0067.pas.ms.script' // Color
  ;
+ CONST extprop:evd:NewTypeName 'Font_ForeColor'
 
 ref; // ME_484D0536011B ForeColor
 
@@ -8342,6 +8761,7 @@ ref; // ME_484D0536011B ForeColor
  ;
  : Target WL 'ME_48492A930358' '4849284D0067.pas.ms.script' // Color
  ;
+ CONST extprop:evd:NewTypeName 'Font_BackColor'
 
 ref; // ME_484D05500369 BackColor
 
@@ -8391,6 +8811,10 @@ ref; // ME_485651EC02F6
    Seq: ( ME_485651EC02F6 // Tl3FontIndex
  )
  ; // Dependencies
+ : Implementors
+   Seq: ( ME_484CEEC803AD // WevFont
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 36
@@ -8415,6 +8839,7 @@ ref; // ME_484CEE9A0170 Font
  : Target ME_484D11240282 // Style
  ;
  CONST "HasBeforeChangeTrigger" true
+ CONST extprop:evd:NewTypeName 'Style_Style'
 
 ref; // ME_484FD956009E Style
 
@@ -8430,6 +8855,7 @@ ref; // ME_484FD956009E Style
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Style_Name'
 
 ref; // ME_484D11B800C7 Name
 
@@ -8453,6 +8879,11 @@ ref; // ME_484D11B800C7 Name
  ME_484D11B800C7 // Name
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484D12CB0030 // TIevdStyle
+ ME_484D30E40278 // WevStyle
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 38
@@ -8478,6 +8909,7 @@ ref; // ME_484D11240282 Style
  CONST Value 'clBlack'
  : ValueType WL 'ME_48492A930358' '4849284D0067.pas.ms.script' // Color
  ;
+ CONST extprop:evd:NewTypeName 'FramePart_ForeColor'
  CONST extprop:pas:Value 'k2Color_Const.k2_clBlack'
 
 ref; // ME_484D284B02F2 ForeColor
@@ -8497,6 +8929,7 @@ ref; // ME_484D284B02F2 ForeColor
  CONST Value 'def_FrameWidth'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'FramePart_Width'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_FrameWidth'
 
 ref; // ME_484D2A70006C Width
@@ -8516,6 +8949,7 @@ ref; // ME_484D2A70006C Width
  CONST Value 0
  : ValueType WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'FramePart_LineType'
  CONST extprop:pas:Value 'k2Long_Const.k2_0'
 
 ref; // ME_484D2A8F0251 LineType
@@ -8535,6 +8969,7 @@ ref; // ME_484D2A8F0251 LineType
  CONST Value 0
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'FramePart_SpaceBefore'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_484D2AA802C2 SpaceBefore
@@ -8554,6 +8989,7 @@ ref; // ME_484D2AA802C2 SpaceBefore
  CONST Value 0
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'FramePart_SpaceAfter'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_484D2ABC036C SpaceAfter
@@ -8581,6 +9017,10 @@ ref; // ME_484D2ABC036C SpaceAfter
  ME_484D2ABC036C // SpaceAfter
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484D270C03AD // WevFramePart
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 40
@@ -8850,6 +9290,7 @@ ref; // ME_4C975277016C Down
  : Parent ME_484D2BAB02BB // Frame
  ;
  CONST "stored" false
+ CONST extprop:evd:NewTypeName 'Frame_Handle'
 
 ref; // ME_486227C200BF Handle
 
@@ -8865,6 +9306,7 @@ ref; // ME_486227C200BF Handle
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
  CONST "stored" false
+ CONST extprop:evd:NewTypeName 'Frame_Name'
 
 ref; // ME_48623817018F Name
 
@@ -8882,6 +9324,7 @@ ref; // ME_48623817018F Name
  CONST Value 'clBlack'
  : ValueType WL 'ME_48492A930358' '4849284D0067.pas.ms.script' // Color
  ;
+ CONST extprop:evd:NewTypeName 'Frame_ForeColor'
  CONST extprop:pas:Value 'k2Color_Const.k2_clBlack'
 
 ref; // ME_4D8886510372 ForeColor
@@ -8898,6 +9341,7 @@ ref; // ME_4D8886510372 ForeColor
  ;
  : Target ME_484D27FD005D // FramePart
  ;
+ CONST extprop:evd:NewTypeName 'Frame_FrameUp'
 
 ref; // ME_484D2BD10271 FrameUp
 
@@ -8913,6 +9357,7 @@ ref; // ME_484D2BD10271 FrameUp
  ;
  : Target ME_484D27FD005D // FramePart
  ;
+ CONST extprop:evd:NewTypeName 'Frame_FrameDown'
 
 ref; // ME_484D2BE603A7 FrameDown
 
@@ -8928,6 +9373,7 @@ ref; // ME_484D2BE603A7 FrameDown
  ;
  : Target ME_484D27FD005D // FramePart
  ;
+ CONST extprop:evd:NewTypeName 'Frame_FrameLeft'
 
 ref; // ME_484D2BF80219 FrameLeft
 
@@ -8943,6 +9389,7 @@ ref; // ME_484D2BF80219 FrameLeft
  ;
  : Target ME_484D27FD005D // FramePart
  ;
+ CONST extprop:evd:NewTypeName 'Frame_FrameRight'
 
 ref; // ME_484D2C0E0282 FrameRight
 
@@ -8981,6 +9428,11 @@ ref; // ME_484D2C0E0282 FrameRight
  ME_4C975277016C // Down
  )
  ; // Children
+ : Implementors
+   Seq: ( ME_48622CC300B1 // TIevdFrame
+ ME_486235DF0200 // WevFrame
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 41
@@ -9010,6 +9462,7 @@ FORWARD ME_484D3DF801F3
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'NSRCTag_Name'
 
 ref; // ME_484F81FC0250 Name
 
@@ -9032,6 +9485,10 @@ ref; // ME_484F81FC0250 Name
    Seq: ( ME_484F81FC0250 // Name
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484D418A0359 // DictItem
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 89
@@ -9054,6 +9511,7 @@ ref; // ME_484D3DF801F3 NSRCTag
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DictRec_Name'
 
 ref; // ME_484D415900F3 Name
 
@@ -9069,6 +9527,7 @@ ref; // ME_484D415900F3 Name
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'DictRec_ShortName'
 
 ref; // ME_484D41680055 ShortName
 
@@ -9096,6 +9555,11 @@ ref; // ME_484D41680055 ShortName
  ME_484D41680055 // ShortName
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484D40AD015C // WevdDictRec
+ ME_484F95C1026A // Sub
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 74
@@ -9120,6 +9584,7 @@ ref; // ME_484D3F82010B DictRec
  : ValueType WL 'ME_4688F6100038' '4678193C009C.pas.ms.script' // Tl3ItemFlag
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'DictItem_Flags'
  CONST extprop:pas:Value 'l3Types.l3_ifNone'
 
 ref; // ME_484D43B8022A Flags
@@ -9161,6 +9626,10 @@ ref; // ME_48565213013C
    Seq: ( ME_48565213013C // Tl3ItemFlag
  )
  ; // Dependencies
+ : Implementors
+   Seq: ( ME_484D431003C2 // TIevdDictItem
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 73
@@ -9170,8 +9639,6 @@ ref; // ME_48565213013C
  CONST extprop:pas:UnitName 'DictItem_Const'
 
 ref; // ME_484D418A0359 DictItem
-
-FORWARD ME_484F93E60129
 
 : ME_484F949000F4
  CONST UID '484F949000F4'
@@ -9185,6 +9652,7 @@ FORWARD ME_484F93E60129
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AutoClass_Flags'
 
 ref; // ME_484F949000F4 Flags
 
@@ -9200,6 +9668,7 @@ ref; // ME_484F949000F4 Flags
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'AutoClass_Weight'
 
 ref; // ME_484F949C03DB Weight
 
@@ -9253,6 +9722,7 @@ FORWARD ME_484F926B0202
  CONST Value 'Ord(false)'
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'DictItemEx_Private'
  CONST extprop:pas:Value 'k2Bool_Const.k2_Ord(false)'
 
 ref; // ME_484F928E0173 Private
@@ -9302,6 +9772,7 @@ ref; // ME_484F926B0202 DictItemEx
  CONST "HasStoreChildTrigger" false
  CONST "SortIndex" 'Name'
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Sub_Classes'
 
 ref; // ME_484F9E5C03C2 Classes
 
@@ -9321,6 +9792,7 @@ ref; // ME_484F9E5C03C2 Classes
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Sub_AutoClasses'
 
 ref; // ME_484F9F5303B4 AutoClasses
 
@@ -9341,6 +9813,7 @@ ref; // ME_484F9F5303B4 AutoClasses
  CONST "HasStoreChildTrigger" false
  CONST "SortIndex" 'Name'
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Sub_Types'
 
 ref; // ME_484F9F690166 Types
 
@@ -9360,6 +9833,7 @@ ref; // ME_484F9F690166 Types
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Sub_KeyWords'
 
 ref; // ME_484F9F7B020F KeyWords
 
@@ -9380,6 +9854,7 @@ ref; // ME_484F9F7B020F KeyWords
  CONST "HasStoreChildTrigger" false
  CONST "SortIndex" 'Name'
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Sub_Prefix'
 
 ref; // ME_484F9F900107 Prefix
 
@@ -9399,6 +9874,7 @@ ref; // ME_484F9F900107 Prefix
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Sub_ServiceInfo'
 
 ref; // ME_484F9FA4038D ServiceInfo
 
@@ -9415,6 +9891,7 @@ ref; // ME_484F9FA4038D ServiceInfo
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
  CONST "HasStoredTrigger" true
+ CONST extprop:evd:NewTypeName 'Sub_Flags'
 
 ref; // ME_484F9FC101B3 Flags
 
@@ -9447,6 +9924,10 @@ ref; // ME_484F9FC101B3 Flags
  ME_484F9FC101B3 // Flags
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484F98D00070 // WevSub
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 15
@@ -9472,6 +9953,7 @@ ref; // ME_484F95C1026A Sub
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" true
  CONST "SortIndex" 'Handle'
+ CONST extprop:evd:NewTypeName 'SubLayer_Children'
 
 ref; // ME_484FB206020C 
 
@@ -9487,6 +9969,7 @@ ref; // ME_484FB206020C
  : Target WL 'ME_484CDB6600D0' '469D0AC7005E.pas.ms.script' // SubHandle
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'SubLayer_Handle'
 
 ref; // ME_484FBAEB009D Handle
 
@@ -9514,6 +9997,10 @@ ref; // ME_484FBAEB009D Handle
  ME_484FBAEB009D // Handle
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484FB099023C // TIevdSubLayer
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 17
@@ -9540,6 +10027,7 @@ ref; // ME_484FAF4D03CC SubLayer
  ;
  CONST "ReadOnly" true
  CONST "stored" false
+ CONST extprop:evd:NewTypeName 'Para_Rubber'
  CONST extprop:pas:Value 'k2Bool_Const.k2_false'
 
 ref; // ME_48565E590160 Rubber
@@ -9559,6 +10047,7 @@ ref; // ME_48565E590160 Rubber
  CONST Value true
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'Para_Visible'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_48566151038D Visible
@@ -9575,6 +10064,7 @@ ref; // ME_48566151038D Visible
  ;
  : Target WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'Para_Width'
 
 ref; // ME_4856632F0368 Width
 
@@ -9590,6 +10080,7 @@ ref; // ME_4856632F0368 Width
  ;
  : Target WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'Para_LeftIndent'
 
 ref; // ME_485663600256 LeftIndent
 
@@ -9608,6 +10099,7 @@ ref; // ME_485663600256 LeftIndent
  CONST Value 0
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'Para_RightIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_48566378020B RightIndent
@@ -9627,6 +10119,7 @@ ref; // ME_48566378020B RightIndent
  CONST Value 0
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'Para_SpaceBefore'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_4856639B0080 SpaceBefore
@@ -9646,6 +10139,7 @@ ref; // ME_4856639B0080 SpaceBefore
  CONST Value 0
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'Para_SpaceAfter'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_485663AD006B SpaceAfter
@@ -9665,6 +10159,7 @@ ref; // ME_485663AD006B SpaceAfter
  CONST Value 'clDefault'
  : ValueType WL 'ME_48492A930358' '4849284D0067.pas.ms.script' // Color
  ;
+ CONST extprop:evd:NewTypeName 'Para_BackColor'
  CONST extprop:pas:Value 'k2Color_Const.k2_clDefault'
 
 ref; // ME_485663BD0360 BackColor
@@ -9681,6 +10176,7 @@ ref; // ME_485663BD0360 BackColor
  ;
  : Target ME_484D2BAB02BB // Frame
  ;
+ CONST extprop:evd:NewTypeName 'Para_Frame'
 
 ref; // ME_48566313023D Frame
 
@@ -9701,6 +10197,7 @@ ref; // ME_48566313023D Frame
  CONST "HasStoreChildTrigger" true
  CONST "SortIndex" 'Handle'
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'Para_Subs'
 
 ref; // ME_4856677F0179 Subs
 
@@ -9732,6 +10229,11 @@ ref; // ME_4856677F0179 Subs
  ME_4856677F0179 // Subs
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484FD34600BA // WevPara
+ WL 'ME_56D074460007' '56D0740D0375.pas.ms.script' // TevParaInterfaceFactory
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 21
@@ -9779,6 +10281,7 @@ FORWARD ME_484FABB7008B
  ;
  CONST Value 0
  CONST "stored" true
+ CONST extprop:evd:NewTypeName 'Mark_Flags'
  CONST extprop:pas:Value 0
 
 ref; // ME_484FABCE0011 Flags
@@ -9826,6 +10329,7 @@ FORWARD ME_484FAA8501A2
  : Target ME_484FC278000E // Para
  ;
  CONST "stored" false
+ CONST extprop:evd:NewTypeName 'DocumentSub_Object'
 
 ref; // ME_484FAAAC00D7 Object
 
@@ -9873,6 +10377,7 @@ FORWARD ME_484FBE6D037E
  ;
  CONST "Duplicates" 'Assign'
  CONST "HasStoreChildTrigger" false
+ CONST extprop:evd:NewTypeName 'DocSubLayer_Children'
 
 ref; // ME_484FC15903A1 
 
@@ -12594,6 +13099,7 @@ ref; // ME_560A2DDE0292 AACHyperlink
  : ValueType ME_48495D3F0060 // Justification
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_Justification'
  CONST extprop:pas:Value 'Justification_Const.Ord(ev_itLeft)'
 
 ref; // ME_484D2D5300B2 Justification
@@ -12614,6 +13120,7 @@ ref; // ME_484D2D5300B2 Justification
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_Visible'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_484D2DB8018E Visible
@@ -12634,6 +13141,7 @@ ref; // ME_484D2DB8018E Visible
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_Apply2Para'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_484D2DE9008D Apply2Para
@@ -12654,6 +13162,7 @@ ref; // ME_484D2DE9008D Apply2Para
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_LeftIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_484D2E1402DB LeftIndent
@@ -12674,6 +13183,7 @@ ref; // ME_484D2E1402DB LeftIndent
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_RightIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_484D2E480108 RightIndent
@@ -12694,6 +13204,7 @@ ref; // ME_484D2E480108 RightIndent
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_FirstIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_FirstIndent'
 
 ref; // ME_484D2EA20264 FirstIndent
@@ -12714,6 +13225,7 @@ ref; // ME_484D2EA20264 FirstIndent
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_FirstLineIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_FirstLineIndent'
 
 ref; // ME_484D2ECB004C FirstLineIndent
@@ -12734,6 +13246,7 @@ ref; // ME_484D2ECB004C FirstLineIndent
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_Width'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchNormalParaStyleWidth'
 
 ref; // ME_484D2EF201D5 Width
@@ -12754,6 +13267,7 @@ ref; // ME_484D2EF201D5 Width
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_SpaceBefore'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_484D2F150147 SpaceBefore
@@ -12774,6 +13288,7 @@ ref; // ME_484D2F150147 SpaceBefore
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_SpaceAfter'
  CONST extprop:pas:Value 'k2Inch_Const.k2_0'
 
 ref; // ME_484D2F4502F8 SpaceAfter
@@ -12793,6 +13308,7 @@ ref; // ME_484D2F4502F8 SpaceAfter
  CONST Value false
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'TextStyle_AllowHyphen'
  CONST extprop:pas:Value 'k2Bool_Const.k2_false'
 
 ref; // ME_484D2F680051 AllowHyphen
@@ -12809,6 +13325,7 @@ ref; // ME_484D2F680051 AllowHyphen
  ;
  : Target ME_484D2CBA0213 // TextStyle
  ;
+ CONST extprop:evd:NewTypeName 'TextStyle_Style'
 
 ref; // ME_484FDAC601AB Style
 
@@ -12827,6 +13344,7 @@ ref; // ME_484FDAC601AB Style
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_Collapsable'
  CONST extprop:pas:Value 'k2Bool_Const.k2_false'
 
 ref; // ME_4E15D94101E1 Collapsable
@@ -12848,6 +13366,7 @@ ref; // ME_4E15D94101E1 Collapsable
  CONST "EmptyMapping" 'Style'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'TextStyle_Header'
 
 ref; // ME_4E15DA8B033D Header
 
@@ -12868,6 +13387,7 @@ ref; // ME_4E15DA8B033D Header
  CONST "EmptyMapping" 'Style'
  CONST "HasStoreChildTrigger" false
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'TextStyle_Footer'
 
 ref; // ME_4E15DA9B0268 Footer
 
@@ -12886,6 +13406,7 @@ ref; // ME_4E15DA9B0268 Footer
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_HeaderHasOwnSpace'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_4E38233B0219 HeaderHasOwnSpace
@@ -12906,6 +13427,7 @@ ref; // ME_4E38233B0219 HeaderHasOwnSpace
  : ValueType WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_LineSpacing'
  CONST extprop:pas:Value 'k2Long_Const.k2_@'
 
 ref; // ME_4E67A682002F LineSpacing
@@ -12926,6 +13448,7 @@ ref; // ME_4E67A682002F LineSpacing
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_IsChangeableFont'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_4EC287B600A2 IsChangeableFont
@@ -12946,6 +13469,7 @@ ref; // ME_4EC287B600A2 IsChangeableFont
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_VisibleToUser'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_4EC287E40060 VisibleToUser
@@ -12966,6 +13490,7 @@ ref; // ME_4EC287E40060 VisibleToUser
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_VisibleToBlock'
  CONST extprop:pas:Value 'k2Bool_Const.k2_false'
 
 ref; // ME_5534B35C0143 VisibleToBlock
@@ -12983,6 +13508,7 @@ ref; // ME_5534B35C0143 VisibleToBlock
  : Target ME_484CEE9A0170 // Font
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextStyle_Font'
 
 ref; // ME_484D2D190335 Font
 
@@ -12998,6 +13524,7 @@ ref; // ME_484D2D190335 Font
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'TextStyle_ShortName'
 
 ref; // ME_4C939C91030D ShortName
 
@@ -13012,6 +13539,7 @@ ref; // ME_4C939C91030D ShortName
  ;
  : Target ME_484D2BAB02BB // Frame
  ;
+ CONST extprop:evd:NewTypeName 'TextStyle_Frame'
 
 ref; // ME_4C973BC800A2 Frame
 
@@ -13128,6 +13656,7 @@ FORWARD ME_484FC45E0063
  CONST Value 1
  : ValueType ME_48495D810324 // Position
  ;
+ CONST extprop:evd:NewTypeName 'Segment_Start'
  CONST extprop:pas:Value 'Position_Const.1'
 
 ref; // ME_484FC4A00013 Start
@@ -13147,6 +13676,7 @@ ref; // ME_484FC4A00013 Start
  CONST Value 'MAX'
  : ValueType ME_48495D810324 // Position
  ;
+ CONST extprop:evd:NewTypeName 'Segment_Finish'
  CONST extprop:pas:Value 'Position_Const.MAX'
 
 ref; // ME_484FC4C00181 Finish
@@ -13167,6 +13697,7 @@ ref; // ME_484FC4C00181 Finish
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'Segment_Apply2Para'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_484FC53A02E4 Apply2Para
@@ -13183,6 +13714,7 @@ ref; // ME_484FC53A02E4 Apply2Para
  ;
  : Target ME_484D11240282 // Style
  ;
+ CONST extprop:evd:NewTypeName 'Segment_Style'
 
 ref; // ME_484FC5160327 Style
 
@@ -13231,6 +13763,7 @@ FORWARD ME_484FC6A00024
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'ActiveInterval_Handle'
 
 ref; // ME_484FC703008A Handle
 
@@ -13246,6 +13779,7 @@ ref; // ME_484FC703008A Handle
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'ActiveInterval_Start'
 
 ref; // ME_484FC70F03C5 Start
 
@@ -13261,6 +13795,7 @@ ref; // ME_484FC70F03C5 Start
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'ActiveInterval_Comment'
 
 ref; // ME_484FC733037D Comment
 
@@ -13276,6 +13811,7 @@ ref; // ME_484FC733037D Comment
  ;
  : Target ME_48495DDB017B // Type
  ;
+ CONST extprop:evd:NewTypeName 'ActiveInterval_Type'
 
 ref; // ME_484FC74102EE Type
 
@@ -13291,6 +13827,7 @@ ref; // ME_484FC74102EE Type
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'ActiveInterval_Finish'
 
 ref; // ME_4858BB0301EF Finish
 
@@ -13340,6 +13877,7 @@ FORWARD ME_484FC7E40240
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'Alarm_Handle'
 
 ref; // ME_484FC8090295 Handle
 
@@ -13355,6 +13893,7 @@ ref; // ME_484FC8090295 Handle
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'Alarm_Start'
 
 ref; // ME_484FC8170353 Start
 
@@ -13370,6 +13909,7 @@ ref; // ME_484FC8170353 Start
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Alarm_Comment'
 
 ref; // ME_484FC825024D Comment
 
@@ -13418,6 +13958,7 @@ FORWARD ME_484FCA7303CF
  ;
  : Target ME_48495DDB017B // Type
  ;
+ CONST extprop:evd:NewTypeName 'LogRecordPrim_Type'
 
 ref; // ME_484FCAA2029E Type
 
@@ -13433,6 +13974,7 @@ ref; // ME_484FCAA2029E Type
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'LogRecordPrim_Start'
 
 ref; // ME_484FCAAF02C7 Start
 
@@ -13478,6 +14020,7 @@ FORWARD ME_484FCB40029E
  ;
  : Target ME_484D418A0359 // DictItem
  ;
+ CONST extprop:evd:NewTypeName 'LogRecord_User'
 
 ref; // ME_484FCBC80237 User
 
@@ -13493,6 +14036,7 @@ ref; // ME_484FCBC80237 User
  ;
  : Target ME_48495DA200DB // Time
  ;
+ CONST extprop:evd:NewTypeName 'LogRecord_Time'
 
 ref; // ME_484FCBDC03B7 Time
 
@@ -13539,6 +14083,7 @@ FORWARD ME_484FCC76031A
  ;
  : Target ME_484D418A0359 // DictItem
  ;
+ CONST extprop:evd:NewTypeName 'StagePrim_User'
 
 ref; // ME_484FCC91037B User
 
@@ -13583,6 +14128,7 @@ FORWARD ME_484FCCAC0171
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'Stage_Finish'
 
 ref; // ME_484FCCD80139 Finish
 
@@ -13629,6 +14175,7 @@ FORWARD ME_484FCCFC0152
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'NumANDDate_Handle'
 
 ref; // ME_484FCD270300 Handle
 
@@ -13644,6 +14191,7 @@ ref; // ME_484FCD270300 Handle
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'NumANDDate_Number'
 
 ref; // ME_484FCD350341 Number
 
@@ -13659,6 +14207,7 @@ ref; // ME_484FCD350341 Number
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'NumANDDate_Comment'
 
 ref; // ME_484FCD440063 Comment
 
@@ -13674,6 +14223,7 @@ ref; // ME_484FCD440063 Comment
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'NumANDDate_DocID'
 
 ref; // ME_48C6714902A8 DocID
 
@@ -13688,6 +14238,7 @@ ref; // ME_48C6714902A8 DocID
  ;
  : Target ME_48495E29035B // Address
  ;
+ CONST extprop:evd:NewTypeName 'NumANDDate_LinkAddress'
 
 ref; // ME_51C1D83F024A LinkAddress
 
@@ -13738,6 +14289,7 @@ FORWARD ME_484FCD870198
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'Check_Handle'
 
 ref; // ME_484FCDB40275 Handle
 
@@ -13753,6 +14305,7 @@ ref; // ME_484FCDB40275 Handle
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'Check_Source'
 
 ref; // ME_484FCDBF012E Source
 
@@ -13768,6 +14321,7 @@ ref; // ME_484FCDBF012E Source
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'Check_Comment'
 
 ref; // ME_484FCDCD0276 Comment
 
@@ -13816,6 +14370,7 @@ FORWARD ME_484FCF7C03C2
  ;
  : Target WL 'ME_48492A4A0044' '4849284D0067.pas.ms.script' // Handle
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Handle'
 
 ref; // ME_484FCFA90307 Handle
 
@@ -13831,6 +14386,7 @@ ref; // ME_484FCFA90307 Handle
  ;
  : Target ME_484F926B0202 // DictItemEx
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Source'
 
 ref; // ME_484FCFB700B1 Source
 
@@ -13846,6 +14402,7 @@ ref; // ME_484FCFB700B1 Source
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Start'
 
 ref; // ME_484FCFC701DA Start
 
@@ -13861,6 +14418,7 @@ ref; // ME_484FCFC701DA Start
  ;
  : Target ME_48495D92021A // Date
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Finish'
 
 ref; // ME_484FCFD601C0 Finish
 
@@ -13876,6 +14434,7 @@ ref; // ME_484FCFD601C0 Finish
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Number'
 
 ref; // ME_484FCFE3027C Number
 
@@ -13891,6 +14450,7 @@ ref; // ME_484FCFE3027C Number
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Comment'
 
 ref; // ME_484FCFF50389 Comment
 
@@ -13906,6 +14466,7 @@ ref; // ME_484FCFF50389 Comment
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Pages'
 
 ref; // ME_484FD0070177 Pages
 
@@ -13921,6 +14482,7 @@ ref; // ME_484FD0070177 Pages
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_LinkComment'
 
 ref; // ME_484FD01602CD LinkComment
 
@@ -13938,6 +14500,7 @@ ref; // ME_484FD01602CD LinkComment
  CONST Value true
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_IsPeriodic'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_4CE518D102DE IsPeriodic
@@ -13954,6 +14517,7 @@ ref; // ME_4CE518D102DE IsPeriodic
  ;
  : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'PIRec_Flags'
 
 ref; // ME_4F3158A3022E Flags
 
@@ -14013,6 +14577,7 @@ FORWARD ME_484FDC4F013F
  ;
  : Target ME_484D2CBA0213 // TextStyle
  ;
+ CONST extprop:evd:NewTypeName 'TextSegment_Style'
 
 ref; // ME_484FDC7A00D3 Style
 
@@ -14029,6 +14594,7 @@ ref; // ME_484FDC7A00D3 Style
  : Target ME_484CEE9A0170 // Font
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextSegment_Font'
 
 ref; // ME_484FDC8D0050 Font
 
@@ -14048,6 +14614,7 @@ ref; // ME_484FDC8D0050 Font
  : ValueType WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
  ;
  CONST "EmptyMapping" 'Style'
+ CONST extprop:evd:NewTypeName 'TextSegment_Visible'
  CONST extprop:pas:Value 'k2Bool_Const.k2_true'
 
 ref; // ME_484FDCAA00C6 Visible
@@ -14112,6 +14679,7 @@ FORWARD ME_484FD50602E9
  ;
  : Target WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'TabStop_Start'
 
 ref; // ME_484FD51903AB Start
 
@@ -14131,6 +14699,7 @@ ref; // ME_484FD51903AB Start
  : ValueType WL 'ME_468A69990133' '4677FBA70343.pas.ms.script' // Tl3TabStopStyle
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'TabStop_Type'
  CONST extprop:pas:Value 'l3Interfaces.l3_tssLeft'
 
 ref; // ME_484FD547031D Type
@@ -14147,6 +14716,7 @@ ref; // ME_484FD547031D Type
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'TabStop_Text'
 
 ref; // ME_484FD56E00A5 Text
 
@@ -14209,6 +14779,7 @@ ref; // ME_484FD50602E9 TabStop
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST "SortIndex" 'Native'
+ CONST extprop:evd:NewTypeName 'SegmentsLayer_Children'
 
 ref; // ME_484FE21300E7 
 
@@ -14224,6 +14795,7 @@ ref; // ME_484FE21300E7
  : Target WL 'ME_5314ADDF0365' '469D0AC7005E.pas.ms.script' // SegmentHandle
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'SegmentsLayer_Handle'
 
 ref; // ME_5314B00300F7 Handle
 
@@ -14251,6 +14823,10 @@ ref; // ME_5314B00300F7 Handle
  ME_5314B00300F7 // Handle
  )
  ; // Attributes
+ : Implementors
+   Seq: ( ME_484FD1920114 // TIevdSegmentsLayer
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" true
  CONST "Defines CompareTags" false
  CONST "ID" 19
@@ -14298,6 +14874,7 @@ FORWARD ME_48564C5800DD
  ;
  CONST Value 'ev_saObject'
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'ObjectSegment_Style'
  CONST extprop:pas:Value 'ev_saObject'
 
 ref; // ME_48564CA50283 Style
@@ -14315,6 +14892,7 @@ ref; // ME_48564CA50283 Style
  ;
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
+ CONST extprop:evd:NewTypeName 'ObjectSegment_Children'
 
 ref; // ME_48564C87016F 
 
@@ -14330,6 +14908,7 @@ ref; // ME_48564C87016F
  ;
  : Target WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'ObjectSegment_BaseLine'
 
 ref; // ME_4F4DD5A101A0 BaseLine
 
@@ -14387,6 +14966,7 @@ FORWARD ME_4856576801CA
  : ValueType WL 'ME_468CFC7101C1' '469D0AC7005E.pas.ms.script' // PageOrientation
  ;
  CONST extprop:evd:NeedsOwnType true
+ CONST extprop:evd:NewTypeName 'PageProperties_Orientation'
  CONST extprop:pas:Value 'evdTypes.ev_poPortrait'
 
 ref; // ME_485657B80112 Orientation
@@ -14406,6 +14986,7 @@ ref; // ME_485657B80112 Orientation
  CONST Value 'def_inchPaperWidth'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'PageProperties_Width'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchPaperWidth'
 
 ref; // ME_485659000010 Width
@@ -14425,6 +15006,7 @@ ref; // ME_485659000010 Width
  CONST Value 'def_inchPaperHeight'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'PageProperties_Height'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchPaperHeight'
 
 ref; // ME_485659130180 Height
@@ -14444,6 +15026,7 @@ ref; // ME_485659130180 Height
  CONST Value 'def_inchPaperLeft'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'PageProperties_LeftIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchPaperLeft'
 
 ref; // ME_48565A8D02AC LeftIndent
@@ -14463,6 +15046,7 @@ ref; // ME_48565A8D02AC LeftIndent
  CONST Value 'def_inchPaperRight'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'PageProperties_RightIndent'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchPaperRight'
 
 ref; // ME_48565AA600C6 RightIndent
@@ -14482,6 +15066,7 @@ ref; // ME_48565AA600C6 RightIndent
  CONST Value 'def_inchPaperTop'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'PageProperties_SpaceBefore'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchPaperTop'
 
 ref; // ME_48565ACA02FB SpaceBefore
@@ -14501,6 +15086,7 @@ ref; // ME_48565ACA02FB SpaceBefore
  CONST Value 'def_inchPaperBottom'
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
+ CONST extprop:evd:NewTypeName 'PageProperties_SpaceAfter'
  CONST extprop:pas:Value 'k2Inch_Const.k2_def_inchPaperBottom'
 
 ref; // ME_48565AE20308 SpaceAfter
@@ -14572,6 +15158,7 @@ FORWARD ME_485669C9009D
  CONST Value 'MAX'
  : ValueType WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
  ;
+ CONST extprop:evd:NewTypeName 'LeafPara_ContentsLevel'
  CONST extprop:pas:Value 'k2Long_Const.k2_MAX'
 
 ref; // ME_485669EB0333 ContentsLevel
@@ -14587,6 +15174,7 @@ ref; // ME_485669EB0333 ContentsLevel
  : Parent ME_485669C9009D // LeafPara
  ;
  CONST Value true
+ CONST extprop:evd:NewTypeName 'LeafPara_Rubber'
  CONST extprop:pas:Value true
 
 ref; // ME_48566A1B00A8 Rubber
@@ -14611,6 +15199,10 @@ ref; // ME_48566A1B00A8 Rubber
  ME_48566A1B00A8 // Rubber
  )
  ; // Attributes
+ : Implementors
+   Seq: ( WL 'ME_56D0745503CA' '56D0740D0375.pas.ms.script' // TevLeafParaInterfaceFactory
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 117
@@ -14639,6 +15231,7 @@ FORWARD ME_48566A8103C1
  : ValueType WL 'ME_48492A610311' '4849284D0067.pas.ms.script' // Inch
  ;
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'PageBreak_Height'
  CONST extprop:pas:Value 'k2Inch_Const.k2_l3Inch div 6'
 
 ref; // ME_48566C330378 Height
@@ -14655,6 +15248,7 @@ ref; // ME_48566C330378 Height
  ;
  CONST Value 0
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'PageBreak_LeftIndent'
  CONST extprop:pas:Value 0
 
 ref; // ME_48566C550096 LeftIndent
@@ -14671,6 +15265,7 @@ ref; // ME_48566C550096 LeftIndent
  ;
  CONST Value 'def_inchNormalParaStyleWidth'
  CONST "ReadOnly" true
+ CONST extprop:evd:NewTypeName 'PageBreak_Width'
  CONST extprop:pas:Value 'def_inchNormalParaStyleWidth'
 
 ref; // ME_48566C6C02D2 Width
@@ -14710,6 +15305,10 @@ ref; // ME_48566BBA0358
    Seq: ( ME_48566BBA0358 // L3 Core Consts
  )
  ; // Dependencies
+ : Implementors
+   Seq: ( WL 'ME_56D0746502DC' '56D0740D0375.pas.ms.script' // TevPageBreakInterfaceFactory
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 103
@@ -14734,6 +15333,7 @@ FORWARD ME_485673BA0364
  ;
  : Target ME_4856576801CA // PageProperties
  ;
+ CONST extprop:evd:NewTypeName 'SectionBreak_Paras'
 
 ref; // ME_485673EF0117 Paras
 
@@ -14756,6 +15356,10 @@ ref; // ME_485673EF0117 Paras
    Seq: ( ME_485673EF0117 // Paras
  )
  ; // Attributes
+ : Implementors
+   Seq: ( WL 'ME_56D0747401E4' '56D0740D0375.pas.ms.script' // TevSectionBreakInterfaceFactory
+ )
+ ; // Implementors
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "ID" 104
@@ -14764,8 +15368,6 @@ ref; // ME_485673EF0117 Paras
  CONST extprop:pas:UnitName 'SectionBreak_Const'
 
 ref; // ME_485673BA0364 SectionBreak
-
-FORWARD ME_485649E10305
 
 : ME_48564BBA0077
  CONST UID '48564BBA0077'
@@ -14778,6 +15380,7 @@ FORWARD ME_485649E10305
  : Parent ME_485649E10305 // HyperLink
  ;
  CONST Value false
+ CONST extprop:evd:NewTypeName 'HyperLink_Apply2Para'
  CONST extprop:pas:Value false
 
 ref; // ME_48564BBA0077 Apply2Para
@@ -14793,6 +15396,7 @@ ref; // ME_48564BBA0077 Apply2Para
  : Parent ME_485649E10305 // HyperLink
  ;
  CONST Value 'ev_saHyperlink'
+ CONST extprop:evd:NewTypeName 'HyperLink_Style'
  CONST extprop:pas:Value 'ev_saHyperlink'
 
 ref; // ME_48564BCF015B Style
@@ -14809,6 +15413,7 @@ ref; // ME_48564BCF015B Style
  ;
  : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
  ;
+ CONST extprop:evd:NewTypeName 'HyperLink_URL'
 
 ref; // ME_48564BE40087 URL
 
@@ -14827,6 +15432,7 @@ ref; // ME_48564BE40087 URL
  CONST "Duplicates" 'Ignore'
  CONST "HasStoreChildTrigger" false
  CONST "SortTags" 'k2_tiDocID, k2_tiSubID'
+ CONST extprop:evd:NewTypeName 'HyperLink_Children'
 
 ref; // ME_48564C1F0206 Address
 
@@ -15700,8 +16306,6 @@ ref; // ME_53DA30C501BC AsIntegerList
 
 ref; // ME_53DA2F9A03A3 MIntegerListTransformator
 
-FORWARD ME_53BD2DEA02B3
-
 : ME_53BD303603B8
  CONST UID '53BD303603B8'
  CONST Name 'Count'
@@ -16343,8 +16947,6 @@ ref; // ME_479731C50290_ME_53BFD54A01CC Cleanup
 
 ref; // ME_53BFD54A01CC TevdTagHelper
 
-FORWARD ME_53BD48800095
-
 : ME_53BD52D902BE
  CONST UID '53BD52D902BE'
  CONST Name 'Size'
@@ -16665,8 +17267,6 @@ ref; // ME_53EDDCC203B4 TAbstractStringListHelper
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_53DA153302E5 RegionIDListHelper
-
-FORWARD ME_54646E8C02EB
 
 : ME_53BFCD4C03BF_ME_54646E8C02EB
  : Original ME_53BFCD4C03BF // Count
@@ -17688,8 +18288,6 @@ ref; // ME_54646EB103D5 TTasksIDListHelper
  CONST extprop:rc:SelfName 'dTasksHelpers'
 
 ref; // ME_53BD13B4023B evdTasksHelpers
-
-FORWARD ME_53C3E67C0258
 
 FORWARD ME_53C3E6AF0130
 

@@ -1071,7 +1071,7 @@ FORWARD ME_571A297B0071
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A297B0071 // PrimConsultationMark
+   Seq: ( ME_571A297B0071 // ConsultationWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" false
@@ -1088,6 +1088,7 @@ FORWARD ME_571A297B0071
  CONST extprop:rc:SelfName 'PrimConsultationMarkForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimConsultationMark_Form'
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EDC5003D1 PrimConsultationMark
 
@@ -1251,6 +1252,7 @@ ref; // ME_4C762AB601E1_ME_4C84E097023A Cancel
  CONST extprop:rc:SelfName 'PrimConsultationMarkOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimConsultationMarkOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C84E097023A PrimConsultationMarkOptions
 
@@ -2678,21 +2680,6 @@ ref; // ME_4AA5360E0197 Consultation
 
 FORWARD ME_4AB8D1DB01FD
 
-: ME_015478C542D8
- CONST UID '015478C542D8'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ConsultationMark' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB8D1DB01FD // ConsultationMark
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_015478C542D8 Ini_Reg_Class
-
 : ME_E6AAA420F87A
  CONST UID 'E6AAA420F87A'
  CONST Name 'Ini_FormFactory_ConsultationMark'
@@ -2708,17 +2695,6 @@ ref; // ME_015478C542D8 Ini_Reg_Class
  ;
 
 ref; // ME_E6AAA420F87A Ini_FormFactory_ConsultationMark
-
-: ME_C2CD070753FC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB8D1DB01FD // ConsultationMark
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C2CD070753FC 
 
 : ME_4AB8D1DB01FD
  CONST UID '4AB8D1DB01FD'
@@ -2740,14 +2716,9 @@ ref; // ME_C2CD070753FC
  )
  ; // Implements
  : Operations
-   Seq: ( ME_015478C542D8 // Ini_Reg_Class
- ME_E6AAA420F87A // Ini_FormFactory_ConsultationMark
+   Seq: ( ME_E6AAA420F87A // Ini_FormFactory_ConsultationMark
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_C2CD070753FC // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

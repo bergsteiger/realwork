@@ -1167,6 +1167,7 @@ ref; // ME_5576E05C0204_ME_4A8EC8AC02EE DoClose
  CONST extprop:rc:SelfName 'PrimShutDownForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimShutDown_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A8EC8AC02EE PrimShutDown
 
@@ -4098,21 +4099,6 @@ ref; // ME_287D37D884A1 ShutDownIDs
 
 ref; // ME_1A411FFFF792 ShutDown$Def
 
-: ME_7F2E861CCC0A
- CONST UID '7F2E861CCC0A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ShutDown' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8EC8950152 // ShutDown
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7F2E861CCC0A Ini_Reg_Class
-
 : ME_1EB5D6700624
  CONST UID '1EB5D6700624'
  CONST Name 'Ini_FormFactory_ShutDown'
@@ -4128,17 +4114,6 @@ ref; // ME_7F2E861CCC0A Ini_Reg_Class
  ;
 
 ref; // ME_1EB5D6700624 Ini_FormFactory_ShutDown$Def
-
-: ME_F2EC6684BFAC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8EC8950152 // ShutDown
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F2EC6684BFAC 
 
 : ME_4A8EC8950152
  CONST UID '4A8EC8950152'
@@ -4160,18 +4135,13 @@ ref; // ME_F2EC6684BFAC
  )
  ; // Implements
  : Operations
-   Seq: ( ME_7F2E861CCC0A // Ini_Reg_Class
- ME_1EB5D6700624 // Ini_FormFactory_ShutDown$Def
+   Seq: ( ME_1EB5D6700624 // Ini_FormFactory_ShutDown$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_1A411FFFF792 // ShutDown$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_F2EC6684BFAC // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Floating'
  CONST "finished dfm" true
@@ -4417,21 +4387,6 @@ ref; // ME_FACFF2FBB3B1 ut_LoginCaption
 
 ref; // ME_9554AE97FF6A LCImplut_LoginLocalConstants
 
-: ME_03487A925640
- CONST UID '03487A925640'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Login' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93D829005C // Login
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_03487A925640 Ini_Reg_Class
-
 : ME_699F263D3F02
  CONST UID '699F263D3F02'
  CONST Name 'Ini_FormFactory_Login'
@@ -4447,35 +4402,6 @@ ref; // ME_03487A925640 Ini_Reg_Class
  ;
 
 ref; // ME_699F263D3F02 Ini_FormFactory_Login$Def
-
-: ME_6FC00F53C520
- CONST UID '6FC00F53C520'
- CONST Name 'Init_Str_ut_LoginCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_LoginCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93D829005C // Login
- ;
- : Speller ME_0AD19C157D9C // ut_LoginCaption
- ;
- : SpelledFor ME_FACFF2FBB3B1 // ut_LoginCaption
- ;
-
-ref; // ME_6FC00F53C520 Init_Str_ut_LoginCaption
-
-: ME_878B52DFD9D9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A93D829005C // Login
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_878B52DFD9D9 
 
 : ME_45B836B0F99F
  CONST IsSummoned true
@@ -4519,9 +4445,7 @@ ref; // ME_EDAEFA85E87C
  )
  ; // Implements
  : Operations
-   Seq: ( ME_03487A925640 // Ini_Reg_Class
- ME_699F263D3F02 // Ini_FormFactory_Login$Def
- ME_6FC00F53C520 // Init_Str_ut_LoginCaption
+   Seq: ( ME_699F263D3F02 // Ini_FormFactory_Login$Def
  )
  ; // Operations
  : Children
@@ -4535,8 +4459,7 @@ ref; // ME_EDAEFA85E87C
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_878B52DFD9D9 // TtfwClassRef
- ME_45B836B0F99F // Tl3StringIDEx
+   Seq: ( ME_45B836B0F99F // Tl3StringIDEx
  ME_EDAEFA85E87C // Tl3MessageID
  )
  ; // Dependencies
@@ -4739,50 +4662,6 @@ ref; // ME_935682D97421 ut_LongProcessCaption
 
 ref; // ME_F67E3F450451 LCImplut_LongProcessLocalConstants
 
-: ME_10AA68A207C0
- CONST UID '10AA68A207C0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация LongProcess' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93DDCC03E3 // LongProcess
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_10AA68A207C0 Ini_Reg_Class
-
-: ME_D2B538DB5671
- CONST UID 'D2B538DB5671'
- CONST Name 'Init_Str_ut_LongProcessCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_LongProcessCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93DDCC03E3 // LongProcess
- ;
- : Speller ME_A0BDE8DDF307 // ut_LongProcessCaption
- ;
- : SpelledFor ME_935682D97421 // ut_LongProcessCaption
- ;
-
-ref; // ME_D2B538DB5671 Init_Str_ut_LongProcessCaption
-
-: ME_C66E85CCA388
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A93DDCC03E3 // LongProcess
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C66E85CCA388 
-
 : ME_24A2D63830B2
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -4824,11 +4703,6 @@ ref; // ME_437CCBB31584
    Seq: ( ME_082F94F73504 // LongProcess$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_10AA68A207C0 // Ini_Reg_Class
- ME_D2B538DB5671 // Init_Str_ut_LongProcessCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_F1A5C94EB755 // ut_LongProcess
  ME_082F94F73504 // LongProcess$Def
@@ -4840,8 +4714,7 @@ ref; // ME_437CCBB31584
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_C66E85CCA388 // TtfwClassRef
- ME_24A2D63830B2 // Tl3StringIDEx
+   Seq: ( ME_24A2D63830B2 // Tl3StringIDEx
  ME_437CCBB31584 // Tl3MessageID
  )
  ; // Dependencies

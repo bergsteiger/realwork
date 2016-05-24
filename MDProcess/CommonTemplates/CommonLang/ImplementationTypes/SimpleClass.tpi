@@ -263,8 +263,8 @@ f _base_class_collect
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor471466900128*
-	[{%S{singleton}=true}\
 	[{%S#f_UseNewGenRec()!=true}\
+	[{%S{singleton}=true}\
 	[{<{}{%CN=Exists}{C}>=0}\
 	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
 	%S%f_add_operation(%SU_Exists,static,Exists (): %{BOOLEAN}U,Op_Instance)\
@@ -279,7 +279,6 @@ f _base_class_collect
 	)\
 	]\
 
-	]\
 	]\
 
 	[{%SS!=Wrapper&%S#f_IsInterfaceFactory()!=true}\
@@ -375,7 +374,6 @@ f _base_class_collect
 	]\
 
 
-	[{%S#f_UseNewGenRec()!=true}\
 	<{}{%o{needs field}=true&%t_interface(%o%P)=true}{%o}\
 	%f_SpellFieldPrim(%o,%S)\
 	>\
@@ -415,6 +413,7 @@ f _base_class_collect
 
 	%S%[inherited]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%f_set_var(WasRegisterInEngine,"false")\
 	[{%S#f_IsMixIn()!=true}\
 	[{%Sa!=abstract}\
@@ -423,7 +422,6 @@ f _base_class_collect
 	]\
 	]\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	[{%{WasRegisterInEngine}N!=true}\
 	[{%SS!=ScriptKeyword|%Sa=abstract}\
 	[{%S#f_NeedRegisterInScripts()=true}\

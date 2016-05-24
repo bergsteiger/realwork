@@ -1288,6 +1288,7 @@ ref; // ME_4F71E1460089_ME_4F6B6646037F SetParent
  CONST extprop:rc:SelfName 'PrimChildForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimChild_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4F6B6646037F PrimChild
 
@@ -1685,21 +1686,6 @@ FORWARD ME_4F6B66260326
 
 FORWARD ME_4F6B66CB0200
 
-: ME_11C4BBC32B0E
- CONST UID '11C4BBC32B0E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Parent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66CB0200 // Parent
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_11C4BBC32B0E Ini_Reg_Class
-
 : ME_40853F4CF892
  CONST UID '40853F4CF892'
  CONST Name 'Ini_FormFactory_Parent'
@@ -1715,17 +1701,6 @@ ref; // ME_11C4BBC32B0E Ini_Reg_Class
  ;
 
 ref; // ME_40853F4CF892 Ini_FormFactory_Parent
-
-: ME_BBB293908FC5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B66CB0200 // Parent
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BBB293908FC5 
 
 : ME_4F6B66CB0200
  CONST UID '4F6B66CB0200'
@@ -1746,14 +1721,9 @@ ref; // ME_BBB293908FC5
  )
  ; // Implements
  : Operations
-   Seq: ( ME_11C4BBC32B0E // Ini_Reg_Class
- ME_40853F4CF892 // Ini_FormFactory_Parent
+   Seq: ( ME_40853F4CF892 // Ini_FormFactory_Parent
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_BBB293908FC5 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "finished dfm" true
@@ -1770,21 +1740,6 @@ ref; // ME_4F6B66CB0200 Parent
 
 FORWARD ME_4F6B66DB0384
 
-: ME_BEC85DF915C7
- CONST UID 'BEC85DF915C7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Child' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B66DB0384 // Child
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BEC85DF915C7 Ini_Reg_Class
-
 : ME_86D0CEDB2066
  CONST UID '86D0CEDB2066'
  CONST Name 'Ini_FormFactory_Child'
@@ -1800,17 +1755,6 @@ ref; // ME_BEC85DF915C7 Ini_Reg_Class
  ;
 
 ref; // ME_86D0CEDB2066 Ini_FormFactory_Child
-
-: ME_99B624705FB2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6B66DB0384 // Child
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_99B624705FB2 
 
 : ME_4F6B66DB0384
  CONST UID '4F6B66DB0384'
@@ -1831,14 +1775,9 @@ ref; // ME_99B624705FB2
  )
  ; // Implements
  : Operations
-   Seq: ( ME_BEC85DF915C7 // Ini_Reg_Class
- ME_86D0CEDB2066 // Ini_FormFactory_Child
+   Seq: ( ME_86D0CEDB2066 // Ini_FormFactory_Child
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_99B624705FB2 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true

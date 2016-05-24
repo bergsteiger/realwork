@@ -23,6 +23,7 @@
 //#UC START# *49F0577C02ED_49ECB8E002B0_impl*
  inherited;
  f_Scale := 100;
+ f_ScrollPos := 0;
 //#UC END# *49F0577C02ED_49ECB8E002B0_impl*
 //#UC START# *49F0577C02ED_49ECB8E002B0_var*
 //#UC END# *49F0577C02ED_49ECB8E002B0_var*
@@ -176,6 +177,43 @@ var
 //#UC END# *4E9574530051_49ECB8E002B0_var*
 //#UC START# *5175412302EE_49ECB8E002B0_impl*
  ApplyZoom;
+ ApplyScroll;
 //#UC END# *5175412302EE_49ECB8E002B0_impl*
 //#UC START# *5175412302EE_49ECB8E002B0_var*
 //#UC END# *5175412302EE_49ECB8E002B0_var*
+//#UC START# *5742C14900F5_49ECB8E002B0get_impl*
+ try
+  if not VarIsClear(OleObject) then
+   if not VarIsClear(OleObject.Document) then
+    if not VarIsClear(OleObject.Document.documentElement) then
+     f_ScrollPos := OleObject.Document.documentElement.ScrollTop;
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+ Result := f_ScrollPos;
+//#UC END# *5742C14900F5_49ECB8E002B0get_impl*
+//#UC START# *5742C14900F5_49ECB8E002B0get_var*
+//#UC END# *5742C14900F5_49ECB8E002B0get_var*
+//#UC START# *5742C14900F5_49ECB8E002B0set_impl*
+ if (f_ScrollPos <> aValue) then
+ begin
+  f_ScrollPos := aValue;
+  ApplyScroll;
+ end;
+//#UC END# *5742C14900F5_49ECB8E002B0set_impl*
+//#UC START# *5742C14900F5_49ECB8E002B0set_var*
+//#UC END# *5742C14900F5_49ECB8E002B0set_var*
+//#UC START# *5742C17A0340_49ECB8E002B0_impl*
+ try
+  if not VarIsClear(OleObject) then
+   if not VarIsClear(OleObject.Document) then
+    if not VarIsClear(OleObject.Document.documentElement) then
+     OleObject.Document.documentElement.ScrollTop := f_ScrollPos;
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+//#UC END# *5742C17A0340_49ECB8E002B0_impl*
+//#UC START# *5742C17A0340_49ECB8E002B0_var*
+//#UC END# *5742C17A0340_49ECB8E002B0_var*

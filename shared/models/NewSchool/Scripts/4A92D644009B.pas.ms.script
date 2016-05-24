@@ -2199,7 +2199,7 @@ FORWARD ME_571A26FD011E
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A26FD011E // PrimNewsLine
+   Seq: ( ME_571A26FD011E // PrimMonitoringsWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" false
@@ -2216,6 +2216,8 @@ FORWARD ME_571A26FD011E
  CONST extprop:rc:SelfName 'PrimNewsLineForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimNewsLine_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EBEC4031D PrimNewsLine
 
@@ -2499,27 +2501,13 @@ ref; // ME_4C87BC6502B9_ME_4C87BB9C0143 Open
  CONST extprop:rc:SelfName 'PrimNewsLineOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimNewsLineOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C87BB9C0143 PrimNewsLineOptions
 
 FORWARD ME_4A8ECF3001D2
 
 FORWARD ME_4A8ECFCD0174
-
-: ME_B0C4AD5B7933
- CONST UID 'B0C4AD5B7933'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация NewsLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8ECFCD0174 // NewsLine
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_B0C4AD5B7933 Ini_Reg_Class
 
 : ME_4CAA38D5E807
  CONST UID '4CAA38D5E807'
@@ -2536,17 +2524,6 @@ ref; // ME_B0C4AD5B7933 Ini_Reg_Class
  ;
 
 ref; // ME_4CAA38D5E807 Ini_FormFactory_NewsLine
-
-: ME_FF907E29234F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8ECFCD0174 // NewsLine
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FF907E29234F 
 
 : ME_4A8ECFCD0174
  CONST UID '4A8ECFCD0174'
@@ -2568,14 +2545,9 @@ ref; // ME_FF907E29234F
  )
  ; // Implements
  : Operations
-   Seq: ( ME_B0C4AD5B7933 // Ini_Reg_Class
- ME_4CAA38D5E807 // Ini_FormFactory_NewsLine
+   Seq: ( ME_4CAA38D5E807 // Ini_FormFactory_NewsLine
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_FF907E29234F // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true

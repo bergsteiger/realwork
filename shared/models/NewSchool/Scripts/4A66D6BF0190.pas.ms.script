@@ -628,6 +628,7 @@ ref; // ME_4A8E8F2E0195_ME_4A6EA4310035 InitControls
  CONST extprop:rc:SelfName 'AbstractHistoryForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'AbstractHistory_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A6EA4310035 AbstractHistory
 
@@ -1438,6 +1439,7 @@ ref; // ME_4B1633CF01C2_ME_4A6EA44C0038 NeedClose
  CONST extprop:rc:SelfName 'BaseChatWindowForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'BaseChatWindow_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A6EA44C0038 BaseChatWindow
 
@@ -1762,6 +1764,7 @@ ref; // ME_4A8AE24D003F_ME_4A6EA45C01C4 ClearHistory
  CONST extprop:rc:SelfName 'BaseHistoryWindowForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'BaseHistoryWindow_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A6EA45C01C4 BaseHistoryWindow
 
@@ -4060,6 +4063,7 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
  CONST extprop:rc:SelfName 'PrimContactListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimContactList_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AC4EF5600B4 PrimContactList
 
@@ -4213,6 +4217,7 @@ ref; // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
  CONST extprop:rc:SelfName 'BaseChatWindowOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'BaseChatWindowOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C84CB6F0007 BaseChatWindowOptions
 
@@ -4371,6 +4376,7 @@ ref; // ME_4C84CC2E0253_ME_4C84D11E01E2 History
  CONST extprop:rc:SelfName 'PrimContactListOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimContactListOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C84D11E01E2 PrimContactListOptions
 
@@ -4446,21 +4452,6 @@ ref; // ME_E8CF1E3F7D19 ContactListIDs
 
 ref; // ME_578933EECBD8 ContactList$Def
 
-: ME_40885FDD649B
- CONST UID '40885FDD649B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ContactList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6971D00157 // ContactList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_40885FDD649B Ini_Reg_Class
-
 : ME_C5F7B5BDDA69
  CONST UID 'C5F7B5BDDA69'
  CONST Name 'Ini_FormFactory_ContactList'
@@ -4476,17 +4467,6 @@ ref; // ME_40885FDD649B Ini_Reg_Class
  ;
 
 ref; // ME_C5F7B5BDDA69 Ini_FormFactory_ContactList$Def
-
-: ME_1BD8931CB122
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6971D00157 // ContactList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1BD8931CB122 
 
 : ME_4A6971D00157
  CONST UID '4A6971D00157'
@@ -4508,18 +4488,13 @@ ref; // ME_1BD8931CB122
  )
  ; // Implements
  : Operations
-   Seq: ( ME_40885FDD649B // Ini_Reg_Class
- ME_C5F7B5BDDA69 // Ini_FormFactory_ContactList$Def
+   Seq: ( ME_C5F7B5BDDA69 // Ini_FormFactory_ContactList$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_578933EECBD8 // ContactList$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_1BD8931CB122 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Лукьянец Р.В.'
@@ -4605,21 +4580,6 @@ ref; // ME_99673BDA9010 ChatWindowIDs
 
 ref; // ME_C8D06A43AD67 ChatWindow$Def
 
-: ME_347FD125A5E6
- CONST UID '347FD125A5E6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ChatWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6971E802F5 // ChatWindow
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_347FD125A5E6 Ini_Reg_Class
-
 : ME_373EEC13BBF9
  CONST UID '373EEC13BBF9'
  CONST Name 'Ini_FormFactory_ChatWindow'
@@ -4635,17 +4595,6 @@ ref; // ME_347FD125A5E6 Ini_Reg_Class
  ;
 
 ref; // ME_373EEC13BBF9 Ini_FormFactory_ChatWindow$Def
-
-: ME_1648F85654CC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6971E802F5 // ChatWindow
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1648F85654CC 
 
 : ME_4A6971E802F5
  CONST UID '4A6971E802F5'
@@ -4667,18 +4616,13 @@ ref; // ME_1648F85654CC
  )
  ; // Implements
  : Operations
-   Seq: ( ME_347FD125A5E6 // Ini_Reg_Class
- ME_373EEC13BBF9 // Ini_FormFactory_ChatWindow$Def
+   Seq: ( ME_373EEC13BBF9 // Ini_FormFactory_ChatWindow$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_C8D06A43AD67 // ChatWindow$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_1648F85654CC // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'SimpleFloat'
  CONST "author" 'Лукьянец Р.В.'
@@ -4764,21 +4708,6 @@ ref; // ME_B25B7DF9113E ChatHistoryIDs
 
 ref; // ME_32CFE852D886 ChatHistory$Def
 
-: ME_A205C4A8C628
- CONST UID 'A205C4A8C628'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ChatHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA397035D // ChatHistory
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A205C4A8C628 Ini_Reg_Class
-
 : ME_A13E6A22E717
  CONST UID 'A13E6A22E717'
  CONST Name 'Ini_FormFactory_ChatHistory'
@@ -4794,17 +4723,6 @@ ref; // ME_A205C4A8C628 Ini_Reg_Class
  ;
 
 ref; // ME_A13E6A22E717 Ini_FormFactory_ChatHistory$Def
-
-: ME_809645444077
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA397035D // ChatHistory
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_809645444077 
 
 : ME_4A6EA397035D
  CONST UID '4A6EA397035D'
@@ -4826,18 +4744,13 @@ ref; // ME_809645444077
  )
  ; // Implements
  : Operations
-   Seq: ( ME_A205C4A8C628 // Ini_Reg_Class
- ME_A13E6A22E717 // Ini_FormFactory_ChatHistory$Def
+   Seq: ( ME_A13E6A22E717 // Ini_FormFactory_ChatHistory$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_32CFE852D886 // ChatHistory$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_809645444077 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'SimpleFloat'
  CONST "author" 'Лукьянец Р.В.'

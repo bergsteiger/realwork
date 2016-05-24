@@ -935,7 +935,7 @@ PROCEDURE "Поиск гиперссылки" STRING IN aFindString
 
 // Поиск текста 'Ctrl+F'
 PROCEDURE "Поиск текста" STRING IN aFindString
-	 'Ctrl+F' key
+	 "Вызывать окно поиска"
 	 TRY
 	  "Набить текст {(aFindString)}"
 	  "Обработать сообщения"
@@ -958,13 +958,13 @@ PROCEDURE "Поиск текста 'Ctrl+T'" STRING IN aFindString
 ;
 
 PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку'" STRING IN aFindString IN aCheckBoxName
-	 	'Ctrl+F' key
+	 "Вызывать окно поиска"
 	 TRY
 
 	 	"Набить текст {(aFindString)}"
 
 		OBJECT VAR l_Control 
-		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		"Контрол по имени {( "Диалог поиска" )}" >>> l_Control
 		OBJECT VAR l_Result
 		"Найти контрол {(aCheckBoxName)} на форме {(l_Control)}"  >>> l_Result
 		Если ( "Чекбокс {(l_Result)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_Result)}" )
@@ -1021,7 +1021,7 @@ PROCEDURE "Открыть окно поиска c учетом чекбокса 'Учитывать регистр и выставить 
 	 	"Вызывать окно поиска"
 	 TRY
 		OBJECT VAR l_Control
-		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		"Контрол по имени {( "Диалог поиска" )}" >>> l_Control
 		
 		OBJECT VAR l_FirstCheckBoxResult
 
@@ -1052,7 +1052,7 @@ PROCEDURE "Открыть окно поиска c учетом чекбокса 'Выставить галочку' и проверить
 	 	"Вызывать окно поиска"
 	 TRY
 		OBJECT VAR l_Control 
-		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		"Контрол по имени {( "Диалог поиска" )}" >>> l_Control
 
 		OBJECT VAR l_FirstCheckBoxResult
 
@@ -1113,11 +1113,58 @@ PROCEDURE "Выбрать стиль в окне поиска" STRING IN aValueStyle
 	 	"Вызывать окно поиска"
 	 TRY
 		"Выбрать тип поиска 'Стиль'"
-		1500 SLEEP 
+		1500 SLEEP // для работы теста
 		"Выбрать в выпадающем списке комбобокса {('STextComboBox')}  строковое значение {(aValueStyle)}"
-		1500 SLEEP
+		1500 SLEEP // для работы теста
 	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
 	 FINALLY
 	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
 	 END
 ;
+
+PROCEDURE "Вызывать окно замены. Заменить текст на и нажать - имя кнопки" STRING IN aFindStringSText STRING IN aReplaceStringRText STRING IN aButtonStringBText
+		"Вызывать окно замены"
+	 TRY
+		"Установить фокус в контрол с именем" "Поле 'Текст'"
+		"Набить текст {(aFindStringSText)}"
+	 	"Обработать сообщения"
+		"Установить фокус в контрол с именем" "Поле 'Замена'"
+		"Набить текст {(aReplaceStringRText)}"
+		"Обработать сообщения"
+		"Контрол по имени {(aButtonStringBText)}" pop:Control:Click 
+	 FINALLY
+		"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click  
+	 END 
+;
+
+// Вызывать окно замены. Заменить текст. С обработкой через MODAL
+INTEGER VAR g_ShowCount
+
+PROCEDURE "Обработка. Заменить текст c учетом регистра" BOOLEAN IN aLast
+		Если ( aLast ! ) то (
+			g_ShowCount CASE
+				cnShowWindow (
+					OBJECT VAR l_Control
+					"Контрол по имени {("Диалог поиска")}" >>> l_Control
+					OBJECT VAR l_CheckBoxResult
+					"Найти контрол {("Учитывать регистр")} на форме {(l_Control)}"  >>> l_CheckBoxResult
+					Если ( "Чекбокс {(l_CheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_CheckBoxResult)}")
+					"Установить фокус в контрол с именем" "Поле 'Текст'"
+					"Набить текст {('Постановление')}"
+					"Обработать сообщения"
+					"Установить фокус в контрол с именем" "Поле 'Замена'"
+					"Набить текст {('Не постановление')}"
+					"Контрол по имени {("Заменить в 'Поиске'")}" pop:Control:Click
+				)
+				cnFoundWord ( "Контрол по имени {("Заменить в 'Поиске'")}" pop:Control:Click )				
+				cnReplace ( "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click )
+			END
+			++! g_ShowCount		
+		)
+;
+
+PROCEDURE "Вызывать окно замены. Заменить текст c учетом регистра"
+		0 >>> g_ShowCount
+		@ ( "Вызывать окно замены" ) MODAL ( "Обработка. Заменить текст c учетом регистра" )
+;
+

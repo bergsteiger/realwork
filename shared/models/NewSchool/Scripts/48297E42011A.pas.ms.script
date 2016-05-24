@@ -764,6 +764,38 @@ ref; // ME_E442AE634DA0 DoIt
 
 ref; // ME_53EDCFAF00AA HideDropDown
 
+FORWARD ME_573F0DAA02BB
+
+: ME_573F0DC50148
+ CONST UID '573F0DC50148'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_573F0DAA02BB // GetTreeHandle
+ ;
+ : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
+ ;
+
+ref; // ME_573F0DC50148 DoIt
+
+: ME_573F0DAA02BB
+ CONST UID '573F0DAA02BB'
+ CONST Name 'GetTreeHandle'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_482C80EA0131 // TAbstractDropDown
+ ;
+ : Operations
+   Seq: ( ME_573F0DC50148 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_573F0DAA02BB GetTreeHandle
+
 : ME_53ECD51A01E8
  CONST Name 'Message'
  CONST Class class_Parameter
@@ -1055,6 +1087,12 @@ ref; // ME_4F79CEDF005A_ME_482C80EA0131 MouseListenerNotify
  CONST OpKind opkind_Implemented
 ref; // ME_4F79CF3400BB_ME_482C80EA0131 WndProcListenerNotify
 
+: ME_4F79D08A02C7_ME_482C80EA0131
+ : Original WL 'ME_4F79D08A02C7' '4677FBA70343.pas.ms.script' // MouseWheelListenerNotify
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4F79D08A02C7_ME_482C80EA0131 MouseWheelListenerNotify
+
 : ME_479731C50290_ME_482C80EA0131
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1097,6 +1135,7 @@ ref; // ME_4CC841540158_ME_482C80EA0131 DestroyWnd
    Seq: ( WL 'ME_4683E8AC018D' '467BAB7F021E.pas.ms.script' // IvcmPopupIgnoresAction
  WL 'ME_46A5B4170363' '4677FBA70343.pas.ms.script' // Il3WndProcListener
  WL 'ME_4F741B37029A' '4677FBA70343.pas.ms.script' // Il3MouseListener
+ WL 'ME_4F79CE030257' '4677FBA70343.pas.ms.script' // Il3MouseWheelListener
  )
  ; // Implements
  : Attributes
@@ -1124,6 +1163,7 @@ ref; // ME_4CC841540158_ME_482C80EA0131 DestroyWnd
  ME_53EDCF83022E // CloseUp
  ME_53EDCF91019F // GetActiveSub
  ME_53EDCFAF00AA // HideDropDown
+ ME_573F0DAA02BB // GetTreeHandle
  ME_53ECD5090329 // WMSetFocus
  ME_53ECD52F02E6 // CNKeyDown
  ME_53ECD5A0033A // WMKillFocus
@@ -1137,6 +1177,7 @@ ref; // ME_4CC841540158_ME_482C80EA0131 DestroyWnd
    Seq: ( ME_476964B602C3_ME_482C80EA0131 // PopupIgnoresAction
  ME_4F79CEDF005A_ME_482C80EA0131 // MouseListenerNotify
  ME_4F79CF3400BB_ME_482C80EA0131 // WndProcListenerNotify
+ ME_4F79D08A02C7_ME_482C80EA0131 // MouseWheelListenerNotify
  )
  ; // Implemented
  : Overridden
@@ -3290,6 +3331,12 @@ ref; // ME_540C88690210
  CONST OpKind opkind_Implemented
 ref; // ME_53EDCF91019F_ME_4831599C0300 GetActiveSub
 
+: ME_573F0DAA02BB_ME_4831599C0300
+ : Original ME_573F0DAA02BB // GetTreeHandle
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_573F0DAA02BB_ME_4831599C0300 GetTreeHandle
+
 : ME_479731C50290_ME_4831599C0300
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -3399,6 +3446,7 @@ ref; // ME_54084FBC0018_ME_4831599C0300 IvcmState__SaveState
  ; // Operations
  : Implemented
    Seq: ( ME_53EDCF91019F_ME_4831599C0300 // GetActiveSub
+ ME_573F0DAA02BB_ME_4831599C0300 // GetTreeHandle
  )
  ; // Implemented
  : Overridden
@@ -6830,7 +6878,7 @@ ref; // ME_53F494BC000E
  )
  ; // Dependencies
  : Injected
-   Seq: ( WL 'ME_54EC8CDF0284' '54EC8C220105.pas.ms.script' // TFakeBox
+   Seq: ( WL 'ME_54EC8CDF0284' '54EC8C220105.pas.ms.script' // vtComboBoxWordsPack
  )
  ; // Injected
  CONST "author" 'Ëþëèí À.Â.'
@@ -6962,11 +7010,6 @@ ref; // ME_487268A90374 TctFakeBoxStrings
    Seq: ( ME_483158FD0155 // TFakeBox
  )
  ; // Inherits
- : Injected
-   Seq: ( WL 'ME_A9721353002F' '4F4CB50403CC.pas.ms.script' // TvtComboTree
- WL 'ME_C09CC5CA04B9' '54EC8C220105.pas.ms.script' // TvtComboTree
- )
- ; // Injected
  CONST intf.pas:Path 'common\components\gui\Garant\VT\ComboTree\vtComboTree.pas'
  CONST extprop:rc:SelfName 'ComboTree'
  CONST extprop:rc:isAcceptableForScripts true

@@ -6,125 +6,6 @@ FORWARD ME_54041E840266
 
 FORWARD ME_54041EBF03C6
 
-: ME_202E75514D0E
- CONST UID '202E75514D0E'
- CONST Name 'ServerName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_202E75514D0E ServerName
-
-: ME_073FDA93F8D8
- CONST UID '073FDA93F8D8'
- CONST Name 'Port'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_073FDA93F8D8 Port
-
-: ME_20C2D44F4133
- CONST UID '20C2D44F4133'
- CONST Name 'Login'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_20C2D44F4133 Login
-
-: ME_C2C175FB652C
- CONST UID 'C2C175FB652C'
- CONST Name 'Password'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C2C175FB652C Password
-
-: ME_7DA33908BCEC
- CONST UID '7DA33908BCEC'
- CONST Name 'PassiveMode'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_7DA33908BCEC PassiveMode
-
-: ME_78091B6DF190
- CONST UID '78091B6DF190'
- CONST Name 'RemoteFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_78091B6DF190 RemoteFolder
-
-: ME_D5E5C41ACD4D
- CONST UID 'D5E5C41ACD4D'
- CONST Name 'LogTitle'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_D5E5C41ACD4D LogTitle
-
 : ME_5405C4290013
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -134,17 +15,6 @@ ref; // ME_D5E5C41ACD4D LogTitle
  ;
 
 ref; // ME_5405C4290013 
-
-: ME_87626335457E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54041EBF03C6 // TalcuFTPBrowserParams
- ;
- : Target WL 'ME_54041A92002E' '484A470100DD.pas.ms.script' // FTPBrowser
- ;
-
-ref; // ME_87626335457E 
 
 : ME_53AC03EE01FD_ME_54041EBF03C6
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
@@ -178,16 +48,6 @@ ref; // ME_47A042E100E2_ME_54041EBF03C6 InitFields
  WL 'ME_54041A92002E' '484A470100DD.pas.ms.script' // FTPBrowser
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_202E75514D0E // ServerName
- ME_073FDA93F8D8 // Port
- ME_20C2D44F4133 // Login
- ME_C2C175FB652C // Password
- ME_7DA33908BCEC // PassiveMode
- ME_78091B6DF190 // RemoteFolder
- ME_D5E5C41ACD4D // LogTitle
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_53AC03EE01FD_ME_54041EBF03C6 // GetTaggedDataType
  )
@@ -198,7 +58,6 @@ ref; // ME_47A042E100E2_ME_54041EBF03C6 InitFields
  ; // Overridden
  : Dependencies
    Seq: ( ME_5405C4290013 // IdAssignedNumbers
- ME_87626335457E // FTPBrowser
  )
  ; // Dependencies
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuFTPBrowserParams.pas'
@@ -245,9 +104,7 @@ ref; // ME_54041EF10040 TalcuFTPBrowser
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_538DAE950337' '538DAE950337.pas.ms.script' // Core
  WL 'ME_53B15D5603E3' '53B15D5603E3.pas.ms.script' // TagHolder

@@ -301,59 +301,64 @@ implementation @ <<UserType>>
 //#UC START# *4B2A19E3038Bfor4B0402290215*
 //	%S%[inherited]\
  inherited
+//	[{%S#f_UseNewGenRec()!=true}\
+ if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+ begin
 //	%S%f_add_class(%SU_Constants,Constants,%SNConstants,Constants_Inst)\
- %S %f add_class %( %S |U '_Constants' %, 'Constants' %, %S |N 'Constants' %, 'Constants_Inst' )% 
+  %S %f add_class %( %S |U '_Constants' %, 'Constants' %, %S |N 'Constants' %, 'Constants_Inst' )% 
 //	%{Constants_Inst}%f_set_documentation(Константы для типа формы %SN)\
- ( get_global_var ( 'Constants_Inst' ) %f set_documentation %( 'Константы для типа формы '
- %S |N )% ) 
+  ( get_global_var ( 'Constants_Inst' ) %f set_documentation %( 'Константы для типа формы '
+  %S |N )% ) 
 
 //	[{"%{TvcmUserType}N"=""}%f_find_element(TvcmUserType,TvcmUserType)]\
- if ( ( ( get_global_var ( 'TvcmUserType' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( 'TvcmUserType' %, 'TvcmUserType' )% 
- end // if
+  if ( ( ( get_global_var ( 'TvcmUserType' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( 'TvcmUserType' %, 'TvcmUserType' )% 
+  end // if
 //	%S%f_make_accessable(%{TvcmUserType}U)\
- %S %f make_accessable %( ( get_global_var ( 'TvcmUserType' ) |U ) )% 
+  %S %f make_accessable %( ( get_global_var ( 'TvcmUserType' ) |U ) )% 
 
 //	%{Constants_Inst}%f_add_attribute(%SU_NAME_ID,,\
- ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %S |U '_NAME_ID' %, '' %, 
+  ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %S |U '_NAME_ID' %, '' %, 
 //	%SNName = '%SN',\
- %S |N 'Name = '''
- %S |N '''' %, 
+  %S |N 'Name = '''
+  %S |N '''' %, 
 //	Attr_Inst)\
- 'Attr_Inst' )% ) 
+  'Attr_Inst' )% ) 
 //	%{Attr_Inst}%f_set_documentation(Строковый идентификатор пользовательского типа "%SD")\
- ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Строковый идентификатор пользовательского типа "'
- %S |D )% ) 
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Строковый идентификатор пользовательского типа "'
+  %S |D )% ) 
 
 //	%{Constants_Inst}%f_add_attribute(%SU_ID,,\
- ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %S |U '_ID' %, '' %, 
+  ( get_global_var ( 'Constants_Inst' ) %f add_attribute %( %S |U '_ID' %, '' %, 
 //	%SN : %{TvcmUserType}U = [{%Gx=true}{0}%GN],\
- %S |N ' : '
- ( get_global_var ( 'TvcmUserType' ) |U ) ' = '
- if ( ( %G |x ) %==  true ) then
- begin
-  %G |N 
- end // if
- else
- begin
-  0 
- end // else
+  %S |N ' : '
+  ( get_global_var ( 'TvcmUserType' ) |U ) ' = '
+  if ( ( %G |x ) %==  true ) then
+  begin
+   %G |N 
+  end // if
+  else
+  begin
+   0 
+  end // else
 %, //	Attr_Inst)\
- 'Attr_Inst' )% ) 
+  'Attr_Inst' )% ) 
 //	[{%Gx=true}\
- if ( ( %G |x ) %==  true ) then
- begin
+  if ( ( %G |x ) %==  true ) then
+  begin
 //	%{Attr_Inst}%f_set_up(suffix expr,+ 1)\
-  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'suffix expr' %, '+ 1' )% ) 
+   ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'suffix expr' %, '+ 1' )% ) 
+//	]\
+  end // if
+//	%{Attr_Inst}%f_set_up(is define,true)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'is define' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(no unit prefix,true)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'no unit prefix' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation(%SD)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %S |D )% ) 
 //	]\
  end // if
-//	%{Attr_Inst}%f_set_up(is define,true)\
- ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'is define' %, true )% ) 
-//	%{Attr_Inst}%f_set_up(no unit prefix,true)\
- ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'no unit prefix' %, true )% ) 
-//	%{Attr_Inst}%f_set_documentation(%SD)\
- ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %S |D )% ) 
 
 //	%P%f_add_class(%SU_Local_Constants,LocalConst,%SNLocalConstants,LocalConstants_Inst)\
  %P %f add_class %( %S |U '_Local_Constants' %, 'LocalConst' %, %S |N 'LocalConstants' %, 'LocalConstants_Inst' )% 
@@ -388,39 +393,40 @@ implementation @ <<UserType>>
 //	]\
  end // if
 
-//	%S%f_add_class(%SU_Word,ScriptKeyword,Tkw_FormUserType_%f_N(%S),Word_Inst)\
- %S %f add_class %( %S |U '_Word' %, 'ScriptKeyword' %, 'Tkw_FormUserType_'
- [%f] N %( %S )% %, 'Word_Inst' )% 
-//	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NotStripUnderline' %, true )% ) 
-//	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifndef' %, 'NoScripts' )% ) 
-//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
- ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	[{"%{TtfwInteger}N"=""}%f_find_element(TtfwInteger,TtfwInteger)]\
- if ( ( ( get_global_var ( 'TtfwInteger' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( 'TtfwInteger' %, 'TtfwInteger' )% 
- end // if
-//	%{Word_Inst}%f_make_accessable(%{TtfwInteger}U)\
- ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwInteger' ) |U ) )% ) 
-//	%f_addG(%{Word_Inst},%{TtfwInteger})\
- [%f] addG %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwInteger' ) ) )% 
-//	%{Word_Inst}%f_set_documentation(Слово словаря для типа формы %SN\
- ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для типа формы '
- %S |N 
-//	)\
-)% ) 
-//	[{"%{TtfwInteger.GetInteger}N"=""}%f_find_element(4EE1DC8903BB,TtfwInteger.GetInteger)]\
- if ( ( ( get_global_var ( 'TtfwInteger.GetInteger' ) |N ) ) %== '' ) then
- begin
-  [%f] find_element %( '4EE1DC8903BB' %, 'TtfwInteger.GetInteger' )% 
- end // if
-//	%{Word_Inst}%f_add_override(4EE1DC8903BB)\
- ( get_global_var ( 'Word_Inst' ) %f add_override %( 4 'EE1DC8903BB' )% ) 
 //	[{%S#f_UseNewGenRec()!=true}\
  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
  begin
+//	%S%f_add_class(%SU_Word,ScriptKeyword,Tkw_FormUserType_%f_N(%S),Word_Inst)\
+  %S %f add_class %( %S |U '_Word' %, 'ScriptKeyword' %, 'Tkw_FormUserType_'
+  [%f] N %( %S )% %, 'Word_Inst' )% 
+//	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NotStripUnderline' %, true )% ) 
+//	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
+  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'ifndef' %, 'NoScripts' )% ) 
+//	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	[{"%{TtfwInteger}N"=""}%f_find_element(TtfwInteger,TtfwInteger)]\
+  if ( ( ( get_global_var ( 'TtfwInteger' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( 'TtfwInteger' %, 'TtfwInteger' )% 
+  end // if
+//	%{Word_Inst}%f_make_accessable(%{TtfwInteger}U)\
+  ( get_global_var ( 'Word_Inst' ) %f make_accessable %( ( get_global_var ( 'TtfwInteger' ) |U ) )% ) 
+//	%f_addG(%{Word_Inst},%{TtfwInteger})\
+  [%f] addG %( ( get_global_var ( 'Word_Inst' ) ) %, ( get_global_var ( 'TtfwInteger' ) ) )% 
+//	%{Word_Inst}%f_set_documentation(Слово словаря для типа формы %SN\
+  ( get_global_var ( 'Word_Inst' ) %f set_documentation %( 'Слово словаря для типа формы '
+  %S |N 
+//	)\
+)% ) 
+
+//	[{"%{TtfwInteger.GetInteger}N"=""}%f_find_element(4EE1DC8903BB,TtfwInteger.GetInteger)]\
+  if ( ( ( get_global_var ( 'TtfwInteger.GetInteger' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '4EE1DC8903BB' %, 'TtfwInteger.GetInteger' )% 
+  end // if
+//	%{Word_Inst}%f_add_override(4EE1DC8903BB)\
+  ( get_global_var ( 'Word_Inst' ) %f add_override %( 4 'EE1DC8903BB' )% ) 
 //	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_var,\
   ( get_global_var ( 'TtfwInteger.GetInteger' ) %f set_uc_content %( 'intf.pas' %, '_'
   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwInteger.GetInteger' ) ) %, ( get_global_var ( 'Word_Inst' ) ) )% '_var' %, 
@@ -434,17 +440,18 @@ implementation @ <<UserType>>
   ' Result := '
   [%f] N %( %S )% ';'
 //	)\
-)% ) //	]\
- end // if
+)% ) 
 
 //	%{Word_Inst}%f_set_up(NameForScript,тип_формы::%f_str_replace(%f_N(%S), ,_))\
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 'тип_формы::'
- [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% )% ) 
+  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NameForScript' %, 'тип_формы::'
+  [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% )% ) 
 //	%{Word_Inst}%f_set_abstraction_type(final)\
- ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+  ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
 
-//	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)
- ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
+//	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
+  ( get_global_var ( 'Word_Inst' ) %f set_up %( 'NeedsKeywordDoc' %, true )% ) 
+//	]
+ end // if
 //#UC END# *4B2A19E3038Bfor4B0402290215*
 ; // DoSpell
 

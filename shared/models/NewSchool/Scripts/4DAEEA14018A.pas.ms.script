@@ -600,7 +600,7 @@ FORWARD ME_56F5563D0109
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_56F5563D0109 // TtfwScriptEngine
+   Seq: ( ME_56F5563D0109 // tfwScriptsRunningAndDebugging
  )
  ; // Injected
  CONST "author" 'Ëþëèí À.Â.'
@@ -2268,8 +2268,6 @@ ref; // ME_52EA6A2C0111_ME_4F216D8D01A0 SetResultTypeInfo
 
 FORWARD ME_567ACC2E02F3
 
-FORWARD ME_AD209C8F3A79
-
 : ME_4F216D8D01A0
  CONST UID '4F216D8D01A0'
  CONST Name 'TkwCompiledProcedure'
@@ -2305,8 +2303,7 @@ FORWARD ME_AD209C8F3A79
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_567ACC2E02F3 // TkwCompiledProcedure
- ME_AD209C8F3A79 // TkwCompiledProcedure
+   Seq: ( ME_567ACC2E02F3 // kwKeyValuesPack
  )
  ; // Injected
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledProcedure.pas'
@@ -3225,8 +3222,6 @@ ref; // ME_52EA6A2C0111_ME_4F21976E01C2 SetResultTypeInfo
  CONST OpKind opkind_Overridden
 ref; // ME_53E21481021D_ME_4F21976E01C2 DoKeyword
 
-FORWARD ME_CE344841C13C
-
 : ME_4F21976E01C2
  CONST UID '4F21976E01C2'
  CONST Name 'TkwCompiledWordWorkerWord'
@@ -3288,10 +3283,6 @@ FORWARD ME_CE344841C13C
  ME_55E842570180 // WordsRTTIPack
  )
  ; // Dependencies
- : Injected
-   Seq: ( ME_CE344841C13C // TkwCompiledWordWorkerWord
- )
- ; // Injected
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWord.pas'
  CONST extprop:rc:SelfName 'CompiledWordWorkerWord'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4012,17 +4003,6 @@ FORWARD ME_559428430078
 
 ref; // ME_5594286F0097 Compiled
 
-: ME_CE344841C13C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_559428430078 // kwCompiledWordWorkerWordPack
- ;
- : Target ME_4F21976E01C2 // TkwCompiledWordWorkerWord
- ;
-
-ref; // ME_CE344841C13C 
-
 : ME_559428430078
  CONST UID '559428430078'
  CONST Name 'kwCompiledWordWorkerWordPack'
@@ -4041,10 +4021,6 @@ ref; // ME_CE344841C13C
    Seq: ( ME_5594286F0097 // Compiled
  )
  ; // Attributes
- : Dependencies
-   Seq: ( ME_CE344841C13C // TkwCompiledWordWorkerWord
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWordPack.pas'
  CONST extprop:rc:SelfName 'CompiledWordWorkerWordPack'
@@ -4065,17 +4041,6 @@ FORWARD ME_5673E7B00334
 
 ref; // ME_5673E7D50121 Create
 
-: ME_AD209C8F3A79
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_5673E7B00334 // kwCompiledProcedureWordsPack
- ;
- : Target ME_4F216D8D01A0 // TkwCompiledProcedure
- ;
-
-ref; // ME_AD209C8F3A79 
-
 : ME_5673E7B00334
  CONST UID '5673E7B00334'
  CONST Name 'kwCompiledProcedureWordsPack'
@@ -4094,10 +4059,6 @@ ref; // ME_AD209C8F3A79
    Seq: ( ME_5673E7D50121 // Create
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_AD209C8F3A79 // TkwCompiledProcedure
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWordsPack.pas'
  CONST extprop:rc:SelfName 'CompiledProcedureWordsPack'
@@ -4111,8 +4072,6 @@ FORWARD ME_567ACBF70376
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4DAEEDE10285_ME_567ACBF70376 DoDoIt
-
-FORWARD ME_B50CCB671540
 
 : ME_567ACBF70376
  CONST UID '567ACBF70376'
@@ -4132,10 +4091,6 @@ FORWARD ME_B50CCB671540
    Seq: ( ME_4DAEEDE10285_ME_567ACBF70376 // DoDoIt
  )
  ; // Overridden
- : Injected
-   Seq: ( ME_B50CCB671540 // TkwKeyValues
- )
- ; // Injected
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwKeyValues.pas'
  CONST extprop:rc:SelfName 'KeyValues'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4167,17 +4122,6 @@ ref; // ME_567ACC37033D Create
 
 ref; // ME_567ACC2E02F3 
 
-: ME_B50CCB671540
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_567ACC1F028D // kwKeyValuesPack
- ;
- : Target ME_567ACBF70376 // TkwKeyValues
- ;
-
-ref; // ME_B50CCB671540 
-
 : ME_567ACC1F028D
  CONST UID '567ACC1F028D'
  CONST Name 'kwKeyValuesPack'
@@ -4198,7 +4142,6 @@ ref; // ME_B50CCB671540
  ; // Operations
  : Dependencies
    Seq: ( ME_567ACC2E02F3 // TkwCompiledProcedure
- ME_B50CCB671540 // TkwKeyValues
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'

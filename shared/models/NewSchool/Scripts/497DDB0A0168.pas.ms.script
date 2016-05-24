@@ -8676,6 +8676,8 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  CONST extprop:rc:SelfName 'PrimListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimList_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497DDB2B001B PrimList
 
@@ -9289,6 +9291,8 @@ ref; // ME_4A8E8F2E0195_ME_497DEC900012 InitControls
  CONST extprop:rc:SelfName 'PrimListInfoForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimListInfo_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497DEC900012 PrimListInfo
 
@@ -10106,6 +10110,7 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
  CONST extprop:rc:SelfName 'PrimListAnalizerForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimListAnalizer_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AA0CE2B0073 PrimListAnalizer
 
@@ -13726,7 +13731,7 @@ FORWARD ME_571A2C160184
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A2C160184 // PrimListOptions
+   Seq: ( ME_571A2C160184 // nscTreeViewForDocumentListWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" true
@@ -13743,6 +13748,7 @@ FORWARD ME_571A2C160184
  CONST extprop:rc:SelfName 'PrimListOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimListOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C46AA3401DB PrimListOptions
 
@@ -13920,6 +13926,7 @@ ref; // ME_49EDFA3701B0_ME_4C88CB3E009C Paste
  CONST extprop:rc:SelfName 'PrimListInfoOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimListInfoOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C88CB3E009C PrimListInfoOptions
 
@@ -14151,27 +14158,13 @@ ref; // ME_4A8AE0FA03B2_ME_4E369558035D BecomeActive
  CONST extprop:rc:SelfName 'PrimListAnalizeForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimListAnalize_Form'
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4E369558035D PrimListAnalize
 
 FORWARD ME_4A9BF42601A9
 
 FORWARD ME_4A8921960298
-
-: ME_62869005032A
- CONST UID '62869005032A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация List' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A8921960298 // List
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_62869005032A Ini_Reg_Class
 
 : ME_CD29B19EB4E4
  CONST UID 'CD29B19EB4E4'
@@ -14239,17 +14232,6 @@ ref; // ME_4C8119F302A3
 
 ref; // ME_4D185AB60072 
 
-: ME_1858C6509345
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A8921960298 // List
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1858C6509345 
-
 : ME_4A8921960298
  CONST UID '4A8921960298'
  CONST Name 'List'
@@ -14270,8 +14252,7 @@ ref; // ME_1858C6509345
  )
  ; // Implements
  : Operations
-   Seq: ( ME_62869005032A // Ini_Reg_Class
- ME_CD29B19EB4E4 // Ini_FormFactory_List
+   Seq: ( ME_CD29B19EB4E4 // Ini_FormFactory_List
  )
  ; // Operations
  : Dependencies
@@ -14280,7 +14261,6 @@ ref; // ME_1858C6509345
  ME_4C810AC302FA // SearchInList
  ME_4C8119F302A3 // FiltersListOpen
  ME_4D185AB60072 // Sort
- ME_1858C6509345 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -14300,21 +14280,6 @@ ref; // ME_4A8921960298 List
 
 FORWARD ME_4A9BF56C0166
 
-: ME_C6F029E4B4A7
- CONST UID 'C6F029E4B4A7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ListInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A9BF56C0166 // ListInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C6F029E4B4A7 Ini_Reg_Class
-
 : ME_1CFBC460C895
  CONST UID '1CFBC460C895'
  CONST Name 'Ini_FormFactory_ListInfo'
@@ -14330,17 +14295,6 @@ ref; // ME_C6F029E4B4A7 Ini_Reg_Class
  ;
 
 ref; // ME_1CFBC460C895 Ini_FormFactory_ListInfo
-
-: ME_E5C96DCF2262
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A9BF56C0166 // ListInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E5C96DCF2262 
 
 : ME_4A9BF56C0166
  CONST UID '4A9BF56C0166'
@@ -14362,14 +14316,9 @@ ref; // ME_E5C96DCF2262
  )
  ; // Implements
  : Operations
-   Seq: ( ME_C6F029E4B4A7 // Ini_Reg_Class
- ME_1CFBC460C895 // Ini_FormFactory_ListInfo
+   Seq: ( ME_1CFBC460C895 // Ini_FormFactory_ListInfo
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_E5C96DCF2262 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true
@@ -14455,32 +14404,6 @@ ref; // ME_19F783016AD7 ListAnalizerIDs
 
 ref; // ME_BBDBB6B3AB03 ListAnalizer$Def
 
-: ME_EADF533B7823
- CONST UID 'EADF533B7823'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ListAnalizer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA0CE0E02C4 // ListAnalizer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EADF533B7823 Ini_Reg_Class
-
-: ME_5874B1266CA6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA0CE0E02C4 // ListAnalizer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5874B1266CA6 
-
 : ME_4AA0CE0E02C4
  CONST UID '4AA0CE0E02C4'
  CONST Name 'ListAnalizer'
@@ -14500,18 +14423,10 @@ ref; // ME_5874B1266CA6
    Seq: ( ME_BBDBB6B3AB03 // ListAnalizer$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_EADF533B7823 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_BBDBB6B3AB03 // ListAnalizer$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_5874B1266CA6 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Modal'
  CONST "finished dfm" true
@@ -23074,21 +22989,6 @@ ref; // ME_4AA4D6C7036F List$FSF
 
 FORWARD ME_4E36959002CA
 
-: ME_26B29D6ECEB7
- CONST UID '26B29D6ECEB7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ListAnalize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E36959002CA // ListAnalize
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_26B29D6ECEB7 Ini_Reg_Class
-
 : ME_4F490894A95E
  CONST UID '4F490894A95E'
  CONST Name 'Ini_FormFactory_ListAnalize'
@@ -23104,17 +23004,6 @@ ref; // ME_26B29D6ECEB7 Ini_Reg_Class
  ;
 
 ref; // ME_4F490894A95E Ini_FormFactory_ListAnalize
-
-: ME_5113559DEC88
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E36959002CA // ListAnalize
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5113559DEC88 
 
 : ME_4E36959002CA
  CONST UID '4E36959002CA'
@@ -23136,14 +23025,9 @@ ref; // ME_5113559DEC88
  )
  ; // Implements
  : Operations
-   Seq: ( ME_26B29D6ECEB7 // Ini_Reg_Class
- ME_4F490894A95E // Ini_FormFactory_ListAnalize
+   Seq: ( ME_4F490894A95E // Ini_FormFactory_ListAnalize
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_5113559DEC88 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

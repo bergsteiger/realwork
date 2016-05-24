@@ -2382,6 +2382,8 @@ ref; // ME_5000565C019C_ME_49480F0901B9 ClearFields
  CONST extprop:rc:SelfName 'PrimUserListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimUserList_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_49480F0901B9 PrimUserList
 
@@ -2870,6 +2872,7 @@ ref; // ME_4A8E8F2E0195_ME_497ED39B034F InitControls
  CONST extprop:rc:SelfName 'PrimForbidAutoregistrationForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimForbidAutoregistration_Form'
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497ED39B034F PrimForbidAutoregistration
 
@@ -5451,6 +5454,7 @@ ref; // ME_529332B40230_ME_497F02D20216 SetupFormLayout
  CONST extprop:rc:SelfName 'PrimUserPropertyForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimUserProperty_Form'
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497F02D20216 PrimUserProperty
 
@@ -6675,6 +6679,8 @@ ref; // ME_4A8E8F2E0195_ME_49EC75B5022C InitControls
  CONST extprop:rc:SelfName 'PrimGroupListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimGroupList_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_49EC75B5022C PrimGroupList
 
@@ -7306,6 +7312,7 @@ ref; // ME_4A8E8F2E0195_ME_4AC4ED6801F3 InitControls
  CONST extprop:rc:SelfName 'PrimGroupPropertyForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimGroupProperty_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AC4ED6801F3 PrimGroupProperty
 
@@ -8016,6 +8023,7 @@ ref; // ME_4C7CEDC20353_ME_4C7CE50101B3 EnableConsulting
  CONST extprop:rc:SelfName 'PrimUserListOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimUserListOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7CE50101B3 PrimUserListOptions
 
@@ -8155,6 +8163,7 @@ ref; // ME_4C762D9B0224_ME_4C88E37B0049 OkExt
  CONST extprop:rc:SelfName 'PrimAdminOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimAdminOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C88E37B0049 PrimAdminOptions
 
@@ -8386,6 +8395,7 @@ ref; // ME_4C762C910358_ME_4C88F1C30376 Cancel
  CONST extprop:rc:SelfName 'PrimForbidAutoregistrationOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimForbidAutoregistrationOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C88F1C30376 PrimForbidAutoregistrationOptions
 
@@ -8521,6 +8531,7 @@ ref; // ME_4C7D0CC90052_ME_4C8A09A40104 Delete
  CONST extprop:rc:SelfName 'PrimGroupListOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimGroupListOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C8A09A40104 PrimGroupListOptions
 
@@ -8624,6 +8635,7 @@ ref; // ME_4C762AB601E1_ME_4C8A09E103B7 Cancel
  CONST extprop:rc:SelfName 'PrimGroupPropertyOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimGroupPropertyOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C8A09E103B7 PrimGroupPropertyOptions
 
@@ -8742,6 +8754,7 @@ ref; // ME_4C7BB8DD0057_ME_4C8A0B4500F0 Save
  CONST extprop:rc:SelfName 'PrimUserPropertyOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimUserPropertyOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C8A0B4500F0 PrimUserPropertyOptions
 
@@ -10326,32 +10339,6 @@ ref; // ME_1EAF8C166FEB GroupPropertyIDs
 
 ref; // ME_71BC5A4EDB66 GroupProperty$Def
 
-: ME_2DF336BDE843
- CONST UID '2DF336BDE843'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация GroupProperty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E3E20024 // GroupProperty
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2DF336BDE843 Ini_Reg_Class
-
-: ME_C0BAF0EA8051
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8E3E20024 // GroupProperty
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C0BAF0EA8051 
-
 : ME_4AA8E3E20024
  CONST UID '4AA8E3E20024'
  CONST Name 'GroupProperty'
@@ -10371,18 +10358,10 @@ ref; // ME_C0BAF0EA8051
    Seq: ( ME_71BC5A4EDB66 // GroupProperty$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_2DF336BDE843 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_71BC5A4EDB66 // GroupProperty$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_C0BAF0EA8051 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Modal'
  CONST "finished dfm" true
@@ -10581,50 +10560,6 @@ ref; // ME_0C693B2ACD90 ut_ForbidAutoregistrationCaption
 
 ref; // ME_2B80C0B8A18F LCImplut_ForbidAutoregistrationLocalConstants
 
-: ME_9EE60313B7EA
- CONST UID '9EE60313B7EA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ForbidAutoregistration' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E405032A // ForbidAutoregistration
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9EE60313B7EA Ini_Reg_Class
-
-: ME_A7E0979AD70A
- CONST UID 'A7E0979AD70A'
- CONST Name 'Init_Str_ut_ForbidAutoregistrationCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_ForbidAutoregistrationCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E405032A // ForbidAutoregistration
- ;
- : Speller ME_C24D78B412D0 // ut_ForbidAutoregistrationCaption
- ;
- : SpelledFor ME_0C693B2ACD90 // ut_ForbidAutoregistrationCaption
- ;
-
-ref; // ME_A7E0979AD70A Init_Str_ut_ForbidAutoregistrationCaption
-
-: ME_10309D07A982
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8E405032A // ForbidAutoregistration
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_10309D07A982 
-
 : ME_4067189CE106
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -10666,11 +10601,6 @@ ref; // ME_9E88CB2F6CB1
    Seq: ( ME_79B951455BC4 // ForbidAutoregistration$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9EE60313B7EA // Ini_Reg_Class
- ME_A7E0979AD70A // Init_Str_ut_ForbidAutoregistrationCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_5E9859CE8259 // ut_ForbidAutoregistration
  ME_79B951455BC4 // ForbidAutoregistration$Def
@@ -10682,8 +10612,7 @@ ref; // ME_9E88CB2F6CB1
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_10309D07A982 // TtfwClassRef
- ME_4067189CE106 // Tl3StringIDEx
+   Seq: ( ME_4067189CE106 // Tl3StringIDEx
  ME_9E88CB2F6CB1 // Tl3MessageID
  )
  ; // Dependencies
@@ -10704,21 +10633,6 @@ ref; // ME_4AA8E405032A ForbidAutoregistration
 
 FORWARD ME_4AA8E45C00A8
 
-: ME_69E5B0522A11
- CONST UID '69E5B0522A11'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация UserList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E45C00A8 // UserList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_69E5B0522A11 Ini_Reg_Class
-
 : ME_A3B7ABF2FDF1
  CONST UID 'A3B7ABF2FDF1'
  CONST Name 'Ini_FormFactory_UserList'
@@ -10734,17 +10648,6 @@ ref; // ME_69E5B0522A11 Ini_Reg_Class
  ;
 
 ref; // ME_A3B7ABF2FDF1 Ini_FormFactory_UserList
-
-: ME_78A1A3D678FE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8E45C00A8 // UserList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_78A1A3D678FE 
 
 : ME_4AA8E45C00A8
  CONST UID '4AA8E45C00A8'
@@ -10765,14 +10668,9 @@ ref; // ME_78A1A3D678FE
  )
  ; // Implements
  : Operations
-   Seq: ( ME_69E5B0522A11 // Ini_Reg_Class
- ME_A3B7ABF2FDF1 // Ini_FormFactory_UserList
+   Seq: ( ME_A3B7ABF2FDF1 // Ini_FormFactory_UserList
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_78A1A3D678FE // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -10790,21 +10688,6 @@ ref; // ME_4AA8E45C00A8 UserList
 
 FORWARD ME_4AA8E47C0065
 
-: ME_29BB0C3C483F
- CONST UID '29BB0C3C483F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация UserProperty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E47C0065 // UserProperty
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_29BB0C3C483F Ini_Reg_Class
-
 : ME_9543B3E5D549
  CONST UID '9543B3E5D549'
  CONST Name 'Ini_FormFactory_UserProperty'
@@ -10820,17 +10703,6 @@ ref; // ME_29BB0C3C483F Ini_Reg_Class
  ;
 
 ref; // ME_9543B3E5D549 Ini_FormFactory_UserProperty
-
-: ME_AB979B3DB525
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8E47C0065 // UserProperty
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AB979B3DB525 
 
 : ME_4AA8E47C0065
  CONST UID '4AA8E47C0065'
@@ -10852,14 +10724,9 @@ ref; // ME_AB979B3DB525
  )
  ; // Implements
  : Operations
-   Seq: ( ME_29BB0C3C483F // Ini_Reg_Class
- ME_9543B3E5D549 // Ini_FormFactory_UserProperty
+   Seq: ( ME_9543B3E5D549 // Ini_FormFactory_UserProperty
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_AB979B3DB525 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true
@@ -10877,21 +10744,6 @@ ref; // ME_4AA8E47C0065 UserProperty
 
 FORWARD ME_4AA8E4CD0348
 
-: ME_2AD3D8F4C710
- CONST UID '2AD3D8F4C710'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация GroupList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E4CD0348 // GroupList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2AD3D8F4C710 Ini_Reg_Class
-
 : ME_643A9366DF65
  CONST UID '643A9366DF65'
  CONST Name 'Ini_FormFactory_GroupList'
@@ -10907,17 +10759,6 @@ ref; // ME_2AD3D8F4C710 Ini_Reg_Class
  ;
 
 ref; // ME_643A9366DF65 Ini_FormFactory_GroupList
-
-: ME_B2C85FEB128F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8E4CD0348 // GroupList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B2C85FEB128F 
 
 : ME_4AA8E4CD0348
  CONST UID '4AA8E4CD0348'
@@ -10939,14 +10780,9 @@ ref; // ME_B2C85FEB128F
  )
  ; // Implements
  : Operations
-   Seq: ( ME_2AD3D8F4C710 // Ini_Reg_Class
- ME_643A9366DF65 // Ini_FormFactory_GroupList
+   Seq: ( ME_643A9366DF65 // Ini_FormFactory_GroupList
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_B2C85FEB128F // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -10964,21 +10800,6 @@ ref; // ME_4AA8E4CD0348 GroupList
 
 FORWARD ME_4AA8E4F1002A
 
-: ME_60923535EF56
- CONST UID '60923535EF56'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация AdminForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA8E4F1002A // AdminForm
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_60923535EF56 Ini_Reg_Class
-
 : ME_6092E696E259
  CONST UID '6092E696E259'
  CONST Name 'Ini_FormFactory_AdminForm'
@@ -10994,17 +10815,6 @@ ref; // ME_60923535EF56 Ini_Reg_Class
  ;
 
 ref; // ME_6092E696E259 Ini_FormFactory_AdminForm
-
-: ME_010C39A4BD8D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA8E4F1002A // AdminForm
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_010C39A4BD8D 
 
 : ME_4AA8E4F1002A
  CONST UID '4AA8E4F1002A'
@@ -11026,14 +10836,9 @@ ref; // ME_010C39A4BD8D
  )
  ; // Implements
  : Operations
-   Seq: ( ME_60923535EF56 // Ini_Reg_Class
- ME_6092E696E259 // Ini_FormFactory_AdminForm
+   Seq: ( ME_6092E696E259 // Ini_FormFactory_AdminForm
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_010C39A4BD8D // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Тучнин Д.А.'

@@ -3984,6 +3984,7 @@ ref; // ME_543E3AA801D0_ME_4958E1F700C0 DoGetTabImageIndex
  CONST extprop:rc:SelfName 'PrimMainMenuNewForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimMainMenuNew_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4958E1F700C0 PrimMainMenuNew
 
@@ -7780,6 +7781,7 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  CONST extprop:rc:SelfName 'PrimMainMenuWithProfNewsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimMainMenuWithProfNews_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_56FA889202B4 PrimMainMenuWithProfNews
 
@@ -7813,21 +7815,6 @@ FORWARD ME_4AA7A1F80027
 
 FORWARD ME_4ABB949D005E
 
-: ME_86CC7843CFF7
- CONST UID '86CC7843CFF7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MainMenuNew' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABB949D005E // MainMenuNew
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_86CC7843CFF7 Ini_Reg_Class
-
 : ME_68565178E9D5
  CONST UID '68565178E9D5'
  CONST Name 'Ini_FormFactory_MainMenuNew'
@@ -7843,17 +7830,6 @@ ref; // ME_86CC7843CFF7 Ini_Reg_Class
  ;
 
 ref; // ME_68565178E9D5 Ini_FormFactory_MainMenuNew
-
-: ME_DDF0FF18D483
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABB949D005E // MainMenuNew
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_DDF0FF18D483 
 
 : ME_4ABB949D005E
  CONST UID '4ABB949D005E'
@@ -7874,14 +7850,9 @@ ref; // ME_DDF0FF18D483
  )
  ; // Implements
  : Operations
-   Seq: ( ME_86CC7843CFF7 // Ini_Reg_Class
- ME_68565178E9D5 // Ini_FormFactory_MainMenuNew
+   Seq: ( ME_68565178E9D5 // Ini_FormFactory_MainMenuNew
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_DDF0FF18D483 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'
@@ -7953,21 +7924,6 @@ ref; // ME_4B151A2302D2 TnsOpenMainMenuEvent
 
 FORWARD ME_56FA87D80010
 
-: ME_E558CBCCEB43
- CONST UID 'E558CBCCEB43'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MainMenuWithProfNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA87D80010 // MainMenuWithProfNews
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E558CBCCEB43 Ini_Reg_Class
-
 : ME_5772EF30F7CE
  CONST UID '5772EF30F7CE'
  CONST Name 'Ini_FormFactory_MainMenuWithProfNews'
@@ -7983,17 +7939,6 @@ ref; // ME_E558CBCCEB43 Ini_Reg_Class
  ;
 
 ref; // ME_5772EF30F7CE Ini_FormFactory_MainMenuWithProfNews
-
-: ME_6CBB6A3F82F2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FA87D80010 // MainMenuWithProfNews
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6CBB6A3F82F2 
 
 : ME_56FA87D80010
  CONST UID '56FA87D80010'
@@ -8014,14 +7959,9 @@ ref; // ME_6CBB6A3F82F2
  )
  ; // Implements
  : Operations
-   Seq: ( ME_E558CBCCEB43 // Ini_Reg_Class
- ME_5772EF30F7CE // Ini_FormFactory_MainMenuWithProfNews
+   Seq: ( ME_5772EF30F7CE // Ini_FormFactory_MainMenuWithProfNews
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_6CBB6A3F82F2 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Костицын'
@@ -8388,7 +8328,7 @@ FORWARD ME_571E2409028C
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571E2409028C // MainMenu$FP
+   Seq: ( ME_571E2409028C // MainMenuProcessingWordsPack
  )
  ; // Injected
  CONST "author" 'Люлин А.В.'

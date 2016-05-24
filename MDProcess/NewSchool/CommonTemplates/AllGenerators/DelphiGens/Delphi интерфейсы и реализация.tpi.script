@@ -6920,6 +6920,30 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
+//	 : Zones
+  ' : Zones'
+//	   Seq: (<{}{%ZS=VCMFormZone}{Sg} %Z#f_pas_script_Reference()> )
+  '   Seq: ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Zg
+  begin
+   OBJECT IN %Z
+   if ( ( %Z |S ) %== 'VCMFormZone' ) then
+   begin
+    ' '
+    %Z %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for Z
+  ' )'
+//	 ; // Zones
+  ' ; // Zones'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
 //	 : Depends
   ' : Depends'
 //	   Seq: (< %D#f_pas_script_Reference()> )
@@ -7284,6 +7308,22 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
   end // if
   NOP
+//	]\
+ end // if
+
+//	[{%S#f_NeedsInitEntities()=true}\
+ if ( ( %S %?f NeedsInitEntities %( )% ) %==  true ) then
+ begin
+//	 CONST extprop:NeedsInitEntities true
+  ' CONST extprop:NeedsInitEntities true'
+//	]\
+ end // if
+
+//	[{%S#f_HasAnyVCMController()=true}\
+ if ( ( %S %?f HasAnyVCMController %( )% ) %==  true ) then
+ begin
+//	 CONST extprop:HasAnyVCMController true
+  ' CONST extprop:HasAnyVCMController true'
 //	]\
  end // if
 

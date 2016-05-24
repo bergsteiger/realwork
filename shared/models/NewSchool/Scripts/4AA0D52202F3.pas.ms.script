@@ -2352,21 +2352,6 @@ ref; // ME_FB4314F79F42 ut_StartupTipsCaption
 
 ref; // ME_7BF3F54E0D69 LCImplut_StartupTipsLocalConstants
 
-: ME_F5CF71058AB7
- CONST UID 'F5CF71058AB7'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация StartupTips' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F5CF71058AB7 Ini_Reg_Class
-
 : ME_7CBE85141D9C
  CONST UID '7CBE85141D9C'
  CONST Name 'Ini_FormFactory_StartupTips'
@@ -2382,35 +2367,6 @@ ref; // ME_F5CF71058AB7 Ini_Reg_Class
  ;
 
 ref; // ME_7CBE85141D9C Ini_FormFactory_StartupTips$Def
-
-: ME_E6D1E13B4DFB
- CONST UID 'E6D1E13B4DFB'
- CONST Name 'Init_Str_ut_StartupTipsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_StartupTipsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- : Speller ME_F5C749CE546E // ut_StartupTipsCaption
- ;
- : SpelledFor ME_FB4314F79F42 // ut_StartupTipsCaption
- ;
-
-ref; // ME_E6D1E13B4DFB Init_Str_ut_StartupTipsCaption
-
-: ME_41AF2994B4FD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_41AF2994B4FD 
 
 : ME_259C7AA595F9
  CONST IsSummoned true
@@ -2454,9 +2410,7 @@ ref; // ME_894D72E40725
  )
  ; // Implements
  : Operations
-   Seq: ( ME_F5CF71058AB7 // Ini_Reg_Class
- ME_7CBE85141D9C // Ini_FormFactory_StartupTips$Def
- ME_E6D1E13B4DFB // Init_Str_ut_StartupTipsCaption
+   Seq: ( ME_7CBE85141D9C // Ini_FormFactory_StartupTips$Def
  )
  ; // Operations
  : Children
@@ -2470,8 +2424,7 @@ ref; // ME_894D72E40725
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_41AF2994B4FD // TtfwClassRef
- ME_259C7AA595F9 // Tl3StringIDEx
+   Seq: ( ME_259C7AA595F9 // Tl3StringIDEx
  ME_894D72E40725 // Tl3MessageID
  )
  ; // Dependencies

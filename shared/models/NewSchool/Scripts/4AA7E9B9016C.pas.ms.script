@@ -842,6 +842,7 @@ ref; // ME_4A8E8F2E0195_ME_5391A476038A InitControls
  CONST extprop:rc:SelfName 'MemoryUsagePrimForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'MemoryUsagePrim_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_5391A476038A MemoryUsagePrim
 
@@ -1030,21 +1031,6 @@ ref; // ME_F114385AD4DD ut_MemoryUsageCaption
 
 ref; // ME_882810043240 LCImplut_MemoryUsageLocalConstants
 
-: ME_4A1BBBE17C2F
- CONST UID '4A1BBBE17C2F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MemoryUsage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F882096008A // MemoryUsage
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4A1BBBE17C2F Ini_Reg_Class
-
 : ME_583036A90C2E
  CONST UID '583036A90C2E'
  CONST Name 'Ini_FormFactory_MemoryUsage'
@@ -1060,35 +1046,6 @@ ref; // ME_4A1BBBE17C2F Ini_Reg_Class
  ;
 
 ref; // ME_583036A90C2E Ini_FormFactory_MemoryUsage$Def
-
-: ME_8B262015D5FA
- CONST UID '8B262015D5FA'
- CONST Name 'Init_Str_ut_MemoryUsageCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_MemoryUsageCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F882096008A // MemoryUsage
- ;
- : Speller ME_86675FA6CB5A // ut_MemoryUsageCaption
- ;
- : SpelledFor ME_F114385AD4DD // ut_MemoryUsageCaption
- ;
-
-ref; // ME_8B262015D5FA Init_Str_ut_MemoryUsageCaption
-
-: ME_FF9CB5901345
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F882096008A // MemoryUsage
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_FF9CB5901345 
 
 : ME_B28BF05815A3
  CONST IsSummoned true
@@ -1132,9 +1089,7 @@ ref; // ME_6D6B5593E340
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4A1BBBE17C2F // Ini_Reg_Class
- ME_583036A90C2E // Ini_FormFactory_MemoryUsage$Def
- ME_8B262015D5FA // Init_Str_ut_MemoryUsageCaption
+   Seq: ( ME_583036A90C2E // Ini_FormFactory_MemoryUsage$Def
  )
  ; // Operations
  : Children
@@ -1148,8 +1103,7 @@ ref; // ME_6D6B5593E340
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_FF9CB5901345 // TtfwClassRef
- ME_B28BF05815A3 // Tl3StringIDEx
+   Seq: ( ME_B28BF05815A3 // Tl3StringIDEx
  ME_6D6B5593E340 // Tl3MessageID
  )
  ; // Dependencies

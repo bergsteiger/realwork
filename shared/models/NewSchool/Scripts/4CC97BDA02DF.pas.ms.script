@@ -2693,6 +2693,7 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  CONST extprop:rc:SelfName 'PrimBaseSearchForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimBaseSearch_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AB791130260 PrimBaseSearch
 
@@ -2832,6 +2833,7 @@ ref; // ME_49FEDE4703B8_ME_4CC7F0CE0267 FindPrev
  CONST extprop:rc:SelfName 'PrimBaseSearchOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimBaseSearchOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4CC7F0CE0267 PrimBaseSearchOptions
 
@@ -4458,6 +4460,7 @@ ref; // ME_4F7C65380244_ME_4AB7A3210135 FormInsertedIntoContainer
  CONST extprop:rc:SelfName 'PrimBaseSearchCardForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimBaseSearchCard_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AB7A3210135 PrimBaseSearchCard
 
@@ -7454,21 +7457,6 @@ ref; // ME_75D8F8C5B9BF ut_BaseSearchCardCaption
 
 ref; // ME_F00C66BF437B LCImplut_BaseSearchCardLocalConstants
 
-: ME_FAAEE3EAD97C
- CONST UID 'FAAEE3EAD97C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация BaseSearchCard' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FAAEE3EAD97C Ini_Reg_Class
-
 : ME_1D206AEEF6A5
  CONST UID '1D206AEEF6A5'
  CONST Name 'Ini_FormFactory_BaseSearchCard'
@@ -7484,35 +7472,6 @@ ref; // ME_FAAEE3EAD97C Ini_Reg_Class
  ;
 
 ref; // ME_1D206AEEF6A5 Ini_FormFactory_BaseSearchCard$Def
-
-: ME_E46427380505
- CONST UID 'E46427380505'
- CONST Name 'Init_Str_ut_BaseSearchCardCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_BaseSearchCardCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- : Speller ME_D164E1ED3D39 // ut_BaseSearchCardCaption
- ;
- : SpelledFor ME_75D8F8C5B9BF // ut_BaseSearchCardCaption
- ;
-
-ref; // ME_E46427380505 Init_Str_ut_BaseSearchCardCaption
-
-: ME_97E7C5991876
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_97E7C5991876 
 
 : ME_7756633F86C1
  CONST IsSummoned true
@@ -7556,9 +7515,7 @@ ref; // ME_8F446C2FABDE
  )
  ; // Implements
  : Operations
-   Seq: ( ME_FAAEE3EAD97C // Ini_Reg_Class
- ME_1D206AEEF6A5 // Ini_FormFactory_BaseSearchCard$Def
- ME_E46427380505 // Init_Str_ut_BaseSearchCardCaption
+   Seq: ( ME_1D206AEEF6A5 // Ini_FormFactory_BaseSearchCard$Def
  )
  ; // Operations
  : Children
@@ -7572,8 +7529,7 @@ ref; // ME_8F446C2FABDE
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_97E7C5991876 // TtfwClassRef
- ME_7756633F86C1 // Tl3StringIDEx
+   Seq: ( ME_7756633F86C1 // Tl3StringIDEx
  ME_8F446C2FABDE // Tl3MessageID
  )
  ; // Dependencies
@@ -7631,21 +7587,6 @@ ref; // ME_4CF4BE9C035F NewBaseSearch
 
 FORWARD ME_4D7A458300CB
 
-: ME_F08DCB04100A
- CONST UID 'F08DCB04100A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация BaseSearchContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D7A458300CB // BaseSearchContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F08DCB04100A Ini_Reg_Class
-
 : ME_9FE8B83587EB
  CONST UID '9FE8B83587EB'
  CONST Name 'Ini_FormFactory_BaseSearchContainer'
@@ -7661,17 +7602,6 @@ ref; // ME_F08DCB04100A Ini_Reg_Class
  ;
 
 ref; // ME_9FE8B83587EB Ini_FormFactory_BaseSearchContainer
-
-: ME_519D2894098E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D7A458300CB // BaseSearchContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_519D2894098E 
 
 : ME_4D7A458300CB
  CONST UID '4D7A458300CB'
@@ -7692,14 +7622,9 @@ ref; // ME_519D2894098E
  )
  ; // Implements
  : Operations
-   Seq: ( ME_F08DCB04100A // Ini_Reg_Class
- ME_9FE8B83587EB // Ini_FormFactory_BaseSearchContainer
+   Seq: ( ME_9FE8B83587EB // Ini_FormFactory_BaseSearchContainer
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_519D2894098E // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

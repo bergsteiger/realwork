@@ -359,14 +359,23 @@ ref; // ME_53F71EEF0278 aServices
 
 ref; // ME_53CDFADC00B4 CheckExecution
 
-: ME_53F721830387
+: ME_573EC3200227
  CONST Name 'aServices'
  CONST Class class_Parameter
  : Stereotype st_const ;
  : Target WL 'ME_53F7178501D3' '52F8C298005C.pas.ms.script' // IcsRunTaskServices
  ;
 
-ref; // ME_53F721830387 aServices
+ref; // ME_573EC3200227 aServices
+
+: ME_573EC3200256
+ CONST Name 'CountAbortingTask'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_573EC3200256 CountAbortingTask
 
 : ME_53CF9B060043
  CONST UID '53CF9B060043'
@@ -379,7 +388,8 @@ ref; // ME_53F721830387 aServices
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
  : Parameters
-   Seq: ( ME_53F721830387 // aServices
+   Seq: ( ME_573EC3200227 // aServices
+ ME_573EC3200256 // CountAbortingTask
  )
  ; // Parameters
 
@@ -995,22 +1005,6 @@ ref; // ME_53C92C5F006F ActiveTask
 
 ref; // ME_53CCBDB70378 Manager
 
-: ME_53CF9DAC004E
- CONST UID '53CF9DAC004E'
- CONST Name 'StillRunning'
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST "pm" true
-
-ref; // ME_53CF9DAC004E StillRunning
-
 : ME_5416C2D7005B
  CONST UID '5416C2D7005B'
  CONST Name 'Active'
@@ -1278,6 +1272,32 @@ ref; // ME_53D0E89C0113 NotifySubscribers
 
 ref; // ME_5404732A00CC AssistantExists
 
+: ME_573EC2F101A7
+ CONST Name 'CountAbortingTask'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_573EC2F101A7 CountAbortingTask
+
+: ME_573EC2C80226
+ CONST UID '573EC2C80226'
+ CONST Name 'StillRunning'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53C92B390005 // TalcuSubmitterWorkThread
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_573EC2F101A7 // CountAbortingTask
+ )
+ ; // Parameters
+
+ref; // ME_573EC2C80226 StillRunning
+
 : ME_53CE2DD802CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1352,7 +1372,6 @@ ref; // ME_479731C50290_ME_53C92B390005 Cleanup
    Seq: ( ME_53C92BE10099 // UserID
  ME_53C92C5F006F // ActiveTask
  ME_53CCBDB70378 // Manager
- ME_53CF9DAC004E // StillRunning
  ME_5416C2D7005B // Active
  ME_53C92B530346 // f_Thread
  ME_53D0E85802A9 // f_FinishNotifierList
@@ -1369,6 +1388,7 @@ ref; // ME_479731C50290_ME_53C92B390005 Cleanup
  ME_53D0E88D0368 // UnRegisterNotifier
  ME_53D0E89C0113 // NotifySubscribers
  ME_5404732A00CC // AssistantExists
+ ME_573EC2C80226 // StillRunning
  )
  ; // Operations
  : Implemented

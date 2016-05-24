@@ -40,72 +40,6 @@ ref; // ME_56B9C43001F5 HTParams
 
 ref; // ME_56B9C43A00AE PGParams
 
-: ME_2CD8FB827F5B
- CONST UID '2CD8FB827F5B'
- CONST Name 'f_HTParams'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HTParams' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_54F9AF6B00DD' '54F9AF550087.pas.ms.script' // ThtDataProviderParams
- ;
-
-ref; // ME_2CD8FB827F5B f_HTParams
-
-: ME_08938EE9F5E5
- CONST UID '08938EE9F5E5'
- CONST Name 'f_PGParams'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PGParams' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_55D6CFA5009E' '55D6CF3B014B.pas.ms.script' // TpgDataProviderParams
- ;
-
-ref; // ME_08938EE9F5E5 f_PGParams
-
-: ME_52A37A4E5D05
- CONST UID '52A37A4E5D05'
- CONST Name 'DataServerHostName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_52A37A4E5D05 DataServerHostName
-
-: ME_0DC358F22E97
- CONST UID '0DC358F22E97'
- CONST Name 'DataServerPort'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_0DC358F22E97 DataServerPort
-
 FORWARD ME_56B9C44F02BE
 
 : ME_56B9C479001D
@@ -159,21 +93,6 @@ ref; // ME_56B9C4570254 DoIt
 
 ref; // ME_56B9C44F02BE Create
 
-FORWARD ME_56B9D5D8017F
-
-: ME_DC29681F9CFD
- CONST UID 'DC29681F9CFD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadFromAlienParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B9D5D8017F // LoadFromAlienParams
- ;
-
-ref; // ME_DC29681F9CFD DoIt
-
 : ME_56B9D5D8017F
  CONST UID '56B9D5D8017F'
  CONST Name 'LoadFromAlienParams'
@@ -184,27 +103,8 @@ ref; // ME_DC29681F9CFD DoIt
  CONST Abstraction at_final
  : Parent ME_56A86B450218 // TcaDataProviderParams
  ;
- : Operations
-   Seq: ( ME_DC29681F9CFD // DoIt
- )
- ; // Operations
 
 ref; // ME_56B9D5D8017F LoadFromAlienParams
-
-FORWARD ME_56B9E3810358
-
-: ME_41F1B4423457
- CONST UID '41F1B4423457'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SaveToAlienParams' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56B9E3810358 // SaveToAlienParams
- ;
-
-ref; // ME_41F1B4423457 DoIt
 
 : ME_56B9E3810358
  CONST UID '56B9E3810358'
@@ -216,10 +116,6 @@ ref; // ME_41F1B4423457 DoIt
  CONST Abstraction at_final
  : Parent ME_56A86B450218 // TcaDataProviderParams
  ;
- : Operations
-   Seq: ( ME_41F1B4423457 // DoIt
- )
- ; // Operations
 
 ref; // ME_56B9E3810358 SaveToAlienParams
 
@@ -243,29 +139,11 @@ ref; // ME_56B9C9CB029A
 
 ref; // ME_56B9E990033E 
 
-: ME_CCB53E8D97C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56A86B450218 // TcaDataProviderParams
- ;
- : Target WL 'ME_56A86C8401FD' '484A470100DD.pas.ms.script' // ComboAccessProviderParams
- ;
-
-ref; // ME_CCB53E8D97C9 
-
 : ME_479731C50290_ME_56A86B450218
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_479731C50290_ME_56A86B450218 Cleanup
-
-: ME_53AC03EE01FD_ME_56A86B450218
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_56A86B450218 GetTaggedDataType
 
 : ME_55195AE803E0_ME_56A86B450218
  : Original WL 'ME_55195AE803E0' '54F85B2500FB.pas.ms.script' // ChangeBasePath
@@ -300,10 +178,6 @@ ref; // ME_553A37E902C9_ME_56A86B450218 AssignParams
  : Attributes
    Seq: ( ME_56B9C43001F5 // HTParams
  ME_56B9C43A00AE // PGParams
- ME_2CD8FB827F5B // f_HTParams
- ME_08938EE9F5E5 // f_PGParams
- ME_52A37A4E5D05 // DataServerHostName
- ME_0DC358F22E97 // DataServerPort
  )
  ; // Attributes
  : Operations
@@ -314,7 +188,6 @@ ref; // ME_553A37E902C9_ME_56A86B450218 AssignParams
  ; // Operations
  : Overridden
    Seq: ( ME_479731C50290_ME_56A86B450218 // Cleanup
- ME_53AC03EE01FD_ME_56A86B450218 // GetTaggedDataType
  ME_55195AE803E0_ME_56A86B450218 // ChangeBasePath
  ME_553A37E902C9_ME_56A86B450218 // AssignParams
  )
@@ -322,7 +195,6 @@ ref; // ME_553A37E902C9_ME_56A86B450218 AssignParams
  : Dependencies
    Seq: ( ME_56B9C9CB029A // FreeAndNil
  ME_56B9E990033E // TdaDataProviderParams
- ME_CCB53E8D97C9 // ComboAccessProviderParams
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caDataProviderParams.pas'
@@ -2649,10 +2521,10 @@ FORWARD ME_56E14CE0012E
 ref; // ME_56E14D1A027A 
 
 : ME_5600FFF80332_ME_56C6DB730289
- : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromTable
+ : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromClause
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_5600FFF80332_ME_56C6DB730289 MakeFromTable
+ref; // ME_5600FFF80332_ME_56C6DB730289 MakeFromClause
 
 : ME_566A892A0191_ME_56C6DB730289
  : Original WL 'ME_566A892A0191' '54F85B2500FB.pas.ms.script' // PrepareTable
@@ -2709,7 +2581,7 @@ ref; // ME_56E120F00095_ME_56C6DB730289 DoMakeParam
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5600FFF80332_ME_56C6DB730289 // MakeFromTable
+   Seq: ( ME_5600FFF80332_ME_56C6DB730289 // MakeFromClause
  ME_566A892A0191_ME_56C6DB730289 // PrepareTable
  ME_566A893B03C7_ME_56C6DB730289 // UnPrepareTable
  )
@@ -3491,7 +3363,6 @@ ref; // ME_56E14CE0012E TcaParam
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B893514021E' '4B893514021E.pas.ms.script' // Pretty Things

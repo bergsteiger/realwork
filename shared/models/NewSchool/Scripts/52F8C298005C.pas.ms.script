@@ -87,85 +87,6 @@ ref; // ME_53CCC5AA01BD C
 
 ref; // ME_53CCC56502C7 TddRunContext
 
-: ME_1EA09B9A77DE
- CONST UID '1EA09B9A77DE'
- CONST Name 'Comment'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC09FE03C7 // TddProcessTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_1EA09B9A77DE Comment
-
-: ME_66ED44905989
- CONST UID '66ED44905989'
- CONST Name 'Status'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC09FE03C7 // TddProcessTaskPrim
- ;
- : Target WL 'ME_53A9541803CB' '484A470100DD.pas.ms.script' // TcsTaskStatus
- ;
- CONST "pm" true
-
-ref; // ME_66ED44905989 Status
-
-: ME_D9A88AF55146
- CONST UID 'D9A88AF55146'
- CONST Name 'DocumentIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC09FE03C7 // TddProcessTaskPrim
- ;
- : Target WL 'ME_53BD2DEA02B3' '484A470100DD.pas.ms.script' // DocumentIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_D9A88AF55146 DocumentIDList
-
-: ME_CFD2E55B7996
- CONST UID 'CFD2E55B7996'
- CONST Name 'ReplyAddress'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC09FE03C7 // TddProcessTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_CFD2E55B7996 ReplyAddress
-
-: ME_2E43FC60C4AD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53AC09FE03C7 // TddProcessTaskPrim
- ;
- : Target WL 'ME_53A95D9F02E9' '484A470100DD.pas.ms.script' // ProcessTask
- ;
-
-ref; // ME_2E43FC60C4AD 
-
 : ME_53AC03EE01FD_ME_53AC09FE03C7
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
@@ -191,13 +112,6 @@ ref; // ME_53AC03EE01FD_ME_53AC09FE03C7 GetTaggedDataType
    Seq: ( WL 'ME_53A95D9F02E9' '484A470100DD.pas.ms.script' // ProcessTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_1EA09B9A77DE // Comment
- ME_66ED44905989 // Status
- ME_D9A88AF55146 // DocumentIDList
- ME_CFD2E55B7996 // ReplyAddress
- )
- ; // Attributes
  : Overridden
    Seq: ( ME_53AC03EE01FD_ME_53AC09FE03C7 // GetTaggedDataType
  )
@@ -206,10 +120,6 @@ ref; // ME_53AC03EE01FD_ME_53AC09FE03C7 GetTaggedDataType
    Seq: ( ME_53CCC56502C7 // TddRunContext
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_2E43FC60C4AD // ProcessTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddProcessTaskPrim.pas'
  CONST extprop:rc:SelfName 'ddProcessTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -277,24 +187,6 @@ ref; // ME_53B3D9BD024A
 
 ref; // ME_53B3D9F50212 
 
-: ME_3442697DE342
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_52FA4AD90122 // TddRequestTask
- ;
- : Target WL 'ME_53AC5E8B00CB' '484A470100DD.pas.ms.script' // RequestTask
- ;
-
-ref; // ME_3442697DE342 
-
-: ME_53AC03EE01FD_ME_52FA4AD90122
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_52FA4AD90122 GetTaggedDataType
-
 : ME_53B3D8A8011F_ME_52FA4AD90122
  : Original WL 'ME_53B3D8A8011F' '52FA49B901D3.pas.ms.script' // Create
  ;
@@ -325,14 +217,12 @@ ref; // ME_53B3D8A8011F_ME_52FA4AD90122 Create
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_52FA4AD90122 // GetTaggedDataType
- ME_53B3D8A8011F_ME_52FA4AD90122 // Create
+   Seq: ( ME_53B3D8A8011F_ME_52FA4AD90122 // Create
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_53B3D9BD024A // TcsTaskType
  ME_53B3D9F50212 // RegisterTaskClass
- ME_3442697DE342 // RequestTask
  )
  ; // Dependencies
  CONST extprop:rc:SelfName 'ddRequestTask'
@@ -435,57 +325,6 @@ ref; // ME_52FA4ACA0020 csRequestTask
 
 FORWARD ME_53B24355031B
 
-: ME_D5D40492A4E1
- CONST UID 'D5D40492A4E1'
- CONST Name 'NotifyType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B24355031B // TddClientMessagePrim
- ;
- : Target WL 'ME_53B2424703C7' '484A470100DD.pas.ms.script' // TCsNotificationType
- ;
- CONST "pm" true
-
-ref; // ME_D5D40492A4E1 NotifyType
-
-: ME_1457CD9A2878
- CONST UID '1457CD9A2878'
- CONST Name 'Data'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B24355031B // TddClientMessagePrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_1457CD9A2878 Data
-
-: ME_0D26EF9AE80B
- CONST UID '0D26EF9AE80B'
- CONST Name 'Text'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B24355031B // TddClientMessagePrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_0D26EF9AE80B Text
-
 : ME_53B4118D0325
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -495,24 +334,6 @@ ref; // ME_0D26EF9AE80B Text
  ;
 
 ref; // ME_53B4118D0325 
-
-: ME_F9E833AE2081
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B24355031B // TddClientMessagePrim
- ;
- : Target WL 'ME_53B243A00171' '484A470100DD.pas.ms.script' // ClientMessage
- ;
-
-ref; // ME_F9E833AE2081 
-
-: ME_53AC03EE01FD_ME_53B24355031B
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B24355031B GetTaggedDataType
 
 : ME_53B3D8A8011F_ME_53B24355031B
  : Original WL 'ME_53B3D8A8011F' '52FA49B901D3.pas.ms.script' // Create
@@ -538,20 +359,12 @@ ref; // ME_53B3D8A8011F_ME_53B24355031B Create
    Seq: ( WL 'ME_53B243A00171' '484A470100DD.pas.ms.script' // ClientMessage
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_D5D40492A4E1 // NotifyType
- ME_1457CD9A2878 // Data
- ME_0D26EF9AE80B // Text
- )
- ; // Attributes
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B24355031B // GetTaggedDataType
- ME_53B3D8A8011F_ME_53B24355031B // Create
+   Seq: ( ME_53B3D8A8011F_ME_53B24355031B // Create
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_53B4118D0325 // TcsTaskType
- ME_F9E833AE2081 // ClientMessage
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddClientMessagePrim.pas'
@@ -627,128 +440,6 @@ ref; // ME_52FA508003E5 TddClientMessageSortableListPrim
 
 FORWARD ME_52F8C2BF0110
 
-FORWARD ME_53B27A6E01FC
-
-: ME_75BC6533A630
- CONST UID '75BC6533A630'
- CONST Name 'Family'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_75BC6533A630 Family
-
-: ME_E28DB204BDDA
- CONST UID 'E28DB204BDDA'
- CONST Name 'DictType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_E28DB204BDDA DictType
-
-: ME_E5B01D3DCF61
- CONST UID 'E5B01D3DCF61'
- CONST Name 'Operation'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_E5B01D3DCF61 Operation
-
-: ME_57E8CBA42C3C
- CONST UID '57E8CBA42C3C'
- CONST Name 'ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_57E8CBA42C3C ID
-
-: ME_2610F05DA82F
- CONST UID '2610F05DA82F'
- CONST Name 'ParentID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_2610F05DA82F ParentID
-
-: ME_F8482228B27F
- CONST UID 'F8482228B27F'
- CONST Name 'NextID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_F8482228B27F NextID
-
-: ME_407C6591F01A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B27A6E01FC // TcsDictEditQueryPrim
- ;
- : Target WL 'ME_53B42F63037B' '484A470100DD.pas.ms.script' // DictEditQuery
- ;
-
-ref; // ME_407C6591F01A 
-
-: ME_53AC03EE01FD_ME_53B27A6E01FC
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B27A6E01FC GetTaggedDataType
-
 : ME_53B27A6E01FC
  CONST UID '53B27A6E01FC'
  CONST Name 'TcsDictEditQueryPrim'
@@ -767,23 +458,6 @@ ref; // ME_53AC03EE01FD_ME_53B27A6E01FC GetTaggedDataType
    Seq: ( WL 'ME_53B42F63037B' '484A470100DD.pas.ms.script' // DictEditQuery
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_75BC6533A630 // Family
- ME_E28DB204BDDA // DictType
- ME_E5B01D3DCF61 // Operation
- ME_57E8CBA42C3C // ID
- ME_2610F05DA82F // ParentID
- ME_F8482228B27F // NextID
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B27A6E01FC // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_407C6591F01A // DictEditQuery
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csDictEditQueryPrim.pas'
  CONST extprop:rc:SelfName 'csDictEditQueryPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1526,510 +1200,6 @@ ref; // ME_52FB9F99018D csMessageManager
 
 FORWARD ME_53ABFB2C005A
 
-: ME_7E624E775E8C
- CONST UID '7E624E775E8C'
- CONST Name 'AnnoTopicFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_7E624E775E8C AnnoTopicFileName
-
-: ME_59CE3DC51DF9
- CONST UID '59CE3DC51DF9'
- CONST Name 'DiapasonType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_53AAEDD70067' '484A470100DD.pas.ms.script' // TDiapType
- ;
- CONST "pm" true
-
-ref; // ME_59CE3DC51DF9 DiapasonType
-
-: ME_F783B77F0C4D
- CONST UID 'F783B77F0C4D'
- CONST Name 'DocID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_F783B77F0C4D DocID
-
-: ME_88923A90F575
- CONST UID '88923A90F575'
- CONST Name 'DocumentFileNameMask'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_88923A90F575 DocumentFileNameMask
-
-: ME_710BC7CB9376
- CONST UID '710BC7CB9376'
- CONST Name 'ExportAnnoTopics'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_710BC7CB9376 ExportAnnoTopics
-
-: ME_29AA186E5527
- CONST UID '29AA186E5527'
- CONST Name 'ExportDirectory'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_29AA186E5527 ExportDirectory
-
-: ME_0130817C59B6
- CONST UID '0130817C59B6'
- CONST Name 'ExportDocImage'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_0130817C59B6 ExportDocImage
-
-: ME_EEE971EC9CAB
- CONST UID 'EEE971EC9CAB'
- CONST Name 'ExportDocument'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_EEE971EC9CAB ExportDocument
-
-: ME_0519949F15BF
- CONST UID '0519949F15BF'
- CONST Name 'ExportEmptyKW'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_0519949F15BF ExportEmptyKW
-
-: ME_D6DB35F844BA
- CONST UID 'D6DB35F844BA'
- CONST Name 'ExportKW'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_D6DB35F844BA ExportKW
-
-: ME_3845FBC84464
- CONST UID '3845FBC84464'
- CONST Name 'ExportRTFBody'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_3845FBC84464 ExportRTFBody
-
-: ME_A668156113A4
- CONST UID 'A668156113A4'
- CONST Name 'Family'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_A668156113A4 Family
-
-: ME_AD29466FCA04
- CONST UID 'AD29466FCA04'
- CONST Name 'InternalFormat'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_AD29466FCA04 InternalFormat
-
-: ME_DD2CDD11018D
- CONST UID 'DD2CDD11018D'
- CONST Name 'KWFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_DD2CDD11018D KWFileName
-
-: ME_180EB0ED7C16
- CONST UID '180EB0ED7C16'
- CONST Name 'MultiUser'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_180EB0ED7C16 MultiUser
-
-: ME_C4748DEEBB7E
- CONST UID 'C4748DEEBB7E'
- CONST Name 'ObjTopicFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C4748DEEBB7E ObjTopicFileName
-
-: ME_0596AE5D4612
- CONST UID '0596AE5D4612'
- CONST Name 'OnlyStructure'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_0596AE5D4612 OnlyStructure
-
-: ME_26C313C1E1C2
- CONST UID '26C313C1E1C2'
- CONST Name 'OutFileType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_51CBFE650178' '484A470100DD.pas.ms.script' // TepSupportFileType
- ;
- CONST "pm" true
-
-ref; // ME_26C313C1E1C2 OutFileType
-
-: ME_CCCE10C13631
- CONST UID 'CCCE10C13631'
- CONST Name 'OutputFileSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_CCCE10C13631 OutputFileSize
-
-: ME_EE32A5B4C551
- CONST UID 'EE32A5B4C551'
- CONST Name 'ReferenceFileNameMask'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_EE32A5B4C551 ReferenceFileNameMask
-
-: ME_D6FD74AB8316
- CONST UID 'D6FD74AB8316'
- CONST Name 'SeparateFiles'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_53C3F2C3014E' '484A470100DD.pas.ms.script' // TepDivideBy
- ;
- CONST "pm" true
-
-ref; // ME_D6FD74AB8316 SeparateFiles
-
-: ME_E89BF65EAF64
- CONST UID 'E89BF65EAF64'
- CONST Name 'ToRegion'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
- ;
- CONST "pm" true
-
-ref; // ME_E89BF65EAF64 ToRegion
-
-: ME_4A455E657325
- CONST UID '4A455E657325'
- CONST Name 'ExportReference'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_4A455E657325 ExportReference
-
-: ME_A324D874D765
- CONST UID 'A324D874D765'
- CONST Name 'ExportEditions'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_A324D874D765 ExportEditions
-
-: ME_3536A8138409
- CONST UID '3536A8138409'
- CONST Name 'FormulaAsPicture'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_3536A8138409 FormulaAsPicture
-
-: ME_DB31ADFC7A08
- CONST UID 'DB31ADFC7A08'
- CONST Name 'ExportReferences'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_DB31ADFC7A08 ExportReferences
-
-: ME_D489CADC5DD7
- CONST UID 'D489CADC5DD7'
- CONST Name 'SABStream'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_53BD48800095' '484A470100DD.pas.ms.script' // SABStreamHelper
- ;
- CONST "pm" true
-
-ref; // ME_D489CADC5DD7 SABStream
-
-: ME_5C2BA219836B
- CONST UID '5C2BA219836B'
- CONST Name 'AdditionalProcess'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_5C2BA219836B AdditionalProcess
-
-: ME_90DCF727B40F
- CONST UID '90DCF727B40F'
- CONST Name 'RegionIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_53DA153302E5' '484A470100DD.pas.ms.script' // RegionIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_90DCF727B40F RegionIDList
-
-: ME_AE5B0CC7F345
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53ABFB2C005A // TcsExportTaskPrim
- ;
- : Target WL 'ME_53AAED68002C' '484A470100DD.pas.ms.script' // ExportTask
- ;
-
-ref; // ME_AE5B0CC7F345 
-
 : ME_53AC03EE01FD_ME_53ABFB2C005A
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
@@ -2055,46 +1225,10 @@ ref; // ME_53AC03EE01FD_ME_53ABFB2C005A GetTaggedDataType
    Seq: ( WL 'ME_53AAED68002C' '484A470100DD.pas.ms.script' // ExportTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_7E624E775E8C // AnnoTopicFileName
- ME_59CE3DC51DF9 // DiapasonType
- ME_F783B77F0C4D // DocID
- ME_88923A90F575 // DocumentFileNameMask
- ME_710BC7CB9376 // ExportAnnoTopics
- ME_29AA186E5527 // ExportDirectory
- ME_0130817C59B6 // ExportDocImage
- ME_EEE971EC9CAB // ExportDocument
- ME_0519949F15BF // ExportEmptyKW
- ME_D6DB35F844BA // ExportKW
- ME_3845FBC84464 // ExportRTFBody
- ME_A668156113A4 // Family
- ME_AD29466FCA04 // InternalFormat
- ME_DD2CDD11018D // KWFileName
- ME_180EB0ED7C16 // MultiUser
- ME_C4748DEEBB7E // ObjTopicFileName
- ME_0596AE5D4612 // OnlyStructure
- ME_26C313C1E1C2 // OutFileType
- ME_CCCE10C13631 // OutputFileSize
- ME_EE32A5B4C551 // ReferenceFileNameMask
- ME_D6FD74AB8316 // SeparateFiles
- ME_E89BF65EAF64 // ToRegion
- ME_4A455E657325 // ExportReference
- ME_A324D874D765 // ExportEditions
- ME_3536A8138409 // FormulaAsPicture
- ME_DB31ADFC7A08 // ExportReferences
- ME_D489CADC5DD7 // SABStream
- ME_5C2BA219836B // AdditionalProcess
- ME_90DCF727B40F // RegionIDList
- )
- ; // Attributes
  : Overridden
    Seq: ( ME_53AC03EE01FD_ME_53ABFB2C005A // GetTaggedDataType
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_AE5B0CC7F345 // ExportTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csExportTaskPrim.pas'
  CONST extprop:rc:SelfName 'csExportTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2103,155 +1237,6 @@ ref; // ME_53AC03EE01FD_ME_53ABFB2C005A GetTaggedDataType
 ref; // ME_53ABFB2C005A TcsExportTaskPrim
 
 FORWARD ME_53ABFE3202CF
-
-: ME_47BFB74D5B66
- CONST UID '47BFB74D5B66'
- CONST Name 'DeleteIncluded'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_47BFB74D5B66 DeleteIncluded
-
-: ME_2F5C48AC4623
- CONST UID '2F5C48AC4623'
- CONST Name 'IsAnnotation'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_2F5C48AC4623 IsAnnotation
-
-: ME_D08AD0DF0D21
- CONST UID 'D08AD0DF0D21'
- CONST Name 'IsRegion'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_D08AD0DF0D21 IsRegion
-
-: ME_AA8B621AD004
- CONST UID 'AA8B621AD004'
- CONST Name 'SourceDir'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_AA8B621AD004 SourceDir
-
-FORWARD ME_53EDDBB5025F
-
-: ME_ED171EB46231
- CONST UID 'ED171EB46231'
- CONST Name 'SourceFiles'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target ME_53EDDBB5025F // SourceFilesHelper
- ;
- CONST "pm" true
-
-ref; // ME_ED171EB46231 SourceFiles
-
-: ME_7143938433F7
- CONST UID '7143938433F7'
- CONST Name 'RegionIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_53DA153302E5' '484A470100DD.pas.ms.script' // RegionIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_7143938433F7 RegionIDList
-
-: ME_C1E6916E281F
- CONST UID 'C1E6916E281F'
- CONST Name 'SafeDir'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C1E6916E281F SafeDir
-
-: ME_D0134BFEABB1
- CONST UID 'D0134BFEABB1'
- CONST Name 'NeedSendMailReport'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_D0134BFEABB1 NeedSendMailReport
-
-: ME_A52BEA8FE7B7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53ABFE3202CF // TcsImportTaskPrim
- ;
- : Target WL 'ME_53AC19E00242' '484A470100DD.pas.ms.script' // ImportTask
- ;
-
-ref; // ME_A52BEA8FE7B7 
 
 : ME_53AC03EE01FD_ME_53ABFE3202CF
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
@@ -2278,25 +1263,10 @@ ref; // ME_53AC03EE01FD_ME_53ABFE3202CF GetTaggedDataType
    Seq: ( WL 'ME_53AC19E00242' '484A470100DD.pas.ms.script' // ImportTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_47BFB74D5B66 // DeleteIncluded
- ME_2F5C48AC4623 // IsAnnotation
- ME_D08AD0DF0D21 // IsRegion
- ME_AA8B621AD004 // SourceDir
- ME_ED171EB46231 // SourceFiles
- ME_7143938433F7 // RegionIDList
- ME_C1E6916E281F // SafeDir
- ME_D0134BFEABB1 // NeedSendMailReport
- )
- ; // Attributes
  : Overridden
    Seq: ( ME_53AC03EE01FD_ME_53ABFE3202CF // GetTaggedDataType
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_A52BEA8FE7B7 // ImportTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csImportTaskPrim.pas'
  CONST extprop:rc:SelfName 'csImportTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2307,75 +1277,6 @@ ref; // ME_53ABFE3202CF TcsImportTaskPrim
 FORWARD ME_5303551501D6
 
 FORWARD ME_53BA72D102A5
-
-: ME_05DE548C59E7
- CONST UID '05DE548C59E7'
- CONST Name 'StartDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53BA72D102A5 // TcsAutoAnnoExportPrim
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "pm" true
-
-ref; // ME_05DE548C59E7 StartDate
-
-: ME_DF8B66F30ABF
- CONST UID 'DF8B66F30ABF'
- CONST Name 'EndDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53BA72D102A5 // TcsAutoAnnoExportPrim
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "pm" true
-
-ref; // ME_DF8B66F30ABF EndDate
-
-: ME_70CF313CF481
- CONST UID '70CF313CF481'
- CONST Name 'BelongsIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53BA72D102A5 // TcsAutoAnnoExportPrim
- ;
- : Target WL 'ME_53F5A77B01B4' '484A470100DD.pas.ms.script' // BelongsIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_70CF313CF481 BelongsIDList
-
-: ME_C7936B30B219
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53BA72D102A5 // TcsAutoAnnoExportPrim
- ;
- : Target WL 'ME_53BA72FA0145' '484A470100DD.pas.ms.script' // AutoAnnoExportTask
- ;
-
-ref; // ME_C7936B30B219 
-
-: ME_53AC03EE01FD_ME_53BA72D102A5
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53BA72D102A5 GetTaggedDataType
 
 : ME_53FB28170339_ME_53BA72D102A5
  : Original WL 'ME_53FB28170339' '52FA49B901D3.pas.ms.script' // GetDescription
@@ -2401,47 +1302,16 @@ ref; // ME_53FB28170339_ME_53BA72D102A5 GetDescription
    Seq: ( WL 'ME_53BA72FA0145' '484A470100DD.pas.ms.script' // AutoAnnoExportTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_05DE548C59E7 // StartDate
- ME_DF8B66F30ABF // EndDate
- ME_70CF313CF481 // BelongsIDList
- )
- ; // Attributes
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53BA72D102A5 // GetTaggedDataType
- ME_53FB28170339_ME_53BA72D102A5 // GetDescription
+   Seq: ( ME_53FB28170339_ME_53BA72D102A5 // GetDescription
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_C7936B30B219 // AutoAnnoExportTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csAutoAnnoExportPrim.pas'
  CONST extprop:rc:SelfName 'csAutoAnnoExportPrim'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csAutoAnnoExportPrim'
 
 ref; // ME_53BA72D102A5 TcsAutoAnnoExportPrim
-
-FORWARD ME_53B682E2009F
-
-: ME_DC3126B3B5F7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B682E2009F // TcsAutoSpellTaskPrim
- ;
- : Target WL 'ME_53B68033030F' '484A470100DD.pas.ms.script' // AutoSpellTask
- ;
-
-ref; // ME_DC3126B3B5F7 
-
-: ME_53AC03EE01FD_ME_53B682E2009F
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B682E2009F GetTaggedDataType
 
 : ME_53B682E2009F
  CONST UID '53B682E2009F'
@@ -2461,14 +1331,6 @@ ref; // ME_53AC03EE01FD_ME_53B682E2009F GetTaggedDataType
    Seq: ( WL 'ME_53B68033030F' '484A470100DD.pas.ms.script' // AutoSpellTask
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B682E2009F // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_DC3126B3B5F7 // AutoSpellTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csAutoSpellTaskPrim.pas'
  CONST extprop:rc:SelfName 'csAutoSpellTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2487,24 +1349,6 @@ FORWARD ME_53B6834C0385
  ;
 
 ref; // ME_53B6A0550038 
-
-: ME_6B514F2CD10B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6834C0385 // TddCommonDataRequestPrim
- ;
- : Target WL 'ME_53B6806A02AC' '484A470100DD.pas.ms.script' // CommonDataRequest
- ;
-
-ref; // ME_6B514F2CD10B 
-
-: ME_53AC03EE01FD_ME_53B6834C0385
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6834C0385 GetTaggedDataType
 
 : ME_53B3D8A8011F_ME_53B6834C0385
  : Original WL 'ME_53B3D8A8011F' '52FA49B901D3.pas.ms.script' // Create
@@ -2531,13 +1375,11 @@ ref; // ME_53B3D8A8011F_ME_53B6834C0385 Create
  )
  ; // Implements
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6834C0385 // GetTaggedDataType
- ME_53B3D8A8011F_ME_53B6834C0385 // Create
+   Seq: ( ME_53B3D8A8011F_ME_53B6834C0385 // Create
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_53B6A0550038 // evdTaskTypes
- ME_6B514F2CD10B // CommonDataRequest
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddCommonDataRequestPrim.pas'
@@ -2588,26 +1430,6 @@ ref; // ME_53170762028E TddBaseStatusRequest
 
 ref; // ME_531707520169 csBaseStatusRequest
 
-FORWARD ME_53B6843E03A3
-
-: ME_01F2D0593E64
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6843E03A3 // TddServerStatusRequestPrim
- ;
- : Target WL 'ME_53B680D000EA' '484A470100DD.pas.ms.script' // ServerStatusRequest
- ;
-
-ref; // ME_01F2D0593E64 
-
-: ME_53AC03EE01FD_ME_53B6843E03A3
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6843E03A3 GetTaggedDataType
-
 : ME_53B6843E03A3
  CONST UID '53B6843E03A3'
  CONST Name 'TddServerStatusRequestPrim'
@@ -2626,14 +1448,6 @@ ref; // ME_53AC03EE01FD_ME_53B6843E03A3 GetTaggedDataType
    Seq: ( WL 'ME_53B680D000EA' '484A470100DD.pas.ms.script' // ServerStatusRequest
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6843E03A3 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_01F2D0593E64 // ServerStatusRequest
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddServerStatusRequestPrim.pas'
  CONST extprop:rc:SelfName 'ddServerStatusRequestPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2703,26 +1517,6 @@ ref; // ME_5317094003DB TcsExportResultRequest
 
 ref; // ME_53170931038A csExportResultRequest
 
-FORWARD ME_53B683D900A9
-
-: ME_466C059D51CC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B683D900A9 // TcsLineRequestPrim
- ;
- : Target WL 'ME_53B680A00217' '484A470100DD.pas.ms.script' // LineRequest
- ;
-
-ref; // ME_466C059D51CC 
-
-: ME_53AC03EE01FD_ME_53B683D900A9
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B683D900A9 GetTaggedDataType
-
 : ME_53B683D900A9
  CONST UID '53B683D900A9'
  CONST Name 'TcsLineRequestPrim'
@@ -2741,14 +1535,6 @@ ref; // ME_53AC03EE01FD_ME_53B683D900A9 GetTaggedDataType
    Seq: ( WL 'ME_53B680A00217' '484A470100DD.pas.ms.script' // LineRequest
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B683D900A9 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_466C059D51CC // LineRequest
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csLineRequestPrim.pas'
  CONST extprop:rc:SelfName 'csLineRequestPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4145,45 +2931,6 @@ ref; // ME_52FA505600C7 TddClientMessage
 
 ref; // ME_52FA504602B0 csClientMessageRequest
 
-FORWARD ME_53B2545A003D
-
-FORWARD ME_53C3A62101DB
-
-: ME_4D53CCA1F803
- CONST UID '4D53CCA1F803'
- CONST Name 'ReplacementFile'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B2545A003D // TcsSpellCorrectTaskPrim
- ;
- : Target ME_53C3A62101DB // ReplacementFileHelper
- ;
- CONST "pm" true
-
-ref; // ME_4D53CCA1F803 ReplacementFile
-
-: ME_E52B12F87523
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B2545A003D // TcsSpellCorrectTaskPrim
- ;
- : Target WL 'ME_53B2547E0014' '484A470100DD.pas.ms.script' // SpellCorrectTask
- ;
-
-ref; // ME_E52B12F87523 
-
-: ME_53AC03EE01FD_ME_53B2545A003D
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B2545A003D GetTaggedDataType
-
 : ME_53B2545A003D
  CONST UID '53B2545A003D'
  CONST Name 'TcsSpellCorrectTaskPrim'
@@ -4202,18 +2949,6 @@ ref; // ME_53AC03EE01FD_ME_53B2545A003D GetTaggedDataType
    Seq: ( WL 'ME_53B2547E0014' '484A470100DD.pas.ms.script' // SpellCorrectTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_4D53CCA1F803 // ReplacementFile
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B2545A003D // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_E52B12F87523 // SpellCorrectTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csSpellCorrectTaskPrim.pas'
  CONST extprop:rc:SelfName 'csSpellCorrectTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4243,60 +2978,6 @@ ref; // ME_53B2545A003D TcsSpellCorrectTaskPrim
 
 ref; // ME_53B254540178 TcsSpellCorrectTask
 
-FORWARD ME_53B26E1A01A6
-
-: ME_3FED742390E4
- CONST UID '3FED742390E4'
- CONST Name 'QueryFile'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B26E1A01A6 // TcsUserDefinedExportTaskPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_3FED742390E4 QueryFile
-
-: ME_4DDC348B9CCC
- CONST UID '4DDC348B9CCC'
- CONST Name 'TimeToRun'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B26E1A01A6 // TcsUserDefinedExportTaskPrim
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "pm" true
-
-ref; // ME_4DDC348B9CCC TimeToRun
-
-: ME_9EC6793BE4F4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B26E1A01A6 // TcsUserDefinedExportTaskPrim
- ;
- : Target WL 'ME_53B26E3A0093' '484A470100DD.pas.ms.script' // UserDefinedExportTask
- ;
-
-ref; // ME_9EC6793BE4F4 
-
-: ME_53AC03EE01FD_ME_53B26E1A01A6
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B26E1A01A6 GetTaggedDataType
-
 : ME_53B26E1A01A6
  CONST UID '53B26E1A01A6'
  CONST Name 'TcsUserDefinedExportTaskPrim'
@@ -4315,19 +2996,6 @@ ref; // ME_53AC03EE01FD_ME_53B26E1A01A6 GetTaggedDataType
    Seq: ( WL 'ME_53B26E3A0093' '484A470100DD.pas.ms.script' // UserDefinedExportTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_3FED742390E4 // QueryFile
- ME_4DDC348B9CCC // TimeToRun
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B26E1A01A6 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9EC6793BE4F4 // UserDefinedExportTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csUserDefinedExportTaskPrim.pas'
  CONST extprop:rc:SelfName 'csUserDefinedExportTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4357,60 +3025,6 @@ ref; // ME_53B26E1A01A6 TcsUserDefinedExportTaskPrim
 
 ref; // ME_53B26E050371 TcsUserDefinedExport
 
-FORWARD ME_53B27AA300BD
-
-: ME_7B63E87AB0BB
- CONST UID '7B63E87AB0BB'
- CONST Name 'ID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27AA300BD // TcsUserEditQueryPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_7B63E87AB0BB ID
-
-: ME_DD25BA479477
- CONST UID 'DD25BA479477'
- CONST Name 'IsGroup'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B27AA300BD // TcsUserEditQueryPrim
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_DD25BA479477 IsGroup
-
-: ME_3CAA7209CADE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B27AA300BD // TcsUserEditQueryPrim
- ;
- : Target WL 'ME_53B42F8B011B' '484A470100DD.pas.ms.script' // UserEditQuery
- ;
-
-ref; // ME_3CAA7209CADE 
-
-: ME_53AC03EE01FD_ME_53B27AA300BD
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B27AA300BD GetTaggedDataType
-
 : ME_53B27AA300BD
  CONST UID '53B27AA300BD'
  CONST Name 'TcsUserEditQueryPrim'
@@ -4429,45 +3043,12 @@ ref; // ME_53AC03EE01FD_ME_53B27AA300BD GetTaggedDataType
    Seq: ( WL 'ME_53B42F8B011B' '484A470100DD.pas.ms.script' // UserEditQuery
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_7B63E87AB0BB // ID
- ME_DD25BA479477 // IsGroup
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B27AA300BD // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_3CAA7209CADE // UserEditQuery
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csUserEditQueryPrim.pas'
  CONST extprop:rc:SelfName 'csUserEditQueryPrim'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csUserEditQueryPrim'
 
 ref; // ME_53B27AA300BD TcsUserEditQueryPrim
-
-FORWARD ME_53B6A54A0181
-
-: ME_2163734FDD64
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6A54A0181 // TcsDeleteDocsQueryPrim
- ;
- : Target WL 'ME_53B6810F00CA' '484A470100DD.pas.ms.script' // DeleteDocsQuery
- ;
-
-ref; // ME_2163734FDD64 
-
-: ME_53AC03EE01FD_ME_53B6A54A0181
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6A54A0181 GetTaggedDataType
 
 : ME_53B6A54A0181
  CONST UID '53B6A54A0181'
@@ -4487,14 +3068,6 @@ ref; // ME_53AC03EE01FD_ME_53B6A54A0181 GetTaggedDataType
    Seq: ( WL 'ME_53B6810F00CA' '484A470100DD.pas.ms.script' // DeleteDocsQuery
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6A54A0181 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2163734FDD64 // DeleteDocsQuery
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csDeleteDocsQueryPrim.pas'
  CONST extprop:rc:SelfName 'csDeleteDocsQueryPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4666,26 +3239,6 @@ ref; // ME_5317082500D7 TddServerStatusRequest
 
 ref; // ME_5317080B0295 csServerStatusRequest
 
-FORWARD ME_53B6855302D9
-
-: ME_A61DACC95377
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6855302D9 // TddTaskResultRequestPrim
- ;
- : Target WL 'ME_53B681530262' '484A470100DD.pas.ms.script' // TaskResultRequest
- ;
-
-ref; // ME_A61DACC95377 
-
-: ME_53AC03EE01FD_ME_53B6855302D9
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6855302D9 GetTaggedDataType
-
 : ME_53B6855302D9
  CONST UID '53B6855302D9'
  CONST Name 'TddTaskResultRequestPrim'
@@ -4704,14 +3257,6 @@ ref; // ME_53AC03EE01FD_ME_53B6855302D9 GetTaggedDataType
    Seq: ( WL 'ME_53B681530262' '484A470100DD.pas.ms.script' // TaskResultRequest
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6855302D9 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_A61DACC95377 // TaskResultRequest
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddTaskResultRequestPrim.pas'
  CONST extprop:rc:SelfName 'ddTaskResultRequestPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4800,24 +3345,6 @@ ref; // ME_53B6935403A5
 
 ref; // ME_53B684BC010C SetTaskID
 
-: ME_0CFD5C1690DD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6859A023A // TddGetTaskRequestPrim
- ;
- : Target WL 'ME_53B6818301CC' '484A470100DD.pas.ms.script' // GetTaskRequest
- ;
-
-ref; // ME_0CFD5C1690DD 
-
-: ME_53AC03EE01FD_ME_53B6859A023A
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6859A023A GetTaggedDataType
-
 : ME_53B6859A023A
  CONST UID '53B6859A023A'
  CONST Name 'TddGetTaskRequestPrim'
@@ -4840,14 +3367,6 @@ ref; // ME_53AC03EE01FD_ME_53B6859A023A GetTaggedDataType
    Seq: ( ME_53B684BC010C // SetTaskID
  )
  ; // Operations
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6859A023A // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0CFD5C1690DD // GetTaskRequest
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddGetTaskRequestPrim.pas'
  CONST extprop:rc:SelfName 'ddGetTaskRequestPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -4919,331 +3438,6 @@ ref; // ME_5317087100E3 csTaskRequest
 
 FORWARD ME_53B6A4F300DE
 
-: ME_1F601DCE4A3F
- CONST UID '1F601DCE4A3F'
- CONST Name 'NeedAnalyzeLog'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_1F601DCE4A3F NeedAnalyzeLog
-
-: ME_CA6CDE6F7B4E
- CONST UID 'CA6CDE6F7B4E'
- CONST Name 'TargetFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_CA6CDE6F7B4E TargetFolder
-
-: ME_FAE514267827
- CONST UID 'FAE514267827'
- CONST Name 'eMailNotifyList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_FAE514267827 eMailNotifyList
-
-: ME_B477D597CC89
- CONST UID 'B477D597CC89'
- CONST Name 'ExternalProcessor'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_B477D597CC89 ExternalProcessor
-
-: ME_BCEE2ED614AC
- CONST UID 'BCEE2ED614AC'
- CONST Name 'OutFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_BCEE2ED614AC OutFolder
-
-: ME_9EEA6F3A1B4C
- CONST UID '9EEA6F3A1B4C'
- CONST Name 'PrimeRobotEMail'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_9EEA6F3A1B4C PrimeRobotEMail
-
-: ME_825B22688897
- CONST UID '825B22688897'
- CONST Name 'ExportDocuments'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_825B22688897 ExportDocuments
-
-: ME_567746EE09DC
- CONST UID '567746EE09DC'
- CONST Name 'DocListFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_567746EE09DC DocListFileName
-
-: ME_C48CF8712E07
- CONST UID 'C48CF8712E07'
- CONST Name 'DocListFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C48CF8712E07 DocListFolder
-
-: ME_6381E44B2E08
- CONST UID '6381E44B2E08'
- CONST Name 'EndDateKind'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_6381E44B2E08 EndDateKind
-
-: ME_8A1E0AE8CB7B
- CONST UID '8A1E0AE8CB7B'
- CONST Name 'StartDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "pm" true
-
-ref; // ME_8A1E0AE8CB7B StartDate
-
-: ME_5D3ADD07A946
- CONST UID '5D3ADD07A946'
- CONST Name 'BelongsIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53F5A77B01B4' '484A470100DD.pas.ms.script' // BelongsIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_5D3ADD07A946 BelongsIDList
-
-: ME_6707D6197BF1
- CONST UID '6707D6197BF1'
- CONST Name 'ExcludeAccGroupsIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53F6EFA601E5' '484A470100DD.pas.ms.script' // ExcludeAccGroupsIDListHelper
- ;
- CONST "ifndef" 'Region'
- CONST "pm" true
-
-ref; // ME_6707D6197BF1 ExcludeAccGroupsIDList
-
-: ME_EA8E68593727
- CONST UID 'EA8E68593727'
- CONST Name 'AccGroupsIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53DB62BC03B2' '484A470100DD.pas.ms.script' // AccGroupsIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_EA8E68593727 AccGroupsIDList
-
-: ME_233505BF6553
- CONST UID '233505BF6553'
- CONST Name 'CommentsIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53F6EFE50069' '484A470100DD.pas.ms.script' // CommentsIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_233505BF6553 CommentsIDList
-
-: ME_EADD467C12D8
- CONST UID 'EADD467C12D8'
- CONST Name 'ExcludeDocTypesIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53F6F015029A' '484A470100DD.pas.ms.script' // ExcludeDocTypesIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_EADD467C12D8 ExcludeDocTypesIDList
-
-: ME_D68C918F0216
- CONST UID 'D68C918F0216'
- CONST Name 'ExcludeDocBasesIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53F6F05300BB' '484A470100DD.pas.ms.script' // ExcludeDocBasesIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_D68C918F0216 ExcludeDocBasesIDList
-
-: ME_4CB23D5CE07C
- CONST UID '4CB23D5CE07C'
- CONST Name 'AnnoFilenameTemplate'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_4CB23D5CE07C AnnoFilenameTemplate
-
-: ME_14666D0E08EC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6A4F300DE // TcsAnnotationTask
- ;
- : Target WL 'ME_53B6A4B503E5' '484A470100DD.pas.ms.script' // AnnotationTask
- ;
-
-ref; // ME_14666D0E08EC 
-
-: ME_53AC03EE01FD_ME_53B6A4F300DE
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6A4F300DE GetTaggedDataType
-
 : ME_53FB28170339_ME_53B6A4F300DE
  : Original WL 'ME_53FB28170339' '52FA49B901D3.pas.ms.script' // GetDescription
  ;
@@ -5268,36 +3462,10 @@ ref; // ME_53FB28170339_ME_53B6A4F300DE GetDescription
    Seq: ( WL 'ME_53B6A4B503E5' '484A470100DD.pas.ms.script' // AnnotationTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_1F601DCE4A3F // NeedAnalyzeLog
- ME_CA6CDE6F7B4E // TargetFolder
- ME_FAE514267827 // eMailNotifyList
- ME_B477D597CC89 // ExternalProcessor
- ME_BCEE2ED614AC // OutFolder
- ME_9EEA6F3A1B4C // PrimeRobotEMail
- ME_825B22688897 // ExportDocuments
- ME_567746EE09DC // DocListFileName
- ME_C48CF8712E07 // DocListFolder
- ME_6381E44B2E08 // EndDateKind
- ME_8A1E0AE8CB7B // StartDate
- ME_5D3ADD07A946 // BelongsIDList
- ME_6707D6197BF1 // ExcludeAccGroupsIDList
- ME_EA8E68593727 // AccGroupsIDList
- ME_233505BF6553 // CommentsIDList
- ME_EADD467C12D8 // ExcludeDocTypesIDList
- ME_D68C918F0216 // ExcludeDocBasesIDList
- ME_4CB23D5CE07C // AnnoFilenameTemplate
- )
- ; // Attributes
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6A4F300DE // GetTaggedDataType
- ME_53FB28170339_ME_53B6A4F300DE // GetDescription
+   Seq: ( ME_53FB28170339_ME_53B6A4F300DE // GetDescription
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_14666D0E08EC // AnnotationTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csAnnotationTask.pas'
  CONST extprop:rc:SelfName 'csAnnotationTask'
  CONST extprop:rc:isAcceptableForScripts true
@@ -5316,24 +3484,6 @@ FORWARD ME_53B6A75A024C
  ;
 
 ref; // ME_53B6A79900FA 
-
-: ME_F0722D26DC27
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53B6A75A024C // TddRunCommandTaskPrim
- ;
- : Target WL 'ME_53B6A6B80318' '484A470100DD.pas.ms.script' // RunCommandTask
- ;
-
-ref; // ME_F0722D26DC27 
-
-: ME_53AC03EE01FD_ME_53B6A75A024C
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53B6A75A024C GetTaggedDataType
 
 : ME_53B3D8A8011F_ME_53B6A75A024C
  : Original WL 'ME_53B3D8A8011F' '52FA49B901D3.pas.ms.script' // Create
@@ -5360,13 +3510,11 @@ ref; // ME_53B3D8A8011F_ME_53B6A75A024C Create
  )
  ; // Implements
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53B6A75A024C // GetTaggedDataType
- ME_53B3D8A8011F_ME_53B6A75A024C // Create
+   Seq: ( ME_53B3D8A8011F_ME_53B6A75A024C // Create
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_53B6A79900FA // evdTaskTypes
- ME_F0722D26DC27 // RunCommandTask
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddRunCommandTaskPrim.pas'
@@ -5503,382 +3651,6 @@ ref; // ME_52FA591401FA csServerTaskTypes
 
 FORWARD ME_5317040F0257
 
-: ME_8556ACDBA388
- CONST UID '8556ACDBA388'
- CONST Name 'ManualMode'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_8556ACDBA388 ManualMode
-
-: ME_64FD4DF3DD15
- CONST UID '64FD4DF3DD15'
- CONST Name 'CreatedByServer'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_64FD4DF3DD15 CreatedByServer
-
-: ME_C9E86B6EAF40
- CONST UID 'C9E86B6EAF40'
- CONST Name 'LogsFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C9E86B6EAF40 LogsFolder
-
-: ME_935741D4C254
- CONST UID '935741D4C254'
- CONST Name 'DestinationFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_935741D4C254 DestinationFolder
-
-: ME_C39BB06AEE83
- CONST UID 'C39BB06AEE83'
- CONST Name 'ZippedLogsFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_C39BB06AEE83 ZippedLogsFolder
-
-: ME_3DAEC079F741
- CONST UID '3DAEC079F741'
- CONST Name 'MailToLog'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_3DAEC079F741 MailToLog
-
-: ME_D39D5851137D
- CONST UID 'D39D5851137D'
- CONST Name 'DuplicatesFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_D39D5851137D DuplicatesFolder
-
-: ME_668A1C86D75C
- CONST UID '668A1C86D75C'
- CONST Name 'LinkDataFile'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'Данные для простановки ссылок' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_668A1C86D75C LinkDataFile
-
-: ME_7DA11EF26ECA
- CONST UID '7DA11EF26ECA'
- CONST Name 'KeyThemesFile'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'Список Ключевых тем' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_7DA11EF26ECA KeyThemesFile
-
-: ME_9035D2C5EBFB
- CONST UID '9035D2C5EBFB'
- CONST Name 'SourceIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_53EB4E2E0382' '484A470100DD.pas.ms.script' // SourceIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_9035D2C5EBFB SourceIDList
-
-: ME_312E8D98FCDE
- CONST UID '312E8D98FCDE'
- CONST Name 'BaseArchiveName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_312E8D98FCDE BaseArchiveName
-
-: ME_882FFB259B31
- CONST UID '882FFB259B31'
- CONST Name 'DossierSourceIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_53EC5A0C0323' '484A470100DD.pas.ms.script' // DossierSourceIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_882FFB259B31 DossierSourceIDList
-
-: ME_37380151D684
- CONST UID '37380151D684'
- CONST Name 'MisspellsFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_37380151D684 MisspellsFileName
-
-: ME_5A6581988F1C
- CONST UID '5A6581988F1C'
- CONST Name 'FASCorrectFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_5A6581988F1C FASCorrectFileName
-
-: ME_690F800534A8
- CONST UID '690F800534A8'
- CONST Name 'DocTypesIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_53EC5A69031E' '484A470100DD.pas.ms.script' // DocTypesIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_690F800534A8 DocTypesIDList
-
-: ME_CD07E0D87C7A
- CONST UID 'CD07E0D87C7A'
- CONST Name 'FASSourceIDList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_53EC5AA0026D' '484A470100DD.pas.ms.script' // FASSourceIDListHelper
- ;
- CONST "pm" true
-
-ref; // ME_CD07E0D87C7A FASSourceIDList
-
-: ME_AE660E36B8D7
- CONST UID 'AE660E36B8D7'
- CONST Name 'SourceConvertFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_AE660E36B8D7 SourceConvertFileName
-
-: ME_71F17F64043F
- CONST UID '71F17F64043F'
- CONST Name 'TypeRecodeFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_71F17F64043F TypeRecodeFileName
-
-: ME_A9B421AC12B8
- CONST UID 'A9B421AC12B8'
- CONST Name 'SourceFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_A9B421AC12B8 SourceFileName
-
-: ME_EA689AD3F5B8
- CONST UID 'EA689AD3F5B8'
- CONST Name 'PartialLoadPackSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_EA689AD3F5B8 PartialLoadPackSize
-
-: ME_EEAC3FDE87CC
- CONST UID 'EEAC3FDE87CC'
- CONST Name 'CourtDecisionSabCheckerParams'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
- CONST "pm" true
-
-ref; // ME_EEAC3FDE87CC CourtDecisionSabCheckerParams
-
-: ME_FC475BE9818E
- CONST UID 'FC475BE9818E'
- CONST Name 'TaskCountBeforeRun'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_FC475BE9818E TaskCountBeforeRun
-
 : ME_53B6C1B60033
  CONST UID '53B6C1B60033'
  CONST Name 'ini'
@@ -5900,24 +3672,6 @@ ref; // ME_53B6C1B60033 ini
  ;
 
 ref; // ME_53B6C1DC013A 
-
-: ME_CC05A40018A6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_5317040F0257 // TcsAACImport
- ;
- : Target WL 'ME_53B6BD7701FF' '484A470100DD.pas.ms.script' // AACImport
- ;
-
-ref; // ME_CC05A40018A6 
-
-: ME_53AC03EE01FD_ME_5317040F0257
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_5317040F0257 GetTaggedDataType
 
 : ME_53B3D8A8011F_ME_5317040F0257
  : Original WL 'ME_53B3D8A8011F' '52FA49B901D3.pas.ms.script' // Create
@@ -5955,45 +3709,18 @@ ref; // ME_53E481DF03D1_ME_5317040F0257 DoLoadFrom
    Seq: ( WL 'ME_53B6BD7701FF' '484A470100DD.pas.ms.script' // AACImport
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_8556ACDBA388 // ManualMode
- ME_64FD4DF3DD15 // CreatedByServer
- ME_C9E86B6EAF40 // LogsFolder
- ME_935741D4C254 // DestinationFolder
- ME_C39BB06AEE83 // ZippedLogsFolder
- ME_3DAEC079F741 // MailToLog
- ME_D39D5851137D // DuplicatesFolder
- ME_668A1C86D75C // LinkDataFile
- ME_7DA11EF26ECA // KeyThemesFile
- ME_9035D2C5EBFB // SourceIDList
- ME_312E8D98FCDE // BaseArchiveName
- ME_882FFB259B31 // DossierSourceIDList
- ME_37380151D684 // MisspellsFileName
- ME_5A6581988F1C // FASCorrectFileName
- ME_690F800534A8 // DocTypesIDList
- ME_CD07E0D87C7A // FASSourceIDList
- ME_AE660E36B8D7 // SourceConvertFileName
- ME_71F17F64043F // TypeRecodeFileName
- ME_A9B421AC12B8 // SourceFileName
- ME_EA689AD3F5B8 // PartialLoadPackSize
- ME_EEAC3FDE87CC // CourtDecisionSabCheckerParams
- ME_FC475BE9818E // TaskCountBeforeRun
- )
- ; // Attributes
  : Operations
    Seq: ( ME_53B6C1B60033 // ini
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_5317040F0257 // GetTaggedDataType
- ME_53B3D8A8011F_ME_5317040F0257 // Create
+   Seq: ( ME_53B3D8A8011F_ME_5317040F0257 // Create
  ME_53E481990243_ME_5317040F0257 // DoSaveTo
  ME_53E481DF03D1_ME_5317040F0257 // DoLoadFrom
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_53B6C1DC013A // TddTaskItem
- ME_CC05A40018A6 // AACImport
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csAACImport.pas'
@@ -6002,26 +3729,6 @@ ref; // ME_53E481DF03D1_ME_5317040F0257 DoLoadFrom
  CONST extprop:pas:UnitName 'csAACImport'
 
 ref; // ME_5317040F0257 TcsAACImport
-
-FORWARD ME_53BA6C3000F7
-
-: ME_798A23240BAC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53BA6C3000F7 // TddCaseCodeTaskPrim
- ;
- : Target WL 'ME_53BA6BF50280' '484A470100DD.pas.ms.script' // CaseCodeTask
- ;
-
-ref; // ME_798A23240BAC 
-
-: ME_53AC03EE01FD_ME_53BA6C3000F7
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53BA6C3000F7 GetTaggedDataType
 
 : ME_53BA6C3000F7
  CONST UID '53BA6C3000F7'
@@ -6041,14 +3748,6 @@ ref; // ME_53AC03EE01FD_ME_53BA6C3000F7 GetTaggedDataType
    Seq: ( WL 'ME_53BA6BF50280' '484A470100DD.pas.ms.script' // CaseCodeTask
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53BA6C3000F7 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_798A23240BAC // CaseCodeTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ddCaseCodeTaskPrim.pas'
  CONST extprop:rc:SelfName 'ddCaseCodeTaskPrim'
  CONST extprop:rc:isAcceptableForScripts true
@@ -6096,26 +3795,6 @@ ref; // ME_531703820305 TcsAutoAnnoExport
 
 ref; // ME_5317037001E5 csAutoAnnoExport
 
-FORWARD ME_53BA76F9001C
-
-: ME_362B45E86724
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53BA76F9001C // TcsRelPublishTask
- ;
- : Target WL 'ME_53BA76BC00D8' '484A470100DD.pas.ms.script' // RelPublishTask
- ;
-
-ref; // ME_362B45E86724 
-
-: ME_53AC03EE01FD_ME_53BA76F9001C
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53BA76F9001C GetTaggedDataType
-
 : ME_53BA76F9001C
  CONST UID '53BA76F9001C'
  CONST Name 'TcsRelPublishTask'
@@ -6134,14 +3813,6 @@ ref; // ME_53AC03EE01FD_ME_53BA76F9001C GetTaggedDataType
    Seq: ( WL 'ME_53BA76BC00D8' '484A470100DD.pas.ms.script' // RelPublishTask
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53BA76F9001C // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_362B45E86724 // RelPublishTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csRelPublishTask.pas'
  CONST extprop:rc:SelfName 'csRelPublishTask'
  CONST extprop:rc:isAcceptableForScripts true
@@ -6150,109 +3821,6 @@ ref; // ME_53AC03EE01FD_ME_53BA76F9001C GetTaggedDataType
 ref; // ME_53BA76F9001C TcsRelPublishTask
 
 FORWARD ME_53F46C710363
-
-: ME_F76829C0208C
- CONST UID 'F76829C0208C'
- CONST Name 'BuilderFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53F46C710363 // TcsAutoClassTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_F76829C0208C BuilderFileName
-
-: ME_47C5C609E806
- CONST UID '47C5C609E806'
- CONST Name 'ResultFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53F46C710363 // TcsAutoClassTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_47C5C609E806 ResultFileName
-
-: ME_1020BCE9F413
- CONST UID '1020BCE9F413'
- CONST Name 'SourceFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53F46C710363 // TcsAutoClassTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_1020BCE9F413 SourceFolder
-
-: ME_AFB23FE9D63B
- CONST UID 'AFB23FE9D63B'
- CONST Name 'LogFileName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53F46C710363 // TcsAutoClassTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_AFB23FE9D63B LogFileName
-
-: ME_99C26E6A4D91
- CONST UID '99C26E6A4D91'
- CONST Name 'eMailNotifyList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53F46C710363 // TcsAutoClassTask
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_99C26E6A4D91 eMailNotifyList
-
-: ME_0B33692CFD49
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53F46C710363 // TcsAutoClassTask
- ;
- : Target WL 'ME_53B681E000B9' '484A470100DD.pas.ms.script' // AutoClassTask
- ;
-
-ref; // ME_0B33692CFD49 
-
-: ME_53AC03EE01FD_ME_53F46C710363
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_53F46C710363 GetTaggedDataType
 
 : ME_53B3D8A8011F_ME_53F46C710363
  : Original WL 'ME_53B3D8A8011F' '52FA49B901D3.pas.ms.script' // Create
@@ -6278,23 +3846,10 @@ ref; // ME_53B3D8A8011F_ME_53F46C710363 Create
    Seq: ( WL 'ME_53B681E000B9' '484A470100DD.pas.ms.script' // AutoClassTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_F76829C0208C // BuilderFileName
- ME_47C5C609E806 // ResultFileName
- ME_1020BCE9F413 // SourceFolder
- ME_AFB23FE9D63B // LogFileName
- ME_99C26E6A4D91 // eMailNotifyList
- )
- ; // Attributes
  : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_53F46C710363 // GetTaggedDataType
- ME_53B3D8A8011F_ME_53F46C710363 // Create
+   Seq: ( ME_53B3D8A8011F_ME_53F46C710363 // Create
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_0B33692CFD49 // AutoClassTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csAutoClassTask.pas'
  CONST extprop:rc:SelfName 'csAutoClassTask'
  CONST extprop:rc:isAcceptableForScripts true
@@ -6303,6 +3858,8 @@ ref; // ME_53B3D8A8011F_ME_53F46C710363 Create
 ref; // ME_53F46C710363 TcsAutoClassTask
 
 FORWARD ME_54A247D202B0
+
+FORWARD ME_53C3A62101DB
 
 : ME_53C3A69D00D9
  CONST UID '53C3A69D00D9'
@@ -6465,6 +4022,8 @@ ref; // ME_53BFCE310249_ME_54B3B0E401C8 CopyFrom
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_54B3B0E401C8 AdditionalFilesHelper
+
+FORWARD ME_53EDDBB5025F
 
 FORWARD ME_54B3BCB10348
 
@@ -7551,162 +5110,6 @@ ref; // ME_F75B4443B80B_ME_5583BE960064 TaskGotErrorStatus
 
 ref; // ME_5583BE960064 TcsTaskChangeHelper
 
-FORWARD ME_55E9759603C8
-
-: ME_16FBD314D238
- CONST UID '16FBD314D238'
- CONST Name 'SyncFolderMask'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_16FBD314D238 SyncFolderMask
-
-: ME_D4FBD6A22E70
- CONST UID 'D4FBD6A22E70'
- CONST Name 'GuardName'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_D4FBD6A22E70 GuardName
-
-: ME_9DF75D4438F1
- CONST UID '9DF75D4438F1'
- CONST Name 'SyncURL'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_9DF75D4438F1 SyncURL
-
-: ME_D92CA5B3B8A7
- CONST UID 'D92CA5B3B8A7'
- CONST Name 'UseProxy'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_D92CA5B3B8A7 UseProxy
-
-: ME_5C6536AC5DA7
- CONST UID '5C6536AC5DA7'
- CONST Name 'ProxyServer'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_5C6536AC5DA7 ProxyServer
-
-: ME_57AD1EB5E0FD
- CONST UID '57AD1EB5E0FD'
- CONST Name 'ProxyPort'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_57AD1EB5E0FD ProxyPort
-
-: ME_D6864A19541F
- CONST UID 'D6864A19541F'
- CONST Name 'ProxyLogin'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_D6864A19541F ProxyLogin
-
-: ME_DF2F64FF9209
- CONST UID 'DF2F64FF9209'
- CONST Name 'ProxyPassword'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_DF2F64FF9209 ProxyPassword
-
-: ME_37E65A901B6D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E9759603C8 // TcsMdpSyncDicts
- ;
- : Target WL 'ME_55E96E5502D6' '484A470100DD.pas.ms.script' // mdpSyncDicts
- ;
-
-ref; // ME_37E65A901B6D 
-
-: ME_53AC03EE01FD_ME_55E9759603C8
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_55E9759603C8 GetTaggedDataType
-
 : ME_55E9759603C8
  CONST UID '55E9759603C8'
  CONST Name 'TcsMdpSyncDicts'
@@ -7725,102 +5128,12 @@ ref; // ME_53AC03EE01FD_ME_55E9759603C8 GetTaggedDataType
    Seq: ( WL 'ME_55E96E5502D6' '484A470100DD.pas.ms.script' // mdpSyncDicts
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_16FBD314D238 // SyncFolderMask
- ME_D4FBD6A22E70 // GuardName
- ME_9DF75D4438F1 // SyncURL
- ME_D92CA5B3B8A7 // UseProxy
- ME_5C6536AC5DA7 // ProxyServer
- ME_57AD1EB5E0FD // ProxyPort
- ME_D6864A19541F // ProxyLogin
- ME_DF2F64FF9209 // ProxyPassword
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_55E9759603C8 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_37E65A901B6D // mdpSyncDicts
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncDicts.pas'
  CONST extprop:rc:SelfName 'csMdpSyncDicts'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csMdpSyncDicts'
 
 ref; // ME_55E9759603C8 TcsMdpSyncDicts
-
-FORWARD ME_55EEC220007F
-
-: ME_ACB4DD73A6F0
- CONST UID 'ACB4DD73A6F0'
- CONST Name 'Mail'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55EEC220007F // TcsMdpImportDocs
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_ACB4DD73A6F0 Mail
-
-: ME_2A71761FFD30
- CONST UID '2A71761FFD30'
- CONST Name 'ErrorMail'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55EEC220007F // TcsMdpImportDocs
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_2A71761FFD30 ErrorMail
-
-: ME_7F1C1465BBBC
- CONST UID '7F1C1465BBBC'
- CONST Name 'MaxCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_55EEC220007F // TcsMdpImportDocs
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_7F1C1465BBBC MaxCount
-
-: ME_C5FE08AF7C53
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55EEC220007F // TcsMdpImportDocs
- ;
- : Target WL 'ME_55EEBECD01B5' '484A470100DD.pas.ms.script' // mdpImportDocs
- ;
-
-ref; // ME_C5FE08AF7C53 
-
-: ME_53AC03EE01FD_ME_55EEC220007F
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_55EEC220007F GetTaggedDataType
 
 : ME_55EEC220007F
  CONST UID '55EEC220007F'
@@ -7840,80 +5153,12 @@ ref; // ME_53AC03EE01FD_ME_55EEC220007F GetTaggedDataType
    Seq: ( WL 'ME_55EEBECD01B5' '484A470100DD.pas.ms.script' // mdpImportDocs
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_ACB4DD73A6F0 // Mail
- ME_2A71761FFD30 // ErrorMail
- ME_7F1C1465BBBC // MaxCount
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_55EEC220007F // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_C5FE08AF7C53 // mdpImportDocs
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpImportDocs.pas'
  CONST extprop:rc:SelfName 'csMdpImportDocs'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csMdpImportDocs'
 
 ref; // ME_55EEC220007F TcsMdpImportDocs
-
-FORWARD ME_56FE5C970264
-
-: ME_807379469BD5
- CONST UID '807379469BD5'
- CONST Name 'TasksList'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_56FE5C970264 // TcsContainerTask
- ;
- : Target ME_57022BAA02E1 // TasksListHelper
- ;
- CONST "pm" true
-
-ref; // ME_807379469BD5 TasksList
-
-: ME_35FA81042B4C
- CONST UID '35FA81042B4C'
- CONST Name 'ParallelExecutionMode'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_56FE5C970264 // TcsContainerTask
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_35FA81042B4C ParallelExecutionMode
-
-: ME_42C079208970
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FE5C970264 // TcsContainerTask
- ;
- : Target WL 'ME_56FE456C0292' '484A470100DD.pas.ms.script' // ContainerTask
- ;
-
-ref; // ME_42C079208970 
-
-: ME_53AC03EE01FD_ME_56FE5C970264
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_56FE5C970264 GetTaggedDataType
 
 : ME_56FE5C970264
  CONST UID '56FE5C970264'
@@ -7933,62 +5178,12 @@ ref; // ME_53AC03EE01FD_ME_56FE5C970264 GetTaggedDataType
    Seq: ( WL 'ME_56FE456C0292' '484A470100DD.pas.ms.script' // ContainerTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_807379469BD5 // TasksList
- ME_35FA81042B4C // ParallelExecutionMode
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_56FE5C970264 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_42C079208970 // ContainerTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csContainerTask.pas'
  CONST extprop:rc:SelfName 'csContainerTask'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csContainerTask'
 
 ref; // ME_56FE5C970264 TcsContainerTask
-
-FORWARD ME_57065CCE0306
-
-: ME_FCA5EBB34665
- CONST UID 'FCA5EBB34665'
- CONST Name 'SchedulerTaskType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_57065CCE0306 // TcsSchedulerProxyTask
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_FCA5EBB34665 SchedulerTaskType
-
-: ME_D8EE8D2326E6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_57065CCE0306 // TcsSchedulerProxyTask
- ;
- : Target WL 'ME_5706552C0169' '484A470100DD.pas.ms.script' // SchedulerProxyTask
- ;
-
-ref; // ME_D8EE8D2326E6 
-
-: ME_53AC03EE01FD_ME_57065CCE0306
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_57065CCE0306 GetTaggedDataType
 
 : ME_57065CCE0306
  CONST UID '57065CCE0306'
@@ -8008,146 +5203,12 @@ ref; // ME_53AC03EE01FD_ME_57065CCE0306 GetTaggedDataType
    Seq: ( WL 'ME_5706552C0169' '484A470100DD.pas.ms.script' // SchedulerProxyTask
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_FCA5EBB34665 // SchedulerTaskType
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_57065CCE0306 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_D8EE8D2326E6 // SchedulerProxyTask
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csSchedulerProxyTask.pas'
  CONST extprop:rc:SelfName 'csSchedulerProxyTask'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'csSchedulerProxyTask'
 
 ref; // ME_57065CCE0306 TcsSchedulerProxyTask
-
-FORWARD ME_573D91050026
-
-: ME_CC118E08EE6E
- CONST UID 'CC118E08EE6E'
- CONST Name 'SyncURL'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_CC118E08EE6E SyncURL
-
-: ME_208CD8F25DD2
- CONST UID '208CD8F25DD2'
- CONST Name 'UseProxy'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
- CONST "pm" true
-
-ref; // ME_208CD8F25DD2 UseProxy
-
-: ME_DA8AD1F82E27
- CONST UID 'DA8AD1F82E27'
- CONST Name 'ProxyServer'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_DA8AD1F82E27 ProxyServer
-
-: ME_E08132B9D011
- CONST UID 'E08132B9D011'
- CONST Name 'ProxyPort'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_E08132B9D011 ProxyPort
-
-: ME_37A4D4235A07
- CONST UID '37A4D4235A07'
- CONST Name 'ProxyLogin'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_37A4D4235A07 ProxyLogin
-
-: ME_2F88442EEF51
- CONST UID '2F88442EEF51'
- CONST Name 'ProxyPassword'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_2F88442EEF51 ProxyPassword
-
-: ME_5ADED788EAF4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_573D91050026 // TcsMdpSyncStages
- ;
- : Target WL 'ME_573D84C30337' '484A470100DD.pas.ms.script' // mdpSyncStages
- ;
-
-ref; // ME_5ADED788EAF4 
-
-: ME_53AC03EE01FD_ME_573D91050026
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_573D91050026 GetTaggedDataType
 
 : ME_573D91050026
  CONST UID '573D91050026'
@@ -8167,23 +5228,6 @@ ref; // ME_53AC03EE01FD_ME_573D91050026 GetTaggedDataType
    Seq: ( WL 'ME_573D84C30337' '484A470100DD.pas.ms.script' // mdpSyncStages
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_CC118E08EE6E // SyncURL
- ME_208CD8F25DD2 // UseProxy
- ME_DA8AD1F82E27 // ProxyServer
- ME_E08132B9D011 // ProxyPort
- ME_37A4D4235A07 // ProxyLogin
- ME_2F88442EEF51 // ProxyPassword
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_573D91050026 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_5ADED788EAF4 // mdpSyncStages
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncStages.pas'
  CONST extprop:rc:SelfName 'csMdpSyncStages'
  CONST extprop:rc:isAcceptableForScripts true
@@ -8272,7 +5316,6 @@ ref; // ME_573D91050026 TcsMdpSyncStages
  WL 'ME_47BC51FE018B' '47BC51FE018B.pas.ms.script' // dt_Types
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
  WL 'ME_47ECACA70141' '47ECACA70141.pas.ms.script' // Generators
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

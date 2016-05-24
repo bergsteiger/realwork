@@ -38,162 +38,6 @@ ref; // ME_53C4F9DC0204 CanNotifyChange
 
 ref; // ME_572C674502D6 f_Owner
 
-: ME_F6B12E94BD1C
- CONST UID 'F6B12E94BD1C'
- CONST Name 'f_CanNotifyChange'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CanNotifyChange' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'CanNotifyChange'
-
-ref; // ME_F6B12E94BD1C f_CanNotifyChange
-
-: ME_5B83E11F22FB
- CONST UID '5B83E11F22FB'
- CONST Name 'TaskType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_readonly::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_53A9542401D9' '484A470100DD.pas.ms.script' // TcsTaskType
- ;
- CONST "pm" true
-
-ref; // ME_5B83E11F22FB TaskType
-
-: ME_AF593256A9AE
- CONST UID 'AF593256A9AE'
- CONST Name 'Priority'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_AF593256A9AE Priority
-
-: ME_571225C20359
- CONST UID '571225C20359'
- CONST Name 'Version'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_571225C20359 Version
-
-: ME_86CFBC62FBD3
- CONST UID '86CFBC62FBD3'
- CONST Name 'TaskID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'Идентификатор задания' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_86CFBC62FBD3 TaskID
-
-: ME_418658145475
- CONST UID '418658145475'
- CONST Name 'Date'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "pm" true
-
-ref; // ME_418658145475 Date
-
-: ME_020041F4906E
- CONST UID '020041F4906E'
- CONST Name 'User'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
- ;
- CONST "pm" true
-
-ref; // ME_020041F4906E User
-
-: ME_72E56BB67EDF
- CONST UID '72E56BB67EDF'
- CONST Name 'Description'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'Description' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_72E56BB67EDF Description
-
-: ME_A169F37C21C6
- CONST UID 'A169F37C21C6'
- CONST Name 'TaskFolder'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'TaskFolder' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_A169F37C21C6 TaskFolder
-
 FORWARD ME_53AC4F14023A
 
 : ME_53AC4F3301F5
@@ -726,17 +570,6 @@ ref; // ME_53C4F97B0049
 
 ref; // ME_53C51E810330 
 
-: ME_DE4C007C137D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53AC018900AE // TddTaskItemPrim
- ;
- : Target WL 'ME_537DFEF702E1' '484A470100DD.pas.ms.script' // Task
- ;
-
-ref; // ME_DE4C007C137D 
-
 : ME_53AC03EE01FD_ME_53AC018900AE
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
@@ -779,15 +612,6 @@ ref; // ME_53343980014A_ME_53AC018900AE TagOwner
  : Attributes
    Seq: ( ME_53C4F9DC0204 // CanNotifyChange
  ME_572C674502D6 // f_Owner
- ME_F6B12E94BD1C // f_CanNotifyChange
- ME_5B83E11F22FB // TaskType
- ME_AF593256A9AE // Priority
- ME_571225C20359 // Version
- ME_86CFBC62FBD3 // TaskID
- ME_418658145475 // Date
- ME_020041F4906E // User
- ME_72E56BB67EDF // Description
- ME_A169F37C21C6 // TaskFolder
  )
  ; // Attributes
  : Operations
@@ -816,7 +640,6 @@ ref; // ME_53343980014A_ME_53AC018900AE TagOwner
  : Dependencies
    Seq: ( ME_53C4F97B0049 // TcsTaskListeners
  ME_53C51E810330 // evdTasks
- ME_DE4C007C137D // Task
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\ddTaskItemPrim.pas'
@@ -1168,34 +991,6 @@ FORWARD ME_53E0D4F50178
 
 ref; // ME_53E1C89F021B TcsTaskResultClass
 
-: ME_96286EAE2E82
- CONST UID '96286EAE2E82'
- CONST Name 'TaskID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_53E0D4F50178 // TcsTaskResult
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_96286EAE2E82 TaskID
-
-: ME_147F532DE886
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_53E0D4F50178 // TcsTaskResult
- ;
- : Target WL 'ME_53E0C9390212' '484A470100DD.pas.ms.script' // TaskResult
- ;
-
-ref; // ME_147F532DE886 
-
 : ME_53AC03EE01FD_ME_53E0D4F50178
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
  ;
@@ -1222,10 +1017,6 @@ ref; // ME_53AC03EE01FD_ME_53E0D4F50178 GetTaggedDataType
  WL 'ME_53E0C9390212' '484A470100DD.pas.ms.script' // TaskResult
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_96286EAE2E82 // TaskID
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_53AC03EE01FD_ME_53E0D4F50178 // GetTaggedDataType
  )
@@ -1234,10 +1025,6 @@ ref; // ME_53AC03EE01FD_ME_53E0D4F50178 GetTaggedDataType
    Seq: ( ME_53E1C89F021B // TcsTaskResultClass
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_147F532DE886 // TaskResult
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\EVD\csTaskResult.pas'
  CONST extprop:rc:SelfName 'csTaskResult'
  CONST extprop:rc:isAcceptableForScripts true
@@ -1263,7 +1050,6 @@ ref; // ME_53E0D4F50178 TcsTaskResult
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common

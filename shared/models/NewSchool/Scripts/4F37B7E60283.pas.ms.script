@@ -24,8 +24,6 @@ FORWARD ME_567A8D710267
 
 ref; // ME_567A8D840243 Boxed
 
-FORWARD ME_30A0EE35BD4C
-
 : ME_567A8D710267
  CONST UID '567A8D710267'
  CONST GUID '16F9981D-A4AE-47B8-940F-7ED27AF34B87'
@@ -41,10 +39,6 @@ FORWARD ME_30A0EE35BD4C
    Seq: ( ME_567A8D840243 // Boxed
  )
  ; // Attributes
- : Injected
-   Seq: ( ME_30A0EE35BD4C // ItfwWordBox
- )
- ; // Injected
  CONST extprop:rc:SelfName 'WordBox'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -844,17 +838,6 @@ ref; // ME_55E84F4402C8
 
 ref; // ME_55ED4986029B 
 
-: ME_D19D07131FFA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_550C25D70182 // WordsRTTIPack
- ;
- : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
- ;
-
-ref; // ME_D19D07131FFA 
-
 : ME_4DAEEDE10285_ME_550C25D70182
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -934,13 +917,12 @@ ref; // ME_4DAEEDE10285_ME_550C25D70182 DoDoIt
  ME_55E84272002C // TkwForwardDeclaration
  ME_55E84F4402C8 // TtfwWordRefList
  ME_55ED4986029B // ItfwScriptEngineEx
- ME_D19D07131FFA // TtfwWord
  )
  ; // Dependencies
  : Injected
-   Seq: ( WL 'ME_55E8424D038F' '4DAEEA14018A.pas.ms.script' // WordsRTTIPack
- WL 'ME_55E842570180' '4DAEEA14018A.pas.ms.script' // WordsRTTIPack
- WL 'ME_55E842A30109' '5284E8850019.pas.ms.script' // WordsRTTIPack
+   Seq: ( WL 'ME_55E8424D038F' '4DAEEA14018A.pas.ms.script' // TkwCompiledWordWorkerWordRunner
+ WL 'ME_55E842570180' '4DAEEA14018A.pas.ms.script' // TkwCompiledWordWorkerWord
+ WL 'ME_55E842A30109' '5284E8850019.pas.ms.script' // TkwCompiledIfElse
  )
  ; // Injected
  CONST "ifndef" 'NoScripts'
@@ -1672,17 +1654,6 @@ ref; // ME_55E9AD570157
 
 ref; // ME_55ED4DA700D3 
 
-: ME_733B3E4AEBB6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_550C4C8701B4 // TypeInfoPack
- ;
- : Target WL 'ME_4DB00A510300' '55BF153300A4.pas.ms.script' // TtfwStackValue
- ;
-
-ref; // ME_733B3E4AEBB6 
-
 : ME_550C4C8701B4
  CONST UID '550C4C8701B4'
  CONST Name 'TypeInfoPack'
@@ -1745,7 +1716,6 @@ ref; // ME_733B3E4AEBB6
  ME_55E9AD440015 // TtfwInitedDictionariesListIterator
  ME_55E9AD570157 // TtfwDictionaryListIterator
  ME_55ED4DA700D3 // TtfwWordsIterator
- ME_733B3E4AEBB6 // TtfwStackValue
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -2075,17 +2045,6 @@ ref; // ME_5589A31A00A4
 
 ref; // ME_559A4C14032D 
 
-: ME_754211F99926
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55895EA203B9 // NewWordDefinitorPack
- ;
- : Target WL 'ME_4DC95E96023B' '4DAF19F600C5.pas.ms.script' // TtfwNewWordDefinitor
- ;
-
-ref; // ME_754211F99926 
-
 : ME_4DAEEDE10285_ME_55895EA203B9
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2130,7 +2089,6 @@ ref; // ME_4DAEEDE10285_ME_55895EA203B9 DoDoIt
  : Dependencies
    Seq: ( ME_5589A31A00A4 // TkwCompiledVar
  ME_559A4C14032D // TkwGlobalVar
- ME_754211F99926 // TtfwNewWordDefinitor
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -2221,17 +2179,6 @@ ref; // ME_5673CF480040 SetWord
 
 ref; // ME_55ED49950394 
 
-: ME_D7702FA7A411
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55895F0A01BF // KeyWordPack
- ;
- : Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.pas.ms.script' // TtfwKeyWord
- ;
-
-ref; // ME_D7702FA7A411 
-
 : ME_55895F0A01BF
  CONST UID '55895F0A01BF'
  CONST Name 'KeyWordPack'
@@ -2258,7 +2205,6 @@ ref; // ME_D7702FA7A411
  ; // Operations
  : Dependencies
    Seq: ( ME_55ED49950394 // ItfwScriptEngineEx
- ME_D7702FA7A411 // TtfwKeyWord
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -2399,17 +2345,6 @@ ref; // ME_56E13F740281 AddCodePartValue
 
 ref; // ME_56E13F54001A 
 
-: ME_D0100027103B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_559BDDE30092 // ItfwCompilerWordsPack
- ;
- : Target WL 'ME_4DB6E2EE0259' '4DAF19F600C5.pas.ms.script' // TtfwCompiler
- ;
-
-ref; // ME_D0100027103B 
-
 : ME_4DAEEDE10285_ME_559BDDE30092
  : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
  ;
@@ -2448,7 +2383,6 @@ ref; // ME_4DAEEDE10285_ME_559BDDE30092 DoDoIt
  ; // Implemented
  : Dependencies
    Seq: ( ME_56E13F54001A // TkwValue
- ME_D0100027103B // TtfwCompiler
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -2683,17 +2617,6 @@ ref; // ME_560D01F60335 anOther
 
 ref; // ME_560D01EA014E Accepts
 
-: ME_E2A70F0AE114
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55C3714E020D // tfwValueTypesWordsPack
- ;
- : Target WL 'ME_55BF2B000047' '55BF29CB003B.pas.ms.script' // TtfwValueTypes
- ;
-
-ref; // ME_E2A70F0AE114 
-
 : ME_55C3714E020D
  CONST UID '55C3714E020D'
  CONST Name 'tfwValueTypesWordsPack'
@@ -2723,10 +2646,6 @@ ref; // ME_E2A70F0AE114
  ME_560D01EA014E // Accepts
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_E2A70F0AE114 // TtfwValueTypes
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwValueTypesWordsPack.pas'
  CONST extprop:rc:SelfName 'ValueTypesWordsPack'
@@ -3108,17 +3027,6 @@ ref; // ME_55C374AB030E Compare
 
 ref; // ME_55C39A26036A ToString
 
-: ME_D809EF63258E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55C3729D0212 // tfwWordInfoWordsPack
- ;
- : Target WL 'ME_559D504A0081' '4DAF19F600C5.pas.ms.script' // TtfwWordInfo
- ;
-
-ref; // ME_D809EF63258E 
-
 : ME_559D50760320_ME_55C3729D0212
  : Original WL 'ME_559D50760320' '4DAF19F600C5.pas.ms.script' // IncludeModifier
  ;
@@ -3305,10 +3213,6 @@ ref; // ME_55C385DE0038_ME_55C3729D0212 ToString
  ME_55C385DE0038_ME_55C3729D0212 // ToString
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_D809EF63258E // TtfwWordInfo
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordInfoWordsPack.pas'
  CONST extprop:rc:SelfName 'WordInfoWordsPack'
@@ -3330,17 +3234,6 @@ FORWARD ME_567A8EB00176
  ;
 
 ref; // ME_567A8EC50138 Boxed
-
-: ME_30A0EE35BD4C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_567A8EB00176 // tfwWordBoxPack
- ;
- : Target ME_567A8D710267 // ItfwWordBox
- ;
-
-ref; // ME_30A0EE35BD4C 
 
 : ME_567A8D840243_ME_567A8EB00176
  : Original ME_567A8D840243 // Boxed
@@ -3371,10 +3264,6 @@ ref; // ME_567A8D840243_ME_567A8EB00176 Boxed
    Seq: ( ME_567A8D840243_ME_567A8EB00176 // Boxed
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_30A0EE35BD4C // ItfwWordBox
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordBoxPack.pas'
  CONST extprop:rc:SelfName 'WordBoxPack'

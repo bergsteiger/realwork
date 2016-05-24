@@ -958,6 +958,8 @@ ref; // ME_4F2BEF740060_ME_4DDCD636016C GetRedactionOnLeftEdition
  CONST extprop:rc:SelfName 'PrimChangesBetweenEditonsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimChangesBetweenEditons_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4DDCD636016C PrimChangesBetweenEditons
 
@@ -1033,21 +1035,6 @@ ref; // ME_91CE610EF569 ChangesBetweenEditonsIDs
 
 ref; // ME_18DFDA8DC53A ChangesBetweenEditons$Def
 
-: ME_486BBBAEA4FA
- CONST UID '486BBBAEA4FA'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ChangesBetweenEditons' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD6800267 // ChangesBetweenEditons
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_486BBBAEA4FA Ini_Reg_Class
-
 : ME_1D5490FDD3CC
  CONST UID '1D5490FDD3CC'
  CONST Name 'Ini_FormFactory_ChangesBetweenEditons'
@@ -1063,17 +1050,6 @@ ref; // ME_486BBBAEA4FA Ini_Reg_Class
  ;
 
 ref; // ME_1D5490FDD3CC Ini_FormFactory_ChangesBetweenEditons$Def
-
-: ME_772CD6C7D2B4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD6800267 // ChangesBetweenEditons
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_772CD6C7D2B4 
 
 : ME_4DDCD6800267
  CONST UID '4DDCD6800267'
@@ -1095,18 +1071,13 @@ ref; // ME_772CD6C7D2B4
  )
  ; // Implements
  : Operations
-   Seq: ( ME_486BBBAEA4FA // Ini_Reg_Class
- ME_1D5490FDD3CC // Ini_FormFactory_ChangesBetweenEditons$Def
+   Seq: ( ME_1D5490FDD3CC // Ini_FormFactory_ChangesBetweenEditons$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_18DFDA8DC53A // ChangesBetweenEditons$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_772CD6C7D2B4 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

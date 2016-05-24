@@ -338,17 +338,6 @@ FORWARD ME_55B8E44302B1
 
 ref; // ME_55B8E45102AC 
 
-: ME_97FE2190B067
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_50741A1F028C // FormsProcessingPack
- ;
- : Target WL 'ME_4952591E0263' '4799D29F033F.pas.ms.script' // TForm
- ;
-
-ref; // ME_97FE2190B067 
-
 : ME_50741A1F028C
  CONST UID '50741A1F028C'
  CONST Name 'FormsProcessingPack'
@@ -388,7 +377,6 @@ ref; // ME_97FE2190B067
  ME_55B65FE00332 // TControl
  ME_55B660010392 // TActionList
  ME_55B8E45102AC // ActionListWordsPack
- ME_97FE2190B067 // TForm
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'
@@ -413,17 +401,6 @@ ref; // ME_50741A1F028C FormsProcessingPack
 
 ref; // ME_553252FA01E0 pop_form_FormStyle
 
-: ME_895D2228632D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_553252BF022D // CustomFormProcessingPack
- ;
- : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
- ;
-
-ref; // ME_895D2228632D 
-
 : ME_553252BF022D
  CONST UID '553252BF022D'
  CONST Name 'CustomFormProcessingPack'
@@ -442,10 +419,6 @@ ref; // ME_895D2228632D
    Seq: ( ME_553252FA01E0 // pop_form_FormStyle
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_895D2228632D // TCustomForm
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST "no class name" true
  CONST "no_pop" true
@@ -468,17 +441,6 @@ FORWARD ME_55B8E4140349
 
 ref; // ME_55B8E49D01F4 Execute
 
-: ME_7C7E3A67039B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55B8E4140349 // ContainedActionsWordspack
- ;
- : Target WL 'ME_47E76278025E' '4799D29F033F.pas.ms.script' // TContainedAction
- ;
-
-ref; // ME_7C7E3A67039B 
-
 : ME_55B8E4140349
  CONST UID '55B8E4140349'
  CONST Name 'ContainedActionsWordspack'
@@ -497,10 +459,6 @@ ref; // ME_7C7E3A67039B
    Seq: ( ME_55B8E49D01F4 // Execute
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_7C7E3A67039B // TContainedAction
- )
- ; // Dependencies
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ContainedActionsWordspack.pas'
 
@@ -543,17 +501,6 @@ ref; // ME_55B8E46F00AF FindAction
 
 ref; // ME_55B8E45700DB 
 
-: ME_A2425F81967A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_injects::Dependency ;
- : Parent ME_55B8E44302B1 // ActionListWordsPack
- ;
- : Target WL 'ME_4EF32DDB0235' '4799D29F033F.pas.ms.script' // TActionList
- ;
-
-ref; // ME_A2425F81967A 
-
 : ME_55B8E44302B1
  CONST UID '55B8E44302B1'
  CONST Name 'ActionListWordsPack'
@@ -574,7 +521,6 @@ ref; // ME_A2425F81967A
  ; // Operations
  : Dependencies
    Seq: ( ME_55B8E45700DB // ContainedActionsWordspack
- ME_A2425F81967A // TActionList
  )
  ; // Dependencies
  CONST "ifndef" 'NoScripts'

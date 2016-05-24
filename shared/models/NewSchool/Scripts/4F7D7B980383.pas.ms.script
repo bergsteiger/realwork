@@ -1556,6 +1556,7 @@ ref; // ME_5566C7BD037F_ME_4958D2EA00CC DoOpenNew
  CONST extprop:rc:SelfName 'NemesisMainForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'NemesisMain_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4958D2EA00CC NemesisMain
 
@@ -2961,6 +2962,7 @@ ref; // ME_546464260137_ME_4C8A29700261 DoInitContainedForm
  CONST extprop:rc:SelfName 'MainOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'MainOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C8A29700261 MainOptions
 
@@ -4761,6 +4763,7 @@ ref; // ME_54327E120331_ME_4A952BA3006D DoInitFromPrevContainer
  CONST extprop:rc:SelfName 'MainForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'Main_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A952BA3006D Main
 
@@ -5969,6 +5972,7 @@ ref; // ME_537C9007038A_ME_4F7DAC14027A BecomeInvisible
  CONST extprop:rc:SelfName 'MainWithRemindersForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'MainWithReminders_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4F7DAC14027A MainWithReminders
 
@@ -6042,21 +6046,6 @@ ref; // ME_0985CAEA9C4A MainWindowIDs
 
 ref; // ME_65A08EE64C38 MainWindow$Def
 
-: ME_AC5FAF25F853
- CONST UID 'AC5FAF25F853'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MainWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA7EA010274 // MainWindow
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_AC5FAF25F853 Ini_Reg_Class
-
 : ME_6A1545565ACA
  CONST UID '6A1545565ACA'
  CONST Name 'Ini_FormFactory_MainWindow'
@@ -6103,17 +6092,6 @@ ref; // ME_4AD5B8000298
 
 ref; // ME_4ADC51AB0001 
 
-: ME_0A63FFF0220B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA7EA010274 // MainWindow
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0A63FFF0220B 
-
 : ME_4AA7EA010274
  CONST UID '4AA7EA010274'
  CONST Name 'MainWindow'
@@ -6134,8 +6112,7 @@ ref; // ME_0A63FFF0220B
  )
  ; // Implements
  : Operations
-   Seq: ( ME_AC5FAF25F853 // Ini_Reg_Class
- ME_6A1545565ACA // Ini_FormFactory_MainWindow$Def
+   Seq: ( ME_6A1545565ACA // Ini_FormFactory_MainWindow$Def
  )
  ; // Operations
  : Children
@@ -6146,7 +6123,6 @@ ref; // ME_0A63FFF0220B
    Seq: ( ME_4AC226EE03B7 // TnsBaseSearcher
  ME_4AD5B8000298 // InsStringsSource
  ME_4ADC51AB0001 // TnsWindowsList
- ME_0A63FFF0220B // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true

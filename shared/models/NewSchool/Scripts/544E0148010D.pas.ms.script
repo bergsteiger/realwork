@@ -6,94 +6,6 @@ FORWARD ME_544E0148010D
 
 FORWARD ME_544E079E0253
 
-FORWARD ME_544E07C6034D
-
-: ME_A8CE837D53E8
- CONST UID 'A8CE837D53E8'
- CONST Name 'ServerHost'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E07C6034D // TncsLoginMessage
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_A8CE837D53E8 ServerHost
-
-: ME_F242EF9D067F
- CONST UID 'F242EF9D067F'
- CONST Name 'Login'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E07C6034D // TncsLoginMessage
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_F242EF9D067F Login
-
-: ME_1E446BBD08F0
- CONST UID '1E446BBD08F0'
- CONST Name 'Password'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E07C6034D // TncsLoginMessage
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_1E446BBD08F0 Password
-
-: ME_25BE68E15A6A
- CONST UID '25BE68E15A6A'
- CONST Name 'ServerPort'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E07C6034D // TncsLoginMessage
- ;
- : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
- ;
- CONST "pm" true
-
-ref; // ME_25BE68E15A6A ServerPort
-
-: ME_2D8817CF2761
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_544E07C6034D // TncsLoginMessage
- ;
- : Target WL 'ME_544E02580378' '484A470100DD.pas.ms.script' // csLogin
- ;
-
-ref; // ME_2D8817CF2761 
-
-: ME_53AC03EE01FD_ME_544E07C6034D
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_544E07C6034D GetTaggedDataType
-
 : ME_544E07C6034D
  CONST UID '544E07C6034D'
  CONST Name 'TncsLoginMessage'
@@ -112,21 +24,6 @@ ref; // ME_53AC03EE01FD_ME_544E07C6034D GetTaggedDataType
    Seq: ( WL 'ME_544E02580378' '484A470100DD.pas.ms.script' // csLogin
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_A8CE837D53E8 // ServerHost
- ME_F242EF9D067F // Login
- ME_1E446BBD08F0 // Password
- ME_25BE68E15A6A // ServerPort
- )
- ; // Attributes
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_544E07C6034D // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2D8817CF2761 // csLogin
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsLoginMessage.pas'
  CONST extprop:rc:SelfName 'ncsLoginMessage'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2033,59 +1930,6 @@ ref; // ME_5450E9A0034A TncsSendThread
 
 FORWARD ME_5453986402AC
 
-: ME_1D5377CCDA1F
- CONST UID '1D5377CCDA1F'
- CONST Name 'Kind'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'На сообщение должен быть послан ответ' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E079E0253 // TncsMessage
- ;
- : Target WL 'ME_5461CFB8002C' '484A470100DD.pas.ms.script' // TncsMessageKind
- ;
- CONST "pm" true
-
-ref; // ME_1D5377CCDA1F Kind
-
-: ME_304530FC54C4
- CONST UID '304530FC54C4'
- CONST Name 'MessageID'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- %SUMMARY 'Уникальный ключ по котороу ищется сообщение во всяких списках' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E079E0253 // TncsMessage
- ;
- : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
- ;
- CONST "pm" true
-
-ref; // ME_304530FC54C4 MessageID
-
-: ME_0872C343F429
- CONST UID '0872C343F429'
- CONST Name 'TimeStamp'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_property::Attribute ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- CONST LinkType lt_agr
- : Parent ME_544E079E0253 // TncsMessage
- ;
- : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
- ;
- CONST "pm" true
-
-ref; // ME_0872C343F429 TimeStamp
-
 : ME_5450A0370225
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2095,17 +1939,6 @@ ref; // ME_0872C343F429 TimeStamp
  ;
 
 ref; // ME_5450A0370225 
-
-: ME_91C93869A6DD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_544E079E0253 // TncsMessage
- ;
- : Target WL 'ME_544E01AA03BA' '484A470100DD.pas.ms.script' // csMessage
- ;
-
-ref; // ME_91C93869A6DD 
 
 : ME_53AC03EE01FD_ME_544E079E0253
  : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
@@ -2145,12 +1978,6 @@ ref; // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
  WL 'ME_544E01AA03BA' '484A470100DD.pas.ms.script' // csMessage
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_1D5377CCDA1F // Kind
- ME_304530FC54C4 // MessageID
- ME_0872C343F429 // TimeStamp
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_53AC03EE01FD_ME_544E079E0253 // GetTaggedDataType
  )
@@ -2162,7 +1989,6 @@ ref; // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
  ; // Overridden
  : Dependencies
    Seq: ( ME_5450A0370225 // l3CreateStringGUID
- ME_91C93869A6DD // csMessage
  )
  ; // Dependencies
  CONST extprop:rc:SelfName 'ncsMessage'
@@ -2259,26 +2085,6 @@ ref; // ME_547831D300BE Create
 
 ref; // ME_547831BD02E5 TncsReply
 
-FORWARD ME_547C1F31030C
-
-: ME_0A46FBDFB1A7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_547C1F31030C // TncsDIsconnect
- ;
- : Target WL 'ME_547C1CD001E3' '484A470100DD.pas.ms.script' // csDIsconnect
- ;
-
-ref; // ME_0A46FBDFB1A7 
-
-: ME_53AC03EE01FD_ME_547C1F31030C
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_547C1F31030C GetTaggedDataType
-
 : ME_547C1F31030C
  CONST UID '547C1F31030C'
  CONST Name 'TncsDIsconnect'
@@ -2297,38 +2103,10 @@ ref; // ME_53AC03EE01FD_ME_547C1F31030C GetTaggedDataType
    Seq: ( WL 'ME_547C1CD001E3' '484A470100DD.pas.ms.script' // csDIsconnect
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_547C1F31030C // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0A46FBDFB1A7 // csDIsconnect
- )
- ; // Dependencies
  CONST extprop:rc:SelfName 'ncsDIsconnect'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_547C1F31030C TncsDIsconnect
-
-FORWARD ME_547C1F3F025A
-
-: ME_116652CD4897
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_547C1F3F025A // TncsDIsconnectReply
- ;
- : Target WL 'ME_547C1CE20205' '484A470100DD.pas.ms.script' // csDIsconnectReply
- ;
-
-ref; // ME_116652CD4897 
-
-: ME_53AC03EE01FD_ME_547C1F3F025A
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_547C1F3F025A GetTaggedDataType
 
 : ME_547C1F3F025A
  CONST UID '547C1F3F025A'
@@ -2348,14 +2126,6 @@ ref; // ME_53AC03EE01FD_ME_547C1F3F025A GetTaggedDataType
    Seq: ( WL 'ME_547C1CE20205' '484A470100DD.pas.ms.script' // csDIsconnectReply
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_547C1F3F025A // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_116652CD4897 // csDIsconnectReply
- )
- ; // Dependencies
  CONST extprop:rc:SelfName 'ncsDIsconnectReply'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -5164,26 +4934,6 @@ ref; // ME_5492C5F703AA_ME_544A0A21036B TransportStarted
 
 ref; // ME_544A0A21036B TncsServerTransporter
 
-FORWARD ME_54634A7902A1
-
-: ME_4AF09D5AED33
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_54634A7902A1 // TncsLoginReply
- ;
- : Target WL 'ME_5461EDFB01EB' '484A470100DD.pas.ms.script' // csLoginReply
- ;
-
-ref; // ME_4AF09D5AED33 
-
-: ME_53AC03EE01FD_ME_54634A7902A1
- : Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.pas.ms.script' // GetTaggedDataType
- ;
- CONST OpKind opkind_Overridden
- CONST "is static" true
-ref; // ME_53AC03EE01FD_ME_54634A7902A1 GetTaggedDataType
-
 : ME_54634A7902A1
  CONST UID '54634A7902A1'
  CONST Name 'TncsLoginReply'
@@ -5202,14 +4952,6 @@ ref; // ME_53AC03EE01FD_ME_54634A7902A1 GetTaggedDataType
    Seq: ( WL 'ME_5461EDFB01EB' '484A470100DD.pas.ms.script' // csLoginReply
  )
  ; // Implements
- : Overridden
-   Seq: ( ME_53AC03EE01FD_ME_54634A7902A1 // GetTaggedDataType
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_4AF09D5AED33 // csLoginReply
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\ncsLoginReply.pas'
  CONST extprop:rc:SelfName 'ncsLoginReply'
  CONST extprop:rc:isAcceptableForScripts true
@@ -7025,7 +6767,6 @@ ref; // ME_54E47AE90373 TncsSynchroServerTransporter
  WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
- WL 'ME_4849284D0067' '4849284D0067.pas.ms.script' // Standard
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

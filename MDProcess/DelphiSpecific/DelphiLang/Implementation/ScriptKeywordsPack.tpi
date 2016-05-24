@@ -83,7 +83,6 @@ p ifndef:s=NoScripts ?
 	%f_SpellFriends(%S)\
 
 	%f_clear_list(PARAMS)\
-	]\
 
 	<{}{%t_isAcceptableForScripts(%G)=true}\
 	%f_SpellWordsForParent(%S,%G,"true")\
@@ -93,7 +92,6 @@ p ifndef:s=NoScripts ?
 	%f_SpellWordsForParent(%S,%R,"false")\
 	>\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%f_clear_list(KEYS)\
 
 	%S<{}{%C#f_IsGlobalKeyword()=true}\
@@ -125,9 +123,9 @@ p ifndef:s=NoScripts ?
 	)\
 	>\
 	]\
-	]\
 
 	%f_clear_list(PARAMS)\
+	]\
 
 	%S%[inherited]
 
@@ -141,12 +139,12 @@ f _TuneGS
 	%S%f_set_up(ifndef,%1{ifndef})
 
 f _SpellWordsForParent
+	[{%S#f_UseNewGenRec()!=true}\
 	[{%2N=true}\
 	%f_addCDep(%S,%1,"injects")\
 // - иньекция
 	]\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%f_clear_list(KEYS)\
 
 	%S<{}{%C#f_IsKeyword()=true}\

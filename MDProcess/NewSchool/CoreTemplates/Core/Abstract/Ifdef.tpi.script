@@ -851,43 +851,61 @@ implementation @ <<Ifdef>>
  end // if
  else
  begin
-//	[{%PS=VCMFormsPack}{\
-  if ( ( %P |S ) %== 'VCMFormsPack' ) then
+//	[{%S#f_IsVCMForm()=true&%Sa=final}{\
+  if ( ( %S %?f IsVCMForm %( )% ) %==  true AND 
+    ( ( %S |a ) %== 'final'  ) ) then
   begin
-//	false\
-    false 
+//	true\
+    true 
 //	]\
   end // if
   else
   begin
-//	[{%SS=ScriptKeyword&%PS!=VCMControls}{\
-   if ( ( %S |S ) %== 'ScriptKeyword' AND 
-     ( ( %P |S ) %!= 'VCMControls'  ) ) then
+//	[{%PS=VCMFormsPack}{\
+   if ( ( %P |S ) %== 'VCMFormsPack' ) then
    begin
-//	true\
-     true 
+//	false\
+     false 
 //	]\
    end // if
    else
    begin
-//	[{%SS=SimpleClass}{\
-    if ( ( %S |S ) %== 'SimpleClass' ) then
+//	[{%SS=ScriptKeyword&%PS!=VCMControls}{\
+    if ( ( %S |S ) %== 'ScriptKeyword' AND 
+      ( ( %P |S ) %!= 'VCMControls'  ) ) then
     begin
-//	[{%PS!=VCMControls&%PS!=SettingsHolder&%PS!=VCMForm&%PS!=VCMContainer&%PS!=ExeTarget&%PS!=VCMApplication&%PS!=UseCaseControllerImp&%PS!=VCMFormsPack}{\
-     if ( ( %P |S ) %!= 'VCMControls' AND 
-       ( ( %P |S ) %!= 'SettingsHolder'  ) AND 
-       ( ( %P |S ) %!= 'VCMForm'  ) AND 
-       ( ( %P |S ) %!= 'VCMContainer'  ) AND 
-       ( ( %P |S ) %!= 'ExeTarget'  ) AND 
-       ( ( %P |S ) %!= 'VCMApplication'  ) AND 
-       ( ( %P |S ) %!= 'UseCaseControllerImp'  ) AND 
-       ( ( %P |S ) %!= 'VCMFormsPack'  ) ) then
-     begin
-//	[{%S#f_InheritsFrom("Tl3Tag")!=true}{\
-      if ( ( %S %?f InheritsFrom %( 'Tl3Tag' )% ) %!=  true ) then
-      begin
 //	true\
-        true 
+      true 
+//	]\
+    end // if
+    else
+    begin
+//	[{%SS=SimpleClass}{\
+     if ( ( %S |S ) %== 'SimpleClass' ) then
+     begin
+//	[{%PS!=VCMControls&%PS!=SettingsHolder&%PS!=VCMForm&%PS!=VCMContainer&%PS!=ExeTarget&%PS!=VCMApplication&%PS!=UseCaseControllerImp&%PS!=VCMFormsPack}{\
+      if ( ( %P |S ) %!= 'VCMControls' AND 
+        ( ( %P |S ) %!= 'SettingsHolder'  ) AND 
+        ( ( %P |S ) %!= 'VCMForm'  ) AND 
+        ( ( %P |S ) %!= 'VCMContainer'  ) AND 
+        ( ( %P |S ) %!= 'ExeTarget'  ) AND 
+        ( ( %P |S ) %!= 'VCMApplication'  ) AND 
+        ( ( %P |S ) %!= 'UseCaseControllerImp'  ) AND 
+        ( ( %P |S ) %!= 'VCMFormsPack'  ) ) then
+      begin
+//	[{%S#f_InheritsFrom("Tl3Tag")!=true}{\
+       if ( ( %S %?f InheritsFrom %( 'Tl3Tag' )% ) %!=  true ) then
+       begin
+//	true\
+         true 
+//	]\
+       end // if
+       else
+       begin
+//	false\
+         false 
+//	}\
+       end // else
 //	]\
       end // if
       else
@@ -900,48 +918,42 @@ implementation @ <<Ifdef>>
      end // if
      else
      begin
-//	false\
-       false 
-//	}\
-     end // else
-//	]\
-    end // if
-    else
-    begin
 //	[{%SS=Wrapper|%SS=TestClass|%SS=ScriptKeywordsPack|%SS=TestCase|%SS=TestCaseMixIn|%SS=ScriptKeywords|%SS=UserType|%SS=UtilityPack|%SS=Impurity|%SS=GUIControlMixIn|%SS=GuiControl|%SS=Interfaces|%SS=InternalInterfaces|%SS=Service|%SS=ServiceImplementation|%SS=TestResults|%SS=ExeTarget|%SS=AdapterTarget|%SS=AdapterTargetUnion|%SS=TestTarget|%SS=TestLibrary|%SS=VCMTestTarget|%SS=VCMTestApplication|%SS=VCMGUI}{\
-     if ( ( %S |S ) %== 'Wrapper' OR 
-       ( ( %S |S ) %== 'TestClass'  ) OR 
-       ( ( %S |S ) %== 'ScriptKeywordsPack'  ) OR 
-       ( ( %S |S ) %== 'TestCase'  ) OR 
-       ( ( %S |S ) %== 'TestCaseMixIn'  ) OR 
-       ( ( %S |S ) %== 'ScriptKeywords'  ) OR 
-       ( ( %S |S ) %== 'UserType'  ) OR 
-       ( ( %S |S ) %== 'UtilityPack'  ) OR 
-       ( ( %S |S ) %== 'Impurity'  ) OR 
-       ( ( %S |S ) %== 'GUIControlMixIn'  ) OR 
-       ( ( %S |S ) %== 'GuiControl'  ) OR 
-       ( ( %S |S ) %== 'Interfaces'  ) OR 
-       ( ( %S |S ) %== 'InternalInterfaces'  ) OR 
-       ( ( %S |S ) %== 'Service'  ) OR 
-       ( ( %S |S ) %== 'ServiceImplementation'  ) OR 
-       ( ( %S |S ) %== 'TestResults'  ) OR 
-       ( ( %S |S ) %== 'ExeTarget'  ) OR 
-       ( ( %S |S ) %== 'AdapterTarget'  ) OR 
-       ( ( %S |S ) %== 'AdapterTargetUnion'  ) OR 
-       ( ( %S |S ) %== 'TestTarget'  ) OR 
-       ( ( %S |S ) %== 'TestLibrary'  ) OR 
-       ( ( %S |S ) %== 'VCMTestTarget'  ) OR 
-       ( ( %S |S ) %== 'VCMTestApplication'  ) OR 
-       ( ( %S |S ) %== 'VCMGUI'  ) ) then
-     begin
+      if ( ( %S |S ) %== 'Wrapper' OR 
+        ( ( %S |S ) %== 'TestClass'  ) OR 
+        ( ( %S |S ) %== 'ScriptKeywordsPack'  ) OR 
+        ( ( %S |S ) %== 'TestCase'  ) OR 
+        ( ( %S |S ) %== 'TestCaseMixIn'  ) OR 
+        ( ( %S |S ) %== 'ScriptKeywords'  ) OR 
+        ( ( %S |S ) %== 'UserType'  ) OR 
+        ( ( %S |S ) %== 'UtilityPack'  ) OR 
+        ( ( %S |S ) %== 'Impurity'  ) OR 
+        ( ( %S |S ) %== 'GUIControlMixIn'  ) OR 
+        ( ( %S |S ) %== 'GuiControl'  ) OR 
+        ( ( %S |S ) %== 'Interfaces'  ) OR 
+        ( ( %S |S ) %== 'InternalInterfaces'  ) OR 
+        ( ( %S |S ) %== 'Service'  ) OR 
+        ( ( %S |S ) %== 'ServiceImplementation'  ) OR 
+        ( ( %S |S ) %== 'TestResults'  ) OR 
+        ( ( %S |S ) %== 'ExeTarget'  ) OR 
+        ( ( %S |S ) %== 'AdapterTarget'  ) OR 
+        ( ( %S |S ) %== 'AdapterTargetUnion'  ) OR 
+        ( ( %S |S ) %== 'TestTarget'  ) OR 
+        ( ( %S |S ) %== 'TestLibrary'  ) OR 
+        ( ( %S |S ) %== 'VCMTestTarget'  ) OR 
+        ( ( %S |S ) %== 'VCMTestApplication'  ) OR 
+        ( ( %S |S ) %== 'VCMGUI'  ) ) then
+      begin
 //	true\
-       true 
+        true 
 //	]\
-     end // if
-     else
-     begin
+      end // if
+      else
+      begin
 //	false\
-       false 
+        false 
+//	}\
+      end // else
 //	}\
      end // else
 //	}\

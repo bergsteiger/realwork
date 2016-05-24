@@ -4411,6 +4411,8 @@ ref; // ME_4D78E2BB0211_ME_497ECC0E0325 NotifyUserTypeSet
  CONST extprop:rc:SelfName 'PrimTreeAttributeSelectForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimTreeAttributeSelect_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497ECC0E0325 PrimTreeAttributeSelect
 
@@ -5757,6 +5759,8 @@ ref; // ME_5000565C019C_ME_497EFC6002FC ClearFields
  CONST extprop:rc:SelfName 'PrimAttributeSelectForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimAttributeSelect_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EFC6002FC PrimAttributeSelect
 
@@ -6347,6 +6351,7 @@ ref; // ME_4C2B1B9100B5_ME_4C443A570168 FindFirstSelected
  CONST extprop:rc:SelfName 'PrimTreeAttributeSelectOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimTreeAttributeSelectOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C443A570168 PrimTreeAttributeSelectOptions
 
@@ -7561,6 +7566,8 @@ ref; // ME_4A8E8F2E0195_ME_497EC3B20359 InitControls
  CONST extprop:rc:SelfName 'PrimSelectedAttributesForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSelectedAttributes_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497EC3B20359 PrimSelectedAttributes
 
@@ -7763,6 +7770,7 @@ ref; // ME_4C762D9B0224_ME_4C88C855017E OkExt
  CONST extprop:rc:SelfName 'PrimAttributeSelectOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimAttributeSelectOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C88C855017E PrimAttributeSelectOptions
 
@@ -7919,27 +7927,13 @@ ref; // ME_4C7D0CC90052_ME_4C87B3A50387 Delete
  CONST extprop:rc:SelfName 'PrimSelectedAttributesOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSelectedAttributesOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C87B3A50387 PrimSelectedAttributesOptions
 
 FORWARD ME_4AA0EA76017F
 
 FORWARD ME_4AAF487F03BC
-
-: ME_2E539CCBB84E
- CONST UID '2E539CCBB84E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация TreeAttributeSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF487F03BC // TreeAttributeSelect
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2E539CCBB84E Ini_Reg_Class
 
 : ME_EBB9DAD3F287
  CONST UID 'EBB9DAD3F287'
@@ -7956,17 +7950,6 @@ ref; // ME_2E539CCBB84E Ini_Reg_Class
  ;
 
 ref; // ME_EBB9DAD3F287 Ini_FormFactory_TreeAttributeSelect
-
-: ME_6538C502CCEC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF487F03BC // TreeAttributeSelect
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6538C502CCEC 
 
 : ME_4AAF487F03BC
  CONST UID '4AAF487F03BC'
@@ -7988,14 +7971,9 @@ ref; // ME_6538C502CCEC
  )
  ; // Implements
  : Operations
-   Seq: ( ME_2E539CCBB84E // Ini_Reg_Class
- ME_EBB9DAD3F287 // Ini_FormFactory_TreeAttributeSelect
+   Seq: ( ME_EBB9DAD3F287 // Ini_FormFactory_TreeAttributeSelect
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_6538C502CCEC // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'
@@ -8014,21 +7992,6 @@ ref; // ME_6538C502CCEC
 ref; // ME_4AAF487F03BC TreeAttributeSelect
 
 FORWARD ME_4AAF4F89035C
-
-: ME_3A6F351FB469
- CONST UID '3A6F351FB469'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация AttributeSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF4F89035C // AttributeSelect
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_3A6F351FB469 Ini_Reg_Class
 
 : ME_A2A6C539433F
  CONST UID 'A2A6C539433F'
@@ -8056,17 +8019,6 @@ ref; // ME_A2A6C539433F Ini_FormFactory_AttributeSelect
 
 ref; // ME_512207910226 
 
-: ME_5CB85641B96A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF4F89035C // AttributeSelect
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5CB85641B96A 
-
 : ME_4AAF4F89035C
  CONST UID '4AAF4F89035C'
  CONST Name 'AttributeSelect'
@@ -8086,13 +8038,11 @@ ref; // ME_5CB85641B96A
  )
  ; // Implements
  : Operations
-   Seq: ( ME_3A6F351FB469 // Ini_Reg_Class
- ME_A2A6C539433F // Ini_FormFactory_AttributeSelect
+   Seq: ( ME_A2A6C539433F // Ini_FormFactory_AttributeSelect
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_512207910226 // l3IsNil
- ME_5CB85641B96A // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -8114,21 +8064,6 @@ ref; // ME_4AAF4F89035C AttributeSelect
 
 FORWARD ME_4AAF51FC0061
 
-: ME_4B47905CD28B
- CONST UID '4B47905CD28B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SelectedAttributes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF51FC0061 // SelectedAttributes
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_4B47905CD28B Ini_Reg_Class
-
 : ME_9BD9B680179F
  CONST UID '9BD9B680179F'
  CONST Name 'Ini_FormFactory_SelectedAttributes'
@@ -8144,17 +8079,6 @@ ref; // ME_4B47905CD28B Ini_Reg_Class
  ;
 
 ref; // ME_9BD9B680179F Ini_FormFactory_SelectedAttributes
-
-: ME_47FB7B1015B1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF51FC0061 // SelectedAttributes
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_47FB7B1015B1 
 
 : ME_4AAF51FC0061
  CONST UID '4AAF51FC0061'
@@ -8175,14 +8099,9 @@ ref; // ME_47FB7B1015B1
  )
  ; // Implements
  : Operations
-   Seq: ( ME_4B47905CD28B // Ini_Reg_Class
- ME_9BD9B680179F // Ini_FormFactory_SelectedAttributes
+   Seq: ( ME_9BD9B680179F // Ini_FormFactory_SelectedAttributes
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_47FB7B1015B1 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "author" 'Люлин А.В.'

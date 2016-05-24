@@ -2057,8 +2057,8 @@ FORWARD ME_571E1B040013
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A2DFA0260 // PrimFilters
- ME_571E1B040013 // PrimFilters
+   Seq: ( ME_571A2DFA0260 // InsFilterNodeWordsPack
+ ME_571E1B040013 // FiltersProcessingWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" false
@@ -2075,6 +2075,8 @@ FORWARD ME_571E1B040013
  CONST extprop:rc:SelfName 'PrimFiltersForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFilters_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497DCC17001C PrimFilters
 
@@ -2705,6 +2707,8 @@ ref; // ME_4A8E8F2E0195_ME_4CB6D95D003A InitControls
  CONST extprop:rc:SelfName 'PrimCreateFilterForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimCreateFilter_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_4CB6D95D003A PrimCreateFilter
 
@@ -3256,27 +3260,13 @@ ref; // ME_4D0B5FBF0310_ME_4C7F5A5800CD CreateFilter
  CONST extprop:rc:SelfName 'PrimFiltersOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFiltersOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7F5A5800CD PrimFiltersOptions
 
 FORWARD ME_4CCAA9E50274
 
 FORWARD ME_4ABCD2BC0302
-
-: ME_15C6ABFE36AF
- CONST UID '15C6ABFE36AF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Filters' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABCD2BC0302 // Filters
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_15C6ABFE36AF Ini_Reg_Class
 
 : ME_29C81B698BDF
  CONST UID '29C81B698BDF'
@@ -3293,17 +3283,6 @@ ref; // ME_15C6ABFE36AF Ini_Reg_Class
  ;
 
 ref; // ME_29C81B698BDF Ini_FormFactory_Filters
-
-: ME_8548FA021AB9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABCD2BC0302 // Filters
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8548FA021AB9 
 
 : ME_4ABCD2BC0302
  CONST UID '4ABCD2BC0302'
@@ -3325,14 +3304,9 @@ ref; // ME_8548FA021AB9
  )
  ; // Implements
  : Operations
-   Seq: ( ME_15C6ABFE36AF // Ini_Reg_Class
- ME_29C81B698BDF // Ini_FormFactory_Filters
+   Seq: ( ME_29C81B698BDF // Ini_FormFactory_Filters
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_8548FA021AB9 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -3348,34 +3322,6 @@ ref; // ME_8548FA021AB9
 
 ref; // ME_4ABCD2BC0302 Filters
 
-FORWARD ME_4CB6DBE6009F
-
-: ME_EFA2B2E20D27
- CONST UID 'EFA2B2E20D27'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация CreateFilter$Form' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB6DBE6009F // CreateFilter$Form
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EFA2B2E20D27 Ini_Reg_Class
-
-: ME_6A601BECF715
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CB6DBE6009F // CreateFilter$Form
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6A601BECF715 
-
 : ME_4CB6DBE6009F
  CONST UID '4CB6DBE6009F'
  CONST Name 'CreateFilter'
@@ -3390,14 +3336,6 @@ ref; // ME_6A601BECF715
    Seq: ( ME_4CB6D95D003A // PrimCreateFilter
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_EFA2B2E20D27 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_6A601BECF715 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Modal'
  CONST "author" 'Лукьянец Р.В.'

@@ -1851,6 +1851,8 @@ ref; // ME_4A8E8F2E0195_ME_497DD4870291 InitControls
  CONST extprop:rc:SelfName 'PrimFoldersTreeForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersTree_Form'
+ CONST extprop:NeedsInitEntities true
+ CONST extprop:HasAnyVCMController true
 
 ref; // ME_497DD4870291 PrimFoldersTree
 
@@ -2596,6 +2598,7 @@ ref; // ME_4A97E78202FC_ME_4A96B6AE0071 SetParent
  CONST extprop:rc:SelfName 'PrimFoldersForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFolders_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A96B6AE0071 PrimFolders
 
@@ -5117,6 +5120,7 @@ ref; // ME_5000565C019C_ME_4AE706BB029F ClearFields
  CONST extprop:rc:SelfName 'PrimFoldersElementInfoForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersElementInfo_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AE706BB029F PrimFoldersElementInfo
 
@@ -5655,6 +5659,7 @@ ref; // ME_4A8E8F2E0195_ME_4AE9BEEF0229 InitControls
  CONST extprop:rc:SelfName 'PrimFoldersInfoForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersInfo_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AE9BEEF0229 PrimFoldersInfo
 
@@ -5774,6 +5779,7 @@ ref; // ME_4C762AB601E1_ME_4C7E5E980303 Cancel
  CONST extprop:rc:SelfName 'PrimFoldersOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7E5E980303 PrimFoldersOptions
 
@@ -6950,6 +6956,7 @@ ref; // ME_5000565C019C_ME_4C7E651B0179 ClearFields
  CONST extprop:rc:SelfName 'PrimFoldersTreeOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersTreeOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7E651B0179 PrimFoldersTreeOptions
 
@@ -7090,6 +7097,7 @@ ref; // ME_4C762C910358_ME_4C7E89D702ED Cancel
  CONST extprop:rc:SelfName 'PrimFoldersInfoOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersInfoOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7E89D702ED PrimFoldersInfoOptions
 
@@ -7333,27 +7341,13 @@ ref; // ME_4C7672F903BF_ME_4C7E91560315 Append
  CONST extprop:rc:SelfName 'PrimFoldersElementInfoOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimFoldersElementInfoOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7E91560315 PrimFoldersElementInfoOptions
 
 FORWARD ME_4A96B68A03B1
 
 FORWARD ME_4A97D83003AE
-
-: ME_CCD4D84F5D8D
- CONST UID 'CCD4D84F5D8D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Folders' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A97D83003AE // Folders
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CCD4D84F5D8D Ini_Reg_Class
 
 : ME_D41E64F06757
  CONST UID 'D41E64F06757'
@@ -7370,17 +7364,6 @@ ref; // ME_CCD4D84F5D8D Ini_Reg_Class
  ;
 
 ref; // ME_D41E64F06757 Ini_FormFactory_Folders
-
-: ME_212897450BCC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A97D83003AE // Folders
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_212897450BCC 
 
 : ME_4A97D83003AE
  CONST UID '4A97D83003AE'
@@ -7402,14 +7385,9 @@ ref; // ME_212897450BCC
  )
  ; // Implements
  : Operations
-   Seq: ( ME_CCD4D84F5D8D // Ini_Reg_Class
- ME_D41E64F06757 // Ini_FormFactory_Folders
+   Seq: ( ME_D41E64F06757 // Ini_FormFactory_Folders
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_212897450BCC // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "author" 'Тучнин Д.А.'
@@ -8039,21 +8017,6 @@ ref; // ME_E07992E92D20 FoldersInfoIDs
 
 ref; // ME_59DEA5360CB3 FoldersInfo$Def
 
-: ME_FB8D11F5A4DE
- CONST UID 'FB8D11F5A4DE'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация FoldersInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABCD261014B // FoldersInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_FB8D11F5A4DE Ini_Reg_Class
-
 : ME_5E535BA61B45
  CONST UID '5E535BA61B45'
  CONST Name 'Ini_FormFactory_FoldersInfo'
@@ -8069,17 +8032,6 @@ ref; // ME_FB8D11F5A4DE Ini_Reg_Class
  ;
 
 ref; // ME_5E535BA61B45 Ini_FormFactory_FoldersInfo$Def
-
-: ME_87C9390D4503
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABCD261014B // FoldersInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_87C9390D4503 
 
 : ME_4ABCD261014B
  CONST UID '4ABCD261014B'
@@ -8100,18 +8052,13 @@ ref; // ME_87C9390D4503
  )
  ; // Implements
  : Operations
-   Seq: ( ME_FB8D11F5A4DE // Ini_Reg_Class
- ME_5E535BA61B45 // Ini_FormFactory_FoldersInfo$Def
+   Seq: ( ME_5E535BA61B45 // Ini_FormFactory_FoldersInfo$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_59DEA5360CB3 // FoldersInfo$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_87C9390D4503 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'ManualModal'
  CONST "author" 'Тучнин Д.А.'
@@ -8132,21 +8079,6 @@ ref; // ME_4ABCD261014B FoldersInfo
 
 FORWARD ME_4ABCD29401B2
 
-: ME_0CAF5A2ADF3D
- CONST UID '0CAF5A2ADF3D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация FoldersTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABCD29401B2 // FoldersTree
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0CAF5A2ADF3D Ini_Reg_Class
-
 : ME_43526C095459
  CONST UID '43526C095459'
  CONST Name 'Ini_FormFactory_FoldersTree'
@@ -8162,17 +8094,6 @@ ref; // ME_0CAF5A2ADF3D Ini_Reg_Class
  ;
 
 ref; // ME_43526C095459 Ini_FormFactory_FoldersTree
-
-: ME_A63A5469CEE4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABCD29401B2 // FoldersTree
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A63A5469CEE4 
 
 : ME_4ABCD29401B2
  CONST UID '4ABCD29401B2'
@@ -8193,14 +8114,9 @@ ref; // ME_A63A5469CEE4
  )
  ; // Implements
  : Operations
-   Seq: ( ME_0CAF5A2ADF3D // Ini_Reg_Class
- ME_43526C095459 // Ini_FormFactory_FoldersTree
+   Seq: ( ME_43526C095459 // Ini_FormFactory_FoldersTree
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_A63A5469CEE4 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "finished dfm" true
@@ -8218,21 +8134,6 @@ ref; // ME_4ABCD29401B2 FoldersTree
 
 FORWARD ME_4ABCD2AB00C5
 
-: ME_624F0C51E088
- CONST UID '624F0C51E088'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация FoldersElementInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABCD2AB00C5 // FoldersElementInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_624F0C51E088 Ini_Reg_Class
-
 : ME_D0340F037320
  CONST UID 'D0340F037320'
  CONST Name 'Ini_FormFactory_FoldersElementInfo'
@@ -8248,17 +8149,6 @@ ref; // ME_624F0C51E088 Ini_Reg_Class
  ;
 
 ref; // ME_D0340F037320 Ini_FormFactory_FoldersElementInfo
-
-: ME_D4E176CCAEB0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABCD2AB00C5 // FoldersElementInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D4E176CCAEB0 
 
 : ME_4ABCD2AB00C5
  CONST UID '4ABCD2AB00C5'
@@ -8279,14 +8169,9 @@ ref; // ME_D4E176CCAEB0
  )
  ; // Implements
  : Operations
-   Seq: ( ME_624F0C51E088 // Ini_Reg_Class
- ME_D0340F037320 // Ini_FormFactory_FoldersElementInfo
+   Seq: ( ME_D0340F037320 // Ini_FormFactory_FoldersElementInfo
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_D4E176CCAEB0 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true

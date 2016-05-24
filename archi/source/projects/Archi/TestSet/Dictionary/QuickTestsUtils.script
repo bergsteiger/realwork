@@ -1598,7 +1598,7 @@ PROCEDURE "Поиск текста c учетом чекбокса 'Выставить галочку' и выбрать группу '
 		aIndexRadioGroup "Выбрать группу 'Область поиска'"
 
 		OBJECT VAR l_Control 
-		"Контрол по имени {( 'TextSearchDlg' )}" >>> l_Control
+		"Контрол по имени {( "Диалог поиска" )}" >>> l_Control
 		OBJECT VAR l_Result
 		"Найти контрол {(aCheckBoxName)} на форме {(l_Control)}"  >>> l_Result
 		Если ( "Чекбокс {(l_Result)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_Result)}" )
@@ -1630,4 +1630,17 @@ PROCEDURE "Выбрать в выпадающем списке шаблон c значением индекса" INTEGER IN aV
 	"Выбрать в выпадающем списке {('cbSavedTemplates')} {('TComboBox')} значение индекса  {(aValue)}"
 ;
 
+PROCEDURE "Выбрать стиль в окне поиска и радиокнопку в группе 'Область поиска'" STRING IN aValueStyle IN aIndexRadioGroup
+	 	"Вызывать окно поиска"
+	 TRY
+		"Выбрать тип поиска 'Стиль'"
+		aIndexRadioGroup "Выбрать группу 'Область поиска'"
+		1500 SLEEP 
+		"Выбрать в выпадающем списке комбобокса {('STextComboBox')}  строковое значение {(aValueStyle)}"
+		1500 SLEEP
+	 	"Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click
+	 FINALLY
+	  	"Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click
+	 END
+;
 

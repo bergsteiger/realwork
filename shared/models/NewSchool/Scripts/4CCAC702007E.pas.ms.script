@@ -1743,6 +1743,7 @@ ref; // ME_529332B40230_ME_4A7C349D02CB SetupFormLayout
  CONST extprop:rc:SelfName 'PrimUnderControlForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimUnderControl_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4A7C349D02CB PrimUnderControl
 
@@ -2214,27 +2215,13 @@ ref; // ME_5000565C019C_ME_4C7E4A45018F ClearFields
  CONST extprop:rc:SelfName 'PrimUnderControlOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimUnderControlOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C7E4A45018F PrimUnderControlOptions
 
 FORWARD ME_4CCAC71C0347
 
 FORWARD ME_4ABCD2D80364
-
-: ME_0A06685896D6
- CONST UID '0A06685896D6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация UnderControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABCD2D80364 // UnderControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0A06685896D6 Ini_Reg_Class
 
 : ME_21D95C049A30
  CONST UID '21D95C049A30'
@@ -2251,17 +2238,6 @@ ref; // ME_0A06685896D6 Ini_Reg_Class
  ;
 
 ref; // ME_21D95C049A30 Ini_FormFactory_UnderControl
-
-: ME_F956D6101C29
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABCD2D80364 // UnderControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F956D6101C29 
 
 : ME_4ABCD2D80364
  CONST UID '4ABCD2D80364'
@@ -2283,14 +2259,9 @@ ref; // ME_F956D6101C29
  )
  ; // Implements
  : Operations
-   Seq: ( ME_0A06685896D6 // Ini_Reg_Class
- ME_21D95C049A30 // Ini_FormFactory_UnderControl
+   Seq: ( ME_21D95C049A30 // Ini_FormFactory_UnderControl
  )
  ; // Operations
- : Dependencies
-   Seq: ( ME_F956D6101C29 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true

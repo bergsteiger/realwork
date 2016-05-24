@@ -1063,6 +1063,7 @@ ref; // ME_542A6DA20026_ME_4FF2E935019A SetTabCaption
  CONST extprop:rc:SelfName 'AACContainerPrimForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'AACContainerPrim_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4FF2E935019A AACContainerPrim
 
@@ -2358,21 +2359,6 @@ ref; // ME_07B5235C06C0 AACContainerIDs
 
 ref; // ME_E0E068E4963D AACContainer$Def
 
-: ME_2A90DAB275A2
- CONST UID '2A90DAB275A2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация AACContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FF2E95602D8 // AACContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2A90DAB275A2 Ini_Reg_Class
-
 : ME_4F4EEAB4A4CF
  CONST UID '4F4EEAB4A4CF'
  CONST Name 'Ini_FormFactory_AACContainer'
@@ -2388,17 +2374,6 @@ ref; // ME_2A90DAB275A2 Ini_Reg_Class
  ;
 
 ref; // ME_4F4EEAB4A4CF Ini_FormFactory_AACContainer$Def
-
-: ME_4AA09818F3B1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FF2E95602D8 // AACContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4AA09818F3B1 
 
 : ME_4FF2E95602D8
  CONST UID '4FF2E95602D8'
@@ -2419,18 +2394,13 @@ ref; // ME_4AA09818F3B1
  )
  ; // Implements
  : Operations
-   Seq: ( ME_2A90DAB275A2 // Ini_Reg_Class
- ME_4F4EEAB4A4CF // Ini_FormFactory_AACContainer$Def
+   Seq: ( ME_4F4EEAB4A4CF // Ini_FormFactory_AACContainer$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_E0E068E4963D // AACContainer$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_4AA09818F3B1 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -2515,21 +2485,6 @@ ref; // ME_8DFB28F53A38 AACContentsContainerIDs
 
 ref; // ME_FEEE527549A8 AACContentsContainer$Def
 
-: ME_89B6853D6EB9
- CONST UID '89B6853D6EB9'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация AACContentsContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FF4543F014A // AACContentsContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_89B6853D6EB9 Ini_Reg_Class
-
 : ME_036308E4583B
  CONST UID '036308E4583B'
  CONST Name 'Ini_FormFactory_AACContentsContainer'
@@ -2545,17 +2500,6 @@ ref; // ME_89B6853D6EB9 Ini_Reg_Class
  ;
 
 ref; // ME_036308E4583B Ini_FormFactory_AACContentsContainer$Def
-
-: ME_00348B94506C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FF4543F014A // AACContentsContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_00348B94506C 
 
 : ME_4FF4543F014A
  CONST UID '4FF4543F014A'
@@ -2576,18 +2520,13 @@ ref; // ME_00348B94506C
  )
  ; // Implements
  : Operations
-   Seq: ( ME_89B6853D6EB9 // Ini_Reg_Class
- ME_036308E4583B // Ini_FormFactory_AACContentsContainer$Def
+   Seq: ( ME_036308E4583B // Ini_FormFactory_AACContentsContainer$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_FEEE527549A8 // AACContentsContainer$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_00348B94506C // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true

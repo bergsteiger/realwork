@@ -761,6 +761,7 @@ ref; // ME_5445EA440078_ME_4AC63ADF023F DoOnShowModal
  CONST extprop:rc:SelfName 'PrimSettingsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimSettings_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AC63ADF023F PrimSettings
 
@@ -1573,6 +1574,7 @@ ref; // ME_4A8E8F2E0195_ME_4AC6402401E4 InitControls
  CONST extprop:rc:SelfName 'PrimStyleEditorContainerForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimStyleEditorContainer_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AC6402401E4 PrimStyleEditorContainer
 
@@ -6794,6 +6796,7 @@ ref; // ME_4A8E8F2E0195_ME_4AC642480314 InitControls
  CONST extprop:rc:SelfName 'PrimStyleEditorFontForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimStyleEditorFont_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AC642480314 PrimStyleEditorFont
 
@@ -7957,6 +7960,7 @@ ref; // ME_4F7C65380244_ME_4AE8247501DA FormInsertedIntoContainer
  CONST extprop:rc:SelfName 'PrimStyleEditorNavigatorForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimStyleEditorNavigator_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AE8247501DA PrimStyleEditorNavigator
 
@@ -8641,6 +8645,7 @@ ref; // ME_4A8E8F2E0195_ME_4AF8665A0079 InitControls
  CONST extprop:rc:SelfName 'PrimStyleEditorExampleForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimStyleEditorExample_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4AF8665A0079 PrimStyleEditorExample
 
@@ -11917,7 +11922,7 @@ FORWARD ME_571A288400E0
  )
  ; // Dependencies
  : Injected
-   Seq: ( ME_571A288400E0 // PrimConfigurationList
+   Seq: ( ME_571A288400E0 // PrimConfigurationListWordsPack
  )
  ; // Injected
  CONST "NeedsHackRef" true
@@ -11934,6 +11939,7 @@ FORWARD ME_571A288400E0
  CONST extprop:rc:SelfName 'PrimConfigurationListForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimConfigurationList_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4BD7279101C5 PrimConfigurationList
 
@@ -12140,6 +12146,7 @@ ref; // ME_4C762AB601E1_ME_4C52B21801B6 Cancel
  CONST extprop:rc:SelfName 'PrimStyleEditorContainerOptionsForm'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimStyleEditorContainerOptions_Form'
+ CONST extprop:NeedsInitEntities true
 
 ref; // ME_4C52B21801B6 PrimStyleEditorContainerOptions
 
@@ -12215,32 +12222,6 @@ ref; // ME_DBA11A5CAD41 StyleEditorContainerIDs
 
 ref; // ME_3DBF74BFD9AD StyleEditorContainer$Def
 
-: ME_47F13753B5F1
- CONST UID '47F13753B5F1'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация StyleEditorContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA142401CA // StyleEditorContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_47F13753B5F1 Ini_Reg_Class
-
-: ME_AB30451E4CF7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABA142401CA // StyleEditorContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AB30451E4CF7 
-
 : ME_4ABA142401CA
  CONST UID '4ABA142401CA'
  CONST Name 'StyleEditorContainer'
@@ -12260,18 +12241,10 @@ ref; // ME_AB30451E4CF7
    Seq: ( ME_3DBF74BFD9AD // StyleEditorContainer$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_47F13753B5F1 // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_3DBF74BFD9AD // StyleEditorContainer$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_AB30451E4CF7 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'ManualModal'
  CONST "finished dfm" true
@@ -12471,50 +12444,6 @@ ref; // ME_AC8A95AC76AA ut_StyleEditorFontCaption
 
 ref; // ME_3330648922EF LCImplut_StyleEditorFontLocalConstants
 
-: ME_CC36358BB334
- CONST UID 'CC36358BB334'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация StyleEditorFont' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA143303B0 // StyleEditorFont
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CC36358BB334 Ini_Reg_Class
-
-: ME_E1EC1D1B3C99
- CONST UID 'E1EC1D1B3C99'
- CONST Name 'Init_Str_ut_StyleEditorFontCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_StyleEditorFontCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA143303B0 // StyleEditorFont
- ;
- : Speller ME_62F7AEC9E147 // ut_StyleEditorFontCaption
- ;
- : SpelledFor ME_AC8A95AC76AA // ut_StyleEditorFontCaption
- ;
-
-ref; // ME_E1EC1D1B3C99 Init_Str_ut_StyleEditorFontCaption
-
-: ME_3B7EBA3869E7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABA143303B0 // StyleEditorFont
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3B7EBA3869E7 
-
 : ME_440F17AA141E
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -12556,11 +12485,6 @@ ref; // ME_AD9ABE3DD317
    Seq: ( ME_8E31E82620AD // StyleEditorFont$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_CC36358BB334 // Ini_Reg_Class
- ME_E1EC1D1B3C99 // Init_Str_ut_StyleEditorFontCaption
- )
- ; // Operations
  : Children
    Seq: ( ME_43C9F2187122 // ut_StyleEditorFont
  ME_8E31E82620AD // StyleEditorFont$Def
@@ -12572,8 +12496,7 @@ ref; // ME_AD9ABE3DD317
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_3B7EBA3869E7 // TtfwClassRef
- ME_440F17AA141E // Tl3StringIDEx
+   Seq: ( ME_440F17AA141E // Tl3StringIDEx
  ME_AD9ABE3DD317 // Tl3MessageID
  )
  ; // Dependencies
@@ -12661,21 +12584,6 @@ ref; // ME_07E80EF7DA52 StyleEditorNavigatorIDs
 
 ref; // ME_289E9A9CE961 StyleEditorNavigator$Def
 
-: ME_C951BCF31692
- CONST UID 'C951BCF31692'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация StyleEditorNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA14480078 // StyleEditorNavigator
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_C951BCF31692 Ini_Reg_Class
-
 : ME_970D1C6CF7F2
  CONST UID '970D1C6CF7F2'
  CONST Name 'Ini_FormFactory_StyleEditorNavigator'
@@ -12691,17 +12599,6 @@ ref; // ME_C951BCF31692 Ini_Reg_Class
  ;
 
 ref; // ME_970D1C6CF7F2 Ini_FormFactory_StyleEditorNavigator$Def
-
-: ME_9A54D7D5A8C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABA14480078 // StyleEditorNavigator
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9A54D7D5A8C9 
 
 : ME_4ABA14480078
  CONST UID '4ABA14480078'
@@ -12723,18 +12620,13 @@ ref; // ME_9A54D7D5A8C9
  )
  ; // Implements
  : Operations
-   Seq: ( ME_C951BCF31692 // Ini_Reg_Class
- ME_970D1C6CF7F2 // Ini_FormFactory_StyleEditorNavigator$Def
+   Seq: ( ME_970D1C6CF7F2 // Ini_FormFactory_StyleEditorNavigator$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_289E9A9CE961 // StyleEditorNavigator$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_9A54D7D5A8C9 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -12750,21 +12642,6 @@ ref; // ME_9A54D7D5A8C9
 ref; // ME_4ABA14480078 StyleEditorNavigator
 
 FORWARD ME_4ABA146F00D4
-
-: ME_27B73B09C55E
- CONST UID '27B73B09C55E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ConfigurationList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA146F00D4 // ConfigurationList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_27B73B09C55E Ini_Reg_Class
 
 : ME_1F7E11DA67FF
  CONST UID '1F7E11DA67FF'
@@ -12792,17 +12669,6 @@ ref; // ME_1F7E11DA67FF Ini_FormFactory_ConfigurationList
 
 ref; // ME_4C8A3E830263 
 
-: ME_A58AA5B7D601
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABA146F00D4 // ConfigurationList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A58AA5B7D601 
-
 : ME_4ABA146F00D4
  CONST UID '4ABA146F00D4'
  CONST Name 'ConfigurationList'
@@ -12823,13 +12689,11 @@ ref; // ME_A58AA5B7D601
  )
  ; // Implements
  : Operations
-   Seq: ( ME_27B73B09C55E // Ini_Reg_Class
- ME_1F7E11DA67FF // Ini_FormFactory_ConfigurationList
+   Seq: ( ME_1F7E11DA67FF // Ini_FormFactory_ConfigurationList
  )
  ; // Operations
  : Dependencies
    Seq: ( ME_4C8A3E830263 // Cancel
- ME_A58AA5B7D601 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -12917,32 +12781,6 @@ ref; // ME_B893480AA9F4 SettingsIDs
 
 ref; // ME_0E67D13D7658 Settings$Def
 
-: ME_73EF21EC587B
- CONST UID '73EF21EC587B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Settings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA14800365 // Settings
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_73EF21EC587B Ini_Reg_Class
-
-: ME_78E355F567AE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABA14800365 // Settings
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_78E355F567AE 
-
 : ME_4ABA14800365
  CONST UID '4ABA14800365'
  CONST Name 'Settings'
@@ -12962,18 +12800,10 @@ ref; // ME_78E355F567AE
    Seq: ( ME_0E67D13D7658 // Settings$Def
  )
  ; // Implements
- : Operations
-   Seq: ( ME_73EF21EC587B // Ini_Reg_Class
- )
- ; // Operations
  : Children
    Seq: ( ME_0E67D13D7658 // Settings$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_78E355F567AE // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'ManualModal'
  CONST "finished dfm" true
@@ -13059,21 +12889,6 @@ ref; // ME_B5E93F1E4E3A StyleEditorExampleIDs
 
 ref; // ME_838CE3057379 StyleEditorExample$Def
 
-: ME_094473B7D21E
- CONST UID '094473B7D21E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация StyleEditorExample' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ABA14A4011C // StyleEditorExample
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_094473B7D21E Ini_Reg_Class
-
 : ME_88019975820B
  CONST UID '88019975820B'
  CONST Name 'Ini_FormFactory_StyleEditorExample'
@@ -13089,17 +12904,6 @@ ref; // ME_094473B7D21E Ini_Reg_Class
  ;
 
 ref; // ME_88019975820B Ini_FormFactory_StyleEditorExample$Def
-
-: ME_20BB1EE60B11
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4ABA14A4011C // StyleEditorExample
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_20BB1EE60B11 
 
 : ME_4ABA14A4011C
  CONST UID '4ABA14A4011C'
@@ -13121,18 +12925,13 @@ ref; // ME_20BB1EE60B11
  )
  ; // Implements
  : Operations
-   Seq: ( ME_094473B7D21E // Ini_Reg_Class
- ME_88019975820B // Ini_FormFactory_StyleEditorExample$Def
+   Seq: ( ME_88019975820B // Ini_FormFactory_StyleEditorExample$Def
  )
  ; // Operations
  : Children
    Seq: ( ME_838CE3057379 // StyleEditorExample$Def
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_20BB1EE60B11 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Child'
  CONST "finished dfm" true
@@ -13332,21 +13131,6 @@ ref; // ME_C6283C11D8D3 ut_SelfInfoCaption
 
 ref; // ME_DC91E0EDF784 LCImplut_SelfInfoLocalConstants
 
-: ME_A2FAAD75CA23
- CONST UID 'A2FAAD75CA23'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация SelfInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B5430AC0306 // SelfInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A2FAAD75CA23 Ini_Reg_Class
-
 : ME_8ED360669695
  CONST UID '8ED360669695'
  CONST Name 'Ini_FormFactory_SelfInfo'
@@ -13362,35 +13146,6 @@ ref; // ME_A2FAAD75CA23 Ini_Reg_Class
  ;
 
 ref; // ME_8ED360669695 Ini_FormFactory_SelfInfo$Def
-
-: ME_E62046043A99
- CONST UID 'E62046043A99'
- CONST Name 'Init_Str_ut_SelfInfoCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ut_SelfInfoCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B5430AC0306 // SelfInfo
- ;
- : Speller ME_4E94EFB0E559 // ut_SelfInfoCaption
- ;
- : SpelledFor ME_C6283C11D8D3 // ut_SelfInfoCaption
- ;
-
-ref; // ME_E62046043A99 Init_Str_ut_SelfInfoCaption
-
-: ME_3B843D057B13
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B5430AC0306 // SelfInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3B843D057B13 
 
 : ME_757436707005
  CONST IsSummoned true
@@ -13434,9 +13189,7 @@ ref; // ME_EF0E88531E80
  )
  ; // Implements
  : Operations
-   Seq: ( ME_A2FAAD75CA23 // Ini_Reg_Class
- ME_8ED360669695 // Ini_FormFactory_SelfInfo$Def
- ME_E62046043A99 // Init_Str_ut_SelfInfoCaption
+   Seq: ( ME_8ED360669695 // Ini_FormFactory_SelfInfo$Def
  )
  ; // Operations
  : Children
@@ -13450,8 +13203,7 @@ ref; // ME_EF0E88531E80
  )
  ; // Constants
  : Dependencies
-   Seq: ( ME_3B843D057B13 // TtfwClassRef
- ME_757436707005 // Tl3StringIDEx
+   Seq: ( ME_757436707005 // Tl3StringIDEx
  ME_EF0E88531E80 // Tl3MessageID
  )
  ; // Dependencies
