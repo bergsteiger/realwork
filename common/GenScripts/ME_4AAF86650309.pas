@@ -17,6 +17,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
+ , vtGroupBox
+ {$If Defined(Nemesis)}
+ , nscPageControl
+ {$IfEnd} // Defined(Nemesis)
 ;
 
 type

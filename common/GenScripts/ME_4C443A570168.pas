@@ -26,6 +26,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SearchLite_Strange_Controls
  , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -35,6 +38,11 @@ type
     aX: Integer;
     aY: Integer;
     out theTarget: IUnknown): Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
@@ -103,6 +111,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimTreeAttributeSelectOptionsForm.EntitiesenSelectionGetTarget(aControl: TComponent;
@@ -449,6 +460,42 @@ begin
 
 //#UC END# *47D1602000C6_4C443A570168_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Create
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Selection, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  PublishOp(en_Edit, op_FindContext, nil, nil, nil);
+  PublishOp(en_Edit, op_FindNext, nil, nil, nil);
+  PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  PublishOp(en_Edit, op_FindPrev, nil, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Attribute, op_LogicOr, Attribute_LogicOr_Execute, Attribute_LogicOr_Test, nil);
+  PublishOp(en_Attribute, op_LogicAnd, Attribute_LogicAnd_Execute, Attribute_LogicAnd_Test, nil);
+  PublishOp(en_Attribute, op_LogicNot, Attribute_LogicNot_Execute, Attribute_LogicNot_Test, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+  PublishOp(en_Attribute, op_LogicOrShortcut, Attribute_LogicOrShortcut_Execute, Attribute_LogicOrShortcut_Test, nil);
+  PublishOp(en_Selection, op_DropSelection, Selection_DropSelection_Execute, Selection_DropSelection_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimTreeAttributeSelectOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

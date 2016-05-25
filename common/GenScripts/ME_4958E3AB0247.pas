@@ -48,15 +48,13 @@ uses
  , nsTypes
  , FiltersUnit
  , Classes
- , bsInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , bsInterfaces
 ;
 
 type
- // ztParent
-
  _nsUserSettingsListener_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  _vcmChromeLikeTabUpdater_Parent_ = _nsUserSettingsListener_;
@@ -142,6 +140,15 @@ type
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -159,7 +166,7 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
@@ -186,20 +193,20 @@ type
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure Query_ClearAll_Execute(aNotClearRange: Boolean);
-   procedure Query_ClearAll(const aParams: IvcmExecuteParamsPrim);
+   procedure Query_ClearAll(const aParams: IvcmExecuteParams);
    procedure Query_SetList_Execute(const aList: IdeList;
     aInList: Boolean);
-   procedure Query_SetList(const aParams: IvcmExecuteParamsPrim);
+   procedure Query_SetList(const aParams: IvcmExecuteParams);
    function Filterable_Add_Execute(const aFilter: IFilterFromQuery): Boolean;
-   procedure Filterable_Add(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_Add(const aParams: IvcmExecuteParams);
    function Filterable_Delete_Execute(const aFilter: IFilterFromQuery): Boolean;
-   procedure Filterable_Delete(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_Delete(const aParams: IvcmExecuteParams);
    function Query_GetList_Execute: IdeList;
-   procedure Query_GetList(const aParams: IvcmExecuteParamsPrim);
+   procedure Query_GetList(const aParams: IvcmExecuteParams);
    procedure Filterable_ClearAll_Execute;
-   procedure Filterable_ClearAll(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_ClearAll(const aParams: IvcmExecuteParams);
    function Filterable_Refresh_Execute: Boolean;
-   procedure Filterable_Refresh(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_Refresh(const aParams: IvcmExecuteParams);
    procedure Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Query_GetOldQuery_Test(const aParams: IvcmTestParamsPrim);
@@ -217,7 +224,7 @@ type
    procedure Filters_FiltersListOpen_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Фильтры (вкладка) }
    function Filterable_GetListType_Execute: TbsListType;
-   procedure Filterable_GetListType(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_GetListType(const aParams: IvcmExecuteParams);
    constructor Create(AOwner: TComponent); override;
    {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
@@ -232,6 +239,10 @@ type
     read f_pnHeader;
    property ParentZone: TvtPanel
     read f_ParentZone;
+   property lbHeader: TvtLabel
+    read f_lbHeader;
+   property pbHeader: TPaintBox
+    read f_pbHeader;
  end;//TPrimSaveLoadForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -1267,7 +1278,7 @@ begin
 //#UC END# *49895A2102E8_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Loadable_Load_Execute
 
-procedure TPrimSaveLoadForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -1400,7 +1411,7 @@ begin
 //#UC END# *4AE8A0E10254_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Query_ClearAll_Execute
 
-procedure TPrimSaveLoadForm.Query_ClearAll(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Query_ClearAll(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IQuery_ClearAll_Params) do
   Self.Query_ClearAll_Execute(NotClearRange);
@@ -1428,7 +1439,7 @@ begin
 //#UC END# *4AE96F6C0191_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Query_SetList_Execute
 
-procedure TPrimSaveLoadForm.Query_SetList(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Query_SetList(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IQuery_SetList_Params) do
   Self.Query_SetList_Execute(List, InList);
@@ -1443,7 +1454,7 @@ begin
 //#UC END# *4AEF0BF70306_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Filterable_Add_Execute
 
-procedure TPrimSaveLoadForm.Filterable_Add(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Filterable_Add(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_Add_Params) do
   ResultValue := Self.Filterable_Add_Execute(Filter);
@@ -1458,7 +1469,7 @@ begin
 //#UC END# *4AEF0D1A01C3_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Filterable_Delete_Execute
 
-procedure TPrimSaveLoadForm.Filterable_Delete(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Filterable_Delete(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_Delete_Params) do
   ResultValue := Self.Filterable_Delete_Execute(Filter);
@@ -1477,7 +1488,7 @@ begin
 //#UC END# *4AF2AA2100CF_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Query_GetList_Execute
 
-procedure TPrimSaveLoadForm.Query_GetList(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Query_GetList(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IQuery_GetList_Params) do
   ResultValue := Self.Query_GetList_Execute;
@@ -1492,7 +1503,7 @@ begin
 //#UC END# *4AF80DB80383_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Filterable_ClearAll_Execute
 
-procedure TPrimSaveLoadForm.Filterable_ClearAll(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Filterable_ClearAll(const aParams: IvcmExecuteParams);
 begin
  Self.Filterable_ClearAll_Execute;
 end;//TPrimSaveLoadForm.Filterable_ClearAll
@@ -1507,7 +1518,7 @@ begin
 //#UC END# *4AF810230307_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Filterable_Refresh_Execute
 
-procedure TPrimSaveLoadForm.Filterable_Refresh(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Filterable_Refresh(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_Refresh_Params) do
   ResultValue := Self.Filterable_Refresh_Execute;
@@ -1756,7 +1767,7 @@ begin
 //#UC END# *4F99403A00A5_4958E3AB0247exec_impl*
 end;//TPrimSaveLoadForm.Filterable_GetListType_Execute
 
-procedure TPrimSaveLoadForm.Filterable_GetListType(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSaveLoadForm.Filterable_GetListType(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_GetListType_Params) do
   ResultValue := Self.Filterable_GetListType_Execute;
@@ -2046,6 +2057,51 @@ begin
  end;
 //#UC END# *55127A5401DE_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.IsAcceptable
+
+procedure TPrimSaveLoadForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimSaveLoadForm.SignalDataSourceChanged
+
+procedure TPrimSaveLoadForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Query, nil);
+  PublishFormEntity(en_Filterable, nil);
+  PublishFormEntity(en_Filters, nil);
+  PublishFormEntity(en_LogicOperation, nil);
+  PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
+  PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOpWithResult(en_Query, op_ClearAll, Query_ClearAll, nil, nil);
+  PublishOpWithResult(en_Query, op_SetList, Query_SetList, nil, nil);
+  PublishOpWithResult(en_Filterable, op_Add, Filterable_Add, nil, nil);
+  PublishOpWithResult(en_Filterable, op_Delete, Filterable_Delete, nil, nil);
+  PublishOpWithResult(en_Query, op_GetList, Query_GetList, nil, nil);
+  PublishOpWithResult(en_Filterable, op_ClearAll, Filterable_ClearAll, nil, nil);
+  PublishOpWithResult(en_Filterable, op_Refresh, Filterable_Refresh, nil, nil);
+  PublishOp(en_Result, op_ClearAll, Result_ClearAll_Execute, Result_ClearAll_Test, nil);
+  PublishOp(en_Query, op_GetOldQuery, Query_GetOldQuery_Execute, Query_GetOldQuery_Test, nil);
+  PublishOp(en_Query, op_SearchType, Query_SearchType_Execute, Query_SearchType_Test, nil);
+  PublishOp(en_LogicOperation, op_LogicOr, LogicOperation_LogicOr_Execute, LogicOperation_LogicOr_Test, nil);
+  PublishOp(en_LogicOperation, op_LogicAnd, LogicOperation_LogicAnd_Execute, LogicOperation_LogicAnd_Test, nil);
+  PublishOp(en_LogicOperation, op_LogicNot, LogicOperation_LogicNot_Execute, LogicOperation_LogicNot_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+  PublishOp(en_Filters, op_FiltersListOpen, Filters_FiltersListOpen_Execute, Filters_FiltersListOpen_Test, nil);
+  PublishOpWithResult(en_Filterable, op_GetListType, Filterable_GetListType, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimSaveLoadForm.InitEntities
 
 procedure TPrimSaveLoadForm.MakeControls;
 begin

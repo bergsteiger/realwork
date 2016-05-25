@@ -30,6 +30,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -64,15 +70,24 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AttributeTree_SetParent_Execute(const aParent: Il3SimpleNode);
-   procedure AttributeTree_SetParent(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetParent(const aParams: IvcmExecuteParams);
    procedure AttributeTree_ExtSetRoot_Execute(const aRoot: INodeBase);
-   procedure AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
-   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
@@ -108,6 +123,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimTreeAttributeFirstLevel_flSituation_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -210,7 +228,7 @@ begin
 //#UC END# *4AEF129601AC_497EC6A4022Fexec_impl*
 end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent_Execute
 
-procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetParent_Params) do
   Self.AttributeTree_SetParent_Execute(Parent);
@@ -242,7 +260,7 @@ begin
 //#UC END# *4AEF14460025_497EC6A4022Fexec_impl*
 end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot_Execute
 
-procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_ExtSetRoot_Params) do
   Self.AttributeTree_ExtSetRoot_Execute(Root);
@@ -267,7 +285,7 @@ begin
 //#UC END# *4AF3EBC001C4_497EC6A4022Fexec_impl*
 end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot_Execute
 
-procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
   Self.AttributeTree_SetRoot_Execute(Tag);
@@ -348,6 +366,33 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC6A4022F_impl*
 end;//TPrimTreeAttributeFirstLevelForm.InitControls
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeFirstLevelForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_AttributeTree, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetParent, AttributeTree_SetParent, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_ExtSetRoot, AttributeTree_ExtSetRoot, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimTreeAttributeFirstLevelForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

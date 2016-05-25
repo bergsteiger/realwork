@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efGroupList.SetFactory(TefGroupList.Make);
+ {* Регистрация фабрики формы GroupList }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefGroupList);
  {* Регистрация GroupList }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efGroupList.SetFactory(TefGroupList.Make);
- {* Регистрация фабрики формы GroupList }
 {$IfEnd} // Defined(Admin)
 
 end.

@@ -21,11 +21,20 @@ uses
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimQueryCardOptionsForm = class(TPrimQueryCardForm)
   {* Карточка запросов }
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
@@ -78,6 +87,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -288,6 +300,27 @@ begin
   f_MgrSearch.DeleteValue(Editor.View);
 //#UC END# *4C7D0CC90052_4C87C62302CFexec_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Delete_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimQueryCardOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_SubPanelSettings, nil);
+  PublishOp(en_File, op_Print, nil, File_Print_Test, nil);
+  PublishOp(en_Edit, op_Paste, nil, Edit_Paste_Test, nil);
+  PublishOp(en_Edit, op_Undo, nil, Edit_Undo_Test, nil);
+  PublishOp(en_Edit, op_Redo, nil, Edit_Redo_Test, nil);
+  PublishOp(en_SubPanelSettings, op_ShowSpecial, SubPanelSettings_ShowSpecial_Execute, SubPanelSettings_ShowSpecial_Test, nil);
+  PublishOp(en_Edit, op_Copy, nil, Edit_Copy_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimQueryCardOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

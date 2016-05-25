@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_en_MedicListSynchroView.SetFactory(Ten_MedicListSynchroView.Make);
+ {* Регистрация фабрики формы MedicListSynchroView }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_MedicListSynchroView);
  {* Регистрация MedicListSynchroView }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_en_MedicListSynchroView.SetFactory(Ten_MedicListSynchroView.Make);
- {* Регистрация фабрики формы MedicListSynchroView }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -30,12 +30,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , l3StringIDEx
  , nsLogEvent
  , DynamicDocListUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -77,11 +83,20 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure ListInfo_BecomeActive_Execute;
-   procedure ListInfo_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure ListInfo_BecomeActive(const aParams: IvcmExecuteParams);
    constructor Create(AOwner: TComponent); override;
   public
    property ListInfoViewer: TnscEditor
@@ -228,7 +243,7 @@ begin
 //#UC END# *4AF858F30202_497DEC900012exec_impl*
 end;//TPrimListInfoForm.ListInfo_BecomeActive_Execute
 
-procedure TPrimListInfoForm.ListInfo_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListInfoForm.ListInfo_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  Self.ListInfo_BecomeActive_Execute;
 end;//TPrimListInfoForm.ListInfo_BecomeActive
@@ -293,6 +308,24 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DEC900012_impl*
 end;//TPrimListInfoForm.InitControls
+
+procedure TPrimListInfoForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimListInfoForm.SignalDataSourceChanged
+
+procedure TPrimListInfoForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_ListInfo, nil);
+  PublishOpWithResult(en_ListInfo, op_BecomeActive, ListInfo_BecomeActive, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimListInfoForm.InitEntities
 
 procedure TPrimListInfoForm.MakeControls;
 begin

@@ -1,94 +1,54 @@
 unit UserProperty_Form;
+ {* Свойства пользователя }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/UserProperty_Form.pas"
-// Начат: 07.09.2009 18:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Администратор::Admin::View::Admin::Admin::UserProperty
-//
-// Свойства пользователя
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserProperty_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "UserProperty" MUID: (4AA8E47C0065)
+// Имя типа: "TefUserProperty"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  PrimUserPropertyOptions_Form,
-  Admin_FormDefinitions_Controls,
-  vtPanel,
-  vtLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtComboBoxQS,
-  vtCheckBox,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimUserPropertyOptions_Form
+ , Admin_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
-  TefUserProperty = {final form} class(TPrimUserPropertyOptionsForm, UserPropertyFormDef)
-   {* Свойства пользователя }
-  Entities : TvcmEntities;
-  end;//TefUserProperty
-
-  TUserPropertyForm = TefUserProperty;
-{$IfEnd} //Admin
+ TefUserProperty = {final} class(TPrimUserPropertyOptionsForm, UserPropertyFormDef)
+  {* Свойства пользователя }
+   Entities : TvcmEntities;
+ end;//TefUserProperty
+{$IfEnd} // Defined(Admin)
 
 implementation
 
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , UserPropertyKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If defined(Admin)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  UserPropertyKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-
-{$IfEnd} //Admin
-
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация UserProperty
- TtfwClassRef.Register(TefUserProperty);
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin)}
-// Регистрация фабрики формы UserProperty
  fm_efUserProperty.SetFactory(TefUserProperty.Make);
-{$IfEnd} //Admin
+ {* Регистрация фабрики формы UserProperty }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TefUserProperty);
+ {* Регистрация UserProperty }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

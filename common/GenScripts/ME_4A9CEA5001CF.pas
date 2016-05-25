@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enDiction.SetFactory(TenDiction.Make);
+ {* Регистрация фабрики формы Diction }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenDiction);
  {* Регистрация Diction }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enDiction.SetFactory(TenDiction.Make);
- {* Регистрация фабрики формы Diction }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -54,12 +54,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_cfFoldersInfo.SetFactory(TcfFoldersInfo.Make);
+ {* Регистрация фабрики формы FoldersInfo }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TcfFoldersInfo);
  {* Регистрация FoldersInfo }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_cfFoldersInfo.SetFactory(TcfFoldersInfo.Make);
- {* Регистрация фабрики формы FoldersInfo }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

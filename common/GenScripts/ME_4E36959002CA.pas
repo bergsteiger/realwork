@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ListAnalizeForm.SetFactory(TListAnalizeForm.Make);
+ {* Регистрация фабрики формы ListAnalize }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TListAnalizeForm);
  {* Регистрация ListAnalize }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ListAnalizeForm.SetFactory(TListAnalizeForm.Make);
- {* Регистрация фабрики формы ListAnalize }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

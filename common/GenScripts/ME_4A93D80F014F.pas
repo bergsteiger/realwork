@@ -40,6 +40,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -158,6 +161,40 @@ type
    property LoginAction: TnsLoginAction
     read f_LoginAction
     write f_LoginAction;
+   property lblLogin: TvtLabel
+    read f_lblLogin;
+    {* Регистрационное имя: }
+   property lblPassword: TvtLabel
+    read f_lblPassword;
+    {* Пароль: }
+   property EnterPaintBox: TPaintBox
+    read f_EnterPaintBox;
+   property edUserName: TnscComboBoxWithReadOnly
+    read f_edUserName;
+   property edPassword: TnscComboBoxWithPwdChar
+    read f_edPassword;
+   property lblForgetPassword: TvtFocusLabel
+    read f_lblForgetPassword;
+    {* Забыли пароль? }
+   property cbAutoLogin: TvtCheckBox
+    read f_cbAutoLogin;
+    {* Запомнить пароль }
+   property btnOk: TElPopupButton
+    read f_btnOk;
+    {* Войти в систему }
+   property NewUserLabel: TvtLabel
+    read f_NewUserLabel;
+    {* Если Вы впервые входите в систему ГАРАНТ и еще не создали свою учетную запись, зарегистрируйтесь для начала работы. }
+   property NewUserPaintBox: TPaintBox
+    read f_NewUserPaintBox;
+   property lblNewUser: TvtFocusLabel
+    read f_lblNewUser;
+    {* Зарегистрировать нового пользователя }
+   property HelpPaintBox: TPaintBox
+    read f_HelpPaintBox;
+   property HelpLabel: TvtFocusLabel
+    read f_HelpLabel;
+    {* Помощь }
  end;//TPrimLoginForm
 
 implementation
@@ -180,6 +217,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -725,12 +768,15 @@ begin
  f_RegisteredGroupBox := TvtGroupBox.Create(Self);
  f_RegisteredGroupBox.Name := 'RegisteredGroupBox';
  f_RegisteredGroupBox.Parent := Self;
+ f_RegisteredGroupBox.Caption := 'Зарегистрированный пользователь';
  f_lblLogin := TvtLabel.Create(Self);
  f_lblLogin.Name := 'lblLogin';
  f_lblLogin.Parent := RegisteredGroupBox;
+ f_lblLogin.Caption := 'Регистрационное имя:';
  f_lblPassword := TvtLabel.Create(Self);
  f_lblPassword.Name := 'lblPassword';
  f_lblPassword.Parent := RegisteredGroupBox;
+ f_lblPassword.Caption := 'Пароль:';
  f_EnterPaintBox := TPaintBox.Create(Self);
  f_EnterPaintBox.Name := 'EnterPaintBox';
  f_EnterPaintBox.Parent := RegisteredGroupBox;
@@ -743,24 +789,30 @@ begin
  f_lblForgetPassword := TvtFocusLabel.Create(Self);
  f_lblForgetPassword.Name := 'lblForgetPassword';
  f_lblForgetPassword.Parent := RegisteredGroupBox;
+ f_lblForgetPassword.Caption := 'Забыли пароль?';
  f_cbAutoLogin := TvtCheckBox.Create(Self);
  f_cbAutoLogin.Name := 'cbAutoLogin';
  f_cbAutoLogin.Parent := RegisteredGroupBox;
+ f_cbAutoLogin.Caption := 'Запомнить пароль';
  f_btnOk := TElPopupButton.Create(Self);
  f_btnOk.Name := 'btnOk';
  f_btnOk.Parent := RegisteredGroupBox;
+ f_btnOk.Caption := 'Войти в систему';
  f_NewUserGroupBox := TvtGroupBox.Create(Self);
  f_NewUserGroupBox.Name := 'NewUserGroupBox';
  f_NewUserGroupBox.Parent := Self;
+ f_NewUserGroupBox.Caption := 'Новый пользователь';
  f_NewUserLabel := TvtLabel.Create(Self);
  f_NewUserLabel.Name := 'NewUserLabel';
  f_NewUserLabel.Parent := NewUserGroupBox;
+ f_NewUserLabel.Caption := 'Если Вы впервые входите в систему ГАРАНТ и еще не создали свою учетную запись, зарегистрируйтесь для начала работы.';
  f_NewUserPaintBox := TPaintBox.Create(Self);
  f_NewUserPaintBox.Name := 'NewUserPaintBox';
  f_NewUserPaintBox.Parent := NewUserGroupBox;
  f_lblNewUser := TvtFocusLabel.Create(Self);
  f_lblNewUser.Name := 'lblNewUser';
  f_lblNewUser.Parent := NewUserGroupBox;
+ f_lblNewUser.Caption := 'Зарегистрировать нового пользователя';
  f_HelpPanel := TvtPanel.Create(Self);
  f_HelpPanel.Name := 'HelpPanel';
  f_HelpPanel.Parent := Self;
@@ -770,6 +822,7 @@ begin
  f_HelpLabel := TvtFocusLabel.Create(Self);
  f_HelpLabel.Name := 'HelpLabel';
  f_HelpLabel.Parent := HelpPanel;
+ f_HelpLabel.Caption := 'Помощь';
 end;//TPrimLoginForm.MakeControls
 
 initialization

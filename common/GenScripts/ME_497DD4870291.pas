@@ -25,6 +25,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , FoldersUnit
  , BaseTreeSupportUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -89,36 +98,45 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure FolderElement_InternalEditByFoldersNode_Execute(const aNode: IFoldersNode;
     aInternalCall: Boolean = True);
     {* Редактирование элемента }
-   procedure FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParams);
     {* Редактирование элемента }
    function FolderElement_InternalDelete_Execute(const aNode: IFoldersNode;
     aAsk: Boolean = True): TnsDeleteResult;
     {* Удаляет элемент папок }
-   procedure FolderElement_InternalDelete(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_InternalDelete(const aParams: IvcmExecuteParams);
     {* Удаляет элемент папок }
    procedure FolderElement_InternalEdit_Execute(const aNode: IeeNode;
     aInternalCall: Boolean = True);
-   procedure FolderElement_InternalEdit(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_InternalEdit(const aParams: IvcmExecuteParams);
    procedure SavedQuery_SetFilterState_Execute(const aNode: INode);
-   procedure SavedQuery_SetFilterState(const aParams: IvcmExecuteParamsPrim);
+   procedure SavedQuery_SetFilterState(const aParams: IvcmExecuteParams);
    procedure Folders_SetCurrent_Execute(const aNode: IeeNode);
-   procedure Folders_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure Folders_SetCurrent(const aParams: IvcmExecuteParams);
    procedure Folders_FiltrateByFilterInfo_Execute(const anInfo: InsFolderFilterInfo);
-   procedure Folders_FiltrateByFilterInfo(const aParams: IvcmExecuteParamsPrim);
+   procedure Folders_FiltrateByFilterInfo(const aParams: IvcmExecuteParams);
    procedure FolderElement_DisableFilter_Execute;
-   procedure FolderElement_DisableFilter(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_DisableFilter(const aParams: IvcmExecuteParams);
    procedure Folders_TryOpenConsultationAnswer_Execute;
-   procedure Folders_TryOpenConsultationAnswer(const aParams: IvcmExecuteParamsPrim);
+   procedure Folders_TryOpenConsultationAnswer(const aParams: IvcmExecuteParams);
    procedure Folders_OpenMyConsultations_Execute;
-   procedure Folders_OpenMyConsultations(const aParams: IvcmExecuteParamsPrim);
+   procedure Folders_OpenMyConsultations(const aParams: IvcmExecuteParams);
    procedure Folders_SetInfoContent_Execute;
-   procedure Folders_SetInfoContent(const aParams: IvcmExecuteParamsPrim);
+   procedure Folders_SetInfoContent(const aParams: IvcmExecuteParams);
   protected
    property FoldersInfo: InsFoldersInfo
     read pm_GetFoldersInfo;
@@ -134,9 +152,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
  , nsTreeUtils
  {$If NOT Defined(NoVCM)}
@@ -174,6 +189,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimFoldersTree_utFoldersTree_UserType
  , PrimFoldersTree_utSaveOpen_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -520,7 +538,7 @@ begin
 //#UC END# *4AE7060A03E7_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode_Execute
 
-procedure TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParams);
  {* Редактирование элемента }
 begin
  with (aParams.Data As IFolderElement_InternalEditByFoldersNode_Params) do
@@ -561,7 +579,7 @@ begin
 //#UC END# *4AE7099B0136_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.FolderElement_InternalDelete_Execute
 
-procedure TPrimFoldersTreeForm.FolderElement_InternalDelete(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.FolderElement_InternalDelete(const aParams: IvcmExecuteParams);
  {* Удаляет элемент папок }
 begin
  with (aParams.Data As IFolderElement_InternalDelete_Params) do
@@ -586,7 +604,7 @@ begin
 //#UC END# *4AE7240E024C_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.FolderElement_InternalEdit_Execute
 
-procedure TPrimFoldersTreeForm.FolderElement_InternalEdit(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.FolderElement_InternalEdit(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_InternalEdit_Params) do
   Self.FolderElement_InternalEdit_Execute(Node, InternalCall);
@@ -600,7 +618,7 @@ begin
 //#UC END# *4AEEBF3B01CD_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.SavedQuery_SetFilterState_Execute
 
-procedure TPrimFoldersTreeForm.SavedQuery_SetFilterState(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.SavedQuery_SetFilterState(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISavedQuery_SetFilterState_Params) do
   Self.SavedQuery_SetFilterState_Execute(Node);
@@ -617,7 +635,7 @@ begin
 //#UC END# *4AEEC3580234_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.Folders_SetCurrent_Execute
 
-procedure TPrimFoldersTreeForm.Folders_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.Folders_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolders_SetCurrent_Params) do
   Self.Folders_SetCurrent_Execute(Node);
@@ -656,7 +674,7 @@ begin
 //#UC END# *4AF2F57400D8_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo_Execute
 
-procedure TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolders_FiltrateByFilterInfo_Params) do
   Self.Folders_FiltrateByFilterInfo_Execute(nInfo);
@@ -671,7 +689,7 @@ begin
 //#UC END# *4AF4741300DA_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.FolderElement_DisableFilter_Execute
 
-procedure TPrimFoldersTreeForm.FolderElement_DisableFilter(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.FolderElement_DisableFilter(const aParams: IvcmExecuteParams);
 begin
  Self.FolderElement_DisableFilter_Execute;
 end;//TPrimFoldersTreeForm.FolderElement_DisableFilter
@@ -716,7 +734,7 @@ begin
 //#UC END# *4AF8170E0139_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer_Execute
 
-procedure TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer(const aParams: IvcmExecuteParams);
 begin
  Self.Folders_TryOpenConsultationAnswer_Execute;
 end;//TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer
@@ -737,7 +755,7 @@ begin
 //#UC END# *4AF81CE50390_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.Folders_OpenMyConsultations_Execute
 
-procedure TPrimFoldersTreeForm.Folders_OpenMyConsultations(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.Folders_OpenMyConsultations(const aParams: IvcmExecuteParams);
 begin
  Self.Folders_OpenMyConsultations_Execute;
 end;//TPrimFoldersTreeForm.Folders_OpenMyConsultations
@@ -756,7 +774,7 @@ begin
 //#UC END# *4AF81E1C012F_497DD4870291exec_impl*
 end;//TPrimFoldersTreeForm.Folders_SetInfoContent_Execute
 
-procedure TPrimFoldersTreeForm.Folders_SetInfoContent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersTreeForm.Folders_SetInfoContent(const aParams: IvcmExecuteParams);
 begin
  Self.Folders_SetInfoContent_Execute;
 end;//TPrimFoldersTreeForm.Folders_SetInfoContent
@@ -831,6 +849,35 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.InitControls
+
+procedure TPrimFoldersTreeForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimFoldersTreeForm.SignalDataSourceChanged
+
+procedure TPrimFoldersTreeForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_FolderElement, nil);
+  PublishFormEntity(en_SavedQuery, nil);
+  PublishFormEntity(en_Folders, nil);
+  PublishOpWithResult(en_FolderElement, op_InternalEditByFoldersNode, FolderElement_InternalEditByFoldersNode, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_InternalDelete, FolderElement_InternalDelete, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_InternalEdit, FolderElement_InternalEdit, nil, nil);
+  PublishOpWithResult(en_SavedQuery, op_SetFilterState, SavedQuery_SetFilterState, nil, nil);
+  PublishOpWithResult(en_Folders, op_SetCurrent, Folders_SetCurrent, nil, nil);
+  PublishOpWithResult(en_Folders, op_FiltrateByFilterInfo, Folders_FiltrateByFilterInfo, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_DisableFilter, FolderElement_DisableFilter, nil, nil);
+  PublishOpWithResult(en_Folders, op_TryOpenConsultationAnswer, Folders_TryOpenConsultationAnswer, nil, nil);
+  PublishOpWithResult(en_Folders, op_OpenMyConsultations, Folders_OpenMyConsultations, nil, nil);
+  PublishOpWithResult(en_Folders, op_SetInfoContent, Folders_SetInfoContent, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimFoldersTreeForm.InitEntities
 
 procedure TPrimFoldersTreeForm.MakeControls;
 begin

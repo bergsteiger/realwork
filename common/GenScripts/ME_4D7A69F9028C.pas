@@ -28,10 +28,6 @@ uses
 ;
 
 type
- // Navigator
-
- // Child
-
  _DictionContainerUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
  TPrimDictionContainerForm = class(_DictionContainerUserTypes_)
@@ -64,11 +60,16 @@ type
    function DoGetTabCaption: IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Common_ShowSplitter_Execute(aVisible: Boolean);
-   procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+   procedure Common_ShowSplitter(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -79,6 +80,12 @@ type
   public
    property pnBackground: TvtProportionalPanel
     read f_pnBackground;
+   property NavigatorZone: TvtSizeablePanel
+    read f_NavigatorZone;
+   property pnWorkArea: TvtProportionalPanel
+    read f_pnWorkArea;
+   property ChildZone: TvtSizeablePanel
+    read f_ChildZone;
  end;//TPrimDictionContainerForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -106,6 +113,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -145,7 +155,7 @@ begin
 //#UC END# *4AE8744002F3_4D7A69F9028Cexec_impl*
 end;//TPrimDictionContainerForm.Common_ShowSplitter_Execute
 
-procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ICommon_ShowSplitter_Params) do
   Self.Common_ShowSplitter_Execute(Visible);
@@ -242,6 +252,20 @@ end;//TPrimDictionContainerForm.DoGetTabCaption
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
+procedure TPrimDictionContainerForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Common, nil);
+  PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimDictionContainerForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimDictionContainerForm.MakeControls;
 begin
  inherited;
@@ -257,7 +281,7 @@ begin
  f_pnWorkArea := TvtProportionalPanel.Create(Self);
  f_pnWorkArea.Name := 'pnWorkArea';
  f_pnWorkArea.Parent := pnBackground;
- f_ParentZone.Parent := pnWorkArea;
+ ParentZone.Parent := pnWorkArea;
  f_ChildZone := TvtSizeablePanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := pnWorkArea;

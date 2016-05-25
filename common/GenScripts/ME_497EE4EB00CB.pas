@@ -42,11 +42,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , BaseDocumentWithAttributesInterfaces
- , DocumentAndListInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentAndListInterfaces
 ;
 
 type
@@ -128,6 +128,15 @@ type
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -182,6 +191,10 @@ type
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property ListTree: TnscTreeViewWithAdapterDragDrop
+    read f_ListTree;
  end;//TPrimMedicFirmListForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -239,6 +252,9 @@ uses
  , nsSaveDialog
  , nsConst
  , PrimMedicFirmList_mflMain_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -955,6 +971,32 @@ begin
  Result := dsMedicFirmList.IsDataAvailable;
 //#UC END# *55127A5401DE_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.IsAcceptable
+
+procedure TPrimMedicFirmListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimMedicFirmListForm.SignalDataSourceChanged
+
+procedure TPrimMedicFirmListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
+  PublishOp(en_File, op_SendMailAsAttachment, File_SendMailAsAttachment_Execute, File_SendMailAsAttachment_Test, nil, true);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimMedicFirmListForm.InitEntities
 
 procedure TPrimMedicFirmListForm.MakeControls;
 begin

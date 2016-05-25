@@ -28,6 +28,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -108,6 +111,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -289,15 +298,19 @@ begin
  f_EMailLabel := TvtLabel.Create(Self);
  f_EMailLabel.Name := 'EMailLabel';
  f_EMailLabel.Parent := Self;
+ f_EMailLabel.Caption := '*Электронная почта:';
  f_HintLabel := TvtLabel.Create(Self);
  f_HintLabel.Name := 'HintLabel';
  f_HintLabel.Parent := Self;
+ f_HintLabel.Caption := '*Адрес электронной почты, указанный при регистрации. На этот адрес будет выслано письмо, содержащее Ваши регистрационное имя и пароль.';
  f_btnCancel := TElPopupButton.Create(Self);
  f_btnCancel.Name := 'btnCancel';
  f_btnCancel.Parent := Self;
+ f_btnCancel.Caption := 'Отмена';
  f_btnSend := TElPopupButton.Create(Self);
  f_btnSend.Name := 'btnSend';
  f_btnSend.Parent := Self;
+ f_btnSend.Caption := 'Отправить запрос';
  f_edEmail := TnscEdit.Create(Self);
  f_edEmail.Name := 'edEmail';
  f_edEmail.Parent := Self;

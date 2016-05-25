@@ -46,8 +46,6 @@ uses
 ;
 
 type
- // BaseSearchZone
-
  _vcmChromeLikeTabCaptionProvider_Parent_ = TPrimLegalMainMenuForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _vcmChromeLikeTabCaptionProvider_;
@@ -186,11 +184,85 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property ieIO: TImageEnIO
     read f_ieIO;
+   property pnlLeft: TvtPanel
+    read f_pnlLeft;
+   property bvlLeftTop: TBevel
+    read f_bvlLeftTop;
+   property pnlLogo: TvtPanel
+    read f_pnlLogo;
+   property pbLogo: TPaintBox
+    read f_pbLogo;
+   property pnlBanner: TvtPanel
+    read f_pnlBanner;
+   property ieBanner: TImageEnView
+    read f_ieBanner;
+   property pnlFeedback: TvtPanel
+    read f_pnlFeedback;
+   property pbFeedback: TPaintBox
+    read f_pbFeedback;
+   property pnlOnlineResources: TvtPanel
+    read f_pnlOnlineResources;
+   property pbOnlineResources: TPaintBox
+    read f_pbOnlineResources;
+   property pnlWebVersion: TvtPanel
+    read f_pnlWebVersion;
+   property pbWebVersion: TPaintBox
+    read f_pbWebVersion;
+   property pnlClient: TvtPanel
+    read f_pnlClient;
+   property pnlNews: TvtPanel
+    read f_pnlNews;
+   property tvProfNews: TnscTreeViewHotTruck
+    read f_tvProfNews;
+   property lblProfNews: TnscComboLabel
+    read f_lblProfNews;
+   property lblLawNews: TvtStyledLabel
+    read f_lblLawNews;
+   property pnlBaseSearch: TvtPanel
+    read f_pnlBaseSearch;
+   property pnlBaseSearchZone: TvtPanel
+    read f_pnlBaseSearchZone;
+   property pnlSearches: TvtPanel
+    read f_pnlSearches;
+   property flAttributeSearch: TnscFocusLabel
+    read f_flAttributeSearch;
+    {* • По реквизитам }
+   property flDictionSearch: TnscFocusLabel
+    read f_flDictionSearch;
+    {* • По Толковому словарю }
+   property flPublishedSourceSearch: TnscFocusLabel
+    read f_flPublishedSourceSearch;
+    {* • По источнику опубликования }
+   property flSituationSearch: TnscFocusLabel
+    read f_flSituationSearch;
+    {* • По ситуации }
+   property pnlTrees: TvtPanel
+    read f_pnlTrees;
+   property tvTaxes: TnscTreeViewHotTruck
+    read f_tvTaxes;
+   property lblReferences: TvtStyledLabel
+    read f_lblReferences;
+   property lblTaxes: TnscComboLabel
+    read f_lblTaxes;
+   property pnlLastOpenDocs: TvtPanel
+    read f_pnlLastOpenDocs;
+   property lblLastOpenDocs: TvtStyledLabel
+    read f_lblLastOpenDocs;
+    {* Последние открытые документы }
+   property bvlLeft: TBevel
+    read f_bvlLeft;
+   property bvlRight: TBevel
+    read f_bvlRight;
  end;//TPrimMainMenuWithProfNewsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -261,6 +333,9 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmHistoryService
  {$IfEnd} // NOT Defined(NoVCM)
@@ -1392,6 +1467,15 @@ end;//TPrimMainMenuWithProfNewsForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 {$If NOT Defined(NoVCM)}
+procedure TPrimMainMenuWithProfNewsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TPrimMainMenuWithProfNewsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuWithProfNewsForm.MakeControls;
 begin
  inherited;
@@ -1408,7 +1492,7 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utMainMenuWithProfNewsName
- f_pnlMain.Parent := Self;
+ pnlMain.Parent := Self;
  f_pnlLeft := TvtPanel.Create(Self);
  f_pnlLeft.Name := 'pnlLeft';
  f_pnlLeft.Parent := pnlMain;
@@ -1454,7 +1538,7 @@ begin
  f_tvProfNews := TnscTreeViewHotTruck.Create(Self);
  f_tvProfNews.Name := 'tvProfNews';
  f_tvProfNews.Parent := pnlNews;
- f_tvLawNews.Parent := pnlNews;
+ tvLawNews.Parent := pnlNews;
  f_lblProfNews := TnscComboLabel.Create(Self);
  f_lblProfNews.Name := 'lblProfNews';
  f_lblProfNews.Parent := pnlNews;
@@ -1476,22 +1560,26 @@ begin
  f_flAttributeSearch := TnscFocusLabel.Create(Self);
  f_flAttributeSearch.Name := 'flAttributeSearch';
  f_flAttributeSearch.Parent := pnlSearches;
+ f_flAttributeSearch.Caption := '• По реквизитам';
  f_flDictionSearch := TnscFocusLabel.Create(Self);
  f_flDictionSearch.Name := 'flDictionSearch';
  f_flDictionSearch.Parent := pnlSearches;
+ f_flDictionSearch.Caption := '• По Толковому словарю';
  f_flPublishedSourceSearch := TnscFocusLabel.Create(Self);
  f_flPublishedSourceSearch.Name := 'flPublishedSourceSearch';
  f_flPublishedSourceSearch.Parent := pnlSearches;
+ f_flPublishedSourceSearch.Caption := '• По источнику опубликования';
  f_flSituationSearch := TnscFocusLabel.Create(Self);
  f_flSituationSearch.Name := 'flSituationSearch';
  f_flSituationSearch.Parent := pnlSearches;
+ f_flSituationSearch.Caption := '• По ситуации';
  f_pnlTrees := TvtPanel.Create(Self);
  f_pnlTrees.Name := 'pnlTrees';
  f_pnlTrees.Parent := pnlClient;
  f_tvTaxes := TnscTreeViewHotTruck.Create(Self);
  f_tvTaxes.Name := 'tvTaxes';
  f_tvTaxes.Parent := pnlTrees;
- f_tvReferences.Parent := pnlTrees;
+ tvReferences.Parent := pnlTrees;
  f_lblReferences := TvtStyledLabel.Create(Self);
  f_lblReferences.Name := 'lblReferences';
  f_lblReferences.Parent := pnlTrees;
@@ -1501,10 +1589,11 @@ begin
  f_pnlLastOpenDocs := TvtPanel.Create(Self);
  f_pnlLastOpenDocs.Name := 'pnlLastOpenDocs';
  f_pnlLastOpenDocs.Parent := pnlClient;
- f_tvLastOpenDocs.Parent := pnlLastOpenDocs;
+ tvLastOpenDocs.Parent := pnlLastOpenDocs;
  f_lblLastOpenDocs := TvtStyledLabel.Create(Self);
  f_lblLastOpenDocs.Name := 'lblLastOpenDocs';
  f_lblLastOpenDocs.Parent := pnlLastOpenDocs;
+ f_lblLastOpenDocs.Caption := 'Последние открытые документы';
  f_bvlLeft := TBevel.Create(Self);
  f_bvlLeft.Name := 'bvlLeft';
  f_bvlLeft.Parent := pnlMain;

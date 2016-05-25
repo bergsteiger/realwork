@@ -34,7 +34,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -129,6 +135,15 @@ type
    procedure DoBeforeHistoryNavigate; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -150,21 +165,21 @@ type
     {* Предварительный просмотр }
    {$IfEnd} // NOT Defined(NoVCM)
    function SearchParameters_IsQueryEmpty_Execute: Boolean;
-   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
    function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
-   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQuerySaved_Execute: Boolean;
-   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
    procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
-   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
    procedure SearchParameters_ClearQuery_Execute;
-   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
    procedure SearchParameter_QueryNotSaved_Execute;
-   procedure SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParams);
    procedure SearchParameter_ClearMistakes_Execute;
-   procedure SearchParameter_ClearMistakes(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameter_ClearMistakes(const aParams: IvcmExecuteParams);
    procedure SearchParameter_QuerySaved_Execute;
-   procedure SearchParameter_QuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameter_QuerySaved(const aParams: IvcmExecuteParams);
    procedure CardOperation_ExpandCollapse_Test(const aParams: IvcmTestParamsPrim);
    procedure CardOperation_ExpandCollapse_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure CardOperation_DeleteAll_Test(const aParams: IvcmTestParamsPrim);
@@ -274,6 +289,9 @@ uses
  , IOUnit
  , l3String
  , PrimQueryCard_utqcPostingOrder_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -1021,7 +1039,7 @@ begin
 //#UC END# *4AE879D00143_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute
 
-procedure TPrimQueryCardForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
   ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
@@ -1061,7 +1079,7 @@ begin
 //#UC END# *4AE884E803AA_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameters_GetQuery_Execute
 
-procedure TPrimQueryCardForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_GetQuery_Params) do
   ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
@@ -1079,7 +1097,7 @@ begin
 //#UC END# *4AE8A577027D_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved_Execute
 
-procedure TPrimQueryCardForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
   ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
@@ -1113,7 +1131,7 @@ begin
 //#UC END# *4AEF213001F0_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameters_SetQuery_Execute
 
-procedure TPrimQueryCardForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_SetQuery_Params) do
   Self.SearchParameters_SetQuery_Execute(Query);
@@ -1148,7 +1166,7 @@ begin
 //#UC END# *4AF92B09017F_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameters_ClearQuery_Execute
 
-procedure TPrimQueryCardForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameters_ClearQuery_Execute;
 end;//TPrimQueryCardForm.SearchParameters_ClearQuery
@@ -1162,7 +1180,7 @@ begin
 //#UC END# *4AF9370C012B_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameter_QueryNotSaved_Execute
 
-procedure TPrimQueryCardForm.SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameter_QueryNotSaved_Execute;
 end;//TPrimQueryCardForm.SearchParameter_QueryNotSaved
@@ -1176,7 +1194,7 @@ begin
 //#UC END# *4AF9373C02B6_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameter_ClearMistakes_Execute
 
-procedure TPrimQueryCardForm.SearchParameter_ClearMistakes(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameter_ClearMistakes(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameter_ClearMistakes_Execute;
 end;//TPrimQueryCardForm.SearchParameter_ClearMistakes
@@ -1192,7 +1210,7 @@ begin
 //#UC END# *4AF9393802B0_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.SearchParameter_QuerySaved_Execute
 
-procedure TPrimQueryCardForm.SearchParameter_QuerySaved(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimQueryCardForm.SearchParameter_QuerySaved(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameter_QuerySaved_Execute;
 end;//TPrimQueryCardForm.SearchParameter_QuerySaved
@@ -1551,6 +1569,40 @@ begin
  inherited;
 //#UC END# *562E15F20132_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoBeforeHistoryNavigate
+
+procedure TPrimQueryCardForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimQueryCardForm.SignalDataSourceChanged
+
+procedure TPrimQueryCardForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_SearchParameters, nil);
+  PublishFormEntity(en_SearchParameter, nil);
+  PublishFormEntity(en_CardOperation, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  PublishOpWithResult(en_SearchParameters, op_IsQueryEmpty, SearchParameters_IsQueryEmpty, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_GetQuery, SearchParameters_GetQuery, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_IsQuerySaved, SearchParameters_IsQuerySaved, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_SetQuery, SearchParameters_SetQuery, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
+  PublishOpWithResult(en_SearchParameter, op_QueryNotSaved, SearchParameter_QueryNotSaved, nil, nil);
+  PublishOpWithResult(en_SearchParameter, op_ClearMistakes, SearchParameter_ClearMistakes, nil, nil);
+  PublishOpWithResult(en_SearchParameter, op_QuerySaved, SearchParameter_QuerySaved, nil, nil);
+  PublishOp(en_CardOperation, op_ExpandCollapse, CardOperation_ExpandCollapse_Execute, CardOperation_ExpandCollapse_Test, nil);
+  PublishOp(en_CardOperation, op_DeleteAll, CardOperation_DeleteAll_Execute, CardOperation_DeleteAll_Test, nil);
+  PublishOp(en_CardOperation, op_CreateAttr, CardOperation_CreateAttr_Execute, CardOperation_CreateAttr_Test, nil);
+  PublishOp(en_CardOperation, op_OpenTreeSelection, CardOperation_OpenTreeSelection_Execute, CardOperation_OpenTreeSelection_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimQueryCardForm.InitEntities
 
 procedure TPrimQueryCardForm.MakeControls;
 begin

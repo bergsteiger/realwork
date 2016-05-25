@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efUserList.SetFactory(TefUserList.Make);
+ {* Регистрация фабрики формы UserList }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefUserList);
  {* Регистрация UserList }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efUserList.SetFactory(TefUserList.Make);
- {* Регистрация фабрики формы UserList }
 {$IfEnd} // Defined(Admin)
 
 end.

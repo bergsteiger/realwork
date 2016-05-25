@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ten_MedicFirmList);
- {* Регистрация MedicFirmList$Form }
-{$IfEnd} // NOT Defined(NoScripts)
  fm_en_MedicFirmList.SetFactory(Ten_MedicFirmList.Make);
  {* Регистрация фабрики формы MedicFirmList$Form }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_MedicFirmList);
+ {* Регистрация MedicFirmList }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

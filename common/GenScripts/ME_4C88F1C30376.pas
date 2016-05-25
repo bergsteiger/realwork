@@ -19,12 +19,20 @@ uses
  {$If Defined(Nemesis)}
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimForbidAutoregistrationOptionsForm = class(TPrimForbidAutoregistrationForm)
   protected
    function SaveAdminInfo: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
@@ -52,6 +60,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , AdminDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo: Boolean;
@@ -141,6 +152,21 @@ begin
  SafeClose;
 //#UC END# *4C762C910358_4C88F1C30376exec_impl*
 end;//TPrimForbidAutoregistrationOptionsForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimForbidAutoregistrationOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimForbidAutoregistrationOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

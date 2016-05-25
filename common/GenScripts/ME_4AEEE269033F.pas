@@ -27,6 +27,9 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -66,14 +69,23 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Navigator_SetCurrent_Execute(const aNode: Il3SimpleNode);
-   procedure Navigator_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure Navigator_SetCurrent(const aParams: IvcmExecuteParams);
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property NavigatorTree: TnscTreeViewWithAdapterDragDrop
+    read f_NavigatorTree;
  end;//TPrimNavigatorForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -100,7 +112,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimNavigator_utNavigator_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -259,7 +277,7 @@ begin
 //#UC END# *4AEEE2D40157_4AEEE269033Fexec_impl*
 end;//TPrimNavigatorForm.Navigator_SetCurrent_Execute
 
-procedure TPrimNavigatorForm.Navigator_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimNavigatorForm.Navigator_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As INavigator_SetCurrent_Params) do
   Self.Navigator_SetCurrent_Execute(Node);
@@ -320,6 +338,18 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.InitControls
+
+procedure TPrimNavigatorForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Navigator, nil);
+  PublishOpWithResult(en_Navigator, op_SetCurrent, Navigator_SetCurrent, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimNavigatorForm.InitEntities
 
 procedure TPrimNavigatorForm.MakeControls;
 begin

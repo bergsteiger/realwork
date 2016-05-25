@@ -27,6 +27,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -89,13 +92,18 @@ type
    procedure DoClose(var Action: TCloseAction); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure System_InitShutdown_Execute(aShotdown: Boolean;
     aCloseInterval: Integer);
     {* Начать процесс завершения работы }
-   procedure System_InitShutdown(const aParams: IvcmExecuteParamsPrim);
+   procedure System_InitShutdown(const aParams: IvcmExecuteParams);
     {* Начать процесс завершения работы }
   public
    property ShutdownTimer: TTimer
@@ -104,6 +112,21 @@ type
     read f_vtPanel1;
    property pnlBottom: TvtPanel
     read f_pnlBottom;
+   property LeftPanel: TvtPanel
+    read f_LeftPanel;
+   property Image: TImage
+    read f_Image;
+   property CenterPanel: TvtPanel
+    read f_CenterPanel;
+   property TopSpacerPanel: TvtPanel
+    read f_TopSpacerPanel;
+   property WarningText: TvtLabel
+    read f_WarningText;
+   property RightSpacerPanel: TvtPanel
+    read f_RightSpacerPanel;
+   property CloseButton: TvtButton
+    read f_CloseButton;
+    {* Выход }
  end;//TPrimShutDownForm
 
 implementation
@@ -133,7 +156,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimShutDown_sftNone_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -258,7 +287,7 @@ begin
 //#UC END# *4A8EC9E902CD_4A8EC8AC02EEexec_impl*
 end;//TPrimShutDownForm.System_InitShutdown_Execute
 
-procedure TPrimShutDownForm.System_InitShutdown(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimShutDownForm.System_InitShutdown(const aParams: IvcmExecuteParams);
  {* Начать процесс завершения работы }
 begin
  with (aParams.Data As ISystem_InitShutdown_Params) do
@@ -421,6 +450,18 @@ begin
 end;//TPrimShutDownForm.DoClose
 {$IfEnd} // NOT Defined(NoVCL)
 
+procedure TPrimShutDownForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_System, nil);
+  PublishOpWithResult(en_System, op_InitShutdown, System_InitShutdown, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimShutDownForm.InitEntities
+
 procedure TPrimShutDownForm.MakeControls;
 begin
  inherited;
@@ -466,6 +507,7 @@ begin
  f_CloseButton := TvtButton.Create(Self);
  f_CloseButton.Name := 'CloseButton';
  f_CloseButton.Parent := pnlBottom;
+ f_CloseButton.Caption := 'Выход';
 end;//TPrimShutDownForm.MakeControls
 
 initialization

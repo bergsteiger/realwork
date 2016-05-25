@@ -14,12 +14,21 @@ uses
  l3IntfUses
  , PrimSaveLoadOptions_Form
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  _PrimSaveLoadUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas}
  TPrimSaveLoadOptionsWithUserTypesForm = class(_PrimSaveLoadUserTypes_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimSaveLoadOptionsWithUserTypesForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -51,6 +60,12 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -73,6 +88,15 @@ type
  // ExcludeSearchType
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas}
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimSaveLoadOptionsWithUserTypesForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TPrimSaveLoadOptionsWithUserTypesForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

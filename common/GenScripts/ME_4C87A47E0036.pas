@@ -21,11 +21,20 @@ uses
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Common_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimNavigatorOptionsForm = class(TPrimNavigatorForm)
   {* Меню }
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
    procedure NavigatorElement_Info_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -47,6 +56,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 procedure TPrimNavigatorOptionsForm.NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
@@ -100,6 +112,30 @@ begin
  ExecuteCurrentElement;
 //#UC END# *4C87A52E02F7_4C87A47E0036exec_impl*
 end;//TPrimNavigatorOptionsForm.NavigatorElement_Execute_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimNavigatorOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_NavigatorElement, nil);
+  PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  PublishOp(en_Edit, op_Copy, nil, nil, nil);
+  PublishOp(en_Edit, op_Delete, nil, nil, nil);
+  PublishOp(en_NavigatorElement, op_Info, NavigatorElement_Info_Execute, NavigatorElement_Info_Test, nil);
+  PublishOp(en_NavigatorElement, op_Execute, NavigatorElement_Execute_Execute, NavigatorElement_Execute_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimNavigatorOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

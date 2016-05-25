@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_SynchroView_WarningBaloonForm.SetFactory(TSynchroView_WarningBaloonForm.Make);
+ {* Регистрация фабрики формы SynchroView_WarningBaloon }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TSynchroView_WarningBaloonForm);
  {* Регистрация SynchroView_WarningBaloon }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_SynchroView_WarningBaloonForm.SetFactory(TSynchroView_WarningBaloonForm.Make);
- {* Регистрация фабрики формы SynchroView_WarningBaloon }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

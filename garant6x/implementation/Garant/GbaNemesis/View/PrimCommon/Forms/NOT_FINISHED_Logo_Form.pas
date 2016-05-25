@@ -12,6 +12,9 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -37,6 +40,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Logo_ut_Logo_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , LogoKeywordsPack

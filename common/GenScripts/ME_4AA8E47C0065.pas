@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efUserProperty.SetFactory(TefUserProperty.Make);
+ {* Регистрация фабрики формы UserProperty }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefUserProperty);
  {* Регистрация UserProperty }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efUserProperty.SetFactory(TefUserProperty.Make);
- {* Регистрация фабрики формы UserProperty }
 {$IfEnd} // Defined(Admin)
 
 end.

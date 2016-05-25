@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , RememberPassword_ut_RememberPassword_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , RememberPasswordKeywordsPack
@@ -88,12 +88,12 @@ end;//TRememberPasswordForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_RememberPasswordCaption.Init;
+ {* Инициализация str_ut_RememberPasswordCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TRememberPasswordForm);
  {* Регистрация RememberPassword }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_RememberPasswordCaption.Init;
- {* Инициализация str_ut_RememberPasswordCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -36,10 +36,13 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PictureInfo_ut_PictureInfo_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , PictureInfoKeywordsPack
@@ -74,12 +77,12 @@ end;//Ten_PictureInfo.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_PictureInfoCaption.Init;
+ {* Инициализация str_ut_PictureInfoCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_PictureInfo);
  {* Регистрация PictureInfo }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_PictureInfoCaption.Init;
- {* Инициализация str_ut_PictureInfoCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

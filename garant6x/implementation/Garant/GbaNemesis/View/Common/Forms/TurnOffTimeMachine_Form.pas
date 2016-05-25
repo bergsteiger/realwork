@@ -1,125 +1,80 @@
 unit TurnOffTimeMachine_Form;
+ {* Выключить Машину времени / Изменить дату }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/TurnOffTimeMachine_Form.pas"
-// Начат: 24.08.2009 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Core::Common::View::Common::PrimF1Common::TurnOffTimeMachine
-//
-// Выключить Машину времени / Изменить дату
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\TurnOffTimeMachine_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "TurnOffTimeMachine" MUID: (4AB135AC01DE)
+// Имя типа: "Ten_TurnOffTimeMachine"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  PrimTurnOffTimeMachineOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType,
-  vtRadioButton,
-  vtDblClickDateEdit
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vtLabel,
-  vtButton,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimTurnOffTimeMachineOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { TurnOffTimeMachineIDs }
-   fm_en_TurnOffTimeMachine : TvcmFormDescriptor = (rFormID : (rName : 'en_TurnOffTimeMachine'; rID : 0); rFactory : nil);
-    { Идентификатор формы Ten_TurnOffTimeMachine }
+ fm_en_TurnOffTimeMachine: TvcmFormDescriptor = (rFormID : (rName : 'en_TurnOffTimeMachine'; rID : 0); rFactory : nil);
+  {* Идентификатор формы Ten_TurnOffTimeMachine }
 
 type
- TurnOffTimeMachineFormDef = interface(IUnknown)
+ Ten_TurnOffTimeMachine = class;
+
+ TurnOffTimeMachineFormDef = interface
   {* Идентификатор формы TurnOffTimeMachine }
-   ['{3FDF45B7-4023-4D87-A4CB-A153EBA91B78}']
+  ['{3FDF45B7-4023-4D87-A4CB-A153EBA91B78}']
  end;//TurnOffTimeMachineFormDef
 
-  Ten_TurnOffTimeMachine = {final form} class(TPrimTurnOffTimeMachineOptionsForm, TurnOffTimeMachineFormDef)
-   {* Выключить Машину времени / Изменить дату }
-  Entities : TvcmEntities;
+ Ten_TurnOffTimeMachine = {final} class(TPrimTurnOffTimeMachineOptionsForm, TurnOffTimeMachineFormDef)
+  {* Выключить Машину времени / Изменить дату }
+   Entities : TvcmEntities;
   protected
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
-  end;//Ten_TurnOffTimeMachine
-
-  TTurnOffTimeMachineForm = Ten_TurnOffTimeMachine;
-{$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//Ten_TurnOffTimeMachine
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TurnOffTimeMachineKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
+const
+ {* Локализуемые строки ut_TurnOffTimeMachineLocalConstants }
+ str_ut_TurnOffTimeMachineCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TurnOffTimeMachineCaption'; rValue : 'Выключить Машину времени / Изменить дату');
+  {* Заголовок пользовательского типа "Выключить Машину времени / Изменить дату" }
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  TurnOffTimeMachineKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-    { Локализуемые строки ut_TurnOffTimeMachineLocalConstants }
-   str_ut_TurnOffTimeMachineCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TurnOffTimeMachineCaption'; rValue : 'Выключить Машину времени / Изменить дату');
-    { Заголовок пользовательского типа "Выключить Машину времени / Изменить дату" }
-
-// start class Ten_TurnOffTimeMachine
-
+{$If NOT Defined(NoVCM)}
 procedure Ten_TurnOffTimeMachine.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_TurnOffTimeMachineName,
   str_ut_TurnOffTimeMachineCaption,
   str_ut_TurnOffTimeMachineCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -129,18 +84,16 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_TurnOffTimeMachineName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//Ten_TurnOffTimeMachine.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация TurnOffTimeMachine
- TtfwClassRef.Register(Ten_TurnOffTimeMachine);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_TurnOffTimeMachineCaption
  str_ut_TurnOffTimeMachineCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ut_TurnOffTimeMachineCaption }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_TurnOffTimeMachine);
+ {* Регистрация TurnOffTimeMachine }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -15,6 +15,9 @@ uses
  l3IntfUses
  , PrimMainMenu_Form
  , BaseSearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -65,6 +68,9 @@ uses
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)

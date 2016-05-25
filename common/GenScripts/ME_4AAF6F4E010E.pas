@@ -68,6 +68,11 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -98,11 +103,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    function Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
     {* Изменить масштаб }
-   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParamsPrim);
+   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParams);
     {* Изменить масштаб }
    function Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
     {* Масштабирование запрещено }
-   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParamsPrim);
+   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
     {* Масштабирование запрещено }
   public
    property PreviewPanel: TnscPreviewPanel
@@ -133,6 +138,9 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , PrimPreview_utPrintPreview_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -281,7 +289,7 @@ begin
 //#UC END# *4BB32C1401C0_4AAF6F4E010Eexec_impl*
 end;//TPrimPreviewForm.Scalable_ChangeScale_Execute
 
-procedure TPrimPreviewForm.Scalable_ChangeScale(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimPreviewForm.Scalable_ChangeScale(const aParams: IvcmExecuteParams);
  {* Изменить масштаб }
 begin
  with (aParams.Data As IScalable_ChangeScale_Params) do
@@ -300,7 +308,7 @@ begin
 //#UC END# *4BB366A901D7_4AAF6F4E010Eexec_impl*
 end;//TPrimPreviewForm.Scalable_CanChangeScale_Execute
 
-procedure TPrimPreviewForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimPreviewForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
  {* Масштабирование запрещено }
 begin
  with (aParams.Data As IScalable_CanChangeScale_Params) do
@@ -384,6 +392,36 @@ begin
 //#UC END# *543E3AA801D0_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimPreviewForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Scalable, nil);
+  PublishFormEntity(en_Preview, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishOp(en_File, op_Print, nil, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, nil, File_PrintDialog_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOpWithResult(en_Scalable, op_ChangeScale, Scalable_ChangeScale, nil, nil);
+  PublishOpWithResult(en_Scalable, op_CanChangeScale, Scalable_CanChangeScale, nil, nil);
+  PublishOp(en_Preview, op_ZoomIn, nil, nil, nil);
+  PublishOp(en_Preview, op_ZoomOut, nil, nil, nil);
+  PublishOp(en_Preview, op_ZoomWidth, nil, nil, nil);
+  PublishOp(en_Preview, op_ZoomPage, nil, nil, nil);
+  PublishOp(en_Document, op_FullSelectedSwitch, nil, nil, nil);
+  PublishOp(en_Document, op_RGBGrayscaleSwitch, nil, nil, nil);
+  PublishOp(en_Document, op_PrintInfoSwitch, nil, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimPreviewForm.InitEntities
 
 procedure TPrimPreviewForm.MakeControls;
 begin

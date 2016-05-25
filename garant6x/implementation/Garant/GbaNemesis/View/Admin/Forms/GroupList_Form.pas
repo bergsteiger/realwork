@@ -1,87 +1,54 @@
 unit GroupList_Form;
+ {* Группы пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/GroupList_Form.pas"
-// Начат: 07.09.2009 18:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Администратор::Admin::View::Admin::Admin::GroupList
-//
-// Группы пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupList_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "GroupList" MUID: (4AA8E4CD0348)
+// Имя типа: "TefGroupList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  PrimGroupListOptions_Form,
-  Admin_FormDefinitions_Controls,
-  vtPanel,
-  eeTreeView,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimGroupListOptions_Form
+ , Admin_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
-  TefGroupList = {final form} class(TPrimGroupListOptionsForm, GroupListFormDef)
-   {* Группы пользователей }
-  Entities : TvcmEntities;
-  end;//TefGroupList
-
-  TGroupListForm = TefGroupList;
-{$IfEnd} //Admin
+ TefGroupList = {final} class(TPrimGroupListOptionsForm, GroupListFormDef)
+  {* Группы пользователей }
+   Entities : TvcmEntities;
+ end;//TefGroupList
+{$IfEnd} // Defined(Admin)
 
 implementation
 
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , GroupListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If defined(Admin)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  GroupListKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-
-{$IfEnd} //Admin
-
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация GroupList
- TtfwClassRef.Register(TefGroupList);
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin)}
-// Регистрация фабрики формы GroupList
  fm_efGroupList.SetFactory(TefGroupList.Make);
-{$IfEnd} //Admin
+ {* Регистрация фабрики формы GroupList }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TefGroupList);
+ {* Регистрация GroupList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

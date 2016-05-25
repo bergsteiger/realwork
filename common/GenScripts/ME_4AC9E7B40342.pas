@@ -19,6 +19,9 @@ uses
  {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtPanel
 ;
 
@@ -49,6 +52,17 @@ type
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
+  public
+   property hfReferences: TnscHideField
+    read f_hfReferences;
+    {* Бизнес-справки }
+   property tvReferences: TnscTreeViewHotTruck
+    read f_tvReferences;
+   property hfLawNews: TnscHideField
+    read f_hfLawNews;
+    {* Изменения в законодательстве }
+   property tvLawNews: TnscTreeViewHotTruck
+    read f_tvLawNews;
  end;//TPrimLegalMainMenuForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -65,6 +79,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmHistoryService
@@ -158,16 +175,18 @@ end;//TPrimLegalMainMenuForm.LoadTrees
 procedure TPrimLegalMainMenuForm.MakeControls;
 begin
  inherited;
- f_pnlMain.Parent := Self;
+ pnlMain.Parent := Self;
  f_hfReferences := TnscHideField.Create(Self);
  f_hfReferences.Name := 'hfReferences';
  f_hfReferences.Parent := pnlMain;
+ f_hfReferences.Caption := 'Бизнес-справки';
  f_tvReferences := TnscTreeViewHotTruck.Create(Self);
  f_tvReferences.Name := 'tvReferences';
  f_tvReferences.Parent := hfReferences;
  f_hfLawNews := TnscHideField.Create(Self);
  f_hfLawNews.Name := 'hfLawNews';
  f_hfLawNews.Parent := pnlMain;
+ f_hfLawNews.Caption := 'Изменения в законодательстве';
  f_tvLawNews := TnscTreeViewHotTruck.Create(Self);
  f_tvLawNews.Name := 'tvLawNews';
  f_tvLawNews.Parent := hfLawNews;

@@ -16,6 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
+ , vtRadioButton
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtSpinEdit
+ , vtCheckBox
+ , vtComboBoxQS
 ;
 
 type
@@ -53,6 +60,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrintDialog_ut_PrintDialog_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , PrintDialogKeywordsPack

@@ -13,6 +13,9 @@ uses
  l3IntfUses
  , PrimMain_Form
  , F1_Application_Template_InternalOperations_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtPanel
  {$If Defined(Nemesis)}
  , nscNavigator
@@ -22,6 +25,11 @@ uses
 type
  TPrimMainOptionsForm = class(TPrimMainForm)
   protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -44,6 +52,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 procedure TPrimMainOptionsForm.Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
@@ -66,13 +80,27 @@ begin
 end;//TPrimMainOptionsForm.Help_HelpTopics_Execute
 
 {$If NOT Defined(NoVCM)}
+procedure TPrimMainOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Help, nil);
+  PublishOp(en_Help, op_HelpTopics, Help_HelpTopics_Execute, Help_HelpTopics_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimMainOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainOptionsForm.MakeControls;
 begin
  inherited;
- f_ClientZone.Parent := Self;
- f_LeftNavigator.Parent := ClientZone;
+ ClientZone.Parent := Self;
+ LeftNavigator.Parent := ClientZone;
 {$If Defined(HasRightNavigator)}
- f_RightNavigator.Parent := ClientZone;
+ RightNavigator.Parent := ClientZone;
 {$IfEnd} // Defined(HasRightNavigator)
 
 end;//TPrimMainOptionsForm.MakeControls

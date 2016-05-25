@@ -28,6 +28,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Interfaces
  , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -101,6 +104,15 @@ type
     read f_LeftPanel;
    property ButtonPanel: TvtPanel
     read f_ButtonPanel;
+   property MessageLabel: TvtLabel
+    read f_MessageLabel;
+   property ProgressBar: TvtGradientWaitbar
+    read f_ProgressBar;
+   property Image: TImage
+    read f_Image;
+   property btnExit: TvtButton
+    read f_btnExit;
+    {* Выход }
  end;//TPrimLongProcessForm
 
 function TnsLongProcessData_C(const aMessage: Il3CString;
@@ -123,6 +135,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -462,6 +480,7 @@ begin
  f_btnExit := TvtButton.Create(Self);
  f_btnExit.Name := 'btnExit';
  f_btnExit.Parent := ButtonPanel;
+ f_btnExit.Caption := 'Выход';
 end;//TPrimLongProcessForm.MakeControls
 
 initialization

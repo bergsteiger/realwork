@@ -32,6 +32,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -82,13 +88,22 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
-   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
    procedure SelectedList_RefreshValues_Execute(const aData: InsSelectedAttributesIterators);
-   procedure SelectedList_RefreshValues(const aParams: IvcmExecuteParamsPrim);
+   procedure SelectedList_RefreshValues(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
@@ -125,6 +140,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimSelectedAttributes_utSelectedAttributes_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -407,7 +425,7 @@ begin
 //#UC END# *4AF3EBC001C4_497EC3B20359exec_impl*
 end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot_Execute
 
-procedure TPrimSelectedAttributesForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSelectedAttributesForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
   Self.AttributeTree_SetRoot_Execute(Tag);
@@ -457,7 +475,7 @@ begin
 //#UC END# *4AF40D070123_497EC3B20359exec_impl*
 end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues_Execute
 
-procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISelectedList_RefreshValues_Params) do
   Self.SelectedList_RefreshValues_Execute(Data);
@@ -550,6 +568,29 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.InitControls
+
+procedure TPrimSelectedAttributesForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimSelectedAttributesForm.SignalDataSourceChanged
+
+procedure TPrimSelectedAttributesForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_AttributeTree, nil);
+  PublishFormEntity(en_SelectedList, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
+  PublishOpWithResult(en_SelectedList, op_RefreshValues, SelectedList_RefreshValues, nil, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimSelectedAttributesForm.InitEntities
 
 procedure TPrimSelectedAttributesForm.MakeControls;
 begin

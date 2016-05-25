@@ -1,92 +1,54 @@
 unit CommonDiction_Form;
+ {* Совет дня }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Diction/Forms/CommonDiction_Form.pas"
-// Начат: 01.09.2009 13:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Встроенные продукты::Diction::View::Diction::Diction$FP::CommonDiction
-//
-// Совет дня
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\CommonDiction_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "CommonDiction" MUID: (4ABBB22002AA)
+// Имя типа: "Ten_CommonDiction"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Common_FormDefinitions_Controls,
-  PrimCommonDictionOptions_Form,
-  vtPanel,
-  nscTreeViewWithAdapterDragDrop
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimCommonDictionOptions_Form
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Ten_CommonDiction = {final form} class(TPrimCommonDictionOptionsForm, CommonDictionFormDef)
-   {* Совет дня }
-  Entities : TvcmEntities;
-  end;//Ten_CommonDiction
-
-  TCommonDictionForm = Ten_CommonDiction;
-{$IfEnd} //not Admin AND not Monitorings
+ Ten_CommonDiction = {final} class(TPrimCommonDictionOptionsForm, CommonDictionFormDef)
+  {* Совет дня }
+   Entities : TvcmEntities;
+ end;//Ten_CommonDiction
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CommonDictionKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  CommonDictionKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация CommonDiction
- TtfwClassRef.Register(Ten_CommonDiction);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы CommonDiction
  fm_en_CommonDiction.SetFactory(Ten_CommonDiction.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы CommonDiction }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_CommonDiction);
+ {* Регистрация CommonDiction }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

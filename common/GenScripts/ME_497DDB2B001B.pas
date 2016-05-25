@@ -526,6 +526,15 @@ type
     aStateType: TvcmStateType): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -570,7 +579,7 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Справка к документу }
@@ -602,20 +611,20 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    function SupportDisabled: Boolean;
    function Filterable_Add_Execute(const aFilter: IFilterFromQuery): Boolean;
-   procedure Filterable_Add(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_Add(const aParams: IvcmExecuteParams);
    function Filterable_Delete_Execute(const aFilter: IFilterFromQuery): Boolean;
-   procedure Filterable_Delete(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_Delete(const aParams: IvcmExecuteParams);
    function List_GetDeList_Execute: IdeList;
-   procedure List_GetDeList(const aParams: IvcmExecuteParamsPrim);
+   procedure List_GetDeList(const aParams: IvcmExecuteParams);
    procedure Filterable_ClearAll_Execute;
-   procedure Filterable_ClearAll(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_ClearAll(const aParams: IvcmExecuteParams);
    function Filterable_Refresh_Execute: Boolean;
-   procedure Filterable_Refresh(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_Refresh(const aParams: IvcmExecuteParams);
    procedure TimeMachine_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
    procedure TimeMachine_TimeMachineOffAndReset_Execute;
-   procedure TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParamsPrim);
+   procedure TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParams);
    procedure List_SetCurrentVisible_Execute;
-   procedure List_SetCurrentVisible(const aParams: IvcmExecuteParamsPrim);
+   procedure List_SetCurrentVisible(const aParams: IvcmExecuteParams);
    procedure TimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
     {* Включить Машину времени }
    procedure TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -673,11 +682,11 @@ type
    procedure Filters_FiltersListOpen_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Фильтры (вкладка) }
    procedure Filters_InternalClear_Execute;
-   procedure Filters_InternalClear(const aParams: IvcmExecuteParamsPrim);
+   procedure Filters_InternalClear(const aParams: IvcmExecuteParams);
    function Filterable_GetListType_Execute: TbsListType;
-   procedure Filterable_GetListType(const aParams: IvcmExecuteParamsPrim);
+   procedure Filterable_GetListType(const aParams: IvcmExecuteParams);
    function List_GetDsList_Execute: IdsList;
-   procedure List_GetDsList(const aParams: IvcmExecuteParamsPrim);
+   procedure List_GetDsList(const aParams: IvcmExecuteParams);
    procedure List_Analize_Test(const aParams: IvcmTestParamsPrim);
     {* Анализ списка }
    procedure List_Analize_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -710,6 +719,15 @@ type
   public
    property ListPanel: TvtPanel
     read f_ListPanel;
+   property tvList: TnscDocumentListTreeView
+    read f_tvList;
+   property cfList: TnscContextFilter
+    read f_cfList;
+   property ExSearchPanel: TvtPanel
+    read f_ExSearchPanel;
+   property ExSearchLabel: TvtStyledFocusLabel
+    read f_ExSearchLabel;
+    {* Продолжить поиск в онлайн-архивах ГАРАНТа }
  end;//TPrimListForm
 
 var g_OverrideList: Integer = 0;
@@ -2648,7 +2666,7 @@ begin
 //#UC END# *49895A2102E8_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Loadable_Load_Execute
 
-procedure TPrimListForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -2912,7 +2930,7 @@ begin
 //#UC END# *4AEF0BF70306_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filterable_Add_Execute
 
-procedure TPrimListForm.Filterable_Add(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Filterable_Add(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_Add_Params) do
   ResultValue := Self.Filterable_Add_Execute(Filter);
@@ -2927,7 +2945,7 @@ begin
 //#UC END# *4AEF0D1A01C3_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filterable_Delete_Execute
 
-procedure TPrimListForm.Filterable_Delete(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Filterable_Delete(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_Delete_Params) do
   ResultValue := Self.Filterable_Delete_Execute(Filter);
@@ -2948,7 +2966,7 @@ begin
 //#UC END# *4AEF28330397_497DDB2B001Bexec_impl*
 end;//TPrimListForm.List_GetDeList_Execute
 
-procedure TPrimListForm.List_GetDeList(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.List_GetDeList(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IList_GetDeList_Params) do
   ResultValue := Self.List_GetDeList_Execute;
@@ -2975,7 +2993,7 @@ begin
 //#UC END# *4AF80DB80383_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filterable_ClearAll_Execute
 
-procedure TPrimListForm.Filterable_ClearAll(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Filterable_ClearAll(const aParams: IvcmExecuteParams);
 begin
  Self.Filterable_ClearAll_Execute;
 end;//TPrimListForm.Filterable_ClearAll
@@ -2993,7 +3011,7 @@ begin
 //#UC END# *4AF810230307_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filterable_Refresh_Execute
 
-procedure TPrimListForm.Filterable_Refresh(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Filterable_Refresh(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_Refresh_Params) do
   ResultValue := Self.Filterable_Refresh_Execute;
@@ -3023,7 +3041,7 @@ begin
 //#UC END# *4AF83BEB0393_497DDB2B001Bexec_impl*
 end;//TPrimListForm.TimeMachine_TimeMachineOffAndReset_Execute
 
-procedure TPrimListForm.TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParams);
 begin
  Self.TimeMachine_TimeMachineOffAndReset_Execute;
 end;//TPrimListForm.TimeMachine_TimeMachineOffAndReset
@@ -3039,7 +3057,7 @@ begin
 //#UC END# *4AF84789038B_497DDB2B001Bexec_impl*
 end;//TPrimListForm.List_SetCurrentVisible_Execute
 
-procedure TPrimListForm.List_SetCurrentVisible(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.List_SetCurrentVisible(const aParams: IvcmExecuteParams);
 begin
  Self.List_SetCurrentVisible_Execute;
 end;//TPrimListForm.List_SetCurrentVisible
@@ -3721,7 +3739,7 @@ begin
 //#UC END# *4DBA95ED03B7_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filters_InternalClear_Execute
 
-procedure TPrimListForm.Filters_InternalClear(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Filters_InternalClear(const aParams: IvcmExecuteParams);
 begin
  Self.Filters_InternalClear_Execute;
 end;//TPrimListForm.Filters_InternalClear
@@ -3747,7 +3765,7 @@ begin
 //#UC END# *4F99403A00A5_497DDB2B001Bexec_impl*
 end;//TPrimListForm.Filterable_GetListType_Execute
 
-procedure TPrimListForm.Filterable_GetListType(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.Filterable_GetListType(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilterable_GetListType_Params) do
   ResultValue := Self.Filterable_GetListType_Execute;
@@ -3762,7 +3780,7 @@ begin
 //#UC END# *4FE83BFC039C_497DDB2B001Bexec_impl*
 end;//TPrimListForm.List_GetDsList_Execute
 
-procedure TPrimListForm.List_GetDsList(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimListForm.List_GetDsList(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IList_GetDsList_Params) do
   ResultValue := Self.List_GetDsList_Execute;
@@ -4572,6 +4590,86 @@ begin
 //#UC END# *561CB1350027_497DDB2B001B_impl*
 end;//TPrimListForm.NeedLoadFormStateForClone
 
+procedure TPrimListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimListForm.SignalDataSourceChanged
+
+procedure TPrimListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_Filterable, nil);
+  PublishFormEntity(en_List, nil);
+  PublishFormEntity(en_TimeMachine, nil);
+  PublishFormEntity(en_Selection, nil);
+  PublishFormEntity(en_LocalList, nil);
+  PublishFormEntity(en_Filters, nil);
+  PublishFormEntity(en_CRList, nil);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  PublishOp(en_Edit, op_FindContext, Edit_FindContext_Execute, Edit_FindContext_Test, nil);
+  PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
+  PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
+  PublishOp(en_Document, op_AddToControl, Document_AddToControl_Execute, Document_AddToControl_Test, Document_AddToControl_GetState);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOp(en_Document, op_GetRelatedDocFrmAct, Document_GetRelatedDocFrmAct_Execute, Document_GetRelatedDocFrmAct_Test, nil);
+  PublishOp(en_Edit, op_Undo, Edit_Undo_Execute, Edit_Undo_Test, nil);
+  PublishOp(en_Edit, op_Redo, Edit_Redo_Execute, Edit_Redo_Test, nil);
+  PublishOp(en_Edit, op_Deselect, Edit_Deselect_Execute, Edit_Deselect_Test, nil);
+  PublishOpWithResult(en_Filterable, op_Add, Filterable_Add, nil, nil);
+  PublishOpWithResult(en_Filterable, op_Delete, Filterable_Delete, nil, nil);
+  PublishOpWithResult(en_List, op_GetDeList, List_GetDeList, nil, nil);
+  PublishOpWithResult(en_Filterable, op_ClearAll, Filterable_ClearAll, nil, nil);
+  PublishOpWithResult(en_Filterable, op_Refresh, Filterable_Refresh, nil, nil);
+  PublishOpWithResult(en_TimeMachine, op_TimeMachineOffAndReset, TimeMachine_TimeMachineOffAndReset, TimeMachine_TimeMachineOffAndReset_Test, nil);
+  PublishOpWithResult(en_List, op_SetCurrentVisible, List_SetCurrentVisible, nil, nil);
+  PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
+  PublishOp(en_List, op_SwitchToFullList, List_SwitchToFullList_Execute, List_SwitchToFullList_Test, nil);
+  PublishOp(en_List, op_ListInfo, List_ListInfo_Execute, List_ListInfo_Test, nil);
+  PublishOp(en_List, op_Sort, List_Sort_Execute, List_Sort_Test, nil);
+  PublishOp(en_List, op_SortDirection, List_SortDirection_Execute, List_SortDirection_Test, List_SortDirection_GetState);
+  PublishOp(en_List, op_SpecifyList, List_SpecifyList_Execute, List_SpecifyList_Test, nil);
+  PublishOp(en_List, op_ExportToXML, List_ExportToXML_Execute, List_ExportToXML_Test, nil);
+  PublishOp(en_Filters, op_FiltersList, Filters_FiltersList_Execute, Filters_FiltersList_Test, nil);
+  PublishOp(en_LocalList, op_PublishSourceSearchInList, LocalList_PublishSourceSearchInList_Execute, LocalList_PublishSourceSearchInList_Test, nil);
+  PublishOp(en_LocalList, op_Open, LocalList_Open_Execute, LocalList_Open_Test, nil);
+  PublishOp(en_LocalList, op_SearchDrugInList, LocalList_SearchDrugInList_Execute, LocalList_SearchDrugInList_Test, nil);
+  PublishOp(en_Document, op_GetAnnotationDocFrmAct, Document_GetAnnotationDocFrmAct_Execute, Document_GetAnnotationDocFrmAct_Test, nil);
+  PublishOp(en_Document, op_SimilarDocuments, Document_SimilarDocuments_Execute, Document_SimilarDocuments_Test, nil);
+  PublishOp(en_CRList, op_SetType, CRList_SetType_Execute, CRList_SetType_Test, nil, true);
+  PublishOp(en_Document, op_GetGraphicImage, Document_GetGraphicImage_Execute, Document_GetGraphicImage_Test, nil);
+  PublishOp(en_LocalList, op_OpenNewWindow, LocalList_OpenNewWindow_Execute, nil, nil);
+  PublishOp(en_Selection, op_CopyToNewList, Selection_CopyToNewList_Execute, Selection_CopyToNewList_Test, nil);
+  PublishOp(en_Filters, op_Clear, Filters_Clear_Execute, nil, nil);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
+  PublishOp(en_Document, op_AddToControl, Document_AddToControl_Execute, Document_AddToControl_Test, Document_AddToControl_GetState);
+  PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
+  PublishOp(en_List, op_SortDirection, List_SortDirection_Execute, List_SortDirection_Test, List_SortDirection_GetState);
+  PublishOp(en_Selection, op_Analize, Selection_Analize_Execute, Selection_Analize_Test, nil);
+  PublishOp(en_LocalList, op_SearchInList, LocalList_SearchInList_Execute, LocalList_SearchInList_Test, nil);
+  PublishOp(en_Filters, op_FiltersListOpen, Filters_FiltersListOpen_Execute, Filters_FiltersListOpen_Test, nil);
+  PublishOp(en_List, op_Sort, List_Sort_Execute, List_Sort_Test, List_Sort_GetState);
+  PublishOpWithResult(en_Filters, op_InternalClear, Filters_InternalClear, nil, nil);
+  PublishOpWithResult(en_Filterable, op_GetListType, Filterable_GetListType, nil, nil);
+  PublishOpWithResult(en_List, op_GetDsList, List_GetDsList, nil, nil);
+  PublishOp(en_List, op_Analize, List_Analize_Execute, List_Analize_Test, nil);
+  PublishOp(en_List, op_AnalizeList, List_AnalizeList_Execute, List_AnalizeList_Test, nil);
+  PublishOp(en_List, op_SortForReminders, List_SortForReminders_Execute, List_SortForReminders_Test, nil);
+  PublishOp(en_List, op_SortDirectionForReminders, List_SortDirectionForReminders_Execute, List_SortDirectionForReminders_Test, List_SortDirectionForReminders_GetState);
+  PublishOp(en_List, op_SpecifyListForReminders, List_SpecifyListForReminders_Execute, List_SpecifyListForReminders_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimListForm.InitEntities
+
 procedure TPrimListForm.MakeControls;
 begin
  inherited;
@@ -4590,6 +4688,7 @@ begin
  f_ExSearchLabel := TvtStyledFocusLabel.Create(Self);
  f_ExSearchLabel.Name := 'ExSearchLabel';
  f_ExSearchLabel.Parent := ExSearchPanel;
+ f_ExSearchLabel.Caption := 'Продолжить поиск в онлайн-архивах ГАРАНТа';
 end;//TPrimListForm.MakeControls
 
 initialization

@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_fcSynchroView.SetFactory(TfcSynchroView.Make);
+ {* Регистрация фабрики формы SynchroView }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TfcSynchroView);
  {* Регистрация SynchroView }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_fcSynchroView.SetFactory(TfcSynchroView.Make);
- {* Регистрация фабрики формы SynchroView }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

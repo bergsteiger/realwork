@@ -17,6 +17,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Search_Strange_Controls
  , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -31,10 +34,15 @@ type
    function UpdatePrintersList: Boolean; virtual; abstract;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: IafwDocumentPreview): BadFactoryType; reintroduce;
    procedure PrintParams_UpdatePrinter_Execute;
-   procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParamsPrim);
+   procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
  end;//TPrimPrintDialogForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -46,6 +54,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -70,7 +81,7 @@ begin
 //#UC END# *4AF82660008B_4AAF8E8701C9exec_impl*
 end;//TPrimPrintDialogForm.PrintParams_UpdatePrinter_Execute
 
-procedure TPrimPrintDialogForm.PrintParams_UpdatePrinter(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimPrintDialogForm.PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
 begin
  Self.PrintParams_UpdatePrinter_Execute;
 end;//TPrimPrintDialogForm.PrintParams_UpdatePrinter
@@ -85,6 +96,18 @@ begin
  inherited;
 //#UC END# *479731C50290_4AAF8E8701C9_impl*
 end;//TPrimPrintDialogForm.Cleanup
+
+procedure TPrimPrintDialogForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_PrintParams, nil);
+  PublishOpWithResult(en_PrintParams, op_UpdatePrinter, PrintParams_UpdatePrinter, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimPrintDialogForm.InitEntities
 
 initialization
 {$If NOT Defined(NoScripts)}

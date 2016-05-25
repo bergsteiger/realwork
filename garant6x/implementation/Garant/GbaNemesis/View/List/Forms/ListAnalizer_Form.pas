@@ -1,94 +1,65 @@
 unit ListAnalizer_Form;
+ {* Анализ списка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/Forms/ListAnalizer_Form.pas"
-// Начат: 31.08.2009 20:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::List$FP::ListAnalizer
-//
-// Анализ списка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizer_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "ListAnalizer" MUID: (4AA0CE0E02C4)
+// Имя типа: "TListAnalizerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimListAnalizer_Form,
-  vtPanel,
-  eeTreeView,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimListAnalizer_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { ListAnalizerIDs }
-   fm_ListAnalizerForm : TvcmFormDescriptor = (rFormID : (rName : 'ListAnalizerForm'; rID : 0); rFactory : nil);
-    { Идентификатор формы TListAnalizerForm }
+ fm_ListAnalizerForm: TvcmFormDescriptor = (rFormID : (rName : 'ListAnalizerForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TListAnalizerForm }
 
 type
- ListAnalizerFormDef = interface(IUnknown)
+ TListAnalizerForm = class;
+
+ ListAnalizerFormDef = interface
   {* Идентификатор формы ListAnalizer }
-   ['{534B1ADF-ACC6-4DD9-AF54-C92914E3CBA4}']
+  ['{534B1ADF-ACC6-4DD9-AF54-C92914E3CBA4}']
  end;//ListAnalizerFormDef
 
-  TListAnalizerForm = {final form} class(TPrimListAnalizerForm, ListAnalizerFormDef)
-   {* Анализ списка }
-  Entities : TvcmEntities;
-  end;//TListAnalizerForm
-{$IfEnd} //not Admin AND not Monitorings
+ TListAnalizerForm = {final} class(TPrimListAnalizerForm, ListAnalizerFormDef)
+  {* Анализ списка }
+   Entities : TvcmEntities;
+ end;//TListAnalizerForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ListAnalizerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ListAnalizerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ListAnalizer
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TListAnalizerForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация ListAnalizer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

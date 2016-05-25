@@ -29,6 +29,12 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -124,11 +130,68 @@ type
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property pnMainData: TvtPanel
     read f_pnMainData;
+   property f_TopPanel: TvtPanel
+    read f_f_TopPanel;
+   property UserNameLabel: TvtLabel
+    read f_UserNameLabel;
+    {* *ФИО пользователя: }
+   property PasswordLabel: TvtLabel
+    read f_PasswordLabel;
+    {* Пароль: }
+   property LoginLabel: TvtLabel
+    read f_LoginLabel;
+    {* *Регистрационное имя: }
+   property EMailLabel: TvtLabel
+    read f_EMailLabel;
+    {* Электронная почта: }
+   property ConfirmPasswordLabel: TvtLabel
+    read f_ConfirmPasswordLabel;
+    {* Подтверждение пароля: }
+   property GroupLabel: TvtLabel
+    read f_GroupLabel;
+    {* Группа: }
+   property edPassword: TnscComboBoxWithPwdChar
+    read f_edPassword;
+   property edUserName: TnscEdit
+    read f_edUserName;
+   property edLogin: TnscEdit
+    read f_edLogin;
+   property edEmail: TnscEdit
+    read f_edEmail;
+   property edConfirm: TnscComboBoxWithPwdChar
+    read f_edConfirm;
+   property edGroup: TvtComboBoxQS
+    read f_edGroup;
+   property f_MiddlePanel: TvtPanel
+    read f_f_MiddlePanel;
+   property edPrivilegedUser: TvtCheckBox
+    read f_edPrivilegedUser;
+    {* Привилегированный пользователь }
+   property edBuyConsulting: TvtCheckBox
+    read f_edBuyConsulting;
+    {* Разрешено использование услуги Правового консалтинга }
+   property f_DontDeleteIdleUserPanel: TvtPanel
+    read f_f_DontDeleteIdleUserPanel;
+   property edDontDeleteIdleUser: TvtCheckBox
+    read f_edDontDeleteIdleUser;
+    {* Не удалять при бездействии }
+   property f_BottomPanel: TvtPanel
+    read f_f_BottomPanel;
+   property InfoLabel: TvtLabel
+    read f_InfoLabel;
+    {* * - поля, обязательные для заполнения }
+   property edHasSharedFilters: TvtCheckBox
+    read f_edHasSharedFilters;
+    {* Фильтры этого пользователя являются общими }
  end;//TPrimUserPropertyForm
 {$IfEnd} // Defined(Admin)
 
@@ -160,6 +223,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimUserProperty_admUseProperties_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -844,6 +910,12 @@ begin
 //#UC END# *529332B40230_497F02D20216_impl*
 end;//TPrimUserPropertyForm.SetupFormLayout
 
+procedure TPrimUserPropertyForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimUserPropertyForm.SignalDataSourceChanged
+
 procedure TPrimUserPropertyForm.MakeControls;
 begin
  inherited;
@@ -869,21 +941,27 @@ begin
  f_UserNameLabel := TvtLabel.Create(Self);
  f_UserNameLabel.Name := 'UserNameLabel';
  f_UserNameLabel.Parent := f_TopPanel;
+ f_UserNameLabel.Caption := '*ФИО пользователя:';
  f_PasswordLabel := TvtLabel.Create(Self);
  f_PasswordLabel.Name := 'PasswordLabel';
  f_PasswordLabel.Parent := f_TopPanel;
+ f_PasswordLabel.Caption := 'Пароль:';
  f_LoginLabel := TvtLabel.Create(Self);
  f_LoginLabel.Name := 'LoginLabel';
  f_LoginLabel.Parent := f_TopPanel;
+ f_LoginLabel.Caption := '*Регистрационное имя:';
  f_EMailLabel := TvtLabel.Create(Self);
  f_EMailLabel.Name := 'EMailLabel';
  f_EMailLabel.Parent := f_TopPanel;
+ f_EMailLabel.Caption := 'Электронная почта:';
  f_ConfirmPasswordLabel := TvtLabel.Create(Self);
  f_ConfirmPasswordLabel.Name := 'ConfirmPasswordLabel';
  f_ConfirmPasswordLabel.Parent := f_TopPanel;
+ f_ConfirmPasswordLabel.Caption := 'Подтверждение пароля:';
  f_GroupLabel := TvtLabel.Create(Self);
  f_GroupLabel.Name := 'GroupLabel';
  f_GroupLabel.Parent := f_TopPanel;
+ f_GroupLabel.Caption := 'Группа:';
  f_edPassword := TnscComboBoxWithPwdChar.Create(Self);
  f_edPassword.Name := 'edPassword';
  f_edPassword.Parent := f_TopPanel;
@@ -908,24 +986,29 @@ begin
  f_edPrivilegedUser := TvtCheckBox.Create(Self);
  f_edPrivilegedUser.Name := 'edPrivilegedUser';
  f_edPrivilegedUser.Parent := f_MiddlePanel;
+ f_edPrivilegedUser.Caption := 'Привилегированный пользователь';
  f_edBuyConsulting := TvtCheckBox.Create(Self);
  f_edBuyConsulting.Name := 'edBuyConsulting';
  f_edBuyConsulting.Parent := f_MiddlePanel;
+ f_edBuyConsulting.Caption := 'Разрешено использование услуги Правового консалтинга';
  f_f_DontDeleteIdleUserPanel := TvtPanel.Create(Self);
  f_f_DontDeleteIdleUserPanel.Name := 'f_DontDeleteIdleUserPanel';
  f_f_DontDeleteIdleUserPanel.Parent := pnMainData;
  f_edDontDeleteIdleUser := TvtCheckBox.Create(Self);
  f_edDontDeleteIdleUser.Name := 'edDontDeleteIdleUser';
  f_edDontDeleteIdleUser.Parent := f_DontDeleteIdleUserPanel;
+ f_edDontDeleteIdleUser.Caption := 'Не удалять при бездействии';
  f_f_BottomPanel := TvtPanel.Create(Self);
  f_f_BottomPanel.Name := 'f_BottomPanel';
  f_f_BottomPanel.Parent := pnMainData;
  f_InfoLabel := TvtLabel.Create(Self);
  f_InfoLabel.Name := 'InfoLabel';
  f_InfoLabel.Parent := f_BottomPanel;
+ f_InfoLabel.Caption := '* - поля, обязательные для заполнения';
  f_edHasSharedFilters := TvtCheckBox.Create(Self);
  f_edHasSharedFilters.Name := 'edHasSharedFilters';
  f_edHasSharedFilters.Parent := f_BottomPanel;
+ f_edHasSharedFilters.Caption := 'Фильтры этого пользователя являются общими';
 end;//TPrimUserPropertyForm.MakeControls
 
 initialization

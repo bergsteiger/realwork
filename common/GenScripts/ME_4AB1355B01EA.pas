@@ -44,12 +44,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_WarningForm.SetFactory(TWarningForm.Make);
+ {* Регистрация фабрики формы Warning }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TWarningForm);
  {* Регистрация Warning }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_WarningForm.SetFactory(TWarningForm.Make);
- {* Регистрация фабрики формы Warning }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

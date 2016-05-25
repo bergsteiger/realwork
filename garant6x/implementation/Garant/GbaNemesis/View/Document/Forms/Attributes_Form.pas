@@ -1,95 +1,70 @@
 unit Attributes_Form;
+ {* Информация о документе }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/Attributes_Form.pas"
-// Начат: 05.02.2009 19:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Работа с документом и списком документов::Document::View::Document::Document::Attributes
-//
-// Информация о документе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Attributes_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "Attributes" MUID: (4AB1357D0253)
+// Имя типа: "TAttributesForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Common_FormDefinitions_Controls,
-  PrimAttributesOptions_Form,
-  l3TreeInterfaces,
-  nscTreeViewWithAdapterDragDrop,
-  PrimAttributes_Form,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimAttributesOptions_Form
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nscTreeViewWithAdapterDragDrop
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  TAttributesForm = {final form} class(TPrimAttributesOptionsForm, AttributesFormDef)
-   {* Информация о документе }
-  Entities : TvcmEntities;
+ TAttributesForm = {final} class(TPrimAttributesOptionsForm, AttributesFormDef)
+  {* Информация о документе }
+   Entities : TvcmEntities;
   protected
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
-  end;//TAttributesForm
-{$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//TAttributesForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AttributesKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AttributesKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TAttributesForm
-
+{$If NOT Defined(NoVCM)}
 procedure TAttributesForm.MakeControls;
 begin
  inherited;
  tvAttributes.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TAttributesForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Attributes
- TtfwClassRef.Register(TAttributesForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы Attributes
  fm_AttributesForm.SetFactory(TAttributesForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы Attributes }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TAttributesForm);
+ {* Регистрация Attributes }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

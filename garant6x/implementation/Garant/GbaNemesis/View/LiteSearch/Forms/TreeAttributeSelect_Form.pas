@@ -1,84 +1,50 @@
 unit TreeAttributeSelect_Form;
+ {* Выбор значений древовидного атрибута }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/TreeAttributeSelect_Form.pas"
-// Начат: 15.09.2009 11:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::LiteSearch::TreeAttributeSelect
-//
-// Выбор значений древовидного атрибута
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttributeSelect_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "TreeAttributeSelect" MUID: (4AAF487F03BC)
+// Имя типа: "TefTreeAttributeSelect"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  PrimTreeAttributeSelectOptions_Form,
-  SearchLite_FormDefinitions_Controls,
-  vtPanel
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ , PrimTreeAttributeSelectOptions_Form
+ , SearchLite_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
-  TefTreeAttributeSelect = {final form} class(TPrimTreeAttributeSelectOptionsForm, TreeAttributeSelectFormDef)
-   {* Выбор значений древовидного атрибута }
-  Entities : TvcmEntities;
-  end;//TefTreeAttributeSelect
-
-  TTreeAttributeSelectForm = TefTreeAttributeSelect;
+ TefTreeAttributeSelect = {final} class(TPrimTreeAttributeSelectOptionsForm, TreeAttributeSelectFormDef)
+  {* Выбор значений древовидного атрибута }
+   Entities : TvcmEntities;
+ end;//TefTreeAttributeSelect
 
 implementation
 
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TreeAttributeSelectKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  TreeAttributeSelectKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TreeAttributeSelect
- TtfwClassRef.Register(TefTreeAttributeSelect);
-{$IfEnd} //not NoScripts
-// Регистрация фабрики формы TreeAttributeSelect
  fm_efTreeAttributeSelect.SetFactory(TefTreeAttributeSelect.Make);
+ {* Регистрация фабрики формы TreeAttributeSelect }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TefTreeAttributeSelect);
+ {* Регистрация TreeAttributeSelect }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

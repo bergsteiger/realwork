@@ -53,11 +53,11 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ShutDownForm.SetFactory(TShutDownForm.Make);
+ {* Регистрация фабрики формы ShutDown }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TShutDownForm);
  {* Регистрация ShutDown }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ShutDownForm.SetFactory(TShutDownForm.Make);
- {* Регистрация фабрики формы ShutDown }
 
 end.

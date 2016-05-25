@@ -39,11 +39,11 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_cfAttributeSelect.SetFactory(TcfAttributeSelect.Make);
+ {* Регистрация фабрики формы AttributeSelect }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TcfAttributeSelect);
  {* Регистрация AttributeSelect }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_cfAttributeSelect.SetFactory(TcfAttributeSelect.Make);
- {* Регистрация фабрики формы AttributeSelect }
 
 end.

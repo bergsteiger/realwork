@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_WarningBaloonForm.SetFactory(TWarningBaloonForm.Make);
+ {* Регистрация фабрики формы WarningBaloon }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TWarningBaloonForm);
  {* Регистрация WarningBaloon }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_WarningBaloonForm.SetFactory(TWarningBaloonForm.Make);
- {* Регистрация фабрики формы WarningBaloon }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -22,11 +22,15 @@ uses
  , vtPanel
  , nsTypes
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // ChildZone
-
  TPrimMedicListSynchroViewForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -53,11 +57,20 @@ type
    procedure PageInactive; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
-   procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
    procedure MedicListSynchroView_OpenDocument_Test(const aParams: IvcmTestParamsPrim);
    procedure MedicListSynchroView_OpenDocument_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure MedicListSynchroView_OpenDocument_GetState(var State: TvcmOperationStateIndex);
@@ -94,6 +107,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimMedicListSynchroView_mlsfDrugList_UserType
  , PrimMedicListSynchroView_mlsfMedicFirm_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -141,7 +157,7 @@ begin
 //#UC END# *4AE9E3CC03C7_497EE1F10134exec_impl*
 end;//TPrimMedicListSynchroViewForm.SynchroView_BecomeActive_Execute
 
-procedure TPrimMedicListSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimMedicListSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISynchroView_BecomeActive_Params) do
   Self.SynchroView_BecomeActive_Execute(FormType);
@@ -288,6 +304,30 @@ begin
 //#UC START# *4C52E81603A9_497EE1F10134_impl*
 //#UC END# *4C52E81603A9_497EE1F10134_impl*
 end;//TPrimMedicListSynchroViewForm.PageInactive
+
+procedure TPrimMedicListSynchroViewForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimMedicListSynchroViewForm.SignalDataSourceChanged
+
+procedure TPrimMedicListSynchroViewForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_SynchroView, nil);
+  PublishFormEntity(en_MedicListSynchroView, nil);
+  PublishOpWithResult(en_SynchroView, op_BecomeActive, SynchroView_BecomeActive, nil, nil);
+  PublishOp(en_MedicListSynchroView, op_OpenDocument, MedicListSynchroView_OpenDocument_Execute, MedicListSynchroView_OpenDocument_Test, MedicListSynchroView_OpenDocument_GetState);
+  PublishOp(en_MedicListSynchroView, op_OpenAttributesForm, MedicListSynchroView_OpenAttributesForm_Execute, MedicListSynchroView_OpenAttributesForm_Test, nil);
+  PublishOp(en_MedicListSynchroView, op_OpenList, MedicListSynchroView_OpenList_Execute, MedicListSynchroView_OpenList_Test, MedicListSynchroView_OpenList_GetState);
+  PublishOp(en_MedicListSynchroView, op_OpenDocument, MedicListSynchroView_OpenDocument_Execute, MedicListSynchroView_OpenDocument_Test, MedicListSynchroView_OpenDocument_GetState);
+  PublishOp(en_MedicListSynchroView, op_OpenList, MedicListSynchroView_OpenList_Execute, MedicListSynchroView_OpenList_Test, MedicListSynchroView_OpenList_GetState);
+ end;//with Entities.Entities
+end;//TPrimMedicListSynchroViewForm.InitEntities
 
 procedure TPrimMedicListSynchroViewForm.MakeControls;
 begin

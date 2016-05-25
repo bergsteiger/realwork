@@ -54,8 +54,6 @@ uses
 ;
 
 type
- // BaseSearchZone
-
  _vcmChromeLikeTabCaptionProvider_Parent_ = TPrimLegalMainMenuForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _vcmChromeLikeTabCaptionProvider_;
@@ -174,11 +172,62 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    property ieIO: TImageEnIO
     read f_ieIO;
+   property pnlBaseSearch: TvtPanel
+    read f_pnlBaseSearch;
+   property pnlBaseSearchZone: TvtPanel
+    read f_pnlBaseSearchZone;
+   property pnlLogo: TvtPanel
+    read f_pnlLogo;
+   property pbLogo: TPaintBox
+    read f_pbLogo;
+   property pnlSearches: TvtPanel
+    read f_pnlSearches;
+   property flAttributeSearch: TnscFocusLabel
+    read f_flAttributeSearch;
+    {* • По реквизитам }
+   property flSituationSearch: TnscFocusLabel
+    read f_flSituationSearch;
+    {* • По ситуации }
+   property flPublishedSourceSearch: TnscFocusLabel
+    read f_flPublishedSourceSearch;
+    {* • По источнику опубликования }
+   property flDictionSearch: TnscFocusLabel
+    read f_flDictionSearch;
+    {* • По Толковому словарю }
+   property pnlExpert: TvtPanel
+    read f_pnlExpert;
+   property pbExpert: TPaintBox
+    read f_pbExpert;
+   property pnlOnLine: TvtPanel
+    read f_pnlOnLine;
+   property pbOnLine: TPaintBox
+    read f_pbOnLine;
+   property pbIntranet: TPaintBox
+    read f_pbIntranet;
+   property pbCourtsOnline: TPaintBox
+    read f_pbCourtsOnline;
+    {* Онлайн-архив }
+   property hfTaxes: TnscHideField
+    read f_hfTaxes;
+    {* Налоги, финансы }
+   property tvTaxes: TnscTreeViewHotTruck
+    read f_tvTaxes;
+   property pnlBanner: TvtPanel
+    read f_pnlBanner;
+   property ieBanner: TImageEnView
+    read f_ieBanner;
+   property hfLastOpenDocsRightEdge: TvtPanel
+    read f_hfLastOpenDocsRightEdge;
  end;//TPrimMainMenuNewForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -1293,6 +1342,15 @@ end;//TPrimMainMenuNewForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 {$If NOT Defined(NoVCM)}
+procedure TPrimMainMenuNewForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TPrimMainMenuNewForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.MakeControls;
 begin
  inherited;
@@ -1309,7 +1367,7 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utMainMenuNewName
- f_pnlMain.Parent := Self;
+ pnlMain.Parent := Self;
  f_pnlBaseSearch := TvtPanel.Create(Self);
  f_pnlBaseSearch.Name := 'pnlBaseSearch';
  f_pnlBaseSearch.Parent := pnlMain;
@@ -1331,15 +1389,19 @@ begin
  f_flAttributeSearch := TnscFocusLabel.Create(Self);
  f_flAttributeSearch.Name := 'flAttributeSearch';
  f_flAttributeSearch.Parent := pnlSearches;
+ f_flAttributeSearch.Caption := '• По реквизитам';
  f_flSituationSearch := TnscFocusLabel.Create(Self);
  f_flSituationSearch.Name := 'flSituationSearch';
  f_flSituationSearch.Parent := pnlSearches;
+ f_flSituationSearch.Caption := '• По ситуации';
  f_flPublishedSourceSearch := TnscFocusLabel.Create(Self);
  f_flPublishedSourceSearch.Name := 'flPublishedSourceSearch';
  f_flPublishedSourceSearch.Parent := pnlSearches;
+ f_flPublishedSourceSearch.Caption := '• По источнику опубликования';
  f_flDictionSearch := TnscFocusLabel.Create(Self);
  f_flDictionSearch.Name := 'flDictionSearch';
  f_flDictionSearch.Parent := pnlSearches;
+ f_flDictionSearch.Caption := '• По Толковому словарю';
  f_pnlExpert := TvtPanel.Create(Self);
  f_pnlExpert.Name := 'pnlExpert';
  f_pnlExpert.Parent := pnlMain;
@@ -1358,10 +1420,10 @@ begin
  f_pbCourtsOnline := TPaintBox.Create(Self);
  f_pbCourtsOnline.Name := 'pbCourtsOnline';
  f_pbCourtsOnline.Parent := pnlOnLine;
- f_pbCourtsOnline.Caption := 'Онлайн-архив';
  f_hfTaxes := TnscHideField.Create(Self);
  f_hfTaxes.Name := 'hfTaxes';
  f_hfTaxes.Parent := pnlMain;
+ f_hfTaxes.Caption := 'Налоги, финансы';
  f_tvTaxes := TnscTreeViewHotTruck.Create(Self);
  f_tvTaxes.Name := 'tvTaxes';
  f_tvTaxes.Parent := hfTaxes;
@@ -1371,8 +1433,7 @@ begin
  f_ieBanner := TImageEnView.Create(Self);
  f_ieBanner.Name := 'ieBanner';
  f_ieBanner.Parent := pnlBanner;
- f_hfLastOpenDocs.Parent := pnlMain;
- f_hfLastOpenDocs.Caption := 'Последние открытые документы';
+ hfLastOpenDocs.Parent := pnlMain;
  f_hfLastOpenDocsRightEdge := TvtPanel.Create(Self);
  f_hfLastOpenDocsRightEdge.Name := 'hfLastOpenDocsRightEdge';
  f_hfLastOpenDocsRightEdge.Parent := hfLastOpenDocs;

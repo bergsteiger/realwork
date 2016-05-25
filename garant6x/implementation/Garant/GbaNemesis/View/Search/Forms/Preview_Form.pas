@@ -1,91 +1,55 @@
 unit Preview_Form;
+ {* Предварительный просмотр }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/Preview_Form.pas"
-// Начат: 15.09.2009 14:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::CommonSearch::PreviewForm
-//
-// Предварительный просмотр
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\Preview_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "PreviewForm" MUID: (4AAF6F8100DB)
+// Имя типа: "TefPreviewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  PrimPreview_Form,
-  Search_FormDefinitions_Controls
-  {$If defined(Nemesis)}
-  ,
-  nscPreviewPanel
-  {$IfEnd} //Nemesis
-  ,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimPreview_Form
+ , Search_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
-  TefPreviewForm = {final form} class(TPrimPreviewForm, PreviewFormDef)
-   {* Предварительный просмотр }
-  Entities : TvcmEntities;
-  end;//TefPreviewForm
-
-  TPreviewForm = TefPreviewForm;
-{$IfEnd} //not Admin
+ TefPreviewForm = {final} class(TPrimPreviewForm, PreviewFormDef)
+  {* Предварительный просмотр }
+   Entities : TvcmEntities;
+ end;//TefPreviewForm
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PreviewFormKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PreviewFormKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-
-{$IfEnd} //not Admin
-
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PreviewForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefPreviewForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PreviewForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , EULA_ut_EULA_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , EULAKeywordsPack
@@ -88,14 +88,14 @@ end;//TefEULA.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_EULACaption.Init;
+ {* Инициализация str_ut_EULACaption }
+ fm_efEULA.SetFactory(TefEULA.Make);
+ {* Регистрация фабрики формы EULA }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefEULA);
  {* Регистрация EULA }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efEULA.SetFactory(TefEULA.Make);
- {* Регистрация фабрики формы EULA }
- str_ut_EULACaption.Init;
- {* Инициализация str_ut_EULACaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -18,6 +18,9 @@ uses
  , vtLabel
  , vtButton
  , eeMemoWithEditOperations
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -74,6 +77,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -165,9 +174,11 @@ begin
  f_ShellCaptionLabel := TvtLabel.Create(Self);
  f_ShellCaptionLabel.Name := 'ShellCaptionLabel';
  f_ShellCaptionLabel.Parent := Self;
+ f_ShellCaptionLabel.Caption := 'Прочтите внимательно';
  f_OkButton := TvtButton.Create(Self);
  f_OkButton.Name := 'OkButton';
  f_OkButton.Parent := Self;
+ f_OkButton.Caption := 'Ок';
  f_eeMemoWithEditOperations1 := TeeMemoWithEditOperations.Create(Self);
  f_eeMemoWithEditOperations1.Name := 'eeMemoWithEditOperations1';
  f_eeMemoWithEditOperations1.Parent := Self;

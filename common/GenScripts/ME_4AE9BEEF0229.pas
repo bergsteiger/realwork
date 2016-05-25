@@ -21,11 +21,12 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Child
-
  TPrimFoldersInfoForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -39,13 +40,18 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
-   procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_Close(const aParams: IvcmExecuteParams);
    procedure FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
-   procedure FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetState(const aParams: IvcmExecuteParams);
   public
    property ChildZone: TvtPanel
     read f_ChildZone;
@@ -66,7 +72,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimFoldersInfo_utFoldersInfoContainer_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -84,7 +96,7 @@ begin
 //#UC END# *4AE9BF890271_4AE9BEEF0229exec_impl*
 end;//TPrimFoldersInfoForm.AdditionInfo_Close_Execute
 
-procedure TPrimFoldersInfoForm.AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersInfoForm.AdditionInfo_Close(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAdditionInfo_Close_Params) do
   Self.AdditionInfo_Close_Execute(ModalResult);
@@ -99,7 +111,7 @@ begin
 //#UC END# *4AE9C01201BA_4AE9BEEF0229exec_impl*
 end;//TPrimFoldersInfoForm.FolderElement_SetState_Execute
 
-procedure TPrimFoldersInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_SetState_Params) do
   Self.FolderElement_SetState_Execute(InfoType);
@@ -119,6 +131,20 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE9BEEF0229_impl*
 end;//TPrimFoldersInfoForm.InitControls
+
+procedure TPrimFoldersInfoForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_AdditionInfo, nil);
+  PublishFormEntity(en_FolderElement, nil);
+  PublishOpWithResult(en_AdditionInfo, op_Close, AdditionInfo_Close, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_SetState, FolderElement_SetState, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimFoldersInfoForm.InitEntities
 
 procedure TPrimFoldersInfoForm.MakeControls;
 begin

@@ -38,6 +38,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -121,6 +124,15 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -186,6 +198,10 @@ type
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property trUserList: TeeTreeView
+    read f_trUserList;
  end;//TPrimUserListForm
 {$IfEnd} // Defined(Admin)
 
@@ -1199,6 +1215,37 @@ begin
  f_FilterMap := nil;
  inherited;
 end;//TPrimUserListForm.ClearFields
+
+procedure TPrimUserListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimUserListForm.SignalDataSourceChanged
+
+procedure TPrimUserListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Users, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_Users, op_Add, Users_Add_Execute, Users_Add_Test, nil);
+  PublishOp(en_Users, op_LogoutUser, Users_LogoutUser_Execute, Users_LogoutUser_Test, Users_LogoutUser_GetState);
+  PublishOp(en_Users, op_ConsultingStateForNewbie, Users_ConsultingStateForNewbie_Execute, nil, Users_ConsultingStateForNewbie_GetState);
+  PublishOp(en_Users, op_Autoregistration, Users_Autoregistration_Execute, nil, Users_Autoregistration_GetState);
+  PublishOp(en_Users, op_AddPrivelegedRight, Users_AddPrivelegedRight_Execute, Users_AddPrivelegedRight_Test, Users_AddPrivelegedRight_GetState);
+  PublishOp(en_Users, op_RemovePrivelegedRight, Users_RemovePrivelegedRight_Execute, Users_RemovePrivelegedRight_Test, Users_RemovePrivelegedRight_GetState);
+  PublishOp(en_Users, op_UserFilter, Users_UserFilter_Execute, Users_UserFilter_Test, nil);
+  PublishOp(en_Users, op_DisableConsulting, Users_DisableConsulting_Execute, Users_DisableConsulting_Test, nil);
+  PublishOp(en_Users, op_EnableConsulting, Users_EnableConsulting_Execute, Users_EnableConsulting_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_Users, op_MakeFiltersShared, Users_MakeFiltersShared_Execute, Users_MakeFiltersShared_Test, nil);
+  PublishOp(en_Users, op_DenyDeleteIdle, Users_DenyDeleteIdle_Execute, Users_DenyDeleteIdle_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimUserListForm.InitEntities
 
 procedure TPrimUserListForm.MakeControls;
 begin

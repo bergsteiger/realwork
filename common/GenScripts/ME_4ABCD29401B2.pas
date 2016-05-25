@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enFoldersTree.SetFactory(TenFoldersTree.Make);
+ {* Регистрация фабрики формы FoldersTree }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenFoldersTree);
  {* Регистрация FoldersTree }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enFoldersTree.SetFactory(TenFoldersTree.Make);
- {* Регистрация фабрики формы FoldersTree }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

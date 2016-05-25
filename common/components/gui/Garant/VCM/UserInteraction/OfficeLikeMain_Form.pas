@@ -25,6 +25,9 @@ type
    procedure DoForward(const aParams: IvcmExecuteParamsPrim); virtual;
    function NeedTerminateOnExit: Boolean; virtual;
    function AskMayExit: Boolean; virtual;
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
   public
    procedure Common_Exit_Test(const aParams: IvcmTestParamsPrim);
    procedure Common_Exit_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -51,6 +54,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , StdRes
 ;
 
 procedure TOfficeLikeMainForm.DoBack(const aParams: IvcmExecuteParamsPrim);
@@ -179,6 +183,21 @@ begin
  inherited;
 //#UC END# *47D1602000C6_4ADDD3030251_impl*
 end;//TOfficeLikeMainForm.Create
+
+procedure TOfficeLikeMainForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Common, nil);
+  PublishFormEntity(en_History, nil);
+  PublishOp(en_Common, op_Exit, Common_Exit_Execute, Common_Exit_Test, nil);
+  PublishOp(en_History, op_Back, History_Back_Execute, History_Back_Test, nil);
+  PublishOp(en_History, op_Forward, History_Forward_Execute, History_Forward_Test, nil);
+ end;//with Entities.Entities
+end;//TOfficeLikeMainForm.InitEntities
 
 initialization
 {$If NOT Defined(NoScripts)}

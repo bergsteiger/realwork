@@ -37,10 +37,13 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , CompInfo_ut_CompInfo_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , CompInfoKeywordsPack
@@ -78,14 +81,14 @@ end;//TenCompInfo.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_CompInfoCaption.Init;
+ {* Инициализация str_ut_CompInfoCaption }
+ fm_enCompInfo.SetFactory(TenCompInfo.Make);
+ {* Регистрация фабрики формы CompInfo }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenCompInfo);
  {* Регистрация CompInfo }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enCompInfo.SetFactory(TenCompInfo.Make);
- {* Регистрация фабрики формы CompInfo }
- str_ut_CompInfoCaption.Init;
- {* Инициализация str_ut_CompInfoCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

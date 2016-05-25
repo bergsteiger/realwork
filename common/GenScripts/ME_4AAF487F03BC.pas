@@ -40,11 +40,11 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efTreeAttributeSelect.SetFactory(TefTreeAttributeSelect.Make);
+ {* Регистрация фабрики формы TreeAttributeSelect }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefTreeAttributeSelect);
  {* Регистрация TreeAttributeSelect }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efTreeAttributeSelect.SetFactory(TefTreeAttributeSelect.Make);
- {* Регистрация фабрики формы TreeAttributeSelect }
 
 end.

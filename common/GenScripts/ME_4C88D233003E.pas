@@ -21,6 +21,9 @@ uses
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -31,6 +34,11 @@ type
    procedure SetPageFormat(aOrientation: Integer); virtual; abstract;
    procedure MacroAdd(const aString: AnsiString); virtual; abstract;
    procedure ToGUIColontituls; virtual; abstract;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Result_Restore_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -77,6 +85,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 procedure TPrimPageSetupOptionsForm.Result_Restore_Test(const aParams: IvcmTestParamsPrim);
@@ -278,6 +289,39 @@ begin
  MacroAdd(SFilePosition);
 //#UC END# *4C88D4E8007C_4C88D233003Eexec_impl*
 end;//TPrimPageSetupOptionsForm.ColontitulMacro_FilePosition_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimPageSetupOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_ColontitulMacro, nil);
+  PublishOp(en_File, op_Print, nil, nil, nil);
+  PublishOp(en_File, op_PrintDialog, nil, nil, nil);
+  PublishOp(en_File, op_PrintPreview, nil, nil, nil);
+  PublishOp(en_Result, op_Restore, Result_Restore_Execute, Result_Restore_Test, nil);
+  PublishOp(en_Result, op_SaveAsDefault, Result_SaveAsDefault_Execute, Result_SaveAsDefault_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_AppTitle, ColontitulMacro_AppTitle_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_DocName, ColontitulMacro_DocName_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_DocFullName, ColontitulMacro_DocFullName_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_DocRedactionDate, ColontitulMacro_DocRedactionDate_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_DocCurrentPage, ColontitulMacro_DocCurrentPage_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_DocPagesCount, ColontitulMacro_DocPagesCount_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_CurrentDate, ColontitulMacro_CurrentDate_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_CurrentTime, ColontitulMacro_CurrentTime_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_InternalDocNumber, ColontitulMacro_InternalDocNumber_Execute, ColontitulMacro_InternalDocNumber_Test, nil);
+  PublishOp(en_ColontitulMacro, op_DocumentSIze, ColontitulMacro_DocumentSIze_Execute, nil, nil);
+  PublishOp(en_ColontitulMacro, op_FilePosition, ColontitulMacro_FilePosition_Execute, ColontitulMacro_FilePosition_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimPageSetupOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

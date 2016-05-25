@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_cfSaveLoad.SetFactory(TcfSaveLoad.Make);
+ {* Регистрация фабрики формы SaveLoad }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TcfSaveLoad);
  {* Регистрация SaveLoad }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_cfSaveLoad.SetFactory(TcfSaveLoad.Make);
- {* Регистрация фабрики формы SaveLoad }
 {$IfEnd} // NOT Defined(Admin)
 
 end.

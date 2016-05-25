@@ -33,13 +33,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Parent
-
- // Child
-
  TPrimAttributeSelectForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -92,6 +91,15 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -120,15 +128,15 @@ type
     {* Отмена }
    {$IfEnd} // NOT Defined(NoVCM)
    function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
-   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQuerySaved_Execute: Boolean;
-   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
    procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
-   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
-   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
    procedure SearchParameters_ClearQuery_Execute;
-   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
    procedure Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
   protected
@@ -142,6 +150,10 @@ type
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
+   property SelectedZone: TvtSizeablePanel
+    read f_SelectedZone;
+   property ValuesZone: TvtPanel
+    read f_ValuesZone;
  end;//TPrimAttributeSelectForm
 
 implementation
@@ -170,6 +182,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimAttributeSelect_utAttributeSelect_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -368,7 +383,7 @@ begin
 //#UC END# *4AE884E803AA_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute
 
-procedure TPrimAttributeSelectForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimAttributeSelectForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_GetQuery_Params) do
   ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
@@ -389,7 +404,7 @@ begin
 //#UC END# *4AE8A577027D_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved_Execute
 
-procedure TPrimAttributeSelectForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimAttributeSelectForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
   ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
@@ -418,7 +433,7 @@ begin
 //#UC END# *4AEF213001F0_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.SearchParameters_SetQuery_Execute
 
-procedure TPrimAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_SetQuery_Params) do
   Self.SearchParameters_SetQuery_Execute(Query);
@@ -437,7 +452,7 @@ begin
 //#UC END# *4AF3EBC001C4_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.AttributeTree_SetRoot_Execute
 
-procedure TPrimAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
   Self.AttributeTree_SetRoot_Execute(Tag);
@@ -452,7 +467,7 @@ begin
 //#UC END# *4AF92B09017F_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.SearchParameters_ClearQuery_Execute
 
-procedure TPrimAttributeSelectForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimAttributeSelectForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameters_ClearQuery_Execute;
 end;//TPrimAttributeSelectForm.SearchParameters_ClearQuery
@@ -567,6 +582,35 @@ begin
  f_Tag := nil;
  inherited;
 end;//TPrimAttributeSelectForm.ClearFields
+
+procedure TPrimAttributeSelectForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimAttributeSelectForm.SignalDataSourceChanged
+
+procedure TPrimAttributeSelectForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_SearchParameters, nil);
+  PublishFormEntity(en_AttributeTree, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOpWithResult(en_SearchParameters, op_GetQuery, SearchParameters_GetQuery, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_IsQuerySaved, SearchParameters_IsQuerySaved, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_SetQuery, SearchParameters_SetQuery, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
+  PublishOp(en_Result, op_ClearAll, Result_ClearAll_Execute, Result_ClearAll_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+ end;//with Entities.Entities
+end;//TPrimAttributeSelectForm.InitEntities
 
 procedure TPrimAttributeSelectForm.MakeControls;
 begin

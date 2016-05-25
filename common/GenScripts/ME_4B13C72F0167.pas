@@ -19,6 +19,12 @@ uses
  , Messages
  , nsCounterEvent
  , LoggingUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -45,6 +51,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -84,6 +95,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimTasksPanel_tpMain_UserType
 ;
 
@@ -179,6 +193,18 @@ begin
  end;{try..finally}
 //#UC END# *4A8E8F2E0195_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.InitControls
+
+procedure TPrimTasksPanelForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Fake, nil);
+  PublishOp(en_Fake, op_Fake, nil, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimTasksPanelForm.InitEntities
 
 procedure TPrimTasksPanelForm.MakeControls;
 begin

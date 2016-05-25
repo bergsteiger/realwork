@@ -13,12 +13,20 @@ interface
 uses
  l3IntfUses
  , PrimSaveLoadOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimSaveLoadOptionsForBaseSearchForm = class(TPrimSaveLoadOptionsForm)
   protected
    class function IsBaseSearchLike: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -46,6 +54,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -64,6 +78,15 @@ begin
  Result := true;
 //#UC END# *502289FB008D_4F5DA09300C5_impl*
 end;//TPrimSaveLoadOptionsForBaseSearchForm.IsBaseSearchLike
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimSaveLoadOptionsForBaseSearchForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TPrimSaveLoadOptionsForBaseSearchForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadOptionsForBaseSearchForm.MakeControls;

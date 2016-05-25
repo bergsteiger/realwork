@@ -28,13 +28,15 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // ParentZone
-
- // ChildZone
-
  TPrimFoldersForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -64,6 +66,11 @@ type
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -77,11 +84,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure FoldersControl_EditElement_Execute(const aNode: IFoldersNode);
     {* Начать редактирование элемента }
-   procedure FoldersControl_EditElement(const aParams: IvcmExecuteParamsPrim);
+   procedure FoldersControl_EditElement(const aParams: IvcmExecuteParams);
     {* Начать редактирование элемента }
    function FoldersControl_DeleteElement_Execute(const aNode: IFoldersNode): TnsDeleteResult;
     {* Удалить элемент }
-   procedure FoldersControl_DeleteElement(const aParams: IvcmExecuteParamsPrim);
+   procedure FoldersControl_DeleteElement(const aParams: IvcmExecuteParams);
     {* Удалить элемент }
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
@@ -100,18 +107,22 @@ type
    procedure Result_Append_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Добавить }
    procedure AdditionInfo_Show_Execute;
-   procedure AdditionInfo_Show(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_Show(const aParams: IvcmExecuteParams);
    procedure AdditionInfo_Hide_Execute;
-   procedure AdditionInfo_Hide(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_Hide(const aParams: IvcmExecuteParams);
    procedure AdditionInfo_SetCaption_Execute(const aCaption: Il3CString);
-   procedure AdditionInfo_SetCaption(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_SetCaption(const aParams: IvcmExecuteParams);
    procedure Switcher_BecomeActive_Execute;
-   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
    procedure AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
-   procedure AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
+   procedure AdditionInfo_Close(const aParams: IvcmExecuteParams);
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
+   property ParentZone: TvtPanel
+    read f_ParentZone;
+   property ChildZone: TvtSizeablePanel
+    read f_ChildZone;
  end;//TPrimFoldersForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -134,7 +145,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimFolders_utFolders_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -200,7 +217,7 @@ begin
 //#UC END# *4A96A9BE011C_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.FoldersControl_EditElement_Execute
 
-procedure TPrimFoldersForm.FoldersControl_EditElement(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.FoldersControl_EditElement(const aParams: IvcmExecuteParams);
  {* Начать редактирование элемента }
 begin
  with (aParams.Data As IFoldersControl_EditElement_Params) do
@@ -217,7 +234,7 @@ begin
 //#UC END# *4A96A9D10023_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.FoldersControl_DeleteElement_Execute
 
-procedure TPrimFoldersForm.FoldersControl_DeleteElement(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.FoldersControl_DeleteElement(const aParams: IvcmExecuteParams);
  {* Удалить элемент }
 begin
  with (aParams.Data As IFoldersControl_DeleteElement_Params) do
@@ -332,7 +349,7 @@ begin
 //#UC END# *4A980672034B_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.AdditionInfo_Show_Execute
 
-procedure TPrimFoldersForm.AdditionInfo_Show(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.AdditionInfo_Show(const aParams: IvcmExecuteParams);
 begin
  Self.AdditionInfo_Show_Execute;
 end;//TPrimFoldersForm.AdditionInfo_Show
@@ -350,7 +367,7 @@ begin
 //#UC END# *4A9806B600E8_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.AdditionInfo_Hide_Execute
 
-procedure TPrimFoldersForm.AdditionInfo_Hide(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.AdditionInfo_Hide(const aParams: IvcmExecuteParams);
 begin
  Self.AdditionInfo_Hide_Execute;
 end;//TPrimFoldersForm.AdditionInfo_Hide
@@ -364,7 +381,7 @@ begin
 //#UC END# *4A9806D7038D_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.AdditionInfo_SetCaption_Execute
 
-procedure TPrimFoldersForm.AdditionInfo_SetCaption(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.AdditionInfo_SetCaption(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAdditionInfo_SetCaption_Params) do
   Self.AdditionInfo_SetCaption_Execute(Caption);
@@ -379,7 +396,7 @@ begin
 //#UC END# *4A9807F801F9_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.Switcher_BecomeActive_Execute
 
-procedure TPrimFoldersForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  Self.Switcher_BecomeActive_Execute;
 end;//TPrimFoldersForm.Switcher_BecomeActive
@@ -396,7 +413,7 @@ begin
 //#UC END# *4AE9BF890271_4A96B6AE0071exec_impl*
 end;//TPrimFoldersForm.AdditionInfo_Close_Execute
 
-procedure TPrimFoldersForm.AdditionInfo_Close(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersForm.AdditionInfo_Close(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAdditionInfo_Close_Params) do
   Self.AdditionInfo_Close_Execute(ModalResult);
@@ -470,6 +487,32 @@ begin
 //#UC END# *4A97E78202FC_4A96B6AE0071_impl*
 end;//TPrimFoldersForm.SetParent
 {$IfEnd} // NOT Defined(NoVCL)
+
+procedure TPrimFoldersForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_FoldersControl, nil);
+  PublishFormEntity(en_AdditionInfo, nil);
+  PublishFormEntity(en_Switcher, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOpWithResult(en_FoldersControl, op_EditElement, FoldersControl_EditElement, nil, nil);
+  PublishOpWithResult(en_FoldersControl, op_DeleteElement, FoldersControl_DeleteElement, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Append, Result_Append_Execute, Result_Append_Test, nil);
+  PublishOpWithResult(en_AdditionInfo, op_Show, AdditionInfo_Show, nil, nil);
+  PublishOpWithResult(en_AdditionInfo, op_Hide, AdditionInfo_Hide, nil, nil);
+  PublishOpWithResult(en_AdditionInfo, op_SetCaption, AdditionInfo_SetCaption, nil, nil);
+  PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
+  PublishOpWithResult(en_AdditionInfo, op_Close, AdditionInfo_Close, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimFoldersForm.InitEntities
 
 procedure TPrimFoldersForm.MakeControls;
 begin

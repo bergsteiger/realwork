@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_cfFolders.SetFactory(TcfFolders.Make);
+ {* Регистрация фабрики формы Folders }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TcfFolders);
  {* Регистрация Folders }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_cfFolders.SetFactory(TcfFolders.Make);
- {* Регистрация фабрики формы Folders }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

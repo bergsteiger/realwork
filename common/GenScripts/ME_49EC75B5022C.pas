@@ -35,6 +35,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -84,6 +87,15 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -111,10 +123,12 @@ type
     {* Переименовать группу }
    procedure Switcher_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
    procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
-   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property GroupsTree: TeeTreeView
+    read f_GroupsTree;
  end;//TPrimGroupListForm
 {$IfEnd} // Defined(Admin)
 
@@ -391,7 +405,7 @@ begin
 //#UC END# *4AEF3E8C02F5_49EC75B5022Cexec_impl*
 end;//TPrimGroupListForm.Switcher_BecomeActive_Execute
 
-procedure TPrimGroupListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimGroupListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISwitcher_BecomeActive_Params) do
   Self.Switcher_BecomeActive_Execute(Form);
@@ -474,6 +488,31 @@ begin
  UpdateStatusInfo; 
 //#UC END# *4A8E8F2E0195_49EC75B5022C_impl*
 end;//TPrimGroupListForm.InitControls
+
+procedure TPrimGroupListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimGroupListForm.SignalDataSourceChanged
+
+procedure TPrimGroupListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Groups, nil);
+  PublishFormEntity(en_Switcher, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_Groups, op_Add, Groups_Add_Execute, Groups_Add_Test, nil);
+  PublishOp(en_Groups, op_ChangeBaseAccess, Groups_ChangeBaseAccess_Execute, Groups_ChangeBaseAccess_Test, nil);
+  PublishOp(en_Groups, op_Rename, Groups_Rename_Execute, Groups_Rename_Test, nil);
+  PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, Switcher_BecomeActive_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+ end;//with Entities.Entities
+end;//TPrimGroupListForm.InitEntities
 
 procedure TPrimGroupListForm.MakeControls;
 begin

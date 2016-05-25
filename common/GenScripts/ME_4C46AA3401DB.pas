@@ -72,8 +72,6 @@ const
   {* 'Список лекарственных растений' }
 
 type
- // RemindersLineZone
-
  TPrimListOptionsForm = class(TPrimListForm, InsBaseSearchListSource)
   private
    f_RemindersLine: TnscRemindersLine;
@@ -145,6 +143,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -287,6 +290,14 @@ type
   public
    property RemindersLine: TnscRemindersLine
     read f_RemindersLine;
+   property remListFiltered: TnscReminder
+    read f_remListFiltered;
+   property remListModified: TnscReminder
+    read f_remListModified;
+   property remTimeMachineWarning: TnscReminder
+    read f_remTimeMachineWarning;
+   property EmptyListEditor: TnscEditor
+    read f_EmptyListEditor;
  end;//TPrimListOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -367,13 +378,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , nscTreeViewForDocumentListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , nsManagers
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
  , l3InterfacesMisc
  , nsBaseSearchService
@@ -2193,6 +2204,63 @@ end;//TPrimListOptionsForm.DoGetTabCaption
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Openable, nil);
+  PublishFormEntity(en_WarnListFiltered, nil);
+  PublishFormEntity(en_Reminder, nil);
+  PublishFormEntity(en_List, nil);
+  PublishFormEntity(en_DocumentInList, nil);
+  PublishFormEntity(en_SelectedDocuments, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
+  PublishOp(en_File, op_SendMailAsAttachment, File_SendMailAsAttachment_Execute, File_SendMailAsAttachment_Test, nil, true);
+  PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
+  PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  PublishOp(en_Edit, op_SelectAll, Edit_SelectAll_Execute, Edit_SelectAll_Test, nil);
+  PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, nil, nil);
+  PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, nil, nil);
+  PublishOp(en_Tree, op_Wrap, nil, Tree_Wrap_Test, nil);
+  PublishOp(en_List, op_OrAnotherList, List_OrAnotherList_Execute, List_OrAnotherList_Test, nil);
+  PublishOp(en_List, op_AndAnotherList, List_AndAnotherList_Execute, List_AndAnotherList_Test, nil);
+  PublishOp(en_List, op_AndNotAnotherList, List_AndNotAnotherList_Execute, List_AndNotAnotherList_Test, nil);
+  PublishOp(en_Document, op_Open, Document_Open_Execute, Document_Open_Test, nil);
+  PublishOp(en_Document, op_OpenNewWindow, Document_OpenNewWindow_Execute, Document_OpenNewWindow_Test, nil);
+  PublishOp(en_Openable, op_OpenInNewWindow, Openable_OpenInNewWindow_Execute, Openable_OpenInNewWindow_Test, nil);
+  PublishOp(en_Document, op_PrintDialog, Document_PrintDialog_Execute, Document_PrintDialog_Test, nil);
+  PublishOp(en_Document, op_PrintPreview, Document_PrintPreview_Execute, Document_PrintPreview_Test, nil);
+  PublishOp(en_Document, op_Save, Document_Save_Execute, Document_Save_Test, nil);
+  PublishOp(en_Document, op_Print, Document_Print_Execute, Document_Print_Test, nil);
+  PublishOp(en_WarnListFiltered, op_ClearAll, WarnListFiltered_ClearAll_Execute, nil, nil);
+  PublishOp(en_Reminder, op_RemListModified, Reminder_RemListModified_Execute, Reminder_RemListModified_Test, nil);
+  PublishOp(en_Reminder, op_RemListFiltered, Reminder_RemListFiltered_Execute, Reminder_RemListFiltered_Test, nil);
+  PublishOp(en_Reminder, op_RemListTimeMachineWarning, nil, Reminder_RemListTimeMachineWarning_Test, nil);
+  PublishOp(en_List, op_WorkWithList, nil, List_WorkWithList_Test, nil);
+  PublishOp(en_DocumentInList, op_OpenDocumentInNewTab, DocumentInList_OpenDocumentInNewTab_Execute, DocumentInList_OpenDocumentInNewTab_Test, nil);
+  PublishOp(en_DocumentInList, op_OpenDocumentInNewWindow, DocumentInList_OpenDocumentInNewWindow_Execute, DocumentInList_OpenDocumentInNewWindow_Test, nil);
+  PublishOp(en_SelectedDocuments, op_MakeHyperlinkToDocument, SelectedDocuments_MakeHyperlinkToDocument_Execute, SelectedDocuments_MakeHyperlinkToDocument_Test, nil);
+  PublishOp(en_List, op_OrAnotherListForReminders, List_OrAnotherListForReminders_Execute, List_OrAnotherListForReminders_Test, nil);
+  PublishOp(en_List, op_AndAnotherListForReminders, List_AndAnotherListForReminders_Execute, List_AndAnotherListForReminders_Test, nil);
+  PublishOp(en_List, op_AndNotAnotherListForReminders, List_AndNotAnotherListForReminders_Execute, List_AndNotAnotherListForReminders_Test, nil);
+  PublishOp(en_SelectedDocuments, op_AddToControl, SelectedDocuments_AddToControl_Execute, SelectedDocuments_AddToControl_Test, SelectedDocuments_AddToControl_GetState);
+ end;//with Entities.Entities
+end;//TPrimListOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.MakeControls;
 begin
  inherited;
@@ -2208,7 +2276,7 @@ begin
  f_remListModified.Name := 'remListModified';
  f_remTimeMachineWarning := TnscReminder.Create(RemindersLine);
  f_remTimeMachineWarning.Name := 'remTimeMachineWarning';
- f_ListPanel.Parent := Self;
+ ListPanel.Parent := Self;
  f_EmptyListEditor := TnscEditor.Create(Self);
  f_EmptyListEditor.Name := 'EmptyListEditor';
  f_EmptyListEditor.Parent := ListPanel;

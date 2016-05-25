@@ -97,6 +97,9 @@ uses
  , evdTypes
  , l3StringIDEx
  , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -467,6 +470,15 @@ type
    function DoGetNeedAddFormToTasksPanel: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -475,14 +487,14 @@ type
    procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
     const aCRType: Il3SimpleNode);
     {* Коллеги, это что? }
-   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
     {* Коллеги, это что? }
    procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Коллеги, это что? }
    procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
     const aCRType: Il3SimpleNode);
     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParams);
     {* Коллеги, это что? }
    procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Информация о документе }
@@ -492,7 +504,7 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Справка к документу }
@@ -508,19 +520,19 @@ type
     {* Ссылки из документа }
    function Document_AttributesCanBeClosed_Execute: Boolean;
     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
     {* Это кандидат на перенос в Facet или что-то подобное }
    procedure Document_CommonDocumentOpenNewWindow_Execute(aUserType: Integer);
     {* Что это? }
-   procedure Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParams);
     {* Что это? }
    procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
-   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
    procedure Redactions_RedactionOnID_Execute(aRedactionID: TRedactionID);
-   procedure Redactions_RedactionOnID(const aParams: IvcmExecuteParamsPrim);
+   procedure Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
    function Document_FindExplanation_Execute: Boolean;
     {* Найти толкование }
-   procedure Document_FindExplanation(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_FindExplanation(const aParams: IvcmExecuteParams);
     {* Найти толкование }
    procedure Selection_FindInDict_Test(const aParams: IvcmTestParamsPrim);
     {* Найти в Толковом словаре }
@@ -529,41 +541,41 @@ type
    function Document_SetPosition_Execute(aPointID: Cardinal;
     aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
-   procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SetPosition(const aParams: IvcmExecuteParams);
    procedure Document_SetActive_Execute(aUserType: Integer);
-   procedure Document_SetActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SetActive(const aParams: IvcmExecuteParams);
    procedure Document_ExportBlock_Execute(const aData: IUnknown;
     aUserType: Integer;
     aToActiveWindow: Boolean);
-   procedure Document_ExportBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ExportBlock(const aParams: IvcmExecuteParams);
    procedure Document_GetCurrentPosition_Test(const aParams: IvcmTestParamsPrim);
    function Document_GetCurrentPosition_Execute: Integer;
-   procedure Document_GetCurrentPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetCurrentPosition(const aParams: IvcmExecuteParams);
    procedure Document_SelectBlock_Execute(const aData: IUnknown;
     aUserType: Integer);
-   procedure Document_SelectBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SelectBlock(const aParams: IvcmExecuteParams);
    procedure Document_CopyBlock_Execute(const aData: IUnknown;
     aUserType: Integer);
-   procedure Document_CopyBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_CopyBlock(const aParams: IvcmExecuteParams);
    procedure Document_PrintBlock_Execute(const aData: IUnknown;
     aUserType: Integer);
-   procedure Document_PrintBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PrintBlock(const aParams: IvcmExecuteParams);
    procedure Document_PrintDialogBlock_Execute(const aData: IUnknown;
     aUserType: Integer);
-   procedure Document_PrintDialogBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PrintDialogBlock(const aParams: IvcmExecuteParams);
    procedure Document_PreviewBlock_Execute(const aData: IUnknown;
     aUserType: Integer);
-   procedure Document_PreviewBlock(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_PreviewBlock(const aParams: IvcmExecuteParams);
    procedure Document_ShowRespondentListToPart_Execute(const aList: IPositionList;
     const aCurrent: Il3SimpleNode = nil);
-   procedure Document_ShowRespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ShowRespondentListToPart(const aParams: IvcmExecuteParams);
    procedure Document_ShowCorrespondentListToPart_Execute(const aList: IPositionList;
     const aCurrent: Il3SimpleNode = nil);
-   procedure Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParams);
    procedure Document_ModifyBookmarkNotify_Execute(const anEntity: IUnknown);
-   procedure Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParams);
    procedure Document_AddBookmarkFromContents_Execute(const aTag: Il3TagRef);
-   procedure Document_AddBookmarkFromContents(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_AddBookmarkFromContents(const aParams: IvcmExecuteParams);
    procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки на документ (вид информации) }
    procedure Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -574,12 +586,12 @@ type
     {* Ссылки из документа (вид информации) }
    procedure TimeMachine_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
    procedure TimeMachine_TimeMachineOnOff_Execute;
-   procedure TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParamsPrim);
+   procedure TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParams);
    procedure TimeMachine_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
    procedure TimeMachine_TimeMachineOffAndReset_Execute;
-   procedure TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParamsPrim);
+   procedure TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParams);
    procedure Document_OpenNotSureTopic_Execute;
-   procedure Document_OpenNotSureTopic(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenNotSureTopic(const aParams: IvcmExecuteParams);
    procedure Redactions_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
    procedure Redactions_ActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Edit_ToggleFoundWords_Test(const aParams: IvcmTestParamsPrim);
@@ -588,7 +600,7 @@ type
     {* Подсвечивать найденный контекст }
    function Document_GotoPara_Execute(const aPara: Il3TagRef;
     aUserType: Integer): Boolean;
-   procedure Document_GotoPara(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GotoPara(const aParams: IvcmExecuteParams);
    procedure TimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
     {* Включить Машину времени }
    procedure TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -603,7 +615,7 @@ type
     {* Список редакций }
    procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
    function Document_GetParaForPositionning_Execute: IeeLeafPara;
-   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
    procedure DocumentBlock_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
@@ -748,7 +760,7 @@ type
    procedure Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Обзор изменений документа }
    procedure DocumentSubPanel_UpdateSubPanel_Execute;
-   procedure DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParams);
    procedure IntranetSourcePoint_GoToIntranet_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Picture_Open_Test(const aParams: IvcmTestParamsPrim);
     {* Открыть в текущем окне }
@@ -759,7 +771,7 @@ type
    procedure Picture_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Открыть в новом окне }
    function BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute: InsBaseSearchPresentation;
-   procedure BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParamsPrim);
+   procedure BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParams);
    procedure Text_SelectWord_Test(const aParams: IvcmTestParamsPrim);
    procedure Text_SelectWord_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Text_SelectPara_Test(const aParams: IvcmTestParamsPrim);
@@ -769,7 +781,7 @@ type
    procedure Picture_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Открыть в новой вкладке }
    procedure Document_CommonDocumentOpenNewTab_Execute(aUserType: Integer);
-   procedure Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParams);
    procedure DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetSimilarDocsToBlock_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
@@ -3024,7 +3036,7 @@ begin
 //#UC END# *4988752302F4_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_OpenCorrespondentList_Execute
 
-procedure TExTextForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
  {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
@@ -3056,7 +3068,7 @@ begin
 //#UC END# *49888E8003B9_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_OpenRespondentList_Execute
 
-procedure TExTextForm.Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_OpenRespondentList(const aParams: IvcmExecuteParams);
  {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenRespondentList_Params) do
@@ -3161,7 +3173,7 @@ begin
 //#UC END# *49895A2102E8_49539DBA029Dexec_impl*
 end;//TExTextForm.Loadable_Load_Execute
 
-procedure TExTextForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -3271,7 +3283,7 @@ begin
 //#UC END# *4989DE3702CF_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_AttributesCanBeClosed_Execute
 
-procedure TExTextForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
  {* Это кандидат на перенос в Facet или что-то подобное }
 begin
  with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
@@ -3516,7 +3528,7 @@ begin
 //#UC END# *4A8EF02E007D_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_CommonDocumentOpenNewWindow_Execute
 
-procedure TExTextForm.Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParams);
  {* Что это? }
 begin
  with (aParams.Data As IDocument_CommonDocumentOpenNewWindow_Params) do
@@ -3551,7 +3563,7 @@ begin
 //#UC END# *4A8EF367029E_49539DBA029Dexec_impl*
 end;//TExTextForm.System_TimeMachineStateChange_Execute
 
-procedure TExTextForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
   Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
@@ -3568,7 +3580,7 @@ begin
 //#UC END# *4A8EF4B50044_49539DBA029Dexec_impl*
 end;//TExTextForm.Redactions_RedactionOnID_Execute
 
-procedure TExTextForm.Redactions_RedactionOnID(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRedactions_RedactionOnID_Params) do
   Self.Redactions_RedactionOnID_Execute(RedactionID);
@@ -3588,7 +3600,7 @@ begin
 //#UC END# *4A9D26B80015_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_FindExplanation_Execute
 
-procedure TExTextForm.Document_FindExplanation(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_FindExplanation(const aParams: IvcmExecuteParams);
  {* Найти толкование }
 begin
  with (aParams.Data As IDocument_FindExplanation_Params) do
@@ -3635,7 +3647,7 @@ begin
 //#UC END# *4AE9D38A02DA_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_SetPosition_Execute
 
-procedure TExTextForm.Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetPosition_Params) do
   ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
@@ -3657,7 +3669,7 @@ begin
 //#UC END# *4AE9D9AF02FE_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_SetActive_Execute
 
-procedure TExTextForm.Document_SetActive(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_SetActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetActive_Params) do
   Self.Document_SetActive_Execute(UserType);
@@ -3674,7 +3686,7 @@ begin
 //#UC END# *4AE9DC070264_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_ExportBlock_Execute
 
-procedure TExTextForm.Document_ExportBlock(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_ExportBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ExportBlock_Params) do
   Self.Document_ExportBlock_Execute(Data, UserType, ToActiveWindow);
@@ -3708,7 +3720,7 @@ begin
 //#UC END# *4AEAF9C000D8_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_GetCurrentPosition_Execute
 
-procedure TExTextForm.Document_GetCurrentPosition(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_GetCurrentPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetCurrentPosition_Params) do
   ResultValue := Self.Document_GetCurrentPosition_Execute;
@@ -3724,7 +3736,7 @@ begin
 //#UC END# *4AEB097001C3_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_SelectBlock_Execute
 
-procedure TExTextForm.Document_SelectBlock(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_SelectBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SelectBlock_Params) do
   Self.Document_SelectBlock_Execute(Data, UserType);
@@ -3740,7 +3752,7 @@ begin
 //#UC END# *4AEB09C50287_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_CopyBlock_Execute
 
-procedure TExTextForm.Document_CopyBlock(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_CopyBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_CopyBlock_Params) do
   Self.Document_CopyBlock_Execute(Data, UserType);
@@ -3756,7 +3768,7 @@ begin
 //#UC END# *4AEB0A1C0270_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_PrintBlock_Execute
 
-procedure TExTextForm.Document_PrintBlock(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_PrintBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_PrintBlock_Params) do
   Self.Document_PrintBlock_Execute(Data, UserType);
@@ -3772,7 +3784,7 @@ begin
 //#UC END# *4AEB0A550165_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_PrintDialogBlock_Execute
 
-procedure TExTextForm.Document_PrintDialogBlock(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_PrintDialogBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_PrintDialogBlock_Params) do
   Self.Document_PrintDialogBlock_Execute(Data, UserType);
@@ -3788,7 +3800,7 @@ begin
 //#UC END# *4AEB0A8E002E_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_PreviewBlock_Execute
 
-procedure TExTextForm.Document_PreviewBlock(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_PreviewBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_PreviewBlock_Params) do
   Self.Document_PreviewBlock_Execute(Data, UserType);
@@ -3805,7 +3817,7 @@ begin
 //#UC END# *4AEEEE970141_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_ShowRespondentListToPart_Execute
 
-procedure TExTextForm.Document_ShowRespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_ShowRespondentListToPart(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ShowRespondentListToPart_Params) do
   Self.Document_ShowRespondentListToPart_Execute(List, Current);
@@ -3822,7 +3834,7 @@ begin
 //#UC END# *4AEEEEB7027C_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_ShowCorrespondentListToPart_Execute
 
-procedure TExTextForm.Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ShowCorrespondentListToPart_Params) do
   Self.Document_ShowCorrespondentListToPart_Execute(List, Current);
@@ -3852,7 +3864,7 @@ begin
 //#UC END# *4AEEF7F40304_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_ModifyBookmarkNotify_Execute
 
-procedure TExTextForm.Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ModifyBookmarkNotify_Params) do
   Self.Document_ModifyBookmarkNotify_Execute(nEntity);
@@ -3878,7 +3890,7 @@ begin
 //#UC END# *4AEEF87B00E1_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_AddBookmarkFromContents_Execute
 
-procedure TExTextForm.Document_AddBookmarkFromContents(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_AddBookmarkFromContents(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_AddBookmarkFromContents_Params) do
   Self.Document_AddBookmarkFromContents_Execute(Tag);
@@ -3951,7 +3963,7 @@ begin
 //#UC END# *4AF83BDB03AE_49539DBA029Dexec_impl*
 end;//TExTextForm.TimeMachine_TimeMachineOnOff_Execute
 
-procedure TExTextForm.TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParams);
 begin
  Self.TimeMachine_TimeMachineOnOff_Execute;
 end;//TExTextForm.TimeMachine_TimeMachineOnOff
@@ -3975,7 +3987,7 @@ begin
 //#UC END# *4AF83BEB0393_49539DBA029Dexec_impl*
 end;//TExTextForm.TimeMachine_TimeMachineOffAndReset_Execute
 
-procedure TExTextForm.TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParams);
 begin
  Self.TimeMachine_TimeMachineOffAndReset_Execute;
 end;//TExTextForm.TimeMachine_TimeMachineOffAndReset
@@ -4000,7 +4012,7 @@ begin
 //#UC END# *4AF83C3D01DA_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_OpenNotSureTopic_Execute
 
-procedure TExTextForm.Document_OpenNotSureTopic(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_OpenNotSureTopic(const aParams: IvcmExecuteParams);
 begin
  Self.Document_OpenNotSureTopic_Execute;
 end;//TExTextForm.Document_OpenNotSureTopic
@@ -4068,7 +4080,7 @@ begin
 //#UC END# *4AFD4A45003B_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_GotoPara_Execute
 
-procedure TExTextForm.Document_GotoPara(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_GotoPara(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GotoPara_Params) do
   ResultValue := Self.Document_GotoPara_Execute(Para, UserType);
@@ -4170,7 +4182,7 @@ begin
 //#UC END# *4B506F4D0196_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_GetParaForPositionning_Execute
 
-procedure TExTextForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetParaForPositionning_Params) do
   ResultValue := Self.Document_GetParaForPositionning_Execute;
@@ -6001,7 +6013,7 @@ begin
 //#UC END# *4DF20436002A_49539DBA029Dexec_impl*
 end;//TExTextForm.DocumentSubPanel_UpdateSubPanel_Execute
 
-procedure TExTextForm.DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParams);
 begin
  Self.DocumentSubPanel_UpdateSubPanel_Execute;
 end;//TExTextForm.DocumentSubPanel_UpdateSubPanel
@@ -6075,7 +6087,7 @@ begin
 //#UC END# *5072D45A035C_49539DBA029Dexec_impl*
 end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute
 
-procedure TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params) do
   ResultValue := Self.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute;
@@ -6326,7 +6338,7 @@ begin
 //#UC END# *55545C63026E_49539DBA029Dexec_impl*
 end;//TExTextForm.Document_CommonDocumentOpenNewTab_Execute
 
-procedure TExTextForm.Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParamsPrim);
+procedure TExTextForm.Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_CommonDocumentOpenNewTab_Params) do
   Self.Document_CommonDocumentOpenNewTab_Execute(UserType);
@@ -7209,10 +7221,172 @@ end;//TExTextForm.DoGetNeedAddFormToTasksPanel
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
+procedure TExTextForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TExTextForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TExTextForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_System, nil);
+  PublishFormEntity(en_Redactions, nil);
+  PublishFormEntity(en_Selection, nil);
+  PublishFormEntity(en_TimeMachine, nil);
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_DocumentBlock, nil);
+  PublishFormEntity(en_DocumentBlockHeader, nil);
+  PublishFormEntity(en_Text, nil);
+  PublishFormEntity(en_WarnOnControl, nil);
+  PublishFormEntity(en_TasksPanel, nil);
+  PublishFormEntity(en_ExternalObject, nil);
+  PublishFormEntity(en_WarnRedaction, nil);
+  PublishFormEntity(en_WarnTimeMachine, nil);
+  PublishFormEntity(en_WarnJuror, nil);
+  PublishFormEntity(en_BookmarkIcon, nil);
+  PublishFormEntity(en_UserCommentIcon, nil);
+  PublishFormEntity(en_UserComment, nil);
+  PublishFormEntity(en_DocumentSubPanel, nil);
+  PublishFormEntity(en_DocumentBlockBookmarks, nil);
+  PublishFormEntity(en_IntranetSourcePoint, nil);
+  PublishFormEntity(en_Picture, nil);
+  PublishFormEntity(en_BaseSearchPresentationHolder, nil);
+  PublishOpWithResult(en_Document, op_OpenCorrespondentList, Document_OpenCorrespondentList, Document_OpenCorrespondentList_Test, nil);
+  PublishOpWithResult(en_Document, op_OpenRespondentList, Document_OpenRespondentList, Document_OpenRespondentList_Test, nil);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOp(en_Document, op_GetRelatedDocFrmAct, Document_GetRelatedDocFrmAct_Execute, Document_GetRelatedDocFrmAct_Test, nil);
+  PublishOp(en_Document, op_GetCorrespondentList, Document_GetCorrespondentList_Execute, Document_GetCorrespondentList_Test, nil);
+  PublishOp(en_Document, op_GetRespondentList, Document_GetRespondentList_Execute, Document_GetRespondentList_Test, nil);
+  PublishOpWithResult(en_Document, op_AttributesCanBeClosed, Document_AttributesCanBeClosed, nil, nil);
+  PublishOpWithResult(en_Document, op_CommonDocumentOpenNewWindow, Document_CommonDocumentOpenNewWindow, nil, nil);
+  PublishOpWithResult(en_System, op_TimeMachineStateChange, System_TimeMachineStateChange, nil, nil, true);
+  PublishOpWithResult(en_Redactions, op_RedactionOnID, Redactions_RedactionOnID, nil, nil);
+  PublishOpWithResult(en_Document, op_FindExplanation, Document_FindExplanation, nil, nil);
+  PublishOp(en_Selection, op_FindInDict, Selection_FindInDict_Execute, Selection_FindInDict_Test, nil);
+  PublishOpWithResult(en_Document, op_SetPosition, Document_SetPosition, nil, nil);
+  PublishOpWithResult(en_Document, op_SetActive, Document_SetActive, nil, nil);
+  PublishOpWithResult(en_Document, op_ExportBlock, Document_ExportBlock, nil, nil);
+  PublishOpWithResult(en_Document, op_GetCurrentPosition, Document_GetCurrentPosition, Document_GetCurrentPosition_Test, nil);
+  PublishOpWithResult(en_Document, op_SelectBlock, Document_SelectBlock, nil, nil);
+  PublishOpWithResult(en_Document, op_CopyBlock, Document_CopyBlock, nil, nil);
+  PublishOpWithResult(en_Document, op_PrintBlock, Document_PrintBlock, nil, nil);
+  PublishOpWithResult(en_Document, op_PrintDialogBlock, Document_PrintDialogBlock, nil, nil);
+  PublishOpWithResult(en_Document, op_PreviewBlock, Document_PreviewBlock, nil, nil);
+  PublishOpWithResult(en_Document, op_ShowRespondentListToPart, Document_ShowRespondentListToPart, nil, nil);
+  PublishOpWithResult(en_Document, op_ShowCorrespondentListToPart, Document_ShowCorrespondentListToPart, nil, nil);
+  PublishOpWithResult(en_Document, op_ModifyBookmarkNotify, Document_ModifyBookmarkNotify, nil, nil);
+  PublishOpWithResult(en_Document, op_AddBookmarkFromContents, Document_AddBookmarkFromContents, nil, nil);
+  PublishOp(en_Document, op_GetCorrespondentListExFrmAct, Document_GetCorrespondentListExFrmAct_Execute, Document_GetCorrespondentListExFrmAct_Test, nil);
+  PublishOp(en_Document, op_GetRespondentListExFrmAct, Document_GetRespondentListExFrmAct_Execute, Document_GetRespondentListExFrmAct_Test, nil);
+  PublishOpWithResult(en_TimeMachine, op_TimeMachineOnOff, TimeMachine_TimeMachineOnOff, TimeMachine_TimeMachineOnOff_Test, nil);
+  PublishOpWithResult(en_TimeMachine, op_TimeMachineOffAndReset, TimeMachine_TimeMachineOffAndReset, TimeMachine_TimeMachineOffAndReset_Test, nil);
+  PublishOpWithResult(en_Document, op_OpenNotSureTopic, Document_OpenNotSureTopic, nil, nil);
+  PublishOp(en_Redactions, op_ActualRedaction, Redactions_ActualRedaction_Execute, Redactions_ActualRedaction_Test, nil);
+  PublishOp(en_Edit, op_ToggleFoundWords, Edit_ToggleFoundWords_Execute, Edit_ToggleFoundWords_Test, nil);
+  PublishOpWithResult(en_Document, op_GotoPara, Document_GotoPara, nil, nil);
+  PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
+  PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
+  PublishOpWithResult(en_Document, op_GetParaForPositionning, Document_GetParaForPositionning, Document_GetParaForPositionning_Test, nil);
+  PublishOp(en_DocumentBlock, op_GetCorrespondentList, DocumentBlock_GetCorrespondentList_Execute, DocumentBlock_GetCorrespondentList_Test, nil);
+  PublishOp(en_DocumentBlock, op_GetRespondentList, DocumentBlock_GetRespondentList_Execute, DocumentBlock_GetRespondentList_Test, nil);
+  PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
+  PublishOp(en_DocumentBlock, op_GetTypedRespondentList, DocumentBlock_GetTypedRespondentList_Execute, DocumentBlock_GetTypedRespondentList_Test, nil);
+  PublishOp(en_Document, op_GetAnnotationDocFrmAct, Document_GetAnnotationDocFrmAct_Execute, Document_GetAnnotationDocFrmAct_Test, nil);
+  PublishOp(en_Document, op_SimilarDocuments, Document_SimilarDocuments_Execute, Document_SimilarDocuments_Test, nil);
+  PublishOp(en_DocumentBlockHeader, op_UserCR1, DocumentBlockHeader_UserCR1_Execute, DocumentBlockHeader_UserCR1_Test, DocumentBlockHeader_UserCR1_GetState);
+  PublishOp(en_DocumentBlockHeader, op_UserCR2, DocumentBlockHeader_UserCR2_Execute, DocumentBlockHeader_UserCR2_Test, DocumentBlockHeader_UserCR2_GetState);
+  PublishOp(en_DocumentBlockHeader, op_GetTypedCorrespondentList, DocumentBlockHeader_GetTypedCorrespondentList_Execute, DocumentBlockHeader_GetTypedCorrespondentList_Test, nil);
+  PublishOp(en_Redactions, op_PrevRedaction, Redactions_PrevRedaction_Execute, Redactions_PrevRedaction_Test, nil);
+  PublishOp(en_Redactions, op_NextRedaction, Redactions_NextRedaction_Execute, Redactions_NextRedaction_Test, nil);
+  PublishOp(en_Text, op_AddToControl, Text_AddToControl_Execute, Text_AddToControl_Test, Text_AddToControl_GetState);
+  PublishOp(en_Selection, op_ShowCorrespondentListToPart, Selection_ShowCorrespondentListToPart_Execute, Selection_ShowCorrespondentListToPart_Test, nil);
+  PublishOp(en_Selection, op_ShowRespondentListToPart, Selection_ShowRespondentListToPart_Execute, Selection_ShowRespondentListToPart_Test, nil);
+  PublishOp(en_WarnOnControl, op_ClearStatusSettings, WarnOnControl_ClearStatusSettings_Execute, WarnOnControl_ClearStatusSettings_Test, nil);
+  PublishOp(en_TasksPanel, op_TimeMachineOnOff, TasksPanel_TimeMachineOnOff_Execute, TasksPanel_TimeMachineOnOff_Test, TasksPanel_TimeMachineOnOff_GetState);
+  PublishOp(en_DocumentBlockHeader, op_AddBookmark, DocumentBlockHeader_AddBookmark_Execute, DocumentBlockHeader_AddBookmark_Test, nil);
+  PublishOp(en_DocumentBlockHeader, op_ToMSWord, DocumentBlockHeader_ToMSWord_Execute, DocumentBlockHeader_ToMSWord_Test, nil);
+  PublishOp(en_DocumentBlockHeader, op_Print, DocumentBlockHeader_Print_Execute, DocumentBlockHeader_Print_Test, nil);
+  PublishOp(en_DocumentBlockHeader, op_PrintDialog, DocumentBlockHeader_PrintDialog_Execute, DocumentBlockHeader_PrintDialog_Test, nil);
+  PublishOp(en_DocumentBlockBookmarks, op_AddBookmark, DocumentBlockBookmarks_AddBookmark_Execute, DocumentBlockBookmarks_AddBookmark_Test, nil);
+  PublishOp(en_DocumentBlock, op_ToMSWord, DocumentBlock_ToMSWord_Execute, DocumentBlock_ToMSWord_Test, nil);
+  PublishOp(en_DocumentBlock, op_PrintDialog, DocumentBlock_PrintDialog_Execute, DocumentBlock_PrintDialog_Test, nil);
+  PublishOp(en_DocumentBlock, op_Copy, DocumentBlock_Copy_Execute, DocumentBlock_Copy_Test, nil);
+  PublishOp(en_DocumentBlock, op_Print, DocumentBlock_Print_Execute, DocumentBlock_Print_Test, nil);
+  PublishOp(en_Document, op_OpenContentsFrmAct, Document_OpenContentsFrmAct_Execute, Document_OpenContentsFrmAct_Test, Document_OpenContentsFrmAct_GetState);
+  PublishOp(en_Document, op_ShowDocumentPicture, Document_ShowDocumentPicture_Execute, Document_ShowDocumentPicture_Test, nil);
+  PublishOp(en_ExternalObject, op_Open, ExternalObject_Open_Execute, ExternalObject_Open_Test, nil);
+  PublishOp(en_ExternalObject, op_Save, ExternalObject_Save_Execute, ExternalObject_Save_Test, nil);
+  PublishOp(en_WarnRedaction, op_OpenActualRedaction, WarnRedaction_OpenActualRedaction_Execute, WarnRedaction_OpenActualRedaction_Test, nil, true);
+  PublishOp(en_WarnTimeMachine, op_ShowInfo, WarnTimeMachine_ShowInfo_Execute, WarnTimeMachine_ShowInfo_Test, WarnTimeMachine_ShowInfo_GetState);
+  PublishOp(en_WarnTimeMachine, op_TimeMachineOnOffNew, WarnTimeMachine_TimeMachineOnOffNew_Execute, WarnTimeMachine_TimeMachineOnOffNew_Test, WarnTimeMachine_TimeMachineOnOffNew_GetState);
+  PublishOp(en_WarnJuror, op_ShowInfo, WarnJuror_ShowInfo_Execute, WarnJuror_ShowInfo_Test, WarnJuror_ShowInfo_GetState, true);
+  PublishOp(en_WarnOnControl, op_ShowChanges, WarnOnControl_ShowChanges_Execute, WarnOnControl_ShowChanges_Test, nil);
+  PublishOp(en_WarnOnControl, op_ClearStatus, WarnOnControl_ClearStatus_Execute, WarnOnControl_ClearStatus_Test, nil);
+  PublishOp(en_BookmarkIcon, op_Delete, BookmarkIcon_Delete_Execute, BookmarkIcon_Delete_Test, nil);
+  PublishOp(en_BookmarkIcon, op_Edit, BookmarkIcon_Edit_Execute, BookmarkIcon_Edit_Test, nil);
+  PublishOp(en_UserCommentIcon, op_Delete, UserCommentIcon_Delete_Execute, UserCommentIcon_Delete_Test, nil);
+  PublishOp(en_UserCommentIcon, op_HideShow, UserCommentIcon_HideShow_Execute, nil, UserCommentIcon_HideShow_GetState);
+  PublishOp(en_UserComment, op_Delete, UserComment_Delete_Execute, UserComment_Delete_Test, nil);
+  PublishOp(en_Text, op_AddUserComment, Text_AddUserComment_Execute, Text_AddUserComment_Test, nil);
+  PublishOp(en_Document, op_GetGraphicImage, Document_GetGraphicImage_Execute, Document_GetGraphicImage_Test, nil);
+  PublishOp(en_Document, op_DocumentSynchroOpenWindow, Document_DocumentSynchroOpenWindow_Execute, Document_DocumentSynchroOpenWindow_Test, nil, true);
+  PublishOp(en_Document, op_DocumentSynchroOpenNewWindow, Document_DocumentSynchroOpenNewWindow_Execute, Document_DocumentSynchroOpenNewWindow_Test, nil, true);
+  PublishOp(en_Document, op_DictListOpenFrmAct, Document_DictListOpenFrmAct_Execute, Document_DictListOpenFrmAct_Test, nil);
+  PublishOp(en_Document, op_GotoBookmark, Document_GotoBookmark_Execute, Document_GotoBookmark_Test, nil);
+  PublishOp(en_Document, op_LiteratureListForDictionary, Document_LiteratureListForDictionary_Execute, Document_LiteratureListForDictionary_Test, nil);
+  PublishOp(en_Text, op_EditBookmark, Text_EditBookmark_Execute, Text_EditBookmark_Test, nil);
+  PublishOp(en_Text, op_DeleteBookmark, Text_DeleteBookmark_Execute, Text_DeleteBookmark_Test, nil);
+  PublishOp(en_Text, op_AddBookmark, Text_AddBookmark_Execute, Text_AddBookmark_Test, nil);
+  PublishOp(en_Text, op_OpenNewWindow, Text_OpenNewWindow_Execute, Text_OpenNewWindow_Test, nil);
+  PublishOp(en_Document, op_OpenProducedDrugList, Document_OpenProducedDrugList_Execute, Document_OpenProducedDrugList_Test, nil);
+  PublishOp(en_Document, op_OpenSimilarDrugList, Document_OpenSimilarDrugList_Execute, Document_OpenSimilarDrugList_Test, nil);
+  PublishOp(en_Selection, op_InsertHyperlink, Selection_InsertHyperlink_Execute, Selection_InsertHyperlink_Test, Selection_InsertHyperlink_GetState, true);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
+  PublishOp(en_Document, op_OpenContentsFrmAct, Document_OpenContentsFrmAct_Execute, Document_OpenContentsFrmAct_Test, Document_OpenContentsFrmAct_GetState);
+  PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
+  PublishOp(en_UserCommentIcon, op_HideShow, UserCommentIcon_HideShow_Execute, nil, UserCommentIcon_HideShow_GetState);
+  PublishOp(en_TasksPanel, op_TimeMachineOnOff, TasksPanel_TimeMachineOnOff_Execute, TasksPanel_TimeMachineOnOff_Test, TasksPanel_TimeMachineOnOff_GetState);
+  PublishOp(en_WarnJuror, op_ShowInfo, WarnJuror_ShowInfo_Execute, WarnJuror_ShowInfo_Test, WarnJuror_ShowInfo_GetState, true);
+  PublishOp(en_WarnTimeMachine, op_ShowInfo, WarnTimeMachine_ShowInfo_Execute, WarnTimeMachine_ShowInfo_Test, WarnTimeMachine_ShowInfo_GetState);
+  PublishOp(en_WarnTimeMachine, op_TimeMachineOnOffNew, WarnTimeMachine_TimeMachineOnOffNew_Execute, WarnTimeMachine_TimeMachineOnOffNew_Test, WarnTimeMachine_TimeMachineOnOffNew_GetState);
+  PublishOp(en_WarnRedaction, op_ShowInfo, WarnRedaction_ShowInfo_Execute, WarnRedaction_ShowInfo_Test, WarnRedaction_ShowInfo_GetState, true);
+  PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
+  PublishOp(en_DocumentBlockHeader, op_UserCR1, DocumentBlockHeader_UserCR1_Execute, DocumentBlockHeader_UserCR1_Test, DocumentBlockHeader_UserCR1_GetState);
+  PublishOp(en_DocumentBlockHeader, op_UserCR2, DocumentBlockHeader_UserCR2_Execute, DocumentBlockHeader_UserCR2_Test, DocumentBlockHeader_UserCR2_GetState);
+  PublishOp(en_Text, op_AddToControl, Text_AddToControl_Execute, Text_AddToControl_Test, Text_AddToControl_GetState);
+  PublishOp(en_DocumentBlock, op_PrintPreview, DocumentBlock_PrintPreview_Execute, DocumentBlock_PrintPreview_Test, nil);
+  PublishOp(en_DocumentBlock, op_Select, DocumentBlock_Select_Execute, DocumentBlock_Select_Test, nil);
+  PublishOp(en_Document, op_ViewChangedFragments, Document_ViewChangedFragments_Execute, Document_ViewChangedFragments_Test, nil);
+  PublishOpWithResult(en_DocumentSubPanel, op_UpdateSubPanel, DocumentSubPanel_UpdateSubPanel, nil, nil);
+  PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
+  PublishOp(en_IntranetSourcePoint, op_GoToIntranet, IntranetSourcePoint_GoToIntranet_Execute, nil, nil);
+  PublishOp(en_Picture, op_Open, Picture_Open_Execute, Picture_Open_Test, nil);
+  PublishOp(en_Picture, op_OpenNewWindow, Picture_OpenNewWindow_Execute, Picture_OpenNewWindow_Test, nil);
+  PublishOpWithResult(en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, BaseSearchPresentationHolder_GetBaseSearchPresentation, nil, nil);
+  PublishOp(en_Text, op_SelectWord, Text_SelectWord_Execute, Text_SelectWord_Test, nil);
+  PublishOp(en_Text, op_SelectPara, Text_SelectPara_Execute, Text_SelectPara_Test, nil);
+  PublishOp(en_Picture, op_OpenNewTab, Picture_OpenNewTab_Execute, Picture_OpenNewTab_Test, nil);
+  PublishOpWithResult(en_Document, op_CommonDocumentOpenNewTab, Document_CommonDocumentOpenNewTab, nil, nil);
+  PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);
+ end;//with Entities.Entities
+end;//TExTextForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.MakeControls;
 begin
  inherited;
- f_Text.Parent := Self;
+ Text.Parent := Self;
 end;//TExTextForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 

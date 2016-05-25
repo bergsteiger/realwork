@@ -1,87 +1,54 @@
 unit QueryCard_Form;
+ {* Карточка запросов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/QueryCard_Form.pas"
-// Начат: 10.09.2009 21:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::CommonSearch::QueryCard
-//
-// Карточка запросов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\QueryCard_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "QueryCard" MUID: (4AA9393C0164)
+// Имя типа: "TenQueryCard"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Search_FormDefinitions_Controls,
-  PrimQueryCardOptions_Form,
-  evQueryCardEditor,
-  evTextSource,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimQueryCardOptions_Form
+ , Search_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
-  TenQueryCard = {final form} class(TPrimQueryCardOptionsForm, QueryCardFormDef)
-   {* Карточка запросов }
-  Entities : TvcmEntities;
-  end;//TenQueryCard
-
-  TQueryCardForm = TenQueryCard;
-{$IfEnd} //not Admin
+ TenQueryCard = {final} class(TPrimQueryCardOptionsForm, QueryCardFormDef)
+  {* Карточка запросов }
+   Entities : TvcmEntities;
+ end;//TenQueryCard
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , QueryCardKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  QueryCardKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-
-{$IfEnd} //not Admin
-
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация QueryCard
- TtfwClassRef.Register(TenQueryCard);
-{$IfEnd} //not Admin AND not NoScripts
-{$If not defined(Admin)}
-// Регистрация фабрики формы QueryCard
  fm_enQueryCard.SetFactory(TenQueryCard.Make);
-{$IfEnd} //not Admin
+ {* Регистрация фабрики формы QueryCard }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TenQueryCard);
+ {* Регистрация QueryCard }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

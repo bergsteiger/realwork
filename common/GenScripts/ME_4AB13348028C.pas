@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , DocNumberQuery_ut_DocNumberQuery_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , DocNumberQueryKeywordsPack
@@ -88,12 +88,12 @@ end;//TDocNumberQueryForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_DocNumberQueryCaption.Init;
+ {* Инициализация str_ut_DocNumberQueryCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDocNumberQueryForm);
  {* Регистрация DocNumberQuery }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_DocNumberQueryCaption.Init;
- {* Инициализация str_ut_DocNumberQueryCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

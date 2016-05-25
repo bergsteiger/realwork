@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , RegistrationForm_ut_RegistrationForm_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , RegistrationFormKeywordsPack
@@ -88,12 +88,12 @@ end;//TnsRegistrationForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_RegistrationFormCaption.Init;
+ {* Инициализация str_ut_RegistrationFormCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsRegistrationForm);
  {* Регистрация RegistrationForm }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_RegistrationFormCaption.Init;
- {* Инициализация str_ut_RegistrationFormCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

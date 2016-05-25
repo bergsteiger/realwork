@@ -13,7 +13,16 @@ interface
 uses
  l3IntfUses
  , CommonDictionInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -27,6 +36,10 @@ type
    {$If NOT Defined(NoVCM)}
    function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -56,6 +69,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimCommonDiction_utTips_UserType
  , PrimCommonDiction_utMedicDiction_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -103,6 +119,12 @@ begin
  Result := dsCommonDiction.IsDataAvailable;
 //#UC END# *55127A5401DE_497ED770029D_impl*
 end;//TPrimCommonDictionForm.IsAcceptable
+
+procedure TPrimCommonDictionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimCommonDictionForm.SignalDataSourceChanged
 
 procedure TPrimCommonDictionForm.MakeControls;
 begin

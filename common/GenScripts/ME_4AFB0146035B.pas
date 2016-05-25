@@ -18,13 +18,12 @@ uses
  , vtProportionalPanel
  , vtSizeablePanel
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Parent
-
- // Child
-
  TPrimAdminForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -48,6 +47,10 @@ type
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
+   property PropertyZone: TvtSizeablePanel
+    read f_PropertyZone;
+   property TreeZone: TvtPanel
+    read f_TreeZone;
  end;//TPrimAdminForm
 {$IfEnd} // Defined(Admin)
 
@@ -74,7 +77,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimAdmin_utAdmin_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}

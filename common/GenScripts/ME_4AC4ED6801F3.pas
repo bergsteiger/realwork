@@ -24,6 +24,9 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  , vtLabel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -45,6 +48,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -97,8 +105,14 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimGroupProperty_admCreateGroup_UserType
  , PrimGroupProperty_admRenameGroup_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -218,6 +232,21 @@ begin
 //#UC END# *4A8E8F2E0195_4AC4ED6801F3_impl*
 end;//TPrimGroupPropertyForm.InitControls
 
+procedure TPrimGroupPropertyForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimGroupPropertyForm.InitEntities
+
 procedure TPrimGroupPropertyForm.MakeControls;
 begin
  inherited;
@@ -253,6 +282,7 @@ begin
  f_Label1 := TvtLabel.Create(Self);
  f_Label1.Name := 'Label1';
  f_Label1.Parent := Self;
+ f_Label1.Caption := 'Имя группы';
 end;//TPrimGroupPropertyForm.MakeControls
 
 initialization

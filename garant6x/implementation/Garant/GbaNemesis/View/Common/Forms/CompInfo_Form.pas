@@ -1,111 +1,73 @@
 unit CompInfo_Form;
+ {* Информация о комплекте }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/CompInfo_Form.pas"
-// Начат: 24.08.2009 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Core::Common::View::Common::PrimF1Common::CompInfo
-//
-// Информация о комплекте
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "CompInfo" MUID: (4ABB769903BF)
+// Имя типа: "TenCompInfo"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  Common_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimCompInfo_Form,
-  CompInfo_ut_CompInfo_UserType,
-  nscTreeViewWithAdapterDragDrop,
-  vtPanel,
-  vtLabel,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimCompInfo_Form
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  TenCompInfo = {final form} class(TPrimCompInfoForm, CompInfoFormDef)
-   {* Информация о комплекте }
-  Entities : TvcmEntities;
+ TenCompInfo = {final} class(TPrimCompInfoForm, CompInfoFormDef)
+  {* Информация о комплекте }
+   Entities : TvcmEntities;
   protected
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
-  end;//TenCompInfo
-
-  TCompInfoForm = TenCompInfo;
-{$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//TenCompInfo
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , CompInfo_ut_CompInfo_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CompInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+;
+
+const
+ {* Локализуемые строки ut_CompInfoLocalConstants }
+ str_ut_CompInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CompInfoCaption'; rValue : 'Информация о комплекте');
+  {* Заголовок пользовательского типа "Информация о комплекте" }
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  CompInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-    { Локализуемые строки ut_CompInfoLocalConstants }
-   str_ut_CompInfoCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CompInfoCaption'; rValue : 'Информация о комплекте');
-    { Заголовок пользовательского типа "Информация о комплекте" }
-
-// start class TenCompInfo
-
+{$If NOT Defined(NoVCM)}
 procedure TenCompInfo.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_CompInfoName,
   str_ut_CompInfoCaption,
   str_ut_CompInfoCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -115,22 +77,18 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_CompInfoName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TenCompInfo.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация CompInfo
- TtfwClassRef.Register(TenCompInfo);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы CompInfo
- fm_enCompInfo.SetFactory(TenCompInfo.Make);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_CompInfoCaption
  str_ut_CompInfoCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ut_CompInfoCaption }
+ fm_enCompInfo.SetFactory(TenCompInfo.Make);
+ {* Регистрация фабрики формы CompInfo }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TenCompInfo);
+ {* Регистрация CompInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

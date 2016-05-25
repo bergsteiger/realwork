@@ -13,18 +13,21 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , vtLabel
  , vtGroupBox
  , vtButton
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmEntities
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -47,41 +50,30 @@ type
    Entities : TvcmEntities;
   private
    f_pbLogo: TPaintBox;
-    {* Поле для свойства pbLogo }
    f_ShellInfoLabel: TvtLabel;
-    {* Поле для свойства ShellInfoLabel }
    f_AdapterInfoLabel: TvtLabel;
-    {* Поле для свойства AdapterInfoLabel }
    f_UserCountLabel: TvtLabel;
-    {* Поле для свойства UserCountLabel }
    f_OwnerLabel: TvtLabel;
-    {* Поле для свойства OwnerLabel }
    f_ShellCaptionLabel: TvtLabel;
-    {* Поле для свойства ShellCaptionLabel }
+    {* Версия }
    f_OwnerCaptionLabel: TvtLabel;
-    {* Поле для свойства OwnerCaptionLabel }
+    {* Зарегистрированный пользователь копии }
    f_UserInfoGroupBox: TvtGroupBox;
-    {* Поле для свойства UserInfoGroupBox }
-   f_EMailCaptionLabel: TvtLabel;
-    {* Поле для свойства EMailCaptionLabel }
-   f_EMailLabel: TvtLabel;
-    {* Поле для свойства EMailLabel }
-   f_LoginCaptionLabel: TvtLabel;
-    {* Поле для свойства LoginCaptionLabel }
-   f_UserCaptionLabel: TvtLabel;
-    {* Поле для свойства UserCaptionLabel }
-   f_UserNameLabel: TvtLabel;
-    {* Поле для свойства UserNameLabel }
-   f_LoginLabel: TvtLabel;
-    {* Поле для свойства LoginLabel }
+    {* Учетная запись }
    f_CopyrightCaptionLabel: TvtLabel;
-    {* Поле для свойства CopyrightCaptionLabel }
+    {* (C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2016 }
    f_OkButton: TvtButton;
-    {* Поле для свойства OkButton }
    f_UserCountCaptionLabel: TvtLabel;
-    {* Поле для свойства UserCountCaptionLabel }
    f_AdapterCaptionLabel: TvtLabel;
-    {* Поле для свойства AdapterCaptionLabel }
+   f_EMailCaptionLabel: TvtLabel;
+    {* E-mail: }
+   f_EMailLabel: TvtLabel;
+   f_LoginCaptionLabel: TvtLabel;
+    {* Регистрационное имя: }
+   f_UserCaptionLabel: TvtLabel;
+    {* ФИО пользователя: }
+   f_UserNameLabel: TvtLabel;
+   f_LoginLabel: TvtLabel;
   private
    procedure UpdateInfoOnForm;
    procedure GetCurrentUserInfo;
@@ -125,6 +117,21 @@ type
     read f_UserCountCaptionLabel;
    property AdapterCaptionLabel: TvtLabel
     read f_AdapterCaptionLabel;
+   property EMailCaptionLabel: TvtLabel
+    read f_EMailCaptionLabel;
+    {* E-mail: }
+   property EMailLabel: TvtLabel
+    read f_EMailLabel;
+   property LoginCaptionLabel: TvtLabel
+    read f_LoginCaptionLabel;
+    {* Регистрационное имя: }
+   property UserCaptionLabel: TvtLabel
+    read f_UserCaptionLabel;
+    {* ФИО пользователя: }
+   property UserNameLabel: TvtLabel
+    read f_UserNameLabel;
+   property LoginLabel: TvtLabel
+    read f_LoginLabel;
  end;//TefAbout
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -157,10 +164,11 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , SecurityUnit
+ , Classes
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , About_ut_About_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , AboutKeywordsPack
@@ -617,24 +625,30 @@ begin
  f_ShellCaptionLabel := TvtLabel.Create(Self);
  f_ShellCaptionLabel.Name := 'ShellCaptionLabel';
  f_ShellCaptionLabel.Parent := Self;
+ f_ShellCaptionLabel.Caption := 'Версия';
  f_OwnerCaptionLabel := TvtLabel.Create(Self);
  f_OwnerCaptionLabel.Name := 'OwnerCaptionLabel';
  f_OwnerCaptionLabel.Parent := Self;
+ f_OwnerCaptionLabel.Caption := 'Зарегистрированный пользователь копии';
  f_UserInfoGroupBox := TvtGroupBox.Create(Self);
  f_UserInfoGroupBox.Name := 'UserInfoGroupBox';
  f_UserInfoGroupBox.Parent := Self;
+ f_UserInfoGroupBox.Caption := 'Учетная запись';
  f_EMailCaptionLabel := TvtLabel.Create(Self);
  f_EMailCaptionLabel.Name := 'EMailCaptionLabel';
  f_EMailCaptionLabel.Parent := UserInfoGroupBox;
+ f_EMailCaptionLabel.Caption := 'E-mail:';
  f_EMailLabel := TvtLabel.Create(Self);
  f_EMailLabel.Name := 'EMailLabel';
  f_EMailLabel.Parent := UserInfoGroupBox;
  f_LoginCaptionLabel := TvtLabel.Create(Self);
  f_LoginCaptionLabel.Name := 'LoginCaptionLabel';
  f_LoginCaptionLabel.Parent := UserInfoGroupBox;
+ f_LoginCaptionLabel.Caption := 'Регистрационное имя:';
  f_UserCaptionLabel := TvtLabel.Create(Self);
  f_UserCaptionLabel.Name := 'UserCaptionLabel';
  f_UserCaptionLabel.Parent := UserInfoGroupBox;
+ f_UserCaptionLabel.Caption := 'ФИО пользователя:';
  f_UserNameLabel := TvtLabel.Create(Self);
  f_UserNameLabel.Name := 'UserNameLabel';
  f_UserNameLabel.Parent := UserInfoGroupBox;
@@ -644,6 +658,7 @@ begin
  f_CopyrightCaptionLabel := TvtLabel.Create(Self);
  f_CopyrightCaptionLabel.Name := 'CopyrightCaptionLabel';
  f_CopyrightCaptionLabel.Parent := Self;
+ f_CopyrightCaptionLabel.Caption := '(C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2016';
  f_OkButton := TvtButton.Create(Self);
  f_OkButton.Name := 'OkButton';
  f_OkButton.Parent := Self;
@@ -656,14 +671,14 @@ begin
 end;//TefAbout.MakeControls
 
 initialization
+ str_ut_AboutCaption.Init;
+ {* Инициализация str_ut_AboutCaption }
+ fm_efAbout.SetFactory(TefAbout.Make);
+ {* Регистрация фабрики формы About }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefAbout);
  {* Регистрация About }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efAbout.SetFactory(TefAbout.Make);
- {* Регистрация фабрики формы About }
- str_ut_AboutCaption.Init;
- {* Инициализация str_ut_AboutCaption }
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

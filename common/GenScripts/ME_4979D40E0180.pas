@@ -33,7 +33,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -113,6 +119,15 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -138,6 +153,10 @@ type
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property WordsTree: TnscTreeViewWithAdapterDragDrop
+    read f_WordsTree;
  end;//TPrimDictionForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -148,9 +167,6 @@ uses
  l3ImplUses
  , l3StringIDEx
  , BaseTypesUnit
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3String
  , DictionRes
  , nsUtils
@@ -172,6 +188,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimDiction_utDiction_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -798,6 +817,29 @@ begin
  f_ContextMap := nil;
  inherited;
 end;//TPrimDictionForm.ClearFields
+
+procedure TPrimDictionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimDictionForm.SignalDataSourceChanged
+
+procedure TPrimDictionForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Lang, nil);
+  PublishOp(en_Lang, op_Russian, Lang_Russian_Execute, Lang_Russian_Test, nil);
+  PublishOp(en_Lang, op_English, Lang_English_Execute, Lang_English_Test, nil);
+  PublishOp(en_Lang, op_French, Lang_French_Execute, Lang_French_Test, nil);
+  PublishOp(en_Lang, op_Deutch, Lang_Deutch_Execute, Lang_Deutch_Test, nil);
+  PublishOp(en_Lang, op_Italian, Lang_Italian_Execute, Lang_Italian_Test, nil);
+  PublishOp(en_Lang, op_Spanish, Lang_Spanish_Execute, Lang_Spanish_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimDictionForm.InitEntities
 
 procedure TPrimDictionForm.MakeControls;
 begin

@@ -78,8 +78,34 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
+  public
+   property hfReferencesAndDictionaries: TnscHideField
+    read f_hfReferencesAndDictionaries;
+    {* Справочники и словари }
+   property tvReferencesAndDictionaries: TnscTreeViewWithAdapterDragDrop
+    read f_tvReferencesAndDictionaries;
+   property hfReferencePharmaceuticalInformation: TnscHideField
+    read f_hfReferencePharmaceuticalInformation;
+    {* Справочная фармацевтическая информация }
+   property tvReferencePharmaceuticalInformation: TnscTreeViewWithAdapterDragDrop
+    read f_tvReferencePharmaceuticalInformation;
+   property hfMainFeatures: TnscHideField
+    read f_hfMainFeatures;
+    {* Основные возможности }
+   property tvMainFeatures: TnscTreeViewHotTruck
+    read f_tvMainFeatures;
+   property hfRegulatoryInformation: TnscHideField
+    read f_hfRegulatoryInformation;
+    {* Нормативная информация }
+   property tvRegulatoryInformation: TnscTreeViewWithAdapterDragDrop
+    read f_tvRegulatoryInformation;
  end;//TInpharmMainMenuForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -492,6 +518,15 @@ end;//TInpharmMainMenuForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 {$If NOT Defined(NoVCM)}
+procedure TInpharmMainMenuForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TInpharmMainMenuForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TInpharmMainMenuForm.MakeControls;
 begin
  inherited;
@@ -508,31 +543,34 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_mmmMainName
- f_pnlMain.Parent := Self;
- f_hfLastOpenDocs.Parent := pnlMain;
- f_hfLastOpenDocs.Caption := 'Последние открытые препараты';
- f_tvLastOpenDocs.Parent := hfLastOpenDocs;
+ pnlMain.Parent := Self;
+ hfLastOpenDocs.Parent := pnlMain;
+ tvLastOpenDocs.Parent := hfLastOpenDocs;
  f_hfReferencesAndDictionaries := TnscHideField.Create(Self);
  f_hfReferencesAndDictionaries.Name := 'hfReferencesAndDictionaries';
  f_hfReferencesAndDictionaries.Parent := pnlMain;
+ f_hfReferencesAndDictionaries.Caption := 'Справочники и словари';
  f_tvReferencesAndDictionaries := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_tvReferencesAndDictionaries.Name := 'tvReferencesAndDictionaries';
  f_tvReferencesAndDictionaries.Parent := hfReferencesAndDictionaries;
  f_hfReferencePharmaceuticalInformation := TnscHideField.Create(Self);
  f_hfReferencePharmaceuticalInformation.Name := 'hfReferencePharmaceuticalInformation';
  f_hfReferencePharmaceuticalInformation.Parent := pnlMain;
+ f_hfReferencePharmaceuticalInformation.Caption := 'Справочная фармацевтическая информация';
  f_tvReferencePharmaceuticalInformation := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_tvReferencePharmaceuticalInformation.Name := 'tvReferencePharmaceuticalInformation';
  f_tvReferencePharmaceuticalInformation.Parent := hfReferencePharmaceuticalInformation;
  f_hfMainFeatures := TnscHideField.Create(Self);
  f_hfMainFeatures.Name := 'hfMainFeatures';
  f_hfMainFeatures.Parent := pnlMain;
+ f_hfMainFeatures.Caption := 'Основные возможности';
  f_tvMainFeatures := TnscTreeViewHotTruck.Create(Self);
  f_tvMainFeatures.Name := 'tvMainFeatures';
  f_tvMainFeatures.Parent := hfMainFeatures;
  f_hfRegulatoryInformation := TnscHideField.Create(Self);
  f_hfRegulatoryInformation.Name := 'hfRegulatoryInformation';
  f_hfRegulatoryInformation.Parent := pnlMain;
+ f_hfRegulatoryInformation.Caption := 'Нормативная информация';
  f_tvRegulatoryInformation := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_tvRegulatoryInformation.Name := 'tvRegulatoryInformation';
  f_tvRegulatoryInformation.Parent := hfRegulatoryInformation;

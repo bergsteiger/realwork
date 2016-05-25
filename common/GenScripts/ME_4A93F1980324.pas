@@ -28,6 +28,9 @@ uses
  , ComCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -114,6 +117,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimProgressIndicator_utProgressIndicator_UserType
 ;
 

@@ -1,71 +1,48 @@
 unit SelectedAttributes_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/SelectedAttributes_Form.pas"
-// Начат: 15.09.2009 12:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::LiteSearch::SelectedAttributes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\SelectedAttributes_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "SelectedAttributes" MUID: (4AAF51FC0061)
+// Имя типа: "TenSelectedAttributes"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  PrimSelectedAttributesOptions_Form,
-  SearchLite_FormDefinitions_Controls,
-  nscTreeViewWithAdapterDragDrop,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ , PrimSelectedAttributesOptions_Form
+ , SearchLite_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
-  TenSelectedAttributes = {final form} class(TPrimSelectedAttributesOptionsForm, SelectedAttributesFormDef)
-  Entities : TvcmEntities;
-  end;//TenSelectedAttributes
-
-  TSelectedAttributesForm = TenSelectedAttributes;
+ TenSelectedAttributes = {final} class(TPrimSelectedAttributesOptionsForm, SelectedAttributesFormDef)
+   Entities : TvcmEntities;
+ end;//TenSelectedAttributes
 
 implementation
 
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SelectedAttributesKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  SelectedAttributesKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация SelectedAttributes
- TtfwClassRef.Register(TenSelectedAttributes);
-{$IfEnd} //not NoScripts
-// Регистрация фабрики формы SelectedAttributes
  fm_enSelectedAttributes.SetFactory(TenSelectedAttributes.Make);
+ {* Регистрация фабрики формы SelectedAttributes }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TenSelectedAttributes);
+ {* Регистрация SelectedAttributes }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

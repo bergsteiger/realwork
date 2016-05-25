@@ -38,11 +38,11 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enSelectedAttributes.SetFactory(TenSelectedAttributes.Make);
+ {* Регистрация фабрики формы SelectedAttributes }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenSelectedAttributes);
  {* Регистрация SelectedAttributes }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enSelectedAttributes.SetFactory(TenSelectedAttributes.Make);
- {* Регистрация фабрики формы SelectedAttributes }
 
 end.

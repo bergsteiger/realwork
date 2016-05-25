@@ -1,73 +1,49 @@
 unit AttributeSelect_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/AttributeSelect_Form.pas"
-// Начат: 15.09.2009 12:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::LiteSearch::AttributeSelect
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\AttributeSelect_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "AttributeSelect" MUID: (4AAF4F89035C)
+// Имя типа: "TcfAttributeSelect"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  PrimAttributeSelectOptions_Form,
-  SearchLite_FormDefinitions_Controls,
-  vtProportionalPanel,
-  vtSizeablePanel,
-  vtPanel,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ , PrimAttributeSelectOptions_Form
+ , SearchLite_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
-  TcfAttributeSelect = {final form} class(TPrimAttributeSelectOptionsForm, AttributeSelectFormDef)
-  Entities : TvcmEntities;
-  end;//TcfAttributeSelect
-
-  TAttributeSelectForm = TcfAttributeSelect;
+ TcfAttributeSelect = {final} class(TPrimAttributeSelectOptionsForm, AttributeSelectFormDef)
+   Entities : TvcmEntities;
+ end;//TcfAttributeSelect
 
 implementation
 
+uses
+ l3ImplUses
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AttributeSelectKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-uses
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  AttributeSelectKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация AttributeSelect
- TtfwClassRef.Register(TcfAttributeSelect);
-{$IfEnd} //not NoScripts
-// Регистрация фабрики формы AttributeSelect
  fm_cfAttributeSelect.SetFactory(TcfAttributeSelect.Make);
+ {* Регистрация фабрики формы AttributeSelect }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TcfAttributeSelect);
+ {* Регистрация AttributeSelect }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

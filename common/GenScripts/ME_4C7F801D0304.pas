@@ -56,8 +56,6 @@ const
   {* 'Машина времени включена' }
 
 type
- // RemindersLineZone
-
  TExTextOptionsForm = class(TExTextForm)
   private
    f_RemindersLine: TnscRemindersLine;
@@ -194,6 +192,11 @@ type
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -231,6 +234,24 @@ type
   public
    property RemindersLine: TnscRemindersLine
     read f_RemindersLine;
+   property WarnTimeMachineException: TnscReminder
+    read f_WarnTimeMachineException;
+   property WarnIsAbolished: TnscReminder
+    read f_WarnIsAbolished;
+   property WarnPreActive: TnscReminder
+    read f_WarnPreActive;
+   property WarnTimeMachineWarning: TnscReminder
+    read f_WarnTimeMachineWarning;
+   property WarnOnControl: TnscReminder
+    read f_WarnOnControl;
+   property WarnJuror: TnscReminder
+    read f_WarnJuror;
+   property WarnRedaction: TnscReminder
+    read f_WarnRedaction;
+   property WarnInactualDocument: TnscReminder
+    read f_WarnInactualDocument;
+   property WarnTimeMachineOn: TnscReminder
+    read f_WarnTimeMachineOn;
  end;//TExTextOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -329,6 +350,9 @@ uses
  , evCustomWikiReader
  , ParaList_Const
  , k2Tags
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -1945,6 +1969,37 @@ begin
   l_RH.ReleaseResources;
 //#UC END# *538C374A00B7_4C7F801D0304_impl*
 end;//TExTextOptionsForm.ReleaseResources
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TExTextOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Openable, nil);
+  PublishFormEntity(en_SubPanelSettings, nil);
+  PublishFormEntity(en_Reminder, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_SubsPanel, nil);
+  PublishOp(en_Openable, op_OpenInNewWindow, Openable_OpenInNewWindow_Execute, Openable_OpenInNewWindow_Test, nil);
+  PublishOp(en_SubPanelSettings, op_Show, SubPanelSettings_Show_Execute, SubPanelSettings_Show_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnJuror, Reminder_RemWarnJuror_Execute, Reminder_RemWarnJuror_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnTimeMachineOn, Reminder_RemWarnTimeMachineOn_Execute, Reminder_RemWarnTimeMachineOn_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnRedaction, Reminder_RemWarnRedaction_Execute, Reminder_RemWarnRedaction_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnOnControl, Reminder_RemWarnOnControl_Execute, Reminder_RemWarnOnControl_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnIsAbolished, Reminder_RemWarnIsAbolished_Execute, Reminder_RemWarnIsAbolished_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnTimeMachineException, Reminder_RemWarnTimeMachineException_Execute, Reminder_RemWarnTimeMachineException_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnPreActive, Reminder_RemWarnPreActive_Execute, Reminder_RemWarnPreActive_Test, nil);
+  PublishOp(en_Reminder, op_RemWarnTimeMachineWarning, Reminder_RemWarnTimeMachineWarning_Execute, Reminder_RemWarnTimeMachineWarning_Test, nil);
+  PublishOp(en_Reminder, op_ViewInactualDocument, Reminder_ViewInactualDocument_Execute, Reminder_ViewInactualDocument_Test, nil);
+  PublishOp(en_Document, op_ChangesButton, nil, Document_ChangesButton_Test, nil);
+  PublishOp(en_SubsPanel, op_CopySubNumber, SubsPanel_CopySubNumber_Execute, SubsPanel_CopySubNumber_Test, nil);
+  PublishOp(en_SubPanelSettings, op_ShowByShortCut, SubPanelSettings_ShowByShortCut_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TExTextOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

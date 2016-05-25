@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , TurnOffTimeMachine_ut_TurnOffTimeMachine_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , TurnOffTimeMachineKeywordsPack
@@ -88,12 +88,12 @@ end;//Ten_TurnOffTimeMachine.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_TurnOffTimeMachineCaption.Init;
+ {* Инициализация str_ut_TurnOffTimeMachineCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_TurnOffTimeMachine);
  {* Регистрация TurnOffTimeMachine }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_TurnOffTimeMachineCaption.Init;
- {* Инициализация str_ut_TurnOffTimeMachineCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

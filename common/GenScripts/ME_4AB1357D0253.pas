@@ -40,6 +40,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , AttributesKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -51,17 +54,17 @@ uses
 procedure TAttributesForm.MakeControls;
 begin
  inherited;
- f_tvAttributes.Parent := Self;
+ tvAttributes.Parent := Self;
 end;//TAttributesForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ fm_AttributesForm.SetFactory(TAttributesForm.Make);
+ {* Регистрация фабрики формы Attributes }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAttributesForm);
  {* Регистрация Attributes }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_AttributesForm.SetFactory(TAttributesForm.Make);
- {* Регистрация фабрики формы Attributes }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

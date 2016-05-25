@@ -17,7 +17,13 @@ uses
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
  , WorkWithListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -40,6 +46,10 @@ type
    {$If NOT Defined(NoVCM)}
    procedure BecomeActive; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimListAnalizeForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -55,6 +65,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -112,6 +125,12 @@ begin
  // TdmStdRes.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
 //#UC END# *4A8AE0FA03B2_4E369558035D_impl*
 end;//TPrimListAnalizeForm.BecomeActive
+
+procedure TPrimListAnalizeForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimListAnalizeForm.SignalDataSourceChanged
 
 initialization
 {$If NOT Defined(NoScripts)}

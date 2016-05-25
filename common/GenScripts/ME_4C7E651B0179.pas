@@ -27,6 +27,9 @@ uses
  , nsTypes
  , FoldersDomainInterfaces
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -59,6 +62,11 @@ type
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
@@ -177,6 +185,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimFoldersTreeOptionsForm.IsInSaveLoadState: Boolean;
@@ -1358,6 +1369,48 @@ begin
  f_FilterMap := nil;
  inherited;
 end;//TPrimFoldersTreeOptionsForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersTreeOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_SavedQuery, nil);
+  PublishFormEntity(en_Folders, nil);
+  PublishFormEntity(en_Folder, nil);
+  PublishFormEntity(en_FolderElement, nil);
+  PublishFormEntity(en_Consultation, nil);
+  PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+  PublishOp(en_SavedQuery, op_OpenQuery, SavedQuery_OpenQuery_Execute, SavedQuery_OpenQuery_Test, nil);
+  PublishOp(en_SavedQuery, op_ExecuteQuery, SavedQuery_ExecuteQuery_Execute, SavedQuery_ExecuteQuery_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+  PublishOp(en_Folders, op_Filtrate, Folders_Filtrate_Execute, Folders_Filtrate_Test, nil);
+  PublishOp(en_Folder, op_New, Folder_New_Execute, Folder_New_Test, nil);
+  PublishOp(en_Folder, op_AddToControl, Folder_AddToControl_Execute, Folder_AddToControl_Test, nil);
+  PublishOp(en_Folder, op_DelFromControl, Folder_DelFromControl_Execute, Folder_DelFromControl_Test, nil);
+  PublishOp(en_Folder, op_SetShare, Folder_SetShare_Execute, Folder_SetShare_Test, nil);
+  PublishOp(en_Folder, op_ExportToXML, Folder_ExportToXML_Execute, Folder_ExportToXML_Test, nil);
+  PublishOp(en_Folder, op_ImportFromXML, Folder_ImportFromXML_Execute, Folder_ImportFromXML_Test, nil);
+  PublishOp(en_FolderElement, op_Edit, FolderElement_Edit_Execute, FolderElement_Edit_Test, nil);
+  PublishOp(en_FolderElement, op_EditExt, FolderElement_EditExt_Execute, FolderElement_EditExt_Test, nil);
+  PublishOp(en_FolderElement, op_Open, FolderElement_Open_Execute, FolderElement_Open_Test, nil);
+  PublishOp(en_FolderElement, op_OpenNewWindow, FolderElement_OpenNewWindow_Execute, FolderElement_OpenNewWindow_Test, nil);
+  PublishOp(en_FolderElement, op_ControlStatus, FolderElement_ControlStatus_Execute, FolderElement_ControlStatus_Test, nil);
+  PublishOp(en_FolderElement, op_ExportForIntegration, FolderElement_ExportForIntegration_Execute, FolderElement_ExportForIntegration_Test, nil);
+  PublishOp(en_Consultation, op_Open, Consultation_Open_Execute, Consultation_Open_Test, nil);
+  PublishOp(en_Consultation, op_GiveMark, Consultation_GiveMark_Execute, Consultation_GiveMark_Test, nil);
+  PublishOp(en_Consultation, op_ShowConsultationInfo, Consultation_ShowConsultationInfo_Execute, Consultation_ShowConsultationInfo_Test, nil);
+  PublishOp(en_Consultation, op_ImportConsultation, Consultation_ImportConsultation_Execute, Consultation_ImportConsultation_Test, nil);
+  PublishOp(en_SavedQuery, op_CreateFilter, SavedQuery_CreateFilter_Execute, SavedQuery_CreateFilter_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimFoldersTreeOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

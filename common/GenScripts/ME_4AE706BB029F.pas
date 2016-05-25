@@ -36,6 +36,12 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , FoldersUnit
  , BaseTypesUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -131,12 +137,17 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    function FolderElement_GetState_Execute: TFoldersInfoType;
     {* Возвращает статус элемента }
-   procedure FolderElement_GetState(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_GetState(const aParams: IvcmExecuteParams);
     {* Возвращает статус элемента }
    procedure FolderElement_SetLoadInfo_Execute(const aForm: IvcmEntityForm;
     const aFolderFilterInfo: InsFolderFilterInfo;
@@ -144,35 +155,35 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation);
     {* Устанавливает параметры элемента }
-   procedure FolderElement_SetLoadInfo(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetLoadInfo(const aParams: IvcmExecuteParams);
     {* Устанавливает параметры элемента }
    procedure FolderElement_SetContent_Execute(const aNode: IeeNode;
     aIsNewFolder: Boolean = False);
     {* SetContent }
-   procedure FolderElement_SetContent(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetContent(const aParams: IvcmExecuteParams);
     {* SetContent }
    procedure FolderElement_SetSaveInfo_Execute(const aForm: IvcmEntityForm;
     const aFilterInfo: InsFolderFilterInfo;
     anElementType: TFoldersElementType;
     const anEntity: IEntityBase;
     aSaveAs: Boolean);
-   procedure FolderElement_SetSaveInfo(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetSaveInfo(const aParams: IvcmExecuteParams);
    procedure FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
-   procedure FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetState(const aParams: IvcmExecuteParams);
    procedure UsersRights_UpdateRights_Execute(const aNode: IeeNode);
-   procedure UsersRights_UpdateRights(const aParams: IvcmExecuteParamsPrim);
+   procedure UsersRights_UpdateRights(const aParams: IvcmExecuteParams);
    procedure FolderElement_ResetModificationOnDelete_Execute(const aNode: IeeNode);
-   procedure FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParams);
    procedure FolderElement_SetFocus_Execute;
-   procedure FolderElement_SetFocus(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_SetFocus(const aParams: IvcmExecuteParams);
    procedure FolderElement_Redraw_Execute;
-   procedure FolderElement_Redraw(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_Redraw(const aParams: IvcmExecuteParams);
    procedure Result_ExternalOk_Execute;
-   procedure Result_ExternalOk(const aParams: IvcmExecuteParamsPrim);
+   procedure Result_ExternalOk(const aParams: IvcmExecuteParams);
    procedure UsersRights_FolderShareChanged_Execute;
-   procedure UsersRights_FolderShareChanged(const aParams: IvcmExecuteParamsPrim);
+   procedure UsersRights_FolderShareChanged(const aParams: IvcmExecuteParams);
    procedure FolderElement_DisableSecurityPage_Execute;
-   procedure FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParamsPrim);
+   procedure FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
@@ -185,6 +196,23 @@ type
    property InfoName: TvtLabel
     read f_InfoName;
     {* Название }
+   property ElementComment: TeeMemoWithEditOperations
+    read f_ElementComment;
+   property CaptionPanel: TvtPanel
+    read f_CaptionPanel;
+   property lblComment: TvtLabel
+    read f_lblComment;
+    {* Примечание: }
+   property NamePanel: TvtPanel
+    read f_NamePanel;
+   property lblElementName: TvtLabel
+    read f_lblElementName;
+    {* Имя: }
+   property ElementName: TnscComboBoxWithReadOnly
+    read f_ElementName;
+   property cbShared: TvtCheckBox
+    read f_cbShared;
+    {* Общий доступ }
  end;//TPrimFoldersElementInfoForm
 
 const
@@ -230,6 +258,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimFoldersElementInfo_utFoldersProperty_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -901,7 +932,7 @@ begin
 //#UC END# *4AE7073F0388_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_GetState_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_GetState(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_GetState(const aParams: IvcmExecuteParams);
  {* Возвращает статус элемента }
 begin
  with (aParams.Data As IFolderElement_GetState_Params) do
@@ -935,7 +966,7 @@ begin
 //#UC END# *4AE74E1C007F_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo(const aParams: IvcmExecuteParams);
  {* Устанавливает параметры элемента }
 begin
  with (aParams.Data As IFolderElement_SetLoadInfo_Params) do
@@ -993,7 +1024,7 @@ begin
 //#UC END# *4AE85279013B_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_SetContent_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_SetContent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_SetContent(const aParams: IvcmExecuteParams);
  {* SetContent }
 begin
  with (aParams.Data As IFolderElement_SetContent_Params) do
@@ -1099,7 +1130,7 @@ begin
 //#UC END# *4AE857EF0085_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_SetSaveInfo_Params) do
   Self.FolderElement_SetSaveInfo_Execute(Form, FilterInfo, nElementType, nEntity, SaveAs);
@@ -1123,7 +1154,7 @@ begin
 //#UC END# *4AE9C01201BA_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_SetState_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_SetState_Params) do
   Self.FolderElement_SetState_Execute(InfoType);
@@ -1138,7 +1169,7 @@ begin
 //#UC END# *4AEEC5EA03DC_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights_Execute
 
-procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IUsersRights_UpdateRights_Params) do
   Self.UsersRights_UpdateRights_Execute(Node);
@@ -1157,7 +1188,7 @@ begin
 //#UC END# *4AEEC8810299_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_ResetModificationOnDelete_Params) do
   Self.FolderElement_ResetModificationOnDelete_Execute(Node);
@@ -1172,7 +1203,7 @@ begin
 //#UC END# *4AF46E0C017F_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_SetFocus_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_SetFocus(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_SetFocus(const aParams: IvcmExecuteParams);
 begin
  Self.FolderElement_SetFocus_Execute;
 end;//TPrimFoldersElementInfoForm.FolderElement_SetFocus
@@ -1195,7 +1226,7 @@ begin
 //#UC END# *4AF4727C0020_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_Redraw_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_Redraw(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_Redraw(const aParams: IvcmExecuteParams);
 begin
  Self.FolderElement_Redraw_Execute;
 end;//TPrimFoldersElementInfoForm.FolderElement_Redraw
@@ -1250,7 +1281,7 @@ begin
 //#UC END# *4AF4768A0372_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.Result_ExternalOk_Execute
 
-procedure TPrimFoldersElementInfoForm.Result_ExternalOk(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.Result_ExternalOk(const aParams: IvcmExecuteParams);
 begin
  Self.Result_ExternalOk_Execute;
 end;//TPrimFoldersElementInfoForm.Result_ExternalOk
@@ -1268,7 +1299,7 @@ begin
 //#UC END# *4AF4797100E8_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged_Execute
 
-procedure TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged(const aParams: IvcmExecuteParams);
 begin
  Self.UsersRights_FolderShareChanged_Execute;
 end;//TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged
@@ -1282,7 +1313,7 @@ begin
 //#UC END# *4AF814650325_4AE706BB029Fexec_impl*
 end;//TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage_Execute
 
-procedure TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParams);
 begin
  Self.FolderElement_DisableSecurityPage_Execute;
 end;//TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage
@@ -1445,6 +1476,31 @@ begin
  inherited;
 end;//TPrimFoldersElementInfoForm.ClearFields
 
+procedure TPrimFoldersElementInfoForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_FolderElement, nil);
+  PublishFormEntity(en_UsersRights, nil);
+  PublishFormEntity(en_Result, nil);
+  PublishOpWithResult(en_FolderElement, op_GetState, FolderElement_GetState, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_SetLoadInfo, FolderElement_SetLoadInfo, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_SetContent, FolderElement_SetContent, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_SetSaveInfo, FolderElement_SetSaveInfo, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_SetState, FolderElement_SetState, nil, nil);
+  PublishOpWithResult(en_UsersRights, op_UpdateRights, UsersRights_UpdateRights, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_ResetModificationOnDelete, FolderElement_ResetModificationOnDelete, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_SetFocus, FolderElement_SetFocus, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_Redraw, FolderElement_Redraw, nil, nil);
+  PublishOpWithResult(en_Result, op_ExternalOk, Result_ExternalOk, nil, nil);
+  PublishOpWithResult(en_UsersRights, op_FolderShareChanged, UsersRights_FolderShareChanged, nil, nil);
+  PublishOpWithResult(en_FolderElement, op_DisableSecurityPage, FolderElement_DisableSecurityPage, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimFoldersElementInfoForm.InitEntities
+
 procedure TPrimFoldersElementInfoForm.MakeControls;
 begin
  inherited;
@@ -1473,6 +1529,7 @@ begin
  f_lblComment := TvtLabel.Create(Self);
  f_lblComment.Name := 'lblComment';
  f_lblComment.Parent := CaptionPanel;
+ f_lblComment.Caption := 'Примечание:';
  f_TopPanel := TvtPanel.Create(Self);
  f_TopPanel.Name := 'TopPanel';
  f_TopPanel.Parent := Self;
@@ -1482,15 +1539,18 @@ begin
  f_lblElementName := TvtLabel.Create(Self);
  f_lblElementName.Name := 'lblElementName';
  f_lblElementName.Parent := NamePanel;
+ f_lblElementName.Caption := 'Имя:';
  f_ElementName := TnscComboBoxWithReadOnly.Create(Self);
  f_ElementName.Name := 'ElementName';
  f_ElementName.Parent := NamePanel;
  f_cbShared := TvtCheckBox.Create(Self);
  f_cbShared.Name := 'cbShared';
  f_cbShared.Parent := NamePanel;
+ f_cbShared.Caption := 'Общий доступ';
  f_InfoName := TvtLabel.Create(Self);
  f_InfoName.Name := 'InfoName';
  f_InfoName.Parent := Self;
+ f_InfoName.Caption := 'Название';
 end;//TPrimFoldersElementInfoForm.MakeControls
 
 initialization

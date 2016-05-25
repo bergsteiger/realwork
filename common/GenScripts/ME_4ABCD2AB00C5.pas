@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enFoldersElementInfo.SetFactory(TenFoldersElementInfo.Make);
+ {* Регистрация фабрики формы FoldersElementInfo }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenFoldersElementInfo);
  {* Регистрация FoldersElementInfo }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enFoldersElementInfo.SetFactory(TenFoldersElementInfo.Make);
- {* Регистрация фабрики формы FoldersElementInfo }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

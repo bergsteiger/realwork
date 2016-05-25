@@ -1,103 +1,69 @@
 unit PictureInfo_Form;
+ {* Информация о картинке }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/PictureInfo_Form.pas"
-// Начат: 11 июля 2007
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Работа с документом и списком документов::Document::View::Document::Document::PictureInfo
-//
-// Информация о картинке
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "PictureInfo" MUID: (4AB12FA70146)
+// Имя типа: "Ten_PictureInfo"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  PrimPictureInfoOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PictureInfo_ut_PictureInfo_UserType,
-  eeMemoWithEditOperations,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimPictureInfoOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Ten_PictureInfo = {final form} class(TPrimPictureInfoOptionsForm)
-   {* Информация о картинке }
-  Entities : TvcmEntities;
+ Ten_PictureInfo = {final} class(TPrimPictureInfoOptionsForm)
+  {* Информация о картинке }
+   Entities : TvcmEntities;
   protected
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
-  end;//Ten_PictureInfo
-
-  TPictureInfoForm = Ten_PictureInfo;
-{$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//Ten_PictureInfo
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PictureInfo_ut_PictureInfo_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PictureInfoKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
+const
+ {* Локализуемые строки ut_PictureInfoLocalConstants }
+ str_ut_PictureInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PictureInfoCaption'; rValue : 'Информация о картинке');
+  {* Заголовок пользовательского типа "Информация о картинке" }
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  PictureInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-    { Локализуемые строки ut_PictureInfoLocalConstants }
-   str_ut_PictureInfoCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PictureInfoCaption'; rValue : 'Информация о картинке');
-    { Заголовок пользовательского типа "Информация о картинке" }
-
-// start class Ten_PictureInfo
-
+{$If NOT Defined(NoVCM)}
 procedure Ten_PictureInfo.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_PictureInfoName,
   str_ut_PictureInfoCaption,
   str_ut_PictureInfoCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -107,18 +73,16 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_PictureInfoName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//Ten_PictureInfo.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PictureInfo
- TtfwClassRef.Register(Ten_PictureInfo);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_PictureInfoCaption
  str_ut_PictureInfoCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ut_PictureInfoCaption }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_PictureInfo);
+ {* Регистрация PictureInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

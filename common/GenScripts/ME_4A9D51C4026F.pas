@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ContentsForm.SetFactory(TContentsForm.Make);
+ {* Регистрация фабрики формы Contents }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TContentsForm);
  {* Регистрация Contents }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ContentsForm.SetFactory(TContentsForm.Make);
- {* Регистрация фабрики формы Contents }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

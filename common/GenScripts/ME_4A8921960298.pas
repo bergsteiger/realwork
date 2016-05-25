@@ -48,12 +48,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efList.SetFactory(TefList.Make);
+ {* Регистрация фабрики формы List }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefList);
  {* Регистрация List }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efList.SetFactory(TefList.Make);
- {* Регистрация фабрики формы List }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

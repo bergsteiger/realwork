@@ -25,6 +25,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -63,6 +69,10 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -74,6 +84,19 @@ type
    property gbInfo: TvtGroupBox
     read f_gbInfo;
     {* Администратор системы }
+   property lblPhone: TvtLabel
+    read f_lblPhone;
+    {* Телефон }
+   property lblEmail: TvtLabel
+    read f_lblEmail;
+    {* E-mail }
+   property lblHint: TvtLabel
+    read f_lblHint;
+    {* (Заполнение одного из полей обязательно) }
+   property cbPhone: TnscEdit
+    read f_cbPhone;
+   property cbEmail: TnscEdit
+    read f_cbEmail;
  end;//TPrimForbidAutoregistrationForm
 {$IfEnd} // Defined(Admin)
 
@@ -93,6 +116,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -206,24 +232,35 @@ begin
 //#UC END# *4A8E8F2E0195_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.InitControls
 
+procedure TPrimForbidAutoregistrationForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimForbidAutoregistrationForm.SignalDataSourceChanged
+
 procedure TPrimForbidAutoregistrationForm.MakeControls;
 begin
  inherited;
  f_lblReference := TvtLabel.Create(Self);
  f_lblReference.Name := 'lblReference';
  f_lblReference.Parent := Self;
+ f_lblReference.Caption := 'Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ.';
  f_gbInfo := TvtGroupBox.Create(Self);
  f_gbInfo.Name := 'gbInfo';
  f_gbInfo.Parent := Self;
+ f_gbInfo.Caption := 'Администратор системы';
  f_lblPhone := TvtLabel.Create(Self);
  f_lblPhone.Name := 'lblPhone';
  f_lblPhone.Parent := gbInfo;
+ f_lblPhone.Caption := 'Телефон';
  f_lblEmail := TvtLabel.Create(Self);
  f_lblEmail.Name := 'lblEmail';
  f_lblEmail.Parent := gbInfo;
+ f_lblEmail.Caption := 'E-mail';
  f_lblHint := TvtLabel.Create(Self);
  f_lblHint.Name := 'lblHint';
  f_lblHint.Parent := gbInfo;
+ f_lblHint.Caption := '(Заполнение одного из полей обязательно)';
  f_cbPhone := TnscEdit.Create(Self);
  f_cbPhone.Name := 'cbPhone';
  f_cbPhone.Parent := gbInfo;

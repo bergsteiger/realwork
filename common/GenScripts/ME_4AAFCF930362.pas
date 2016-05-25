@@ -71,12 +71,12 @@ uses
 //#UC END# *4AAFCF930362impl*
 
 initialization
+ fm_PictureForm.SetFactory(TPictureForm.Make);
+ {* Регистрация фабрики формы Picture }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPictureForm);
  {* Регистрация Picture }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_PictureForm.SetFactory(TPictureForm.Make);
- {* Регистрация фабрики формы Picture }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

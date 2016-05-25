@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enQueryCard.SetFactory(TenQueryCard.Make);
+ {* Регистрация фабрики формы QueryCard }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenQueryCard);
  {* Регистрация QueryCard }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enQueryCard.SetFactory(TenQueryCard.Make);
- {* Регистрация фабрики формы QueryCard }
 {$IfEnd} // NOT Defined(Admin)
 
 end.

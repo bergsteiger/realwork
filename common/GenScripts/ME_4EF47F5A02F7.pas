@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_UserCR2_WarningBaloonForm.SetFactory(TUserCR2_WarningBaloonForm.Make);
+ {* Регистрация фабрики формы UserCR2_WarningBaloon }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TUserCR2_WarningBaloonForm);
  {* Регистрация UserCR2_WarningBaloon }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_UserCR2_WarningBaloonForm.SetFactory(TUserCR2_WarningBaloonForm.Make);
- {* Регистрация фабрики формы UserCR2_WarningBaloon }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

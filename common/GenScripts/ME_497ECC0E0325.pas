@@ -169,48 +169,57 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AttributeTree_ExternalCharPressed_Execute(const aChar: Il3CString);
-   procedure AttributeTree_ExternalCharPressed(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_ExternalCharPressed(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SetCurrent_Execute(const aNode: Il3SimpleNode;
     aExpand: Boolean = False);
-   procedure AttributeTree_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetCurrent(const aParams: IvcmExecuteParams);
    procedure AttributeTree_DropAllLogicSelection_Execute(aDropSelection: Boolean;
     aNotifyMultipleChanges: Boolean = False;
     SetToTop: Boolean = True);
-   procedure AttributeTree_DropAllLogicSelection(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_DropAllLogicSelection(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQueryEmpty_Execute: Boolean;
-   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SaveToQuery_Execute(const aQuery: IQuery);
-   procedure AttributeTree_SaveToQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SaveToQuery(const aParams: IvcmExecuteParams);
    procedure AttributeTree_Invalidate_Execute(aUserType: Integer);
-   procedure AttributeTree_Invalidate(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_Invalidate(const aParams: IvcmExecuteParams);
    procedure Attribute_DefaultAction_Execute(anIndex: Integer = -1);
-   procedure Attribute_DefaultAction(const aParams: IvcmExecuteParamsPrim);
+   procedure Attribute_DefaultAction(const aParams: IvcmExecuteParams);
    procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
-   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
    procedure AttributeTree_DropLogicSelection_Execute(const aNode: INodeBase);
-   procedure AttributeTree_DropLogicSelection(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_DropLogicSelection(const aParams: IvcmExecuteParams);
    procedure AttributeTree_LoadQuery_Execute(const aQuery: IQuery);
-   procedure AttributeTree_LoadQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_LoadQuery(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SetOneLevelCurrent_Execute(const aNode: Il3SimpleNode);
-   procedure AttributeTree_SetOneLevelCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetOneLevelCurrent(const aParams: IvcmExecuteParams);
    procedure Context_SetContext_Execute(const aState: InscContextFilterState);
-   procedure Context_SetContext(const aParams: IvcmExecuteParamsPrim);
+   procedure Context_SetContext(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
-   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
    procedure AttributeTree_ChangeRoot_Execute(const aTag: Il3CString;
     const aRoot: Il3SimpleNode;
     const aCurrent: Il3SimpleNode);
-   procedure AttributeTree_ChangeRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_ChangeRoot(const aParams: IvcmExecuteParams);
    procedure Context_SyncContextParams_Execute(aAdditionalFilter: TnsFilterType);
-   procedure Context_SyncContextParams(const aParams: IvcmExecuteParamsPrim);
+   procedure Context_SyncContextParams(const aParams: IvcmExecuteParams);
    procedure AttributeTree_AddNodeIfEmpty_Execute;
-   procedure AttributeTree_AddNodeIfEmpty(const aParams: IvcmExecuteParamsPrim);
+   procedure AttributeTree_AddNodeIfEmpty(const aParams: IvcmExecuteParams);
    procedure SearchParameters_ClearQuery_Execute;
-   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
    procedure Folder_FindFirstSelected_Test(const aParams: IvcmTestParamsPrim);
    procedure Folder_FindFirstSelected_Execute(const aParams: IvcmExecuteParamsPrim);
    {$If NOT Defined(NoVCM)}
@@ -226,6 +235,10 @@ type
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property AttributeTree: TnscTreeViewHotTruck
+    read f_AttributeTree;
  end;//TPrimTreeAttributeSelectForm
 
 implementation
@@ -1381,7 +1394,7 @@ begin
 //#UC END# *4AE831FA00F9_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_ExternalCharPressed_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_ExternalCharPressed(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_ExternalCharPressed(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_ExternalCharPressed_Params) do
   Self.AttributeTree_ExternalCharPressed_Execute(Char);
@@ -1398,7 +1411,7 @@ begin
 //#UC END# *4AE8703B02A2_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SetCurrent_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetCurrent_Params) do
   Self.AttributeTree_SetCurrent_Execute(Node, Expand);
@@ -1425,7 +1438,7 @@ begin
 //#UC END# *4AE870DD01D0_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_DropAllLogicSelection_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_DropAllLogicSelection(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_DropAllLogicSelection(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_DropAllLogicSelection_Params) do
   Self.AttributeTree_DropAllLogicSelection_Execute(DropSelection, NotifyMultipleChanges, SetToTop);
@@ -1445,7 +1458,7 @@ begin
 //#UC END# *4AE879D00143_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.SearchParameters_IsQueryEmpty_Execute
 
-procedure TPrimTreeAttributeSelectForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
   ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
@@ -1461,7 +1474,7 @@ begin
 //#UC END# *4AE8913D00A7_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SaveToQuery_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_SaveToQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_SaveToQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SaveToQuery_Params) do
   Self.AttributeTree_SaveToQuery_Execute(Query);
@@ -1478,7 +1491,7 @@ begin
 //#UC END# *4AEAE67802ED_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_Invalidate_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_Invalidate(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_Invalidate(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_Invalidate_Params) do
   Self.AttributeTree_Invalidate_Execute(UserType);
@@ -1493,7 +1506,7 @@ begin
 //#UC END# *4AEAEABF034E_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.Attribute_DefaultAction_Execute
 
-procedure TPrimTreeAttributeSelectForm.Attribute_DefaultAction(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.Attribute_DefaultAction(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttribute_DefaultAction_Params) do
   Self.Attribute_DefaultAction_Execute(nIndex);
@@ -1518,7 +1531,7 @@ begin
 //#UC END# *4AEF213001F0_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.SearchParameters_SetQuery_Execute
 
-procedure TPrimTreeAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_SetQuery_Params) do
   Self.SearchParameters_SetQuery_Execute(Query);
@@ -1538,7 +1551,7 @@ begin
 //#UC END# *4AEF38310030_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_DropLogicSelection_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_DropLogicSelection(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_DropLogicSelection(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_DropLogicSelection_Params) do
   Self.AttributeTree_DropLogicSelection_Execute(Node);
@@ -1564,7 +1577,7 @@ begin
 //#UC END# *4AEF3857010A_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_LoadQuery_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_LoadQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_LoadQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_LoadQuery_Params) do
   Self.AttributeTree_LoadQuery_Execute(Query);
@@ -1581,7 +1594,7 @@ begin
 //#UC END# *4AEF3871010E_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SetOneLevelCurrent_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_SetOneLevelCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_SetOneLevelCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetOneLevelCurrent_Params) do
   Self.AttributeTree_SetOneLevelCurrent_Execute(Node);
@@ -1612,7 +1625,7 @@ begin
 //#UC END# *4AEF38920247_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.Context_SetContext_Execute
 
-procedure TPrimTreeAttributeSelectForm.Context_SetContext(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.Context_SetContext(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContext_SetContext_Params) do
   Self.Context_SetContext_Execute(State);
@@ -1641,7 +1654,7 @@ begin
 //#UC END# *4AF3EBC001C4_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SetRoot_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
   Self.AttributeTree_SetRoot_Execute(Tag);
@@ -1677,7 +1690,7 @@ begin
 //#UC END# *4AF3FE7D0138_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_ChangeRoot_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_ChangeRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_ChangeRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_ChangeRoot_Params) do
   Self.AttributeTree_ChangeRoot_Execute(Tag, Root, Current);
@@ -1692,7 +1705,7 @@ begin
 //#UC END# *4AF40A0E01D3_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.Context_SyncContextParams_Execute
 
-procedure TPrimTreeAttributeSelectForm.Context_SyncContextParams(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.Context_SyncContextParams(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContext_SyncContextParams_Params) do
   Self.Context_SyncContextParams_Execute(AdditionalFilter);
@@ -1748,7 +1761,7 @@ begin
 //#UC END# *4AF8604B021E_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.AttributeTree_AddNodeIfEmpty_Execute
 
-procedure TPrimTreeAttributeSelectForm.AttributeTree_AddNodeIfEmpty(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.AttributeTree_AddNodeIfEmpty(const aParams: IvcmExecuteParams);
 begin
  Self.AttributeTree_AddNodeIfEmpty_Execute;
 end;//TPrimTreeAttributeSelectForm.AttributeTree_AddNodeIfEmpty
@@ -1762,7 +1775,7 @@ begin
 //#UC END# *4AF92B09017F_497ECC0E0325exec_impl*
 end;//TPrimTreeAttributeSelectForm.SearchParameters_ClearQuery_Execute
 
-procedure TPrimTreeAttributeSelectForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimTreeAttributeSelectForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameters_ClearQuery_Execute;
 end;//TPrimTreeAttributeSelectForm.SearchParameters_ClearQuery
@@ -1979,6 +1992,49 @@ begin
  end;//not IsOldSchoolNone
 //#UC END# *4D78E2BB0211_497ECC0E0325_impl*
 end;//TPrimTreeAttributeSelectForm.NotifyUserTypeSet
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimTreeAttributeSelectForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_AttributeTree, nil);
+  PublishFormEntity(en_SearchParameters, nil);
+  PublishFormEntity(en_Attribute, nil);
+  PublishFormEntity(en_Context, nil);
+  PublishFormEntity(en_Folder, nil);
+  PublishOpWithResult(en_AttributeTree, op_ExternalCharPressed, AttributeTree_ExternalCharPressed, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetCurrent, AttributeTree_SetCurrent, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_DropAllLogicSelection, AttributeTree_DropAllLogicSelection, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_IsQueryEmpty, SearchParameters_IsQueryEmpty, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_SaveToQuery, AttributeTree_SaveToQuery, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_Invalidate, AttributeTree_Invalidate, nil, nil);
+  PublishOpWithResult(en_Attribute, op_DefaultAction, Attribute_DefaultAction, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_SetQuery, SearchParameters_SetQuery, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_DropLogicSelection, AttributeTree_DropLogicSelection, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_LoadQuery, AttributeTree_LoadQuery, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetOneLevelCurrent, AttributeTree_SetOneLevelCurrent, nil, nil);
+  PublishOpWithResult(en_Context, op_SetContext, Context_SetContext, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_ChangeRoot, AttributeTree_ChangeRoot, nil, nil);
+  PublishOpWithResult(en_Context, op_SyncContextParams, Context_SyncContextParams, nil, nil);
+  PublishOpWithResult(en_AttributeTree, op_AddNodeIfEmpty, AttributeTree_AddNodeIfEmpty, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
+  PublishOp(en_Folder, op_FindFirstSelected, Folder_FindFirstSelected_Execute, Folder_FindFirstSelected_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimTreeAttributeSelectForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

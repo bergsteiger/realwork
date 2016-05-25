@@ -13,6 +13,11 @@
   protected
    sdsBaseDocument: IsdsBaseDocument;
     {* Базовый прецедент работы с документом }
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_BaseDocument_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -27,6 +32,14 @@ _BaseDocument_ = _BaseDocument_Parent_;
 {$Define BaseDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+procedure _BaseDocument_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//_BaseDocument_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf BaseDocument_imp_impl}
 

@@ -19,6 +19,10 @@
     {* Операция информация о документе. Выполнение }
    function OpenAttributesOpCanBeClosed: Boolean;
     {* возможность закрытия вкладки информация о документе }
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_CommonForTextAndFlashAndMedicFirmList_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -65,8 +69,16 @@ begin
            sdsBaseDocumentWithAttributes.dsAttributesRef.CanBeClosed;
 //#UC END# *4986FA1D003E_4986EB4D0179_impl*
 end;//_CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpCanBeClosed
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//_CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf CommonForTextAndFlashAndMedicFirmList_imp_impl}
 
 {$EndIf CommonForTextAndFlashAndMedicFirmList_imp}

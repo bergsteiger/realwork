@@ -90,6 +90,13 @@ type
     read f_tvComplectInfo;
    property pnBottom: TvtPanel
     read f_pnBottom;
+   property pnVisualRepresentationData: TvtPanel
+    read f_pnVisualRepresentationData;
+   property pnVisualRepresentationDataCaption: TvtPanel
+    read f_pnVisualRepresentationDataCaption;
+   property lblVisualRepresentationData: TvtLabel
+    read f_lblVisualRepresentationData;
+    {* Ваш комплект системы ГАРАНТ: }
  end;//TPrimCompInfoForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -128,6 +135,9 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -476,6 +486,7 @@ begin
  f_lblVisualRepresentationData := TvtLabel.Create(Self);
  f_lblVisualRepresentationData.Name := 'lblVisualRepresentationData';
  f_lblVisualRepresentationData.Parent := pnVisualRepresentationDataCaption;
+ f_lblVisualRepresentationData.Caption := 'Ваш комплект системы ГАРАНТ:';
 end;//TPrimCompInfoForm.MakeControls
 
 initialization

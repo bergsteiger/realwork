@@ -25,10 +25,19 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Common_Strange_Controls
  , Inpharm_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimMedicFirmListOptionsForm = class(TPrimMedicFirmListForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
     {* Добавить закладку }
@@ -62,6 +71,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 procedure TPrimMedicFirmListOptionsForm.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
@@ -219,6 +231,34 @@ begin
  end;
 //#UC END# *54A2AF9C0157_4C7E3A320074exec_impl*
 end;//TPrimMedicFirmListOptionsForm.Document_OpenInNewTab_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMedicFirmListOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_MedicFirmList, nil);
+  PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
+  PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
+  PublishOp(en_Document, op_OpenNewWindow, Document_OpenNewWindow_Execute, Document_OpenNewWindow_Test, nil);
+  PublishOp(en_Edit, op_Copy, nil, nil, nil);
+  PublishOp(en_MedicFirmList, op_CountryFilter, MedicFirmList_CountryFilter_Execute, MedicFirmList_CountryFilter_Test, nil);
+  PublishOp(en_Document, op_OpenInNewTab, Document_OpenInNewTab_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimMedicFirmListOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

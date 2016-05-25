@@ -1,246 +1,187 @@
 unit About_Form;
+ {* О программе }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/About_Form.pas"
-// Начат: 24.08.2009 20:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Core::Common::View::Common::PrimF1Common::About
-//
-// О программе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\About_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "About" MUID: (4ABB6F3F001B)
+// Имя типа: "TefAbout"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtGroupBox,
-  vtLabel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtButton,
-  About_ut_About_UserType,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtGroupBox
+ , vtButton
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { AboutIDs }
-   fm_efAbout : TvcmFormDescriptor = (rFormID : (rName : 'efAbout'; rID : 0); rFactory : nil);
-    { Идентификатор формы TefAbout }
+ fm_efAbout: TvcmFormDescriptor = (rFormID : (rName : 'efAbout'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TefAbout }
 
 type
- AboutFormDef = interface(IUnknown)
+ TefAbout = class;
+
+ AboutFormDef = interface
   {* Идентификатор формы About }
-   ['{F678B4F8-60D5-4B4F-AE77-F61D6A29D2F9}']
+  ['{F678B4F8-60D5-4B4F-AE77-F61D6A29D2F9}']
  end;//AboutFormDef
 
-  TefAbout = {final form} class(TvcmEntityForm, AboutFormDef)
-   {* О программе }
-  Entities : TvcmEntities;
+ TefAbout = {final} class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AboutFormDef)
+  {* О программе }
+   Entities : TvcmEntities;
   private
-  // private fields
-   f_pbLogo : TPaintBox;
-    {* Поле для свойства pbLogo}
-   f_ShellInfoLabel : TvtLabel;
-    {* Поле для свойства ShellInfoLabel}
-   f_AdapterInfoLabel : TvtLabel;
-    {* Поле для свойства AdapterInfoLabel}
-   f_UserCountLabel : TvtLabel;
-    {* Поле для свойства UserCountLabel}
-   f_OwnerLabel : TvtLabel;
-    {* Поле для свойства OwnerLabel}
-   f_ShellCaptionLabel : TvtLabel;
-    {* Поле для свойства ShellCaptionLabel}
-   f_OwnerCaptionLabel : TvtLabel;
-    {* Поле для свойства OwnerCaptionLabel}
-   f_UserInfoGroupBox : TvtGroupBox;
-    {* Поле для свойства UserInfoGroupBox}
-   f_EMailCaptionLabel : TvtLabel;
-    {* Поле для свойства EMailCaptionLabel}
-   f_EMailLabel : TvtLabel;
-    {* Поле для свойства EMailLabel}
-   f_LoginCaptionLabel : TvtLabel;
-    {* Поле для свойства LoginCaptionLabel}
-   f_UserCaptionLabel : TvtLabel;
-    {* Поле для свойства UserCaptionLabel}
-   f_UserNameLabel : TvtLabel;
-    {* Поле для свойства UserNameLabel}
-   f_LoginLabel : TvtLabel;
-    {* Поле для свойства LoginLabel}
-   f_CopyrightCaptionLabel : TvtLabel;
-    {* Поле для свойства CopyrightCaptionLabel}
-   f_OkButton : TvtButton;
-    {* Поле для свойства OkButton}
-   f_UserCountCaptionLabel : TvtLabel;
-    {* Поле для свойства UserCountCaptionLabel}
-   f_AdapterCaptionLabel : TvtLabel;
-    {* Поле для свойства AdapterCaptionLabel}
-  protected
-   procedure MakeControls; override;
+   f_pbLogo: TPaintBox;
+   f_ShellInfoLabel: TvtLabel;
+   f_AdapterInfoLabel: TvtLabel;
+   f_UserCountLabel: TvtLabel;
+   f_OwnerLabel: TvtLabel;
+   f_ShellCaptionLabel: TvtLabel;
+    {* Версия }
+   f_OwnerCaptionLabel: TvtLabel;
+    {* Зарегистрированный пользователь копии }
+   f_UserInfoGroupBox: TvtGroupBox;
+    {* Учетная запись }
+   f_CopyrightCaptionLabel: TvtLabel;
+    {* (C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2016 }
+   f_OkButton: TvtButton;
+   f_UserCountCaptionLabel: TvtLabel;
+   f_AdapterCaptionLabel: TvtLabel;
+   f_EMailCaptionLabel: TvtLabel;
+    {* E-mail: }
+   f_EMailLabel: TvtLabel;
+   f_LoginCaptionLabel: TvtLabel;
+    {* Регистрационное имя: }
+   f_UserCaptionLabel: TvtLabel;
+    {* ФИО пользователя: }
+   f_UserNameLabel: TvtLabel;
+   f_LoginLabel: TvtLabel;
   private
-  // private methods
    procedure UpdateInfoOnForm;
-     {* Сигнатура метода UpdateInfoOnForm }
    procedure GetCurrentUserInfo;
-     {* Сигнатура метода GetCurrentUserInfo }
    procedure GetCurrentOwnerInfo;
-     {* Сигнатура метода GetCurrentOwnerInfo }
-   procedure PbLogoPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure pbLogoPaint(Sender: TObject);
   protected
-  // overridden protected methods
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
-  // public properties
    property pbLogo: TPaintBox
-     read f_pbLogo;
+    read f_pbLogo;
    property ShellInfoLabel: TvtLabel
-     read f_ShellInfoLabel;
+    read f_ShellInfoLabel;
    property AdapterInfoLabel: TvtLabel
-     read f_AdapterInfoLabel;
+    read f_AdapterInfoLabel;
    property UserCountLabel: TvtLabel
-     read f_UserCountLabel;
+    read f_UserCountLabel;
    property OwnerLabel: TvtLabel
-     read f_OwnerLabel;
+    read f_OwnerLabel;
    property ShellCaptionLabel: TvtLabel
-     read f_ShellCaptionLabel;
-     {* Версия }
+    read f_ShellCaptionLabel;
+    {* Версия }
    property OwnerCaptionLabel: TvtLabel
-     read f_OwnerCaptionLabel;
-     {* Зарегистрированный пользователь копии }
+    read f_OwnerCaptionLabel;
+    {* Зарегистрированный пользователь копии }
    property UserInfoGroupBox: TvtGroupBox
-     read f_UserInfoGroupBox;
-     {* Учетная запись }
-   property EMailCaptionLabel: TvtLabel
-     read f_EMailCaptionLabel;
-     {* E-mail: }
-   property EMailLabel: TvtLabel
-     read f_EMailLabel;
-   property LoginCaptionLabel: TvtLabel
-     read f_LoginCaptionLabel;
-     {* Регистрационное имя: }
-   property UserCaptionLabel: TvtLabel
-     read f_UserCaptionLabel;
-     {* ФИО пользователя: }
-   property UserNameLabel: TvtLabel
-     read f_UserNameLabel;
-   property LoginLabel: TvtLabel
-     read f_LoginLabel;
+    read f_UserInfoGroupBox;
+    {* Учетная запись }
    property CopyrightCaptionLabel: TvtLabel
-     read f_CopyrightCaptionLabel;
-     {* (C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2016 }
+    read f_CopyrightCaptionLabel;
+    {* (C) ООО НПП "ГАРАНТ-СЕРВИС-УНИВЕРСИТЕТ", 1990-2016 }
    property OkButton: TvtButton
-     read f_OkButton;
+    read f_OkButton;
    property UserCountCaptionLabel: TvtLabel
-     read f_UserCountCaptionLabel;
+    read f_UserCountCaptionLabel;
    property AdapterCaptionLabel: TvtLabel
-     read f_AdapterCaptionLabel;
-  end;//TefAbout
-
-  TAboutForm = TefAbout;
-{$IfEnd} //not Admin AND not Monitorings
+    read f_AdapterCaptionLabel;
+   property EMailCaptionLabel: TvtLabel
+    read f_EMailCaptionLabel;
+    {* E-mail: }
+   property EMailLabel: TvtLabel
+    read f_EMailLabel;
+   property LoginCaptionLabel: TvtLabel
+    read f_LoginCaptionLabel;
+    {* Регистрационное имя: }
+   property UserCaptionLabel: TvtLabel
+    read f_UserCaptionLabel;
+    {* ФИО пользователя: }
+   property UserNameLabel: TvtLabel
+    read f_UserNameLabel;
+   property LoginLabel: TvtLabel
+    read f_LoginLabel;
+ end;//TefAbout
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$R *.DFM}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  StartUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3String,
-  vtVerInf,
-  DataAdapter,
-  ComplectUnit,
-  IOUnit,
-  nsTypes,
-  nsUtils,
-  l3MinMax,
-  vtDialogsRes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  SecurityUnit
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AboutKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , StartUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , vtVerInf
+ , DataAdapter
+ , ComplectUnit
+ , IOUnit
+ , nsTypes
+ , nsUtils
+ , l3MinMax
+ , vtDialogsRes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SecurityUnit
+ , Classes
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , About_ut_About_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AboutKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки ut_AboutLocalConstants }
+ str_ut_AboutCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_AboutCaption'; rValue : 'О программе');
+  {* Заголовок пользовательского типа "О программе" }
 
-var
-    { Локализуемые строки ut_AboutLocalConstants }
-   str_ut_AboutCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_AboutCaption'; rValue : 'О программе');
-    { Заголовок пользовательского типа "О программе" }
-
-// start class TefAbout
+{$R *.DFM}
 
 procedure TefAbout.UpdateInfoOnForm;
 //#UC START# *5006D2A60192_4ABB6F3F001B_var*
@@ -522,14 +463,14 @@ begin
 //#UC END# *5006D2D20048_4ABB6F3F001B_impl*
 end;//TefAbout.GetCurrentOwnerInfo
 
-procedure TefAbout.PbLogoPaint(Sender: TObject);
+procedure TefAbout.pbLogoPaint(Sender: TObject);
 //#UC START# *5006D77F038F_4ABB6F3F001B_var*
 //#UC END# *5006D77F038F_4ABB6F3F001B_var*
 begin
 //#UC START# *5006D77F038F_4ABB6F3F001B_impl*
  nsPaintImage(dmStdRes.ilLogo, pbLogo);
 //#UC END# *5006D77F038F_4ABB6F3F001B_impl*
-end;//TefAbout.PbLogoPaint
+end;//TefAbout.pbLogoPaint
 
 procedure TefAbout.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_4ABB6F3F001B_var*
@@ -541,8 +482,8 @@ begin
 //#UC END# *47EA4E9002C6_4ABB6F3F001B_impl*
 end;//TefAbout.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TefAbout.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4ABB6F3F001B_var*
 const
  c_Delta = 6;
@@ -649,11 +590,23 @@ begin
 
 //#UC END# *4A8E8F2E0195_4ABB6F3F001B_impl*
 end;//TefAbout.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TefAbout.MakeControls;
 begin
  inherited;
+ with AddUsertype(ut_AboutName,
+  str_ut_AboutCaption,
+  str_ut_AboutCaption,
+  False,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(ut_AboutName
  f_pbLogo := TPaintBox.Create(Self);
  f_pbLogo.Name := 'pbLogo';
  f_pbLogo.Parent := Self;
@@ -715,35 +668,18 @@ begin
  f_AdapterCaptionLabel := TvtLabel.Create(Self);
  f_AdapterCaptionLabel.Name := 'AdapterCaptionLabel';
  f_AdapterCaptionLabel.Parent := Self;
- with AddUsertype(ut_AboutName,
-  str_ut_AboutCaption,
-  str_ut_AboutCaption,
-  false,
-  -1,
-  -1,
-  '',
-  nil,
-  nil,
-  nil,
-  vcm_ccNone) do
- begin
- end;//with AddUsertype(ut_AboutName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TefAbout.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация About
- TtfwClassRef.Register(TefAbout);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы About
- fm_efAbout.SetFactory(TefAbout.Make);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_AboutCaption
  str_ut_AboutCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ut_AboutCaption }
+ fm_efAbout.SetFactory(TefAbout.Make);
+ {* Регистрация фабрики формы About }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TefAbout);
+ {* Регистрация About }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

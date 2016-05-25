@@ -14,10 +14,19 @@ uses
  l3IntfUses
  , PrimFoldersElementInfo_Form
  , Folders_Result_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimFoldersElementInfoOptionsForm = class(TPrimFoldersElementInfoForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure ResultExt_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -60,6 +69,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Cancel_Test(const aParams: IvcmTestParamsPrim);
@@ -322,6 +334,22 @@ begin
  end;//f_CurType = fiSave
 //#UC END# *4C7672F903BF_4C7E91560315getstate_impl*
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Append_GetState
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFoldersElementInfoOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_ResultExt, nil);
+  PublishOp(en_ResultExt, op_Cancel, ResultExt_Cancel_Execute, ResultExt_Cancel_Test, nil);
+  PublishOp(en_ResultExt, op_Ok, ResultExt_Ok_Execute, ResultExt_Ok_Test, ResultExt_Ok_GetState);
+  PublishOp(en_ResultExt, op_Append, ResultExt_Append_Execute, ResultExt_Append_Test, ResultExt_Append_GetState);
+ end;//with Entities.Entities
+end;//TPrimFoldersElementInfoOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_DocumentWithFlashForm.SetFactory(TDocumentWithFlashForm.Make);
+ {* Регистрация фабрики формы DocumentWithFlash }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDocumentWithFlashForm);
  {* Регистрация DocumentWithFlash }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_DocumentWithFlashForm.SetFactory(TDocumentWithFlashForm.Make);
- {* Регистрация фабрики формы DocumentWithFlash }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

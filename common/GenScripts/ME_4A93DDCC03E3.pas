@@ -47,10 +47,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , LongProcess_ut_LongProcess_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , LongProcessKeywordsPack
@@ -85,11 +85,11 @@ end;//TLongProcessForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_LongProcessCaption.Init;
+ {* Инициализация str_ut_LongProcessCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TLongProcessForm);
  {* Регистрация LongProcess }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_LongProcessCaption.Init;
- {* Инициализация str_ut_LongProcessCaption }
 
 end.

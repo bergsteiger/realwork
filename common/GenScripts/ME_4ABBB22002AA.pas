@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_en_CommonDiction.SetFactory(Ten_CommonDiction.Make);
+ {* Регистрация фабрики формы CommonDiction }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_CommonDiction);
  {* Регистрация CommonDiction }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_en_CommonDiction.SetFactory(Ten_CommonDiction.Make);
- {* Регистрация фабрики формы CommonDiction }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

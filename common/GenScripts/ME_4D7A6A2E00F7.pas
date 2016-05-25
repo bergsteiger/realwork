@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_DictionContainerForm.SetFactory(TDictionContainerForm.Make);
+ {* Регистрация фабрики формы DictionContainer }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDictionContainerForm);
  {* Регистрация DictionContainer }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_DictionContainerForm.SetFactory(TDictionContainerForm.Make);
- {* Регистрация фабрики формы DictionContainer }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

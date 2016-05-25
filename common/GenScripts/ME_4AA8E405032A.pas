@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , ForbidAutoregistration_ut_ForbidAutoregistration_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ForbidAutoregistrationKeywordsPack
@@ -88,12 +88,12 @@ end;//TefForbidAutoregistration.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_ForbidAutoregistrationCaption.Init;
+ {* Инициализация str_ut_ForbidAutoregistrationCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefForbidAutoregistration);
  {* Регистрация ForbidAutoregistration }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_ForbidAutoregistrationCaption.Init;
- {* Инициализация str_ut_ForbidAutoregistrationCaption }
 {$IfEnd} // Defined(Admin)
 
 end.

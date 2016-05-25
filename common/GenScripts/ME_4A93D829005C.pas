@@ -47,10 +47,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , Login_ut_Login_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , LoginKeywordsPack
@@ -85,13 +85,13 @@ end;//TLoginForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_LoginCaption.Init;
+ {* Инициализация str_ut_LoginCaption }
+ fm_LoginForm.SetFactory(TLoginForm.Make);
+ {* Регистрация фабрики формы Login }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TLoginForm);
  {* Регистрация Login }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_LoginForm.SetFactory(TLoginForm.Make);
- {* Регистрация фабрики формы Login }
- str_ut_LoginCaption.Init;
- {* Инициализация str_ut_LoginCaption }
 
 end.
