@@ -15,10 +15,19 @@ uses
  l3IntfUses
  , DocumentAndListInterfaces
  , nscTreeViewWithAdapterDragDrop
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -40,6 +49,15 @@ type
     {* Обработчик события fDocAttribute.OnQueryClose }
    procedure DoTabActivate; override;
     {* Реакция на переключение вкладки }
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -120,6 +138,23 @@ begin
   TnsViewDocumentAttributesEvent.Log(sdsBaseDocument.DocInfo.Doc);
 //#UC END# *497F16AC015A_4979DA14019A_impl*
 end;//TPrimAttributesForm.DoTabActivate
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimAttributesForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TPrimAttributesForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimAttributesForm.MakeControls;

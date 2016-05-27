@@ -3829,7 +3829,7 @@ begin
  Result := 'tfwIl3CStringPack';
 end;//TtfwIl3CStringPackResNameGetter.ResName
 
- {$R tfwIl3CStringPack.res}
+{$R tfwIl3CStringPack.res}
 
 initialization
  TkwVarDecLen.RegisterInEngine;

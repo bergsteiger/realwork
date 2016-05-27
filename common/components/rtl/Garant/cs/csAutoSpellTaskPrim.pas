@@ -31,12 +31,8 @@ uses
 ;
 
 class function TcsAutoSpellTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B682E2009F_var*
-//#UC END# *53AC03EE01FD_53B682E2009F_var*
 begin
-//#UC START# *53AC03EE01FD_53B682E2009F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B682E2009F_impl*
+ Result := k2_typAutoSpellTask;
 end;//TcsAutoSpellTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

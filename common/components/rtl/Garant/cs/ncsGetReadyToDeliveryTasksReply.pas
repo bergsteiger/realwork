@@ -37,21 +37,15 @@ uses
 ;
 
 function TncsGetReadyToDeliveryTasksReply.pm_GetTasksIDList: TasksIDListHelper;
-//#UC START# *DDB3B434FE0B_54645E0D0246get_var*
-//#UC END# *DDB3B434FE0B_54645E0D0246get_var*
 begin
-//#UC START# *DDB3B434FE0B_54645E0D0246get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DDB3B434FE0B_54645E0D0246get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TTasksIDListHelper.Make(TaggedData.cAtom(k2_attrTasksIDList));
 end;//TncsGetReadyToDeliveryTasksReply.pm_GetTasksIDList
 
 class function TncsGetReadyToDeliveryTasksReply.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54645E0D0246_var*
-//#UC END# *53AC03EE01FD_54645E0D0246_var*
 begin
-//#UC START# *53AC03EE01FD_54645E0D0246_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54645E0D0246_impl*
+ Result := k2_typcsGetReadyToDeliveryTasksReply;
 end;//TncsGetReadyToDeliveryTasksReply.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

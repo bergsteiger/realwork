@@ -42,10 +42,6 @@ uses
 ;
 
 type
- // Left
-
- // Right
-
  _vcmChromeLikeTabCaptionProvider_Parent_ = TvcmContainerForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _StatusBarItems_Parent_ = _vcmChromeLikeTabCaptionProvider_;
@@ -94,6 +90,15 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -120,6 +125,10 @@ type
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
+   property pnLeft: TvtSizeablePanel
+    read f_pnLeft;
+   property pnRight: TvtPanel
+    read f_pnRight;
  end;//TPrimEditionsContainerForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -518,6 +527,28 @@ begin
  inherited;
 //#UC END# *4F7C65380244_4A6EC0D0020C_impl*
 end;//TPrimEditionsContainerForm.FormInsertedIntoContainer
+
+procedure TPrimEditionsContainerForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimEditionsContainerForm.SignalDataSourceChanged
+
+procedure TPrimEditionsContainerForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edition, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishOp(en_Edition, op_PrevChange, Edition_PrevChange_Execute, Edition_PrevChange_Test, nil);
+  PublishOp(en_Edition, op_NextChange, Edition_NextChange_Execute, Edition_NextChange_Test, nil);
+  PublishOp(en_Edition, op_ReturnToDocument, Edition_ReturnToDocument_Execute, Edition_ReturnToDocument_Test, nil);
+  PublishOp(en_Document, op_ViewChangedFragments, Document_ViewChangedFragments_Execute, Document_ViewChangedFragments_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimEditionsContainerForm.InitEntities
 
 procedure TPrimEditionsContainerForm.MakeControls;
 begin

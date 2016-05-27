@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , csRequestTask
  , evdTaskTypes
- , k2Base
  , dt_Types
+ , k2Base
 ;
 
 type
@@ -27,8 +27,8 @@ type
    function pm_GetText: AnsiString;
    procedure pm_SetText(const aValue: AnsiString);
   public
-   class function GetTaggedDataType: Tk2Type; override;
    constructor Create(aUserID: TUserID); override;
+   class function GetTaggedDataType: Tk2Type; override;
   public
    property NotifyType: TCsNotificationType
     read pm_GetNotifyType
@@ -51,67 +51,40 @@ uses
 ;
 
 function TddClientMessagePrim.pm_GetNotifyType: TCsNotificationType;
-//#UC START# *D5D40492A4E1_53B24355031Bget_var*
-//#UC END# *D5D40492A4E1_53B24355031Bget_var*
 begin
-//#UC START# *D5D40492A4E1_53B24355031Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5D40492A4E1_53B24355031Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TCsNotificationType(TaggedData.IntA[k2_attrNotifyType]);
 end;//TddClientMessagePrim.pm_GetNotifyType
 
 procedure TddClientMessagePrim.pm_SetNotifyType(aValue: TCsNotificationType);
-//#UC START# *D5D40492A4E1_53B24355031Bset_var*
-//#UC END# *D5D40492A4E1_53B24355031Bset_var*
 begin
-//#UC START# *D5D40492A4E1_53B24355031Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5D40492A4E1_53B24355031Bset_impl*
+ TaggedData.IntW[k2_attrNotifyType, nil] := Ord(aValue);
 end;//TddClientMessagePrim.pm_SetNotifyType
 
 function TddClientMessagePrim.pm_GetData: Integer;
-//#UC START# *1457CD9A2878_53B24355031Bget_var*
-//#UC END# *1457CD9A2878_53B24355031Bget_var*
 begin
-//#UC START# *1457CD9A2878_53B24355031Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1457CD9A2878_53B24355031Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrData]);
 end;//TddClientMessagePrim.pm_GetData
 
 procedure TddClientMessagePrim.pm_SetData(aValue: Integer);
-//#UC START# *1457CD9A2878_53B24355031Bset_var*
-//#UC END# *1457CD9A2878_53B24355031Bset_var*
 begin
-//#UC START# *1457CD9A2878_53B24355031Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1457CD9A2878_53B24355031Bset_impl*
+ TaggedData.IntW[k2_attrData, nil] := (aValue);
 end;//TddClientMessagePrim.pm_SetData
 
 function TddClientMessagePrim.pm_GetText: AnsiString;
-//#UC START# *0D26EF9AE80B_53B24355031Bget_var*
-//#UC END# *0D26EF9AE80B_53B24355031Bget_var*
 begin
-//#UC START# *0D26EF9AE80B_53B24355031Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0D26EF9AE80B_53B24355031Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrText]);
 end;//TddClientMessagePrim.pm_GetText
 
 procedure TddClientMessagePrim.pm_SetText(const aValue: AnsiString);
-//#UC START# *0D26EF9AE80B_53B24355031Bset_var*
-//#UC END# *0D26EF9AE80B_53B24355031Bset_var*
 begin
-//#UC START# *0D26EF9AE80B_53B24355031Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0D26EF9AE80B_53B24355031Bset_impl*
+ TaggedData.StrW[k2_attrText, nil] := (aValue);
 end;//TddClientMessagePrim.pm_SetText
-
-class function TddClientMessagePrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B24355031B_var*
-//#UC END# *53AC03EE01FD_53B24355031B_var*
-begin
-//#UC START# *53AC03EE01FD_53B24355031B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B24355031B_impl*
-end;//TddClientMessagePrim.GetTaggedDataType
 
 constructor TddClientMessagePrim.Create(aUserID: TUserID);
 //#UC START# *53B3D8A8011F_53B24355031B_var*
@@ -122,6 +95,11 @@ begin
  //TaskType := cs_ttClientMessage;
 //#UC END# *53B3D8A8011F_53B24355031B_impl*
 end;//TddClientMessagePrim.Create
+
+class function TddClientMessagePrim.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typClientMessage;
+end;//TddClientMessagePrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

@@ -251,7 +251,7 @@ begin
  Result := 'StatusBarWords';
 end;//TStatusBarWordsResNameGetter.ResName
 
- {$R StatusBarWords.res}
+{$R StatusBarWords.res}
 
 initialization
  TkwStatusBarOrderedControl.RegisterInEngine;

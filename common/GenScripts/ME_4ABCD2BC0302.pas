@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enFilters.SetFactory(TenFilters.Make);
+ {* Регистрация фабрики формы Filters }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenFilters);
  {* Регистрация Filters }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enFilters.SetFactory(TenFilters.Make);
- {* Регистрация фабрики формы Filters }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

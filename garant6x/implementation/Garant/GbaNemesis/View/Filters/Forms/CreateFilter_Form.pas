@@ -1,81 +1,49 @@
 unit CreateFilter_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Filters/Forms/CreateFilter_Form.pas"
-// Начат: 29.10.2010 15:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Основные прецеденты::Filters::View::Filters::Filters$FP::CreateFilter$Form
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\CreateFilter_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "CreateFilter" MUID: (4CB6DBE6009F)
+// Имя типа: "TCreateFilterForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimCreateFilter_Form,
-  vtLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimCreateFilter_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  TCreateFilterForm = {final form} class(TPrimCreateFilterForm)
-  Entities : TvcmEntities;
-  end;//TCreateFilterForm
-{$IfEnd} //not Admin AND not Monitorings
+ TCreateFilterForm = {final} class(TPrimCreateFilterForm)
+   Entities : TvcmEntities;
+ end;//TCreateFilterForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CreateFilterKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  CreateFilterKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация CreateFilter$Form
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCreateFilterForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация CreateFilter }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

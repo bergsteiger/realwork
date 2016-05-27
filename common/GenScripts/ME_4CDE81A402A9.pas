@@ -11,6 +11,12 @@
  _CommonForTextAndFlash_Parent_ = _CommonForTextAndFlashOperations_Parent_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
  _CommonForTextAndFlashOperations_ = {abstract} class(_CommonForTextAndFlash_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_CommonForTextAndFlashOperations_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -28,8 +34,17 @@ _CommonForTextAndFlashOperations_ = _CommonForTextAndFlash_;
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _CommonForTextAndFlashOperations_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//_CommonForTextAndFlashOperations_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf CommonForTextAndFlashOperations_imp_impl}
 
 {$EndIf CommonForTextAndFlashOperations_imp}

@@ -24,6 +24,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , eeInterfaces
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -62,15 +65,20 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure StyleEditor_ReloadStylesTree_Execute(const aStyleName: Il3CString);
     {* ReloadStylesTree }
-   procedure StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParams);
     {* ReloadStylesTree }
    procedure StyleEditor_ReloadStyleTable_Execute;
-   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
   public
    property StyleTreeView: TnscTreeViewWithAdapterDragDrop
     read f_StyleTreeView;
@@ -108,7 +116,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimStyleEditorNavigator_utStyleEditorNavigator_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -345,7 +359,7 @@ begin
 //#UC END# *4AE8250D03D5_4AE8247501DAexec_impl*
 end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree_Execute
 
-procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParams);
  {* ReloadStylesTree }
 begin
  with (aParams.Data As IStyleEditor_ReloadStylesTree_Params) do
@@ -368,7 +382,7 @@ begin
 //#UC END# *4AF8660E0079_4AE8247501DAexec_impl*
 end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable_Execute
 
-procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
 begin
  Self.StyleEditor_ReloadStyleTable_Execute;
 end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable
@@ -426,6 +440,19 @@ begin
  PostMessage(Handle, WM_AFTERINSERT, 0, 0);
 //#UC END# *4F7C65380244_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.FormInsertedIntoContainer
+
+procedure TPrimStyleEditorNavigatorForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_StyleEditor, nil);
+  PublishOpWithResult(en_StyleEditor, op_ReloadStylesTree, StyleEditor_ReloadStylesTree, nil, nil);
+  PublishOpWithResult(en_StyleEditor, op_ReloadStyleTable, StyleEditor_ReloadStyleTable, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimStyleEditorNavigatorForm.InitEntities
 
 procedure TPrimStyleEditorNavigatorForm.MakeControls;
 begin

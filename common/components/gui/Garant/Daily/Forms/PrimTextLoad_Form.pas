@@ -15,6 +15,7 @@ uses
  , vcmEntityForm
  , evCustomTextSource
  , evCustomEditor
+ , vcmExternalInterfaces
  , evLoadDocumentManager
 ;
 
@@ -54,6 +55,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , vcmInterfaces
+ , StdRes
 ;
 
 procedure TPrimTextLoadForm.AfterLoad;

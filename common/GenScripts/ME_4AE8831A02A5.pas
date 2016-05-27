@@ -51,12 +51,6 @@ const
  CM_AFTER_INIT = WM_USER + 201;
 
 type
- // MainZone
-
- // ChildZone
-
- // ParentZone
-
  TPrimOldSituationSearchForm = {abstract} class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -110,25 +104,44 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    function SearchParameters_IsQueryEmpty_Execute: Boolean;
-   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
    function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
-   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQuerySaved_Execute: Boolean;
-   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
    procedure SearchParameters_SetQuery_Execute(const aQuery: IQuery);
-   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
    procedure ContextParams_ContextChanged_Execute(const aContextState: InscContextFilterState;
     const aContextTarget: Il3ContextFilterTarget);
-   procedure ContextParams_ContextChanged(const aParams: IvcmExecuteParamsPrim);
+   procedure ContextParams_ContextChanged(const aParams: IvcmExecuteParams);
    procedure SearchParameters_ClearQuery_Execute;
-   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property InnerBackgroundPanel: TvtProportionalPanel
+    read f_InnerBackgroundPanel;
+   property BotomPanel: TvtSizeablePanel
+    read f_BotomPanel;
+   property ParentZone: TvtPanel
+    read f_ParentZone;
+   property ZoneContainer: TvtProportionalPanel
+    read f_ZoneContainer;
+   property ChildZone: TvtPanel
+    read f_ChildZone;
+   property MainZone: TvtSizeablePanel
+    read f_MainZone;
  end;//TPrimOldSituationSearchForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -234,7 +247,7 @@ begin
 //#UC END# *4AE879D00143_4AE8831A02A5exec_impl*
 end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty_Execute
 
-procedure TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
   ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
@@ -256,7 +269,7 @@ begin
 //#UC END# *4AE884E803AA_4AE8831A02A5exec_impl*
 end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute
 
-procedure TPrimOldSituationSearchForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimOldSituationSearchForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_GetQuery_Params) do
   ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
@@ -271,7 +284,7 @@ begin
 //#UC END# *4AE8A577027D_4AE8831A02A5exec_impl*
 end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved_Execute
 
-procedure TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
   ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
@@ -295,7 +308,7 @@ begin
 //#UC END# *4AEF213001F0_4AE8831A02A5exec_impl*
 end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery_Execute
 
-procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_SetQuery_Params) do
   Self.SearchParameters_SetQuery_Execute(Query);
@@ -313,7 +326,7 @@ begin
 //#UC END# *4AF4008101F4_4AE8831A02A5exec_impl*
 end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged_Execute
 
-procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContextParams_ContextChanged_Params) do
   Self.ContextParams_ContextChanged_Execute(ContextState, ContextTarget);
@@ -330,7 +343,7 @@ begin
 //#UC END# *4AF92B09017F_4AE8831A02A5exec_impl*
 end;//TPrimOldSituationSearchForm.SearchParameters_ClearQuery_Execute
 
-procedure TPrimOldSituationSearchForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimOldSituationSearchForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
  Self.SearchParameters_ClearQuery_Execute;
 end;//TPrimOldSituationSearchForm.SearchParameters_ClearQuery
@@ -467,6 +480,25 @@ begin
  f_FormState := nil;
  inherited;
 end;//TPrimOldSituationSearchForm.ClearFields
+
+procedure TPrimOldSituationSearchForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_SearchParameters, nil);
+  PublishFormEntity(en_ContextParams, nil);
+  PublishOpWithResult(en_SearchParameters, op_IsQueryEmpty, SearchParameters_IsQueryEmpty, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_GetQuery, SearchParameters_GetQuery, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_IsQuerySaved, SearchParameters_IsQuerySaved, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_SetQuery, SearchParameters_SetQuery, nil, nil);
+  PublishOpWithResult(en_ContextParams, op_ContextChanged, ContextParams_ContextChanged, nil, nil);
+  PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimOldSituationSearchForm.InitEntities
 
 procedure TPrimOldSituationSearchForm.MakeControls;
 begin

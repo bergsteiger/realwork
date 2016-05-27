@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , StyleEditorFont_ut_StyleEditorFont_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , StyleEditorFontKeywordsPack
@@ -88,12 +88,12 @@ end;//TStyleEditorFontForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_StyleEditorFontCaption.Init;
+ {* Инициализация str_ut_StyleEditorFontCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TStyleEditorFontForm);
  {* Регистрация StyleEditorFont }
 {$IfEnd} // NOT Defined(NoScripts)
- str_ut_StyleEditorFontCaption.Init;
- {* Инициализация str_ut_StyleEditorFontCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -147,6 +147,11 @@ type
    procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
     aForClone: Boolean); override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
@@ -223,6 +228,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 var g_IntegrationMessage: Cardinal = 0;
@@ -1384,6 +1392,21 @@ begin
  end;
 //#UC END# *54327E120331_4A952BA3006D_impl*
 end;//TMainForm.DoInitFromPrevContainer
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Common, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOp(en_Common, op_MemUsage, Common_MemUsage_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TMainForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

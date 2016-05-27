@@ -1,106 +1,65 @@
 unit MonitoringsMain_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/MonitoringsMain_Form.pas"
-// Начат: 10.09.2009 17:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> F1 Утилита Прайм::Monitoring::Monitorings::MonitoringsMain
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MonitoringsMain_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "MonitoringsMain" MUID: (4F7C2E78015C)
+// Имя типа: "TMonitoringsMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Monitorings) AND not defined(Admin)}
+{$If Defined(Monitorings) AND NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimMonitoringsMain_Form,
-  MainPrim_Form
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBar
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel,
-  vtProportionalPanel,
-  vtSizeablePanel
-  {$If defined(Nemesis)}
-  ,
-  nscNavigator
-  {$IfEnd} //Nemesis
-  ,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Monitorings AND not Admin
+ l3IntfUses
+ , PrimMonitoringsMain_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Monitorings) AND not defined(Admin)}
 const
-   { MonitoringsMainIDs }
-  fm_MonitoringsMainForm : TvcmFormDescriptor = (rFormID : (rName : 'MonitoringsMainForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TMonitoringsMainForm }
+ fm_MonitoringsMainForm: TvcmFormDescriptor = (rFormID : (rName : 'MonitoringsMainForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TMonitoringsMainForm }
 
 type
- MonitoringsMainFormDef = interface(IUnknown)
+ TMonitoringsMainForm = class;
+
+ MonitoringsMainFormDef = interface
   {* Идентификатор формы MonitoringsMain }
-   ['{302D255D-E242-47AD-ACB5-B3822A5E3F7F}']
+  ['{302D255D-E242-47AD-ACB5-B3822A5E3F7F}']
  end;//MonitoringsMainFormDef
 
- TMonitoringsMainForm = {final form} class(TPrimMonitoringsMainForm, MonitoringsMainFormDef)
-  Entities : TvcmEntities;
+ TMonitoringsMainForm = {final} class(TPrimMonitoringsMainForm, MonitoringsMainFormDef)
+   Entities : TvcmEntities;
  end;//TMonitoringsMainForm
-{$IfEnd} //Monitorings AND not Admin
+{$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
 implementation
 
+{$If Defined(Monitorings) AND NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MonitoringsMainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If defined(Monitorings) AND not defined(Admin)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(Monitorings) AND not defined(Admin) AND not defined(NoScripts)}
-  ,
-  MonitoringsMainKeywordsPack
-  {$IfEnd} //Monitorings AND not Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //Monitorings AND not Admin
-
-{$If defined(Monitorings) AND not defined(Admin)}
-
-
-{$IfEnd} //Monitorings AND not Admin
-
 initialization
-{$If defined(Monitorings) AND not defined(Admin) AND not defined(NoScripts)}
-// Регистрация MonitoringsMain
- TtfwClassRef.Register(TMonitoringsMainForm);
-{$IfEnd} //Monitorings AND not Admin AND not NoScripts
-{$If defined(Monitorings) AND not defined(Admin)}
-// Регистрация фабрики формы MonitoringsMain
  fm_MonitoringsMainForm.SetFactory(TMonitoringsMainForm.Make);
-{$IfEnd} //Monitorings AND not Admin
+ {* Регистрация фабрики формы MonitoringsMain }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TMonitoringsMainForm);
+ {* Регистрация MonitoringsMain }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Monitorings) AND NOT Defined(Admin)
 
 end.

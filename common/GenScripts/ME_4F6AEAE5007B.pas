@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_Main_Form;
+unit Main_Form;
  {* НЕ Роза }
 
-// Модуль: "w:\MDProcess\NewGen\NOT_COMPLETED_Main_Form.pas"
+// Модуль: "w:\MDProcess\NewGen\Main_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "Main" MUID: (4F6AEAE5007B)
 // Имя типа: "TMainForm"

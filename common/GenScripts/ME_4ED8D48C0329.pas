@@ -12,9 +12,19 @@
   {* Форма вызывающая список редакций }
   private
    EditionsHolder: IsdsEditionsHolder;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Redactions_RedactionOnID_Execute(aRedactionID: TRedactionID);
-   procedure Redactions_RedactionOnID(const aParams: IvcmExecuteParamsPrim);
+   procedure Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
    procedure Redactions_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
    procedure Redactions_ActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Redactions_OpenRedactionListFrmAct_Test(const aParams: IvcmTestParamsPrim);
@@ -50,7 +60,7 @@ begin
 //#UC END# *4A8EF4B50044_4ED8D48C0329exec_impl*
 end;//_EditionsListCaller_.Redactions_RedactionOnID_Execute
 
-procedure _EditionsListCaller_.Redactions_RedactionOnID(const aParams: IvcmExecuteParamsPrim);
+procedure _EditionsListCaller_.Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRedactions_RedactionOnID_Params) do
   Self.Redactions_RedactionOnID_Execute(RedactionID);
@@ -139,8 +149,35 @@ begin
  Assert(false);
 //#UC END# *4C3AE0CD0079_4ED8D48C0329exec_impl*
 end;//_EditionsListCaller_.Redactions_NextRedaction_Execute
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _EditionsListCaller_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//_EditionsListCaller_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _EditionsListCaller_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Redactions, nil);
+  PublishOpWithResult(en_Redactions, op_RedactionOnID, Redactions_RedactionOnID, nil, nil);
+  PublishOp(en_Redactions, op_ActualRedaction, Redactions_ActualRedaction_Execute, Redactions_ActualRedaction_Test, nil);
+  PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
+  PublishOp(en_Redactions, op_PrevRedaction, Redactions_PrevRedaction_Execute, Redactions_PrevRedaction_Test, nil);
+  PublishOp(en_Redactions, op_NextRedaction, Redactions_NextRedaction_Execute, Redactions_NextRedaction_Test, nil);
+  PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
+ end;//with Entities.Entities
+end;//_EditionsListCaller_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf EditionsListCaller_imp_impl}
 
 {$EndIf EditionsListCaller_imp}

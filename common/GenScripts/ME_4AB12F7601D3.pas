@@ -21,6 +21,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , eeMemoWithEditOperations
  , DocumentDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -40,6 +43,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -79,6 +87,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -159,6 +173,19 @@ begin
  ClientWidth := 340;
 //#UC END# *529332B40230_4AB12F7601D3_impl*
 end;//TPrimPictureInfoForm.SetupFormLayout
+
+procedure TPrimPictureInfoForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimPictureInfoForm.InitEntities
 
 procedure TPrimPictureInfoForm.MakeControls;
 begin

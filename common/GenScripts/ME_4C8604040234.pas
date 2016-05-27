@@ -34,6 +34,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure PageInactive; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure SynchroView_ShowText_Test(const aParams: IvcmTestParamsPrim);
    procedure SynchroView_ShowText_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -69,6 +74,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -282,6 +290,26 @@ begin
  // - ничего не делаем
 //#UC END# *4C52E81603A9_4C8604040234_impl*
 end;//TPrimSynchroViewOptionsForm.PageInactive
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimSynchroViewOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_SynchroView, nil);
+  PublishOp(en_SynchroView, op_ShowText, SynchroView_ShowText_Execute, SynchroView_ShowText_Test, nil, true);
+  PublishOp(en_SynchroView, op_Annotation, SynchroView_Annotation_Execute, SynchroView_Annotation_Test, nil);
+  PublishOp(en_SynchroView, op_ShowAttributes, SynchroView_ShowAttributes_Execute, SynchroView_ShowAttributes_Test, nil, true);
+  PublishOp(en_SynchroView, op_ShowRelated, SynchroView_ShowRelated_Execute, SynchroView_ShowRelated_Test, nil, true);
+  PublishOp(en_SynchroView, op_ShowUserCRList1, SynchroView_ShowUserCRList1_Execute, SynchroView_ShowUserCRList1_Test, nil, true);
+  PublishOp(en_SynchroView, op_ShowUserCRList2, SynchroView_ShowUserCRList2_Execute, SynchroView_ShowUserCRList2_Test, nil, true);
+  PublishOp(en_SynchroView, op_SimilarDocuments, SynchroView_SimilarDocuments_Execute, SynchroView_SimilarDocuments_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimSynchroViewOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

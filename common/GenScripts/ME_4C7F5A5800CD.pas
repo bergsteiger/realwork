@@ -22,10 +22,19 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_Strange_Controls
  , Filters_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimFiltersOptionsForm = class(TPrimFiltersForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
@@ -74,7 +83,7 @@ type
    procedure Filter_RenameFilter_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Переименовать }
    procedure Filters_InternalClear_Execute;
-   procedure Filters_InternalClear(const aParams: IvcmExecuteParamsPrim);
+   procedure Filters_InternalClear(const aParams: IvcmExecuteParams);
  end;//TPrimFiltersOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -101,6 +110,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -385,10 +397,39 @@ begin
 //#UC END# *4DBA95ED03B7_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Filters_InternalClear_Execute
 
-procedure TPrimFiltersOptionsForm.Filters_InternalClear(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFiltersOptionsForm.Filters_InternalClear(const aParams: IvcmExecuteParams);
 begin
  Self.Filters_InternalClear_Execute;
 end;//TPrimFiltersOptionsForm.Filters_InternalClear
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimFiltersOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Filters, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Filter, nil);
+  PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, Tree_CollapseAll_Test, nil);
+  PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
+  PublishOp(en_Filters, op_Clear, Filters_Clear_Execute, Filters_Clear_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+  PublishOp(en_Filters, op_New, Filters_New_Execute, Filters_New_Test, nil);
+  PublishOp(en_Filters, op_Refresh, Filters_Refresh_Execute, Filters_Refresh_Test, nil);
+  PublishOp(en_Filter, op_Activate, nil, nil, nil);
+  PublishOp(en_Filter, op_Edit, Filter_Edit_Execute, Filter_Edit_Test, nil);
+  PublishOp(en_Filter, op_PersistentFilter, Filter_PersistentFilter_Execute, Filter_PersistentFilter_Test, nil);
+  PublishOp(en_Filters, op_FiltersListOpen, nil, nil, nil);
+  PublishOp(en_Filter, op_RenameFilter, Filter_RenameFilter_Execute, Filter_RenameFilter_Test, nil);
+  PublishOpWithResult(en_Filters, op_InternalClear, Filters_InternalClear, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimFiltersOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

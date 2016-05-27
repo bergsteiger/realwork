@@ -1,91 +1,57 @@
 unit ConfigurationList_Form;
+ {* Конфигурации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/ConfigurationList_Form.pas"
-// Начат: 09.09.2009 16:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Основные прецеденты::Settings::View::Settings::Settings::ConfigurationList
-//
-// Конфигурации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\ConfigurationList_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "ConfigurationList" MUID: (4ABA146F00D4)
+// Имя типа: "Ten_ConfigurationList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimConfigurationList_Form,
-  Common_FormDefinitions_Controls,
-  nscTreeViewWithAdapterDragDrop,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimConfigurationList_Form
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Ten_ConfigurationList = {final form} class(TPrimConfigurationListForm, ConfigurationListFormDef)
-   {* Конфигурации }
-  Entities : TvcmEntities;
-  end;//Ten_ConfigurationList
-
-  TConfigurationListForm = Ten_ConfigurationList;
-{$IfEnd} //not Admin AND not Monitorings
+ Ten_ConfigurationList = {final} class(TPrimConfigurationListForm, ConfigurationListFormDef)
+  {* Конфигурации }
+   Entities : TvcmEntities;
+ end;//Ten_ConfigurationList
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ConfigurationListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ConfigurationListKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ConfigurationList
- TtfwClassRef.Register(Ten_ConfigurationList);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы ConfigurationList
  fm_en_ConfigurationList.SetFactory(Ten_ConfigurationList.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы ConfigurationList }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_ConfigurationList);
+ {* Регистрация ConfigurationList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

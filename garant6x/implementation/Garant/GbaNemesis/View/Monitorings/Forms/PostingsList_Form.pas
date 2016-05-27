@@ -1,86 +1,54 @@
 unit PostingsList_Form;
+ {* ПРАЙМ. Моя новостная лента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Monitorings/Forms/PostingsList_Form.pas"
-// Начат: 15.09.2009 18:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Common For Shell And Monitoring::PostingOrder::View::Monitorings::CommonPost::PostingsList
-//
-// ПРАЙМ. Моя новостная лента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PostingsList_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "PostingsList" MUID: (4AAFA16202D3)
+// Имя типа: "TenPostingsList"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  PostingOrder_FormDefinitions_Controls,
-  PrimPostingsListOptions_Form,
-  eeTreeView,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimPostingsListOptions_Form
+ , PostingOrder_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
-  TenPostingsList = {final form} class(TPrimPostingsListOptionsForm, PostingsListFormDef)
-   {* ПРАЙМ. Моя новостная лента }
-  Entities : TvcmEntities;
-  end;//TenPostingsList
-
-  TPostingsListForm = TenPostingsList;
-{$IfEnd} //not Admin
+ TenPostingsList = {final} class(TPrimPostingsListOptionsForm, PostingsListFormDef)
+  {* ПРАЙМ. Моя новостная лента }
+   Entities : TvcmEntities;
+ end;//TenPostingsList
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PostingsListKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PostingsListKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-
-{$IfEnd} //not Admin
-
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PostingsList
- TtfwClassRef.Register(TenPostingsList);
-{$IfEnd} //not Admin AND not NoScripts
-{$If not defined(Admin)}
-// Регистрация фабрики формы PostingsList
  fm_enPostingsList.SetFactory(TenPostingsList.Make);
-{$IfEnd} //not Admin
+ {* Регистрация фабрики формы PostingsList }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TenPostingsList);
+ {* Регистрация PostingsList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

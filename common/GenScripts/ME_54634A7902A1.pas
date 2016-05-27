@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ncsLoginReply;
+unit ncsLoginReply;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsLoginReply.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsLoginReply.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TncsLoginReply" MUID: (54634A7902A1)
 
@@ -31,12 +31,8 @@ uses
 ;
 
 class function TncsLoginReply.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54634A7902A1_var*
-//#UC END# *53AC03EE01FD_54634A7902A1_var*
 begin
-//#UC START# *53AC03EE01FD_54634A7902A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54634A7902A1_impl*
+ Result := k2_typcsLoginReply;
 end;//TncsLoginReply.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

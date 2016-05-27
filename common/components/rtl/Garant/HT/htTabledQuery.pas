@@ -22,8 +22,8 @@ type
   private
    function FindTable(const anAlias: AnsiString): IhtFromTable;
   protected
-   function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; override;
+   function MakeFromClause(const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaFromClause; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -99,15 +99,15 @@ begin
 //#UC END# *555CA4CC00D6_5551AB1602F4_impl*
 end;//ThtTabledQuery.FindTable
 
-function ThtTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromTable;
+function ThtTabledQuery.MakeFromClause(const aTable: IdaTableDescription;
+ const anAlias: AnsiString = ''): IdaFromClause;
 //#UC START# *5600FFF80332_5551AB1602F4_var*
 //#UC END# *5600FFF80332_5551AB1602F4_var*
 begin
 //#UC START# *5600FFF80332_5551AB1602F4_impl*
  Result := ThtFromTable.Make(aTable, anAlias);
 //#UC END# *5600FFF80332_5551AB1602F4_impl*
-end;//ThtTabledQuery.MakeFromTable
+end;//ThtTabledQuery.MakeFromClause
 
 procedure ThtTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_5551AB1602F4_var*

@@ -1,120 +1,80 @@
 unit DefineSearchDate_Form;
+ {* Дата }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/DefineSearchDate_Form.pas"
-// Начат: 22.09.2009 16:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Основные прецеденты::Search::View::Search::Search::DefineSearchDate
-//
-// Дата
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDate_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "DefineSearchDate" MUID: (4AB8CAF1009C)
+// Имя типа: "Ten_DefineSearchDate"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimDefineSearchDate_Form,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  DefineSearchDate_ut_DefineSearchDate_UserType,
-  vtPanel,
-  vtLabel,
-  vtDblClickDateEdit,
-  vtRadioButton,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimDefineSearchDate_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { DefineSearchDateIDs }
-   fm_en_DefineSearchDate : TvcmFormDescriptor = (rFormID : (rName : 'en_DefineSearchDate'; rID : 0); rFactory : nil);
-    { Идентификатор формы Ten_DefineSearchDate }
+ fm_en_DefineSearchDate: TvcmFormDescriptor = (rFormID : (rName : 'en_DefineSearchDate'; rID : 0); rFactory : nil);
+  {* Идентификатор формы Ten_DefineSearchDate }
 
 type
- DefineSearchDateFormDef = interface(IUnknown)
+ Ten_DefineSearchDate = class;
+
+ DefineSearchDateFormDef = interface
   {* Идентификатор формы DefineSearchDate }
-   ['{95B053C2-B5BB-4EE7-9D05-E6333C48DF52}']
+  ['{95B053C2-B5BB-4EE7-9D05-E6333C48DF52}']
  end;//DefineSearchDateFormDef
 
-  Ten_DefineSearchDate = {final form} class(TPrimDefineSearchDateForm, DefineSearchDateFormDef)
-   {* Дата }
-  Entities : TvcmEntities;
+ Ten_DefineSearchDate = {final} class(TPrimDefineSearchDateForm, DefineSearchDateFormDef)
+  {* Дата }
+   Entities : TvcmEntities;
   protected
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
-  end;//Ten_DefineSearchDate
-
-  TDefineSearchDateForm = Ten_DefineSearchDate;
-{$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//Ten_DefineSearchDate
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , DefineSearchDate_ut_DefineSearchDate_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , DefineSearchDateKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
+const
+ {* Локализуемые строки ut_DefineSearchDateLocalConstants }
+ str_ut_DefineSearchDateCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_DefineSearchDateCaption'; rValue : 'Дата');
+  {* Заголовок пользовательского типа "Дата" }
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  DefineSearchDateKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-    { Локализуемые строки ut_DefineSearchDateLocalConstants }
-   str_ut_DefineSearchDateCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_DefineSearchDateCaption'; rValue : 'Дата');
-    { Заголовок пользовательского типа "Дата" }
-
-// start class Ten_DefineSearchDate
-
+{$If NOT Defined(NoVCM)}
 procedure Ten_DefineSearchDate.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_DefineSearchDateName,
   str_ut_DefineSearchDateCaption,
   str_ut_DefineSearchDateCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -124,18 +84,16 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_DefineSearchDateName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//Ten_DefineSearchDate.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация DefineSearchDate
- TtfwClassRef.Register(Ten_DefineSearchDate);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_DefineSearchDateCaption
  str_ut_DefineSearchDateCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ut_DefineSearchDateCaption }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_DefineSearchDate);
+ {* Регистрация DefineSearchDate }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

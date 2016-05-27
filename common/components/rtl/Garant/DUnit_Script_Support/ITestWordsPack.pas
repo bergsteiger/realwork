@@ -356,7 +356,7 @@ begin
  Result := 'ITestWordsPack';
 end;//TITestWordsPackResNameGetter.ResName
 
- {$R ITestWordsPack.res}
+{$R ITestWordsPack.res}
 
 initialization
  TkwTestShouldStop.RegisterInEngine;

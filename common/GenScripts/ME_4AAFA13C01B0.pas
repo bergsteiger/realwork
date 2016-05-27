@@ -25,6 +25,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -73,6 +76,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -134,6 +142,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimPostingsList_MyPostingList_UserType
 ;
 
@@ -517,6 +528,22 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.InitControls
+
+procedure TPrimPostingsListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_PostingToolBar, nil);
+  PublishOp(en_PostingToolBar, op_ptNewTheme, PostingToolBar_ptNewTheme_Execute, PostingToolBar_ptNewTheme_Test, nil, true);
+  PublishOp(en_PostingToolBar, op_ptEditPosting, PostingToolBar_ptEditPosting_Execute, PostingToolBar_ptEditPosting_Test, nil, true);
+  PublishOp(en_PostingToolBar, op_ptDeletePosting, PostingToolBar_ptDeletePosting_Execute, PostingToolBar_ptDeletePosting_Test, nil, true);
+  PublishOp(en_PostingToolBar, op_SavePostList, PostingToolBar_SavePostList_Execute, PostingToolBar_SavePostList_Test, nil);
+  PublishOp(en_PostingToolBar, op_ExportSelected, PostingToolBar_ExportSelected_Execute, PostingToolBar_ExportSelected_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimPostingsListForm.InitEntities
 
 procedure TPrimPostingsListForm.MakeControls;
 begin

@@ -943,7 +943,7 @@ begin
  Result := 'FormsProcessingPack';
 end;//TFormsProcessingPackResNameGetter.ResName
 
- {$R FormsProcessingPack.res}
+{$R FormsProcessingPack.res}
 
 initialization
  TkwIterateForms.RegisterInEngine;

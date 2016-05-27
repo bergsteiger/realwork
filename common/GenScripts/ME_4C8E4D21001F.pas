@@ -37,6 +37,7 @@ uses
  , l3Types
  , l3IID
  , l3Tree
+ , vcmExternalInterfaces
 ;
 
 type
@@ -515,6 +516,88 @@ type
    property TasksPanel: IvcmCustOps
     read pm_GetTasksPanel
     write pm_SetTasksPanel;
+   property lblConfirmSave: TvtLabel
+    read f_lblConfirmSave;
+    {* Объект системы изменен. Применить изменения? }
+   property lblAvailableOpsCaption: TvtLabel
+    read f_lblAvailableOpsCaption;
+    {* Редактор доступных операций панели инструментов }
+   property btOk: TvtButton
+    read f_btOk;
+    {* Ок }
+   property btCancel: TvtButton
+    read f_btCancel;
+    {* Отмена }
+   property btApply: TvtButton
+    read f_btApply;
+    {* Применить }
+   property splRep: TvtSplitter
+    read f_splRep;
+   property gbAvailableGroups: TvtGroupBox
+    read f_gbAvailableGroups;
+    {* Доступные группы: }
+   property tvRepGroups: TeeTreeView
+    read f_tvRepGroups;
+   property vtPanel1: TvtPanel
+    read f_vtPanel1;
+   property cbGroupName: TvtComboBox
+    read f_cbGroupName;
+   property btnAddGroup: TeeButton
+    read f_btnAddGroup;
+    {* Добавить }
+   property btnChangeGroup: TeeButton
+    read f_btnChangeGroup;
+    {* Изменить }
+   property btnDeleteGroup: TeeButton
+    read f_btnDeleteGroup;
+    {* Удалить }
+   property gbAvailableOperations: TvtGroupBox
+    read f_gbAvailableOperations;
+    {* Доступные операции: }
+   property tvRepOps: TeeTreeView
+    read f_tvRepOps;
+   property lblForms: TvtLabel
+    read f_lblForms;
+    {* Выберите форму: }
+   property cbForms: TComboBox
+    read f_cbForms;
+   property pnlLeft: TvtPanel
+    read f_pnlLeft;
+   property btnMoveOpToPanel: TBitBtn
+    read f_btnMoveOpToPanel;
+   property btnMoveOpToRep: TBitBtn
+    read f_btnMoveOpToRep;
+   property btnMoveGroupToPanel: TBitBtn
+    read f_btnMoveGroupToPanel;
+   property btnMoveGroupToRep: TBitBtn
+    read f_btnMoveGroupToRep;
+   property pnlTasksPanel: TvtPanel
+    read f_pnlTasksPanel;
+   property gbTasksPanel: TvtGroupBox
+    read f_gbTasksPanel;
+    {* Текущая панель задач: }
+   property tvTasksPanel: TeeTreeView
+    read f_tvTasksPanel;
+   property vtGroupBox3: TvtGroupBox
+    read f_vtGroupBox3;
+    {* Текущий элемент: }
+   property lblCaption: TvtLabel
+    read f_lblCaption;
+    {* Название: }
+   property edChange: TvtComboBox
+    read f_edChange;
+   property cbForAllUseCases: TeeCheckBox
+    read f_cbForAllUseCases;
+    {* Для всех панелей задач }
+   property btnChangeItem: TeeButton
+    read f_btnChangeItem;
+    {* Изменить }
+   property pnlOperationPos: TvtPanel
+    read f_pnlOperationPos;
+   property UpBitBtn: TBitBtn
+    read f_UpBitBtn;
+   property DownBitBtn: TBitBtn
+    read f_DownBitBtn;
  end;//TPrimCustomizeTasksPanelForm
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -530,6 +613,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
+ , StdRes
 ;
 
 procedure TvcmBaseNode.DoSave;
@@ -1624,18 +1708,23 @@ begin
  f_lblConfirmSave := TvtLabel.Create(Self);
  f_lblConfirmSave.Name := 'lblConfirmSave';
  f_lblConfirmSave.Parent := pnlBottom;
+ f_lblConfirmSave.Caption := 'Объект системы изменен. Применить изменения?';
  f_lblAvailableOpsCaption := TvtLabel.Create(Self);
  f_lblAvailableOpsCaption.Name := 'lblAvailableOpsCaption';
  f_lblAvailableOpsCaption.Parent := pnlBottom;
+ f_lblAvailableOpsCaption.Caption := 'Редактор доступных операций панели инструментов';
  f_btOk := TvtButton.Create(Self);
  f_btOk.Name := 'btOk';
  f_btOk.Parent := pnlBottom;
+ f_btOk.Caption := 'Ок';
  f_btCancel := TvtButton.Create(Self);
  f_btCancel.Name := 'btCancel';
  f_btCancel.Parent := pnlBottom;
+ f_btCancel.Caption := 'Отмена';
  f_btApply := TvtButton.Create(Self);
  f_btApply.Name := 'btApply';
  f_btApply.Parent := pnlBottom;
+ f_btApply.Caption := 'Применить';
  f_pnlRep := TvtPanel.Create(Self);
  f_pnlRep.Name := 'pnlRep';
  f_pnlRep.Parent := Self;
@@ -1645,6 +1734,7 @@ begin
  f_gbAvailableGroups := TvtGroupBox.Create(Self);
  f_gbAvailableGroups.Name := 'gbAvailableGroups';
  f_gbAvailableGroups.Parent := pnlRep;
+ f_gbAvailableGroups.Caption := 'Доступные группы:';
  f_tvRepGroups := TeeTreeView.Create(Self);
  f_tvRepGroups.Name := 'tvRepGroups';
  f_tvRepGroups.Parent := gbAvailableGroups;
@@ -1657,15 +1747,19 @@ begin
  f_btnAddGroup := TeeButton.Create(Self);
  f_btnAddGroup.Name := 'btnAddGroup';
  f_btnAddGroup.Parent := vtPanel1;
+ f_btnAddGroup.Caption := 'Добавить';
  f_btnChangeGroup := TeeButton.Create(Self);
  f_btnChangeGroup.Name := 'btnChangeGroup';
  f_btnChangeGroup.Parent := vtPanel1;
+ f_btnChangeGroup.Caption := 'Изменить';
  f_btnDeleteGroup := TeeButton.Create(Self);
  f_btnDeleteGroup.Name := 'btnDeleteGroup';
  f_btnDeleteGroup.Parent := vtPanel1;
+ f_btnDeleteGroup.Caption := 'Удалить';
  f_gbAvailableOperations := TvtGroupBox.Create(Self);
  f_gbAvailableOperations.Name := 'gbAvailableOperations';
  f_gbAvailableOperations.Parent := pnlRep;
+ f_gbAvailableOperations.Caption := 'Доступные операции:';
  f_tvRepOps := TeeTreeView.Create(Self);
  f_tvRepOps.Name := 'tvRepOps';
  f_tvRepOps.Parent := gbAvailableOperations;
@@ -1675,6 +1769,7 @@ begin
  f_lblForms := TvtLabel.Create(Self);
  f_lblForms.Name := 'lblForms';
  f_lblForms.Parent := pnlForms;
+ f_lblForms.Caption := 'Выберите форму:';
  f_cbForms := TComboBox.Create(Self);
  f_cbForms.Name := 'cbForms';
  f_cbForms.Parent := pnlForms;
@@ -1702,24 +1797,29 @@ begin
  f_gbTasksPanel := TvtGroupBox.Create(Self);
  f_gbTasksPanel.Name := 'gbTasksPanel';
  f_gbTasksPanel.Parent := pnlTasksPanel;
+ f_gbTasksPanel.Caption := 'Текущая панель задач:';
  f_tvTasksPanel := TeeTreeView.Create(Self);
  f_tvTasksPanel.Name := 'tvTasksPanel';
  f_tvTasksPanel.Parent := gbTasksPanel;
  f_vtGroupBox3 := TvtGroupBox.Create(Self);
  f_vtGroupBox3.Name := 'vtGroupBox3';
  f_vtGroupBox3.Parent := gbTasksPanel;
+ f_vtGroupBox3.Caption := 'Текущий элемент:';
  f_lblCaption := TvtLabel.Create(Self);
  f_lblCaption.Name := 'lblCaption';
  f_lblCaption.Parent := vtGroupBox3;
+ f_lblCaption.Caption := 'Название:';
  f_edChange := TvtComboBox.Create(Self);
  f_edChange.Name := 'edChange';
  f_edChange.Parent := vtGroupBox3;
  f_cbForAllUseCases := TeeCheckBox.Create(Self);
  f_cbForAllUseCases.Name := 'cbForAllUseCases';
  f_cbForAllUseCases.Parent := vtGroupBox3;
+ f_cbForAllUseCases.Caption := 'Для всех панелей задач';
  f_btnChangeItem := TeeButton.Create(Self);
  f_btnChangeItem.Name := 'btnChangeItem';
  f_btnChangeItem.Parent := vtGroupBox3;
+ f_btnChangeItem.Caption := 'Изменить';
  f_pnlOperationPos := TvtPanel.Create(Self);
  f_pnlOperationPos.Name := 'pnlOperationPos';
  f_pnlOperationPos.Parent := pnlTasksPanel;

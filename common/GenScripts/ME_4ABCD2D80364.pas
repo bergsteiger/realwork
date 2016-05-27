@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enUnderControl.SetFactory(TenUnderControl.Make);
+ {* Регистрация фабрики формы UnderControl }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenUnderControl);
  {* Регистрация UnderControl }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enUnderControl.SetFactory(TenUnderControl.Make);
- {* Регистрация фабрики формы UnderControl }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

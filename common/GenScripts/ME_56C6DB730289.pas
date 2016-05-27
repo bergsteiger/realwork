@@ -21,8 +21,8 @@ type
    f_PGQuery: IdaTabledQuery;
    f_HTQuery: IdaTabledQuery;
   protected
-   function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; override;
+   function MakeFromClause(const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaFromClause; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -84,15 +84,15 @@ begin
  end;//try..finally
 end;//TcaTabledQuery.Make
 
-function TcaTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromTable;
+function TcaTabledQuery.MakeFromClause(const aTable: IdaTableDescription;
+ const anAlias: AnsiString = ''): IdaFromClause;
 //#UC START# *5600FFF80332_56C6DB730289_var*
 //#UC END# *5600FFF80332_56C6DB730289_var*
 begin
 //#UC START# *5600FFF80332_56C6DB730289_impl*
  Result := TdaFromTable.Make(aTable, anAlias);
 //#UC END# *5600FFF80332_56C6DB730289_impl*
-end;//TcaTabledQuery.MakeFromTable
+end;//TcaTabledQuery.MakeFromClause
 
 procedure TcaTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_56C6DB730289_var*

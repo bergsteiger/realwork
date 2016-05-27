@@ -26,8 +26,8 @@ type
   private
    function BuildSQL: AnsiString;
   protected
-   function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; override;
+   function MakeFromClause(const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaFromClause; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -96,15 +96,15 @@ begin
 //#UC END# *560506760367_55F960D502F6_impl*
 end;//TpgTabledQuery.BuildSQL
 
-function TpgTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromTable;
+function TpgTabledQuery.MakeFromClause(const aTable: IdaTableDescription;
+ const anAlias: AnsiString = ''): IdaFromClause;
 //#UC START# *5600FFF80332_55F960D502F6_var*
 //#UC END# *5600FFF80332_55F960D502F6_var*
 begin
 //#UC START# *5600FFF80332_55F960D502F6_impl*
  Result := TdaFromTable.Make(aTable, anAlias);
 //#UC END# *5600FFF80332_55F960D502F6_impl*
-end;//TpgTabledQuery.MakeFromTable
+end;//TpgTabledQuery.MakeFromClause
 
 procedure TpgTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_55F960D502F6_var*

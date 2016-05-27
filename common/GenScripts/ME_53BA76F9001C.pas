@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csRelPublishTask;
+unit csRelPublishTask;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csRelPublishTask.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csRelPublishTask.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcsRelPublishTask" MUID: (53BA76F9001C)
 
@@ -31,12 +31,8 @@ uses
 ;
 
 class function TcsRelPublishTask.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53BA76F9001C_var*
-//#UC END# *53AC03EE01FD_53BA76F9001C_var*
 begin
-//#UC START# *53AC03EE01FD_53BA76F9001C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53BA76F9001C_impl*
+ Result := k2_typRelPublishTask;
 end;//TcsRelPublishTask.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

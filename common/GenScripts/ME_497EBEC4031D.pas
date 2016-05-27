@@ -132,15 +132,24 @@ type
    procedure DoSaveInSettings; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Switcher_BecomeActive_Execute;
-   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
    procedure DateInterval_OpenInt_Execute;
-   procedure DateInterval_OpenInt(const aParams: IvcmExecuteParamsPrim);
+   procedure DateInterval_OpenInt(const aParams: IvcmExecuteParams);
    procedure Form_RequestClose_Execute;
-   procedure Form_RequestClose(const aParams: IvcmExecuteParamsPrim);
+   procedure Form_RequestClose(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    function NeedSaveInSettings: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -181,6 +190,9 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , PrimNewsLine_nltMain_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -367,7 +379,7 @@ begin
 //#UC END# *4A9807F801F9_497EBEC4031Dexec_impl*
 end;//TPrimNewsLineForm.Switcher_BecomeActive_Execute
 
-procedure TPrimNewsLineForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimNewsLineForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  Self.Switcher_BecomeActive_Execute;
 end;//TPrimNewsLineForm.Switcher_BecomeActive
@@ -381,7 +393,7 @@ begin
 //#UC END# *4AF822B302C4_497EBEC4031Dexec_impl*
 end;//TPrimNewsLineForm.DateInterval_OpenInt_Execute
 
-procedure TPrimNewsLineForm.DateInterval_OpenInt(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimNewsLineForm.DateInterval_OpenInt(const aParams: IvcmExecuteParams);
 begin
  Self.DateInterval_OpenInt_Execute;
 end;//TPrimNewsLineForm.DateInterval_OpenInt
@@ -397,7 +409,7 @@ begin
 //#UC END# *4AF82EFD0025_497EBEC4031Dexec_impl*
 end;//TPrimNewsLineForm.Form_RequestClose_Execute
 
-procedure TPrimNewsLineForm.Form_RequestClose(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimNewsLineForm.Form_RequestClose(const aParams: IvcmExecuteParams);
 begin
  Self.Form_RequestClose_Execute;
 end;//TPrimNewsLineForm.Form_RequestClose
@@ -555,6 +567,28 @@ begin
  Result := True;
 //#UC END# *4FC38C4C0119_497EBEC4031D_impl*
 end;//TPrimNewsLineForm.NeedSaveInSettings
+
+procedure TPrimNewsLineForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimNewsLineForm.SignalDataSourceChanged
+
+procedure TPrimNewsLineForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Switcher, nil);
+  PublishFormEntity(en_DateInterval, nil);
+  PublishFormEntity(en_Form, nil);
+  PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
+  PublishOpWithResult(en_DateInterval, op_OpenInt, DateInterval_OpenInt, nil, nil);
+  PublishOpWithResult(en_Form, op_RequestClose, Form_RequestClose, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimNewsLineForm.InitEntities
 
 procedure TPrimNewsLineForm.MakeControls;
 begin

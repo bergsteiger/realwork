@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_MainWindow_Form;
+unit MainWindow_Form;
  {* Гарант }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_COMPLETED_MainWindow_Form.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainWindow_Form.pas"
 // Стереотип: "VCMFinalMainForm"
 // Элемент модели: "MainWindow" MUID: (4AA7EA010274)
 // Имя типа: "TnsMainWindow"
@@ -61,12 +61,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_nsMainWindow.SetFactory(TnsMainWindow.Make);
+ {* Регистрация фабрики формы MainWindow }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsMainWindow);
  {* Регистрация MainWindow }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_nsMainWindow.SetFactory(TnsMainWindow.Make);
- {* Регистрация фабрики формы MainWindow }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

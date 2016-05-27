@@ -43,48 +43,32 @@ uses
 ;
 
 function TncsCorrectFolder.pm_GetTaskID: AnsiString;
-//#UC START# *C62F9955664F_549AA9CE0345get_var*
-//#UC END# *C62F9955664F_549AA9CE0345get_var*
 begin
-//#UC START# *C62F9955664F_549AA9CE0345get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C62F9955664F_549AA9CE0345get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTaskID]);
 end;//TncsCorrectFolder.pm_GetTaskID
 
 procedure TncsCorrectFolder.pm_SetTaskID(const aValue: AnsiString);
-//#UC START# *C62F9955664F_549AA9CE0345set_var*
-//#UC END# *C62F9955664F_549AA9CE0345set_var*
 begin
-//#UC START# *C62F9955664F_549AA9CE0345set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C62F9955664F_549AA9CE0345set_impl*
+ TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
 end;//TncsCorrectFolder.pm_SetTaskID
 
 function TncsCorrectFolder.pm_GetNewFolder: AnsiString;
-//#UC START# *5C25740B908E_549AA9CE0345get_var*
-//#UC END# *5C25740B908E_549AA9CE0345get_var*
 begin
-//#UC START# *5C25740B908E_549AA9CE0345get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5C25740B908E_549AA9CE0345get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrNewFolder]);
 end;//TncsCorrectFolder.pm_GetNewFolder
 
 procedure TncsCorrectFolder.pm_SetNewFolder(const aValue: AnsiString);
-//#UC START# *5C25740B908E_549AA9CE0345set_var*
-//#UC END# *5C25740B908E_549AA9CE0345set_var*
 begin
-//#UC START# *5C25740B908E_549AA9CE0345set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5C25740B908E_549AA9CE0345set_impl*
+ TaggedData.StrW[k2_attrNewFolder, nil] := (aValue);
 end;//TncsCorrectFolder.pm_SetNewFolder
 
 class function TncsCorrectFolder.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_549AA9CE0345_var*
-//#UC END# *53AC03EE01FD_549AA9CE0345_var*
 begin
-//#UC START# *53AC03EE01FD_549AA9CE0345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_549AA9CE0345_impl*
+ Result := k2_typcsCorrectFolder;
 end;//TncsCorrectFolder.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

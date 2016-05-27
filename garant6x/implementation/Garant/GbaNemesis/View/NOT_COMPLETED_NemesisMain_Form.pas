@@ -133,6 +133,11 @@ type
     const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -140,7 +145,7 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure System_CantReceiveLegalServiceAnswer_Test(const aParams: IvcmTestParamsPrim);
     {* Статус связи с ППО }
@@ -463,7 +468,7 @@ begin
 //#UC END# *49895A2102E8_4958D2EA00CCexec_impl*
 end;//TNemesisMainForm.Loadable_Load_Execute
 
-procedure TNemesisMainForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TNemesisMainForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -795,6 +800,23 @@ begin
 //#UC END# *5566C7BD037F_4958D2EA00CC_impl*
 end;//TNemesisMainForm.DoOpenNew
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TNemesisMainForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_System, nil);
+  PublishFormEntity(en_Common, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOp(en_System, op_CantReceiveLegalServiceAnswer, System_CantReceiveLegalServiceAnswer_Execute, System_CantReceiveLegalServiceAnswer_Test, System_CantReceiveLegalServiceAnswer_GetState);
+ end;//with Entities.Entities
+end;//TNemesisMainForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TNemesisMainForm.MakeControls;

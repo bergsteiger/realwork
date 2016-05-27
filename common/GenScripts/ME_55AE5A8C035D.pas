@@ -520,7 +520,7 @@ begin
  Result := 'tfwDictionaryExWordsPack';
 end;//TtfwDictionaryExWordsPackResNameGetter.ResName
 
- {$R tfwDictionaryExWordsPack.res}
+{$R tfwDictionaryExWordsPack.res}
 
 initialization
  TkwPopDictionaryExFileName.RegisterInEngine;

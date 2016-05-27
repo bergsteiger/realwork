@@ -1,95 +1,65 @@
 unit AACContentsContainer_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/AAC/Forms/AACContentsContainer_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalContainer::Class>> F1 Пользовательские сервисы::AAC::View::AAC::AACPrim::AACContentsContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContentsContainer_Form.pas"
+// Стереотип: "VCMFinalContainer"
+// Элемент модели: "AACContentsContainer" MUID: (4FF4543F014A)
+// Имя типа: "TAACContentsContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  AACContainerPrim_Form,
-  vtProportionalPanel,
-  vtPanel,
-  vtScrollBar,
-  vtSizeablePanel,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , AACContainerPrim_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { AACContentsContainerIDs }
-   fm_AACContentsContainerForm : TvcmFormDescriptor = (rFormID : (rName : 'AACContentsContainerForm'; rID : 0); rFactory : nil);
-    { Идентификатор формы TAACContentsContainerForm }
+ fm_AACContentsContainerForm: TvcmFormDescriptor = (rFormID : (rName : 'AACContentsContainerForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TAACContentsContainerForm }
 
 type
- AACContentsContainerFormDef = interface(IUnknown)
+ TAACContentsContainerForm = class;
+
+ AACContentsContainerFormDef = interface
   {* Идентификатор формы AACContentsContainer }
-   ['{3EBD2AC1-BEED-4678-BF35-5B80CE4A6852}']
+  ['{3EBD2AC1-BEED-4678-BF35-5B80CE4A6852}']
  end;//AACContentsContainerFormDef
 
-  TAACContentsContainerForm = {final form} class(TAACContainerPrimForm, AACContentsContainerFormDef)
-  Entities : TvcmEntities;
-  end;//TAACContentsContainerForm
-{$IfEnd} //not Admin AND not Monitorings
+ TAACContentsContainerForm = {final} class(TAACContainerPrimForm, AACContentsContainerFormDef)
+   Entities : TvcmEntities;
+ end;//TAACContentsContainerForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , AACContentsContainerKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AACContentsContainerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация AACContentsContainer
- TtfwClassRef.Register(TAACContentsContainerForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы AACContentsContainer
  fm_AACContentsContainerForm.SetFactory(TAACContentsContainerForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы AACContentsContainer }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TAACContentsContainerForm);
+ {* Регистрация AACContentsContainer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

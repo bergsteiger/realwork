@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ncsGetTaskDescriptionReply;
+unit ncsGetTaskDescriptionReply;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetTaskDescriptionReply.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetTaskDescriptionReply.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TncsGetTaskDescriptionReply" MUID: (546B442D0343)
 
@@ -47,57 +47,39 @@ uses
 ;
 
 function TncsGetTaskDescriptionReply.pm_GetLocalFolder: AnsiString;
-//#UC START# *3294A79E3E3C_546B442D0343get_var*
-//#UC END# *3294A79E3E3C_546B442D0343get_var*
 begin
-//#UC START# *3294A79E3E3C_546B442D0343get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3294A79E3E3C_546B442D0343get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLocalFolder]);
 end;//TncsGetTaskDescriptionReply.pm_GetLocalFolder
 
 procedure TncsGetTaskDescriptionReply.pm_SetLocalFolder(const aValue: AnsiString);
-//#UC START# *3294A79E3E3C_546B442D0343set_var*
-//#UC END# *3294A79E3E3C_546B442D0343set_var*
 begin
-//#UC START# *3294A79E3E3C_546B442D0343set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3294A79E3E3C_546B442D0343set_impl*
+ TaggedData.StrW[k2_attrLocalFolder, nil] := (aValue);
 end;//TncsGetTaskDescriptionReply.pm_SetLocalFolder
 
 function TncsGetTaskDescriptionReply.pm_GetRemoteFolder: AnsiString;
-//#UC START# *87AC3958D4EC_546B442D0343get_var*
-//#UC END# *87AC3958D4EC_546B442D0343get_var*
 begin
-//#UC START# *87AC3958D4EC_546B442D0343get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *87AC3958D4EC_546B442D0343get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrRemoteFolder]);
 end;//TncsGetTaskDescriptionReply.pm_GetRemoteFolder
 
 procedure TncsGetTaskDescriptionReply.pm_SetRemoteFolder(const aValue: AnsiString);
-//#UC START# *87AC3958D4EC_546B442D0343set_var*
-//#UC END# *87AC3958D4EC_546B442D0343set_var*
 begin
-//#UC START# *87AC3958D4EC_546B442D0343set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *87AC3958D4EC_546B442D0343set_impl*
+ TaggedData.StrW[k2_attrRemoteFolder, nil] := (aValue);
 end;//TncsGetTaskDescriptionReply.pm_SetRemoteFolder
 
 function TncsGetTaskDescriptionReply.pm_GetFileDesc: FileDescHelper;
-//#UC START# *121B881CBEF7_546B442D0343get_var*
-//#UC END# *121B881CBEF7_546B442D0343get_var*
 begin
-//#UC START# *121B881CBEF7_546B442D0343get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *121B881CBEF7_546B442D0343get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TFileDescHelper.Make(TaggedData.cAtom(k2_attrFileDesc));
 end;//TncsGetTaskDescriptionReply.pm_GetFileDesc
 
 class function TncsGetTaskDescriptionReply.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_546B442D0343_var*
-//#UC END# *53AC03EE01FD_546B442D0343_var*
 begin
-//#UC START# *53AC03EE01FD_546B442D0343_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_546B442D0343_impl*
+ Result := k2_typcsGetTaskDescriptionReply;
 end;//TncsGetTaskDescriptionReply.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

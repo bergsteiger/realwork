@@ -1,119 +1,72 @@
 unit Main_Form;
+ {* НЕ Роза }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Модуль: "w:/MDProcess/NewGen/Main_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> MDProcess$NewGen$Interface::NewGen::NewGen::Main
-//
-// НЕ Роза
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\MDProcess\NewGen\Main_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "Main" MUID: (4F6AEAE5007B)
+// Имя типа: "TMainForm"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\NewGen\ngDefine.inc}
+{$Include w:\MDProcess\NewGen\ngDefine.inc}
 
 interface
 
-{$If defined(NewGen)}
+{$If Defined(NewGen)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  NewGenMainPrim_Form,
-  Main_ut_Main_UserType
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBar
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel,
-  vtProportionalPanel,
-  vtSizeablePanel
-  {$If defined(Nemesis)}
-  ,
-  nscNavigator
-  {$IfEnd} //Nemesis
-  ,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //NewGen
+ l3IntfUses
+ , NewGenMainPrim_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(NewGen)}
 const
-   { MainIDs }
-  fm_MainForm : TvcmFormDescriptor = (rFormID : (rName : 'MainForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TMainForm }
+ fm_MainForm: TvcmFormDescriptor = (rFormID : (rName : 'MainForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TMainForm }
 
 type
- MainFormDef = interface(IUnknown)
+ TMainForm = class;
+
+ MainFormDef = interface
   {* Идентификатор формы Main }
-   ['{45D03D24-01B1-4C43-89B5-AF75285241AE}']
+  ['{45D03D24-01B1-4C43-89B5-AF75285241AE}']
  end;//MainFormDef
 
- TMainForm = {final form} class(TNewGenMainPrimForm, MainFormDef)
+ TMainForm = {final} class(TNewGenMainPrimForm, MainFormDef)
   {* НЕ Роза }
-  Entities : TvcmEntities;
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
+   Entities : TvcmEntities;
+  protected
    procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TMainForm
-{$IfEnd} //NewGen
+{$IfEnd} // Defined(NewGen)
 
 implementation
 
-{$R *.DFM}
-
-{$If defined(NewGen)}
+{$If Defined(NewGen)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If defined(NewGen) AND not defined(NoScripts)}
-  ,
-  MainKeywordsPack
-  {$IfEnd} //NewGen AND not NoScripts
-  
-  ;
-{$IfEnd} //NewGen
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Main_ut_Main_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , MainKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
 
-{$If defined(NewGen)}
+const
+ {* Локализуемые строки ut_MainLocalConstants }
+ str_ut_MainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_MainCaption'; rValue : 'НЕ Роза');
+  {* Заголовок пользовательского типа "НЕ Роза" }
 
-var
-   { Локализуемые строки ut_MainLocalConstants }
-  str_ut_MainCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_MainCaption'; rValue : 'НЕ Роза');
-   { Заголовок пользовательского типа "НЕ Роза" }
-
-// start class TMainForm
+{$R *.DFM}
 
 procedure TMainForm.InitFields;
 //#UC START# *47A042E100E2_4F6AEAE5007B_var*
@@ -124,13 +77,14 @@ begin
 //#UC END# *47A042E100E2_4F6AEAE5007B_impl*
 end;//TMainForm.InitFields
 
+{$If NOT Defined(NoVCM)}
 procedure TMainForm.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_MainName,
   str_ut_MainCaption,
   str_ut_MainCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -140,22 +94,18 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_MainName
-end;
-
-{$IfEnd} //NewGen
+end;//TMainForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(NewGen) AND not defined(NoScripts)}
-// Регистрация Main
- TtfwClassRef.Register(TMainForm);
-{$IfEnd} //NewGen AND not NoScripts
-{$If defined(NewGen)}
-// Регистрация фабрики формы Main
- fm_MainForm.SetFactory(TMainForm.Make);
-{$IfEnd} //NewGen
-{$If defined(NewGen)}
-// Инициализация str_ut_MainCaption
  str_ut_MainCaption.Init;
-{$IfEnd} //NewGen
+ {* Инициализация str_ut_MainCaption }
+ fm_MainForm.SetFactory(TMainForm.Make);
+ {* Регистрация фабрики формы Main }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TMainForm);
+ {* Регистрация Main }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(NewGen)
 
 end.

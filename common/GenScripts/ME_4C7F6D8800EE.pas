@@ -13,10 +13,19 @@ interface
 uses
  l3IntfUses
  , Diff_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TDiffOptionsForm = {abstract} class(TDiffForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TDiffOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -81,6 +90,15 @@ uses
  , evCustomEditor
  , evEditorWithOperations
 ;
+
+{$If NOT Defined(NoVCM)}
+procedure TDiffOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+end;//TDiffOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

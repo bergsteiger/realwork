@@ -520,7 +520,7 @@ begin
  Result := 'MenuWordsPack';
 end;//TMenuWordsPackResNameGetter.ResName
 
- {$R MenuWordsPack.res}
+{$R MenuWordsPack.res}
 
 initialization
  TkwMenuItemClick.RegisterInEngine;

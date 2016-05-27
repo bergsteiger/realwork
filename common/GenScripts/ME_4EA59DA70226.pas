@@ -16,6 +16,9 @@ uses
  , Document_Strange_Controls
  , DocumentAndListInterfaces
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -25,13 +28,18 @@ type
   protected
    procedure WarningQueryClose(aSender: TObject); override;
     {* Обработчик события Warning.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Warning_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
    procedure Warning_BecomeActive_Execute(aSubID: TnsWarningSub);
-   procedure Warning_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Warning_BecomeActive(const aParams: IvcmExecuteParams);
    procedure Warning_SwitchActive_Test(const aParams: IvcmTestParamsPrim);
    procedure Warning_SwitchActive_Execute(aSubID: TnsWarningSub);
-   procedure Warning_SwitchActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Warning_SwitchActive(const aParams: IvcmExecuteParams);
  end;//TPrimDockedWarningForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -49,6 +57,12 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -86,7 +100,7 @@ begin
 //#UC END# *4AE9DF12018A_4EA59DA70226exec_impl*
 end;//TPrimDockedWarningForm.Warning_BecomeActive_Execute
 
-procedure TPrimDockedWarningForm.Warning_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDockedWarningForm.Warning_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IWarning_BecomeActive_Params) do
   Self.Warning_BecomeActive_Execute(SubID);
@@ -112,11 +126,26 @@ begin
 //#UC END# *4AE9DF3602B2_4EA59DA70226exec_impl*
 end;//TPrimDockedWarningForm.Warning_SwitchActive_Execute
 
-procedure TPrimDockedWarningForm.Warning_SwitchActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDockedWarningForm.Warning_SwitchActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IWarning_SwitchActive_Params) do
   Self.Warning_SwitchActive_Execute(SubID);
 end;//TPrimDockedWarningForm.Warning_SwitchActive
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimDockedWarningForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Warning, nil);
+  PublishOpWithResult(en_Warning, op_BecomeActive, Warning_BecomeActive, Warning_BecomeActive_Test, nil);
+  PublishOpWithResult(en_Warning, op_SwitchActive, Warning_SwitchActive, Warning_SwitchActive_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimDockedWarningForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

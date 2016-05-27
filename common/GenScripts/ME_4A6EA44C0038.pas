@@ -25,13 +25,12 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , vtPanel
  , Messages
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Child
-
- // Parent
-
  TBaseChatWindowForm = class(TAbstractHistoryForm, IbsChatWindow)
   {* Переписка }
   private
@@ -58,6 +57,11 @@ type
    function HistoryLimit: Integer; override;
    function NeedClose: Boolean; override;
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -76,6 +80,12 @@ type
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
+   property BottomPanel: TvtSizeablePanel
+    read f_BottomPanel;
+   property BottomEditor: TnscChatMemo
+    read f_BottomEditor;
+   property TopPanel: TvtPanel
+    read f_TopPanel;
  end;//TBaseChatWindowForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -104,6 +114,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , BaseChatWindow_cwChat_UserType
 ;
 
@@ -313,6 +326,21 @@ begin
 end;//TBaseChatWindowForm.NeedClose
 
 {$If NOT Defined(NoVCM)}
+procedure TBaseChatWindowForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+ end;//with Entities.Entities
+end;//TBaseChatWindowForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TBaseChatWindowForm.MakeControls;
 begin
  inherited;
@@ -347,7 +375,7 @@ begin
  with DefineZone(vcm_ztParent, f_TopPanel) do
  begin
  end;//with DefineZone(vcm_ztParent
- f_HistoryEditor.Parent := TopPanel;
+ HistoryEditor.Parent := TopPanel;
 end;//TBaseChatWindowForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 

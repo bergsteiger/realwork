@@ -1,101 +1,67 @@
 unit ChatHistory_Form;
+ {* История переписки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/Forms/ChatHistory_Form.pas"
-// Начат: 2009/07/28 06:34:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Встроенные продукты::Chat::View::Chat::BaseChat::ChatHistory
-//
-// История переписки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatHistory_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "ChatHistory" MUID: (4A6EA397035D)
+// Имя типа: "TChatHistoryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  BaseHistoryWindow_Form
-  {$If defined(Nemesis)}
-  ,
-  nscChatMemo
-  {$IfEnd} //Nemesis
-  ,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseHistoryWindow_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { ChatHistoryIDs }
-   fm_ChatHistoryForm : TvcmFormDescriptor = (rFormID : (rName : 'ChatHistoryForm'; rID : 0); rFactory : nil);
-    { Идентификатор формы TChatHistoryForm }
+ fm_ChatHistoryForm: TvcmFormDescriptor = (rFormID : (rName : 'ChatHistoryForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TChatHistoryForm }
 
 type
- ChatHistoryFormDef = interface(IUnknown)
+ TChatHistoryForm = class;
+
+ ChatHistoryFormDef = interface
   {* Идентификатор формы ChatHistory }
-   ['{5B6E40C6-04D1-47E4-B97A-0C7AB1B3D1F9}']
+  ['{5B6E40C6-04D1-47E4-B97A-0C7AB1B3D1F9}']
  end;//ChatHistoryFormDef
 
-  TChatHistoryForm = {final form} class(TBaseHistoryWindowForm, ChatHistoryFormDef)
-   {* История переписки }
-  Entities : TvcmEntities;
-  end;//TChatHistoryForm
-{$IfEnd} //not Admin AND not Monitorings
+ TChatHistoryForm = {final} class(TBaseHistoryWindowForm, ChatHistoryFormDef)
+  {* История переписки }
+   Entities : TvcmEntities;
+ end;//TChatHistoryForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChatHistoryKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ChatHistoryKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ChatHistory
- TtfwClassRef.Register(TChatHistoryForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы ChatHistory
  fm_ChatHistoryForm.SetFactory(TChatHistoryForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы ChatHistory }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TChatHistoryForm);
+ {* Регистрация ChatHistory }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -329,7 +329,7 @@ begin
  Result := 'InsFilterNodeWordsPack';
 end;//TInsFilterNodeWordsPackResNameGetter.ResName
 
- {$R InsFilterNodeWordsPack.res}
+{$R InsFilterNodeWordsPack.res}
 
 initialization
  TkwFilterNodeAutoApplied.RegisterInEngine;

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuRegionImportTaskResult;
+unit alcuRegionImportTaskResult;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuRegionImportTaskResult.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskResult.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuRegionImportTaskResult" MUID: (540867800117)
 
@@ -38,30 +38,20 @@ uses
 ;
 
 function TalcuRegionImportTaskResult.pm_GetHasMoreFilesToProcess: Boolean;
-//#UC START# *21C8D96C6236_540867800117get_var*
-//#UC END# *21C8D96C6236_540867800117get_var*
 begin
-//#UC START# *21C8D96C6236_540867800117get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *21C8D96C6236_540867800117get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrHasMoreFilesToProcess]);
 end;//TalcuRegionImportTaskResult.pm_GetHasMoreFilesToProcess
 
 procedure TalcuRegionImportTaskResult.pm_SetHasMoreFilesToProcess(aValue: Boolean);
-//#UC START# *21C8D96C6236_540867800117set_var*
-//#UC END# *21C8D96C6236_540867800117set_var*
 begin
-//#UC START# *21C8D96C6236_540867800117set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *21C8D96C6236_540867800117set_impl*
+ TaggedData.BoolW[k2_attrHasMoreFilesToProcess, nil] := (aValue);
 end;//TalcuRegionImportTaskResult.pm_SetHasMoreFilesToProcess
 
 class function TalcuRegionImportTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_540867800117_var*
-//#UC END# *53AC03EE01FD_540867800117_var*
 begin
-//#UC START# *53AC03EE01FD_540867800117_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_540867800117_impl*
+ Result := k2_typRegionImportTaskResult;
 end;//TalcuRegionImportTaskResult.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

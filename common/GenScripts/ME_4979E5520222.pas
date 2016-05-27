@@ -35,13 +35,16 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , ExternalOperationUnit
  , DocumentInterfaces
  , nevGUIInterfaces
  , nevNavigation
  , afwNavigation
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4979E5520222intf_uses*
  //#UC END# *4979E5520222intf_uses*
@@ -96,11 +99,20 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
-   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
   public
    property Viewer: TnscEditor
     read f_Viewer;
@@ -243,7 +255,7 @@ begin
 //#UC END# *4A8EF367029E_4979E5520222exec_impl*
 end;//TPrimWarningForm.System_TimeMachineStateChange_Execute
 
-procedure TPrimWarningForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimWarningForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
   Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
@@ -402,6 +414,24 @@ begin
  (Viewer.TextSource As TeeTextSourceExport).OnMakeDocumentContainer := Self.MakeDocumentContainer;
 //#UC END# *4A8E8F2E0195_4979E5520222_impl*
 end;//TPrimWarningForm.InitControls
+
+procedure TPrimWarningForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimWarningForm.SignalDataSourceChanged
+
+procedure TPrimWarningForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_System, nil);
+  PublishOpWithResult(en_System, op_TimeMachineStateChange, System_TimeMachineStateChange, nil, nil, true);
+ end;//with Entities.Entities
+end;//TPrimWarningForm.InitEntities
 
 procedure TPrimWarningForm.MakeControls;
 begin

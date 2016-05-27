@@ -38,11 +38,11 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ParentForm.SetFactory(TParentForm.Make);
+ {* Регистрация фабрики формы Parent }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TParentForm);
  {* Регистрация Parent }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ParentForm.SetFactory(TParentForm.Make);
- {* Регистрация фабрики формы Parent }
 
 end.

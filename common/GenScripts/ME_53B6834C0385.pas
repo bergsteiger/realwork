@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddCommonDataRequestPrim;
+unit ddCommonDataRequestPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddCommonDataRequestPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ddCommonDataRequestPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddCommonDataRequestPrim" MUID: (53B6834C0385)
 
@@ -12,15 +12,15 @@ interface
 uses
  l3IntfUses
  , csRequestTask
- , k2Base
  , dt_Types
+ , k2Base
 ;
 
 type
  TddCommonDataRequestPrim = class(TddRequestTask)
   public
-   class function GetTaggedDataType: Tk2Type; override;
    constructor Create(aUserID: TUserID); override;
+   class function GetTaggedDataType: Tk2Type; override;
  end;//TddCommonDataRequestPrim
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -33,15 +33,6 @@ uses
  , CommonDataRequest_Const
 ;
 
-class function TddCommonDataRequestPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6834C0385_var*
-//#UC END# *53AC03EE01FD_53B6834C0385_var*
-begin
-//#UC START# *53AC03EE01FD_53B6834C0385_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6834C0385_impl*
-end;//TddCommonDataRequestPrim.GetTaggedDataType
-
 constructor TddCommonDataRequestPrim.Create(aUserID: TUserID);
 //#UC START# *53B3D8A8011F_53B6834C0385_var*
 //#UC END# *53B3D8A8011F_53B6834C0385_var*
@@ -51,6 +42,11 @@ begin
  //TaskType := cs_ttCommonData;
 //#UC END# *53B3D8A8011F_53B6834C0385_impl*
 end;//TddCommonDataRequestPrim.Create
+
+class function TddCommonDataRequestPrim.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typCommonDataRequest;
+end;//TddCommonDataRequestPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

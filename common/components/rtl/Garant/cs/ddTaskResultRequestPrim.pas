@@ -31,12 +31,8 @@ uses
 ;
 
 class function TddTaskResultRequestPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6855302D9_var*
-//#UC END# *53AC03EE01FD_53B6855302D9_var*
 begin
-//#UC START# *53AC03EE01FD_53B6855302D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6855302D9_impl*
+ Result := k2_typTaskResultRequest;
 end;//TddTaskResultRequestPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

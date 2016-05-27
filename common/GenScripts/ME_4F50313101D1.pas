@@ -1090,7 +1090,7 @@ begin
  Result := 'ArrayProcessingPack';
 end;//TArrayProcessingPackResNameGetter.ResName
 
- {$R ArrayProcessingPack.res}
+{$R ArrayProcessingPack.res}
 
 initialization
  TkwCompiledArray.RegisterClass;

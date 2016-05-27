@@ -44,48 +44,32 @@ uses
 ;
 
 function TncsDeliveryResult.pm_GetTaskID: AnsiString;
-//#UC START# *AD27C71E2468_547582EC02E0get_var*
-//#UC END# *AD27C71E2468_547582EC02E0get_var*
 begin
-//#UC START# *AD27C71E2468_547582EC02E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AD27C71E2468_547582EC02E0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTaskID]);
 end;//TncsDeliveryResult.pm_GetTaskID
 
 procedure TncsDeliveryResult.pm_SetTaskID(const aValue: AnsiString);
-//#UC START# *AD27C71E2468_547582EC02E0set_var*
-//#UC END# *AD27C71E2468_547582EC02E0set_var*
 begin
-//#UC START# *AD27C71E2468_547582EC02E0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AD27C71E2468_547582EC02E0set_impl*
+ TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
 end;//TncsDeliveryResult.pm_SetTaskID
 
 function TncsDeliveryResult.pm_GetResultKind: TncsResultKind;
-//#UC START# *D70695E16D88_547582EC02E0get_var*
-//#UC END# *D70695E16D88_547582EC02E0get_var*
 begin
-//#UC START# *D70695E16D88_547582EC02E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D70695E16D88_547582EC02E0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TncsResultKind(TaggedData.IntA[k2_attrResultKind]);
 end;//TncsDeliveryResult.pm_GetResultKind
 
 procedure TncsDeliveryResult.pm_SetResultKind(aValue: TncsResultKind);
-//#UC START# *D70695E16D88_547582EC02E0set_var*
-//#UC END# *D70695E16D88_547582EC02E0set_var*
 begin
-//#UC START# *D70695E16D88_547582EC02E0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D70695E16D88_547582EC02E0set_impl*
+ TaggedData.IntW[k2_attrResultKind, nil] := Ord(aValue);
 end;//TncsDeliveryResult.pm_SetResultKind
 
 class function TncsDeliveryResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_547582EC02E0_var*
-//#UC END# *53AC03EE01FD_547582EC02E0_var*
 begin
-//#UC START# *53AC03EE01FD_547582EC02E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_547582EC02E0_impl*
+ Result := k2_typcsDeliveryResult;
 end;//TncsDeliveryResult.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

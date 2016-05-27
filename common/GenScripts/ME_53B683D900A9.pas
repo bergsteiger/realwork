@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csLineRequestPrim;
+unit csLineRequestPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csLineRequestPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csLineRequestPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcsLineRequestPrim" MUID: (53B683D900A9)
 
@@ -31,12 +31,8 @@ uses
 ;
 
 class function TcsLineRequestPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B683D900A9_var*
-//#UC END# *53AC03EE01FD_53B683D900A9_var*
 begin
-//#UC START# *53AC03EE01FD_53B683D900A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B683D900A9_impl*
+ Result := k2_typLineRequest;
 end;//TcsLineRequestPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

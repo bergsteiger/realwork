@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_BaseSearchContainerForm.SetFactory(TBaseSearchContainerForm.Make);
+ {* Регистрация фабрики формы BaseSearchContainer }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TBaseSearchContainerForm);
  {* Регистрация BaseSearchContainer }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_BaseSearchContainerForm.SetFactory(TBaseSearchContainerForm.Make);
- {* Регистрация фабрики формы BaseSearchContainer }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

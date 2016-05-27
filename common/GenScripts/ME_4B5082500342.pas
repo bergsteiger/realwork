@@ -13,6 +13,10 @@ interface
 uses
  l3IntfUses
  , vtPngImgList
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
 ;
 
 type
@@ -43,6 +47,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 var g_TPrimEditionsResForm: TPrimEditionsResForm = nil;

@@ -221,7 +221,7 @@ begin
  Result := 'kwFiltersAndGeneratorsPack';
 end;//TkwFiltersAndGeneratorsPackResNameGetter.ResName
 
- {$R kwFiltersAndGeneratorsPack.res}
+{$R kwFiltersAndGeneratorsPack.res}
 
 initialization
  TkwGeneratorsExecute.RegisterInEngine;

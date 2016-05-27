@@ -16,6 +16,11 @@
     {* Есть ли документ, готовый к работе }
    procedure InvertVersionCommentsVisibleByUser;
    procedure VersionCommentsVisibleInvertedByUser(NewState: Boolean); virtual;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Document_ShowJurorComments_Test(const aParams: IvcmTestParamsPrim);
     {* Показать юридические комментарии }
@@ -321,8 +326,33 @@ begin
   State := vcm_DefaultOperationState
 //#UC END# *4A82C33A0105_4A7C0BF5008Bgetstate_impl*
 end;//_DocumentPresentation_.Document_ShowTechComments_GetState
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _DocumentPresentation_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_SubPanelSettings, nil);
+  PublishOp(en_Document, op_ShowJurorComments, Document_ShowJurorComments_Execute, Document_ShowJurorComments_Test, Document_ShowJurorComments_GetState);
+  PublishOp(en_Document, op_ShowUserComments, Document_ShowUserComments_Execute, Document_ShowUserComments_Test, Document_ShowUserComments_GetState);
+  PublishOp(en_Document, op_ShowVersionComments, Document_ShowVersionComments_Execute, Document_ShowVersionComments_Test, Document_ShowVersionComments_GetState);
+  PublishOp(en_Document, op_ShowCommentsGroup, Document_ShowCommentsGroup_Execute, Document_ShowCommentsGroup_Test, nil);
+  PublishOp(en_SubPanelSettings, op_ShowSpecial, SubPanelSettings_ShowSpecial_Execute, SubPanelSettings_ShowSpecial_Test, nil);
+  PublishOp(en_SubPanelSettings, op_ShowInfo, SubPanelSettings_ShowInfo_Execute, SubPanelSettings_ShowInfo_Test, nil);
+  PublishOp(en_Document, op_ShowTechComments, Document_ShowTechComments_Execute, Document_ShowTechComments_Test, Document_ShowTechComments_GetState);
+  PublishOp(en_Document, op_ShowJurorComments, Document_ShowJurorComments_Execute, Document_ShowJurorComments_Test, Document_ShowJurorComments_GetState);
+  PublishOp(en_Document, op_ShowUserComments, Document_ShowUserComments_Execute, Document_ShowUserComments_Test, Document_ShowUserComments_GetState);
+  PublishOp(en_Document, op_ShowTechComments, Document_ShowTechComments_Execute, Document_ShowTechComments_Test, Document_ShowTechComments_GetState);
+  PublishOp(en_Document, op_ShowVersionComments, Document_ShowVersionComments_Execute, Document_ShowVersionComments_Test, Document_ShowVersionComments_GetState);
+ end;//with Entities.Entities
+end;//_DocumentPresentation_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf DocumentPresentation_imp_impl}
 
 {$EndIf DocumentPresentation_imp}

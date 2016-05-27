@@ -23,6 +23,12 @@ uses
  , vtLabel
  , eeMemoWithEditOperations
  , bsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -72,6 +78,10 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -83,6 +93,26 @@ type
    property gbComment: TvtGroupBox
     read f_gbComment;
     {* Комментарий к Вашей оценке: }
+   property rbNotSure: TvtRadioButton
+    read f_rbNotSure;
+    {* Затрудняюсь ответить (оценка 0) }
+   property rbTwo: TvtRadioButton
+    read f_rbTwo;
+    {* Плохо (оценка 2) }
+   property rbThree: TvtRadioButton
+    read f_rbThree;
+    {* Удовлетворительно (оценка 3) }
+   property rbFour: TvtRadioButton
+    read f_rbFour;
+    {* Хорошо (оценка 4) }
+   property rbFive: TvtRadioButton
+    read f_rbFive;
+    {* Отлично (оценка 5) }
+   property lblHelp: TvtLabel
+    read f_lblHelp;
+    {* Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн». }
+   property mComment: TeeMemoWithEditOperations
+    read f_mComment;
  end;//TPrimConsultationMarkForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -107,6 +137,9 @@ uses
  , ConsultationWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimConsultationMark_utcmMain_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -296,6 +329,12 @@ begin
 //#UC END# *4A8E8F2E0195_497EDC5003D1_impl*
 end;//TPrimConsultationMarkForm.InitControls
 
+procedure TPrimConsultationMarkForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimConsultationMarkForm.SignalDataSourceChanged
+
 procedure TPrimConsultationMarkForm.MakeControls;
 begin
  inherited;
@@ -315,30 +354,38 @@ begin
  f_gbMark := TvtGroupBox.Create(Self);
  f_gbMark.Name := 'gbMark';
  f_gbMark.Parent := Self;
+ f_gbMark.Caption := 'Оценка:';
  f_rbNotSure := TvtRadioButton.Create(Self);
  f_rbNotSure.Name := 'rbNotSure';
  f_rbNotSure.Parent := gbMark;
+ f_rbNotSure.Caption := 'Затрудняюсь ответить (оценка 0)';
  f_rbTwo := TvtRadioButton.Create(Self);
  f_rbTwo.Name := 'rbTwo';
  f_rbTwo.Parent := gbMark;
+ f_rbTwo.Caption := 'Плохо (оценка 2)';
  f_rbThree := TvtRadioButton.Create(Self);
  f_rbThree.Name := 'rbThree';
  f_rbThree.Parent := gbMark;
+ f_rbThree.Caption := 'Удовлетворительно (оценка 3)';
  f_rbFour := TvtRadioButton.Create(Self);
  f_rbFour.Name := 'rbFour';
  f_rbFour.Parent := gbMark;
+ f_rbFour.Caption := 'Хорошо (оценка 4)';
  f_rbFive := TvtRadioButton.Create(Self);
  f_rbFive.Name := 'rbFive';
  f_rbFive.Parent := gbMark;
+ f_rbFive.Caption := 'Отлично (оценка 5)';
  f_pnlHelp := TvtPanel.Create(Self);
  f_pnlHelp.Name := 'pnlHelp';
  f_pnlHelp.Parent := Self;
  f_lblHelp := TvtLabel.Create(Self);
  f_lblHelp.Name := 'lblHelp';
  f_lblHelp.Parent := pnlHelp;
+ f_lblHelp.Caption := 'Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн».';
  f_gbComment := TvtGroupBox.Create(Self);
  f_gbComment.Name := 'gbComment';
  f_gbComment.Parent := Self;
+ f_gbComment.Caption := 'Комментарий к Вашей оценке:';
  f_mComment := TeeMemoWithEditOperations.Create(Self);
  f_mComment.Name := 'mComment';
  f_mComment.Parent := gbComment;

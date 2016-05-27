@@ -73,7 +73,6 @@ implementation
 uses
  l3ImplUses
  , l3Utils
- , csMessage_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer
@@ -81,6 +80,7 @@ uses
  , k2TagGen
  , evdNativeReader
  , k2DocumentBuffer
+ , csMessage_Const
  , csDIsconnect_Const
  , csDIsconnectReply_Const
 ;
@@ -88,66 +88,44 @@ uses
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TncsMessage.pm_GetKind: TncsMessageKind;
-//#UC START# *1D5377CCDA1F_544E079E0253get_var*
-//#UC END# *1D5377CCDA1F_544E079E0253get_var*
 begin
-//#UC START# *1D5377CCDA1F_544E079E0253get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1D5377CCDA1F_544E079E0253get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TncsMessageKind(TaggedData.IntA[k2_attrKind]);
 end;//TncsMessage.pm_GetKind
 
 procedure TncsMessage.pm_SetKind(aValue: TncsMessageKind);
-//#UC START# *1D5377CCDA1F_544E079E0253set_var*
-//#UC END# *1D5377CCDA1F_544E079E0253set_var*
 begin
-//#UC START# *1D5377CCDA1F_544E079E0253set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1D5377CCDA1F_544E079E0253set_impl*
+ TaggedData.IntW[k2_attrKind, nil] := Ord(aValue);
 end;//TncsMessage.pm_SetKind
 
 function TncsMessage.pm_GetMessageID: AnsiString;
-//#UC START# *304530FC54C4_544E079E0253get_var*
-//#UC END# *304530FC54C4_544E079E0253get_var*
 begin
-//#UC START# *304530FC54C4_544E079E0253get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *304530FC54C4_544E079E0253get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrMessageID]);
 end;//TncsMessage.pm_GetMessageID
 
 procedure TncsMessage.pm_SetMessageID(const aValue: AnsiString);
-//#UC START# *304530FC54C4_544E079E0253set_var*
-//#UC END# *304530FC54C4_544E079E0253set_var*
 begin
-//#UC START# *304530FC54C4_544E079E0253set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *304530FC54C4_544E079E0253set_impl*
+ TaggedData.StrW[k2_attrMessageID, nil] := (aValue);
 end;//TncsMessage.pm_SetMessageID
 
 function TncsMessage.pm_GetTimeStamp: TDateTime;
-//#UC START# *0872C343F429_544E079E0253get_var*
-//#UC END# *0872C343F429_544E079E0253get_var*
 begin
-//#UC START# *0872C343F429_544E079E0253get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0872C343F429_544E079E0253get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrTimeStamp]);
 end;//TncsMessage.pm_GetTimeStamp
 
 procedure TncsMessage.pm_SetTimeStamp(aValue: TDateTime);
-//#UC START# *0872C343F429_544E079E0253set_var*
-//#UC END# *0872C343F429_544E079E0253set_var*
 begin
-//#UC START# *0872C343F429_544E079E0253set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0872C343F429_544E079E0253set_impl*
+ TaggedData.DateTimeW[k2_attrTimeStamp, nil] := (aValue);
 end;//TncsMessage.pm_SetTimeStamp
 
 class function TncsMessage.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_544E079E0253_var*
-//#UC END# *53AC03EE01FD_544E079E0253_var*
 begin
-//#UC START# *53AC03EE01FD_544E079E0253_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_544E079E0253_impl*
+ Result := k2_typcsMessage;
 end;//TncsMessage.GetTaggedDataType
 
 procedure TncsMessage.InitFields;
@@ -184,21 +162,13 @@ begin
 end;//TncsReply.Create
 
 class function TncsDIsconnect.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_547C1F31030C_var*
-//#UC END# *53AC03EE01FD_547C1F31030C_var*
 begin
-//#UC START# *53AC03EE01FD_547C1F31030C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_547C1F31030C_impl*
+ Result := k2_typcsDIsconnect;
 end;//TncsDIsconnect.GetTaggedDataType
 
 class function TncsDIsconnectReply.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_547C1F3F025A_var*
-//#UC END# *53AC03EE01FD_547C1F3F025A_var*
 begin
-//#UC START# *53AC03EE01FD_547C1F3F025A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_547C1F3F025A_impl*
+ Result := k2_typcsDIsconnectReply;
 end;//TncsDIsconnectReply.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

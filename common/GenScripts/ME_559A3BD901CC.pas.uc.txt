@@ -170,9 +170,7 @@ var
  l_ResultSet: IdaResultSet;
 //#UC END# *5549F9E70184_559A3BD901CC_var*
 //#UC START# *554A037B0325_559A3BD901CC_impl*
- if NeedLogSessionEnd then
-  LogEvent(da_oobSessionEnd, 0, 0, 0);
- f_CurSessionID := BlankSession;
+ LogEvent(da_oobSessionEnd, 0, 0, 0);
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 //#UC START# *554A037B0325_559A3BD901CC_var*
 //#UC END# *554A037B0325_559A3BD901CC_var*
@@ -217,13 +215,13 @@ var
     da_oobPause : PauseTime:=PauseTime + l_AdditionalInfoField.AsInteger;
     da_oobSessionBegin:
      begin
-      TmpNode := CurStatTree.FindNodeByParam(CurStatTree.RootNode, Integer(TdaUserID(l_ExtIDField.AsLargeInt)), imOneLevel);
+      TmpNode := CurStatTree.FindNodeByParam(CurStatTree.RootNode, l_ExtIDField.AsLargeInt, imOneLevel);
       if TmpNode=nil
        then
         begin
          TmpNode:=CurStatTree.InsertNode(CurStatTree.RootNode,
-                                 MakeNode(PAnsiChar(GlobalDataProvider.UserManager.GetUserName(l_ExtIDField.AsLargeInt))));
-         (TmpNode as Il3HandleNode).Handle:=Integer(TdaUserID(l_ExtIDField.AsLargeInt));
+                                 MakeNode(PChar(f_Factory.GetUserNameStr(l_ExtIDField.AsLargeInt))));
+         (TmpNode as Il3HandleNode).Handle:=l_ExtIDField.AsLargeInt;
         end;
       StDateToDMY(l_DateField.AsStDate,Day,Month,Year);
       StTimeToHMS(l_TimeField.AsStTime, l_Hours, l_Minutes, l_Seconds);
@@ -419,7 +417,7 @@ Var
 
 //#UC END# *5563292201CF_559A3BD901CC_var*
 //#UC START# *55657CD20360_559A3BD901CC_impl*
- if FromDate = 0 then                                      
+ if FromDate = 0 then
   FromDate := 1{CurrentDate};
  if ToDate = 0 then
   ToDate := CurrentDate + 5;
@@ -441,10 +439,8 @@ Var
  begin
   if f_CurSessionID <> BlankSession then
   begin
-   f_CurSessionID := BlankSession;
-   SessionChanged;
-   if NeedLogSessionEnd then
-    LogEvent(da_oobSessionEnd, 0, 0, 0);
+   LogEvent(da_oobSessionEnd, 0, 0, 0);
+   f_CurSessionID := BlankSession
   end;
   f_CurUser := anUserID;
   UserChanged(f_CurUser);
@@ -452,15 +448,14 @@ Var
   begin
     f_CurSessionID := aSessionID;
     SessionChanged;
-    if NeedLogSessionBegin then
-     LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
   end;
  end;
 //#UC END# *56E2A25501A6_559A3BD901CC_impl*
 //#UC START# *56E2A25501A6_559A3BD901CC_var*
 //#UC END# *56E2A25501A6_559A3BD901CC_var*
 //#UC START# *56E2A7DB03CE_559A3BD901CC_impl*
- DoLogEvent(aOperation, aFamilyID, aExtID, aData);
+ LogEvent(aOperation, aFamilyID, aExtID, aData);
 //#UC END# *56E2A7DB03CE_559A3BD901CC_impl*
 //#UC START# *56E2A7DB03CE_559A3BD901CC_var*
 //#UC END# *56E2A7DB03CE_559A3BD901CC_var*

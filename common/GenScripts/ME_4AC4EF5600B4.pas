@@ -128,6 +128,11 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -166,6 +171,10 @@ type
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property trContactList: TeeTreeView
+    read f_trContactList;
  end;//TPrimContactListForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -197,6 +206,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -795,6 +807,26 @@ begin
  Windows.SetFocus(trContactList.Handle);
 //#UC END# *4F7C65380244_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.FormInsertedIntoContainer
+
+procedure TPrimContactListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Chat, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Chat, op_Add, Chat_Add_Execute, Chat_Add_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOp(en_Chat, op_History, Chat_History_Execute, Chat_History_Test, nil);
+  PublishOp(en_Chat, op_UserFilter, Chat_UserFilter_Execute, Chat_UserFilter_Test, nil);
+  PublishOp(en_Chat, op_OpenChatWindow, Chat_OpenChatWindow_Execute, Chat_OpenChatWindow_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimContactListForm.InitEntities
 
 procedure TPrimContactListForm.MakeControls;
 begin

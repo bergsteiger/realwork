@@ -31,6 +31,12 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -89,6 +95,11 @@ type
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -96,10 +107,10 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure ControlCenter_Refresh_Execute;
-   procedure ControlCenter_Refresh(const aParams: IvcmExecuteParamsPrim);
+   procedure ControlCenter_Refresh(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
@@ -567,7 +578,7 @@ begin
 //#UC END# *49895A2102E8_4A7C349D02CBexec_impl*
 end;//TPrimUnderControlForm.Loadable_Load_Execute
 
-procedure TPrimUnderControlForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimUnderControlForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -593,7 +604,7 @@ begin
 //#UC END# *4AF836720144_4A7C349D02CBexec_impl*
 end;//TPrimUnderControlForm.ControlCenter_Refresh_Execute
 
-procedure TPrimUnderControlForm.ControlCenter_Refresh(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimUnderControlForm.ControlCenter_Refresh(const aParams: IvcmExecuteParams);
 begin
  Self.ControlCenter_Refresh_Execute;
 end;//TPrimUnderControlForm.ControlCenter_Refresh
@@ -717,6 +728,25 @@ begin
  Height := 480;
 //#UC END# *529332B40230_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.SetupFormLayout
+
+procedure TPrimUnderControlForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_ControlCenter, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOpWithResult(en_ControlCenter, op_Refresh, ControlCenter_Refresh, nil, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+  PublishOp(en_Document, op_ShowChanges, Document_ShowChanges_Execute, Document_ShowChanges_Test, Document_ShowChanges_GetState);
+ end;//with Entities.Entities
+end;//TPrimUnderControlForm.InitEntities
 
 procedure TPrimUnderControlForm.MakeControls;
 begin

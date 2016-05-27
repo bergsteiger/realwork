@@ -5133,7 +5133,7 @@ begin
  Result := 'BasicsPack';
 end;//TBasicsPackResNameGetter.ResName
 
- {$R BasicsPack.res}
+{$R BasicsPack.res}
 
 initialization
  TkwDefine.RegisterInEngine;

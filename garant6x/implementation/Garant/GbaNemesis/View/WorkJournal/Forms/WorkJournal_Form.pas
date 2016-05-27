@@ -1,95 +1,67 @@
 unit WorkJournal_Form;
+ {* Журнал работы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkJournal/Forms/WorkJournal_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Основные прецеденты::WorkJournal::View::WorkJournal::BaseWorkJournal::WorkJournal
-//
-// Журнал работы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\WorkJournal_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "WorkJournal" MUID: (4A811C620210)
+// Имя типа: "TWorkJournalForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimWorkJournalOptions_Form,
-  nscTreeViewWithAdapterDragDrop,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimWorkJournalOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { WorkJournalIDs }
-   fm_WorkJournalForm : TvcmFormDescriptor = (rFormID : (rName : 'WorkJournalForm'; rID : 0); rFactory : nil);
-    { Идентификатор формы TWorkJournalForm }
+ fm_WorkJournalForm: TvcmFormDescriptor = (rFormID : (rName : 'WorkJournalForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TWorkJournalForm }
 
 type
- WorkJournalFormDef = interface(IUnknown)
+ TWorkJournalForm = class;
+
+ WorkJournalFormDef = interface
   {* Идентификатор формы WorkJournal }
-   ['{D0739331-5959-49D1-A117-74FAFA0E0939}']
+  ['{D0739331-5959-49D1-A117-74FAFA0E0939}']
  end;//WorkJournalFormDef
 
-  TWorkJournalForm = {final form} class(TPrimWorkJournalOptionsForm, WorkJournalFormDef)
-   {* Журнал работы }
-  Entities : TvcmEntities;
-  end;//TWorkJournalForm
-{$IfEnd} //not Admin AND not Monitorings
+ TWorkJournalForm = {final} class(TPrimWorkJournalOptionsForm, WorkJournalFormDef)
+  {* Журнал работы }
+   Entities : TvcmEntities;
+ end;//TWorkJournalForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , WorkJournalKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  WorkJournalKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация WorkJournal
- TtfwClassRef.Register(TWorkJournalForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы WorkJournal
  fm_WorkJournalForm.SetFactory(TWorkJournalForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы WorkJournal }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TWorkJournalForm);
+ {* Регистрация WorkJournal }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

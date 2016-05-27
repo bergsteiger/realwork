@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , SelfInfo_ut_SelfInfo_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , SelfInfoKeywordsPack
@@ -88,14 +88,14 @@ end;//TSelfInfoForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_SelfInfoCaption.Init;
+ {* Инициализация str_ut_SelfInfoCaption }
+ fm_SelfInfoForm.SetFactory(TSelfInfoForm.Make);
+ {* Регистрация фабрики формы SelfInfo }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TSelfInfoForm);
  {* Регистрация SelfInfo }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_SelfInfoForm.SetFactory(TSelfInfoForm.Make);
- {* Регистрация фабрики формы SelfInfo }
- str_ut_SelfInfoCaption.Init;
- {* Инициализация str_ut_SelfInfoCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

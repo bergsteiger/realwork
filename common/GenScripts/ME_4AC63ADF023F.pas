@@ -24,6 +24,9 @@ uses
  , ConfigInterfaces
  , bsInterfaces
  , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -60,6 +63,11 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCM)}
    procedure DoOnShowModal; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -114,7 +122,13 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimSettings_cutSettings_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -365,6 +379,24 @@ begin
  //http://mdp.garant.ru/pages/viewpage.action?pageId=567555348
 //#UC END# *5445EA440078_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.DoOnShowModal
+
+procedure TPrimSettingsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_RestoreConf, Result_RestoreConf_Execute, Result_RestoreConf_Test, nil);
+  PublishOp(en_Result, op_SaveAsDefaultConf, Result_SaveAsDefaultConf_Execute, Result_SaveAsDefaultConf_Test, nil);
+  PublishOp(en_Result, op_RestoreAllSettings, Result_RestoreAllSettings_Execute, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimSettingsForm.InitEntities
 
 procedure TPrimSettingsForm.MakeControls;
 begin

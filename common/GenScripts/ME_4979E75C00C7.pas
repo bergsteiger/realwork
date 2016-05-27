@@ -17,15 +17,22 @@ uses
  , WorkWithListInterfaces
  , vtPanel
  , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Child
-
  _PageControlNotification_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _SynchroViewUserTypes_Parent_ = _PageControlNotification_;
@@ -48,11 +55,20 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
-   procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
   public
    property DocView: TvtPanel
     read f_DocView;
@@ -139,7 +155,7 @@ begin
 //#UC END# *4AE9E3CC03C7_4979E75C00C7exec_impl*
 end;//TPrimSynchroViewForm.SynchroView_BecomeActive_Execute
 
-procedure TPrimSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISynchroView_BecomeActive_Params) do
   Self.SynchroView_BecomeActive_Execute(FormType);
@@ -168,6 +184,24 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.InitControls
+
+procedure TPrimSynchroViewForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimSynchroViewForm.SignalDataSourceChanged
+
+procedure TPrimSynchroViewForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_SynchroView, nil);
+  PublishOpWithResult(en_SynchroView, op_BecomeActive, SynchroView_BecomeActive, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimSynchroViewForm.InitEntities
 
 procedure TPrimSynchroViewForm.MakeControls;
 begin

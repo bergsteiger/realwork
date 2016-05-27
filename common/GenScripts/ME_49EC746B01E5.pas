@@ -132,6 +132,15 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -259,11 +268,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    function Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
     {* Изменить масштаб }
-   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParamsPrim);
+   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParams);
     {* Изменить масштаб }
    function Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
     {* Масштабирование запрещено }
-   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParamsPrim);
+   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
     {* Масштабирование запрещено }
  end;//TPrimInternetAgentForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -322,27 +331,36 @@ type
   {* Состояние Интернет-агента }
   ['{D4ACF593-E6B2-403E-BF8B-88C3E553312B}']
   function Get_URL: WideString;
-  procedure SetParams(const anURL: WideString);
+  function Get_ScrollPos: Integer;
+  procedure SetParams(const anURL: WideString;
+   aScrollPos: Integer);
    {* Устанавливает новые параметры состояния Интернет-агента }
   function As_IvcmBase: IvcmBase;
    {* Метод приведения нашего интерфейса к IvcmBase }
   property URL: WideString
    read Get_URL;
    {* Путь к странице }
+  property ScrollPos: Integer
+   read Get_ScrollPos;
  end;//InsInternetAgentState
 
  TnsInternetAgentState = class(Tl3ProtoObject, InsInternetAgentState, IvcmBase)
   private
    f_URL: WideString;
+   f_ScrollPos: Integer;
   protected
    function As_IvcmBase: IvcmBase;
     {* Метод приведения нашего интерфейса к IvcmBase }
    function Get_URL: WideString;
-   procedure SetParams(const anURL: WideString);
+   procedure SetParams(const anURL: WideString;
+    aScrollPos: Integer);
     {* Устанавливает новые параметры состояния Интернет-агента }
+   function Get_ScrollPos: Integer;
   public
-   class function Make(const anURL: WideString): InsInternetAgentState; reintroduce;
-   constructor Create(const anURL: WideString); reintroduce;
+   constructor Create(const anURL: WideString;
+    aScrollPos: Integer); reintroduce;
+   class function Make(const anURL: WideString;
+    aScrollPos: Integer): InsInternetAgentState; reintroduce;
  end;//TnsInternetAgentState
 
 const
@@ -353,27 +371,29 @@ const
  str_utInternetAgentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utInternetAgentCaption'; rValue : 'Новости онлайн');
   {* Заголовок пользовательского типа "Новости онлайн" }
 
-class function TnsInternetAgentState.Make(const anURL: WideString): InsInternetAgentState;
+constructor TnsInternetAgentState.Create(const anURL: WideString;
+ aScrollPos: Integer);
+//#UC START# *5742CDC7015B_49EDAA740295_var*
+//#UC END# *5742CDC7015B_49EDAA740295_var*
+begin
+//#UC START# *5742CDC7015B_49EDAA740295_impl*
+ inherited Create;
+ SetParams(anUrl, aScrollPos);
+//#UC END# *5742CDC7015B_49EDAA740295_impl*
+end;//TnsInternetAgentState.Create
+
+class function TnsInternetAgentState.Make(const anURL: WideString;
+ aScrollPos: Integer): InsInternetAgentState;
 var
  l_Inst : TnsInternetAgentState;
 begin
- l_Inst := Create(anURL);
+ l_Inst := Create(anURL, aScrollPos);
  try
   Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally
 end;//TnsInternetAgentState.Make
-
-constructor TnsInternetAgentState.Create(const anURL: WideString);
-//#UC START# *49EDAB3802C8_49EDAA740295_var*
-//#UC END# *49EDAB3802C8_49EDAA740295_var*
-begin
-//#UC START# *49EDAB3802C8_49EDAA740295_impl*
- inherited Create;
- f_URL := anURL;
-//#UC END# *49EDAB3802C8_49EDAA740295_impl*
-end;//TnsInternetAgentState.Create
 
 function TnsInternetAgentState.As_IvcmBase: IvcmBase;
  {* Метод приведения нашего интерфейса к IvcmBase }
@@ -390,7 +410,8 @@ begin
 //#UC END# *49EDAAF403C0_49EDAA740295get_impl*
 end;//TnsInternetAgentState.Get_URL
 
-procedure TnsInternetAgentState.SetParams(const anURL: WideString);
+procedure TnsInternetAgentState.SetParams(const anURL: WideString;
+ aScrollPos: Integer);
  {* Устанавливает новые параметры состояния Интернет-агента }
 //#UC START# *49EDDC9F007A_49EDAA740295_var*
 //#UC END# *49EDDC9F007A_49EDAA740295_var*
@@ -399,6 +420,15 @@ begin
  f_URL := anURL;
 //#UC END# *49EDDC9F007A_49EDAA740295_impl*
 end;//TnsInternetAgentState.SetParams
+
+function TnsInternetAgentState.Get_ScrollPos: Integer;
+//#UC START# *5742C1CB030C_49EDAA740295get_var*
+//#UC END# *5742C1CB030C_49EDAA740295get_var*
+begin
+//#UC START# *5742C1CB030C_49EDAA740295get_impl*
+ Result := f_ScrollPos;
+//#UC END# *5742C1CB030C_49EDAA740295get_impl*
+end;//TnsInternetAgentState.Get_ScrollPos
 
 type _Instance_R_ = TPrimInternetAgentForm;
 
@@ -973,7 +1003,7 @@ begin
 //#UC END# *4BB32C1401C0_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Scalable_ChangeScale_Execute
 
-procedure TPrimInternetAgentForm.Scalable_ChangeScale(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimInternetAgentForm.Scalable_ChangeScale(const aParams: IvcmExecuteParams);
  {* Изменить масштаб }
 begin
  with (aParams.Data As IScalable_ChangeScale_Params) do
@@ -1011,7 +1041,7 @@ begin
 //#UC END# *4BB366A901D7_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Scalable_CanChangeScale_Execute
 
-procedure TPrimInternetAgentForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimInternetAgentForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
  {* Масштабирование запрещено }
 begin
  with (aParams.Data As IScalable_CanChangeScale_Params) do
@@ -1146,6 +1176,44 @@ begin
 //#UC END# *543E3AA801D0_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimInternetAgentForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimInternetAgentForm.SignalDataSourceChanged
+
+procedure TPrimInternetAgentForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Scalable, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  PublishOp(en_Edit, op_Cut, Edit_Cut_Execute, Edit_Cut_Test, nil);
+  PublishOp(en_Edit, op_FindContext, Edit_FindContext_Execute, Edit_FindContext_Test, nil);
+  PublishOp(en_Edit, op_FindNext, Edit_FindNext_Execute, Edit_FindNext_Test, nil);
+  PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  PublishOp(en_Edit, op_Paste, Edit_Paste_Execute, Edit_Paste_Test, nil);
+  PublishOp(en_Edit, op_Undo, Edit_Undo_Execute, Edit_Undo_Test, nil);
+  PublishOp(en_Edit, op_Redo, Edit_Redo_Execute, Edit_Redo_Test, nil);
+  PublishOp(en_Edit, op_SelectAll, Edit_SelectAll_Execute, Edit_SelectAll_Test, nil);
+  PublishOp(en_Edit, op_Deselect, Edit_Deselect_Execute, Edit_Deselect_Test, nil);
+  PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
+  PublishOpWithResult(en_Scalable, op_ChangeScale, Scalable_ChangeScale, nil, nil);
+  PublishOpWithResult(en_Scalable, op_CanChangeScale, Scalable_CanChangeScale, nil, nil);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+ end;//with Entities.Entities
+end;//TPrimInternetAgentForm.InitEntities
 
 procedure TPrimInternetAgentForm.MakeControls;
 begin

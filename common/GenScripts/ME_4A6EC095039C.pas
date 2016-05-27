@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_EditionsContainerForm.SetFactory(TEditionsContainerForm.Make);
+ {* Регистрация фабрики формы EditionsContainer }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TEditionsContainerForm);
  {* Регистрация EditionsContainer }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_EditionsContainerForm.SetFactory(TEditionsContainerForm.Make);
- {* Регистрация фабрики формы EditionsContainer }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

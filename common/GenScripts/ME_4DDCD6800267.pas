@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ChangesBetweenEditonsForm.SetFactory(TChangesBetweenEditonsForm.Make);
+ {* Регистрация фабрики формы ChangesBetweenEditons }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChangesBetweenEditonsForm);
  {* Регистрация ChangesBetweenEditons }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ChangesBetweenEditonsForm.SetFactory(TChangesBetweenEditonsForm.Make);
- {* Регистрация фабрики формы ChangesBetweenEditons }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

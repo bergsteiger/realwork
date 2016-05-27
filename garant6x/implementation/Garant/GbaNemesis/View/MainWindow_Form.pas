@@ -17,6 +17,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -33,6 +36,7 @@ type
 
  TnsMainWindow = {final} class(TMainWithRemindersForm, MainWindowFormDef)
   {* Гарант }
+   Entities : TvcmEntities;
  end;//TnsMainWindow
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -49,18 +53,20 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , MainWindowKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
+{$R *.DFM}
+
 initialization
+ fm_nsMainWindow.SetFactory(TnsMainWindow.Make);
+ {* Регистрация фабрики формы MainWindow }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsMainWindow);
  {* Регистрация MainWindow }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_nsMainWindow.SetFactory(TnsMainWindow.Make);
- {* Регистрация фабрики формы MainWindow }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

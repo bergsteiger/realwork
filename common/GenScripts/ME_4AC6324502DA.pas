@@ -31,6 +31,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -99,6 +102,11 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -119,6 +127,37 @@ type
    property TypeDate: TTypeDate
     read f_TypeDate
     write pm_SetTypeDate;
+   property ElLabel1: TvtLabel
+    read f_ElLabel1;
+    {* Выберите тип диапазона: }
+   property ElLabel2: TvtLabel
+    read f_ElLabel2;
+    {* С }
+   property ElLabel3: TvtLabel
+    read f_ElLabel3;
+    {* По }
+   property dD1EqD2: TvtDblClickDateEdit
+    read f_dD1EqD2;
+   property rbEq: TvtRadioButton
+    read f_rbEq;
+    {* Точная дата: }
+   property rbInt: TvtRadioButton
+    read f_rbInt;
+    {* Интервал дат: }
+   property rbD2Only: TvtRadioButton
+    read f_rbD2Only;
+    {* Раньше: }
+   property dD1Only: TvtDblClickDateEdit
+    read f_dD1Only;
+   property dD2Only: TvtDblClickDateEdit
+    read f_dD2Only;
+   property dD1: TvtDblClickDateEdit
+    read f_dD1;
+   property rbD1Only: TvtRadioButton
+    read f_rbD1Only;
+    {* Позже: }
+   property dD2: TvtDblClickDateEdit
+    read f_dD2;
  end;//TPrimDefineSearchDateForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -147,6 +186,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -640,6 +682,21 @@ begin
 //#UC END# *4A8E8F2E0195_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.InitControls
 
+procedure TPrimDefineSearchDateForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil, true);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimDefineSearchDateForm.InitEntities
+
 procedure TPrimDefineSearchDateForm.MakeControls;
 begin
  inherited;
@@ -649,24 +706,30 @@ begin
  f_ElLabel1 := TvtLabel.Create(Self);
  f_ElLabel1.Name := 'ElLabel1';
  f_ElLabel1.Parent := Panel1;
+ f_ElLabel1.Caption := 'Выберите тип диапазона:';
  f_ElLabel2 := TvtLabel.Create(Self);
  f_ElLabel2.Name := 'ElLabel2';
  f_ElLabel2.Parent := Panel1;
+ f_ElLabel2.Caption := 'С';
  f_ElLabel3 := TvtLabel.Create(Self);
  f_ElLabel3.Name := 'ElLabel3';
  f_ElLabel3.Parent := Panel1;
+ f_ElLabel3.Caption := 'По';
  f_dD1EqD2 := TvtDblClickDateEdit.Create(Self);
  f_dD1EqD2.Name := 'dD1EqD2';
  f_dD1EqD2.Parent := Panel1;
  f_rbEq := TvtRadioButton.Create(Self);
  f_rbEq.Name := 'rbEq';
  f_rbEq.Parent := Panel1;
+ f_rbEq.Caption := 'Точная дата:';
  f_rbInt := TvtRadioButton.Create(Self);
  f_rbInt.Name := 'rbInt';
  f_rbInt.Parent := Panel1;
+ f_rbInt.Caption := 'Интервал дат:';
  f_rbD2Only := TvtRadioButton.Create(Self);
  f_rbD2Only.Name := 'rbD2Only';
  f_rbD2Only.Parent := Panel1;
+ f_rbD2Only.Caption := 'Раньше:';
  f_dD1Only := TvtDblClickDateEdit.Create(Self);
  f_dD1Only.Name := 'dD1Only';
  f_dD1Only.Parent := Panel1;
@@ -679,6 +742,7 @@ begin
  f_rbD1Only := TvtRadioButton.Create(Self);
  f_rbD1Only.Name := 'rbD1Only';
  f_rbD1Only.Parent := Panel1;
+ f_rbD1Only.Caption := 'Позже:';
  f_dD2 := TvtDblClickDateEdit.Create(Self);
  f_dD2.Name := 'dD2';
  f_dD2.Parent := Panel1;

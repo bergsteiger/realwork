@@ -54,12 +54,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_AACContentsContainerForm.SetFactory(TAACContentsContainerForm.Make);
+ {* Регистрация фабрики формы AACContentsContainer }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAACContentsContainerForm);
  {* Регистрация AACContentsContainer }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_AACContentsContainerForm.SetFactory(TAACContentsContainerForm.Make);
- {* Регистрация фабрики формы AACContentsContainer }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

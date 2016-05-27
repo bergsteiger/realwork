@@ -44,7 +44,8 @@ type
    constructor Create(const aManager: IalcuAsyncSubmitterManager); reintroduce;
    function SubmitTask(const aTask: TddProcessTask): Boolean;
    procedure CheckExecution(const aServices: IcsRunTaskServices);
-   function HasRunningTask(const aServices: IcsRunTaskServices): Boolean;
+   function HasRunningTask(const aServices: IcsRunTaskServices;
+    CountAbortingTask: Boolean): Boolean;
    procedure RegisterNotifier(const aNotifier: IalcuAsyncTaskFinishedNotifier);
    procedure UnRegisterNotifier(const aNotifier: IalcuAsyncTaskFinishedNotifier);
    function AllowSubmitTask: Boolean;
@@ -231,7 +232,8 @@ begin
 //#UC END# *53CDFADC00B4_53CDF9FE006B_impl*
 end;//TalcuSubmitterWorkPool.CheckExecution
 
-function TalcuSubmitterWorkPool.HasRunningTask(const aServices: IcsRunTaskServices): Boolean;
+function TalcuSubmitterWorkPool.HasRunningTask(const aServices: IcsRunTaskServices;
+ CountAbortingTask: Boolean): Boolean;
 //#UC START# *53CF9B060043_53CDF9FE006B_var*
 
 var

@@ -1,104 +1,67 @@
 unit ChatWindow_Form;
+ {* Переписка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/Forms/ChatWindow_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Встроенные продукты::Chat::View::Chat::BaseChat::ChatWindow
-//
-// Переписка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\ChatWindow_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "ChatWindow" MUID: (4A6971E802F5)
+// Имя типа: "TChatWindowForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  BaseChatWindowOptions_Form
-  {$If defined(Nemesis)}
-  ,
-  nscChatMemo
-  {$IfEnd} //Nemesis
-  ,
-  vtProportionalPanel,
-  vtSizeablePanel,
-  vtPanel,
-  AbstractHistory_Form,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseChatWindowOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { ChatWindowIDs }
-   fm_ChatWindowForm : TvcmFormDescriptor = (rFormID : (rName : 'ChatWindowForm'; rID : 0); rFactory : nil);
-    { Идентификатор формы TChatWindowForm }
+ fm_ChatWindowForm: TvcmFormDescriptor = (rFormID : (rName : 'ChatWindowForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TChatWindowForm }
 
 type
- ChatWindowFormDef = interface(IUnknown)
+ TChatWindowForm = class;
+
+ ChatWindowFormDef = interface
   {* Идентификатор формы ChatWindow }
-   ['{BD39AB6D-74A5-4A07-80BA-F529342D3B8A}']
+  ['{BD39AB6D-74A5-4A07-80BA-F529342D3B8A}']
  end;//ChatWindowFormDef
 
-  TChatWindowForm = {final form} class(TBaseChatWindowOptionsForm, ChatWindowFormDef)
-   {* Переписка }
-  Entities : TvcmEntities;
-  end;//TChatWindowForm
-{$IfEnd} //not Admin AND not Monitorings
+ TChatWindowForm = {final} class(TBaseChatWindowOptionsForm, ChatWindowFormDef)
+  {* Переписка }
+   Entities : TvcmEntities;
+ end;//TChatWindowForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ChatWindowKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ChatWindowKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ChatWindow
- TtfwClassRef.Register(TChatWindowForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы ChatWindow
  fm_ChatWindowForm.SetFactory(TChatWindowForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы ChatWindow }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TChatWindowForm);
+ {* Регистрация ChatWindow }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

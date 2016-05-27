@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuAutoClassTaskResult;
+unit alcuAutoClassTaskResult;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoClassTaskResult.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoClassTaskResult.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuAutoClassTaskResult" MUID: (53F472280036)
 
@@ -47,57 +47,39 @@ uses
 ;
 
 function TalcuAutoClassTaskResult.pm_GetReportMessage: AnsiString;
-//#UC START# *0632E6B8F326_53F472280036get_var*
-//#UC END# *0632E6B8F326_53F472280036get_var*
 begin
-//#UC START# *0632E6B8F326_53F472280036get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0632E6B8F326_53F472280036get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportMessage]);
 end;//TalcuAutoClassTaskResult.pm_GetReportMessage
 
 procedure TalcuAutoClassTaskResult.pm_SetReportMessage(const aValue: AnsiString);
-//#UC START# *0632E6B8F326_53F472280036set_var*
-//#UC END# *0632E6B8F326_53F472280036set_var*
 begin
-//#UC START# *0632E6B8F326_53F472280036set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0632E6B8F326_53F472280036set_impl*
+ TaggedData.StrW[k2_attrReportMessage, nil] := (aValue);
 end;//TalcuAutoClassTaskResult.pm_SetReportMessage
 
 function TalcuAutoClassTaskResult.pm_GetMissedDocsStr: AnsiString;
-//#UC START# *10D805489FFC_53F472280036get_var*
-//#UC END# *10D805489FFC_53F472280036get_var*
 begin
-//#UC START# *10D805489FFC_53F472280036get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *10D805489FFC_53F472280036get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrMissedDocsStr]);
 end;//TalcuAutoClassTaskResult.pm_GetMissedDocsStr
 
 procedure TalcuAutoClassTaskResult.pm_SetMissedDocsStr(const aValue: AnsiString);
-//#UC START# *10D805489FFC_53F472280036set_var*
-//#UC END# *10D805489FFC_53F472280036set_var*
 begin
-//#UC START# *10D805489FFC_53F472280036set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *10D805489FFC_53F472280036set_impl*
+ TaggedData.StrW[k2_attrMissedDocsStr, nil] := (aValue);
 end;//TalcuAutoClassTaskResult.pm_SetMissedDocsStr
 
 function TalcuAutoClassTaskResult.pm_GetDocumentIDList: DocumentIDListHelper;
-//#UC START# *A47CDE8B8269_53F472280036get_var*
-//#UC END# *A47CDE8B8269_53F472280036get_var*
 begin
-//#UC START# *A47CDE8B8269_53F472280036get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A47CDE8B8269_53F472280036get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
 end;//TalcuAutoClassTaskResult.pm_GetDocumentIDList
 
 class function TalcuAutoClassTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53F472280036_var*
-//#UC END# *53AC03EE01FD_53F472280036_var*
 begin
-//#UC START# *53AC03EE01FD_53F472280036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53F472280036_impl*
+ Result := k2_typAutoClassTaskResult;
 end;//TalcuAutoClassTaskResult.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

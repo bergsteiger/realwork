@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TInternetAgentForm);
- {* Регистрация InternetAgent$F }
-{$IfEnd} // NOT Defined(NoScripts)
  fm_InternetAgentForm.SetFactory(TInternetAgentForm.Make);
  {* Регистрация фабрики формы InternetAgent$F }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TInternetAgentForm);
+ {* Регистрация InternetAgent }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

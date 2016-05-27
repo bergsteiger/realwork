@@ -17,10 +17,19 @@ uses
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_Chat_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TBaseChatWindowOptionsForm = class(TBaseChatWindowForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Chat_History_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TBaseChatWindowOptionsForm
@@ -34,6 +43,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 procedure TBaseChatWindowOptionsForm.Chat_History_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -44,6 +56,22 @@ begin
  TdmStdRes.MakeChatDispatcher.OpenChatHistoryByID(UserID);
 //#UC END# *4C84CC2E0253_4C84CB6F0007exec_impl*
 end;//TBaseChatWindowOptionsForm.Chat_History_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TBaseChatWindowOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Chat, nil);
+  PublishOp(en_Edit, op_Delete, nil, nil, nil);
+  PublishOp(en_Chat, op_History, Chat_History_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TBaseChatWindowOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

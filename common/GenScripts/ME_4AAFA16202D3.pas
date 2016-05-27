@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enPostingsList.SetFactory(TenPostingsList.Make);
+ {* Регистрация фабрики формы PostingsList }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenPostingsList);
  {* Регистрация PostingsList }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enPostingsList.SetFactory(TenPostingsList.Make);
- {* Регистрация фабрики формы PostingsList }
 {$IfEnd} // NOT Defined(Admin)
 
 end.

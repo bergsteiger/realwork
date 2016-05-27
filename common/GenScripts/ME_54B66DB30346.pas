@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ncsGetPartialTaskDescription;
+unit ncsGetPartialTaskDescription;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetPartialTaskDescription.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetPartialTaskDescription.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TncsGetPartialTaskDescription" MUID: (54B66DB30346)
 
@@ -38,30 +38,20 @@ uses
 ;
 
 function TncsGetPartialTaskDescription.pm_GetFileName: AnsiString;
-//#UC START# *E22FD6A558D1_54B66DB30346get_var*
-//#UC END# *E22FD6A558D1_54B66DB30346get_var*
 begin
-//#UC START# *E22FD6A558D1_54B66DB30346get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E22FD6A558D1_54B66DB30346get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrFileName]);
 end;//TncsGetPartialTaskDescription.pm_GetFileName
 
 procedure TncsGetPartialTaskDescription.pm_SetFileName(const aValue: AnsiString);
-//#UC START# *E22FD6A558D1_54B66DB30346set_var*
-//#UC END# *E22FD6A558D1_54B66DB30346set_var*
 begin
-//#UC START# *E22FD6A558D1_54B66DB30346set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E22FD6A558D1_54B66DB30346set_impl*
+ TaggedData.StrW[k2_attrFileName, nil] := (aValue);
 end;//TncsGetPartialTaskDescription.pm_SetFileName
 
 class function TncsGetPartialTaskDescription.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54B66DB30346_var*
-//#UC END# *53AC03EE01FD_54B66DB30346_var*
 begin
-//#UC START# *53AC03EE01FD_54B66DB30346_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54B66DB30346_impl*
+ Result := k2_typcsGetPartialTaskDescription;
 end;//TncsGetPartialTaskDescription.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

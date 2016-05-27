@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csDeleteDocsQueryPrim;
+unit csDeleteDocsQueryPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csDeleteDocsQueryPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csDeleteDocsQueryPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcsDeleteDocsQueryPrim" MUID: (53B6A54A0181)
 
@@ -31,12 +31,8 @@ uses
 ;
 
 class function TcsDeleteDocsQueryPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6A54A0181_var*
-//#UC END# *53AC03EE01FD_53B6A54A0181_var*
 begin
-//#UC START# *53AC03EE01FD_53B6A54A0181_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6A54A0181_impl*
+ Result := k2_typDeleteDocsQuery;
 end;//TcsDeleteDocsQueryPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

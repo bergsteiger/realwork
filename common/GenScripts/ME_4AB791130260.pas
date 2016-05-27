@@ -240,6 +240,11 @@ type
     aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -337,6 +342,9 @@ uses
  , afwFacade
  , l3Base
  , PrimBaseSearch_BaseSearch_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -1649,6 +1657,25 @@ begin
  end;
 //#UC END# *573AFFE5038D_4AB791130260_impl*
 end;//TPrimBaseSearchForm.GetExistingInstance
+
+procedure TPrimBaseSearchForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_EnclosedForms, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOp(en_EnclosedForms, op_CloseChild, EnclosedForms_CloseChild_Execute, EnclosedForms_CloseChild_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+ end;//with Entities.Entities
+end;//TPrimBaseSearchForm.InitEntities
 
 procedure TPrimBaseSearchForm.MakeControls;
 begin

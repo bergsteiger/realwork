@@ -100,7 +100,7 @@ begin
  Result := 'archiEditorWindowWordsPack';
 end;//TarchiEditorWindowWordsPackResNameGetter.ResName
 
- {$R archiEditorWindowWordsPack.res}
+{$R archiEditorWindowWordsPack.res}
 
 initialization
  TkwIsNeedSaveDocument.RegisterInEngine;

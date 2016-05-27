@@ -46,12 +46,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_en_ConfigurationList.SetFactory(Ten_ConfigurationList.Make);
+ {* Регистрация фабрики формы ConfigurationList }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_ConfigurationList);
  {* Регистрация ConfigurationList }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_en_ConfigurationList.SetFactory(Ten_ConfigurationList.Make);
- {* Регистрация фабрики формы ConfigurationList }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

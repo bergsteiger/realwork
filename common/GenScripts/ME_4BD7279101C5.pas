@@ -31,6 +31,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Interfaces
  , SettingsUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -68,6 +71,11 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -84,7 +92,7 @@ type
     {* Удалить }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure Switcher_BecomeActive_Execute;
-   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
     {* Развернуть все }
@@ -148,7 +156,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , PrimConfigurationListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimConfigurationList_utConfigurationList_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -422,7 +436,7 @@ begin
 //#UC END# *4A9807F801F9_4BD7279101C5exec_impl*
 end;//TPrimConfigurationListForm.Switcher_BecomeActive_Execute
 
-procedure TPrimConfigurationListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimConfigurationListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  Self.Switcher_BecomeActive_Execute;
 end;//TPrimConfigurationListForm.Switcher_BecomeActive
@@ -675,6 +689,32 @@ begin
  tvConfs.TreeView.Tree.Root := ConfigurationList.ConfigTree;
 //#UC END# *4A8E8F2E0195_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.InitControls
+
+procedure TPrimConfigurationListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Switcher, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_PopupMenu, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
+  PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, Tree_CollapseAll_Test, nil);
+  PublishOp(en_PopupMenu, op_DoActive, PopupMenu_DoActive_Execute, PopupMenu_DoActive_Test, nil);
+  PublishOp(en_PopupMenu, op_Modify, PopupMenu_Modify_Execute, PopupMenu_Modify_Test, nil);
+  PublishOp(en_PopupMenu, op_CopyConfig, PopupMenu_CopyConfig_Execute, PopupMenu_CopyConfig_Test, nil);
+  PublishOp(en_PopupMenu, op_ConfInfo, PopupMenu_ConfInfo_Execute, nil, nil);
+  PublishOp(en_PopupMenu, op_RestoreAllSettings, PopupMenu_RestoreAllSettings_Execute, nil, nil);
+  PublishOp(en_PopupMenu, op_RestoreConf, PopupMenu_RestoreConf_Execute, PopupMenu_RestoreConf_Test, nil);
+  PublishOp(en_PopupMenu, op_SaveAsDefaultConf, PopupMenu_SaveAsDefaultConf_Execute, PopupMenu_SaveAsDefaultConf_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+ end;//with Entities.Entities
+end;//TPrimConfigurationListForm.InitEntities
 
 procedure TPrimConfigurationListForm.MakeControls;
 begin

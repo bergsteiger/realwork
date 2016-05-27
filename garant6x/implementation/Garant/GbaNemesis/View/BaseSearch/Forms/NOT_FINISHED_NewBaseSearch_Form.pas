@@ -17,6 +17,24 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVGScene)}
+ , vg_controls
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_listbox
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_objects
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_layouts
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_scene
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If Defined(Nemesis)}
+ , nscTreeComboWithHistoryAndOperations
+ {$IfEnd} // Defined(Nemesis)
 ;
 
 type

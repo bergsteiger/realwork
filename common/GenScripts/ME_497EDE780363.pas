@@ -65,6 +65,9 @@ uses
  , Graphics
  , l3StringIDEx
  , l3SimpleObject
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -208,6 +211,15 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetCanDefineFormSetIcon: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
@@ -230,14 +242,14 @@ type
    procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
     const aCRType: Il3SimpleNode);
     {* Коллеги, это что? }
-   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
     {* Коллеги, это что? }
    procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
     {* Коллеги, это что? }
    procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
     const aCRType: Il3SimpleNode);
     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParams);
     {* Коллеги, это что? }
    procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Информация о документе }
@@ -247,7 +259,7 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Справка к документу }
@@ -263,7 +275,7 @@ type
     {* Ссылки из документа }
    function Document_AttributesCanBeClosed_Execute: Boolean;
     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
     {* Это кандидат на перенос в Facet или что-то подобное }
    procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
     {* Ссылки на документ (вид информации) }
@@ -833,7 +845,7 @@ begin
 //#UC END# *4988752302F4_497EDE780363exec_impl*
 end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute
 
-procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
  {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
@@ -863,7 +875,7 @@ begin
 //#UC END# *49888E8003B9_497EDE780363exec_impl*
 end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute
 
-procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList(const aParams: IvcmExecuteParams);
  {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenRespondentList_Params) do
@@ -928,7 +940,7 @@ begin
 //#UC END# *49895A2102E8_497EDE780363exec_impl*
 end;//TPrimDocumentWithFlashForm.Loadable_Load_Execute
 
-procedure TPrimDocumentWithFlashForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDocumentWithFlashForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -1037,7 +1049,7 @@ begin
 //#UC END# *4989DE3702CF_497EDE780363exec_impl*
 end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed_Execute
 
-procedure TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
  {* Это кандидат на перенос в Facet или что-то подобное }
 begin
  with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
@@ -1494,6 +1506,44 @@ begin
 //#UC END# *544609B9032D_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoGetCanDefineFormSetIcon
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimDocumentWithFlashForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimDocumentWithFlashForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimDocumentWithFlashForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Loadable, nil);
+  PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
+  PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
+  PublishOpWithResult(en_Document, op_OpenCorrespondentList, Document_OpenCorrespondentList, Document_OpenCorrespondentList_Test, nil);
+  PublishOpWithResult(en_Document, op_OpenRespondentList, Document_OpenRespondentList, Document_OpenRespondentList_Test, nil);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOp(en_Document, op_GetRelatedDocFrmAct, Document_GetRelatedDocFrmAct_Execute, Document_GetRelatedDocFrmAct_Test, nil);
+  PublishOp(en_Document, op_GetCorrespondentList, Document_GetCorrespondentList_Execute, Document_GetCorrespondentList_Test, nil);
+  PublishOp(en_Document, op_GetRespondentList, Document_GetRespondentList_Execute, Document_GetRespondentList_Test, nil);
+  PublishOpWithResult(en_Document, op_AttributesCanBeClosed, Document_AttributesCanBeClosed, nil, nil);
+  PublishOp(en_Document, op_GetCorrespondentListExFrmAct, Document_GetCorrespondentListExFrmAct_Execute, Document_GetCorrespondentListExFrmAct_Test, nil);
+  PublishOp(en_Document, op_GetRespondentListExFrmAct, Document_GetRespondentListExFrmAct_Execute, Document_GetRespondentListExFrmAct_Test, nil);
+  PublishOp(en_Document, op_GetGraphicImage, Document_GetGraphicImage_Execute, Document_GetGraphicImage_Test, nil);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
+ end;//with Entities.Entities
+end;//TPrimDocumentWithFlashForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

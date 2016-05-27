@@ -1877,7 +1877,7 @@ begin
  Result := 'FileProcessingPack';
 end;//TFileProcessingPackResNameGetter.ResName
 
- {$R FileProcessingPack.res}
+{$R FileProcessingPack.res}
 
 initialization
  TkwDeleteFile.RegisterInEngine;

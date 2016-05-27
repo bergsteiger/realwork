@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ncsPushFilePart;
+unit ncsPushFilePart;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsPushFilePart.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsPushFilePart.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TncsPushFilePart" MUID: (548940970391)
 
@@ -59,102 +59,68 @@ uses
 ;
 
 function TncsPushFilePart.pm_GetTaskID: AnsiString;
-//#UC START# *2C782D1D596C_548940970391get_var*
-//#UC END# *2C782D1D596C_548940970391get_var*
 begin
-//#UC START# *2C782D1D596C_548940970391get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2C782D1D596C_548940970391get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTaskID]);
 end;//TncsPushFilePart.pm_GetTaskID
 
 procedure TncsPushFilePart.pm_SetTaskID(const aValue: AnsiString);
-//#UC START# *2C782D1D596C_548940970391set_var*
-//#UC END# *2C782D1D596C_548940970391set_var*
 begin
-//#UC START# *2C782D1D596C_548940970391set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2C782D1D596C_548940970391set_impl*
+ TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
 end;//TncsPushFilePart.pm_SetTaskID
 
 function TncsPushFilePart.pm_GetFileName: AnsiString;
-//#UC START# *BA14D05FE9CC_548940970391get_var*
-//#UC END# *BA14D05FE9CC_548940970391get_var*
 begin
-//#UC START# *BA14D05FE9CC_548940970391get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BA14D05FE9CC_548940970391get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrFileName]);
 end;//TncsPushFilePart.pm_GetFileName
 
 procedure TncsPushFilePart.pm_SetFileName(const aValue: AnsiString);
-//#UC START# *BA14D05FE9CC_548940970391set_var*
-//#UC END# *BA14D05FE9CC_548940970391set_var*
 begin
-//#UC START# *BA14D05FE9CC_548940970391set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BA14D05FE9CC_548940970391set_impl*
+ TaggedData.StrW[k2_attrFileName, nil] := (aValue);
 end;//TncsPushFilePart.pm_SetFileName
 
 function TncsPushFilePart.pm_GetOffset: Int64;
-//#UC START# *173DEF59C04D_548940970391get_var*
-//#UC END# *173DEF59C04D_548940970391get_var*
 begin
-//#UC START# *173DEF59C04D_548940970391get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *173DEF59C04D_548940970391get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.Int64A[k2_attrOffset]);
 end;//TncsPushFilePart.pm_GetOffset
 
 procedure TncsPushFilePart.pm_SetOffset(aValue: Int64);
-//#UC START# *173DEF59C04D_548940970391set_var*
-//#UC END# *173DEF59C04D_548940970391set_var*
 begin
-//#UC START# *173DEF59C04D_548940970391set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *173DEF59C04D_548940970391set_impl*
+ TaggedData.Int64W[k2_attrOffset, nil] := (aValue);
 end;//TncsPushFilePart.pm_SetOffset
 
 function TncsPushFilePart.pm_GetPartSize: Int64;
-//#UC START# *62BDC02A2DB8_548940970391get_var*
-//#UC END# *62BDC02A2DB8_548940970391get_var*
 begin
-//#UC START# *62BDC02A2DB8_548940970391get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *62BDC02A2DB8_548940970391get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.Int64A[k2_attrPartSize]);
 end;//TncsPushFilePart.pm_GetPartSize
 
 procedure TncsPushFilePart.pm_SetPartSize(aValue: Int64);
-//#UC START# *62BDC02A2DB8_548940970391set_var*
-//#UC END# *62BDC02A2DB8_548940970391set_var*
 begin
-//#UC START# *62BDC02A2DB8_548940970391set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *62BDC02A2DB8_548940970391set_impl*
+ TaggedData.Int64W[k2_attrPartSize, nil] := (aValue);
 end;//TncsPushFilePart.pm_SetPartSize
 
 function TncsPushFilePart.pm_GetData: Tk2RawData;
-//#UC START# *0F7173AD8CC8_548940970391get_var*
-//#UC END# *0F7173AD8CC8_548940970391get_var*
 begin
-//#UC START# *0F7173AD8CC8_548940970391get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0F7173AD8CC8_548940970391get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := Tk2RawData(TaggedData.cAtom(k2_attrData));
 end;//TncsPushFilePart.pm_GetData
 
 procedure TncsPushFilePart.pm_SetData(aValue: Tk2RawData);
-//#UC START# *0F7173AD8CC8_548940970391set_var*
-//#UC END# *0F7173AD8CC8_548940970391set_var*
 begin
-//#UC START# *0F7173AD8CC8_548940970391set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0F7173AD8CC8_548940970391set_impl*
+ TaggedData.AttrW[k2_attrData, nil] := (aValue);
 end;//TncsPushFilePart.pm_SetData
 
 class function TncsPushFilePart.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_548940970391_var*
-//#UC END# *53AC03EE01FD_548940970391_var*
 begin
-//#UC START# *53AC03EE01FD_548940970391_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_548940970391_impl*
+ Result := k2_typcsPushFilePart;
 end;//TncsPushFilePart.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

@@ -115,7 +115,7 @@ begin
  Result := 'AttributeExplorerWordsPack';
 end;//TAttributeExplorerWordsPackResNameGetter.ResName
 
- {$R AttributeExplorerWordsPack.res}
+{$R AttributeExplorerWordsPack.res}
 
 initialization
  TkwAttrExplorerGotoOnAttrNode.RegisterInEngine;

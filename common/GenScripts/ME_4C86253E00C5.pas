@@ -17,10 +17,19 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Document_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimRedactionsOptionsForm = class(TPrimRedactionsForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
@@ -47,6 +56,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -108,6 +120,25 @@ begin
  Op_Document_CommonDocumentOpenNewTab.Call(Aggregate, dftDocument);
 //#UC END# *55544CF2027E_4C86253E00C5exec_impl*
 end;//TPrimRedactionsOptionsForm.Edition_OpenNewTab_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRedactionsOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Edition, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+  PublishOp(en_Tree, op_Wrap, nil, nil, nil);
+  PublishOp(en_Edition, op_OpenNewWindow, Edition_OpenNewWindow_Execute, Edition_OpenNewWindow_Test, nil);
+  PublishOp(en_Edition, op_OpenNewTab, Edition_OpenNewTab_Execute, Edition_OpenNewTab_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimRedactionsOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

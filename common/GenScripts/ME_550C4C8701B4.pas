@@ -2163,7 +2163,7 @@ begin
  Result := 'TypeInfoPack';
 end;//TTypeInfoPackResNameGetter.ResName
 
- {$R TypeInfoPack.res}
+{$R TypeInfoPack.res}
 
 initialization
  TkwCtxIncludeModifier.RegisterInEngine;

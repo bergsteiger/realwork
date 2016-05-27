@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddRunCommandTaskPrim;
+unit ddRunCommandTaskPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddRunCommandTaskPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ddRunCommandTaskPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddRunCommandTaskPrim" MUID: (53B6A75A024C)
 
@@ -12,15 +12,15 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , k2Base
  , dt_Types
+ , k2Base
 ;
 
 type
  TddRunCommandTaskPrim = class(TddProcessTask)
   public
-   class function GetTaggedDataType: Tk2Type; override;
    constructor Create(aUserID: TUserID); override;
+   class function GetTaggedDataType: Tk2Type; override;
  end;//TddRunCommandTaskPrim
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -33,15 +33,6 @@ uses
  , RunCommandTask_Const
 ;
 
-class function TddRunCommandTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6A75A024C_var*
-//#UC END# *53AC03EE01FD_53B6A75A024C_var*
-begin
-//#UC START# *53AC03EE01FD_53B6A75A024C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6A75A024C_impl*
-end;//TddRunCommandTaskPrim.GetTaggedDataType
-
 constructor TddRunCommandTaskPrim.Create(aUserID: TUserID);
 //#UC START# *53B3D8A8011F_53B6A75A024C_var*
 //#UC END# *53B3D8A8011F_53B6A75A024C_var*
@@ -51,6 +42,11 @@ begin
  //TaskType := cs_ttRunCommand;
 //#UC END# *53B3D8A8011F_53B6A75A024C_impl*
 end;//TddRunCommandTaskPrim.Create
+
+class function TddRunCommandTaskPrim.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typRunCommandTask;
+end;//TddRunCommandTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

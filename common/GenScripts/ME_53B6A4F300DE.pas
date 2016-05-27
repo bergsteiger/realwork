@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csAnnotationTask;
+unit csAnnotationTask;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csAnnotationTask.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csAnnotationTask.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcsAnnotationTask" MUID: (53B6A4F300DE)
 
@@ -117,285 +117,192 @@ uses
 ;
 
 function TcsAnnotationTask.pm_GetNeedAnalyzeLog: Boolean;
-//#UC START# *1F601DCE4A3F_53B6A4F300DEget_var*
-//#UC END# *1F601DCE4A3F_53B6A4F300DEget_var*
 begin
-//#UC START# *1F601DCE4A3F_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1F601DCE4A3F_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrNeedAnalyzeLog]);
 end;//TcsAnnotationTask.pm_GetNeedAnalyzeLog
 
 procedure TcsAnnotationTask.pm_SetNeedAnalyzeLog(aValue: Boolean);
-//#UC START# *1F601DCE4A3F_53B6A4F300DEset_var*
-//#UC END# *1F601DCE4A3F_53B6A4F300DEset_var*
 begin
-//#UC START# *1F601DCE4A3F_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1F601DCE4A3F_53B6A4F300DEset_impl*
+ TaggedData.BoolW[k2_attrNeedAnalyzeLog, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetNeedAnalyzeLog
 
 function TcsAnnotationTask.pm_GetTargetFolder: AnsiString;
-//#UC START# *CA6CDE6F7B4E_53B6A4F300DEget_var*
-//#UC END# *CA6CDE6F7B4E_53B6A4F300DEget_var*
 begin
-//#UC START# *CA6CDE6F7B4E_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CA6CDE6F7B4E_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTargetFolder]);
 end;//TcsAnnotationTask.pm_GetTargetFolder
 
 procedure TcsAnnotationTask.pm_SetTargetFolder(const aValue: AnsiString);
-//#UC START# *CA6CDE6F7B4E_53B6A4F300DEset_var*
-//#UC END# *CA6CDE6F7B4E_53B6A4F300DEset_var*
 begin
-//#UC START# *CA6CDE6F7B4E_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CA6CDE6F7B4E_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrTargetFolder, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetTargetFolder
 
 function TcsAnnotationTask.pm_GeteMailNotifyList: AnsiString;
-//#UC START# *FAE514267827_53B6A4F300DEget_var*
-//#UC END# *FAE514267827_53B6A4F300DEget_var*
 begin
-//#UC START# *FAE514267827_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FAE514267827_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attreMailNotifyList]);
 end;//TcsAnnotationTask.pm_GeteMailNotifyList
 
 procedure TcsAnnotationTask.pm_SeteMailNotifyList(const aValue: AnsiString);
-//#UC START# *FAE514267827_53B6A4F300DEset_var*
-//#UC END# *FAE514267827_53B6A4F300DEset_var*
 begin
-//#UC START# *FAE514267827_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FAE514267827_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attreMailNotifyList, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SeteMailNotifyList
 
 function TcsAnnotationTask.pm_GetExternalProcessor: AnsiString;
-//#UC START# *B477D597CC89_53B6A4F300DEget_var*
-//#UC END# *B477D597CC89_53B6A4F300DEget_var*
 begin
-//#UC START# *B477D597CC89_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B477D597CC89_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrExternalProcessor]);
 end;//TcsAnnotationTask.pm_GetExternalProcessor
 
 procedure TcsAnnotationTask.pm_SetExternalProcessor(const aValue: AnsiString);
-//#UC START# *B477D597CC89_53B6A4F300DEset_var*
-//#UC END# *B477D597CC89_53B6A4F300DEset_var*
 begin
-//#UC START# *B477D597CC89_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B477D597CC89_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrExternalProcessor, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetExternalProcessor
 
 function TcsAnnotationTask.pm_GetOutFolder: AnsiString;
-//#UC START# *BCEE2ED614AC_53B6A4F300DEget_var*
-//#UC END# *BCEE2ED614AC_53B6A4F300DEget_var*
 begin
-//#UC START# *BCEE2ED614AC_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BCEE2ED614AC_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrOutFolder]);
 end;//TcsAnnotationTask.pm_GetOutFolder
 
 procedure TcsAnnotationTask.pm_SetOutFolder(const aValue: AnsiString);
-//#UC START# *BCEE2ED614AC_53B6A4F300DEset_var*
-//#UC END# *BCEE2ED614AC_53B6A4F300DEset_var*
 begin
-//#UC START# *BCEE2ED614AC_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BCEE2ED614AC_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrOutFolder, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetOutFolder
 
 function TcsAnnotationTask.pm_GetPrimeRobotEMail: AnsiString;
-//#UC START# *9EEA6F3A1B4C_53B6A4F300DEget_var*
-//#UC END# *9EEA6F3A1B4C_53B6A4F300DEget_var*
 begin
-//#UC START# *9EEA6F3A1B4C_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9EEA6F3A1B4C_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrPrimeRobotEMail]);
 end;//TcsAnnotationTask.pm_GetPrimeRobotEMail
 
 procedure TcsAnnotationTask.pm_SetPrimeRobotEMail(const aValue: AnsiString);
-//#UC START# *9EEA6F3A1B4C_53B6A4F300DEset_var*
-//#UC END# *9EEA6F3A1B4C_53B6A4F300DEset_var*
 begin
-//#UC START# *9EEA6F3A1B4C_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9EEA6F3A1B4C_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrPrimeRobotEMail, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetPrimeRobotEMail
 
 function TcsAnnotationTask.pm_GetExportDocuments: Boolean;
-//#UC START# *825B22688897_53B6A4F300DEget_var*
-//#UC END# *825B22688897_53B6A4F300DEget_var*
 begin
-//#UC START# *825B22688897_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *825B22688897_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportDocuments]);
 end;//TcsAnnotationTask.pm_GetExportDocuments
 
 procedure TcsAnnotationTask.pm_SetExportDocuments(aValue: Boolean);
-//#UC START# *825B22688897_53B6A4F300DEset_var*
-//#UC END# *825B22688897_53B6A4F300DEset_var*
 begin
-//#UC START# *825B22688897_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *825B22688897_53B6A4F300DEset_impl*
+ TaggedData.BoolW[k2_attrExportDocuments, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetExportDocuments
 
 function TcsAnnotationTask.pm_GetDocListFileName: AnsiString;
-//#UC START# *567746EE09DC_53B6A4F300DEget_var*
-//#UC END# *567746EE09DC_53B6A4F300DEget_var*
 begin
-//#UC START# *567746EE09DC_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *567746EE09DC_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDocListFileName]);
 end;//TcsAnnotationTask.pm_GetDocListFileName
 
 procedure TcsAnnotationTask.pm_SetDocListFileName(const aValue: AnsiString);
-//#UC START# *567746EE09DC_53B6A4F300DEset_var*
-//#UC END# *567746EE09DC_53B6A4F300DEset_var*
 begin
-//#UC START# *567746EE09DC_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *567746EE09DC_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrDocListFileName, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetDocListFileName
 
 function TcsAnnotationTask.pm_GetDocListFolder: AnsiString;
-//#UC START# *C48CF8712E07_53B6A4F300DEget_var*
-//#UC END# *C48CF8712E07_53B6A4F300DEget_var*
 begin
-//#UC START# *C48CF8712E07_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C48CF8712E07_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDocListFolder]);
 end;//TcsAnnotationTask.pm_GetDocListFolder
 
 procedure TcsAnnotationTask.pm_SetDocListFolder(const aValue: AnsiString);
-//#UC START# *C48CF8712E07_53B6A4F300DEset_var*
-//#UC END# *C48CF8712E07_53B6A4F300DEset_var*
 begin
-//#UC START# *C48CF8712E07_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C48CF8712E07_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrDocListFolder, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetDocListFolder
 
 function TcsAnnotationTask.pm_GetEndDateKind: Integer;
-//#UC START# *6381E44B2E08_53B6A4F300DEget_var*
-//#UC END# *6381E44B2E08_53B6A4F300DEget_var*
 begin
-//#UC START# *6381E44B2E08_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6381E44B2E08_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrEndDateKind]);
 end;//TcsAnnotationTask.pm_GetEndDateKind
 
 procedure TcsAnnotationTask.pm_SetEndDateKind(aValue: Integer);
-//#UC START# *6381E44B2E08_53B6A4F300DEset_var*
-//#UC END# *6381E44B2E08_53B6A4F300DEset_var*
 begin
-//#UC START# *6381E44B2E08_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6381E44B2E08_53B6A4F300DEset_impl*
+ TaggedData.IntW[k2_attrEndDateKind, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetEndDateKind
 
 function TcsAnnotationTask.pm_GetStartDate: TDateTime;
-//#UC START# *8A1E0AE8CB7B_53B6A4F300DEget_var*
-//#UC END# *8A1E0AE8CB7B_53B6A4F300DEget_var*
 begin
-//#UC START# *8A1E0AE8CB7B_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8A1E0AE8CB7B_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrStartDate]);
 end;//TcsAnnotationTask.pm_GetStartDate
 
 procedure TcsAnnotationTask.pm_SetStartDate(aValue: TDateTime);
-//#UC START# *8A1E0AE8CB7B_53B6A4F300DEset_var*
-//#UC END# *8A1E0AE8CB7B_53B6A4F300DEset_var*
 begin
-//#UC START# *8A1E0AE8CB7B_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8A1E0AE8CB7B_53B6A4F300DEset_impl*
+ TaggedData.DateTimeW[k2_attrStartDate, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetStartDate
 
 function TcsAnnotationTask.pm_GetBelongsIDList: BelongsIDListHelper;
-//#UC START# *5D3ADD07A946_53B6A4F300DEget_var*
-//#UC END# *5D3ADD07A946_53B6A4F300DEget_var*
 begin
-//#UC START# *5D3ADD07A946_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5D3ADD07A946_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TBelongsIDListHelper.Make(TaggedData.cAtom(k2_attrBelongsIDList));
 end;//TcsAnnotationTask.pm_GetBelongsIDList
 
 {$If NOT Defined(Region)}
 function TcsAnnotationTask.pm_GetExcludeAccGroupsIDList: ExcludeAccGroupsIDListHelper;
-//#UC START# *6707D6197BF1_53B6A4F300DEget_var*
-//#UC END# *6707D6197BF1_53B6A4F300DEget_var*
 begin
-//#UC START# *6707D6197BF1_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6707D6197BF1_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TExcludeAccGroupsIDListHelper.Make(TaggedData.cAtom(k2_attrExcludeAccGroupsIDList));
 end;//TcsAnnotationTask.pm_GetExcludeAccGroupsIDList
 {$IfEnd} // NOT Defined(Region)
 
 function TcsAnnotationTask.pm_GetAccGroupsIDList: AccGroupsIDListHelper;
-//#UC START# *EA8E68593727_53B6A4F300DEget_var*
-//#UC END# *EA8E68593727_53B6A4F300DEget_var*
 begin
-//#UC START# *EA8E68593727_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EA8E68593727_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TAccGroupsIDListHelper.Make(TaggedData.cAtom(k2_attrAccGroupsIDList));
 end;//TcsAnnotationTask.pm_GetAccGroupsIDList
 
 function TcsAnnotationTask.pm_GetCommentsIDList: CommentsIDListHelper;
-//#UC START# *233505BF6553_53B6A4F300DEget_var*
-//#UC END# *233505BF6553_53B6A4F300DEget_var*
 begin
-//#UC START# *233505BF6553_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *233505BF6553_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TCommentsIDListHelper.Make(TaggedData.cAtom(k2_attrCommentsIDList));
 end;//TcsAnnotationTask.pm_GetCommentsIDList
 
 function TcsAnnotationTask.pm_GetExcludeDocTypesIDList: ExcludeDocTypesIDListHelper;
-//#UC START# *EADD467C12D8_53B6A4F300DEget_var*
-//#UC END# *EADD467C12D8_53B6A4F300DEget_var*
 begin
-//#UC START# *EADD467C12D8_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EADD467C12D8_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TExcludeDocTypesIDListHelper.Make(TaggedData.cAtom(k2_attrExcludeDocTypesIDList));
 end;//TcsAnnotationTask.pm_GetExcludeDocTypesIDList
 
 function TcsAnnotationTask.pm_GetExcludeDocBasesIDList: ExcludeDocBasesIDListHelper;
-//#UC START# *D68C918F0216_53B6A4F300DEget_var*
-//#UC END# *D68C918F0216_53B6A4F300DEget_var*
 begin
-//#UC START# *D68C918F0216_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D68C918F0216_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TExcludeDocBasesIDListHelper.Make(TaggedData.cAtom(k2_attrExcludeDocBasesIDList));
 end;//TcsAnnotationTask.pm_GetExcludeDocBasesIDList
 
 function TcsAnnotationTask.pm_GetAnnoFilenameTemplate: AnsiString;
-//#UC START# *4CB23D5CE07C_53B6A4F300DEget_var*
-//#UC END# *4CB23D5CE07C_53B6A4F300DEget_var*
 begin
-//#UC START# *4CB23D5CE07C_53B6A4F300DEget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CB23D5CE07C_53B6A4F300DEget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrAnnoFilenameTemplate]);
 end;//TcsAnnotationTask.pm_GetAnnoFilenameTemplate
 
 procedure TcsAnnotationTask.pm_SetAnnoFilenameTemplate(const aValue: AnsiString);
-//#UC START# *4CB23D5CE07C_53B6A4F300DEset_var*
-//#UC END# *4CB23D5CE07C_53B6A4F300DEset_var*
 begin
-//#UC START# *4CB23D5CE07C_53B6A4F300DEset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CB23D5CE07C_53B6A4F300DEset_impl*
+ TaggedData.StrW[k2_attrAnnoFilenameTemplate, nil] := (aValue);
 end;//TcsAnnotationTask.pm_SetAnnoFilenameTemplate
-
-class function TcsAnnotationTask.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6A4F300DE_var*
-//#UC END# *53AC03EE01FD_53B6A4F300DE_var*
-begin
-//#UC START# *53AC03EE01FD_53B6A4F300DE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6A4F300DE_impl*
-end;//TcsAnnotationTask.GetTaggedDataType
 
 function TcsAnnotationTask.GetDescription: AnsiString;
 //#UC START# *53FB28170339_53B6A4F300DE_var*
@@ -405,6 +312,11 @@ begin
  Result := 'Экспорт Прайм';
 //#UC END# *53FB28170339_53B6A4F300DE_impl*
 end;//TcsAnnotationTask.GetDescription
+
+class function TcsAnnotationTask.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typAnnotationTask;
+end;//TcsAnnotationTask.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

@@ -1,128 +1,80 @@
 unit BaseSearchCard_Form;
+ {* Базовый поиск }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/BaseSearchCard_Form.pas"
-// Начат: 21.09.2009 20:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::BaseSearch::BaseSearchCard
-//
-// Базовый поиск
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\BaseSearchCard_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "BaseSearchCard" MUID: (4AB7A34401D0)
+// Имя типа: "Ten_BaseSearchCard"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimBaseSearchCard_Form,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  BaseSearchCard_ut_BaseSearchCard_UserType,
-  vtPanel
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscLister
-  {$IfEnd} //Nemesis
-  ,
-  nscSimpleEditor,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimBaseSearchCard_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { BaseSearchCardIDs }
-   fm_en_BaseSearchCard : TvcmFormDescriptor = (rFormID : (rName : 'en_BaseSearchCard'; rID : 0); rFactory : nil);
-    { Идентификатор формы Ten_BaseSearchCard }
+ fm_en_BaseSearchCard: TvcmFormDescriptor = (rFormID : (rName : 'en_BaseSearchCard'; rID : 0); rFactory : nil);
+  {* Идентификатор формы Ten_BaseSearchCard }
 
 type
- BaseSearchCardFormDef = interface(IUnknown)
+ Ten_BaseSearchCard = class;
+
+ BaseSearchCardFormDef = interface
   {* Идентификатор формы BaseSearchCard }
-   ['{8B9F39A3-2E36-4686-82DA-8C441DE365A3}']
+  ['{8B9F39A3-2E36-4686-82DA-8C441DE365A3}']
  end;//BaseSearchCardFormDef
 
-  Ten_BaseSearchCard = {final form} class(TPrimBaseSearchCardForm, BaseSearchCardFormDef)
-   {* Базовый поиск }
-  Entities : TvcmEntities;
+ Ten_BaseSearchCard = {final} class(TPrimBaseSearchCardForm, BaseSearchCardFormDef)
+  {* Базовый поиск }
+   Entities : TvcmEntities;
   protected
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
-  end;//Ten_BaseSearchCard
-
-  TBaseSearchCardForm = Ten_BaseSearchCard;
-{$IfEnd} //not Admin AND not Monitorings
+   {$IfEnd} // NOT Defined(NoVCM)
+ end;//Ten_BaseSearchCard
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , BaseSearchCard_ut_BaseSearchCard_UserType
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , BaseSearchCardKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
+const
+ {* Локализуемые строки ut_BaseSearchCardLocalConstants }
+ str_ut_BaseSearchCardCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_BaseSearchCardCaption'; rValue : 'Базовый поиск');
+  {* Заголовок пользовательского типа "Базовый поиск" }
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  BaseSearchCardKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-    { Локализуемые строки ut_BaseSearchCardLocalConstants }
-   str_ut_BaseSearchCardCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_BaseSearchCardCaption'; rValue : 'Базовый поиск');
-    { Заголовок пользовательского типа "Базовый поиск" }
-
-// start class Ten_BaseSearchCard
-
+{$If NOT Defined(NoVCM)}
 procedure Ten_BaseSearchCard.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_BaseSearchCardName,
   str_ut_BaseSearchCardCaption,
   str_ut_BaseSearchCardCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -132,22 +84,18 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(ut_BaseSearchCardName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//Ten_BaseSearchCard.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация BaseSearchCard
- TtfwClassRef.Register(Ten_BaseSearchCard);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы BaseSearchCard
- fm_en_BaseSearchCard.SetFactory(Ten_BaseSearchCard.Make);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_BaseSearchCardCaption
  str_ut_BaseSearchCardCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
+ {* Инициализация str_ut_BaseSearchCardCaption }
+ fm_en_BaseSearchCard.SetFactory(Ten_BaseSearchCard.Make);
+ {* Регистрация фабрики формы BaseSearchCard }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_BaseSearchCard);
+ {* Регистрация BaseSearchCard }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

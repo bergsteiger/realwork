@@ -32,6 +32,7 @@ type
    f_RememberedWndHandle: hWnd;
    f_Scale: Integer;
     {* Масштаб }
+   f_ScrollPos: Integer;
   private
    {$If NOT Defined(XE)}
    procedure DocumentComplete(Sender: TObject;
@@ -44,9 +45,12 @@ type
    procedure DocumentCompleteXE(Sender: TObject;
     const pDisp: IDispatch;
     const URL: OleVariant);
+   procedure ApplyScroll;
    procedure WMSize(var aMsg: TWMSize); message WM_Size;
   protected
    procedure pm_SetScale(aValue: Integer);
+   function pm_GetScrollPos: Integer;
+   procedure pm_SetScrollPos(aValue: Integer);
    {$If NOT Defined(DesignTimeLibrary)}
    procedure DoStyleTableChanged; override;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -57,10 +61,6 @@ type
    {$If NOT Defined(NoVCL)}
    procedure DestroyWnd; override;
    {$IfEnd} // NOT Defined(NoVCL)
-   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)}
-   procedure ForceWMSize(aWidth: Integer;
-    aHeight: Integer); override;
-   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL) AND NOT Defined(DesignTimeLibrary)
   public
    function ScaleDisabled: Boolean;
     {* Масштабирование запрещено }
@@ -71,6 +71,9 @@ type
     read f_Scale
     write pm_SetScale;
     {* Масштаб }
+   property ScrollPos: Integer
+    read pm_GetScrollPos
+    write pm_SetScrollPos;
  end;//TnsWebBrowser
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -118,6 +121,37 @@ begin
  end;//f_Scale <> aValue
 //#UC END# *4BB32FCD0157_49ECB8E002B0set_impl*
 end;//TnsWebBrowser.pm_SetScale
+
+function TnsWebBrowser.pm_GetScrollPos: Integer;
+//#UC START# *5742C14900F5_49ECB8E002B0get_var*
+//#UC END# *5742C14900F5_49ECB8E002B0get_var*
+begin
+//#UC START# *5742C14900F5_49ECB8E002B0get_impl*
+ try
+  if not VarIsClear(OleObject) then
+   if not VarIsClear(OleObject.Document) then
+    if not VarIsClear(OleObject.Document.documentElement) then
+     f_ScrollPos := OleObject.Document.documentElement.ScrollTop;
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+ Result := f_ScrollPos;
+//#UC END# *5742C14900F5_49ECB8E002B0get_impl*
+end;//TnsWebBrowser.pm_GetScrollPos
+
+procedure TnsWebBrowser.pm_SetScrollPos(aValue: Integer);
+//#UC START# *5742C14900F5_49ECB8E002B0set_var*
+//#UC END# *5742C14900F5_49ECB8E002B0set_var*
+begin
+//#UC START# *5742C14900F5_49ECB8E002B0set_impl*
+ if (f_ScrollPos <> aValue) then
+ begin
+  f_ScrollPos := aValue;
+  ApplyScroll;
+ end;
+//#UC END# *5742C14900F5_49ECB8E002B0set_impl*
+end;//TnsWebBrowser.pm_SetScrollPos
 
 {$If NOT Defined(XE)}
 procedure TnsWebBrowser.DocumentComplete(Sender: TObject;
@@ -177,6 +211,23 @@ begin
  ApplyZoom;
 //#UC END# *5175412302EE_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DocumentCompleteXE
+
+procedure TnsWebBrowser.ApplyScroll;
+//#UC START# *5742C17A0340_49ECB8E002B0_var*
+//#UC END# *5742C17A0340_49ECB8E002B0_var*
+begin
+//#UC START# *5742C17A0340_49ECB8E002B0_impl*
+ try
+  if not VarIsClear(OleObject) then
+   if not VarIsClear(OleObject.Document) then
+    if not VarIsClear(OleObject.Document.documentElement) then
+     OleObject.Document.documentElement.ScrollTop := f_ScrollPos;
+ except
+  on E: Exception do
+   l3System.Exception2Log(E);
+ end;//try..except
+//#UC END# *5742C17A0340_49ECB8E002B0_impl*
+end;//TnsWebBrowser.ApplyScroll
 
 procedure TnsWebBrowser.WMSize(var aMsg: TWMSize);
 //#UC START# *4E9574530051_49ECB8E002B0_var*
@@ -331,29 +382,6 @@ begin
 //#UC END# *4CC841540158_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DestroyWnd
 {$IfEnd} // NOT Defined(NoVCL)
-
-{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
-procedure TnsWebBrowser.ForceWMSize(aWidth: Integer;
- aHeight: Integer);
-//#UC START# *4E955E8F0237_49ECB8E002B0_var*
-//#UC END# *4E955E8F0237_49ECB8E002B0_var*
-begin
-//#UC START# *4E955E8F0237_49ECB8E002B0_impl*
- inherited;
-(* SendMessage(WindowHandle,
-             WM_Size,
-             0, LParam(LoWord(Width) + (LoWord(Height) shl 16)));*)
-(* SendMessage(WindowHandle,
-             WM_Size,
-             0, LParam(LoWord(aWidth) + (LoWord(AHeight) shl 16)));
- EnumChildWindows(WindowHandle,
-                  @EnumChildWindowProc,
-                  LParam(LoWord(aWidth) + (LoWord(AHeight) shl 16)));*)
-(* ShowScrollBar(WindowHandle, SB_Horz, true);
- ShowScrollBar(WindowHandle, SB_Vert, true);*)
-//#UC END# *4E955E8F0237_49ECB8E002B0_impl*
-end;//TnsWebBrowser.ForceWMSize
-{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
 initialization
 {$If NOT Defined(NoScripts)}

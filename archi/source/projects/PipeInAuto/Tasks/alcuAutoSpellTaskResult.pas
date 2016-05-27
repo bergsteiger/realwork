@@ -43,48 +43,32 @@ uses
 ;
 
 function TalcuAutoSpellTaskResult.pm_GetReportMessage: AnsiString;
-//#UC START# *74ED8BF941B6_53FD813101B0get_var*
-//#UC END# *74ED8BF941B6_53FD813101B0get_var*
 begin
-//#UC START# *74ED8BF941B6_53FD813101B0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *74ED8BF941B6_53FD813101B0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportMessage]);
 end;//TalcuAutoSpellTaskResult.pm_GetReportMessage
 
 procedure TalcuAutoSpellTaskResult.pm_SetReportMessage(const aValue: AnsiString);
-//#UC START# *74ED8BF941B6_53FD813101B0set_var*
-//#UC END# *74ED8BF941B6_53FD813101B0set_var*
 begin
-//#UC START# *74ED8BF941B6_53FD813101B0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *74ED8BF941B6_53FD813101B0set_impl*
+ TaggedData.StrW[k2_attrReportMessage, nil] := (aValue);
 end;//TalcuAutoSpellTaskResult.pm_SetReportMessage
 
 function TalcuAutoSpellTaskResult.pm_GetReportAttach: AnsiString;
-//#UC START# *37893D4ECBBB_53FD813101B0get_var*
-//#UC END# *37893D4ECBBB_53FD813101B0get_var*
 begin
-//#UC START# *37893D4ECBBB_53FD813101B0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *37893D4ECBBB_53FD813101B0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportAttach]);
 end;//TalcuAutoSpellTaskResult.pm_GetReportAttach
 
 procedure TalcuAutoSpellTaskResult.pm_SetReportAttach(const aValue: AnsiString);
-//#UC START# *37893D4ECBBB_53FD813101B0set_var*
-//#UC END# *37893D4ECBBB_53FD813101B0set_var*
 begin
-//#UC START# *37893D4ECBBB_53FD813101B0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *37893D4ECBBB_53FD813101B0set_impl*
+ TaggedData.StrW[k2_attrReportAttach, nil] := (aValue);
 end;//TalcuAutoSpellTaskResult.pm_SetReportAttach
 
 class function TalcuAutoSpellTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53FD813101B0_var*
-//#UC END# *53AC03EE01FD_53FD813101B0_var*
 begin
-//#UC START# *53AC03EE01FD_53FD813101B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53FD813101B0_impl*
+ Result := k2_typAutoSpellTaskResult;
 end;//TalcuAutoSpellTaskResult.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

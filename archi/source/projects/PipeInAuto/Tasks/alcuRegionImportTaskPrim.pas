@@ -54,84 +54,56 @@ uses
 ;
 
 function TalcuRegionImportTaskPrim.pm_GetRegionIndex: Integer;
-//#UC START# *3915CE580102_5408670901C0get_var*
-//#UC END# *3915CE580102_5408670901C0get_var*
 begin
-//#UC START# *3915CE580102_5408670901C0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3915CE580102_5408670901C0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrRegionIndex]);
 end;//TalcuRegionImportTaskPrim.pm_GetRegionIndex
 
 procedure TalcuRegionImportTaskPrim.pm_SetRegionIndex(aValue: Integer);
-//#UC START# *3915CE580102_5408670901C0set_var*
-//#UC END# *3915CE580102_5408670901C0set_var*
 begin
-//#UC START# *3915CE580102_5408670901C0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3915CE580102_5408670901C0set_impl*
+ TaggedData.IntW[k2_attrRegionIndex, nil] := (aValue);
 end;//TalcuRegionImportTaskPrim.pm_SetRegionIndex
 
 function TalcuRegionImportTaskPrim.pm_GetFTPParams: Tl3Tag;
-//#UC START# *409C9CBD99AF_5408670901C0get_var*
-//#UC END# *409C9CBD99AF_5408670901C0get_var*
 begin
-//#UC START# *409C9CBD99AF_5408670901C0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *409C9CBD99AF_5408670901C0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.Attr[k2_attrFTPParams]);
 end;//TalcuRegionImportTaskPrim.pm_GetFTPParams
 
 procedure TalcuRegionImportTaskPrim.pm_SetFTPParams(aValue: Tl3Tag);
-//#UC START# *409C9CBD99AF_5408670901C0set_var*
-//#UC END# *409C9CBD99AF_5408670901C0set_var*
 begin
-//#UC START# *409C9CBD99AF_5408670901C0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *409C9CBD99AF_5408670901C0set_impl*
+ TaggedData.AttrW[k2_attrFTPParams, nil] := (aValue);
 end;//TalcuRegionImportTaskPrim.pm_SetFTPParams
 
 function TalcuRegionImportTaskPrim.pm_GetFileNameMask: AnsiString;
-//#UC START# *29E6C621FC61_5408670901C0get_var*
-//#UC END# *29E6C621FC61_5408670901C0get_var*
 begin
-//#UC START# *29E6C621FC61_5408670901C0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *29E6C621FC61_5408670901C0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrFileNameMask]);
 end;//TalcuRegionImportTaskPrim.pm_GetFileNameMask
 
 procedure TalcuRegionImportTaskPrim.pm_SetFileNameMask(const aValue: AnsiString);
-//#UC START# *29E6C621FC61_5408670901C0set_var*
-//#UC END# *29E6C621FC61_5408670901C0set_var*
 begin
-//#UC START# *29E6C621FC61_5408670901C0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *29E6C621FC61_5408670901C0set_impl*
+ TaggedData.StrW[k2_attrFileNameMask, nil] := (aValue);
 end;//TalcuRegionImportTaskPrim.pm_SetFileNameMask
 
 function TalcuRegionImportTaskPrim.pm_GetSourceWarehouse: AnsiString;
-//#UC START# *82B0A5CFAC45_5408670901C0get_var*
-//#UC END# *82B0A5CFAC45_5408670901C0get_var*
 begin
-//#UC START# *82B0A5CFAC45_5408670901C0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *82B0A5CFAC45_5408670901C0get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrSourceWarehouse]);
 end;//TalcuRegionImportTaskPrim.pm_GetSourceWarehouse
 
 procedure TalcuRegionImportTaskPrim.pm_SetSourceWarehouse(const aValue: AnsiString);
-//#UC START# *82B0A5CFAC45_5408670901C0set_var*
-//#UC END# *82B0A5CFAC45_5408670901C0set_var*
 begin
-//#UC START# *82B0A5CFAC45_5408670901C0set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *82B0A5CFAC45_5408670901C0set_impl*
+ TaggedData.StrW[k2_attrSourceWarehouse, nil] := (aValue);
 end;//TalcuRegionImportTaskPrim.pm_SetSourceWarehouse
 
 class function TalcuRegionImportTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_5408670901C0_var*
-//#UC END# *53AC03EE01FD_5408670901C0_var*
 begin
-//#UC START# *53AC03EE01FD_5408670901C0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_5408670901C0_impl*
+ Result := k2_typRegionImportTask;
 end;//TalcuRegionImportTaskPrim.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

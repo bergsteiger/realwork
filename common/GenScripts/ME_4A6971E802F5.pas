@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ChatWindowForm.SetFactory(TChatWindowForm.Make);
+ {* Регистрация фабрики формы ChatWindow }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TChatWindowForm);
  {* Регистрация ChatWindow }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ChatWindowForm.SetFactory(TChatWindowForm.Make);
- {* Регистрация фабрики формы ChatWindow }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

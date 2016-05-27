@@ -18,11 +18,20 @@ uses
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimStyleEditorContainerOptionsForm = class(TPrimStyleEditorContainerForm)
   {* Редактор стилей }
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -55,6 +64,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -134,6 +146,25 @@ begin
  Op_StyleEditor_SaveStyleTable.Call(Aggregate, true); 
 //#UC END# *4C52B36B01B3_4C52B21801B6exec_impl*
 end;//TPrimStyleEditorContainerOptionsForm.Result_SaveAsDefault_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimStyleEditorContainerOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Restore, Result_Restore_Execute, Result_Restore_Test, nil);
+  PublishOp(en_Result, op_SaveAsDefault, Result_SaveAsDefault_Execute, Result_SaveAsDefault_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimStyleEditorContainerOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

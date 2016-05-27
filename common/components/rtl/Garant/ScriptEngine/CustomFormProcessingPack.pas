@@ -102,7 +102,7 @@ begin
  Result := 'CustomFormProcessingPack';
 end;//TCustomFormProcessingPackResNameGetter.ResName
 
- {$R CustomFormProcessingPack.res}
+{$R CustomFormProcessingPack.res}
 
 initialization
  TkwPopFormFormStyle.RegisterInEngine;

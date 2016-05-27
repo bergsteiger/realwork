@@ -26,6 +26,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -52,6 +61,15 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -98,6 +116,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimCreateFilter_cfCreate_UserType
  , PrimCreateFilter_cfRename_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -200,6 +221,26 @@ begin
 //#UC END# *4A8E8F2E0195_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.InitControls
 
+procedure TPrimCreateFilterForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimCreateFilterForm.SignalDataSourceChanged
+
+procedure TPrimCreateFilterForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimCreateFilterForm.InitEntities
+
 procedure TPrimCreateFilterForm.MakeControls;
 begin
  inherited;
@@ -232,6 +273,7 @@ begin
  f_NameLabel := TvtLabel.Create(Self);
  f_NameLabel.Name := 'NameLabel';
  f_NameLabel.Parent := Self;
+ f_NameLabel.Caption := 'Название фильтра';
  f_FilterName := TnscEdit.Create(Self);
  f_FilterName.Name := 'FilterName';
  f_FilterName.Parent := Self;

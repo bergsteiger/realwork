@@ -41,7 +41,7 @@ begin
  Result := 'tfwF1HyperlinkScriptCaller';
 end;//TtfwF1HyperlinkScriptCallerResNameGetter.ResName
 
- {$R tfwF1HyperlinkScriptCaller.res}
+{$R tfwF1HyperlinkScriptCaller.res}
 
 class function TtfwF1HyperlinkScriptCaller.DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
 //#UC START# *55D34AD90105_55D34A9B0067_var*

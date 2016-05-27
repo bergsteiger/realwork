@@ -25,9 +25,7 @@ type
  TdaDataProviderParams = class(_evdTagHolder_)
   private
    f_UserID: TdaUserID;
-    {* Поле для свойства UserID }
    f_AliasesList: TStringList;
-    {* Поле для свойства AliasesList }
   protected
    function pm_GetFullHomeDirPath: AnsiString; virtual;
    function pm_GetLogin: AnsiString;
@@ -92,7 +90,6 @@ uses
  l3ImplUses
  , l3FileUtils
  , daUtils
- , DataProviderParams_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer
@@ -100,6 +97,7 @@ uses
  , k2TagGen
  , evdNativeReader
  , k2DocumentBuffer
+ , DataProviderParams_Const
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
@@ -117,129 +115,87 @@ begin
 end;//TdaDataProviderParams.pm_GetFullHomeDirPath
 
 function TdaDataProviderParams.pm_GetLogin: AnsiString;
-//#UC START# *B0886B1AD02D_54F9A60200A8get_var*
-//#UC END# *B0886B1AD02D_54F9A60200A8get_var*
 begin
-//#UC START# *B0886B1AD02D_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B0886B1AD02D_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLogin]);
 end;//TdaDataProviderParams.pm_GetLogin
 
 procedure TdaDataProviderParams.pm_SetLogin(const aValue: AnsiString);
-//#UC START# *B0886B1AD02D_54F9A60200A8set_var*
-//#UC END# *B0886B1AD02D_54F9A60200A8set_var*
 begin
-//#UC START# *B0886B1AD02D_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B0886B1AD02D_54F9A60200A8set_impl*
+ TaggedData.StrW[k2_attrLogin, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetLogin
 
 function TdaDataProviderParams.pm_GetPassword: AnsiString;
-//#UC START# *D5C03CDE39EF_54F9A60200A8get_var*
-//#UC END# *D5C03CDE39EF_54F9A60200A8get_var*
 begin
-//#UC START# *D5C03CDE39EF_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5C03CDE39EF_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrPassword]);
 end;//TdaDataProviderParams.pm_GetPassword
 
 procedure TdaDataProviderParams.pm_SetPassword(const aValue: AnsiString);
-//#UC START# *D5C03CDE39EF_54F9A60200A8set_var*
-//#UC END# *D5C03CDE39EF_54F9A60200A8set_var*
 begin
-//#UC START# *D5C03CDE39EF_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5C03CDE39EF_54F9A60200A8set_impl*
+ TaggedData.StrW[k2_attrPassword, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetPassword
 
 function TdaDataProviderParams.pm_GetDocStoragePath: AnsiString;
-//#UC START# *831416B8EE51_54F9A60200A8get_var*
-//#UC END# *831416B8EE51_54F9A60200A8get_var*
 begin
-//#UC START# *831416B8EE51_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *831416B8EE51_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDocStoragePath]);
 end;//TdaDataProviderParams.pm_GetDocStoragePath
 
 procedure TdaDataProviderParams.pm_SetDocStoragePath(const aValue: AnsiString);
-//#UC START# *831416B8EE51_54F9A60200A8set_var*
-//#UC END# *831416B8EE51_54F9A60200A8set_var*
 begin
-//#UC START# *831416B8EE51_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *831416B8EE51_54F9A60200A8set_impl*
+ TaggedData.StrW[k2_attrDocStoragePath, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetDocStoragePath
 
 function TdaDataProviderParams.pm_GetDocImagePath: AnsiString;
-//#UC START# *C7D4E9D7D086_54F9A60200A8get_var*
-//#UC END# *C7D4E9D7D086_54F9A60200A8get_var*
 begin
-//#UC START# *C7D4E9D7D086_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C7D4E9D7D086_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDocImagePath]);
 end;//TdaDataProviderParams.pm_GetDocImagePath
 
 procedure TdaDataProviderParams.pm_SetDocImagePath(const aValue: AnsiString);
-//#UC START# *C7D4E9D7D086_54F9A60200A8set_var*
-//#UC END# *C7D4E9D7D086_54F9A60200A8set_var*
 begin
-//#UC START# *C7D4E9D7D086_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C7D4E9D7D086_54F9A60200A8set_impl*
+ TaggedData.StrW[k2_attrDocImagePath, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetDocImagePath
 
 function TdaDataProviderParams.pm_GetHomeDirPath: AnsiString;
-//#UC START# *07F578763A7C_54F9A60200A8get_var*
-//#UC END# *07F578763A7C_54F9A60200A8get_var*
 begin
-//#UC START# *07F578763A7C_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *07F578763A7C_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrHomeDirPath]);
 end;//TdaDataProviderParams.pm_GetHomeDirPath
 
 procedure TdaDataProviderParams.pm_SetHomeDirPath(const aValue: AnsiString);
-//#UC START# *07F578763A7C_54F9A60200A8set_var*
-//#UC END# *07F578763A7C_54F9A60200A8set_var*
 begin
-//#UC START# *07F578763A7C_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *07F578763A7C_54F9A60200A8set_impl*
+ TaggedData.StrW[k2_attrHomeDirPath, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetHomeDirPath
 
 function TdaDataProviderParams.pm_GetDocBaseVersion: Integer;
-//#UC START# *FE0DB1805C11_54F9A60200A8get_var*
-//#UC END# *FE0DB1805C11_54F9A60200A8get_var*
 begin
-//#UC START# *FE0DB1805C11_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FE0DB1805C11_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrDocBaseVersion]);
 end;//TdaDataProviderParams.pm_GetDocBaseVersion
 
 procedure TdaDataProviderParams.pm_SetDocBaseVersion(aValue: Integer);
-//#UC START# *FE0DB1805C11_54F9A60200A8set_var*
-//#UC END# *FE0DB1805C11_54F9A60200A8set_var*
 begin
-//#UC START# *FE0DB1805C11_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FE0DB1805C11_54F9A60200A8set_impl*
+ TaggedData.IntW[k2_attrDocBaseVersion, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetDocBaseVersion
 
 function TdaDataProviderParams.pm_GetAdminBaseVersion: Integer;
-//#UC START# *F092404B3731_54F9A60200A8get_var*
-//#UC END# *F092404B3731_54F9A60200A8get_var*
 begin
-//#UC START# *F092404B3731_54F9A60200A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F092404B3731_54F9A60200A8get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrAdminBaseVersion]);
 end;//TdaDataProviderParams.pm_GetAdminBaseVersion
 
 procedure TdaDataProviderParams.pm_SetAdminBaseVersion(aValue: Integer);
-//#UC START# *F092404B3731_54F9A60200A8set_var*
-//#UC END# *F092404B3731_54F9A60200A8set_var*
 begin
-//#UC START# *F092404B3731_54F9A60200A8set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F092404B3731_54F9A60200A8set_impl*
+ TaggedData.IntW[k2_attrAdminBaseVersion, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetAdminBaseVersion
 
 procedure TdaDataProviderParams.CorrectAfterSet;
@@ -307,12 +263,8 @@ begin
 end;//TdaDataProviderParams.ParamsKey
 
 class function TdaDataProviderParams.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54F9A60200A8_var*
-//#UC END# *53AC03EE01FD_54F9A60200A8_var*
 begin
-//#UC START# *53AC03EE01FD_54F9A60200A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54F9A60200A8_impl*
+ Result := k2_typDataProviderParams;
 end;//TdaDataProviderParams.GetTaggedDataType
 
 procedure TdaDataProviderParams.Cleanup;

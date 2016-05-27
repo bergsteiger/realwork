@@ -48,58 +48,35 @@ uses
 ;
 
 function TcsAutoAnnoExportPrim.pm_GetStartDate: TDateTime;
-//#UC START# *05DE548C59E7_53BA72D102A5get_var*
-//#UC END# *05DE548C59E7_53BA72D102A5get_var*
 begin
-//#UC START# *05DE548C59E7_53BA72D102A5get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *05DE548C59E7_53BA72D102A5get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrStartDate]);
 end;//TcsAutoAnnoExportPrim.pm_GetStartDate
 
 procedure TcsAutoAnnoExportPrim.pm_SetStartDate(aValue: TDateTime);
-//#UC START# *05DE548C59E7_53BA72D102A5set_var*
-//#UC END# *05DE548C59E7_53BA72D102A5set_var*
 begin
-//#UC START# *05DE548C59E7_53BA72D102A5set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *05DE548C59E7_53BA72D102A5set_impl*
+ TaggedData.DateTimeW[k2_attrStartDate, nil] := (aValue);
 end;//TcsAutoAnnoExportPrim.pm_SetStartDate
 
 function TcsAutoAnnoExportPrim.pm_GetEndDate: TDateTime;
-//#UC START# *DF8B66F30ABF_53BA72D102A5get_var*
-//#UC END# *DF8B66F30ABF_53BA72D102A5get_var*
 begin
-//#UC START# *DF8B66F30ABF_53BA72D102A5get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DF8B66F30ABF_53BA72D102A5get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrEndDate]);
 end;//TcsAutoAnnoExportPrim.pm_GetEndDate
 
 procedure TcsAutoAnnoExportPrim.pm_SetEndDate(aValue: TDateTime);
-//#UC START# *DF8B66F30ABF_53BA72D102A5set_var*
-//#UC END# *DF8B66F30ABF_53BA72D102A5set_var*
 begin
-//#UC START# *DF8B66F30ABF_53BA72D102A5set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DF8B66F30ABF_53BA72D102A5set_impl*
+ TaggedData.DateTimeW[k2_attrEndDate, nil] := (aValue);
 end;//TcsAutoAnnoExportPrim.pm_SetEndDate
 
 function TcsAutoAnnoExportPrim.pm_GetBelongsIDList: BelongsIDListHelper;
-//#UC START# *70CF313CF481_53BA72D102A5get_var*
-//#UC END# *70CF313CF481_53BA72D102A5get_var*
 begin
-//#UC START# *70CF313CF481_53BA72D102A5get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *70CF313CF481_53BA72D102A5get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TBelongsIDListHelper.Make(TaggedData.cAtom(k2_attrBelongsIDList));
 end;//TcsAutoAnnoExportPrim.pm_GetBelongsIDList
-
-class function TcsAutoAnnoExportPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53BA72D102A5_var*
-//#UC END# *53AC03EE01FD_53BA72D102A5_var*
-begin
-//#UC START# *53AC03EE01FD_53BA72D102A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53BA72D102A5_impl*
-end;//TcsAutoAnnoExportPrim.GetTaggedDataType
 
 function TcsAutoAnnoExportPrim.GetDescription: AnsiString;
 //#UC START# *53FB28170339_53BA72D102A5_var*
@@ -109,6 +86,11 @@ begin
  Result := 'Автоматический экспорт аннотаций';
 //#UC END# *53FB28170339_53BA72D102A5_impl*
 end;//TcsAutoAnnoExportPrim.GetDescription
+
+class function TcsAutoAnnoExportPrim.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typAutoAnnoExportTask;
+end;//TcsAutoAnnoExportPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

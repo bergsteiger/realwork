@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_ContactListForm.SetFactory(TContactListForm.Make);
+ {* Регистрация фабрики формы ContactList }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TContactListForm);
  {* Регистрация ContactList }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_ContactListForm.SetFactory(TContactListForm.Make);
- {* Регистрация фабрики формы ContactList }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

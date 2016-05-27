@@ -71,138 +71,94 @@ uses
 ;
 
 function TcsImportTaskPrim.pm_GetDeleteIncluded: Boolean;
-//#UC START# *47BFB74D5B66_53ABFE3202CFget_var*
-//#UC END# *47BFB74D5B66_53ABFE3202CFget_var*
 begin
-//#UC START# *47BFB74D5B66_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47BFB74D5B66_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrDeleteIncluded]);
 end;//TcsImportTaskPrim.pm_GetDeleteIncluded
 
 procedure TcsImportTaskPrim.pm_SetDeleteIncluded(aValue: Boolean);
-//#UC START# *47BFB74D5B66_53ABFE3202CFset_var*
-//#UC END# *47BFB74D5B66_53ABFE3202CFset_var*
 begin
-//#UC START# *47BFB74D5B66_53ABFE3202CFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47BFB74D5B66_53ABFE3202CFset_impl*
+ TaggedData.BoolW[k2_attrDeleteIncluded, nil] := (aValue);
 end;//TcsImportTaskPrim.pm_SetDeleteIncluded
 
 function TcsImportTaskPrim.pm_GetIsAnnotation: Boolean;
-//#UC START# *2F5C48AC4623_53ABFE3202CFget_var*
-//#UC END# *2F5C48AC4623_53ABFE3202CFget_var*
 begin
-//#UC START# *2F5C48AC4623_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2F5C48AC4623_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsAnnotation]);
 end;//TcsImportTaskPrim.pm_GetIsAnnotation
 
 procedure TcsImportTaskPrim.pm_SetIsAnnotation(aValue: Boolean);
-//#UC START# *2F5C48AC4623_53ABFE3202CFset_var*
-//#UC END# *2F5C48AC4623_53ABFE3202CFset_var*
 begin
-//#UC START# *2F5C48AC4623_53ABFE3202CFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2F5C48AC4623_53ABFE3202CFset_impl*
+ TaggedData.BoolW[k2_attrIsAnnotation, nil] := (aValue);
 end;//TcsImportTaskPrim.pm_SetIsAnnotation
 
 function TcsImportTaskPrim.pm_GetIsRegion: Boolean;
-//#UC START# *D08AD0DF0D21_53ABFE3202CFget_var*
-//#UC END# *D08AD0DF0D21_53ABFE3202CFget_var*
 begin
-//#UC START# *D08AD0DF0D21_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D08AD0DF0D21_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsRegion]);
 end;//TcsImportTaskPrim.pm_GetIsRegion
 
 procedure TcsImportTaskPrim.pm_SetIsRegion(aValue: Boolean);
-//#UC START# *D08AD0DF0D21_53ABFE3202CFset_var*
-//#UC END# *D08AD0DF0D21_53ABFE3202CFset_var*
 begin
-//#UC START# *D08AD0DF0D21_53ABFE3202CFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D08AD0DF0D21_53ABFE3202CFset_impl*
+ TaggedData.BoolW[k2_attrIsRegion, nil] := (aValue);
 end;//TcsImportTaskPrim.pm_SetIsRegion
 
 function TcsImportTaskPrim.pm_GetSourceDir: AnsiString;
-//#UC START# *AA8B621AD004_53ABFE3202CFget_var*
-//#UC END# *AA8B621AD004_53ABFE3202CFget_var*
 begin
-//#UC START# *AA8B621AD004_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AA8B621AD004_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrSourceDir]);
 end;//TcsImportTaskPrim.pm_GetSourceDir
 
 procedure TcsImportTaskPrim.pm_SetSourceDir(const aValue: AnsiString);
-//#UC START# *AA8B621AD004_53ABFE3202CFset_var*
-//#UC END# *AA8B621AD004_53ABFE3202CFset_var*
 begin
-//#UC START# *AA8B621AD004_53ABFE3202CFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AA8B621AD004_53ABFE3202CFset_impl*
+ TaggedData.StrW[k2_attrSourceDir, nil] := (aValue);
 end;//TcsImportTaskPrim.pm_SetSourceDir
 
 function TcsImportTaskPrim.pm_GetSourceFiles: SourceFilesHelper;
-//#UC START# *ED171EB46231_53ABFE3202CFget_var*
-//#UC END# *ED171EB46231_53ABFE3202CFget_var*
 begin
-//#UC START# *ED171EB46231_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *ED171EB46231_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TSourceFilesHelper.Make(TaggedData.cAtom(k2_attrSourceFiles));
 end;//TcsImportTaskPrim.pm_GetSourceFiles
 
 function TcsImportTaskPrim.pm_GetRegionIDList: RegionIDListHelper;
-//#UC START# *7143938433F7_53ABFE3202CFget_var*
-//#UC END# *7143938433F7_53ABFE3202CFget_var*
 begin
-//#UC START# *7143938433F7_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7143938433F7_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TRegionIDListHelper.Make(TaggedData.cAtom(k2_attrRegionIDList));
 end;//TcsImportTaskPrim.pm_GetRegionIDList
 
 function TcsImportTaskPrim.pm_GetSafeDir: AnsiString;
-//#UC START# *C1E6916E281F_53ABFE3202CFget_var*
-//#UC END# *C1E6916E281F_53ABFE3202CFget_var*
 begin
-//#UC START# *C1E6916E281F_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C1E6916E281F_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrSafeDir]);
 end;//TcsImportTaskPrim.pm_GetSafeDir
 
 procedure TcsImportTaskPrim.pm_SetSafeDir(const aValue: AnsiString);
-//#UC START# *C1E6916E281F_53ABFE3202CFset_var*
-//#UC END# *C1E6916E281F_53ABFE3202CFset_var*
 begin
-//#UC START# *C1E6916E281F_53ABFE3202CFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C1E6916E281F_53ABFE3202CFset_impl*
+ TaggedData.StrW[k2_attrSafeDir, nil] := (aValue);
 end;//TcsImportTaskPrim.pm_SetSafeDir
 
 function TcsImportTaskPrim.pm_GetNeedSendMailReport: Boolean;
-//#UC START# *D0134BFEABB1_53ABFE3202CFget_var*
-//#UC END# *D0134BFEABB1_53ABFE3202CFget_var*
 begin
-//#UC START# *D0134BFEABB1_53ABFE3202CFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D0134BFEABB1_53ABFE3202CFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrNeedSendMailReport]);
 end;//TcsImportTaskPrim.pm_GetNeedSendMailReport
 
 procedure TcsImportTaskPrim.pm_SetNeedSendMailReport(aValue: Boolean);
-//#UC START# *D0134BFEABB1_53ABFE3202CFset_var*
-//#UC END# *D0134BFEABB1_53ABFE3202CFset_var*
 begin
-//#UC START# *D0134BFEABB1_53ABFE3202CFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D0134BFEABB1_53ABFE3202CFset_impl*
+ TaggedData.BoolW[k2_attrNeedSendMailReport, nil] := (aValue);
 end;//TcsImportTaskPrim.pm_SetNeedSendMailReport
 
 class function TcsImportTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53ABFE3202CF_var*
-//#UC END# *53AC03EE01FD_53ABFE3202CF_var*
 begin
-//#UC START# *53AC03EE01FD_53ABFE3202CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53ABFE3202CF_impl*
+ Result := k2_typImportTask;
 end;//TcsImportTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

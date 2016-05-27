@@ -16,10 +16,19 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimBaseSearchOptionsForm = class(TPrimBaseSearchForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
@@ -46,6 +55,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -92,6 +104,23 @@ begin
  DoFindBackBtnClick;
 //#UC END# *49FEDE4703B8_4CC7F0CE0267exec_impl*
 end;//TPrimBaseSearchOptionsForm.Edit_FindPrev_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimBaseSearchOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishOp(en_Edit, op_FindNext, Edit_FindNext_Execute, Edit_FindNext_Test, nil);
+  PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimBaseSearchOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

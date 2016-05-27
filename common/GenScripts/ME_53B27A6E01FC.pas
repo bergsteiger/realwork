@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csDictEditQueryPrim;
+unit csDictEditQueryPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csDictEditQueryPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csDictEditQueryPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcsDictEditQueryPrim" MUID: (53B27A6E01FC)
 
@@ -63,120 +63,80 @@ uses
 ;
 
 function TcsDictEditQueryPrim.pm_GetFamily: Integer;
-//#UC START# *75BC6533A630_53B27A6E01FCget_var*
-//#UC END# *75BC6533A630_53B27A6E01FCget_var*
 begin
-//#UC START# *75BC6533A630_53B27A6E01FCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *75BC6533A630_53B27A6E01FCget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrFamily]);
 end;//TcsDictEditQueryPrim.pm_GetFamily
 
 procedure TcsDictEditQueryPrim.pm_SetFamily(aValue: Integer);
-//#UC START# *75BC6533A630_53B27A6E01FCset_var*
-//#UC END# *75BC6533A630_53B27A6E01FCset_var*
 begin
-//#UC START# *75BC6533A630_53B27A6E01FCset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *75BC6533A630_53B27A6E01FCset_impl*
+ TaggedData.IntW[k2_attrFamily, nil] := (aValue);
 end;//TcsDictEditQueryPrim.pm_SetFamily
 
 function TcsDictEditQueryPrim.pm_GetDictType: Integer;
-//#UC START# *E28DB204BDDA_53B27A6E01FCget_var*
-//#UC END# *E28DB204BDDA_53B27A6E01FCget_var*
 begin
-//#UC START# *E28DB204BDDA_53B27A6E01FCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E28DB204BDDA_53B27A6E01FCget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrDictType]);
 end;//TcsDictEditQueryPrim.pm_GetDictType
 
 procedure TcsDictEditQueryPrim.pm_SetDictType(aValue: Integer);
-//#UC START# *E28DB204BDDA_53B27A6E01FCset_var*
-//#UC END# *E28DB204BDDA_53B27A6E01FCset_var*
 begin
-//#UC START# *E28DB204BDDA_53B27A6E01FCset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E28DB204BDDA_53B27A6E01FCset_impl*
+ TaggedData.IntW[k2_attrDictType, nil] := (aValue);
 end;//TcsDictEditQueryPrim.pm_SetDictType
 
 function TcsDictEditQueryPrim.pm_GetOperation: Integer;
-//#UC START# *E5B01D3DCF61_53B27A6E01FCget_var*
-//#UC END# *E5B01D3DCF61_53B27A6E01FCget_var*
 begin
-//#UC START# *E5B01D3DCF61_53B27A6E01FCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E5B01D3DCF61_53B27A6E01FCget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrOperation]);
 end;//TcsDictEditQueryPrim.pm_GetOperation
 
 procedure TcsDictEditQueryPrim.pm_SetOperation(aValue: Integer);
-//#UC START# *E5B01D3DCF61_53B27A6E01FCset_var*
-//#UC END# *E5B01D3DCF61_53B27A6E01FCset_var*
 begin
-//#UC START# *E5B01D3DCF61_53B27A6E01FCset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E5B01D3DCF61_53B27A6E01FCset_impl*
+ TaggedData.IntW[k2_attrOperation, nil] := (aValue);
 end;//TcsDictEditQueryPrim.pm_SetOperation
 
 function TcsDictEditQueryPrim.pm_GetID: Integer;
-//#UC START# *57E8CBA42C3C_53B27A6E01FCget_var*
-//#UC END# *57E8CBA42C3C_53B27A6E01FCget_var*
 begin
-//#UC START# *57E8CBA42C3C_53B27A6E01FCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *57E8CBA42C3C_53B27A6E01FCget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrID]);
 end;//TcsDictEditQueryPrim.pm_GetID
 
 procedure TcsDictEditQueryPrim.pm_SetID(aValue: Integer);
-//#UC START# *57E8CBA42C3C_53B27A6E01FCset_var*
-//#UC END# *57E8CBA42C3C_53B27A6E01FCset_var*
 begin
-//#UC START# *57E8CBA42C3C_53B27A6E01FCset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *57E8CBA42C3C_53B27A6E01FCset_impl*
+ TaggedData.IntW[k2_attrID, nil] := (aValue);
 end;//TcsDictEditQueryPrim.pm_SetID
 
 function TcsDictEditQueryPrim.pm_GetParentID: Integer;
-//#UC START# *2610F05DA82F_53B27A6E01FCget_var*
-//#UC END# *2610F05DA82F_53B27A6E01FCget_var*
 begin
-//#UC START# *2610F05DA82F_53B27A6E01FCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2610F05DA82F_53B27A6E01FCget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrParentID]);
 end;//TcsDictEditQueryPrim.pm_GetParentID
 
 procedure TcsDictEditQueryPrim.pm_SetParentID(aValue: Integer);
-//#UC START# *2610F05DA82F_53B27A6E01FCset_var*
-//#UC END# *2610F05DA82F_53B27A6E01FCset_var*
 begin
-//#UC START# *2610F05DA82F_53B27A6E01FCset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2610F05DA82F_53B27A6E01FCset_impl*
+ TaggedData.IntW[k2_attrParentID, nil] := (aValue);
 end;//TcsDictEditQueryPrim.pm_SetParentID
 
 function TcsDictEditQueryPrim.pm_GetNextID: Integer;
-//#UC START# *F8482228B27F_53B27A6E01FCget_var*
-//#UC END# *F8482228B27F_53B27A6E01FCget_var*
 begin
-//#UC START# *F8482228B27F_53B27A6E01FCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F8482228B27F_53B27A6E01FCget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrNextID]);
 end;//TcsDictEditQueryPrim.pm_GetNextID
 
 procedure TcsDictEditQueryPrim.pm_SetNextID(aValue: Integer);
-//#UC START# *F8482228B27F_53B27A6E01FCset_var*
-//#UC END# *F8482228B27F_53B27A6E01FCset_var*
 begin
-//#UC START# *F8482228B27F_53B27A6E01FCset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F8482228B27F_53B27A6E01FCset_impl*
+ TaggedData.IntW[k2_attrNextID, nil] := (aValue);
 end;//TcsDictEditQueryPrim.pm_SetNextID
 
 class function TcsDictEditQueryPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B27A6E01FC_var*
-//#UC END# *53AC03EE01FD_53B27A6E01FC_var*
 begin
-//#UC START# *53AC03EE01FD_53B27A6E01FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B27A6E01FC_impl*
+ Result := k2_typDictEditQuery;
 end;//TcsDictEditQueryPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

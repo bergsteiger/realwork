@@ -103,7 +103,7 @@ begin
  Result := 'TTreeNodeForTestsWordsPack';
 end;//TTTreeNodeForTestsWordsPackResNameGetter.ResName
 
- {$R TTreeNodeForTestsWordsPack.res}
+{$R TTreeNodeForTestsWordsPack.res}
 
 initialization
  TkwPopTreeNodeIsNodeFolder.RegisterInEngine;

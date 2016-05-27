@@ -37,6 +37,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , vcmInterfaces
  , CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , CustomizeTasksPanelKeywordsPack

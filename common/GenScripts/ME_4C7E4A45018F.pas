@@ -41,6 +41,11 @@ type
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
@@ -100,6 +105,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimUnderControlOptionsForm.pm_GetUnderControlInfo: InsUnderControlInfo;
@@ -412,6 +420,30 @@ begin
  f_SortTypeMap := nil;
  inherited;
 end;//TPrimUnderControlOptionsForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimUnderControlOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_ControlCenter, nil);
+  PublishFormEntity(en_ControledObject, nil);
+  PublishOp(en_Edit, op_Paste, nil, Edit_Paste_Test, nil);
+  PublishOp(en_Edit, op_Copy, nil, Edit_Copy_Test, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_ControlCenter, op_Add, ControlCenter_Add_Execute, nil, nil);
+  PublishOp(en_ControlCenter, op_CreateList, ControlCenter_CreateList_Execute, ControlCenter_CreateList_Test, nil);
+  PublishOp(en_ControlCenter, op_Sort, ControlCenter_Sort_Execute, ControlCenter_Sort_Test, nil);
+  PublishOp(en_ControlCenter, op_ClearAllStatus, ControlCenter_ClearAllStatus_Execute, ControlCenter_ClearAllStatus_Test, nil);
+  PublishOp(en_ControledObject, op_Open, ControledObject_Open_Execute, ControledObject_Open_Test, nil);
+  PublishOp(en_ControledObject, op_ClearStatus, ControledObject_ClearStatus_Execute, ControledObject_ClearStatus_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimUnderControlOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

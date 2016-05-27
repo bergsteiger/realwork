@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuAutoAnnoExportTaskPrim;
+unit alcuAutoAnnoExportTaskPrim;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoAnnoExportTaskPrim.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoAnnoExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuAutoAnnoExportTaskPrim" MUID: (53F59F27018A)
 
@@ -50,58 +50,35 @@ uses
 ;
 
 function TalcuAutoAnnoExportTaskPrim.pm_GetStartDate: TDateTime;
-//#UC START# *BBED2D3CA5F4_53F59F27018Aget_var*
-//#UC END# *BBED2D3CA5F4_53F59F27018Aget_var*
 begin
-//#UC START# *BBED2D3CA5F4_53F59F27018Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BBED2D3CA5F4_53F59F27018Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrStartDate]);
 end;//TalcuAutoAnnoExportTaskPrim.pm_GetStartDate
 
 procedure TalcuAutoAnnoExportTaskPrim.pm_SetStartDate(aValue: TDateTime);
-//#UC START# *BBED2D3CA5F4_53F59F27018Aset_var*
-//#UC END# *BBED2D3CA5F4_53F59F27018Aset_var*
 begin
-//#UC START# *BBED2D3CA5F4_53F59F27018Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BBED2D3CA5F4_53F59F27018Aset_impl*
+ TaggedData.DateTimeW[k2_attrStartDate, nil] := (aValue);
 end;//TalcuAutoAnnoExportTaskPrim.pm_SetStartDate
 
 function TalcuAutoAnnoExportTaskPrim.pm_GetEndDate: TDateTime;
-//#UC START# *24FC392D4AC8_53F59F27018Aget_var*
-//#UC END# *24FC392D4AC8_53F59F27018Aget_var*
 begin
-//#UC START# *24FC392D4AC8_53F59F27018Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *24FC392D4AC8_53F59F27018Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrEndDate]);
 end;//TalcuAutoAnnoExportTaskPrim.pm_GetEndDate
 
 procedure TalcuAutoAnnoExportTaskPrim.pm_SetEndDate(aValue: TDateTime);
-//#UC START# *24FC392D4AC8_53F59F27018Aset_var*
-//#UC END# *24FC392D4AC8_53F59F27018Aset_var*
 begin
-//#UC START# *24FC392D4AC8_53F59F27018Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *24FC392D4AC8_53F59F27018Aset_impl*
+ TaggedData.DateTimeW[k2_attrEndDate, nil] := (aValue);
 end;//TalcuAutoAnnoExportTaskPrim.pm_SetEndDate
 
 function TalcuAutoAnnoExportTaskPrim.pm_GetBelongsIDList: BelongsIDListHelper;
-//#UC START# *04108A210D43_53F59F27018Aget_var*
-//#UC END# *04108A210D43_53F59F27018Aget_var*
 begin
-//#UC START# *04108A210D43_53F59F27018Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *04108A210D43_53F59F27018Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TBelongsIDListHelper.Make(TaggedData.cAtom(k2_attrBelongsIDList));
 end;//TalcuAutoAnnoExportTaskPrim.pm_GetBelongsIDList
-
-class function TalcuAutoAnnoExportTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53F59F27018A_var*
-//#UC END# *53AC03EE01FD_53F59F27018A_var*
-begin
-//#UC START# *53AC03EE01FD_53F59F27018A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53F59F27018A_impl*
-end;//TalcuAutoAnnoExportTaskPrim.GetTaggedDataType
 
 {$If NOT Defined(Nemesis)}
 function TalcuAutoAnnoExportTaskPrim.GetDescription: AnsiString;
@@ -114,5 +91,10 @@ begin
 end;//TalcuAutoAnnoExportTaskPrim.GetDescription
 {$IfEnd} // NOT Defined(Nemesis)
 
+class function TalcuAutoAnnoExportTaskPrim.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typAutoAnnoExportTask;
+end;//TalcuAutoAnnoExportTaskPrim.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
+
 end.

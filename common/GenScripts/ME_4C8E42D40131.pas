@@ -37,6 +37,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , vcmInterfaces
  , CustomizeTools_ut_CustomizeTools_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , CustomizeToolsKeywordsPack

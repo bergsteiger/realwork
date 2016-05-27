@@ -48,6 +48,9 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -150,21 +153,26 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Rubricator_SetListRoot_Execute(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem);
-   procedure Rubricator_SetListRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubricator_SetListRoot(const aParams: IvcmExecuteParams);
    procedure Rubricator_InitListRoot_Execute(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem);
-   procedure Rubricator_InitListRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubricator_InitListRoot(const aParams: IvcmExecuteParams);
    procedure Rubricator_Synchronize_Execute;
-   procedure Rubricator_Synchronize(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubricator_Synchronize(const aParams: IvcmExecuteParams);
    function Rubricator_GetRoot_Execute: Il3SimpleNode;
-   procedure Rubricator_GetRoot(const aParams: IvcmExecuteParamsPrim);
+   procedure Rubricator_GetRoot(const aParams: IvcmExecuteParams);
    procedure Rubric_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
   public
    property RubricatorList: TnscTreeViewWithAdapterDragDrop
@@ -175,6 +183,10 @@ type
     read f_DelimiterPanel;
    property ExampleTextSource: TnscTextSource
     read f_ExampleTextSource;
+   property PaintBox: TPaintBox
+    read f_PaintBox;
+   property NewDocLabel: TnscSimpleEditor
+    read f_NewDocLabel;
  end;//TPrimRubricatorForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -227,6 +239,9 @@ uses
  , nsRubricatorList
  , l3Base
  , PrimRubricator_utRubricatorList_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -604,7 +619,7 @@ begin
 //#UC END# *4AA7805301DC_4AA68CA10101exec_impl*
 end;//TPrimRubricatorForm.Rubricator_SetListRoot_Execute
 
-procedure TPrimRubricatorForm.Rubricator_SetListRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRubricatorForm.Rubricator_SetListRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRubricator_SetListRoot_Params) do
   Self.Rubricator_SetListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
@@ -627,7 +642,7 @@ begin
 //#UC END# *4AA7806601AE_4AA68CA10101exec_impl*
 end;//TPrimRubricatorForm.Rubricator_InitListRoot_Execute
 
-procedure TPrimRubricatorForm.Rubricator_InitListRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRubricatorForm.Rubricator_InitListRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRubricator_InitListRoot_Params) do
   Self.Rubricator_InitListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
@@ -642,7 +657,7 @@ begin
 //#UC END# *4AA7809901AE_4AA68CA10101exec_impl*
 end;//TPrimRubricatorForm.Rubricator_Synchronize_Execute
 
-procedure TPrimRubricatorForm.Rubricator_Synchronize(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRubricatorForm.Rubricator_Synchronize(const aParams: IvcmExecuteParams);
 begin
  Self.Rubricator_Synchronize_Execute;
 end;//TPrimRubricatorForm.Rubricator_Synchronize
@@ -659,7 +674,7 @@ begin
 //#UC END# *4B02CFA303DA_4AA68CA10101exec_impl*
 end;//TPrimRubricatorForm.Rubricator_GetRoot_Execute
 
-procedure TPrimRubricatorForm.Rubricator_GetRoot(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRubricatorForm.Rubricator_GetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRubricator_GetRoot_Params) do
   ResultValue := Self.Rubricator_GetRoot_Execute;
@@ -782,6 +797,25 @@ begin
 //#UC END# *543E3AA801D0_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimRubricatorForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Rubricator, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Rubric, nil);
+  PublishOpWithResult(en_Rubricator, op_SetListRoot, Rubricator_SetListRoot, nil, nil);
+  PublishOpWithResult(en_Rubricator, op_InitListRoot, Rubricator_InitListRoot, nil, nil);
+  PublishOpWithResult(en_Rubricator, op_Synchronize, Rubricator_Synchronize, nil, nil);
+  PublishOpWithResult(en_Rubricator, op_GetRoot, Rubricator_GetRoot, nil, nil);
+  PublishOp(en_Rubric, op_Execute, Rubric_Execute_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimRubricatorForm.InitEntities
 
 procedure TPrimRubricatorForm.MakeControls;
 begin

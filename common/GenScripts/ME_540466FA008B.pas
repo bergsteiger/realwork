@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuRegionAutoExportTaskPrim;
+unit alcuRegionAutoExportTaskPrim;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuRegionAutoExportTaskPrim.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuRegionAutoExportTaskPrim" MUID: (540466FA008B)
 
@@ -54,84 +54,56 @@ uses
 ;
 
 function TalcuRegionAutoExportTaskPrim.pm_GetRegionIndex: Integer;
-//#UC START# *348B7F231B99_540466FA008Bget_var*
-//#UC END# *348B7F231B99_540466FA008Bget_var*
 begin
-//#UC START# *348B7F231B99_540466FA008Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *348B7F231B99_540466FA008Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrRegionIndex]);
 end;//TalcuRegionAutoExportTaskPrim.pm_GetRegionIndex
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetRegionIndex(aValue: Integer);
-//#UC START# *348B7F231B99_540466FA008Bset_var*
-//#UC END# *348B7F231B99_540466FA008Bset_var*
 begin
-//#UC START# *348B7F231B99_540466FA008Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *348B7F231B99_540466FA008Bset_impl*
+ TaggedData.IntW[k2_attrRegionIndex, nil] := (aValue);
 end;//TalcuRegionAutoExportTaskPrim.pm_SetRegionIndex
 
 function TalcuRegionAutoExportTaskPrim.pm_GetFTPParams: Tl3Tag;
-//#UC START# *E962DB912BF7_540466FA008Bget_var*
-//#UC END# *E962DB912BF7_540466FA008Bget_var*
 begin
-//#UC START# *E962DB912BF7_540466FA008Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E962DB912BF7_540466FA008Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.Attr[k2_attrFTPParams]);
 end;//TalcuRegionAutoExportTaskPrim.pm_GetFTPParams
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetFTPParams(aValue: Tl3Tag);
-//#UC START# *E962DB912BF7_540466FA008Bset_var*
-//#UC END# *E962DB912BF7_540466FA008Bset_var*
 begin
-//#UC START# *E962DB912BF7_540466FA008Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E962DB912BF7_540466FA008Bset_impl*
+ TaggedData.AttrW[k2_attrFTPParams, nil] := (aValue);
 end;//TalcuRegionAutoExportTaskPrim.pm_SetFTPParams
 
 function TalcuRegionAutoExportTaskPrim.pm_GetFileNameMask: AnsiString;
-//#UC START# *91FF306EFAB4_540466FA008Bget_var*
-//#UC END# *91FF306EFAB4_540466FA008Bget_var*
 begin
-//#UC START# *91FF306EFAB4_540466FA008Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *91FF306EFAB4_540466FA008Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrFileNameMask]);
 end;//TalcuRegionAutoExportTaskPrim.pm_GetFileNameMask
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetFileNameMask(const aValue: AnsiString);
-//#UC START# *91FF306EFAB4_540466FA008Bset_var*
-//#UC END# *91FF306EFAB4_540466FA008Bset_var*
 begin
-//#UC START# *91FF306EFAB4_540466FA008Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *91FF306EFAB4_540466FA008Bset_impl*
+ TaggedData.StrW[k2_attrFileNameMask, nil] := (aValue);
 end;//TalcuRegionAutoExportTaskPrim.pm_SetFileNameMask
 
 function TalcuRegionAutoExportTaskPrim.pm_GetResultWarehouse: AnsiString;
-//#UC START# *1E7A33327C44_540466FA008Bget_var*
-//#UC END# *1E7A33327C44_540466FA008Bget_var*
 begin
-//#UC START# *1E7A33327C44_540466FA008Bget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1E7A33327C44_540466FA008Bget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrResultWarehouse]);
 end;//TalcuRegionAutoExportTaskPrim.pm_GetResultWarehouse
 
 procedure TalcuRegionAutoExportTaskPrim.pm_SetResultWarehouse(const aValue: AnsiString);
-//#UC START# *1E7A33327C44_540466FA008Bset_var*
-//#UC END# *1E7A33327C44_540466FA008Bset_var*
 begin
-//#UC START# *1E7A33327C44_540466FA008Bset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1E7A33327C44_540466FA008Bset_impl*
+ TaggedData.StrW[k2_attrResultWarehouse, nil] := (aValue);
 end;//TalcuRegionAutoExportTaskPrim.pm_SetResultWarehouse
 
 class function TalcuRegionAutoExportTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_540466FA008B_var*
-//#UC END# *53AC03EE01FD_540466FA008B_var*
 begin
-//#UC START# *53AC03EE01FD_540466FA008B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_540466FA008B_impl*
+ Result := k2_typRegionAutoExportTask;
 end;//TalcuRegionAutoExportTaskPrim.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

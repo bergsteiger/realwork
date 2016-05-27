@@ -51,6 +51,15 @@
    function CanUnControl: Boolean; override;
    function pm_GetHyperlinkDocID: Integer; override;
    function pm_GetHyperlinkDocumentName: Il3CString; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Document_AddToControl_Test(const aParams: IvcmTestParamsPrim);
     {* Поставить на контроль }
@@ -427,8 +436,36 @@ begin
   Result := dsDocument.DocInfo.DocName;
 //#UC END# *4CDD1A02013D_4986C5B30130get_impl*
 end;//_CommonForTextAndFlash_.pm_GetHyperlinkDocumentName
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _CommonForTextAndFlash_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//_CommonForTextAndFlash_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _CommonForTextAndFlash_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Document, nil);
+  PublishOp(en_Document, op_AddToControl, Document_AddToControl_Execute, Document_AddToControl_Test, Document_AddToControl_GetState);
+  PublishOp(en_Document, op_UserCR1, nil, Document_UserCR1_Test, Document_UserCR1_GetState);
+  PublishOp(en_Document, op_UserCR2, nil, Document_UserCR2_Test, Document_UserCR2_GetState);
+  PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
+  PublishOp(en_Document, op_AddToControl, Document_AddToControl_Execute, Document_AddToControl_Test, Document_AddToControl_GetState);
+  PublishOp(en_Document, op_UserCR1, Document_UserCR1_Execute, Document_UserCR1_Test, Document_UserCR1_GetState);
+  PublishOp(en_Document, op_UserCR2, Document_UserCR2_Execute, Document_UserCR2_Test, Document_UserCR2_GetState);
+ end;//with Entities.Entities
+end;//_CommonForTextAndFlash_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf CommonForTextAndFlash_imp_impl}
 
 {$EndIf CommonForTextAndFlash_imp}

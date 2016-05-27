@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , BaseSearchCard_ut_BaseSearchCard_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , BaseSearchCardKeywordsPack
@@ -88,14 +88,14 @@ end;//Ten_BaseSearchCard.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_BaseSearchCardCaption.Init;
+ {* Инициализация str_ut_BaseSearchCardCaption }
+ fm_en_BaseSearchCard.SetFactory(Ten_BaseSearchCard.Make);
+ {* Регистрация фабрики формы BaseSearchCard }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_BaseSearchCard);
  {* Регистрация BaseSearchCard }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_en_BaseSearchCard.SetFactory(Ten_BaseSearchCard.Make);
- {* Регистрация фабрики формы BaseSearchCard }
- str_ut_BaseSearchCardCaption.Init;
- {* Инициализация str_ut_BaseSearchCardCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

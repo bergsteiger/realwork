@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efRubricator.SetFactory(TefRubricator.Make);
+ {* Регистрация фабрики формы Rubricator }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefRubricator);
  {* Регистрация Rubricator }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efRubricator.SetFactory(TefRubricator.Make);
- {* Регистрация фабрики формы Rubricator }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

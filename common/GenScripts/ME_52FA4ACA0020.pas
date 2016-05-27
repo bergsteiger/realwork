@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csRequestTask;
+unit csRequestTask;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csRequestTask.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csRequestTask.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "csRequestTask" MUID: (52FA4ACA0020)
 
@@ -13,16 +13,16 @@ uses
  l3IntfUses
  , ddServerTask
  , CsDataPipe
- , k2Base
  , dt_Types
+ , k2Base
 ;
 
 type
  TddRequestTask = class(TddTaskItem)
   public
    procedure SaveRequestToPipe(aPipe: TCsDataPipe); virtual;
-   class function GetTaggedDataType: Tk2Type; override;
    constructor Create(aUserID: TUserID); override;
+   class function GetTaggedDataType: Tk2Type; override;
  end;//TddRequestTask
 
  TddRequestTaskAsTask = class(TddRequestTask)
@@ -51,15 +51,6 @@ begin
 //#UC END# *54C0FDAD028B_52FA4AD90122_impl*
 end;//TddRequestTask.SaveRequestToPipe
 
-class function TddRequestTask.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_52FA4AD90122_var*
-//#UC END# *53AC03EE01FD_52FA4AD90122_var*
-begin
-//#UC START# *53AC03EE01FD_52FA4AD90122_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_52FA4AD90122_impl*
-end;//TddRequestTask.GetTaggedDataType
-
 constructor TddRequestTask.Create(aUserID: TUserID);
 //#UC START# *53B3D8A8011F_52FA4AD90122_var*
 //#UC END# *53B3D8A8011F_52FA4AD90122_var*
@@ -69,6 +60,11 @@ begin
  //TaskType := cs_ttRequest;
 //#UC END# *53B3D8A8011F_52FA4AD90122_impl*
 end;//TddRequestTask.Create
+
+class function TddRequestTask.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typRequestTask;
+end;//TddRequestTask.GetTaggedDataType
 
 procedure TddRequestTaskAsTask.SaveTaskToPipe(aPipe: TCsDataPipe);
 //#UC START# *54C650610228_54C6504A003A_var*

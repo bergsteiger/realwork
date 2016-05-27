@@ -303,7 +303,7 @@ begin
  Result := 'l3NodesKeyWordsPack';
 end;//Tl3NodesKeyWordsPackResNameGetter.ResName
 
- {$R l3NodesKeyWordsPack.res}
+{$R l3NodesKeyWordsPack.res}
 
 initialization
  TkwNodeIsFirst.RegisterInEngine;

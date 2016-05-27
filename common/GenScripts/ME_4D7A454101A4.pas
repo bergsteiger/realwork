@@ -15,11 +15,12 @@ uses
  , PrimSaveLoadOptionsForBaseSearch_Form
  , BaseSearchInterfaces
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // ztChild
-
  TPrimBaseSearchContainerForm = class(TPrimSaveLoadOptionsForBaseSearchForm, InsMainMenuLikeBaseSearchOwner)
   private
    f_ChildZone: TvtPanel;
@@ -58,6 +59,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimBaseSearchContainerForm.IsIt: Boolean;

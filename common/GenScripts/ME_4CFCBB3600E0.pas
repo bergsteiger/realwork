@@ -36,6 +36,9 @@ uses
  , l3Core
  , l3Except
  , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -122,6 +125,8 @@ type
    function pm_GetMostOuterRectangle: TvgRectangle;
    function pm_GetRectangle1: TvgRectangle;
    function pm_GetActiveClassTab: TvgRadioButton;
+   function pm_GetLayout2: TvgLayout;
+   function pm_GetLayout3: TvgLayout;
    procedure TabClick(aSender: TObject);
    function AddListItem(aParent: TvgComboBox;
     const aStr: Il3CString): TvgListBoxItem;
@@ -192,6 +197,10 @@ type
     read pm_GetMostOuterRectangle;
    property Rectangle1: TvgRectangle
     read pm_GetRectangle1;
+   property Layout2: TvgLayout
+    read pm_GetLayout2;
+   property Layout3: TvgLayout
+    read pm_GetLayout3;
  end;//TNewBaseSearchForDFMForm
 
 function TvgRadioButtonItem_C(const aClass: InsBaseSearchClass): TvgRadioButtonItem; overload;
@@ -225,7 +234,13 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , Math
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , RTLConsts
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -474,6 +489,24 @@ begin
   Result := f_Themes[l_I].rButton;
 //#UC END# *4DE66D94033D_4CFCBB3600E0get_impl*
 end;//TNewBaseSearchForDFMForm.pm_GetActiveClassTab
+
+function TNewBaseSearchForDFMForm.pm_GetLayout2: TvgLayout;
+//#UC START# *4D51648F033D_4CFCBB3600E0get_var*
+//#UC END# *4D51648F033D_4CFCBB3600E0get_var*
+begin
+//#UC START# *4D51648F033D_4CFCBB3600E0get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4D51648F033D_4CFCBB3600E0get_impl*
+end;//TNewBaseSearchForDFMForm.pm_GetLayout2
+
+function TNewBaseSearchForDFMForm.pm_GetLayout3: TvgLayout;
+//#UC START# *4E789D5A0179_4CFCBB3600E0get_var*
+//#UC END# *4E789D5A0179_4CFCBB3600E0get_var*
+begin
+//#UC START# *4E789D5A0179_4CFCBB3600E0get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4E789D5A0179_4CFCBB3600E0get_impl*
+end;//TNewBaseSearchForDFMForm.pm_GetLayout3
 
 procedure TNewBaseSearchForDFMForm.TabClick(aSender: TObject);
 //#UC START# *4CFE4BA60063_4CFCBB3600E0_var*

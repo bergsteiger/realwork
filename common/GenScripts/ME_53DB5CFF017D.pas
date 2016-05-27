@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuAnoncedExportPrim;
+unit alcuAnoncedExportPrim;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAnoncedExportPrim.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAnoncedExportPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuAnoncedExportPrim" MUID: (53DB5CFF017D)
 
@@ -53,75 +53,51 @@ uses
 ;
 
 function TalcuAnoncedExportPrim.pm_GetOnThursdayMode: Boolean;
-//#UC START# *B2413C941E50_53DB5CFF017Dget_var*
-//#UC END# *B2413C941E50_53DB5CFF017Dget_var*
 begin
-//#UC START# *B2413C941E50_53DB5CFF017Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B2413C941E50_53DB5CFF017Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrOnThursdayMode]);
 end;//TalcuAnoncedExportPrim.pm_GetOnThursdayMode
 
 procedure TalcuAnoncedExportPrim.pm_SetOnThursdayMode(aValue: Boolean);
-//#UC START# *B2413C941E50_53DB5CFF017Dset_var*
-//#UC END# *B2413C941E50_53DB5CFF017Dset_var*
 begin
-//#UC START# *B2413C941E50_53DB5CFF017Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B2413C941E50_53DB5CFF017Dset_impl*
+ TaggedData.BoolW[k2_attrOnThursdayMode, nil] := (aValue);
 end;//TalcuAnoncedExportPrim.pm_SetOnThursdayMode
 
 function TalcuAnoncedExportPrim.pm_GetNotifyEMailList: AnsiString;
-//#UC START# *52304882574A_53DB5CFF017Dget_var*
-//#UC END# *52304882574A_53DB5CFF017Dget_var*
 begin
-//#UC START# *52304882574A_53DB5CFF017Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52304882574A_53DB5CFF017Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrNotifyEMailList]);
 end;//TalcuAnoncedExportPrim.pm_GetNotifyEMailList
 
 procedure TalcuAnoncedExportPrim.pm_SetNotifyEMailList(const aValue: AnsiString);
-//#UC START# *52304882574A_53DB5CFF017Dset_var*
-//#UC END# *52304882574A_53DB5CFF017Dset_var*
 begin
-//#UC START# *52304882574A_53DB5CFF017Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52304882574A_53DB5CFF017Dset_impl*
+ TaggedData.StrW[k2_attrNotifyEMailList, nil] := (aValue);
 end;//TalcuAnoncedExportPrim.pm_SetNotifyEMailList
 
 function TalcuAnoncedExportPrim.pm_GetAnoncedDate: Integer;
-//#UC START# *26C7061E1C18_53DB5CFF017Dget_var*
-//#UC END# *26C7061E1C18_53DB5CFF017Dget_var*
 begin
-//#UC START# *26C7061E1C18_53DB5CFF017Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *26C7061E1C18_53DB5CFF017Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrAnoncedDate]);
 end;//TalcuAnoncedExportPrim.pm_GetAnoncedDate
 
 procedure TalcuAnoncedExportPrim.pm_SetAnoncedDate(aValue: Integer);
-//#UC START# *26C7061E1C18_53DB5CFF017Dset_var*
-//#UC END# *26C7061E1C18_53DB5CFF017Dset_var*
 begin
-//#UC START# *26C7061E1C18_53DB5CFF017Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *26C7061E1C18_53DB5CFF017Dset_impl*
+ TaggedData.IntW[k2_attrAnoncedDate, nil] := (aValue);
 end;//TalcuAnoncedExportPrim.pm_SetAnoncedDate
 
 function TalcuAnoncedExportPrim.pm_GetAccGroupsIDList: AccGroupsIDListHelper;
-//#UC START# *40D14DD59824_53DB5CFF017Dget_var*
-//#UC END# *40D14DD59824_53DB5CFF017Dget_var*
 begin
-//#UC START# *40D14DD59824_53DB5CFF017Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *40D14DD59824_53DB5CFF017Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TAccGroupsIDListHelper.Make(TaggedData.cAtom(k2_attrAccGroupsIDList));
 end;//TalcuAnoncedExportPrim.pm_GetAccGroupsIDList
 
 class function TalcuAnoncedExportPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53DB5CFF017D_var*
-//#UC END# *53AC03EE01FD_53DB5CFF017D_var*
 begin
-//#UC START# *53AC03EE01FD_53DB5CFF017D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53DB5CFF017D_impl*
+ Result := k2_typAnoncedExportTask;
 end;//TalcuAnoncedExportPrim.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

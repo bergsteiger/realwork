@@ -68,7 +68,6 @@ type
   private
    procedure NotifySubscribers;
   protected
-   function pm_GetStillRunning: Boolean;
    {$If NOT Defined(Nemesis)}
    function ProcessAbort(const aTask: TddProcessTask): Boolean;
     {* Если успешно абортировала задачу вернет True. Тогда штатная обработка обключается }
@@ -85,6 +84,7 @@ type
    procedure RegisterNotifier(const aNotifier: IalcuAsyncTaskFinishedNotifier);
    procedure UnRegisterNotifier(const aNotifier: IalcuAsyncTaskFinishedNotifier);
    class function AssistantExists: Boolean;
+   function StillRunning(CountAbortingTask: Boolean): Boolean;
   protected
    property UserID: TUserID
     read f_UserID;
@@ -93,8 +93,6 @@ type
    property Manager: IalcuAsyncSubmitterManager
     read f_Manager;
   public
-   property StillRunning: Boolean
-    read pm_GetStillRunning;
    property Active: Boolean
     read f_Active
     write f_Active;
@@ -200,15 +198,6 @@ begin
   end;
 //#UC END# *4911B69E037D_53C9011903D6_impl*
 end;//TalcuWorkThreadContainer.DoExecute
-
-function TalcuSubmitterWorkThread.pm_GetStillRunning: Boolean;
-//#UC START# *53CF9DAC004E_53C92B390005get_var*
-//#UC END# *53CF9DAC004E_53C92B390005get_var*
-begin
-//#UC START# *53CF9DAC004E_53C92B390005get_impl*
- Result := Assigned(f_ActiveTask) and (ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozenRun]); 
-//#UC END# *53CF9DAC004E_53C92B390005get_impl*
-end;//TalcuSubmitterWorkThread.pm_GetStillRunning
 
 constructor TalcuSubmitterWorkThread.Create(aUserID: TUserID;
  const aManager: IalcuAsyncSubmitterManager);
@@ -359,6 +348,15 @@ begin
  Result := FileExists(TalcuWorkThreadContainer.AssistantFileName);
 //#UC END# *5404732A00CC_53C92B390005_impl*
 end;//TalcuSubmitterWorkThread.AssistantExists
+
+function TalcuSubmitterWorkThread.StillRunning(CountAbortingTask: Boolean): Boolean;
+//#UC START# *573EC2C80226_53C92B390005_var*
+//#UC END# *573EC2C80226_53C92B390005_var*
+begin
+//#UC START# *573EC2C80226_53C92B390005_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *573EC2C80226_53C92B390005_impl*
+end;//TalcuSubmitterWorkThread.StillRunning
 
 {$If NOT Defined(Nemesis)}
 function TalcuSubmitterWorkThread.ProcessAbort(const aTask: TddProcessTask): Boolean;

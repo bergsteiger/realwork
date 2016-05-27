@@ -14,6 +14,9 @@ uses
  l3IntfUses
  , Classes
  , nsHAFPainter
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type

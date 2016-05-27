@@ -27,6 +27,9 @@ uses
  , vtCheckBox
  , ElPopBtn
  , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -105,6 +108,37 @@ type
     read f_TopPanel;
    property BottomPanel: TvtPanel
     read f_BottomPanel;
+   property TitlePaintBox: TPaintBox
+    read f_TitlePaintBox;
+   property TitleLabel: TvtLabel
+    read f_TitleLabel;
+    {* Знаете ли Вы, что... }
+   property HintPanel: TvtPanel
+    read f_HintPanel;
+   property TipLabel: TvtLabel
+    read f_TipLabel;
+   property DetailLabel: TvtFocusLabel
+    read f_DetailLabel;
+    {* См. подробнее }
+   property ShowCheckBox: TvtCheckBox
+    read f_ShowCheckBox;
+    {* Не показывать совет дня при запуске }
+   property wwwPanel: TvtPanel
+    read f_wwwPanel;
+   property wwwPaintBox: TPaintBox
+    read f_wwwPaintBox;
+   property wwwLabel: TvtFocusLabel
+    read f_wwwLabel;
+    {* Советы дня в Новостях онлайн }
+   property NextButton: TElPopupButton
+    read f_NextButton;
+    {* Следующий }
+   property PrevButton: TElPopupButton
+    read f_PrevButton;
+    {* Предыдущий }
+   property CloseButton: TElPopupButton
+    read f_CloseButton;
+    {* Закрыть }
  end;//TPrimStartupTipsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -138,6 +172,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -589,6 +629,7 @@ begin
  f_TitleLabel := TvtLabel.Create(Self);
  f_TitleLabel.Name := 'TitleLabel';
  f_TitleLabel.Parent := TopPanel;
+ f_TitleLabel.Caption := 'Знаете ли Вы, что...';
  f_BottomPanel := TvtPanel.Create(Self);
  f_BottomPanel.Name := 'BottomPanel';
  f_BottomPanel.Parent := Self;
@@ -601,9 +642,11 @@ begin
  f_DetailLabel := TvtFocusLabel.Create(Self);
  f_DetailLabel.Name := 'DetailLabel';
  f_DetailLabel.Parent := HintPanel;
+ f_DetailLabel.Caption := 'См. подробнее';
  f_ShowCheckBox := TvtCheckBox.Create(Self);
  f_ShowCheckBox.Name := 'ShowCheckBox';
  f_ShowCheckBox.Parent := BottomPanel;
+ f_ShowCheckBox.Caption := 'Не показывать совет дня при запуске';
  f_wwwPanel := TvtPanel.Create(Self);
  f_wwwPanel.Name := 'wwwPanel';
  f_wwwPanel.Parent := BottomPanel;
@@ -613,15 +656,19 @@ begin
  f_wwwLabel := TvtFocusLabel.Create(Self);
  f_wwwLabel.Name := 'wwwLabel';
  f_wwwLabel.Parent := wwwPanel;
+ f_wwwLabel.Caption := 'Советы дня в Новостях онлайн';
  f_NextButton := TElPopupButton.Create(Self);
  f_NextButton.Name := 'NextButton';
  f_NextButton.Parent := BottomPanel;
+ f_NextButton.Caption := 'Следующий';
  f_PrevButton := TElPopupButton.Create(Self);
  f_PrevButton.Name := 'PrevButton';
  f_PrevButton.Parent := BottomPanel;
+ f_PrevButton.Caption := 'Предыдущий';
  f_CloseButton := TElPopupButton.Create(Self);
  f_CloseButton.Name := 'CloseButton';
  f_CloseButton.Parent := BottomPanel;
+ f_CloseButton.Caption := 'Закрыть';
 end;//TPrimStartupTipsForm.MakeControls
 
 initialization

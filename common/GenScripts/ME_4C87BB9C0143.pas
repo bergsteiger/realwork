@@ -18,11 +18,20 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Autoreferat_InternalOperations_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimNewsLineOptionsForm = class(TPrimNewsLineForm)
   {* ПРАЙМ. Моя новостная лента }
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure NewsThemes_SelectCurrent_Test(const aParams: IvcmTestParamsPrim);
    procedure NewsThemes_SelectCurrent_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -37,9 +46,6 @@ implementation
 uses
  l3ImplUses
  , PrimNewsLine_nltMain_UserType
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3String
  , nsNewsLine
  , Windows
@@ -49,6 +55,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -133,6 +142,25 @@ begin
  OpenAutoreferat(DateList.GetCurrentNode);
 //#UC END# *4C87BC6502B9_4C87BB9C0143exec_impl*
 end;//TPrimNewsLineOptionsForm.DateInterval_Open_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimNewsLineOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_NewsThemes, nil);
+  PublishFormEntity(en_DateInterval, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, nil, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, nil, nil);
+  PublishOp(en_NewsThemes, op_SelectCurrent, NewsThemes_SelectCurrent_Execute, NewsThemes_SelectCurrent_Test, nil);
+  PublishOp(en_DateInterval, op_Open, DateInterval_Open_Execute, DateInterval_Open_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimNewsLineOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

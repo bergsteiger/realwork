@@ -18,6 +18,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
+ , vtFocusLabel
 ;
 
 type
@@ -99,12 +101,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_RightEditionForm.SetFactory(TRightEditionForm.Make);
+ {* Регистрация фабрики формы RightEdition }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TRightEditionForm);
  {* Регистрация RightEdition }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_RightEditionForm.SetFactory(TRightEditionForm.Make);
- {* Регистрация фабрики формы RightEdition }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

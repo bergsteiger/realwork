@@ -29,6 +29,15 @@
     {* Заполняет список операций. Для перекрытия в потомках }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Document_NextDocumentInList_Test(const aParams: IvcmTestParamsPrim);
     {* Следующий документ в списке }
@@ -307,8 +316,34 @@ begin
  inherited;
 //#UC END# *479731C50290_498721A60125_impl*
 end;//_StatusBarDocumentItems_.Cleanup
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _StatusBarDocumentItems_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//_StatusBarDocumentItems_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _StatusBarDocumentItems_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Document, nil);
+  PublishOp(en_Document, op_NextDocumentInList, Document_NextDocumentInList_Execute, Document_NextDocumentInList_Test, nil);
+  PublishOp(en_Document, op_ReturnToList, Document_ReturnToList_Execute, Document_ReturnToList_Test, nil);
+  PublishOp(en_Document, op_PrevDocumentInList, Document_PrevDocumentInList_Execute, Document_PrevDocumentInList_Test, nil);
+  PublishOp(en_Document, op_DocumentIsUseful, Document_DocumentIsUseful_Execute, Document_DocumentIsUseful_Test, Document_DocumentIsUseful_GetState);
+  PublishOp(en_Document, op_DocumentIsUseless, Document_DocumentIsUseless_Execute, Document_DocumentIsUseless_Test, Document_DocumentIsUseless_GetState);
+ end;//with Entities.Entities
+end;//_StatusBarDocumentItems_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf StatusBarDocumentItems_imp_impl}
 
 {$EndIf StatusBarDocumentItems_imp}

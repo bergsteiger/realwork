@@ -15,6 +15,11 @@
    procedure AfterOpenHyperlinkInNewTab; virtual;
    function IsHyperlinkOfType(aLinkType: Integer): Boolean;
    function IsHyperlinkOfKind(aLinkKind: TevLinkViewKind): Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure HyperLink_Delete_Test(const aParams: IvcmTestParamsPrim);
    procedure HyperLink_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -304,8 +309,29 @@ begin
  OpenHyperLink;
 //#UC END# *5460A4DD0349_4F1044DD0281exec_impl*
 end;//_HyperlinkOperations_.HyperLink_NavigateInternetHyperlink_Execute
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _HyperlinkOperations_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_HyperLink, nil);
+  PublishOp(en_HyperLink, op_Delete, HyperLink_Delete_Execute, HyperLink_Delete_Test, nil, true);
+  PublishOp(en_HyperLink, op_Open, HyperLink_Open_Execute, HyperLink_Open_Test, nil);
+  PublishOp(en_HyperLink, op_OpenNewWindow, HyperLink_OpenNewWindow_Execute, HyperLink_OpenNewWindow_Test, nil);
+  PublishOp(en_HyperLink, op_NextHyperLink, HyperLink_NextHyperLink_Execute, nil, nil);
+  PublishOp(en_HyperLink, op_PrevHyperLink, HyperLink_PrevHyperLink_Execute, nil, nil);
+  PublishOp(en_HyperLink, op_OpenInNewTab, HyperLink_OpenInNewTab_Execute, HyperLink_OpenInNewTab_Test, nil);
+  PublishOp(en_HyperLink, op_OpenScriptHyperLink, HyperLink_OpenScriptHyperLink_Execute, HyperLink_OpenScriptHyperLink_Test, nil);
+  PublishOp(en_HyperLink, op_NavigateInternetHyperlink, HyperLink_NavigateInternetHyperlink_Execute, HyperLink_NavigateInternetHyperlink_Test, nil);
+ end;//with Entities.Entities
+end;//_HyperlinkOperations_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf HyperlinkOperations_imp_impl}
 
 {$EndIf HyperlinkOperations_imp}

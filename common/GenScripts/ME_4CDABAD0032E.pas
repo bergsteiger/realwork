@@ -15,6 +15,11 @@
    function GetCanPrint: Boolean; virtual;
    procedure DoPrintExecute(const aParams: IvcmExecuteParamsPrim); virtual;
    procedure DoPreviewExecute(const aParams: IvcmExecuteParamsPrim); virtual;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
@@ -172,6 +177,22 @@ begin
  DoPreviewExecute(aParams);
 //#UC END# *495220F2033A_4CDABAD0032Eexec_impl*
 end;//_Printable_.File_PrintPreview_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _Printable_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+ end;//with Entities.Entities
+end;//_Printable_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf Printable_imp_impl}

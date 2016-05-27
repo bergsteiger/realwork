@@ -1,86 +1,54 @@
 unit NewsLine_Form;
+ {* ПРАЙМ. Моя новостная лента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/NewsLine_Form.pas"
-// Начат: 21.08.2009 20:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Пользовательские сервисы::Autoreferat::View::Search::PrimMonitorings::NewsLine
-//
-// ПРАЙМ. Моя новостная лента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\NewsLine_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "NewsLine" MUID: (4A8ECFCD0174)
+// Имя типа: "TenNewsLine"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Common_FormDefinitions_Controls,
-  PrimNewsLineOptions_Form,
-  nscTreeViewForNewsLine,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimNewsLineOptions_Form
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  TenNewsLine = {final form} class(TPrimNewsLineOptionsForm, NewsLineFormDef)
-   {* ПРАЙМ. Моя новостная лента }
-  Entities : TvcmEntities;
-  end;//TenNewsLine
-
-  TNewsLineForm = TenNewsLine;
-{$IfEnd} //not Admin AND not Monitorings
+ TenNewsLine = {final} class(TPrimNewsLineOptionsForm, NewsLineFormDef)
+  {* ПРАЙМ. Моя новостная лента }
+   Entities : TvcmEntities;
+ end;//TenNewsLine
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , NewsLineKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  NewsLineKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация NewsLine
- TtfwClassRef.Register(TenNewsLine);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы NewsLine
  fm_enNewsLine.SetFactory(TenNewsLine.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы NewsLine }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TenNewsLine);
+ {* Регистрация NewsLine }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

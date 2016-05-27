@@ -24,15 +24,12 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Parent
-
- // Child
-
- // Navigator
-
  TPrimStyleEditorContainerForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -66,15 +63,28 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
    procedure StyleEditor_ReloadStyleTable_Execute;
-   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
   public
    property BackgroundPanel: TvtProportionalPanel
     read f_BackgroundPanel;
+   property MainZone: TvtPanel
+    read f_MainZone;
+   property ParentZone: TvtSizeablePanel
+    read f_ParentZone;
+   property ChildZone: TvtPanel
+    read f_ChildZone;
+   property NavigatorZone: TvtSizeablePanel
+    read f_NavigatorZone;
  end;//TPrimStyleEditorContainerForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -93,7 +103,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimStyleEditorContainer_utStyleEditorContainer_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -177,7 +193,7 @@ begin
 //#UC END# *4AF8660E0079_4AC6402401E4exec_impl*
 end;//TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable_Execute
 
-procedure TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
 begin
  Self.StyleEditor_ReloadStyleTable_Execute;
 end;//TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable
@@ -259,6 +275,18 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.InitControls
+
+procedure TPrimStyleEditorContainerForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_StyleEditor, nil);
+  PublishOpWithResult(en_StyleEditor, op_ReloadStyleTable, StyleEditor_ReloadStyleTable, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimStyleEditorContainerForm.InitEntities
 
 procedure TPrimStyleEditorContainerForm.MakeControls;
 begin

@@ -28,6 +28,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -57,6 +60,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -128,7 +136,13 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , PrimWorkJournal_utWorkJournal_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -448,6 +462,26 @@ begin
  Height := 478;
 //#UC END# *529332B40230_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.SetupFormLayout
+
+procedure TPrimWorkJournalForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_SavedQuery, nil);
+  PublishFormEntity(en_Journal, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+  PublishOp(en_SavedQuery, op_OpenQuery, SavedQuery_OpenQuery_Execute, SavedQuery_OpenQuery_Test, nil);
+  PublishOp(en_SavedQuery, op_ExecuteQuery, SavedQuery_ExecuteQuery_Execute, SavedQuery_ExecuteQuery_Test, nil);
+  PublishOp(en_Journal, op_Clear, Journal_Clear_Execute, Journal_Clear_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimWorkJournalForm.InitEntities
 
 procedure TPrimWorkJournalForm.MakeControls;
 begin

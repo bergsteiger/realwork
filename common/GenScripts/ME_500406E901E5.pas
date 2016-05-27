@@ -25,6 +25,9 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtProportionalPanel
  , vtScrollBar
  , vtSizeablePanel
@@ -82,6 +85,20 @@ type
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
+  public
+   property pnWriteToUs: TvtPanel
+    read f_pnWriteToUs;
+   property edWriteToUs: TnscSimpleEditorForDialogs
+    read f_edWriteToUs;
+   property pnSeeAlso: TvtPanel
+    read f_pnSeeAlso;
+   property lblSeeAlso: TvtLabel
+    read f_lblSeeAlso;
+    {* См. также }
+   property pnLinkToContent: TvtPanel
+    read f_pnLinkToContent;
+   property pbLinkToContent: TPaintBox
+    read f_pbLinkToContent;
  end;//TAACTextContainerPrimForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -115,6 +132,12 @@ uses
  , l3Base
  , bsHyperLinkProcessorPrim
  , vtPngImgList
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -366,33 +389,34 @@ end;//TAACTextContainerPrimForm.DoSetJumpTo
 procedure TAACTextContainerPrimForm.MakeControls;
 begin
  inherited;
- f_pnBack.Parent := Self;
- f_pnRightEx.Parent := pnBack;
- f_scrRight.Parent := pnRightEx;
- f_pnRightForScroll.Parent := pnRightEx;
+ pnBack.Parent := Self;
+ pnRightEx.Parent := pnBack;
+ scrRight.Parent := pnRightEx;
+ pnRightForScroll.Parent := pnRightEx;
  f_pnWriteToUs := TvtPanel.Create(Self);
  f_pnWriteToUs.Name := 'pnWriteToUs';
  f_pnWriteToUs.Parent := pnRightForScroll;
  f_edWriteToUs := TnscSimpleEditorForDialogs.Create(Self);
  f_edWriteToUs.Name := 'edWriteToUs';
  f_edWriteToUs.Parent := pnWriteToUs;
- f_pnRight.Parent := pnRightForScroll;
+ pnRight.Parent := pnRightForScroll;
  f_pnSeeAlso := TvtPanel.Create(Self);
  f_pnSeeAlso.Name := 'pnSeeAlso';
  f_pnSeeAlso.Parent := pnRightForScroll;
  f_lblSeeAlso := TvtLabel.Create(Self);
  f_lblSeeAlso.Name := 'lblSeeAlso';
  f_lblSeeAlso.Parent := pnSeeAlso;
- f_pnLeftEx.Parent := pnBack;
- f_scrLeft.Parent := pnLeftEx;
- f_pnLeftForScroll.Parent := pnLeftEx;
+ f_lblSeeAlso.Caption := 'См. также';
+ pnLeftEx.Parent := pnBack;
+ scrLeft.Parent := pnLeftEx;
+ pnLeftForScroll.Parent := pnLeftEx;
  f_pnLinkToContent := TvtPanel.Create(Self);
  f_pnLinkToContent.Name := 'pnLinkToContent';
  f_pnLinkToContent.Parent := pnLeftForScroll;
  f_pbLinkToContent := TPaintBox.Create(Self);
  f_pbLinkToContent.Name := 'pbLinkToContent';
  f_pbLinkToContent.Parent := pnLinkToContent;
- f_pnLeft.Parent := pnLeftForScroll;
+ .Parent := pnLeftForScroll;
 end;//TAACTextContainerPrimForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 

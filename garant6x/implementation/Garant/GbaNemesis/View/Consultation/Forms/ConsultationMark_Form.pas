@@ -1,90 +1,54 @@
 unit ConsultationMark_Form;
+ {* Оценка ответа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Consultation/Forms/ConsultationMark_Form.pas"
-// Начат: 22.09.2009 16:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Пользовательские сервисы::Consultation::View::Consultation::Consultation$FP::ConsultationMark
-//
-// Оценка ответа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\ConsultationMark_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "ConsultationMark" MUID: (4AB8D1DB01FD)
+// Имя типа: "Ten_ConsultationMark"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Common_FormDefinitions_Controls,
-  PrimConsultationMarkOptions_Form,
-  vtGroupBox,
-  vtRadioButton,
-  vtPanel,
-  vtLabel,
-  eeMemoWithEditOperations,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimConsultationMarkOptions_Form
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  Ten_ConsultationMark = {final form} class(TPrimConsultationMarkOptionsForm, ConsultationMarkFormDef)
-   {* Оценка ответа }
-  Entities : TvcmEntities;
-  end;//Ten_ConsultationMark
-
-  TConsultationMarkForm = Ten_ConsultationMark;
-{$IfEnd} //not Admin AND not Monitorings
+ Ten_ConsultationMark = {final} class(TPrimConsultationMarkOptionsForm, ConsultationMarkFormDef)
+  {* Оценка ответа }
+   Entities : TvcmEntities;
+ end;//Ten_ConsultationMark
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ConsultationMarkKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ConsultationMarkKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ConsultationMark
- TtfwClassRef.Register(Ten_ConsultationMark);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы ConsultationMark
  fm_en_ConsultationMark.SetFactory(Ten_ConsultationMark.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы ConsultationMark }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_ConsultationMark);
+ {* Регистрация ConsultationMark }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

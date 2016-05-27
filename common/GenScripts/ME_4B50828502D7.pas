@@ -13,10 +13,12 @@ interface
 uses
  l3IntfUses
  , PrimEditionsRes_Form
+ , vtPngImgList
 ;
 
 type
  TEditionsResForm = {final} class(TPrimEditionsResForm)
+   EditionsStateIcons : TvtPngImageList;
  end;//TEditionsResForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -28,7 +30,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , EditionsResKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
+
+{$R *.DFM}
 
 initialization
 {$If NOT Defined(NoScripts)}

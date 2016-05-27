@@ -176,516 +176,346 @@ uses
 ;
 
 function TcsExportTaskPrim.pm_GetAnnoTopicFileName: AnsiString;
-//#UC START# *7E624E775E8C_53ABFB2C005Aget_var*
-//#UC END# *7E624E775E8C_53ABFB2C005Aget_var*
 begin
-//#UC START# *7E624E775E8C_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7E624E775E8C_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrAnnoTopicFileName]);
 end;//TcsExportTaskPrim.pm_GetAnnoTopicFileName
 
 procedure TcsExportTaskPrim.pm_SetAnnoTopicFileName(const aValue: AnsiString);
-//#UC START# *7E624E775E8C_53ABFB2C005Aset_var*
-//#UC END# *7E624E775E8C_53ABFB2C005Aset_var*
 begin
-//#UC START# *7E624E775E8C_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7E624E775E8C_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrAnnoTopicFileName, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetAnnoTopicFileName
 
 function TcsExportTaskPrim.pm_GetDiapasonType: TDiapType;
-//#UC START# *59CE3DC51DF9_53ABFB2C005Aget_var*
-//#UC END# *59CE3DC51DF9_53ABFB2C005Aget_var*
 begin
-//#UC START# *59CE3DC51DF9_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *59CE3DC51DF9_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDiapType(TaggedData.IntA[k2_attrDiapasonType]);
 end;//TcsExportTaskPrim.pm_GetDiapasonType
 
 procedure TcsExportTaskPrim.pm_SetDiapasonType(aValue: TDiapType);
-//#UC START# *59CE3DC51DF9_53ABFB2C005Aset_var*
-//#UC END# *59CE3DC51DF9_53ABFB2C005Aset_var*
 begin
-//#UC START# *59CE3DC51DF9_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *59CE3DC51DF9_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrDiapasonType, nil] := Ord(aValue);
 end;//TcsExportTaskPrim.pm_SetDiapasonType
 
 function TcsExportTaskPrim.pm_GetDocID: Integer;
-//#UC START# *F783B77F0C4D_53ABFB2C005Aget_var*
-//#UC END# *F783B77F0C4D_53ABFB2C005Aget_var*
 begin
-//#UC START# *F783B77F0C4D_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F783B77F0C4D_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrDocID]);
 end;//TcsExportTaskPrim.pm_GetDocID
 
 procedure TcsExportTaskPrim.pm_SetDocID(aValue: Integer);
-//#UC START# *F783B77F0C4D_53ABFB2C005Aset_var*
-//#UC END# *F783B77F0C4D_53ABFB2C005Aset_var*
 begin
-//#UC START# *F783B77F0C4D_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F783B77F0C4D_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrDocID, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetDocID
 
 function TcsExportTaskPrim.pm_GetDocumentFileNameMask: AnsiString;
-//#UC START# *88923A90F575_53ABFB2C005Aget_var*
-//#UC END# *88923A90F575_53ABFB2C005Aget_var*
 begin
-//#UC START# *88923A90F575_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *88923A90F575_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDocumentFileNameMask]);
 end;//TcsExportTaskPrim.pm_GetDocumentFileNameMask
 
 procedure TcsExportTaskPrim.pm_SetDocumentFileNameMask(const aValue: AnsiString);
-//#UC START# *88923A90F575_53ABFB2C005Aset_var*
-//#UC END# *88923A90F575_53ABFB2C005Aset_var*
 begin
-//#UC START# *88923A90F575_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *88923A90F575_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrDocumentFileNameMask, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetDocumentFileNameMask
 
 function TcsExportTaskPrim.pm_GetExportAnnoTopics: Boolean;
-//#UC START# *710BC7CB9376_53ABFB2C005Aget_var*
-//#UC END# *710BC7CB9376_53ABFB2C005Aget_var*
 begin
-//#UC START# *710BC7CB9376_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *710BC7CB9376_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportAnnoTopics]);
 end;//TcsExportTaskPrim.pm_GetExportAnnoTopics
 
 procedure TcsExportTaskPrim.pm_SetExportAnnoTopics(aValue: Boolean);
-//#UC START# *710BC7CB9376_53ABFB2C005Aset_var*
-//#UC END# *710BC7CB9376_53ABFB2C005Aset_var*
 begin
-//#UC START# *710BC7CB9376_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *710BC7CB9376_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportAnnoTopics, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportAnnoTopics
 
 function TcsExportTaskPrim.pm_GetExportDirectory: AnsiString;
-//#UC START# *29AA186E5527_53ABFB2C005Aget_var*
-//#UC END# *29AA186E5527_53ABFB2C005Aget_var*
 begin
-//#UC START# *29AA186E5527_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *29AA186E5527_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrExportDirectory]);
 end;//TcsExportTaskPrim.pm_GetExportDirectory
 
 procedure TcsExportTaskPrim.pm_SetExportDirectory(const aValue: AnsiString);
-//#UC START# *29AA186E5527_53ABFB2C005Aset_var*
-//#UC END# *29AA186E5527_53ABFB2C005Aset_var*
 begin
-//#UC START# *29AA186E5527_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *29AA186E5527_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrExportDirectory, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportDirectory
 
 function TcsExportTaskPrim.pm_GetExportDocImage: Boolean;
-//#UC START# *0130817C59B6_53ABFB2C005Aget_var*
-//#UC END# *0130817C59B6_53ABFB2C005Aget_var*
 begin
-//#UC START# *0130817C59B6_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0130817C59B6_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportDocImage]);
 end;//TcsExportTaskPrim.pm_GetExportDocImage
 
 procedure TcsExportTaskPrim.pm_SetExportDocImage(aValue: Boolean);
-//#UC START# *0130817C59B6_53ABFB2C005Aset_var*
-//#UC END# *0130817C59B6_53ABFB2C005Aset_var*
 begin
-//#UC START# *0130817C59B6_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0130817C59B6_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportDocImage, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportDocImage
 
 function TcsExportTaskPrim.pm_GetExportDocument: Boolean;
-//#UC START# *EEE971EC9CAB_53ABFB2C005Aget_var*
-//#UC END# *EEE971EC9CAB_53ABFB2C005Aget_var*
 begin
-//#UC START# *EEE971EC9CAB_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EEE971EC9CAB_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportDocument]);
 end;//TcsExportTaskPrim.pm_GetExportDocument
 
 procedure TcsExportTaskPrim.pm_SetExportDocument(aValue: Boolean);
-//#UC START# *EEE971EC9CAB_53ABFB2C005Aset_var*
-//#UC END# *EEE971EC9CAB_53ABFB2C005Aset_var*
 begin
-//#UC START# *EEE971EC9CAB_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EEE971EC9CAB_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportDocument, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportDocument
 
 function TcsExportTaskPrim.pm_GetExportEmptyKW: Boolean;
-//#UC START# *0519949F15BF_53ABFB2C005Aget_var*
-//#UC END# *0519949F15BF_53ABFB2C005Aget_var*
 begin
-//#UC START# *0519949F15BF_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0519949F15BF_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportEmptyKW]);
 end;//TcsExportTaskPrim.pm_GetExportEmptyKW
 
 procedure TcsExportTaskPrim.pm_SetExportEmptyKW(aValue: Boolean);
-//#UC START# *0519949F15BF_53ABFB2C005Aset_var*
-//#UC END# *0519949F15BF_53ABFB2C005Aset_var*
 begin
-//#UC START# *0519949F15BF_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0519949F15BF_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportEmptyKW, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportEmptyKW
 
 function TcsExportTaskPrim.pm_GetExportKW: Boolean;
-//#UC START# *D6DB35F844BA_53ABFB2C005Aget_var*
-//#UC END# *D6DB35F844BA_53ABFB2C005Aget_var*
 begin
-//#UC START# *D6DB35F844BA_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D6DB35F844BA_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportKW]);
 end;//TcsExportTaskPrim.pm_GetExportKW
 
 procedure TcsExportTaskPrim.pm_SetExportKW(aValue: Boolean);
-//#UC START# *D6DB35F844BA_53ABFB2C005Aset_var*
-//#UC END# *D6DB35F844BA_53ABFB2C005Aset_var*
 begin
-//#UC START# *D6DB35F844BA_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D6DB35F844BA_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportKW, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportKW
 
 function TcsExportTaskPrim.pm_GetExportRTFBody: Boolean;
-//#UC START# *3845FBC84464_53ABFB2C005Aget_var*
-//#UC END# *3845FBC84464_53ABFB2C005Aget_var*
 begin
-//#UC START# *3845FBC84464_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3845FBC84464_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportRTFBody]);
 end;//TcsExportTaskPrim.pm_GetExportRTFBody
 
 procedure TcsExportTaskPrim.pm_SetExportRTFBody(aValue: Boolean);
-//#UC START# *3845FBC84464_53ABFB2C005Aset_var*
-//#UC END# *3845FBC84464_53ABFB2C005Aset_var*
 begin
-//#UC START# *3845FBC84464_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3845FBC84464_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportRTFBody, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportRTFBody
 
 function TcsExportTaskPrim.pm_GetFamily: Integer;
-//#UC START# *A668156113A4_53ABFB2C005Aget_var*
-//#UC END# *A668156113A4_53ABFB2C005Aget_var*
 begin
-//#UC START# *A668156113A4_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A668156113A4_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrFamily]);
 end;//TcsExportTaskPrim.pm_GetFamily
 
 procedure TcsExportTaskPrim.pm_SetFamily(aValue: Integer);
-//#UC START# *A668156113A4_53ABFB2C005Aset_var*
-//#UC END# *A668156113A4_53ABFB2C005Aset_var*
 begin
-//#UC START# *A668156113A4_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A668156113A4_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrFamily, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetFamily
 
 function TcsExportTaskPrim.pm_GetInternalFormat: Boolean;
-//#UC START# *AD29466FCA04_53ABFB2C005Aget_var*
-//#UC END# *AD29466FCA04_53ABFB2C005Aget_var*
 begin
-//#UC START# *AD29466FCA04_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AD29466FCA04_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrInternalFormat]);
 end;//TcsExportTaskPrim.pm_GetInternalFormat
 
 procedure TcsExportTaskPrim.pm_SetInternalFormat(aValue: Boolean);
-//#UC START# *AD29466FCA04_53ABFB2C005Aset_var*
-//#UC END# *AD29466FCA04_53ABFB2C005Aset_var*
 begin
-//#UC START# *AD29466FCA04_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AD29466FCA04_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrInternalFormat, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetInternalFormat
 
 function TcsExportTaskPrim.pm_GetKWFileName: AnsiString;
-//#UC START# *DD2CDD11018D_53ABFB2C005Aget_var*
-//#UC END# *DD2CDD11018D_53ABFB2C005Aget_var*
 begin
-//#UC START# *DD2CDD11018D_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DD2CDD11018D_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrKWFileName]);
 end;//TcsExportTaskPrim.pm_GetKWFileName
 
 procedure TcsExportTaskPrim.pm_SetKWFileName(const aValue: AnsiString);
-//#UC START# *DD2CDD11018D_53ABFB2C005Aset_var*
-//#UC END# *DD2CDD11018D_53ABFB2C005Aset_var*
 begin
-//#UC START# *DD2CDD11018D_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DD2CDD11018D_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrKWFileName, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetKWFileName
 
 function TcsExportTaskPrim.pm_GetMultiUser: Boolean;
-//#UC START# *180EB0ED7C16_53ABFB2C005Aget_var*
-//#UC END# *180EB0ED7C16_53ABFB2C005Aget_var*
 begin
-//#UC START# *180EB0ED7C16_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *180EB0ED7C16_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrMultiUser]);
 end;//TcsExportTaskPrim.pm_GetMultiUser
 
 procedure TcsExportTaskPrim.pm_SetMultiUser(aValue: Boolean);
-//#UC START# *180EB0ED7C16_53ABFB2C005Aset_var*
-//#UC END# *180EB0ED7C16_53ABFB2C005Aset_var*
 begin
-//#UC START# *180EB0ED7C16_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *180EB0ED7C16_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrMultiUser, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetMultiUser
 
 function TcsExportTaskPrim.pm_GetObjTopicFileName: AnsiString;
-//#UC START# *C4748DEEBB7E_53ABFB2C005Aget_var*
-//#UC END# *C4748DEEBB7E_53ABFB2C005Aget_var*
 begin
-//#UC START# *C4748DEEBB7E_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C4748DEEBB7E_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrObjTopicFileName]);
 end;//TcsExportTaskPrim.pm_GetObjTopicFileName
 
 procedure TcsExportTaskPrim.pm_SetObjTopicFileName(const aValue: AnsiString);
-//#UC START# *C4748DEEBB7E_53ABFB2C005Aset_var*
-//#UC END# *C4748DEEBB7E_53ABFB2C005Aset_var*
 begin
-//#UC START# *C4748DEEBB7E_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C4748DEEBB7E_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrObjTopicFileName, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetObjTopicFileName
 
 function TcsExportTaskPrim.pm_GetOnlyStructure: Boolean;
-//#UC START# *0596AE5D4612_53ABFB2C005Aget_var*
-//#UC END# *0596AE5D4612_53ABFB2C005Aget_var*
 begin
-//#UC START# *0596AE5D4612_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0596AE5D4612_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrOnlyStructure]);
 end;//TcsExportTaskPrim.pm_GetOnlyStructure
 
 procedure TcsExportTaskPrim.pm_SetOnlyStructure(aValue: Boolean);
-//#UC START# *0596AE5D4612_53ABFB2C005Aset_var*
-//#UC END# *0596AE5D4612_53ABFB2C005Aset_var*
 begin
-//#UC START# *0596AE5D4612_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0596AE5D4612_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrOnlyStructure, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetOnlyStructure
 
 function TcsExportTaskPrim.pm_GetOutFileType: TepSupportFileType;
-//#UC START# *26C313C1E1C2_53ABFB2C005Aget_var*
-//#UC END# *26C313C1E1C2_53ABFB2C005Aget_var*
 begin
-//#UC START# *26C313C1E1C2_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *26C313C1E1C2_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TepSupportFileType(TaggedData.IntA[k2_attrOutFileType]);
 end;//TcsExportTaskPrim.pm_GetOutFileType
 
 procedure TcsExportTaskPrim.pm_SetOutFileType(aValue: TepSupportFileType);
-//#UC START# *26C313C1E1C2_53ABFB2C005Aset_var*
-//#UC END# *26C313C1E1C2_53ABFB2C005Aset_var*
 begin
-//#UC START# *26C313C1E1C2_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *26C313C1E1C2_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrOutFileType, nil] := Ord(aValue);
 end;//TcsExportTaskPrim.pm_SetOutFileType
 
 function TcsExportTaskPrim.pm_GetOutputFileSize: Integer;
-//#UC START# *CCCE10C13631_53ABFB2C005Aget_var*
-//#UC END# *CCCE10C13631_53ABFB2C005Aget_var*
 begin
-//#UC START# *CCCE10C13631_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CCCE10C13631_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrOutputFileSize]);
 end;//TcsExportTaskPrim.pm_GetOutputFileSize
 
 procedure TcsExportTaskPrim.pm_SetOutputFileSize(aValue: Integer);
-//#UC START# *CCCE10C13631_53ABFB2C005Aset_var*
-//#UC END# *CCCE10C13631_53ABFB2C005Aset_var*
 begin
-//#UC START# *CCCE10C13631_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CCCE10C13631_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrOutputFileSize, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetOutputFileSize
 
 function TcsExportTaskPrim.pm_GetReferenceFileNameMask: AnsiString;
-//#UC START# *EE32A5B4C551_53ABFB2C005Aget_var*
-//#UC END# *EE32A5B4C551_53ABFB2C005Aget_var*
 begin
-//#UC START# *EE32A5B4C551_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EE32A5B4C551_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReferenceFileNameMask]);
 end;//TcsExportTaskPrim.pm_GetReferenceFileNameMask
 
 procedure TcsExportTaskPrim.pm_SetReferenceFileNameMask(const aValue: AnsiString);
-//#UC START# *EE32A5B4C551_53ABFB2C005Aset_var*
-//#UC END# *EE32A5B4C551_53ABFB2C005Aset_var*
 begin
-//#UC START# *EE32A5B4C551_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EE32A5B4C551_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrReferenceFileNameMask, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetReferenceFileNameMask
 
 function TcsExportTaskPrim.pm_GetSeparateFiles: TepDivideBy;
-//#UC START# *D6FD74AB8316_53ABFB2C005Aget_var*
-//#UC END# *D6FD74AB8316_53ABFB2C005Aget_var*
 begin
-//#UC START# *D6FD74AB8316_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D6FD74AB8316_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TepDivideBy(TaggedData.IntA[k2_attrSeparateFiles]);
 end;//TcsExportTaskPrim.pm_GetSeparateFiles
 
 procedure TcsExportTaskPrim.pm_SetSeparateFiles(aValue: TepDivideBy);
-//#UC START# *D6FD74AB8316_53ABFB2C005Aset_var*
-//#UC END# *D6FD74AB8316_53ABFB2C005Aset_var*
 begin
-//#UC START# *D6FD74AB8316_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D6FD74AB8316_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrSeparateFiles, nil] := Ord(aValue);
 end;//TcsExportTaskPrim.pm_SetSeparateFiles
 
 function TcsExportTaskPrim.pm_GetToRegion: Cardinal;
-//#UC START# *E89BF65EAF64_53ABFB2C005Aget_var*
-//#UC END# *E89BF65EAF64_53ABFB2C005Aget_var*
 begin
-//#UC START# *E89BF65EAF64_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E89BF65EAF64_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := Cardinal(TaggedData.IntA[k2_attrToRegion]);
 end;//TcsExportTaskPrim.pm_GetToRegion
 
 procedure TcsExportTaskPrim.pm_SetToRegion(aValue: Cardinal);
-//#UC START# *E89BF65EAF64_53ABFB2C005Aset_var*
-//#UC END# *E89BF65EAF64_53ABFB2C005Aset_var*
 begin
-//#UC START# *E89BF65EAF64_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E89BF65EAF64_53ABFB2C005Aset_impl*
+ TaggedData.IntW[k2_attrToRegion, nil] := Integer(aValue);
 end;//TcsExportTaskPrim.pm_SetToRegion
 
 function TcsExportTaskPrim.pm_GetExportReference: Boolean;
-//#UC START# *4A455E657325_53ABFB2C005Aget_var*
-//#UC END# *4A455E657325_53ABFB2C005Aget_var*
 begin
-//#UC START# *4A455E657325_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A455E657325_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportReference]);
 end;//TcsExportTaskPrim.pm_GetExportReference
 
 procedure TcsExportTaskPrim.pm_SetExportReference(aValue: Boolean);
-//#UC START# *4A455E657325_53ABFB2C005Aset_var*
-//#UC END# *4A455E657325_53ABFB2C005Aset_var*
 begin
-//#UC START# *4A455E657325_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A455E657325_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportReference, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportReference
 
 function TcsExportTaskPrim.pm_GetExportEditions: Boolean;
-//#UC START# *A324D874D765_53ABFB2C005Aget_var*
-//#UC END# *A324D874D765_53ABFB2C005Aget_var*
 begin
-//#UC START# *A324D874D765_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A324D874D765_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportEditions]);
 end;//TcsExportTaskPrim.pm_GetExportEditions
 
 procedure TcsExportTaskPrim.pm_SetExportEditions(aValue: Boolean);
-//#UC START# *A324D874D765_53ABFB2C005Aset_var*
-//#UC END# *A324D874D765_53ABFB2C005Aset_var*
 begin
-//#UC START# *A324D874D765_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A324D874D765_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportEditions, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportEditions
 
 function TcsExportTaskPrim.pm_GetFormulaAsPicture: Boolean;
-//#UC START# *3536A8138409_53ABFB2C005Aget_var*
-//#UC END# *3536A8138409_53ABFB2C005Aget_var*
 begin
-//#UC START# *3536A8138409_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3536A8138409_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrFormulaAsPicture]);
 end;//TcsExportTaskPrim.pm_GetFormulaAsPicture
 
 procedure TcsExportTaskPrim.pm_SetFormulaAsPicture(aValue: Boolean);
-//#UC START# *3536A8138409_53ABFB2C005Aset_var*
-//#UC END# *3536A8138409_53ABFB2C005Aset_var*
 begin
-//#UC START# *3536A8138409_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3536A8138409_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrFormulaAsPicture, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetFormulaAsPicture
 
 function TcsExportTaskPrim.pm_GetExportReferences: Boolean;
-//#UC START# *DB31ADFC7A08_53ABFB2C005Aget_var*
-//#UC END# *DB31ADFC7A08_53ABFB2C005Aget_var*
 begin
-//#UC START# *DB31ADFC7A08_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DB31ADFC7A08_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrExportReferences]);
 end;//TcsExportTaskPrim.pm_GetExportReferences
 
 procedure TcsExportTaskPrim.pm_SetExportReferences(aValue: Boolean);
-//#UC START# *DB31ADFC7A08_53ABFB2C005Aset_var*
-//#UC END# *DB31ADFC7A08_53ABFB2C005Aset_var*
 begin
-//#UC START# *DB31ADFC7A08_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DB31ADFC7A08_53ABFB2C005Aset_impl*
+ TaggedData.BoolW[k2_attrExportReferences, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetExportReferences
 
 function TcsExportTaskPrim.pm_GetSABStream: SABStreamHelper;
-//#UC START# *D489CADC5DD7_53ABFB2C005Aget_var*
-//#UC END# *D489CADC5DD7_53ABFB2C005Aget_var*
 begin
-//#UC START# *D489CADC5DD7_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D489CADC5DD7_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TSABStreamHelper.Make(TaggedData.cAtom(k2_attrSABStream));
 end;//TcsExportTaskPrim.pm_GetSABStream
 
 function TcsExportTaskPrim.pm_GetAdditionalProcess: AnsiString;
-//#UC START# *5C2BA219836B_53ABFB2C005Aget_var*
-//#UC END# *5C2BA219836B_53ABFB2C005Aget_var*
 begin
-//#UC START# *5C2BA219836B_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5C2BA219836B_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrAdditionalProcess]);
 end;//TcsExportTaskPrim.pm_GetAdditionalProcess
 
 procedure TcsExportTaskPrim.pm_SetAdditionalProcess(const aValue: AnsiString);
-//#UC START# *5C2BA219836B_53ABFB2C005Aset_var*
-//#UC END# *5C2BA219836B_53ABFB2C005Aset_var*
 begin
-//#UC START# *5C2BA219836B_53ABFB2C005Aset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5C2BA219836B_53ABFB2C005Aset_impl*
+ TaggedData.StrW[k2_attrAdditionalProcess, nil] := (aValue);
 end;//TcsExportTaskPrim.pm_SetAdditionalProcess
 
 function TcsExportTaskPrim.pm_GetRegionIDList: RegionIDListHelper;
-//#UC START# *90DCF727B40F_53ABFB2C005Aget_var*
-//#UC END# *90DCF727B40F_53ABFB2C005Aget_var*
 begin
-//#UC START# *90DCF727B40F_53ABFB2C005Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *90DCF727B40F_53ABFB2C005Aget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TRegionIDListHelper.Make(TaggedData.cAtom(k2_attrRegionIDList));
 end;//TcsExportTaskPrim.pm_GetRegionIDList
 
 class function TcsExportTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53ABFB2C005A_var*
-//#UC END# *53AC03EE01FD_53ABFB2C005A_var*
 begin
-//#UC START# *53AC03EE01FD_53ABFB2C005A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53ABFB2C005A_impl*
+ Result := k2_typExportTask;
 end;//TcsExportTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

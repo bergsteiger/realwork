@@ -15,7 +15,7 @@ uses
 ;
 
 type
- TdaFromTable = class(Tl3ProtoObject, IdaFromTable)
+ TdaFromTable = class(Tl3ProtoObject, IdaFromTable, IdaFromClause)
   private
    f_Table: IdaTableDescription;
    f_Prepared: Boolean;
@@ -25,13 +25,16 @@ type
    function Get_TableAlias: AnsiString;
    function Get_Table: IdaTableDescription;
    function BuildSQLValue: AnsiString;
+   function HasTable(const aTable: IdaTableDescription): Boolean;
+   function FindTable(const aTableAlias: AnsiString): IdaFromTable;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
    constructor Create(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''); reintroduce; virtual;
    class function Make(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; reintroduce;
+    const anAlias: AnsiString = ''): IdaFromClause; reintroduce;
+   procedure IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
   protected
    property Table: IdaTableDescription
     read f_Table;
@@ -48,6 +51,7 @@ uses
  l3ImplUses
  , daScheme
  , SysUtils
+ , l3Base
 ;
 
 procedure TdaFromTable.pm_SetPrepared(aValue: Boolean);
@@ -72,7 +76,7 @@ begin
 end;//TdaFromTable.Create
 
 class function TdaFromTable.Make(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString = ''): IdaFromClause;
 var
  l_Inst : TdaFromTable;
 begin
@@ -112,6 +116,36 @@ begin
   Result := Result + ' ' + f_TableAlias;
 //#UC END# *5608E5F20118_55FFB14A031C_impl*
 end;//TdaFromTable.BuildSQLValue
+
+function TdaFromTable.HasTable(const aTable: IdaTableDescription): Boolean;
+//#UC START# *57442BFD03BE_55FFB14A031C_var*
+//#UC END# *57442BFD03BE_55FFB14A031C_var*
+begin
+//#UC START# *57442BFD03BE_55FFB14A031C_impl*
+ Result := f_Table = aTable;
+//#UC END# *57442BFD03BE_55FFB14A031C_impl*
+end;//TdaFromTable.HasTable
+
+function TdaFromTable.FindTable(const aTableAlias: AnsiString): IdaFromTable;
+//#UC START# *5744366C003B_55FFB14A031C_var*
+//#UC END# *5744366C003B_55FFB14A031C_var*
+begin
+//#UC START# *5744366C003B_55FFB14A031C_impl*
+ if AnsiSameText(aTableAlias, f_TableAlias) then
+  Result := Self
+ else
+  Result := nil;
+//#UC END# *5744366C003B_55FFB14A031C_impl*
+end;//TdaFromTable.FindTable
+
+procedure TdaFromTable.IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
+//#UC START# *574443A401BE_55FFB14A031C_var*
+//#UC END# *574443A401BE_55FFB14A031C_var*
+begin
+//#UC START# *574443A401BE_55FFB14A031C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *574443A401BE_55FFB14A031C_impl*
+end;//TdaFromTable.IterateTablesF
 
 procedure TdaFromTable.Cleanup;
  {* Функция очистки полей объекта. }

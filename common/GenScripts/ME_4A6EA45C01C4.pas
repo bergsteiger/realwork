@@ -16,6 +16,9 @@ uses
  , AbstractHistory_Form
  , ChatInterfaces
  , Base_Operations_Chat_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -24,6 +27,11 @@ type
   protected
    procedure RegisterInDispatcher; override;
    procedure UnRegisterInDispatcher; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -53,6 +61,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , BaseHistoryWindow_utChatHistory_UserType
 ;
 
@@ -100,6 +111,20 @@ begin
  HistoryEditor.TextSource.New;
 //#UC END# *4A8AE24D003F_4A6EA45C01C4exec_impl*
 end;//TBaseHistoryWindowForm.Chat_ClearHistory_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TBaseHistoryWindowForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Chat, nil);
+  PublishOp(en_Chat, op_ClearHistory, Chat_ClearHistory_Execute, Chat_ClearHistory_Test, nil);
+ end;//with Entities.Entities
+end;//TBaseHistoryWindowForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TBaseHistoryWindowForm.MakeControls;

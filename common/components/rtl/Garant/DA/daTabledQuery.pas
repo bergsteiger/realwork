@@ -21,7 +21,7 @@ type
   private
    f_SelectFields: TdaSelectFieldList;
    f_WhereCondition: IdaCondition;
-   f_Table: IdaFromTable;
+   f_FromClause: IdaFromClause;
    f_OrderBy: TdaSortFieldList;
   private
    function BuildFromClause: AnsiString;
@@ -30,8 +30,8 @@ type
    function BuildOrderByClause: AnsiString;
   protected
    procedure pm_SetWhereCondition(const aValue: IdaCondition); virtual;
-   function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; virtual; abstract;
+   function MakeFromClause(const aTable: IdaTableDescription;
+    const anAlias: AnsiString = ''): IdaFromClause; virtual; abstract;
    procedure PrepareTable; virtual; abstract;
    procedure UnPrepareTable; virtual; abstract;
    procedure AddSelectField(const aField: IdaSelectField);
@@ -40,7 +40,6 @@ type
    procedure UnprepareQuery; override;
    function Get_WhereCondition: IdaCondition;
    procedure Set_WhereCondition(const aValue: IdaCondition);
-   function Get_Table: IdaFromTable;
    function DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString; override;
    procedure AddOrderBy(const aSortField: IdaSortField);
    function SelectFieldByName(const anAlias: AnsiString): IdaSelectField;
@@ -57,8 +56,8 @@ type
    property WhereCondition: IdaCondition
     read f_WhereCondition
     write pm_SetWhereCondition;
-   property Table: IdaFromTable
-    read f_Table;
+   property FromClause: IdaFromClause
+    read f_FromClause;
    property OrderBy: TdaSortFieldList
     read f_OrderBy;
  end;//TdaTabledQuery
@@ -238,15 +237,6 @@ begin
 //#UC END# *563B18FB0212_5600FA2301B9set_impl*
 end;//TdaTabledQuery.Set_WhereCondition
 
-function TdaTabledQuery.Get_Table: IdaFromTable;
-//#UC START# *5666B5E20108_5600FA2301B9get_var*
-//#UC END# *5666B5E20108_5600FA2301B9get_var*
-begin
-//#UC START# *5666B5E20108_5600FA2301B9get_impl*
- Result := f_Table;
-//#UC END# *5666B5E20108_5600FA2301B9get_impl*
-end;//TdaTabledQuery.Get_Table
-
 function TdaTabledQuery.DoBuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
 //#UC START# *566A850001E5_5600FA2301B9_var*
 //#UC END# *566A850001E5_5600FA2301B9_var*
@@ -296,7 +286,7 @@ end;//TdaTabledQuery.Cleanup
 procedure TdaTabledQuery.ClearFields;
 begin
  WhereCondition := nil;
- f_Table := nil;
+ f_FromClause := nil;
  inherited;
 end;//TdaTabledQuery.ClearFields
 

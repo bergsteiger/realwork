@@ -23,6 +23,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -31,6 +34,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure EntitiesInited; override;
     {* Вызывается после того как все операции зарегистрированы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
@@ -116,6 +124,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -409,6 +420,33 @@ begin
  inherited;
 //#UC END# *4AE1948900DE_4C878FA60351_impl*
 end;//TPrimContentsOptionsForm.EntitiesInited
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimContentsOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
+  PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, nil, nil);
+  PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
+  PublishOp(en_Edit, op_Copy, nil, nil, nil);
+  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimContentsOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

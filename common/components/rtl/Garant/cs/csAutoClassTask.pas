@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , k2Base
  , dt_Types
+ , k2Base
 ;
 
 type
@@ -30,8 +30,8 @@ type
    function pm_GeteMailNotifyList: AnsiString;
    procedure pm_SeteMailNotifyList(const aValue: AnsiString);
   public
-   class function GetTaggedDataType: Tk2Type; override;
    constructor Create(aUserID: TUserID); override;
+   class function GetTaggedDataType: Tk2Type; override;
   public
    property BuilderFileName: AnsiString
     read pm_GetBuilderFileName
@@ -60,103 +60,64 @@ uses
 ;
 
 function TcsAutoClassTask.pm_GetBuilderFileName: AnsiString;
-//#UC START# *F76829C0208C_53F46C710363get_var*
-//#UC END# *F76829C0208C_53F46C710363get_var*
 begin
-//#UC START# *F76829C0208C_53F46C710363get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F76829C0208C_53F46C710363get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrBuilderFileName]);
 end;//TcsAutoClassTask.pm_GetBuilderFileName
 
 procedure TcsAutoClassTask.pm_SetBuilderFileName(const aValue: AnsiString);
-//#UC START# *F76829C0208C_53F46C710363set_var*
-//#UC END# *F76829C0208C_53F46C710363set_var*
 begin
-//#UC START# *F76829C0208C_53F46C710363set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F76829C0208C_53F46C710363set_impl*
+ TaggedData.StrW[k2_attrBuilderFileName, nil] := (aValue);
 end;//TcsAutoClassTask.pm_SetBuilderFileName
 
 function TcsAutoClassTask.pm_GetResultFileName: AnsiString;
-//#UC START# *47C5C609E806_53F46C710363get_var*
-//#UC END# *47C5C609E806_53F46C710363get_var*
 begin
-//#UC START# *47C5C609E806_53F46C710363get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5C609E806_53F46C710363get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrResultFileName]);
 end;//TcsAutoClassTask.pm_GetResultFileName
 
 procedure TcsAutoClassTask.pm_SetResultFileName(const aValue: AnsiString);
-//#UC START# *47C5C609E806_53F46C710363set_var*
-//#UC END# *47C5C609E806_53F46C710363set_var*
 begin
-//#UC START# *47C5C609E806_53F46C710363set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47C5C609E806_53F46C710363set_impl*
+ TaggedData.StrW[k2_attrResultFileName, nil] := (aValue);
 end;//TcsAutoClassTask.pm_SetResultFileName
 
 function TcsAutoClassTask.pm_GetSourceFolder: AnsiString;
-//#UC START# *1020BCE9F413_53F46C710363get_var*
-//#UC END# *1020BCE9F413_53F46C710363get_var*
 begin
-//#UC START# *1020BCE9F413_53F46C710363get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1020BCE9F413_53F46C710363get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrSourceFolder]);
 end;//TcsAutoClassTask.pm_GetSourceFolder
 
 procedure TcsAutoClassTask.pm_SetSourceFolder(const aValue: AnsiString);
-//#UC START# *1020BCE9F413_53F46C710363set_var*
-//#UC END# *1020BCE9F413_53F46C710363set_var*
 begin
-//#UC START# *1020BCE9F413_53F46C710363set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1020BCE9F413_53F46C710363set_impl*
+ TaggedData.StrW[k2_attrSourceFolder, nil] := (aValue);
 end;//TcsAutoClassTask.pm_SetSourceFolder
 
 function TcsAutoClassTask.pm_GetLogFileName: AnsiString;
-//#UC START# *AFB23FE9D63B_53F46C710363get_var*
-//#UC END# *AFB23FE9D63B_53F46C710363get_var*
 begin
-//#UC START# *AFB23FE9D63B_53F46C710363get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AFB23FE9D63B_53F46C710363get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLogFileName]);
 end;//TcsAutoClassTask.pm_GetLogFileName
 
 procedure TcsAutoClassTask.pm_SetLogFileName(const aValue: AnsiString);
-//#UC START# *AFB23FE9D63B_53F46C710363set_var*
-//#UC END# *AFB23FE9D63B_53F46C710363set_var*
 begin
-//#UC START# *AFB23FE9D63B_53F46C710363set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AFB23FE9D63B_53F46C710363set_impl*
+ TaggedData.StrW[k2_attrLogFileName, nil] := (aValue);
 end;//TcsAutoClassTask.pm_SetLogFileName
 
 function TcsAutoClassTask.pm_GeteMailNotifyList: AnsiString;
-//#UC START# *99C26E6A4D91_53F46C710363get_var*
-//#UC END# *99C26E6A4D91_53F46C710363get_var*
 begin
-//#UC START# *99C26E6A4D91_53F46C710363get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *99C26E6A4D91_53F46C710363get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attreMailNotifyList]);
 end;//TcsAutoClassTask.pm_GeteMailNotifyList
 
 procedure TcsAutoClassTask.pm_SeteMailNotifyList(const aValue: AnsiString);
-//#UC START# *99C26E6A4D91_53F46C710363set_var*
-//#UC END# *99C26E6A4D91_53F46C710363set_var*
 begin
-//#UC START# *99C26E6A4D91_53F46C710363set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *99C26E6A4D91_53F46C710363set_impl*
+ TaggedData.StrW[k2_attreMailNotifyList, nil] := (aValue);
 end;//TcsAutoClassTask.pm_SeteMailNotifyList
-
-class function TcsAutoClassTask.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53F46C710363_var*
-//#UC END# *53AC03EE01FD_53F46C710363_var*
-begin
-//#UC START# *53AC03EE01FD_53F46C710363_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53F46C710363_impl*
-end;//TcsAutoClassTask.GetTaggedDataType
 
 constructor TcsAutoClassTask.Create(aUserID: TUserID);
 //#UC START# *53B3D8A8011F_53F46C710363_var*
@@ -167,6 +128,11 @@ begin
  Description := 'Запрос на автоклассификацию';
 //#UC END# *53B3D8A8011F_53F46C710363_impl*
 end;//TcsAutoClassTask.Create
+
+class function TcsAutoClassTask.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typAutoClassTask;
+end;//TcsAutoClassTask.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

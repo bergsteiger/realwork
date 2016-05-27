@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ncsGetFilePartReply;
+unit ncsGetFilePartReply;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetFilePartReply.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetFilePartReply.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TncsGetFilePartReply" MUID: (547583540319)
 
@@ -38,30 +38,20 @@ uses
 ;
 
 function TncsGetFilePartReply.pm_GetIsSuccess: Boolean;
-//#UC START# *B1CB2F60283B_547583540319get_var*
-//#UC END# *B1CB2F60283B_547583540319get_var*
 begin
-//#UC START# *B1CB2F60283B_547583540319get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B1CB2F60283B_547583540319get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsSuccess]);
 end;//TncsGetFilePartReply.pm_GetIsSuccess
 
 procedure TncsGetFilePartReply.pm_SetIsSuccess(aValue: Boolean);
-//#UC START# *B1CB2F60283B_547583540319set_var*
-//#UC END# *B1CB2F60283B_547583540319set_var*
 begin
-//#UC START# *B1CB2F60283B_547583540319set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B1CB2F60283B_547583540319set_impl*
+ TaggedData.BoolW[k2_attrIsSuccess, nil] := (aValue);
 end;//TncsGetFilePartReply.pm_SetIsSuccess
 
 class function TncsGetFilePartReply.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_547583540319_var*
-//#UC END# *53AC03EE01FD_547583540319_var*
 begin
-//#UC START# *53AC03EE01FD_547583540319_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_547583540319_impl*
+ Result := k2_typcsGetFilePartReply;
 end;//TncsGetFilePartReply.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

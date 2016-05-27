@@ -163,11 +163,16 @@ type
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Picture_InitNewContent_Execute(const aData: InsLinkedObjectData);
-   procedure Picture_InitNewContent(const aParams: IvcmExecuteParamsPrim);
+   procedure Picture_InitNewContent(const aParams: IvcmExecuteParams);
   protected
    property Scale: Integer
     read Get_Scale
@@ -231,6 +236,9 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , PrimPicture_pfImage_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -499,7 +507,7 @@ begin
 //#UC END# *4AF32F3102BE_4AAFCFB0014Bexec_impl*
 end;//TPrimPictureForm.Picture_InitNewContent_Execute
 
-procedure TPrimPictureForm.Picture_InitNewContent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimPictureForm.Picture_InitNewContent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IPicture_InitNewContent_Params) do
   Self.Picture_InitNewContent_Execute(Data);
@@ -667,6 +675,18 @@ begin
 //#UC END# *543E3AA801D0_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimPictureForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Picture, nil);
+  PublishOpWithResult(en_Picture, op_InitNewContent, Picture_InitNewContent, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimPictureForm.InitEntities
 
 procedure TPrimPictureForm.MakeControls;
 begin

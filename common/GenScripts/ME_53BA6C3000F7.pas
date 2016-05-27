@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddCaseCodeTaskPrim;
+unit ddCaseCodeTaskPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddCaseCodeTaskPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ddCaseCodeTaskPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddCaseCodeTaskPrim" MUID: (53BA6C3000F7)
 
@@ -31,12 +31,8 @@ uses
 ;
 
 class function TddCaseCodeTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53BA6C3000F7_var*
-//#UC END# *53AC03EE01FD_53BA6C3000F7_var*
 begin
-//#UC START# *53AC03EE01FD_53BA6C3000F7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53BA6C3000F7_impl*
+ Result := k2_typCaseCodeTask;
 end;//TddCaseCodeTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

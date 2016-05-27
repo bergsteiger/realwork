@@ -32,6 +32,9 @@ uses
  , vtColorBox
  , l3Interfaces
  , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -227,20 +230,128 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
    procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
-   procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
    procedure StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
-   procedure StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParams);
    procedure StyleEditor_SetNewContent_Execute(aStyleID: Integer);
-   procedure StyleEditor_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+   procedure StyleEditor_SetNewContent(const aParams: IvcmExecuteParams);
    constructor Create(AOwner: TComponent); override;
   public
    property FontScrollBox: TScrollBox
     read f_FontScrollBox;
+   property FontUnderlineLabel: TvtLabel
+    read f_FontUnderlineLabel;
+    {* Подчеркнутый }
+   property FontStrikeoutLabel: TvtLabel
+    read f_FontStrikeoutLabel;
+    {* Перечеркнутый }
+   property FontSizeLabel: TvtLabel
+    read f_FontSizeLabel;
+    {* Размер }
+   property FontNameLabel: TvtLabel
+    read f_FontNameLabel;
+    {* Название }
+   property FontItalicLabel: TvtLabel
+    read f_FontItalicLabel;
+    {* Наклонный }
+   property FontForeColorLabel: TvtLabel
+    read f_FontForeColorLabel;
+    {* Цвет }
+   property FontBoldLabel: TvtLabel
+    read f_FontBoldLabel;
+    {* Жирный }
+   property FontBackColorLabel: TvtLabel
+    read f_FontBackColorLabel;
+    {* Фон }
+   property FontScalableLabel: TvtLabel
+    read f_FontScalableLabel;
+    {* Масштабируемый }
+   property FontScalableBevel: TBevel
+    read f_FontScalableBevel;
+   property FontStrikeoutInheritanceButton: TElPopupButton
+    read f_FontStrikeoutInheritanceButton;
+   property FontSizeInheritanceButton: TElPopupButton
+    read f_FontSizeInheritanceButton;
+   property FontNameInheritanceButton: TElPopupButton
+    read f_FontNameInheritanceButton;
+   property FontItalicInheritanceButton: TElPopupButton
+    read f_FontItalicInheritanceButton;
+   property FontForeColorInheritanceButton: TElPopupButton
+    read f_FontForeColorInheritanceButton;
+   property FontBoldInheritanceButton: TElPopupButton
+    read f_FontBoldInheritanceButton;
+   property FontBackColorInheritanceButton: TElPopupButton
+    read f_FontBackColorInheritanceButton;
+   property FontUnderlineInheritanceButton: TElPopupButton
+    read f_FontUnderlineInheritanceButton;
+   property FontUnderlineCheckBox: TvtCheckBox
+    read f_FontUnderlineCheckBox;
+   property FontStrikeoutCheckBox: TvtCheckBox
+    read f_FontStrikeoutCheckBox;
+   property FontSizeComboBox: TvtComboBoxQS
+    read f_FontSizeComboBox;
+   property FontNameComboBox: TvtComboBoxQS
+    read f_FontNameComboBox;
+   property FontItalicCheckBox: TvtCheckBox
+    read f_FontItalicCheckBox;
+   property FontForeColorBox: TvtColorBox
+    read f_FontForeColorBox;
+   property FontBoldCheckBox: TvtCheckBox
+    read f_FontBoldCheckBox;
+   property FontBackColorBox: TvtColorBox
+    read f_FontBackColorBox;
+   property FontScalableCheckBox: TvtCheckBox
+    read f_FontScalableCheckBox;
+   property LeftIndentLabel: TvtLabel
+    read f_LeftIndentLabel;
+    {* Отступ слева }
+   property LeftIndentComboBox: TvtComboBoxQS
+    read f_LeftIndentComboBox;
+   property RightIndentLabel: TvtLabel
+    read f_RightIndentLabel;
+    {* Отступ справа }
+   property RightIndentComboBox: TvtComboBoxQS
+    read f_RightIndentComboBox;
+   property FirstIndentLabel: TvtLabel
+    read f_FirstIndentLabel;
+    {* Красная строка }
+   property FirstIndentComboBox: TvtComboBoxQS
+    read f_FirstIndentComboBox;
+   property SpaceBeforeLabel: TvtLabel
+    read f_SpaceBeforeLabel;
+    {* Отступ до текста }
+   property SpaceBeforeComboBox: TvtComboBoxQS
+    read f_SpaceBeforeComboBox;
+   property SpaceAfterLabel: TvtLabel
+    read f_SpaceAfterLabel;
+    {* Отступ после текста }
+   property SpaceAfterComboBox: TvtComboBoxQS
+    read f_SpaceAfterComboBox;
+   property LeftIndentInheritanceButton: TElPopupButton
+    read f_LeftIndentInheritanceButton;
+   property RightIndentInheritanceButton: TElPopupButton
+    read f_RightIndentInheritanceButton;
+   property FirstIndentInheritanceButton: TElPopupButton
+    read f_FirstIndentInheritanceButton;
+   property SpaceBeforeInheritanceButton: TElPopupButton
+    read f_SpaceBeforeInheritanceButton;
+   property SpaceAfterInheritanceButton: TElPopupButton
+    read f_SpaceAfterInheritanceButton;
+   property StyleCaptionLabel: TvtLabel
+    read f_StyleCaptionLabel;
+    {* Заголовок стиля }
+   property StyleCaptionComboBox: TvtComboBoxQS
+    read f_StyleCaptionComboBox;
  end;//TPrimStyleEditorFontForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -286,6 +397,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -1468,7 +1585,7 @@ begin
 //#UC END# *4AE8696C001B_4AC642480314exec_impl*
 end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable_Execute
 
-procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IStyleEditor_RestoreStyleTable_Params) do
   Self.StyleEditor_RestoreStyleTable_Execute(RestoreDefault);
@@ -1483,7 +1600,7 @@ begin
 //#UC END# *4AE869C10245_4AC642480314exec_impl*
 end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable_Execute
 
-procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IStyleEditor_SaveStyleTable_Params) do
   Self.StyleEditor_SaveStyleTable_Execute(SaveAsDefault);
@@ -1498,7 +1615,7 @@ begin
 //#UC END# *4AEAE333001D_4AC642480314exec_impl*
 end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent_Execute
 
-procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IStyleEditor_SetNewContent_Params) do
   Self.StyleEditor_SetNewContent_Execute(StyleID);
@@ -2152,6 +2269,20 @@ begin
  inherited;
 end;//TPrimStyleEditorFontForm.ClearFields
 
+procedure TPrimStyleEditorFontForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_StyleEditor, nil);
+  PublishOpWithResult(en_StyleEditor, op_RestoreStyleTable, StyleEditor_RestoreStyleTable, nil, nil);
+  PublishOpWithResult(en_StyleEditor, op_SaveStyleTable, StyleEditor_SaveStyleTable, nil, nil);
+  PublishOpWithResult(en_StyleEditor, op_SetNewContent, StyleEditor_SetNewContent, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimStyleEditorFontForm.InitEntities
+
 procedure TPrimStyleEditorFontForm.MakeControls;
 begin
  inherited;
@@ -2161,30 +2292,39 @@ begin
  f_FontUnderlineLabel := TvtLabel.Create(Self);
  f_FontUnderlineLabel.Name := 'FontUnderlineLabel';
  f_FontUnderlineLabel.Parent := FontScrollBox;
+ f_FontUnderlineLabel.Caption := 'Подчеркнутый';
  f_FontStrikeoutLabel := TvtLabel.Create(Self);
  f_FontStrikeoutLabel.Name := 'FontStrikeoutLabel';
  f_FontStrikeoutLabel.Parent := FontScrollBox;
+ f_FontStrikeoutLabel.Caption := 'Перечеркнутый';
  f_FontSizeLabel := TvtLabel.Create(Self);
  f_FontSizeLabel.Name := 'FontSizeLabel';
  f_FontSizeLabel.Parent := FontScrollBox;
+ f_FontSizeLabel.Caption := 'Размер';
  f_FontNameLabel := TvtLabel.Create(Self);
  f_FontNameLabel.Name := 'FontNameLabel';
  f_FontNameLabel.Parent := FontScrollBox;
+ f_FontNameLabel.Caption := 'Название';
  f_FontItalicLabel := TvtLabel.Create(Self);
  f_FontItalicLabel.Name := 'FontItalicLabel';
  f_FontItalicLabel.Parent := FontScrollBox;
+ f_FontItalicLabel.Caption := 'Наклонный';
  f_FontForeColorLabel := TvtLabel.Create(Self);
  f_FontForeColorLabel.Name := 'FontForeColorLabel';
  f_FontForeColorLabel.Parent := FontScrollBox;
+ f_FontForeColorLabel.Caption := 'Цвет';
  f_FontBoldLabel := TvtLabel.Create(Self);
  f_FontBoldLabel.Name := 'FontBoldLabel';
  f_FontBoldLabel.Parent := FontScrollBox;
+ f_FontBoldLabel.Caption := 'Жирный';
  f_FontBackColorLabel := TvtLabel.Create(Self);
  f_FontBackColorLabel.Name := 'FontBackColorLabel';
  f_FontBackColorLabel.Parent := FontScrollBox;
+ f_FontBackColorLabel.Caption := 'Фон';
  f_FontScalableLabel := TvtLabel.Create(Self);
  f_FontScalableLabel.Name := 'FontScalableLabel';
  f_FontScalableLabel.Parent := FontScrollBox;
+ f_FontScalableLabel.Caption := 'Масштабируемый';
  f_FontScalableBevel := TBevel.Create(Self);
  f_FontScalableBevel.Name := 'FontScalableBevel';
  f_FontScalableBevel.Parent := FontScrollBox;
@@ -2242,30 +2382,35 @@ begin
  f_LeftIndentLabel := TvtLabel.Create(Self);
  f_LeftIndentLabel.Name := 'LeftIndentLabel';
  f_LeftIndentLabel.Parent := FontScrollBox;
+ f_LeftIndentLabel.Caption := 'Отступ слева';
  f_LeftIndentComboBox := TvtComboBoxQS.Create(Self);
  f_LeftIndentComboBox.Name := 'LeftIndentComboBox';
  f_LeftIndentComboBox.Parent := FontScrollBox;
  f_RightIndentLabel := TvtLabel.Create(Self);
  f_RightIndentLabel.Name := 'RightIndentLabel';
  f_RightIndentLabel.Parent := FontScrollBox;
+ f_RightIndentLabel.Caption := 'Отступ справа';
  f_RightIndentComboBox := TvtComboBoxQS.Create(Self);
  f_RightIndentComboBox.Name := 'RightIndentComboBox';
  f_RightIndentComboBox.Parent := FontScrollBox;
  f_FirstIndentLabel := TvtLabel.Create(Self);
  f_FirstIndentLabel.Name := 'FirstIndentLabel';
  f_FirstIndentLabel.Parent := FontScrollBox;
+ f_FirstIndentLabel.Caption := 'Красная строка';
  f_FirstIndentComboBox := TvtComboBoxQS.Create(Self);
  f_FirstIndentComboBox.Name := 'FirstIndentComboBox';
  f_FirstIndentComboBox.Parent := FontScrollBox;
  f_SpaceBeforeLabel := TvtLabel.Create(Self);
  f_SpaceBeforeLabel.Name := 'SpaceBeforeLabel';
  f_SpaceBeforeLabel.Parent := FontScrollBox;
+ f_SpaceBeforeLabel.Caption := 'Отступ до текста';
  f_SpaceBeforeComboBox := TvtComboBoxQS.Create(Self);
  f_SpaceBeforeComboBox.Name := 'SpaceBeforeComboBox';
  f_SpaceBeforeComboBox.Parent := FontScrollBox;
  f_SpaceAfterLabel := TvtLabel.Create(Self);
  f_SpaceAfterLabel.Name := 'SpaceAfterLabel';
  f_SpaceAfterLabel.Parent := FontScrollBox;
+ f_SpaceAfterLabel.Caption := 'Отступ после текста';
  f_SpaceAfterComboBox := TvtComboBoxQS.Create(Self);
  f_SpaceAfterComboBox.Name := 'SpaceAfterComboBox';
  f_SpaceAfterComboBox.Parent := FontScrollBox;
@@ -2287,6 +2432,7 @@ begin
  f_StyleCaptionLabel := TvtLabel.Create(Self);
  f_StyleCaptionLabel.Name := 'StyleCaptionLabel';
  f_StyleCaptionLabel.Parent := FontScrollBox;
+ f_StyleCaptionLabel.Caption := 'Заголовок стиля';
  f_StyleCaptionComboBox := TvtComboBoxQS.Create(Self);
  f_StyleCaptionComboBox.Name := 'StyleCaptionComboBox';
  f_StyleCaptionComboBox.Parent := FontScrollBox;

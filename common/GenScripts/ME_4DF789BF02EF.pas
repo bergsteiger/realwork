@@ -17,13 +17,22 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , PostingOrder_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimPostingsListOptionsForm = class(TPrimPostingsListForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure SearchSupport_ActivatePostingsListForm_Execute;
-   procedure SearchSupport_ActivatePostingsListForm(const aParams: IvcmExecuteParamsPrim);
+   procedure SearchSupport_ActivatePostingsListForm(const aParams: IvcmExecuteParams);
  end;//TPrimPostingsListOptionsForm
 {$IfEnd} // NOT Defined(Admin)
 
@@ -41,6 +50,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -63,10 +75,27 @@ begin
 //#UC END# *553FAEED007A_4DF789BF02EFexec_impl*
 end;//TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm_Execute
 
-procedure TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm(const aParams: IvcmExecuteParams);
 begin
  Self.SearchSupport_ActivatePostingsListForm_Execute;
 end;//TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimPostingsListOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_SearchSupport, nil);
+  PublishOp(en_Tree, op_ExpandAll, nil, nil, nil);
+  PublishOp(en_Tree, op_CollapseAll, nil, nil, nil);
+  PublishOpWithResult(en_SearchSupport, op_ActivatePostingsListForm, SearchSupport_ActivatePostingsListForm, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimPostingsListOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

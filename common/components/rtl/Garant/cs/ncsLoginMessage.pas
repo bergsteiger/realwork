@@ -53,84 +53,56 @@ uses
 ;
 
 function TncsLoginMessage.pm_GetServerHost: AnsiString;
-//#UC START# *A8CE837D53E8_544E07C6034Dget_var*
-//#UC END# *A8CE837D53E8_544E07C6034Dget_var*
 begin
-//#UC START# *A8CE837D53E8_544E07C6034Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A8CE837D53E8_544E07C6034Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrServerHost]);
 end;//TncsLoginMessage.pm_GetServerHost
 
 procedure TncsLoginMessage.pm_SetServerHost(const aValue: AnsiString);
-//#UC START# *A8CE837D53E8_544E07C6034Dset_var*
-//#UC END# *A8CE837D53E8_544E07C6034Dset_var*
 begin
-//#UC START# *A8CE837D53E8_544E07C6034Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A8CE837D53E8_544E07C6034Dset_impl*
+ TaggedData.StrW[k2_attrServerHost, nil] := (aValue);
 end;//TncsLoginMessage.pm_SetServerHost
 
 function TncsLoginMessage.pm_GetLogin: AnsiString;
-//#UC START# *F242EF9D067F_544E07C6034Dget_var*
-//#UC END# *F242EF9D067F_544E07C6034Dget_var*
 begin
-//#UC START# *F242EF9D067F_544E07C6034Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F242EF9D067F_544E07C6034Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLogin]);
 end;//TncsLoginMessage.pm_GetLogin
 
 procedure TncsLoginMessage.pm_SetLogin(const aValue: AnsiString);
-//#UC START# *F242EF9D067F_544E07C6034Dset_var*
-//#UC END# *F242EF9D067F_544E07C6034Dset_var*
 begin
-//#UC START# *F242EF9D067F_544E07C6034Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F242EF9D067F_544E07C6034Dset_impl*
+ TaggedData.StrW[k2_attrLogin, nil] := (aValue);
 end;//TncsLoginMessage.pm_SetLogin
 
 function TncsLoginMessage.pm_GetPassword: AnsiString;
-//#UC START# *1E446BBD08F0_544E07C6034Dget_var*
-//#UC END# *1E446BBD08F0_544E07C6034Dget_var*
 begin
-//#UC START# *1E446BBD08F0_544E07C6034Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1E446BBD08F0_544E07C6034Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrPassword]);
 end;//TncsLoginMessage.pm_GetPassword
 
 procedure TncsLoginMessage.pm_SetPassword(const aValue: AnsiString);
-//#UC START# *1E446BBD08F0_544E07C6034Dset_var*
-//#UC END# *1E446BBD08F0_544E07C6034Dset_var*
 begin
-//#UC START# *1E446BBD08F0_544E07C6034Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1E446BBD08F0_544E07C6034Dset_impl*
+ TaggedData.StrW[k2_attrPassword, nil] := (aValue);
 end;//TncsLoginMessage.pm_SetPassword
 
 function TncsLoginMessage.pm_GetServerPort: Integer;
-//#UC START# *25BE68E15A6A_544E07C6034Dget_var*
-//#UC END# *25BE68E15A6A_544E07C6034Dget_var*
 begin
-//#UC START# *25BE68E15A6A_544E07C6034Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *25BE68E15A6A_544E07C6034Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrServerPort]);
 end;//TncsLoginMessage.pm_GetServerPort
 
 procedure TncsLoginMessage.pm_SetServerPort(aValue: Integer);
-//#UC START# *25BE68E15A6A_544E07C6034Dset_var*
-//#UC END# *25BE68E15A6A_544E07C6034Dset_var*
 begin
-//#UC START# *25BE68E15A6A_544E07C6034Dset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *25BE68E15A6A_544E07C6034Dset_impl*
+ TaggedData.IntW[k2_attrServerPort, nil] := (aValue);
 end;//TncsLoginMessage.pm_SetServerPort
 
 class function TncsLoginMessage.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_544E07C6034D_var*
-//#UC END# *53AC03EE01FD_544E07C6034D_var*
 begin
-//#UC START# *53AC03EE01FD_544E07C6034D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_544E07C6034D_impl*
+ Result := k2_typcsLogin;
 end;//TncsLoginMessage.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

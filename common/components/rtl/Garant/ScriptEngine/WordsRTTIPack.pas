@@ -2142,7 +2142,7 @@ begin
  Result := 'WordsRTTIPack';
 end;//TWordsRTTIPackResNameGetter.ResName
 
- {$R WordsRTTIPack.res}
+{$R WordsRTTIPack.res}
 
 initialization
  TkwPopWordGetLeftWordRefValue.RegisterInEngine;

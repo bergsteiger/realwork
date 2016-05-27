@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_en_ConsultationMark.SetFactory(Ten_ConsultationMark.Make);
+ {* Регистрация фабрики формы ConsultationMark }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_ConsultationMark);
  {* Регистрация ConsultationMark }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_en_ConsultationMark.SetFactory(Ten_ConsultationMark.Make);
- {* Регистрация фабрики формы ConsultationMark }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

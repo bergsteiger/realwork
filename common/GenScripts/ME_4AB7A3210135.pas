@@ -46,6 +46,9 @@ uses
  , nscInterfaces
  {$IfEnd} // Defined(Nemesis)
  , Messages
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -133,6 +136,11 @@ type
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -144,6 +152,13 @@ type
   public
    property pnlMain: TvtPanel
     read f_pnlMain;
+   property hfBaseSearch: TnscHideField
+    read f_hfBaseSearch;
+    {* История запросов }
+   property lrBaseSearch: TnscLister
+    read f_lrBaseSearch;
+   property CardTextLabel: TnscSimpleEditor
+    read f_CardTextLabel;
  end;//TPrimBaseSearchCardForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -195,6 +210,9 @@ uses
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -723,6 +741,19 @@ begin
 //#UC END# *4F7C65380244_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.FormInsertedIntoContainer
 
+procedure TPrimBaseSearchCardForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, nil);
+  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, Result_OkExt_GetState);
+ end;//with Entities.Entities
+end;//TPrimBaseSearchCardForm.InitEntities
+
 procedure TPrimBaseSearchCardForm.MakeControls;
 begin
  inherited;
@@ -732,6 +763,7 @@ begin
  f_hfBaseSearch := TnscHideField.Create(Self);
  f_hfBaseSearch.Name := 'hfBaseSearch';
  f_hfBaseSearch.Parent := pnlMain;
+ f_hfBaseSearch.Caption := 'История запросов';
  f_lrBaseSearch := TnscLister.Create(Self);
  f_lrBaseSearch.Name := 'lrBaseSearch';
  f_lrBaseSearch.Parent := hfBaseSearch;

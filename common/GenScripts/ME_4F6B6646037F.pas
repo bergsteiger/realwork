@@ -25,11 +25,12 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // ChildZone
-
  TPrimChildForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -82,17 +83,25 @@ type
    procedure SetParent(AParent: TWinControl); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure AdjustSizeToFixed;
    procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
-   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
    procedure Switcher_SetFirstPageActive_Execute;
-   procedure Switcher_SetFirstPageActive(const aParams: IvcmExecuteParamsPrim);
+   procedure Switcher_SetFirstPageActive(const aParams: IvcmExecuteParams);
   public
    property ChildZone: TnscFormsPageControl
     read f_ChildZone;
+   property MainPageTab: TElTabSheet
+    read f_MainPageTab;
+    {* MainDataCaption }
  end;//TPrimChildForm
 
 implementation
@@ -120,6 +129,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimChild_cutUsual_UserType
  , PrimChild_cutForDiction_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -427,7 +439,7 @@ begin
 //#UC END# *4AEF3E8C02F5_4F6B6646037Fexec_impl*
 end;//TPrimChildForm.Switcher_BecomeActive_Execute
 
-procedure TPrimChildForm.Switcher_BecomeActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimChildForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISwitcher_BecomeActive_Params) do
   Self.Switcher_BecomeActive_Execute(Form);
@@ -443,7 +455,7 @@ begin
 //#UC END# *4AF832C401A1_4F6B6646037Fexec_impl*
 end;//TPrimChildForm.Switcher_SetFirstPageActive_Execute
 
-procedure TPrimChildForm.Switcher_SetFirstPageActive(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimChildForm.Switcher_SetFirstPageActive(const aParams: IvcmExecuteParams);
 begin
  Self.Switcher_SetFirstPageActive_Execute;
 end;//TPrimChildForm.Switcher_SetFirstPageActive
@@ -559,6 +571,19 @@ begin
 end;//TPrimChildForm.SetParent
 {$IfEnd} // NOT Defined(NoVCL)
 
+procedure TPrimChildForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Switcher, nil);
+  PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
+  PublishOpWithResult(en_Switcher, op_SetFirstPageActive, Switcher_SetFirstPageActive, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimChildForm.InitEntities
+
 procedure TPrimChildForm.MakeControls;
 begin
  inherited;
@@ -598,6 +623,7 @@ begin
  f_MainPageTab := TElTabSheet.Create(Self);
  f_MainPageTab.Name := 'MainPageTab';
  f_MainPageTab.Parent := ChildZone;
+ f_MainPageTab.Caption := 'MainDataCaption';
 end;//TPrimChildForm.MakeControls
 
 initialization

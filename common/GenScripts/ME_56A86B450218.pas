@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_caDataProviderParams;
+unit caDataProviderParams;
 
-// Модуль: "w:\common\components\rtl\Garant\ComboAccess\NOT_COMPLETED_caDataProviderParams.pas"
+// Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProviderParams.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcaDataProviderParams" MUID: (56A86B450218)
 
@@ -13,17 +13,15 @@ uses
  l3IntfUses
  , htDataProviderParams
  , pgDataProviderParams
- , k2Base
  , daDataProviderParams
+ , k2Base
 ;
 
 type
  TcaDataProviderParams = class(ThtDataProviderParams)
   private
    f_HTParams: ThtDataProviderParams;
-    {* Поле для свойства HTParams }
    f_PGParams: TpgDataProviderParams;
-    {* Поле для свойства PGParams }
   protected
    function pm_GetDataServerHostName: AnsiString;
    procedure pm_SetDataServerHostName(const aValue: AnsiString);
@@ -36,9 +34,9 @@ type
     aPGParams: TpgDataProviderParams); reintroduce;
    procedure LoadFromAlienParams;
    procedure SaveToAlienParams;
-   class function GetTaggedDataType: Tk2Type; override;
    procedure ChangeBasePath(const aPath: AnsiString); override;
    procedure AssignParams(aParams: TdaDataProviderParams); override;
+   class function GetTaggedDataType: Tk2Type; override;
   public
    property HTParams: ThtDataProviderParams
     read f_HTParams;
@@ -63,39 +61,27 @@ uses
 ;
 
 function TcaDataProviderParams.pm_GetDataServerHostName: AnsiString;
-//#UC START# *52A37A4E5D05_56A86B450218get_var*
-//#UC END# *52A37A4E5D05_56A86B450218get_var*
 begin
-//#UC START# *52A37A4E5D05_56A86B450218get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A37A4E5D05_56A86B450218get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDataServerHostName]);
 end;//TcaDataProviderParams.pm_GetDataServerHostName
 
 procedure TcaDataProviderParams.pm_SetDataServerHostName(const aValue: AnsiString);
-//#UC START# *52A37A4E5D05_56A86B450218set_var*
-//#UC END# *52A37A4E5D05_56A86B450218set_var*
 begin
-//#UC START# *52A37A4E5D05_56A86B450218set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A37A4E5D05_56A86B450218set_impl*
+ TaggedData.StrW[k2_attrDataServerHostName, nil] := (aValue);
 end;//TcaDataProviderParams.pm_SetDataServerHostName
 
 function TcaDataProviderParams.pm_GetDataServerPort: Integer;
-//#UC START# *0DC358F22E97_56A86B450218get_var*
-//#UC END# *0DC358F22E97_56A86B450218get_var*
 begin
-//#UC START# *0DC358F22E97_56A86B450218get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0DC358F22E97_56A86B450218get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrDataServerPort]);
 end;//TcaDataProviderParams.pm_GetDataServerPort
 
 procedure TcaDataProviderParams.pm_SetDataServerPort(aValue: Integer);
-//#UC START# *0DC358F22E97_56A86B450218set_var*
-//#UC END# *0DC358F22E97_56A86B450218set_var*
 begin
-//#UC START# *0DC358F22E97_56A86B450218set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0DC358F22E97_56A86B450218set_impl*
+ TaggedData.IntW[k2_attrDataServerPort, nil] := (aValue);
 end;//TcaDataProviderParams.pm_SetDataServerPort
 
 constructor TcaDataProviderParams.Create(aHTParams: ThtDataProviderParams;
@@ -175,15 +161,6 @@ begin
 //#UC END# *479731C50290_56A86B450218_impl*
 end;//TcaDataProviderParams.Cleanup
 
-class function TcaDataProviderParams.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_56A86B450218_var*
-//#UC END# *53AC03EE01FD_56A86B450218_var*
-begin
-//#UC START# *53AC03EE01FD_56A86B450218_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_56A86B450218_impl*
-end;//TcaDataProviderParams.GetTaggedDataType
-
 procedure TcaDataProviderParams.ChangeBasePath(const aPath: AnsiString);
 //#UC START# *55195AE803E0_56A86B450218_var*
 //#UC END# *55195AE803E0_56A86B450218_var*
@@ -212,6 +189,11 @@ begin
  end;
 //#UC END# *553A37E902C9_56A86B450218_impl*
 end;//TcaDataProviderParams.AssignParams
+
+class function TcaDataProviderParams.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typComboAccessProviderParams;
+end;//TcaDataProviderParams.GetTaggedDataType
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

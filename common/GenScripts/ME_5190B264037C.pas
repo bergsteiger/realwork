@@ -595,7 +595,7 @@ begin
  Result := 'FontWordsPack';
 end;//TFontWordsPackResNameGetter.ResName
 
- {$R FontWordsPack.res}
+{$R FontWordsPack.res}
 
 initialization
  TkwFontColor.RegisterInEngine;

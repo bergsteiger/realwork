@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , StartupTips_ut_StartupTips_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , StartupTipsKeywordsPack
@@ -88,14 +88,14 @@ end;//TefStartupTips.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_StartupTipsCaption.Init;
+ {* Инициализация str_ut_StartupTipsCaption }
+ fm_efStartupTips.SetFactory(TefStartupTips.Make);
+ {* Регистрация фабрики формы StartupTips }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefStartupTips);
  {* Регистрация StartupTips }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efStartupTips.SetFactory(TefStartupTips.Make);
- {* Регистрация фабрики формы StartupTips }
- str_ut_StartupTipsCaption.Init;
- {* Инициализация str_ut_StartupTipsCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

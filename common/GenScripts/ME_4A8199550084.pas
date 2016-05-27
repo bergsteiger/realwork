@@ -91,6 +91,9 @@ uses
  , bsHyperlinkProcessorContainerMaker
  , nsOpenDocumentFromLinkEvent
  , nsTryingToOpenMissingDocumentFromLinkEvent
+ {$If NOT Defined(NoScripts)}
+ , F1ScriptEngine
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

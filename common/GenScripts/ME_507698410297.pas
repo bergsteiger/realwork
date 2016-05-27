@@ -961,7 +961,7 @@ begin
  Result := 'ObjectFromstackWords';
 end;//TObjectFromstackWordsResNameGetter.ResName
 
- {$R ObjectFromstackWords.res}
+{$R ObjectFromstackWords.res}
 
 initialization
  TkwPopObjectInherits.RegisterInEngine;

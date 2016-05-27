@@ -32,12 +32,21 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , Base_Operations_Editions_Controls
  , l3StringIDEx
  , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -132,12 +141,21 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
    function CaneHaveDocumentCompareEditionsOperation: Boolean; override;
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Editions_SetCurrent_Execute(const aDocument: IDocument);
     {* Установить текущую }
-   procedure Editions_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure Editions_SetCurrent(const aParams: IvcmExecuteParams);
     {* Установить текущую }
    procedure Editions_DoCompareEditions_Test(const aParams: IvcmTestParamsPrim);
     {* Сравнить редакции }
@@ -600,7 +618,7 @@ begin
 //#UC END# *4A8EE08403B3_497A12850078exec_impl*
 end;//TPrimRedactionsForm.Editions_SetCurrent_Execute
 
-procedure TPrimRedactionsForm.Editions_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRedactionsForm.Editions_SetCurrent(const aParams: IvcmExecuteParams);
  {* Установить текущую }
 begin
  with (aParams.Data As IEditions_SetCurrent_Params) do
@@ -783,6 +801,30 @@ begin
  Result := not IsModalForm;
 //#UC END# *4EF354C8018B_497A12850078_impl*
 end;//TPrimRedactionsForm.CaneHaveDocumentCompareEditionsOperation
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRedactionsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimRedactionsForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRedactionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Editions, nil);
+  PublishOpWithResult(en_Editions, op_SetCurrent, Editions_SetCurrent, nil, nil);
+  PublishOp(en_Editions, op_DoCompareEditions, Editions_DoCompareEditions_Execute, Editions_DoCompareEditions_Test, nil);
+  PublishOp(en_Editions, op_BuildChangedFragments, Editions_BuildChangedFragments_Execute, Editions_BuildChangedFragments_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimRedactionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.MakeControls;

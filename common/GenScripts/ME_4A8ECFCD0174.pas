@@ -43,12 +43,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_enNewsLine.SetFactory(TenNewsLine.Make);
+ {* Регистрация фабрики формы NewsLine }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TenNewsLine);
  {* Регистрация NewsLine }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_enNewsLine.SetFactory(TenNewsLine.Make);
- {* Регистрация фабрики формы NewsLine }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

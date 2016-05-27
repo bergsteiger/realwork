@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ddGetTaskRequestPrim;
+unit ddGetTaskRequestPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ddGetTaskRequestPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ddGetTaskRequestPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TddGetTaskRequestPrim" MUID: (53B6859A023A)
 
@@ -28,10 +28,10 @@ implementation
 {$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
- , GetTaskRequest_Const
  , SysUtils
  , StrUtils
  , DateUtils
+ , GetTaskRequest_Const
 ;
 
 procedure TddGetTaskRequestPrim.SetTaskID(const aTaskID: AnsiString);
@@ -62,12 +62,8 @@ begin
 end;//TddGetTaskRequestPrim.SetTaskID
 
 class function TddGetTaskRequestPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6859A023A_var*
-//#UC END# *53AC03EE01FD_53B6859A023A_var*
 begin
-//#UC START# *53AC03EE01FD_53B6859A023A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6859A023A_impl*
+ Result := k2_typGetTaskRequest;
 end;//TddGetTaskRequestPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

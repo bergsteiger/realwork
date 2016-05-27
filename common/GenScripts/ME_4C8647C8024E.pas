@@ -28,6 +28,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , nscTreeViewWithAdapterDragDrop
 ;
 
@@ -52,6 +55,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -134,6 +142,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimAttributesOptionsForm.MakePreview: IafwDocumentPreview;
@@ -379,10 +393,30 @@ end;//TPrimAttributesOptionsForm.InitControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
+procedure TPrimAttributesOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Attribute, nil);
+  PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
+  PublishOp(en_Attribute, op_Copy, Attribute_Copy_Execute, Attribute_Copy_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimAttributesOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimAttributesOptionsForm.MakeControls;
 begin
  inherited;
- f_tvAttributes.Parent := Self;
+ tvAttributes.Parent := Self;
 end;//TPrimAttributesOptionsForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 

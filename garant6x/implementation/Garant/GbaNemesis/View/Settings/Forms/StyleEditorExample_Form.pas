@@ -1,103 +1,67 @@
 unit StyleEditorExample_Form;
+ {* Пример текста }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/StyleEditorExample_Form.pas"
-// Начат: 09.09.2009 16:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> F1 Основные прецеденты::Settings::View::Settings::Settings::StyleEditorExample
-//
-// Пример текста
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorExample_Form.pas"
+// Стереотип: "VCMFinalForm"
+// Элемент модели: "StyleEditorExample" MUID: (4ABA14A4011C)
+// Имя типа: "TStyleEditorExampleForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimStyleEditorExample_Form
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel,
-  eeEditorWithoutOperations,
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimStyleEditorExample_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntities
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-    { StyleEditorExampleIDs }
-   fm_StyleEditorExampleForm : TvcmFormDescriptor = (rFormID : (rName : 'StyleEditorExampleForm'; rID : 0); rFactory : nil);
-    { Идентификатор формы TStyleEditorExampleForm }
+ fm_StyleEditorExampleForm: TvcmFormDescriptor = (rFormID : (rName : 'StyleEditorExampleForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TStyleEditorExampleForm }
 
 type
- StyleEditorExampleFormDef = interface(IUnknown)
+ TStyleEditorExampleForm = class;
+
+ StyleEditorExampleFormDef = interface
   {* Идентификатор формы StyleEditorExample }
-   ['{941E9E1B-2C84-4067-938E-6CFE6F2614A7}']
+  ['{941E9E1B-2C84-4067-938E-6CFE6F2614A7}']
  end;//StyleEditorExampleFormDef
 
-  TStyleEditorExampleForm = {final form} class(TPrimStyleEditorExampleForm, StyleEditorExampleFormDef)
-   {* Пример текста }
-  Entities : TvcmEntities;
-  end;//TStyleEditorExampleForm
-{$IfEnd} //not Admin AND not Monitorings
+ TStyleEditorExampleForm = {final} class(TPrimStyleEditorExampleForm, StyleEditorExampleFormDef)
+  {* Пример текста }
+   Entities : TvcmEntities;
+ end;//TStyleEditorExampleForm
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , StyleEditorExampleKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
+
 {$R *.DFM}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  StyleEditorExampleKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация StyleEditorExample
- TtfwClassRef.Register(TStyleEditorExampleForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Регистрация фабрики формы StyleEditorExample
  fm_StyleEditorExampleForm.SetFactory(TStyleEditorExampleForm.Make);
-{$IfEnd} //not Admin AND not Monitorings
+ {* Регистрация фабрики формы StyleEditorExample }
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TStyleEditorExampleForm);
+ {* Регистрация StyleEditorExample }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

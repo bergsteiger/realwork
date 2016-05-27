@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_cfOldSituationSearch.SetFactory(TcfOldSituationSearch.Make);
+ {* Регистрация фабрики формы OldSituationSearch }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TcfOldSituationSearch);
  {* Регистрация OldSituationSearch }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_cfOldSituationSearch.SetFactory(TcfOldSituationSearch.Make);
- {* Регистрация фабрики формы OldSituationSearch }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

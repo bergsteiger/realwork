@@ -71,75 +71,51 @@ begin
 end;//TddRunContext_C
 
 function TddProcessTaskPrim.pm_GetComment: AnsiString;
-//#UC START# *1EA09B9A77DE_53AC09FE03C7get_var*
-//#UC END# *1EA09B9A77DE_53AC09FE03C7get_var*
 begin
-//#UC START# *1EA09B9A77DE_53AC09FE03C7get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1EA09B9A77DE_53AC09FE03C7get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrComment]);
 end;//TddProcessTaskPrim.pm_GetComment
 
 procedure TddProcessTaskPrim.pm_SetComment(const aValue: AnsiString);
-//#UC START# *1EA09B9A77DE_53AC09FE03C7set_var*
-//#UC END# *1EA09B9A77DE_53AC09FE03C7set_var*
 begin
-//#UC START# *1EA09B9A77DE_53AC09FE03C7set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1EA09B9A77DE_53AC09FE03C7set_impl*
+ TaggedData.StrW[k2_attrComment, nil] := (aValue);
 end;//TddProcessTaskPrim.pm_SetComment
 
 function TddProcessTaskPrim.pm_GetStatus: TcsTaskStatus;
-//#UC START# *66ED44905989_53AC09FE03C7get_var*
-//#UC END# *66ED44905989_53AC09FE03C7get_var*
 begin
-//#UC START# *66ED44905989_53AC09FE03C7get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *66ED44905989_53AC09FE03C7get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TcsTaskStatus(TaggedData.IntA[k2_attrStatus]);
 end;//TddProcessTaskPrim.pm_GetStatus
 
 procedure TddProcessTaskPrim.pm_SetStatus(aValue: TcsTaskStatus);
-//#UC START# *66ED44905989_53AC09FE03C7set_var*
-//#UC END# *66ED44905989_53AC09FE03C7set_var*
 begin
-//#UC START# *66ED44905989_53AC09FE03C7set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *66ED44905989_53AC09FE03C7set_impl*
+ TaggedData.IntW[k2_attrStatus, nil] := Ord(aValue);
 end;//TddProcessTaskPrim.pm_SetStatus
 
 function TddProcessTaskPrim.pm_GetDocumentIDList: DocumentIDListHelper;
-//#UC START# *D9A88AF55146_53AC09FE03C7get_var*
-//#UC END# *D9A88AF55146_53AC09FE03C7get_var*
 begin
-//#UC START# *D9A88AF55146_53AC09FE03C7get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D9A88AF55146_53AC09FE03C7get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDocumentIDListHelper.Make(TaggedData.cAtom(k2_attrDocumentIDList));
 end;//TddProcessTaskPrim.pm_GetDocumentIDList
 
 function TddProcessTaskPrim.pm_GetReplyAddress: AnsiString;
-//#UC START# *CFD2E55B7996_53AC09FE03C7get_var*
-//#UC END# *CFD2E55B7996_53AC09FE03C7get_var*
 begin
-//#UC START# *CFD2E55B7996_53AC09FE03C7get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CFD2E55B7996_53AC09FE03C7get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReplyAddress]);
 end;//TddProcessTaskPrim.pm_GetReplyAddress
 
 procedure TddProcessTaskPrim.pm_SetReplyAddress(const aValue: AnsiString);
-//#UC START# *CFD2E55B7996_53AC09FE03C7set_var*
-//#UC END# *CFD2E55B7996_53AC09FE03C7set_var*
 begin
-//#UC START# *CFD2E55B7996_53AC09FE03C7set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CFD2E55B7996_53AC09FE03C7set_impl*
+ TaggedData.StrW[k2_attrReplyAddress, nil] := (aValue);
 end;//TddProcessTaskPrim.pm_SetReplyAddress
 
 class function TddProcessTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53AC09FE03C7_var*
-//#UC END# *53AC03EE01FD_53AC09FE03C7_var*
 begin
-//#UC START# *53AC03EE01FD_53AC09FE03C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53AC09FE03C7_impl*
+ Result := k2_typProcessTask;
 end;//TddProcessTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

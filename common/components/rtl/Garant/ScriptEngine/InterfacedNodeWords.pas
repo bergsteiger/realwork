@@ -251,7 +251,7 @@ begin
  Result := 'InterfacedNodeWords';
 end;//TInterfacedNodeWordsResNameGetter.ResName
 
- {$R InterfacedNodeWords.res}
+{$R InterfacedNodeWords.res}
 
 initialization
  TkwNodeCaption.RegisterInEngine;

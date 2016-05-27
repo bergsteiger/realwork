@@ -28,6 +28,10 @@
     aForClone: Boolean): Boolean; override;
     {* Сохраняет состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_UnderControlResetter_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -126,6 +130,14 @@ begin
   CheckControllableState([dcsAfterReview]);
 //#UC END# *49806ED503D5_4BA0A2CC0305_impl*
 end;//_UnderControlResetter_.DoSaveState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure _UnderControlResetter_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//_UnderControlResetter_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

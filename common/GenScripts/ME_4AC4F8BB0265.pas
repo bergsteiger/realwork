@@ -27,6 +27,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , vtLabel
  , vtButton
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -69,6 +72,11 @@ type
    {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -143,6 +151,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -412,15 +423,32 @@ begin
 //#UC END# *529332B40230_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.SetupFormLayout
 
+procedure TPrimTurnOnTimeMachineForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+ end;//with Entities.Entities
+end;//TPrimTurnOnTimeMachineForm.InitEntities
+
 procedure TPrimTurnOnTimeMachineForm.MakeControls;
 begin
  inherited;
  f_rb_totmOnDate := TvtRadioButton.Create(Self);
  f_rb_totmOnDate.Name := 'rb_totmOnDate';
  f_rb_totmOnDate.Parent := Self;
+ f_rb_totmOnDate.Caption := 'Включить Машину времени с календарной даты';
  f_rb_totmOnCurrentRedation := TvtRadioButton.Create(Self);
  f_rb_totmOnCurrentRedation.Name := 'rb_totmOnCurrentRedation';
  f_rb_totmOnCurrentRedation.Parent := Self;
+ f_rb_totmOnCurrentRedation.Caption := 'Включить Машину времени с начала действия текущей редакции';
  f_deDate := TvtDblClickDateEdit.Create(Self);
  f_deDate.Name := 'deDate';
  f_deDate.Parent := Self;
@@ -430,12 +458,15 @@ begin
  f_lblTurnOnTimeMachineInfo := TvtLabel.Create(Self);
  f_lblTurnOnTimeMachineInfo.Name := 'lblTurnOnTimeMachineInfo';
  f_lblTurnOnTimeMachineInfo.Parent := Self;
+ f_lblTurnOnTimeMachineInfo.Caption := 'Выберите вариант включения Машины времени:';
  f_btnOk := TvtButton.Create(Self);
  f_btnOk.Name := 'btnOk';
  f_btnOk.Parent := Self;
+ f_btnOk.Caption := 'OK';
  f_btnCancel := TvtButton.Create(Self);
  f_btnCancel.Name := 'btnCancel';
  f_btnCancel.Parent := Self;
+ f_btnCancel.Caption := 'Отмена';
 end;//TPrimTurnOnTimeMachineForm.MakeControls
 
 initialization

@@ -22,6 +22,9 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , vtCheckBox
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -88,6 +91,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -254,12 +263,14 @@ begin
  f_Label1 := TvtLabel.Create(Self);
  f_Label1.Name := 'Label1';
  f_Label1.Parent := Self;
+ f_Label1.Caption := 'Номер документа:';
  f_edNumber := TnscComboBox.Create(Self);
  f_edNumber.Name := 'edNumber';
  f_edNumber.Parent := Self;
  f_cbInternal := TvtCheckBox.Create(Self);
  f_cbInternal.Name := 'cbInternal';
  f_cbInternal.Parent := Self;
+ f_cbInternal.Caption := 'Внутренний номер в базе';
 end;//TPrimDocNumberQueryForm.MakeControls
 
 initialization

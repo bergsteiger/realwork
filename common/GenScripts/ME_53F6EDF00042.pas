@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuAnnotationTaskResult;
+unit alcuAnnotationTaskResult;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAnnotationTaskResult.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAnnotationTaskResult.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuAnnotationTaskResult" MUID: (53F6EDF00042)
 
@@ -78,174 +78,116 @@ uses
 ;
 
 function TalcuAnnotationTaskResult.pm_GetNeedReport: Boolean;
-//#UC START# *156110995BB9_53F6EDF00042get_var*
-//#UC END# *156110995BB9_53F6EDF00042get_var*
 begin
-//#UC START# *156110995BB9_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *156110995BB9_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrNeedReport]);
 end;//TalcuAnnotationTaskResult.pm_GetNeedReport
 
 procedure TalcuAnnotationTaskResult.pm_SetNeedReport(aValue: Boolean);
-//#UC START# *156110995BB9_53F6EDF00042set_var*
-//#UC END# *156110995BB9_53F6EDF00042set_var*
 begin
-//#UC START# *156110995BB9_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *156110995BB9_53F6EDF00042set_impl*
+ TaggedData.BoolW[k2_attrNeedReport, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetNeedReport
 
 function TalcuAnnotationTaskResult.pm_GetIsSuccess: Boolean;
-//#UC START# *7C0B1CBBB3D8_53F6EDF00042get_var*
-//#UC END# *7C0B1CBBB3D8_53F6EDF00042get_var*
 begin
-//#UC START# *7C0B1CBBB3D8_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7C0B1CBBB3D8_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsSuccess]);
 end;//TalcuAnnotationTaskResult.pm_GetIsSuccess
 
 procedure TalcuAnnotationTaskResult.pm_SetIsSuccess(aValue: Boolean);
-//#UC START# *7C0B1CBBB3D8_53F6EDF00042set_var*
-//#UC END# *7C0B1CBBB3D8_53F6EDF00042set_var*
 begin
-//#UC START# *7C0B1CBBB3D8_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7C0B1CBBB3D8_53F6EDF00042set_impl*
+ TaggedData.BoolW[k2_attrIsSuccess, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetIsSuccess
 
 function TalcuAnnotationTaskResult.pm_GetNextDate: TDateTime;
-//#UC START# *31A771BF25F3_53F6EDF00042get_var*
-//#UC END# *31A771BF25F3_53F6EDF00042get_var*
 begin
-//#UC START# *31A771BF25F3_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *31A771BF25F3_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrNextDate]);
 end;//TalcuAnnotationTaskResult.pm_GetNextDate
 
 procedure TalcuAnnotationTaskResult.pm_SetNextDate(aValue: TDateTime);
-//#UC START# *31A771BF25F3_53F6EDF00042set_var*
-//#UC END# *31A771BF25F3_53F6EDF00042set_var*
 begin
-//#UC START# *31A771BF25F3_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *31A771BF25F3_53F6EDF00042set_impl*
+ TaggedData.DateTimeW[k2_attrNextDate, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetNextDate
 
 function TalcuAnnotationTaskResult.pm_GetReportMessage: AnsiString;
-//#UC START# *1F0D535E162C_53F6EDF00042get_var*
-//#UC END# *1F0D535E162C_53F6EDF00042get_var*
 begin
-//#UC START# *1F0D535E162C_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1F0D535E162C_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportMessage]);
 end;//TalcuAnnotationTaskResult.pm_GetReportMessage
 
 procedure TalcuAnnotationTaskResult.pm_SetReportMessage(const aValue: AnsiString);
-//#UC START# *1F0D535E162C_53F6EDF00042set_var*
-//#UC END# *1F0D535E162C_53F6EDF00042set_var*
 begin
-//#UC START# *1F0D535E162C_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1F0D535E162C_53F6EDF00042set_impl*
+ TaggedData.StrW[k2_attrReportMessage, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetReportMessage
 
 function TalcuAnnotationTaskResult.pm_GetReportSubject: AnsiString;
-//#UC START# *8B16BDD7D790_53F6EDF00042get_var*
-//#UC END# *8B16BDD7D790_53F6EDF00042get_var*
 begin
-//#UC START# *8B16BDD7D790_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8B16BDD7D790_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportSubject]);
 end;//TalcuAnnotationTaskResult.pm_GetReportSubject
 
 procedure TalcuAnnotationTaskResult.pm_SetReportSubject(const aValue: AnsiString);
-//#UC START# *8B16BDD7D790_53F6EDF00042set_var*
-//#UC END# *8B16BDD7D790_53F6EDF00042set_var*
 begin
-//#UC START# *8B16BDD7D790_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8B16BDD7D790_53F6EDF00042set_impl*
+ TaggedData.StrW[k2_attrReportSubject, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetReportSubject
 
 function TalcuAnnotationTaskResult.pm_GetReportAttach: AnsiString;
-//#UC START# *8E44E53AF039_53F6EDF00042get_var*
-//#UC END# *8E44E53AF039_53F6EDF00042get_var*
 begin
-//#UC START# *8E44E53AF039_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8E44E53AF039_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportAttach]);
 end;//TalcuAnnotationTaskResult.pm_GetReportAttach
 
 procedure TalcuAnnotationTaskResult.pm_SetReportAttach(const aValue: AnsiString);
-//#UC START# *8E44E53AF039_53F6EDF00042set_var*
-//#UC END# *8E44E53AF039_53F6EDF00042set_var*
 begin
-//#UC START# *8E44E53AF039_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8E44E53AF039_53F6EDF00042set_impl*
+ TaggedData.StrW[k2_attrReportAttach, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetReportAttach
 
 function TalcuAnnotationTaskResult.pm_GetNeedSendToRobot: Boolean;
-//#UC START# *216474BE6E34_53F6EDF00042get_var*
-//#UC END# *216474BE6E34_53F6EDF00042get_var*
 begin
-//#UC START# *216474BE6E34_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *216474BE6E34_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrNeedSendToRobot]);
 end;//TalcuAnnotationTaskResult.pm_GetNeedSendToRobot
 
 procedure TalcuAnnotationTaskResult.pm_SetNeedSendToRobot(aValue: Boolean);
-//#UC START# *216474BE6E34_53F6EDF00042set_var*
-//#UC END# *216474BE6E34_53F6EDF00042set_var*
 begin
-//#UC START# *216474BE6E34_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *216474BE6E34_53F6EDF00042set_impl*
+ TaggedData.BoolW[k2_attrNeedSendToRobot, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetNeedSendToRobot
 
 function TalcuAnnotationTaskResult.pm_GetRobotMessage: AnsiString;
-//#UC START# *9384C570A604_53F6EDF00042get_var*
-//#UC END# *9384C570A604_53F6EDF00042get_var*
 begin
-//#UC START# *9384C570A604_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9384C570A604_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrRobotMessage]);
 end;//TalcuAnnotationTaskResult.pm_GetRobotMessage
 
 procedure TalcuAnnotationTaskResult.pm_SetRobotMessage(const aValue: AnsiString);
-//#UC START# *9384C570A604_53F6EDF00042set_var*
-//#UC END# *9384C570A604_53F6EDF00042set_var*
 begin
-//#UC START# *9384C570A604_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9384C570A604_53F6EDF00042set_impl*
+ TaggedData.StrW[k2_attrRobotMessage, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetRobotMessage
 
 function TalcuAnnotationTaskResult.pm_GetRobotAttach: AnsiString;
-//#UC START# *BBA3EEE1D19D_53F6EDF00042get_var*
-//#UC END# *BBA3EEE1D19D_53F6EDF00042get_var*
 begin
-//#UC START# *BBA3EEE1D19D_53F6EDF00042get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BBA3EEE1D19D_53F6EDF00042get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrRobotAttach]);
 end;//TalcuAnnotationTaskResult.pm_GetRobotAttach
 
 procedure TalcuAnnotationTaskResult.pm_SetRobotAttach(const aValue: AnsiString);
-//#UC START# *BBA3EEE1D19D_53F6EDF00042set_var*
-//#UC END# *BBA3EEE1D19D_53F6EDF00042set_var*
 begin
-//#UC START# *BBA3EEE1D19D_53F6EDF00042set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BBA3EEE1D19D_53F6EDF00042set_impl*
+ TaggedData.StrW[k2_attrRobotAttach, nil] := (aValue);
 end;//TalcuAnnotationTaskResult.pm_SetRobotAttach
 
 class function TalcuAnnotationTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53F6EDF00042_var*
-//#UC END# *53AC03EE01FD_53F6EDF00042_var*
 begin
-//#UC START# *53AC03EE01FD_53F6EDF00042_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53F6EDF00042_impl*
+ Result := k2_typAnnotationTaskResult;
 end;//TalcuAnnotationTaskResult.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

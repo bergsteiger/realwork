@@ -42,7 +42,7 @@ uses
 initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCreateFilterForm);
- {* Регистрация CreateFilter$Form }
+ {* Регистрация CreateFilter }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

@@ -21,13 +21,12 @@ uses
  , vtScrollBar
  , vtSizeablePanel
  , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- // Left
-
- // Right
-
  TAACContainerPrimForm = class({$If NOT Defined(NoVCM)}
  TvcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -70,16 +69,41 @@ type
    procedure SetTabCaption(const aTabCaption: IvcmCString); override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    function AACTextContainer_GetVScrollBar_Execute(aLeft: Boolean): TvtScrollBar;
-   procedure AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParamsPrim);
+   procedure AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParams);
    procedure AACTextContainer_SetJumpTo_Execute(aJumpTo: TevJumpToEvent);
-   procedure AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParamsPrim);
+   procedure AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParams);
   public
    property pnBack: TvtProportionalPanel
     read f_pnBack;
+   property pnRightEx: TvtPanel
+    read f_pnRightEx;
+   property pnRightForScroll: TvtPanel
+    read f_pnRightForScroll;
+   property pnRight: TvtPanel
+    read f_pnRight;
+   property pnlRightTop: TvtPanel
+    read f_pnlRightTop;
+   property scrRight: TvtScrollBar
+    read f_scrRight;
+   property pnLeftEx: TvtSizeablePanel
+    read f_pnLeftEx;
+   property pnLeftForScroll: TvtPanel
+    read f_pnLeftForScroll;
+   property pnlLeftTop: TvtPanel
+    read f_pnlLeftTop;
+   property pnLeft: TvtPanel
+    read f_pnLeft;
+   property scrLeft: TvtScrollBar
+    read f_scrLeft;
  end;//TAACContainerPrimForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -97,8 +121,14 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , AACContainerPrim_AACContainer_UserType
  , AACContainerPrim_AACContentsContainer_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -139,7 +169,7 @@ begin
 //#UC END# *5005237D0210_4FF2E935019Aexec_impl*
 end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar_Execute
 
-procedure TAACContainerPrimForm.AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParamsPrim);
+procedure TAACContainerPrimForm.AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAACTextContainer_GetVScrollBar_Params) do
   ResultValue := Self.AACTextContainer_GetVScrollBar_Execute(Left);
@@ -154,7 +184,7 @@ begin
 //#UC END# *5006ED2300F9_4FF2E935019Aexec_impl*
 end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo_Execute
 
-procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParamsPrim);
+procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAACTextContainer_SetJumpTo_Params) do
   Self.AACTextContainer_SetJumpTo_Execute(JumpTo);
@@ -257,6 +287,19 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=565492823
 //#UC END# *542A6DA20026_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.SetTabCaption
+
+procedure TAACContainerPrimForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_AACTextContainer, nil);
+  PublishOpWithResult(en_AACTextContainer, op_GetVScrollBar, AACTextContainer_GetVScrollBar, nil, nil);
+  PublishOpWithResult(en_AACTextContainer, op_SetJumpTo, AACTextContainer_SetJumpTo, nil, nil);
+ end;//with Entities.Entities
+end;//TAACContainerPrimForm.InitEntities
 
 procedure TAACContainerPrimForm.MakeControls;
 begin

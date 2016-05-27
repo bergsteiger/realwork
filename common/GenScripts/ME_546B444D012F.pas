@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ncsGetTaskDescription;
+unit ncsGetTaskDescription;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_ncsGetTaskDescription.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsGetTaskDescription.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TncsGetTaskDescription" MUID: (546B444D012F)
 
@@ -38,30 +38,20 @@ uses
 ;
 
 function TncsGetTaskDescription.pm_GetTaskID: AnsiString;
-//#UC START# *7579AB0F9F12_546B444D012Fget_var*
-//#UC END# *7579AB0F9F12_546B444D012Fget_var*
 begin
-//#UC START# *7579AB0F9F12_546B444D012Fget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7579AB0F9F12_546B444D012Fget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTaskID]);
 end;//TncsGetTaskDescription.pm_GetTaskID
 
 procedure TncsGetTaskDescription.pm_SetTaskID(const aValue: AnsiString);
-//#UC START# *7579AB0F9F12_546B444D012Fset_var*
-//#UC END# *7579AB0F9F12_546B444D012Fset_var*
 begin
-//#UC START# *7579AB0F9F12_546B444D012Fset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7579AB0F9F12_546B444D012Fset_impl*
+ TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
 end;//TncsGetTaskDescription.pm_SetTaskID
 
 class function TncsGetTaskDescription.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_546B444D012F_var*
-//#UC END# *53AC03EE01FD_546B444D012F_var*
 begin
-//#UC START# *53AC03EE01FD_546B444D012F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_546B444D012F_impl*
+ Result := k2_typcsGetTaskDescription;
 end;//TncsGetTaskDescription.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

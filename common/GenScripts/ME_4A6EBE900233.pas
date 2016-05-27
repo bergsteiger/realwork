@@ -42,6 +42,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_View_Controls
  , Search_Strange_Controls
  , nevBase
@@ -51,9 +54,6 @@ uses
  , afwInterfaces
  , nevNavigation
  , afwNavigation
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_F1Specific_Controls
  , DocumentAndListInterfaces
  {$If Defined(Nemesis)}
@@ -178,6 +178,9 @@ type
     aNewDocument: Tl3Tag);
   protected
    function pm_GetHeader: TvtPanel;
+   function pm_GetpnLeft: TvtPanel;
+   function pm_GetEditionLink: TvtFocusLabel;
+   function pm_GetpnCaption: TvtPanel;
    procedure ReturnToDocument;
     {* Вернуться в документ }
    function IsRight: Boolean;
@@ -254,6 +257,15 @@ type
    function NeedNotifyContainerOnCaptionChanged: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -261,32 +273,44 @@ type
     {* Синхронизировать позицию }
    function Finder_GotoPara_Execute(aPara: Integer): TGotoParaResult;
     {* Перейти к параграфу по номеру }
-   procedure Finder_GotoPara(const aParams: IvcmExecuteParamsPrim);
+   procedure Finder_GotoPara(const aParams: IvcmExecuteParams);
     {* Перейти к параграфу по номеру }
    function Document_SetPosition_Execute(aPointID: Cardinal;
     aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
-   procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SetPosition(const aParams: IvcmExecuteParams);
    procedure Document_OpenEditionLocalLink_Execute(const aDocument: IDocument;
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour);
     {* Переход по локальной ссылке на редакцию }
-   procedure Document_OpenEditionLocalLink(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenEditionLocalLink(const aParams: IvcmExecuteParams);
     {* Переход по локальной ссылке на редакцию }
    procedure CurrentChangedFragmentChanged(aParaID: Integer);
     {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
    procedure Finder_DisableForceDrawFocusRect_Execute;
     {* Запрещает рисование фокусной рамки }
-   procedure Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParamsPrim);
+   procedure Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParams);
     {* Запрещает рисование фокусной рамки }
    {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
     {* Нужно ли рисовать заголовок зоны }
    {$IfEnd} // NOT Defined(NoVCM)
+  protected
+   property EditionChoose: TvtComboBoxQS
+    read f_EditionChoose;
   public
    property Header: TvtPanel
     read pm_GetHeader;
     {* Место для имени редакции }
+   property pnLeft: TvtPanel
+    read pm_GetpnLeft;
+   property EditionLink: TvtFocusLabel
+    read pm_GetEditionLink;
+    {* Ссылка на редакцию }
+   property pbIcon: TPaintBox
+    read f_pbIcon;
+   property pnCaption: TvtPanel
+    read pm_GetpnCaption;
  end;//TDiffForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -501,6 +525,33 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4A83EEAC00B7_4A6EBE900233get_impl*
 end;//TDiffForm.pm_GetHeader
+
+function TDiffForm.pm_GetpnLeft: TvtPanel;
+//#UC START# *4A9BA16C016D_4A6EBE900233get_var*
+//#UC END# *4A9BA16C016D_4A6EBE900233get_var*
+begin
+//#UC START# *4A9BA16C016D_4A6EBE900233get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4A9BA16C016D_4A6EBE900233get_impl*
+end;//TDiffForm.pm_GetpnLeft
+
+function TDiffForm.pm_GetEditionLink: TvtFocusLabel;
+//#UC START# *4A9B9C33032D_4A6EBE900233get_var*
+//#UC END# *4A9B9C33032D_4A6EBE900233get_var*
+begin
+//#UC START# *4A9B9C33032D_4A6EBE900233get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4A9B9C33032D_4A6EBE900233get_impl*
+end;//TDiffForm.pm_GetEditionLink
+
+function TDiffForm.pm_GetpnCaption: TvtPanel;
+//#UC START# *4A9BA17E02F0_4A6EBE900233get_var*
+//#UC END# *4A9BA17E02F0_4A6EBE900233get_var*
+begin
+//#UC START# *4A9BA17E02F0_4A6EBE900233get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4A9BA17E02F0_4A6EBE900233get_impl*
+end;//TDiffForm.pm_GetpnCaption
 
 procedure TDiffForm.MakeDocumentContainer(Sender: TObject;
  var aMade: InevDocumentContainer);
@@ -1417,7 +1468,7 @@ begin
 //#UC END# *4AE042520302_4A6EBE900233exec_impl*
 end;//TDiffForm.Finder_GotoPara_Execute
 
-procedure TDiffForm.Finder_GotoPara(const aParams: IvcmExecuteParamsPrim);
+procedure TDiffForm.Finder_GotoPara(const aParams: IvcmExecuteParams);
  {* Перейти к параграфу по номеру }
 begin
  with (aParams.Data As IFinder_GotoPara_Params) do
@@ -1463,7 +1514,7 @@ begin
 //#UC END# *4AE9D38A02DA_4A6EBE900233exec_impl*
 end;//TDiffForm.Document_SetPosition_Execute
 
-procedure TDiffForm.Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+procedure TDiffForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetPosition_Params) do
   ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
@@ -1492,7 +1543,7 @@ begin
 //#UC END# *4B0650D4035A_4A6EBE900233exec_impl*
 end;//TDiffForm.Document_OpenEditionLocalLink_Execute
 
-procedure TDiffForm.Document_OpenEditionLocalLink(const aParams: IvcmExecuteParamsPrim);
+procedure TDiffForm.Document_OpenEditionLocalLink(const aParams: IvcmExecuteParams);
  {* Переход по локальной ссылке на редакцию }
 begin
  with (aParams.Data As IDocument_OpenEditionLocalLink_Params) do
@@ -1528,7 +1579,7 @@ begin
 //#UC END# *4B59C1F401F8_4A6EBE900233exec_impl*
 end;//TDiffForm.Finder_DisableForceDrawFocusRect_Execute
 
-procedure TDiffForm.Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParamsPrim);
+procedure TDiffForm.Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParams);
  {* Запрещает рисование фокусной рамки }
 begin
  Self.Finder_DisableForceDrawFocusRect_Execute;
@@ -1846,11 +1897,32 @@ begin
 //#UC END# *546304500231_4A6EBE900233_impl*
 end;//TDiffForm.NeedNotifyContainerOnCaptionChanged
 
+procedure TDiffForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TDiffForm.SignalDataSourceChanged
+
+procedure TDiffForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Finder, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishOpWithResult(en_Finder, op_GotoPara, Finder_GotoPara, nil, nil);
+  PublishOpWithResult(en_Document, op_SetPosition, Document_SetPosition, nil, nil);
+  PublishOpWithResult(en_Document, op_OpenEditionLocalLink, Document_OpenEditionLocalLink, nil, nil);
+  PublishOpWithResult(en_Finder, op_DisableForceDrawFocusRect, Finder_DisableForceDrawFocusRect, nil, nil);
+ end;//with Entities.Entities
+end;//TDiffForm.InitEntities
+
 procedure TDiffForm.MakeControls;
 begin
  inherited;
- f_Text.Parent := Self;
- f_Text.Caption := 'Текст редакции';
+ Text.Parent := Self;
  f_pbIcon := TPaintBox.Create(Self);
  f_pbIcon.Name := 'pbIcon';
  f_pbIcon.Parent := pnLeft;

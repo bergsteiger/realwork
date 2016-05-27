@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_csUserEditQueryPrim;
+unit csUserEditQueryPrim;
 
-// Модуль: "w:\common\components\rtl\Garant\cs\NOT_COMPLETED_csUserEditQueryPrim.pas"
+// Модуль: "w:\common\components\rtl\Garant\cs\csUserEditQueryPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TcsUserEditQueryPrim" MUID: (53B27AA300BD)
 
@@ -43,48 +43,32 @@ uses
 ;
 
 function TcsUserEditQueryPrim.pm_GetID: Integer;
-//#UC START# *7B63E87AB0BB_53B27AA300BDget_var*
-//#UC END# *7B63E87AB0BB_53B27AA300BDget_var*
 begin
-//#UC START# *7B63E87AB0BB_53B27AA300BDget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7B63E87AB0BB_53B27AA300BDget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrID]);
 end;//TcsUserEditQueryPrim.pm_GetID
 
 procedure TcsUserEditQueryPrim.pm_SetID(aValue: Integer);
-//#UC START# *7B63E87AB0BB_53B27AA300BDset_var*
-//#UC END# *7B63E87AB0BB_53B27AA300BDset_var*
 begin
-//#UC START# *7B63E87AB0BB_53B27AA300BDset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7B63E87AB0BB_53B27AA300BDset_impl*
+ TaggedData.IntW[k2_attrID, nil] := (aValue);
 end;//TcsUserEditQueryPrim.pm_SetID
 
 function TcsUserEditQueryPrim.pm_GetIsGroup: Boolean;
-//#UC START# *DD25BA479477_53B27AA300BDget_var*
-//#UC END# *DD25BA479477_53B27AA300BDget_var*
 begin
-//#UC START# *DD25BA479477_53B27AA300BDget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DD25BA479477_53B27AA300BDget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsGroup]);
 end;//TcsUserEditQueryPrim.pm_GetIsGroup
 
 procedure TcsUserEditQueryPrim.pm_SetIsGroup(aValue: Boolean);
-//#UC START# *DD25BA479477_53B27AA300BDset_var*
-//#UC END# *DD25BA479477_53B27AA300BDset_var*
 begin
-//#UC START# *DD25BA479477_53B27AA300BDset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DD25BA479477_53B27AA300BDset_impl*
+ TaggedData.BoolW[k2_attrIsGroup, nil] := (aValue);
 end;//TcsUserEditQueryPrim.pm_SetIsGroup
 
 class function TcsUserEditQueryPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B27AA300BD_var*
-//#UC END# *53AC03EE01FD_53B27AA300BD_var*
 begin
-//#UC START# *53AC03EE01FD_53B27AA300BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B27AA300BD_impl*
+ Result := k2_typUserEditQuery;
 end;//TcsUserEditQueryPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_AdminMain_Form;
+unit AdminMain_Form;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NOT_COMPLETED_AdminMain_Form.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminMain_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "AdminMain" MUID: (4F7C3C0B035C)
 // Имя типа: "TAdminMainForm"

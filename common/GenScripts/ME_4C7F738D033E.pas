@@ -21,6 +21,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -31,6 +34,11 @@ type
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
     {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
@@ -71,6 +79,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 function TPrimWarningOptionsForm.MakePreview: IafwComplexDocumentPreview;
@@ -197,6 +208,26 @@ begin
  inherited;
 //#UC END# *497469C90140_4C7F738D033E_impl*
 end;//TPrimWarningOptionsForm.NotifyDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimWarningOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Warning, nil);
+  PublishOp(en_File, op_Print, File_Print_Execute, nil, nil);
+  PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, nil, nil);
+  PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, nil, nil);
+  PublishOp(en_Warning, op_TimeMachineOffAndReset, Warning_TimeMachineOffAndReset_Execute, Warning_TimeMachineOffAndReset_Test, nil);
+  PublishOp(en_Warning, op_ActualRedaction, Warning_ActualRedaction_Execute, Warning_ActualRedaction_Test, nil);
+  PublishOp(en_Warning, op_TimeMachineOff, Warning_TimeMachineOff_Execute, Warning_TimeMachineOff_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimWarningOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

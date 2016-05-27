@@ -53,6 +53,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
 ;
 
@@ -209,14 +212,23 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Contents_SetCurrent_Execute(aSub: Integer);
-   procedure Contents_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure Contents_SetCurrent(const aParams: IvcmExecuteParams);
    procedure Contents_MoveCurrent_Execute(aSub: Integer;
     aDown: Boolean);
-   procedure Contents_MoveCurrent(const aParams: IvcmExecuteParamsPrim);
+   procedure Contents_MoveCurrent(const aParams: IvcmExecuteParams);
    procedure DocumentBlock_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
@@ -243,25 +255,25 @@ type
    procedure DocumentBlock_Select_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_Select_Execute(const aParams: IvcmExecuteParamsPrim);
    function ContentsValidator_IsDocumentAdornmentsChanged_Execute(const aNew: InsDocumentAdornments): Boolean;
-   procedure ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParamsPrim);
+   procedure ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParams);
    function Contents_HasUserComments_Execute: Boolean;
     {* Есть ли в оглавление пользовательские комментарии }
-   procedure Contents_HasUserComments(const aParams: IvcmExecuteParamsPrim);
+   procedure Contents_HasUserComments(const aParams: IvcmExecuteParams);
     {* Есть ли в оглавление пользовательские комментарии }
    function Contents_HasBookmarks_Execute: Boolean;
     {* Есть ли в оглавлении закладки }
-   procedure Contents_HasBookmarks(const aParams: IvcmExecuteParamsPrim);
+   procedure Contents_HasBookmarks(const aParams: IvcmExecuteParams);
     {* Есть ли в оглавлении закладки }
    function Contents_ToggleContentsVisibility_Execute: Boolean;
     {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
-   procedure Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParamsPrim);
+   procedure Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParams);
     {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
    function Contents_IsContentsVisible_Execute: Boolean;
     {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
-   procedure Contents_IsContentsVisible(const aParams: IvcmExecuteParamsPrim);
+   procedure Contents_IsContentsVisible(const aParams: IvcmExecuteParams);
     {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
    procedure Comment_Changed_Execute;
-   procedure Comment_Changed(const aParams: IvcmExecuteParamsPrim);
+   procedure Comment_Changed(const aParams: IvcmExecuteParams);
    procedure DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetSimilarDocsToBlock_Execute(const aParams: IvcmExecuteParamsPrim);
    constructor Create(AOwner: TComponent); override;
@@ -277,6 +289,18 @@ type
   public
    property BackgroundPanel: TvtPanel
     read f_BackgroundPanel;
+   property lstBookmarks: TvtLister
+    read f_lstBookmarks;
+   property lstComments: TvtLister
+    read f_lstComments;
+   property lstExternalObjects: TvtLister
+    read f_lstExternalObjects;
+   property ContentsTree: TnscTreeViewWithAdapterDragDrop
+    read f_ContentsTree;
+   property ContextFilter: TnscContextFilter
+    read f_ContextFilter;
+   property Tasks: TnscTasksPanelView
+    read f_Tasks;
  end;//TPrimContentsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -288,9 +312,6 @@ uses
  , nsLogEvent
  , ContentsUserTypes_utDrugContents_UserType
  , eeTreeView
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , nsContentsTreeStorable
  , nsConst
  , nsTrialSupport
@@ -362,6 +383,9 @@ uses
  , nsContextFilterParams
  , IOUnit
  , LoggingUnit
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -1556,7 +1580,7 @@ begin
 //#UC END# *4A9D4A180253_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Contents_SetCurrent_Execute
 
-procedure TPrimContentsForm.Contents_SetCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Contents_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContents_SetCurrent_Params) do
   Self.Contents_SetCurrent_Execute(Sub);
@@ -1629,7 +1653,7 @@ begin
 //#UC END# *4A9D4A560164_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Contents_MoveCurrent_Execute
 
-procedure TPrimContentsForm.Contents_MoveCurrent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Contents_MoveCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContents_MoveCurrent_Params) do
   Self.Contents_MoveCurrent_Execute(Sub, Down);
@@ -2075,7 +2099,7 @@ begin
 //#UC END# *4D9B1F0A0335_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged_Execute
 
-procedure TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContentsValidator_IsDocumentAdornmentsChanged_Params) do
   ResultValue := Self.ContentsValidator_IsDocumentAdornmentsChanged_Execute(New);
@@ -2091,7 +2115,7 @@ begin
 //#UC END# *4DF1FCA6008C_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Contents_HasUserComments_Execute
 
-procedure TPrimContentsForm.Contents_HasUserComments(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Contents_HasUserComments(const aParams: IvcmExecuteParams);
  {* Есть ли в оглавление пользовательские комментарии }
 begin
  with (aParams.Data As IContents_HasUserComments_Params) do
@@ -2108,7 +2132,7 @@ begin
 //#UC END# *4DF1FCC602EE_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Contents_HasBookmarks_Execute
 
-procedure TPrimContentsForm.Contents_HasBookmarks(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Contents_HasBookmarks(const aParams: IvcmExecuteParams);
  {* Есть ли в оглавлении закладки }
 begin
  with (aParams.Data As IContents_HasBookmarks_Params) do
@@ -2138,7 +2162,7 @@ begin
 //#UC END# *4E79E67402E7_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Contents_ToggleContentsVisibility_Execute
 
-procedure TPrimContentsForm.Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParams);
  {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
 begin
  with (aParams.Data As IContents_ToggleContentsVisibility_Params) do
@@ -2166,7 +2190,7 @@ begin
 //#UC END# *4E79E6C4018D_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Contents_IsContentsVisible_Execute
 
-procedure TPrimContentsForm.Contents_IsContentsVisible(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Contents_IsContentsVisible(const aParams: IvcmExecuteParams);
  {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
 begin
  with (aParams.Data As IContents_IsContentsVisible_Params) do
@@ -2183,7 +2207,7 @@ begin
 //#UC END# *4EAAE5C40089_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.Comment_Changed_Execute
 
-procedure TPrimContentsForm.Comment_Changed(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimContentsForm.Comment_Changed(const aParams: IvcmExecuteParams);
 begin
  Self.Comment_Changed_Execute;
 end;//TPrimContentsForm.Comment_Changed
@@ -2429,6 +2453,49 @@ begin
  Finalize(f_ListForFiltering);
  inherited;
 end;//TPrimContentsForm.ClearFields
+
+procedure TPrimContentsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimContentsForm.SignalDataSourceChanged
+
+procedure TPrimContentsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Contents, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_DocumentBlock, nil);
+  PublishFormEntity(en_ContentsValidator, nil);
+  PublishFormEntity(en_Comment, nil);
+  PublishFormEntity(en_DocumentBlockBookmarks, nil);
+  PublishOpWithResult(en_Contents, op_SetCurrent, Contents_SetCurrent, nil, nil);
+  PublishOpWithResult(en_Contents, op_MoveCurrent, Contents_MoveCurrent, nil, nil);
+  PublishOp(en_DocumentBlock, op_GetCorrespondentList, DocumentBlock_GetCorrespondentList_Execute, DocumentBlock_GetCorrespondentList_Test, nil);
+  PublishOp(en_DocumentBlock, op_GetRespondentList, DocumentBlock_GetRespondentList_Execute, DocumentBlock_GetRespondentList_Test, nil);
+  PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
+  PublishOp(en_DocumentBlock, op_GetTypedRespondentList, DocumentBlock_GetTypedRespondentList_Execute, DocumentBlock_GetTypedRespondentList_Test, nil);
+  PublishOp(en_DocumentBlockBookmarks, op_AddBookmark, DocumentBlockBookmarks_AddBookmark_Execute, DocumentBlockBookmarks_AddBookmark_Test, nil);
+  PublishOp(en_DocumentBlock, op_ToMSWord, DocumentBlock_ToMSWord_Execute, DocumentBlock_ToMSWord_Test, nil);
+  PublishOp(en_DocumentBlock, op_PrintDialog, DocumentBlock_PrintDialog_Execute, DocumentBlock_PrintDialog_Test, nil);
+  PublishOp(en_DocumentBlock, op_Copy, DocumentBlock_Copy_Execute, DocumentBlock_Copy_Test, nil);
+  PublishOp(en_DocumentBlock, op_Print, DocumentBlock_Print_Execute, DocumentBlock_Print_Test, nil);
+  PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
+  PublishOp(en_DocumentBlock, op_PrintPreview, DocumentBlock_PrintPreview_Execute, DocumentBlock_PrintPreview_Test, nil);
+  PublishOp(en_DocumentBlock, op_Select, DocumentBlock_Select_Execute, DocumentBlock_Select_Test, nil);
+  PublishOpWithResult(en_ContentsValidator, op_IsDocumentAdornmentsChanged, ContentsValidator_IsDocumentAdornmentsChanged, nil, nil);
+  PublishOpWithResult(en_Contents, op_HasUserComments, Contents_HasUserComments, nil, nil);
+  PublishOpWithResult(en_Contents, op_HasBookmarks, Contents_HasBookmarks, nil, nil);
+  PublishOpWithResult(en_Contents, op_ToggleContentsVisibility, Contents_ToggleContentsVisibility, nil, nil);
+  PublishOpWithResult(en_Contents, op_IsContentsVisible, Contents_IsContentsVisible, nil, nil);
+  PublishOpWithResult(en_Comment, op_Changed, Comment_Changed, nil, nil);
+  PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimContentsForm.InitEntities
 
 procedure TPrimContentsForm.MakeControls;
 begin

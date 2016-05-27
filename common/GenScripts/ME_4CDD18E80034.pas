@@ -14,6 +14,11 @@
    function pm_GetHyperlinkDocumentName: Il3CString; virtual; abstract;
    function pm_GetHyperlinkSubID: Integer; virtual;
    function NeedMakeHyperlinkToDocument: Boolean; virtual;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure File_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
     {* Создать ссылку на документ }
@@ -130,6 +135,24 @@ begin
  File_MakeHyperlinkToDocument_Execute(aParams);
 //#UC END# *4CDE7C2C0258_4CDD18E80034exec_impl*
 end;//_HyperlinkToDocumentProducer_.Document_MakeHyperlinkToDocument_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure _HyperlinkToDocumentProducer_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Text, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishOp(en_File, op_MakeHyperlinkToDocument, File_MakeHyperlinkToDocument_Execute, File_MakeHyperlinkToDocument_Test, nil);
+  PublishOp(en_Text, op_MakeHyperlinkToDocument, Text_MakeHyperlinkToDocument_Execute, Text_MakeHyperlinkToDocument_Test, nil);
+  PublishOp(en_Document, op_MakeHyperlinkToDocument, Document_MakeHyperlinkToDocument_Execute, Document_MakeHyperlinkToDocument_Test, nil);
+ end;//with Entities.Entities
+end;//_HyperlinkToDocumentProducer_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf HyperlinkToDocumentProducer_imp_impl}
 

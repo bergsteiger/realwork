@@ -31,12 +31,8 @@ uses
 ;
 
 class function TddServerStatusRequestPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B6843E03A3_var*
-//#UC END# *53AC03EE01FD_53B6843E03A3_var*
 begin
-//#UC START# *53AC03EE01FD_53B6843E03A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B6843E03A3_impl*
+ Result := k2_typServerStatusRequest;
 end;//TddServerStatusRequestPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

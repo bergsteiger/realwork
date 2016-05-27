@@ -257,7 +257,7 @@ begin
  Result := 'kwKeyWordsPack';
 end;//TkwKeyWordsPackResNameGetter.ResName
 
- {$R kwKeyWordsPack.res}
+{$R kwKeyWordsPack.res}
 
 initialization
  TkwDeleteEtalons.RegisterInEngine;

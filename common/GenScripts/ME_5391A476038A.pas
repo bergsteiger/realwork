@@ -25,6 +25,9 @@ uses
  , vtSizeablePanel
  , evMemo
  , vtLabel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -70,6 +73,11 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -90,6 +98,26 @@ type
     read f_pnTagTree;
    property pnSummary: TvtSizeablePanel
     read f_pnSummary;
+   property TagTree: TeeTreeView
+    read f_TagTree;
+   property pnMemClasses: TvtSizeablePanel
+    read f_pnMemClasses;
+   property memClasses: TevMemo
+    read f_memClasses;
+   property lbLocalMemory: TvtLabel
+    read f_lbLocalMemory;
+   property lbObjectMemory: TvtLabel
+    read f_lbObjectMemory;
+   property lbObjectCount: TvtLabel
+    read f_lbObjectCount;
+   property lbGlobalMemory: TvtLabel
+    read f_lbGlobalMemory;
+   property lbDocumentsInCacheCount: TvtLabel
+    read f_lbDocumentsInCacheCount;
+   property lbAllLocalMemory: TvtLabel
+    read f_lbAllLocalMemory;
+   property lbTotalMemory: TvtLabel
+    read f_lbTotalMemory;
  end;//TMemoryUsagePrimForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -117,6 +145,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -383,6 +417,21 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_5391A476038A_impl*
 end;//TMemoryUsagePrimForm.InitControls
+
+procedure TMemoryUsagePrimForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_DocumentsCache, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
+  PublishOp(en_DocumentsCache, op_Clear, DocumentsCache_Clear_Execute, nil, nil);
+  PublishOp(en_DocumentsCache, op_Disable, DocumentsCache_Disable_Execute, DocumentsCache_Disable_Test, DocumentsCache_Disable_GetState);
+ end;//with Entities.Entities
+end;//TMemoryUsagePrimForm.InitEntities
 
 procedure TMemoryUsagePrimForm.MakeControls;
 begin

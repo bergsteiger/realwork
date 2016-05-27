@@ -104,7 +104,7 @@ begin
  Result := 'archiDocEditorWindowWordsPack';
 end;//TarchiDocEditorWindowWordsPackResNameGetter.ResName
 
- {$R archiDocEditorWindowWordsPack.res}
+{$R archiDocEditorWindowWordsPack.res}
 
 initialization
  TkwDocEditorWindowIsNeedSaveDocument.RegisterInEngine;

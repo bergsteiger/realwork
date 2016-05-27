@@ -1,62 +1,46 @@
 unit csRequestTask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "cs"
-// Модуль: "w:/common/components/rtl/Garant/cs/csRequestTask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::cs::Tasks::csRequestTask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\cs\csRequestTask.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "csRequestTask" MUID: (52FA4ACA0020)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\cs\CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  ddServerTask,
-  CsDataPipe,
-  k2Base,
-  dt_Types
-  ;
+ l3IntfUses
+ , ddServerTask
+ , CsDataPipe
+ , dt_Types
+ , k2Base
+;
 
 type
  TddRequestTask = class(TddTaskItem)
- protected
- // overridden protected methods
-   class function GetTaggedDataType: Tk2Type; override;
- public
- // overridden public methods
-   constructor Create(aUserID: TUserID); override;
- public
- // public methods
+  public
    procedure SaveRequestToPipe(aPipe: TCsDataPipe); virtual;
+   constructor Create(aUserID: TUserID); override;
+   class function GetTaggedDataType: Tk2Type; override;
  end;//TddRequestTask
 
  TddRequestTaskAsTask = class(TddRequestTask)
- public
- // public methods
+  public
    procedure SaveTaskToPipe(aPipe: TCsDataPipe);
  end;//TddRequestTaskAsTask
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  evdTaskTypes,
-  RequestTask_Const,
-  l3Memory,
-  SysUtils
-  ;
-
-// start class TddRequestTask
+ l3ImplUses
+ , evdTaskTypes
+ , RequestTask_Const
+ , l3Memory
+ , SysUtils
+;
 
 procedure TddRequestTask.SaveRequestToPipe(aPipe: TCsDataPipe);
 //#UC START# *54C0FDAD028B_52FA4AD90122_var*
@@ -67,12 +51,6 @@ begin
 //#UC END# *54C0FDAD028B_52FA4AD90122_impl*
 end;//TddRequestTask.SaveRequestToPipe
 
-class function TddRequestTask.GetTaggedDataType: Tk2Type;
- {-}
-begin
- Result := k2_typRequestTask;
-end;//TddRequestTask.GetTaggedDataType
-
 constructor TddRequestTask.Create(aUserID: TUserID);
 //#UC START# *53B3D8A8011F_52FA4AD90122_var*
 //#UC END# *53B3D8A8011F_52FA4AD90122_var*
@@ -82,7 +60,11 @@ begin
  //TaskType := cs_ttRequest;
 //#UC END# *53B3D8A8011F_52FA4AD90122_impl*
 end;//TddRequestTask.Create
-// start class TddRequestTaskAsTask
+
+class function TddRequestTask.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typRequestTask;
+end;//TddRequestTask.GetTaggedDataType
 
 procedure TddRequestTaskAsTask.SaveTaskToPipe(aPipe: TCsDataPipe);
 //#UC START# *54C650610228_54C6504A003A_var*
@@ -101,13 +83,11 @@ begin
  end;
 //#UC END# *54C650610228_54C6504A003A_impl*
 end;//TddRequestTaskAsTask.SaveTaskToPipe
-{$IfEnd} //not Nemesis
 
 initialization
-{$If not defined(Nemesis)}
 //#UC START# *53B3DA12012D*
  RegisterTaskClass(cs_ttRequest, TddRequestTask, 'запрос');
 //#UC END# *53B3DA12012D*
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

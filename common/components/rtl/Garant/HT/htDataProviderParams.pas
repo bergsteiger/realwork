@@ -28,9 +28,9 @@ type
    procedure pm_SetLockPath(const aValue: AnsiString);
   public
    function MakePathRec: TPathRec;
-   class function GetTaggedDataType: Tk2Type; override;
    procedure ChangeBasePath(const aPath: AnsiString); override;
    procedure AssignParams(aParams: TdaDataProviderParams); override;
+   class function GetTaggedDataType: Tk2Type; override;
   public
    property StationName: AnsiString
     read pm_GetStationName
@@ -57,75 +57,51 @@ uses
 ;
 
 function ThtDataProviderParams.pm_GetStationName: AnsiString;
-//#UC START# *818595D6D5F9_54F9AF6B00DDget_var*
-//#UC END# *818595D6D5F9_54F9AF6B00DDget_var*
 begin
-//#UC START# *818595D6D5F9_54F9AF6B00DDget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *818595D6D5F9_54F9AF6B00DDget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrStationName]);
 end;//ThtDataProviderParams.pm_GetStationName
 
 procedure ThtDataProviderParams.pm_SetStationName(const aValue: AnsiString);
-//#UC START# *818595D6D5F9_54F9AF6B00DDset_var*
-//#UC END# *818595D6D5F9_54F9AF6B00DDset_var*
 begin
-//#UC START# *818595D6D5F9_54F9AF6B00DDset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *818595D6D5F9_54F9AF6B00DDset_impl*
+ TaggedData.StrW[k2_attrStationName, nil] := (aValue);
 end;//ThtDataProviderParams.pm_SetStationName
 
 function ThtDataProviderParams.pm_GetTablePath: AnsiString;
-//#UC START# *C4877C0D468E_54F9AF6B00DDget_var*
-//#UC END# *C4877C0D468E_54F9AF6B00DDget_var*
 begin
-//#UC START# *C4877C0D468E_54F9AF6B00DDget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C4877C0D468E_54F9AF6B00DDget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTablePath]);
 end;//ThtDataProviderParams.pm_GetTablePath
 
 procedure ThtDataProviderParams.pm_SetTablePath(const aValue: AnsiString);
-//#UC START# *C4877C0D468E_54F9AF6B00DDset_var*
-//#UC END# *C4877C0D468E_54F9AF6B00DDset_var*
 begin
-//#UC START# *C4877C0D468E_54F9AF6B00DDset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C4877C0D468E_54F9AF6B00DDset_impl*
+ TaggedData.StrW[k2_attrTablePath, nil] := (aValue);
 end;//ThtDataProviderParams.pm_SetTablePath
 
 function ThtDataProviderParams.pm_GetTmpDirPath: AnsiString;
-//#UC START# *98857C6A95A2_54F9AF6B00DDget_var*
-//#UC END# *98857C6A95A2_54F9AF6B00DDget_var*
 begin
-//#UC START# *98857C6A95A2_54F9AF6B00DDget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *98857C6A95A2_54F9AF6B00DDget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTmpDirPath]);
 end;//ThtDataProviderParams.pm_GetTmpDirPath
 
 procedure ThtDataProviderParams.pm_SetTmpDirPath(const aValue: AnsiString);
-//#UC START# *98857C6A95A2_54F9AF6B00DDset_var*
-//#UC END# *98857C6A95A2_54F9AF6B00DDset_var*
 begin
-//#UC START# *98857C6A95A2_54F9AF6B00DDset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *98857C6A95A2_54F9AF6B00DDset_impl*
+ TaggedData.StrW[k2_attrTmpDirPath, nil] := (aValue);
 end;//ThtDataProviderParams.pm_SetTmpDirPath
 
 function ThtDataProviderParams.pm_GetLockPath: AnsiString;
-//#UC START# *CD710F71E829_54F9AF6B00DDget_var*
-//#UC END# *CD710F71E829_54F9AF6B00DDget_var*
 begin
-//#UC START# *CD710F71E829_54F9AF6B00DDget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CD710F71E829_54F9AF6B00DDget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLockPath]);
 end;//ThtDataProviderParams.pm_GetLockPath
 
 procedure ThtDataProviderParams.pm_SetLockPath(const aValue: AnsiString);
-//#UC START# *CD710F71E829_54F9AF6B00DDset_var*
-//#UC END# *CD710F71E829_54F9AF6B00DDset_var*
 begin
-//#UC START# *CD710F71E829_54F9AF6B00DDset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CD710F71E829_54F9AF6B00DDset_impl*
+ TaggedData.StrW[k2_attrLockPath, nil] := (aValue);
 end;//ThtDataProviderParams.pm_SetLockPath
 
 function ThtDataProviderParams.MakePathRec: TPathRec;
@@ -141,15 +117,6 @@ begin
  Result.DocsPath := DocStoragePath;
 //#UC END# *55114DCA0351_54F9AF6B00DD_impl*
 end;//ThtDataProviderParams.MakePathRec
-
-class function ThtDataProviderParams.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54F9AF6B00DD_var*
-//#UC END# *53AC03EE01FD_54F9AF6B00DD_var*
-begin
-//#UC START# *53AC03EE01FD_54F9AF6B00DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54F9AF6B00DD_impl*
-end;//ThtDataProviderParams.GetTaggedDataType
 
 procedure ThtDataProviderParams.ChangeBasePath(const aPath: AnsiString);
 //#UC START# *55195AE803E0_54F9AF6B00DD_var*
@@ -179,5 +146,10 @@ begin
  end;
 //#UC END# *553A37E902C9_54F9AF6B00DD_impl*
 end;//ThtDataProviderParams.AssignParams
+
+class function ThtDataProviderParams.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typHyTechProviderParams;
+end;//ThtDataProviderParams.GetTaggedDataType
 
 end.

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuAutoExportTaskResult;
+unit alcuAutoExportTaskResult;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuAutoExportTaskResult.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskResult.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuAutoExportTaskResult" MUID: (54001C560310)
 
@@ -43,48 +43,32 @@ uses
 ;
 
 function TalcuAutoExportTaskResult.pm_GetReportMessage: AnsiString;
-//#UC START# *EB77B4B1C662_54001C560310get_var*
-//#UC END# *EB77B4B1C662_54001C560310get_var*
 begin
-//#UC START# *EB77B4B1C662_54001C560310get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EB77B4B1C662_54001C560310get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrReportMessage]);
 end;//TalcuAutoExportTaskResult.pm_GetReportMessage
 
 procedure TalcuAutoExportTaskResult.pm_SetReportMessage(const aValue: AnsiString);
-//#UC START# *EB77B4B1C662_54001C560310set_var*
-//#UC END# *EB77B4B1C662_54001C560310set_var*
 begin
-//#UC START# *EB77B4B1C662_54001C560310set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EB77B4B1C662_54001C560310set_impl*
+ TaggedData.StrW[k2_attrReportMessage, nil] := (aValue);
 end;//TalcuAutoExportTaskResult.pm_SetReportMessage
 
 function TalcuAutoExportTaskResult.pm_GetIsSuccess: Boolean;
-//#UC START# *2004A146699E_54001C560310get_var*
-//#UC END# *2004A146699E_54001C560310get_var*
 begin
-//#UC START# *2004A146699E_54001C560310get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2004A146699E_54001C560310get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsSuccess]);
 end;//TalcuAutoExportTaskResult.pm_GetIsSuccess
 
 procedure TalcuAutoExportTaskResult.pm_SetIsSuccess(aValue: Boolean);
-//#UC START# *2004A146699E_54001C560310set_var*
-//#UC END# *2004A146699E_54001C560310set_var*
 begin
-//#UC START# *2004A146699E_54001C560310set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2004A146699E_54001C560310set_impl*
+ TaggedData.BoolW[k2_attrIsSuccess, nil] := (aValue);
 end;//TalcuAutoExportTaskResult.pm_SetIsSuccess
 
 class function TalcuAutoExportTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54001C560310_var*
-//#UC END# *53AC03EE01FD_54001C560310_var*
 begin
-//#UC START# *53AC03EE01FD_54001C560310_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54001C560310_impl*
+ Result := k2_typAutoExportTaskResult;
 end;//TalcuAutoExportTaskResult.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

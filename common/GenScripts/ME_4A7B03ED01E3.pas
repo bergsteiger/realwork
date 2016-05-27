@@ -17,6 +17,11 @@
     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    function CanBeChanged: Boolean; virtual; abstract;
     {* Может ли документ быть изменён }
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Document_CompareEditions_Test(const aParams: IvcmTestParamsPrim);
     {* Сравнение редакций }
@@ -108,8 +113,22 @@ begin
   State := vcm_DefaultOperationState;
 //#UC END# *4C7BAEB4010E_4A7B03ED01E3getstate_impl*
 end;//_WorkWithRedactions_.Document_CompareEditions_GetState
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _WorkWithRedactions_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Document, nil);
+  PublishOp(en_Document, op_CompareEditions, Document_CompareEditions_Execute, Document_CompareEditions_Test, Document_CompareEditions_GetState);
+ end;//with Entities.Entities
+end;//_WorkWithRedactions_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf WorkWithRedactions_imp_impl}
 
 {$EndIf WorkWithRedactions_imp}

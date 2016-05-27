@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_pgDataProviderParams;
+unit pgDataProviderParams;
 
-// Модуль: "w:\common\components\rtl\Garant\PG\NOT_COMPLETED_pgDataProviderParams.pas"
+// Модуль: "w:\common\components\rtl\Garant\PG\pgDataProviderParams.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TpgDataProviderParams" MUID: (55D6CFA5009E)
 
@@ -23,8 +23,8 @@ type
    function pm_GetDataServerPort: Integer;
    procedure pm_SetDataServerPort(aValue: Integer);
   public
-   class function GetTaggedDataType: Tk2Type; override;
    procedure AssignParams(aParams: TdaDataProviderParams); override;
+   class function GetTaggedDataType: Tk2Type; override;
   public
    property DataServerHostName: AnsiString
     read pm_GetDataServerHostName
@@ -44,49 +44,28 @@ uses
 ;
 
 function TpgDataProviderParams.pm_GetDataServerHostName: AnsiString;
-//#UC START# *E83633B0ED06_55D6CFA5009Eget_var*
-//#UC END# *E83633B0ED06_55D6CFA5009Eget_var*
 begin
-//#UC START# *E83633B0ED06_55D6CFA5009Eget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E83633B0ED06_55D6CFA5009Eget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDataServerHostName]);
 end;//TpgDataProviderParams.pm_GetDataServerHostName
 
 procedure TpgDataProviderParams.pm_SetDataServerHostName(const aValue: AnsiString);
-//#UC START# *E83633B0ED06_55D6CFA5009Eset_var*
-//#UC END# *E83633B0ED06_55D6CFA5009Eset_var*
 begin
-//#UC START# *E83633B0ED06_55D6CFA5009Eset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E83633B0ED06_55D6CFA5009Eset_impl*
+ TaggedData.StrW[k2_attrDataServerHostName, nil] := (aValue);
 end;//TpgDataProviderParams.pm_SetDataServerHostName
 
 function TpgDataProviderParams.pm_GetDataServerPort: Integer;
-//#UC START# *1BA3D1428743_55D6CFA5009Eget_var*
-//#UC END# *1BA3D1428743_55D6CFA5009Eget_var*
 begin
-//#UC START# *1BA3D1428743_55D6CFA5009Eget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1BA3D1428743_55D6CFA5009Eget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrDataServerPort]);
 end;//TpgDataProviderParams.pm_GetDataServerPort
 
 procedure TpgDataProviderParams.pm_SetDataServerPort(aValue: Integer);
-//#UC START# *1BA3D1428743_55D6CFA5009Eset_var*
-//#UC END# *1BA3D1428743_55D6CFA5009Eset_var*
 begin
-//#UC START# *1BA3D1428743_55D6CFA5009Eset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1BA3D1428743_55D6CFA5009Eset_impl*
+ TaggedData.IntW[k2_attrDataServerPort, nil] := (aValue);
 end;//TpgDataProviderParams.pm_SetDataServerPort
-
-class function TpgDataProviderParams.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_55D6CFA5009E_var*
-//#UC END# *53AC03EE01FD_55D6CFA5009E_var*
-begin
-//#UC START# *53AC03EE01FD_55D6CFA5009E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_55D6CFA5009E_impl*
-end;//TpgDataProviderParams.GetTaggedDataType
 
 procedure TpgDataProviderParams.AssignParams(aParams: TdaDataProviderParams);
 //#UC START# *553A37E902C9_55D6CFA5009E_var*
@@ -101,6 +80,11 @@ begin
  end;
 //#UC END# *553A37E902C9_55D6CFA5009E_impl*
 end;//TpgDataProviderParams.AssignParams
+
+class function TpgDataProviderParams.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typPostgresProviderParams;
+end;//TpgDataProviderParams.GetTaggedDataType
 {$IfEnd} // Defined(UsePostgres)
 
 end.

@@ -30,6 +30,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -113,6 +116,50 @@ type
     read f_BottomPanel;
    property Info: InsUserProperty
     read f_Info;
+   property UserNameLabel: TvtLabel
+    read f_UserNameLabel;
+    {* ФИО пользователя: }
+   property PasswordLabel: TvtLabel
+    read f_PasswordLabel;
+    {* Пароль: }
+   property LoginLabel: TvtLabel
+    read f_LoginLabel;
+    {* Регистрационное имя: }
+   property InfoLabel: TvtLabel
+    read f_InfoLabel;
+    {* * - поля, обязательные для заполнения }
+   property EMailLabel: TvtLabel
+    read f_EMailLabel;
+    {* Электронная почта: }
+   property ConfirmPasswordLabel: TvtLabel
+    read f_ConfirmPasswordLabel;
+    {* Подтверждение пароля: }
+   property vtAsteriskLabelLogin: TvtLabel
+    read f_vtAsteriskLabelLogin;
+    {* * }
+   property vtAsteriskLabelFIO: TvtLabel
+    read f_vtAsteriskLabelFIO;
+    {* * }
+   property edPassword: TnscComboBoxWithPwdChar
+    read f_edPassword;
+   property edUserName: TnscEdit
+    read f_edUserName;
+   property edLogin: TnscEdit
+    read f_edLogin;
+   property edEmail: TnscEdit
+    read f_edEmail;
+   property edConfirm: TnscComboBoxWithPwdChar
+    read f_edConfirm;
+   property RegisterButton: TElPopupButton
+    read f_RegisterButton;
+    {* Сохранить }
+   property HelpPanel: TvtPanel
+    read f_HelpPanel;
+   property HelpPaintBox: TPaintBox
+    read f_HelpPaintBox;
+   property HelpLabel: TvtFocusLabel
+    read f_HelpLabel;
+    {* Помощь }
  end;//TPrimSelfInfoForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -144,6 +191,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -619,27 +672,35 @@ begin
  f_UserNameLabel := TvtLabel.Create(Self);
  f_UserNameLabel.Name := 'UserNameLabel';
  f_UserNameLabel.Parent := pnMainData;
+ f_UserNameLabel.Caption := 'ФИО пользователя:';
  f_PasswordLabel := TvtLabel.Create(Self);
  f_PasswordLabel.Name := 'PasswordLabel';
  f_PasswordLabel.Parent := pnMainData;
+ f_PasswordLabel.Caption := 'Пароль:';
  f_LoginLabel := TvtLabel.Create(Self);
  f_LoginLabel.Name := 'LoginLabel';
  f_LoginLabel.Parent := pnMainData;
+ f_LoginLabel.Caption := 'Регистрационное имя:';
  f_InfoLabel := TvtLabel.Create(Self);
  f_InfoLabel.Name := 'InfoLabel';
  f_InfoLabel.Parent := pnMainData;
+ f_InfoLabel.Caption := '* - поля, обязательные для заполнения';
  f_EMailLabel := TvtLabel.Create(Self);
  f_EMailLabel.Name := 'EMailLabel';
  f_EMailLabel.Parent := pnMainData;
+ f_EMailLabel.Caption := 'Электронная почта:';
  f_ConfirmPasswordLabel := TvtLabel.Create(Self);
  f_ConfirmPasswordLabel.Name := 'ConfirmPasswordLabel';
  f_ConfirmPasswordLabel.Parent := pnMainData;
+ f_ConfirmPasswordLabel.Caption := 'Подтверждение пароля:';
  f_vtAsteriskLabelLogin := TvtLabel.Create(Self);
  f_vtAsteriskLabelLogin.Name := 'vtAsteriskLabelLogin';
  f_vtAsteriskLabelLogin.Parent := pnMainData;
+ f_vtAsteriskLabelLogin.Caption := '*';
  f_vtAsteriskLabelFIO := TvtLabel.Create(Self);
  f_vtAsteriskLabelFIO.Name := 'vtAsteriskLabelFIO';
  f_vtAsteriskLabelFIO.Parent := pnMainData;
+ f_vtAsteriskLabelFIO.Caption := '*';
  f_edPassword := TnscComboBoxWithPwdChar.Create(Self);
  f_edPassword.Name := 'edPassword';
  f_edPassword.Parent := pnMainData;
@@ -661,6 +722,7 @@ begin
  f_RegisterButton := TElPopupButton.Create(Self);
  f_RegisterButton.Name := 'RegisterButton';
  f_RegisterButton.Parent := BottomPanel;
+ f_RegisterButton.Caption := 'Сохранить';
  f_HelpPanel := TvtPanel.Create(Self);
  f_HelpPanel.Name := 'HelpPanel';
  f_HelpPanel.Parent := BottomPanel;
@@ -670,6 +732,7 @@ begin
  f_HelpLabel := TvtFocusLabel.Create(Self);
  f_HelpLabel.Name := 'HelpLabel';
  f_HelpLabel.Parent := HelpPanel;
+ f_HelpLabel.Caption := 'Помощь';
 end;//TPrimSelfInfoForm.MakeControls
 
 initialization

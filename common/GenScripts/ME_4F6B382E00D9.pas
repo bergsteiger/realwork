@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_MainPrim_Form;
+unit MainPrim_Form;
 
-// Модуль: "w:\common\components\gui\Garant\VCM\View\NOT_COMPLETED_MainPrim_Form.pas"
+// Модуль: "w:\common\components\gui\Garant\VCM\View\MainPrim_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "MainPrim" MUID: (4F6B382E00D9)
 // Имя типа: "TMainPrimForm"
@@ -39,23 +39,16 @@ uses
  , vcmMainForm
  {$IfEnd} // NOT Defined(NoVCM)
  , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
-
-type
- // LeftNavigatorZone
-
- // RightNavigatorZone
-
- // ChildZone
-
- // ParentZone
-
- // BaseSeachZone
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Define HasRightNavigator}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+type
  TMainPrimForm = class({$If NOT Defined(NoVCM)}
  TOfficeLikeMainForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -155,13 +148,18 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Common_ShowSplitter_Execute(aVisible: Boolean);
-   procedure Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+   procedure Common_ShowSplitter(const aParams: IvcmExecuteParams);
    procedure Common_CheckChildZone_Execute(aToggle: Boolean);
-   procedure Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
+   procedure Common_CheckChildZone(const aParams: IvcmExecuteParams);
    {$If NOT Defined(NoVCM)}
    procedure Common_OpenNewWindowByUser_Test(const aParams: IvcmTestParamsPrim);
    {$IfEnd} // NOT Defined(NoVCM)
@@ -204,6 +202,20 @@ type
     read f_StatusBar;
    property ClientZone: TvtPanel
     read f_ClientZone;
+   property MainZone: TvtProportionalPanel
+    read f_MainZone;
+   property ParentZonePanel: TvtPanel
+    read f_ParentZonePanel;
+   property ChildZonePanel: TvtSizeablePanel
+    read f_ChildZonePanel;
+   property BaseSearchPanel: TvtPanel
+    read f_BaseSearchPanel;
+   property LeftNavigator: TnscNavigator
+    read f_LeftNavigator;
+   {$If Defined(HasRightNavigator)}
+   property RightNavigator: TnscNavigator
+    read f_RightNavigator;
+   {$IfEnd} // Defined(HasRightNavigator)
  end;//TMainPrimForm
 
 implementation
@@ -240,6 +252,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , F1Like_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -668,7 +683,7 @@ begin
 //#UC END# *4AE8744002F3_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_ShowSplitter_Execute
 
-procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParamsPrim);
+procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ICommon_ShowSplitter_Params) do
   Self.Common_ShowSplitter_Execute(Visible);
@@ -697,7 +712,7 @@ begin
 //#UC END# *4AE8777F01A3_4F6B382E00D9exec_impl*
 end;//TMainPrimForm.Common_CheckChildZone_Execute
 
-procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParamsPrim);
+procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ICommon_CheckChildZone_Params) do
   Self.Common_CheckChildZone_Execute(Toggle);
@@ -1128,6 +1143,25 @@ begin
  inherited;
 end;//TMainPrimForm.ClearFields
 
+procedure TMainPrimForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Common, nil);
+  PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
+  PublishOpWithResult(en_Common, op_CheckChildZone, Common_CheckChildZone, nil, nil);
+  PublishOp(en_Common, op_OpenNewWindowByUser, Common_OpenNewWindowByUser_Execute, Common_OpenNewWindowByUser_Test, nil);
+  PublishOp(en_Common, op_GetWindowList, Common_GetWindowList_Execute, Common_GetWindowList_Test, nil);
+  PublishOp(en_Common, op_CascadeWindows, Common_CascadeWindows_Execute, Common_CascadeWindows_Test, nil);
+  PublishOp(en_Common, op_TileWindowsHorizontal, Common_TileWindowsHorizontal_Execute, Common_TileWindowsHorizontal_Test, nil);
+  PublishOp(en_Common, op_TileWindowsVertical, Common_TileWindowsVertical_Execute, Common_TileWindowsVertical_Test, nil);
+  PublishOp(en_Common, op_CloseAllWindows, Common_CloseAllWindows_Execute, Common_CloseAllWindows_Test, nil);
+ end;//with Entities.Entities
+end;//TMainPrimForm.InitEntities
+
 procedure TMainPrimForm.MakeControls;
 begin
  inherited;
@@ -1146,7 +1180,9 @@ begin
  with DefineZone(vcm_ztParent, f_ParentZonePanel) do
  begin
   //#UC START# *4F6B3F20007B*
-  !!!
+  FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
+  FormStyle.Toolbars.Bottom.ImageSize := isLarge;
+  Self.TasksPanelZone := Index;
   //#UC END# *4F6B3F20007B*
  end;//with DefineZone(vcm_ztParent
  f_ChildZonePanel := TvtSizeablePanel.Create(Self);
@@ -1168,7 +1204,12 @@ begin
  begin
   CanClose := vcm_ccEnable;
   //#UC START# *4F6B38FB0206*
-  !!!
+  CanUndock := True;
+  //CanClose = vcm_ccEnable
+  FormStyle.Toolbars.Left.ImageSize := isSmall;
+  FormStyle.Toolbars.Right.ImageSize := isSmall;
+  FormStyle.Toolbars.Top.ImageSize := isSmall;
+  FormStyle.Toolbars.Bottom.ImageSize := isSmall;
   //#UC END# *4F6B38FB0206*
  end;//with DefineZone(vcm_ztNavigator
 {$If Defined(HasRightNavigator)}
@@ -1179,7 +1220,12 @@ begin
  begin
   CanClose := vcm_ccEnable;
   //#UC START# *4F6B391B022C*
-  !!!
+  CanUndock := True;
+  //CanClose = vcm_ccEnable
+  FormStyle.Toolbars.Left.ImageSize := isSmall;
+  FormStyle.Toolbars.Right.ImageSize := isSmall;
+  FormStyle.Toolbars.Top.ImageSize := isSmall;
+  FormStyle.Toolbars.Bottom.ImageSize := isSmall;
   //#UC END# *4F6B391B022C*
  end;//with DefineZone(vcm_ztNavigator
 {$IfEnd} // Defined(HasRightNavigator)

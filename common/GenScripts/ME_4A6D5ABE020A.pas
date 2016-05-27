@@ -24,8 +24,14 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , evSubWaiter
  , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -83,23 +89,32 @@ type
    procedure BecomeVisible; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure RightEdition_ReturnToDocument_Execute;
     {* Вернуться в текст документа }
-   procedure RightEdition_ReturnToDocument(const aParams: IvcmExecuteParamsPrim);
+   procedure RightEdition_ReturnToDocument(const aParams: IvcmExecuteParams);
     {* Вернуться в текст документа }
    procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
    function Document_GetParaForPositionning_Execute: IeeLeafPara;
-   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
    procedure RightEdition_SetFocusToText_Execute;
     {* Устанавливает фокус тексту }
-   procedure RightEdition_SetFocusToText(const aParams: IvcmExecuteParamsPrim);
+   procedure RightEdition_SetFocusToText(const aParams: IvcmExecuteParams);
     {* Устанавливает фокус тексту }
    function RightEdition_IsCurrentPara_Execute(aPara: Integer): Boolean;
     {* Является ли параграф текущим }
-   procedure RightEdition_IsCurrentPara(const aParams: IvcmExecuteParamsPrim);
+   procedure RightEdition_IsCurrentPara(const aParams: IvcmExecuteParams);
     {* Является ли параграф текущим }
    {$If NOT Defined(NoVCM)}
    function NeedSetMyFocus: Boolean; override;
@@ -306,7 +321,7 @@ begin
 //#UC END# *4B1E3833024A_4A6D5ABE020Aexec_impl*
 end;//TPrimRightEditionForm.RightEdition_ReturnToDocument_Execute
 
-procedure TPrimRightEditionForm.RightEdition_ReturnToDocument(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRightEditionForm.RightEdition_ReturnToDocument(const aParams: IvcmExecuteParams);
  {* Вернуться в текст документа }
 begin
  Self.RightEdition_ReturnToDocument_Execute;
@@ -330,7 +345,7 @@ begin
 //#UC END# *4B506F4D0196_4A6D5ABE020Aexec_impl*
 end;//TPrimRightEditionForm.Document_GetParaForPositionning_Execute
 
-procedure TPrimRightEditionForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRightEditionForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetParaForPositionning_Params) do
   ResultValue := Self.Document_GetParaForPositionning_Execute;
@@ -386,7 +401,7 @@ begin
 //#UC END# *4B69B5A802C2_4A6D5ABE020Aexec_impl*
 end;//TPrimRightEditionForm.RightEdition_SetFocusToText_Execute
 
-procedure TPrimRightEditionForm.RightEdition_SetFocusToText(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRightEditionForm.RightEdition_SetFocusToText(const aParams: IvcmExecuteParams);
  {* Устанавливает фокус тексту }
 begin
  Self.RightEdition_SetFocusToText_Execute;
@@ -411,7 +426,7 @@ begin
 //#UC END# *4B6AF2A502AE_4A6D5ABE020Aexec_impl*
 end;//TPrimRightEditionForm.RightEdition_IsCurrentPara_Execute
 
-procedure TPrimRightEditionForm.RightEdition_IsCurrentPara(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimRightEditionForm.RightEdition_IsCurrentPara(const aParams: IvcmExecuteParams);
  {* Является ли параграф текущим }
 begin
  with (aParams.Data As IRightEdition_IsCurrentPara_Params) do
@@ -541,6 +556,32 @@ begin
  Result := true;
 //#UC END# *501174B10018_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.GetIsMainObjectForm
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRightEditionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimRightEditionForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimRightEditionForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_RightEdition, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishOpWithResult(en_RightEdition, op_ReturnToDocument, RightEdition_ReturnToDocument, nil, nil);
+  PublishOpWithResult(en_Document, op_GetParaForPositionning, Document_GetParaForPositionning, Document_GetParaForPositionning_Test, nil);
+  PublishOpWithResult(en_RightEdition, op_SetFocusToText, RightEdition_SetFocusToText, nil, nil);
+  PublishOpWithResult(en_RightEdition, op_IsCurrentPara, RightEdition_IsCurrentPara, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimRightEditionForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}

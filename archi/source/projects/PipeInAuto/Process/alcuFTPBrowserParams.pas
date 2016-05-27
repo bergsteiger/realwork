@@ -66,7 +66,6 @@ implementation
 uses
  l3ImplUses
  , IdAssignedNumbers
- , FTPBrowser_Const
  , SysUtils
  , evdNativeWriter
  , l3Filer
@@ -74,143 +73,98 @@ uses
  , k2TagGen
  , evdNativeReader
  , k2DocumentBuffer
+ , FTPBrowser_Const
 ;
 
 {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TalcuFTPBrowserParams.pm_GetServerName: AnsiString;
-//#UC START# *202E75514D0E_54041EBF03C6get_var*
-//#UC END# *202E75514D0E_54041EBF03C6get_var*
 begin
-//#UC START# *202E75514D0E_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *202E75514D0E_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrServerName]);
 end;//TalcuFTPBrowserParams.pm_GetServerName
 
 procedure TalcuFTPBrowserParams.pm_SetServerName(const aValue: AnsiString);
-//#UC START# *202E75514D0E_54041EBF03C6set_var*
-//#UC END# *202E75514D0E_54041EBF03C6set_var*
 begin
-//#UC START# *202E75514D0E_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *202E75514D0E_54041EBF03C6set_impl*
+ TaggedData.StrW[k2_attrServerName, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetServerName
 
 function TalcuFTPBrowserParams.pm_GetPort: Integer;
-//#UC START# *073FDA93F8D8_54041EBF03C6get_var*
-//#UC END# *073FDA93F8D8_54041EBF03C6get_var*
 begin
-//#UC START# *073FDA93F8D8_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *073FDA93F8D8_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrPort]);
 end;//TalcuFTPBrowserParams.pm_GetPort
 
 procedure TalcuFTPBrowserParams.pm_SetPort(aValue: Integer);
-//#UC START# *073FDA93F8D8_54041EBF03C6set_var*
-//#UC END# *073FDA93F8D8_54041EBF03C6set_var*
 begin
-//#UC START# *073FDA93F8D8_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *073FDA93F8D8_54041EBF03C6set_impl*
+ TaggedData.IntW[k2_attrPort, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetPort
 
 function TalcuFTPBrowserParams.pm_GetLogin: AnsiString;
-//#UC START# *20C2D44F4133_54041EBF03C6get_var*
-//#UC END# *20C2D44F4133_54041EBF03C6get_var*
 begin
-//#UC START# *20C2D44F4133_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *20C2D44F4133_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLogin]);
 end;//TalcuFTPBrowserParams.pm_GetLogin
 
 procedure TalcuFTPBrowserParams.pm_SetLogin(const aValue: AnsiString);
-//#UC START# *20C2D44F4133_54041EBF03C6set_var*
-//#UC END# *20C2D44F4133_54041EBF03C6set_var*
 begin
-//#UC START# *20C2D44F4133_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *20C2D44F4133_54041EBF03C6set_impl*
+ TaggedData.StrW[k2_attrLogin, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetLogin
 
 function TalcuFTPBrowserParams.pm_GetPassword: AnsiString;
-//#UC START# *C2C175FB652C_54041EBF03C6get_var*
-//#UC END# *C2C175FB652C_54041EBF03C6get_var*
 begin
-//#UC START# *C2C175FB652C_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C2C175FB652C_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrPassword]);
 end;//TalcuFTPBrowserParams.pm_GetPassword
 
 procedure TalcuFTPBrowserParams.pm_SetPassword(const aValue: AnsiString);
-//#UC START# *C2C175FB652C_54041EBF03C6set_var*
-//#UC END# *C2C175FB652C_54041EBF03C6set_var*
 begin
-//#UC START# *C2C175FB652C_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C2C175FB652C_54041EBF03C6set_impl*
+ TaggedData.StrW[k2_attrPassword, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetPassword
 
 function TalcuFTPBrowserParams.pm_GetPassiveMode: Boolean;
-//#UC START# *7DA33908BCEC_54041EBF03C6get_var*
-//#UC END# *7DA33908BCEC_54041EBF03C6get_var*
 begin
-//#UC START# *7DA33908BCEC_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7DA33908BCEC_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrPassiveMode]);
 end;//TalcuFTPBrowserParams.pm_GetPassiveMode
 
 procedure TalcuFTPBrowserParams.pm_SetPassiveMode(aValue: Boolean);
-//#UC START# *7DA33908BCEC_54041EBF03C6set_var*
-//#UC END# *7DA33908BCEC_54041EBF03C6set_var*
 begin
-//#UC START# *7DA33908BCEC_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7DA33908BCEC_54041EBF03C6set_impl*
+ TaggedData.BoolW[k2_attrPassiveMode, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetPassiveMode
 
 function TalcuFTPBrowserParams.pm_GetRemoteFolder: AnsiString;
-//#UC START# *78091B6DF190_54041EBF03C6get_var*
-//#UC END# *78091B6DF190_54041EBF03C6get_var*
 begin
-//#UC START# *78091B6DF190_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *78091B6DF190_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrRemoteFolder]);
 end;//TalcuFTPBrowserParams.pm_GetRemoteFolder
 
 procedure TalcuFTPBrowserParams.pm_SetRemoteFolder(const aValue: AnsiString);
-//#UC START# *78091B6DF190_54041EBF03C6set_var*
-//#UC END# *78091B6DF190_54041EBF03C6set_var*
 begin
-//#UC START# *78091B6DF190_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *78091B6DF190_54041EBF03C6set_impl*
+ TaggedData.StrW[k2_attrRemoteFolder, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetRemoteFolder
 
 function TalcuFTPBrowserParams.pm_GetLogTitle: AnsiString;
-//#UC START# *D5E5C41ACD4D_54041EBF03C6get_var*
-//#UC END# *D5E5C41ACD4D_54041EBF03C6get_var*
 begin
-//#UC START# *D5E5C41ACD4D_54041EBF03C6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5E5C41ACD4D_54041EBF03C6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrLogTitle]);
 end;//TalcuFTPBrowserParams.pm_GetLogTitle
 
 procedure TalcuFTPBrowserParams.pm_SetLogTitle(const aValue: AnsiString);
-//#UC START# *D5E5C41ACD4D_54041EBF03C6set_var*
-//#UC END# *D5E5C41ACD4D_54041EBF03C6set_var*
 begin
-//#UC START# *D5E5C41ACD4D_54041EBF03C6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5E5C41ACD4D_54041EBF03C6set_impl*
+ TaggedData.StrW[k2_attrLogTitle, nil] := (aValue);
 end;//TalcuFTPBrowserParams.pm_SetLogTitle
 
 class function TalcuFTPBrowserParams.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_54041EBF03C6_var*
-//#UC END# *53AC03EE01FD_54041EBF03C6_var*
 begin
-//#UC START# *53AC03EE01FD_54041EBF03C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_54041EBF03C6_impl*
+ Result := k2_typFTPBrowser;
 end;//TalcuFTPBrowserParams.GetTaggedDataType
 
 procedure TalcuFTPBrowserParams.InitFields;

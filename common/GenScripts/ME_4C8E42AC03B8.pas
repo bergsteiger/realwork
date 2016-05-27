@@ -12,6 +12,8 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
+ , vcmExternalInterfaces
+ , vcmEntityForm
 ;
 
 type
@@ -27,6 +29,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , StdRes
 ;
 
 initialization

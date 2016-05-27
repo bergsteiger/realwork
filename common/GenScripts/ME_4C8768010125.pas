@@ -42,6 +42,11 @@ type
    function pm_GetBitmapForPrint: Graphics_Bitmap; override;
    function Name: Il3CString; override;
    function ShortName: Il3CString; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
@@ -111,6 +116,9 @@ uses
  , nsObjectPreview
  , nevBase
  , nsHAFPainter
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
@@ -390,6 +398,31 @@ begin
  Result := f_Info.ShortName;
 //#UC END# *4CDAD29D0169_4C8768010125_impl*
 end;//TPrimPictureOptionsForm.ShortName
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimPictureOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Edit, nil);
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Picture, nil);
+  PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
+  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  PublishOp(en_Picture, op_Resize, Picture_Resize_Execute, Picture_Resize_Test, nil);
+  PublishOp(en_Picture, op_Enlarge, Picture_Enlarge_Execute, Picture_Enlarge_Test, nil);
+  PublishOp(en_Picture, op_Shrink, Picture_Shrink_Execute, Picture_Shrink_Test, nil);
+  PublishOp(en_Picture, op_ActualSize, Picture_ActualSize_Execute, Picture_ActualSize_Test, nil);
+  PublishOp(en_Picture, op_FitInWIndow, Picture_FitInWIndow_Execute, Picture_FitInWIndow_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimPictureOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

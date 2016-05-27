@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_StyleEditorNavigatorForm.SetFactory(TStyleEditorNavigatorForm.Make);
+ {* Регистрация фабрики формы StyleEditorNavigator }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TStyleEditorNavigatorForm);
  {* Регистрация StyleEditorNavigator }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_StyleEditorNavigatorForm.SetFactory(TStyleEditorNavigatorForm.Make);
- {* Регистрация фабрики формы StyleEditorNavigator }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -56,12 +56,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_WorkJournalForm.SetFactory(TWorkJournalForm.Make);
+ {* Регистрация фабрики формы WorkJournal }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TWorkJournalForm);
  {* Регистрация WorkJournal }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_WorkJournalForm.SetFactory(TWorkJournalForm.Make);
- {* Регистрация фабрики формы WorkJournal }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

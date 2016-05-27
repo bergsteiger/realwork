@@ -125,6 +125,11 @@ type
   public
    property pnlMain: TvtPanel
     read f_pnlMain;
+   property hfLastOpenDocs: TnscHideField
+    read f_hfLastOpenDocs;
+    {* Последние открытые документы }
+   property tvLastOpenDocs: TnscTreeViewHotTruck
+    read f_tvLastOpenDocs;
  end;//TPrimMainMenuForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -524,6 +529,7 @@ begin
  f_hfLastOpenDocs := TnscHideField.Create(Self);
  f_hfLastOpenDocs.Name := 'hfLastOpenDocs';
  f_hfLastOpenDocs.Parent := pnlMain;
+ f_hfLastOpenDocs.Caption := 'Последние открытые документы';
  f_tvLastOpenDocs := TnscTreeViewHotTruck.Create(Self);
  f_tvLastOpenDocs.Name := 'tvLastOpenDocs';
  f_tvLastOpenDocs.Parent := hfLastOpenDocs;

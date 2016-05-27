@@ -50,10 +50,10 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  , MemoryUsage_ut_MemoryUsage_UserType
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , MemoryUsageKeywordsPack
@@ -88,14 +88,14 @@ end;//TMemoryUsageForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ut_MemoryUsageCaption.Init;
+ {* Инициализация str_ut_MemoryUsageCaption }
+ fm_MemoryUsageForm.SetFactory(TMemoryUsageForm.Make);
+ {* Регистрация фабрики формы MemoryUsage }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMemoryUsageForm);
  {* Регистрация MemoryUsage }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_MemoryUsageForm.SetFactory(TMemoryUsageForm.Make);
- {* Регистрация фабрики формы MemoryUsage }
- str_ut_MemoryUsageCaption.Init;
- {* Инициализация str_ut_MemoryUsageCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

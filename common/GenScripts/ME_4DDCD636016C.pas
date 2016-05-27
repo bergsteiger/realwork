@@ -29,6 +29,9 @@ uses
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , NavigationInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_View_Controls
  , Search_Strange_Controls
  , nevBase
@@ -38,9 +41,6 @@ uses
  , afwInterfaces
  , nevNavigation
  , afwNavigation
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -146,20 +146,29 @@ type
    function ContinueSearchInWholeBase: Boolean; override;
    function GetRedactionOnLeftEdition: Integer; override;
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    function Document_SetPosition_Execute(aPointID: Cardinal;
     aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
-   procedure Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_SetPosition(const aParams: IvcmExecuteParams);
    procedure Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
     {* Вернуться в текст документа }
    procedure Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Вернуться в текст документа }
    procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
    function Document_GetParaForPositionning_Execute: IeeLeafPara;
-   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
  end;//TPrimChangesBetweenEditonsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -546,7 +555,7 @@ begin
 //#UC END# *4AE9D38A02DA_4DDCD636016Cexec_impl*
 end;//TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute
 
-procedure TPrimChangesBetweenEditonsForm.Document_SetPosition(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimChangesBetweenEditonsForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetPosition_Params) do
   ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
@@ -601,7 +610,7 @@ begin
 //#UC END# *4B506F4D0196_4DDCD636016Cexec_impl*
 end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Execute
 
-procedure TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetParaForPositionning_Params) do
   ResultValue := Self.Document_GetParaForPositionning_Execute;
@@ -691,6 +700,27 @@ begin
  end;//l_LeftEdition <> nil
 //#UC END# *4F2BEF740060_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.GetRedactionOnLeftEdition
+
+procedure TPrimChangesBetweenEditonsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimChangesBetweenEditonsForm.SignalDataSourceChanged
+
+procedure TPrimChangesBetweenEditonsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Document, nil);
+  PublishFormEntity(en_Edition, nil);
+  PublishOpWithResult(en_Document, op_SetPosition, Document_SetPosition, nil, nil);
+  PublishOp(en_Edition, op_ReturnToDocument, Edition_ReturnToDocument_Execute, Edition_ReturnToDocument_Test, nil);
+  PublishOpWithResult(en_Document, op_GetParaForPositionning, Document_GetParaForPositionning, Document_GetParaForPositionning_Test, nil);
+ end;//with Entities.Entities
+end;//TPrimChangesBetweenEditonsForm.InitEntities
 
 procedure TPrimChangesBetweenEditonsForm.MakeControls;
 begin

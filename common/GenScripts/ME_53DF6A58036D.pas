@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_alcuHavanskyExportTaskPrim;
+unit alcuHavanskyExportTaskPrim;
 
-// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_COMPLETED_alcuHavanskyExportTaskPrim.pas"
+// Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
 // Элемент модели: "TalcuHavanskyExportTaskPrim" MUID: (53DF6A58036D)
 
@@ -31,12 +31,8 @@ uses
 ;
 
 class function TalcuHavanskyExportTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53DF6A58036D_var*
-//#UC END# *53AC03EE01FD_53DF6A58036D_var*
 begin
-//#UC START# *53AC03EE01FD_53DF6A58036D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53DF6A58036D_impl*
+ Result := k2_typHavanskyExportTask;
 end;//TalcuHavanskyExportTaskPrim.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks) AND Defined(HavanskyExport)
 

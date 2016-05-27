@@ -41,12 +41,12 @@ uses
 {$R *.DFM}
 
 initialization
+ fm_efTreeAttributeFirstLevel.SetFactory(TefTreeAttributeFirstLevel.Make);
+ {* Регистрация фабрики формы TreeAttributeFirstLevel }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefTreeAttributeFirstLevel);
  {* Регистрация TreeAttributeFirstLevel }
 {$IfEnd} // NOT Defined(NoScripts)
- fm_efTreeAttributeFirstLevel.SetFactory(TefTreeAttributeFirstLevel.Make);
- {* Регистрация фабрики формы TreeAttributeFirstLevel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

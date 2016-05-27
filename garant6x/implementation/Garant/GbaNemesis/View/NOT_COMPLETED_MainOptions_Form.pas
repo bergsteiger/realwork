@@ -78,6 +78,11 @@ type
    procedure DoInitContainedForm(aForm: TvcmMainForm); override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
    {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -116,6 +121,10 @@ type
   public
    property RemindersLine: TnscRemindersLine
     read f_RemindersLine;
+   property ControlledChangingWarning: TnscReminder
+    read f_ControlledChangingWarning;
+   property remUnreadConsultations: TnscReminder
+    read f_remUnreadConsultations;
  end;//TMainOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -161,6 +170,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 var g_InternerMapStrings: IvcmStrings = nil;
@@ -594,6 +606,37 @@ begin
 //#UC END# *546464260137_4C8A29700261_impl*
 end;//TMainOptionsForm.DoInitContainedForm
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Fonts, nil);
+  PublishFormEntity(en_Help, nil);
+  PublishFormEntity(en_System, nil);
+  PublishFormEntity(en_WarnOnControl, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  PublishOp(en_Fonts, op_IncreaseFont, Fonts_IncreaseFont_Execute, Fonts_IncreaseFont_Test, nil);
+  PublishOp(en_Fonts, op_DecreaseFont, Fonts_DecreaseFont_Execute, Fonts_DecreaseFont_Test, nil);
+  PublishOp(en_Help, op_HotInformation, Help_HotInformation_Execute, Help_HotInformation_Test, nil);
+  PublishOp(en_Help, op_HelpShortCuts, Help_HelpShortCuts_Execute, nil, nil);
+  PublishOp(en_Help, op_HelpNewFeatures, Help_HelpNewFeatures_Execute, nil, nil);
+  PublishOp(en_Help, op_ContactInformation, Help_ContactInformation_Execute, nil, nil);
+  PublishOp(en_Help, op_ReplyBook, Help_ReplyBook_Execute, nil, nil);
+  PublishOp(en_Help, op_GarantInternet, Help_GarantInternet_Execute, Help_GarantInternet_Test, nil);
+  PublishOp(en_Help, op_About, Help_About_Execute, nil, nil);
+  PublishOp(en_System, op_BookmarkList, System_BookmarkList_Execute, nil, nil);
+  PublishOp(en_WarnOnControl, op_BuildControlledList, WarnOnControl_BuildControlledList_Execute, nil, nil);
+  PublishOp(en_WarnOnControl, op_OpenUnderControlTree, WarnOnControl_OpenUnderControlTree_Execute, nil, nil);
+  PublishOp(en_WarnOnControl, op_HideReminder, WarnOnControl_HideReminder_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TMainOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TMainOptionsForm.MakeControls;

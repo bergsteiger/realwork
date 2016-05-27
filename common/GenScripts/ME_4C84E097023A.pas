@@ -17,11 +17,20 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimConsultationMarkOptionsForm = class(TPrimConsultationMarkForm)
   {* Оценка ответа }
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
@@ -55,6 +64,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -120,6 +132,21 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4C762AB601E1_4C84E097023Aexec_impl*
 end;//TPrimConsultationMarkOptionsForm.Result_Cancel_Execute
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimConsultationMarkOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimConsultationMarkOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

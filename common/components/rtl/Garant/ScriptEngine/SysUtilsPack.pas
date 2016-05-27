@@ -3318,7 +3318,7 @@ begin
  Result := 'SysUtilsPack';
 end;//TSysUtilsPackResNameGetter.ResName
 
- {$R SysUtilsPack.res}
+{$R SysUtilsPack.res}
 
 initialization
  TkwHasTabs.RegisterInEngine;

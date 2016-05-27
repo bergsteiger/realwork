@@ -41,6 +41,9 @@ uses
  , l3StringIDEx
  , l3ProtoObject
  , nsIFilterFromQueryList
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -144,6 +147,15 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -151,16 +163,16 @@ type
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure Filter_ActivateNode_Execute(const aNode: Il3Node);
-   procedure Filter_ActivateNode(const aParams: IvcmExecuteParamsPrim);
+   procedure Filter_ActivateNode(const aParams: IvcmExecuteParams);
    function Filters_GetSelected_Execute: IFiltersFromQuery;
-   procedure Filters_GetSelected(const aParams: IvcmExecuteParamsPrim);
+   procedure Filters_GetSelected(const aParams: IvcmExecuteParams);
    procedure List_SetNewContent_Execute;
-   procedure List_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+   procedure List_SetNewContent(const aParams: IvcmExecuteParams);
    procedure Filters_DeselectAll_Execute;
-   procedure Filters_DeselectAll(const aParams: IvcmExecuteParamsPrim);
+   procedure Filters_DeselectAll(const aParams: IvcmExecuteParams);
    procedure Filter_Activate_Test(const aParams: IvcmTestParamsPrim);
     {* Применить фильтр }
    procedure Filter_Activate_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -211,6 +223,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , FiltersProcessingWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -668,7 +683,7 @@ begin
 //#UC END# *49895A2102E8_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.Loadable_Load_Execute
 
-procedure TPrimFiltersForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFiltersForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -688,7 +703,7 @@ begin
 //#UC END# *4AEECBA3030B_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.Filter_ActivateNode_Execute
 
-procedure TPrimFiltersForm.Filter_ActivateNode(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFiltersForm.Filter_ActivateNode(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilter_ActivateNode_Params) do
   Self.Filter_ActivateNode_Execute(Node);
@@ -719,7 +734,7 @@ begin
 //#UC END# *4AF2B1AC02F8_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.Filters_GetSelected_Execute
 
-procedure TPrimFiltersForm.Filters_GetSelected(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFiltersForm.Filters_GetSelected(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilters_GetSelected_Params) do
   ResultValue := Self.Filters_GetSelected_Execute;
@@ -734,7 +749,7 @@ begin
 //#UC END# *4AF81DE902B6_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.List_SetNewContent_Execute
 
-procedure TPrimFiltersForm.List_SetNewContent(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFiltersForm.List_SetNewContent(const aParams: IvcmExecuteParams);
 begin
  Self.List_SetNewContent_Execute;
 end;//TPrimFiltersForm.List_SetNewContent
@@ -748,7 +763,7 @@ begin
 //#UC END# *4AF8598C0277_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.Filters_DeselectAll_Execute
 
-procedure TPrimFiltersForm.Filters_DeselectAll(const aParams: IvcmExecuteParamsPrim);
+procedure TPrimFiltersForm.Filters_DeselectAll(const aParams: IvcmExecuteParams);
 begin
  Self.Filters_DeselectAll_Execute;
 end;//TPrimFiltersForm.Filters_DeselectAll
@@ -923,6 +938,33 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DCC17001C_impl*
 end;//TPrimFiltersForm.InitControls
+
+procedure TPrimFiltersForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+begin
+ inherited;
+end;//TPrimFiltersForm.SignalDataSourceChanged
+
+procedure TPrimFiltersForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_Filters, nil);
+  PublishFormEntity(en_Filter, nil);
+  PublishFormEntity(en_List, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOpWithResult(en_Filter, op_ActivateNode, Filter_ActivateNode, nil, nil);
+  PublishOpWithResult(en_Filters, op_GetSelected, Filters_GetSelected, nil, nil);
+  PublishOpWithResult(en_List, op_SetNewContent, List_SetNewContent, nil, nil);
+  PublishOpWithResult(en_Filters, op_DeselectAll, Filters_DeselectAll, nil, nil);
+  PublishOp(en_Filter, op_Activate, Filter_Activate_Execute, Filter_Activate_Test, Filter_Activate_GetState);
+  PublishOp(en_Filter, op_CreateFilter, Filter_CreateFilter_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TPrimFiltersForm.InitEntities
 
 procedure TPrimFiltersForm.MakeControls;
 begin

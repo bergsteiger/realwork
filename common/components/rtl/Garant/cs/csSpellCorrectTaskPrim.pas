@@ -37,21 +37,15 @@ uses
 ;
 
 function TcsSpellCorrectTaskPrim.pm_GetReplacementFile: ReplacementFileHelper;
-//#UC START# *4D53CCA1F803_53B2545A003Dget_var*
-//#UC END# *4D53CCA1F803_53B2545A003Dget_var*
 begin
-//#UC START# *4D53CCA1F803_53B2545A003Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D53CCA1F803_53B2545A003Dget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TReplacementFileHelper.Make(TaggedData.cAtom(k2_attrReplacementFile));
 end;//TcsSpellCorrectTaskPrim.pm_GetReplacementFile
 
 class function TcsSpellCorrectTaskPrim.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53B2545A003D_var*
-//#UC END# *53AC03EE01FD_53B2545A003D_var*
 begin
-//#UC START# *53AC03EE01FD_53B2545A003D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53B2545A003D_impl*
+ Result := k2_typSpellCorrectTask;
 end;//TcsSpellCorrectTaskPrim.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 

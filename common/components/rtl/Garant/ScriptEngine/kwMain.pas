@@ -93,7 +93,7 @@ begin
  Result := 'kwMain';
 end;//TkwMainResNameGetter.ResName
 
- {$R kwMain.res}
+{$R kwMain.res}
 
 class procedure TkwMain.CompileScriptToAxiomatics(const aContext: TtfwContext;
  const aScriptCode: array of AnsiString);

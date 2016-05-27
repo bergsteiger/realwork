@@ -41,7 +41,7 @@ begin
  Result := 'KeyboardInputPack';
 end;//TKeyboardInputPackResNameGetter.ResName
 
- {$R KeyboardInputPack.res}
+{$R KeyboardInputPack.res}
 
 initialization
  TKeyboardInputPackResNameGetter.Register;

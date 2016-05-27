@@ -43,48 +43,32 @@ uses
 ;
 
 function TalcuRelPublishTaskResult.pm_GetMailBody: AnsiString;
-//#UC START# *50F069887B07_53E328BF03DFget_var*
-//#UC END# *50F069887B07_53E328BF03DFget_var*
 begin
-//#UC START# *50F069887B07_53E328BF03DFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *50F069887B07_53E328BF03DFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrMailBody]);
 end;//TalcuRelPublishTaskResult.pm_GetMailBody
 
 procedure TalcuRelPublishTaskResult.pm_SetMailBody(const aValue: AnsiString);
-//#UC START# *50F069887B07_53E328BF03DFset_var*
-//#UC END# *50F069887B07_53E328BF03DFset_var*
 begin
-//#UC START# *50F069887B07_53E328BF03DFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *50F069887B07_53E328BF03DFset_impl*
+ TaggedData.StrW[k2_attrMailBody, nil] := (aValue);
 end;//TalcuRelPublishTaskResult.pm_SetMailBody
 
 function TalcuRelPublishTaskResult.pm_GetIsError: Boolean;
-//#UC START# *7A0D5E0B03BA_53E328BF03DFget_var*
-//#UC END# *7A0D5E0B03BA_53E328BF03DFget_var*
 begin
-//#UC START# *7A0D5E0B03BA_53E328BF03DFget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7A0D5E0B03BA_53E328BF03DFget_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.BoolA[k2_attrIsError]);
 end;//TalcuRelPublishTaskResult.pm_GetIsError
 
 procedure TalcuRelPublishTaskResult.pm_SetIsError(aValue: Boolean);
-//#UC START# *7A0D5E0B03BA_53E328BF03DFset_var*
-//#UC END# *7A0D5E0B03BA_53E328BF03DFset_var*
 begin
-//#UC START# *7A0D5E0B03BA_53E328BF03DFset_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7A0D5E0B03BA_53E328BF03DFset_impl*
+ TaggedData.BoolW[k2_attrIsError, nil] := (aValue);
 end;//TalcuRelPublishTaskResult.pm_SetIsError
 
 class function TalcuRelPublishTaskResult.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_53E328BF03DF_var*
-//#UC END# *53AC03EE01FD_53E328BF03DF_var*
 begin
-//#UC START# *53AC03EE01FD_53E328BF03DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_53E328BF03DF_impl*
+ Result := k2_typRelPublishTaskResult;
 end;//TalcuRelPublishTaskResult.GetTaggedDataType
 {$IfEnd} // Defined(ServerTasks)
 

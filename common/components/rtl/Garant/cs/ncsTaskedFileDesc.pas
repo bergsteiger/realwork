@@ -43,48 +43,32 @@ uses
 ;
 
 function TncsTaskedFileDesc.pm_GetTaskID: AnsiString;
-//#UC START# *4002BB80A765_546EF14803A6get_var*
-//#UC END# *4002BB80A765_546EF14803A6get_var*
 begin
-//#UC START# *4002BB80A765_546EF14803A6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4002BB80A765_546EF14803A6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrTaskID]);
 end;//TncsTaskedFileDesc.pm_GetTaskID
 
 procedure TncsTaskedFileDesc.pm_SetTaskID(const aValue: AnsiString);
-//#UC START# *4002BB80A765_546EF14803A6set_var*
-//#UC END# *4002BB80A765_546EF14803A6set_var*
 begin
-//#UC START# *4002BB80A765_546EF14803A6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4002BB80A765_546EF14803A6set_impl*
+ TaggedData.StrW[k2_attrTaskID, nil] := (aValue);
 end;//TncsTaskedFileDesc.pm_SetTaskID
 
 function TncsTaskedFileDesc.pm_GetCopiedSize: Int64;
-//#UC START# *3B46B181312E_546EF14803A6get_var*
-//#UC END# *3B46B181312E_546EF14803A6get_var*
 begin
-//#UC START# *3B46B181312E_546EF14803A6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3B46B181312E_546EF14803A6get_impl*
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.Int64A[k2_attrCopiedSize]);
 end;//TncsTaskedFileDesc.pm_GetCopiedSize
 
 procedure TncsTaskedFileDesc.pm_SetCopiedSize(aValue: Int64);
-//#UC START# *3B46B181312E_546EF14803A6set_var*
-//#UC END# *3B46B181312E_546EF14803A6set_var*
 begin
-//#UC START# *3B46B181312E_546EF14803A6set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3B46B181312E_546EF14803A6set_impl*
+ TaggedData.Int64W[k2_attrCopiedSize, nil] := (aValue);
 end;//TncsTaskedFileDesc.pm_SetCopiedSize
 
 class function TncsTaskedFileDesc.GetTaggedDataType: Tk2Type;
-//#UC START# *53AC03EE01FD_546EF14803A6_var*
-//#UC END# *53AC03EE01FD_546EF14803A6_var*
 begin
-//#UC START# *53AC03EE01FD_546EF14803A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53AC03EE01FD_546EF14803A6_impl*
+ Result := k2_typTaskedFileDesc;
 end;//TncsTaskedFileDesc.GetTaggedDataType
 {$IfEnd} // NOT Defined(Nemesis)
 
