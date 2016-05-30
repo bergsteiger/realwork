@@ -4921,18 +4921,41 @@ ref; // ME_55FFB1C600AB Prepared
 
 ref; // ME_55FFB1C9001D TableAlias
 
+: ME_5746E0D201F9
+ CONST UID '5746E0D201F9'
+ CONST Name 'f_Factory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55FFB14A031C // TdaFromTable
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_5746E0D201F9 f_Factory
+
 FORWARD ME_55530BE50143
 
-: ME_55530C210307
+: ME_5746E0B20077
+ CONST Name 'aFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_5746E0B20077 aFactory
+
+: ME_5746E0B20087
  CONST Name 'aTable'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
  ;
 
-ref; // ME_55530C210307 aTable
+ref; // ME_5746E0B20087 aTable
 
-: ME_55530C210326
+: ME_5746E0B20097
  CONST Name 'anAlias'
  CONST Class class_Parameter
  : Stereotype st_in ;
@@ -4943,7 +4966,7 @@ ref; // ME_55530C210307 aTable
  ;
  CONST extprop:pas:Value ''''''
 
-ref; // ME_55530C210326 anAlias
+ref; // ME_5746E0B20097 anAlias
 
 : ME_55530C06020A
  CONST UID '55530C06020A'
@@ -4954,8 +4977,9 @@ ref; // ME_55530C210326 anAlias
  : Parent ME_55530BE50143 // Create
  ;
  : Parameters
-   Seq: ( ME_55530C210307 // aTable
- ME_55530C210326 // anAlias
+   Seq: ( ME_5746E0B20077 // aFactory
+ ME_5746E0B20087 // aTable
+ ME_5746E0B20097 // anAlias
  )
  ; // Parameters
 
@@ -5059,6 +5083,26 @@ ref; // ME_5744366C003B_ME_55FFB14A031C FindTable
  CONST "needs result" false
 ref; // ME_574443A401BE_ME_55FFB14A031C IterateTablesF
 
+: ME_574570790329_ME_55FFB14A031C
+ : Original WL 'ME_574570790329' '5432518A0316.pas.ms.script' // Join
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574570790329_ME_55FFB14A031C Join
+
+: ME_57480BE20140_ME_55FFB14A031C
+ : Original WL 'ME_57480BE20140' '5432518A0316.pas.ms.script' // IsRelationsConditionsValid
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_57480BE20140_ME_55FFB14A031C IsRelationsConditionsValid
+
+: ME_574824090133_ME_55FFB14A031C
+ : Original WL 'ME_574824090133' '5432518A0316.pas.ms.script' // IterateRelationConditionsF
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" false
+ CONST "needs result" false
+ref; // ME_574824090133_ME_55FFB14A031C IterateRelationConditionsF
+
 : ME_479731C50290_ME_55FFB14A031C
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -5088,6 +5132,7 @@ ref; // ME_479731C50290_ME_55FFB14A031C Cleanup
    Seq: ( ME_55FFB1BC03BE // Table
  ME_55FFB1C600AB // Prepared
  ME_55FFB1C9001D // TableAlias
+ ME_5746E0D201F9 // f_Factory
  )
  ; // Attributes
  : Operations
@@ -5102,6 +5147,9 @@ ref; // ME_479731C50290_ME_55FFB14A031C Cleanup
  ME_57442BFD03BE_ME_55FFB14A031C // HasTable
  ME_5744366C003B_ME_55FFB14A031C // FindTable
  ME_574443A401BE_ME_55FFB14A031C // IterateTablesF
+ ME_574570790329_ME_55FFB14A031C // Join
+ ME_57480BE20140_ME_55FFB14A031C // IsRelationsConditionsValid
+ ME_574824090133_ME_55FFB14A031C // IterateRelationConditionsF
  )
  ; // Implemented
  : Overridden
@@ -6888,27 +6936,53 @@ ref; // ME_5666B60F0331 FromClause
 
 ref; // ME_567D049401A1 OrderBy
 
+: ME_5746E8BC038F
+ CONST UID '5746E8BC038F'
+ CONST Name 'Factory'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5600FA2301B9 // TdaTabledQuery
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_5746E8BC038F Factory
+
 FORWARD ME_5600FB3903DE
 
-: ME_563B40C201B2
+: ME_5746E8A1031E
+ CONST Name 'aFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_5746E8A1031E aFactory
+
+: ME_5746E8A1031F
  CONST Name 'aDataConverter'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
 
-ref; // ME_563B40C201B2 aDataConverter
+ref; // ME_5746E8A1031F aDataConverter
 
-: ME_563B40C201B3
+: ME_5746E8A1032E
  CONST Name 'aTable'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
  ;
 
-ref; // ME_563B40C201B3 aTable
+ref; // ME_5746E8A1032E aTable
 
-: ME_563B40C201C1
+: ME_5746E8A1033D
  CONST Name 'anAlias'
  CONST Class class_Parameter
  : Stereotype st_const ;
@@ -6919,7 +6993,7 @@ ref; // ME_563B40C201B3 aTable
  ;
  CONST extprop:pas:Value ''''''
 
-ref; // ME_563B40C201C1 anAlias
+ref; // ME_5746E8A1033D anAlias
 
 : ME_5600FB45039D
  CONST UID '5600FB45039D'
@@ -6930,9 +7004,10 @@ ref; // ME_563B40C201C1 anAlias
  : Parent ME_5600FB3903DE // Create
  ;
  : Parameters
-   Seq: ( ME_563B40C201B2 // aDataConverter
- ME_563B40C201B3 // aTable
- ME_563B40C201C1 // anAlias
+   Seq: ( ME_5746E8A1031E // aFactory
+ ME_5746E8A1031F // aDataConverter
+ ME_5746E8A1032E // aTable
+ ME_5746E8A1033D // anAlias
  )
  ; // Parameters
 
@@ -6957,6 +7032,15 @@ ref; // ME_5600FB3903DE Create
 
 FORWARD ME_56050F450363
 
+: ME_5746C22B0084
+ CONST Name 'aHelper'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5608FDE00371' '5432518A0316.pas.ms.script' // IdaParamListHelper
+ ;
+
+ref; // ME_5746C22B0084 aHelper
+
 : ME_56050F6B0143
  CONST UID '56050F6B0143'
  CONST Name 'DoIt'
@@ -6967,6 +7051,10 @@ FORWARD ME_56050F450363
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
+ : Parameters
+   Seq: ( ME_5746C22B0084 // aHelper
+ )
+ ; // Parameters
 
 ref; // ME_56050F6B0143 DoIt
 
@@ -7317,6 +7405,7 @@ ref; // ME_479731C50290_ME_5600FA2301B9 Cleanup
  ME_5600FAC103DE // WhereCondition
  ME_5666B60F0331 // FromClause
  ME_567D049401A1 // OrderBy
+ ME_5746E8BC038F // Factory
  )
  ; // Attributes
  : Operations
@@ -7608,6 +7697,718 @@ ref; // ME_5715FBBC0249 GetUserRegion
 
 ref; // ME_5714CBFE00FA daUserManagerUtils
 
+FORWARD ME_57457765036F
+
+: ME_5746B54F0336
+ CONST UID '5746B54F0336'
+ CONST Name 'f_Left'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+ ;
+
+ref; // ME_5746B54F0336 f_Left
+
+: ME_5746E05D018B
+ CONST UID '5746E05D018B'
+ CONST Name 'f_Factory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_5746E05D018B f_Factory
+
+: ME_574577ED02CB
+ CONST UID '574577ED02CB'
+ CONST Name 'f_Condition'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Target WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ ;
+
+ref; // ME_574577ED02CB f_Condition
+
+: ME_5745780702E1
+ CONST UID '5745780702E1'
+ CONST Name 'f_Kind'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Target WL 'ME_5549C6C402CB' '5432448401BC.pas.ms.script' // TdaJoinKind
+ ;
+
+ref; // ME_5745780702E1 f_Kind
+
+: ME_574577DB0123
+ CONST UID '574577DB0123'
+ CONST Name 'f_Right'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+ ;
+
+ref; // ME_574577DB0123 f_Right
+
+FORWARD ME_5745778600BC
+
+: ME_5746E0C000DE
+ CONST Name 'aFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_5746E0C000DE aFactory
+
+: ME_5746E0C000EE
+ CONST Name 'aLeft'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+ ;
+
+ref; // ME_5746E0C000EE aLeft
+
+: ME_5746E0C0010D
+ CONST Name 'aRight'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+ ;
+
+ref; // ME_5746E0C0010D aRight
+
+: ME_5746E0C0011C
+ CONST Name 'aKind'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549C6C402CB' '5432448401BC.pas.ms.script' // TdaJoinKind
+ ;
+
+ref; // ME_5746E0C0011C aKind
+
+: ME_57457827035B
+ CONST UID '57457827035B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5745778600BC // Create
+ ;
+ : Parameters
+   Seq: ( ME_5746E0C000DE // aFactory
+ ME_5746E0C000EE // aLeft
+ ME_5746E0C0010D // aRight
+ ME_5746E0C0011C // aKind
+ )
+ ; // Parameters
+
+ref; // ME_57457827035B DoIt
+
+: ME_5745778600BC
+ CONST UID '5745778600BC'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Operations
+   Seq: ( ME_57457827035B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5745778600BC Create
+
+: ME_57457794020E
+ CONST UID '57457794020E'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Inherits
+   Seq: ( ME_5745778600BC // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+ )
+ ; // Implements
+
+ref; // ME_57457794020E Make
+
+: ME_5746ADC2017F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_57457765036F // TdaJoin
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_5746ADC2017F 
+
+: ME_5608E5F20118_ME_57457765036F
+ : Original WL 'ME_5608E5F20118' '5432518A0316.pas.ms.script' // BuildSQLValue
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5608E5F20118_ME_57457765036F BuildSQLValue
+
+: ME_57442BFD03BE_ME_57457765036F
+ : Original WL 'ME_57442BFD03BE' '5432518A0316.pas.ms.script' // HasTable
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_57442BFD03BE_ME_57457765036F HasTable
+
+: ME_5744366C003B_ME_57457765036F
+ : Original WL 'ME_5744366C003B' '5432518A0316.pas.ms.script' // FindTable
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5744366C003B_ME_57457765036F FindTable
+
+: ME_574443A401BE_ME_57457765036F
+ : Original WL 'ME_574443A401BE' '5432518A0316.pas.ms.script' // IterateTablesF
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" false
+ CONST "needs result" false
+ref; // ME_574443A401BE_ME_57457765036F IterateTablesF
+
+: ME_57456F6B01D2_ME_57457765036F
+ : Original WL 'ME_57456F6B01D2' '5432518A0316.pas.ms.script' // Left
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_57456F6B01D2_ME_57457765036F Left
+
+: ME_57456F800124_ME_57457765036F
+ : Original WL 'ME_57456F800124' '5432518A0316.pas.ms.script' // Right
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_57456F800124_ME_57457765036F Right
+
+: ME_5745700A0180_ME_57457765036F
+ : Original WL 'ME_5745700A0180' '5432518A0316.pas.ms.script' // Kind
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5745700A0180_ME_57457765036F Kind
+
+: ME_5745702503A6_ME_57457765036F
+ : Original WL 'ME_5745702503A6' '5432518A0316.pas.ms.script' // Condition
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_5745702503A6_ME_57457765036F Condition
+
+: ME_574570520193_ME_57457765036F
+ : Original WL 'ME_574570520193' '5432518A0316.pas.ms.script' // SetCondition
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574570520193_ME_57457765036F SetCondition
+
+: ME_574570790329_ME_57457765036F
+ : Original WL 'ME_574570790329' '5432518A0316.pas.ms.script' // Join
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574570790329_ME_57457765036F Join
+
+: ME_57480BE20140_ME_57457765036F
+ : Original WL 'ME_57480BE20140' '5432518A0316.pas.ms.script' // IsRelationsConditionsValid
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_57480BE20140_ME_57457765036F IsRelationsConditionsValid
+
+: ME_574824090133_ME_57457765036F
+ : Original WL 'ME_574824090133' '5432518A0316.pas.ms.script' // IterateRelationConditionsF
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" false
+ CONST "needs result" false
+ref; // ME_574824090133_ME_57457765036F IterateRelationConditionsF
+
+: ME_479731C50290_ME_57457765036F
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_57457765036F Cleanup
+
+: ME_57457765036F
+ CONST UID '57457765036F'
+ CONST Name 'TdaJoin'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+ WL 'ME_57456F5A03D0' '5432518A0316.pas.ms.script' // IdaJoin
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5746B54F0336 // f_Left
+ ME_5746E05D018B // f_Factory
+ ME_574577ED02CB // f_Condition
+ ME_5745780702E1 // f_Kind
+ ME_574577DB0123 // f_Right
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5745778600BC // Create
+ ME_57457794020E // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5608E5F20118_ME_57457765036F // BuildSQLValue
+ ME_57442BFD03BE_ME_57457765036F // HasTable
+ ME_5744366C003B_ME_57457765036F // FindTable
+ ME_574443A401BE_ME_57457765036F // IterateTablesF
+ ME_57456F6B01D2_ME_57457765036F // Left
+ ME_57456F800124_ME_57457765036F // Right
+ ME_5745700A0180_ME_57457765036F // Kind
+ ME_5745702503A6_ME_57457765036F // Condition
+ ME_574570520193_ME_57457765036F // SetCondition
+ ME_574570790329_ME_57457765036F // Join
+ ME_57480BE20140_ME_57457765036F // IsRelationsConditionsValid
+ ME_574824090133_ME_57457765036F // IterateRelationConditionsF
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_57457765036F // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_5746ADC2017F // Format
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daJoin.pas'
+ CONST extprop:rc:SelfName 'daJoin'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daJoin'
+
+ref; // ME_57457765036F TdaJoin
+
+FORWARD ME_574BF18D0334
+
+: ME_574BF23703E1
+ CONST UID '574BF23703E1'
+ CONST Name 'f_Left'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_574BF18D0334 // TdaJoinCondition
+ ;
+ : Target WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
+ ;
+
+ref; // ME_574BF23703E1 f_Left
+
+: ME_574BF2410104
+ CONST UID '574BF2410104'
+ CONST Name 'f_Right'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_574BF18D0334 // TdaJoinCondition
+ ;
+ : Target WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
+ ;
+
+ref; // ME_574BF2410104 f_Right
+
+FORWARD ME_574BF1E70240
+
+: ME_574BF5AF002A
+ CONST Name 'aLeftTableAlias'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_574BF5AF002A aLeftTableAlias
+
+: ME_574BF5AF0049
+ CONST Name 'aLeftField'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_574BF5AF0049 aLeftField
+
+: ME_574BF5AF0058
+ CONST Name 'aRightTableAlias'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_574BF5AF0058 aRightTableAlias
+
+: ME_574BF5AF0078
+ CONST Name 'aRightField'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_574BF5AF0078 aRightField
+
+: ME_574BF1F10010
+ CONST UID '574BF1F10010'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574BF1E70240 // Create
+ ;
+ : Parameters
+   Seq: ( ME_574BF5AF002A // aLeftTableAlias
+ ME_574BF5AF0049 // aLeftField
+ ME_574BF5AF0058 // aRightTableAlias
+ ME_574BF5AF0078 // aRightField
+ )
+ ; // Parameters
+
+ref; // ME_574BF1F10010 DoIt
+
+: ME_574BF1E70240
+ CONST UID '574BF1E70240'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574BF18D0334 // TdaJoinCondition
+ ;
+ : Operations
+   Seq: ( ME_574BF1F10010 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574BF1E70240 Create
+
+: ME_574BF213021A
+ CONST UID '574BF213021A'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574BF18D0334 // TdaJoinCondition
+ ;
+ : Inherits
+   Seq: ( ME_574BF1E70240 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5551DC5C020D' '5432518A0316.pas.ms.script' // IdaCondition
+ )
+ ; // Implements
+
+ref; // ME_574BF213021A Make
+
+FORWARD ME_574C12B400EA
+
+: ME_574BF5D70144
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_574BF18D0334 // TdaJoinCondition
+ ;
+ : Target ME_574C12B400EA // TdaFieldFromTable
+ ;
+
+ref; // ME_574BF5D70144 
+
+: ME_574C1CB102E0
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_574BF18D0334 // TdaJoinCondition
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_574C1CB102E0 
+
+: ME_56408E7F01A1_ME_574BF18D0334
+ : Original ME_56408E7F01A1 // DoBuildSQL
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56408E7F01A1_ME_574BF18D0334 DoBuildSQL
+
+: ME_574BF119004B_ME_574BF18D0334
+ : Original WL 'ME_574BF119004B' '5432518A0316.pas.ms.script' // Left
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_574BF119004B_ME_574BF18D0334 Left
+
+: ME_574BF1300180_ME_574BF18D0334
+ : Original WL 'ME_574BF1300180' '5432518A0316.pas.ms.script' // Right
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_574BF1300180_ME_574BF18D0334 Right
+
+: ME_479731C50290_ME_574BF18D0334
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_574BF18D0334 Cleanup
+
+: ME_574BF18D0334
+ CONST UID '574BF18D0334'
+ CONST Name 'TdaJoinCondition'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( ME_56408DB303B7 // TdaCondition
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_574BF0F400B2' '5432518A0316.pas.ms.script' // IdaJoinCondition
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_574BF23703E1 // f_Left
+ ME_574BF2410104 // f_Right
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_574BF1E70240 // Create
+ ME_574BF213021A // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_56408E7F01A1_ME_574BF18D0334 // DoBuildSQL
+ ME_574BF119004B_ME_574BF18D0334 // Left
+ ME_574BF1300180_ME_574BF18D0334 // Right
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_574BF18D0334 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_574BF5D70144 // TdaFieldFromTable
+ ME_574C1CB102E0 // Format
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daJoinCondition.pas'
+ CONST extprop:rc:SelfName 'daJoinCondition'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daJoinCondition'
+
+ref; // ME_574BF18D0334 TdaJoinCondition
+
+: ME_574C132E031E
+ CONST UID '574C132E031E'
+ CONST Name 'f_TableAlias'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_574C12B400EA // TdaFieldFromTable
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_574C132E031E f_TableAlias
+
+: ME_574C1338038B
+ CONST UID '574C1338038B'
+ CONST Name 'f_Field'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_574C12B400EA // TdaFieldFromTable
+ ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_574C1338038B f_Field
+
+FORWARD ME_574C12D70130
+
+: ME_574C12FD03E2
+ CONST Name 'aTableAlias'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_574C12FD03E2 aTableAlias
+
+: ME_574C12FE000A
+ CONST Name 'aField'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55377C5F0162' '5432518A0316.pas.ms.script' // IdaFieldDescription
+ ;
+
+ref; // ME_574C12FE000A aField
+
+: ME_574C12E0020C
+ CONST UID '574C12E0020C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574C12D70130 // Create
+ ;
+ : Parameters
+   Seq: ( ME_574C12FD03E2 // aTableAlias
+ ME_574C12FE000A // aField
+ )
+ ; // Parameters
+
+ref; // ME_574C12E0020C DoIt
+
+: ME_574C12D70130
+ CONST UID '574C12D70130'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574C12B400EA // TdaFieldFromTable
+ ;
+ : Operations
+   Seq: ( ME_574C12E0020C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C12D70130 Create
+
+: ME_574C130301A7
+ CONST UID '574C130301A7'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574C12B400EA // TdaFieldFromTable
+ ;
+ : Inherits
+   Seq: ( ME_574C12D70130 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
+ )
+ ; // Implements
+
+ref; // ME_574C130301A7 Make
+
+: ME_555351D702B3_ME_574C12B400EA
+ : Original WL 'ME_555351D702B3' '5432518A0316.pas.ms.script' // TableAlias
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_555351D702B3_ME_574C12B400EA TableAlias
+
+: ME_555351F500BC_ME_574C12B400EA
+ : Original WL 'ME_555351F500BC' '5432518A0316.pas.ms.script' // Field
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_555351F500BC_ME_574C12B400EA Field
+
+: ME_479731C50290_ME_574C12B400EA
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_574C12B400EA Cleanup
+
+: ME_574C12B400EA
+ CONST UID '574C12B400EA'
+ CONST Name 'TdaFieldFromTable'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_555351BE026E' '5432518A0316.pas.ms.script' // IdaFieldFromTable
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_574C132E031E // f_TableAlias
+ ME_574C1338038B // f_Field
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_574C12D70130 // Create
+ ME_574C130301A7 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_555351D702B3_ME_574C12B400EA // TableAlias
+ ME_555351F500BC_ME_574C12B400EA // Field
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_574C12B400EA // Cleanup
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daFieldFromTable.pas'
+ CONST extprop:rc:SelfName 'daFieldFromTable'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daFieldFromTable'
+
+ref; // ME_574C12B400EA TdaFieldFromTable
+
 : ME_54F85B2500FB
  CONST UID '54F85B2500FB'
  CONST Name 'Provider'
@@ -7647,6 +8448,9 @@ ref; // ME_5714CBFE00FA daUserManagerUtils
  ME_5680EF290107 // TdaSortField
  ME_5600FA2301B9 // TdaTabledQuery
  ME_5714CBFE00FA // daUserManagerUtils
+ ME_57457765036F // TdaJoin
+ ME_574BF18D0334 // TdaJoinCondition
+ ME_574C12B400EA // TdaFieldFromTable
  )
  ; // Children
  : Depends

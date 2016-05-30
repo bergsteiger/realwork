@@ -1313,111 +1313,6 @@ ref; // ME_4ED4C36E00D2 Old
 
 ref; // ME_4ED4C2F902E3 EditionNodeGroupCaptions
 
-FORWARD ME_AFD716A25778
-
-: ME_939273C0E2E8
- CONST UID '939273C0E2E8'
- CONST Name 'New'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Не вступившие в силу''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AFD716A25778 // LCImplEditionNodeGroupCaptions
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''engcNew''; rValue : ''Не вступившие в силу'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''engcNew''; rValue : ''Не вступившие в силу'')'
- : Speller ME_4ED4C34B02E0 // New
- ;
-
-ref; // ME_939273C0E2E8 New
-
-: ME_C79ABA2FFF11
- CONST UID 'C79ABA2FFF11'
- CONST Name 'Actual'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Актуальная''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AFD716A25778 // LCImplEditionNodeGroupCaptions
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''engcActual''; rValue : ''Актуальная'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''engcActual''; rValue : ''Актуальная'')'
- : Speller ME_4ED4C35B03A2 // Actual
- ;
-
-ref; // ME_C79ABA2FFF11 Actual
-
-: ME_3DD13C3ED47B
- CONST UID '3DD13C3ED47B'
- CONST Name 'Old'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Недействующие''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AFD716A25778 // LCImplEditionNodeGroupCaptions
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''engcOld''; rValue : ''Недействующие'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''engcOld''; rValue : ''Недействующие'')'
- : Speller ME_4ED4C36E00D2 // Old
- ;
-
-ref; // ME_3DD13C3ED47B Old
-
-: ME_AFD716A25778
- CONST UID 'AFD716A25778'
- CONST Name 'LCImplEditionNodeGroupCaptions'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки EditionNodeGroupCaptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4B1CE8B50207 // TnsEditionNode
- ;
- : Attributes
-   Seq: ( ME_939273C0E2E8 // New
- ME_C79ABA2FFF11 // Actual
- ME_3DD13C3ED47B // Old
- )
- ; // Attributes
- CONST "children prefix" 'engc'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_engc'
- : Speller ME_4ED4C2F902E3 // EditionNodeGroupCaptions
- ;
-
-ref; // ME_AFD716A25778 LCImplEditionNodeGroupCaptions
-
 : ME_4B1CE9170032
  CONST UID '4B1CE9170032'
  CONST Name 'f_Handle'
@@ -1999,28 +1894,6 @@ ref; // ME_4EC2811802CA
 
 ref; // ME_4ED4BB830281 
 
-: ME_2E9C55E97865
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B1CE8B50207 // TnsEditionNode
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_2E9C55E97865 
-
-: ME_AFA6C86566F5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B1CE8B50207 // TnsEditionNode
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_AFA6C86566F5 
-
 : ME_4B1CE85D0167_ME_4B1CE8B50207
  : Original ME_4B1CE85D0167 // IsSameID
  ;
@@ -2160,7 +2033,6 @@ ref; // ME_54C78D9201B9_ME_4B1CE8B50207 GetIsSame
  ; // Overridden
  : Constants
    Seq: ( ME_4ED4C2F902E3 // EditionNodeGroupCaptions
- ME_AFD716A25778 // LCImplEditionNodeGroupCaptions
  )
  ; // Constants
  : Dependencies
@@ -2173,8 +2045,6 @@ ref; // ME_54C78D9201B9_ME_4B1CE8B50207 GetIsSame
  ME_4EC275D9013A // l3String
  ME_4EC2811802CA // IndentType
  ME_4ED4BB830281 // ControlsBlock
- ME_2E9C55E97865 // Tl3StringIDEx
- ME_AFA6C86566F5 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Тучнин Д.А.'

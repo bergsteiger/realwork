@@ -62,101 +62,6 @@ ref; // ME_4C84E4AC0171 Constants
 
 ref; // ME_4CD142B70232 utcmMain
 
-FORWARD ME_DB277B3A75DD
-
-: ME_58313837B609
- CONST UID '58313837B609'
- CONST Name 'utcmMainCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Оценка ответа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DB277B3A75DD // utcmMainLocalConstants
- ;
- CONST Value '''Оценка ответа'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Оценка ответа'''
-
-ref; // ME_58313837B609 utcmMainCaption
-
-: ME_DB277B3A75DD
- CONST UID 'DB277B3A75DD'
- CONST Name 'utcmMainLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utcmMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Attributes
-   Seq: ( ME_58313837B609 // utcmMainCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_DB277B3A75DD utcmMainLocalConstants
-
-FORWARD ME_CB03B1AA38F6
-
-: ME_846E56D67F4B
- CONST UID '846E56D67F4B'
- CONST Name 'utcmMainCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Оценка ответа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CB03B1AA38F6 // LCImplutcmMainLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utcmMainCaption''; rValue : ''Оценка ответа'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utcmMainCaption''; rValue : ''Оценка ответа'')'
- : Speller ME_58313837B609 // utcmMainCaption
- ;
-
-ref; // ME_846E56D67F4B utcmMainCaption
-
-: ME_CB03B1AA38F6
- CONST UID 'CB03B1AA38F6'
- CONST Name 'LCImplutcmMainLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utcmMainLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Attributes
-   Seq: ( ME_846E56D67F4B // utcmMainCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_DB277B3A75DD // utcmMainLocalConstants
- ;
-
-ref; // ME_CB03B1AA38F6 LCImplutcmMainLocalConstants
-
 FORWARD ME_517692CD0370
 
 : ME_517696060243
@@ -403,195 +308,6 @@ ref; // ME_5176979B0055 gbComment
 
 ref; // ME_497EDCDC0187 DSMark
 
-: ME_9B584B7A9770
- CONST UID '9B584B7A9770'
- CONST Name 'f_gbMark'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства gbMark' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4AC608E40294' '4AC5DA5A01AD.pas.ms.script' // TvtGroupBox
- ;
-
-ref; // ME_9B584B7A9770 f_gbMark
-
-: ME_8CA27A49624D
- CONST UID '8CA27A49624D'
- CONST Name 'f_rbNotSure'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rbNotSure' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_8CA27A49624D f_rbNotSure
-
-: ME_5F208E3FE79C
- CONST UID '5F208E3FE79C'
- CONST Name 'f_rbTwo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rbTwo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_5F208E3FE79C f_rbTwo
-
-: ME_A4988A11DA2C
- CONST UID 'A4988A11DA2C'
- CONST Name 'f_rbThree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rbThree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_A4988A11DA2C f_rbThree
-
-: ME_3174483A6668
- CONST UID '3174483A6668'
- CONST Name 'f_rbFour'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rbFour' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_3174483A6668 f_rbFour
-
-: ME_BECDC8D06AFC
- CONST UID 'BECDC8D06AFC'
- CONST Name 'f_rbFive'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rbFive' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_BECDC8D06AFC f_rbFive
-
-: ME_EB2ECCDA10B7
- CONST UID 'EB2ECCDA10B7'
- CONST Name 'f_pnlHelp'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlHelp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_EB2ECCDA10B7 f_pnlHelp
-
-: ME_451B9CDEAA66
- CONST UID '451B9CDEAA66'
- CONST Name 'f_lblHelp'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblHelp' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_451B9CDEAA66 f_lblHelp
-
-: ME_6ECDBF6EE1DB
- CONST UID '6ECDBF6EE1DB'
- CONST Name 'f_gbComment'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства gbComment' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4AC608E40294' '4AC5DA5A01AD.pas.ms.script' // TvtGroupBox
- ;
-
-ref; // ME_6ECDBF6EE1DB f_gbComment
-
-: ME_769ADAF00F70
- CONST UID '769ADAF00F70'
- CONST Name 'f_mComment'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства mComment' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4AC5D3380185' '4952683C007B.pas.ms.script' // TeeMemoWithEditOperations
- ;
-
-ref; // ME_769ADAF00F70 f_mComment
-
-FORWARD ME_5176B3D003B4
-
-: ME_5A6E229C5EFE
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5A6E229C5EFE Sender
-
-: ME_822D0984209A
- CONST UID '822D0984209A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5176B3D003B4 // rbNotSureClick
- ;
- : Parameters
-   Seq: ( ME_5A6E229C5EFE // Sender
- )
- ; // Parameters
-
-ref; // ME_822D0984209A DoIt
-
 : ME_5176B3D003B4
  CONST UID '5176B3D003B4'
  CONST Name 'rbNotSureClick'
@@ -606,41 +322,8 @@ ref; // ME_822D0984209A DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_822D0984209A // DoIt
- )
- ; // Operations
 
 ref; // ME_5176B3D003B4 rbNotSureClick
-
-FORWARD ME_5176B3E200C1
-
-: ME_64C49C848A34
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_64C49C848A34 Sender
-
-: ME_39975A0D08DA
- CONST UID '39975A0D08DA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5176B3E200C1 // rbFiveClick
- ;
- : Parameters
-   Seq: ( ME_64C49C848A34 // Sender
- )
- ; // Parameters
-
-ref; // ME_39975A0D08DA DoIt
 
 : ME_5176B3E200C1
  CONST UID '5176B3E200C1'
@@ -656,41 +339,8 @@ ref; // ME_39975A0D08DA DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_39975A0D08DA // DoIt
- )
- ; // Operations
 
 ref; // ME_5176B3E200C1 rbFiveClick
-
-FORWARD ME_5176B3F200F4
-
-: ME_0943906FF61A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_0943906FF61A Sender
-
-: ME_958B0E1E071E
- CONST UID '958B0E1E071E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5176B3F200F4 // rbFourClick
- ;
- : Parameters
-   Seq: ( ME_0943906FF61A // Sender
- )
- ; // Parameters
-
-ref; // ME_958B0E1E071E DoIt
 
 : ME_5176B3F200F4
  CONST UID '5176B3F200F4'
@@ -706,41 +356,8 @@ ref; // ME_958B0E1E071E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_958B0E1E071E // DoIt
- )
- ; // Operations
 
 ref; // ME_5176B3F200F4 rbFourClick
-
-FORWARD ME_5176B3FD0292
-
-: ME_1378654FEC7A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_1378654FEC7A Sender
-
-: ME_0A7E07833558
- CONST UID '0A7E07833558'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5176B3FD0292 // rbThreeClick
- ;
- : Parameters
-   Seq: ( ME_1378654FEC7A // Sender
- )
- ; // Parameters
-
-ref; // ME_0A7E07833558 DoIt
 
 : ME_5176B3FD0292
  CONST UID '5176B3FD0292'
@@ -756,41 +373,8 @@ ref; // ME_0A7E07833558 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0A7E07833558 // DoIt
- )
- ; // Operations
 
 ref; // ME_5176B3FD0292 rbThreeClick
-
-FORWARD ME_5176B4060002
-
-: ME_1210BC5189CF
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_1210BC5189CF Sender
-
-: ME_2C352849352E
- CONST UID '2C352849352E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5176B4060002 // rbTwoClick
- ;
- : Parameters
-   Seq: ( ME_1210BC5189CF // Sender
- )
- ; // Parameters
-
-ref; // ME_2C352849352E DoIt
 
 : ME_5176B4060002
  CONST UID '5176B4060002'
@@ -806,27 +390,8 @@ ref; // ME_2C352849352E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2C352849352E // DoIt
- )
- ; // Operations
 
 ref; // ME_5176B4060002 rbTwoClick
-
-FORWARD ME_5176B4200040
-
-: ME_B2E74E0A154C
- CONST UID 'B2E74E0A154C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода PlaceComponents' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5176B4200040 // PlaceComponents
- ;
-
-ref; // ME_B2E74E0A154C DoIt
 
 : ME_5176B4200040
  CONST UID '5176B4200040'
@@ -838,10 +403,6 @@ ref; // ME_B2E74E0A154C DoIt
  CONST Abstraction at_final
  : Parent ME_497EDC5003D1 // PrimConsultationMark
  ;
- : Operations
-   Seq: ( ME_B2E74E0A154C // DoIt
- )
- ; // Operations
 
 ref; // ME_5176B4200040 PlaceComponents
 
@@ -888,39 +449,6 @@ ref; // ME_5176B43D033E DoIt
 
 ref; // ME_5176B42C0279 ChangeMark
 
-: ME_96D2C8FD3FC0
- CONST UID '96D2C8FD3FC0'
- CONST Name 'Init_Str_utcmMainCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utcmMainCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Speller ME_58313837B609 // utcmMainCaption
- ;
- : SpelledFor ME_846E56D67F4B // utcmMainCaption
- ;
-
-ref; // ME_96D2C8FD3FC0 Init_Str_utcmMainCaption
-
-: ME_8CD38BF7966D
- CONST UID '8CD38BF7966D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimConsultationMark' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8CD38BF7966D Ini_Reg_Class
-
 : ME_5176B853011C
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -961,39 +489,6 @@ ref; // ME_5176C09B0245
 
 ref; // ME_5177CF2C02F3 
 
-: ME_56263E97FB0A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_56263E97FB0A 
-
-: ME_DD790BF65603
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_DD790BF65603 
-
-: ME_A40622A91F66
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EDC5003D1 // PrimConsultationMark
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A40622A91F66 
-
 : ME_4A8E8F2E0195_ME_497EDC5003D1
  : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
  ;
@@ -1022,16 +517,6 @@ FORWARD ME_571A297B0071
  ME_51769718021E // pnlHelp
  ME_5176979B0055 // gbComment
  ME_497EDCDC0187 // DSMark
- ME_9B584B7A9770 // f_gbMark
- ME_8CA27A49624D // f_rbNotSure
- ME_5F208E3FE79C // f_rbTwo
- ME_A4988A11DA2C // f_rbThree
- ME_3174483A6668 // f_rbFour
- ME_BECDC8D06AFC // f_rbFive
- ME_EB2ECCDA10B7 // f_pnlHelp
- ME_451B9CDEAA66 // f_lblHelp
- ME_6ECDBF6EE1DB // f_gbComment
- ME_769ADAF00F70 // f_mComment
  )
  ; // Attributes
  : Operations
@@ -1042,8 +527,6 @@ FORWARD ME_571A297B0071
  ME_5176B4060002 // rbTwoClick
  ME_5176B4200040 // PlaceComponents
  ME_5176B42C0279 // ChangeMark
- ME_96D2C8FD3FC0 // Init_Str_utcmMainCaption
- ME_8CD38BF7966D // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1056,8 +539,6 @@ FORWARD ME_571A297B0071
  ; // Children
  : Constants
    Seq: ( ME_4C84E4AC0171 // Constants
- ME_DB277B3A75DD // utcmMainLocalConstants
- ME_CB03B1AA38F6 // LCImplutcmMainLocalConstants
  )
  ; // Constants
  : Dependencies
@@ -1065,9 +546,6 @@ FORWARD ME_571A297B0071
  ME_5176C0960324 // Forms
  ME_5176C09B0245 // Controls
  ME_5177CF2C02F3 // TRect
- ME_56263E97FB0A // Tl3StringIDEx
- ME_DD790BF65603 // Tl3MessageID
- ME_A40622A91F66 // TtfwClassRef
  )
  ; // Dependencies
  : Injected
@@ -1093,21 +571,6 @@ FORWARD ME_571A297B0071
 ref; // ME_497EDC5003D1 PrimConsultationMark
 
 FORWARD ME_4C84E097023A
-
-: ME_5F076A1BF650
- CONST UID '5F076A1BF650'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimConsultationMarkOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C84E097023A // PrimConsultationMarkOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5F076A1BF650 Ini_Reg_Class
 
 : ME_4C84E22801A2
  CONST Class class_Dependency
@@ -1159,17 +622,6 @@ ref; // ME_4C84E52002B7
 
 ref; // ME_5177CFB00365 
 
-: ME_ED473FD07F05
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C84E097023A // PrimConsultationMarkOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_ED473FD07F05 
-
 : ME_4C762A1501FC_ME_4C84E097023A
  : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
  ;
@@ -1220,10 +672,6 @@ ref; // ME_4C762AB601E1_ME_4C84E097023A Cancel
  WL 'ME_4A97EBC80201' '4A8AD3C70195.pas.ms.script' // Result$Ok
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5F076A1BF650 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4C762A1501FC_ME_4C84E097023A // Ok
  ME_4C762AB601E1_ME_4C84E097023A // Cancel
@@ -1235,7 +683,6 @@ ref; // ME_4C762AB601E1_ME_4C84E097023A Cancel
  ME_4C84E4FF039A // NoSubscription
  ME_4C84E52002B7 // DefDataAdapter
  ME_5177CFB00365 // Result$Ok
- ME_ED473FD07F05 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -3348,7 +2795,6 @@ ref; // ME_571A296801DD ConsultationWordsPack
  WL 'ME_4BD856E802F9' '4BD856E802F9.pas.ms.script' // FormDefinitions
  WL 'ME_4BD97FDB031A' '4BD97FDB031A.pas.ms.script' // FormDefinitions
  WL 'ME_4C43D64C0168' '4C43D64C0168.pas.ms.script' // Buttons
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Consultation'

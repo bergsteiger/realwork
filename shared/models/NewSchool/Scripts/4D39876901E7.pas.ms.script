@@ -542,21 +542,6 @@ ref; // ME_4AC63602020E PrimDocNumberQuery
 
 FORWARD ME_4C863B1E0196
 
-: ME_13604DCBF76D
- CONST UID '13604DCBF76D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimDocNumberQueryOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C863B1E0196 // PrimDocNumberQueryOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_13604DCBF76D Ini_Reg_Class
-
 : ME_4C863CC30357
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -576,17 +561,6 @@ ref; // ME_4C863CC30357
  ;
 
 ref; // ME_51B9F7D90215 
-
-: ME_7E27FB458FD2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C863B1E0196 // PrimDocNumberQueryOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7E27FB458FD2 
 
 : ME_4C762A1501FC_ME_4C863B1E0196
  : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
@@ -637,10 +611,6 @@ ref; // ME_4C762C910358_ME_4C863B1E0196 Cancel
  WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_13604DCBF76D // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4C762A1501FC_ME_4C863B1E0196 // Ok
  ME_4C762C910358_ME_4C863B1E0196 // Cancel
@@ -649,7 +619,6 @@ ref; // ME_4C762C910358_ME_4C863B1E0196 Cancel
  : Dependencies
    Seq: ( ME_4C863CC30357 // ModalResults
  ME_51B9F7D90215 // Result$Ok
- ME_7E27FB458FD2 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true

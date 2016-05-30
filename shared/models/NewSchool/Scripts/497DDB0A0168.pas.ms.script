@@ -2009,92 +2009,6 @@ ref; // ME_5677BADD0383 DoIt
 
 ref; // ME_5677BAD7012E Create
 
-FORWARD ME_5677BB16002C
-
-: ME_40AC64DDA8CF
- CONST Name 'aInnerState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4992FC0C02CA' '4683F37902CF.pas.ms.script' // IvcmBase
- ;
-
-ref; // ME_40AC64DDA8CF aInnerState
-
-: ME_29A378AABEF8
- CONST Name 'aContextFilterState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
- ;
-
-ref; // ME_29A378AABEF8 aContextFilterState
-
-: ME_CC308E634061
- CONST Name 'aTreeStructState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_56A872B801DB' '47ECAAF901F8.pas.ms.script' // InsTreeStructState
- ;
-
-ref; // ME_CC308E634061 aTreeStructState
-
-: ME_D80F60A1F2FF
- CONST Name 'aTopItemIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_D80F60A1F2FF aTopItemIndex
-
-: ME_6540D1B9959F
- CONST Name 'aCurrentIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_6540D1B9959F aCurrentIndex
-
-: ME_965B25E93142
- CONST Name 'aOptions'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_56A9DDF70092 // TPrimListFormStateOptions
- ;
-
-ref; // ME_965B25E93142 aOptions
-
-: ME_20B96AAFA2FD
- CONST UID '20B96AAFA2FD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TPrimListFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5677BB16002C // Make
- ;
- : Target ME_5677B9F80322 // IPrimListFormState
- ;
- : Parameters
-   Seq: ( ME_40AC64DDA8CF // aInnerState
- ME_29A378AABEF8 // aContextFilterState
- ME_CC308E634061 // aTreeStructState
- ME_D80F60A1F2FF // aTopItemIndex
- ME_6540D1B9959F // aCurrentIndex
- ME_965B25E93142 // aOptions
- )
- ; // Parameters
-
-ref; // ME_20B96AAFA2FD DoIt
-
 : ME_5677BB16002C
  CONST UID '5677BB16002C'
  CONST Name 'Make'
@@ -2113,10 +2027,6 @@ ref; // ME_20B96AAFA2FD DoIt
    Seq: ( ME_5677B9F80322 // IPrimListFormState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_20B96AAFA2FD // DoIt
- )
- ; // Operations
 
 ref; // ME_5677BB16002C Make
 
@@ -2226,474 +2136,6 @@ ref; // ME_47EA4E9002C6_ME_5677B9280204 FinishDataUpdate
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5677B9280204 TPrimListFormState
-
-FORWARD ME_61C3031E1C60
-
-: ME_74A2B4A0B734
- CONST UID '74A2B4A0B734'
- CONST Name 'ListFooterCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Полный список документов по запросу''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_61C3031E1C60 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ListFooterCaption''; rValue : ''Полный список документов по запросу'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListFooterCaption''; rValue : ''Полный список документов по запросу'')'
- : Speller ME_4FC3562401C7 // ListFooterCaption
- ;
-
-ref; // ME_74A2B4A0B734 ListFooterCaption
-
-: ME_61C3031E1C60
- CONST UID '61C3031E1C60'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Attributes
-   Seq: ( ME_74A2B4A0B734 // ListFooterCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4FC3561102BD // Local
- ;
-
-ref; // ME_61C3031E1C60 LCImplLocal
-
-FORWARD ME_BB5D88EEAAD1
-
-: ME_75B156DA86DB
- CONST UID '75B156DA86DB'
- CONST Name 'lntAAC'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Энциклопедия решений''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntAAC''; rValue : ''Энциклопедия решений'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntAAC''; rValue : ''Энциклопедия решений'')'
- : Speller ME_5062DBC30084 // lntAAC
- ;
-
-ref; // ME_75B156DA86DB lntAAC
-
-: ME_D07DCD566F81
- CONST UID 'D07DCD566F81'
- CONST Name 'lntBlock'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Вхождение в документе''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntBlock''; rValue : ''Вхождение в документе'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntBlock''; rValue : ''Вхождение в документе'')'
- : Speller ME_530629C001C3 // lntBlock
- ;
-
-ref; // ME_D07DCD566F81 lntBlock
-
-: ME_E6CD77E31661
- CONST UID 'E6CD77E31661'
- CONST Name 'lntDocActive'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Действующий документ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntDocActive''; rValue : ''Действующий документ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntDocActive''; rValue : ''Действующий документ'')'
- : Speller ME_53062AB70165 // lntDocActive
- ;
-
-ref; // ME_E6CD77E31661 lntDocActive
-
-: ME_C2ECC5643488
- CONST UID 'C2ECC5643488'
- CONST Name 'lntDocPreActive'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Не вступивший в силу документ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntDocPreActive''; rValue : ''Не вступивший в силу документ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntDocPreActive''; rValue : ''Не вступивший в силу документ'')'
- : Speller ME_53062B350109 // lntDocPreActive
- ;
-
-ref; // ME_C2ECC5643488 lntDocPreActive
-
-: ME_7F6F44E44ADD
- CONST UID '7F6F44E44ADD'
- CONST Name 'lntDocAbolished'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Утративший силу документ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntDocAbolished''; rValue : ''Утративший силу документ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntDocAbolished''; rValue : ''Утративший силу документ'')'
- : Speller ME_53062BB40381 // lntDocAbolished
- ;
-
-ref; // ME_7F6F44E44ADD lntDocAbolished
-
-: ME_9B6E5CBD7EF1
- CONST UID '9B6E5CBD7EF1'
- CONST Name 'lntRedaction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Редакция документа''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntRedaction''; rValue : ''Редакция документа'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntRedaction''; rValue : ''Редакция документа'')'
- : Speller ME_53062C870022 // lntRedaction
- ;
-
-ref; // ME_9B6E5CBD7EF1 lntRedaction
-
-: ME_AC018ACF6513
- CONST UID 'AC018ACF6513'
- CONST Name 'lntRedactions'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Редакции документа''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntRedactions''; rValue : ''Редакции документа'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntRedactions''; rValue : ''Редакции документа'')'
- : Speller ME_53062CAE023F // lntRedactions
- ;
-
-ref; // ME_AC018ACF6513 lntRedactions
-
-: ME_0790A0765696
- CONST UID '0790A0765696'
- CONST Name 'lntDrugAnnuled'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Аннулированный препарат''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntDrugAnnuled''; rValue : ''Аннулированный препарат'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntDrugAnnuled''; rValue : ''Аннулированный препарат'')'
- : Speller ME_53062CDA02AD // lntDrugAnnuled
- ;
-
-ref; // ME_0790A0765696 lntDrugAnnuled
-
-: ME_C817D8F958EE
- CONST UID 'C817D8F958EE'
- CONST Name 'lntDrugNarcotic'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Особый контроль''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntDrugNarcotic''; rValue : ''Особый контроль'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntDrugNarcotic''; rValue : ''Особый контроль'')'
- : Speller ME_53062D0500F9 // lntDrugNarcotic
- ;
-
-ref; // ME_C817D8F958EE lntDrugNarcotic
-
-: ME_46FC2627428A
- CONST UID '46FC2627428A'
- CONST Name 'lntDrugNoAnnuledNoNarcoric'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Действующий препарат''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntDrugNoAnnuledNoNarcoric''; rValue : ''Действующий препарат'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntDrugNoAnnuledNoNarcoric''; rValue : ''Действующий препарат'')'
- : Speller ME_53062D2D00AB // lntDrugNoAnnuledNoNarcoric
- ;
-
-ref; // ME_46FC2627428A lntDrugNoAnnuledNoNarcoric
-
-: ME_F5E42030246E
- CONST UID 'F5E42030246E'
- CONST Name 'lntFormAnnuled'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Аннулированная форма препарата''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntFormAnnuled''; rValue : ''Аннулированная форма препарата'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntFormAnnuled''; rValue : ''Аннулированная форма препарата'')'
- : Speller ME_53062D4B0112 // lntFormAnnuled
- ;
-
-ref; // ME_F5E42030246E lntFormAnnuled
-
-: ME_8EA0941C65E8
- CONST UID '8EA0941C65E8'
- CONST Name 'lntFormRussianImportant'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Жизненноважная форма препарата российского производства''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntFormRussianImportant''; rValue : ''Жизненноважная форма препарата российского производства'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntFormRussianImportant''; rValue : ''Жизненноважная форма препарата российского производства'')'
- : Speller ME_53062D9C0375 // lntFormRussianImportant
- ;
-
-ref; // ME_8EA0941C65E8 lntFormRussianImportant
-
-: ME_F271970A4FB1
- CONST UID 'F271970A4FB1'
- CONST Name 'lntFormNoRussianImportant'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Жизненноважная форма препарата импортного производства''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntFormNoRussianImportant''; rValue : ''Жизненноважная форма препарата импортного производства'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntFormNoRussianImportant''; rValue : ''Жизненноважная форма препарата импортного производства'')'
- : Speller ME_53062DBF01FF // lntFormNoRussianImportant
- ;
-
-ref; // ME_F271970A4FB1 lntFormNoRussianImportant
-
-: ME_1DAD6D5E43C2
- CONST UID '1DAD6D5E43C2'
- CONST Name 'lntFormRussianNoImportant'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Форма препарата российского производства''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntFormRussianNoImportant''; rValue : ''Форма препарата российского производства'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntFormRussianNoImportant''; rValue : ''Форма препарата российского производства'')'
- : Speller ME_53062DDF02B3 // lntFormRussianNoImportant
- ;
-
-ref; // ME_1DAD6D5E43C2 lntFormRussianNoImportant
-
-: ME_FCEE07BFA4FE
- CONST UID 'FCEE07BFA4FE'
- CONST Name 'lntFormNoRussianNoImportant'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Действующая форма препарата''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lntFormNoRussianNoImportant''; rValue : ''Действующая форма препарата'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lntFormNoRussianNoImportant''; rValue : ''Действующая форма препарата'')'
- : Speller ME_53062E3001B1 // lntFormNoRussianNoImportant
- ;
-
-ref; // ME_FCEE07BFA4FE lntFormNoRussianNoImportant
-
-: ME_BB5D88EEAAD1
- CONST UID 'BB5D88EEAAD1'
- CONST Name 'LCImplDocumentListHintConst'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки DocumentListHintConst' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Attributes
-   Seq: ( ME_75B156DA86DB // lntAAC
- ME_D07DCD566F81 // lntBlock
- ME_E6CD77E31661 // lntDocActive
- ME_C2ECC5643488 // lntDocPreActive
- ME_7F6F44E44ADD // lntDocAbolished
- ME_9B6E5CBD7EF1 // lntRedaction
- ME_AC018ACF6513 // lntRedactions
- ME_0790A0765696 // lntDrugAnnuled
- ME_C817D8F958EE // lntDrugNarcotic
- ME_46FC2627428A // lntDrugNoAnnuledNoNarcoric
- ME_F5E42030246E // lntFormAnnuled
- ME_8EA0941C65E8 // lntFormRussianImportant
- ME_F271970A4FB1 // lntFormNoRussianImportant
- ME_1DAD6D5E43C2 // lntFormRussianNoImportant
- ME_FCEE07BFA4FE // lntFormNoRussianNoImportant
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5062DB7F0381 // DocumentListHintConst
- ;
-
-ref; // ME_BB5D88EEAAD1 LCImplDocumentListHintConst
 
 FORWARD ME_4F7EEDDF008B
 
@@ -3527,103 +2969,6 @@ ref; // ME_5527D2660021 f_AllowCallCurrentChangedOnTest
  ;
 
 ref; // ME_56F54A4302F0 f_SearchContext
-
-: ME_50616C139DFB
- CONST UID '50616C139DFB'
- CONST Name 'f_ListPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ListPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_50616C139DFB f_ListPanel
-
-: ME_398C528355F7
- CONST UID '398C528355F7'
- CONST Name 'f_tvList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_51D56E9F004B' '51D56E2A023C.pas.ms.script' // TnscDocumentListTreeView
- ;
-
-ref; // ME_398C528355F7 f_tvList
-
-: ME_EF9B02893FC8
- CONST UID 'EF9B02893FC8'
- CONST Name 'f_cfList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства cfList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_49F0314802E7' '49F02FDF02B9.pas.ms.script' // TnscContextFilter
- ;
-
-ref; // ME_EF9B02893FC8 f_cfList
-
-: ME_AFB40540A8B1
- CONST UID 'AFB40540A8B1'
- CONST Name 'f_ExSearchPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ExSearchPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_AFB40540A8B1 f_ExSearchPanel
-
-: ME_08D7DA385B3E
- CONST UID '08D7DA385B3E'
- CONST Name 'f_ExSearchLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ExSearchLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_573B55E900C9' '4A9B9BAA0207.pas.ms.script' // TvtStyledFocusLabel
- ;
-
-ref; // ME_08D7DA385B3E f_ExSearchLabel
-
-: ME_539B2C14C0A2
- CONST UID '539B2C14C0A2'
- CONST Name 'f_CanSwithToFullList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CanSwithToFullList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'CanSwithToFullList'
-
-ref; // ME_539B2C14C0A2 f_CanSwithToFullList
 
 FORWARD ME_4C341EE90370
 
@@ -4787,46 +4132,6 @@ ref; // ME_4F7EEF2F03E2 DoIt
 
 ref; // ME_4F7EEF230221 tvListAfterFirstPaint
 
-FORWARD ME_4F7EEF450143
-
-: ME_63A76CE603A6
- CONST Name 'aNew'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_63A76CE603A6 aNew
-
-: ME_AC19FCB74372
- CONST Name 'anOld'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_AC19FCB74372 anOld
-
-: ME_40F3EA7222A3
- CONST UID '40F3EA7222A3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Событие смены индекса текущего в дереве' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F7EEF450143 // tvListCurrentIndexChanged
- ;
- : Parameters
-   Seq: ( ME_63A76CE603A6 // aNew
- ME_AC19FCB74372 // anOld
- )
- ; // Parameters
-
-ref; // ME_40F3EA7222A3 DoIt
-
 : ME_4F7EEF450143
  CONST UID '4F7EEF450143'
  CONST Name 'tvListCurrentIndexChanged'
@@ -4841,10 +4146,6 @@ ref; // ME_40F3EA7222A3 DoIt
    Seq: ( WL 'ME_5319EA3F0238' '494B947D0127.pas.ms.script' // TeeCurrentIndexChangedEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_40F3EA7222A3 // DoIt
- )
- ; // Operations
 
 ref; // ME_4F7EEF450143 tvListCurrentIndexChanged
 
@@ -5316,78 +4617,6 @@ ref; // ME_4F7EF0EF00EA DoIt
 
 ref; // ME_4F7EF0DC0246 tvListSelectCountChanged
 
-FORWARD ME_4F7EF12300F6
-
-: ME_028A15BE7BDA
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_028A15BE7BDA aSender
-
-: ME_F2E7C1571587
- CONST Name 'Info'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_F2E7C1571587 Info
-
-: ME_EC64FFEF0CBE
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_EC64FFEF0CBE aCurrent
-
-: ME_3CCBD43EA6A2
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_3CCBD43EA6A2 aCount
-
-: ME_250C5EC07138
- CONST Name 'aSelected'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_250C5EC07138 aSelected
-
-: ME_92609B1926E1
- CONST UID '92609B1926E1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F7EF12300F6 // tvListFormatStatusInfo
- ;
- : Parameters
-   Seq: ( ME_028A15BE7BDA // aSender
- ME_F2E7C1571587 // Info
- ME_EC64FFEF0CBE // aCurrent
- ME_3CCBD43EA6A2 // aCount
- ME_250C5EC07138 // aSelected
- )
- ; // Parameters
-
-ref; // ME_92609B1926E1 DoIt
-
 : ME_4F7EF12300F6
  CONST UID '4F7EF12300F6'
  CONST Name 'tvListFormatStatusInfo'
@@ -5402,10 +4631,6 @@ ref; // ME_92609B1926E1 DoIt
    Seq: ( WL 'ME_5143245F0209' '494B947D0127.pas.ms.script' // TeeFormatStatusInfo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_92609B1926E1 // DoIt
- )
- ; // Operations
 
 ref; // ME_4F7EF12300F6 tvListFormatStatusInfo
 
@@ -5610,36 +4835,6 @@ ref; // ME_4F7EFAAC0096 DoIt
 
 ref; // ME_4F7EFAA2026F HasContextFiltration
 
-FORWARD ME_51DC1AA10279
-
-: ME_88262B92E715
- CONST Name 'anIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_88262B92E715 anIndex
-
-: ME_D5D2D766B021
- CONST UID 'D5D2D766B021'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51DC1AA10279 // tvListGetNodeType
- ;
- : Target WL 'ME_47F213990332' '47EA07FA02CE.pas.ms.script' // TbsListNodeType
- ;
- : Parameters
-   Seq: ( ME_88262B92E715 // anIndex
- )
- ; // Parameters
-
-ref; // ME_D5D2D766B021 DoIt
-
 : ME_51DC1AA10279
  CONST UID '51DC1AA10279'
  CONST Name 'tvListGetNodeType'
@@ -5654,10 +4849,6 @@ ref; // ME_D5D2D766B021 DoIt
    Seq: ( WL 'ME_51DC189502B6' '51D56E2A023C.pas.ms.script' // TdltGetNodeTypeEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D5D2D766B021 // DoIt
- )
- ; // Operations
 
 ref; // ME_51DC1AA10279 tvListGetNodeType
 
@@ -5714,21 +4905,6 @@ ref; // ME_543E27940271 DoIt
 
 ref; // ME_543E272E0005 InitNewContainerBaseSearch
 
-FORWARD ME_5527D24201E7
-
-: ME_749B301AF587
- CONST UID '749B301AF587'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CallCurrentChanged' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5527D24201E7 // CallCurrentChanged
- ;
-
-ref; // ME_749B301AF587 DoIt
-
 : ME_5527D24201E7
  CONST UID '5527D24201E7'
  CONST Name 'CallCurrentChanged'
@@ -5739,41 +4915,8 @@ ref; // ME_749B301AF587 DoIt
  CONST Abstraction at_final
  : Parent ME_497DDB2B001B // PrimList
  ;
- : Operations
-   Seq: ( ME_749B301AF587 // DoIt
- )
- ; // Operations
 
 ref; // ME_5527D24201E7 CallCurrentChanged
-
-FORWARD ME_56F3F0580255
-
-: ME_4B85E547C1CC
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4B85E547C1CC Sender
-
-: ME_C8B3958849EB
- CONST UID 'C8B3958849EB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56F3F0580255 // ExSearchLabelClick
- ;
- : Parameters
-   Seq: ( ME_4B85E547C1CC // Sender
- )
- ; // Parameters
-
-ref; // ME_C8B3958849EB DoIt
 
 : ME_56F3F0580255
  CONST UID '56F3F0580255'
@@ -5789,10 +4932,6 @@ ref; // ME_C8B3958849EB DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C8B3958849EB // DoIt
- )
- ; // Operations
 
 ref; // ME_56F3F0580255 ExSearchLabelClick
 
@@ -6131,309 +5270,6 @@ ref; // ME_4C3722F5033C aSortType
  ; // Parameters
 
 ref; // ME_4C3722EE03A8 CheckValidSortTypes
-
-: ME_06B509AB0B24
- CONST UID '06B509AB0B24'
- CONST Name 'Init_Str_ListFooterCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ListFooterCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_4FC3562401C7 // ListFooterCaption
- ;
- : SpelledFor ME_74A2B4A0B734 // ListFooterCaption
- ;
-
-ref; // ME_06B509AB0B24 Init_Str_ListFooterCaption
-
-: ME_0119986B7FD4
- CONST UID '0119986B7FD4'
- CONST Name 'Init_Str_lntAAC'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntAAC' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_5062DBC30084 // lntAAC
- ;
- : SpelledFor ME_75B156DA86DB // lntAAC
- ;
-
-ref; // ME_0119986B7FD4 Init_Str_lntAAC
-
-: ME_5CF780945C06
- CONST UID '5CF780945C06'
- CONST Name 'Init_Str_lntBlock'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntBlock' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_530629C001C3 // lntBlock
- ;
- : SpelledFor ME_D07DCD566F81 // lntBlock
- ;
-
-ref; // ME_5CF780945C06 Init_Str_lntBlock
-
-: ME_CD9DDC35FF23
- CONST UID 'CD9DDC35FF23'
- CONST Name 'Init_Str_lntDocActive'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntDocActive' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062AB70165 // lntDocActive
- ;
- : SpelledFor ME_E6CD77E31661 // lntDocActive
- ;
-
-ref; // ME_CD9DDC35FF23 Init_Str_lntDocActive
-
-: ME_D4B7EEB2D911
- CONST UID 'D4B7EEB2D911'
- CONST Name 'Init_Str_lntDocPreActive'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntDocPreActive' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062B350109 // lntDocPreActive
- ;
- : SpelledFor ME_C2ECC5643488 // lntDocPreActive
- ;
-
-ref; // ME_D4B7EEB2D911 Init_Str_lntDocPreActive
-
-: ME_D794D7DE04CF
- CONST UID 'D794D7DE04CF'
- CONST Name 'Init_Str_lntDocAbolished'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntDocAbolished' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062BB40381 // lntDocAbolished
- ;
- : SpelledFor ME_7F6F44E44ADD // lntDocAbolished
- ;
-
-ref; // ME_D794D7DE04CF Init_Str_lntDocAbolished
-
-: ME_FA60099CDC42
- CONST UID 'FA60099CDC42'
- CONST Name 'Init_Str_lntRedaction'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntRedaction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062C870022 // lntRedaction
- ;
- : SpelledFor ME_9B6E5CBD7EF1 // lntRedaction
- ;
-
-ref; // ME_FA60099CDC42 Init_Str_lntRedaction
-
-: ME_55BC403E95E8
- CONST UID '55BC403E95E8'
- CONST Name 'Init_Str_lntRedactions'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntRedactions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062CAE023F // lntRedactions
- ;
- : SpelledFor ME_AC018ACF6513 // lntRedactions
- ;
-
-ref; // ME_55BC403E95E8 Init_Str_lntRedactions
-
-: ME_2273CAA0A750
- CONST UID '2273CAA0A750'
- CONST Name 'Init_Str_lntDrugAnnuled'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntDrugAnnuled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062CDA02AD // lntDrugAnnuled
- ;
- : SpelledFor ME_0790A0765696 // lntDrugAnnuled
- ;
-
-ref; // ME_2273CAA0A750 Init_Str_lntDrugAnnuled
-
-: ME_ECAF9627076F
- CONST UID 'ECAF9627076F'
- CONST Name 'Init_Str_lntDrugNarcotic'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntDrugNarcotic' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062D0500F9 // lntDrugNarcotic
- ;
- : SpelledFor ME_C817D8F958EE // lntDrugNarcotic
- ;
-
-ref; // ME_ECAF9627076F Init_Str_lntDrugNarcotic
-
-: ME_68B507DAFAEA
- CONST UID '68B507DAFAEA'
- CONST Name 'Init_Str_lntDrugNoAnnuledNoNarcoric'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntDrugNoAnnuledNoNarcoric' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062D2D00AB // lntDrugNoAnnuledNoNarcoric
- ;
- : SpelledFor ME_46FC2627428A // lntDrugNoAnnuledNoNarcoric
- ;
-
-ref; // ME_68B507DAFAEA Init_Str_lntDrugNoAnnuledNoNarcoric
-
-: ME_D07F8FF57B20
- CONST UID 'D07F8FF57B20'
- CONST Name 'Init_Str_lntFormAnnuled'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntFormAnnuled' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062D4B0112 // lntFormAnnuled
- ;
- : SpelledFor ME_F5E42030246E // lntFormAnnuled
- ;
-
-ref; // ME_D07F8FF57B20 Init_Str_lntFormAnnuled
-
-: ME_8304FFB42C62
- CONST UID '8304FFB42C62'
- CONST Name 'Init_Str_lntFormRussianImportant'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntFormRussianImportant' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062D9C0375 // lntFormRussianImportant
- ;
- : SpelledFor ME_8EA0941C65E8 // lntFormRussianImportant
- ;
-
-ref; // ME_8304FFB42C62 Init_Str_lntFormRussianImportant
-
-: ME_91CBC478FEB2
- CONST UID '91CBC478FEB2'
- CONST Name 'Init_Str_lntFormNoRussianImportant'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntFormNoRussianImportant' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062DBF01FF // lntFormNoRussianImportant
- ;
- : SpelledFor ME_F271970A4FB1 // lntFormNoRussianImportant
- ;
-
-ref; // ME_91CBC478FEB2 Init_Str_lntFormNoRussianImportant
-
-: ME_CF5511D97546
- CONST UID 'CF5511D97546'
- CONST Name 'Init_Str_lntFormRussianNoImportant'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntFormRussianNoImportant' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062DDF02B3 // lntFormRussianNoImportant
- ;
- : SpelledFor ME_1DAD6D5E43C2 // lntFormRussianNoImportant
- ;
-
-ref; // ME_CF5511D97546 Init_Str_lntFormRussianNoImportant
-
-: ME_74E1EEAC05D4
- CONST UID '74E1EEAC05D4'
- CONST Name 'Init_Str_lntFormNoRussianNoImportant'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_lntFormNoRussianNoImportant' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Speller ME_53062E3001B1 // lntFormNoRussianNoImportant
- ;
- : SpelledFor ME_FCEE07BFA4FE // lntFormNoRussianNoImportant
- ;
-
-ref; // ME_74E1EEAC05D4 Init_Str_lntFormNoRussianNoImportant
-
-: ME_CBA3FD5F6E81
- CONST UID 'CBA3FD5F6E81'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CBA3FD5F6E81 Ini_Reg_Class
 
 : ME_497F22C70280
  CONST Class class_Dependency
@@ -6874,43 +5710,20 @@ ref; // ME_56F42F4701FD
  : Stereotype st_uses::Dependency ;
  : Parent ME_497DDB2B001B // PrimList
  ;
- : Target WL 'ME_573A0A7E0387' '4E030FC801EB.pas.ms.script' // Tl3DialogService
+ : Target WL 'ME_573A0A7E0387' '4DDA34AA023B.pas.ms.script' // TnsSaveDialogExecutor
  ;
 
 ref; // ME_573B19D8020A 
 
-: ME_27B321734BC0
- CONST IsSummoned true
+: ME_57457B460042
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_497DDB2B001B // PrimList
  ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ : Target WL 'ME_5507FDD203E1' '4E030FC801EB.pas.ms.script' // Tl3BatchService
  ;
 
-ref; // ME_27B321734BC0 
-
-: ME_4198CB7509D2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_4198CB7509D2 
-
-: ME_9C3DC84CAE1B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9C3DC84CAE1B 
+ref; // ME_57457B460042 
 
 : ME_068F6EC47A8A_ME_497DDB2B001B
  : Original WL 'ME_068F6EC47A8A' '4A7C0BB70162.pas.ms.script' // lftRespondentsSynchroFormQueryMaximized
@@ -8249,12 +7062,6 @@ ref; // ME_4A8E8F2E0195_ME_497DDB2B001B InitControls
  CONST OpKind opkind_Overridden
 ref; // ME_4C52E8030278_ME_497DDB2B001B PageActive
 
-: ME_5000565C019C_ME_497DDB2B001B
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_497DDB2B001B ClearFields
-
 : ME_53EB17EF0306_ME_497DDB2B001B
  : Original WL 'ME_53EB17EF0306' '4CDD1854020C.pas.ms.script' // NeedMakeHyperlinkToDocument
  ;
@@ -8340,12 +7147,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4C3AB32C00A9 // f_NeedDropCRList
  ME_5527D2660021 // f_AllowCallCurrentChangedOnTest
  ME_56F54A4302F0 // f_SearchContext
- ME_50616C139DFB // f_ListPanel
- ME_398C528355F7 // f_tvList
- ME_EF9B02893FC8 // f_cfList
- ME_AFB40540A8B1 // f_ExSearchPanel
- ME_08D7DA385B3E // f_ExSearchLabel
- ME_539B2C14C0A2 // f_CanSwithToFullList
  )
  ; // Attributes
  : Operations
@@ -8407,23 +7208,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4C34188000A6 // MakeFilterInfo
  ME_4C341C77005C // ResetSaveToFolderOperations
  ME_4C3722EE03A8 // CheckValidSortTypes
- ME_06B509AB0B24 // Init_Str_ListFooterCaption
- ME_0119986B7FD4 // Init_Str_lntAAC
- ME_5CF780945C06 // Init_Str_lntBlock
- ME_CD9DDC35FF23 // Init_Str_lntDocActive
- ME_D4B7EEB2D911 // Init_Str_lntDocPreActive
- ME_D794D7DE04CF // Init_Str_lntDocAbolished
- ME_FA60099CDC42 // Init_Str_lntRedaction
- ME_55BC403E95E8 // Init_Str_lntRedactions
- ME_2273CAA0A750 // Init_Str_lntDrugAnnuled
- ME_ECAF9627076F // Init_Str_lntDrugNarcotic
- ME_68B507DAFAEA // Init_Str_lntDrugNoAnnuledNoNarcoric
- ME_D07F8FF57B20 // Init_Str_lntFormAnnuled
- ME_8304FFB42C62 // Init_Str_lntFormRussianImportant
- ME_91CBC478FEB2 // Init_Str_lntFormNoRussianImportant
- ME_CF5511D97546 // Init_Str_lntFormRussianNoImportant
- ME_74E1EEAC05D4 // Init_Str_lntFormNoRussianNoImportant
- ME_CBA3FD5F6E81 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -8573,7 +7357,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4A8E5CEC021F_ME_497DDB2B001B // NeedsStatusBarItems
  ME_4A8E8F2E0195_ME_497DDB2B001B // InitControls
  ME_4C52E8030278_ME_497DDB2B001B // PageActive
- ME_5000565C019C_ME_497DDB2B001B // ClearFields
  ME_53EB17EF0306_ME_497DDB2B001B // NeedMakeHyperlinkToDocument
  ME_55127A5401DE_ME_497DDB2B001B // IsAcceptable
  ME_561CB1350027_ME_497DDB2B001B // NeedLoadFormStateForClone
@@ -8608,8 +7391,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
    Seq: ( ME_4C46C867015F // Constants
  ME_4FC3561102BD // Local
  ME_5062DB7F0381 // DocumentListHintConst
- ME_61C3031E1C60 // LCImplLocal
- ME_BB5D88EEAAD1 // LCImplDocumentListHintConst
  )
  ; // Constants
  : Dependencies
@@ -8656,10 +7437,8 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_56C72BDA0170 // TvtLister
  ME_56F4085500A7 // Graphics
  ME_56F42F4701FD // String
- ME_573B19D8020A // Tl3DialogService
- ME_27B321734BC0 // Tl3StringIDEx
- ME_4198CB7509D2 // Tl3MessageID
- ME_9C3DC84CAE1B // TtfwClassRef
+ ME_573B19D8020A // TnsSaveDialogExecutor
+ ME_57457B460042 // Tl3BatchService
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -8818,38 +7597,6 @@ ref; // ME_497DECC40277 dsListInfo
 
 ref; // ME_49AE653900A2 sdsListPrim
 
-: ME_308D5820AF2B
- CONST UID '308D5820AF2B'
- CONST Name 'f_ListInfoViewer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ListInfoViewer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DEC900012 // PrimListInfo
- ;
- : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
- ;
-
-ref; // ME_308D5820AF2B f_ListInfoViewer
-
-: ME_3CD115B0CD84
- CONST UID '3CD115B0CD84'
- CONST Name 'f_TextSource'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TextSource' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497DEC900012 // PrimListInfo
- ;
- : Target WL 'ME_49512B040003' '495119A901CE.pas.ms.script' // TnscTextSource
- ;
-
-ref; // ME_3CD115B0CD84 f_TextSource
-
 FORWARD ME_4C88CF0C0337
 
 : ME_4C88CF1C00AC
@@ -8882,45 +7629,6 @@ ref; // ME_4C88CF1C00AC DoIt
 
 ref; // ME_4C88CF0C0337 MakePreview
 
-FORWARD ME_51C1A3A902F1
-
-: ME_35FD0D38B0DC
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_35FD0D38B0DC Sender
-
-: ME_7B95C6706B4D
- CONST Name 'aMade'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_47C6A603009D' '47C5207602D1.pas.ms.script' // InevDocumentContainer
- ;
-
-ref; // ME_7B95C6706B4D aMade
-
-: ME_C1173AE271AF
- CONST UID 'C1173AE271AF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51C1A3A902F1 // TextSourceMakeDocumentContainer
- ;
- : Parameters
-   Seq: ( ME_35FD0D38B0DC // Sender
- ME_7B95C6706B4D // aMade
- )
- ; // Parameters
-
-ref; // ME_C1173AE271AF DoIt
-
 : ME_51C1A3A902F1
  CONST UID '51C1A3A902F1'
  CONST Name 'TextSourceMakeDocumentContainer'
@@ -8935,27 +7643,8 @@ ref; // ME_C1173AE271AF DoIt
    Seq: ( WL 'ME_51C1A49003E5' '47542EA70394.pas.ms.script' // TeeMakeDocumentContainerEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C1173AE271AF // DoIt
- )
- ; // Operations
 
 ref; // ME_51C1A3A902F1 TextSourceMakeDocumentContainer
-
-: ME_9ECDE89FA77E
- CONST UID '9ECDE89FA77E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimListInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DEC900012 // PrimListInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9ECDE89FA77E Ini_Reg_Class
 
 : ME_4AF8599E02D0
  CONST Class class_Dependency
@@ -9147,17 +7836,6 @@ ref; // ME_51C2EE400003
 
 ref; // ME_531F1D13022C 
 
-: ME_EBF83D8032BF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497DEC900012 // PrimListInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_EBF83D8032BF 
-
 : ME_497F16AC015A_ME_497DEC900012
  : Original WL 'ME_497F16AC015A' '4A7C0BB70162.pas.ms.script' // DoTabActivate
  ;
@@ -9228,14 +7906,11 @@ ref; // ME_4A8E8F2E0195_ME_497DEC900012 InitControls
  ME_51C19D6F006C // TextSource
  ME_497DECC40277 // dsListInfo
  ME_49AE653900A2 // sdsListPrim
- ME_308D5820AF2B // f_ListInfoViewer
- ME_3CD115B0CD84 // f_TextSource
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4C88CF0C0337 // MakePreview
  ME_51C1A3A902F1 // TextSourceMakeDocumentContainer
- ME_9ECDE89FA77E // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -9274,7 +7949,6 @@ ref; // ME_4A8E8F2E0195_ME_497DEC900012 InitControls
  ME_51C2BB620335 // TextPara
  ME_51C2EE400003 // TevFormatHAFMacroReplacer
  ME_531F1D13022C // Ik2TagGenerator
- ME_EBF83D8032BF // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -9316,101 +7990,6 @@ FORWARD ME_4AA0CE2B0073
  CONST extprop:pas:UnitName 'PrimListAnalizer_listAnalize_UserType'
 
 ref; // ME_4BD71C5800C2 listAnalize
-
-FORWARD ME_C34068493C60
-
-: ME_C1F81CD0D859
- CONST UID 'C1F81CD0D859'
- CONST Name 'listAnalizeCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Анализ списка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C34068493C60 // listAnalizeLocalConstants
- ;
- CONST Value '''Анализ списка'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Анализ списка'''
-
-ref; // ME_C1F81CD0D859 listAnalizeCaption
-
-: ME_C34068493C60
- CONST UID 'C34068493C60'
- CONST Name 'listAnalizeLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы listAnalize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Attributes
-   Seq: ( ME_C1F81CD0D859 // listAnalizeCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_C34068493C60 listAnalizeLocalConstants
-
-FORWARD ME_ED5837DF39AC
-
-: ME_63168CCB8618
- CONST UID '63168CCB8618'
- CONST Name 'listAnalizeCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Анализ списка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_ED5837DF39AC // LCImpllistAnalizeLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''listAnalizeCaption''; rValue : ''Анализ списка'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''listAnalizeCaption''; rValue : ''Анализ списка'')'
- : Speller ME_C1F81CD0D859 // listAnalizeCaption
- ;
-
-ref; // ME_63168CCB8618 listAnalizeCaption
-
-: ME_ED5837DF39AC
- CONST UID 'ED5837DF39AC'
- CONST Name 'LCImpllistAnalizeLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки listAnalizeLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Attributes
-   Seq: ( ME_63168CCB8618 // listAnalizeCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_C34068493C60 // listAnalizeLocalConstants
- ;
-
-ref; // ME_ED5837DF39AC LCImpllistAnalizeLocalConstants
 
 FORWARD ME_51C062B8030D
 
@@ -9780,24 +8359,6 @@ ref; // ME_4AC4FB30036E aData
 
 ref; // ME_4AC4FB28001B Make
 
-: ME_A45193559D10
- CONST UID 'A45193559D10'
- CONST Name 'Init_Str_listAnalizeCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_listAnalizeCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Speller ME_C1F81CD0D859 // listAnalizeCaption
- ;
- : SpelledFor ME_63168CCB8618 // listAnalizeCaption
- ;
-
-ref; // ME_A45193559D10 Init_Str_listAnalizeCaption
-
 : ME_6AF69ACF1B14
  CONST UID '6AF69ACF1B14'
  CONST Name 'Ini_Reg_Class'
@@ -9912,28 +8473,6 @@ ref; // ME_51C06DDF0396
  ;
 
 ref; // ME_51C06F3D0105 
-
-: ME_4A84BCF7D954
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_4A84BCF7D954 
-
-: ME_94477F520095
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_94477F520095 
 
 : ME_79C3294B176F
  CONST IsSummoned true
@@ -10057,7 +8596,6 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
  ME_4AA0CE5D036E // CanOpen
  ME_4AA0CE940142 // TryOpen
  ME_4AC4FB28001B // Make
- ME_A45193559D10 // Init_Str_listAnalizeCaption
  ME_6AF69ACF1B14 // Ini_Reg_Class
  )
  ; // Operations
@@ -10078,11 +8616,6 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
    Seq: ( ME_4BD71C5800C2 // listAnalize
  )
  ; // Children
- : Constants
-   Seq: ( ME_C34068493C60 // listAnalizeLocalConstants
- ME_ED5837DF39AC // LCImpllistAnalizeLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4AA0D2A801AE // DynListFlags
  ME_4AA0D2C50160 // DynList
@@ -10094,8 +8627,6 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
  ME_51C06D58024C // IStream
  ME_51C06DDF0396 // SearchRes
  ME_51C06F3D0105 // Forms
- ME_4A84BCF7D954 // Tl3StringIDEx
- ME_94477F520095 // Tl3MessageID
  ME_79C3294B176F // TtfwClassRef
  )
  ; // Dependencies
@@ -10338,214 +8869,6 @@ ref; // ME_53D736FA0002 MedicinalPlantList
  CONST "spell names" false
 
 ref; // ME_53D735A202D3 List constants
-
-FORWARD ME_CFE4AACC646F
-
-: ME_1B6A0C06CCA8
- CONST UID '1B6A0C06CCA8'
- CONST Name 'remListModifiedHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список был изменен''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CFE4AACC646F // LCImplReminders' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''remListModifiedHint''; rValue : ''Список был изменен'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''remListModifiedHint''; rValue : ''Список был изменен'')'
- : Speller ME_5368FD1E0201 // remListModifiedHint
- ;
-
-ref; // ME_1B6A0C06CCA8 remListModifiedHint
-
-: ME_CC95E2881B03
- CONST UID 'CC95E2881B03'
- CONST Name 'remListFilteredHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список отфильтрован''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CFE4AACC646F // LCImplReminders' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''remListFilteredHint''; rValue : ''Список отфильтрован'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''remListFilteredHint''; rValue : ''Список отфильтрован'')'
- : Speller ME_5368FD71022C // remListFilteredHint
- ;
-
-ref; // ME_CC95E2881B03 remListFilteredHint
-
-: ME_4F62EB0E9EEB
- CONST UID '4F62EB0E9EEB'
- CONST Name 'remTimeMachineWarningHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Машина времени включена''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CFE4AACC646F // LCImplReminders' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''remTimeMachineWarningHint''; rValue : ''Машина времени включена'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''remTimeMachineWarningHint''; rValue : ''Машина времени включена'')'
- : Speller ME_5368FD8B00DC // remTimeMachineWarningHint
- ;
-
-ref; // ME_4F62EB0E9EEB remTimeMachineWarningHint
-
-: ME_CFE4AACC646F
- CONST UID 'CFE4AACC646F'
- CONST Name 'LCImplReminders'' Hints'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Reminders'' Hints' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Attributes
-   Seq: ( ME_1B6A0C06CCA8 // remListModifiedHint
- ME_CC95E2881B03 // remListFilteredHint
- ME_4F62EB0E9EEB // remTimeMachineWarningHint
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5368FB41022B // Reminders' Hints
- ;
-
-ref; // ME_CFE4AACC646F LCImplReminders' Hints
-
-FORWARD ME_9C02A31EF4E9
-
-: ME_0AA7DB4B1B42
- CONST UID '0AA7DB4B1B42'
- CONST Name 'DocumentList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список документов''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9C02A31EF4E9 // LCImplList constants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentList''; rValue : ''Список документов'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentList''; rValue : ''Список документов'')'
- : Speller ME_53D735B4002E // DocumentList
- ;
-
-ref; // ME_0AA7DB4B1B42 DocumentList
-
-: ME_2BFF6E48B1A7
- CONST UID '2BFF6E48B1A7'
- CONST Name 'DrugList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список препаратов''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9C02A31EF4E9 // LCImplList constants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''DrugList''; rValue : ''Список препаратов'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DrugList''; rValue : ''Список препаратов'')'
- : Speller ME_53D736160358 // DrugList
- ;
-
-ref; // ME_2BFF6E48B1A7 DrugList
-
-: ME_CF97FBB59B6E
- CONST UID 'CF97FBB59B6E'
- CONST Name 'MedicinalPlantList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список лекарственных растений''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9C02A31EF4E9 // LCImplList constants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''MedicinalPlantList''; rValue : ''Список лекарственных растений'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MedicinalPlantList''; rValue : ''Список лекарственных растений'')'
- : Speller ME_53D736FA0002 // MedicinalPlantList
- ;
-
-ref; // ME_CF97FBB59B6E MedicinalPlantList
-
-: ME_9C02A31EF4E9
- CONST UID '9C02A31EF4E9'
- CONST Name 'LCImplList constants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки List constants' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Attributes
-   Seq: ( ME_0AA7DB4B1B42 // DocumentList
- ME_2BFF6E48B1A7 // DrugList
- ME_CF97FBB59B6E // MedicinalPlantList
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_53D735A202D3 // List constants
- ;
-
-ref; // ME_9C02A31EF4E9 LCImplList constants
 
 FORWARD ME_4C52A6AE0162
 
@@ -10965,86 +9288,6 @@ ref; // ME_4F82AFCC0186 f_ListOpsList
 
 ref; // ME_4F82B01502AA f_ValidSortTypes
 
-: ME_0DE7F5651BA3
- CONST UID '0DE7F5651BA3'
- CONST Name 'f_RemindersLine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RemindersLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_4DA8339901A7' '4C52A6610123.pas.ms.script' // TnscRemindersLine
- ;
-
-ref; // ME_0DE7F5651BA3 f_RemindersLine
-
-: ME_1EB3F79D4F23
- CONST UID '1EB3F79D4F23'
- CONST Name 'f_remListFiltered'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства remListFiltered' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
-
-ref; // ME_1EB3F79D4F23 f_remListFiltered
-
-: ME_9E5ED4033937
- CONST UID '9E5ED4033937'
- CONST Name 'f_remListModified'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства remListModified' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
-
-ref; // ME_9E5ED4033937 f_remListModified
-
-: ME_519BE7FD3821
- CONST UID '519BE7FD3821'
- CONST Name 'f_remTimeMachineWarning'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства remTimeMachineWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_4C52A66C0209' '4C52A6610123.pas.ms.script' // TnscReminder
- ;
-
-ref; // ME_519BE7FD3821 f_remTimeMachineWarning
-
-: ME_23B7C8DD3CE1
- CONST UID '23B7C8DD3CE1'
- CONST Name 'f_EmptyListEditor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EmptyListEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
- ;
-
-ref; // ME_23B7C8DD3CE1 f_EmptyListEditor
-
 FORWARD ME_4F82B02C00CC
 
 : ME_4F82B0340222
@@ -11349,21 +9592,6 @@ ref; // ME_53F32E7401A4 DoIt
 
 ref; // ME_53F32E6A037D MakeCaption
 
-FORWARD ME_558010F802FC
-
-: ME_12D809CB3F46
- CONST UID '12D809CB3F46'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateStatusBar' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_558010F802FC // UpdateStatusBar
- ;
-
-ref; // ME_12D809CB3F46 DoIt
-
 : ME_558010F802FC
  CONST UID '558010F802FC'
  CONST Name 'UpdateStatusBar'
@@ -11374,135 +9602,8 @@ ref; // ME_12D809CB3F46 DoIt
  CONST Abstraction at_final
  : Parent ME_4C46AA3401DB // PrimListOptions
  ;
- : Operations
-   Seq: ( ME_12D809CB3F46 // DoIt
- )
- ; // Operations
 
 ref; // ME_558010F802FC UpdateStatusBar
-
-: ME_4D7FD88633E6
- CONST UID '4D7FD88633E6'
- CONST Name 'Init_Str_remListModifiedHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_remListModifiedHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Speller ME_5368FD1E0201 // remListModifiedHint
- ;
- : SpelledFor ME_1B6A0C06CCA8 // remListModifiedHint
- ;
-
-ref; // ME_4D7FD88633E6 Init_Str_remListModifiedHint
-
-: ME_0A6832DB5ECD
- CONST UID '0A6832DB5ECD'
- CONST Name 'Init_Str_remListFilteredHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_remListFilteredHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Speller ME_5368FD71022C // remListFilteredHint
- ;
- : SpelledFor ME_CC95E2881B03 // remListFilteredHint
- ;
-
-ref; // ME_0A6832DB5ECD Init_Str_remListFilteredHint
-
-: ME_5F8988B0CA01
- CONST UID '5F8988B0CA01'
- CONST Name 'Init_Str_remTimeMachineWarningHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_remTimeMachineWarningHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Speller ME_5368FD8B00DC // remTimeMachineWarningHint
- ;
- : SpelledFor ME_4F62EB0E9EEB // remTimeMachineWarningHint
- ;
-
-ref; // ME_5F8988B0CA01 Init_Str_remTimeMachineWarningHint
-
-: ME_E87BC304E4A2
- CONST UID 'E87BC304E4A2'
- CONST Name 'Init_Str_DocumentList'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DocumentList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Speller ME_53D735B4002E // DocumentList
- ;
- : SpelledFor ME_0AA7DB4B1B42 // DocumentList
- ;
-
-ref; // ME_E87BC304E4A2 Init_Str_DocumentList
-
-: ME_F4B3FED0BFFA
- CONST UID 'F4B3FED0BFFA'
- CONST Name 'Init_Str_DrugList'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DrugList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Speller ME_53D736160358 // DrugList
- ;
- : SpelledFor ME_2BFF6E48B1A7 // DrugList
- ;
-
-ref; // ME_F4B3FED0BFFA Init_Str_DrugList
-
-: ME_17ADC76ABA55
- CONST UID '17ADC76ABA55'
- CONST Name 'Init_Str_MedicinalPlantList'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_MedicinalPlantList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Speller ME_53D736FA0002 // MedicinalPlantList
- ;
- : SpelledFor ME_CF97FBB59B6E // MedicinalPlantList
- ;
-
-ref; // ME_17ADC76ABA55 Init_Str_MedicinalPlantList
-
-: ME_AF3CB2523C8A
- CONST UID 'AF3CB2523C8A'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimListOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_AF3CB2523C8A Ini_Reg_Class
 
 : ME_4C46BF5A029C
  CONST Class class_Dependency
@@ -12291,43 +10392,20 @@ ref; // ME_55E4391D00D8
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C46AA3401DB // PrimListOptions
  ;
- : Target WL 'ME_573A0A7E0387' '4E030FC801EB.pas.ms.script' // Tl3DialogService
+ : Target WL 'ME_573A0A7E0387' '4DDA34AA023B.pas.ms.script' // TnsSaveDialogExecutor
  ;
 
 ref; // ME_573B19C10306 
 
-: ME_1AAF787D63B3
- CONST IsSummoned true
+: ME_57457B640302
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4C46AA3401DB // PrimListOptions
  ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ : Target WL 'ME_5507FDD203E1' '4E030FC801EB.pas.ms.script' // Tl3BatchService
  ;
 
-ref; // ME_1AAF787D63B3 
-
-: ME_85BCC683BBBB
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_85BCC683BBBB 
-
-: ME_89F6336AADC2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C46AA3401DB // PrimListOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_89F6336AADC2 
+ref; // ME_57457B640302 
 
 : ME_494F89C30197_ME_4C46AA3401DB
  : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
@@ -13430,12 +11508,6 @@ ref; // ME_4CDD5C3901E0_ME_4C46AA3401DB MakeHyperlinkToDocument
  CONST "no prefix" false
 ref; // ME_4CDE7C2C0258_ME_4C46AA3401DB MakeHyperlinkToDocument
 
-: ME_5000565C019C_ME_4C46AA3401DB
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C46AA3401DB ClearFields
-
 : ME_538C374A00B7_ME_4C46AA3401DB
  : Original WL 'ME_538C374A00B7' '4AADF9450143.pas.ms.script' // ReleaseResources
  ;
@@ -13516,11 +11588,6 @@ FORWARD ME_571A2C160184
  ME_520525A701F9 // ListPanel
  ME_4F82AFCC0186 // f_ListOpsList
  ME_4F82B01502AA // f_ValidSortTypes
- ME_0DE7F5651BA3 // f_RemindersLine
- ME_1EB3F79D4F23 // f_remListFiltered
- ME_9E5ED4033937 // f_remListModified
- ME_519BE7FD3821 // f_remTimeMachineWarning
- ME_23B7C8DD3CE1 // f_EmptyListEditor
  )
  ; // Attributes
  : Operations
@@ -13532,13 +11599,6 @@ FORWARD ME_571A2C160184
  ME_53DB3D9100F3 // OpenSelectedDocumentInContainer
  ME_53F32E6A037D // MakeCaption
  ME_558010F802FC // UpdateStatusBar
- ME_4D7FD88633E6 // Init_Str_remListModifiedHint
- ME_0A6832DB5ECD // Init_Str_remListFilteredHint
- ME_5F8988B0CA01 // Init_Str_remTimeMachineWarningHint
- ME_E87BC304E4A2 // Init_Str_DocumentList
- ME_F4B3FED0BFFA // Init_Str_DrugList
- ME_17ADC76ABA55 // Init_Str_MedicinalPlantList
- ME_AF3CB2523C8A // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -13627,7 +11687,6 @@ FORWARD ME_571A2C160184
  ME_4C81191003E5_ME_4C46AA3401DB // FiltersListOpen
  ME_4CDD5C3901E0_ME_4C46AA3401DB // MakeHyperlinkToDocument
  ME_4CDE7C2C0258_ME_4C46AA3401DB // MakeHyperlinkToDocument
- ME_5000565C019C_ME_4C46AA3401DB // ClearFields
  ME_538C374A00B7_ME_4C46AA3401DB // ReleaseResources
  ME_53DB376C0239_ME_4C46AA3401DB // Analize
  ME_53F1C6EF02C9_ME_4C46AA3401DB // DoGetTabCaption
@@ -13642,8 +11701,6 @@ FORWARD ME_571A2C160184
    Seq: ( ME_4F82B56B0141 // LinkHandles
  ME_5368FB41022B // Reminders' Hints
  ME_53D735A202D3 // List constants
- ME_CFE4AACC646F // LCImplReminders' Hints
- ME_9C02A31EF4E9 // LCImplList constants
  )
  ; // Constants
  : Dependencies
@@ -13724,10 +11781,8 @@ FORWARD ME_571A2C160184
  ME_53DB57F50282 // SelectedDocuments
  ME_55968EB602B1 // lftSimilarDocumentsToFragment
  ME_55E4391D00D8 // nsListExceptions
- ME_573B19C10306 // Tl3DialogService
- ME_1AAF787D63B3 // Tl3StringIDEx
- ME_85BCC683BBBB // Tl3MessageID
- ME_89F6336AADC2 // TtfwClassRef
+ ME_573B19C10306 // TnsSaveDialogExecutor
+ ME_57457B640302 // Tl3BatchService
  )
  ; // Dependencies
  : Injected
@@ -13754,21 +11809,6 @@ ref; // ME_4C46AA3401DB PrimListOptions
 
 FORWARD ME_4C88CB3E009C
 
-: ME_156CC2470274
- CONST UID '156CC2470274'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimListInfoOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C88CB3E009C // PrimListInfoOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_156CC2470274 Ini_Reg_Class
-
 : ME_51C2C8000006
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -13788,17 +11828,6 @@ ref; // ME_51C2C8000006
  ;
 
 ref; // ME_51C2C82A00A1 
-
-: ME_6A22F060E0B1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C88CB3E009C // PrimListInfoOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6A22F060E0B1 
 
 : ME_4951284902BD_ME_4C88CB3E009C
  : Original WL 'ME_4951284902BD' '495127DD017C.pas.ms.script' // Copy
@@ -13894,10 +11923,6 @@ ref; // ME_49EDFA3701B0_ME_4C88CB3E009C Paste
  WL 'ME_49521D8203A0' '494F898C013E.pas.ms.script' // File
  )
  ; // Implements
- : Operations
-   Seq: ( ME_156CC2470274 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4951284902BD_ME_4C88CB3E009C // Copy
  ME_49521D8E0295_ME_4C88CB3E009C // Print
@@ -13909,7 +11934,6 @@ ref; // ME_49EDFA3701B0_ME_4C88CB3E009C Paste
  : Dependencies
    Seq: ( ME_51C2C8000006 // IafwComplexDocumentPreview
  ME_51C2C82A00A1 // afwFacade
- ME_6A22F060E0B1 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -14056,21 +12080,6 @@ ref; // ME_4E36B64802AE DoIt
 
 ref; // ME_4E36B63D016B ExecuteTabAction
 
-: ME_72C4BD78741C
- CONST UID '72C4BD78741C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimListAnalize' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4E369558035D // PrimListAnalize
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_72C4BD78741C Ini_Reg_Class
-
 : ME_4E36B5D6004D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -14080,17 +12089,6 @@ ref; // ME_72C4BD78741C Ini_Reg_Class
  ;
 
 ref; // ME_4E36B5D6004D 
-
-: ME_436F71F18BD5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E369558035D // PrimListAnalize
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_436F71F18BD5 
 
 : ME_49803F5503AA_ME_4E369558035D
  : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
@@ -14131,7 +12129,6 @@ ref; // ME_4A8AE0FA03B2_ME_4E369558035D BecomeActive
  : Operations
    Seq: ( ME_4E36B621000E // UpdateTabAction
  ME_4E36B63D016B // ExecuteTabAction
- ME_72C4BD78741C // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -14141,7 +12138,6 @@ ref; // ME_4A8AE0FA03B2_ME_4E369558035D BecomeActive
  ; // Overridden
  : Dependencies
    Seq: ( ME_4E36B5D6004D // TAction
- ME_436F71F18BD5 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -24084,7 +22080,6 @@ ref; // ME_5130D80002C1 nscTreeViewForDocumentListWordsPack
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
- WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47C695A10172' '47C695A10172.pas.ms.script' // evTypes
  WL 'ME_47CD3441002F' '47CD3441002F.pas.ms.script' // nevInterfaces
  WL 'ME_47D036150077' '47D036150077.pas.ms.script' // l3ControlsTypes

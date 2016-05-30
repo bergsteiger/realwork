@@ -16,7 +16,9 @@
 > Constants::Class
 > SimpleClass::Class
 > ScriptKeyword::Class
+> LocalConst::Class
 
+= UsesContainer::Class
 = UserTypeIDHolder::Class
 = CanCloseHolder::Class
 = Delphi интерфейсы и реализация::MDAGenerator
@@ -152,10 +154,9 @@ r {""=""}: {}
 	%{Attr_Inst}%f_set_up(is define,true)\
 	%{Attr_Inst}%f_set_up(no unit prefix,true)\
 	%{Attr_Inst}%f_set_documentation(%SD)\
-	]\
 
-	%P%f_add_class(%SU_Local_Constants,LocalConst,%SNLocalConstants,LocalConstants_Inst)\
-	%{LocalConstants_Inst}%f_set_visibility_type(PrivateAccess)\
+	%S%f_add_class(%SU_Local_Constants,LocalConst,%SNLocalConstants,LocalConstants_Inst)\
+	%{LocalConstants_Inst}%f_set_visibility_type(PublicAccess)\
 	%{LocalConstants_Inst}%f_set_documentation(Локализуемые константы для типа формы %SN)\
 	%{LocalConstants_Inst}%f_add_attribute(%SU_CAPTION_ID,,\
 	%SNCaption = '%SD',\
@@ -168,7 +169,6 @@ r {""=""}: {}
 	%{Attr_Inst}%f_set_documentation(Заголовок пользовательского типа "%SD" для настройки панелей инструментов)\
 	]\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%S%f_add_class(%SU_Word,ScriptKeyword,Tkw_FormUserType_%f_N(%S),Word_Inst)\
 	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
 	%{Word_Inst}%f_set_up(ifndef,NoScripts)\

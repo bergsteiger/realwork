@@ -161,81 +161,6 @@ ref; // ME_4B97E86702AE MultiSelectDraggingText
 
 ref; // ME_4B97E8570381 TreeViewMessages
 
-FORWARD ME_5111316547B9
-
-: ME_FB4FA2782BAB
- CONST UID 'FB4FA2782BAB'
- CONST Name 'MultiSelectDraggingText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Всего: %d''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5111316547B9 // LCImplTreeViewMessages
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_MultiSelectDraggingText''; rValue : ''Всего: %d'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_MultiSelectDraggingText''; rValue : ''Всего: %d'')'
- : Speller ME_4B97E86702AE // MultiSelectDraggingText
- ;
-
-ref; // ME_FB4FA2782BAB MultiSelectDraggingText
-
-: ME_5111316547B9
- CONST UID '5111316547B9'
- CONST Name 'LCImplTreeViewMessages'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки TreeViewMessages' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B97E82200D4 // vtOutlinerWithDragDropRes
- ;
- : Attributes
-   Seq: ( ME_FB4FA2782BAB // MultiSelectDraggingText
- )
- ; // Attributes
- CONST "children prefix" 'nsc_'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_nsc_'
- : Speller ME_4B97E8570381 // TreeViewMessages
- ;
-
-ref; // ME_5111316547B9 LCImplTreeViewMessages
-
-: ME_9ADE5FD0218C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97E82200D4 // vtOutlinerWithDragDropRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_9ADE5FD0218C 
-
-: ME_1E975BE238B2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97E82200D4 // vtOutlinerWithDragDropRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_1E975BE238B2 
-
 : ME_4B97E82200D4
  CONST UID '4B97E82200D4'
  CONST Name 'vtOutlinerWithDragDropRes'
@@ -249,14 +174,8 @@ ref; // ME_1E975BE238B2
  ;
  : Constants
    Seq: ( ME_4B97E8570381 // TreeViewMessages
- ME_5111316547B9 // LCImplTreeViewMessages
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_9ADE5FD0218C // Tl3StringIDEx
- ME_1E975BE238B2 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '10.03.2010 21:43'

@@ -2405,85 +2405,6 @@ ref; // ME_4E0B04C801EC Tl3MessageC
 
 ref; // ME_4F9BC9DC0069 Pl3MessageID
 
-FORWARD ME_43F39AEE5839
-
-: ME_171D5CEF1443
- CONST UID '171D5CEF1443'
- CONST Name 'RememberChoice'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Запомнить выбор и больше не показывать это сообщение.''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_43F39AEE5839 // LCImplLocal
- ;
- : Target ME_4B3B3728004C // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmRememberChoice''; rValue : ''Запомнить выбор и больше не показывать это сообщение.'')'
- : ValueType ME_4B3B3728004C // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmRememberChoice''; rValue : ''Запомнить выбор и больше не показывать это сообщение.'')'
- : Speller ME_4B8EA6D900DC // RememberChoice
- ;
-
-ref; // ME_171D5CEF1443 RememberChoice
-
-: ME_E3E7214C80F3
- CONST UID 'E3E7214C80F3'
- CONST Name 'NotShowDlg'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Больше не показывать это сообщение.''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_43F39AEE5839 // LCImplLocal
- ;
- : Target ME_4B3B3728004C // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmNotShowDlg''; rValue : ''Больше не показывать это сообщение.'')'
- : ValueType ME_4B3B3728004C // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmNotShowDlg''; rValue : ''Больше не показывать это сообщение.'')'
- : Speller ME_4B8EA6E90245 // NotShowDlg
- ;
-
-ref; // ME_E3E7214C80F3 NotShowDlg
-
-: ME_43F39AEE5839
- CONST UID '43F39AEE5839'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E01D1980071 // l3MessageID
- ;
- : Attributes
-   Seq: ( ME_171D5CEF1443 // RememberChoice
- ME_E3E7214C80F3 // NotShowDlg
- )
- ; // Attributes
- CONST "children prefix" 'vcm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_vcm'
- : Speller ME_4B8EA6A3016F // Local
- ;
-
-ref; // ME_43F39AEE5839 LCImplLocal
-
 : ME_4E01D1C100D5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2503,28 +2424,6 @@ ref; // ME_4E01D1C100D5
  ;
 
 ref; // ME_4F9BCB79001C 
-
-: ME_571B412D5456
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E01D1980071 // l3MessageID
- ;
- : Target ME_4B3B3728004C // Tl3StringIDEx
- ;
-
-ref; // ME_571B412D5456 
-
-: ME_859AFD72C2A9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E01D1980071 // l3MessageID
- ;
- : Target ME_4E01D1E002AE // Tl3MessageID
- ;
-
-ref; // ME_859AFD72C2A9 
 
 : ME_4E01D1980071
  CONST UID '4E01D1980071'
@@ -2547,14 +2446,11 @@ ref; // ME_859AFD72C2A9
  ; // Children
  : Constants
    Seq: ( ME_4B8EA6A3016F // Local
- ME_43F39AEE5839 // LCImplLocal
  )
  ; // Constants
  : Dependencies
    Seq: ( ME_4E01D1C100D5 // l3StringIDEx
  ME_4F9BCB79001C // TPl3MessageIDList
- ME_571B412D5456 // Tl3StringIDEx
- ME_859AFD72C2A9 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

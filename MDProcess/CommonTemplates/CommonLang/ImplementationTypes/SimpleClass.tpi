@@ -263,7 +263,10 @@ f _base_class_collect
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor471466900128*
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%f_UseNewGenRecG(%S)!=true}{\
+//	%S#[inherited]\
+	%f_SpellAreaLinks(%S)\
+	}\
 	[{%S{singleton}=true}\
 	[{<{}{%CN=Exists}{C}>=0}\
 	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
@@ -403,17 +406,15 @@ f _base_class_collect
 	Finalize(%C%f_pas_AttrName());\
 	]\n\
 	>\
-	 inherited;\
+	%f_outInherited(%S)\
 	)\
 
 	]\
 	%f_SpellFriends(%S)\
 
-	]\
+//	%S#[inherited]\
+	%f_SpellAreaLinks(%S)\
 
-	%S%[inherited]\
-
-	[{%S#f_UseNewGenRec()!=true}\
 	%f_set_var(WasRegisterInEngine,"false")\
 	[{%S#f_IsMixIn()!=true}\
 	[{%Sa!=abstract}\
@@ -438,7 +439,6 @@ f _base_class_collect
 	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	[{%S%f_InheritsFrom("TtfwWord")=true}{\
 	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
@@ -446,7 +446,6 @@ f _base_class_collect
 	 %f_pas_TypeName(%S).RegisterClass;\
 	]\
 	)\
-	]\
 
 	]\
 	]\
@@ -455,6 +454,9 @@ f _base_class_collect
 	]\
 	%f_SpellScriptFramework(%S)\
 	]
+
+f _outInherited
+	 inherited;
 
 f _pas_FileName
 	[{"%f_pas_UnitName(%S)"=""}{\
@@ -465,7 +467,7 @@ f _pas_FileName
 
 f _SpellScriptFramework
 	[{%S{needs script}=true}\
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	%S%f_add_class(%SU_ResNameGetter,SimpleClass,T%f_pas_FileName(%S)ResNameGetter,Class_Inst)\
 	%{Class_Inst}%f_set_documentation(Регистрация скриптованой аксиоматики)\
 	%{Class_Inst}%f_set_abstraction_type(final)\
@@ -474,18 +476,15 @@ f _SpellScriptFramework
 	%f_addG(%{Class_Inst},%{TtfwAxiomaticsResNameGetter})\
 	%{Class_Inst}%f_set_up(need UC,true)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Class_Inst}%f_set_uc_content(intf.pas,impl,\
 	 \{$R %f_pas_FileName(%S).res}\
 	)\
-	]\
 
 	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Reg,ini,RegAxiom (),Reg_Instance)\
 	%{Reg_Instance}%f_set_documentation(Регистрация скриптованой аксиоматики)\
 	%{Reg_Instance}%f_set_abstraction_type(final)\
 	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
 
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
 	 %f_pas_TypeName(%{Class_Inst}).Register;\
 	)\
@@ -499,13 +498,12 @@ f _SpellScriptFramework
 	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_impl,\
 	 Result := '%f_pas_FileName(%S)';\
 	)\
-	]\
 
 	]\
 	]
 
 f _SpellFriends
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	%f_clear_list(FRIENDS)\
 	<{}{%CS=friend&%CC=Dependency&%C%T#f_IsSimpleClass()=true}\
 	%f_add_to_list(FRIENDS,C%T)\
@@ -533,16 +531,14 @@ f _SpellFriends
 f _SpellRegisterInEngine
 	[{%S%f_InheritsFrom("TtfwRegisterableWord")=true}\
 	%f_set_var(WasRegisterInEngine,"true")\
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	%S%f_add_operation(%SU_Ini_Reg,ini,Ini_Reg (),Op_Instance)\
 	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
-	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 %f_pas_TypeName(%S).RegisterInEngine;\
 	)\
-	]\
 	]\
 	]
 
@@ -747,7 +743,7 @@ F [{%f_exists_in_list(FORWARDED_INTF,S)!=true}%f_pas_OpenType(%S)#%SN = class;\n
 	}\
 	%f_pas_CloseUnit(%S)\
 	]\
-	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%C#f_UseNewGenRec()!=true}%CX>\
+	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%f_UseNewGenRecG(%C)!=true}%CX>\
 	]
 
 f _ChildNeedOwnFile
@@ -770,7 +766,7 @@ f _ChildNeedOwnFile
 + spell
 //#UC START# *4A41A13D03D5for471466900128*
 	<%CX>\
-	%S%f_DoSpell()
+	%S#f_DoSpell()
 //#UC END# *4A41A13D03D5for471466900128*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -238,137 +238,6 @@ ref; // ME_4DBADBF300F4 TimeMachineOn
 
 ref; // ME_4DB98E7B0358 Local
 
-FORWARD ME_459AC4484A02
-
-: ME_7F98396F948A
- CONST UID '7F98396F948A'
- CONST Name 'ListModified'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список изменён''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_459AC4484A02 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lstListModified''; rValue : ''Список изменён'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstListModified''; rValue : ''Список изменён'')'
- : Speller ME_4DB98E85011C // ListModified
- ;
-
-ref; // ME_7F98396F948A ListModified
-
-: ME_B316DC25A661
- CONST UID 'B316DC25A661'
- CONST Name 'ListFiltered'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список отфильтрован. Отменить все фильтры''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_459AC4484A02 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lstListFiltered''; rValue : ''Список отфильтрован. Отменить все фильтры'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstListFiltered''; rValue : ''Список отфильтрован. Отменить все фильтры'')'
- : Speller ME_4DB992EB01F7 // ListFiltered
- ;
-
-ref; // ME_B316DC25A661 ListFiltered
-
-: ME_881D5232D517
- CONST UID '881D5232D517'
- CONST Name 'SwitchFiltersOff'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Отменить все фильтры''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_459AC4484A02 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lstSwitchFiltersOff''; rValue : ''Отменить все фильтры'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstSwitchFiltersOff''; rValue : ''Отменить все фильтры'')'
- : Speller ME_4DB99BB60038 // SwitchFiltersOff
- ;
-
-ref; // ME_881D5232D517 SwitchFiltersOff
-
-: ME_6768AC3ED1A3
- CONST UID '6768AC3ED1A3'
- CONST Name 'TimeMachineOn'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Машина времени включена на дату %s''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_459AC4484A02 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''lstTimeMachineOn''; rValue : ''Машина времени включена на дату %s'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''lstTimeMachineOn''; rValue : ''Машина времени включена на дату %s'')'
- : Speller ME_4DBADBF300F4 // TimeMachineOn
- ;
-
-ref; // ME_6768AC3ED1A3 TimeMachineOn
-
-: ME_459AC4484A02
- CONST UID '459AC4484A02'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Attributes
-   Seq: ( ME_7F98396F948A // ListModified
- ME_B316DC25A661 // ListFiltered
- ME_881D5232D517 // SwitchFiltersOff
- ME_6768AC3ED1A3 // TimeMachineOn
- )
- ; // Attributes
- CONST "children prefix" 'lst'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_lst'
- : Speller ME_4DB98E7B0358 // Local
- ;
-
-ref; // ME_459AC4484A02 LCImplLocal
-
 FORWARD ME_4EDCFD7E0323
 
 : ME_4EDE035602CC
@@ -585,28 +454,6 @@ ref; // ME_4EDD061701F8
 
 ref; // ME_4F5E21F901F2 
 
-: ME_088CECBBA990
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_088CECBBA990 
-
-: ME_B9562A4F5A84
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EDCFD4D037C // TnsListWarningGenerator
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_B9562A4F5A84 
-
 : ME_4EDCFD4D037C
  CONST UID '4EDCFD4D037C'
  CONST Name 'TnsListWarningGenerator'
@@ -623,7 +470,6 @@ ref; // ME_B9562A4F5A84
  ; // Operations
  : Constants
    Seq: ( ME_4DB98E7B0358 // Local
- ME_459AC4484A02 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -640,8 +486,6 @@ ref; // ME_B9562A4F5A84
  ME_4EDD060F02E9 // TnsWarningSub
  ME_4EDD061701F8 // TnsWarningLinkHandle
  ME_4F5E21F901F2 // BaloonWarningUserTypes
- ME_088CECBBA990 // Tl3StringIDEx
- ME_B9562A4F5A84 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

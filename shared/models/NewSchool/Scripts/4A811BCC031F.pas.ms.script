@@ -24,101 +24,6 @@ FORWARD ME_4BD6D6EA0075
 
 ref; // ME_4BD6D74C0111 utWorkJournal
 
-FORWARD ME_5A3AC67A1BA4
-
-: ME_1F1FD971DD79
- CONST UID '1F1FD971DD79'
- CONST Name 'utWorkJournalCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Журнал работы"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5A3AC67A1BA4 // utWorkJournalLocalConstants
- ;
- CONST Value '''Журнал работы'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Журнал работы'''
-
-ref; // ME_1F1FD971DD79 utWorkJournalCaption
-
-: ME_5A3AC67A1BA4
- CONST UID '5A3AC67A1BA4'
- CONST Name 'utWorkJournalLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utWorkJournal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Attributes
-   Seq: ( ME_1F1FD971DD79 // utWorkJournalCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_5A3AC67A1BA4 utWorkJournalLocalConstants
-
-FORWARD ME_895616D7C1C6
-
-: ME_9285AC8388B2
- CONST UID '9285AC8388B2'
- CONST Name 'utWorkJournalCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Журнал работы"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_895616D7C1C6 // LCImplutWorkJournalLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utWorkJournalCaption''; rValue : ''Журнал работы'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utWorkJournalCaption''; rValue : ''Журнал работы'')'
- : Speller ME_1F1FD971DD79 // utWorkJournalCaption
- ;
-
-ref; // ME_9285AC8388B2 utWorkJournalCaption
-
-: ME_895616D7C1C6
- CONST UID '895616D7C1C6'
- CONST Name 'LCImplutWorkJournalLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utWorkJournalLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Attributes
-   Seq: ( ME_9285AC8388B2 // utWorkJournalCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5A3AC67A1BA4 // utWorkJournalLocalConstants
- ;
-
-ref; // ME_895616D7C1C6 LCImplutWorkJournalLocalConstants
-
 FORWARD ME_4C3F30AF012E
 
 : ME_46A5AA4B003C_ME_4C3F30AF012E
@@ -270,50 +175,6 @@ ref; // ME_4C7D0C7B0185_ME_4C3F30AF012E Copy
 
 ref; // ME_4C3F30AF012E JournalTree
 
-: ME_63141D34E1E4
- CONST UID '63141D34E1E4'
- CONST Name 'f_JournalTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства JournalTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_63141D34E1E4 f_JournalTree
-
-FORWARD ME_527D09DB0041
-
-: ME_E00227A25CB5
- CONST Name 'theTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_E00227A25CB5 theTree
-
-: ME_8CC242216FCF
- CONST UID '8CC242216FCF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527D09DB0041 // JournalTreeMakeTreeSource
- ;
- : Parameters
-   Seq: ( ME_E00227A25CB5 // theTree
- )
- ; // Parameters
-
-ref; // ME_8CC242216FCF DoIt
-
 : ME_527D09DB0041
  CONST UID '527D09DB0041'
  CONST Name 'JournalTreeMakeTreeSource'
@@ -328,65 +189,8 @@ ref; // ME_8CC242216FCF DoIt
    Seq: ( WL 'ME_5199D8F700DB' '494B947D0127.pas.ms.script' // TeeMakeTreeSource
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8CC242216FCF // DoIt
- )
- ; // Operations
 
 ref; // ME_527D09DB0041 JournalTreeMakeTreeSource
-
-FORWARD ME_527D09E502F1
-
-: ME_5CD91FCB3D5D
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_5CD91FCB3D5D Sender
-
-: ME_7E0480A574BC
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_7E0480A574BC Index
-
-: ME_C6DEE0A7ADAC
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_C6DEE0A7ADAC aImages
-
-: ME_79B6B19F4B19
- CONST UID '79B6B19F4B19'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527D09E502F1 // JournalTreeGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_5CD91FCB3D5D // Sender
- ME_7E0480A574BC // Index
- ME_C6DEE0A7ADAC // aImages
- )
- ; // Parameters
-
-ref; // ME_79B6B19F4B19 DoIt
 
 : ME_527D09E502F1
  CONST UID '527D09E502F1'
@@ -402,51 +206,8 @@ ref; // ME_79B6B19F4B19 DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_79B6B19F4B19 // DoIt
- )
- ; // Operations
 
 ref; // ME_527D09E502F1 JournalTreeGetItemImage
-
-FORWARD ME_527D09F100BA
-
-: ME_19453E6A1E15
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_19453E6A1E15 Sender
-
-: ME_A6378FC1397A
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_A6378FC1397A Index
-
-: ME_22F2A3646FA5
- CONST UID '22F2A3646FA5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527D09F100BA // JournalTreeActionElement
- ;
- : Parameters
-   Seq: ( ME_19453E6A1E15 // Sender
- ME_A6378FC1397A // Index
- )
- ; // Parameters
-
-ref; // ME_22F2A3646FA5 DoIt
 
 : ME_527D09F100BA
  CONST UID '527D09F100BA'
@@ -462,45 +223,8 @@ ref; // ME_22F2A3646FA5 DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_22F2A3646FA5 // DoIt
- )
- ; // Operations
 
 ref; // ME_527D09F100BA JournalTreeActionElement
-
-: ME_87B355C64CFD
- CONST UID '87B355C64CFD'
- CONST Name 'Init_Str_utWorkJournalCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utWorkJournalCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Speller ME_1F1FD971DD79 // utWorkJournalCaption
- ;
- : SpelledFor ME_9285AC8388B2 // utWorkJournalCaption
- ;
-
-ref; // ME_87B355C64CFD Init_Str_utWorkJournalCaption
-
-: ME_1457F42A8241
- CONST UID '1457F42A8241'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimWorkJournal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1457F42A8241 Ini_Reg_Class
 
 : ME_4C3F383E01C2
  CONST Class class_Dependency
@@ -673,39 +397,6 @@ ref; // ME_527D1F7D008D
 
 ref; // ME_5289C95C021E 
 
-: ME_97DD68AC650D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_97DD68AC650D 
-
-: ME_A3C48EE4D04D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_A3C48EE4D04D 
-
-: ME_97724835D5A4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BD6D6EA0075 // PrimWorkJournal
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_97724835D5A4 
-
 : ME_494F89C30197_ME_4BD6D6EA0075
  : Original WL 'ME_494F89C30197' '494F898C013E.pas.ms.script' // Delete
  ;
@@ -843,15 +534,12 @@ ref; // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
  ; // Implements
  : Attributes
    Seq: ( ME_4C3F30AF012E // JournalTree
- ME_63141D34E1E4 // f_JournalTree
  )
  ; // Attributes
  : Operations
    Seq: ( ME_527D09DB0041 // JournalTreeMakeTreeSource
  ME_527D09E502F1 // JournalTreeGetItemImage
  ME_527D09F100BA // JournalTreeActionElement
- ME_87B355C64CFD // Init_Str_utWorkJournalCaption
- ME_1457F42A8241 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -874,11 +562,6 @@ ref; // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
    Seq: ( ME_4BD6D74C0111 // utWorkJournal
  )
  ; // Children
- : Constants
-   Seq: ( ME_5A3AC67A1BA4 // utWorkJournalLocalConstants
- ME_895616D7C1C6 // LCImplutWorkJournalLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4C3F383E01C2 // TnsFoldersRes
  ME_4C3F40110184 // NodeBase
@@ -897,9 +580,6 @@ ref; // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
  ME_527D1F7B0274 // nsConst
  ME_527D1F7D008D // afwFacade
  ME_5289C95C021E // Forms
- ME_97DD68AC650D // Tl3StringIDEx
- ME_A3C48EE4D04D // Tl3MessageID
- ME_97724835D5A4 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -921,32 +601,6 @@ ref; // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
 ref; // ME_4BD6D6EA0075 PrimWorkJournal
 
 FORWARD ME_4CC7E19400DE
-
-: ME_2C3F15DAD44E
- CONST UID '2C3F15DAD44E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimWorkJournalOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CC7E19400DE // PrimWorkJournalOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2C3F15DAD44E Ini_Reg_Class
-
-: ME_2EC9DBAFBAF4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CC7E19400DE // PrimWorkJournalOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_2EC9DBAFBAF4 
 
 : ME_4C3F3421036A_ME_4CC7E19400DE
  : Original WL 'ME_4C3F3421036A' '4A9807DB01A5.pas.ms.script' // OpenQuery
@@ -992,19 +646,11 @@ ref; // ME_4C3F342E02AF_ME_4CC7E19400DE ExecuteQuery
    Seq: ( ME_4BD6D6EA0075 // PrimWorkJournal
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2C3F15DAD44E // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4C3F3421036A_ME_4CC7E19400DE // OpenQuery
  ME_4C3F342E02AF_ME_4CC7E19400DE // ExecuteQuery
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_2EC9DBAFBAF4 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -1361,7 +1007,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
  WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
- WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
@@ -1388,7 +1033,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_4EEA07CA0360' '4EEA07CA0360.pas.ms.script' // nsQueryAttributes
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal'

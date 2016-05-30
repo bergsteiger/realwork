@@ -532,33 +532,23 @@ BOOLEAN elem_func UseNewGenExcluded
    true
   ( Self GarantModel::vcmData .InheritsFrom )
    true
-/*{  ( 
-   ( Self .IsUtilityPack ! )
-   AND ( Self GarantModel::Tl3Tag .InheritsFrom )
-   //( Self GarantModel::Tl3Variant .InheritsFrom )
-   //AND ( Self GarantModel::Tl3TagImpl .InheritsFrom ! )
-   AND ( Self GarantModel::TtfwKeyWordPrim .InheritsFrom ! )
-  ) 
-   true}*/
   ( Self GarantModel::TddComboBoxConfigItem .InheritsFrom )
    true
   ( Self GarantModel::Tl3ProtoObjectForTie ?== )
    false
   ( Self GarantModel::Tl3ProtoObjectForTie .InheritsFrom )
    true
-/*{  ( Self GarantModel::evdTagHolder .InheritsFrom )
-   true}*/
   DEFAULT
-  begin
-   if ( g_UseNewGenExcluded .IsNil ) then
-    Init_g_UseNewGenExcluded
+   begin
+    if ( g_UseNewGenExcluded .IsNil ) then
+     Init_g_UseNewGenExcluded
+     
+    g_UseNewGenExcluded .IsNil ?FAIL 'Ќе инициализирован g_UseNewGenExcluded'
     
-   g_UseNewGenExcluded .IsNil ?FAIL 'Ќе инициализирован g_UseNewGenExcluded'
-   
-   g_UseNewGenExcluded
-   .filter> ( Self .LUID == )
-   .NotEmpty
-  end // DEFAULT 
+    g_UseNewGenExcluded
+    .filter> ( Self .LUID == )
+    .NotEmpty
+   end // DEFAULT 
  ; // RULES  
  >>> Result
 ; // UseNewGenExcluded
@@ -1874,10 +1864,9 @@ elem_iterator CollectOwnControls
   elem_proc CollectControlsPrim
    Self .Attributes
    .filter> .IsControlPrim
-   .filter> ( .NotInArray: l_Controls )
+   .filter> .AddToArray?: l_Controls
    .for> ( 
      IN aControl
-    aControl .AddToArray: l_Controls 
     aControl call.me
    ) // .for>
   ; // CollectControlsPrim
@@ -1895,6 +1884,7 @@ ModelElement elem_func AttrType
  RULES
   //( Self .IsOverride )
   // ( Self .MainAncestor call.me )
+  //( Self .IsStereotype st_VCMController )
   DEFAULT
    ( Self .MethodType )
  ; // RULES  
@@ -1910,10 +1900,9 @@ elem_iterator CollectControls
   elem_proc CollectControlsPrim
    Self .Attributes
    .filter> .IsControlPrim
-   .filter> ( .NotInArray: l_Controls )
+   .filter> .AddToArray?: l_Controls
    .for> ( 
      IN aControl
-    aControl .AddToArray: l_Controls 
     aControl call.me
    ) // .for>
   ; // CollectControlsPrim
@@ -2623,16 +2612,7 @@ elem_iterator ImplementedEx
     .filter> ( .IsFacetIterator ! )
     .filter> ( .IsIterator )
     .filter> ( Self SWAP .SomeMethodImplementsThisIterator ! )
-    .filter> ( 
-      IN anItem
-     if ( anItem .NotInArray: l_OutedIterators ) then
-     begin
-      anItem .AddToArray: l_OutedIterators
-      true
-     end
-     else
-      false 
-    ) // .filter>
+    .filter> .AddToArray?: l_OutedIterators
     .filter> ( 
       IN anItem 
      Self .MainAncestor call.me .filter> ( anItem .IsSameModelElement ) .IsEmpty
@@ -3455,10 +3435,50 @@ BOOLEAN elem_func IsAutoHelper
  Self .UPisTrue "IsAutoHelper" >>> Result
 ; // IsAutoHelper
 
+BOOLEAN elem_func IsVCMController
+ RULES
+  ( Self .IsStereotype st_UseCase::Attribute )
+   true
+  ( Self .IsStereotype st_VCMController )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // IsVCMController
+
+STRING elem_func AttrName
+ RULES
+  ( Self .IsOverride )
+   begin
+     VAR l_Name
+     Self .MainAncestor call.me >>> l_Name
+     RULES
+      ( l_Name .IsNil )
+       ( Self .Name )
+      DEFAULT
+       l_Name
+     ; // RULES
+   end // ( Self .IsOverride )
+  ( Self .IsVCMController )
+   RULES
+    ( Self .Name .IsNil )
+     ( Self .Stereotype .Name '::' string:Split DROP )
+    DEFAULT
+     ( Self .Name )
+   ; // RULES
+  DEFAULT
+   ( Self .Name )
+ ; // RULES  
+ >>> Result
+; // AttrName
+
 STRING elem_func FieldName
  RULES
   ( Self .IsProperty )
    ( 'f_' Self .Name Cat )
+  ( Self .IsVCMController ) 
+   ( Self .AttrName )
   DEFAULT
    ( Self .Name )
  ; // RULES
@@ -3897,7 +3917,7 @@ BOOLEAN elem_func NeedsField
   ( Self .IsControlPrim )
    RULES
     ( Self .NeedPutToDFM )
-     false
+     true
     DEFAULT
      true 
    ; // RULES 
@@ -4137,19 +4157,23 @@ BOOLEAN elem_func IsManaged
 ; // IsManaged
 
 BOOLEAN elem_func IsConstants
- Self .IsStereotype st_Constants >>> Result
+ Self .IsStereotype st_Constants 
+ >>> Result
 ; // IsConstants
 
 BOOLEAN elem_func IsSetConst
- Self .IsStereotype st_SetConst >>> Result
+ Self .IsStereotype st_SetConst 
+ >>> Result
 ; // IsSetConst
 
 BOOLEAN elem_func IsConstantArray
- Self .IsStereotype st_ConstantArray >>> Result
+ Self .IsStereotype st_ConstantArray 
+ >>> Result
 ; // IsConstantArray
 
 BOOLEAN elem_func IsLocalConst
- Self .IsStereotype st_LocalConst >>> Result
+ Self .IsStereotype st_LocalConst 
+ >>> Result
 ; // IsLocalConst
 
 BOOLEAN elem_func IsChoices
@@ -4161,6 +4185,16 @@ BOOLEAN elem_func IsChoice
  Self .IsStereotype st_Choice
  >>> Result
 ; // IsChoice
+
+BOOLEAN elem_func IsExcludeUserTypes
+ Self .IsStereotype st_ExcludeUserTypes
+ >>> Result
+; // IsExcludeUserTypes
+
+BOOLEAN elem_func IsIncludeUserTypes
+ Self .IsStereotype st_IncludeUserTypes
+ >>> Result
+; // IsIncludeUserTypes
 
 BOOLEAN elem_func IsConstantsButNotType
  RULES
@@ -4202,6 +4236,8 @@ BOOLEAN elem_func IsType
     false
    DEFAULT
     RULES
+     ( Self .IsExcludeUserTypes )
+      false
      ( Self .IsConstantsButNotType )
       false
      ( Self .IsVCMOperations )
@@ -4256,6 +4292,7 @@ BOOLEAN CompileTime-VAR g_WasForwarded false
 
 PROCEDURE DropWasType
  false >>> g_WasType
+ //false >>> g_WasConst
  nil >>> g_WasTypeOpener
 ; // DropWasType
 
@@ -4390,6 +4427,7 @@ elem: IfDefPrim:
           end // ( g_WasTypeOpener Self ?== )
          end // ( g_WasForwarded ! )
         end // ( Self .IsType )
+        false >>> g_WasConst
         
        ; // IfEndOut
        
@@ -5255,6 +5293,11 @@ ModelElement elem_func MethodType
      DEFAULT
       ( Self .Target )
     ; // RULES
+   (
+    ( Self .IsFactory )
+    AND ( Self .Parent .IsVCMForm )
+   )  
+    GarantModel::IvcmEntityForm
    ( Self .IsInternalOperation )
     RULES
      ( Self .OpModify opModifyExecute == )
@@ -5337,7 +5380,8 @@ ModelElement elem_func MethodType
    begin
     RULES
      ( Self .IsStereotype st_factory::Operation )
-      ( 'BadFactoryType' )
+      nil
+      //( 'BadFactoryType' )
      ( Self .IsFactoryMethod )
       ( Self .Parent .MainImplementsInterface )
      DEFAULT
@@ -5512,6 +5556,8 @@ STRING elem_func MethodName
     ; // RULES  
    ( '__' Self .Name StartsStr ) 
     ( Self .FineName )
+   ( 'ќбработчик событи€' Self .Documentation StartsStr )
+    ( Self .Name .FromTie )
    DEFAULT
     ( Self .FineName )
   ; // RULES 
@@ -6140,19 +6186,8 @@ elem_proc OutUses:
  ARRAY FUNCTION .filterUsed>
    ARRAY IN anArray
   anArray
-  .filter> ( 
-    IN anItem 
-   anItem .UnitName >>> anItem 
-   if ( anItem .NotInArray: l_Used ) then
-   begin
-    anItem .AddToArray: l_Used
-    true
-   end
-   else
-   begin
-    false
-   end 
-  ) >>> Result  
+  .filter> ( .UnitName .AddToArray?: l_Used )
+  >>> Result  
  ; // .filterUsed> 
   
  'uses' .Out
@@ -6173,6 +6208,11 @@ elem_proc OutUses:
     if (
         ( Self .IsElementProxy )
         OR ( Self .UPisTrue "need UC" )
+        OR ( 
+            ( aUCPrefix 'impl_uses' == ) 
+            AND ( Self .IsVCMForm )
+            AND ( Self .Abstraction at_final != )
+           )
        ) then
     begin
      Self .UserCode: aUCPrefix ()
@@ -6195,6 +6235,7 @@ ARRAY FUNCTION .mapToTargetAndValueType>
   ARRAY IN anArray
  anArray .mapToTarget>
  .join> ( anArray .map> .ValueType )
+ .join> ( anArray .map> .AttrType )
  >>> Result
 ; // .mapToTargetAndValueType>
 
@@ -6790,6 +6831,22 @@ INTERFACE FUNCTION MakeConstant:
  >>> Result 
 ; // MakeConstant:
 
+ModelElement elem_func ElementOrParentThatCanHaveIniOperations
+ RULES
+  ( Self .IsClassOrMixIn )
+   Self
+  ( Self .IsUtilityPack )
+   Self
+  ( Self .IsUserType )
+   Self
+  ( Self .Parent .IsNil )
+   nil
+  DEFAULT 
+   ( Self .Parent call.me )
+ ; // RULES
+ >>> Result
+; // ElementOrParentThatCanHaveIniOperations
+
 elem_iterator ConstantsEx
  Cached:
  (
@@ -6798,6 +6855,99 @@ elem_iterator ConstantsEx
   l_Constants
   
   RULES
+   ( Self .IsLocalConst )
+    begin
+     VAR l_ConstantsName
+     [ 
+      'LCImpl' 
+      if ( Self .IsChoices ) then 
+      begin
+       '_' Self .Parent .Name '_'
+      end // ( Self .IsChoices )
+      Self .Name 
+     ] strings:Cat >>> l_ConstantsName
+     if ( Self .ElementOrParentThatCanHaveIniOperations call.me l_ConstantsName .HasModelElementWithName ! ) then
+     begin
+      .join> ToArray: (
+       l_ConstantsName MakeConstants: (
+         IN aConstants
+        if ( Self .IsChoices ) then 
+        begin
+         aConstants -> %SUM := ( [ '¬арианты выбора дл€ диалога ' Self .Parent .Name ] strings:Cat )
+        end // ( Self .IsChoices )
+        else
+        begin
+         aConstants -> %SUM := ( [ 'Ћокализуемые строки ' Self .Name ] strings:Cat )
+        end // ( Self .IsChoices ) 
+        aConstants -> Visibility := ( Self .Visibility )
+        aConstants -> Speller := ( Self .WeakRef )
+        aConstants -> Parent := ( Self .WeakRef )
+        aConstants -> "ifdef" := ( Self .GetUP "ifdef" )
+        aConstants -> "ifndef" := ( Self .GetUP "ifndef" )
+        aConstants -> "children prefix" := ( Self .GetUP "children prefix" )
+        aConstants -> "elements prefix" := ( [ 'str_' Self .GetUP "elements prefix" ] strings:Cat )
+        aConstants -> Attributes := [
+         Self .Attributes
+         .join> ( Self .Children )
+         .for> (
+           IN anItem
+           
+          STRING FUNCTION ItemValue
+           anItem .GetUP 'Value' >>> Result
+           if ( Result .IsNil ) then
+           begin
+            anItem .GetUP "Value" >>> Result
+           end // ( Result .IsNil )
+           if ( Result .IsNil ) then
+           begin
+            anItem .GetUP 'extprop:pas:Value' >>> Result
+           end // ( Result .IsNil )
+           if ( Result .IsNil ) then
+           begin
+            anItem .Documentation >>> Result
+           end // ( Result .IsNil )
+           Result '\\"' '"' string:Replace >>> Result
+           Result '\\' '\' string:Replace >>> Result
+          ; // ItemValue
+          
+          [ 'str_' Self .GetUP 'extprop:pas:ElementPrefix' anItem .Name ] strings:Cat
+          [ '('
+            'rS : -1;'
+            ' rLocalized : false;' 
+            ' rKey : ' cQuote [ Self .GetUP 'extprop:pas:ElementPrefix' anItem .Name ] strings:Cat cQuote ';'
+            ' rValue : ' ItemValue
+            ')' ] strings:Cat
+          MakeConstant: (
+            IN aConstant
+           if ( anItem .IsMessage ) then
+           begin
+            aConstant -> Target := GarantModel::Tl3MessageID
+           end // ( anItem .IsMessage )
+           else
+           begin
+            aConstant -> Target := GarantModel::Tl3StringIDEx
+           end // ( anItem .IsMessage )
+           aConstant -> Visibility := ( anItem .Visibility ) 
+           aConstant -> Speller := ( anItem .WeakRef )
+           aConstant -> %SUM := ( 
+            if ( anItem .Documentation .IsNil ) then
+            begin
+             ItemValue
+            end // ( anItem .Documentation .IsNil )
+            else
+            begin
+             anItem .Documentation 
+            end // ( anItem .Documentation .IsNil )
+           ) // aConstant -> %SUM
+           aConstant -> "ifdef" := ( anItem .GetUP "ifdef" )
+           aConstant -> "ifndef" := ( anItem .GetUP "ifndef" )
+          ) // MakeConstant:
+         ) // .for>
+        ] // aConstants -> Attributes
+       ) // l_ConstantsName MakeConstants:
+      ) // .join> ToArray:
+     end //
+    end // ( Self .IsLocalConst )
    ( Self .IsTypedef )
     begin
      VAR l_OtherEnum
@@ -6869,7 +7019,7 @@ elem_iterator ConstantsEx
          MakeConstant: (
            IN aConstant
           aConstant -> Visibility := PublicAccess 
-          aConstant -> %SUM := ( [ '—троковый идентификатор пользовательского типа "' Self .Documentation '"'] strings:Cat )
+          aConstant -> %SUM := ( [ '—троковый идентификатор пользовательского типа "' Self .Documentation '"' ] strings:Cat )
           aConstant -> Value := ( [ cQuote Self .Name cQuote ] strings:Cat )
          ) // MakeConstant: 
          
@@ -6887,20 +7037,42 @@ elem_iterator ConstantsEx
           aConstant -> Visibility := PublicAccess 
           aConstant -> Target := GarantModel::TvcmUserType
           aConstant -> %SUM := ( Self .Documentation )
-/*{          aConstant -> Value := (
-           if ( Self .MainAncestor .IsNil ) then
-           begin
-            0
-           end // ( Self .MainAncestor .IsNil )
-           else
-           begin
-            Self .MainAncestor .Name
-            aConstant -> "suffix expr" := '+ 1'
-           end // ( Self .MainAncestor .IsNil )
-          ) // aConstant -> Value}*/
           aConstant -> "is define" := true
           aConstant -> "no unit prefix" := true
          ) // MakeConstant: 
+        ] // aConstants -> Attributes
+       ) // l_ConstantsName MakeConstants:
+      ) // .join> ToArray:
+     end // ( l_Constants l_ConstantsName .HasModelElementWithName ! )
+     
+     [ Self .Name 'LocalConstants' ] strings:Cat >>> l_ConstantsName
+     if ( l_Constants l_ConstantsName .HasModelElementWithName ! ) then
+     begin
+      .join> ToArray: (
+       l_ConstantsName MakeConstants: (
+         IN aConstants
+        aConstants -> %SUM := ( [ 'Ћокализуемые константы дл€ типа формы ' Self .Name ] strings:Cat )
+        aConstants -> Stereotype := st_LocalConst
+        aConstants -> Visibility := PublicAccess
+        aConstants -> Attributes := [
+         [ Self .Name 'Caption' ] strings:Cat
+         [ cQuote Self .Documentation cQuote ] strings:Cat
+         MakeConstant: (
+           IN aConstant
+          aConstant -> Visibility := PublicAccess 
+          aConstant -> %SUM := ( [ '«аголовок пользовательского типа "' Self .Documentation '"' ] strings:Cat )
+         ) // MakeConstant: 
+         
+         if ( Self .GetUP "SettingsCaption" .NotIsNil ) then
+         begin
+          [ Self .Name 'SettingsCaption' ] strings:Cat
+          [ cQuote Self .GetUP "SettingsCaption" cQuote ] strings:Cat
+          MakeConstant: (
+            IN aConstant
+           aConstant -> Visibility := PublicAccess 
+           aConstant -> %SUM := ( [ '«аголовок пользовательского типа "' Self .Documentation '"' ' дл€ настройки панелей инструментов' ] strings:Cat )
+          ) // MakeConstant: 
+         end // ( Self .GetUP "SettingsCaption" .NotIsNil )
         ] // aConstants -> Attributes
        ) // l_ConstantsName MakeConstants:
       ) // .join> ToArray:
@@ -7008,16 +7180,6 @@ BOOLEAN FUNCTION .HasModelElement
  >>> Result
 ; // .HasModelElement
 
-STRING elem_func AttrName
- RULES
-  ( Self .IsOverride )
-   ( Self .MainAncestor call.me )
-  DEFAULT
-   ( Self .Name )
- ; // RULES  
- >>> Result
-; // AttrName
-
 ARRAY FUNCTION HookOut:
   ^ IN aLambda
  [] >>> Result
@@ -7025,6 +7187,7 @@ ARRAY FUNCTION HookOut:
    @ ( IN aValue aValue .AddToArray: Result ) >>> g_ToOut 
   aLambda DO
  ) // TF g_ToOut
+ false >>> g_NeedOutLn
 ; // HookOut:
 
 BOOLEAN elem_func NeedsInitEntities
@@ -7085,6 +7248,11 @@ BOOLEAN elem_func ImplementsSomeVCMOperation
      .filter> .IsVCMOperations
      .NotEmpty )
     true 
+   ( Self .ImplementedEx
+     .join> ( Self .Overridden )
+     .filter> .IsVCMOperation
+     .NotEmpty )
+    true  
    DEFAULT
     false
   ; // RULES
@@ -7119,9 +7287,33 @@ elem: AsGetStateDo:
  ) // Self .DecorateMethodAndDo:
 ; // AsGetStateDo:
 
+elem_iterator AllUserTypes
+ Cached:
+ (
+  Self .ChildrenEx
+  .filter> .IsUserType
+  .joinWithLambded> ( Self .InheritsEx ) call.me
+  .joinWithLambded> ( Self .ImplementsEx ) call.me
+ )
+ >>> Result 
+; // AllUserTypes
+
 elem_iterator InitEntitiesUC
  [ 
   ' inherited;'
+  
+  elem: EntityNamePrim
+   'en_' Self .Name
+  ; // EntityNamePrim
+  
+  elem: EntityName
+   Self .EntityNamePrim ', '
+  ; // EntityName
+  
+  elem: OperationFullName
+   Self .Parent .EntityName 'op_' Self .Name ', '
+  ; // OperationFullName
+  
   if ( Self .ImplementsSomeVCMOperation ) then
   begin
    [ \n 
@@ -7132,25 +7324,147 @@ elem_iterator InitEntitiesUC
    
    STRING elem_func OnGetTarget
      IN anEntity
-    'nil'
+    VAR l_Implementor 
+    Self .Operations
+    .filter> ( .Implements .filter> ( anEntity .IsSameModelElement ) .NotEmpty )
+    .FirstElement >>> l_Implementor
+    RULES
+     ( l_Implementor .NotIsNil )
+      ( l_Implementor .MethodName )
+     DEFAULT
+      'nil'
+    ; // RULES  
     >>> Result
    ; // OnGetTarget
+   
+   elem: PublishFormEntity
+     IN anEntity
+    anEntity .IfDefBraceLnBefore:  
+    [ \n
+     '  PublishFormEntity(' anEntity .EntityName Self anEntity .OnGetTarget ');' ]
+   ; // PublishFormEntity 
    
    Self .ImplementsEx
    .filter> .IsVCMOperations
    .filter> ( .Name .AddToArray?: l_PublishedEntities )
    .for> (
      IN anEntity
-    [ \n
-     '  PublishFormEntity(en_' anEntity .Name ', ' Self anEntity .OnGetTarget ');' ]
+    Self anEntity .PublishFormEntity 
    ) // .for>
+   
+   Self .Dependencies
+   .filter> .IsStereotype st_GroupItemsInContextMenu::Dependency
+   .filter> ( .Target .IsVCMOperations )
+   .for> (
+     IN aDep
+     [ \n '  GroupItemsInContextMenu(' aDep .Target .EntityNamePrim ');' ]
+   ) // .for>
+
+   Self .Dependencies
+   .filter> .IsStereotype st_ToolbarAtBottom::Dependency
+   .filter> ( .Target .IsVCMOperations )
+   .for> (
+     IN aDep
+     [ \n '  ToolbarAtBottom(' aDep .Target .EntityNamePrim ');' ]
+   ) // .for>
+   
+   BOOLEAN FUNCTION .IsIntEx
+     IN Self
+    RULES
+     ( Self IsInt )
+       true
+     ( Self IsString )
+      RULES
+       ( '-' Self StartsStr )
+        true
+       DEFAULT
+        false
+      ; // RULES   
+     DEFAULT
+      false
+    ; // RULES
+    >>> Result
+   ; // .IsIntEx
+
+   Self .Dependencies
+   .filter> .IsStereotype st_ContextMenuWeight::Dependency
+   .filter> ( .Target .IsVCMOperations )
+   .filter> ( .GetUP "Value" .IsIntEx )
+   .for> (
+     IN aDep
+     [ \n '  ContextMenuWeight(' aDep .Target .EntityName aDep .GetUP "Value" ');' ]
+   ) // .for>
+
+   Self .CollectOwnControls
+   .for> (
+     IN aControl
+    aControl .ImplementsEx
+    .filter> .IsVCMOperations
+    .filter> ( .Name .AddToArray?: l_PublishedEntities )
+    .for> (
+      IN anEntity
+     Self anEntity .PublishFormEntity 
+    ) // .for>
+    aControl .ImplementsEx
+    .filter> .IsVCMOperations
+    .for> (
+      IN anEntity
+     [ \n '  MakeEntitySupportedByControl(' anEntity .EntityName aControl .Name ');' ]
+    ) // .for>
+   ) // .for>
+   
+   STRING elem_func PrefixParam
+    if ( Self .UPisTrue "no prefix" ) then
+     ', true'
+    else
+     ''
+    >>> Result  
+   ; // PrefixParam
+   
+   elem: OperationOptions
+    if ( Self .GetUP "ShowInContextMenu" IsBool ) then
+    begin
+     [ \n 
+      '  ShowInContextMenu(' 
+      Self .OperationFullName 
+      Self .GetUP "ShowInContextMenu"
+      Self .PrefixParam
+      ');'
+     ] 
+    end // ( Self .GetUP "ShowInContextMenu" IsBool )
+    
+    if ( Self .GetUP "ShowInToolbar" IsBool ) then
+    begin
+     [ \n 
+      '  ShowInToolbar(' 
+      Self .OperationFullName 
+      Self .GetUP "ShowInToolbar"
+      Self .PrefixParam
+      ');'
+     ] 
+    end // ( Self .GetUP "ShowInToolbar" IsBool )
+    
+    if ( Self .GetUP "ContextMenuWeight" .IsIntEx ) then
+    begin
+     [ \n 
+      '  ContextMenuWeight(' 
+      Self .OperationFullName 
+      Self .GetUP "ContextMenuWeight"
+      Self .PrefixParam
+      ');'
+     ] 
+    end // ( Self .GetUP "ContextMenuWeight" .IsIntEx )
+   ; // OperationOptions
    
    VAR l_PublishedOperations
    [] >>> l_PublishedOperations
    
    Self .ImplementedEx
    .filter> .IsVCMOperation
-   .filter> ( .AddToArray?: l_PublishedOperations )
+   .filter> ( 
+     IN anOperation
+    anOperation .Parent .Name anOperation .Name Cat .AddToArray?: l_PublishedOperations 
+   )
    .for> (
      IN anOperation
     anOperation .IfDefBraceLnBefore: 
@@ -7160,8 +7474,7 @@ elem_iterator InitEntitiesUC
       'PublishOpWithResult'
      else
       'PublishOp'
-     '(en_' anOperation .Parent .Name ', ' 
-     'op_' anOperation .Name ', ' 
+     '(' anOperation .OperationFullName
      if (
          ( anOperation .UPisTrue "is FormActivate" ! )
          OR ( anOperation .IsInternalOperation )
@@ -7193,17 +7506,157 @@ elem_iterator InitEntitiesUC
      end // ( anOperation .UPisTrue "has states" )
      else
       'nil'
-     if ( anOperation .UPisTrue "no prefix" ) then
-      ', true'
+     anOperation .PrefixParam
      ');' 
     ]
+    anOperation .OperationOptions
    ) // .for> 
+   
+   Self .Overridden
+   .filter> .IsVCMOperation
+   .for> (
+     IN anOperation
+    anOperation .IfDefBraceLnBefore: 
+     ( anOperation .OperationOptions )
+   ) // .for> 
+   
    [ \n
      ' end;//with Entities.Entities' ]
   end // ( Self .ImplementsSomeVCMOperation )
+  
+  VAR l_PublishedExludes
+  [] >>> l_PublishedExludes
+  
+  Self .ChildrenEx
+  .filter> .IsExcludeUserTypes
+  .filter> ( .IsIncludeUserTypes ! )
+  .for> (
+    IN anExclude
+   VAR l_Excludes
+   [] >>> l_Excludes
+   
+   elem_proc CollectExcludedUserTypes
+    Self .InheritsEx
+    .filter> .IsUserType
+    .filter> .AddToArray?: l_Excludes
+    .for> DROP
+    
+    Self .InheritsEx
+    .filter> .IsExcludeUserTypes
+    .filter> ( .IsIncludeUserTypes ! )
+    .for> call.me
+   ; // CollectExcludedUserTypes
+   
+   anExclude .CollectExcludedUserTypes
+   
+   l_Excludes 
+   .for> (
+     IN aUserType
+    anExclude .ImplementedEx
+    .filter> .IsVCMOperation
+    .filter> ( 
+      IN anOperation
+     [ aUserType .Name anOperation .Parent .Name anOperation .Name ] strings:Cat .AddToArray?: l_PublishedExludes
+    )
+    .for> (
+      IN anOperation
+     anOperation .IfDefBraceLnBefore:
+     [ \n
+       ' AddUserTypeExclude(' aUserType .Name 'Name' ', ' anOperation .OperationFullName  anOperation .UPisTrue "no prefix" ');' 
+     ] 
+    ) // .for>
+   ) // .for>
+  ) // .for>
+  
+  Self .ChildrenEx
+  .filter> .IsIncludeUserTypes
+  .for> (
+    IN anInclude
+   VAR l_Includes
+   [] >>> l_Includes
+   
+   elem_proc CollectIncludedUserTypes
+    Self .InheritsEx
+    .filter> .IsUserType
+    .filter> .AddToArray?: l_Includes
+    .for> DROP
+    
+    Self .InheritsEx
+    .filter> .IsIncludeUserTypes
+    .for> call.me
+   ; // CollectIncludedUserTypes
+   
+   anInclude .CollectIncludedUserTypes
+   
+   Self .AllUserTypes
+   .filter> ( l_Includes SWAP .HasModelElement ! )
+   //.filter> ( .Name l_Includes SWAP .HasModelElementWithName ! )
+   //.filter> ( .Name l_Includes array:Has ! )
+   //.filter> ( .NotInArray: l_Includes )
+   .for> (
+     IN aUserType
+    anInclude .ImplementedEx
+    .filter> .IsVCMOperation
+    .filter> ( 
+      IN anOperation
+     [ aUserType .Name anOperation .Parent .Name anOperation .Name ] strings:Cat .AddToArray?: l_PublishedExludes
+    )
+    .for> (
+      IN anOperation
+     anOperation .IfDefBraceLnBefore:
+     [ \n
+       ' AddUserTypeExclude(' aUserType .Name 'Name' ', ' anOperation .OperationFullName  anOperation .UPisTrue "no prefix" ');' 
+     ] 
+    ) // .for>
+   ) // .for>
+  ) // .for>
  ]
  >>> Result
 ; // InitEntitiesUC
+
+elem_iterator SignalDataSourceChangedUC
+ [ 
+  ' inherited;' \n
+  ' if (aNew = nil) then' \n
+  ' begin' \n
+  Self .Attributes
+  .filter> .IsVCMController
+  .for> (
+    IN anAttr
+   [ '  ' anAttr .AttrName ' := ' 'nil' ';' \n ] 
+  ) // .for>
+  ' end//aNew = nil' \n
+  ' else' \n
+  ' begin' \n
+  Self .Attributes
+  .filter> .IsVCMController
+  .for> (
+    IN anAttr
+   RULES
+    (
+     ( anAttr .IsUseCaseController )
+     OR ( anAttr .AttrType .IsUseCaseController )
+    ) 
+     [ 
+       '  ' 'aNew.CastUCC(' anAttr .AttrType .TypeName ', ' anAttr .AttrName
+       if ( anAttr .Name .IsNil ) then
+        ', true'
+       ')' ';' \n 
+     ]
+    ( anAttr .Name .IsNil )
+     [
+       '  ' anAttr .AttrName ' := aNew As ' anAttr .AttrType .TypeName ';' \n
+     ]
+    DEFAULT
+     [
+       '  ' 'Supports(aNew, ' anAttr .AttrType .TypeName ', ' anAttr .AttrName ');' \n
+     ] 
+   ; // RULES  
+  ) // .for>
+  ' end;//aNew = nil'
+ ]
+ >>> Result
+; // SignalDataSourceChangedUC
 
 elem_iterator OverriddenEx
  Cached:
@@ -7432,12 +7885,7 @@ elem_iterator OverriddenEx
      GarantModel::vcmLayout.SignalDataSourceChanged .OverrideMethod: (
        IN aMade
       aMade ->^ cVarUserCodeName ^:= cEmptyUserCode
-      aMade .AddMethodWithParams: cImplementationUserCodeName Self ( 
-        IN aForm
-       [ 
-        ' inherited;'
-       ]
-      ) // aMade .AddMethodWithParams: cImplementationUserCodeName Self
+      aMade .AddMethodWithParams: cImplementationUserCodeName Self .SignalDataSourceChangedUC
      ) // GarantModel::vcmLayout.SignalDataSourceChanged .OverrideMethod:
     ) // .join> ToArray:
    end // ( Self .HasAnyVCMController )
@@ -7475,7 +7923,7 @@ elem_iterator OverriddenEx
             'Settings'
            'Caption,' \n 
          ]
-         [ '  ' aUserType .UPisTrue "VisibleToUser" ',' \n ]
+         [ '  ' aUserType .GetUP "VisibleToUser" false ?!= ',' \n ]
          [ '  ' aUserType .GetUP "ImageIndex" ',' \n ]
          [ '  ' aUserType .GetUP "Weight" ',' \n ]
          [ '  ' 
@@ -7495,7 +7943,7 @@ elem_iterator OverriddenEx
          [ '  ' 
            if ( aUserType .UPisTrue "NeedOnQueryMaximized" ) then
            begin
-            aUserType .Name 'QueryMaximized'
+            aUserType .Name 'QueryMaximized' Cat .FromTie
            end // ( aUserType .UPisTrue "NeedOnQueryMaximized" )
            else
             'nil' 
@@ -7503,7 +7951,7 @@ elem_iterator OverriddenEx
          [ '  ' 
            if ( aUserType .UPisTrue "NeedOnQueryOpen" ) then
            begin
-            aUserType .Name 'QueryOpen'
+            aUserType .Name 'QueryOpen' Cat .FromTie
            end // ( aUserType .UPisTrue "NeedOnQueryOpen" )
            else
             'nil' 
@@ -7511,7 +7959,7 @@ elem_iterator OverriddenEx
          [ '  ' 
            if ( aUserType .UPisTrue "NeedOnQueryClose" ) then
            begin
-            aUserType .Name 'QueryClose'
+            aUserType .Name 'QueryClose' Cat .FromTie
            end // ( aUserType .UPisTrue "NeedOnQueryClose" )
            else
             'nil' 
@@ -7623,7 +8071,8 @@ elem_iterator OverriddenEx
              end // ( aControl .NeedPutToDFM )
              else
              begin
-              aControl .FieldName
+              aControl .AttrName
+              //aControl .FieldName
              end // ( aControl .NeedPutToDFM )
            ]
            [ ') do' \n ]
@@ -7819,6 +8268,10 @@ elem_iterator IntfUses
   
   if ( Self .IsVCMCustomForm ) then
   begin
+   if ( Self .NeedsInitEntities ) then
+   begin
+    .join> ToArray: GarantModel::vcmInterfaces
+   end // ( Self .NeedsMakeControls )
    if ( Self .Abstraction at_final != ) then
    begin
     .join> ToArray: GarantModel::vcmExternalInterfaces
@@ -7876,7 +8329,14 @@ elem_iterator InjectedElements
 ; // InjectedElements
 
 BOOLEAN elem_func IsUses
- Self .IsStereotype st_uses::Dependency 
+ RULES
+  ( Self .IsStereotype st_uses::Dependency )
+   true
+  ( Self .IsStereotype st_ContextMenuWeight::Dependency )
+   true
+  DEFAULT
+   false
+ ; // RULES   
  >>> Result
 ; // IsUses
 
@@ -8117,6 +8577,14 @@ elem_iterator Used
   .joinWithLambded> ( Self .ImplementsEx .filter> .IsMixIn ) call.me
   .join> ( Self .OperationsUsed )
   
+  if ( Self .IsVCMForm ) then
+  begin
+   .joinWithLambded> ( Self .CollectOwnControls ) ( .ImplementsEx .filter> .IsVCMOperations )
+   .joinWithLambded> ( Self .ChildrenEx .filter> .IsExcludeUserTypes ) ( .ImplementedEx .filter> .IsVCMOperation )
+   .join> ( Self .OverriddenEx .filter> .IsVCMOperation )
+   .join> ( Self .ImplementedEx .filter> .IsVCMOperation )
+  end // ( Self .IsVCMForm )
+  
   if ( Self .InheritsOrImplementsMixIn ) then
   begin
    .join> ( Self .OtherMixinValuesUses )
@@ -8127,6 +8595,11 @@ elem_iterator Used
    .join> ToArray: GarantModel::SysUtils 
    .join> ToArray: GarantModel::l3Base
   end // ( Self .IsSingleton )
+  
+  if ( Self .IsMessage ) then
+  begin
+   .join> ToArray: GarantModel::Dialogs
+  end // ( Self .IsMessage )
   
   if ( Self .IsClassOrMixIn ) then
   begin
@@ -8193,12 +8666,28 @@ elem_iterator Used
   
   if ( Self .IsVCMCustomForm ) then
   begin
-   if ( Self .NeedsMakeControls ) then
+   if (
+       ( Self .NeedsMakeControls )
+       OR ( Self .NeedsInitEntities )
+      ) then
    begin
     .join> ToArray: GarantModel::vcmInterfaces
    end // ( Self .NeedsMakeControls )
   end // ( Self .IsVCMCustomForm )
   
+  .joinWithLambded>
+  ( Self .UsesInDependencies
+    .filter> .IsVCMCustomForm )
+  ( .ChildrenEx .filter> .IsUserType )  
+  
+  if ( Self .IsVCMCustomForm ) then
+  begin
+   .join> ( Self .ChildrenWithOwnFile )
+   if ( Self .HasAnyVCMController ) then
+   begin
+    .join> ToArray: GarantModel::SysUtils
+   end // ( Self .HasAnyVCMController )
+  end // ( Self .IsVCMCustomForm )
  )
  >>> Result
 ; // Used
@@ -8295,10 +8784,11 @@ elem_iterator ImplUses
    .join> ( Self .ChildrenWithOwnFile )
   end // ( Self .IsTarget )
   
-  if ( Self .IsVCMCustomForm ) then
-  begin
-   .join> ( Self .ChildrenWithOwnFile )
-  end // ( Self .IsVCMCustomForm )
+//  if ( Self .IsVCMCustomForm ) then
+//  begin
+//   .join> ( Self .ChildrenWithOwnFile )
+//  end // ( Self .IsVCMCustomForm )
+// - это в Used
   
   if ( Self .IsVCMFormsPack ) then
   begin
@@ -8311,6 +8801,10 @@ elem_iterator ImplUses
    begin
     .join> ToArray: GarantModel::StdRes
    end // ( Self .Abstraction at_final != )
+//   .joinWithLambded> ( Self .CollectOwnControls ) ( .ImplementsEx .filter> .IsVCMOperations )
+//   .join> ( Self .OverriddenEx .filter> .IsVCMOperation )
+//   .join> ( Self .ImplementedEx .filter> .IsVCMOperation )
+// - это в Used
   end // ( Self .IsVCMForm )
   
   if ( Self .IsVCMFormSetFactory ) then
@@ -8573,21 +9067,16 @@ elem_iterator ProjectUses
  PROCEDURE AccumulateUses
    ARRAY IN aUses
   aUses 
+  .filter> .AddToArray?: l_InUses
   .for> (
     IN anItem
-   //if ( l_InUses .filter> ( anItem ?== ) .IsEmpty ) then 
-   if ( anItem .NotInArray: l_InUses ) then
-   // - это можно в filter перенести, выше
-   begin
-    anItem .AddToArray: l_InUses
-    anItem .AddToArray: l_ProjectUses
-    RULES
-     ( anItem IsString )
-      ()
-     DEFAULT
-      ( anItem .ProjectUsesPrim call.me ) 
-    ; // RULES 
-   end // ( anItem .NotInArray: l_InUses )
+   anItem .AddToArray: l_ProjectUses
+   RULES
+    ( anItem IsString )
+     ()
+    DEFAULT
+     ( anItem .ProjectUsesPrim call.me ) 
+   ; // RULES 
   ) // .for>
  ; // AccumulateUses
  
@@ -9371,7 +9860,12 @@ INTERFACE elem_func InstanceMethod
    ' if (' 'g_' l_TypeName ' = nil) then' \n
    ' begin' \n
    '  l3System.AddExitProc(' l_TypeName 'Free' ');' \n
-   '  g_' l_TypeName ' := Create;' \n
+   '  g_' l_TypeName ' := Create' 
+   if ( Self .IsVCMCustomForm ) then
+   begin
+    '(' 'nil' ')'
+   end // ( Self .IsVCMCustomForm )
+   ';' \n
    ' end;' \n
    ' Result := g_' l_TypeName ';'
    ]
@@ -9509,6 +10003,9 @@ BOOLEAN elem_func UseNewGen
      ( Self .Abstraction at_final == )
      // - финальные формы наверное уже нормально генерируютс€
       true
+     ( Self .HasFactory ! )
+     // - нет никакой дополнительной регистрации 
+      true
      DEFAULT
       ( Self .Parent call.me )
     ; // RULES
@@ -9518,7 +10015,8 @@ BOOLEAN elem_func UseNewGen
      // - финальные формы наверное уже нормально генерируютс€
       true
      DEFAULT
-      ( Self .Parent call.me )
+      true
+      //( Self .Parent call.me )
     ; // RULES
    ( Self .IsVCMCustomForm )
     ( Self .Parent call.me )
@@ -9611,11 +10109,10 @@ elem_iterator AllOperationsForOverload
        .joinWithLambded> 
        ( 
         anItem .InterfaceForClassImplements 
-        .filter> ( .NotInArray: l_CastMethods )
+        .filter> ( .AddToArray?: l_CastMethods )
        ) 
        (
          IN anItem
-        anItem .AddToArray: l_CastMethods 
         anItem .ToArray: .CastMethod
        )
       )
@@ -10709,13 +11206,13 @@ elem_proc OutTypeKeyword
  ; // DoOutTypeKeyword
  
  RULES
+  ( Self .IsMixIn )
+   begin
+    if g_WasConst then
+     DoOutTypeKeyword
+   end // ( Self .IsMixIn ) 
   ( Self .IsType )
    DoOutTypeKeyword
-  ( Self .IsMixIn )
-  begin
-   if g_WasConst then
-    DoOutTypeKeyword
-  end // ( Self .IsMixIn ) 
  ; // RULES
 ; // OutTypeKeyword
   
@@ -10832,6 +11329,8 @@ elem_proc OutType
   ( Self .IsTestLibrary )
    () 
   ( Self .IsStereotype st_VCMFormZone ) 
+   ()
+  ( Self .IsExcludeUserTypes )
    ()
   DEFAULT
    (
@@ -11037,6 +11536,15 @@ elem_proc OutTypes
  ) @ DoOutType .OutTypeRec
 ; // OutTypes
 
+PROCEDURE OutConstKeyword
+ if ( g_WasConst ! ) then
+ begin
+  DropWasType
+  true >>> g_WasConst
+  'const' .Out
+ end // ( g_WasConst ! )
+; // OutConstKeyword
+
 elem_proc OutConstants
  RULES
   ( Self .IsConstantArray )
@@ -11193,10 +11701,10 @@ elem_proc OutConstants
  ; // RULES  
 ; // OutConstants
 
-PROCEDURE .OutConstantsList
+FUNCTION .OutConstantsList
   ARRAY IN aList
- BOOLEAN VAR l_WasConst
- false >>> l_WasConst
+ VAR l_WasConst
+ false >>> Result
  aList .for> (
    IN anItem
   RULES
@@ -11204,15 +11712,10 @@ PROCEDURE .OutConstantsList
     ()
    DEFAULT
     (
-     if ( l_WasConst ! ) then
-     begin
-      true >>> l_WasConst
-      true >>> g_WasConst
-      DropWasType
-      'const' .Out
-     end
      anItem .IfDef: 
      (
+      true >>> Result
+      OutConstKeyword
       anItem .OutDocumentation
       Indented: ( 
        anItem .OutConstants 
@@ -11221,8 +11724,6 @@ PROCEDURE .OutConstantsList
     ) // DEFAULT
   ; // RULES 
  )
- if l_WasConst then
-  OutLn
 ; // .OutConstantsList
 
 INTEGER elem_func ConstantsListVisibility
@@ -11323,15 +11824,23 @@ elem_proc OutDefinitionsSection:
   
  : .Suitable aValid DO ; 
   
+ VAR l_WasConst
+ 
+ false >>> l_WasConst
  Self .ForChildren> .Suitable (
-  .ConstantsEx .filter> ( .ConstantsListVisibility PublicAccess == ) .OutConstantsList
+  .ConstantsEx .filter> ( .ConstantsListVisibility PublicAccess == ) if .OutConstantsList ( true >>> l_WasConst )
  )
+ if l_WasConst then
+  OutLn
 
  Self .OutTypes .Suitable
  
+ false >>> l_WasConst
  Self .ForChildren> .Suitable (
-  .ConstantsEx .filter> ( .ConstantsListVisibility ProtectedAccess == ) .OutConstantsList
+  .ConstantsEx .filter> ( .ConstantsListVisibility ProtectedAccess == ) if .OutConstantsList ( true >>> l_WasConst )
  )
+ if l_WasConst then
+  OutLn
 
 ; // OutDefinitionsSection:
 
@@ -11436,112 +11945,128 @@ elem_proc MethodBody
  end 
  else 
  begin
-  if ( Self .IsIteratorF ! ) then
+  if ( Self .IsControlPrim ! ) then
   begin
-   TF g_MethodParentPrefix (
-    '' >>> g_MethodParentPrefix
-    
-    Self .LocalVars .for> .OutVar
+   if ( Self .IsIteratorF ! ) then
+   begin
+    TF g_MethodParentPrefix (
+     '' >>> g_MethodParentPrefix
      
-    Indented:
-    (
-     Self .LocalMethods .for> (
-       IN aMethod
-      OutLn 
-      aMethod .MethodInterfaceForEx: nil ( call.me )
-     ) // Self .LocalMethods .for>
-    ) // Indented:
-   ) // TF g_MethodParentPrefix
-  end // ( Self .IsIteratorF ! )
-   
-  Self .UserCode: cVarUserCodeSuffix ()
+     Self .LocalVars .for> .OutVar
+      
+     Indented:
+     (
+      Self .LocalMethods .for> (
+        IN aMethod
+       OutLn 
+       aMethod .MethodInterfaceForEx: nil ( call.me )
+      ) // Self .LocalMethods .for>
+     ) // Indented:
+    ) // TF g_MethodParentPrefix
+   end // ( Self .IsIteratorF ! )
+    
+   Self .UserCode: cVarUserCodeSuffix ()
+  end // ( Self .IsControlPrim ! )
+  
   'begin' .Out
   
   VAR l_WasOut
   false >>> l_WasOut
   
-  if ( Self .IsIteratorF ! ) then
-  begin
-   Indented:
-   (
-    Self .Dependencies
-    .filter> ( .IsStereotype st_call::Dependency )
-    .filter> ( .Target .IsIterator )
-    .for> (
-      IN aDep
-     Self .UserCode: 'iter' () 
-     
-     VAR l_Target
-     aDep .Target >>> l_Target
-     
-     VAR l_NeedsParams
-     aDep .UPisTrue "iterator needs params" >>> l_NeedsParams
-     
-     if l_NeedsParams then
-     begin
-      if ( l_Target .MethodParameters .filter> .IsInParam .IsEmpty ) then
-      begin
-       false >>> l_NeedsParams
-      end // ( l_Target .MethodParameters .filter> .IsInParam .IsEmpty )
-     end // l_NeedsParams
-     
-     VAR l_NeedsAfter
-     aDep .UPisTrue "needs after iterator UC" >>> l_NeedsAfter
-     [
-      if ( l_Target .IsServiceIterator ) then
-      begin
-       l_Target .Parent .TypeName '.Instance.'
-      end // ( l_Target .IsServiceIterator )
-      
-      VAR l_Name 
-      l_Target .MethodName >>> l_Name
-      l_Name
-      
-      if ( 'F' l_Name EndsStr ! ) then
-       'F'
-       
-      '('
-      l_Target .IteratorStub .MethodName
-      '('
-      '@'
-      
-      VAR l_IteratorFuncName
-      aDep .GetUP "iterator func name" >>> l_IteratorFuncName
-      if ( l_IteratorFuncName .IsNil ) then
-      begin
-       'DoIt' >>> l_IteratorFuncName
-      end // ( l_IteratorFuncName .IsNil )
-      
-      l_IteratorFuncName
-      ')' 
-      
-      if ( l_NeedsParams ! ) then
-      begin
-       ')'
-       if ( l_NeedsAfter ! ) then
-        ';' 
-      end // ( l_NeedsParams ! )
-     ] .Out
-     
-     if l_NeedsParams then
-     begin
-      Self .UserCode: 'iterparam' ()
-      [ 
-       ')' 
-       if ( l_NeedsAfter ! ) then
-        ';' 
-      ] .Out
-     end // l_NeedsParams
-     
-     if l_NeedsAfter then
-     begin
-      Self .UserCode: 'afteriter' ()
-     end // l_NeedsAfter
-     
+  RULES
+   ( Self .IsControlPrim )
+    begin
+     Indented:
+     (
+      [ 'if (' Self .FieldName ' = nil) then' ] .Out
+      [ ' ' Self .FieldName ' := FindComponent('  cQuote Self .Name cQuote ') As ' Self .AttrType .TypeName ';' ] .Out
+      [ 'Result := ' Self .FieldName ';' ] .Out
+     ) // Indented:
      true >>> l_WasOut
-    ) // .for>
-   ) // Indented:
-  end // ( Self .IsIteratorF ! ) 
+    end // ( Self .IsControlPrim )
+   ( Self .IsIteratorF ! )
+    begin
+     Indented:
+     (
+      Self .Dependencies
+      .filter> ( .IsStereotype st_call::Dependency )
+      .filter> ( .Target .IsIterator )
+      .for> (
+        IN aDep
+       Self .UserCode: 'iter' () 
+       
+       VAR l_Target
+       aDep .Target >>> l_Target
+       
+       VAR l_NeedsParams
+       aDep .UPisTrue "iterator needs params" >>> l_NeedsParams
+       
+       if l_NeedsParams then
+       begin
+        if ( l_Target .MethodParameters .filter> .IsInParam .IsEmpty ) then
+        begin
+         false >>> l_NeedsParams
+        end // ( l_Target .MethodParameters .filter> .IsInParam .IsEmpty )
+       end // l_NeedsParams
+       
+       VAR l_NeedsAfter
+       aDep .UPisTrue "needs after iterator UC" >>> l_NeedsAfter
+       [
+        if ( l_Target .IsServiceIterator ) then
+        begin
+         l_Target .Parent .TypeName '.Instance.'
+        end // ( l_Target .IsServiceIterator )
+        
+        VAR l_Name 
+        l_Target .MethodName >>> l_Name
+        l_Name
+        
+        if ( 'F' l_Name EndsStr ! ) then
+         'F'
+         
+        '('
+        l_Target .IteratorStub .MethodName
+        '('
+        '@'
+        
+        VAR l_IteratorFuncName
+        aDep .GetUP "iterator func name" >>> l_IteratorFuncName
+        if ( l_IteratorFuncName .IsNil ) then
+        begin
+         'DoIt' >>> l_IteratorFuncName
+        end // ( l_IteratorFuncName .IsNil )
+        
+        l_IteratorFuncName
+        ')' 
+        
+        if ( l_NeedsParams ! ) then
+        begin
+         ')'
+         if ( l_NeedsAfter ! ) then
+          ';' 
+        end // ( l_NeedsParams ! )
+       ] .Out
+       
+       if l_NeedsParams then
+       begin
+        Self .UserCode: 'iterparam' ()
+        [ 
+         ')' 
+         if ( l_NeedsAfter ! ) then
+          ';' 
+        ] .Out
+       end // l_NeedsParams
+       
+       if l_NeedsAfter then
+       begin
+        Self .UserCode: 'afteriter' ()
+       end // l_NeedsAfter
+       
+       true >>> l_WasOut
+      ) // .for>
+     ) // Indented:
+    end // ( Self .IsIteratorF ! )
+  ; // RULES 
   
   if ( l_WasOut ! ) then
   begin
@@ -12034,20 +12559,6 @@ elem_iterator IniOperationsPrim
  >>> Result
 ; // IniOperationsPrim
 
-ModelElement elem_func ElementOrParentThatCanHaveIniOperations
- RULES
-  ( Self .IsClassOrMixIn )
-   Self
-  ( Self .IsUtilityPack )
-   Self
-  ( Self .Parent .IsNil )
-   nil
-  DEFAULT 
-   ( Self .Parent call.me )
- ; // RULES
- >>> Result
-; // ElementOrParentThatCanHaveIniOperations
-
 INTERFACE elem_func RegTypeMethod
  Cached:
  (
@@ -12071,170 +12582,211 @@ INTERFACE elem_func RegTypeMethod
 ; // RegTypeMethod
 
 elem_iterator IniOperations
- VAR l_IniOperations
- Self .IniOperationsPrim >>> l_IniOperations
- l_IniOperations
- RULES
-  ( Self .IsConstants )
-   begin 
-    VAR l_Speller
-    Self .Speller >>> l_Speller
-    RULES
-     ( l_Speller .IsNotNil )
-      begin
-       VAR l_Parent
-       Self .ElementOrParentThatCanHaveIniOperations >>> l_Parent
-       VAR l_Prefix
-       Self .GetUP 'extprop:pas:ElementPrefix' >>> l_Prefix
-       Self .Attributes
-       .for>
-       (
-         IN aConst
-         VAR l_Name
-         [ 'Init_Str_' aConst .Name ] strings:Cat >>> l_Name
-         RULES
-          (
-           l_Parent call.me
-           .filter> ( .Name l_Name == )
-           .IsEmpty
-          ) 
-           ( 
-            .join> ToArray: ( aConst l_Name aConst .Speller l_Prefix .MakeIniStr )
+ Cached:
+ (
+  VAR l_IniOperations
+  Self .IniOperationsPrim >>> l_IniOperations
+  l_IniOperations
+  RULES
+   ( Self .IsConstants )
+    begin 
+     VAR l_Speller
+     Self .Speller >>> l_Speller
+     RULES
+      ( l_Speller .IsNotNil )
+       begin
+        VAR l_Parent
+        Self .ElementOrParentThatCanHaveIniOperations >>> l_Parent
+        VAR l_Prefix
+        Self .GetUP 'extprop:pas:ElementPrefix' >>> l_Prefix
+        Self .Attributes
+        .for>
+        (
+          IN aConst
+          VAR l_Name
+          [ 'Init_Str_' aConst .Name ] strings:Cat >>> l_Name
+          RULES
+           (
+            l_Parent call.me
+            .filter> ( .Name l_Name == )
+            .IsEmpty
            ) 
-        ; // RULES
-       ) // .for>
-      end // ( l_Speller .IsNotNil )
-    ; // RULES
-   end // ( Self .IsConstants )
-  (
-   ( Self .IsTestCase )
-   AND ( Self .Abstraction at_abstract != )
-   AND ( Self .IsMixIn ! )
-  ) 
-   ( .join> ToArray: ( Self .RegisterTestCaseMethod ) )
-  ( Self .IsTestClass )
-   ( .join> ToArray: ( Self .RegisterTestClassMethod ) )
-  ( Self .IsTagTable )
-   ( .join> ToArray: ( Self .RegisterTagTableMethod ) )
-  ( 
-   ( Self .IsServiceImplementation ) 
-   AND ( l_IniOperations 'bind' .HasModelElementWithName ! )
-  ) 
-   ( .join> ToArray: ( Self .RegisterServiceImplementationMethod ) )
-  ( Self .IsClassOrMixIn )
+            ( 
+             .join> ToArray: ( aConst l_Name aConst .Speller l_Prefix .MakeIniStr )
+            ) 
+         ; // RULES
+        ) // .for>
+       end // ( l_Speller .IsNotNil )
+     ; // RULES
+    end // ( Self .IsConstants )
    (
-    VAR l_WasRegisterInEngine
-    false >>> l_WasRegisterInEngine
-    
-    if ( Self .IsMixIn ! ) then
-    begin
-     if ( Self .Abstraction at_abstract != ) then
+    ( Self .IsTestCase )
+    AND ( Self .Abstraction at_abstract != )
+    AND ( Self .IsMixIn ! )
+   ) 
+    ( .join> ToArray: ( Self .RegisterTestCaseMethod ) )
+   ( Self .IsTestClass )
+    ( .join> ToArray: ( Self .RegisterTestClassMethod ) )
+   ( Self .IsTagTable )
+    ( .join> ToArray: ( Self .RegisterTagTableMethod ) )
+   ( 
+    ( Self .IsServiceImplementation ) 
+    AND ( l_IniOperations 'bind' .HasModelElementWithName ! )
+   ) 
+    ( .join> ToArray: ( Self .RegisterServiceImplementationMethod ) )
+   ( Self .IsClassOrMixIn )
+    (
+     VAR l_WasRegisterInEngine
+     false >>> l_WasRegisterInEngine
+     
+     if ( Self .IsMixIn ! ) then
      begin
-      if ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements ) then
+      if ( Self .Abstraction at_abstract != ) then
       begin
-       true >>> l_WasRegisterInEngine
-       if ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! ) then
+       if ( Self GarantModel::TtfwRegisterableWord .InheritsFromOrSomeAncestorImplements ) then
+       begin
+        true >>> l_WasRegisterInEngine
+        if ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! ) then
+        begin     
+         .join> ToArray: ( 
+           'Ini_Reg' MakeIniProcedure: (
+             IN aMade
+            VAR l_TypeName
+            Self .TypeName >>> l_TypeName
+            aMade -> Parent := ( Self .WeakRef )
+            aMade -> "ifndef" := 'NoScripts'
+            aMade -> %SUM := ( '–егистраци€ ' Self .Name Cat ) 
+            aMade ->^ cUserCodePrefix ^:= [ cSpace l_TypeName '.RegisterInEngine;' ]
+           ) // MakeIniProcedure:
+          ) // .join>
+        end // ( l_IniOperations GarantModel::l3UnknownPrim.ClearFields .HasModelElement )
+       end // ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! )
+      end // ( Self .Abstraction at_abstract != )
+     end // ( Self .IsMixIn ! )
+     
+     if ( l_WasRegisterInEngine ! ) then
+     begin
+      if ( Self .NeedRegisterInScripts ) then
+      begin
+       if ( l_IniOperations 'Ini_Reg_Class' .HasModelElementWithName ! ) then
        begin     
         .join> ToArray: ( 
-          'Ini_Reg' MakeIniProcedure: (
+          'Ini_Reg_Class' MakeIniProcedure: (
             IN aMade
            VAR l_TypeName
            Self .TypeName >>> l_TypeName
            aMade -> Parent := ( Self .WeakRef )
            aMade -> "ifndef" := 'NoScripts'
            aMade -> %SUM := ( '–егистраци€ ' Self .Name Cat ) 
-           aMade ->^ cUserCodePrefix ^:= [ cSpace l_TypeName '.RegisterInEngine;' ]
+           aMade ->^ cUserCodePrefix ^:= [ 
+            if ( Self GarantModel::TtfwWord .InheritsFrom ) then
+            begin
+             ' ' Self .TypeName '.RegisterClass;'
+            end
+            else
+            begin
+             ' TtfwClassRef.Register(' Self .TypeName ');' 
+            end 
+           ] // aMade ->^ cUserCodePrefix
           ) // MakeIniProcedure:
          ) // .join>
-       end // ( l_IniOperations GarantModel::l3UnknownPrim.ClearFields .HasModelElement )
-      end // ( l_IniOperations 'Ini_Reg' .HasModelElementWithName ! )
-     end // ( Self .Abstraction at_abstract != )
-    end // ( Self .IsMixIn ! )
+       end // ( l_IniOperations 'Ini_Reg_Class' .HasModelElementWithName ! )
+      end // ( Self .NeedRegisterInScripts )
+     end // ( l_WasRegisterInEngine ! )
+     
+    ) // ( Self .IsClassOrMixIn )
     
-    if ( l_WasRegisterInEngine ! ) then
+   ( Self .IsEnum ) 
     begin
      if ( Self .NeedRegisterInScripts ) then
      begin
-      if ( l_IniOperations 'Ini_Reg_Class' .HasModelElementWithName ! ) then
-      begin     
-       .join> ToArray: ( 
-         'Ini_Reg_Class' MakeIniProcedure: (
-           IN aMade
-          VAR l_TypeName
-          Self .TypeName >>> l_TypeName
-          aMade -> Parent := ( Self .WeakRef )
-          aMade -> "ifndef" := 'NoScripts'
-          aMade -> %SUM := ( '–егистраци€ ' Self .Name Cat ) 
-          aMade ->^ cUserCodePrefix ^:= [ 
-           if ( Self GarantModel::TtfwWord .InheritsFrom ) then
-           begin
-            ' ' Self .TypeName '.RegisterClass;'
-           end
-           else
-           begin
-            ' TtfwClassRef.Register(' Self .TypeName ');' 
-           end 
-          ] // aMade ->^ cUserCodePrefix
-         ) // MakeIniProcedure:
-        ) // .join>
-      end // ( l_IniOperations 'Ini_Reg_Class' .HasModelElementWithName ! )
+      .join> ToArray: ( Self .RegTypeMethod )
      end // ( Self .NeedRegisterInScripts )
-    end // ( l_WasRegisterInEngine ! )
+    end // ( Self .IsEnum )
     
-   ) // ( Self .IsClassOrMixIn )
-   
-  ( Self .IsEnum ) 
-   begin
-    if ( Self .NeedRegisterInScripts ) then
+   ( Self .IsException ) 
     begin
-     .join> ToArray: ( Self .RegTypeMethod )
-    end // ( Self .NeedRegisterInScripts )
-   end // ( Self .IsEnum )
-   
-  ( Self .IsException ) 
-   begin
-    if ( Self .NeedRegisterInScripts ) then
+     if ( Self .NeedRegisterInScripts ) then
+     begin
+      .join> ToArray: ( Self .RegTypeMethod )
+     end // ( Self .NeedRegisterInScripts )
+    end // ( Self .IsException )
+    
+   ( Self .IsInterface ) 
     begin
-     .join> ToArray: ( Self .RegTypeMethod )
-    end // ( Self .NeedRegisterInScripts )
-   end // ( Self .IsException )
-   
-  ( Self .IsInterface ) 
-   begin
-    if ( Self .NeedRegisterInScripts ) then
+     if ( Self .NeedRegisterInScripts ) then
+     begin
+      .join> ToArray: ( Self .RegTypeMethod )
+     end // ( Self .NeedRegisterInScripts )
+    end // ( Self .IsInterface )
+    
+   ( Self .IsScriptKeywordsPack )
     begin
-     .join> ToArray: ( Self .RegTypeMethod )
-    end // ( Self .NeedRegisterInScripts )
-   end // ( Self .IsInterface )
-   
-  ( Self .IsScriptKeywordsPack )
-   begin
-    Self .InheritsEx 
-    .join> ( Self .ImplementsEx )
-    
-    .join> ( 
-     Self .OperationsEx
-     .filter> .IsSomeKeyWord
-     .mapToTarget>
-    ) // .join>
-    
-    .joinWithLambded> 
-    ( Self .OperationsEx ) ( .Parameters .mapToTarget> )
-    
-    .filter> .IsAcceptableForScripts
-    .map> .RegTypeMethod
-    .filter> ( l_IniOperations SWAP .Name .HasModelElementWithName ! )
-    .for> (
-      IN aMethod
-     .join> ToArray: aMethod 
-     array:Copy >>> l_IniOperations
-     // - перекопируем массив, чтобы убрать дубликаты
-     l_IniOperations
-     // - кладЄм его обратно на стек
-    ) // .for>
-   end // ( Self .IsScriptKeywordsPack )
- ; // RULES
- 
+     Self .InheritsEx 
+     .join> ( Self .ImplementsEx )
+     
+     .join> ( 
+      Self .OperationsEx
+      .filter> .IsSomeKeyWord
+      .mapToTarget>
+     ) // .join>
+     
+     .joinWithLambded> 
+     ( Self .OperationsEx ) ( .Parameters .mapToTarget> )
+     
+     .filter> .IsAcceptableForScripts
+     .map> .RegTypeMethod
+     .filter> ( l_IniOperations SWAP .Name .HasModelElementWithName ! )
+     .for> (
+       IN aMethod
+      .join> ToArray: aMethod 
+      array:Copy >>> l_IniOperations
+      // - перекопируем массив, чтобы убрать дубликаты
+      l_IniOperations
+      // - кладЄм его обратно на стек
+     ) // .for>
+    end // ( Self .IsScriptKeywordsPack )
+  ; // RULES
+  
+  if ( Self .IsClassOrMixIn ) then
+  begin
+   Self .InheritsEx
+   .join> ( Self .ImplementsEx )
+   .filter> .IsMixIn 
+   .for> (
+     IN aMixIn
+    VAR l_HasIni
+    false >>> l_HasIni
+    //aMixIn call.me .NotEmpty >>> l_HasIni
+    if ( l_HasIni ! ) then
+    begin
+     aMixIn .ForChildren> .All ( 
+       IN aChild
+      if ( aChild call.me .NotEmpty ) then
+      begin
+       true >>> l_HasIni
+      end // ( aChild call.me .NotEmpty )
+     ) // aMixIn .ForChildren> .All
+    end // ( l_HasIni ! )
+    if l_HasIni then
+    begin
+     .join> ToArray: ( 
+      aMixIn .Name '_Include' Cat MakeIniProcedure: (
+        IN aMade
+       aMade .AddMethodWithParams: cUserCodePrefix aMixIn (
+         IN aMixIn
+        [ 
+          HookOut: ( 
+           aMixIn .OutMixInInclude 
+          ) // HookOut:
+        ]
+       ) // aMade .AddMethodWithParams: cUserCodePrefix aMixIn
+      ) // aMixIn .Name 'Include' Cat MakeIniProcedure:
+     ) // .join> ToArray:
+    end // l_HasIni
+   ) // .for>
+  end // ( Self .IsClassOrMixIn )
+ ) 
  >>> Result
 ; // IniOperations
 
@@ -12315,10 +12867,15 @@ elem_proc OutImplementationSection
  
  l_WasOut ? OutLn
  
+ VAR l_WasConst
+ 
+ false >>> l_WasConst
  Self .ForChildren> .All (
-  .ConstantsEx .filter> ( .ConstantsListVisibility PrivateAccess == ) .OutConstantsList
+  .ConstantsEx .filter> ( .ConstantsListVisibility PrivateAccess == ) if .OutConstantsList ( true >>> l_WasConst )
  )
-
+ if l_WasConst then
+  OutLn
+  
  Self .ForChildren> .IsForImplementation (
    IN anItem
   VAR l_GlobalOperations

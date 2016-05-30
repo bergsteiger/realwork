@@ -45,58 +45,6 @@ ref; // ME_4E78811F00C7 CEmptiHintAddingSeparator
 
 ref; // ME_4E78810C0303 Locall
 
-FORWARD ME_1A36320DF905
-
-: ME_73684196AD33
- CONST UID '73684196AD33'
- CONST Name 'CEmptiHintAddingSeparator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY ''', например, ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1A36320DF905 // LCImplLocall
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''CEmptiHintAddingSeparator''; rValue : '', например, '')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''CEmptiHintAddingSeparator''; rValue : '', например, '')'
- : Speller ME_4E78811F00C7 // CEmptiHintAddingSeparator
- ;
-
-ref; // ME_73684196AD33 CEmptiHintAddingSeparator
-
-: ME_1A36320DF905
- CONST UID '1A36320DF905'
- CONST Name 'LCImplLocall'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Locall' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_482ACC330173 // TelCustomEdit
- ;
- : Attributes
-   Seq: ( ME_73684196AD33 // CEmptiHintAddingSeparator
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4E78810C0303 // Locall
- ;
-
-ref; // ME_1A36320DF905 LCImplLocall
-
 : ME_482AEA5F0148
  CONST UID '482AEA5F0148'
  CONST Name 'FArrowsSelect'
@@ -873,28 +821,6 @@ ref; // ME_4899906F02C8
 
 ref; // ME_49D0D3F20170 
 
-: ME_B0FFC2240814
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_482ACC330173 // TelCustomEdit
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_B0FFC2240814 
-
-: ME_FAA5C9CE6030
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_482ACC330173 // TelCustomEdit
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_FAA5C9CE6030 
-
 : ME_482AECDA021C_ME_482ACC330173
  : Original WL 'ME_482AECDA021C' '47C5207602D1.pas.ms.script' // ParagraphStrings
  ;
@@ -1068,7 +994,6 @@ ref; // ME_4E7896270076_ME_482ACC330173 MouseUp
  ; // Overridden
  : Constants
    Seq: ( ME_4E78810C0303 // Locall
- ME_1A36320DF905 // LCImplLocall
  )
  ; // Constants
  : Dependencies
@@ -1087,8 +1012,6 @@ ref; // ME_4E7896270076_ME_482ACC330173 MouseUp
  ME_48998D4700C4 // Colors
  ME_4899906F02C8 // hDC
  ME_49D0D3F20170 // TnevShapePart
- ME_B0FFC2240814 // Tl3StringIDEx
- ME_FAA5C9CE6030 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

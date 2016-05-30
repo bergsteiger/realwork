@@ -131,7 +131,7 @@
 //#UC START# *49806ED503D5_49EC746B01E5_impl*
  //if (aStateType = vcm_stPosition) then
  begin
-  theState := TnsInternetAgentState.Make(f_URL).As_IvcmBase;
+  theState := TnsInternetAgentState.Make(f_URL, f_Browser.ScrollPos).As_IvcmBase;
   Result := true;
   //inherited DoSaveState(theState, aStateType);
   Exit;
@@ -171,11 +171,15 @@
     end;//try..except
    if f_InInit then
     if (l_State <> nil) then
+    begin
+     f_Browser.ScrollPos := l_State.ScrollPos;
      Navigate(l_State.URL);
+    end;
    Result := true;
    //inherited DoLoadState(aState, aStateType);
-   if (l_State <> nil) then
-    l_State.SetParams(l_URL);
+   // kost: кажись, ниже две строчки не нужны.
+   //if (l_State <> nil) then
+   // l_State.SetParams(l_URL);
    Exit;
   end;//f_Browser <> nil
  end;//aStateType = vcm_stPosition
@@ -186,6 +190,8 @@ var
  l_State : InsInternetAgentState;
  l_URL   : WideString;
 //#UC END# *49807428008C_49EC746B01E5_var*
+//#UC START# *49EC746B01E5impl_uses*
+//#UC END# *49EC746B01E5impl_uses*
 //#UC START# *49ED882F0024_49EC746B01E5_impl*
  BeforeNavigateXE(Sender, pDisp, URL, Flags, TargetFrameName, PostData, Headers, Cancel);
 //#UC END# *49ED882F0024_49EC746B01E5_impl*
@@ -214,6 +220,7 @@ var
 //#UC END# *49EDAB3802C8_49EDAA740295_var*
 //#UC START# *49EDDC9F007A_49EDAA740295_impl*
  f_URL := anURL;
+ f_ScrollPos := aScrollPos;
 //#UC END# *49EDDC9F007A_49EDAA740295_impl*
 //#UC START# *49EDDC9F007A_49EDAA740295_var*
 //#UC END# *49EDDC9F007A_49EDAA740295_var*
@@ -360,7 +367,14 @@ var
  if nsParseLocalDocumentURL(URL, l_DocID, l_SubID) then
  begin
   Cancel := true;
-  nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
+  if not nsOpenLink(l_DocID, l_SubID, dptSub, True, False, False) then
+   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
+  Exit;
+ end;
+ if nsIsFileFromMobileGarant(URL) then
+ begin
+  Cancel := true;
+  nsDoShellExecute(l3CStr(URL));
   Exit;
  end;
 

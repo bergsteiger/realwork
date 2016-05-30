@@ -2340,81 +2340,6 @@ ref; // ME_4B97EEB7015F CloseHyperlinkText
 
 ref; // ME_4B97EE8B032F MiscMessages
 
-FORWARD ME_DD5314341505
-
-: ME_5F13428B78A0
- CONST UID '5F13428B78A0'
- CONST Name 'CloseHyperlinkText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Закрыть''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DD5314341505 // LCImplMiscMessages
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''nsc_CloseHyperlinkText''; rValue : ''Закрыть'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nsc_CloseHyperlinkText''; rValue : ''Закрыть'')'
- : Speller ME_4B97EEB7015F // CloseHyperlinkText
- ;
-
-ref; // ME_5F13428B78A0 CloseHyperlinkText
-
-: ME_DD5314341505
- CONST UID 'DD5314341505'
- CONST Name 'LCImplMiscMessages'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки MiscMessages' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
- ;
- : Attributes
-   Seq: ( ME_5F13428B78A0 // CloseHyperlinkText
- )
- ; // Attributes
- CONST "children prefix" 'nsc_'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_nsc_'
- : Speller ME_4B97EE8B032F // MiscMessages
- ;
-
-ref; // ME_DD5314341505 LCImplMiscMessages
-
-: ME_BF03AEB9ABE0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_BF03AEB9ABE0 
-
-: ME_110DC76AEC0F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_110DC76AEC0F 
-
 : ME_4B97EE59039E
  CONST UID '4B97EE59039E'
  CONST Name 'nscCustomTreeComboWithHistoryRes'
@@ -2428,14 +2353,8 @@ ref; // ME_110DC76AEC0F
  ;
  : Constants
    Seq: ( ME_4B97EE8B032F // MiscMessages
- ME_DD5314341505 // LCImplMiscMessages
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_BF03AEB9ABE0 // Tl3StringIDEx
- ME_110DC76AEC0F // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '10.03.2010 22:09'

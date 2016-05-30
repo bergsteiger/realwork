@@ -45,80 +45,6 @@ ref; // ME_4FEDA30C0141 IsDocumentUsefulCaption
 
 ref; // ME_4FEDA2F10124 Local
 
-FORWARD ME_D8DD4FC71822
-
-: ME_736EA879DB4F
- CONST UID '736EA879DB4F'
- CONST Name 'IsDocumentUsefulCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Полезен ли документ?''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_D8DD4FC71822 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''IsDocumentUsefulCaption''; rValue : ''Полезен ли документ?'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''IsDocumentUsefulCaption''; rValue : ''Полезен ли документ?'')'
- : Speller ME_4FEDA30C0141 // IsDocumentUsefulCaption
- ;
-
-ref; // ME_736EA879DB4F IsDocumentUsefulCaption
-
-: ME_D8DD4FC71822
- CONST UID 'D8DD4FC71822'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FF34A48018C // DocumentUtil
- ;
- : Attributes
-   Seq: ( ME_736EA879DB4F // IsDocumentUsefulCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4FEDA2F10124 // Local
- ;
-
-ref; // ME_D8DD4FC71822 LCImplLocal
-
-: ME_55935338FD2F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FF34A48018C // DocumentUtil
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_55935338FD2F 
-
-: ME_D4F3781AE6C3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4FF34A48018C // DocumentUtil
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_D4F3781AE6C3 
-
 : ME_4FF34A48018C
  CONST UID '4FF34A48018C'
  CONST Name 'DocumentUtil'
@@ -131,14 +57,8 @@ ref; // ME_D4F3781AE6C3
  ;
  : Constants
    Seq: ( ME_4FEDA2F10124 // Local
- ME_D8DD4FC71822 // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_55935338FD2F // Tl3StringIDEx
- ME_D4F3781AE6C3 // Tl3MessageID
- )
- ; // Dependencies
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUtil.pas'
 
 ref; // ME_4FF34A48018C DocumentUtil

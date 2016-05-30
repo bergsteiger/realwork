@@ -129,7 +129,7 @@ p force overload:b=false ? Определяет, что метод перегружен
 	)\
 	]\
 
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	%S%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,\
 	 %U[{iter}\n \
 	%S%f_Ind()\
@@ -192,7 +192,7 @@ r {""=""}: {}
 	>\
 	%f_clear_list(method_children)\
 	[{%Gx=true}\
-	[{%Sa!=final|%S#f_UseNewGenRec()!=true}\
+	[{%Sa!=final|%f_UseNewGenRecG(%S)!=true}\
 	[{%S#f_IsFactory()!=true}\
 	[{%S{is static}=true|"<{}{%CC=Operation}{C}>"="0"}\
 // - тут будем делать методу такую же сигнатуру, как у того метода, 
@@ -226,7 +226,7 @@ r {""=""}: {}
 	]\
 	]\
 
-	[{%Sa!=final|%S#f_UseNewGenRec()!=true}\
+	[{%Sa!=final|%f_UseNewGenRecG(%S)!=true}\
 	[{%S#f_IsFactory()!=true&"<{}{%CC=Operation}{C}>"="0"}\
 // - добавляем сигнатуру без параметров
 	%S%f_add_operation(%SU_DoIt,,DoIt (),Op_Instance)\

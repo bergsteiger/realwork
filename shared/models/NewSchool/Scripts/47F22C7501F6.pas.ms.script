@@ -4031,91 +4031,6 @@ ref; // ME_55E1EB7B033F ListIsTooLong
 
 ref; // ME_55E1EB6601B1 EListIsTooLong local
 
-FORWARD ME_FD70437BF6FA
-
-: ME_F683A64293DE
- CONST UID 'F683A64293DE'
- CONST Name 'ListIsTooLong'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список содержит большое количество документов, он не может быть отфильтрован. Пожалуйста, уточните запрос.''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_FD70437BF6FA // LCImplEListIsTooLong local
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ListIsTooLong''; rValue : ''Список содержит большое количество документов, он не может быть отфильтрован. Пожалуйста, уточните запрос.'')'
- : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ListIsTooLong''; rValue : ''Список содержит большое количество документов, он не может быть отфильтрован. Пожалуйста, уточните запрос.'')'
- : Speller ME_55E1EB7B033F // ListIsTooLong
- ;
-
-ref; // ME_F683A64293DE ListIsTooLong
-
-: ME_FD70437BF6FA
- CONST UID 'FD70437BF6FA'
- CONST Name 'LCImplEListIsTooLong local'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки EListIsTooLong local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55E438930369 // nsListExceptions
- ;
- : Attributes
-   Seq: ( ME_F683A64293DE // ListIsTooLong
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_55E1EB6601B1 // EListIsTooLong local
- ;
-
-ref; // ME_FD70437BF6FA LCImplEListIsTooLong local
-
-: ME_D01ADEB807E4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E438930369 // nsListExceptions
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_D01ADEB807E4 
-
-: ME_82386ACBDE81
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E438930369 // nsListExceptions
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_82386ACBDE81 
-
-: ME_F0CCA56995A2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55E438930369 // nsListExceptions
- ;
- : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
- ;
-
-ref; // ME_F0CCA56995A2 
-
 : ME_55E438930369
  CONST UID '55E438930369'
  CONST Name 'nsListExceptions'
@@ -4132,15 +4047,8 @@ ref; // ME_F0CCA56995A2
  ; // Children
  : Constants
    Seq: ( ME_55E1EB6601B1 // EListIsTooLong local
- ME_FD70437BF6FA // LCImplEListIsTooLong local
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_D01ADEB807E4 // Tl3StringIDEx
- ME_82386ACBDE81 // Tl3MessageID
- ME_F0CCA56995A2 // Dialogs
- )
- ; // Dependencies
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListExceptions.pas'
  CONST extprop:rc:SelfName 'ListExceptions'
 
@@ -4818,7 +4726,6 @@ ref; // ME_5645E9920077 TnsDocumentWithSnippetNode
  WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
- WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
  WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
  WL 'ME_47CD3441002F' '47CD3441002F.pas.ms.script' // nevInterfaces

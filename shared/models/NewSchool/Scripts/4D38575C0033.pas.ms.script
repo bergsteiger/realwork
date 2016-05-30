@@ -579,92 +579,6 @@ ref; // ME_524951AA029D DoIt
 
 ref; // ME_524951840150 Create
 
-FORWARD ME_524951C100D0
-
-: ME_571458A68F74
- CONST Name 'aCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_571458A68F74 aCaption
-
-: ME_66B363604C62
- CONST Name 'aBitmap'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_524A93EA023C // TDelphiBitmap
- ;
-
-ref; // ME_66B363604C62 aBitmap
-
-: ME_6B6059E890BC
- CONST Name 'aScale'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_6B6059E890BC aScale
-
-: ME_D00CF86B583A
- CONST Name 'aFileName'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_477113FB020B' '4AB0C3C60310.pas.ms.script' // TFileName
- ;
-
-ref; // ME_D00CF86B583A aFileName
-
-: ME_94A81796CFB0
- CONST Name 'aInitialDir'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
-
-ref; // ME_94A81796CFB0 aInitialDir
-
-: ME_C52EB9C28FA1
- CONST Name 'aInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4991BE7D0056' '4991BD69025E.pas.ms.script' // InsLinkedObjectDescription
- ;
-
-ref; // ME_C52EB9C28FA1 aInfo
-
-: ME_50C35AE0BD54
- CONST UID '50C35AE0BD54'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TPictureFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_524951C100D0 // Make
- ;
- : Target ME_52494ECE00CE // IPictureFormState
- ;
- : Parameters
-   Seq: ( ME_571458A68F74 // aCaption
- ME_66B363604C62 // aBitmap
- ME_6B6059E890BC // aScale
- ME_D00CF86B583A // aFileName
- ME_94A81796CFB0 // aInitialDir
- ME_C52EB9C28FA1 // aInfo
- )
- ; // Parameters
-
-ref; // ME_50C35AE0BD54 DoIt
-
 : ME_524951C100D0
  CONST UID '524951C100D0'
  CONST Name 'Make'
@@ -683,10 +597,6 @@ ref; // ME_50C35AE0BD54 DoIt
    Seq: ( ME_52494ECE00CE // IPictureFormState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_50C35AE0BD54 // DoIt
- )
- ; // Operations
 
 ref; // ME_524951C100D0 Make
 
@@ -823,147 +733,6 @@ ref; // ME_52493B3E0021 FixedScales
  CONST "spell names" false
 
 ref; // ME_52493B3102D6 Picture Const
-
-FORWARD ME_071E76F4C9F1
-
-: ME_A2C6D56EC28C
- CONST UID 'A2C6D56EC28C'
- CONST Name 'pfImageCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Просмотр графического объекта"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_071E76F4C9F1 // pfImageLocalConstants
- ;
- CONST Value '''Просмотр графического объекта'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Просмотр графического объекта'''
-
-ref; // ME_A2C6D56EC28C pfImageCaption
-
-: ME_A44D7DCE56B1
- CONST UID 'A44D7DCE56B1'
- CONST Name 'pfImageSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Просмотр графического объекта" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_071E76F4C9F1 // pfImageLocalConstants
- ;
- CONST Value '''Документ: Просмотр графического объекта'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Документ: Просмотр графического объекта'''
-
-ref; // ME_A44D7DCE56B1 pfImageSettingsCaption
-
-: ME_071E76F4C9F1
- CONST UID '071E76F4C9F1'
- CONST Name 'pfImageLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы pfImage' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Attributes
-   Seq: ( ME_A2C6D56EC28C // pfImageCaption
- ME_A44D7DCE56B1 // pfImageSettingsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_071E76F4C9F1 pfImageLocalConstants
-
-FORWARD ME_EC259088AE44
-
-: ME_9C15B8B2092D
- CONST UID '9C15B8B2092D'
- CONST Name 'pfImageCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Просмотр графического объекта"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EC259088AE44 // LCImplpfImageLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''pfImageCaption''; rValue : ''Просмотр графического объекта'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''pfImageCaption''; rValue : ''Просмотр графического объекта'')'
- : Speller ME_A2C6D56EC28C // pfImageCaption
- ;
-
-ref; // ME_9C15B8B2092D pfImageCaption
-
-: ME_0D2D5AE9A81A
- CONST UID '0D2D5AE9A81A'
- CONST Name 'pfImageSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Просмотр графического объекта" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EC259088AE44 // LCImplpfImageLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''pfImageSettingsCaption''; rValue : ''Документ: Просмотр графического объекта'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''pfImageSettingsCaption''; rValue : ''Документ: Просмотр графического объекта'')'
- : Speller ME_A44D7DCE56B1 // pfImageSettingsCaption
- ;
-
-ref; // ME_0D2D5AE9A81A pfImageSettingsCaption
-
-: ME_EC259088AE44
- CONST UID 'EC259088AE44'
- CONST Name 'LCImplpfImageLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки pfImageLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Attributes
-   Seq: ( ME_9C15B8B2092D // pfImageCaption
- ME_0D2D5AE9A81A // pfImageSettingsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_071E76F4C9F1 // pfImageLocalConstants
- ;
-
-ref; // ME_EC259088AE44 LCImplpfImageLocalConstants
 
 : ME_4AF330F100C1
  CONST UID '4AF330F100C1'
@@ -1103,87 +872,6 @@ ref; // ME_52493A22001D SaveDialog
  ;
 
 ref; // ME_52493BB60386 f_InitViewer
-
-: ME_B814D5B48FEE
- CONST UID 'B814D5B48FEE'
- CONST Name 'f_ieIO'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieIO' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_4ACDBE8801BE' '4ACDBC26003C.pas.ms.script' // TImageEnIO
- ;
-
-ref; // ME_B814D5B48FEE f_ieIO
-
-: ME_2E31AD18528F
- CONST UID '2E31AD18528F'
- CONST Name 'f_ieViewer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieViewer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
- ;
-
-ref; // ME_2E31AD18528F f_ieViewer
-
-: ME_C5975864DA34
- CONST UID 'C5975864DA34'
- CONST Name 'f_ieProc'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieProc' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_4C8778D802F6' '4ACDBC26003C.pas.ms.script' // TImageEnProc
- ;
-
-ref; // ME_C5975864DA34 f_ieProc
-
-: ME_CD7888A0688A
- CONST UID 'CD7888A0688A'
- CONST Name 'f_Scale'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Scale' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- CONST extprop:clearViaProperty 'Scale'
-
-ref; // ME_CD7888A0688A f_Scale
-
-: ME_1EC487577E34
- CONST UID '1EC487577E34'
- CONST Name 'f_SaveDialog'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SaveDialog' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_4AF32FBD00F5' '4DDA34AA023B.pas.ms.script' // TnsSaveDialog
- ;
-
-ref; // ME_1EC487577E34 f_SaveDialog
 
 FORWARD ME_5245B8BC031D
 
@@ -1408,57 +1096,6 @@ ref; // ME_52493BD40232 AfterInit
  ;
 
 ref; // ME_52496599037C new_ini_op
-
-: ME_869C2846C268
- CONST UID '869C2846C268'
- CONST Name 'Init_Str_pfImageCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_pfImageCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Speller ME_A2C6D56EC28C // pfImageCaption
- ;
- : SpelledFor ME_9C15B8B2092D // pfImageCaption
- ;
-
-ref; // ME_869C2846C268 Init_Str_pfImageCaption
-
-: ME_26629EEEF092
- CONST UID '26629EEEF092'
- CONST Name 'Init_Str_pfImageSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_pfImageSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Speller ME_A44D7DCE56B1 // pfImageSettingsCaption
- ;
- : SpelledFor ME_0D2D5AE9A81A // pfImageSettingsCaption
- ;
-
-ref; // ME_26629EEEF092 Init_Str_pfImageSettingsCaption
-
-: ME_79A6BF2F8764
- CONST UID '79A6BF2F8764'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPicture' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_79A6BF2F8764 Ini_Reg_Class
 
 : ME_4AF331190218
  CONST Class class_Dependency
@@ -1740,39 +1377,6 @@ ref; // ME_543B98DF0236
 
 ref; // ME_543E50470153 
 
-: ME_71EDC5C4693B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_71EDC5C4693B 
-
-: ME_5F08267C1F79
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_5F08267C1F79 
-
-: ME_C3BEFDF19FCC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFCFB0014B // PrimPicture
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C3BEFDF19FCC 
-
 : ME_4AF32F3102BE_ME_4AAFCFB0014B
  : Original WL 'ME_4AF32F3102BE' '498874B90391.pas.ms.script' // InitNewContent
  ;
@@ -1823,12 +1427,6 @@ ref; // ME_4A8E8F2E0195_ME_4AAFCFB0014B InitControls
  CONST OpKind opkind_Overridden
 ref; // ME_4F7C65380244_ME_4AAFCFB0014B FormInsertedIntoContainer
 
-: ME_5000565C019C_ME_4AAFCFB0014B
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AAFCFB0014B ClearFields
-
 : ME_543E3AA801D0_ME_4AAFCFB0014B
  : Original WL 'ME_543E3AA801D0' '533D53FF00C2.pas.ms.script' // DoGetTabImageIndex
  ;
@@ -1864,11 +1462,6 @@ ref; // ME_543E3AA801D0_ME_4AAFCFB0014B DoGetTabImageIndex
  ME_4C8778630190 // f_ValueMap
  ME_52493A22001D // SaveDialog
  ME_52493BB60386 // f_InitViewer
- ME_B814D5B48FEE // f_ieIO
- ME_2E31AD18528F // f_ieViewer
- ME_C5975864DA34 // f_ieProc
- ME_CD7888A0688A // f_Scale
- ME_1EC487577E34 // f_SaveDialog
  )
  ; // Attributes
  : Operations
@@ -1880,9 +1473,6 @@ ref; // ME_543E3AA801D0_ME_4AAFCFB0014B DoGetTabImageIndex
  ME_4C87761302DC // Shrink
  ME_52493BD40232 // AfterInit
  ME_52496599037C // new_ini_op
- ME_869C2846C268 // Init_Str_pfImageCaption
- ME_26629EEEF092 // Init_Str_pfImageSettingsCaption
- ME_79A6BF2F8764 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1896,7 +1486,6 @@ ref; // ME_543E3AA801D0_ME_4AAFCFB0014B DoGetTabImageIndex
  ME_49807428008C_ME_4AAFCFB0014B // DoLoadState
  ME_4A8E8F2E0195_ME_4AAFCFB0014B // InitControls
  ME_4F7C65380244_ME_4AAFCFB0014B // FormInsertedIntoContainer
- ME_5000565C019C_ME_4AAFCFB0014B // ClearFields
  ME_543E3AA801D0_ME_4AAFCFB0014B // DoGetTabImageIndex
  )
  ; // Overridden
@@ -1912,8 +1501,6 @@ ref; // ME_543E3AA801D0_ME_4AAFCFB0014B DoGetTabImageIndex
  : Constants
    Seq: ( ME_4AF3302C022E // Messages
  ME_52493B3102D6 // Picture Const
- ME_071E76F4C9F1 // pfImageLocalConstants
- ME_EC259088AE44 // LCImplpfImageLocalConstants
  )
  ; // Constants
  : Dependencies
@@ -1945,9 +1532,6 @@ ref; // ME_543E3AA801D0_ME_4AAFCFB0014B DoGetTabImageIndex
  ME_524970B101CB // giflzw
  ME_543B98DF0236 // IvcmFormSetIconProvider
  ME_543E50470153 // nsTabbedInterfaceTypes
- ME_71EDC5C4693B // Tl3StringIDEx
- ME_5F08267C1F79 // Tl3MessageID
- ME_C3BEFDF19FCC // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1968,21 +1552,6 @@ ref; // ME_543E3AA801D0_ME_4AAFCFB0014B DoGetTabImageIndex
 ref; // ME_4AAFCFB0014B PrimPicture
 
 FORWARD ME_4C8768010125
-
-: ME_99369FE77B02
- CONST UID '99369FE77B02'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPictureOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8768010125 // PrimPictureOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_99369FE77B02 Ini_Reg_Class
 
 : ME_4C876976016C
  CONST Class class_Dependency
@@ -2093,17 +1662,6 @@ ref; // ME_4C87799B0142
  ;
 
 ref; // ME_4C877AD902AB 
-
-: ME_E0F9C1EC663B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8768010125 // PrimPictureOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E0F9C1EC663B 
 
 : ME_495235F401C0_ME_4C8768010125
  : Original WL 'ME_495235F401C0' '494F898C013E.pas.ms.script' // Save
@@ -2328,10 +1886,6 @@ ref; // ME_495220F2033A_ME_4C8768010125 PrintPreview
  WL 'ME_4CDACCDF0368' '4CDABA8F024B.pas.ms.script' // PrintableBitmap
  )
  ; // Implements
- : Operations
-   Seq: ( ME_99369FE77B02 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_495235F401C0_ME_4C8768010125 // Save
  ME_4C762C910358_ME_4C8768010125 // Cancel
@@ -2365,7 +1919,6 @@ ref; // ME_495220F2033A_ME_4C8768010125 PrintPreview
  ME_4C8779480126 // l3IsNil
  ME_4C87799B0142 // El3ValueMapValueNotFound
  ME_4C877AD902AB // nsCStr
- ME_E0F9C1EC663B // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -2807,32 +2360,6 @@ ref; // ME_4AB12F7601D3 PrimPictureInfo
 
 FORWARD ME_4C86319003CD
 
-: ME_D31810294EA6
- CONST UID 'D31810294EA6'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPictureInfoOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C86319003CD // PrimPictureInfoOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D31810294EA6 Ini_Reg_Class
-
-: ME_3F5C68992378
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C86319003CD // PrimPictureInfoOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3F5C68992378 
-
 : ME_4951285702E1_ME_4C86319003CD
  : Original WL 'ME_4951285702E1' '495127DD017C.pas.ms.script' // Cut
  ;
@@ -2897,10 +2424,6 @@ ref; // ME_4C762C910358_ME_4C86319003CD Cancel
    Seq: ( WL 'ME_4951282D0269' '495127DD017C.pas.ms.script' // Edit
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D31810294EA6 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4951285702E1_ME_4C86319003CD // Cut
  ME_49EDFA3701B0_ME_4C86319003CD // Paste
@@ -2910,10 +2433,6 @@ ref; // ME_4C762C910358_ME_4C86319003CD Cancel
    Seq: ( ME_4C762C910358_ME_4C86319003CD // Cancel
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_3F5C68992378 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

@@ -6023,58 +6023,6 @@ ref; // ME_EB70D2C01D24 TooManyWindowsOpened_Choice_Second
 
 ref; // ME_7CFCAC67FA0A LCImpl_TooManyWindowsOpened_Choices
 
-FORWARD ME_B67FDCE1F540
-
-: ME_12CAE66769FE
- CONST UID '12CAE66769FE'
- CONST Name 'TooManyWindowsOpened'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B67FDCE1F540 // LCImplLocal
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened''; rValue : ''Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне'')'
- : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened''; rValue : ''Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне'')'
- : Speller ME_51E7E80A0021 // TooManyWindowsOpened
- ;
-
-ref; // ME_12CAE66769FE TooManyWindowsOpened
-
-: ME_B67FDCE1F540
- CONST UID 'B67FDCE1F540'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_51E7E79A0341 // vcmMainFormRes
- ;
- : Attributes
-   Seq: ( ME_12CAE66769FE // TooManyWindowsOpened
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_51E7F7590110 // Local
- ;
-
-ref; // ME_B67FDCE1F540 LCImplLocal
-
 : ME_FD9E78948E77
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -6097,17 +6045,6 @@ ref; // ME_FD9E78948E77
 
 ref; // ME_A925439B53B1 
 
-: ME_94E213C1F6AE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51E7E79A0341 // vcmMainFormRes
- ;
- : Target WL 'ME_4AB0EE02004E' '4799D29F033F.pas.ms.script' // Dialogs
- ;
-
-ref; // ME_94E213C1F6AE 
-
 : ME_51E7E79A0341
  CONST UID '51E7E79A0341'
  CONST Name 'vcmMainFormRes'
@@ -6121,13 +6058,11 @@ ref; // ME_94E213C1F6AE
  : Constants
    Seq: ( ME_51E7F7590110 // Local
  ME_7CFCAC67FA0A // LCImpl_TooManyWindowsOpened_Choices
- ME_B67FDCE1F540 // LCImplLocal
  )
  ; // Constants
  : Dependencies
    Seq: ( ME_FD9E78948E77 // Tl3StringIDEx
  ME_A925439B53B1 // Tl3MessageID
- ME_94E213C1F6AE // Dialogs
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormRes.pas'

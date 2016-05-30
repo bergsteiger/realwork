@@ -23,6 +23,9 @@
 //#UC END# *52F24F6103ABmanualres*
 //#UC START# *52F24F6103ABmanualuses*
   ,
+{$If Defined(ServerTasks)}
+  alcuMdpSyncStages in 'Tasks\alcuMdpSyncStages.pas',
+{$IfEnd} // Defined(ServerTasks)
   alcuCloseQueryDlg in 'alcuCloseQueryDlg.pas' {alcuCloseQueryDlgForm},
 {$IFDEF MDPSyncIntegrated}
   alcuMDP in 'Process\alcuMDP.pas',
@@ -44,6 +47,8 @@
   alcuSpellChecker in 'Process\alcuSpellChecker.pas',
   alcuAutoExport in 'Process\alcuAutoExport.pas',
   alcuZipUtils in 'Process\alcuZipUtils.pas',
+  alcuContainerTask in 'Tasks\alcuContainerTask.pas',
+  alcuSchedulerProxyTask in 'Tasks\alcuSchedulerProxyTask.pas',
   alcuPrime in 'Process\alcuPrime.pas',
   alcuRegionImportTaskResult in 'Tasks\alcuRegionImportTaskResult.pas',
   alcuRegionImportTaskPrim in 'Tasks\alcuRegionImportTaskPrim.pas',

@@ -26,147 +26,6 @@ FORWARD ME_4979D40E0180
 
 ref; // ME_4BD71EBC00ED utDiction
 
-FORWARD ME_0A98E0537E41
-
-: ME_F7876C95D772
- CONST UID 'F7876C95D772'
- CONST Name 'utDictionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Толковый словарь"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0A98E0537E41 // utDictionLocalConstants
- ;
- CONST Value '''Толковый словарь'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Толковый словарь'''
-
-ref; // ME_F7876C95D772 utDictionCaption
-
-: ME_F5DB2CA7CCAC
- CONST UID 'F5DB2CA7CCAC'
- CONST Name 'utDictionSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Толковый словарь" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0A98E0537E41 // utDictionLocalConstants
- ;
- CONST Value '''Толковый словарь: Список терминов (вкладка)'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Толковый словарь: Список терминов (вкладка)'''
-
-ref; // ME_F5DB2CA7CCAC utDictionSettingsCaption
-
-: ME_0A98E0537E41
- CONST UID '0A98E0537E41'
- CONST Name 'utDictionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Attributes
-   Seq: ( ME_F7876C95D772 // utDictionCaption
- ME_F5DB2CA7CCAC // utDictionSettingsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_0A98E0537E41 utDictionLocalConstants
-
-FORWARD ME_9F1FE3827657
-
-: ME_21E1180B9272
- CONST UID '21E1180B9272'
- CONST Name 'utDictionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Толковый словарь"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9F1FE3827657 // LCImplutDictionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utDictionCaption''; rValue : ''Толковый словарь'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utDictionCaption''; rValue : ''Толковый словарь'')'
- : Speller ME_F7876C95D772 // utDictionCaption
- ;
-
-ref; // ME_21E1180B9272 utDictionCaption
-
-: ME_180AF9DEB889
- CONST UID '180AF9DEB889'
- CONST Name 'utDictionSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Толковый словарь" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9F1FE3827657 // LCImplutDictionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utDictionSettingsCaption''; rValue : ''Толковый словарь: Список терминов (вкладка)'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utDictionSettingsCaption''; rValue : ''Толковый словарь: Список терминов (вкладка)'')'
- : Speller ME_F5DB2CA7CCAC // utDictionSettingsCaption
- ;
-
-ref; // ME_180AF9DEB889 utDictionSettingsCaption
-
-: ME_9F1FE3827657
- CONST UID '9F1FE3827657'
- CONST Name 'LCImplutDictionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utDictionLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Attributes
-   Seq: ( ME_21E1180B9272 // utDictionCaption
- ME_180AF9DEB889 // utDictionSettingsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_0A98E0537E41 // utDictionLocalConstants
- ;
-
-ref; // ME_9F1FE3827657 LCImplutDictionLocalConstants
-
 FORWARD ME_51B72B12016F
 
 : ME_50056B450149
@@ -426,70 +285,6 @@ ref; // ME_51B7302E015F ContextMap
 
 ref; // ME_51B73088020A f_InternalChange
 
-: ME_8015E10B6C0D
- CONST UID '8015E10B6C0D'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_8015E10B6C0D f_BackgroundPanel
-
-: ME_E85C023DA926
- CONST UID 'E85C023DA926'
- CONST Name 'f_ContextFilter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_49F0314802E7' '49F02FDF02B9.pas.ms.script' // TnscContextFilter
- ;
-
-ref; // ME_E85C023DA926 f_ContextFilter
-
-: ME_F07167E4123F
- CONST UID 'F07167E4123F'
- CONST Name 'f_WordsTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WordsTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_F07167E4123F f_WordsTree
-
-: ME_BD06C5E13633
- CONST UID 'BD06C5E13633'
- CONST Name 'f_ContextMap'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextMap' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_52D3BD980262' '491D57C802CD.pas.ms.script' // InsLangToContextMap
- ;
-
-ref; // ME_BD06C5E13633 f_ContextMap
-
 FORWARD ME_4C85134102E7
 
 : ME_4C85135A02C6
@@ -588,35 +383,6 @@ ref; // ME_4C85137B001E DoIt
 
 ref; // ME_4C8513680142 CheckLang
 
-FORWARD ME_51B72C1D0310
-
-: ME_97F20A9FC7CE
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_97F20A9FC7CE Sender
-
-: ME_B4661F94FE35
- CONST UID 'B4661F94FE35'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72C1D0310 // ContextFilterChange
- ;
- : Parameters
-   Seq: ( ME_97F20A9FC7CE // Sender
- )
- ; // Parameters
-
-ref; // ME_B4661F94FE35 DoIt
-
 : ME_51B72C1D0310
  CONST UID '51B72C1D0310'
  CONST Name 'ContextFilterChange'
@@ -631,41 +397,8 @@ ref; // ME_B4661F94FE35 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B4661F94FE35 // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72C1D0310 ContextFilterChange
-
-FORWARD ME_51B72C29024A
-
-: ME_3557E44A082C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_3557E44A082C Sender
-
-: ME_C3ACCC5A9C4F
- CONST UID 'C3ACCC5A9C4F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72C29024A // ContextFilterWrongContext
- ;
- : Parameters
-   Seq: ( ME_3557E44A082C // Sender
- )
- ; // Parameters
-
-ref; // ME_C3ACCC5A9C4F DoIt
 
 : ME_51B72C29024A
  CONST UID '51B72C29024A'
@@ -681,65 +414,8 @@ ref; // ME_C3ACCC5A9C4F DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C3ACCC5A9C4F // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72C29024A ContextFilterWrongContext
-
-FORWARD ME_51B72D1B027D
-
-: ME_956A943B12CD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_956A943B12CD Sender
-
-: ME_23B515B246C5
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_23B515B246C5 Index
-
-: ME_65F3283607FA
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_65F3283607FA aImages
-
-: ME_A04BF98FF0F5
- CONST UID 'A04BF98FF0F5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D1B027D // WordsTreeGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_956A943B12CD // Sender
- ME_23B515B246C5 // Index
- ME_65F3283607FA // aImages
- )
- ; // Parameters
-
-ref; // ME_A04BF98FF0F5 DoIt
 
 : ME_51B72D1B027D
  CONST UID '51B72D1B027D'
@@ -755,41 +431,8 @@ ref; // ME_A04BF98FF0F5 DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A04BF98FF0F5 // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D1B027D WordsTreeGetItemImage
-
-FORWARD ME_51B72D240241
-
-: ME_1B484E7B756D
- CONST Name 'aChar'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
- ;
-
-ref; // ME_1B484E7B756D aChar
-
-: ME_46FE16F6A80B
- CONST UID '46FE16F6A80B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'событие для внешней обработки WMChar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D240241 // WordsTreeNewCharPressed
- ;
- : Parameters
-   Seq: ( ME_1B484E7B756D // aChar
- )
- ; // Parameters
-
-ref; // ME_46FE16F6A80B DoIt
 
 : ME_51B72D240241
  CONST UID '51B72D240241'
@@ -805,51 +448,8 @@ ref; // ME_46FE16F6A80B DoIt
    Seq: ( WL 'ME_5143230F01E4' '494B947D0127.pas.ms.script' // TeeNewCharPressed
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_46FE16F6A80B // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D240241 WordsTreeNewCharPressed
-
-FORWARD ME_51B72D300088
-
-: ME_4F8FF7DBFD15
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_4F8FF7DBFD15 Sender
-
-: ME_6FFE09ED44DA
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_6FFE09ED44DA Index
-
-: ME_A06F9BC895B0
- CONST UID 'A06F9BC895B0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D300088 // WordsTreeActionElement
- ;
- : Parameters
-   Seq: ( ME_4F8FF7DBFD15 // Sender
- ME_6FFE09ED44DA // Index
- )
- ; // Parameters
-
-ref; // ME_A06F9BC895B0 DoIt
 
 : ME_51B72D300088
  CONST UID '51B72D300088'
@@ -865,40 +465,8 @@ ref; // ME_A06F9BC895B0 DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A06F9BC895B0 // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D300088 WordsTreeActionElement
-
-FORWARD ME_51B72D3B02F2
-
-: ME_6D0145FCEA3D
- CONST Name 'theTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_6D0145FCEA3D theTree
-
-: ME_C4DEDF66CFDC
- CONST UID 'C4DEDF66CFDC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D3B02F2 // WordsTreeMakeTreeSource
- ;
- : Parameters
-   Seq: ( ME_6D0145FCEA3D // theTree
- )
- ; // Parameters
-
-ref; // ME_C4DEDF66CFDC DoIt
 
 : ME_51B72D3B02F2
  CONST UID '51B72D3B02F2'
@@ -914,62 +482,8 @@ ref; // ME_C4DEDF66CFDC DoIt
    Seq: ( WL 'ME_5199D8F700DB' '494B947D0127.pas.ms.script' // TeeMakeTreeSource
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C4DEDF66CFDC // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D3B02F2 WordsTreeMakeTreeSource
-
-FORWARD ME_51B72D4603E7
-
-: ME_26A11EE300E5
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_26A11EE300E5 aSender
-
-: ME_3CFFA99F7F8F
- CONST Name 'anOldCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_3CFFA99F7F8F anOldCount
-
-: ME_9273AFFBDE4A
- CONST Name 'aNewCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_9273AFFBDE4A aNewCount
-
-: ME_6916ECBB27A5
- CONST UID '6916ECBB27A5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D4603E7 // WordsTreeSelectCountChanged
- ;
- : Parameters
-   Seq: ( ME_26A11EE300E5 // aSender
- ME_3CFFA99F7F8F // anOldCount
- ME_9273AFFBDE4A // aNewCount
- )
- ; // Parameters
-
-ref; // ME_6916ECBB27A5 DoIt
 
 : ME_51B72D4603E7
  CONST UID '51B72D4603E7'
@@ -985,51 +499,8 @@ ref; // ME_6916ECBB27A5 DoIt
    Seq: ( WL 'ME_5146ECE900E3' '4B97E7FD006C.pas.ms.script' // TvtSelectCountChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6916ECBB27A5 // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D4603E7 WordsTreeSelectCountChanged
-
-FORWARD ME_51B72D520161
-
-: ME_7B1BA5AEBDE3
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_7B1BA5AEBDE3 Sender
-
-: ME_D99E1B34D4CA
- CONST Name 'NewCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_D99E1B34D4CA NewCount
-
-: ME_F10A2620DF08
- CONST UID 'F10A2620DF08'
- CONST Name 'DoIT'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D520161 // WordsTreeCountChanged
- ;
- : Parameters
-   Seq: ( ME_7B1BA5AEBDE3 // Sender
- ME_D99E1B34D4CA // NewCount
- )
- ; // Parameters
-
-ref; // ME_F10A2620DF08 DoIT
 
 : ME_51B72D520161
  CONST UID '51B72D520161'
@@ -1045,62 +516,8 @@ ref; // ME_F10A2620DF08 DoIT
    Seq: ( WL 'ME_514321950319' '4B97E7FD006C.pas.ms.script' // TCountChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F10A2620DF08 // DoIT
- )
- ; // Operations
 
 ref; // ME_51B72D520161 WordsTreeCountChanged
-
-FORWARD ME_51B72D5E02DC
-
-: ME_AC3682D39602
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_AC3682D39602 Sender
-
-: ME_CE8C6A39842E
- CONST Name 'aNewCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_CE8C6A39842E aNewCurrent
-
-: ME_66AB8C94B95A
- CONST Name 'aOldCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_66AB8C94B95A aOldCurrent
-
-: ME_88E3B3D7526C
- CONST UID '88E3B3D7526C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D5E02DC // WordsTreeCurrentChanged
- ;
- : Parameters
-   Seq: ( ME_AC3682D39602 // Sender
- ME_CE8C6A39842E // aNewCurrent
- ME_66AB8C94B95A // aOldCurrent
- )
- ; // Parameters
-
-ref; // ME_88E3B3D7526C DoIt
 
 : ME_51B72D5E02DC
  CONST UID '51B72D5E02DC'
@@ -1116,84 +533,8 @@ ref; // ME_88E3B3D7526C DoIt
    Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_88E3B3D7526C // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D5E02DC WordsTreeCurrentChanged
-
-FORWARD ME_51B72D6C0297
-
-: ME_2775C797F870
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2775C797F870 aSender
-
-: ME_640813C2DCDF
- CONST Name 'Info'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_640813C2DCDF Info
-
-: ME_C97FC5E2AF88
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C97FC5E2AF88 aCurrent
-
-: ME_BE18D6EBF787
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_BE18D6EBF787 aCount
-
-: ME_7008D9857F1E
- CONST Name 'aSelected'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_7008D9857F1E aSelected
-
-: ME_58687ED2C29C
- CONST UID '58687ED2C29C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B72D6C0297 // WordsTreeFormatStatusInfo
- ;
- : Parameters
-   Seq: ( ME_2775C797F870 // aSender
- ME_640813C2DCDF // Info
- ME_C97FC5E2AF88 // aCurrent
- ME_BE18D6EBF787 // aCount
- ME_7008D9857F1E // aSelected
- )
- ; // Parameters
-
-ref; // ME_58687ED2C29C DoIt
 
 : ME_51B72D6C0297
  CONST UID '51B72D6C0297'
@@ -1209,10 +550,6 @@ ref; // ME_58687ED2C29C DoIt
    Seq: ( WL 'ME_5143245F0209' '494B947D0127.pas.ms.script' // TeeFormatStatusInfo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_58687ED2C29C // DoIt
- )
- ; // Operations
 
 ref; // ME_51B72D6C0297 WordsTreeFormatStatusInfo
 
@@ -1303,57 +640,6 @@ ref; // ME_52A5A1820340 DoIt
  ; // Operations
 
 ref; // ME_52A5A17003E1 RestoreContextFilter
-
-: ME_2B209F76B516
- CONST UID '2B209F76B516'
- CONST Name 'Init_Str_utDictionCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utDictionCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Speller ME_F7876C95D772 // utDictionCaption
- ;
- : SpelledFor ME_21E1180B9272 // utDictionCaption
- ;
-
-ref; // ME_2B209F76B516 Init_Str_utDictionCaption
-
-: ME_7923687B1CB0
- CONST UID '7923687B1CB0'
- CONST Name 'Init_Str_utDictionSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utDictionSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Speller ME_F5DB2CA7CCAC // utDictionSettingsCaption
- ;
- : SpelledFor ME_180AF9DEB889 // utDictionSettingsCaption
- ;
-
-ref; // ME_7923687B1CB0 Init_Str_utDictionSettingsCaption
-
-: ME_849E9AA5A878
- CONST UID '849E9AA5A878'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_849E9AA5A878 Ini_Reg_Class
 
 : ME_4C8513F40329
  CONST Class class_Dependency
@@ -1507,39 +793,6 @@ ref; // ME_556DC3EA028F
 
 ref; // ME_556DC43C0030 
 
-: ME_F86B600F3A30
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_F86B600F3A30 
-
-: ME_532D1C5C9A91
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_532D1C5C9A91 
-
-: ME_E95874ADC620
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4979D40E0180 // PrimDiction
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E95874ADC620 
-
 : ME_493402BC0160_ME_4979D40E0180
  : Original WL 'ME_493402BC0160' '492540AF02CD.pas.ms.script' // CurrentUpdated
  ;
@@ -1684,12 +937,6 @@ ref; // ME_4A8E8F2E0195_ME_4979D40E0180 InitControls
  CONST OpKind opkind_Overridden
 ref; // ME_4F7C65380244_ME_4979D40E0180 FormInsertedIntoContainer
 
-: ME_5000565C019C_ME_4979D40E0180
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4979D40E0180 ClearFields
-
 : ME_4979D40E0180
  CONST UID '4979D40E0180'
  CONST Name 'PrimDiction'
@@ -1714,10 +961,6 @@ ref; // ME_5000565C019C_ME_4979D40E0180 ClearFields
  ME_4979D6070018 // Diction
  ME_51B7302E015F // ContextMap
  ME_51B73088020A // f_InternalChange
- ME_8015E10B6C0D // f_BackgroundPanel
- ME_E85C023DA926 // f_ContextFilter
- ME_F07167E4123F // f_WordsTree
- ME_BD06C5E13633 // f_ContextMap
  )
  ; // Attributes
  : Operations
@@ -1735,9 +978,6 @@ ref; // ME_5000565C019C_ME_4979D40E0180 ClearFields
  ME_51B72D6C0297 // WordsTreeFormatStatusInfo
  ME_50056A9D02BE // ChangeDiction
  ME_52A5A17003E1 // RestoreContextFilter
- ME_2B209F76B516 // Init_Str_utDictionCaption
- ME_7923687B1CB0 // Init_Str_utDictionSettingsCaption
- ME_849E9AA5A878 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1759,18 +999,12 @@ ref; // ME_5000565C019C_ME_4979D40E0180 ClearFields
  ME_4A84183701B9_ME_4979D40E0180 // NeedDrawCaption
  ME_4A8E8F2E0195_ME_4979D40E0180 // InitControls
  ME_4F7C65380244_ME_4979D40E0180 // FormInsertedIntoContainer
- ME_5000565C019C_ME_4979D40E0180 // ClearFields
  )
  ; // Overridden
  : Children
    Seq: ( ME_4BD71EBC00ED // utDiction
  )
  ; // Children
- : Constants
-   Seq: ( ME_0A98E0537E41 // utDictionLocalConstants
- ME_9F1FE3827657 // LCImplutDictionLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4C8513F40329 // Languages
  ME_4D7F65A101E9 // TvcmImageSize
@@ -1787,9 +1021,6 @@ ref; // ME_5000565C019C_ME_4979D40E0180 ClearFields
  ME_52A5A10503AA // IsdsDiction
  ME_556DC3EA028F // TnsDictCache
  ME_556DC43C0030 // TnsDictionTree
- ME_F86B600F3A30 // Tl3StringIDEx
- ME_532D1C5C9A91 // Tl3MessageID
- ME_E95874ADC620 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -2363,70 +1594,6 @@ ref; // ME_4D7A82F90019 pnWorkArea
 
 ref; // ME_4D7A6C630193 pnBackground
 
-: ME_25D2B321F9E2
- CONST UID '25D2B321F9E2'
- CONST Name 'f_pnBackground'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnBackground' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D7A69F9028C // PrimDictionContainer
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_25D2B321F9E2 f_pnBackground
-
-: ME_6E60A34F2A1A
- CONST UID '6E60A34F2A1A'
- CONST Name 'f_NavigatorZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NavigatorZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D7A69F9028C // PrimDictionContainer
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_6E60A34F2A1A f_NavigatorZone
-
-: ME_30FF5BFA6746
- CONST UID '30FF5BFA6746'
- CONST Name 'f_pnWorkArea'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnWorkArea' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D7A69F9028C // PrimDictionContainer
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_30FF5BFA6746 f_pnWorkArea
-
-: ME_46284F3ACE4A
- CONST UID '46284F3ACE4A'
- CONST Name 'f_ChildZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChildZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D7A69F9028C // PrimDictionContainer
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_46284F3ACE4A f_ChildZone
-
 FORWARD ME_4D7F8B4A0214
 
 : ME_4D7F8B7A0265
@@ -2510,21 +1677,6 @@ ref; // ME_4D7F8B5E0212 DoIt
 
 ref; // ME_4D7F8B4A0214 ChildZoneQueryResize
 
-: ME_2CDC0F071C2F
- CONST UID '2CDC0F071C2F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimDictionContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D7A69F9028C // PrimDictionContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2CDC0F071C2F Ini_Reg_Class
-
 : ME_4D7A6CA60266
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2544,17 +1696,6 @@ ref; // ME_4D7A6CA60266
  ;
 
 ref; // ME_4D7F653A02CD 
-
-: ME_EB73737EB0BA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D7A69F9028C // PrimDictionContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_EB73737EB0BA 
 
 : ME_4AE8744002F3_ME_4D7A69F9028C
  : Original WL 'ME_4AE8744002F3' '4F71AD0E01FE.pas.ms.script' // ShowSplitter
@@ -2628,15 +1769,10 @@ ref; // ME_53F1C6EF02C9_ME_4D7A69F9028C DoGetTabCaption
  ; // Implements
  : Attributes
    Seq: ( ME_4D7A6C630193 // pnBackground
- ME_25D2B321F9E2 // f_pnBackground
- ME_6E60A34F2A1A // f_NavigatorZone
- ME_30FF5BFA6746 // f_pnWorkArea
- ME_46284F3ACE4A // f_ChildZone
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4D7F8B4A0214 // ChildZoneQueryResize
- ME_2CDC0F071C2F // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2661,7 +1797,6 @@ ref; // ME_53F1C6EF02C9_ME_4D7A69F9028C DoGetTabCaption
  : Dependencies
    Seq: ( ME_4D7A6CA60266 // TAlign
  ME_4D7F653A02CD // TvcmImageSize
- ME_EB73737EB0BA // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -2683,32 +1818,6 @@ ref; // ME_53F1C6EF02C9_ME_4D7A69F9028C DoGetTabCaption
 ref; // ME_4D7A69F9028C PrimDictionContainer
 
 FORWARD ME_51B860F20280
-
-: ME_D787356D2F66
- CONST UID 'D787356D2F66'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimDictionOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51B860F20280 // PrimDictionOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D787356D2F66 Ini_Reg_Class
-
-: ME_620A45AA10E6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51B860F20280 // PrimDictionOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_620A45AA10E6 
 
 : ME_4BDAF7880236_ME_51B860F20280
  : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
@@ -2759,19 +1868,11 @@ ref; // ME_4BDAF7A2005C_ME_51B860F20280 CollapseAll
  WL 'ME_4BDAF7790158' '4BDAF7510113.pas.ms.script' // Tree
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D787356D2F66 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4BDAF7880236_ME_51B860F20280 // ExpandAll
  ME_4BDAF7A2005C_ME_51B860F20280 // CollapseAll
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_620A45AA10E6 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Navigator'
  CONST "finished dfm" true
@@ -2834,288 +1935,6 @@ ref; // ME_4BD6F164037F utTips
 
 ref; // ME_4BD6F18301FD utMedicDiction
 
-FORWARD ME_4D2A3E6432E6
-
-: ME_59517A461B02
- CONST UID '59517A461B02'
- CONST Name 'utTipsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4D2A3E6432E6 // utTipsLocalConstants
- ;
- CONST Value '''Совет дня'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Совет дня'''
-
-ref; // ME_59517A461B02 utTipsCaption
-
-: ME_80E3092EEA54
- CONST UID '80E3092EEA54'
- CONST Name 'utTipsSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совет дня" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4D2A3E6432E6 // utTipsLocalConstants
- ;
- CONST Value '''Совет дня: Список советов (вкладка)'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Совет дня: Список советов (вкладка)'''
-
-ref; // ME_80E3092EEA54 utTipsSettingsCaption
-
-: ME_4D2A3E6432E6
- CONST UID '4D2A3E6432E6'
- CONST Name 'utTipsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utTips' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Attributes
-   Seq: ( ME_59517A461B02 // utTipsCaption
- ME_80E3092EEA54 // utTipsSettingsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_4D2A3E6432E6 utTipsLocalConstants
-
-FORWARD ME_6D418A857C67
-
-: ME_D05FCC1D5652
- CONST UID 'D05FCC1D5652'
- CONST Name 'utTipsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6D418A857C67 // LCImplutTipsLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utTipsCaption''; rValue : ''Совет дня'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utTipsCaption''; rValue : ''Совет дня'')'
- : Speller ME_59517A461B02 // utTipsCaption
- ;
-
-ref; // ME_D05FCC1D5652 utTipsCaption
-
-: ME_7B8C9194E92D
- CONST UID '7B8C9194E92D'
- CONST Name 'utTipsSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совет дня" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6D418A857C67 // LCImplutTipsLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utTipsSettingsCaption''; rValue : ''Совет дня: Список советов (вкладка)'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utTipsSettingsCaption''; rValue : ''Совет дня: Список советов (вкладка)'')'
- : Speller ME_80E3092EEA54 // utTipsSettingsCaption
- ;
-
-ref; // ME_7B8C9194E92D utTipsSettingsCaption
-
-: ME_6D418A857C67
- CONST UID '6D418A857C67'
- CONST Name 'LCImplutTipsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utTipsLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Attributes
-   Seq: ( ME_D05FCC1D5652 // utTipsCaption
- ME_7B8C9194E92D // utTipsSettingsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4D2A3E6432E6 // utTipsLocalConstants
- ;
-
-ref; // ME_6D418A857C67 LCImplutTipsLocalConstants
-
-FORWARD ME_A78EBF3996D7
-
-: ME_31640D121C0D
- CONST UID '31640D121C0D'
- CONST Name 'utMedicDictionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Словарь медицинских терминов"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_A78EBF3996D7 // utMedicDictionLocalConstants
- ;
- CONST Value '''Словарь медицинских терминов'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Словарь медицинских терминов'''
-
-ref; // ME_31640D121C0D utMedicDictionCaption
-
-: ME_0C9E1144E0D2
- CONST UID '0C9E1144E0D2'
- CONST Name 'utMedicDictionSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Словарь медицинских терминов" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_A78EBF3996D7 // utMedicDictionLocalConstants
- ;
- CONST Value '''Словарь медицинских терминов: Список терминов (вкладка)'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Словарь медицинских терминов: Список терминов (вкладка)'''
-
-ref; // ME_0C9E1144E0D2 utMedicDictionSettingsCaption
-
-: ME_A78EBF3996D7
- CONST UID 'A78EBF3996D7'
- CONST Name 'utMedicDictionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utMedicDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Attributes
-   Seq: ( ME_31640D121C0D // utMedicDictionCaption
- ME_0C9E1144E0D2 // utMedicDictionSettingsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_A78EBF3996D7 utMedicDictionLocalConstants
-
-FORWARD ME_CF3900D86707
-
-: ME_0B9A5C0FBB8D
- CONST UID '0B9A5C0FBB8D'
- CONST Name 'utMedicDictionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Словарь медицинских терминов"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CF3900D86707 // LCImplutMedicDictionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utMedicDictionCaption''; rValue : ''Словарь медицинских терминов'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utMedicDictionCaption''; rValue : ''Словарь медицинских терминов'')'
- : Speller ME_31640D121C0D // utMedicDictionCaption
- ;
-
-ref; // ME_0B9A5C0FBB8D utMedicDictionCaption
-
-: ME_0A713541377A
- CONST UID '0A713541377A'
- CONST Name 'utMedicDictionSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Словарь медицинских терминов" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CF3900D86707 // LCImplutMedicDictionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utMedicDictionSettingsCaption''; rValue : ''Словарь медицинских терминов: Список терминов (вкладка)'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utMedicDictionSettingsCaption''; rValue : ''Словарь медицинских терминов: Список терминов (вкладка)'')'
- : Speller ME_0C9E1144E0D2 // utMedicDictionSettingsCaption
- ;
-
-ref; // ME_0A713541377A utMedicDictionSettingsCaption
-
-: ME_CF3900D86707
- CONST UID 'CF3900D86707'
- CONST Name 'LCImplutMedicDictionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utMedicDictionLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Attributes
-   Seq: ( ME_0B9A5C0FBB8D // utMedicDictionCaption
- ME_0A713541377A // utMedicDictionSettingsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_A78EBF3996D7 // utMedicDictionLocalConstants
- ;
-
-ref; // ME_CF3900D86707 LCImplutMedicDictionLocalConstants
-
 : ME_497ED8080027
  CONST UID '497ED8080027'
  CONST Name 'dsCommonDiction'
@@ -3130,93 +1949,6 @@ ref; // ME_CF3900D86707 LCImplutMedicDictionLocalConstants
  ;
 
 ref; // ME_497ED8080027 dsCommonDiction
-
-: ME_37BD6E643F89
- CONST UID '37BD6E643F89'
- CONST Name 'Init_Str_utTipsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utTipsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Speller ME_59517A461B02 // utTipsCaption
- ;
- : SpelledFor ME_D05FCC1D5652 // utTipsCaption
- ;
-
-ref; // ME_37BD6E643F89 Init_Str_utTipsCaption
-
-: ME_298E477CDA53
- CONST UID '298E477CDA53'
- CONST Name 'Init_Str_utTipsSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utTipsSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Speller ME_80E3092EEA54 // utTipsSettingsCaption
- ;
- : SpelledFor ME_7B8C9194E92D // utTipsSettingsCaption
- ;
-
-ref; // ME_298E477CDA53 Init_Str_utTipsSettingsCaption
-
-: ME_C95F76019F6E
- CONST UID 'C95F76019F6E'
- CONST Name 'Init_Str_utMedicDictionCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utMedicDictionCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Speller ME_31640D121C0D // utMedicDictionCaption
- ;
- : SpelledFor ME_0B9A5C0FBB8D // utMedicDictionCaption
- ;
-
-ref; // ME_C95F76019F6E Init_Str_utMedicDictionCaption
-
-: ME_0897CF5902F5
- CONST UID '0897CF5902F5'
- CONST Name 'Init_Str_utMedicDictionSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utMedicDictionSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Speller ME_0C9E1144E0D2 // utMedicDictionSettingsCaption
- ;
- : SpelledFor ME_0A713541377A // utMedicDictionSettingsCaption
- ;
-
-ref; // ME_0897CF5902F5 Init_Str_utMedicDictionSettingsCaption
-
-: ME_98DD50FCF255
- CONST UID '98DD50FCF255'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimCommonDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_98DD50FCF255 Ini_Reg_Class
 
 : ME_55EEA2F600EB
  CONST Class class_Dependency
@@ -3247,39 +1979,6 @@ ref; // ME_55EEA2F900CD
  ;
 
 ref; // ME_55EEA2FB0221 
-
-: ME_153D92403F7E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_153D92403F7E 
-
-: ME_C74CA2B4CE84
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_C74CA2B4CE84 
-
-: ME_F87CE225C5C0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497ED770029D // PrimCommonDiction
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F87CE225C5C0 
 
 : ME_47EA4E9002C6_ME_497ED770029D
  : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
@@ -3318,14 +2017,6 @@ ref; // ME_55127A5401DE_ME_497ED770029D IsAcceptable
    Seq: ( ME_497ED8080027 // dsCommonDiction
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_37BD6E643F89 // Init_Str_utTipsCaption
- ME_298E477CDA53 // Init_Str_utTipsSettingsCaption
- ME_C95F76019F6E // Init_Str_utMedicDictionCaption
- ME_0897CF5902F5 // Init_Str_utMedicDictionSettingsCaption
- ME_98DD50FCF255 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_47EA4E9002C6_ME_497ED770029D // FinishDataUpdate
  ME_4A84183701B9_ME_497ED770029D // NeedDrawCaption
@@ -3337,20 +2028,10 @@ ref; // ME_55127A5401DE_ME_497ED770029D IsAcceptable
  ME_4BD6F18301FD // utMedicDiction
  )
  ; // Children
- : Constants
-   Seq: ( ME_4D2A3E6432E6 // utTipsLocalConstants
- ME_6D418A857C67 // LCImplutTipsLocalConstants
- ME_A78EBF3996D7 // utMedicDictionLocalConstants
- ME_CF3900D86707 // LCImplutMedicDictionLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_55EEA2F600EB // CommonDiction
  ME_55EEA2F900CD // DataAdapter
  ME_55EEA2FB0221 // vcmBase
- ME_153D92403F7E // Tl3StringIDEx
- ME_C74CA2B4CE84 // Tl3MessageID
- ME_F87CE225C5C0 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -3671,87 +2352,6 @@ ref; // ME_5005661D0242 NeedShowCurrentDiction
 
 ref; // ME_52F89EEA01EE ContextFilterState
 
-: ME_E95241BE88C8
- CONST UID 'E95241BE88C8'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_E95241BE88C8 f_BackgroundPanel
-
-: ME_EDFBED65D534
- CONST UID 'EDFBED65D534'
- CONST Name 'f_WordsTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства WordsTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_EDFBED65D534 f_WordsTree
-
-: ME_E1528FCC6EB5
- CONST UID 'E1528FCC6EB5'
- CONST Name 'f_ContextFilter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- : Target WL 'ME_49F0314802E7' '49F02FDF02B9.pas.ms.script' // TnscContextFilter
- ;
-
-ref; // ME_E1528FCC6EB5 f_ContextFilter
-
-: ME_20FA454F28F3
- CONST UID '20FA454F28F3'
- CONST Name 'f_NeedShowCurrentDiction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NeedShowCurrentDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'NeedShowCurrentDiction'
-
-ref; // ME_20FA454F28F3 f_NeedShowCurrentDiction
-
-: ME_0A8F11266D04
- CONST UID '0A8F11266D04'
- CONST Name 'f_ContextFilterState'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextFilterState' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
- ;
-
-ref; // ME_0A8F11266D04 f_ContextFilterState
-
 FORWARD ME_5005645F03CE
 
 : ME_5005648F00DD
@@ -3810,35 +2410,6 @@ ref; // ME_5005647D014C DoIt
 
 ref; // ME_5005645F03CE ChangeDiction
 
-FORWARD ME_5146E2260095
-
-: ME_A484BCC282EC
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A484BCC282EC Sender
-
-: ME_89B1FCFD0A4C
- CONST UID '89B1FCFD0A4C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146E2260095 // ContextFilterChange
- ;
- : Parameters
-   Seq: ( ME_A484BCC282EC // Sender
- )
- ; // Parameters
-
-ref; // ME_89B1FCFD0A4C DoIt
-
 : ME_5146E2260095
  CONST UID '5146E2260095'
  CONST Name 'ContextFilterChange'
@@ -3853,41 +2424,8 @@ ref; // ME_89B1FCFD0A4C DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_89B1FCFD0A4C // DoIt
- )
- ; // Operations
 
 ref; // ME_5146E2260095 ContextFilterChange
-
-FORWARD ME_5146E29E0040
-
-: ME_581993016204
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_581993016204 Sender
-
-: ME_03FCD9BE7FAB
- CONST UID '03FCD9BE7FAB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146E29E0040 // ContextFilterWrongContext
- ;
- : Parameters
-   Seq: ( ME_581993016204 // Sender
- )
- ; // Parameters
-
-ref; // ME_03FCD9BE7FAB DoIt
 
 : ME_5146E29E0040
  CONST UID '5146E29E0040'
@@ -3903,51 +2441,8 @@ ref; // ME_03FCD9BE7FAB DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_03FCD9BE7FAB // DoIt
- )
- ; // Operations
 
 ref; // ME_5146E29E0040 ContextFilterWrongContext
-
-FORWARD ME_5146E2F602B1
-
-: ME_34FC051A3D2C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_34FC051A3D2C Sender
-
-: ME_F9582CDB1C6B
- CONST Name 'NewCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_F9582CDB1C6B NewCount
-
-: ME_31DAECD106EB
- CONST UID '31DAECD106EB'
- CONST Name 'DoIT'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146E2F602B1 // WordsTreeCountChanged
- ;
- : Parameters
-   Seq: ( ME_34FC051A3D2C // Sender
- ME_F9582CDB1C6B // NewCount
- )
- ; // Parameters
-
-ref; // ME_31DAECD106EB DoIT
 
 : ME_5146E2F602B1
  CONST UID '5146E2F602B1'
@@ -3963,62 +2458,8 @@ ref; // ME_31DAECD106EB DoIT
    Seq: ( WL 'ME_514321950319' '4B97E7FD006C.pas.ms.script' // TCountChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_31DAECD106EB // DoIT
- )
- ; // Operations
 
 ref; // ME_5146E2F602B1 WordsTreeCountChanged
-
-FORWARD ME_5146E33502A3
-
-: ME_D33F3F95B23A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D33F3F95B23A Sender
-
-: ME_5B8A78D6BEC4
- CONST Name 'aNewCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_5B8A78D6BEC4 aNewCurrent
-
-: ME_A4F2F5DA2822
- CONST Name 'aOldCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_A4F2F5DA2822 aOldCurrent
-
-: ME_FF1DBE36FEFE
- CONST UID 'FF1DBE36FEFE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146E33502A3 // WordsTreeCurrentChanged
- ;
- : Parameters
-   Seq: ( ME_D33F3F95B23A // Sender
- ME_5B8A78D6BEC4 // aNewCurrent
- ME_A4F2F5DA2822 // aOldCurrent
- )
- ; // Parameters
-
-ref; // ME_FF1DBE36FEFE DoIt
 
 : ME_5146E33502A3
  CONST UID '5146E33502A3'
@@ -4034,65 +2475,8 @@ ref; // ME_FF1DBE36FEFE DoIt
    Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_FF1DBE36FEFE // DoIt
- )
- ; // Operations
 
 ref; // ME_5146E33502A3 WordsTreeCurrentChanged
-
-FORWARD ME_5146E621033A
-
-: ME_0E91E082AE86
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_0E91E082AE86 Sender
-
-: ME_0112BEB890D6
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_0112BEB890D6 Index
-
-: ME_3AF808E84DE0
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_3AF808E84DE0 aImages
-
-: ME_FFCC9068A4FB
- CONST UID 'FFCC9068A4FB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146E621033A // WordsTreeGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_0E91E082AE86 // Sender
- ME_0112BEB890D6 // Index
- ME_3AF808E84DE0 // aImages
- )
- ; // Parameters
-
-ref; // ME_FFCC9068A4FB DoIt
 
 : ME_5146E621033A
  CONST UID '5146E621033A'
@@ -4108,51 +2492,8 @@ ref; // ME_FFCC9068A4FB DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_FFCC9068A4FB // DoIt
- )
- ; // Operations
 
 ref; // ME_5146E621033A WordsTreeGetItemImage
-
-FORWARD ME_5146E64C035F
-
-: ME_3EF7A68968E0
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_3EF7A68968E0 Sender
-
-: ME_5B9A50F69944
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_5B9A50F69944 Index
-
-: ME_9B6639B95B09
- CONST UID '9B6639B95B09'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146E64C035F // WordsTreeActionElement
- ;
- : Parameters
-   Seq: ( ME_3EF7A68968E0 // Sender
- ME_5B9A50F69944 // Index
- )
- ; // Parameters
-
-ref; // ME_9B6639B95B09 DoIt
 
 : ME_5146E64C035F
  CONST UID '5146E64C035F'
@@ -4168,62 +2509,8 @@ ref; // ME_9B6639B95B09 DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9B6639B95B09 // DoIt
- )
- ; // Operations
 
 ref; // ME_5146E64C035F WordsTreeActionElement
-
-FORWARD ME_5146EC920269
-
-: ME_C15FC1911D56
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_C15FC1911D56 aSender
-
-: ME_721AE9210A2D
- CONST Name 'anOldTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_721AE9210A2D anOldTree
-
-: ME_781225FBB62D
- CONST Name 'aNewTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_781225FBB62D aNewTree
-
-: ME_C4A2E8583AD1
- CONST UID 'C4A2E8583AD1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146EC920269 // WordsTreeTreeChanged
- ;
- : Parameters
-   Seq: ( ME_C15FC1911D56 // aSender
- ME_721AE9210A2D // anOldTree
- ME_781225FBB62D // aNewTree
- )
- ; // Parameters
-
-ref; // ME_C4A2E8583AD1 DoIt
 
 : ME_5146EC920269
  CONST UID '5146EC920269'
@@ -4239,62 +2526,8 @@ ref; // ME_C4A2E8583AD1 DoIt
    Seq: ( WL 'ME_5146EBE00019' '4B97E7FD006C.pas.ms.script' // TvtTreeChangedEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C4A2E8583AD1 // DoIt
- )
- ; // Operations
 
 ref; // ME_5146EC920269 WordsTreeTreeChanged
-
-FORWARD ME_5146ED3F0081
-
-: ME_D17A1042C334
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D17A1042C334 aSender
-
-: ME_795954429554
- CONST Name 'anOldCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_795954429554 anOldCount
-
-: ME_6540E511B55D
- CONST Name 'aNewCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_6540E511B55D aNewCount
-
-: ME_72F9669E0ECC
- CONST UID '72F9669E0ECC'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146ED3F0081 // WordsTreeSelectCountChanged
- ;
- : Parameters
-   Seq: ( ME_D17A1042C334 // aSender
- ME_795954429554 // anOldCount
- ME_6540E511B55D // aNewCount
- )
- ; // Parameters
-
-ref; // ME_72F9669E0ECC DoIt
 
 : ME_5146ED3F0081
  CONST UID '5146ED3F0081'
@@ -4310,84 +2543,8 @@ ref; // ME_72F9669E0ECC DoIt
    Seq: ( WL 'ME_5146ECE900E3' '4B97E7FD006C.pas.ms.script' // TvtSelectCountChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_72F9669E0ECC // DoIt
- )
- ; // Operations
 
 ref; // ME_5146ED3F0081 WordsTreeSelectCountChanged
-
-FORWARD ME_5146ED6C00BB
-
-: ME_EF752931BC06
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_EF752931BC06 aSender
-
-: ME_6C4F66EF04B9
- CONST Name 'Info'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_6C4F66EF04B9 Info
-
-: ME_2AF7EC72F2A3
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_2AF7EC72F2A3 aCurrent
-
-: ME_B9E1F720F75B
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_B9E1F720F75B aCount
-
-: ME_04BECE537B9D
- CONST Name 'aSelected'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_04BECE537B9D aSelected
-
-: ME_696116D2DC9C
- CONST UID '696116D2DC9C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146ED6C00BB // WordsTreeFormatStatusInfo
- ;
- : Parameters
-   Seq: ( ME_EF752931BC06 // aSender
- ME_6C4F66EF04B9 // Info
- ME_2AF7EC72F2A3 // aCurrent
- ME_B9E1F720F75B // aCount
- ME_04BECE537B9D // aSelected
- )
- ; // Parameters
-
-ref; // ME_696116D2DC9C DoIt
 
 : ME_5146ED6C00BB
  CONST UID '5146ED6C00BB'
@@ -4403,41 +2560,8 @@ ref; // ME_696116D2DC9C DoIt
    Seq: ( WL 'ME_5143245F0209' '494B947D0127.pas.ms.script' // TeeFormatStatusInfo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_696116D2DC9C // DoIt
- )
- ; // Operations
 
 ref; // ME_5146ED6C00BB WordsTreeFormatStatusInfo
-
-FORWARD ME_5146ED7F005F
-
-: ME_220434626B82
- CONST Name 'aChar'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
- ;
-
-ref; // ME_220434626B82 aChar
-
-: ME_B22ED0286431
- CONST UID 'B22ED0286431'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'событие для внешней обработки WMChar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5146ED7F005F // WordsTreeNewCharPressed
- ;
- : Parameters
-   Seq: ( ME_220434626B82 // aChar
- )
- ; // Parameters
-
-ref; // ME_B22ED0286431 DoIt
 
 : ME_5146ED7F005F
  CONST UID '5146ED7F005F'
@@ -4453,40 +2577,8 @@ ref; // ME_B22ED0286431 DoIt
    Seq: ( WL 'ME_5143230F01E4' '494B947D0127.pas.ms.script' // TeeNewCharPressed
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B22ED0286431 // DoIt
- )
- ; // Operations
 
 ref; // ME_5146ED7F005F WordsTreeNewCharPressed
-
-FORWARD ME_52F4E7F400DE
-
-: ME_81F5B5201814
- CONST Name 'theTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_81F5B5201814 theTree
-
-: ME_40963F31DFBD
- CONST UID '40963F31DFBD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52F4E7F400DE // WordsTreeMakeTreeSource
- ;
- : Parameters
-   Seq: ( ME_81F5B5201814 // theTree
- )
- ; // Parameters
-
-ref; // ME_40963F31DFBD DoIt
 
 : ME_52F4E7F400DE
  CONST UID '52F4E7F400DE'
@@ -4502,27 +2594,8 @@ ref; // ME_40963F31DFBD DoIt
    Seq: ( WL 'ME_5199D8F700DB' '494B947D0127.pas.ms.script' // TeeMakeTreeSource
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_40963F31DFBD // DoIt
- )
- ; // Operations
 
 ref; // ME_52F4E7F400DE WordsTreeMakeTreeSource
-
-: ME_A194ED26A731
- CONST UID 'A194ED26A731'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimCommonDictionOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A194ED26A731 Ini_Reg_Class
 
 : ME_50055C110223
  CONST Class class_Dependency
@@ -4694,17 +2767,6 @@ ref; // ME_5674113B0328
 
 ref; // ME_567428970332 
 
-: ME_D0CADF209A24
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C87A1DF00B4 // PrimCommonDictionOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_D0CADF209A24 
-
 : ME_493402BC0160_ME_4C87A1DF00B4
  : Original WL 'ME_493402BC0160' '492540AF02CD.pas.ms.script' // CurrentUpdated
  ;
@@ -4780,12 +2842,6 @@ ref; // ME_49803F5503AA_ME_4C87A1DF00B4 DoInit
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_4C87A1DF00B4 InitControls
 
-: ME_5000565C019C_ME_4C87A1DF00B4
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C87A1DF00B4 ClearFields
-
 : ME_4C87A1DF00B4
  CONST UID '4C87A1DF00B4'
  CONST Name 'PrimCommonDictionOptions'
@@ -4810,11 +2866,6 @@ ref; // ME_5000565C019C_ME_4C87A1DF00B4 ClearFields
    Seq: ( ME_51432A48002B // BackgroundPanel
  ME_5005661D0242 // NeedShowCurrentDiction
  ME_52F89EEA01EE // ContextFilterState
- ME_E95241BE88C8 // f_BackgroundPanel
- ME_EDFBED65D534 // f_WordsTree
- ME_E1528FCC6EB5 // f_ContextFilter
- ME_20FA454F28F3 // f_NeedShowCurrentDiction
- ME_0A8F11266D04 // f_ContextFilterState
  )
  ; // Attributes
  : Operations
@@ -4830,7 +2881,6 @@ ref; // ME_5000565C019C_ME_4C87A1DF00B4 ClearFields
  ME_5146ED6C00BB // WordsTreeFormatStatusInfo
  ME_5146ED7F005F // WordsTreeNewCharPressed
  ME_52F4E7F400DE // WordsTreeMakeTreeSource
- ME_A194ED26A731 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -4845,7 +2895,6 @@ ref; // ME_5000565C019C_ME_4C87A1DF00B4 ClearFields
  ME_497469C90140_ME_4C87A1DF00B4 // NotifyDataSourceChanged
  ME_49803F5503AA_ME_4C87A1DF00B4 // DoInit
  ME_4A8E8F2E0195_ME_4C87A1DF00B4 // InitControls
- ME_5000565C019C_ME_4C87A1DF00B4 // ClearFields
  )
  ; // Overridden
  : Children
@@ -4870,7 +2919,6 @@ ref; // ME_5000565C019C_ME_4C87A1DF00B4 ClearFields
  ME_556DBD07031D // Languages
  ME_5674113B0328 // TvtCustomListerPrim
  ME_567428970332 // Windows
- ME_D0CADF209A24 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -7422,7 +5470,6 @@ ref; // ME_BEB9AA7B4638 Tkw_Diction_opOpenDict
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction'

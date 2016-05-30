@@ -5899,85 +5899,6 @@ ref; // ME_4D5952180271 HideVersionInfo
 
 ref; // ME_4D5951820043 Local
 
-FORWARD ME_730F71ECBE08
-
-: ME_A9FAE27F3768
- CONST UID 'A9FAE27F3768'
- CONST Name 'ShowVersionInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Показать информацию об изменениях''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_730F71ECBE08 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''tphhsShowVersionInfo''; rValue : ''Показать информацию об изменениях'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''tphhsShowVersionInfo''; rValue : ''Показать информацию об изменениях'')'
- : Speller ME_4D5951F7005F // ShowVersionInfo
- ;
-
-ref; // ME_A9FAE27F3768 ShowVersionInfo
-
-: ME_6340EFBF02FF
- CONST UID '6340EFBF02FF'
- CONST Name 'HideVersionInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Скрыть информацию об изменениях''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_730F71ECBE08 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''tphhsHideVersionInfo''; rValue : ''Скрыть информацию об изменениях'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''tphhsHideVersionInfo''; rValue : ''Скрыть информацию об изменениях'')'
- : Speller ME_4D5952180271 // HideVersionInfo
- ;
-
-ref; // ME_6340EFBF02FF HideVersionInfo
-
-: ME_730F71ECBE08
- CONST UID '730F71ECBE08'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
- ;
- : Attributes
-   Seq: ( ME_A9FAE27F3768 // ShowVersionInfo
- ME_6340EFBF02FF // HideVersionInfo
- )
- ; // Attributes
- CONST "children prefix" 'tphhs'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_tphhs'
- : Speller ME_4D5951820043 // Local
- ;
-
-ref; // ME_730F71ECBE08 LCImplLocal
-
 : ME_4D594D0B02F6
  CONST UID '4D594D0B02F6'
  CONST Name 'f_Para'
@@ -6145,28 +6066,6 @@ ref; // ME_4D5977BF02B4
 
 ref; // ME_4D59515E0255 DoCollapse
 
-: ME_521E29D6058E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_521E29D6058E 
-
-: ME_30329DF918B9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D594C39031B // TevTextParaHeaderHotSpot
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_30329DF918B9 
-
 : ME_48E266730188_ME_4D594C39031B
  : Original WL 'ME_48E266730188' '4A1FCBA0014C.pas.ms.script' // MouseMove
  ;
@@ -6274,14 +6173,8 @@ ref; // ME_4A267FC6016B_ME_4D594C39031B DoHitTest
  ; // Overridden
  : Constants
    Seq: ( ME_4D5951820043 // Local
- ME_730F71ECBE08 // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_521E29D6058E // Tl3StringIDEx
- ME_30329DF918B9 // Tl3MessageID
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaHeaderHotSpot.pas'
  CONST extprop:rc:SelfName 'TextParaHeaderHotSpot'
  CONST extprop:rc:isAcceptableForScripts true

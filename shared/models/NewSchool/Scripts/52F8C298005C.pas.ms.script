@@ -5110,9 +5110,9 @@ ref; // ME_F75B4443B80B_ME_5583BE960064 TaskGotErrorStatus
 
 ref; // ME_5583BE960064 TcsTaskChangeHelper
 
-: ME_55E9759603C8
- CONST UID '55E9759603C8'
- CONST Name 'TcsMdpSyncDicts'
+: ME_574C16470035
+ CONST UID '574C16470035'
+ CONST Name 'TcsMdpSyncPrim'
  CONST Class class_Class
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
@@ -5125,15 +5125,15 @@ ref; // ME_5583BE960064 TcsTaskChangeHelper
  )
  ; // Inherits
  : Implements
-   Seq: ( WL 'ME_55E96E5502D6' '484A470100DD.pas.ms.script' // mdpSyncDicts
+   Seq: ( WL 'ME_573D84C30337' '484A470100DD.pas.ms.script' // mdpSync
  )
  ; // Implements
- CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncDicts.pas'
- CONST extprop:rc:SelfName 'csMdpSyncDicts'
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncPrim.pas'
+ CONST extprop:rc:SelfName 'csMdpSyncPrim'
  CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'csMdpSyncDicts'
+ CONST extprop:pas:UnitName 'csMdpSyncPrim'
 
-ref; // ME_55E9759603C8 TcsMdpSyncDicts
+ref; // ME_574C16470035 TcsMdpSyncPrim
 
 : ME_55EEC220007F
  CONST UID '55EEC220007F'
@@ -5221,11 +5221,11 @@ ref; // ME_57065CCE0306 TcsSchedulerProxyTask
  : Parent ME_52F8C298005C // Tasks
  ;
  : Inherits
-   Seq: ( ME_52F8C2BF0110 // TddProcessTask
+   Seq: ( ME_574C16470035 // TcsMdpSyncPrim
  )
  ; // Inherits
  : Implements
-   Seq: ( WL 'ME_573D84C30337' '484A470100DD.pas.ms.script' // mdpSyncStages
+   Seq: ( WL 'ME_574C13A4014F' '484A470100DD.pas.ms.script' // mdpSyncStages
  )
  ; // Implements
  CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncStages.pas'
@@ -5234,6 +5234,56 @@ ref; // ME_57065CCE0306 TcsSchedulerProxyTask
  CONST extprop:pas:UnitName 'csMdpSyncStages'
 
 ref; // ME_573D91050026 TcsMdpSyncStages
+
+: ME_55E9759603C8
+ CONST UID '55E9759603C8'
+ CONST Name 'TcsMdpSyncDicts'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52F8C298005C // Tasks
+ ;
+ : Inherits
+   Seq: ( ME_574C16470035 // TcsMdpSyncPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_55E96E5502D6' '484A470100DD.pas.ms.script' // mdpSyncDicts
+ )
+ ; // Implements
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncDicts.pas'
+ CONST extprop:rc:SelfName 'csMdpSyncDicts'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csMdpSyncDicts'
+
+ref; // ME_55E9759603C8 TcsMdpSyncDicts
+
+: ME_574C16DD0300
+ CONST UID '574C16DD0300'
+ CONST Name 'TcsMdpSyncImport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52F8C298005C // Tasks
+ ;
+ : Inherits
+   Seq: ( ME_574C16470035 // TcsMdpSyncPrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_574C15170175' '484A470100DD.pas.ms.script' // mdpSyncImport
+ )
+ ; // Implements
+ CONST intf.pas:Path 'common\components\rtl\Garant\cs\csMdpSyncImport.pas'
+ CONST extprop:rc:SelfName 'csMdpSyncImport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'csMdpSyncImport'
+
+ref; // ME_574C16DD0300 TcsMdpSyncImport
 
 : ME_52F8C298005C
  CONST UID '52F8C298005C'
@@ -5301,11 +5351,13 @@ ref; // ME_573D91050026 TcsMdpSyncStages
  ME_53F46C710363 // TcsAutoClassTask
  ME_54A247D202B0 // csTasksHelpers
  ME_5583BE960064 // TcsTaskChangeHelper
- ME_55E9759603C8 // TcsMdpSyncDicts
+ ME_574C16470035 // TcsMdpSyncPrim
  ME_55EEC220007F // TcsMdpImportDocs
  ME_56FE5C970264 // TcsContainerTask
  ME_57065CCE0306 // TcsSchedulerProxyTask
  ME_573D91050026 // TcsMdpSyncStages
+ ME_55E9759603C8 // TcsMdpSyncDicts
+ ME_574C16DD0300 // TcsMdpSyncImport
  )
  ; // Children
  : Depends

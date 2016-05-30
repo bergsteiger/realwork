@@ -33,19 +33,32 @@ var
 //#UC START# *5069AAF05422_34FBBF0F2ACD_var*
 //#UC END# *5069AAF05422_34FBBF0F2ACD_var*
 //#UC START# *54F99E960080_54F99E960080_476BF22B03E1_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aNode.Text;
 //#UC END# *54F99E960080_54F99E960080_476BF22B03E1_Word_impl*
 //#UC START# *54F99E960080_54F99E960080_476BF22B03E1_Word_var*
 //#UC END# *54F99E960080_54F99E960080_476BF22B03E1_Word_var*
 //#UC START# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aNode.GetNumInParent;
 //#UC END# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_impl*
 //#UC START# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_var*
 //#UC END# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_var*
 //#UC START# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_impl*
- !!! Needs to be implemented !!!
+ l_Index := aNode.GetNumInParent;
+ l_P := aNode.ParentNode;
+ try
+  while Assigned(l_P) do
+  begin
+   l_Index := l_Index + l_P.GetNumInParent;
+   l_P := l_P.ParentNode;
+  end;//while Assigned(l_P)
+ finally
+  l_P := nil;
+ end;//try..finally
 //#UC END# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_impl*
 //#UC START# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_var*
+var
+ l_Index: Integer;
+ l_P: Il3Node;
 //#UC END# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_var*
 //#UC START# *5ED2FC5C7948_34FBBF0F2ACD_impl*
  Result := aNode.GetNumInParent;

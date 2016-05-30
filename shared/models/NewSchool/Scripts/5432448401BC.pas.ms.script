@@ -2066,7 +2066,7 @@ ref; // ME_5549C6CD001D da_jkInner
 
 : ME_5549C6DC01AB
  CONST UID '5549C6DC01AB'
- CONST Name 'da_jkParentOuter'
+ CONST Name 'da_jkLeftOuter'
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -2074,11 +2074,11 @@ ref; // ME_5549C6CD001D da_jkInner
  : Parent ME_5549C6C402CB // TdaJoinKind
  ;
 
-ref; // ME_5549C6DC01AB da_jkParentOuter
+ref; // ME_5549C6DC01AB da_jkLeftOuter
 
 : ME_5549C707001F
  CONST UID '5549C707001F'
- CONST Name 'da_jkChildOuter'
+ CONST Name 'da_jkRightOuter'
  CONST Class class_Attribute
  CONST Visibility PublicAccess
  CONST Abstraction at_regular
@@ -2086,7 +2086,7 @@ ref; // ME_5549C6DC01AB da_jkParentOuter
  : Parent ME_5549C6C402CB // TdaJoinKind
  ;
 
-ref; // ME_5549C707001F da_jkChildOuter
+ref; // ME_5549C707001F da_jkRightOuter
 
 : ME_5549C71900EC
  CONST UID '5549C71900EC'
@@ -2099,18 +2099,6 @@ ref; // ME_5549C707001F da_jkChildOuter
  ;
 
 ref; // ME_5549C71900EC da_jkFullOuter
-
-: ME_5549C72C03CB
- CONST UID '5549C72C03CB'
- CONST Name 'da_jkCartesian'
- CONST Class class_Attribute
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5549C6C402CB // TdaJoinKind
- ;
-
-ref; // ME_5549C72C03CB da_jkCartesian
 
 : ME_5549C6C402CB
  CONST UID '5549C6C402CB'
@@ -2125,10 +2113,9 @@ ref; // ME_5549C72C03CB da_jkCartesian
  ;
  : Attributes
    Seq: ( ME_5549C6CD001D // da_jkInner
- ME_5549C6DC01AB // da_jkParentOuter
- ME_5549C707001F // da_jkChildOuter
+ ME_5549C6DC01AB // da_jkLeftOuter
+ ME_5549C707001F // da_jkRightOuter
  ME_5549C71900EC // da_jkFullOuter
- ME_5549C72C03CB // da_jkCartesian
  )
  ; // Attributes
  CONST extprop:rc:isAcceptableForScripts true

@@ -1118,6 +1118,28 @@ ref; // ME_55EEC72501BF TalcuMdpImportDocs
 
 ref; // ME_573D9F0A01BB TalcuMdpSyncStages
 
+: ME_574C213703E2
+ CONST UID '574C213703E2'
+ CONST Name 'TalcuMdpSyncImport'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ : Inherits
+   Seq: ( WL 'ME_574C16DD0300' '52F8C298005C.pas.ms.script' // TcsMdpSyncImport
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncImport.pas'
+ CONST extprop:rc:SelfName 'alcuMdpSyncImport'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuMdpSyncImport'
+
+ref; // ME_574C213703E2 TalcuMdpSyncImport
+
 : ME_52FA3DD30094
  CONST UID '52FA3DD30094'
  CONST Name 'Lists'
@@ -1160,6 +1182,7 @@ ref; // ME_573D9F0A01BB TalcuMdpSyncStages
  ME_55E978530295 // TalcuMdpSyncDicts
  ME_55EEC72501BF // TalcuMdpImportDocs
  ME_573D9F0A01BB // TalcuMdpSyncStages
+ ME_574C213703E2 // TalcuMdpSyncImport
  )
  ; // Children
  : Depends

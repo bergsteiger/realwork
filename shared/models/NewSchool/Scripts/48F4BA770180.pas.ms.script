@@ -828,81 +828,6 @@ ref; // ME_4B9E552502AC MultiLinkTitle
 
 ref; // ME_4B9E54E5031B Local
 
-FORWARD ME_B0DCDC17627A
-
-: ME_77BD0BF978F2
- CONST UID '77BD0BF978F2'
- CONST Name 'MultiLinkTitle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''%s - Список множественных ссылок''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B0DCDC17627A // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ddmmMultiLinkTitle''; rValue : ''%s - Список множественных ссылок'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ddmmMultiLinkTitle''; rValue : ''%s - Список множественных ссылок'')'
- : Speller ME_4B9E552502AC // MultiLinkTitle
- ;
-
-ref; // ME_77BD0BF978F2 MultiLinkTitle
-
-: ME_B0DCDC17627A
- CONST UID 'B0DCDC17627A'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B9E548D0157 // ddHTMLWriterRes
- ;
- : Attributes
-   Seq: ( ME_77BD0BF978F2 // MultiLinkTitle
- )
- ; // Attributes
- CONST "children prefix" 'ddmm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_ddmm'
- : Speller ME_4B9E54E5031B // Local
- ;
-
-ref; // ME_B0DCDC17627A LCImplLocal
-
-: ME_EBC71920CE5B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B9E548D0157 // ddHTMLWriterRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_EBC71920CE5B 
-
-: ME_95838F47D299
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B9E548D0157 // ddHTMLWriterRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_95838F47D299 
-
 : ME_4B9E548D0157
  CONST UID '4B9E548D0157'
  CONST Name 'ddHTMLWriterRes'
@@ -915,14 +840,8 @@ ref; // ME_95838F47D299
  ;
  : Constants
    Seq: ( ME_4B9E54E5031B // Local
- ME_B0DCDC17627A // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_EBC71920CE5B // Tl3StringIDEx
- ME_95838F47D299 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '15.03.2010 18:39'

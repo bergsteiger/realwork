@@ -2257,101 +2257,6 @@ ref; // ME_2D9CA97CB2A6 StartupTipsIDs
 
 ref; // ME_0E5003440F0B StartupTips$Def
 
-FORWARD ME_6D263B5E569F
-
-: ME_F5C749CE546E
- CONST UID 'F5C749CE546E'
- CONST Name 'ut_StartupTipsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6D263B5E569F // ut_StartupTipsLocalConstants
- ;
- CONST Value '''Совет дня'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Совет дня'''
-
-ref; // ME_F5C749CE546E ut_StartupTipsCaption
-
-: ME_6D263B5E569F
- CONST UID '6D263B5E569F'
- CONST Name 'ut_StartupTipsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_StartupTips' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- : Attributes
-   Seq: ( ME_F5C749CE546E // ut_StartupTipsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_6D263B5E569F ut_StartupTipsLocalConstants
-
-FORWARD ME_7BF3F54E0D69
-
-: ME_FB4314F79F42
- CONST UID 'FB4314F79F42'
- CONST Name 'ut_StartupTipsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совет дня"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7BF3F54E0D69 // LCImplut_StartupTipsLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_StartupTipsCaption''; rValue : ''Совет дня'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_StartupTipsCaption''; rValue : ''Совет дня'')'
- : Speller ME_F5C749CE546E // ut_StartupTipsCaption
- ;
-
-ref; // ME_FB4314F79F42 ut_StartupTipsCaption
-
-: ME_7BF3F54E0D69
- CONST UID '7BF3F54E0D69'
- CONST Name 'LCImplut_StartupTipsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_StartupTipsLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- : Attributes
-   Seq: ( ME_FB4314F79F42 // ut_StartupTipsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_6D263B5E569F // ut_StartupTipsLocalConstants
- ;
-
-ref; // ME_7BF3F54E0D69 LCImplut_StartupTipsLocalConstants
-
 : ME_7CBE85141D9C
  CONST UID '7CBE85141D9C'
  CONST Name 'Ini_FormFactory_StartupTips'
@@ -2367,28 +2272,6 @@ ref; // ME_7BF3F54E0D69 LCImplut_StartupTipsLocalConstants
  ;
 
 ref; // ME_7CBE85141D9C Ini_FormFactory_StartupTips$Def
-
-: ME_259C7AA595F9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_259C7AA595F9 
-
-: ME_894D72E40725
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB9DA410090 // StartupTips
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_894D72E40725 
 
 : ME_4AB9DA410090
  CONST UID '4AB9DA410090'
@@ -2418,16 +2301,6 @@ ref; // ME_894D72E40725
  ME_0E5003440F0B // StartupTips$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_6D263B5E569F // ut_StartupTipsLocalConstants
- ME_7BF3F54E0D69 // LCImplut_StartupTipsLocalConstants
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_259C7AA595F9 // Tl3StringIDEx
- ME_894D72E40725 // Tl3MessageID
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Floating'
  CONST "finished dfm" true

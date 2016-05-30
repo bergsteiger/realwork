@@ -1,0 +1,1234 @@
+// Folders 4921954E019B ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4921954E019B
+
+FORWARD ME_492195FE01B3
+
+: ME_4921962A0165
+ CONST UID '4921962A0165'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_492195FE01B3 // TdsFolderElement
+ ;
+ : Target WL 'ME_4921928D038A' '492192300095.pas.ms.script' // IdsFolderElement
+ ;
+
+ref; // ME_4921962A0165 FormDataSourceType
+
+: ME_49219642035C
+ CONST UID '49219642035C'
+ CONST Name 'f_SaveObject'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_492195FE01B3 // TdsFolderElement
+ ;
+ : Target WL 'ME_492192160370' '4990135D02F1.pas.ms.script' // IdeSaveObject
+ ;
+
+ref; // ME_49219642035C f_SaveObject
+
+FORWARD ME_4921953602C1
+
+: ME_492196820127
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492195FE01B3 // TdsFolderElement
+ ;
+ : Target ME_4921953602C1 // TdeSaveObject
+ ;
+
+ref; // ME_492196820127 
+
+: ME_492192AA0144_ME_492195FE01B3
+ : Original WL 'ME_492192AA0144' '492192300095.pas.ms.script' // SaveObject
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492192AA0144_ME_492195FE01B3 SaveObject
+
+: ME_479731C50290_ME_492195FE01B3
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_492195FE01B3 Cleanup
+
+: ME_492195FE01B3
+ CONST UID '492195FE01B3'
+ CONST Name 'TdsFolderElement'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4921928D038A' '492192300095.pas.ms.script' // IdsFolderElement
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4921962A0165 // FormDataSourceType
+ ME_49219642035C // f_SaveObject
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_492192AA0144_ME_492195FE01B3 // SaveObject
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_492195FE01B3 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_492196820127 // TdeSaveObject
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '03.05.2006'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\dsFolderElement.pas'
+ CONST extprop:rc:SelfName 'dsFolderElement'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsFolderElement'
+
+ref; // ME_492195FE01B3 TdsFolderElement
+
+FORWARD ME_492198EA0072
+
+: ME_49340B11030B
+ CONST UID '49340B11030B'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_492198EA0072 // TdsFolders
+ ;
+ : Target WL 'ME_49340A8D0243' '492192300095.pas.ms.script' // IdsFolders
+ ;
+
+ref; // ME_49340B11030B FormDataSourceType
+
+: ME_492198EA0072
+ CONST UID '492198EA0072'
+ CONST Name 'TdsFolders'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49340A8D0243' '492192300095.pas.ms.script' // IdsFolders
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_49340B11030B // FormDataSourceType
+ )
+ ; // Attributes
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '03.05.2006 14:59'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\dsFolders.pas'
+ CONST extprop:rc:SelfName 'dsFolders'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsFolders'
+
+ref; // ME_492198EA0072 TdsFolders
+
+FORWARD ME_492286CA0097
+
+: ME_492287BE0194
+ CONST UID '492287BE0194'
+ CONST Name 'FormDataSourceType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_49219A930293' '492192300095.pas.ms.script' // IdsFoldersTree
+ ;
+
+ref; // ME_492287BE0194 FormDataSourceType
+
+: ME_49228966036D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_49228966036D 
+
+: ME_4922897A0394
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4922897A0394 
+
+: ME_49228A700281
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_47F21FE90379' '48F747EC0073.pas.ms.script' // bsUtils
+ ;
+
+ref; // ME_49228A700281 
+
+: ME_49228AEB0084
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_491C422A0003' '4ABCF04F00DF.pas.ms.script' // IbsConsultation
+ ;
+
+ref; // ME_49228AEB0084 
+
+: ME_49228B4700DF
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_4574353000CB' '4570501E037A.pas.ms.script' // NodeFlags
+ ;
+
+ref; // ME_49228B4700DF 
+
+: ME_49228BD6030F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_49228BA50210' '4ABCF1450282.pas.ms.script' // TbsConsultation
+ ;
+
+ref; // ME_49228BD6030F 
+
+: ME_49228C210151
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_491C3F2100A7' '47EA07FA02CE.pas.ms.script' // TbsConsultationStatus
+ ;
+
+ref; // ME_49228C210151 
+
+: ME_49228D5F0296
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_48228EF9010F' '48F747EC0073.pas.ms.script' // nsFolders
+ ;
+
+ref; // ME_49228D5F0296 
+
+: ME_49228DCB02B2
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_49228DBD00C3' '4990135D02F1.pas.ms.script' // TFoldersActions
+ ;
+
+ref; // ME_49228DCB02B2 
+
+: ME_49228E3F01F3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_457008050157' '457007DB002E.pas.ms.script' // Consultation
+ ;
+
+ref; // ME_49228E3F01F3 
+
+: ME_49228F1B0203
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_49228EF60100' '48F747EC0073.pas.ms.script' // nsManagers
+ ;
+
+ref; // ME_49228F1B0203 
+
+: ME_4990286F009B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492286CA0097 // TdsFoldersTree
+ ;
+ : Target WL 'ME_48FF569700F6' '47F2170002B2.pas.ms.script' // StringRoutines
+ ;
+
+ref; // ME_4990286F009B 
+
+: ME_49219AE20118_ME_492286CA0097
+ : Original WL 'ME_49219AE20118' '492192300095.pas.ms.script' // CanBeOpen
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219AE20118_ME_492286CA0097 CanBeOpen
+
+: ME_49219B0B0108_ME_492286CA0097
+ : Original WL 'ME_49219B0B0108' '492192300095.pas.ms.script' // CanBeOpenAsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B0B0108_ME_492286CA0097 CanBeOpenAsConsultation
+
+: ME_49219B1D02A0_ME_492286CA0097
+ : Original WL 'ME_49219B1D02A0' '492192300095.pas.ms.script' // CanGiveMarkOnConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B1D02A0_ME_492286CA0097 CanGiveMarkOnConsultation
+
+: ME_49219B4D029C_ME_492286CA0097
+ : Original WL 'ME_49219B4D029C' '492192300095.pas.ms.script' // CanDelete
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B4D029C_ME_492286CA0097 CanDelete
+
+: ME_49219B5E0026_ME_492286CA0097
+ : Original WL 'ME_49219B5E0026' '492192300095.pas.ms.script' // IsConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B5E0026_ME_492286CA0097 IsConsultation
+
+: ME_49219B6D00F7_ME_492286CA0097
+ : Original WL 'ME_49219B6D00F7' '492192300095.pas.ms.script' // DeleteConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B6D00F7_ME_492286CA0097 DeleteConsultation
+
+: ME_49219B7D0122_ME_492286CA0097
+ : Original WL 'ME_49219B7D0122' '492192300095.pas.ms.script' // CanImportConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B7D0122_ME_492286CA0097 CanImportConsultation
+
+: ME_49219B9101C6_ME_492286CA0097
+ : Original WL 'ME_49219B9101C6' '492192300095.pas.ms.script' // ImportConsultation
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219B9101C6_ME_492286CA0097 ImportConsultation
+
+: ME_49219BAA0308_ME_492286CA0097
+ : Original WL 'ME_49219BAA0308' '492192300095.pas.ms.script' // CanExportForIntegration
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219BAA0308_ME_492286CA0097 CanExportForIntegration
+
+: ME_49219BBE035D_ME_492286CA0097
+ : Original WL 'ME_49219BBE035D' '492192300095.pas.ms.script' // ExportForIntegration
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219BBE035D_ME_492286CA0097 ExportForIntegration
+
+: ME_49219BD0007C_ME_492286CA0097
+ : Original WL 'ME_49219BD0007C' '492192300095.pas.ms.script' // CanExportToXML
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219BD0007C_ME_492286CA0097 CanExportToXML
+
+: ME_49219BE201A9_ME_492286CA0097
+ : Original WL 'ME_49219BE201A9' '492192300095.pas.ms.script' // ExportToXML
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219BE201A9_ME_492286CA0097 ExportToXML
+
+: ME_49219BFC01FD_ME_492286CA0097
+ : Original WL 'ME_49219BFC01FD' '492192300095.pas.ms.script' // CanImportFromXML
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219BFC01FD_ME_492286CA0097 CanImportFromXML
+
+: ME_49219C0C0077_ME_492286CA0097
+ : Original WL 'ME_49219C0C0077' '492192300095.pas.ms.script' // ImportFromXML
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_49219C0C0077_ME_492286CA0097 ImportFromXML
+
+: ME_492286CA0097
+ CONST UID '492286CA0097'
+ CONST Name 'TdsFoldersTree'
+ CONST Class class_Class
+ : Stereotype st_ViewAreaControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'файлы для прецедента Папки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.pas.ms.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_49219A930293' '492192300095.pas.ms.script' // IdsFoldersTree
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_492287BE0194 // FormDataSourceType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_49219AE20118_ME_492286CA0097 // CanBeOpen
+ ME_49219B0B0108_ME_492286CA0097 // CanBeOpenAsConsultation
+ ME_49219B1D02A0_ME_492286CA0097 // CanGiveMarkOnConsultation
+ ME_49219B4D029C_ME_492286CA0097 // CanDelete
+ ME_49219B5E0026_ME_492286CA0097 // IsConsultation
+ ME_49219B6D00F7_ME_492286CA0097 // DeleteConsultation
+ ME_49219B7D0122_ME_492286CA0097 // CanImportConsultation
+ ME_49219B9101C6_ME_492286CA0097 // ImportConsultation
+ ME_49219BAA0308_ME_492286CA0097 // CanExportForIntegration
+ ME_49219BBE035D_ME_492286CA0097 // ExportForIntegration
+ ME_49219BD0007C_ME_492286CA0097 // CanExportToXML
+ ME_49219BE201A9_ME_492286CA0097 // ExportToXML
+ ME_49219BFC01FD_ME_492286CA0097 // CanImportFromXML
+ ME_49219C0C0077_ME_492286CA0097 // ImportFromXML
+ )
+ ; // Implemented
+ : Dependencies
+   Seq: ( ME_49228966036D // SysUtils
+ ME_4922897A0394 // DataAdapter
+ ME_49228A700281 // bsUtils
+ ME_49228AEB0084 // IbsConsultation
+ ME_49228B4700DF // NodeFlags
+ ME_49228BD6030F // TbsConsultation
+ ME_49228C210151 // TbsConsultationStatus
+ ME_49228D5F0296 // nsFolders
+ ME_49228DCB02B2 // TFoldersActions
+ ME_49228E3F01F3 // Consultation
+ ME_49228F1B0203 // nsManagers
+ ME_4990286F009B // StringRoutines
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '03.05.2006'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\dsFoldersTree.pas'
+ CONST extprop:rc:SelfName 'dsFoldersTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'dsFoldersTree'
+
+ref; // ME_492286CA0097 TdsFoldersTree
+
+FORWARD ME_492EE1A80008
+
+: ME_683180CB3B23
+ CONST UID '683180CB3B23'
+ CONST Name 'SetType'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsFolders' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target WL 'ME_492EAE13002A' '492192300095.pas.ms.script' // IsdsFolders
+ ;
+
+ref; // ME_683180CB3B23 SetType
+
+: ME_553C5C8D3ADE
+ CONST UID '553C5C8D3ADE'
+ CONST Name 'f_dsFolders'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsFolders' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+
+ref; // ME_553C5C8D3ADE f_dsFolders
+
+: ME_D67377950837
+ CONST UID 'D67377950837'
+ CONST Name 'f_dsFoldersTree'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsFoldersTree' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+
+ref; // ME_D67377950837 f_dsFoldersTree
+
+: ME_650E81AFE71D
+ CONST UID '650E81AFE71D'
+ CONST Name 'f_dsFolderElement'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для области вывода dsFolderElement' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
+ ;
+
+ref; // ME_650E81AFE71D f_dsFolderElement
+
+: ME_492EE3CD0086
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target ME_492198EA0072 // TdsFolders
+ ;
+
+ref; // ME_492EE3CD0086 
+
+: ME_492EE3E9018A
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target ME_492286CA0097 // TdsFoldersTree
+ ;
+
+ref; // ME_492EE3E9018A 
+
+: ME_492EE4150264
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_492EE1A80008 // TsdsFolders
+ ;
+ : Target ME_492195FE01B3 // TdsFolderElement
+ ;
+
+ref; // ME_492EE4150264 
+
+: ME_492EAE8B01AC_ME_492EE1A80008
+ : Original WL 'ME_492EAE8B01AC' '492192300095.pas.ms.script' // dsFolders
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492EAE8B01AC_ME_492EE1A80008 dsFolders
+
+: ME_492EB06D013C_ME_492EE1A80008
+ : Original WL 'ME_492EB06D013C' '492192300095.pas.ms.script' // dsFoldersTree
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492EB06D013C_ME_492EE1A80008 dsFoldersTree
+
+: ME_492EB098008A_ME_492EE1A80008
+ : Original WL 'ME_492EB098008A' '492192300095.pas.ms.script' // dsFolderElement
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_492EB098008A_ME_492EE1A80008 dsFolderElement
+
+: ME_4938F7E702B7_ME_492EE1A80008
+ : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4938F7E702B7_ME_492EE1A80008 ClearAreas
+
+: ME_492EE1A80008
+ CONST UID '492EE1A80008'
+ CONST Name 'TsdsFolders'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Прецедент "Папки"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_494778CD004F' '47D0E1500033.pas.ms.script' // vcmTinyUseCaseController
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492EAE13002A' '492192300095.pas.ms.script' // IsdsFolders
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_683180CB3B23 // SetType
+ ME_553C5C8D3ADE // f_dsFolders
+ ME_D67377950837 // f_dsFoldersTree
+ ME_650E81AFE71D // f_dsFolderElement
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_492EAE8B01AC_ME_492EE1A80008 // dsFolders
+ ME_492EB06D013C_ME_492EE1A80008 // dsFoldersTree
+ ME_492EB098008A_ME_492EE1A80008 // dsFolderElement
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_4938F7E702B7_ME_492EE1A80008 // ClearAreas
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_492EE3CD0086 // TdsFolders
+ ME_492EE3E9018A // TdsFoldersTree
+ ME_492EE4150264 // TdsFolderElement
+ )
+ ; // Dependencies
+ CONST "author" 'Морозов М.А.'
+ CONST "no hands" true
+ CONST "started" '2006/05/03 14:59:45'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\sdsFolders.pas'
+ CONST extprop:rc:SelfName 'sdsFolders'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'sdsFolders'
+
+ref; // ME_492EE1A80008 TsdsFolders
+
+FORWARD ME_4911B56101AD
+
+FORWARD ME_4911B6CC0061
+
+: ME_4911B6F20018
+ CONST UID '4911B6F20018'
+ CONST Name 'f_Tree'
+ CONST Class class_Attribute
+ %SUMMARY 'InsDeferredTree' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ : Target WL 'ME_46A608F00301' '4AB0C3C60310.pas.ms.script' // Pointer
+ ;
+
+ref; // ME_4911B6F20018 f_Tree
+
+: ME_4911B70903E2
+ CONST UID '4911B70903E2'
+ CONST Name 'f_Root'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ : Target WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
+ ;
+
+ref; // ME_4911B70903E2 f_Root
+
+: ME_4911B71302B4
+ CONST UID '4911B71302B4'
+ CONST Name 'AssignRoot'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+
+ref; // ME_4911B71302B4 AssignRoot
+
+: ME_4911B7220027
+ CONST UID '4911B7220027'
+ CONST Name 'Tree'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ : Target WL 'ME_4911B284005F' '4990135D02F1.pas.ms.script' // InsDeferredTree
+ ;
+
+ref; // ME_4911B7220027 Tree
+
+: ME_4911B77401FC
+ CONST Name 'aTree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4911B284005F' '4990135D02F1.pas.ms.script' // InsDeferredTree
+ ;
+
+ref; // ME_4911B77401FC aTree
+
+: ME_4911B76C0033
+ CONST UID '4911B76C0033'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+ : Parameters
+   Seq: ( ME_4911B77401FC // aTree
+ )
+ ; // Parameters
+
+ref; // ME_4911B76C0033 Create
+
+: ME_4911B69E037D_ME_4911B6CC0061
+ : Original WL 'ME_4911B69E037D' '47913B47006E.pas.ms.script' // DoExecute
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4911B69E037D_ME_4911B6CC0061 DoExecute
+
+: ME_479731C50290_ME_4911B6CC0061
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4911B6CC0061 Cleanup
+
+: ME_4911B6CC0061
+ CONST UID '4911B6CC0061'
+ CONST Name 'TnsDeferredTreeWaitThread'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4911B24C01F6' '47913B47006E.pas.ms.script' // Tl3ThreadContainer
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_4911B6F20018 // f_Tree
+ ME_4911B70903E2 // f_Root
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4911B71302B4 // AssignRoot
+ ME_4911B7220027 // Tree
+ ME_4911B76C0033 // Create
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4911B69E037D_ME_4911B6CC0061 // DoExecute
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4911B6CC0061 // Cleanup
+ )
+ ; // Overridden
+ CONST extprop:rc:SelfName 'DeferredTreeWaitThread'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_4911B6CC0061 TnsDeferredTreeWaitThread
+
+: ME_4911B794015A
+ CONST UID '4911B794015A'
+ CONST Name 'f_isReady'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4911B794015A f_isReady
+
+: ME_4911B7A500D3
+ CONST UID '4911B7A500D3'
+ CONST Name 'f_BuilderThread'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Target ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ ;
+
+ref; // ME_4911B7A500D3 f_BuilderThread
+
+: ME_4911B7C70062
+ CONST UID '4911B7C70062'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Target WL 'ME_4911B284005F' '4990135D02F1.pas.ms.script' // InsDeferredTree
+ ;
+
+ref; // ME_4911B7C70062 Make
+
+: ME_4911BAA50390
+ CONST UID '4911BAA50390'
+ CONST Name 'DoMakeRealRoot'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Target WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
+ ;
+
+ref; // ME_4911BAA50390 DoMakeRealRoot
+
+: ME_4911BD1202B8
+ CONST UID '4911BD1202B8'
+ CONST Name 'MakeFakeRoot'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Target WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
+ ;
+
+ref; // ME_4911BD1202B8 MakeFakeRoot
+
+: ME_4911C5FB00BC
+ CONST Name 'aNewRoot'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4771111001F9' '476BF10A0280.pas.ms.script' // Il3RootNode
+ ;
+
+ref; // ME_4911C5FB00BC aNewRoot
+
+: ME_4911C5EC0155
+ CONST UID '4911C5EC0155'
+ CONST Name 'DoSetBuildedRoot'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4911B56101AD // TnsDeferredTree
+ ;
+ : Parameters
+   Seq: ( ME_4911C5FB00BC // aNewRoot
+ )
+ ; // Parameters
+
+ref; // ME_4911C5EC0155 DoSetBuildedRoot
+
+: ME_4911B2900238_ME_4911B56101AD
+ : Original WL 'ME_4911B2900238' '4990135D02F1.pas.ms.script' // MakeRealRoot
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4911B2900238_ME_4911B56101AD MakeRealRoot
+
+: ME_4911B29F0366_ME_4911B56101AD
+ : Original WL 'ME_4911B29F0366' '4990135D02F1.pas.ms.script' // SetBuildedRoot
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4911B29F0366_ME_4911B56101AD SetBuildedRoot
+
+: ME_4911B2AA014F_ME_4911B56101AD
+ : Original WL 'ME_4911B2AA014F' '4990135D02F1.pas.ms.script' // WaitForReady
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4911B2AA014F_ME_4911B56101AD WaitForReady
+
+: ME_4911B2B500D6_ME_4911B56101AD
+ : Original WL 'ME_4911B2B500D6' '4990135D02F1.pas.ms.script' // IsReady
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4911B2B500D6_ME_4911B56101AD IsReady
+
+: ME_479731C50290_ME_4911B56101AD
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_4911B56101AD Cleanup
+
+: ME_47A042E100E2_ME_4911B56101AD
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4911B56101AD InitFields
+
+: ME_4911B56101AD
+ CONST UID '4911B56101AD'
+ CONST Name 'TnsDeferredTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4804BDA10127' '47E246C90144.pas.ms.script' // Tl3Tree
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4911B284005F' '4990135D02F1.pas.ms.script' // InsDeferredTree
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4911B794015A // f_isReady
+ ME_4911B7A500D3 // f_BuilderThread
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4911B7C70062 // Make
+ ME_4911BAA50390 // DoMakeRealRoot
+ ME_4911BD1202B8 // MakeFakeRoot
+ ME_4911C5EC0155 // DoSetBuildedRoot
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4911B2900238_ME_4911B56101AD // MakeRealRoot
+ ME_4911B29F0366_ME_4911B56101AD // SetBuildedRoot
+ ME_4911B2AA014F_ME_4911B56101AD // WaitForReady
+ ME_4911B2B500D6_ME_4911B56101AD // IsReady
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_4911B56101AD // Cleanup
+ ME_47A042E100E2_ME_4911B56101AD // InitFields
+ )
+ ; // Overridden
+ : Children
+   Seq: ( ME_4911B6CC0061 // TnsDeferredTreeWaitThread
+ )
+ ; // Children
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "no hands" true
+ CONST "started" '2006/10/23 08:36:25'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\nsDeferredTree.pas'
+ CONST extprop:rc:SelfName 'DeferredTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsDeferredTree'
+
+ref; // ME_4911B56101AD TnsDeferredTree
+
+FORWARD ME_4911CFF60035
+
+: ME_4911D0FC02AC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4911CFF60035 // TnsAdapterDeferredTree
+ ;
+ : Target WL 'ME_48FF556602BA' '48F747EC0073.pas.ms.script' // DataAdapter
+ ;
+
+ref; // ME_4911D0FC02AC 
+
+: ME_47A042E100E2_ME_4911CFF60035
+ : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_47A042E100E2_ME_4911CFF60035 InitFields
+
+: ME_4911C5EC0155_ME_4911CFF60035
+ : Original ME_4911C5EC0155 // DoSetBuildedRoot
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4911C5EC0155_ME_4911CFF60035 DoSetBuildedRoot
+
+: ME_4911CFF60035
+ CONST UID '4911CFF60035'
+ CONST Name 'TnsAdapterDeferredTree'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( ME_4911B56101AD // TnsDeferredTree
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_47A042E100E2_ME_4911CFF60035 // InitFields
+ ME_4911C5EC0155_ME_4911CFF60035 // DoSetBuildedRoot
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_4911D0FC02AC // DataAdapter
+ )
+ ; // Dependencies
+ CONST "author" 'Лукьянец Р.В.'
+ CONST "no hands" true
+ CONST "started" '2008/01/14 09:58:48'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\nsAdapterDeferredTree.pas'
+ CONST extprop:rc:SelfName 'AdapterDeferredTree'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'nsAdapterDeferredTree'
+
+ref; // ME_4911CFF60035 TnsAdapterDeferredTree
+
+: ME_4B1F6E4D031C
+ CONST UID '4B1F6E4D031C'
+ CONST Name 'f_ObjectType'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4921953602C1 // TdeSaveObject
+ ;
+ : Target WL 'ME_49901B7F0265' '4990135D02F1.pas.ms.script' // TFoldersElementType
+ ;
+
+ref; // ME_4B1F6E4D031C f_ObjectType
+
+: ME_4B1F6E530330
+ CONST UID '4B1F6E530330'
+ CONST Name 'f_ObjectValue'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4921953602C1 // TdeSaveObject
+ ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4B1F6E530330 f_ObjectValue
+
+FORWARD ME_4B1F6E830244
+
+: ME_4B1F6EA0037D
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49901B7F0265' '4990135D02F1.pas.ms.script' // TFoldersElementType
+ ;
+
+ref; // ME_4B1F6EA0037D aType
+
+: ME_4B1F6EA003A3
+ CONST Name 'anObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+
+ref; // ME_4B1F6EA003A3 anObject
+
+: ME_4B1F6E8E03AF
+ CONST UID '4B1F6E8E03AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B1F6E830244 // Create
+ ;
+ : Parameters
+   Seq: ( ME_4B1F6EA0037D // aType
+ ME_4B1F6EA003A3 // anObject
+ )
+ ; // Parameters
+
+ref; // ME_4B1F6E8E03AF DoIt
+
+: ME_4B1F6E830244
+ CONST UID '4B1F6E830244'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4921953602C1 // TdeSaveObject
+ ;
+ : Operations
+   Seq: ( ME_4B1F6E8E03AF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4B1F6E830244 Create
+
+FORWARD ME_4B1F6EA700F7
+
+: ME_4B1F6ED3034D
+ CONST Name 'aType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49901B7F0265' '4990135D02F1.pas.ms.script' // TFoldersElementType
+ ;
+ CONST Value 'fetNone'
+ : ValueType WL 'ME_49901B7F0265' '4990135D02F1.pas.ms.script' // TFoldersElementType
+ ;
+ CONST extprop:pas:Value 'FoldersDomainInterfaces.fetNone'
+
+ref; // ME_4B1F6ED3034D aType
+
+: ME_4B1F6ED30372
+ CONST Name 'anObject'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_46A451250363' '4AB0C3C60310.pas.ms.script' // IUnknown
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_4B1F6ED30372 anObject
+
+: ME_4B1F6ED00039
+ CONST UID '4B1F6ED00039'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B1F6EA700F7 // Make
+ ;
+ : Parameters
+   Seq: ( ME_4B1F6ED3034D // aType
+ ME_4B1F6ED30372 // anObject
+ )
+ ; // Parameters
+
+ref; // ME_4B1F6ED00039 DoIt
+
+: ME_4B1F6EA700F7
+ CONST UID '4B1F6EA700F7'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4921953602C1 // TdeSaveObject
+ ;
+ : Operations
+   Seq: ( ME_4B1F6ED00039 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_4B1F6EA700F7 Make
+
+: ME_4B1D0A0503A5_ME_4921953602C1
+ : Original WL 'ME_4B1D0A0503A5' '4990135D02F1.pas.ms.script' // ObjectType
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D0A0503A5_ME_4921953602C1 ObjectType
+
+: ME_4B1D0A35011E_ME_4921953602C1
+ : Original WL 'ME_4B1D0A35011E' '4990135D02F1.pas.ms.script' // ObjectValue
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_4B1D0A35011E_ME_4921953602C1 ObjectValue
+
+: ME_4921953602C1
+ CONST UID '4921953602C1'
+ CONST Name 'TdeSaveObject'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4921954E019B // Folders
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_492192160370' '4990135D02F1.pas.ms.script' // IdeSaveObject
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_4B1F6E4D031C // f_ObjectType
+ ME_4B1F6E530330 // f_ObjectValue
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_4B1F6E830244 // Create
+ ME_4B1F6EA700F7 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4B1D0A0503A5_ME_4921953602C1 // ObjectType
+ ME_4B1D0A35011E_ME_4921953602C1 // ObjectValue
+ )
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "no hands" true
+ CONST "started" '09.12.2009 12:40'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Folders\deSaveObject.pas'
+ CONST extprop:rc:SelfName 'deSaveObject'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'deSaveObject'
+
+ref; // ME_4921953602C1 TdeSaveObject
+
+: ME_4921954E019B
+ CONST UID '4921954E019B'
+ CONST Name 'Folders'
+ CONST Class class_Category
+ : Stereotype st_ControllerUnit ;
+ %SUMMARY 'Работа с папками' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_493FCEBB018B' '493FCEBB018B.pas.ms.script' // Folders
+ ;
+ : Children
+   Seq: ( ME_492195FE01B3 // TdsFolderElement
+ ME_492198EA0072 // TdsFolders
+ ME_492286CA0097 // TdsFoldersTree
+ ME_492EE1A80008 // TsdsFolders
+ ME_4911B56101AD // TnsDeferredTree
+ ME_4911CFF60035 // TnsAdapterDeferredTree
+ ME_4921953602C1 // TdeSaveObject
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_457007DB002E' '457007DB002E.pas.ms.script' // Consulting
+ WL 'ME_4570501E037A' '4570501E037A.pas.ms.script' // Folders
+ WL 'ME_476BF10A0280' '476BF10A0280.pas.ms.script' // l3Tree_TLB
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_47E246C90144' '47E246C90144.pas.ms.script' // l3Trees
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.pas.ms.script' // nsTypes
+ WL 'ME_47F260DC003F' '47F260DC003F.pas.ms.script' // ns
+ WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
+ WL 'ME_492192300095' '492192300095.pas.ms.script' // FoldersInterfaces
+ WL 'ME_4922BFA000DD' '4922BFA000DD.pas.ms.script' // SimpleListInterfaces
+ WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
+ WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4ABCF04F00DF' '4ABCF04F00DF.pas.ms.script' // ConsultationDomainInterfaces
+ WL 'ME_4ABCF1450282' '4ABCF1450282.pas.ms.script' // ConsultationDomain
+ WL 'ME_4CAC5A7402DE' '4CAC5A7402DE.pas.ms.script' // Impl
+ )
+ ; // Depends
+
+ref; // ME_4921954E019B Folders

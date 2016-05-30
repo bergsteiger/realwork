@@ -145,37 +145,6 @@ ref; // ME_4979E8BD0187
 
 ref; // ME_4979E97B03D3 sdsList
 
-: ME_07FF8EE4A104
- CONST UID '07FF8EE4A104'
- CONST Name 'f_DocView'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DocView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979E75C00C7 // PrimSynchroView
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_07FF8EE4A104 f_DocView
-
-: ME_CA056E85F523
- CONST UID 'CA056E85F523'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimSynchroView' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979E75C00C7 // PrimSynchroView
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CA056E85F523 Ini_Reg_Class
-
 : ME_4B150F470093
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -215,17 +184,6 @@ ref; // ME_52821AB602C4
  ;
 
 ref; // ME_52821AB90268 
-
-: ME_4A69D2CDCFC3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4979E75C00C7 // PrimSynchroView
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4A69D2CDCFC3 
 
 : ME_497F16AC015A_ME_4979E75C00C7
  : Original WL 'ME_497F16AC015A' '4A7C0BB70162.pas.ms.script' // DoTabActivate
@@ -281,13 +239,8 @@ ref; // ME_4A8E8F2E0195_ME_4979E75C00C7 InitControls
    Seq: ( ME_4C8619720088 // DocView
  ME_4979E8BD0187 // 
  ME_4979E97B03D3 // sdsList
- ME_07FF8EE4A104 // f_DocView
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_CA056E85F523 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_497F16AC015A_ME_4979E75C00C7 // DoTabActivate
  ME_4AE9E3CC03C7_ME_4979E75C00C7 // BecomeActive
@@ -308,7 +261,6 @@ ref; // ME_4A8E8F2E0195_ME_4979E75C00C7 InitControls
  ME_4BD6C13300F0 // Switcher$SetCaption
  ME_52821AB602C4 // Forms
  ME_52821AB90268 // Controls
- ME_4A69D2CDCFC3 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -398,21 +350,6 @@ ref; // ME_4C860D75021B
 
 ref; // ME_4C860B4801E9 MakeUserCRListCaption
 
-: ME_1CEA1D4B3297
- CONST UID '1CEA1D4B3297'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimSynchroViewOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8604040234 // PrimSynchroViewOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1CEA1D4B3297 Ini_Reg_Class
-
 : ME_4C86088B004E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -432,17 +369,6 @@ ref; // ME_4C86088B004E
  ;
 
 ref; // ME_4C86179F0077 
-
-: ME_4F09E33F7E7E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8604040234 // PrimSynchroViewOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4F09E33F7E7E 
 
 : ME_4C86050B01DB_ME_4C8604040234
  : Original WL 'ME_4C86050B01DB' '498874B90391.pas.ms.script' // ShowText
@@ -588,7 +514,6 @@ ref; // ME_4C52E81603A9_ME_4C8604040234 PageInactive
  ; // Implements
  : Operations
    Seq: ( ME_4C860B4801E9 // MakeUserCRListCaption
- ME_1CEA1D4B3297 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -610,7 +535,6 @@ ref; // ME_4C52E81603A9_ME_4C8604040234 PageInactive
  : Dependencies
    Seq: ( ME_4C86088B004E // afwFacade
  ME_4C86179F0077 // List
- ME_4F09E33F7E7E // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -663,7 +587,6 @@ ref; // ME_4C8604040234 PrimSynchroViewOptions
  WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.pas.ms.script' // Logging
  WL 'ME_4D1B444C015E' '4D1B444C015E.pas.ms.script' // WorkWithListInterfaces
  WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

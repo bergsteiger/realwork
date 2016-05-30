@@ -6,34 +6,6 @@ FORWARD ME_4A78013D01CD
 
 FORWARD ME_4AAA42BF0267
 
-FORWARD ME_4AAA43F601F7
-
-: ME_5F730509F6A5
- CONST UID '5F730509F6A5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация ShellAndMonitoringsMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAA43F601F7 // ShellAndMonitoringsMain
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_5F730509F6A5 Ini_Reg_Class
-
-: ME_E7A648EB3658
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAA43F601F7 // ShellAndMonitoringsMain
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E7A648EB3658 
-
 : ME_4AAA43F601F7
  CONST UID '4AAA43F601F7'
  CONST Name 'ShellAndMonitoringsMain'
@@ -48,14 +20,6 @@ ref; // ME_E7A648EB3658
    Seq: ( WL 'ME_4C8A210E018C' '4986ECDF01F4.pas.ms.script' // PrimMainOptions
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5F730509F6A5 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_E7A648EB3658 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true

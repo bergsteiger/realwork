@@ -117,7 +117,7 @@ var
   l_ExportDir: String;
 //#UC END# *53CCF77201EF_53C92B390005_var*
 //#UC START# *53CDF9B0012E_53C92B390005_impl*
-  if (f_CheckExecutionGuard = 0) and (f_SubmitGuard = 0) and Assigned(f_ActiveTask) and (f_ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted]) then
+  if (f_CheckExecutionGuard = 0) and (f_SubmitGuard = 0) and Assigned(f_ActiveTask) and (f_ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted, cs_tsAborting]) then
   begin
    l3InterlockedIncrement(f_CheckExecutionGuard);
    try
@@ -161,7 +161,7 @@ var
 //#UC START# *53CF5E600196_53C92B390005_var*
 //#UC END# *53CF5E600196_53C92B390005_var*
 //#UC START# *53CF9DAC004E_53C92B390005get_impl*
- Result := Assigned(f_ActiveTask) and (ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozenRun]); 
+ Result := Assigned(f_ActiveTask) and (ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozenRun, cs_tsDeleted]); 
 //#UC END# *53CF9DAC004E_53C92B390005get_impl*
 //#UC START# *53CF9DAC004E_53C92B390005get_var*
 //#UC END# *53CF9DAC004E_53C92B390005get_var*
@@ -198,3 +198,13 @@ var
 //#UC END# *540475CA0270_53C9011903D6_impl*
 //#UC START# *540475CA0270_53C9011903D6_var*
 //#UC END# *540475CA0270_53C9011903D6_var*
+//#UC START# *573EC2C80226_53C92B390005_impl*
+ if CountAbortingTask then
+  Result := Assigned(f_ActiveTask) and (ActiveTask.Status in (cSet + [cs_tsAborting]))
+ else
+  Result := Assigned(f_ActiveTask) and (ActiveTask.Status in cSet)
+//#UC END# *573EC2C80226_53C92B390005_impl*
+//#UC START# *573EC2C80226_53C92B390005_var*
+const
+ cSet = [cs_tsAsyncRun, cs_tsFrozenRun, cs_tsDeleted];
+//#UC END# *573EC2C80226_53C92B390005_var*

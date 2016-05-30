@@ -6,21 +6,6 @@ FORWARD ME_4958DD470101
 
 FORWARD ME_4AC99EBE0106
 
-: ME_803774190C6E
- CONST UID '803774190C6E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MainMenuWithBaseSearchSupport' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC99EBE0106 // MainMenuWithBaseSearchSupport
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_803774190C6E Ini_Reg_Class
-
 FORWARD ME_4F2012220355
 
 : ME_4F20127D0261
@@ -32,17 +17,6 @@ FORWARD ME_4F2012220355
  ;
 
 ref; // ME_4F20127D0261 
-
-: ME_976CC789B2BF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC99EBE0106 // MainMenuWithBaseSearchSupport
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_976CC789B2BF 
 
 : ME_496B4C41023E_ME_4AC99EBE0106
  : Original WL 'ME_496B4C41023E' '4A9F98B901A5.pas.ms.script' // WindowRequired
@@ -154,10 +128,6 @@ ref; // ME_4EBBC63E032A_ME_4AC99EBE0106 CreateFormGUID
  WL 'ME_4F203112036A' '4A9F98B901A5.pas.ms.script' // InsMainMenuLikeBaseSearchOwner
  )
  ; // Implements
- : Operations
-   Seq: ( ME_803774190C6E // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_496B4C41023E_ME_4AC99EBE0106 // WindowRequired
  ME_496B4C500246_ME_4AC99EBE0106 // WindowCloseable
@@ -180,7 +150,6 @@ ref; // ME_4EBBC63E032A_ME_4AC99EBE0106 CreateFormGUID
  ; // Overridden
  : Dependencies
    Seq: ( ME_4F20127D0261 // TnsMainMenuFormGUIDFactory
- ME_976CC789B2BF // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -586,70 +555,6 @@ ref; // ME_4AC9F8FE0267 hfLawNews
 
 ref; // ME_4AC9E8130127 pnlMain
 
-: ME_431852C9CB8D
- CONST UID '431852C9CB8D'
- CONST Name 'f_hfReferences'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства hfReferences' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC9E7B40342 // PrimLegalMainMenu
- ;
- : Target WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- ;
-
-ref; // ME_431852C9CB8D f_hfReferences
-
-: ME_25A0BC1507E4
- CONST UID '25A0BC1507E4'
- CONST Name 'f_tvReferences'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvReferences' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC9E7B40342 // PrimLegalMainMenu
- ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- ;
-
-ref; // ME_25A0BC1507E4 f_tvReferences
-
-: ME_9C8A669B7CA7
- CONST UID '9C8A669B7CA7'
- CONST Name 'f_hfLawNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства hfLawNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC9E7B40342 // PrimLegalMainMenu
- ;
- : Target WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- ;
-
-ref; // ME_9C8A669B7CA7 f_hfLawNews
-
-: ME_648054EA69A2
- CONST UID '648054EA69A2'
- CONST Name 'f_tvLawNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvLawNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC9E7B40342 // PrimLegalMainMenu
- ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- ;
-
-ref; // ME_648054EA69A2 f_tvLawNews
-
 FORWARD ME_4ACC7F16032D
 
 : ME_4ACC7F1D0195
@@ -724,21 +629,6 @@ ref; // ME_5450DAEE0049 DoIt
 
 ref; // ME_5450DAE20391 UpdateCaption
 
-: ME_BABAB0664DA4
- CONST UID 'BABAB0664DA4'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimLegalMainMenu' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC9E7B40342 // PrimLegalMainMenu
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BABAB0664DA4 Ini_Reg_Class
-
 : ME_4AC9F2610387
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -768,17 +658,6 @@ ref; // ME_4AC9F8940282
  ;
 
 ref; // ME_4AFBF7FE00BF 
-
-: ME_BC1DDF8CA1DA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC9E7B40342 // PrimLegalMainMenu
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BC1DDF8CA1DA 
 
 : ME_47EA4E9002C6_ME_4AC9E7B40342
  : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
@@ -826,16 +705,11 @@ ref; // ME_4AC9E9EC0064_ME_4AC9E7B40342 LoadTrees
  ; // Inherits
  : Attributes
    Seq: ( ME_4AC9E8130127 // pnlMain
- ME_431852C9CB8D // f_hfReferences
- ME_25A0BC1507E4 // f_tvReferences
- ME_9C8A669B7CA7 // f_hfLawNews
- ME_648054EA69A2 // f_tvLawNews
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4ACC7F16032D // UpdateMainMenuForm
  ME_5450DAE20391 // UpdateCaption
- ME_BABAB0664DA4 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -850,7 +724,6 @@ ref; // ME_4AC9E9EC0064_ME_4AC9E7B40342 LoadTrees
    Seq: ( ME_4AC9F2610387 // nsMakeMainMenuCaption
  ME_4AC9F8940282 // TsmLawNewsTree
  ME_4AFBF7FE00BF // TsmNewSchoolReferencesTree
- ME_BC1DDF8CA1DA // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -1023,101 +896,6 @@ ref; // ME_4BDAF7B803CF_ME_4BDAFDC30149 Wrap
  ; // Implemented
 
 ref; // ME_4BDAFDC30149 ExcludeTree
-
-FORWARD ME_FB6991D60B81
-
-: ME_7AAF7556AFBE
- CONST UID '7AAF7556AFBE'
- CONST Name 'utMainMenuNewCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Основное меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_FB6991D60B81 // utMainMenuNewLocalConstants
- ;
- CONST Value '''Основное меню'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Основное меню'''
-
-ref; // ME_7AAF7556AFBE utMainMenuNewCaption
-
-: ME_FB6991D60B81
- CONST UID 'FB6991D60B81'
- CONST Name 'utMainMenuNewLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utMainMenuNew' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Attributes
-   Seq: ( ME_7AAF7556AFBE // utMainMenuNewCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_FB6991D60B81 utMainMenuNewLocalConstants
-
-FORWARD ME_7045E5D4E98D
-
-: ME_E53310A97163
- CONST UID 'E53310A97163'
- CONST Name 'utMainMenuNewCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Основное меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7045E5D4E98D // LCImplutMainMenuNewLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utMainMenuNewCaption''; rValue : ''Основное меню'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utMainMenuNewCaption''; rValue : ''Основное меню'')'
- : Speller ME_7AAF7556AFBE // utMainMenuNewCaption
- ;
-
-ref; // ME_E53310A97163 utMainMenuNewCaption
-
-: ME_7045E5D4E98D
- CONST UID '7045E5D4E98D'
- CONST Name 'LCImplutMainMenuNewLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utMainMenuNewLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Attributes
-   Seq: ( ME_E53310A97163 // utMainMenuNewCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_FB6991D60B81 // utMainMenuNewLocalConstants
- ;
-
-ref; // ME_7045E5D4E98D LCImplutMainMenuNewLocalConstants
 
 FORWARD ME_4ACA05780310
 
@@ -1822,342 +1600,6 @@ ref; // ME_4ACF0DB80357 f_Banner
  ;
 
 ref; // ME_4E7326BD0302 f_CurrentSection
-
-: ME_84360D513B85
- CONST UID '84360D513B85'
- CONST Name 'f_pnlBaseSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlBaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_84360D513B85 f_pnlBaseSearch
-
-: ME_C2FA2B21691E
- CONST UID 'C2FA2B21691E'
- CONST Name 'f_pnlBaseSearchZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlBaseSearchZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_C2FA2B21691E f_pnlBaseSearchZone
-
-: ME_F744622062B7
- CONST UID 'F744622062B7'
- CONST Name 'f_pnlLogo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlLogo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_F744622062B7 f_pnlLogo
-
-: ME_A87B004CA246
- CONST UID 'A87B004CA246'
- CONST Name 'f_pbLogo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbLogo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_A87B004CA246 f_pbLogo
-
-: ME_B1A6EC57FBF4
- CONST UID 'B1A6EC57FBF4'
- CONST Name 'f_pnlSearches'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlSearches' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_B1A6EC57FBF4 f_pnlSearches
-
-: ME_304AF9E5EA1C
- CONST UID '304AF9E5EA1C'
- CONST Name 'f_flAttributeSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flAttributeSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_304AF9E5EA1C f_flAttributeSearch
-
-: ME_E6189C858E01
- CONST UID 'E6189C858E01'
- CONST Name 'f_flSituationSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flSituationSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_E6189C858E01 f_flSituationSearch
-
-: ME_1011BC1627DB
- CONST UID '1011BC1627DB'
- CONST Name 'f_flPublishedSourceSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flPublishedSourceSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_1011BC1627DB f_flPublishedSourceSearch
-
-: ME_BDBD08D74055
- CONST UID 'BDBD08D74055'
- CONST Name 'f_flDictionSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flDictionSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_BDBD08D74055 f_flDictionSearch
-
-: ME_959610C10C7D
- CONST UID '959610C10C7D'
- CONST Name 'f_pnlExpert'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlExpert' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_959610C10C7D f_pnlExpert
-
-: ME_AFA7437F41D3
- CONST UID 'AFA7437F41D3'
- CONST Name 'f_pbExpert'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbExpert' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_AFA7437F41D3 f_pbExpert
-
-: ME_538FE9DBBA69
- CONST UID '538FE9DBBA69'
- CONST Name 'f_pnlOnLine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlOnLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_538FE9DBBA69 f_pnlOnLine
-
-: ME_8D973001E09A
- CONST UID '8D973001E09A'
- CONST Name 'f_pbOnLine'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbOnLine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_8D973001E09A f_pbOnLine
-
-: ME_01DBB27BF933
- CONST UID '01DBB27BF933'
- CONST Name 'f_pbIntranet'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbIntranet' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_01DBB27BF933 f_pbIntranet
-
-: ME_6CF5D721FE7A
- CONST UID '6CF5D721FE7A'
- CONST Name 'f_pbCourtsOnline'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbCourtsOnline' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_6CF5D721FE7A f_pbCourtsOnline
-
-: ME_292068018EFA
- CONST UID '292068018EFA'
- CONST Name 'f_hfTaxes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства hfTaxes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- ;
-
-ref; // ME_292068018EFA f_hfTaxes
-
-: ME_09FFD43CDC16
- CONST UID '09FFD43CDC16'
- CONST Name 'f_tvTaxes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvTaxes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- ;
-
-ref; // ME_09FFD43CDC16 f_tvTaxes
-
-: ME_42F320062ADF
- CONST UID '42F320062ADF'
- CONST Name 'f_pnlBanner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlBanner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_42F320062ADF f_pnlBanner
-
-: ME_84B865648251
- CONST UID '84B865648251'
- CONST Name 'f_ieBanner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieBanner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
- ;
-
-ref; // ME_84B865648251 f_ieBanner
-
-: ME_EC12CBC6CE78
- CONST UID 'EC12CBC6CE78'
- CONST Name 'f_hfLastOpenDocsRightEdge'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства hfLastOpenDocsRightEdge' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_EC12CBC6CE78 f_hfLastOpenDocsRightEdge
-
-: ME_5676895292AF
- CONST UID '5676895292AF'
- CONST Name 'f_ieIO'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieIO' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4ACDBE8801BE' '4ACDBC26003C.pas.ms.script' // TImageEnIO
- ;
-
-ref; // ME_5676895292AF f_ieIO
 
 FORWARD ME_4ACB20380272
 
@@ -3304,21 +2746,6 @@ ref; // ME_526F53FA0216 DoIt
 
 ref; // ME_526F53D3025F GetSearchLabelsLineFullWidth
 
-FORWARD ME_55CDC6110290
-
-: ME_95529E835AFF
- CONST UID '95529E835AFF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdatePbExpertPosition' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55CDC6110290 // UpdatePbExpertPosition
- ;
-
-ref; // ME_95529E835AFF DoIt
-
 : ME_55CDC6110290
  CONST UID '55CDC6110290'
  CONST Name 'UpdatePbExpertPosition'
@@ -3329,45 +2756,8 @@ ref; // ME_95529E835AFF DoIt
  CONST Abstraction at_final
  : Parent ME_4958E1F700C0 // PrimMainMenuNew
  ;
- : Operations
-   Seq: ( ME_95529E835AFF // DoIt
- )
- ; // Operations
 
 ref; // ME_55CDC6110290 UpdatePbExpertPosition
-
-: ME_E1DAFAA49487
- CONST UID 'E1DAFAA49487'
- CONST Name 'Init_Str_utMainMenuNewCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utMainMenuNewCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Speller ME_7AAF7556AFBE // utMainMenuNewCaption
- ;
- : SpelledFor ME_E53310A97163 // utMainMenuNewCaption
- ;
-
-ref; // ME_E1DAFAA49487 Init_Str_utMainMenuNewCaption
-
-: ME_F63D231B17CC
- CONST UID 'F63D231B17CC'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimMainMenuNew' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F63D231B17CC Ini_Reg_Class
 
 : ME_4AC9DA290271
  CONST Class class_Dependency
@@ -3679,39 +3069,6 @@ ref; // ME_53BB78090300
 
 ref; // ME_53FC7EE50002 
 
-: ME_E5B18CA69D22
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_E5B18CA69D22 
-
-: ME_185DCB95F390
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_185DCB95F390 
-
-: ME_0BE4D49B1157
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958E1F700C0 // PrimMainMenuNew
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_0BE4D49B1157 
-
 : ME_4AC9B6D00250_ME_4958E1F700C0
  : Original WL 'ME_4AC9B6D00250' '4ABD0D6A0255.pas.ms.script' // DoBuildGrid
  ;
@@ -3848,27 +3205,6 @@ ref; // ME_543E3AA801D0_ME_4958E1F700C0 DoGetTabImageIndex
  ME_523B0A7D01D3 // ieIO
  ME_4ACF0DB80357 // f_Banner
  ME_4E7326BD0302 // f_CurrentSection
- ME_84360D513B85 // f_pnlBaseSearch
- ME_C2FA2B21691E // f_pnlBaseSearchZone
- ME_F744622062B7 // f_pnlLogo
- ME_A87B004CA246 // f_pbLogo
- ME_B1A6EC57FBF4 // f_pnlSearches
- ME_304AF9E5EA1C // f_flAttributeSearch
- ME_E6189C858E01 // f_flSituationSearch
- ME_1011BC1627DB // f_flPublishedSourceSearch
- ME_BDBD08D74055 // f_flDictionSearch
- ME_959610C10C7D // f_pnlExpert
- ME_AFA7437F41D3 // f_pbExpert
- ME_538FE9DBBA69 // f_pnlOnLine
- ME_8D973001E09A // f_pbOnLine
- ME_01DBB27BF933 // f_pbIntranet
- ME_6CF5D721FE7A // f_pbCourtsOnline
- ME_292068018EFA // f_hfTaxes
- ME_09FFD43CDC16 // f_tvTaxes
- ME_42F320062ADF // f_pnlBanner
- ME_84B865648251 // f_ieBanner
- ME_EC12CBC6CE78 // f_hfLastOpenDocsRightEdge
- ME_5676895292AF // f_ieIO
  )
  ; // Attributes
  : Operations
@@ -3893,8 +3229,6 @@ ref; // ME_543E3AA801D0_ME_4958E1F700C0 DoGetTabImageIndex
  ME_4F7451F501DB // CourtsOnlineClick
  ME_526F53D3025F // GetSearchLabelsLineFullWidth
  ME_55CDC6110290 // UpdatePbExpertPosition
- ME_E1DAFAA49487 // Init_Str_utMainMenuNewCaption
- ME_F63D231B17CC // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -3929,8 +3263,6 @@ ref; // ME_543E3AA801D0_ME_4958E1F700C0 DoGetTabImageIndex
  ; // Children
  : Constants
    Seq: ( ME_4B716BB002AC // SearchLabelsLayout
- ME_FB6991D60B81 // utMainMenuNewLocalConstants
- ME_7045E5D4E98D // LCImplutMainMenuNewLocalConstants
  )
  ; // Constants
  : Dependencies
@@ -3965,9 +3297,6 @@ ref; // ME_543E3AA801D0_ME_4958E1F700C0 DoGetTabImageIndex
  ME_53BA89130365 // vcmChromeLikeTabUpdater
  ME_53BB78090300 // nsTabbedInterfaceTypes
  ME_53FC7EE50002 // bsTypesNew
- ME_E5B18CA69D22 // Tl3StringIDEx
- ME_185DCB95F390 // Tl3MessageID
- ME_0BE4D49B1157 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -4288,59 +3617,6 @@ ref; // ME_5714AA41012D DoIt
 
 ref; // ME_5714AA3A022F Create
 
-FORWARD ME_5714AA6A0244
-
-: ME_6011F267B7A6
- CONST Name 'anInnerState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
- ;
-
-ref; // ME_6011F267B7A6 anInnerState
-
-: ME_C782EA12F516
- CONST Name 'aProfNewsIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C782EA12F516 aProfNewsIndex
-
-: ME_30D57E44FDF6
- CONST Name 'aTaxesTreeIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_30D57E44FDF6 aTaxesTreeIndex
-
-: ME_804C707D56AA
- CONST UID '804C707D56AA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TMainMenuWithProfNewsFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5714AA6A0244 // Make
- ;
- : Target ME_5714A7FB008A // IMainMenuWithProfNewsFormState
- ;
- : Parameters
-   Seq: ( ME_6011F267B7A6 // anInnerState
- ME_C782EA12F516 // aProfNewsIndex
- ME_30D57E44FDF6 // aTaxesTreeIndex
- )
- ; // Parameters
-
-ref; // ME_804C707D56AA DoIt
-
 : ME_5714AA6A0244
  CONST UID '5714AA6A0244'
  CONST Name 'Make'
@@ -4359,10 +3635,6 @@ ref; // ME_804C707D56AA DoIt
    Seq: ( ME_5714A7FB008A // IMainMenuWithProfNewsFormState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_804C707D56AA // DoIt
- )
- ; // Operations
 
 ref; // ME_5714AA6A0244 Make
 
@@ -4441,101 +3713,6 @@ ref; // ME_47EA4E9002C6_ME_5714A94A0015 FinishDataUpdate
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5714A94A0015 TMainMenuWithProfNewsFormState
-
-FORWARD ME_67FCB85FD17E
-
-: ME_B7E41043A1F8
- CONST UID 'B7E41043A1F8'
- CONST Name 'utMainMenuWithProfNewsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Основное меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_67FCB85FD17E // utMainMenuWithProfNewsLocalConstants
- ;
- CONST Value '''Основное меню'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Основное меню'''
-
-ref; // ME_B7E41043A1F8 utMainMenuWithProfNewsCaption
-
-: ME_67FCB85FD17E
- CONST UID '67FCB85FD17E'
- CONST Name 'utMainMenuWithProfNewsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utMainMenuWithProfNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Attributes
-   Seq: ( ME_B7E41043A1F8 // utMainMenuWithProfNewsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_67FCB85FD17E utMainMenuWithProfNewsLocalConstants
-
-FORWARD ME_F10D62D5ACC6
-
-: ME_A7AB3347C803
- CONST UID 'A7AB3347C803'
- CONST Name 'utMainMenuWithProfNewsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Основное меню"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F10D62D5ACC6 // LCImplutMainMenuWithProfNewsLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utMainMenuWithProfNewsCaption''; rValue : ''Основное меню'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utMainMenuWithProfNewsCaption''; rValue : ''Основное меню'')'
- : Speller ME_B7E41043A1F8 // utMainMenuWithProfNewsCaption
- ;
-
-ref; // ME_A7AB3347C803 utMainMenuWithProfNewsCaption
-
-: ME_F10D62D5ACC6
- CONST UID 'F10D62D5ACC6'
- CONST Name 'LCImplutMainMenuWithProfNewsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utMainMenuWithProfNewsLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Attributes
-   Seq: ( ME_A7AB3347C803 // utMainMenuWithProfNewsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_67FCB85FD17E // utMainMenuWithProfNewsLocalConstants
- ;
-
-ref; // ME_F10D62D5ACC6 LCImplutMainMenuWithProfNewsLocalConstants
 
 FORWARD ME_56FA8A4400E5
 
@@ -6072,549 +5249,6 @@ ref; // ME_57024AD6034E f_Banner
 
 ref; // ME_5718A70801BA f_IsInited
 
-: ME_5864D92D3811
- CONST UID '5864D92D3811'
- CONST Name 'f_pnlLeft'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlLeft' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_5864D92D3811 f_pnlLeft
-
-: ME_AE26FCA0BCF1
- CONST UID 'AE26FCA0BCF1'
- CONST Name 'f_bvlLeftTop'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства bvlLeftTop' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5270B3E3024B' '4799D29F033F.pas.ms.script' // TBevel
- ;
-
-ref; // ME_AE26FCA0BCF1 f_bvlLeftTop
-
-: ME_4CD3A645F765
- CONST UID '4CD3A645F765'
- CONST Name 'f_pnlLogo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlLogo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_4CD3A645F765 f_pnlLogo
-
-: ME_AB1A3D181B46
- CONST UID 'AB1A3D181B46'
- CONST Name 'f_pbLogo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbLogo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_AB1A3D181B46 f_pbLogo
-
-: ME_D15CCF8C7884
- CONST UID 'D15CCF8C7884'
- CONST Name 'f_pnlBanner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlBanner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_D15CCF8C7884 f_pnlBanner
-
-: ME_591565A2799B
- CONST UID '591565A2799B'
- CONST Name 'f_ieBanner'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieBanner' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.pas.ms.script' // TImageEnView
- ;
-
-ref; // ME_591565A2799B f_ieBanner
-
-: ME_E2B1C8F5EB55
- CONST UID 'E2B1C8F5EB55'
- CONST Name 'f_pnlFeedback'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlFeedback' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_E2B1C8F5EB55 f_pnlFeedback
-
-: ME_6DEF06E9BD33
- CONST UID '6DEF06E9BD33'
- CONST Name 'f_pbFeedback'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbFeedback' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_6DEF06E9BD33 f_pbFeedback
-
-: ME_AE890643E433
- CONST UID 'AE890643E433'
- CONST Name 'f_pnlOnlineResources'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlOnlineResources' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_AE890643E433 f_pnlOnlineResources
-
-: ME_8B7F6FDA24C5
- CONST UID '8B7F6FDA24C5'
- CONST Name 'f_pbOnlineResources'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbOnlineResources' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_8B7F6FDA24C5 f_pbOnlineResources
-
-: ME_82F895725455
- CONST UID '82F895725455'
- CONST Name 'f_pnlWebVersion'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlWebVersion' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_82F895725455 f_pnlWebVersion
-
-: ME_CE29E98A4095
- CONST UID 'CE29E98A4095'
- CONST Name 'f_pbWebVersion'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbWebVersion' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_CE29E98A4095 f_pbWebVersion
-
-: ME_839483BCE843
- CONST UID '839483BCE843'
- CONST Name 'f_pnlClient'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlClient' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_839483BCE843 f_pnlClient
-
-: ME_ACA63B6B97E2
- CONST UID 'ACA63B6B97E2'
- CONST Name 'f_pnlNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_ACA63B6B97E2 f_pnlNews
-
-: ME_11918534D51C
- CONST UID '11918534D51C'
- CONST Name 'f_tvProfNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvProfNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- ;
-
-ref; // ME_11918534D51C f_tvProfNews
-
-: ME_CA054314B139
- CONST UID 'CA054314B139'
- CONST Name 'f_lblProfNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblProfNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
- ;
-
-ref; // ME_CA054314B139 f_lblProfNews
-
-: ME_80AE4F6EBA40
- CONST UID '80AE4F6EBA40'
- CONST Name 'f_lblLawNews'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblLawNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5703BF610068' '4A9B9BAA0207.pas.ms.script' // TvtStyledLabel
- ;
-
-ref; // ME_80AE4F6EBA40 f_lblLawNews
-
-: ME_F04350CEF051
- CONST UID 'F04350CEF051'
- CONST Name 'f_pnlBaseSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlBaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_F04350CEF051 f_pnlBaseSearch
-
-: ME_FD4F670D1942
- CONST UID 'FD4F670D1942'
- CONST Name 'f_pnlBaseSearchZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlBaseSearchZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_FD4F670D1942 f_pnlBaseSearchZone
-
-: ME_F8008087B8FC
- CONST UID 'F8008087B8FC'
- CONST Name 'f_pnlSearches'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlSearches' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_F8008087B8FC f_pnlSearches
-
-: ME_7F2EF10269EC
- CONST UID '7F2EF10269EC'
- CONST Name 'f_flAttributeSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flAttributeSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_7F2EF10269EC f_flAttributeSearch
-
-: ME_F45A0353DBAF
- CONST UID 'F45A0353DBAF'
- CONST Name 'f_flDictionSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flDictionSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_F45A0353DBAF f_flDictionSearch
-
-: ME_25A2781F086C
- CONST UID '25A2781F086C'
- CONST Name 'f_flPublishedSourceSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flPublishedSourceSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_25A2781F086C f_flPublishedSourceSearch
-
-: ME_761E2BC2C95D
- CONST UID '761E2BC2C95D'
- CONST Name 'f_flSituationSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства flSituationSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B6019A601D8' '4B601984005A.pas.ms.script' // TnscFocusLabel
- ;
-
-ref; // ME_761E2BC2C95D f_flSituationSearch
-
-: ME_F7E798AA267D
- CONST UID 'F7E798AA267D'
- CONST Name 'f_pnlTrees'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlTrees' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_F7E798AA267D f_pnlTrees
-
-: ME_1BE40E69618E
- CONST UID '1BE40E69618E'
- CONST Name 'f_tvTaxes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvTaxes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- ;
-
-ref; // ME_1BE40E69618E f_tvTaxes
-
-: ME_CF573402A079
- CONST UID 'CF573402A079'
- CONST Name 'f_lblReferences'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblReferences' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5703BF610068' '4A9B9BAA0207.pas.ms.script' // TvtStyledLabel
- ;
-
-ref; // ME_CF573402A079 f_lblReferences
-
-: ME_F19D80ED4746
- CONST UID 'F19D80ED4746'
- CONST Name 'f_lblTaxes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblTaxes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5704F8CA00C8' '4B601984005A.pas.ms.script' // TnscComboLabel
- ;
-
-ref; // ME_F19D80ED4746 f_lblTaxes
-
-: ME_808F6F66D43C
- CONST UID '808F6F66D43C'
- CONST Name 'f_pnlLastOpenDocs'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlLastOpenDocs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_808F6F66D43C f_pnlLastOpenDocs
-
-: ME_7A517DAE79D3
- CONST UID '7A517DAE79D3'
- CONST Name 'f_lblLastOpenDocs'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblLastOpenDocs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5703BF610068' '4A9B9BAA0207.pas.ms.script' // TvtStyledLabel
- ;
-
-ref; // ME_7A517DAE79D3 f_lblLastOpenDocs
-
-: ME_B56E361ABEB9
- CONST UID 'B56E361ABEB9'
- CONST Name 'f_bvlLeft'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства bvlLeft' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5270B3E3024B' '4799D29F033F.pas.ms.script' // TBevel
- ;
-
-ref; // ME_B56E361ABEB9 f_bvlLeft
-
-: ME_248E1F5065FA
- CONST UID '248E1F5065FA'
- CONST Name 'f_bvlRight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства bvlRight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_5270B3E3024B' '4799D29F033F.pas.ms.script' // TBevel
- ;
-
-ref; // ME_248E1F5065FA f_bvlRight
-
-: ME_B7BC1F8BD0B6
- CONST UID 'B7BC1F8BD0B6'
- CONST Name 'f_ieIO'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ieIO' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4ACDBE8801BE' '4ACDBC26003C.pas.ms.script' // TImageEnIO
- ;
-
-ref; // ME_B7BC1F8BD0B6 f_ieIO
-
-FORWARD ME_56FBC4350226
-
-: ME_05E3C0097FA8
- CONST UID '05E3C0097FA8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateReferencesAndLawNewsCaptions' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56FBC4350226 // UpdateReferencesAndLawNewsCaptions
- ;
-
-ref; // ME_05E3C0097FA8 DoIt
-
 : ME_56FBC4350226
  CONST UID '56FBC4350226'
  CONST Name 'UpdateReferencesAndLawNewsCaptions'
@@ -6625,27 +5259,8 @@ ref; // ME_05E3C0097FA8 DoIt
  CONST Abstraction at_final
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Operations
-   Seq: ( ME_05E3C0097FA8 // DoIt
- )
- ; // Operations
 
 ref; // ME_56FBC4350226 UpdateReferencesAndLawNewsCaptions
-
-FORWARD ME_56FCF6290256
-
-: ME_71CBB59B5A6B
- CONST UID '71CBB59B5A6B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UpdateSearchLabels' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56FCF6290256 // UpdateSearchLabels
- ;
-
-ref; // ME_71CBB59B5A6B DoIt
 
 : ME_56FCF6290256
  CONST UID '56FCF6290256'
@@ -6657,41 +5272,8 @@ ref; // ME_71CBB59B5A6B DoIt
  CONST Abstraction at_final
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Operations
-   Seq: ( ME_71CBB59B5A6B // DoIt
- )
- ; // Operations
 
 ref; // ME_56FCF6290256 UpdateSearchLabels
-
-FORWARD ME_56FD0A30011C
-
-: ME_7B21974D02AF
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_7B21974D02AF Sender
-
-: ME_4800A0B91083
- CONST UID '4800A0B91083'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FD0A30011C // SearchClick
- ;
- : Parameters
-   Seq: ( ME_7B21974D02AF // Sender
- )
- ; // Parameters
-
-ref; // ME_4800A0B91083 DoIt
 
 : ME_56FD0A30011C
  CONST UID '56FD0A30011C'
@@ -6707,27 +5289,8 @@ ref; // ME_4800A0B91083 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4800A0B91083 // DoIt
- )
- ; // Operations
 
 ref; // ME_56FD0A30011C SearchClick
-
-FORWARD ME_56FE6DC90398
-
-: ME_C13C81EF613F
- CONST UID 'C13C81EF613F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ArrangeControls' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56FE6DC90398 // ArrangeControls
- ;
-
-ref; // ME_C13C81EF613F DoIt
 
 : ME_56FE6DC90398
  CONST UID '56FE6DC90398'
@@ -6739,41 +5302,8 @@ ref; // ME_C13C81EF613F DoIt
  CONST Abstraction at_final
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Operations
-   Seq: ( ME_C13C81EF613F // DoIt
- )
- ; // Operations
 
 ref; // ME_56FE6DC90398 ArrangeControls
-
-FORWARD ME_56FE8B7B023E
-
-: ME_218F5A7AAC12
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_218F5A7AAC12 Sender
-
-: ME_70D18BC8A926
- CONST UID '70D18BC8A926'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FE8B7B023E // PaintLogo
- ;
- : Parameters
-   Seq: ( ME_218F5A7AAC12 // Sender
- )
- ; // Parameters
-
-ref; // ME_70D18BC8A926 DoIt
 
 : ME_56FE8B7B023E
  CONST UID '56FE8B7B023E'
@@ -6789,41 +5319,8 @@ ref; // ME_70D18BC8A926 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_70D18BC8A926 // DoIt
- )
- ; // Operations
 
 ref; // ME_56FE8B7B023E PaintLogo
-
-FORWARD ME_56FE8B9303D1
-
-: ME_2E0CF93BBE67
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2E0CF93BBE67 Sender
-
-: ME_4DA1AE2C7BE7
- CONST UID '4DA1AE2C7BE7'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FE8B9303D1 // PaintButton
- ;
- : Parameters
-   Seq: ( ME_2E0CF93BBE67 // Sender
- )
- ; // Parameters
-
-ref; // ME_4DA1AE2C7BE7 DoIt
 
 : ME_56FE8B9303D1
  CONST UID '56FE8B9303D1'
@@ -6839,41 +5336,8 @@ ref; // ME_4DA1AE2C7BE7 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4DA1AE2C7BE7 // DoIt
- )
- ; // Operations
 
 ref; // ME_56FE8B9303D1 PaintButton
-
-FORWARD ME_57023AD501A4
-
-: ME_0E9E3F19FBF0
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_0E9E3F19FBF0 Sender
-
-: ME_17233189B19F
- CONST UID '17233189B19F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_57023AD501A4 // PaintBoxClick
- ;
- : Parameters
-   Seq: ( ME_0E9E3F19FBF0 // Sender
- )
- ; // Parameters
-
-ref; // ME_17233189B19F DoIt
 
 : ME_57023AD501A4
  CONST UID '57023AD501A4'
@@ -6889,41 +5353,8 @@ ref; // ME_17233189B19F DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_17233189B19F // DoIt
- )
- ; // Operations
 
 ref; // ME_57023AD501A4 PaintBoxClick
-
-FORWARD ME_57024AF70200
-
-: ME_935B107C5C02
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_935B107C5C02 Sender
-
-: ME_1344E68845EE
- CONST UID '1344E68845EE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_57024AF70200 // BannerClick
- ;
- : Parameters
-   Seq: ( ME_935B107C5C02 // Sender
- )
- ; // Parameters
-
-ref; // ME_1344E68845EE DoIt
 
 : ME_57024AF70200
  CONST UID '57024AF70200'
@@ -6939,27 +5370,8 @@ ref; // ME_1344E68845EE DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1344E68845EE // DoIt
- )
- ; // Operations
 
 ref; // ME_57024AF70200 BannerClick
-
-FORWARD ME_57024B0D006F
-
-: ME_8942A260C98D
- CONST UID '8942A260C98D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadBanner' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_57024B0D006F // LoadBanner
- ;
-
-ref; // ME_8942A260C98D DoIt
 
 : ME_57024B0D006F
  CONST UID '57024B0D006F'
@@ -6971,41 +5383,8 @@ ref; // ME_8942A260C98D DoIt
  CONST Abstraction at_final
  : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
  ;
- : Operations
-   Seq: ( ME_8942A260C98D // DoIt
- )
- ; // Operations
 
 ref; // ME_57024B0D006F LoadBanner
-
-FORWARD ME_5707BB3A0018
-
-: ME_6A6D8EE165C1
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_6A6D8EE165C1 Sender
-
-: ME_D08267E50A1E
- CONST UID 'D08267E50A1E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5707BB3A0018 // lblTaxesChange
- ;
- : Parameters
-   Seq: ( ME_6A6D8EE165C1 // Sender
- )
- ; // Parameters
-
-ref; // ME_D08267E50A1E DoIt
 
 : ME_5707BB3A0018
  CONST UID '5707BB3A0018'
@@ -7021,41 +5400,8 @@ ref; // ME_D08267E50A1E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D08267E50A1E // DoIt
- )
- ; // Operations
 
 ref; // ME_5707BB3A0018 lblTaxesChange
-
-FORWARD ME_5707BB480178
-
-: ME_5819392C7575
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5819392C7575 Sender
-
-: ME_C70E9E480235
- CONST UID 'C70E9E480235'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5707BB480178 // lblProfNewsChange
- ;
- : Parameters
-   Seq: ( ME_5819392C7575 // Sender
- )
- ; // Parameters
-
-ref; // ME_C70E9E480235 DoIt
 
 : ME_5707BB480178
  CONST UID '5707BB480178'
@@ -7071,45 +5417,8 @@ ref; // ME_C70E9E480235 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C70E9E480235 // DoIt
- )
- ; // Operations
 
 ref; // ME_5707BB480178 lblProfNewsChange
-
-: ME_77BE98F022F5
- CONST UID '77BE98F022F5'
- CONST Name 'Init_Str_utMainMenuWithProfNewsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utMainMenuWithProfNewsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Speller ME_B7E41043A1F8 // utMainMenuWithProfNewsCaption
- ;
- : SpelledFor ME_A7AB3347C803 // utMainMenuWithProfNewsCaption
- ;
-
-ref; // ME_77BE98F022F5 Init_Str_utMainMenuWithProfNewsCaption
-
-: ME_EA09B73A23CF
- CONST UID 'EA09B73A23CF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimMainMenuWithProfNews' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EA09B73A23CF Ini_Reg_Class
 
 : ME_56FA9A580062
  CONST Class class_Dependency
@@ -7461,39 +5770,6 @@ ref; // ME_5710C2600203
 
 ref; // ME_57223528034E 
 
-: ME_CAC2A714D2A6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_CAC2A714D2A6 
-
-: ME_3791676206E1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_3791676206E1 
-
-: ME_B71762904DE8
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56FA889202B4 // PrimMainMenuWithProfNews
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B71762904DE8 
-
 : ME_4AC9B6D00250_ME_56FA889202B4
  : Original WL 'ME_4AC9B6D00250' '4ABD0D6A0255.pas.ms.script' // DoBuildGrid
  ;
@@ -7637,39 +5913,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_56FA98DC0106 // ieIO
  ME_57024AD6034E // f_Banner
  ME_5718A70801BA // f_IsInited
- ME_5864D92D3811 // f_pnlLeft
- ME_AE26FCA0BCF1 // f_bvlLeftTop
- ME_4CD3A645F765 // f_pnlLogo
- ME_AB1A3D181B46 // f_pbLogo
- ME_D15CCF8C7884 // f_pnlBanner
- ME_591565A2799B // f_ieBanner
- ME_E2B1C8F5EB55 // f_pnlFeedback
- ME_6DEF06E9BD33 // f_pbFeedback
- ME_AE890643E433 // f_pnlOnlineResources
- ME_8B7F6FDA24C5 // f_pbOnlineResources
- ME_82F895725455 // f_pnlWebVersion
- ME_CE29E98A4095 // f_pbWebVersion
- ME_839483BCE843 // f_pnlClient
- ME_ACA63B6B97E2 // f_pnlNews
- ME_11918534D51C // f_tvProfNews
- ME_CA054314B139 // f_lblProfNews
- ME_80AE4F6EBA40 // f_lblLawNews
- ME_F04350CEF051 // f_pnlBaseSearch
- ME_FD4F670D1942 // f_pnlBaseSearchZone
- ME_F8008087B8FC // f_pnlSearches
- ME_7F2EF10269EC // f_flAttributeSearch
- ME_F45A0353DBAF // f_flDictionSearch
- ME_25A2781F086C // f_flPublishedSourceSearch
- ME_761E2BC2C95D // f_flSituationSearch
- ME_F7E798AA267D // f_pnlTrees
- ME_1BE40E69618E // f_tvTaxes
- ME_CF573402A079 // f_lblReferences
- ME_F19D80ED4746 // f_lblTaxes
- ME_808F6F66D43C // f_pnlLastOpenDocs
- ME_7A517DAE79D3 // f_lblLastOpenDocs
- ME_B56E361ABEB9 // f_bvlLeft
- ME_248E1F5065FA // f_bvlRight
- ME_B7BC1F8BD0B6 // f_ieIO
  )
  ; // Attributes
  : Operations
@@ -7684,8 +5927,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_57024B0D006F // LoadBanner
  ME_5707BB3A0018 // lblTaxesChange
  ME_5707BB480178 // lblProfNewsChange
- ME_77BE98F022F5 // Init_Str_utMainMenuWithProfNewsCaption
- ME_EA09B73A23CF // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -7721,11 +5962,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_5714A94A0015 // TMainMenuWithProfNewsFormState
  )
  ; // Children
- : Constants
-   Seq: ( ME_67FCB85FD17E // utMainMenuWithProfNewsLocalConstants
- ME_F10D62D5ACC6 // LCImplutMainMenuWithProfNewsLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_56FA9A580062 // Colors
  ME_56FA9A5D01EF // TnsLastOpenDocTree
@@ -7762,9 +5998,6 @@ ref; // ME_543E3AA801D0_ME_56FA889202B4 DoGetTabImageIndex
  ME_570BB939028F // TlgQueryType
  ME_5710C2600203 // SectionType
  ME_57223528034E // Windows
- ME_CAC2A714D2A6 // Tl3StringIDEx
- ME_3791676206E1 // Tl3MessageID
- ME_B71762904DE8 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -8692,58 +6925,6 @@ ref; // ME_A857D1555402 ST_BUDGET_ORGS
 
 ref; // ME_42A0F44E0D09 ChangeableMainMenuTypeValues
 
-FORWARD ME_4273FE64DDF1
-
-: ME_8116BFB7ACAC
- CONST UID '8116BFB7ACAC'
- CONST Name 'ChangeableMainMenuType'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Тип изменяемой части основного меню' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4273FE64DDF1 // LCImplChangeableMainMenuTypeName
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType''; rValue : ''Тип изменяемой части основного меню'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ChangeableMainMenuType''; rValue : ''Тип изменяемой части основного меню'')'
- : Speller ME_3CE065447A5B // ChangeableMainMenuType
- ;
-
-ref; // ME_8116BFB7ACAC ChangeableMainMenuType
-
-: ME_4273FE64DDF1
- CONST UID '4273FE64DDF1'
- CONST Name 'LCImplChangeableMainMenuTypeName'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ChangeableMainMenuTypeName' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4135B54EF3A1 // MainMenuChangeableMainMenuTypeSettingRes
- ;
- : Attributes
-   Seq: ( ME_8116BFB7ACAC // ChangeableMainMenuType
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_93DE09CA5A38 // ChangeableMainMenuTypeName
- ;
-
-ref; // ME_4273FE64DDF1 LCImplChangeableMainMenuTypeName
-
 FORWARD ME_4F913D960C57
 
 : ME_C7238684DB6B
@@ -9283,7 +7464,6 @@ ref; // ME_2B812A26411E
    Seq: ( ME_FD385A2CADEF // ChangeableMainMenuTypeKey
  ME_93DE09CA5A38 // ChangeableMainMenuTypeName
  ME_42A0F44E0D09 // ChangeableMainMenuTypeValues
- ME_4273FE64DDF1 // LCImplChangeableMainMenuTypeName
  ME_4F913D960C57 // LCImplChangeableMainMenuTypeValues
  ME_BC5188977B5E // ChangeableMainMenuTypeValuesMap
  )
@@ -9482,7 +7662,6 @@ ref; // ME_98CD882A435E TstMainMenuChangeableMainMenuTypeItem
  WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\MainMenu'

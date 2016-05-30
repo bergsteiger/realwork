@@ -21,6 +21,9 @@
 var
  l_V : InsSelectedAttributesIterators;
 //#UC END# *497469C90140_497EC3B20359_var*
+//#UC START# *497EC3B20359impl_uses*
+ , l3ControlsTypes
+//#UC END# *497EC3B20359impl_uses*
 //#UC START# *49803F5503AA_497EC3B20359_impl*
  inherited;
  SelectedTree.Images := nsSearchRes.SearchItemsImageList;
@@ -136,7 +139,7 @@ var
      l_Brief then
    SelectedTree.ExpandNode(SelectedTree.CTree.CRootNode.InsertChild(l_LogicNode), True);
  finally
-  vcmFree(l_NodePath);
+  FreeAndNil(l_NodePath);
  end;
 //#UC END# *4AF40E300070_497EC3B20359_impl*
 //#UC START# *4AF40E300070_497EC3B20359_var*

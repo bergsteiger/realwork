@@ -396,135 +396,6 @@ ref; // ME_521D7E72031A f_OldCaption
 
 ref; // ME_521D7EA303B3 g_InMakeClone
 
-: ME_177117AF01F7
- CONST UID '177117AF01F7'
- CONST Name 'f_StatusBar'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StatusBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_4E15A08E030D' '49871D5103B9.pas.ms.script' // TnscStatusBar
- ;
-
-ref; // ME_177117AF01F7 f_StatusBar
-
-: ME_1C0F164E33AD
- CONST UID '1C0F164E33AD'
- CONST Name 'f_ClientZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ClientZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_1C0F164E33AD f_ClientZone
-
-: ME_B7016C672B7F
- CONST UID 'B7016C672B7F'
- CONST Name 'f_MainZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MainZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_B7016C672B7F f_MainZone
-
-: ME_543F02B71DB5
- CONST UID '543F02B71DB5'
- CONST Name 'f_ParentZonePanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParentZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_543F02B71DB5 f_ParentZonePanel
-
-: ME_94CBB0BEF87E
- CONST UID '94CBB0BEF87E'
- CONST Name 'f_ChildZonePanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChildZonePanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_94CBB0BEF87E f_ChildZonePanel
-
-: ME_A4036FC54CF2
- CONST UID 'A4036FC54CF2'
- CONST Name 'f_BaseSearchPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BaseSearchPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_A4036FC54CF2 f_BaseSearchPanel
-
-: ME_E420F1BCA1D7
- CONST UID 'E420F1BCA1D7'
- CONST Name 'f_LeftNavigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LeftNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
- ;
-
-ref; // ME_E420F1BCA1D7 f_LeftNavigator
-
-: ME_368EE0BBE877
- CONST UID '368EE0BBE877'
- CONST Name 'f_RightNavigator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RightNavigator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- : Target WL 'ME_499ABF3D031B' '499ABF2A0338.pas.ms.script' // TnscNavigator
- ;
- CONST "ifdef" 'HasRightNavigator'
-
-ref; // ME_368EE0BBE877 f_RightNavigator
-
 FORWARD ME_4F6B4C7101EB
 
 : ME_4F6B4C92003A
@@ -1653,21 +1524,6 @@ ref; // ME_54607F0E024D DoIt
 
 ref; // ME_54607EEF00BB GetCurrentOpenedWindowsCount
 
-: ME_39C21A570866
- CONST UID '39C21A570866'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация MainPrim' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6B382E00D9 // MainPrim
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_39C21A570866 Ini_Reg_Class
-
 : ME_4F6B3C7502AD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1818,16 +1674,15 @@ ref; // ME_4F7B0EEC0126
 
 ref; // ME_4F7B226B03A9 
 
-: ME_612B01A43FA1
- CONST IsSummoned true
+: ME_57454D060384
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4F6B382E00D9 // MainPrim
  ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
  ;
 
-ref; // ME_612B01A43FA1 
+ref; // ME_57454D060384 
 
 : ME_499037820017_ME_4F6B382E00D9
  : Original WL 'ME_499037820017' '49804E310263.pas.ms.script' // CorrectHeight
@@ -2001,12 +1856,6 @@ ref; // ME_4F7B072201AA_ME_4F6B382E00D9 DoSaveInSettings
  CONST OpKind opkind_Overridden
 ref; // ME_4F7B0CF50022_ME_4F6B382E00D9 DispatcherCreated
 
-: ME_5000565C019C_ME_4F6B382E00D9
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
-
 : ME_4F6B382E00D9
  CONST UID '4F6B382E00D9'
  CONST Name 'MainPrim'
@@ -2033,14 +1882,6 @@ ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
  ME_4F71FA48030C // f_NeedSwitchKeyboard
  ME_521D7E72031A // f_OldCaption
  ME_521D7EA303B3 // g_InMakeClone
- ME_177117AF01F7 // f_StatusBar
- ME_1C0F164E33AD // f_ClientZone
- ME_B7016C672B7F // f_MainZone
- ME_543F02B71DB5 // f_ParentZonePanel
- ME_94CBB0BEF87E // f_ChildZonePanel
- ME_A4036FC54CF2 // f_BaseSearchPanel
- ME_E420F1BCA1D7 // f_LeftNavigator
- ME_368EE0BBE877 // f_RightNavigator
  )
  ; // Attributes
  : Operations
@@ -2072,7 +1913,6 @@ ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
  ME_53D21DEA02A4 // DoGetNextMainForm
  ME_54607EC40295 // GetCurrentActiveWindow
  ME_54607EEF00BB // GetCurrentOpenedWindowsCount
- ME_39C21A570866 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2096,7 +1936,6 @@ ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
  ME_4B321D1301DD_ME_4F6B382E00D9 // DoShow
  ME_4F7B072201AA_ME_4F6B382E00D9 // DoSaveInSettings
  ME_4F7B0CF50022_ME_4F6B382E00D9 // DispatcherCreated
- ME_5000565C019C_ME_4F6B382E00D9 // ClearFields
  )
  ; // Overridden
  : Children
@@ -2124,10 +1963,11 @@ ref; // ME_5000565C019C_ME_4F6B382E00D9 ClearFields
  ME_4F7B039C0007 // nsSettingsConst
  ME_4F7B0EEC0126 // vcmHistory
  ME_4F7B226B03A9 // TNavigatorState
- ME_612B01A43FA1 // TtfwClassRef
+ ME_57454D060384 // TvcmEntityForm
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
+ CONST "UseNewGen" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
  CONST "resizeable" false

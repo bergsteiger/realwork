@@ -1291,6 +1291,69 @@ REDEFINITION : st_uses::Dependency
  @SELF
 ; // st_array_element::Attribute
 
+: st_LocalConst Inherits ( st_Constants st_WikiImplClass st_ValueMapper )
+ CONST UID '4B386A11030E'
+ CONST Name 'LocalConst'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_LocalConst
+
+REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
+ CONST UID '4DC1281403A3'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+: st_MessagePrim Inherits ( st_attr::Attribute )
+ CONST UID '4E09AE2E02B6'
+ CONST Name 'MessagePrim'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_MessagePrim
+
+: st_Message Inherits ( st_WikiImplClass st_MessagePrim )
+ CONST UID '4E01DC9002B0'
+ CONST Name 'Message'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Message
+
+: st_CustomChoice::Attribute
+ CONST UID '4E09D0A100CC'
+ CONST Name 'CustomChoice::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_CustomChoice::Attribute
+
+: st_DefaultChoice::Attribute
+ CONST UID '4E09D1030281'
+ CONST Name 'DefaultChoice::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_DefaultChoice::Attribute
+
+: st_Choices Inherits ( st_LocalConst )
+ CONST UID '4E09AB0A01C4'
+ CONST Name 'Choices'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Choices
+
+REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
+ CONST UID '4E09ABF1010D'
+ CONST Name 'attr::Attribute'
+ CONST Stereotype 'MDAAttribute'
+ @SELF
+; // st_attr::Attribute
+
+: st_Choice Inherits ( st_WikiImplClass st_attr::Attribute )
+ CONST UID '4E09CACE010E'
+ CONST Name 'Choice'
+ CONST Stereotype 'MDAClass'
+ @SELF
+; // st_Choice
+
 : st_FunctorBase
  CONST UID '4713197703A9'
  CONST Name 'FunctorBase'

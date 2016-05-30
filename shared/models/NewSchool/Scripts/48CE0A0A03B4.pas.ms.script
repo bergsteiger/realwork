@@ -3812,58 +3812,6 @@ ref; // ME_4D7255E4002E MemoHintForConsult
 
 ref; // ME_4D7255DA035D Local
 
-FORWARD ME_803A9FD364E5
-
-: ME_1AD70AB32CA7
- CONST UID '1AD70AB32CA7'
- CONST Name 'MemoHintForConsult'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Введите текст запроса''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_803A9FD364E5 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''MemoHintForConsult''; rValue : ''Введите текст запроса'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MemoHintForConsult''; rValue : ''Введите текст запроса'')'
- : Speller ME_4D7255E4002E // MemoHintForConsult
- ;
-
-ref; // ME_1AD70AB32CA7 MemoHintForConsult
-
-: ME_803A9FD364E5
- CONST UID '803A9FD364E5'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_48D11BE0015E // TnevControlPara
- ;
- : Attributes
-   Seq: ( ME_1AD70AB32CA7 // MemoHintForConsult
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4D7255DA035D // Local
- ;
-
-ref; // ME_803A9FD364E5 LCImplLocal
-
 : ME_48D123C000D3
  CONST Name 'aTag'
  CONST Class class_Parameter
@@ -3971,28 +3919,6 @@ ref; // ME_527206100051
  ;
 
 ref; // ME_53D64BE101D1 
-
-: ME_9F38EE2A0820
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48D11BE0015E // TnevControlPara
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_9F38EE2A0820 
-
-: ME_B661959F5EA6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_48D11BE0015E // TnevControlPara
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_B661959F5EA6 
 
 : ME_47C7CDC802F0_ME_48D11BE0015E
  : Original WL 'ME_47C7CDC802F0' '47C5207602D1.pas.ms.script' // Enabled
@@ -4111,7 +4037,6 @@ ref; // ME_4D7255870102_ME_48D11BE0015E GetText
  ; // Overridden
  : Constants
    Seq: ( ME_4D7255DA035D // Local
- ME_803A9FD364E5 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -4123,8 +4048,6 @@ ref; // ME_4D7255870102_ME_48D11BE0015E GetText
  ME_527205B60131 // afwFacade
  ME_527206100051 // Locale
  ME_53D64BE101D1 // IevControlFriend
- ME_9F38EE2A0820 // Tl3StringIDEx
- ME_B661959F5EA6 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Лукьянец Р.В.'

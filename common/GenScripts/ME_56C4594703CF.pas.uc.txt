@@ -7,7 +7,7 @@
 //#UC START# *479731C50290_56C4594703CF_var*
 //#UC END# *479731C50290_56C4594703CF_var*
 //#UC START# *5549C65D038D_56C4594703CF_impl*
- Result := TcaTabledQuery.Make(f_DataConverter, aTable, anAlias, f_HTFactory.MakeTabledQuery(aTable, anALias),
+ Result := TcaTabledQuery.Make(Self, f_DataConverter, aTable, anAlias, f_HTFactory.MakeTabledQuery(aTable, anALias),
   f_PGFactory.MakeTabledQuery(aTable, anALias));
 //#UC END# *5549C65D038D_56C4594703CF_impl*
 //#UC START# *5549C65D038D_56C4594703CF_var*
@@ -56,3 +56,26 @@
 //#UC END# *56C45EE801FB_56C4594703CF_impl*
 //#UC START# *56C45EE801FB_56C4594703CF_var*
 //#UC END# *56C45EE801FB_56C4594703CF_var*
+//#UC START# *574584D802F6_56C4594703CF_impl*
+ Result := TdaJoin.Make(Self, aLeft, aRight, aKind);
+//#UC END# *574584D802F6_56C4594703CF_impl*
+//#UC START# *574584D802F6_56C4594703CF_var*
+//#UC END# *574584D802F6_56C4594703CF_var*
+//#UC START# *574BF2B20123_56C4594703CF_impl*
+ Result := TdaJoinCondition.Make(aLeftTableAlias, aLeftField, aRightTableAlias, aRightField);
+//#UC END# *574BF2B20123_56C4594703CF_impl*
+//#UC START# *574BF2B20123_56C4594703CF_var*
+//#UC END# *574BF2B20123_56C4594703CF_var*
+//#UC START# *574C32760314_56C4594703CF_impl*
+ Assert(anAlias <> '');
+ Result := TdaFromTable.Make(Self, aTable, anAlias);
+//#UC END# *574C32760314_56C4594703CF_impl*
+//#UC START# *574C32760314_56C4594703CF_var*
+//#UC END# *574C32760314_56C4594703CF_var*
+//#UC START# *574C32D802C6_56C4594703CF_impl*
+ Result := nil;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *574C32D802C6_56C4594703CF_impl*
+//#UC START# *574C32D802C6_56C4594703CF_var*
+//#UC END# *574C32D802C6_56C4594703CF_var*

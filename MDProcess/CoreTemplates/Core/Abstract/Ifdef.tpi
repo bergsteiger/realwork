@@ -227,9 +227,12 @@ f _collect_ifndefs
 %f _UseNewGen
 // возвращаемый результат: boolean
 //#UC START# *56BCA508022Dfor4976EB82018C*
+	%f_UseNewGenG(%S)
+
+f _UseNewGenG
 @ %SU
 	[{%S{UseNewGen}=true}{\
-	[{%S#f_IsVCMForm()=true&%Sa=final}{\
+	[{%S#f_IsVCMForm()=true}{\
 	[{%PS=VCMFormsPack}{\
 	[{%SS=ScriptKeyword&%PS!=VCMControls}{\
 	[{%SS=SimpleClass}{\
@@ -256,16 +259,28 @@ f _collect_ifndefs
 	false\
 	]\
 	}\
+	[{%Sa=final}{\
+	[{%SS=VCMDataModule}{\
+	[{"<{}{%CS=factory|%CS=Factory}{C}>"="0"}{\
+	false\
+	}\
 	true\
+	]\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]\
 	]\
 	}\
 	true\
 	]
 
-%f _UseNewGenRecPrim
+f _UseNewGenRecPrim
 @ %SU
-	[{%S%f_UseNewGen()=true}{\
-	[{%P#f_UseNewGenRecPrim()=true}{\
+	[{%f_UseNewGenG(%S)=true}{\
+	[{%f_UseNewGenRecPrim(%P)=true}{\
 	false\
 	}\
 	true\
@@ -278,8 +293,11 @@ f _collect_ifndefs
 %f _UseNewGenRec
 // возвращаемый результат: boolean
 //#UC START# *56BCA5310152for4976EB82018C*
+	%f_UseNewGenRecG(%S)
+
+f _UseNewGenRecG
 @ %SU
-	[{%S#f_UseNewGenRecPrim()=true}{\
+	[{%f_UseNewGenRecPrim(%S)=true}{\
 	[{%S{finished}=false}{\
 	false\
 	}\
@@ -304,7 +322,7 @@ f _collect_ifndefs
 // возвращаемый результат: boolean
 //#UC START# *5703F29A0296for4976EB82018C*
 @ %SU
-	[{%S%f_NoSpell()=true}{\
+	[{%S#f_NoSpell()=true}{\
 	[{%P#f_NoSpellRec()=true}{\
 	false\
 	}\

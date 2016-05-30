@@ -241,37 +241,6 @@ ref; // ME_4C864E34020B tvAttributes
 
 ref; // ME_4979DA630067 CoDS
 
-: ME_833591437CF5
- CONST UID '833591437CF5'
- CONST Name 'f_tvAttributes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvAttributes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979DA14019A // PrimAttributes
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_833591437CF5 f_tvAttributes
-
-: ME_F1BA23F5F37B
- CONST UID 'F1BA23F5F37B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimAttributes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979DA14019A // PrimAttributes
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_F1BA23F5F37B Ini_Reg_Class
-
 : ME_4B1418C9027B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -312,17 +281,6 @@ ref; // ME_4BD6BAB001E7
 
 ref; // ME_4BD6BADC007A 
 
-: ME_F00FB77EE170
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4979DA14019A // PrimAttributes
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_F00FB77EE170 
-
 : ME_37BE60CD03ED_ME_4979DA14019A
  : Original WL 'ME_37BE60CD03ED' '4A7C0BB70162.pas.ms.script' // fDocAttributeQueryClose
  ;
@@ -358,13 +316,8 @@ ref; // ME_497F16AC015A_ME_4979DA14019A DoTabActivate
  : Attributes
    Seq: ( ME_4C864E34020B // tvAttributes
  ME_4979DA630067 // CoDS
- ME_833591437CF5 // f_tvAttributes
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_F1BA23F5F37B // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_37BE60CD03ED_ME_4979DA14019A // fDocAttributeQueryClose
  ME_497F16AC015A_ME_4979DA14019A // DoTabActivate
@@ -379,7 +332,6 @@ ref; // ME_497F16AC015A_ME_4979DA14019A DoTabActivate
  ME_4B150D2803AA // TnsViewDocumentAttributesEvent
  ME_4BD6BAB001E7 // Switcher$SetCaption
  ME_4BD6BADC007A // Document$MangleForSpell
- ME_F00FB77EE170 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -725,21 +677,6 @@ ref; // ME_511A3D830071 DoIt
 
 ref; // ME_511A3D5D01FA tvAttributesMakeTreeSource
 
-: ME_BE4B3C1AAA12
- CONST UID 'BE4B3C1AAA12'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimAttributesOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8647C8024E // PrimAttributesOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BE4B3C1AAA12 Ini_Reg_Class
-
 : ME_4C864DF70054
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1004,17 +941,6 @@ ref; // ME_5243F79600F3
 
 ref; // ME_55BF979A025A 
 
-: ME_AE7A8771F66C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8647C8024E // PrimAttributesOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AE7A8771F66C 
-
 : ME_49521D8E0295_ME_4C8647C8024E
  : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
  ;
@@ -1137,7 +1063,6 @@ ref; // ME_4A8E8F2E0195_ME_4C8647C8024E InitControls
  ME_4C864DD70182 // HasTree
  ME_511A3C6F0383 // tvAttributesGetItemImage
  ME_511A3D5D01FA // tvAttributesMakeTreeSource
- ME_BE4B3C1AAA12 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1181,7 +1106,6 @@ ref; // ME_4A8E8F2E0195_ME_4C8647C8024E InitControls
  ME_5243F4640073 // Tree
  ME_5243F79600F3 // Tree
  ME_55BF979A025A // DataAdapter
- ME_AE7A8771F66C // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -1250,7 +1174,6 @@ ref; // ME_4C8647C8024E PrimAttributesOptions
  WL 'ME_4F71AD0E01FE' '4F71AD0E01FE.pas.ms.script' // InternalOperations
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

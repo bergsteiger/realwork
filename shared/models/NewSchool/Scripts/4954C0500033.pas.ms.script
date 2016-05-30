@@ -120,21 +120,6 @@ ref; // ME_4ADDD31E0091 NeedTerminateOnExit
 
 ref; // ME_4ADDD5A30139 AskMayExit
 
-: ME_D13C657F0D90
- CONST UID 'D13C657F0D90'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация OfficeLikeMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4ADDD3030251 // OfficeLikeMain
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D13C657F0D90 Ini_Reg_Class
-
 : ME_4ADDD8B00259
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -165,16 +150,15 @@ ref; // ME_51E69A8100F0
 
 ref; // ME_51E69B3D019F 
 
-: ME_FB03CE265926
- CONST IsSummoned true
+: ME_57454D72022B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4ADDD3030251 // OfficeLikeMain
  ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ : Target WL 'ME_49940B4A02FC' '4683F37902CF.pas.ms.script' // IvcmHistory
  ;
 
-ref; // ME_FB03CE265926 
+ref; // ME_57454D72022B 
 
 : ME_4ADDD377028F_ME_4ADDD3030251
  : Original WL 'ME_4ADDD377028F' '494F898C013E.pas.ms.script' // Exit
@@ -251,7 +235,6 @@ ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
  ME_4C8DDEA5007E // DoForward
  ME_4ADDD31E0091 // NeedTerminateOnExit
  ME_4ADDD5A30139 // AskMayExit
- ME_D13C657F0D90 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -268,10 +251,11 @@ ref; // ME_47D1602000C6_ME_4ADDD3030251 Create
    Seq: ( ME_4ADDD8B00259 // Windows
  ME_51E69A8100F0 // TvcmBaseOperationsCollectionItem
  ME_51E69B3D019F // TvcmOperationOption
- ME_FB03CE265926 // TtfwClassRef
+ ME_57454D72022B // IvcmHistory
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
+ CONST "UseNewGen" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
  CONST "resizeable" false
@@ -404,6 +388,7 @@ ref; // ME_4ADDCE970294 OfficeLike
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3

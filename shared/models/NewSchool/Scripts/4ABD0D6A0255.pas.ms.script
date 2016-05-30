@@ -367,86 +367,6 @@ ref; // ME_4ACA197F0147 ContainerForBaseSearch
 
 ref; // ME_4AD6F68901A0 f_ArrangeCount
 
-: ME_4E1C69E372CB
- CONST UID '4E1C69E372CB'
- CONST Name 'f_pnlMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_4E1C69E372CB f_pnlMain
-
-: ME_BE9A6E491D11
- CONST UID 'BE9A6E491D11'
- CONST Name 'f_hfLastOpenDocs'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства hfLastOpenDocs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- ;
-
-ref; // ME_BE9A6E491D11 f_hfLastOpenDocs
-
-: ME_7A242D53E4C3
- CONST UID '7A242D53E4C3'
- CONST Name 'f_tvLastOpenDocs'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvLastOpenDocs' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4B60346A022E' '499C2614028C.pas.ms.script' // TnscTreeViewHotTruck
- ;
-
-ref; // ME_7A242D53E4C3 f_tvLastOpenDocs
-
-: ME_28F100E269A3
- CONST UID '28F100E269A3'
- CONST Name 'f_Grid'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Grid' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.pas.ms.script' // InscArrangeGrid
- ;
-
-ref; // ME_28F100E269A3 f_Grid
-
-: ME_CFB4EDC0F506
- CONST UID 'CFB4EDC0F506'
- CONST Name 'f_TreeStyle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TreeStyle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target ME_4AC9C91202FA // TnsTreeStyleManager
- ;
-
-ref; // ME_CFB4EDC0F506 f_TreeStyle
-
 FORWARD ME_4AC9B1BB022A
 
 : ME_4AC9B1C8033D
@@ -978,21 +898,6 @@ ref; // ME_4AD34690022E aGrid
 
 ref; // ME_4AD3468102DB DoRecalcGrid
 
-: ME_CD4C602D461B
- CONST UID 'CD4C602D461B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimMainMenu' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CD4C602D461B Ini_Reg_Class
-
 FORWARD ME_4AC9A40B038E
 
 : ME_4AC9A423001E
@@ -1045,17 +950,6 @@ ref; // ME_4AC9D3CE0102
 
 ref; // ME_4ACDD79200DA 
 
-: ME_E3078D3DD29D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4958DD7002B6 // PrimMainMenu
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E3078D3DD29D 
-
 : ME_4A485B710126_ME_4958DD7002B6
  : Original WL 'ME_4A485B710126' '47ECB2870309.pas.ms.script' // DoStyleTableChanged
  ;
@@ -1104,12 +998,6 @@ ref; // ME_4A8E8F2E0195_ME_4958DD7002B6 InitControls
  CONST OpKind opkind_Overridden
 ref; // ME_4B4F49900003_ME_4958DD7002B6 SaveOwnFormState
 
-: ME_5000565C019C_ME_4958DD7002B6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4958DD7002B6 ClearFields
-
 : ME_4958DD7002B6
  CONST UID '4958DD7002B6'
  CONST Name 'PrimMainMenu'
@@ -1139,11 +1027,6 @@ ref; // ME_5000565C019C_ME_4958DD7002B6 ClearFields
  ME_4AC9CB47002A // f_TabTable
  ME_4ACA197F0147 // ContainerForBaseSearch
  ME_4AD6F68901A0 // f_ArrangeCount
- ME_4E1C69E372CB // f_pnlMain
- ME_BE9A6E491D11 // f_hfLastOpenDocs
- ME_7A242D53E4C3 // f_tvLastOpenDocs
- ME_28F100E269A3 // f_Grid
- ME_CFB4EDC0F506 // f_TreeStyle
  )
  ; // Attributes
  : Operations
@@ -1162,7 +1045,6 @@ ref; // ME_5000565C019C_ME_4958DD7002B6 ClearFields
  ME_4AC9E9EC0064 // LoadTrees
  ME_4ACB2F98002B // NewSchool
  ME_4AD3468102DB // DoRecalcGrid
- ME_CD4C602D461B // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1177,7 +1059,6 @@ ref; // ME_5000565C019C_ME_4958DD7002B6 ClearFields
  ME_49807428008C_ME_4958DD7002B6 // DoLoadState
  ME_4A8E8F2E0195_ME_4958DD7002B6 // InitControls
  ME_4B4F49900003_ME_4958DD7002B6 // SaveOwnFormState
- ME_5000565C019C_ME_4958DD7002B6 // ClearFields
  )
  ; // Overridden
  : Children
@@ -1190,7 +1071,6 @@ ref; // ME_5000565C019C_ME_4958DD7002B6 ClearFields
  ME_4AC9C74B039B // nsConst
  ME_4AC9D3CE0102 // StdRes
  ME_4ACDD79200DA // TlgQueryType
- ME_E3078D3DD29D // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -2370,7 +2250,6 @@ ref; // ME_4AC9A3F801F3 nsMainMenuNew
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "path prefix" '/MainMenu/Forms'

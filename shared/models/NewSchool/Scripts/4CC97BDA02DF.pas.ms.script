@@ -530,101 +530,6 @@ ref; // ME_4CFCD7B30075 Const
 
 ref; // ME_4D7A37D90398 BaseSearch
 
-FORWARD ME_0FE8900819BD
-
-: ME_3E2D21BE520F
- CONST UID '3E2D21BE520F'
- CONST Name 'BaseSearchCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Базовый поиск"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0FE8900819BD // BaseSearchLocalConstants
- ;
- CONST Value '''Базовый поиск'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Базовый поиск'''
-
-ref; // ME_3E2D21BE520F BaseSearchCaption
-
-: ME_0FE8900819BD
- CONST UID '0FE8900819BD'
- CONST Name 'BaseSearchLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы BaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Attributes
-   Seq: ( ME_3E2D21BE520F // BaseSearchCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_0FE8900819BD BaseSearchLocalConstants
-
-FORWARD ME_EE5A70848033
-
-: ME_D899431C57C2
- CONST UID 'D899431C57C2'
- CONST Name 'BaseSearchCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Базовый поиск"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EE5A70848033 // LCImplBaseSearchLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''BaseSearchCaption''; rValue : ''Базовый поиск'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''BaseSearchCaption''; rValue : ''Базовый поиск'')'
- : Speller ME_3E2D21BE520F // BaseSearchCaption
- ;
-
-ref; // ME_D899431C57C2 BaseSearchCaption
-
-: ME_EE5A70848033
- CONST UID 'EE5A70848033'
- CONST Name 'LCImplBaseSearchLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки BaseSearchLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Attributes
-   Seq: ( ME_D899431C57C2 // BaseSearchCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_0FE8900819BD // BaseSearchLocalConstants
- ;
-
-ref; // ME_EE5A70848033 LCImplBaseSearchLocalConstants
-
 : ME_4CF4D1240072
  CONST UID '4CF4D1240072'
  CONST Name 'ContextEdit'
@@ -1933,24 +1838,6 @@ ref; // ME_565445EE01EF aData
 
 ref; // ME_565445DF038D MakeSingleChild
 
-: ME_03CA7052C1CE
- CONST UID '03CA7052C1CE'
- CONST Name 'Init_Str_BaseSearchCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_BaseSearchCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Speller ME_3E2D21BE520F // BaseSearchCaption
- ;
- : SpelledFor ME_D899431C57C2 // BaseSearchCaption
- ;
-
-ref; // ME_03CA7052C1CE Init_Str_BaseSearchCaption
-
 : ME_A77233AF329D
  CONST UID 'A77233AF329D'
  CONST Name 'Ini_Reg_Class'
@@ -2167,28 +2054,6 @@ ref; // ME_56167106024D
  ;
 
 ref; // ME_5654228601E3 
-
-: ME_8242A36A6323
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_8242A36A6323 
-
-: ME_920D55FA05D3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_920D55FA05D3 
 
 : ME_4BD95767E4D0
  CONST IsSummoned true
@@ -2588,7 +2453,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ME_4CF4DC7C0129 // UpdateExamplePanelWidthAndPosition
  ME_506AB26A0032 // CMVisibleChanged
  ME_565445DF038D // MakeSingleChild
- ME_03CA7052C1CE // Init_Str_BaseSearchCaption
  ME_A77233AF329D // Ini_Reg_Class
  )
  ; // Operations
@@ -2649,8 +2513,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ; // Children
  : Constants
    Seq: ( ME_4CFCD7B30075 // Const
- ME_0FE8900819BD // BaseSearchLocalConstants
- ME_EE5A70848033 // LCImplBaseSearchLocalConstants
  )
  ; // Constants
  : Dependencies
@@ -2674,8 +2536,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ME_5534E19D03D7 // vcmTabbedContainerFormDispatcher
  ME_56167106024D // TnsSearchWindowManager
  ME_5654228601E3 // TnsBaseSearchService
- ME_8242A36A6323 // Tl3StringIDEx
- ME_920D55FA05D3 // Tl3MessageID
  ME_4BD95767E4D0 // TtfwClassRef
  )
  ; // Dependencies
@@ -2698,32 +2558,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
 ref; // ME_4AB791130260 PrimBaseSearch
 
 FORWARD ME_4CC7F0CE0267
-
-: ME_8E1DBEF5BFBD
- CONST UID '8E1DBEF5BFBD'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimBaseSearchOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CC7F0CE0267 // PrimBaseSearchOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_8E1DBEF5BFBD Ini_Reg_Class
-
-: ME_3661ACFD0C34
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CC7F0CE0267 // PrimBaseSearchOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3661ACFD0C34 
 
 : ME_495130C40123_ME_4CC7F0CE0267
  : Original WL 'ME_495130C40123' '495127DD017C.pas.ms.script' // FindNext
@@ -2804,10 +2638,6 @@ ref; // ME_49FEDE4703B8_ME_4CC7F0CE0267 FindPrev
  WL 'ME_4F4F7DB0003B' '484FA67302D7.pas.ms.script' // Если фокус стоит в форме БП, то операция "Найти далее" должна быть доступной
  )
  ; // Implements
- : Operations
-   Seq: ( ME_8E1DBEF5BFBD // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_495130C40123_ME_4CC7F0CE0267 // FindNext
  ME_49EDFCA2006D_ME_4CC7F0CE0267 // Undo
@@ -2815,10 +2645,6 @@ ref; // ME_49FEDE4703B8_ME_4CC7F0CE0267 FindPrev
  ME_49FEDE4703B8_ME_4CC7F0CE0267 // FindPrev
  )
  ; // Implemented
- : Dependencies
-   Seq: ( ME_3661ACFD0C34 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -2893,84 +2719,6 @@ ref; // ME_51264266006F QueryHistory
  CONST "spell names" false
 
 ref; // ME_512642160113 BaseSearchLocalConst
-
-FORWARD ME_07D0154BDF71
-
-: ME_329AEB0334A9
- CONST UID '329AEB0334A9'
- CONST Name 'BaseSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Базовый поиск''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_07D0154BDF71 // LCImplBaseSearchLocalConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''BaseSearch''; rValue : ''Базовый поиск'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''BaseSearch''; rValue : ''Базовый поиск'')'
- : Speller ME_5126422D017C // BaseSearch
- ;
-
-ref; // ME_329AEB0334A9 BaseSearch
-
-: ME_9821B97FF715
- CONST UID '9821B97FF715'
- CONST Name 'QueryHistory'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''История запросов''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_07D0154BDF71 // LCImplBaseSearchLocalConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''QueryHistory''; rValue : ''История запросов'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''QueryHistory''; rValue : ''История запросов'')'
- : Speller ME_51264266006F // QueryHistory
- ;
-
-ref; // ME_9821B97FF715 QueryHistory
-
-: ME_07D0154BDF71
- CONST UID '07D0154BDF71'
- CONST Name 'LCImplBaseSearchLocalConst'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки BaseSearchLocalConst' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Attributes
-   Seq: ( ME_329AEB0334A9 // BaseSearch
- ME_9821B97FF715 // QueryHistory
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_512642160113 // BaseSearchLocalConst
- ;
-
-ref; // ME_07D0154BDF71 LCImplBaseSearchLocalConst
 
 FORWARD ME_51237BAA0307
 
@@ -3080,85 +2828,6 @@ ref; // ME_51237BAA0307 pnlMain
 
 ref; // ME_5123CA6D00B3 f_qhBaseSearch
 
-: ME_983A3310BA12
- CONST UID '983A3310BA12'
- CONST Name 'f_pnlMain'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnlMain' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_983A3310BA12 f_pnlMain
-
-: ME_307092903B7B
- CONST UID '307092903B7B'
- CONST Name 'f_hfBaseSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства hfBaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_4AC9C67300A2' '4AC9B14A02E3.pas.ms.script' // TnscHideField
- ;
-
-ref; // ME_307092903B7B f_hfBaseSearch
-
-: ME_B1BE816384A2
- CONST UID 'B1BE816384A2'
- CONST Name 'f_lrBaseSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lrBaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_512388D403AF' '512388B6013B.pas.ms.script' // TnscLister
- ;
-
-ref; // ME_B1BE816384A2 f_lrBaseSearch
-
-: ME_536FA2C7A8E9
- CONST UID '536FA2C7A8E9'
- CONST Name 'f_CardTextLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CardTextLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_4CFF6CF60266' '4E1352A60292.pas.ms.script' // TnscSimpleEditor
- ;
-
-ref; // ME_536FA2C7A8E9 f_CardTextLabel
-
-FORWARD ME_51237AB402B9
-
-: ME_3FDC4D8B94D9
- CONST UID '3FDC4D8B94D9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadQueryHistory' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_51237AB402B9 // LoadQueryHistory
- ;
-
-ref; // ME_3FDC4D8B94D9 DoIt
-
 : ME_51237AB402B9
  CONST UID '51237AB402B9'
  CONST Name 'LoadQueryHistory'
@@ -3169,10 +2838,6 @@ ref; // ME_3FDC4D8B94D9 DoIt
  CONST Abstraction at_final
  : Parent ME_4AB7A3210135 // PrimBaseSearchCard
  ;
- : Operations
-   Seq: ( ME_3FDC4D8B94D9 // DoIt
- )
- ; // Operations
 
 ref; // ME_51237AB402B9 LoadQueryHistory
 
@@ -3834,57 +3499,6 @@ ref; // ME_530D96D9030B DoIt
 
 ref; // ME_530D96990038 CardTextLabelResize
 
-: ME_C0E639F7D624
- CONST UID 'C0E639F7D624'
- CONST Name 'Init_Str_BaseSearch'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_BaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Speller ME_5126422D017C // BaseSearch
- ;
- : SpelledFor ME_329AEB0334A9 // BaseSearch
- ;
-
-ref; // ME_C0E639F7D624 Init_Str_BaseSearch
-
-: ME_392658E87472
- CONST UID '392658E87472'
- CONST Name 'Init_Str_QueryHistory'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_QueryHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Speller ME_51264266006F // QueryHistory
- ;
- : SpelledFor ME_9821B97FF715 // QueryHistory
- ;
-
-ref; // ME_392658E87472 Init_Str_QueryHistory
-
-: ME_BCC664E4AB14
- CONST UID 'BCC664E4AB14'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimBaseSearchCard' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BCC664E4AB14 Ini_Reg_Class
-
 : ME_51239AC902CD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4145,39 +3759,6 @@ ref; // ME_5305BD1201A6
 
 ref; // ME_561CECE601AF 
 
-: ME_3E08794B945C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_3E08794B945C 
-
-: ME_DEF8F12EC1EF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_DEF8F12EC1EF 
-
-: ME_A6DEC8CFB82E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB7A3210135 // PrimBaseSearchCard
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A6DEC8CFB82E 
-
 : ME_496B4C41023E_ME_4AB7A3210135
  : Original WL 'ME_496B4C41023E' '4A9F98B901A5.pas.ms.script' // WindowRequired
  ;
@@ -4357,10 +3938,6 @@ ref; // ME_4F7C65380244_ME_4AB7A3210135 FormInsertedIntoContainer
  : Attributes
    Seq: ( ME_51237BAA0307 // pnlMain
  ME_5123CA6D00B3 // f_qhBaseSearch
- ME_983A3310BA12 // f_pnlMain
- ME_307092903B7B // f_hfBaseSearch
- ME_B1BE816384A2 // f_lrBaseSearch
- ME_536FA2C7A8E9 // f_CardTextLabel
  )
  ; // Attributes
  : Operations
@@ -4376,9 +3953,6 @@ ref; // ME_4F7C65380244_ME_4AB7A3210135 FormInsertedIntoContainer
  ME_51237FB70279 // CardTextLabelMouseAction
  ME_5123803503BC // CardTextLabelGetHotSpotInfo
  ME_530D96990038 // CardTextLabelResize
- ME_C0E639F7D624 // Init_Str_BaseSearch
- ME_392658E87472 // Init_Str_QueryHistory
- ME_BCC664E4AB14 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -4411,7 +3985,6 @@ ref; // ME_4F7C65380244_ME_4AB7A3210135 FormInsertedIntoContainer
  ; // Overridden
  : Constants
    Seq: ( ME_512642160113 // BaseSearchLocalConst
- ME_07D0154BDF71 // LCImplBaseSearchLocalConst
  )
  ; // Constants
  : Dependencies
@@ -4441,9 +4014,6 @@ ref; // ME_4F7C65380244_ME_4AB7A3210135 FormInsertedIntoContainer
  ME_53049179016B // nscArrangeGrid
  ME_5305BD1201A6 // nsMainMenuNew
  ME_561CECE601AF // Tl3ListenersManager
- ME_3E08794B945C // Tl3StringIDEx
- ME_DEF8F12EC1EF // Tl3MessageID
- ME_A6DEC8CFB82E // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -4977,347 +4547,6 @@ ref; // ME_4CFE275A03E7 FoundFragmentCountHint
 
 ref; // ME_4CFE21BB0104 Local
 
-FORWARD ME_9013FE29339C
-
-: ME_B58118333596
- CONST UID 'B58118333596'
- CONST Name 'Everywhere'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Везде''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9013FE29339C // LCImplAreaStrings
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''asEverywhere''; rValue : ''Везде'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''asEverywhere''; rValue : ''Везде'')'
- : Speller ME_4CFE0EBA03A4 // Everywhere
- ;
-
-ref; // ME_B58118333596 Everywhere
-
-: ME_5710AE7FCC30
- CONST UID '5710AE7FCC30'
- CONST Name 'ListDocuments'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список: в документах''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9013FE29339C // LCImplAreaStrings
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''asListDocuments''; rValue : ''Список: в документах'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''asListDocuments''; rValue : ''Список: в документах'')'
- : Speller ME_4CFE0ED5031B // ListDocuments
- ;
-
-ref; // ME_5710AE7FCC30 ListDocuments
-
-: ME_4D591D289E83
- CONST UID '4D591D289E83'
- CONST Name 'ListNames'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Список: в названиях''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9013FE29339C // LCImplAreaStrings
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''asListNames''; rValue : ''Список: в названиях'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''asListNames''; rValue : ''Список: в названиях'')'
- : Speller ME_4CFE0F0600D3 // ListNames
- ;
-
-ref; // ME_4D591D289E83 ListNames
-
-: ME_48E3400735C8
- CONST UID '48E3400735C8'
- CONST Name 'Document'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''В документе''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9013FE29339C // LCImplAreaStrings
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''asDocument''; rValue : ''В документе'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''asDocument''; rValue : ''В документе'')'
- : Speller ME_4CFE0F260149 // Document
- ;
-
-ref; // ME_48E3400735C8 Document
-
-: ME_9013FE29339C
- CONST UID '9013FE29339C'
- CONST Name 'LCImplAreaStrings'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки AreaStrings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Attributes
-   Seq: ( ME_B58118333596 // Everywhere
- ME_5710AE7FCC30 // ListDocuments
- ME_4D591D289E83 // ListNames
- ME_48E3400735C8 // Document
- )
- ; // Attributes
- CONST "children prefix" 'as'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_as'
- : Speller ME_4CFE0E7D012A // AreaStrings
- ;
-
-ref; // ME_9013FE29339C LCImplAreaStrings
-
-FORWARD ME_EB26C0CC29D8
-
-: ME_4210F468A7BD
- CONST UID '4210F468A7BD'
- CONST Name 'Example'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Пример:''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EB26C0CC29D8 // LCImplExampleText
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''etExample''; rValue : ''Пример:'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''etExample''; rValue : ''Пример:'')'
- : Speller ME_4CFF85AE003D // Example
- ;
-
-ref; // ME_4210F468A7BD Example
-
-: ME_8871AC731C9B
- CONST UID '8871AC731C9B'
- CONST Name 'FoundCount'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Всего найдено''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EB26C0CC29D8 // LCImplExampleText
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''etFoundCount''; rValue : ''Всего найдено'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''etFoundCount''; rValue : ''Всего найдено'')'
- : Speller ME_4CFF85C103A0 // FoundCount
- ;
-
-ref; // ME_8871AC731C9B FoundCount
-
-: ME_EB26C0CC29D8
- CONST UID 'EB26C0CC29D8'
- CONST Name 'LCImplExampleText'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ExampleText' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Attributes
-   Seq: ( ME_4210F468A7BD // Example
- ME_8871AC731C9B // FoundCount
- )
- ; // Attributes
- CONST "children prefix" 'et'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_et'
- : Speller ME_4CFF858F0113 // ExampleText
- ;
-
-ref; // ME_EB26C0CC29D8 LCImplExampleText
-
-FORWARD ME_D84D39BDF8F9
-
-: ME_7E8480360279
- CONST UID '7E8480360279'
- CONST Name 'More'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Еще''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_D84D39BDF8F9 // LCImplMoreTabConsts
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''mtcMore''; rValue : ''Еще'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mtcMore''; rValue : ''Еще'')'
- : Speller ME_4D4998B5035A // More
- ;
-
-ref; // ME_7E8480360279 More
-
-: ME_D84D39BDF8F9
- CONST UID 'D84D39BDF8F9'
- CONST Name 'LCImplMoreTabConsts'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки MoreTabConsts' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Attributes
-   Seq: ( ME_7E8480360279 // More
- )
- ; // Attributes
- CONST "children prefix" 'mtc'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_mtc'
- : Speller ME_4D499894017A // MoreTabConsts
- ;
-
-ref; // ME_D84D39BDF8F9 LCImplMoreTabConsts
-
-FORWARD ME_179E7132A647
-
-: ME_DD1CAED2E353
- CONST UID 'DD1CAED2E353'
- CONST Name 'ClassNotInBase'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Данный вид информации отсутствует в Вашем комплекте''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_179E7132A647 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ClassNotInBase''; rValue : ''Данный вид информации отсутствует в Вашем комплекте'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ClassNotInBase''; rValue : ''Данный вид информации отсутствует в Вашем комплекте'')'
- : Speller ME_4CFE21CD0369 // ClassNotInBase
- ;
-
-ref; // ME_DD1CAED2E353 ClassNotInBase
-
-: ME_6ABFAB0BFA6D
- CONST UID '6ABFAB0BFA6D'
- CONST Name 'FoundFragmentCountHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Количество найденных в документе вхождений с искомым контекстом''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_179E7132A647 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''FoundFragmentCountHint''; rValue : ''Количество найденных в документе вхождений с искомым контекстом'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''FoundFragmentCountHint''; rValue : ''Количество найденных в документе вхождений с искомым контекстом'')'
- : Speller ME_4CFE275A03E7 // FoundFragmentCountHint
- ;
-
-ref; // ME_6ABFAB0BFA6D FoundFragmentCountHint
-
-: ME_179E7132A647
- CONST UID '179E7132A647'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Attributes
-   Seq: ( ME_DD1CAED2E353 // ClassNotInBase
- ME_6ABFAB0BFA6D // FoundFragmentCountHint
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4CFE21BB0104 // Local
- ;
-
-ref; // ME_179E7132A647 LCImplLocal
-
 : ME_4CFCE561011D
  CONST UID '4CFCE561011D'
  CONST Name 'FindBtn'
@@ -5726,294 +4955,6 @@ ref; // ME_4CFCF4C60030 f_Themes
  CONST "pm" true
 
 ref; // ME_4DE66D94033D ActiveClassTab
-
-: ME_26972263CF7E
- CONST UID '26972263CF7E'
- CONST Name 'f_FindBtn'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FindBtn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFCE54B01B0' '4CFCE51A00B0.pas.ms.script' // TvgPathButton
- ;
-
-ref; // ME_26972263CF7E f_FindBtn
-
-: ME_155C71D23CE8
- CONST UID '155C71D23CE8'
- CONST Name 'f_FindBackBtn'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FindBackBtn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFCE54B01B0' '4CFCE51A00B0.pas.ms.script' // TvgPathButton
- ;
-
-ref; // ME_155C71D23CE8 f_FindBackBtn
-
-: ME_A8B8E9BA7492
- CONST UID 'A8B8E9BA7492'
- CONST Name 'f_CloseBtn'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CloseBtn' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFCE5A10367' '4CFCE51A00B0.pas.ms.script' // TvgCloseButton
- ;
-
-ref; // ME_A8B8E9BA7492 f_CloseBtn
-
-: ME_BF40D0D2A5E5
- CONST UID 'BF40D0D2A5E5'
- CONST Name 'f_AreaCombo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства AreaCombo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4D3D71CE0254' '4CFCE51A00B0.pas.ms.script' // TvgComboBox
- ;
-
-ref; // ME_BF40D0D2A5E5 f_AreaCombo
-
-: ME_A3CFB59B0B96
- CONST UID 'A3CFB59B0B96'
- CONST Name 'f_QueryExampleLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства QueryExampleLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFE2C800399' '4CFCE51A00B0.pas.ms.script' // TvgText
- ;
-
-ref; // ME_A3CFB59B0B96 f_QueryExampleLabel
-
-: ME_1DB1B818980B
- CONST UID '1DB1B818980B'
- CONST Name 'f_DropButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства DropButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFF5690033D' '4CFCE51A00B0.pas.ms.script' // TvgButton
- ;
-
-ref; // ME_1DB1B818980B f_DropButton
-
-: ME_F271CB83A8DD
- CONST UID 'F271CB83A8DD'
- CONST Name 'f_FoundCountLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FoundCountLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFE2C800399' '4CFCE51A00B0.pas.ms.script' // TvgText
- ;
-
-ref; // ME_F271CB83A8DD f_FoundCountLabel
-
-: ME_46B13FEECEFA
- CONST UID '46B13FEECEFA'
- CONST Name 'f_ExampleLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ExampleLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFE2C800399' '4CFCE51A00B0.pas.ms.script' // TvgText
- ;
-
-ref; // ME_46B13FEECEFA f_ExampleLabel
-
-: ME_5BB21D116CE8
- CONST UID '5BB21D116CE8'
- CONST Name 'f_ContextEditPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextEditPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFFAE9802DF' '4CFCE51A00B0.pas.ms.script' // TvgNonVGLayout
- ;
-
-ref; // ME_5BB21D116CE8 f_ContextEditPanel
-
-: ME_D35910AEEE24
- CONST UID 'D35910AEEE24'
- CONST Name 'f_Layout1'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Layout1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFFB1A00237' '4CFCE51A00B0.pas.ms.script' // TvgLayout
- ;
-
-ref; // ME_D35910AEEE24 f_Layout1
-
-: ME_6241275F33D5
- CONST UID '6241275F33D5'
- CONST Name 'f_Layout2'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Layout2' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFFB1A00237' '4CFCE51A00B0.pas.ms.script' // TvgLayout
- ;
-
-ref; // ME_6241275F33D5 f_Layout2
-
-: ME_6AC686B8575C
- CONST UID '6AC686B8575C'
- CONST Name 'f_Layout3'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Layout3' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFFB1A00237' '4CFCE51A00B0.pas.ms.script' // TvgLayout
- ;
-
-ref; // ME_6AC686B8575C f_Layout3
-
-: ME_A2C56F4CCC88
- CONST UID 'A2C56F4CCC88'
- CONST Name 'f_vgScene1'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства vgScene1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.pas.ms.script' // TvgScene
- ;
-
-ref; // ME_A2C56F4CCC88 f_vgScene1
-
-: ME_84EF1F1A0B10
- CONST UID '84EF1F1A0B10'
- CONST Name 'f_MoreTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MoreTab' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4D3D71CE0254' '4CFCE51A00B0.pas.ms.script' // TvgComboBox
- ;
-
-ref; // ME_84EF1F1A0B10 f_MoreTab
-
-: ME_B390A87DFCF8
- CONST UID 'B390A87DFCF8'
- CONST Name 'f_Border'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Border' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
- ;
-
-ref; // ME_B390A87DFCF8 f_Border
-
-: ME_04EA22BEBD61
- CONST UID '04EA22BEBD61'
- CONST Name 'f_InnerBorder'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InnerBorder' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
- ;
-
-ref; // ME_04EA22BEBD61 f_InnerBorder
-
-: ME_46485D709CD9
- CONST UID '46485D709CD9'
- CONST Name 'f_MostOuterRectangle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MostOuterRectangle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
- ;
-
-ref; // ME_46485D709CD9 f_MostOuterRectangle
-
-: ME_776367498472
- CONST UID '776367498472'
- CONST Name 'f_Rectangle1'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Rectangle1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4D70E5440067' '4CFCE51A00B0.pas.ms.script' // TvgRectangle
- ;
-
-ref; // ME_776367498472 f_Rectangle1
 
 FORWARD ME_4CFE4BA60063
 
@@ -6452,183 +5393,6 @@ ref; // ME_4E78993C00F5 DoIt
 
 ref; // ME_4E7899330095 DoEmptyAddingClick
 
-: ME_E0773D57312F
- CONST UID 'E0773D57312F'
- CONST Name 'Init_Str_Everywhere'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_asEverywhere' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFE0EBA03A4 // Everywhere
- ;
- : SpelledFor ME_B58118333596 // Everywhere
- ;
-
-ref; // ME_E0773D57312F Init_Str_Everywhere
-
-: ME_25A76E560E94
- CONST UID '25A76E560E94'
- CONST Name 'Init_Str_ListDocuments'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_asListDocuments' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFE0ED5031B // ListDocuments
- ;
- : SpelledFor ME_5710AE7FCC30 // ListDocuments
- ;
-
-ref; // ME_25A76E560E94 Init_Str_ListDocuments
-
-: ME_69DAFE765DFB
- CONST UID '69DAFE765DFB'
- CONST Name 'Init_Str_ListNames'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_asListNames' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFE0F0600D3 // ListNames
- ;
- : SpelledFor ME_4D591D289E83 // ListNames
- ;
-
-ref; // ME_69DAFE765DFB Init_Str_ListNames
-
-: ME_35D764FF2690
- CONST UID '35D764FF2690'
- CONST Name 'Init_Str_Document'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_asDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFE0F260149 // Document
- ;
- : SpelledFor ME_48E3400735C8 // Document
- ;
-
-ref; // ME_35D764FF2690 Init_Str_Document
-
-: ME_99B95C4E34F3
- CONST UID '99B95C4E34F3'
- CONST Name 'Init_Str_Example'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_etExample' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFF85AE003D // Example
- ;
- : SpelledFor ME_4210F468A7BD // Example
- ;
-
-ref; // ME_99B95C4E34F3 Init_Str_Example
-
-: ME_1828DFB31B3E
- CONST UID '1828DFB31B3E'
- CONST Name 'Init_Str_FoundCount'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_etFoundCount' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFF85C103A0 // FoundCount
- ;
- : SpelledFor ME_8871AC731C9B // FoundCount
- ;
-
-ref; // ME_1828DFB31B3E Init_Str_FoundCount
-
-: ME_AF10514B5455
- CONST UID 'AF10514B5455'
- CONST Name 'Init_Str_More'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_mtcMore' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4D4998B5035A // More
- ;
- : SpelledFor ME_7E8480360279 // More
- ;
-
-ref; // ME_AF10514B5455 Init_Str_More
-
-: ME_35F9CDCB1530
- CONST UID '35F9CDCB1530'
- CONST Name 'Init_Str_ClassNotInBase'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ClassNotInBase' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFE21CD0369 // ClassNotInBase
- ;
- : SpelledFor ME_DD1CAED2E353 // ClassNotInBase
- ;
-
-ref; // ME_35F9CDCB1530 Init_Str_ClassNotInBase
-
-: ME_96DBE393E44A
- CONST UID '96DBE393E44A'
- CONST Name 'Init_Str_FoundFragmentCountHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_FoundFragmentCountHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Speller ME_4CFE275A03E7 // FoundFragmentCountHint
- ;
- : SpelledFor ME_6ABFAB0BFA6D // FoundFragmentCountHint
- ;
-
-ref; // ME_96DBE393E44A Init_Str_FoundFragmentCountHint
-
-: ME_6E56CA4E4F07
- CONST UID '6E56CA4E4F07'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация NewBaseSearchForDFM' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6E56CA4E4F07 Ini_Reg_Class
-
 : ME_4CFCF8B601B0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -6758,39 +5522,6 @@ ref; // ME_4EAFE56B02F4
  ;
 
 ref; // ME_4EAFE59B0229 
-
-: ME_09F2B6BC389C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_09F2B6BC389C 
-
-: ME_9E2EFE75170C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_9E2EFE75170C 
-
-: ME_301268185607
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CFCBB3600E0 // NewBaseSearchForDFM
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_301268185607 
 
 : ME_4CF4D1AD01B3_ME_4CFCBB3600E0
  : Original ME_4CF4D1AD01B3 // AdjustParamsPagesHeight
@@ -6952,24 +5683,6 @@ ref; // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
  ME_4DE6764D000D // Rectangle1
  ME_4CFCF4C60030 // f_Themes
  ME_4DE66D94033D // ActiveClassTab
- ME_26972263CF7E // f_FindBtn
- ME_155C71D23CE8 // f_FindBackBtn
- ME_A8B8E9BA7492 // f_CloseBtn
- ME_BF40D0D2A5E5 // f_AreaCombo
- ME_A3CFB59B0B96 // f_QueryExampleLabel
- ME_1DB1B818980B // f_DropButton
- ME_F271CB83A8DD // f_FoundCountLabel
- ME_46B13FEECEFA // f_ExampleLabel
- ME_5BB21D116CE8 // f_ContextEditPanel
- ME_D35910AEEE24 // f_Layout1
- ME_6241275F33D5 // f_Layout2
- ME_6AC686B8575C // f_Layout3
- ME_A2C56F4CCC88 // f_vgScene1
- ME_84EF1F1A0B10 // f_MoreTab
- ME_B390A87DFCF8 // f_Border
- ME_04EA22BEBD61 // f_InnerBorder
- ME_46485D709CD9 // f_MostOuterRectangle
- ME_776367498472 // f_Rectangle1
  )
  ; // Attributes
  : Operations
@@ -6982,16 +5695,6 @@ ref; // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
  ME_4D5C0D11022D // TabChange
  ME_4D70ED5901BF // ContextEditFocusChanged
  ME_4E7899330095 // DoEmptyAddingClick
- ME_E0773D57312F // Init_Str_Everywhere
- ME_25A76E560E94 // Init_Str_ListDocuments
- ME_69DAFE765DFB // Init_Str_ListNames
- ME_35D764FF2690 // Init_Str_Document
- ME_99B95C4E34F3 // Init_Str_Example
- ME_1828DFB31B3E // Init_Str_FoundCount
- ME_AF10514B5455 // Init_Str_More
- ME_35F9CDCB1530 // Init_Str_ClassNotInBase
- ME_96DBE393E44A // Init_Str_FoundFragmentCountHint
- ME_6E56CA4E4F07 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -7029,10 +5732,6 @@ ref; // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
  ME_4CFF858F0113 // ExampleText
  ME_4D499894017A // MoreTabConsts
  ME_4CFE21BB0104 // Local
- ME_9013FE29339C // LCImplAreaStrings
- ME_EB26C0CC29D8 // LCImplExampleText
- ME_D84D39BDF8F9 // LCImplMoreTabConsts
- ME_179E7132A647 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -7049,9 +5748,6 @@ ref; // ME_4B4F13E80365_ME_4CFCBB3600E0 NeedSetMyFocus
  ME_4DE671BE00FF // FreeAndNil
  ME_4EAFE56B02F4 // l3ScreenIC
  ME_4EAFE59B0229 // Il3InfoCanvas
- ME_09F2B6BC389C // Tl3StringIDEx
- ME_9E2EFE75170C // Tl3MessageID
- ME_301268185607 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -7120,37 +5816,6 @@ ref; // ME_4D7A460D0058 ztChild
 
 ref; // ME_4D7A45DC01AD ChildZone
 
-: ME_8E425AFB1DCA
- CONST UID '8E425AFB1DCA'
- CONST Name 'f_ChildZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChildZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4D7A454101A4 // PrimBaseSearchContainer
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_8E425AFB1DCA f_ChildZone
-
-: ME_71A2387AB82E
- CONST UID '71A2387AB82E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimBaseSearchContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D7A454101A4 // PrimBaseSearchContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_71A2387AB82E Ini_Reg_Class
-
 : ME_4D7A4C8B03CE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -7170,17 +5835,6 @@ ref; // ME_4D7A4C8B03CE
  ;
 
 ref; // ME_544621D50154 
-
-: ME_1BD0145F2522
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D7A454101A4 // PrimBaseSearchContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_1BD0145F2522 
 
 : ME_4F20313F00E3_ME_4D7A454101A4
  : Original WL 'ME_4F20313F00E3' '4A9F98B901A5.pas.ms.script' // IsIt
@@ -7226,13 +5880,8 @@ ref; // ME_53B649F600A3_ME_4D7A454101A4 DoGetFormSetImageIndex
  ; // Implements
  : Attributes
    Seq: ( ME_4D7A45DC01AD // ChildZone
- ME_8E425AFB1DCA // f_ChildZone
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_71A2387AB82E // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4F20313F00E3_ME_4D7A454101A4 // IsIt
  )
@@ -7250,7 +5899,6 @@ ref; // ME_53B649F600A3_ME_4D7A454101A4 DoGetFormSetImageIndex
  : Dependencies
    Seq: ( ME_4D7A4C8B03CE // TAlign
  ME_544621D50154 // nsTabbedInterfaceTypes
- ME_1BD0145F2522 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -7362,101 +6010,6 @@ ref; // ME_027EB0D94533 BaseSearchCardIDs
 
 ref; // ME_AEB1E91EE813 BaseSearchCard$Def
 
-FORWARD ME_21243AEF220D
-
-: ME_D164E1ED3D39
- CONST UID 'D164E1ED3D39'
- CONST Name 'ut_BaseSearchCardCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Базовый поиск"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_21243AEF220D // ut_BaseSearchCardLocalConstants
- ;
- CONST Value '''Базовый поиск'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Базовый поиск'''
-
-ref; // ME_D164E1ED3D39 ut_BaseSearchCardCaption
-
-: ME_21243AEF220D
- CONST UID '21243AEF220D'
- CONST Name 'ut_BaseSearchCardLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_BaseSearchCard' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- : Attributes
-   Seq: ( ME_D164E1ED3D39 // ut_BaseSearchCardCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_21243AEF220D ut_BaseSearchCardLocalConstants
-
-FORWARD ME_F00C66BF437B
-
-: ME_75D8F8C5B9BF
- CONST UID '75D8F8C5B9BF'
- CONST Name 'ut_BaseSearchCardCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Базовый поиск"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F00C66BF437B // LCImplut_BaseSearchCardLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_BaseSearchCardCaption''; rValue : ''Базовый поиск'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_BaseSearchCardCaption''; rValue : ''Базовый поиск'')'
- : Speller ME_D164E1ED3D39 // ut_BaseSearchCardCaption
- ;
-
-ref; // ME_75D8F8C5B9BF ut_BaseSearchCardCaption
-
-: ME_F00C66BF437B
- CONST UID 'F00C66BF437B'
- CONST Name 'LCImplut_BaseSearchCardLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_BaseSearchCardLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- : Attributes
-   Seq: ( ME_75D8F8C5B9BF // ut_BaseSearchCardCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_21243AEF220D // ut_BaseSearchCardLocalConstants
- ;
-
-ref; // ME_F00C66BF437B LCImplut_BaseSearchCardLocalConstants
-
 : ME_1D206AEEF6A5
  CONST UID '1D206AEEF6A5'
  CONST Name 'Ini_FormFactory_BaseSearchCard'
@@ -7472,28 +6025,6 @@ ref; // ME_F00C66BF437B LCImplut_BaseSearchCardLocalConstants
  ;
 
 ref; // ME_1D206AEEF6A5 Ini_FormFactory_BaseSearchCard$Def
-
-: ME_7756633F86C1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_7756633F86C1 
-
-: ME_8F446C2FABDE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB7A34401D0 // BaseSearchCard
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_8F446C2FABDE 
 
 : ME_4AB7A34401D0
  CONST UID '4AB7A34401D0'
@@ -7523,16 +6054,6 @@ ref; // ME_8F446C2FABDE
  ME_AEB1E91EE813 // BaseSearchCard$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_21243AEF220D // ut_BaseSearchCardLocalConstants
- ME_F00C66BF437B // LCImplut_BaseSearchCardLocalConstants
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_7756633F86C1 // Tl3StringIDEx
- ME_8F446C2FABDE // Tl3MessageID
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Parent'
  CONST "author" 'Люлин А.В.'

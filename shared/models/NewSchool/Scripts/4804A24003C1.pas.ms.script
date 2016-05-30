@@ -320,59 +320,6 @@ ref; // ME_4B8BF20A031D PageBegin
 
 ref; // ME_4B8BF1F90349 Local
 
-FORWARD ME_5F711CE85869
-
-: ME_710F11916A3D
- CONST UID '710F11916A3D'
- CONST Name 'PageBegin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY ''' Начало страницы. ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5F711CE85869 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageBegin''; rValue : '' Начало страницы. '')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevmmPageBegin''; rValue : '' Начало страницы. '')'
- : Speller ME_4B8BF20A031D // PageBegin
- ;
-
-ref; // ME_710F11916A3D PageBegin
-
-: ME_5F711CE85869
- CONST UID '5F711CE85869'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_480C9D5E01EE // TevPageBreakPainter
- ;
- : Attributes
-   Seq: ( ME_710F11916A3D // PageBegin
- )
- ; // Attributes
- CONST "children prefix" 'nevmm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_nevmm'
- : Speller ME_4B8BF1F90349 // Local
- ;
-
-ref; // ME_5F711CE85869 LCImplLocal
-
 : ME_480C9DC4032F
  CONST UID '480C9DC4032F'
  CONST Name 'GetString'
@@ -515,28 +462,6 @@ ref; // ME_4DD67C0A0292
 
 ref; // ME_53D0AFF00071 
 
-: ME_B8A346F7213A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_480C9D5E01EE // TevPageBreakPainter
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_B8A346F7213A 
-
-: ME_23667F328009
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_480C9D5E01EE // TevPageBreakPainter
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_23667F328009 
-
 : ME_4804C81000B9_ME_480C9D5E01EE
  : Original WL 'ME_4804C81000B9' '49DCBC09029B.pas.ms.script' // DrawLeaf
  ;
@@ -570,7 +495,6 @@ ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
  ; // Overridden
  : Constants
    Seq: ( ME_4B8BF1F90349 // Local
- ME_5F711CE85869 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -582,8 +506,6 @@ ref; // ME_4804C81000B9_ME_480C9D5E01EE DrawLeaf
  ME_480CA47C01E2 // l3String
  ME_4DD67C0A0292 // TevPageBreak
  ME_53D0AFF00071 // IevPainter
- ME_B8A346F7213A // Tl3StringIDEx
- ME_23667F328009 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -656,85 +578,6 @@ ref; // ME_4B8C00B3030B LandscapeSection
  CONST extprop:pas:ElementPrefix 'nev'
 
 ref; // ME_4B8C005F03B8 Local
-
-FORWARD ME_8395777CD6A3
-
-: ME_D25C91F77269
- CONST UID 'D25C91F77269'
- CONST Name 'PortaitSection'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY ''' Начало раздела. (%s, книжная) ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8395777CD6A3 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''nevPortaitSection''; rValue : '' Начало раздела. (%s, книжная) '')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevPortaitSection''; rValue : '' Начало раздела. (%s, книжная) '')'
- : Speller ME_4B8C00950122 // PortaitSection
- ;
-
-ref; // ME_D25C91F77269 PortaitSection
-
-: ME_ED6A57C6A9F1
- CONST UID 'ED6A57C6A9F1'
- CONST Name 'LandscapeSection'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY ''' Начало раздела. (%s, альбомная) ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8395777CD6A3 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''nevLandscapeSection''; rValue : '' Начало раздела. (%s, альбомная) '')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''nevLandscapeSection''; rValue : '' Начало раздела. (%s, альбомная) '')'
- : Speller ME_4B8C00B3030B // LandscapeSection
- ;
-
-ref; // ME_ED6A57C6A9F1 LandscapeSection
-
-: ME_8395777CD6A3
- CONST UID '8395777CD6A3'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_480CA641014D // TevSectionBreakPainter
- ;
- : Attributes
-   Seq: ( ME_D25C91F77269 // PortaitSection
- ME_ED6A57C6A9F1 // LandscapeSection
- )
- ; // Attributes
- CONST "children prefix" 'nev'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_nev'
- : Speller ME_4B8C005F03B8 // Local
- ;
-
-ref; // ME_8395777CD6A3 LCImplLocal
 
 : ME_480CA6D90305
  CONST Class class_Dependency
@@ -837,28 +680,6 @@ ref; // ME_5346A510016A
 
 ref; // ME_53D0B04A0378 
 
-: ME_A7BB925E3514
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_480CA641014D // TevSectionBreakPainter
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_A7BB925E3514 
-
-: ME_14E61ADC089D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_480CA641014D // TevSectionBreakPainter
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_14E61ADC089D 
-
 : ME_480C9DC4032F_ME_480CA641014D
  : Original ME_480C9DC4032F // GetString
  ;
@@ -900,7 +721,6 @@ ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
  ; // Overridden
  : Constants
    Seq: ( ME_4B8C005F03B8 // Local
- ME_8395777CD6A3 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -914,8 +734,6 @@ ref; // ME_480C9DEF0099_ME_480CA641014D DrawLine
  ME_4DD67BFD008A // TevSectionBreak
  ME_5346A510016A // Tl3Variant
  ME_53D0B04A0378 // IevPainter
- ME_A7BB925E3514 // Tl3StringIDEx
- ME_14E61ADC089D // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

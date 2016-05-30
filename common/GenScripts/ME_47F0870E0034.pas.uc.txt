@@ -1741,26 +1741,12 @@ var
    if aChild.IsKindOf(k2_typLeafPara) then
     ClearSubs
    else
+   if aChild.IsKindOf(k2_typLeafParaDecorationsHolder) and anOpPack.InUndo then
+    lp_DoAddHolder(aChild)
+   else
    if aChild.IsKindOf(k2_typSub) then
    begin
-    l_ChildIsBlock := aChild.IsKindOf(k2_typBlock);
-    if l_ChildIsBlock then
-    begin
-     l_LayerID := aChild.IntA[k2_tiLayerID];
-     l_Para := aChild;
-     RealizeSub(l_LayerID, aChild, l_Para, anOpPack);
-     if f_SubChangeListener <> nil then
-      f_SubChangeListener.SubChanged(l_Para, ev_chtAdded);
-    end//l_ChildIsBlock
-    else
-    begin
-     l_LayerID := aList.IntA[k2_tiHandle];
-     l_Para := l_GetSubPara;
-     if not aChild.IsKindOf(k2_typDocumentSub) and l_Para.IsValid then
-      if f_SubChangeListener <> nil then
-       f_SubChangeListener.SubChanged(l_Para, ev_chtAdded);
-    end;//l_ChildIsBlock
-    TevDocumentsCache.NotifySubAdded(Self, l_Para, aChild, l_LayerID);
+    lp_DoAddSub(aChild);
     if (TextSource <> nil) then
      TextSource.ViewArea.Invalidate;
     if anOpPack.SaveUndo AND
@@ -1777,21 +1763,62 @@ var
  CheckWaiters(aList, aChild);
 //#UC END# *49182BA9012A_47F0870E0034_impl*
 //#UC START# *49182BA9012A_47F0870E0034_var*
-
 var
+ l_Para    : Tl3Variant;
  l_LayerID : Integer;
 
- function l_GetSubPara: Tl3Variant;
- begin//l_GetSubPara
+ function lp_GetSubPara: Tl3Variant;
+ begin//lp_GetSubPara
   Result := Document.rAtomEx([k2_tiSubs,
                             k2_tiChildren, k2_tiHandle, l_LayerID,
                             k2_tiChildren, k2_tiHandle, aChild.IntA[k2_tiHandle],
                             k2_tiObject]).AsObject;
- end;//l_GetSubPara
+ end;//lp_GetSubPara
 
-var
- l_ChildIsBlock : Boolean;
- l_Para         : Tl3Variant;
+ procedure lp_DoAddSub(aChild: Tl3Variant);
+ var
+  l_ChildIsBlock : Boolean;
+ begin
+  l_ChildIsBlock := aChild.IsKindOf(k2_typBlock);
+  if l_ChildIsBlock then
+  begin
+   l_LayerID := aChild.IntA[k2_tiLayerID];
+   l_Para := aChild;
+   RealizeSub(l_LayerID, aChild, l_Para, anOpPack);
+   if f_SubChangeListener <> nil then
+    f_SubChangeListener.SubChanged(l_Para, ev_chtAdded);
+  end//l_ChildIsBlock
+  else
+  begin
+   l_LayerID := aList.IntA[k2_tiHandle];
+   l_Para := lp_GetSubPara;
+   if not aChild.IsKindOf(k2_typDocumentSub) and l_Para.IsValid then
+    if f_SubChangeListener <> nil then
+     f_SubChangeListener.SubChanged(l_Para, ev_chtAdded);
+  end;//l_ChildIsBlock
+  TevDocumentsCache.NotifySubAdded(Self, l_Para, aChild, l_LayerID);
+ end;
+
+ procedure lp_DoAddHolder(aList: Tl3Variant);
+ var
+  l_Index : Integer;
+  l_Child : Tl3Variant;
+ begin//DoRemoveList
+  for l_Index := 0 to Pred(aList.ChildrenCount) do
+  begin
+   l_Child := aList.Child[l_Index];
+   if l_Child.IsKindOf(k2_typLeafPara) then
+    ClearSubs
+   else
+   if l_Child.IsKindOf(k2_typBlock) then
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=265410610
+    lp_DoAddSub(l_Child.AsObject)
+   else
+   if l_Child.IsKindOf(k2_typParaList) then
+    lp_DoAddSub(l_Child);
+  end;//for l_Index
+ end;
+
 //#UC END# *49182BA9012A_47F0870E0034_var*
 //#UC START# *49182BD6003A_47F0870E0034_impl*
  if aChild.IsKindOf(k2_typPara) then

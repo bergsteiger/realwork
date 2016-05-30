@@ -820,32 +820,6 @@ ref; // ME_4AC4F8BB0265 PrimTurnOnTimeMachine
 
 FORWARD ME_4C8A1B5C0356
 
-: ME_01A5B64CC477
- CONST UID '01A5B64CC477'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimTurnOnTimeMachineOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8A1B5C0356 // PrimTurnOnTimeMachineOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_01A5B64CC477 Ini_Reg_Class
-
-: ME_A3089726D2ED
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8A1B5C0356 // PrimTurnOnTimeMachineOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_A3089726D2ED 
-
 : ME_4C762A1501FC_ME_4C8A1B5C0356
  : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
  ;
@@ -891,19 +865,11 @@ ref; // ME_4C762AB601E1_ME_4C8A1B5C0356 Cancel
    Seq: ( ME_4AC4F8BB0265 // PrimTurnOnTimeMachine
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_01A5B64CC477 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4C762A1501FC_ME_4C8A1B5C0356 // Ok
  ME_4C762AB601E1_ME_4C8A1B5C0356 // Cancel
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_A3089726D2ED // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Modal'
  CONST "author" 'Люлин А.В.'

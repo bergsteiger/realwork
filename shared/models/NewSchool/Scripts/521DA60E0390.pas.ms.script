@@ -502,158 +502,6 @@ ref; // ME_55AF10D1419C Custom
 
 ref; // ME_503C183D60AA PrintAndExportValues
 
-FORWARD ME_6B6E0726AAE5
-
-: ME_21C9E7FF2FC0
- CONST UID '21C9E7FF2FC0'
- CONST Name 'PrintAndExport'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Печать и экспорт' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_6B6E0726AAE5 // LCImplPrintAndExportName
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport''; rValue : ''Печать и экспорт'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport''; rValue : ''Печать и экспорт'')'
- : Speller ME_BAE9DBA7BB3C // PrintAndExport
- ;
-
-ref; // ME_21C9E7FF2FC0 PrintAndExport
-
-: ME_6B6E0726AAE5
- CONST UID '6B6E0726AAE5'
- CONST Name 'LCImplPrintAndExportName'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки PrintAndExportName' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Attributes
-   Seq: ( ME_21C9E7FF2FC0 // PrintAndExport
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_36164CA1E5E4 // PrintAndExportName
- ;
-
-ref; // ME_6B6E0726AAE5 LCImplPrintAndExportName
-
-FORWARD ME_45BAC8CB372A
-
-: ME_F8B05246C5B1
- CONST UID 'F8B05246C5B1'
- CONST Name 'Default'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_45BAC8CB372A // LCImplPrintAndExportValues
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Default''; rValue : ''Использовать для экспорта и печати размер шрифта, отображаемого на экране'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Default''; rValue : ''Использовать для экспорта и печати размер шрифта, отображаемого на экране'')'
- : Speller ME_8B070C86553A // Default
- ;
-
-ref; // ME_F8B05246C5B1 Default
-
-: ME_8EFEC959412E
- CONST UID '8EFEC959412E'
- CONST Name 'Custom'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_45BAC8CB372A // LCImplPrintAndExportValues
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Custom''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExport_Custom''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
- : Speller ME_55AF10D1419C // Custom
- ;
-
-ref; // ME_8EFEC959412E Custom
-
-: ME_45BAC8CB372A
- CONST UID '45BAC8CB372A'
- CONST Name 'LCImplPrintAndExportValues'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки PrintAndExportValues' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Attributes
-   Seq: ( ME_F8B05246C5B1 // Default
- ME_8EFEC959412E // Custom
- )
- ; // Attributes
- CONST "elements prefix" 'str_PrintAndExport'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str_PrintAndExport'
- CONST extprop:pas:ElementPrefix 'str_PrintAndExport_'
- : Speller ME_503C183D60AA // PrintAndExportValues
- ;
-
-ref; // ME_45BAC8CB372A LCImplPrintAndExportValues
-
-: ME_398327EFC6CF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_398327EFC6CF 
-
-: ME_01324FC43A46
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_1D9630212631 // ListPrintAndExportSettingRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_01324FC43A46 
-
 : ME_1D9630212631
  CONST UID '1D9630212631'
  CONST Name 'ListPrintAndExportSettingRes'
@@ -674,15 +522,8 @@ ref; // ME_01324FC43A46
    Seq: ( ME_8281E352CB32 // PrintAndExportKey
  ME_36164CA1E5E4 // PrintAndExportName
  ME_503C183D60AA // PrintAndExportValues
- ME_6B6E0726AAE5 // LCImplPrintAndExportName
- ME_45BAC8CB372A // LCImplPrintAndExportValues
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_398327EFC6CF // Tl3StringIDEx
- ME_01324FC43A46 // Tl3MessageID
- )
- ; // Dependencies
  CONST intf.pas:Path 'common\components\SandBox\VCM\View\List\ListPrintAndExportSettingRes.pas'
 
 ref; // ME_1D9630212631 ListPrintAndExportSettingRes
@@ -1085,58 +926,6 @@ ref; // ME_8B21E896E5B8 pef16
  CONST extprop:pas:ElementPrefix 'PrintAndExportFontSize_'
 
 ref; // ME_2731C3165ADB PrintAndExportFontSizeValues
-
-FORWARD ME_B31EB61BCA12
-
-: ME_3CE116A7BB8F
- CONST UID '3CE116A7BB8F'
- CONST Name 'PrintAndExportFontSize'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B31EB61BCA12 // LCImplPrintAndExportFontSizeName
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize''; rValue : ''Использовать для экспорта и печати следующий размер шрифта'')'
- : Speller ME_D665257C7AD6 // PrintAndExportFontSize
- ;
-
-ref; // ME_3CE116A7BB8F PrintAndExportFontSize
-
-: ME_B31EB61BCA12
- CONST UID 'B31EB61BCA12'
- CONST Name 'LCImplPrintAndExportFontSizeName'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки PrintAndExportFontSizeName' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_F803A929B344 // ListPrintAndExportFontSizeSettingRes
- ;
- : Attributes
-   Seq: ( ME_3CE116A7BB8F // PrintAndExportFontSize
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_193F2AA9201D // PrintAndExportFontSizeName
- ;
-
-ref; // ME_B31EB61BCA12 LCImplPrintAndExportFontSizeName
 
 FORWARD ME_6EC763C64039
 
@@ -1815,7 +1604,6 @@ ref; // ME_A404B61F6558
    Seq: ( ME_1F04A277455E // PrintAndExportFontSizeKey
  ME_193F2AA9201D // PrintAndExportFontSizeName
  ME_2731C3165ADB // PrintAndExportFontSizeValues
- ME_B31EB61BCA12 // LCImplPrintAndExportFontSizeName
  ME_6EC763C64039 // LCImplPrintAndExportFontSizeValues
  ME_65BD0BBC3865 // PrintAndExportFontSizeValuesMap
  )

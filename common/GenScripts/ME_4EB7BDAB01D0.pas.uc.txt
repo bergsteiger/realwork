@@ -1,6 +1,6 @@
 //#UC START# *49803F5503AA_4EB7BDAB01D0_impl*
  inherited;
- if not aFromHistory then
+ if (not aFromHistory) and (not TvcmHistoryService.Instance.IsInBF(As_IvcmEntityForm)) then
   if (f_BaseSearcher <> nil) then
    f_BaseSearcher.DropActiveClass;
  // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258

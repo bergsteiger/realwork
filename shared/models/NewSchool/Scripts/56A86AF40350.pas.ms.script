@@ -2248,6 +2248,36 @@ ref; // ME_56C814420080
 
 ref; // ME_56C81B11021E 
 
+: ME_5745877D019B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_57457765036F' '54F85B2500FB.pas.ms.script' // TdaJoin
+ ;
+
+ref; // ME_5745877D019B 
+
+: ME_574BFB4E027F
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_574BF18D0334' '54F85B2500FB.pas.ms.script' // TdaJoinCondition
+ ;
+
+ref; // ME_574BFB4E027F 
+
+: ME_574C39EE009B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_55FFB14A031C' '54F85B2500FB.pas.ms.script' // TdaFromTable
+ ;
+
+ref; // ME_574C39EE009B 
+
 : ME_5549C65D038D_ME_56C4594703CF
  : Original WL 'ME_5549C65D038D' '5432518A0316.pas.ms.script' // MakeTabledQuery
  ;
@@ -2290,6 +2320,30 @@ ref; // ME_5641E5DB02C3_ME_56C4594703CF MakeSubQueryCondition
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_56811844032C_ME_56C4594703CF MakeSortField
+
+: ME_574584D802F6_ME_56C4594703CF
+ : Original WL 'ME_574584D802F6' '5432518A0316.pas.ms.script' // MakeJoin
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574584D802F6_ME_56C4594703CF MakeJoin
+
+: ME_574BF2B20123_ME_56C4594703CF
+ : Original WL 'ME_574BF2B20123' '5432518A0316.pas.ms.script' // MakeJoinCondition
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574BF2B20123_ME_56C4594703CF MakeJoinCondition
+
+: ME_574C32760314_ME_56C4594703CF
+ : Original WL 'ME_574C32760314' '5432518A0316.pas.ms.script' // MakeSimpleFromClause
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C32760314_ME_56C4594703CF MakeSimpleFromClause
+
+: ME_574C32D802C6_ME_56C4594703CF
+ : Original WL 'ME_574C32D802C6' '5432518A0316.pas.ms.script' // MakeJoinQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C32D802C6_ME_56C4594703CF MakeJoinQuery
 
 : ME_479731C50290_ME_56C4594703CF
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -2334,6 +2388,10 @@ ref; // ME_479731C50290_ME_56C4594703CF Cleanup
  ME_56405475021D_ME_56C4594703CF // MakeLogicCondition
  ME_5641E5DB02C3_ME_56C4594703CF // MakeSubQueryCondition
  ME_56811844032C_ME_56C4594703CF // MakeSortField
+ ME_574584D802F6_ME_56C4594703CF // MakeJoin
+ ME_574BF2B20123_ME_56C4594703CF // MakeJoinCondition
+ ME_574C32760314_ME_56C4594703CF // MakeSimpleFromClause
+ ME_574C32D802C6_ME_56C4594703CF // MakeJoinQuery
  )
  ; // Implemented
  : Overridden
@@ -2347,6 +2405,9 @@ ref; // ME_479731C50290_ME_56C4594703CF Cleanup
  ME_56C8143E0096 // TdaSortField
  ME_56C814420080 // TdaSelectField
  ME_56C81B11021E // TdaSubQueryCondition
+ ME_5745877D019B // TdaJoin
+ ME_574BFB4E027F // TdaJoinCondition
+ ME_574C39EE009B // TdaFromTable
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caTableQueryFactory.pas'
@@ -2386,50 +2447,59 @@ ref; // ME_56C6DC6603B8 f_HTQuery
 
 FORWARD ME_56C6DC070160
 
-: ME_56C6EE770168
+: ME_5746EFC800DB
+ CONST Name 'aFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_5746EFC800DB aFactory
+
+: ME_5746EFC800EB
  CONST Name 'aDataConverter'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
 
-ref; // ME_56C6EE770168 aDataConverter
+ref; // ME_5746EFC800EB aDataConverter
 
-: ME_56C6E46B02D8
+: ME_5746EFC800FA
  CONST Name 'aTable'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
  ;
 
-ref; // ME_56C6E46B02D8 aTable
+ref; // ME_5746EFC800FA aTable
 
-: ME_56C6E46B02E7
+: ME_5746EFC8010A
  CONST Name 'anAlias'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
  ;
 
-ref; // ME_56C6E46B02E7 anAlias
+ref; // ME_5746EFC8010A anAlias
 
-: ME_56C6DC340213
+: ME_5746EFC8010B
  CONST Name 'aHTQuery'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
  ;
 
-ref; // ME_56C6DC340213 aHTQuery
+ref; // ME_5746EFC8010B aHTQuery
 
-: ME_56C6DC340222
+: ME_5746EFC8011A
  CONST Name 'aPGQuery'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
  ;
 
-ref; // ME_56C6DC340222 aPGQuery
+ref; // ME_5746EFC8011A aPGQuery
 
 : ME_56C6DC1102C6
  CONST UID '56C6DC1102C6'
@@ -2440,11 +2510,12 @@ ref; // ME_56C6DC340222 aPGQuery
  : Parent ME_56C6DC070160 // Create
  ;
  : Parameters
-   Seq: ( ME_56C6EE770168 // aDataConverter
- ME_56C6E46B02D8 // aTable
- ME_56C6E46B02E7 // anAlias
- ME_56C6DC340213 // aHTQuery
- ME_56C6DC340222 // aPGQuery
+   Seq: ( ME_5746EFC800DB // aFactory
+ ME_5746EFC800EB // aDataConverter
+ ME_5746EFC800FA // aTable
+ ME_5746EFC8010A // anAlias
+ ME_5746EFC8010B // aHTQuery
+ ME_5746EFC8011A // aPGQuery
  )
  ; // Parameters
 

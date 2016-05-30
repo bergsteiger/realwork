@@ -535,55 +535,6 @@ ref; // ME_495119370138
 
 ref; // ME_4A1FF1360218 BaseSearchSupportQuery
 
-: ME_A114C8822465
- CONST UID 'A114C8822465'
- CONST Name 'f_SubPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SubPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_495118ED00F6 // PrimText
- ;
- : Target WL 'ME_4C7F948C03BD' '54817B05034F.pas.ms.script' // TeeSubPanel
- ;
-
-ref; // ME_A114C8822465 f_SubPanel
-
-: ME_90270E3D26A5
- CONST UID '90270E3D26A5'
- CONST Name 'f_HScroll'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HScroll' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_495118ED00F6 // PrimText
- ;
- : Target WL 'ME_50220B0E0061' '50220AA101CA.pas.ms.script' // TvtScrollBar
- ;
-
-ref; // ME_90270E3D26A5 f_HScroll
-
-: ME_195AF0644A86
- CONST UID '195AF0644A86'
- CONST Name 'f_FormDataChangedInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FormDataChangedInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_495118ED00F6 // PrimText
- ;
- : Target ME_49538FC302CC // InsDataSourceChangedInfo
- ;
- CONST extprop:clearViaProperty 'FormDataChangedInfo'
-
-ref; // ME_195AF0644A86 f_FormDataChangedInfo
-
 FORWARD ME_4A1FEF160285
 
 : ME_4A1FEF25005F
@@ -659,19 +610,6 @@ ref; // ME_4DF7789202F2 ScrollBarChange
 
 FORWARD ME_500D5D3C0051
 
-: ME_84A723DC67EA
- CONST UID '84A723DC67EA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AddToWorkJournal' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_500D5D3C0051 // AddToWorkJournal
- ;
-
-ref; // ME_84A723DC67EA DoIt
-
 : ME_500D619A00BF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -710,10 +648,6 @@ ref; // ME_500D61BC038F
  WL 'ME_5012646003C9' '484FA67302D7.pas.ms.script' // В Журнал Работы, должно попадать меню ААК
  )
  ; // Implements
- : Operations
-   Seq: ( ME_84A723DC67EA // DoIt
- )
- ; // Operations
  : Dependencies
    Seq: ( ME_500D619A00BF // dftAACLeft
  ME_500D61BC038F // IsDocumentForSaveInWorkJournal
@@ -1340,12 +1274,6 @@ ref; // ME_4A8E8F2E0195_ME_495118ED00F6 InitControls
  CONST OpKind opkind_Overridden
 ref; // ME_4C8DCA3402C1_ME_495118ED00F6 DoEditFindContextTest
 
-: ME_5000565C019C_ME_495118ED00F6
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_495118ED00F6 ClearFields
-
 : ME_53D8E4B702E4_ME_495118ED00F6
  : Original WL 'ME_53D8E4B702E4' '4A7C0BB70162.pas.ms.script' // GetDocumentShortName
  ;
@@ -1383,9 +1311,6 @@ ref; // ME_53D8E4B702E4_ME_495118ED00F6 GetDocumentShortName
  ME_49513BB1031F // Document
  ME_495119370138 // 
  ME_4A1FF1360218 // BaseSearchSupportQuery
- ME_A114C8822465 // f_SubPanel
- ME_90270E3D26A5 // f_HScroll
- ME_195AF0644A86 // f_FormDataChangedInfo
  )
  ; // Attributes
  : Operations
@@ -1415,7 +1340,6 @@ ref; // ME_53D8E4B702E4_ME_495118ED00F6 GetDocumentShortName
  ME_49807428008C_ME_495118ED00F6 // DoLoadState
  ME_4A8E8F2E0195_ME_495118ED00F6 // InitControls
  ME_4C8DCA3402C1_ME_495118ED00F6 // DoEditFindContextTest
- ME_5000565C019C_ME_495118ED00F6 // ClearFields
  ME_53D8E4B702E4_ME_495118ED00F6 // GetDocumentShortName
  )
  ; // Overridden

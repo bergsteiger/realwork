@@ -258,20 +258,6 @@ REDEFINITION : st_uses::Dependency
  @SELF
 ; // st_FacetInclude
 
-: st_LocalConst Inherits ( st_Constants st_WikiImplClass st_ValueMapper )
- CONST UID '4B386A11030E'
- CONST Name 'LocalConst'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_LocalConst
-
-REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
- CONST UID '4DC1281403A3'
- CONST Name 'attr::Attribute'
- CONST Stereotype 'MDAAttribute'
- @SELF
-; // st_attr::Attribute
-
 : st_Struct Inherits ( st_Struct )
  CONST UID '4B7034B20297'
  CONST Name 'Struct'
@@ -341,55 +327,6 @@ REDEFINITION : st_operation::Operation
  CONST Stereotype 'MDAClass'
  @SELF
 ; // st_Undef
-
-: st_MessagePrim Inherits ( st_attr::Attribute )
- CONST UID '4E09AE2E02B6'
- CONST Name 'MessagePrim'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_MessagePrim
-
-: st_Choices Inherits ( st_LocalConst )
- CONST UID '4E09AB0A01C4'
- CONST Name 'Choices'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_Choices
-
-REDEFINITION : st_attr::Attribute Inherits ( st_attr::Attribute )
- CONST UID '4E09ABF1010D'
- CONST Name 'attr::Attribute'
- CONST Stereotype 'MDAAttribute'
- @SELF
-; // st_attr::Attribute
-
-: st_Message Inherits ( st_WikiImplClass st_MessagePrim )
- CONST UID '4E01DC9002B0'
- CONST Name 'Message'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_Message
-
-: st_CustomChoice::Attribute
- CONST UID '4E09D0A100CC'
- CONST Name 'CustomChoice::Attribute'
- CONST Stereotype 'MDAAttribute'
- @SELF
-; // st_CustomChoice::Attribute
-
-: st_DefaultChoice::Attribute
- CONST UID '4E09D1030281'
- CONST Name 'DefaultChoice::Attribute'
- CONST Stereotype 'MDAAttribute'
- @SELF
-; // st_DefaultChoice::Attribute
-
-: st_Choice Inherits ( st_WikiImplClass st_attr::Attribute )
- CONST UID '4E09CACE010E'
- CONST Name 'Choice'
- CONST Stereotype 'MDAClass'
- @SELF
-; // st_Choice
 
 : st_facetmethod Inherits ( st_method )
  CONST UID '4E82C72002E9'
@@ -1371,7 +1308,7 @@ REDEFINITION : st_UseCase::Attribute Inherits ( st_VCMController )
  @SELF
 ; // st_VCMContainer
 
-: st_UserType Inherits ( st_UserTypeIDHolder st_CanCloseHolder st_WikiImplClass )
+: st_UserType Inherits ( st_UsesContainer st_UserTypeIDHolder st_CanCloseHolder st_WikiImplClass )
  CONST UID '4B0402290215'
  CONST Name 'UserType'
  CONST Stereotype 'MDAClass'

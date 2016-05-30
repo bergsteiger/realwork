@@ -41,22 +41,6 @@ ref; // ME_4AE9DF7600B5 Viewer
 
 ref; // ME_4979E6510100 
 
-: ME_A8EF0F0EF4A7
- CONST UID 'A8EF0F0EF4A7'
- CONST Name 'f_Viewer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Viewer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4979E5520222 // PrimWarning
- ;
- : Target WL 'ME_495119C4011A' '495119A901CE.pas.ms.script' // TnscEditor
- ;
-
-ref; // ME_A8EF0F0EF4A7 f_Viewer
-
 FORWARD ME_4AE9DF9401A6
 
 : ME_4AE9DFCF03C6
@@ -172,21 +156,6 @@ ref; // ME_4F153B1C00FB DoIt
  ; // Operations
 
 ref; // ME_4F153B0E0018 MakeDocumentContainer
-
-: ME_219544CBA04E
- CONST UID '219544CBA04E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4979E5520222 // PrimWarning
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_219544CBA04E Ini_Reg_Class
 
 : ME_4AF83C100026
  CONST Class class_Dependency
@@ -410,16 +379,15 @@ ref; // ME_4F5E197B02F6
 
 ref; // ME_53AA71A500D1 
 
-: ME_A47792E785D3
- CONST IsSummoned true
+: ME_57484C5B0121
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4979E5520222 // PrimWarning
  ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ : Target WL 'ME_4E8B360E006C' '4A77058200BA.pas.ms.script' // Document$SetPosition
  ;
 
-ref; // ME_A47792E785D3 
+ref; // ME_57484C5B0121 
 
 : ME_4A8164E801AE_ME_4979E5520222
  : Original WL 'ME_4A8164E801AE' '4A815BFF0168.pas.ms.script' // GotoPoint
@@ -523,13 +491,11 @@ ref; // ME_4A8E8F2E0195_ME_4979E5520222 InitControls
  : Attributes
    Seq: ( ME_4AE9DF7600B5 // Viewer
  ME_4979E6510100 // 
- ME_A8EF0F0EF4A7 // f_Viewer
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4AE9DF9401A6 // PositionOnRequestedSub
  ME_4F153B0E0018 // MakeDocumentContainer
- ME_219544CBA04E // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -572,7 +538,7 @@ ref; // ME_4A8E8F2E0195_ME_4979E5520222 InitControls
  ME_4F5E19770157 // WarningUserTypes
  ME_4F5E197B02F6 // BaloonWarningUserTypes
  ME_53AA71A500D1 // Tl3Variant
- ME_A47792E785D3 // TtfwClassRef
+ ME_57484C5B0121 // Document$SetPosition
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -608,21 +574,6 @@ FORWARD ME_4C7F738D033E
  ;
 
 ref; // ME_4C7F77A50276 MakePreview
-
-: ME_50B33DD5853D
- CONST UID '50B33DD5853D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimWarningOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C7F738D033E // PrimWarningOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_50B33DD5853D Ini_Reg_Class
 
 : ME_4C7F77560224
  CONST Class class_Dependency
@@ -723,17 +674,6 @@ ref; // ME_4C80F46E00B3
  ;
 
 ref; // ME_4DCD3D0800AE 
-
-: ME_B3B218FA125B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C7F738D033E // PrimWarningOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_B3B218FA125B 
 
 : ME_49521D8E0295_ME_4C7F738D033E
  : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
@@ -852,7 +792,6 @@ ref; // ME_497469C90140_ME_4C7F738D033E NotifyDataSourceChanged
  ; // Implements
  : Operations
    Seq: ( ME_4C7F77A50276 // MakePreview
- ME_50B33DD5853D // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -879,7 +818,6 @@ ref; // ME_497469C90140_ME_4C7F738D033E NotifyDataSourceChanged
  ME_4C7F7D0902FA // TevFormatHAFMacroReplacer
  ME_4C80F46E00B3 // Redactions
  ME_4DCD3D0800AE // WarningUserTypes
- ME_B3B218FA125B // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -975,32 +913,6 @@ ref; // ME_495220F2033A_ME_4F5E19AD0174 PrintPreview
 
 ref; // ME_4F5E19AD0174 IncludePrint
 
-: ME_A7E7D0EF6B08
- CONST UID 'A7E7D0EF6B08'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimWarningBaloonOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EA599F501CF // PrimWarningBaloonOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A7E7D0EF6B08 Ini_Reg_Class
-
-: ME_56F44BD3F624
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EA599F501CF // PrimWarningBaloonOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_56F44BD3F624 
-
 : ME_4C7F753E02BC_ME_4EA599F501CF
  : Original WL 'ME_4C7F753E02BC' '498874B90391.pas.ms.script' // TimeMachineOffAndReset
  ;
@@ -1040,10 +952,6 @@ ref; // ME_4F748C5A00CB_ME_4EA599F501CF IsBaloon
    Seq: ( WL 'ME_4F5E12C20114' '4A7C0BB70162.pas.ms.script' // BaloonWarningUserTypes
  )
  ; // Implements
- : Operations
-   Seq: ( ME_A7E7D0EF6B08 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_4C7F753E02BC_ME_4EA599F501CF // TimeMachineOffAndReset
  ME_4F748C5A00CB_ME_4EA599F501CF // IsBaloon
@@ -1053,10 +961,6 @@ ref; // ME_4F748C5A00CB_ME_4EA599F501CF IsBaloon
    Seq: ( ME_4F5E19AD0174 // IncludePrint
  )
  ; // Children
- : Dependencies
-   Seq: ( ME_56F44BD3F624 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -1150,21 +1054,6 @@ ref; // ME_495220F2033A_ME_4DCD3A7302D5 PrintPreview
 
 ref; // ME_4DCD3A7302D5 PrintOperationsInclude
 
-: ME_9C8FA35CF426
- CONST UID '9C8FA35CF426'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimDockedWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EA59DA70226 // PrimDockedWarning
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9C8FA35CF426 Ini_Reg_Class
-
 : ME_4EA5A28B013B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1184,17 +1073,6 @@ ref; // ME_4EA5A28B013B
  ;
 
 ref; // ME_4F5E1ECA01A8 
-
-: ME_94C306A5D0F2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4EA59DA70226 // PrimDockedWarning
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_94C306A5D0F2 
 
 : ME_2FE2CD3A0C24_ME_4EA59DA70226
  : Original WL 'ME_2FE2CD3A0C24' '4A7C0BB70162.pas.ms.script' // WarningQueryClose
@@ -1264,10 +1142,6 @@ ref; // ME_49521D8E0295_ME_4EA59DA70226 Print
  WL 'ME_4DA8763E0201' '4A7C0BB70162.pas.ms.script' // WarningUserTypes
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9C8FA35CF426 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_2FE2CD3A0C24_ME_4EA59DA70226 // WarningQueryClose
  ME_4AE9DF12018A_ME_4EA59DA70226 // BecomeActive
@@ -1285,7 +1159,6 @@ ref; // ME_49521D8E0295_ME_4EA59DA70226 Print
  : Dependencies
    Seq: ( ME_4EA5A28B013B // Warning
  ME_4F5E1ECA01A8 // Switcher$SetCaption
- ME_94C306A5D0F2 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -1498,6 +1371,7 @@ ref; // ME_4F153BA50321 TnsWarningDocumentContainer
  WL 'ME_4952683C007B' '4952683C007B.pas.ms.script' // Editor
  WL 'ME_498874B90391' '498874B90391.pas.ms.script' // Strange
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4A77058200BA' '4A77058200BA.pas.ms.script' // Editions
  WL 'ME_4A7C0BB70162' '4A7C0BB70162.pas.ms.script' // Base Forms
  WL 'ME_4A815BFF0168' '4A815BFF0168.pas.ms.script' // Navigation
  WL 'ME_4A8EC95E015F' '4A8EC95E015F.pas.ms.script' // InternalOperations
@@ -1510,7 +1384,6 @@ ref; // ME_4F153BA50321 TnsWarningDocumentContainer
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

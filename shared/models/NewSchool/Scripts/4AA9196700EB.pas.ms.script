@@ -82,179 +82,6 @@ ref; // ME_4BE93AE3017A ExportPrimeTitle
 
 ref; // ME_4BE93A2D0378 Local
 
-FORWARD ME_7133F0A3DB0F
-
-: ME_44445BB06984
- CONST UID '44445BB06984'
- CONST Name 'MyPostingListCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_7133F0A3DB0F // MyPostingListLocalConstants
- ;
- CONST Value '''ПРАЙМ. Моя новостная лента'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''ПРАЙМ. Моя новостная лента'''
-
-ref; // ME_44445BB06984 MyPostingListCaption
-
-: ME_7133F0A3DB0F
- CONST UID '7133F0A3DB0F'
- CONST Name 'MyPostingListLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы MyPostingList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Attributes
-   Seq: ( ME_44445BB06984 // MyPostingListCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_7133F0A3DB0F MyPostingListLocalConstants
-
-FORWARD ME_CFF0A59DAE9F
-
-: ME_C3CA56EA4409
- CONST UID 'C3CA56EA4409'
- CONST Name 'MyPostingListCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CFF0A59DAE9F // LCImplMyPostingListLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''MyPostingListCaption''; rValue : ''ПРАЙМ. Моя новостная лента'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''MyPostingListCaption''; rValue : ''ПРАЙМ. Моя новостная лента'')'
- : Speller ME_44445BB06984 // MyPostingListCaption
- ;
-
-ref; // ME_C3CA56EA4409 MyPostingListCaption
-
-: ME_CFF0A59DAE9F
- CONST UID 'CFF0A59DAE9F'
- CONST Name 'LCImplMyPostingListLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки MyPostingListLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Attributes
-   Seq: ( ME_C3CA56EA4409 // MyPostingListCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_7133F0A3DB0F // MyPostingListLocalConstants
- ;
-
-ref; // ME_CFF0A59DAE9F LCImplMyPostingListLocalConstants
-
-FORWARD ME_3170445F0B8D
-
-: ME_9EAE5EF01026
- CONST UID '9EAE5EF01026'
- CONST Name 'PrimeFilter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Ленты новостей|*.xml''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3170445F0B8D // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrimeFilter''; rValue : ''Ленты новостей|*.xml'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrimeFilter''; rValue : ''Ленты новостей|*.xml'')'
- : Speller ME_4BE93A720328 // PrimeFilter
- ;
-
-ref; // ME_9EAE5EF01026 PrimeFilter
-
-: ME_6204D3BAAE1C
- CONST UID '6204D3BAAE1C'
- CONST Name 'ExportPrimeTitle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Экспорт выделенных лент''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3170445F0B8D // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ExportPrimeTitle''; rValue : ''Экспорт выделенных лент'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ExportPrimeTitle''; rValue : ''Экспорт выделенных лент'')'
- : Speller ME_4BE93AE3017A // ExportPrimeTitle
- ;
-
-ref; // ME_6204D3BAAE1C ExportPrimeTitle
-
-: ME_3170445F0B8D
- CONST UID '3170445F0B8D'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Attributes
-   Seq: ( ME_9EAE5EF01026 // PrimeFilter
- ME_6204D3BAAE1C // ExportPrimeTitle
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4BE93A2D0378 // Local
- ;
-
-ref; // ME_3170445F0B8D LCImplLocal
-
 FORWARD ME_4C84F2B3000F
 
 : ME_46A5AA4B003C_ME_4C84F2B3000F
@@ -325,22 +152,6 @@ ref; // ME_52826BBE03A6 IsNeedSave
 
 ref; // ME_528270470061 f_OnUpdate
 
-: ME_C2DA491B361B
- CONST UID 'C2DA491B361B'
- CONST Name 'f_tvPostings'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства tvPostings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
-
-ref; // ME_C2DA491B361B f_tvPostings
-
 FORWARD ME_4C84F272012A
 
 : ME_4C84F278028C
@@ -388,59 +199,6 @@ ref; // ME_4EAEAE2602FD
 
 ref; // ME_4C84F272012A Save
 
-FORWARD ME_528262650131
-
-: ME_BEFAD4A08CBB
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_BEFAD4A08CBB Sender
-
-: ME_C063BF69833B
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_C063BF69833B Index
-
-: ME_EED0559CC305
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_EED0559CC305 aImages
-
-: ME_1AF98620E745
- CONST UID '1AF98620E745'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_528262650131 // tvPostingsGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_BEFAD4A08CBB // Sender
- ME_C063BF69833B // Index
- ME_EED0559CC305 // aImages
- )
- ; // Parameters
-
-ref; // ME_1AF98620E745 DoIt
-
 : ME_528262650131
  CONST UID '528262650131'
  CONST Name 'tvPostingsGetItemImage'
@@ -455,62 +213,8 @@ ref; // ME_1AF98620E745 DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1AF98620E745 // DoIt
- )
- ; // Operations
 
 ref; // ME_528262650131 tvPostingsGetItemImage
-
-FORWARD ME_5282636A000F
-
-: ME_271A63081835
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_271A63081835 Sender
-
-: ME_B7445742DBB3
- CONST Name 'aNewCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_B7445742DBB3 aNewCurrent
-
-: ME_5CA6E8ADD2E0
- CONST Name 'aOldCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_5CA6E8ADD2E0 aOldCurrent
-
-: ME_9506F6C6975F
- CONST UID '9506F6C6975F'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5282636A000F // tvPostingsCurrentChanged
- ;
- : Parameters
-   Seq: ( ME_271A63081835 // Sender
- ME_B7445742DBB3 // aNewCurrent
- ME_5CA6E8ADD2E0 // aOldCurrent
- )
- ; // Parameters
-
-ref; // ME_9506F6C6975F DoIt
 
 : ME_5282636A000F
  CONST UID '5282636A000F'
@@ -526,40 +230,8 @@ ref; // ME_9506F6C6975F DoIt
    Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9506F6C6975F // DoIt
- )
- ; // Operations
 
 ref; // ME_5282636A000F tvPostingsCurrentChanged
-
-FORWARD ME_5282655D0103
-
-: ME_0B159F0625F6
- CONST Name 'aIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_0B159F0625F6 aIndex
-
-: ME_BE32D548924B
- CONST UID 'BE32D548924B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5282655D0103 // OnAddNode
- ;
- : Parameters
-   Seq: ( ME_0B159F0625F6 // aIndex
- )
- ; // Parameters
-
-ref; // ME_BE32D548924B DoIt
 
 : ME_5282655D0103
  CONST UID '5282655D0103'
@@ -575,40 +247,8 @@ ref; // ME_BE32D548924B DoIt
    Seq: ( WL 'ME_52F9F698015D' '5267C3880201.pas.ms.script' // TnsAddEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BE32D548924B // DoIt
- )
- ; // Operations
 
 ref; // ME_5282655D0103 OnAddNode
-
-FORWARD ME_528265720097
-
-: ME_DD8C499D0416
- CONST Name 'aIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_DD8C499D0416 aIndex
-
-: ME_9C4FC4102E41
- CONST UID '9C4FC4102E41'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_528265720097 // OnDeleteNode
- ;
- : Parameters
-   Seq: ( ME_DD8C499D0416 // aIndex
- )
- ; // Parameters
-
-ref; // ME_9C4FC4102E41 DoIt
 
 : ME_528265720097
  CONST UID '528265720097'
@@ -624,51 +264,8 @@ ref; // ME_9C4FC4102E41 DoIt
    Seq: ( WL 'ME_52F9F698015D' '5267C3880201.pas.ms.script' // TnsAddEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9C4FC4102E41 // DoIt
- )
- ; // Operations
 
 ref; // ME_528265720097 OnDeleteNode
-
-FORWARD ME_52826586022D
-
-: ME_74A660B1FD45
- CONST Name 'aIndex'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_74A660B1FD45 aIndex
-
-: ME_F529ED09606C
- CONST Name 'aNewCaption'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_F529ED09606C aNewCaption
-
-: ME_BC4ACCCFADC2
- CONST UID 'BC4ACCCFADC2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52826586022D // OnCaptionChange
- ;
- : Parameters
-   Seq: ( ME_74A660B1FD45 // aIndex
- ME_F529ED09606C // aNewCaption
- )
- ; // Parameters
-
-ref; // ME_BC4ACCCFADC2 DoIt
 
 : ME_52826586022D
  CONST UID '52826586022D'
@@ -684,81 +281,8 @@ ref; // ME_BC4ACCCFADC2 DoIt
    Seq: ( WL 'ME_52F9F6DD0372' '5267C3880201.pas.ms.script' // TnsCaptionChangeEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BC4ACCCFADC2 // DoIt
- )
- ; // Operations
 
 ref; // ME_52826586022D OnCaptionChange
-
-: ME_814DBFCD7E5A
- CONST UID '814DBFCD7E5A'
- CONST Name 'Init_Str_MyPostingListCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_MyPostingListCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Speller ME_44445BB06984 // MyPostingListCaption
- ;
- : SpelledFor ME_C3CA56EA4409 // MyPostingListCaption
- ;
-
-ref; // ME_814DBFCD7E5A Init_Str_MyPostingListCaption
-
-: ME_6E3A77A6A356
- CONST UID '6E3A77A6A356'
- CONST Name 'Init_Str_PrimeFilter'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrimeFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Speller ME_4BE93A720328 // PrimeFilter
- ;
- : SpelledFor ME_9EAE5EF01026 // PrimeFilter
- ;
-
-ref; // ME_6E3A77A6A356 Init_Str_PrimeFilter
-
-: ME_16D561E14F15
- CONST UID '16D561E14F15'
- CONST Name 'Init_Str_ExportPrimeTitle'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ExportPrimeTitle' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Speller ME_4BE93AE3017A // ExportPrimeTitle
- ;
- : SpelledFor ME_6204D3BAAE1C // ExportPrimeTitle
- ;
-
-ref; // ME_16D561E14F15 Init_Str_ExportPrimeTitle
-
-: ME_428D8E4B225B
- CONST UID '428D8E4B225B'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPostingsList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_428D8E4B225B Ini_Reg_Class
 
 : ME_4C84F1D1034A
  CONST Class class_Dependency
@@ -970,39 +494,6 @@ ref; // ME_52987FDC0376
 
 ref; // ME_542437420196 
 
-: ME_6357DE9B9E91
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_6357DE9B9E91 
-
-: ME_2CF145957921
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_2CF145957921 
-
-: ME_298584DCDB27
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAFA13C01B0 // PrimPostingsList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_298584DCDB27 
-
 : ME_4C84EE020054_ME_4AAFA13C01B0
  : Original WL 'ME_4C84EE020054' '4C84EDB403D2.pas.ms.script' // ptNewTheme
  ;
@@ -1136,7 +627,6 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
    Seq: ( ME_4C84F2B3000F // tvPostings
  ME_52826BBE03A6 // IsNeedSave
  ME_528270470061 // f_OnUpdate
- ME_C2DA491B361B // f_tvPostings
  )
  ; // Attributes
  : Operations
@@ -1146,10 +636,6 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
  ME_5282655D0103 // OnAddNode
  ME_528265720097 // OnDeleteNode
  ME_52826586022D // OnCaptionChange
- ME_814DBFCD7E5A // Init_Str_MyPostingListCaption
- ME_6E3A77A6A356 // Init_Str_PrimeFilter
- ME_16D561E14F15 // Init_Str_ExportPrimeTitle
- ME_428D8E4B225B // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1175,9 +661,6 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
  ; // Children
  : Constants
    Seq: ( ME_4BE93A2D0378 // Local
- ME_7133F0A3DB0F // MyPostingListLocalConstants
- ME_CFF0A59DAE9F // LCImplMyPostingListLocalConstants
- ME_3170445F0B8D // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -1202,9 +685,6 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
  ME_528272870139 // IqaReqAttribute
  ME_52987FDC0376 // Il3SimpleRootNode
  ME_542437420196 // DefDataAdapter
- ME_6357DE9B9E91 // Tl3StringIDEx
- ME_2CF145957921 // Tl3MessageID
- ME_298584DCDB27 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1393,21 +873,6 @@ ref; // ME_4BDAF7A2005C_ME_4DF78A71015D CollapseAll
 
 ref; // ME_4DF78A71015D ExcludeTree
 
-: ME_0C5DEB52771E
- CONST UID '0C5DEB52771E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPostingsListOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DF789BF02EF // PrimPostingsListOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0C5DEB52771E Ini_Reg_Class
-
 : ME_55547ABA01B0
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1437,17 +902,6 @@ ref; // ME_55547ABD020B
  ;
 
 ref; // ME_55547AE30213 
-
-: ME_4219363C57E5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DF789BF02EF // PrimPostingsListOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4219363C57E5 
 
 : ME_4BDAF7880236_ME_4DF789BF02EF
  : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
@@ -1528,10 +982,6 @@ ref; // ME_4C84EE1D0024_ME_4DF789BF02EF ptEditPosting
  WL 'ME_553FAEB0033D' '4C84EDB403D2.pas.ms.script' // SearchSupport
  )
  ; // Implements
- : Operations
-   Seq: ( ME_0C5DEB52771E // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4BDAF7880236_ME_4DF789BF02EF // ExpandAll
  ME_4BDAF7A2005C_ME_4DF789BF02EF // CollapseAll
@@ -1550,7 +1000,6 @@ ref; // ME_4C84EE1D0024_ME_4DF789BF02EF ptEditPosting
    Seq: ( ME_55547ABA01B0 // Windows
  ME_55547ABD020B // Controls
  ME_55547AE30213 // Tl3TabbedContainersDispatcher
- ME_4219363C57E5 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -2729,7 +2178,6 @@ ref; // ME_08BD36053A81 Tkw_CommonPost_opSavePostList
  WL 'ME_533D53FF00C2' '533D53FF00C2.pas.ms.script' // Visual$ChromeLike
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_553213B80041' '553213B80041.pas.ms.script' // TabbedInterfaceServices
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Monitorings'

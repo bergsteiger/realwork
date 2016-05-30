@@ -2232,107 +2232,6 @@ ref; // ME_4F181BCD0358 SourceCaptionReview
 
 ref; // ME_4F181B390177 Local
 
-FORWARD ME_3CE3AD014170
-
-: ME_7FF54D9F74AD
- CONST UID '7FF54D9F74AD'
- CONST Name 'ClassCaptionReview'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Раздел/Тема в ОИЗ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3CE3AD014170 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''cpClassCaptionReview''; rValue : ''Раздел/Тема в ОИЗ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cpClassCaptionReview''; rValue : ''Раздел/Тема в ОИЗ'')'
- : Speller ME_4F181B960256 // ClassCaptionReview
- ;
-
-ref; // ME_7FF54D9F74AD ClassCaptionReview
-
-: ME_2E7EE659FF80
- CONST UID '2E7EE659FF80'
- CONST Name 'SourceCaptionReview'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Орган/Источник в ОИЗ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3CE3AD014170 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''cpSourceCaptionReview''; rValue : ''Орган/Источник в ОИЗ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cpSourceCaptionReview''; rValue : ''Орган/Источник в ОИЗ'')'
- : Speller ME_4F181BCD0358 // SourceCaptionReview
- ;
-
-ref; // ME_2E7EE659FF80 SourceCaptionReview
-
-: ME_3CE3AD014170
- CONST UID '3CE3AD014170'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4F181AFC03E3 // nsStringValueMapFactoryRes
- ;
- : Attributes
-   Seq: ( ME_7FF54D9F74AD // ClassCaptionReview
- ME_2E7EE659FF80 // SourceCaptionReview
- )
- ; // Attributes
- CONST "children prefix" 'cp'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_cp'
- : Speller ME_4F181B390177 // Local
- ;
-
-ref; // ME_3CE3AD014170 LCImplLocal
-
-: ME_5163467D22FA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F181AFC03E3 // nsStringValueMapFactoryRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_5163467D22FA 
-
-: ME_39A33D9B8947
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F181AFC03E3 // nsStringValueMapFactoryRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_39A33D9B8947 
-
 : ME_4F181AFC03E3
  CONST UID '4F181AFC03E3'
  CONST Name 'nsStringValueMapFactoryRes'
@@ -2345,14 +2244,8 @@ ref; // ME_39A33D9B8947
  ;
  : Constants
    Seq: ( ME_4F181B390177 // Local
- ME_3CE3AD014170 // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_5163467D22FA // Tl3StringIDEx
- ME_39A33D9B8947 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '19.01.2012 17:30'

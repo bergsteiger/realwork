@@ -83,133 +83,6 @@ ref; // ME_499441FF030C OpenHint
 
 ref; // ME_499441EF01A9 TvcmUserTypeHints
 
-FORWARD ME_FB02A8C924A8
-
-: ME_AB31C63C062C
- CONST UID 'AB31C63C062C'
- CONST Name 'CloseHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Закрыть''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_FB02A8C924A8 // LCImplTvcmUserTypeHints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmCloseHint''; rValue : ''Закрыть'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmCloseHint''; rValue : ''Закрыть'')'
- : Speller ME_499441F601BF // CloseHint
- ;
-
-ref; // ME_AB31C63C062C CloseHint
-
-: ME_3020E2A62239
- CONST UID '3020E2A62239'
- CONST Name 'MaximizedHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Открыть в новом окне''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_FB02A8C924A8 // LCImplTvcmUserTypeHints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmMaximizedHint''; rValue : ''Открыть в новом окне'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmMaximizedHint''; rValue : ''Открыть в новом окне'')'
- : Speller ME_499441FB0098 // MaximizedHint
- ;
-
-ref; // ME_3020E2A62239 MaximizedHint
-
-: ME_972B6A393155
- CONST UID '972B6A393155'
- CONST Name 'OpenHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Открыть в текущем окне''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_FB02A8C924A8 // LCImplTvcmUserTypeHints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmOpenHint''; rValue : ''Открыть в текущем окне'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmOpenHint''; rValue : ''Открыть в текущем окне'')'
- : Speller ME_499441FF030C // OpenHint
- ;
-
-ref; // ME_972B6A393155 OpenHint
-
-: ME_FB02A8C924A8
- CONST UID 'FB02A8C924A8'
- CONST Name 'LCImplTvcmUserTypeHints'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки TvcmUserTypeHints' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B8E967F00BE // vcmMenuManagerRes
- ;
- : Attributes
-   Seq: ( ME_AB31C63C062C // CloseHint
- ME_3020E2A62239 // MaximizedHint
- ME_972B6A393155 // OpenHint
- )
- ; // Attributes
- CONST "children prefix" 'vcm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_vcm'
- : Speller ME_499441EF01A9 // TvcmUserTypeHints
- ;
-
-ref; // ME_FB02A8C924A8 LCImplTvcmUserTypeHints
-
-: ME_543A779BD77B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B8E967F00BE // vcmMenuManagerRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_543A779BD77B 
-
-: ME_B123A011CDF7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B8E967F00BE // vcmMenuManagerRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_B123A011CDF7 
-
 : ME_4B8E967F00BE
  CONST UID '4B8E967F00BE'
  CONST Name 'vcmMenuManagerRes'
@@ -222,14 +95,8 @@ ref; // ME_B123A011CDF7
  ;
  : Constants
    Seq: ( ME_499441EF01A9 // TvcmUserTypeHints
- ME_FB02A8C924A8 // LCImplTvcmUserTypeHints
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_543A779BD77B // Tl3StringIDEx
- ME_B123A011CDF7 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '03.03.2010 20:04'
@@ -639,85 +506,6 @@ ref; // ME_602C48B325B3 Right
 
 ref; // ME_7F8E33A8CA68 ToolbarPosMap
 
-FORWARD ME_B1647D57FAD1
-
-: ME_BE5A17DB515F
- CONST UID 'BE5A17DB515F'
- CONST Name 'Separator'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''- Разделитель -''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B1647D57FAD1 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmSeparator''; rValue : ''- Разделитель -'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmSeparator''; rValue : ''- Разделитель -'')'
- : Speller ME_4B8EA1A401D6 // Separator
- ;
-
-ref; // ME_BE5A17DB515F Separator
-
-: ME_794C5E085401
- CONST UID '794C5E085401'
- CONST Name 'AskResoreToolbar'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B1647D57FAD1 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmAskResoreToolbar''; rValue : ''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmAskResoreToolbar''; rValue : ''Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?'')'
- : Speller ME_4B8EA424001A // AskResoreToolbar
- ;
-
-ref; // ME_794C5E085401 AskResoreToolbar
-
-: ME_B1647D57FAD1
- CONST UID 'B1647D57FAD1'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B8E9CF900FD // vcmCustomizeToolsRes
- ;
- : Attributes
-   Seq: ( ME_BE5A17DB515F // Separator
- ME_794C5E085401 // AskResoreToolbar
- )
- ; // Attributes
- CONST "children prefix" 'vcm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_vcm'
- : Speller ME_4B8EA1840338 // Local
- ;
-
-ref; // ME_B1647D57FAD1 LCImplLocal
-
 : ME_695CA8676FCE
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -755,7 +543,6 @@ ref; // ME_0D87BFA5BDA6
  ME_4B8EA1840338 // Local
  ME_80C1FC5E7E1A // LCImplToolbarPos
  ME_7F8E33A8CA68 // ToolbarPosMap
- ME_B1647D57FAD1 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -832,107 +619,6 @@ ref; // ME_4B8F8F1302D8 HideTab
 
 ref; // ME_4B8F8EBA0081 Local
 
-FORWARD ME_E2AF68C8049D
-
-: ME_5C6A4E03EC32
- CONST UID '5C6A4E03EC32'
- CONST Name 'ShowTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Показать вкладку "%s"''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E2AF68C8049D // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmShowTab''; rValue : ''Показать вкладку "%s"'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmShowTab''; rValue : ''Показать вкладку "%s"'')'
- : Speller ME_4B8F8EE703B8 // ShowTab
- ;
-
-ref; // ME_5C6A4E03EC32 ShowTab
-
-: ME_5D5E7E1FC789
- CONST UID '5D5E7E1FC789'
- CONST Name 'HideTab'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Скрыть вкладку "%s"''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E2AF68C8049D // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmHideTab''; rValue : ''Скрыть вкладку "%s"'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmHideTab''; rValue : ''Скрыть вкладку "%s"'')'
- : Speller ME_4B8F8F1302D8 // HideTab
- ;
-
-ref; // ME_5D5E7E1FC789 HideTab
-
-: ME_E2AF68C8049D
- CONST UID 'E2AF68C8049D'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
- ;
- : Attributes
-   Seq: ( ME_5C6A4E03EC32 // ShowTab
- ME_5D5E7E1FC789 // HideTab
- )
- ; // Attributes
- CONST "children prefix" 'vcm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_vcm'
- : Speller ME_4B8F8EBA0081 // Local
- ;
-
-ref; // ME_E2AF68C8049D LCImplLocal
-
-: ME_4EC624A0C085
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_4EC624A0C085 
-
-: ME_6495D0F7CE66
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B8F8EA1013C // vcmBaseMenuManagerRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_6495D0F7CE66 
-
 : ME_4B8F8EA1013C
  CONST UID '4B8F8EA1013C'
  CONST Name 'vcmBaseMenuManagerRes'
@@ -945,14 +631,8 @@ ref; // ME_6495D0F7CE66
  ;
  : Constants
    Seq: ( ME_4B8F8EBA0081 // Local
- ME_E2AF68C8049D // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_4EC624A0C085 // Tl3StringIDEx
- ME_6495D0F7CE66 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '04.03.2010 13:42'
@@ -1004,81 +684,6 @@ ref; // ME_4B8F9DAC00C5 WrongHistoryElement
 
 ref; // ME_4B8F9D9703B0 Local
 
-FORWARD ME_3C671EECFBF4
-
-: ME_20A6CA7BB19C
- CONST UID '20A6CA7BB19C'
- CONST Name 'WrongHistoryElement'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Ошибочный элемент истории''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3C671EECFBF4 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''vcmWrongHistoryElement''; rValue : ''Ошибочный элемент истории'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmWrongHistoryElement''; rValue : ''Ошибочный элемент истории'')'
- : Speller ME_4B8F9DAC00C5 // WrongHistoryElement
- ;
-
-ref; // ME_20A6CA7BB19C WrongHistoryElement
-
-: ME_3C671EECFBF4
- CONST UID '3C671EECFBF4'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4B8F9D770358 // vcmHistoryRes
- ;
- : Attributes
-   Seq: ( ME_20A6CA7BB19C // WrongHistoryElement
- )
- ; // Attributes
- CONST "children prefix" 'vcm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_vcm'
- : Speller ME_4B8F9D9703B0 // Local
- ;
-
-ref; // ME_3C671EECFBF4 LCImplLocal
-
-: ME_EDE8F3185B7B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B8F9D770358 // vcmHistoryRes
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_EDE8F3185B7B 
-
-: ME_DFB4D1617EB5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B8F9D770358 // vcmHistoryRes
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_DFB4D1617EB5 
-
 : ME_4B8F9D770358
  CONST UID '4B8F9D770358'
  CONST Name 'vcmHistoryRes'
@@ -1091,14 +696,8 @@ ref; // ME_DFB4D1617EB5
  ;
  : Constants
    Seq: ( ME_4B8F9D9703B0 // Local
- ME_3C671EECFBF4 // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_EDE8F3185B7B // Tl3StringIDEx
- ME_DFB4D1617EB5 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '04.03.2010 14:46'

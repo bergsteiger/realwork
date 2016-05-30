@@ -257,101 +257,6 @@ ref; // ME_B7238E62E415 elCustomEditIDs
 
 ref; // ME_307DDB1A929C elCustomEdit$Def
 
-FORWARD ME_40D614F443E4
-
-: ME_D42C6E3C6913
- CONST UID 'D42C6E3C6913'
- CONST Name 'ut_elCustomEditCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для тестирования TelCustomEdit"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_40D614F443E4 // ut_elCustomEditLocalConstants
- ;
- CONST Value '''Форма для тестирования TelCustomEdit'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Форма для тестирования TelCustomEdit'''
-
-ref; // ME_D42C6E3C6913 ut_elCustomEditCaption
-
-: ME_40D614F443E4
- CONST UID '40D614F443E4'
- CONST Name 'ut_elCustomEditLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_elCustomEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Attributes
-   Seq: ( ME_D42C6E3C6913 // ut_elCustomEditCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_40D614F443E4 ut_elCustomEditLocalConstants
-
-FORWARD ME_84DF9E495A26
-
-: ME_E6AC561A3E03
- CONST UID 'E6AC561A3E03'
- CONST Name 'ut_elCustomEditCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для тестирования TelCustomEdit"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_84DF9E495A26 // LCImplut_elCustomEditLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_elCustomEditCaption''; rValue : ''Форма для тестирования TelCustomEdit'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_elCustomEditCaption''; rValue : ''Форма для тестирования TelCustomEdit'')'
- : Speller ME_D42C6E3C6913 // ut_elCustomEditCaption
- ;
-
-ref; // ME_E6AC561A3E03 ut_elCustomEditCaption
-
-: ME_84DF9E495A26
- CONST UID '84DF9E495A26'
- CONST Name 'LCImplut_elCustomEditLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_elCustomEditLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Attributes
-   Seq: ( ME_E6AC561A3E03 // ut_elCustomEditCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_40D614F443E4 // ut_elCustomEditLocalConstants
- ;
-
-ref; // ME_84DF9E495A26 LCImplut_elCustomEditLocalConstants
-
 : ME_4BCE9D760012
  CONST UID '4BCE9D760012'
  CONST Name 'Edit'
@@ -400,28 +305,6 @@ ref; // ME_34F2918AA12E Ini_FormFactory_elCustomEdit$Def
 
 ref; // ME_4BCEAE3C009B 
 
-: ME_47F3AFFEACA4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_47F3AFFEACA4 
-
-: ME_DD2B1282A869
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4BCE9D210265 // elCustomEdit
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_DD2B1282A869 
-
 : ME_4A8E8F2E0195_ME_4BCE9D210265
  : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
  ;
@@ -464,15 +347,8 @@ ref; // ME_4A8E8F2E0195_ME_4BCE9D210265 InitControls
  ME_307DDB1A929C // elCustomEdit$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_40D614F443E4 // ut_elCustomEditLocalConstants
- ME_84DF9E495A26 // LCImplut_elCustomEditLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4BCEAE3C009B // Forms
- ME_47F3AFFEACA4 // Tl3StringIDEx
- ME_DD2B1282A869 // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -578,101 +454,6 @@ ref; // ME_19EFA77EC8BE TextLoadIDs
 
 ref; // ME_247EE1BD7B9F TextLoad$Def
 
-FORWARD ME_49067E2E67AB
-
-: ME_824498D15E5A
- CONST UID '824498D15E5A'
- CONST Name 'ut_TextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для загрузки документа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_49067E2E67AB // ut_TextLoadLocalConstants
- ;
- CONST Value '''Форма для загрузки документа'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Форма для загрузки документа'''
-
-ref; // ME_824498D15E5A ut_TextLoadCaption
-
-: ME_49067E2E67AB
- CONST UID '49067E2E67AB'
- CONST Name 'ut_TextLoadLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_TextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Attributes
-   Seq: ( ME_824498D15E5A // ut_TextLoadCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_49067E2E67AB ut_TextLoadLocalConstants
-
-FORWARD ME_2D707537C087
-
-: ME_1FD1A5E1E95F
- CONST UID '1FD1A5E1E95F'
- CONST Name 'ut_TextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для загрузки документа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2D707537C087 // LCImplut_TextLoadLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_TextLoadCaption''; rValue : ''Форма для загрузки документа'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_TextLoadCaption''; rValue : ''Форма для загрузки документа'')'
- : Speller ME_824498D15E5A // ut_TextLoadCaption
- ;
-
-ref; // ME_1FD1A5E1E95F ut_TextLoadCaption
-
-: ME_2D707537C087
- CONST UID '2D707537C087'
- CONST Name 'LCImplut_TextLoadLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_TextLoadLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Attributes
-   Seq: ( ME_1FD1A5E1E95F // ut_TextLoadCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_49067E2E67AB // ut_TextLoadLocalConstants
- ;
-
-ref; // ME_2D707537C087 LCImplut_TextLoadLocalConstants
-
 : ME_4B322A36019F
  CONST UID '4B322A36019F'
  CONST Name 'Text'
@@ -763,28 +544,6 @@ ref; // ME_4B323A55004A
 
 ref; // ME_4B98F827038E 
 
-: ME_015675C94C8F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_015675C94C8F 
-
-: ME_8A94083BE771
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B30C7E800EE // TextLoad
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_8A94083BE771 
-
 : ME_4C9B21D20187_ME_4B30C7E800EE
  : Original ME_4C9B21D20187 // TextSource
  ;
@@ -839,17 +598,10 @@ ref; // ME_4C9B21E400A4_ME_4B30C7E800EE Text
  ME_247EE1BD7B9F // TextLoad$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_49067E2E67AB // ut_TextLoadLocalConstants
- ME_2D707537C087 // LCImplut_TextLoadLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4B32392A023A // TAlign
  ME_4B323A55004A // TWindowState
  ME_4B98F827038E // TvcmStringIDExHelper
- ME_015675C94C8F // Tl3StringIDEx
- ME_8A94083BE771 // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -958,101 +710,6 @@ ref; // ME_B07F727FDE74 F1LikeTextLoadIDs
 
 ref; // ME_A86FD59E8040 F1LikeTextLoad$Def
 
-FORWARD ME_F06F60E25A00
-
-: ME_81E64E9B479D
- CONST UID '81E64E9B479D'
- CONST Name 'ut_F1LikeTextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "F1LikeTextLoad"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F06F60E25A00 // ut_F1LikeTextLoadLocalConstants
- ;
- CONST Value '''F1LikeTextLoad'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''F1LikeTextLoad'''
-
-ref; // ME_81E64E9B479D ut_F1LikeTextLoadCaption
-
-: ME_F06F60E25A00
- CONST UID 'F06F60E25A00'
- CONST Name 'ut_F1LikeTextLoadLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_F1LikeTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Attributes
-   Seq: ( ME_81E64E9B479D // ut_F1LikeTextLoadCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_F06F60E25A00 ut_F1LikeTextLoadLocalConstants
-
-FORWARD ME_4B1CD4E1B9D9
-
-: ME_9BF3CFC49545
- CONST UID '9BF3CFC49545'
- CONST Name 'ut_F1LikeTextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "F1LikeTextLoad"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4B1CD4E1B9D9 // LCImplut_F1LikeTextLoadLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_F1LikeTextLoadCaption''; rValue : ''F1LikeTextLoad'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_F1LikeTextLoadCaption''; rValue : ''F1LikeTextLoad'')'
- : Speller ME_81E64E9B479D // ut_F1LikeTextLoadCaption
- ;
-
-ref; // ME_9BF3CFC49545 ut_F1LikeTextLoadCaption
-
-: ME_4B1CD4E1B9D9
- CONST UID '4B1CD4E1B9D9'
- CONST Name 'LCImplut_F1LikeTextLoadLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_F1LikeTextLoadLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Attributes
-   Seq: ( ME_9BF3CFC49545 // ut_F1LikeTextLoadCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_F06F60E25A00 // ut_F1LikeTextLoadLocalConstants
- ;
-
-ref; // ME_4B1CD4E1B9D9 LCImplut_F1LikeTextLoadLocalConstants
-
 : ME_4C9B316B032B
  CONST UID '4C9B316B032B'
  CONST Name 'Text'
@@ -1112,28 +769,6 @@ ref; // ME_4C9B31AA01A0 TextSource
 
 ref; // ME_16DE576D8ED2 Ini_FormFactory_F1LikeTextLoad$Def
 
-: ME_D5097A5A449E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_D5097A5A449E 
-
-: ME_083EF9697688
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C9B31190392 // F1LikeTextLoad
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_083EF9697688 
-
 : ME_4C9B21D20187_ME_4C9B31190392
  : Original ME_4C9B21D20187 // TextSource
  ;
@@ -1187,16 +822,6 @@ ref; // ME_4C9B21E400A4_ME_4C9B31190392 Text
  ME_A86FD59E8040 // F1LikeTextLoad$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_F06F60E25A00 // ut_F1LikeTextLoadLocalConstants
- ME_4B1CD4E1B9D9 // LCImplut_F1LikeTextLoadLocalConstants
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_D5097A5A449E // Tl3StringIDEx
- ME_083EF9697688 // Tl3MessageID
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -1302,101 +927,6 @@ ref; // ME_8E10EBD83695 QFLikeTextLoadIDs
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_08FE3EE819BF QFLikeTextLoad$Def
-
-FORWARD ME_0371FE854592
-
-: ME_2F96A31D8DB6
- CONST UID '2F96A31D8DB6'
- CONST Name 'ut_QFLikeTextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для работы с КЗ"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0371FE854592 // ut_QFLikeTextLoadLocalConstants
- ;
- CONST Value '''Форма для работы с КЗ'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Форма для работы с КЗ'''
-
-ref; // ME_2F96A31D8DB6 ut_QFLikeTextLoadCaption
-
-: ME_0371FE854592
- CONST UID '0371FE854592'
- CONST Name 'ut_QFLikeTextLoadLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_QFLikeTextLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Attributes
-   Seq: ( ME_2F96A31D8DB6 // ut_QFLikeTextLoadCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_0371FE854592 ut_QFLikeTextLoadLocalConstants
-
-FORWARD ME_BFF449DEF8B7
-
-: ME_3336EADB4737
- CONST UID '3336EADB4737'
- CONST Name 'ut_QFLikeTextLoadCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для работы с КЗ"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_BFF449DEF8B7 // LCImplut_QFLikeTextLoadLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_QFLikeTextLoadCaption''; rValue : ''Форма для работы с КЗ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_QFLikeTextLoadCaption''; rValue : ''Форма для работы с КЗ'')'
- : Speller ME_2F96A31D8DB6 // ut_QFLikeTextLoadCaption
- ;
-
-ref; // ME_3336EADB4737 ut_QFLikeTextLoadCaption
-
-: ME_BFF449DEF8B7
- CONST UID 'BFF449DEF8B7'
- CONST Name 'LCImplut_QFLikeTextLoadLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_QFLikeTextLoadLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Attributes
-   Seq: ( ME_3336EADB4737 // ut_QFLikeTextLoadCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_0371FE854592 // ut_QFLikeTextLoadLocalConstants
- ;
-
-ref; // ME_BFF449DEF8B7 LCImplut_QFLikeTextLoadLocalConstants
 
 : ME_4CA0906401D3
  CONST UID '4CA0906401D3'
@@ -1511,28 +1041,6 @@ ref; // ME_4F15444C013F
 
 ref; // ME_4F15446B0109 
 
-: ME_5FBB1BAA7F4E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_5FBB1BAA7F4E 
-
-: ME_CA05121E3651
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CA090120212 // QFLikeTextLoad
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_CA05121E3651 
-
 : ME_4C9B21D20187_ME_4CA090120212
  : Original ME_4C9B21D20187 // TextSource
  ;
@@ -1612,18 +1120,11 @@ ref; // ME_4F15435202B5_ME_4CA090120212 AfterLoad
  ME_08FE3EE819BF // QFLikeTextLoad$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_0371FE854592 // ut_QFLikeTextLoadLocalConstants
- ME_BFF449DEF8B7 // LCImplut_QFLikeTextLoadLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4F1543A60027 // TevQueryDocumentContainer
  ME_4F1543F400B2 // TevControlContainerEX
  ME_4F15444C013F // InevQueryDocumentContainer
  ME_4F15446B0109 // l3IOK
- ME_5FBB1BAA7F4E // Tl3StringIDEx
- ME_CA05121E3651 // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -1729,101 +1230,6 @@ ref; // ME_0871E136C220 F1LikeFormWithBSIDs
 
 ref; // ME_92E41F918840 F1LikeFormWithBS$Def
 
-FORWARD ME_0228FC857CB8
-
-: ME_1EE0288E3E6F
- CONST UID '1EE0288E3E6F'
- CONST Name 'ut_F1LikeFormWithBSCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма с текстовым редактором с базовым поиском."' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0228FC857CB8 // ut_F1LikeFormWithBSLocalConstants
- ;
- CONST Value '''Форма с текстовым редактором с базовым поиском.'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Форма с текстовым редактором с базовым поиском.'''
-
-ref; // ME_1EE0288E3E6F ut_F1LikeFormWithBSCaption
-
-: ME_0228FC857CB8
- CONST UID '0228FC857CB8'
- CONST Name 'ut_F1LikeFormWithBSLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_F1LikeFormWithBS' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Attributes
-   Seq: ( ME_1EE0288E3E6F // ut_F1LikeFormWithBSCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_0228FC857CB8 ut_F1LikeFormWithBSLocalConstants
-
-FORWARD ME_0A2624F97CD6
-
-: ME_BA7AC9E8B6CD
- CONST UID 'BA7AC9E8B6CD'
- CONST Name 'ut_F1LikeFormWithBSCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма с текстовым редактором с базовым поиском."' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0A2624F97CD6 // LCImplut_F1LikeFormWithBSLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_F1LikeFormWithBSCaption''; rValue : ''Форма с текстовым редактором с базовым поиском.'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_F1LikeFormWithBSCaption''; rValue : ''Форма с текстовым редактором с базовым поиском.'')'
- : Speller ME_1EE0288E3E6F // ut_F1LikeFormWithBSCaption
- ;
-
-ref; // ME_BA7AC9E8B6CD ut_F1LikeFormWithBSCaption
-
-: ME_0A2624F97CD6
- CONST UID '0A2624F97CD6'
- CONST Name 'LCImplut_F1LikeFormWithBSLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_F1LikeFormWithBSLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Attributes
-   Seq: ( ME_BA7AC9E8B6CD // ut_F1LikeFormWithBSCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_0228FC857CB8 // ut_F1LikeFormWithBSLocalConstants
- ;
-
-ref; // ME_0A2624F97CD6 LCImplut_F1LikeFormWithBSLocalConstants
-
 : ME_4D6CB56A0031
  CONST UID '4D6CB56A0031'
  CONST Name 'BaseSearchControl'
@@ -1924,28 +1330,6 @@ ref; // ME_4D6CD49803CD
 
 ref; // ME_4D6CF48D0045 
 
-: ME_2D3D32CA000D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_2D3D32CA000D 
-
-: ME_59432134DF4B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D6CB4B7035F // F1LikeFormWithBS
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_59432134DF4B 
-
 : ME_4C9B21D20187_ME_4D6CB4B7035F
  : Original ME_4C9B21D20187 // TextSource
  ;
@@ -2011,16 +1395,9 @@ ref; // ME_4A8E8F2E0195_ME_4D6CB4B7035F InitControls
  ME_92E41F918840 // F1LikeFormWithBS$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_0228FC857CB8 // ut_F1LikeFormWithBSLocalConstants
- ME_0A2624F97CD6 // LCImplut_F1LikeFormWithBSLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4D6CD49803CD // TAlign
  ME_4D6CF48D0045 // TWindowState
- ME_2D3D32CA000D // Tl3StringIDEx
- ME_59432134DF4B // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true

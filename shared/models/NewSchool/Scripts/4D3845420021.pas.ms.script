@@ -269,22 +269,6 @@ ref; // ME_4A7B029201C0 Document
 
 ref; // ME_4EC3D77F00A5 f_LocalPositioning
 
-: ME_681814775E1A
- CONST UID '681814775E1A'
- CONST Name 'f_RedactionTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RedactionTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497A12850078 // PrimRedactions
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_681814775E1A f_RedactionTree
-
 FORWARD ME_4EC3B6680086
 
 : ME_4EC3B6C6023C
@@ -608,57 +592,6 @@ ref; // ME_4EC3D96E00B8
 
 ref; // ME_4EC3D92302F3 RedactionTreeGetItemImage
 
-FORWARD ME_4EC3D9E50143
-
-: ME_5EE4EE5B75E2
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5EE4EE5B75E2 aSender
-
-: ME_A0B616D99841
- CONST Name 'aNewCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_A0B616D99841 aNewCurrent
-
-: ME_DB165C4E542D
- CONST Name 'aOldCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_DB165C4E542D aOldCurrent
-
-: ME_5640A6C8267C
- CONST UID '5640A6C8267C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'событие для обработки изменения текущего элемента' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EC3D9E50143 // RedactionTreeCurrentChanged
- ;
- : Parameters
-   Seq: ( ME_5EE4EE5B75E2 // aSender
- ME_A0B616D99841 // aNewCurrent
- ME_DB165C4E542D // aOldCurrent
- )
- ; // Parameters
-
-ref; // ME_5640A6C8267C DoIt
-
 : ME_4EC3D9E50143
  CONST UID '4EC3D9E50143'
  CONST Name 'RedactionTreeCurrentChanged'
@@ -673,10 +606,6 @@ ref; // ME_5640A6C8267C DoIt
    Seq: ( WL 'ME_4A9D4FB0034A' '494B947D0127.pas.ms.script' // TeeCurrentChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5640A6C8267C // DoIt
- )
- ; // Operations
 
 ref; // ME_4EC3D9E50143 RedactionTreeCurrentChanged
 
@@ -833,78 +762,6 @@ ref; // ME_4EC3DAE003B4 DoIt
 
 ref; // ME_4EC3DAD30269 RedactionTreeAfterWake
 
-FORWARD ME_4EC3DB680251
-
-: ME_2E41E2A89B32
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2E41E2A89B32 aSender
-
-: ME_3CEFFA6B5379
- CONST Name 'Info'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_3CEFFA6B5379 Info
-
-: ME_175C6841EBE2
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_175C6841EBE2 aCurrent
-
-: ME_9D0E6B42BBFD
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_9D0E6B42BBFD aCount
-
-: ME_5D885ED6320A
- CONST Name 'aSelected'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_5D885ED6320A aSelected
-
-: ME_29D05DE3DD46
- CONST UID '29D05DE3DD46'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4EC3DB680251 // RedactionTreeFormatStatusInfo
- ;
- : Parameters
-   Seq: ( ME_2E41E2A89B32 // aSender
- ME_3CEFFA6B5379 // Info
- ME_175C6841EBE2 // aCurrent
- ME_9D0E6B42BBFD // aCount
- ME_5D885ED6320A // aSelected
- )
- ; // Parameters
-
-ref; // ME_29D05DE3DD46 DoIt
-
 : ME_4EC3DB680251
  CONST UID '4EC3DB680251'
  CONST Name 'RedactionTreeFormatStatusInfo'
@@ -919,10 +776,6 @@ ref; // ME_29D05DE3DD46 DoIt
    Seq: ( WL 'ME_5143245F0209' '494B947D0127.pas.ms.script' // TeeFormatStatusInfo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_29D05DE3DD46 // DoIt
- )
- ; // Operations
 
 ref; // ME_4EC3DB680251 RedactionTreeFormatStatusInfo
 
@@ -1354,21 +1207,6 @@ ref; // ME_4ED618A102F8
 
 ref; // ME_4ED613000183 DoGetItemImageVertOffset
 
-: ME_451D8AA10996
- CONST UID '451D8AA10996'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimRedactions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497A12850078 // PrimRedactions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_451D8AA10996 Ini_Reg_Class
-
 : ME_4AEF00EF0053
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1509,17 +1347,6 @@ ref; // ME_56D5A7710229
 
 ref; // ME_56D5B974022A 
 
-: ME_E474C09A03C0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497A12850078 // PrimRedactions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E474C09A03C0 
-
 : ME_497F16AC015A_ME_497A12850078
  : Original WL 'ME_497F16AC015A' '4A7C0BB70162.pas.ms.script' // DoTabActivate
  ;
@@ -1651,7 +1478,6 @@ ref; // ME_4EF354C8018B_ME_497A12850078 CaneHaveDocumentCompareEditionsOperation
  ME_497EF5CD0246 // dsEditions
  ME_4A7B029201C0 // Document
  ME_4EC3D77F00A5 // f_LocalPositioning
- ME_681814775E1A // f_RedactionTree
  )
  ; // Attributes
  : Operations
@@ -1672,7 +1498,6 @@ ref; // ME_4EF354C8018B_ME_497A12850078 CaneHaveDocumentCompareEditionsOperation
  ME_4EC502E20378 // RedactionTreeToggleSelection
  ME_4ED4D56603CA // DoGetItemStyle
  ME_4ED613000183 // DoGetItemImageVertOffset
- ME_451D8AA10996 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1712,7 +1537,6 @@ ref; // ME_4EF354C8018B_ME_497A12850078 CaneHaveDocumentCompareEditionsOperation
  ME_535A902203A5 // Ik2Tag
  ME_56D5A7710229 // TvtLister
  ME_56D5B974022A // Windows
- ME_E474C09A03C0 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1735,21 +1559,6 @@ ref; // ME_497A12850078 PrimRedactions
 
 FORWARD ME_4C86253E00C5
 
-: ME_9F81B5FA1273
- CONST UID '9F81B5FA1273'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimRedactionsOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C86253E00C5 // PrimRedactionsOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_9F81B5FA1273 Ini_Reg_Class
-
 : ME_4C862A330096
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1769,17 +1578,6 @@ ref; // ME_4C862A330096
  ;
 
 ref; // ME_4C862B3100A5 
-
-: ME_BF6B5ADE99FE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C86253E00C5 // PrimRedactionsOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_BF6B5ADE99FE 
 
 : ME_4BDAF7880236_ME_4C86253E00C5
  : Original WL 'ME_4BDAF7880236' '4BDAF7510113.pas.ms.script' // ExpandAll
@@ -1878,10 +1676,6 @@ ref; // ME_55544CF2027E_ME_4C86253E00C5 OpenNewTab
  WL 'ME_4EF0B1EF00BE' '484900780017.pas.ms.script' // Если список редакций открыт в модальном состоянии, то контекстной операции "Открыть в новом окне" - быть не должно
  )
  ; // Implements
- : Operations
-   Seq: ( ME_9F81B5FA1273 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4BDAF7880236_ME_4C86253E00C5 // ExpandAll
  ME_4BDAF7A2005C_ME_4C86253E00C5 // CollapseAll
@@ -1893,7 +1687,6 @@ ref; // ME_55544CF2027E_ME_4C86253E00C5 OpenNewTab
  : Dependencies
    Seq: ( ME_4C862A330096 // Document$MangleForSpell
  ME_4C862B3100A5 // dftDocument
- ME_BF6B5ADE99FE // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -1969,7 +1762,6 @@ ref; // ME_4C86253E00C5 PrimRedactionsOptions
  WL 'ME_4D383D6E01B6' '4D383D6E01B6.pas.ms.script' // BaseDocument
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

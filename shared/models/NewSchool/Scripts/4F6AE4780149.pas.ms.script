@@ -162,101 +162,6 @@ ref; // ME_82DB055F0F7A MainIDs
 
 ref; // ME_D8C3E0B6746B Main$Def
 
-FORWARD ME_F3CB83E09F6D
-
-: ME_0BDA345AEA4F
- CONST UID '0BDA345AEA4F'
- CONST Name 'ut_MainCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "НЕ Роза"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F3CB83E09F6D // ut_MainLocalConstants
- ;
- CONST Value '''НЕ Роза'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''НЕ Роза'''
-
-ref; // ME_0BDA345AEA4F ut_MainCaption
-
-: ME_F3CB83E09F6D
- CONST UID 'F3CB83E09F6D'
- CONST Name 'ut_MainLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_Main' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4F6AEAE5007B // Main
- ;
- : Attributes
-   Seq: ( ME_0BDA345AEA4F // ut_MainCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_F3CB83E09F6D ut_MainLocalConstants
-
-FORWARD ME_DE4E6B1B2519
-
-: ME_9078059E32E3
- CONST UID '9078059E32E3'
- CONST Name 'ut_MainCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "НЕ Роза"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DE4E6B1B2519 // LCImplut_MainLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_MainCaption''; rValue : ''НЕ Роза'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_MainCaption''; rValue : ''НЕ Роза'')'
- : Speller ME_0BDA345AEA4F // ut_MainCaption
- ;
-
-ref; // ME_9078059E32E3 ut_MainCaption
-
-: ME_DE4E6B1B2519
- CONST UID 'DE4E6B1B2519'
- CONST Name 'LCImplut_MainLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_MainLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4F6AEAE5007B // Main
- ;
- : Attributes
-   Seq: ( ME_9078059E32E3 // ut_MainCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_F3CB83E09F6D // ut_MainLocalConstants
- ;
-
-ref; // ME_DE4E6B1B2519 LCImplut_MainLocalConstants
-
 : ME_4732628682FD
  CONST UID '4732628682FD'
  CONST Name 'Ini_FormFactory_Main'
@@ -272,28 +177,6 @@ ref; // ME_DE4E6B1B2519 LCImplut_MainLocalConstants
  ;
 
 ref; // ME_4732628682FD Ini_FormFactory_Main$Def
-
-: ME_723AF4FC7E4E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6AEAE5007B // Main
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_723AF4FC7E4E 
-
-: ME_FAD8734C0E0F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6AEAE5007B // Main
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_FAD8734C0E0F 
 
 : ME_47A042E100E2_ME_4F6AEAE5007B
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
@@ -333,16 +216,6 @@ ref; // ME_47A042E100E2_ME_4F6AEAE5007B InitFields
  ME_D8C3E0B6746B // Main$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_F3CB83E09F6D // ut_MainLocalConstants
- ME_DE4E6B1B2519 // LCImplut_MainLocalConstants
- )
- ; // Constants
- : Dependencies
-   Seq: ( ME_723AF4FC7E4E // Tl3StringIDEx
- ME_FAD8734C0E0F // Tl3MessageID
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "finished dfm" true
@@ -355,58 +228,6 @@ ref; // ME_47A042E100E2_ME_4F6AEAE5007B InitFields
  CONST extprop:pas:UnitName 'Main_Form'
 
 ref; // ME_4F6AEAE5007B Main
-
-FORWARD ME_AE1AEA8C76AF
-
-: ME_4ED00BF6B9A3
- CONST UID '4ED00BF6B9A3'
- CONST Name 'NewGenTitle'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''НЕ Роза''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AE1AEA8C76AF // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''NewGenTitle''; rValue : ''НЕ Роза'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''NewGenTitle''; rValue : ''НЕ Роза'')'
- : Speller ME_4F6AF458003D // NewGenTitle
- ;
-
-ref; // ME_4ED00BF6B9A3 NewGenTitle
-
-: ME_AE1AEA8C76AF
- CONST UID 'AE1AEA8C76AF'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4F6AE4A6014D // NewGen
- ;
- : Attributes
-   Seq: ( ME_4ED00BF6B9A3 // NewGenTitle
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4F6AF44B016B // Local
- ;
-
-ref; // ME_AE1AEA8C76AF LCImplLocal
 
 : ME_6C5C8CEC4C67
  CONST UID '6C5C8CEC4C67'
@@ -459,28 +280,6 @@ ref; // ME_4F6B0CF1013C
 
 ref; // ME_4F6B0CFC02A6 
 
-: ME_DCE8C2E49C13
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6AE4A6014D // NewGen
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_DCE8C2E49C13 
-
-: ME_7943B3AF9B89
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4F6AE4A6014D // NewGen
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_7943B3AF9B89 
-
 : ME_4F6AF5860291_ME_4F6AE4A6014D
  : Original WL 'ME_4F6AF5860291' '50883A2E00B3.pas.ms.script' // Runner
  ;
@@ -514,15 +313,12 @@ ref; // ME_4F6AF5860291_ME_4F6AE4A6014D Runner
  ; // Children
  : Constants
    Seq: ( ME_4F6AF44B016B // Local
- ME_AE1AEA8C76AF // LCImplLocal
  )
  ; // Constants
  : Dependencies
    Seq: ( ME_4F6B01250088 // StdRes
  ME_4F6B0CF1013C // Forms
  ME_4F6B0CFC02A6 // Windows
- ME_DCE8C2E49C13 // Tl3StringIDEx
- ME_7943B3AF9B89 // Tl3MessageID
  )
  ; // Dependencies
  CONST intf.pas:Path 'MDProcess\NewGen\NewGenRes.pas'
@@ -583,6 +379,6 @@ ref; // ME_4F6AE4A6014D NewGen
  CONST "needs second icon" false
  CONST "vendor" 'none'
  CONST intf.pas:Path 'MDProcess\NewGen\NewGen.dpr'
- CONST Version 5
+ CONST Version 10
 
 ref; // ME_4F6AE4780149 NewGen

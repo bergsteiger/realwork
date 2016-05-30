@@ -8939,101 +8939,6 @@ FORWARD ME_4C8E4D4F027D
 
 ref; // ME_57FDA2BA57FE ut_CustomizeTasksPanel
 
-FORWARD ME_5BD0EE3EE082
-
-: ME_59F83EC5E500
- CONST UID '59F83EC5E500'
- CONST Name 'ut_CustomizeTasksPanelCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Редактор панели задач"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_5BD0EE3EE082 // ut_CustomizeTasksPanelLocalConstants
- ;
- CONST Value '''Редактор панели задач'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Редактор панели задач'''
-
-ref; // ME_59F83EC5E500 ut_CustomizeTasksPanelCaption
-
-: ME_5BD0EE3EE082
- CONST UID '5BD0EE3EE082'
- CONST Name 'ut_CustomizeTasksPanelLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_CustomizeTasksPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C8E4D4F027D // CustomizeTasksPanel
- ;
- : Attributes
-   Seq: ( ME_59F83EC5E500 // ut_CustomizeTasksPanelCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_5BD0EE3EE082 ut_CustomizeTasksPanelLocalConstants
-
-FORWARD ME_01B129E183E5
-
-: ME_F6585C7B8042
- CONST UID 'F6585C7B8042'
- CONST Name 'ut_CustomizeTasksPanelCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Редактор панели задач"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_01B129E183E5 // LCImplut_CustomizeTasksPanelLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_CustomizeTasksPanelCaption''; rValue : ''Редактор панели задач'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_CustomizeTasksPanelCaption''; rValue : ''Редактор панели задач'')'
- : Speller ME_59F83EC5E500 // ut_CustomizeTasksPanelCaption
- ;
-
-ref; // ME_F6585C7B8042 ut_CustomizeTasksPanelCaption
-
-: ME_01B129E183E5
- CONST UID '01B129E183E5'
- CONST Name 'LCImplut_CustomizeTasksPanelLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_CustomizeTasksPanelLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4C8E4D4F027D // CustomizeTasksPanel
- ;
- : Attributes
-   Seq: ( ME_F6585C7B8042 // ut_CustomizeTasksPanelCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5BD0EE3EE082 // ut_CustomizeTasksPanelLocalConstants
- ;
-
-ref; // ME_01B129E183E5 LCImplut_CustomizeTasksPanelLocalConstants
-
 FORWARD ME_559F8C7A0213
 
 : ME_55A347B4039B
@@ -9045,28 +8950,6 @@ FORWARD ME_559F8C7A0213
  ;
 
 ref; // ME_55A347B4039B 
-
-: ME_CB070E081F2E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8E4D4F027D // CustomizeTasksPanel
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_CB070E081F2E 
-
-: ME_DD64391D6E0C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C8E4D4F027D // CustomizeTasksPanel
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_DD64391D6E0C 
 
 : ME_4C8E4D4F027D
  CONST UID '4C8E4D4F027D'
@@ -9087,15 +8970,8 @@ ref; // ME_DD64391D6E0C
    Seq: ( ME_57FDA2BA57FE // ut_CustomizeTasksPanel
  )
  ; // Children
- : Constants
-   Seq: ( ME_5BD0EE3EE082 // ut_CustomizeTasksPanelLocalConstants
- ME_01B129E183E5 // LCImplut_CustomizeTasksPanelLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_55A347B4039B // TvcmCustOpsRepGroupList
- ME_CB070E081F2E // Tl3StringIDEx
- ME_DD64391D6E0C // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true

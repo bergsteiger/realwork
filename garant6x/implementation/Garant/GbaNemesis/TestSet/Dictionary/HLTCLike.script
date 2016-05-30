@@ -4017,7 +4017,7 @@ PROCEDURE "Проверить выбранность всех типов информации для БП на ТБ27"
 
 PROCEDURE "Померить ширину контрола и сравнить ее с эталоном" STRING IN aCtrl
  OBJECT VAR "Контрол"
- "Найти контрол {(aCtrl)} на форме {("Главное окно")}" =: "Контрол"
+ "Найти контрол {(aCtrl)} на форме {("Текущая активная вкладка")}" =: "Контрол"
  [ 'Ширина ' aCtrl ': ' ] strings:Cat "Померить ширину {("Контрол")}" ToPrintable Cat .
 ;
 
@@ -4895,4 +4895,10 @@ OBJECT FUNCTION "Меню выбора профессии"
 PROCEDURE "Сравнить с эталоном наличие скроллеров у контрола " OBJECT IN Ctrl
  'Вертикальный скроллер: ' Ctrl pop:Control:VScrollerVisible ToPrintable Cat .
  'Горизонтальный скроллер: ' Ctrl pop:Control:HScrollerVisible ToPrintable Cat .
+;
+
+PROCEDURE "Померить высоту контрола и сравнить ее с эталоном" STRING IN aCtrl
+ OBJECT VAR "Контрол"
+ "Найти контрол {(aCtrl)} на форме {("Текущая активная вкладка")}" =: "Контрол"
+ [ 'Высота ' aCtrl ': ' ] strings:Cat "Померить высоту {("Контрол")}" ToPrintable Cat .
 ;

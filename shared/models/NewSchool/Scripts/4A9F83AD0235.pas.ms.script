@@ -1597,107 +1597,6 @@ ref; // ME_4E283E940111 ReferenceHyperlinkReplaceText
 
 ref; // ME_4E283FEC0311 Local
 
-FORWARD ME_2236769CBE83
-
-: ME_9FA3092124D9
- CONST UID '9FA3092124D9'
- CONST Name 'ReferenceHyperlinkSearchText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Подробнее см. в справке к документу''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2236769CBE83 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHyperlinkSearchText''; rValue : ''Подробнее см. в справке к документу'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHyperlinkSearchText''; rValue : ''Подробнее см. в справке к документу'')'
- : Speller ME_4DAC1BF701DA // ReferenceHyperlinkSearchText
- ;
-
-ref; // ME_9FA3092124D9 ReferenceHyperlinkSearchText
-
-: ME_F93CF7C3693C
- CONST UID 'F93CF7C3693C'
- CONST Name 'ReferenceHyperlinkReplaceText'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Подробнее [см. в справке к документу|script:оп::Документ_Справка_к_документу|Ссылка на справку к документу]''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2236769CBE83 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHyperlinkReplaceText''; rValue : ''Подробнее [см. в справке к документу|script:оп::Документ_Справка_к_документу|Ссылка на справку к документу]'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''wgReferenceHyperlinkReplaceText''; rValue : ''Подробнее [см. в справке к документу|script:оп::Документ_Справка_к_документу|Ссылка на справку к документу]'')'
- : Speller ME_4E283E940111 // ReferenceHyperlinkReplaceText
- ;
-
-ref; // ME_F93CF7C3693C ReferenceHyperlinkReplaceText
-
-: ME_2236769CBE83
- CONST UID '2236769CBE83'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4E283FC201DC // bsUtilsConst
- ;
- : Attributes
-   Seq: ( ME_9FA3092124D9 // ReferenceHyperlinkSearchText
- ME_F93CF7C3693C // ReferenceHyperlinkReplaceText
- )
- ; // Attributes
- CONST "children prefix" 'wg'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_wg'
- : Speller ME_4E283FEC0311 // Local
- ;
-
-ref; // ME_2236769CBE83 LCImplLocal
-
-: ME_7AEF4D704AAF
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E283FC201DC // bsUtilsConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_7AEF4D704AAF 
-
-: ME_35B49232ACC0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E283FC201DC // bsUtilsConst
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_35B49232ACC0 
-
 : ME_4E283FC201DC
  CONST UID '4E283FC201DC'
  CONST Name 'bsUtilsConst'
@@ -1710,14 +1609,8 @@ ref; // ME_35B49232ACC0
  ;
  : Constants
    Seq: ( ME_4E283FEC0311 // Local
- ME_2236769CBE83 // LCImplLocal
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_7AEF4D704AAF // Tl3StringIDEx
- ME_35B49232ACC0 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '21.07.2011 19:03'

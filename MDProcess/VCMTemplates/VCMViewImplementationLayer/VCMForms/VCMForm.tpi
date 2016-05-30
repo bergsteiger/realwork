@@ -227,7 +227,7 @@ p restrict form def:tribool=undefined ?
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
 	%{Op_Instance}%f_set_var(SpelledFor,S)\
-	[{%S{finished}!=true|%S#f_UseNewGenRec()!=true}\
+	[{%S{finished}!=true|%f_UseNewGenRecG(%S)!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 fm_%f_cut_prefix(%f_pas_TypeName(%S),T).SetFactory(%f_pas_TypeName(%S).Make);\
 	)\
@@ -273,7 +273,7 @@ f _HasFactory
 	%O#f_OperationsToUses()\
 	]\
 	>\
-	[{%S#f_UseNewGenRec()!=true}\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	[{%Sa=final}\
 	%f_pas_PutToUses("%f_N(%S)KeywordsPack")\
 // - времянка, чтобы подключить Pack. До полного переноса в новый генератор
@@ -578,6 +578,13 @@ f _NeedMakeControls
 	# procedure MakeControls; override;
 	]
 //#UC END# *494B856502ECfor4B5DA84A00DD*
+
+// перекрытие базового стереотипа Ifdef::MDAGenerator
+%f _UseNewGenRec
+// возвращаемый результат: boolean
+//#UC START# *56BCA5310152for4B5DA84A00DD*
+	%f_UseNewGenRecG(%S)
+//#UC END# *56BCA5310152for4B5DA84A00DD*
 
 // перекрытие базового стереотипа VCMCustomForm::Class
 %f _pas_OutEntities

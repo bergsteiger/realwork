@@ -25,147 +25,6 @@ FORWARD ME_4A7C349D02CB
 
 ref; // ME_4BD7296F02E0 utUnderControl
 
-FORWARD ME_AE37823919E8
-
-: ME_FFC521A76203
- CONST UID 'FFC521A76203'
- CONST Name 'utUnderControlCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Документы на контроле"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AE37823919E8 // utUnderControlLocalConstants
- ;
- CONST Value '''Документы на контроле'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Документы на контроле'''
-
-ref; // ME_FFC521A76203 utUnderControlCaption
-
-: ME_DEDB374810B1
- CONST UID 'DEDB374810B1'
- CONST Name 'utUnderControlSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Документы на контроле" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AE37823919E8 // utUnderControlLocalConstants
- ;
- CONST Value '''Документы на контроле (вкладка)'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Документы на контроле (вкладка)'''
-
-ref; // ME_DEDB374810B1 utUnderControlSettingsCaption
-
-: ME_AE37823919E8
- CONST UID 'AE37823919E8'
- CONST Name 'utUnderControlLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utUnderControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Attributes
-   Seq: ( ME_FFC521A76203 // utUnderControlCaption
- ME_DEDB374810B1 // utUnderControlSettingsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_AE37823919E8 utUnderControlLocalConstants
-
-FORWARD ME_B53310C121A0
-
-: ME_E3EBCB5FFD60
- CONST UID 'E3EBCB5FFD60'
- CONST Name 'utUnderControlCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Документы на контроле"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B53310C121A0 // LCImplutUnderControlLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utUnderControlCaption''; rValue : ''Документы на контроле'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utUnderControlCaption''; rValue : ''Документы на контроле'')'
- : Speller ME_FFC521A76203 // utUnderControlCaption
- ;
-
-ref; // ME_E3EBCB5FFD60 utUnderControlCaption
-
-: ME_7A55AE402D57
- CONST UID '7A55AE402D57'
- CONST Name 'utUnderControlSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Документы на контроле" для настройки панелей инструментов' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B53310C121A0 // LCImplutUnderControlLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utUnderControlSettingsCaption''; rValue : ''Документы на контроле (вкладка)'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utUnderControlSettingsCaption''; rValue : ''Документы на контроле (вкладка)'')'
- : Speller ME_DEDB374810B1 // utUnderControlSettingsCaption
- ;
-
-ref; // ME_7A55AE402D57 utUnderControlSettingsCaption
-
-: ME_B53310C121A0
- CONST UID 'B53310C121A0'
- CONST Name 'LCImplutUnderControlLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utUnderControlLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Attributes
-   Seq: ( ME_E3EBCB5FFD60 // utUnderControlCaption
- ME_7A55AE402D57 // utUnderControlSettingsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_AE37823919E8 // utUnderControlLocalConstants
- ;
-
-ref; // ME_B53310C121A0 LCImplutUnderControlLocalConstants
-
 FORWARD ME_4DEE1DAC02D9
 
 : ME_46A5AA4B003C_ME_4DEE1DAC02D9
@@ -320,22 +179,6 @@ ref; // ME_4C7D0C7B0185_ME_4DEE1DAC02D9 Copy
  CONST "put to dfm" false
 
 ref; // ME_4DEE1DAC02D9 UnderControlList
-
-: ME_96BE81AEBC07
- CONST UID '96BE81AEBC07'
- CONST Name 'f_UnderControlList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UnderControlList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Target WL 'ME_52DE57DF007B' '52DE57B200A5.pas.ms.script' // TnscTreeViewWithAdapterDragDrop
- ;
-
-ref; // ME_96BE81AEBC07 f_UnderControlList
 
 FORWARD ME_4B88CAAF01CF
 
@@ -615,57 +458,6 @@ ref; // ME_4C7E572A0257
 
 ref; // ME_4C7E558F0001 UpdateRoot
 
-FORWARD ME_527B587200CA
-
-: ME_2563FE25949F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2563FE25949F Sender
-
-: ME_1763C9E7F03A
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_1763C9E7F03A Index
-
-: ME_1A9F6A31AC05
- CONST Name 'SelectedState'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_1A9F6A31AC05 SelectedState
-
-: ME_CCA2555CA065
- CONST UID 'CCA2555CA065'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'event to notify of a selection change' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B587200CA // UnderControlListSelectChanged
- ;
- : Parameters
-   Seq: ( ME_2563FE25949F // Sender
- ME_1763C9E7F03A // Index
- ME_1A9F6A31AC05 // SelectedState
- )
- ; // Parameters
-
-ref; // ME_CCA2555CA065 DoIt
-
 : ME_527B587200CA
  CONST UID '527B587200CA'
  CONST Name 'UnderControlListSelectChanged'
@@ -680,54 +472,8 @@ ref; // ME_CCA2555CA065 DoIt
    Seq: ( WL 'ME_514B39850152' '4B97E7FD006C.pas.ms.script' // TSelectEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CCA2555CA065 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B587200CA UnderControlListSelectChanged
-
-FORWARD ME_527B588701E5
-
-: ME_E41E5E771171
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_E41E5E771171 Sender
-
-: ME_BEE5B6AD7DF2
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_BEE5B6AD7DF2 Index
-
-: ME_5E1303863CF3
- CONST UID '5E1303863CF3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'event to get Hint String;' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B588701E5 // UnderControlListGetItemIconHint
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Parameters
-   Seq: ( ME_E41E5E771171 // Sender
- ME_BEE5B6AD7DF2 // Index
- )
- ; // Parameters
-
-ref; // ME_5E1303863CF3 DoIt
 
 : ME_527B588701E5
  CONST UID '527B588701E5'
@@ -743,40 +489,8 @@ ref; // ME_5E1303863CF3 DoIt
    Seq: ( WL 'ME_514B34AD015C' '4B97E7FD006C.pas.ms.script' // TGetItemHint
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5E1303863CF3 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B588701E5 UnderControlListGetItemIconHint
-
-FORWARD ME_527B58910002
-
-: ME_2C54F6A9F892
- CONST Name 'theTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_2C54F6A9F892 theTree
-
-: ME_C4B59A1DA60B
- CONST UID 'C4B59A1DA60B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B58910002 // UnderControlListMakeTreeSource
- ;
- : Parameters
-   Seq: ( ME_2C54F6A9F892 // theTree
- )
- ; // Parameters
-
-ref; // ME_C4B59A1DA60B DoIt
 
 : ME_527B58910002
  CONST UID '527B58910002'
@@ -792,65 +506,8 @@ ref; // ME_C4B59A1DA60B DoIt
    Seq: ( WL 'ME_5199D8F700DB' '494B947D0127.pas.ms.script' // TeeMakeTreeSource
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C4B59A1DA60B // DoIt
- )
- ; // Operations
 
 ref; // ME_527B58910002 UnderControlListMakeTreeSource
-
-FORWARD ME_527B58980313
-
-: ME_FFCAE4C6E11F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_FFCAE4C6E11F Sender
-
-: ME_CD13018368F5
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_CD13018368F5 Index
-
-: ME_6C07A176DA84
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_6C07A176DA84 aImages
-
-: ME_22134BAE3641
- CONST UID '22134BAE3641'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B58980313 // UnderControlListGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_FFCAE4C6E11F // Sender
- ME_CD13018368F5 // Index
- ME_6C07A176DA84 // aImages
- )
- ; // Parameters
-
-ref; // ME_22134BAE3641 DoIt
 
 : ME_527B58980313
  CONST UID '527B58980313'
@@ -866,54 +523,8 @@ ref; // ME_22134BAE3641 DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_22134BAE3641 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B58980313 UnderControlListGetItemImage
-
-FORWARD ME_527B58A30059
-
-: ME_10D35FB38B67
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_10D35FB38B67 Sender
-
-: ME_18469B0BFEFA
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_18469B0BFEFA Index
-
-: ME_213E74A05158
- CONST UID '213E74A05158'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'получение hint-а при задерке курсора над текстом.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B58A30059 // UnderControlListGetItemTextHint
- ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
- : Parameters
-   Seq: ( ME_10D35FB38B67 // Sender
- ME_18469B0BFEFA // Index
- )
- ; // Parameters
-
-ref; // ME_213E74A05158 DoIt
 
 : ME_527B58A30059
  CONST UID '527B58A30059'
@@ -929,51 +540,8 @@ ref; // ME_213E74A05158 DoIt
    Seq: ( WL 'ME_514B3629029D' '4B97E7FD006C.pas.ms.script' // TGetItemTextHint
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_213E74A05158 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B58A30059 UnderControlListGetItemTextHint
-
-FORWARD ME_527B58AB02FB
-
-: ME_CEFBB468344A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_CEFBB468344A Sender
-
-: ME_7ABF57A58AA1
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_7ABF57A58AA1 Index
-
-: ME_605BAB7ADC29
- CONST UID '605BAB7ADC29'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B58AB02FB // UnderControlListActionElement
- ;
- : Parameters
-   Seq: ( ME_CEFBB468344A // Sender
- ME_7ABF57A58AA1 // Index
- )
- ; // Parameters
-
-ref; // ME_605BAB7ADC29 DoIt
 
 : ME_527B58AB02FB
  CONST UID '527B58AB02FB'
@@ -989,62 +557,8 @@ ref; // ME_605BAB7ADC29 DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_605BAB7ADC29 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B58AB02FB UnderControlListActionElement
-
-FORWARD ME_527B58B30211
-
-: ME_937C0DB4B146
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_937C0DB4B146 Sender
-
-: ME_987F581F2ED9
- CONST Name 'aNewCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_987F581F2ED9 aNewCurrent
-
-: ME_254DEA0C816F
- CONST Name 'aOldCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_254DEA0C816F aOldCurrent
-
-: ME_F7668E1B37D6
- CONST UID 'F7668E1B37D6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B58B30211 // UnderControlListCurrentChanged
- ;
- : Parameters
-   Seq: ( ME_937C0DB4B146 // Sender
- ME_987F581F2ED9 // aNewCurrent
- ME_254DEA0C816F // aOldCurrent
- )
- ; // Parameters
-
-ref; // ME_F7668E1B37D6 DoIt
 
 : ME_527B58B30211
  CONST UID '527B58B30211'
@@ -1060,63 +574,8 @@ ref; // ME_F7668E1B37D6 DoIt
    Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F7668E1B37D6 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B58B30211 UnderControlListCurrentChanged
-
-FORWARD ME_527B58BA038B
-
-: ME_3CB98E230384
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_3CB98E230384 Sender
-
-: ME_91274CEC7C31
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_91274CEC7C31 Index
-
-: ME_4BD5BC072083
- CONST Name 'aFont'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
- ;
-
-ref; // ME_4BD5BC072083 aFont
-
-: ME_108779BB5C06
- CONST UID '108779BB5C06'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'event to get Font of the item cell'#13#10'событие для получения шрифта элемента.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527B58BA038B // UnderControlListGetItemFont
- ;
- : Parameters
-   Seq: ( ME_3CB98E230384 // Sender
- ME_91274CEC7C31 // Index
- ME_4BD5BC072083 // aFont
- )
- ; // Parameters
-
-ref; // ME_108779BB5C06 DoIt
 
 : ME_527B58BA038B
  CONST UID '527B58BA038B'
@@ -1132,10 +591,6 @@ ref; // ME_108779BB5C06 DoIt
    Seq: ( WL 'ME_514B370503CC' '4B97E7FD006C.pas.ms.script' // TGetItemFontEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_108779BB5C06 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B58BA038B UnderControlListGetItemFont
 
@@ -1193,21 +648,6 @@ ref; // ME_527B61E00261 DoIt
 
 ref; // ME_527B58FA0051 vcmEntityFormGetStatus
 
-FORWARD ME_527B591500AD
-
-: ME_BF4CD759CCD4
- CONST UID 'BF4CD759CCD4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода StatusParamsShow' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_527B591500AD // StatusParamsShow
- ;
-
-ref; // ME_BF4CD759CCD4 DoIt
-
 : ME_527B591500AD
  CONST UID '527B591500AD'
  CONST Name 'StatusParamsShow'
@@ -1218,63 +658,8 @@ ref; // ME_BF4CD759CCD4 DoIt
  CONST Abstraction at_final
  : Parent ME_4A7C349D02CB // PrimUnderControl
  ;
- : Operations
-   Seq: ( ME_BF4CD759CCD4 // DoIt
- )
- ; // Operations
 
 ref; // ME_527B591500AD StatusParamsShow
-
-: ME_4D75AC7A8244
- CONST UID '4D75AC7A8244'
- CONST Name 'Init_Str_utUnderControlCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utUnderControlCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Speller ME_FFC521A76203 // utUnderControlCaption
- ;
- : SpelledFor ME_E3EBCB5FFD60 // utUnderControlCaption
- ;
-
-ref; // ME_4D75AC7A8244 Init_Str_utUnderControlCaption
-
-: ME_788A1C6BADBB
- CONST UID '788A1C6BADBB'
- CONST Name 'Init_Str_utUnderControlSettingsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utUnderControlSettingsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Speller ME_DEDB374810B1 // utUnderControlSettingsCaption
- ;
- : SpelledFor ME_7A55AE402D57 // utUnderControlSettingsCaption
- ;
-
-ref; // ME_788A1C6BADBB Init_Str_utUnderControlSettingsCaption
-
-: ME_0B2D921AB4B0
- CONST UID '0B2D921AB4B0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimUnderControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0B2D921AB4B0 Ini_Reg_Class
 
 : ME_4A7C3748027E
  CONST Class class_Dependency
@@ -1496,39 +881,6 @@ ref; // ME_527B6FEF0329
 
 ref; // ME_527B6FF10391 
 
-: ME_A943630A0CA4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_A943630A0CA4 
-
-: ME_FE5E3270CC35
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_FE5E3270CC35 
-
-: ME_3071E97A413F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A7C349D02CB // PrimUnderControl
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3071E97A413F 
-
 : ME_49895A2102E8_ME_4A7C349D02CB
  : Original WL 'ME_49895A2102E8' '4AE89F8A004B.pas.ms.script' // Load
  ;
@@ -1654,7 +1006,6 @@ ref; // ME_529332B40230_ME_4A7C349D02CB SetupFormLayout
  ; // Implements
  : Attributes
    Seq: ( ME_4DEE1DAC02D9 // UnderControlList
- ME_96BE81AEBC07 // f_UnderControlList
  )
  ; // Attributes
  : Operations
@@ -1674,9 +1025,6 @@ ref; // ME_529332B40230_ME_4A7C349D02CB SetupFormLayout
  ME_527B58BA038B // UnderControlListGetItemFont
  ME_527B58FA0051 // vcmEntityFormGetStatus
  ME_527B591500AD // StatusParamsShow
- ME_4D75AC7A8244 // Init_Str_utUnderControlCaption
- ME_788A1C6BADBB // Init_Str_utUnderControlSettingsCaption
- ME_0B2D921AB4B0 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1699,11 +1047,6 @@ ref; // ME_529332B40230_ME_4A7C349D02CB SetupFormLayout
    Seq: ( ME_4BD7296F02E0 // utUnderControl
  )
  ; // Children
- : Constants
-   Seq: ( ME_AE37823919E8 // utUnderControlLocalConstants
- ME_B53310C121A0 // LCImplutUnderControlLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4A7C3748027E // InsUnderControlNode
  ME_4A7C375C0359 // SysUtils
@@ -1727,9 +1070,6 @@ ref; // ME_529332B40230_ME_4A7C349D02CB SetupFormLayout
  ME_527B6FED039F // nsOpenUtils
  ME_527B6FEF0329 // nsQuestionsWithChoices
  ME_527B6FF10391 // vcmBase
- ME_A943630A0CA4 // Tl3StringIDEx
- ME_FE5E3270CC35 // Tl3MessageID
- ME_3071E97A413F // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1822,21 +1162,6 @@ ref; // ME_4C7E585C0025 DoIt
  ; // Operations
 
 ref; // ME_4C7E584D02A3 enControlCenterNullListTest
-
-: ME_ABFCE14FD488
- CONST UID 'ABFCE14FD488'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimUnderControlOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C7E4A45018F // PrimUnderControlOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_ABFCE14FD488 Ini_Reg_Class
 
 : ME_4C7E4F51028E
  CONST Class class_Dependency
@@ -1960,17 +1285,6 @@ ref; // ME_52A84BCF039C
  ;
 
 ref; // ME_52A84EA9010D 
-
-: ME_34F8DD208663
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C7E4A45018F // PrimUnderControlOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_34F8DD208663 
 
 : ME_49EDFA3701B0_ME_4C7E4A45018F
  : Original WL 'ME_49EDFA3701B0' '495127DD017C.pas.ms.script' // Paste
@@ -2129,12 +1443,6 @@ ref; // ME_49803F5503AA_ME_4C7E4A45018F DoInit
  CONST "no prefix" false
 ref; // ME_4DD1260D02D1_ME_4C7E4A45018F ShowChanges
 
-: ME_5000565C019C_ME_4C7E4A45018F
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4C7E4A45018F ClearFields
-
 : ME_4C7E4A45018F
  CONST UID '4C7E4A45018F'
  CONST Name 'PrimUnderControlOptions'
@@ -2164,7 +1472,6 @@ ref; // ME_5000565C019C_ME_4C7E4A45018F ClearFields
  ; // Attributes
  : Operations
    Seq: ( ME_4C7E584D02A3 // enControlCenterNullListTest
- ME_ABFCE14FD488 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2182,7 +1489,6 @@ ref; // ME_5000565C019C_ME_4C7E4A45018F ClearFields
  : Overridden
    Seq: ( ME_49803F5503AA_ME_4C7E4A45018F // DoInit
  ME_4DD1260D02D1_ME_4C7E4A45018F // ShowChanges
- ME_5000565C019C_ME_4C7E4A45018F // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -2198,7 +1504,6 @@ ref; // ME_5000565C019C_ME_4C7E4A45018F ClearFields
  ME_52A84BA50345 // ControledObject
  ME_52A84BCF039C // Tree
  ME_52A84EA9010D // Tree
- ME_34F8DD208663 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -2879,7 +2184,6 @@ ref; // ME_4CCAC71C0347 UnderControl$FP
  WL 'ME_4570511E038A' '4570511E038A.pas.ms.script' // Document
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
  WL 'ME_45EEAA800226' '45EEAA800226.pas.ms.script' // UnderControl
- WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
  WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
  WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
@@ -2917,7 +2221,6 @@ ref; // ME_4CCAC71C0347 UnderControl$FP
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\UnderControl'

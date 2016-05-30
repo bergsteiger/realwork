@@ -89,6 +89,634 @@ ref; // ME_54041EBF03C6 TalcuFTPBrowserParams
 
 ref; // ME_54041EF10040 TalcuFTPBrowser
 
+FORWARD ME_5745A26E03A8
+
+FORWARD ME_55E6FAD502E4
+
+: ME_55E6FADD02A9
+ CONST UID '55E6FADD02A9'
+ CONST Name 'ssoAll'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ref; // ME_55E6FADD02A9 ssoAll
+
+: ME_55E6FAF30092
+ CONST UID '55E6FAF30092'
+ CONST Name 'ssoNew'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ref; // ME_55E6FAF30092 ssoNew
+
+: ME_55E6FAFD01F9
+ CONST UID '55E6FAFD01F9'
+ CONST Name 'ssoDel'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ref; // ME_55E6FAFD01F9 ssoDel
+
+: ME_55E6FB08039C
+ CONST UID '55E6FB08039C'
+ CONST Name 'ssoUpd'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ref; // ME_55E6FB08039C ssoUpd
+
+: ME_55E6FAD502E4
+ CONST UID '55E6FAD502E4'
+ CONST Name 'TmssOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ : Attributes
+   Seq: ( ME_55E6FADD02A9 // ssoAll
+ ME_55E6FAF30092 // ssoNew
+ ME_55E6FAFD01F9 // ssoDel
+ ME_55E6FB08039C // ssoUpd
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_55E6FAD502E4 TmssOperation
+
+FORWARD ME_55E84EB602E4
+
+: ME_5745A90D02F1
+ CONST UID '5745A90D02F1'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55E84EB602E4 // TOperationMap
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5745A90D02F1 
+
+: ME_55E84EE0012A
+ CONST UID '55E84EE0012A'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55E84EB602E4 // TOperationMap
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_55E84EE0012A 
+
+: ME_55E84EB602E4
+ CONST UID '55E84EB602E4'
+ CONST Name 'TOperationMap'
+ CONST Class class_Class
+ : Stereotype st_Vector ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ : Inherits
+   Seq: ( ME_55E6FAD502E4 // TmssOperation
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_5745A90D02F1 // 
+ ME_55E84EE0012A // 
+ )
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ref; // ME_55E84EB602E4 TOperationMap
+
+FORWARD ME_55E84AE00169
+
+: ME_55E84AF70328
+ CONST UID '55E84AF70328'
+ CONST Name 'c_mssOperationStr'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E84AE00169 // Names
+ ;
+ : Target ME_55E84EB602E4 // TOperationMap
+ ;
+ CONST Value '(''all'', ''new'', ''del'', ''upd'')'
+ : ValueType ME_55E84EB602E4 // TOperationMap
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(''all'', ''new'', ''del'', ''upd'')'
+
+ref; // ME_55E84AF70328 c_mssOperationStr
+
+: ME_55E84AE00169
+ CONST UID '55E84AE00169'
+ CONST Name 'Names'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ : Attributes
+   Seq: ( ME_55E84AF70328 // c_mssOperationStr
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_55E84AE00169 Names
+
+FORWARD ME_55E84AB90022
+
+: ME_55E84AD10384
+ CONST UID '55E84AD10384'
+ CONST Name 'cMdpSyncVersion'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55E84AB90022 // MDPVersion
+ ;
+ CONST Value 5
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value 5
+
+ref; // ME_55E84AD10384 cMdpSyncVersion
+
+: ME_55E84AB90022
+ CONST UID '55E84AB90022'
+ CONST Name 'MDPVersion'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ : Attributes
+   Seq: ( ME_55E84AD10384 // cMdpSyncVersion
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_55E84AB90022 MDPVersion
+
+: ME_5745A26E03A8
+ CONST UID '5745A26E03A8'
+ CONST Name 'alcuMdpSyncIntf'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_54041E840266 // Process
+ ;
+ : Children
+   Seq: ( ME_55E6FAD502E4 // TmssOperation
+ ME_55E84EB602E4 // TOperationMap
+ )
+ ; // Children
+ : Constants
+   Seq: ( ME_55E84AE00169 // Names
+ ME_55E84AB90022 // MDPVersion
+ )
+ ; // Constants
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
+
+ref; // ME_5745A26E03A8 alcuMdpSyncIntf
+
+FORWARD ME_574C0E84031E
+
+: ME_574C388C00C1
+ CONST UID '574C388C00C1'
+ CONST Name 'f_Sync'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Target WL 'ME_574C16470035' '52F8C298005C.pas.ms.script' // TcsMdpSyncPrim
+ ;
+
+ref; // ME_574C388C00C1 f_Sync
+
+FORWARD ME_574C359C0010
+
+: ME_574C36C20305
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
+ ;
+
+ref; // ME_574C36C20305 aStream
+
+: ME_574C35BB0369
+ CONST UID '574C35BB0369'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574C359C0010 // PrepareData
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_574C36C20305 // aStream
+ )
+ ; // Parameters
+
+ref; // ME_574C35BB0369 DoIt
+
+: ME_574C359C0010
+ CONST UID '574C359C0010'
+ CONST Name 'PrepareData'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Operations
+   Seq: ( ME_574C35BB0369 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C359C0010 PrepareData
+
+FORWARD ME_574C36DA009E
+
+: ME_09940413CC65
+ CONST UID '09940413CC65'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода BeforeSync' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574C36DA009E // BeforeSync
+ ;
+
+ref; // ME_09940413CC65 DoIt
+
+: ME_574C36DA009E
+ CONST UID '574C36DA009E'
+ CONST Name 'BeforeSync'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Operations
+   Seq: ( ME_09940413CC65 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C36DA009E BeforeSync
+
+FORWARD ME_574C37130370
+
+: ME_F608A789830D
+ CONST UID 'F608A789830D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода AfterSuccessfulSync' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574C37130370 // AfterSuccessfulSync
+ ;
+
+ref; // ME_F608A789830D DoIt
+
+: ME_574C37130370
+ CONST UID '574C37130370'
+ CONST Name 'AfterSuccessfulSync'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Operations
+   Seq: ( ME_F608A789830D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C37130370 AfterSuccessfulSync
+
+FORWARD ME_574C37390202
+
+: ME_574C37780374
+ CONST Name 'aSync'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_574C16470035' '52F8C298005C.pas.ms.script' // TcsMdpSyncPrim
+ ;
+
+ref; // ME_574C37780374 aSync
+
+: ME_574C3763007B
+ CONST UID '574C3763007B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574C37390202 // Create
+ ;
+ : Parameters
+   Seq: ( ME_574C37780374 // aSync
+ )
+ ; // Parameters
+
+ref; // ME_574C3763007B DoIt
+
+: ME_574C37390202
+ CONST UID '574C37390202'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Operations
+   Seq: ( ME_574C3763007B // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C37390202 Create
+
+: ME_574C38C2015A
+ CONST UID '574C38C2015A'
+ CONST Name 'Execute'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+
+ref; // ME_574C38C2015A Execute
+
+FORWARD ME_574C39080008
+
+: ME_574C394300E0
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E150FF028A' '4AB0997B00A2.pas.ms.script' // TStream
+ ;
+
+ref; // ME_574C394300E0 aStream
+
+: ME_574C392600E6
+ CONST UID '574C392600E6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574C39080008 // PostToGardoc
+ ;
+ : Parameters
+   Seq: ( ME_574C394300E0 // aStream
+ )
+ ; // Parameters
+
+ref; // ME_574C392600E6 DoIt
+
+: ME_574C39080008
+ CONST UID '574C39080008'
+ CONST Name 'PostToGardoc'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Operations
+   Seq: ( ME_574C392600E6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C39080008 PostToGardoc
+
+FORWARD ME_574C395100E9
+
+: ME_574C3965012A
+ CONST UID '574C3965012A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574C395100E9 // GetTitle
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_574C3965012A DoIt
+
+: ME_574C395100E9
+ CONST UID '574C395100E9'
+ CONST Name 'GetTitle'
+ CONST Class class_Class
+ : Stereotype st_abstractmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ : Parent ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ;
+ : Operations
+   Seq: ( ME_574C3965012A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574C395100E9 GetTitle
+
+: ME_574C0E84031E
+ CONST UID '574C0E84031E'
+ CONST Name 'TalcuMdpProtoSyncronizer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_54041E840266 // Process
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_574C388C00C1 // f_Sync
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_574C359C0010 // PrepareData
+ ME_574C36DA009E // BeforeSync
+ ME_574C37130370 // AfterSuccessfulSync
+ ME_574C37390202 // Create
+ ME_574C38C2015A // Execute
+ ME_574C39080008 // PostToGardoc
+ ME_574C395100E9 // GetTitle
+ )
+ ; // Operations
+ CONST "need UC" true
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpProtoSyncronizer.pas'
+ CONST extprop:rc:SelfName 'alcuMdpProtoSyncronizer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuMdpProtoSyncronizer'
+
+ref; // ME_574C0E84031E TalcuMdpProtoSyncronizer
+
+FORWARD ME_574C0F390376
+
+: ME_574C359C0010_ME_574C0F390376
+ : Original ME_574C359C0010 // PrepareData
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C359C0010_ME_574C0F390376 PrepareData
+
+: ME_574C36DA009E_ME_574C0F390376
+ : Original ME_574C36DA009E // BeforeSync
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C36DA009E_ME_574C0F390376 BeforeSync
+
+: ME_574C37130370_ME_574C0F390376
+ : Original ME_574C37130370 // AfterSuccessfulSync
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C37130370_ME_574C0F390376 AfterSuccessfulSync
+
+: ME_574C395100E9_ME_574C0F390376
+ : Original ME_574C395100E9 // GetTitle
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C395100E9_ME_574C0F390376 GetTitle
+
+: ME_574C0F390376
+ CONST UID '574C0F390376'
+ CONST Name 'TalcuMdpStagesSyncronizer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронизация этапов в Гардок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54041E840266 // Process
+ ;
+ : Inherits
+   Seq: ( ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_574C359C0010_ME_574C0F390376 // PrepareData
+ ME_574C36DA009E_ME_574C0F390376 // BeforeSync
+ ME_574C37130370_ME_574C0F390376 // AfterSuccessfulSync
+ ME_574C395100E9_ME_574C0F390376 // GetTitle
+ )
+ ; // Implemented
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpStagesSyncronizer.pas'
+ CONST extprop:rc:SelfName 'alcuMdpStagesSyncronizer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuMdpStagesSyncronizer'
+
+ref; // ME_574C0F390376 TalcuMdpStagesSyncronizer
+
+FORWARD ME_574C0FA701BB
+
+: ME_574C359C0010_ME_574C0FA701BB
+ : Original ME_574C359C0010 // PrepareData
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C359C0010_ME_574C0FA701BB PrepareData
+
+: ME_574C36DA009E_ME_574C0FA701BB
+ : Original ME_574C36DA009E // BeforeSync
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C36DA009E_ME_574C0FA701BB BeforeSync
+
+: ME_574C37130370_ME_574C0FA701BB
+ : Original ME_574C37130370 // AfterSuccessfulSync
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C37130370_ME_574C0FA701BB AfterSuccessfulSync
+
+: ME_574C395100E9_ME_574C0FA701BB
+ : Original ME_574C395100E9 // GetTitle
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_574C395100E9_ME_574C0FA701BB GetTitle
+
+: ME_574C0FA701BB
+ CONST UID '574C0FA701BB'
+ CONST Name 'TalcuMdpImportSyncronizer'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Синхронизация в Гардок журнала импорта документов в Архивариус' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54041E840266 // Process
+ ;
+ : Inherits
+   Seq: ( ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ )
+ ; // Inherits
+ : Implemented
+   Seq: ( ME_574C359C0010_ME_574C0FA701BB // PrepareData
+ ME_574C36DA009E_ME_574C0FA701BB // BeforeSync
+ ME_574C37130370_ME_574C0FA701BB // AfterSuccessfulSync
+ ME_574C395100E9_ME_574C0FA701BB // GetTitle
+ )
+ ; // Implemented
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpImportSyncronizer.pas'
+ CONST extprop:rc:SelfName 'alcuMdpImportSyncronizer'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'alcuMdpImportSyncronizer'
+
+ref; // ME_574C0FA701BB TalcuMdpImportSyncronizer
+
 : ME_54041E840266
  CONST UID '54041E840266'
  CONST Name 'Process'
@@ -101,11 +729,19 @@ ref; // ME_54041EF10040 TalcuFTPBrowser
  : Children
    Seq: ( ME_54041EBF03C6 // TalcuFTPBrowserParams
  ME_54041EF10040 // TalcuFTPBrowser
+ ME_5745A26E03A8 // alcuMdpSyncIntf
+ ME_574C0E84031E // TalcuMdpProtoSyncronizer
+ ME_574C0F390376 // TalcuMdpStagesSyncronizer
+ ME_574C0FA701BB // TalcuMdpImportSyncronizer
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_52F8C298005C' '52F8C298005C.pas.ms.script' // Tasks
  WL 'ME_538DAE950337' '538DAE950337.pas.ms.script' // Core
  WL 'ME_53B15D5603E3' '53B15D5603E3.pas.ms.script' // TagHolder
  )

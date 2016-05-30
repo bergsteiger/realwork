@@ -2346,6 +2346,356 @@ ref; // ME_57186C7F0298 Установка метки на найденный фрагмент
 
 ref; // ME_5715CFEF0244 Поиск и замена
 
+FORWARD ME_574BDBC70389
+
+FORWARD ME_574BDC34037B
+
+: ME_574BDCB10368
+ CONST UID '574BDCB10368'
+ CONST Name 'Установка блока с помощью меню'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDCB10368 Установка блока с помощью меню
+
+: ME_574BDCD203DB
+ CONST UID '574BDCD203DB'
+ CONST Name 'Установка блока с помощью клавиатуры'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDCD203DB Установка блока с помощью клавиатуры
+
+: ME_574BDCED026F
+ CONST UID '574BDCED026F'
+ CONST Name 'Задание имени блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность задания имени блока вручную.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDCED026F Задание имени блока
+
+: ME_574BDD330108
+ CONST UID '574BDD330108'
+ CONST Name 'Задание номера блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность задания номера блока вручную.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDD330108 Задание номера блока
+
+: ME_574BDD5C02C9
+ CONST UID '574BDD5C02C9'
+ CONST Name 'Задание стиля блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Возможность установить стиль на блок' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDD5C02C9 Задание стиля блока
+
+: ME_574BDD84016D
+ CONST UID '574BDD84016D'
+ CONST Name 'Проверка на одинаковые номера'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Проверяется есть ли уже блок с таким номером.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDD84016D Проверка на одинаковые номера
+
+: ME_574BDDD400B8
+ CONST UID '574BDDD400B8'
+ CONST Name 'Вставка текста между соседними блоками'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Чтобы вставить текст между соседними блоками, нужно установить курсор в конец последнего абзаца верхнего блока и нажать Ctrl+Alt+Enter. В результате этой операции между блоками появится пустой абзац.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDDD400B8 Вставка текста между соседними блоками
+
+: ME_574BDDFE024E
+ CONST UID '574BDDFE024E'
+ CONST Name 'Удаление блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDDFE024E Удаление блока
+
+: ME_574BDE080241
+ CONST UID '574BDE080241'
+ CONST Name 'Удаление всех блоков'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDC34037B // Работа с блоками
+ ;
+
+ref; // ME_574BDE080241 Удаление всех блоков
+
+: ME_574BDC34037B
+ CONST UID '574BDC34037B'
+ CONST Name 'Работа с блоками'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDBC70389 // Структурирование документа
+ ;
+ : Children
+   Seq: ( ME_574BDCB10368 // Установка блока с помощью меню
+ ME_574BDCD203DB // Установка блока с помощью клавиатуры
+ ME_574BDCED026F // Задание имени блока
+ ME_574BDD330108 // Задание номера блока
+ ME_574BDD5C02C9 // Задание стиля блока
+ ME_574BDD84016D // Проверка на одинаковые номера
+ ME_574BDDD400B8 // Вставка текста между соседними блоками
+ ME_574BDDFE024E // Удаление блока
+ ME_574BDE080241 // Удаление всех блоков
+ )
+ ; // Children
+
+ref; // ME_574BDC34037B Работа с блоками
+
+FORWARD ME_574BE0790216
+
+: ME_574BE08800D5
+ CONST UID '574BE08800D5'
+ CONST Name 'Установка уровня вложенности'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ref; // ME_574BE08800D5 Установка уровня вложенности
+
+: ME_574BE0C801B2
+ CONST UID '574BE0C801B2'
+ CONST Name 'Подтверждать слияние заголовков'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Для того, чтобы заголовки, в тексте которых встречаются символы переноса ка-'#13#10'ретки, воспринимались как единое целое, установите отметку в поле Подтвер-'#13#10'ждать слияние заголовков.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ref; // ME_574BE0C801B2 Подтверждать слияние заголовков
+
+: ME_574BE0FF01DE
+ CONST UID '574BE0FF01DE'
+ CONST Name 'Выделять сноски в блок'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Выделить содержащиеся в конце документа сноски в отдельный блок позволяет'#13#10'отметка в поле Выделять сноски в блок.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ref; // ME_574BE0FF01DE Выделять сноски в блок
+
+FORWARD ME_574BE12503BE
+
+: ME_574BE14501FF
+ CONST UID '574BE14501FF'
+ CONST Name 'Возможность авторасстановки блоков без настройки'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ref; // ME_574BE14501FF Возможность авторасстановки блоков без настройки
+
+: ME_574BE16E01EB
+ CONST UID '574BE16E01EB'
+ CONST Name 'Включение блока в структуру'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ref; // ME_574BE16E01EB Включение блока в структуру
+
+: ME_574BE18A01D5
+ CONST UID '574BE18A01D5'
+ CONST Name 'Исключение блока из структуры'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ref; // ME_574BE18A01D5 Исключение блока из структуры
+
+: ME_574BE1A5030D
+ CONST UID '574BE1A5030D'
+ CONST Name 'Увеличение уровня вложенности блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ref; // ME_574BE1A5030D Увеличение уровня вложенности блока
+
+: ME_574BE2910078
+ CONST UID '574BE2910078'
+ CONST Name 'Уменьшение уровня вложенности блока'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ref; // ME_574BE2910078 Уменьшение уровня вложенности блока
+
+: ME_574BE349026D
+ CONST UID '574BE349026D'
+ CONST Name 'Удаление блока из структуры'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Удаление блока кнопкой "Удалить" в окне изменения структуры.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE12503BE // Настройка структуры блоков
+ ;
+
+ref; // ME_574BE349026D Удаление блока из структуры
+
+: ME_574BE12503BE
+ CONST UID '574BE12503BE'
+ CONST Name 'Настройка структуры блоков'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE0790216 // Разбивка на блоки
+ ;
+ : Children
+   Seq: ( ME_574BE14501FF // Возможность авторасстановки блоков без настройки
+ ME_574BE16E01EB // Включение блока в структуру
+ ME_574BE18A01D5 // Исключение блока из структуры
+ ME_574BE1A5030D // Увеличение уровня вложенности блока
+ ME_574BE2910078 // Уменьшение уровня вложенности блока
+ ME_574BE349026D // Удаление блока из структуры
+ )
+ ; // Children
+
+ref; // ME_574BE12503BE Настройка структуры блоков
+
+: ME_574BE39B038A
+ CONST UID '574BE39B038A'
+ CONST Name 'Анализ подписи'
+ CONST Class class_Class
+ : Stereotype st_UseCaseRequirement ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Автоматически анализируется наличие подписи при автоматической расстановке блоков. Если такая подпись найдена, то предлагается её установить. Появляется соответствующий диалог.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BE0790216 // Разбивка на блоки
+ ;
+
+ref; // ME_574BE39B038A Анализ подписи
+
+: ME_574BE0790216
+ CONST UID '574BE0790216'
+ CONST Name 'Разбивка на блоки'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_574BDBC70389 // Структурирование документа
+ ;
+ : Children
+   Seq: ( ME_574BE08800D5 // Установка уровня вложенности
+ ME_574BE0C801B2 // Подтверждать слияние заголовков
+ ME_574BE0FF01DE // Выделять сноски в блок
+ ME_574BE12503BE // Настройка структуры блоков
+ ME_574BE39B038A // Анализ подписи
+ )
+ ; // Children
+
+ref; // ME_574BE0790216 Разбивка на блоки
+
+: ME_574BDBC70389
+ CONST UID '574BDBC70389'
+ CONST Name 'Структурирование документа'
+ CONST Class class_Class
+ : Stereotype st_UseCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_551121E4029E // Редактирование документа
+ ;
+ : Children
+   Seq: ( ME_574BDC34037B // Работа с блоками
+ ME_574BE0790216 // Разбивка на блоки
+ )
+ ; // Children
+
+ref; // ME_574BDBC70389 Структурирование документа
+
 : ME_551121E4029E
  CONST UID '551121E4029E'
  CONST Name 'Редактирование документа'
@@ -2364,6 +2714,7 @@ ref; // ME_5715CFEF0244 Поиск и замена
  ME_570DE64F021D // Создание схем
  ME_5715CB480335 // Проверка орфографии
  ME_5715CFEF0244 // Поиск и замена
+ ME_574BDBC70389 // Структурирование документа
  )
  ; // Children
 

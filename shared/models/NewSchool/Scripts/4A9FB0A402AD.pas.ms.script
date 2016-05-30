@@ -232,58 +232,6 @@ ref; // ME_53E21A180341 InpharmSearchCaption
 
 ref; // ME_53E219F703BA RefAndDict local const
 
-FORWARD ME_E4A597E7205D
-
-: ME_6163B9A75A92
- CONST UID '6163B9A75A92'
- CONST Name 'InpharmSearchCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Поиск лекарственных средств''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E4A597E7205D // LCImplRefAndDict local const
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''InpharmSearchCaption''; rValue : ''Поиск лекарственных средств'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InpharmSearchCaption''; rValue : ''Поиск лекарственных средств'')'
- : Speller ME_53E21A180341 // InpharmSearchCaption
- ;
-
-ref; // ME_6163B9A75A92 InpharmSearchCaption
-
-: ME_E4A597E7205D
- CONST UID 'E4A597E7205D'
- CONST Name 'LCImplRefAndDict local const'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки RefAndDict local const' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_490C3EE8039D // TmmmReferencesAndDictionaries
- ;
- : Attributes
-   Seq: ( ME_6163B9A75A92 // InpharmSearchCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_53E219F703BA // RefAndDict local const
- ;
-
-ref; // ME_E4A597E7205D LCImplRefAndDict local const
-
 : ME_490C3F4A0195
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -314,28 +262,6 @@ ref; // ME_490C3F61034E
 
 ref; // ME_490C3F830150 
 
-: ME_6620DD626D49
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C3EE8039D // TmmmReferencesAndDictionaries
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_6620DD626D49 
-
-: ME_AC983DEA4582
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C3EE8039D // TmmmReferencesAndDictionaries
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_AC983DEA4582 
-
 : ME_4909EF6E0361_ME_490C3EE8039D
  : Original WL 'ME_4909EF6E0361' '4909EECE01D5.pas.ms.script' // MakeRoot
  ;
@@ -363,15 +289,12 @@ ref; // ME_4909EF6E0361_ME_490C3EE8039D MakeRoot
  ; // Overridden
  : Constants
    Seq: ( ME_53E219F703BA // RefAndDict local const
- ME_E4A597E7205D // LCImplRefAndDict local const
  )
  ; // Constants
  : Dependencies
    Seq: ( ME_490C3F4A0195 // TnsMedicMainMenuNodeType
  ME_490C3F61034E // nsConst
  ME_490C3F830150 // NodeBase
- ME_6620DD626D49 // Tl3StringIDEx
- ME_AC983DEA4582 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
@@ -423,58 +346,6 @@ ref; // ME_53D0CDB40322 PharmPublishSearch
 
 ref; // ME_53D0CD0503A5 Main Features
 
-FORWARD ME_2964D81746DF
-
-: ME_C7D7897B764C
- CONST UID 'C7D7897B764C'
- CONST Name 'PharmPublishSearch'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''СМИ по медицине и здравоохранению''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2964D81746DF // LCImplMain Features
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PharmPublishSearch''; rValue : ''СМИ по медицине и здравоохранению'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PharmPublishSearch''; rValue : ''СМИ по медицине и здравоохранению'')'
- : Speller ME_53D0CDB40322 // PharmPublishSearch
- ;
-
-ref; // ME_C7D7897B764C PharmPublishSearch
-
-: ME_2964D81746DF
- CONST UID '2964D81746DF'
- CONST Name 'LCImplMain Features'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Main Features' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_490C422B0022 // TmmmMainFeatures
- ;
- : Attributes
-   Seq: ( ME_C7D7897B764C // PharmPublishSearch
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_53D0CD0503A5 // Main Features
- ;
-
-ref; // ME_2964D81746DF LCImplMain Features
-
 : ME_490C4281022D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -515,28 +386,6 @@ ref; // ME_490C44D2023E
 
 ref; // ME_490C4546026D 
 
-: ME_F584B5B3B454
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C422B0022 // TmmmMainFeatures
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_F584B5B3B454 
-
-: ME_7A4A58836426
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C422B0022 // TmmmMainFeatures
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_7A4A58836426 
-
 : ME_4909EF6E0361_ME_490C422B0022
  : Original WL 'ME_4909EF6E0361' '4909EECE01D5.pas.ms.script' // MakeRoot
  ;
@@ -564,7 +413,6 @@ ref; // ME_4909EF6E0361_ME_490C422B0022 MakeRoot
  ; // Overridden
  : Constants
    Seq: ( ME_53D0CD0503A5 // Main Features
- ME_2964D81746DF // LCImplMain Features
  )
  ; // Constants
  : Dependencies
@@ -572,8 +420,6 @@ ref; // ME_4909EF6E0361_ME_490C422B0022 MakeRoot
  ME_490C42A50127 // NodeBase
  ME_490C44D2023E // nsConst
  ME_490C4546026D // TnsMainMenuNode
- ME_F584B5B3B454 // Tl3StringIDEx
- ME_7A4A58836426 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
@@ -627,58 +473,6 @@ ref; // ME_4B8514D800C8 mmmiHelp
 
 ref; // ME_4B8514C001EA Local
 
-FORWARD ME_4DE9C48FD92B
-
-: ME_7584D5FE4BBF
- CONST UID '7584D5FE4BBF'
- CONST Name 'mmmiHelp'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Руководство пользователя''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4DE9C48FD92B // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''mmmiHelp''; rValue : ''Руководство пользователя'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''mmmiHelp''; rValue : ''Руководство пользователя'')'
- : Speller ME_4B8514D800C8 // mmmiHelp
- ;
-
-ref; // ME_7584D5FE4BBF mmmiHelp
-
-: ME_4DE9C48FD92B
- CONST UID '4DE9C48FD92B'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_490C47190273 // TmmmReferencePharmaceuticalInformation
- ;
- : Attributes
-   Seq: ( ME_7584D5FE4BBF // mmmiHelp
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4B8514C001EA // Local
- ;
-
-ref; // ME_4DE9C48FD92B LCImplLocal
-
 : ME_490C48680225
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -698,28 +492,6 @@ ref; // ME_490C48680225
  ;
 
 ref; // ME_4BBAF06C0058 
-
-: ME_293E9435312D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C47190273 // TmmmReferencePharmaceuticalInformation
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_293E9435312D 
-
-: ME_49BF1AD3736D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C47190273 // TmmmReferencePharmaceuticalInformation
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_49BF1AD3736D 
 
 : ME_4909EF6E0361_ME_490C47190273
  : Original WL 'ME_4909EF6E0361' '4909EECE01D5.pas.ms.script' // MakeRoot
@@ -748,14 +520,11 @@ ref; // ME_4909EF6E0361_ME_490C47190273 MakeRoot
  ; // Overridden
  : Constants
    Seq: ( ME_4B8514C001EA // Local
- ME_4DE9C48FD92B // LCImplLocal
  )
  ; // Constants
  : Dependencies
    Seq: ( ME_490C48680225 // TnsMedicMainMenuNodeType
  ME_4BBAF06C0058 // Local
- ME_293E9435312D // Tl3StringIDEx
- ME_49BF1AD3736D // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'
@@ -807,58 +576,6 @@ ref; // ME_53D0D9800372 LegislationReview
 
 ref; // ME_53D0D8AD0076 Regulatory Information
 
-FORWARD ME_9BACEC535E93
-
-: ME_B9300F85D831
- CONST UID 'B9300F85D831'
- CONST Name 'LegislationReview'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Обзор изменений законодательства''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9BACEC535E93 // LCImplRegulatory Information
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''LegislationReview''; rValue : ''Обзор изменений законодательства'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''LegislationReview''; rValue : ''Обзор изменений законодательства'')'
- : Speller ME_53D0D9800372 // LegislationReview
- ;
-
-ref; // ME_B9300F85D831 LegislationReview
-
-: ME_9BACEC535E93
- CONST UID '9BACEC535E93'
- CONST Name 'LCImplRegulatory Information'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Regulatory Information' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_490C4DB100E4 // TmmmRegulatoryInformation
- ;
- : Attributes
-   Seq: ( ME_B9300F85D831 // LegislationReview
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_53D0D8AD0076 // Regulatory Information
- ;
-
-ref; // ME_9BACEC535E93 LCImplRegulatory Information
-
 : ME_490C4E13011B
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -899,28 +616,6 @@ ref; // ME_490C4E4601CD
 
 ref; // ME_490C4E6100A3 
 
-: ME_A131DFD861FE
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C4DB100E4 // TmmmRegulatoryInformation
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_A131DFD861FE 
-
-: ME_800D4B5E90A1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_490C4DB100E4 // TmmmRegulatoryInformation
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_800D4B5E90A1 
-
 : ME_4909EF6E0361_ME_490C4DB100E4
  : Original WL 'ME_4909EF6E0361' '4909EECE01D5.pas.ms.script' // MakeRoot
  ;
@@ -948,7 +643,6 @@ ref; // ME_4909EF6E0361_ME_490C4DB100E4 MakeRoot
  ; // Overridden
  : Constants
    Seq: ( ME_53D0D8AD0076 // Regulatory Information
- ME_9BACEC535E93 // LCImplRegulatory Information
  )
  ; // Constants
  : Dependencies
@@ -956,8 +650,6 @@ ref; // ME_4909EF6E0361_ME_490C4DB100E4 MakeRoot
  ME_490C4E1F03AA // vcmBase
  ME_490C4E4601CD // TnsMedicMainMenuNodeType
  ME_490C4E6100A3 // nsConst
- ME_A131DFD861FE // Tl3StringIDEx
- ME_800D4B5E90A1 // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Морозов М.А.'

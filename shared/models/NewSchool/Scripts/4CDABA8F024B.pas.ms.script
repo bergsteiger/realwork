@@ -562,12 +562,6 @@ ref; // ME_4CDAD7360295
  CONST "pm" true
 ref; // ME_4CDAC5E902FF_ME_4CDACCDF0368 Preview
 
-: ME_5000565C019C_ME_4CDACCDF0368
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4CDACCDF0368 ClearFields
-
 : ME_4CDACCDF0368
  CONST UID '4CDACCDF0368'
  CONST Name 'PrintableBitmap'
@@ -599,10 +593,6 @@ ref; // ME_5000565C019C_ME_4CDACCDF0368 ClearFields
    Seq: ( ME_4CDAC5E902FF_ME_4CDACCDF0368 // Preview
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_5000565C019C_ME_4CDACCDF0368 // ClearFields
- )
- ; // Overridden
  : Children
    Seq: ( ME_4CDAD96402B1 // Graphics_Bitmap
  )
@@ -803,38 +793,6 @@ ref; // ME_54D886BC0229 InfoPreview
 
 ref; // ME_54D886F20388 FlashPreview
 
-: ME_95014124AEC7
- CONST UID '95014124AEC7'
- CONST Name 'f_InfoPreview'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InfoPreview' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54D879C9030C // PrintableFlashWithInfo
- ;
- : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ;
-
-ref; // ME_95014124AEC7 f_InfoPreview
-
-: ME_5C3A6025E3AB
- CONST UID '5C3A6025E3AB'
- CONST Name 'f_FlashPreview'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FlashPreview' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_54D879C9030C // PrintableFlashWithInfo
- ;
- : Target WL 'ME_467BB4640328' '467823B7002C.pas.ms.script' // IafwDocumentPreview
- ;
-
-ref; // ME_5C3A6025E3AB f_FlashPreview
-
 FORWARD ME_54D879F001C4
 
 : ME_54D87A1C0199
@@ -971,12 +929,6 @@ ref; // ME_54D894ED0298
 
 ref; // ME_54D98F7F00FB 
 
-: ME_5000565C019C_ME_54D879C9030C
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_54D879C9030C ClearFields
-
 : ME_5301CBFE023E_ME_54D879C9030C
  : Original ME_5301CBFE023E // MakePreview
  ;
@@ -1006,8 +958,6 @@ ref; // ME_5592655F00B2_ME_54D879C9030C ClearPreview
  : Attributes
    Seq: ( ME_54D886BC0229 // InfoPreview
  ME_54D886F20388 // FlashPreview
- ME_95014124AEC7 // f_InfoPreview
- ME_5C3A6025E3AB // f_FlashPreview
  )
  ; // Attributes
  : Operations
@@ -1017,8 +967,7 @@ ref; // ME_5592655F00B2_ME_54D879C9030C ClearPreview
  )
  ; // Operations
  : Overridden
-   Seq: ( ME_5000565C019C_ME_54D879C9030C // ClearFields
- ME_5301CBFE023E_ME_54D879C9030C // MakePreview
+   Seq: ( ME_5301CBFE023E_ME_54D879C9030C // MakePreview
  ME_5592655F00B2_ME_54D879C9030C // ClearPreview
  )
  ; // Overridden

@@ -94,101 +94,6 @@ ref; // ME_2B78060AC0E3 FromWithPanelIDs
 
 ref; // ME_DA3DF41960FE FromWithPanel$Def
 
-FORWARD ME_276A6ED02559
-
-: ME_502E9BA2E9A1
- CONST UID '502E9BA2E9A1'
- CONST Name 'ut_FromWithPanelCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "FromWithPanel"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_276A6ED02559 // ut_FromWithPanelLocalConstants
- ;
- CONST Value '''FromWithPanel'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''FromWithPanel'''
-
-ref; // ME_502E9BA2E9A1 ut_FromWithPanelCaption
-
-: ME_276A6ED02559
- CONST UID '276A6ED02559'
- CONST Name 'ut_FromWithPanelLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_FromWithPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Attributes
-   Seq: ( ME_502E9BA2E9A1 // ut_FromWithPanelCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_276A6ED02559 ut_FromWithPanelLocalConstants
-
-FORWARD ME_4EB210042F4A
-
-: ME_1B83072744DF
- CONST UID '1B83072744DF'
- CONST Name 'ut_FromWithPanelCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "FromWithPanel"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4EB210042F4A // LCImplut_FromWithPanelLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_FromWithPanelCaption''; rValue : ''FromWithPanel'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_FromWithPanelCaption''; rValue : ''FromWithPanel'')'
- : Speller ME_502E9BA2E9A1 // ut_FromWithPanelCaption
- ;
-
-ref; // ME_1B83072744DF ut_FromWithPanelCaption
-
-: ME_4EB210042F4A
- CONST UID '4EB210042F4A'
- CONST Name 'LCImplut_FromWithPanelLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_FromWithPanelLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Attributes
-   Seq: ( ME_1B83072744DF // ut_FromWithPanelCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_276A6ED02559 // ut_FromWithPanelLocalConstants
- ;
-
-ref; // ME_4EB210042F4A LCImplut_FromWithPanelLocalConstants
-
 : ME_51D5346A02B5
  CONST UID '51D5346A02B5'
  CONST Name 'WorkSpace'
@@ -236,28 +141,6 @@ ref; // ME_48AC75E96F90 Ini_FormFactory_FromWithPanel$Def
 
 ref; // ME_51D565B10103 
 
-: ME_138DF24BF065
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_138DF24BF065 
-
-: ME_60644F5AE5B2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_51D534260378 // FromWithPanel
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_60644F5AE5B2 
-
 : ME_4A8E8F2E0195_ME_51D534260378
  : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
  ;
@@ -299,15 +182,8 @@ ref; // ME_4A8E8F2E0195_ME_51D534260378 InitControls
  ME_DA3DF41960FE // FromWithPanel$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_276A6ED02559 // ut_FromWithPanelLocalConstants
- ME_4EB210042F4A // LCImplut_FromWithPanelLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_51D565B10103 // TAlign
- ME_138DF24BF065 // Tl3StringIDEx
- ME_60644F5AE5B2 // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true

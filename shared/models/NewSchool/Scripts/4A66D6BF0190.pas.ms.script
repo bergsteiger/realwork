@@ -696,101 +696,6 @@ FORWARD ME_502291D4007C
 
 ref; // ME_5023B478026C Parent
 
-FORWARD ME_B657F33F8658
-
-: ME_32C2F111EB7B
- CONST UID '32C2F111EB7B'
- CONST Name 'cwChatCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Переписка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_B657F33F8658 // cwChatLocalConstants
- ;
- CONST Value '''Переписка'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Переписка'''
-
-ref; // ME_32C2F111EB7B cwChatCaption
-
-: ME_B657F33F8658
- CONST UID 'B657F33F8658'
- CONST Name 'cwChatLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы cwChat' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Attributes
-   Seq: ( ME_32C2F111EB7B // cwChatCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_B657F33F8658 cwChatLocalConstants
-
-FORWARD ME_17177C26D1C1
-
-: ME_F8ADEA837E3F
- CONST UID 'F8ADEA837E3F'
- CONST Name 'cwChatCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Переписка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_17177C26D1C1 // LCImplcwChatLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''cwChatCaption''; rValue : ''Переписка'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''cwChatCaption''; rValue : ''Переписка'')'
- : Speller ME_32C2F111EB7B // cwChatCaption
- ;
-
-ref; // ME_F8ADEA837E3F cwChatCaption
-
-: ME_17177C26D1C1
- CONST UID '17177C26D1C1'
- CONST Name 'LCImplcwChatLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки cwChatLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Attributes
-   Seq: ( ME_F8ADEA837E3F // cwChatCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_B657F33F8658 // cwChatLocalConstants
- ;
-
-ref; // ME_17177C26D1C1 LCImplcwChatLocalConstants
-
 FORWARD ME_5022904603DF
 
 FORWARD ME_4A8A992D036A
@@ -993,70 +898,6 @@ ref; // ME_502291D4007C TopPanel
 
 ref; // ME_5022904603DF BackgroundPanel
 
-: ME_C280FA57529D
- CONST UID 'C280FA57529D'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_C280FA57529D f_BackgroundPanel
-
-: ME_D2F99877AF91
- CONST UID 'D2F99877AF91'
- CONST Name 'f_BottomPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BottomPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_D2F99877AF91 f_BottomPanel
-
-: ME_612AB3F62AB8
- CONST UID '612AB3F62AB8'
- CONST Name 'f_BottomEditor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BottomEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_4A8A8739017D' '4A8A86C301BE.pas.ms.script' // TnscChatMemo
- ;
-
-ref; // ME_612AB3F62AB8 f_BottomEditor
-
-: ME_FBBCCE258CF5
- CONST UID 'FBBCCE258CF5'
- CONST Name 'f_TopPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TopPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_FBBCCE258CF5 f_TopPanel
-
 : ME_4B34C0F40076
  CONST Name 'Message'
  CONST Class class_Parameter
@@ -1082,39 +923,6 @@ ref; // ME_4B34C0F40076 Message
  CONST "Message ID" 'WM_ACTIVATE'
 
 ref; // ME_4B34C0B801B1 WMActivate
-
-: ME_298298E39118
- CONST UID '298298E39118'
- CONST Name 'Init_Str_cwChatCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_cwChatCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Speller ME_32C2F111EB7B // cwChatCaption
- ;
- : SpelledFor ME_F8ADEA837E3F // cwChatCaption
- ;
-
-ref; // ME_298298E39118 Init_Str_cwChatCaption
-
-: ME_20CAB6FE5BC1
- CONST UID '20CAB6FE5BC1'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация BaseChatWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_20CAB6FE5BC1 Ini_Reg_Class
 
 : ME_4A6ED18B0170
  CONST Class class_Dependency
@@ -1236,39 +1044,6 @@ ref; // ME_4C2C506200F9
 
 ref; // ME_4F5E050F0001 
 
-: ME_1B690B06F3F1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_1B690B06F3F1 
-
-: ME_637590C45451
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_637590C45451 
-
-: ME_284578593971
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA44C0038 // BaseChatWindow
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_284578593971 
-
 : ME_4A6D71700008_ME_4A6EA44C0038
  : Original WL 'ME_4A6D71700008' '4A66DD3C01E8.pas.ms.script' // NewMessagesReceived
  ;
@@ -1369,16 +1144,10 @@ ref; // ME_4B1633CF01C2_ME_4A6EA44C0038 NeedClose
  ; // Implements
  : Attributes
    Seq: ( ME_5022904603DF // BackgroundPanel
- ME_C280FA57529D // f_BackgroundPanel
- ME_D2F99877AF91 // f_BottomPanel
- ME_612AB3F62AB8 // f_BottomEditor
- ME_FBBCCE258CF5 // f_TopPanel
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4B34C0B801B1 // WMActivate
- ME_298298E39118 // Init_Str_cwChatCaption
- ME_20CAB6FE5BC1 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1403,11 +1172,6 @@ ref; // ME_4B1633CF01C2_ME_4A6EA44C0038 NeedClose
  ME_5023B478026C // Parent
  )
  ; // Children
- : Constants
-   Seq: ( ME_B657F33F8658 // cwChatLocalConstants
- ME_17177C26D1C1 // LCImplcwChatLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4A6ED18B0170 // Windows
  ME_4A82A1BA01B7 // StdRes
@@ -1421,9 +1185,6 @@ ref; // ME_4B1633CF01C2_ME_4A6EA44C0038 NeedClose
  ME_4B2A16520184 // l3FillChar
  ME_4C2C506200F9 // EnsUnknownChatUser
  ME_4F5E050F0001 // TevdAllDocumentSubsEliminator
- ME_1B690B06F3F1 // Tl3StringIDEx
- ME_637590C45451 // Tl3MessageID
- ME_284578593971 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1462,134 +1223,6 @@ FORWARD ME_4A6EA45C01C4
  CONST extprop:pas:UnitName 'BaseHistoryWindow_utChatHistory_UserType'
 
 ref; // ME_4BD5B8B90175 utChatHistory
-
-FORWARD ME_A5DCB93A7498
-
-: ME_DADC90C53BEA
- CONST UID 'DADC90C53BEA'
- CONST Name 'utChatHistoryCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "История переписки"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_A5DCB93A7498 // utChatHistoryLocalConstants
- ;
- CONST Value '''История переписки'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''История переписки'''
-
-ref; // ME_DADC90C53BEA utChatHistoryCaption
-
-: ME_A5DCB93A7498
- CONST UID 'A5DCB93A7498'
- CONST Name 'utChatHistoryLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utChatHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- : Attributes
-   Seq: ( ME_DADC90C53BEA // utChatHistoryCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_A5DCB93A7498 utChatHistoryLocalConstants
-
-FORWARD ME_88ED61E5C8EC
-
-: ME_152C2E7D28BE
- CONST UID '152C2E7D28BE'
- CONST Name 'utChatHistoryCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "История переписки"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_88ED61E5C8EC // LCImplutChatHistoryLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utChatHistoryCaption''; rValue : ''История переписки'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utChatHistoryCaption''; rValue : ''История переписки'')'
- : Speller ME_DADC90C53BEA // utChatHistoryCaption
- ;
-
-ref; // ME_152C2E7D28BE utChatHistoryCaption
-
-: ME_88ED61E5C8EC
- CONST UID '88ED61E5C8EC'
- CONST Name 'LCImplutChatHistoryLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utChatHistoryLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- : Attributes
-   Seq: ( ME_152C2E7D28BE // utChatHistoryCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_A5DCB93A7498 // utChatHistoryLocalConstants
- ;
-
-ref; // ME_88ED61E5C8EC LCImplutChatHistoryLocalConstants
-
-: ME_D0F9A27DCF4E
- CONST UID 'D0F9A27DCF4E'
- CONST Name 'Init_Str_utChatHistoryCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utChatHistoryCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- : Speller ME_DADC90C53BEA // utChatHistoryCaption
- ;
- : SpelledFor ME_152C2E7D28BE // utChatHistoryCaption
- ;
-
-ref; // ME_D0F9A27DCF4E Init_Str_utChatHistoryCaption
-
-: ME_E5173E8546C0
- CONST UID 'E5173E8546C0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация BaseHistoryWindow' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E5173E8546C0 Ini_Reg_Class
 
 : ME_4A6ED19903DA
  CONST Class class_Dependency
@@ -1641,39 +1274,6 @@ ref; // ME_4A8ADC380080
 
 ref; // ME_4A8ADFD70221 
 
-: ME_45C5006610C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_45C5006610C9 
-
-: ME_8492FBE86D96
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_8492FBE86D96 
-
-: ME_6711C9EF899A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA45C01C4 // BaseHistoryWindow
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_6711C9EF899A 
-
 : ME_4A6EA5EA00CD_ME_4A6EA45C01C4
  : Original ME_4A6EA5EA00CD // RegisterInDispatcher
  ;
@@ -1721,11 +1321,6 @@ ref; // ME_4A8AE24D003F_ME_4A6EA45C01C4 ClearHistory
  WL 'ME_4A8AE2340069' '4A8AE21B0210.pas.ms.script' // Chat
  )
  ; // Implements
- : Operations
-   Seq: ( ME_D0F9A27DCF4E // Init_Str_utChatHistoryCaption
- ME_E5173E8546C0 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4A6EA5EA00CD_ME_4A6EA45C01C4 // RegisterInDispatcher
  ME_4A6EA6000339_ME_4A6EA45C01C4 // UnRegisterInDispatcher
@@ -1736,20 +1331,12 @@ ref; // ME_4A8AE24D003F_ME_4A6EA45C01C4 ClearHistory
    Seq: ( ME_4BD5B8B90175 // utChatHistory
  )
  ; // Children
- : Constants
-   Seq: ( ME_A5DCB93A7498 // utChatHistoryLocalConstants
- ME_88ED61E5C8EC // LCImplutChatHistoryLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4A6ED19903DA // Windows
  ME_4A82A1E50079 // StdRes
  ME_4A8ADC2A0027 // InsChatMessages
  ME_4A8ADC380080 // SysUtils
  ME_4A8ADFD70221 // vcmFmt
- ME_45C5006610C9 // Tl3StringIDEx
- ME_8492FBE86D96 // Tl3MessageID
- ME_6711C9EF899A // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -2255,196 +1842,6 @@ ref; // ME_519A125E0377_ME_519A11C801A1 CurrentFlagFilter
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_519A11C801A1 TContactListFormState
-
-FORWARD ME_66C7AE0A90C8
-
-: ME_6AA7DE07F03F
- CONST UID '6AA7DE07F03F'
- CONST Name 'chatContactsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совещание онлайн"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_66C7AE0A90C8 // chatContactsLocalConstants
- ;
- CONST Value '''Совещание онлайн'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Совещание онлайн'''
-
-ref; // ME_6AA7DE07F03F chatContactsCaption
-
-: ME_66C7AE0A90C8
- CONST UID '66C7AE0A90C8'
- CONST Name 'chatContactsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы chatContacts' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Attributes
-   Seq: ( ME_6AA7DE07F03F // chatContactsCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_66C7AE0A90C8 chatContactsLocalConstants
-
-FORWARD ME_98E7026F2C74
-
-: ME_7FFAEB4E4C16
- CONST UID '7FFAEB4E4C16'
- CONST Name 'chatContactsCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Совещание онлайн"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_98E7026F2C74 // LCImplchatContactsLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''chatContactsCaption''; rValue : ''Совещание онлайн'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''chatContactsCaption''; rValue : ''Совещание онлайн'')'
- : Speller ME_6AA7DE07F03F // chatContactsCaption
- ;
-
-ref; // ME_7FFAEB4E4C16 chatContactsCaption
-
-: ME_98E7026F2C74
- CONST UID '98E7026F2C74'
- CONST Name 'LCImplchatContactsLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки chatContactsLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Attributes
-   Seq: ( ME_7FFAEB4E4C16 // chatContactsCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_66C7AE0A90C8 // chatContactsLocalConstants
- ;
-
-ref; // ME_98E7026F2C74 LCImplchatContactsLocalConstants
-
-FORWARD ME_CF3716F31BF3
-
-: ME_8940D6D2D6F8
- CONST UID '8940D6D2D6F8'
- CONST Name 'chatAddContactCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Добавить контакт"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CF3716F31BF3 // chatAddContactLocalConstants
- ;
- CONST Value '''Добавить контакт'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Добавить контакт'''
-
-ref; // ME_8940D6D2D6F8 chatAddContactCaption
-
-: ME_CF3716F31BF3
- CONST UID 'CF3716F31BF3'
- CONST Name 'chatAddContactLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы chatAddContact' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Attributes
-   Seq: ( ME_8940D6D2D6F8 // chatAddContactCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_CF3716F31BF3 chatAddContactLocalConstants
-
-FORWARD ME_302E4C731927
-
-: ME_06FC7857D6EC
- CONST UID '06FC7857D6EC'
- CONST Name 'chatAddContactCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Добавить контакт"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_302E4C731927 // LCImplchatAddContactLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''chatAddContactCaption''; rValue : ''Добавить контакт'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''chatAddContactCaption''; rValue : ''Добавить контакт'')'
- : Speller ME_8940D6D2D6F8 // chatAddContactCaption
- ;
-
-ref; // ME_06FC7857D6EC chatAddContactCaption
-
-: ME_302E4C731927
- CONST UID '302E4C731927'
- CONST Name 'LCImplchatAddContactLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки chatAddContactLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Attributes
-   Seq: ( ME_06FC7857D6EC // chatAddContactCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_CF3716F31BF3 // chatAddContactLocalConstants
- ;
-
-ref; // ME_302E4C731927 LCImplchatAddContactLocalConstants
 
 FORWARD ME_8AC15E5F85C4
 
@@ -3480,42 +2877,6 @@ ref; // ME_5199DC98012F trContactListFooterClick
 
 ref; // ME_4AC4EFA302F9 MakeSingleChild
 
-: ME_261A0F5BD38B
- CONST UID '261A0F5BD38B'
- CONST Name 'Init_Str_chatContactsCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_chatContactsCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Speller ME_6AA7DE07F03F // chatContactsCaption
- ;
- : SpelledFor ME_7FFAEB4E4C16 // chatContactsCaption
- ;
-
-ref; // ME_261A0F5BD38B Init_Str_chatContactsCaption
-
-: ME_014A2CD3A7BA
- CONST UID '014A2CD3A7BA'
- CONST Name 'Init_Str_chatAddContactCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_chatAddContactCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Speller ME_8940D6D2D6F8 // chatAddContactCaption
- ;
- : SpelledFor ME_06FC7857D6EC // chatAddContactCaption
- ;
-
-ref; // ME_014A2CD3A7BA Init_Str_chatAddContactCaption
-
 : ME_1A3E74343352
  CONST UID '1A3E74343352'
  CONST Name 'Init_Str_AllUsers'
@@ -3977,8 +3338,6 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
  ME_5199DC120058 // trContactListNewCharPressed
  ME_5199DC98012F // trContactListFooterClick
  ME_4AC4EFA302F9 // MakeSingleChild
- ME_261A0F5BD38B // Init_Str_chatContactsCaption
- ME_014A2CD3A7BA // Init_Str_chatAddContactCaption
  ME_1A3E74343352 // Init_Str_AllUsers
  ME_5E671595B4E1 // Init_Str_ActiveUsers
  ME_7EDEF4DE048D // Init_Str_SelectUser
@@ -4019,10 +3378,6 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
  : Constants
    Seq: ( ME_4C2B33F40028 // ContactType
  ME_5199DD8C0345 // ContactList Strings
- ME_66C7AE0A90C8 // chatContactsLocalConstants
- ME_98E7026F2C74 // LCImplchatContactsLocalConstants
- ME_CF3716F31BF3 // chatAddContactLocalConstants
- ME_302E4C731927 // LCImplchatAddContactLocalConstants
  ME_8AC15E5F85C4 // LCImplContactType
  ME_7AAC84FA6DB8 // ContactTypeMap
  ME_E8481A6CB6A6 // LCImplContactList Strings
@@ -4069,21 +3424,6 @@ ref; // ME_4AC4EF5600B4 PrimContactList
 
 FORWARD ME_4C84CB6F0007
 
-: ME_1D3E9CFD971C
- CONST UID '1D3E9CFD971C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация BaseChatWindowOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C84CB6F0007 // BaseChatWindowOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_1D3E9CFD971C Ini_Reg_Class
-
 : ME_50228E0D0355
  CONST Class class_Dependency
  : Stereotype st_ToolbarAtBottom::Dependency ;
@@ -4093,17 +3433,6 @@ ref; // ME_1D3E9CFD971C Ini_Reg_Class
  ;
 
 ref; // ME_50228E0D0355 
-
-: ME_90A1A0683F1B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C84CB6F0007 // BaseChatWindowOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_90A1A0683F1B 
 
 : ME_4C7D0CC90052_ME_4C84CB6F0007
  : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
@@ -4184,10 +3513,6 @@ ref; // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
  WL 'ME_4C2B24490026' '4A8AE21B0210.pas.ms.script' // Chat$Contacts
  )
  ; // Implements
- : Operations
-   Seq: ( ME_1D3E9CFD971C // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4C7D0CC90052_ME_4C84CB6F0007 // Delete
  ME_4C84CC2E0253_ME_4C84CB6F0007 // History
@@ -4200,7 +3525,6 @@ ref; // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
  ; // Overridden
  : Dependencies
    Seq: ( ME_50228E0D0355 // Chat$Contacts
- ME_90A1A0683F1B // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -4222,32 +3546,6 @@ ref; // ME_4C762D9B0224_ME_4C84CB6F0007 OkExt
 ref; // ME_4C84CB6F0007 BaseChatWindowOptions
 
 FORWARD ME_4C84D11E01E2
-
-: ME_53B43CAE0810
- CONST UID '53B43CAE0810'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimContactListOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C84D11E01E2 // PrimContactListOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_53B43CAE0810 Ini_Reg_Class
-
-: ME_57697776BE11
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C84D11E01E2 // PrimContactListOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_57697776BE11 
 
 : ME_4C7D0CC90052_ME_4C84D11E01E2
  : Original WL 'ME_4C7D0CC90052' '494F898C013E.pas.ms.script' // Delete
@@ -4343,10 +3641,6 @@ ref; // ME_4C84CC2E0253_ME_4C84D11E01E2 History
    Seq: ( WL 'ME_494F89AA0017' '494F898C013E.pas.ms.script' // Edit
  )
  ; // Implements
- : Operations
-   Seq: ( ME_53B43CAE0810 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4C7D0CC90052_ME_4C84D11E01E2 // Delete
  )
@@ -4358,10 +3652,6 @@ ref; // ME_4C84CC2E0253_ME_4C84D11E01E2 History
  ME_4C84CC2E0253_ME_4C84D11E01E2 // History
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_57697776BE11 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'

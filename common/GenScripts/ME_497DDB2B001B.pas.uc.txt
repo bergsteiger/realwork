@@ -158,6 +158,7 @@
   f_SearchWindowVisible := aNewVisible;
   tvList.Invalidate;
   //tvList.Perform(msg_vtUpdateScroll, 0, 0);
+  //CheckExSearchPanelVisibility;
  end;//f_SearchWindowVisible <> aNewVisible
 //#UC END# *496B517202C5_497DDB2B001B_impl*
 //#UC START# *496B517202C5_497DDB2B001B_var*
@@ -165,13 +166,23 @@
 //#UC START# *497469C90140_497DDB2B001B_impl*
  inherited;
  f_AllowCallCurrentChangedOnTest := True;
-
+ if Assigned(aNew) then
+ begin
+  l_BS := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  if Assigned(l_BS) and Assigned(l_BS.WindowData) then
+   f_SearchContext := l_BS.WindowData.Context;
+  CheckExSearchPanelVisibility;
+ end;
  tvList.SelfDrawNodes := Assigned(dsDocumentList) and dsDocumentList.IsSnippet;
  if tvList.HandleAllocated then
   PostMessage(tvList.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497DDB2B001B_impl*
 //#UC START# *497469C90140_497DDB2B001B_var*
+var
+ l_BS: InsBaseSearcher;
 //#UC END# *497469C90140_497DDB2B001B_var*
+//#UC START# *497DDB2B001Bimpl_uses*
+//#UC END# *497DDB2B001Bimpl_uses*
 //#UC START# *497F16AC015A_497DDB2B001B_impl*
  if (CurUserType <> nil) and
     (UserType in [lftSimilarDocuments]) then
@@ -657,6 +668,24 @@ var
   OpenChipColor := $ADADAD; //414849886 
   OpenChipBorderColor := $ADADAD;
  end;
+ with ExSearchPanel do
+ begin
+  Align := alTop;
+  Color := clWhite;
+  BorderStyle := bsNone;
+  BevelOuter := bvNone;
+ end;
+ with ExSearchLabel do
+ begin
+  AutoWidth := True;
+  Anchors := [akTop, akRight];
+  Cursor := crHandPoint;
+  Top := 0;
+  Left := ExSearchPanel.ClientWidth - 15 - Width;
+  OnClick := ExSearchLabelClick;
+  ExSearchPanel.Height := Height + 5;
+ end;
+ StyleTableChanged;
 //#UC END# *4A8E8F2E0195_497DDB2B001B_impl*
 //#UC START# *4A8E8F2E0195_497DDB2B001B_var*
 //#UC END# *4A8E8F2E0195_497DDB2B001B_var*
@@ -1454,7 +1483,7 @@ var
     SaveDialog.FileName := l3Str(nsPrepareFileName(l_Output.rName));
     SaveDialog.OnCanClose := SaveDialogCanClose;
     try
-     if SaveDialog.Execute then
+     if TnsSaveDialogExecutor.Instance.Call(SaveDialog) then
      begin
       if (SaveDialog.SaveListTarget = ns_sdlkTitles) and
          (SaveDialog.SelectedFileFormat = ns_ffXML) and

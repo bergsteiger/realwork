@@ -172,48 +172,6 @@ ref; // ME_4BFFA1AB0253 DoIt
 
 ref; // ME_4BFFA1990245 Create
 
-FORWARD ME_4BFFA1DF007E
-
-: ME_24CC38777AFA
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4A6EBE900233 // Diff
- ;
-
-ref; // ME_24CC38777AFA aForm
-
-: ME_2EA8B1586091
- CONST Name 'aParaID'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_2EA8B1586091 aParaID
-
-: ME_12C9A20BF497
- CONST UID '12C9A20BF497'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsChangedParaWaiter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BFFA1DF007E // Make
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_24CC38777AFA // aForm
- ME_2EA8B1586091 // aParaID
- )
- ; // Parameters
-
-ref; // ME_12C9A20BF497 DoIt
-
 : ME_4BFFA1DF007E
  CONST UID '4BFFA1DF007E'
  CONST Name 'Make'
@@ -232,10 +190,6 @@ ref; // ME_12C9A20BF497 DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_12C9A20BF497 // DoIt
- )
- ; // Operations
 
 ref; // ME_4BFFA1DF007E Make
 
@@ -837,102 +791,6 @@ ref; // ME_4BFFB472007B f_WasInitedByChangedPara
  ;
 
 ref; // ME_521DD56903DB f_WasInitedByDocPos
-
-: ME_10E1486AAE8E
- CONST UID '10E1486AAE8E'
- CONST Name 'f_Header'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Header' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_10E1486AAE8E f_Header
-
-: ME_45B09FB1A341
- CONST UID '45B09FB1A341'
- CONST Name 'f_pnLeft'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnLeft' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_45B09FB1A341 f_pnLeft
-
-: ME_BB5D05513238
- CONST UID 'BB5D05513238'
- CONST Name 'f_EditionLink'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EditionLink' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_4A9B9BC00258' '4A9B9BAA0207.pas.ms.script' // TvtFocusLabel
- ;
-
-ref; // ME_BB5D05513238 f_EditionLink
-
-: ME_535B1C08B532
- CONST UID '535B1C08B532'
- CONST Name 'f_pbIcon'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbIcon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_535B1C08B532 f_pbIcon
-
-: ME_AE8650170E85
- CONST UID 'AE8650170E85'
- CONST Name 'f_pnCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_AE8650170E85 f_pnCaption
-
-: ME_50247735E718
- CONST UID '50247735E718'
- CONST Name 'f_EditionChoose'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EditionChoose' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_50247735E718 f_EditionChoose
 
 FORWARD ME_4A785B8E009B
 
@@ -2289,21 +2147,6 @@ ref; // ME_4B55BBAE0223 anEditionID
 
 ref; // ME_4B55BB7F0172 DoEditionChanged
 
-: ME_DC968AF86888
- CONST UID 'DC968AF86888'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Diff' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EBE900233 // Diff
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DC968AF86888 Ini_Reg_Class
-
 : ME_4A7849380256
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -2554,17 +2397,6 @@ ref; // ME_5416D10B0104
  ;
 
 ref; // ME_55B08D0700EB 
-
-: ME_AE1CF31DE5C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EBE900233 // Diff
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_AE1CF31DE5C9 
 
 : ME_496B4C41023E_ME_4A6EBE900233
  : Original WL 'ME_496B4C41023E' '4A9F98B901A5.pas.ms.script' // WindowRequired
@@ -2894,12 +2726,6 @@ FORWARD ME_571A22E9019E
  ME_4B7BE0750372 // f_ForceDrawFocusRectMoment
  ME_4BFFB472007B // f_WasInitedByChangedPara
  ME_521DD56903DB // f_WasInitedByDocPos
- ME_10E1486AAE8E // f_Header
- ME_45B09FB1A341 // f_pnLeft
- ME_BB5D05513238 // f_EditionLink
- ME_535B1C08B532 // f_pbIcon
- ME_AE8650170E85 // f_pnCaption
- ME_50247735E718 // f_EditionChoose
  )
  ; // Attributes
  : Operations
@@ -2930,7 +2756,6 @@ FORWARD ME_571A22E9019E
  ME_4A8559B0013B // SignalEditionChanged
  ME_4B55ADAD0005 // EditionsChooseRoot
  ME_4B55BB7F0172 // DoEditionChanged
- ME_DC968AF86888 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -3015,7 +2840,6 @@ FORWARD ME_571A22E9019E
  ME_5416CFFA0099 // HyperLink
  ME_5416D10B0104 // HyperLink
  ME_55B08D0700EB // TbsProcessHyperLinkBehaviour
- ME_AE1CF31DE5C9 // TtfwClassRef
  )
  ; // Dependencies
  : Injected
@@ -3039,32 +2863,6 @@ FORWARD ME_571A22E9019E
 ref; // ME_4A6EBE900233 Diff
 
 FORWARD ME_4C7F6D8800EE
-
-: ME_2B86D8469994
- CONST UID '2B86D8469994'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация DiffOptions' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C7F6D8800EE // DiffOptions
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_2B86D8469994 Ini_Reg_Class
-
-: ME_999234C9E4CC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4C7F6D8800EE // DiffOptions
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_999234C9E4CC 
 
 : ME_49521D8E0295_ME_4C7F6D8800EE
  : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
@@ -3125,20 +2923,12 @@ ref; // ME_495238EB0160_ME_4C7F6D8800EE ToMSWord
    Seq: ( ME_4A6EBE900233 // Diff
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2B86D8469994 // Ini_Reg_Class
- )
- ; // Operations
  : Overridden
    Seq: ( ME_49521D8E0295_ME_4C7F6D8800EE // Print
  ME_495220DE0298_ME_4C7F6D8800EE // PrintDialog
  ME_495238EB0160_ME_4C7F6D8800EE // ToMSWord
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_999234C9E4CC // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -3176,101 +2966,6 @@ FORWARD ME_4A6D5A80013C
  CONST extprop:pas:UnitName 'PrimLeftEdition_utLeftEdition_UserType'
 
 ref; // ME_4BD7056800D3 utLeftEdition
-
-FORWARD ME_F5DF2468369A
-
-: ME_CE2795837B1D
- CONST UID 'CE2795837B1D'
- CONST Name 'utLeftEditionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Предыдущая редакция"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F5DF2468369A // utLeftEditionLocalConstants
- ;
- CONST Value '''Предыдущая редакция'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Предыдущая редакция'''
-
-ref; // ME_CE2795837B1D utLeftEditionCaption
-
-: ME_F5DF2468369A
- CONST UID 'F5DF2468369A'
- CONST Name 'utLeftEditionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utLeftEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- : Attributes
-   Seq: ( ME_CE2795837B1D // utLeftEditionCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_F5DF2468369A utLeftEditionLocalConstants
-
-FORWARD ME_EAB55DA6EACF
-
-: ME_ED8847B2B3A7
- CONST UID 'ED8847B2B3A7'
- CONST Name 'utLeftEditionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Предыдущая редакция"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EAB55DA6EACF // LCImplutLeftEditionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utLeftEditionCaption''; rValue : ''Предыдущая редакция'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utLeftEditionCaption''; rValue : ''Предыдущая редакция'')'
- : Speller ME_CE2795837B1D // utLeftEditionCaption
- ;
-
-ref; // ME_ED8847B2B3A7 utLeftEditionCaption
-
-: ME_EAB55DA6EACF
- CONST UID 'EAB55DA6EACF'
- CONST Name 'LCImplutLeftEditionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utLeftEditionLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- : Attributes
-   Seq: ( ME_ED8847B2B3A7 // utLeftEditionCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_F5DF2468369A // utLeftEditionLocalConstants
- ;
-
-ref; // ME_EAB55DA6EACF LCImplutLeftEditionLocalConstants
 
 FORWARD ME_4A83F7ED031D
 
@@ -3334,39 +3029,6 @@ ref; // ME_4A83F7ED031D Header
 
 ref; // ME_4A6D5B000178 
 
-: ME_24F4D69AB03D
- CONST UID '24F4D69AB03D'
- CONST Name 'Init_Str_utLeftEditionCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utLeftEditionCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- : Speller ME_CE2795837B1D // utLeftEditionCaption
- ;
- : SpelledFor ME_ED8847B2B3A7 // utLeftEditionCaption
- ;
-
-ref; // ME_24F4D69AB03D Init_Str_utLeftEditionCaption
-
-: ME_267802AF92C0
- CONST UID '267802AF92C0'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimLeftEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_267802AF92C0 Ini_Reg_Class
-
 : ME_4B69B5EF03B1
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3376,39 +3038,6 @@ ref; // ME_267802AF92C0 Ini_Reg_Class
  ;
 
 ref; // ME_4B69B5EF03B1 
-
-: ME_7CADD6E9771A
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_7CADD6E9771A 
-
-: ME_EAA1EA171693
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_EAA1EA171693 
-
-: ME_C60486DFFACC
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5A80013C // PrimLeftEdition
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C60486DFFACC 
 
 : ME_4B55ADAD0005_ME_4A6D5A80013C
  : Original ME_4B55ADAD0005 // EditionsChooseRoot
@@ -3454,11 +3083,6 @@ ref; // ME_4A8E8F2E0195_ME_4A6D5A80013C InitControls
  ME_4A6D5B000178 // 
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_24F4D69AB03D // Init_Str_utLeftEditionCaption
- ME_267802AF92C0 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B55ADAD0005_ME_4A6D5A80013C // EditionsChooseRoot
  ME_4B55BB7F0172_ME_4A6D5A80013C // DoEditionChanged
@@ -3473,16 +3097,8 @@ ref; // ME_4A8E8F2E0195_ME_4A6D5A80013C InitControls
    Seq: ( ME_4BD7056800D3 // utLeftEdition
  )
  ; // Children
- : Constants
-   Seq: ( ME_F5DF2468369A // utLeftEditionLocalConstants
- ME_EAB55DA6EACF // LCImplutLeftEditionLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4B69B5EF03B1 // RightEdition
- ME_7CADD6E9771A // Tl3StringIDEx
- ME_EAA1EA171693 // Tl3MessageID
- ME_C60486DFFACC // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -3604,153 +3220,6 @@ ref; // ME_54630C2E01BC EditionsContainerCaptionShortPrefix
  CONST "spell names" false
 
 ref; // ME_54630BDE0364 CaptionConst
-
-FORWARD ME_772680636A6D
-
-: ME_3ACA1CEB486A
- CONST UID '3ACA1CEB486A'
- CONST Name 'utEditionsContainerCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Сравнение редакций документа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_772680636A6D // utEditionsContainerLocalConstants
- ;
- CONST Value '''Сравнение редакций документа'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Сравнение редакций документа'''
-
-ref; // ME_3ACA1CEB486A utEditionsContainerCaption
-
-: ME_772680636A6D
- CONST UID '772680636A6D'
- CONST Name 'utEditionsContainerLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utEditionsContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Attributes
-   Seq: ( ME_3ACA1CEB486A // utEditionsContainerCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_772680636A6D utEditionsContainerLocalConstants
-
-FORWARD ME_DE98CDBA50ED
-
-: ME_A06E0EE00186
- CONST UID 'A06E0EE00186'
- CONST Name 'utEditionsContainerCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Сравнение редакций документа"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_DE98CDBA50ED // LCImplutEditionsContainerLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utEditionsContainerCaption''; rValue : ''Сравнение редакций документа'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utEditionsContainerCaption''; rValue : ''Сравнение редакций документа'')'
- : Speller ME_3ACA1CEB486A // utEditionsContainerCaption
- ;
-
-ref; // ME_A06E0EE00186 utEditionsContainerCaption
-
-: ME_DE98CDBA50ED
- CONST UID 'DE98CDBA50ED'
- CONST Name 'LCImplutEditionsContainerLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utEditionsContainerLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Attributes
-   Seq: ( ME_A06E0EE00186 // utEditionsContainerCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_772680636A6D // utEditionsContainerLocalConstants
- ;
-
-ref; // ME_DE98CDBA50ED LCImplutEditionsContainerLocalConstants
-
-FORWARD ME_74ADAA222501
-
-: ME_D70B51B48B15
- CONST UID 'D70B51B48B15'
- CONST Name 'EditionsContainerCaptionShortPrefix'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Сравнение редакций''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_74ADAA222501 // LCImplCaptionConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''EditionsContainerCaptionShortPrefix''; rValue : ''Сравнение редакций'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''EditionsContainerCaptionShortPrefix''; rValue : ''Сравнение редакций'')'
- : Speller ME_54630C2E01BC // EditionsContainerCaptionShortPrefix
- ;
-
-ref; // ME_D70B51B48B15 EditionsContainerCaptionShortPrefix
-
-: ME_74ADAA222501
- CONST UID '74ADAA222501'
- CONST Name 'LCImplCaptionConst'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки CaptionConst' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Attributes
-   Seq: ( ME_D70B51B48B15 // EditionsContainerCaptionShortPrefix
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_54630BDE0364 // CaptionConst
- ;
-
-ref; // ME_74ADAA222501 LCImplCaptionConst
 
 FORWARD ME_4A7ADAEA035D
 
@@ -3883,54 +3352,6 @@ ref; // ME_4B54A152011F f_PrevPara
  ;
 
 ref; // ME_4BEA8FC602E1 f_ForceDrawFocusRectMoment
-
-: ME_CF54404BC13E
- CONST UID 'CF54404BC13E'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_CF54404BC13E f_BackgroundPanel
-
-: ME_DB34B3856EF3
- CONST UID 'DB34B3856EF3'
- CONST Name 'f_pnLeft'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnLeft' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_DB34B3856EF3 f_pnLeft
-
-: ME_26DBFEF9FE46
- CONST UID '26DBFEF9FE46'
- CONST Name 'f_pnRight'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnRight' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_26DBFEF9FE46 f_pnRight
 
 FORWARD ME_4A80256B02A5
 
@@ -4257,57 +3678,6 @@ ref; // ME_54630D3302CE DoIt
 
 ref; // ME_54630D2702E1 MakePrefixedCaption
 
-: ME_877B8F08EEE4
- CONST UID '877B8F08EEE4'
- CONST Name 'Init_Str_utEditionsContainerCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utEditionsContainerCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Speller ME_3ACA1CEB486A // utEditionsContainerCaption
- ;
- : SpelledFor ME_A06E0EE00186 // utEditionsContainerCaption
- ;
-
-ref; // ME_877B8F08EEE4 Init_Str_utEditionsContainerCaption
-
-: ME_3873F2C1E1EC
- CONST UID '3873F2C1E1EC'
- CONST Name 'Init_Str_EditionsContainerCaptionShortPrefix'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_EditionsContainerCaptionShortPrefix' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Speller ME_54630C2E01BC // EditionsContainerCaptionShortPrefix
- ;
- : SpelledFor ME_D70B51B48B15 // EditionsContainerCaptionShortPrefix
- ;
-
-ref; // ME_3873F2C1E1EC Init_Str_EditionsContainerCaptionShortPrefix
-
-: ME_7F8658B65D89
- CONST UID '7F8658B65D89'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimEditionsContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_7F8658B65D89 Ini_Reg_Class
-
 : ME_4A8025A701DD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -4347,39 +3717,6 @@ ref; // ME_4BEA8FFD01BC
  ;
 
 ref; // ME_4C80EEE30009 
-
-: ME_CF083FCCDDA5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_CF083FCCDDA5 
-
-: ME_2B209637E842
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_2B209637E842 
-
-: ME_578A3EBC3B7C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EC0D0020C // PrimEditionsContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_578A3EBC3B7C 
 
 : ME_4A79AB290196_ME_4A6EC0D0020C
  : Original WL 'ME_4A79AB290196' '4A6D56B00065.pas.ms.script' // Sync
@@ -4513,9 +3850,6 @@ ref; // ME_4F7C65380244_ME_4A6EC0D0020C FormInsertedIntoContainer
  ME_4B549A380297 // f_InFindChanged
  ME_4B54A152011F // f_PrevPara
  ME_4BEA8FC602E1 // f_ForceDrawFocusRectMoment
- ME_CF54404BC13E // f_BackgroundPanel
- ME_DB34B3856EF3 // f_pnLeft
- ME_26DBFEF9FE46 // f_pnRight
  )
  ; // Attributes
  : Operations
@@ -4523,9 +3857,6 @@ ref; // ME_4F7C65380244_ME_4A6EC0D0020C FormInsertedIntoContainer
  ME_4ADC8D5C0182 // FindChangedText
  ME_4AE046D4038D // CanFindChangedText
  ME_54630D2702E1 // MakePrefixedCaption
- ME_877B8F08EEE4 // Init_Str_utEditionsContainerCaption
- ME_3873F2C1E1EC // Init_Str_EditionsContainerCaptionShortPrefix
- ME_7F8658B65D89 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -4553,9 +3884,6 @@ ref; // ME_4F7C65380244_ME_4A6EC0D0020C FormInsertedIntoContainer
  ; // Children
  : Constants
    Seq: ( ME_54630BDE0364 // CaptionConst
- ME_772680636A6D // utEditionsContainerLocalConstants
- ME_DE98CDBA50ED // LCImplutEditionsContainerLocalConstants
- ME_74ADAA222501 // LCImplCaptionConst
  )
  ; // Constants
  : Dependencies
@@ -4563,9 +3891,6 @@ ref; // ME_4F7C65380244_ME_4A6EC0D0020C FormInsertedIntoContainer
  ME_4ADC8B9001A5 // Finder
  ME_4BEA8FFD01BC // GetTickCount
  ME_4C80EEE30009 // Edition
- ME_CF083FCCDDA5 // Tl3StringIDEx
- ME_2B209637E842 // Tl3MessageID
- ME_578A3EBC3B7C // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -4704,48 +4029,6 @@ ref; // ME_4D91D9AF0190 DoIt
 
 ref; // ME_4D91D9A70258 Create
 
-FORWARD ME_4D91D9CB03D9
-
-: ME_103C5B7A3419
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4C7F6D8800EE // DiffOptions
- ;
-
-ref; // ME_103C5B7A3419 aForm
-
-: ME_23C9DA7AE626
- CONST Name 'aPara'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
- ;
-
-ref; // ME_23C9DA7AE626 aPara
-
-: ME_B009982C0166
- CONST UID 'B009982C0166'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsInitialParaWaiter.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D91D9CB03D9 // Make
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_103C5B7A3419 // aForm
- ME_23C9DA7AE626 // aPara
- )
- ; // Parameters
-
-ref; // ME_B009982C0166 DoIt
-
 : ME_4D91D9CB03D9
  CONST UID '4D91D9CB03D9'
  CONST Name 'Make'
@@ -4764,10 +4047,6 @@ ref; // ME_B009982C0166 DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_B009982C0166 // DoIt
- )
- ; // Operations
 
 ref; // ME_4D91D9CB03D9 Make
 
@@ -4824,48 +4103,6 @@ ref; // ME_5215B95101B0 DoIt
 
 ref; // ME_5215B94503C0 Create$1
 
-FORWARD ME_5215B99D0018
-
-: ME_C077FBEA9B68
- CONST Name 'aForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_4C7F6D8800EE // DiffOptions
- ;
-
-ref; // ME_C077FBEA9B68 aForm
-
-: ME_CB902D292384
- CONST Name 'aPosition'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
- ;
-
-ref; // ME_CB902D292384 aPosition
-
-: ME_41360D52776D
- CONST UID '41360D52776D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsInitialParaWaiter.Make$1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5215B99D0018 // Make$1
- ;
- : Target WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
- ;
- : Parameters
-   Seq: ( ME_C077FBEA9B68 // aForm
- ME_CB902D292384 // aPosition
- )
- ; // Parameters
-
-ref; // ME_41360D52776D DoIt
-
 : ME_5215B99D0018
  CONST UID '5215B99D0018'
  CONST Name 'Make'
@@ -4884,10 +4121,6 @@ ref; // ME_41360D52776D DoIt
    Seq: ( WL 'ME_47C6B2F701AA' '47C5207602D1.pas.ms.script' // InevWaiter
  )
  ; // Implements
- : Operations
-   Seq: ( ME_41360D52776D // DoIt
- )
- ; // Operations
 
 ref; // ME_5215B99D0018 Make$1
 
@@ -4967,12 +4200,6 @@ ref; // ME_4D91E28403A2
  CONST OpKind opkind_Overridden
 ref; // ME_4BFFA0FF01D2_ME_4D91D8EB00AD TrySelectPara
 
-: ME_5000565C019C_ME_4D91D8EB00AD
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4D91D8EB00AD ClearFields
-
 : ME_4D91D8EB00AD
  CONST UID '4D91D8EB00AD'
  CONST Name 'TnsInitialParaWaiter'
@@ -5003,7 +4230,6 @@ ref; // ME_5000565C019C_ME_4D91D8EB00AD ClearFields
  ; // Operations
  : Overridden
    Seq: ( ME_4BFFA0FF01D2_ME_4D91D8EB00AD // TrySelectPara
- ME_5000565C019C_ME_4D91D8EB00AD // ClearFields
  )
  ; // Overridden
  : Dependencies
@@ -5023,101 +4249,6 @@ ref; // ME_5000565C019C_ME_4D91D8EB00AD ClearFields
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D91D8EB00AD TnsInitialParaWaiter
-
-FORWARD ME_1B81423B34B0
-
-: ME_B0B98DDF3EE0
- CONST UID 'B0B98DDF3EE0'
- CONST Name 'utRightEditionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Текущая редакция"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1B81423B34B0 // utRightEditionLocalConstants
- ;
- CONST Value '''Текущая редакция'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Текущая редакция'''
-
-ref; // ME_B0B98DDF3EE0 utRightEditionCaption
-
-: ME_1B81423B34B0
- CONST UID '1B81423B34B0'
- CONST Name 'utRightEditionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы utRightEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- : Attributes
-   Seq: ( ME_B0B98DDF3EE0 // utRightEditionCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_1B81423B34B0 utRightEditionLocalConstants
-
-FORWARD ME_3C76AA2E2D01
-
-: ME_4FF325852758
- CONST UID '4FF325852758'
- CONST Name 'utRightEditionCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Текущая редакция"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3C76AA2E2D01 // LCImplutRightEditionLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''utRightEditionCaption''; rValue : ''Текущая редакция'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''utRightEditionCaption''; rValue : ''Текущая редакция'')'
- : Speller ME_B0B98DDF3EE0 // utRightEditionCaption
- ;
-
-ref; // ME_4FF325852758 utRightEditionCaption
-
-: ME_3C76AA2E2D01
- CONST UID '3C76AA2E2D01'
- CONST Name 'LCImplutRightEditionLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки utRightEditionLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- : Attributes
-   Seq: ( ME_4FF325852758 // utRightEditionCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_1B81423B34B0 // utRightEditionLocalConstants
- ;
-
-ref; // ME_3C76AA2E2D01 LCImplutRightEditionLocalConstants
 
 : ME_4A6D5B340217
  CONST UID '4A6D5B340217'
@@ -5146,39 +4277,6 @@ ref; // ME_4A6D5B340217
  ;
 
 ref; // ME_4A855A37005D f_ParaForPositioning
-
-: ME_D9B00E44C178
- CONST UID 'D9B00E44C178'
- CONST Name 'Init_Str_utRightEditionCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_utRightEditionCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- : Speller ME_B0B98DDF3EE0 // utRightEditionCaption
- ;
- : SpelledFor ME_4FF325852758 // utRightEditionCaption
- ;
-
-ref; // ME_D9B00E44C178 Init_Str_utRightEditionCaption
-
-: ME_38DBDB392E46
- CONST UID '38DBDB392E46'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimRightEdition' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_38DBDB392E46 Ini_Reg_Class
 
 : ME_4A8410A2013C
  CONST Class class_Dependency
@@ -5249,39 +4347,6 @@ ref; // ME_4B55BFDE003E
  ;
 
 ref; // ME_5215C2A10173 
-
-: ME_41AA122C4E42
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_41AA122C4E42 
-
-: ME_253792EBB2B2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_253792EBB2B2 
-
-: ME_5A5A08EF7EF6
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6D5ABE020A // PrimRightEdition
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5A5A08EF7EF6 
 
 : ME_4B1E3833024A_ME_4A6D5ABE020A
  : Original WL 'ME_4B1E3833024A' '4A897A0F0097.pas.ms.script' // ReturnToDocument
@@ -5430,11 +4495,6 @@ ref; // ME_501174B10018_ME_4A6D5ABE020A GetIsMainObjectForm
  ME_4A855A37005D // f_ParaForPositioning
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_D9B00E44C178 // Init_Str_utRightEditionCaption
- ME_38DBDB392E46 // Ini_Reg_Class
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B1E3833024A_ME_4A6D5ABE020A // ReturnToDocument
  ME_4B506F4D0196_ME_4A6D5ABE020A // GetParaForPositionning
@@ -5461,11 +4521,6 @@ ref; // ME_501174B10018_ME_4A6D5ABE020A GetIsMainObjectForm
  ME_4D91D8EB00AD // TnsInitialParaWaiter
  )
  ; // Children
- : Constants
-   Seq: ( ME_1B81423B34B0 // utRightEditionLocalConstants
- ME_3C76AA2E2D01 // LCImplutRightEditionLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4A8410A2013C // l3String
  ME_4A8558B50396 // Sub Layers
@@ -5474,9 +4529,6 @@ ref; // ME_501174B10018_ME_4A6D5ABE020A GetIsMainObjectForm
  ME_4B55BF2E000B // DocumentState
  ME_4B55BFDE003E // StdRes
  ME_5215C2A10173 // nsTypes
- ME_41AA122C4E42 // Tl3StringIDEx
- ME_253792EBB2B2 // Tl3MessageID
- ME_5A5A08EF7EF6 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -5521,65 +4573,6 @@ FORWARD ME_4B5082500342
 
 ref; // ME_4B50956D00B2 EditionsStateIcons
 
-: ME_A6E057210C87
- CONST UID 'A6E057210C87'
- CONST Name 'f_EditionsStateIcons'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EditionsStateIcons' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4B5082500342 // PrimEditionsRes
- ;
- : Target WL 'ME_4FD2246B017B' '4FD078FF017D.pas.ms.script' // TvtPngImageList
- ;
-
-ref; // ME_A6E057210C87 f_EditionsStateIcons
-
-: ME_2623A5D2E2DF
- CONST UID '2623A5D2E2DF'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B5082500342 // PrimEditionsRes
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_2623A5D2E2DF Exists
-
-: ME_E4539D433247
- CONST UID 'E4539D433247'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimEditionsRes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4B5082500342 // PrimEditionsRes
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E4539D433247 Ini_Reg_Class
-
-: ME_259B13E24D69
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4B5082500342 // PrimEditionsRes
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_259B13E24D69 
-
 : ME_4B5082500342
  CONST UID '4B5082500342'
  CONST Name 'PrimEditionsRes'
@@ -5592,18 +4585,8 @@ ref; // ME_259B13E24D69
  ;
  : Attributes
    Seq: ( ME_4B50956D00B2 // EditionsStateIcons
- ME_A6E057210C87 // f_EditionsStateIcons
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_2623A5D2E2DF // Exists
- ME_E4539D433247 // Ini_Reg_Class
- )
- ; // Operations
- : Dependencies
-   Seq: ( ME_259B13E24D69 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" true
  CONST "author" 'Люлин А.В.'
  CONST "finished dfm" true
@@ -7953,7 +6936,6 @@ ref; // ME_571A22D2007A DiffFormWordsPack
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions'

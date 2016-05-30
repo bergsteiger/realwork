@@ -81,179 +81,6 @@ ref; // ME_4E8C3BD80039 ReturnToDocumentOperationCaption
 
 ref; // ME_4E8C3BA30178 Local
 
-FORWARD ME_D981CE8A183F
-
-: ME_0A1BDB1831FA
- CONST UID '0A1BDB1831FA'
- CONST Name 'DocumentChangesCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Изменения в документе"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_D981CE8A183F // DocumentChangesLocalConstants
- ;
- CONST Value '''Изменения в документе'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Изменения в документе'''
-
-ref; // ME_0A1BDB1831FA DocumentChangesCaption
-
-: ME_D981CE8A183F
- CONST UID 'D981CE8A183F'
- CONST Name 'DocumentChangesLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы DocumentChanges' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Attributes
-   Seq: ( ME_0A1BDB1831FA // DocumentChangesCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_D981CE8A183F DocumentChangesLocalConstants
-
-FORWARD ME_EB67C8BA791E
-
-: ME_1CD84484A326
- CONST UID '1CD84484A326'
- CONST Name 'DocumentChangesCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Изменения в документе"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_EB67C8BA791E // LCImplDocumentChangesLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentChangesCaption''; rValue : ''Изменения в документе'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentChangesCaption''; rValue : ''Изменения в документе'')'
- : Speller ME_0A1BDB1831FA // DocumentChangesCaption
- ;
-
-ref; // ME_1CD84484A326 DocumentChangesCaption
-
-: ME_EB67C8BA791E
- CONST UID 'EB67C8BA791E'
- CONST Name 'LCImplDocumentChangesLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки DocumentChangesLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Attributes
-   Seq: ( ME_1CD84484A326 // DocumentChangesCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_D981CE8A183F // DocumentChangesLocalConstants
- ;
-
-ref; // ME_EB67C8BA791E LCImplDocumentChangesLocalConstants
-
-FORWARD ME_4B8307ADDBE6
-
-: ME_CFEECC98C257
- CONST UID 'CFEECC98C257'
- CONST Name 'CompareRedactionOperationCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Сравнить полные тексты редакций''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4B8307ADDBE6 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''CompareRedactionOperationCaption''; rValue : ''Сравнить полные тексты редакций'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''CompareRedactionOperationCaption''; rValue : ''Сравнить полные тексты редакций'')'
- : Speller ME_4E8C3BAB0068 // CompareRedactionOperationCaption
- ;
-
-ref; // ME_CFEECC98C257 CompareRedactionOperationCaption
-
-: ME_EE0CBBB005FE
- CONST UID 'EE0CBBB005FE'
- CONST Name 'ReturnToDocumentOperationCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Вернуться в текст документа''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4B8307ADDBE6 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ReturnToDocumentOperationCaption''; rValue : ''Вернуться в текст документа'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ReturnToDocumentOperationCaption''; rValue : ''Вернуться в текст документа'')'
- : Speller ME_4E8C3BD80039 // ReturnToDocumentOperationCaption
- ;
-
-ref; // ME_EE0CBBB005FE ReturnToDocumentOperationCaption
-
-: ME_4B8307ADDBE6
- CONST UID '4B8307ADDBE6'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Attributes
-   Seq: ( ME_CFEECC98C257 // CompareRedactionOperationCaption
- ME_EE0CBBB005FE // ReturnToDocumentOperationCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4E8C3BA30178 // Local
- ;
-
-ref; // ME_4B8307ADDBE6 LCImplLocal
-
 : ME_4DDCDE5A0058
  CONST UID '4DDCDE5A0058'
  CONST Name 'ViewArea'
@@ -421,75 +248,6 @@ ref; // ME_5228247B003C DoIt
 
 ref; // ME_5228246A01D9 TextSourceDocumentChanged
 
-: ME_EEED52456CD6
- CONST UID 'EEED52456CD6'
- CONST Name 'Init_Str_DocumentChangesCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_DocumentChangesCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Speller ME_0A1BDB1831FA // DocumentChangesCaption
- ;
- : SpelledFor ME_1CD84484A326 // DocumentChangesCaption
- ;
-
-ref; // ME_EEED52456CD6 Init_Str_DocumentChangesCaption
-
-: ME_A8784BB5646C
- CONST UID 'A8784BB5646C'
- CONST Name 'Init_Str_CompareRedactionOperationCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_CompareRedactionOperationCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Speller ME_4E8C3BAB0068 // CompareRedactionOperationCaption
- ;
- : SpelledFor ME_CFEECC98C257 // CompareRedactionOperationCaption
- ;
-
-ref; // ME_A8784BB5646C Init_Str_CompareRedactionOperationCaption
-
-: ME_DD07270100BD
- CONST UID 'DD07270100BD'
- CONST Name 'Init_Str_ReturnToDocumentOperationCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ReturnToDocumentOperationCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Speller ME_4E8C3BD80039 // ReturnToDocumentOperationCaption
- ;
- : SpelledFor ME_EE0CBBB005FE // ReturnToDocumentOperationCaption
- ;
-
-ref; // ME_DD07270100BD Init_Str_ReturnToDocumentOperationCaption
-
-: ME_CB6B788823FB
- CONST UID 'CB6B788823FB'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimChangesBetweenEditons' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_CB6B788823FB Ini_Reg_Class
-
 : ME_4DDD078A02D5
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -560,39 +318,6 @@ ref; // ME_5416BD1403BA
  ;
 
 ref; // ME_5416C06C0387 
-
-: ME_4A79B9830470
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_4A79B9830470 
-
-: ME_0263564F91A7
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_0263564F91A7 
-
-: ME_3EBD1F39B17B
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4DDCD636016C // PrimChangesBetweenEditons
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_3EBD1F39B17B 
 
 : ME_496B4C41023E_ME_4DDCD636016C
  : Original WL 'ME_496B4C41023E' '4A9F98B901A5.pas.ms.script' // WindowRequired
@@ -877,10 +602,6 @@ ref; // ME_4F2BEF740060_ME_4DDCD636016C GetRedactionOnLeftEdition
    Seq: ( ME_4DDD07AA02FD // MakeDocumentContainer
  ME_4E8B2F9B02AF // Document
  ME_5228246A01D9 // TextSourceDocumentChanged
- ME_EEED52456CD6 // Init_Str_DocumentChangesCaption
- ME_A8784BB5646C // Init_Str_CompareRedactionOperationCaption
- ME_DD07270100BD // Init_Str_ReturnToDocumentOperationCaption
- ME_CB6B788823FB // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -926,9 +647,6 @@ ref; // ME_4F2BEF740060_ME_4DDCD636016C GetRedactionOnLeftEdition
  ; // Children
  : Constants
    Seq: ( ME_4E8C3BA30178 // Local
- ME_D981CE8A183F // DocumentChangesLocalConstants
- ME_EB67C8BA791E // LCImplDocumentChangesLocalConstants
- ME_4B8307ADDBE6 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -939,9 +657,6 @@ ref; // ME_4F2BEF740060_ME_4DDCD636016C GetRedactionOnLeftEdition
  ME_522824D10324 // Ik2Tag
  ME_5416BD1403BA // HyperLink
  ME_5416C06C0387 // HyperLink
- ME_4A79B9830470 // Tl3StringIDEx
- ME_0263564F91A7 // Tl3MessageID
- ME_3EBD1F39B17B // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -1741,7 +1456,6 @@ ref; // ME_4DDBAF2B0028 ChangesBetweenEditions
  WL 'ME_4DDCD7B600D5' '4DDCD7B600D5.pas.ms.script' // ChangesBetweenEditionsImplementation
  WL 'ME_4EDCC335011E' '4EDCC335011E.pas.ms.script' // Editions$Forms
  WL 'ME_4F546F810266' '4F546F810266.pas.ms.script' // HAF
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons'

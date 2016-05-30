@@ -386,85 +386,6 @@ ref; // ME_4BA203470251 Redo
 
 ref; // ME_4BA203260193 Local
 
-FORWARD ME_C7F7FD13EE98
-
-: ME_4B988BF442FB
- CONST UID '4B988BF442FB'
- CONST Name 'Undo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Откат''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C7F7FD13EE98 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''l3mmUndo''; rValue : ''Откат'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmUndo''; rValue : ''Откат'')'
- : Speller ME_4BA2033B03DD // Undo
- ;
-
-ref; // ME_4B988BF442FB Undo
-
-: ME_A10219615629
- CONST UID 'A10219615629'
- CONST Name 'Redo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Возврат''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_C7F7FD13EE98 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''l3mmRedo''; rValue : ''Возврат'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''l3mmRedo''; rValue : ''Возврат'')'
- : Speller ME_4BA203470251 // Redo
- ;
-
-ref; // ME_A10219615629 Redo
-
-: ME_C7F7FD13EE98
- CONST UID 'C7F7FD13EE98'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_47E3C78502FB // Tk2OperationContainer
- ;
- : Attributes
-   Seq: ( ME_4B988BF442FB // Undo
- ME_A10219615629 // Redo
- )
- ; // Attributes
- CONST "children prefix" 'l3mm'
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_l3mm'
- : Speller ME_4BA203260193 // Local
- ;
-
-ref; // ME_C7F7FD13EE98 LCImplLocal
-
 : ME_4874FE0803D1
  CONST UID '4874FE0803D1'
  CONST Name 'f_Owner'
@@ -847,28 +768,6 @@ ref; // ME_4A6849C903BC
 
 ref; // ME_4DD4FB680016 
 
-: ME_AE3511336825
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_47E3C78502FB // Tk2OperationContainer
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_AE3511336825 
-
-: ME_7517FE09276F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_47E3C78502FB // Tk2OperationContainer
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_7517FE09276F 
-
 : ME_46A5CE3E009A_ME_47E3C78502FB
  : Original WL 'ME_46A5CE3E009A' '47913B47006E.pas.ms.script' // MarkModified
  ;
@@ -1102,7 +1001,6 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ; // Children
  : Constants
    Seq: ( ME_4BA203260193 // Local
- ME_C7F7FD13EE98 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -1114,8 +1012,6 @@ ref; // ME_48B2BE560115_ME_47E3C78502FB BeforeFree
  ME_48B2C28C0351 // L3 Core Consts
  ME_4A6849C903BC // Il3Progress
  ME_4DD4FB680016 // Tk2NilOp
- ME_AE3511336825 // Tl3StringIDEx
- ME_7517FE09276F // Tl3MessageID
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'

@@ -1592,6 +1592,70 @@ ref; // ME_55AE362A0325 DoIt
 
 ref; // ME_55AE36180354 PutData$3
 
+FORWARD ME_57469D6C0135
+
+: ME_57469DFB0364
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57469DFB0364 aName
+
+: ME_57469DFB0379
+ CONST Name 'aAttributes'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57469DFB0379 aAttributes
+
+: ME_57469DFB038E
+ CONST Name 'aData'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_57469DFB038E aData
+
+: ME_57469DBB0151
+ CONST UID '57469DBB0151'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57469D6C0135 // PutSimpleField
+ ;
+ : Parameters
+   Seq: ( ME_57469DFB0364 // aName
+ ME_57469DFB0379 // aAttributes
+ ME_57469DFB038E // aData
+ )
+ ; // Parameters
+
+ref; // ME_57469DBB0151 DoIt
+
+: ME_57469D6C0135
+ CONST UID '57469D6C0135'
+ CONST Name 'PutSimpleField'
+ CONST Class class_Class
+ : Stereotype st_facetmethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Утилитный метод. Открывает тег с атрибутами, записывает внутрь данные и закрывает тег.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_46A456CF0239 // Il3XMLWriter
+ ;
+ : Operations
+   Seq: ( ME_57469DBB0151 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_57469D6C0135 PutSimpleField
+
 : ME_46A4571F0357
  CONST Name 'aString'
  CONST Class class_Parameter
@@ -1814,6 +1878,7 @@ ref; // ME_46A4594100A9 Finish
    Seq: ( ME_55AE34DE0208 // PutData$1
  ME_55AE35A20380 // PutData$2
  ME_55AE36180354 // PutData$3
+ ME_57469D6C0135 // PutSimpleField
  ME_46A4570E03B6 // OpenLevel
  ME_46A4572900A8 // OpenLevel
  ME_46A4582102FE // OpenSubLevel

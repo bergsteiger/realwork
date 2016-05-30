@@ -665,6 +665,9 @@ var
 //#UC END# *4C3722EE03A8_4C46AA3401DB_impl*
 //#UC START# *4C3722EE03A8_4C46AA3401DB_var*
 //#UC END# *4C3722EE03A8_4C46AA3401DB_var*
+//#UC START# *4C46AA3401DBimpl_uses*
+ , Document_F1Lite_Controls
+//#UC END# *4C46AA3401DBimpl_uses*
 //#UC START# *4C46E1A20174_4C46AA3401DBexec_impl*
  TdmStdRes.SelectOpenWithOperation(Self.as_IvcmEntityForm,
                                    MakeFilterInfo(ffList),
@@ -787,7 +790,7 @@ var
    if Assigned(l_Document) then
    begin
     SaveDialog.FileName := nsEStr(CreateFileName(l_Document));
-    if SaveDialog.Execute then
+    if TnsSaveDialogExecutor.Instance.Call(SaveDialog) then
     begin
      afw.ProcessMessages;
      try
@@ -850,6 +853,7 @@ var
 //#UC END# *4C52914202E1_4C46AA3401DBexec_var*
 //#UC START# *4C52914202E1_4C46AA3401DBtest_impl*
  aParams.Op.Flag[vcm_ofVisible] := Assigned(dsList) and dsList.IsChanged;
+ CheckExSearchPanelVisibility;
 //#UC END# *4C52914202E1_4C46AA3401DBtest_impl*
 //#UC START# *4C52914202E1_4C46AA3401DBtest_var*
 //#UC END# *4C52914202E1_4C46AA3401DBtest_var*

@@ -94,101 +94,6 @@ ref; // ME_F910C15A567C OutlinerFormIDs
 
 ref; // ME_6CA6AB1D6951 OutlinerForm$Def
 
-FORWARD ME_4C99C2688553
-
-: ME_22395E715F87
- CONST UID '22395E715F87'
- CONST Name 'ut_OutlinerFormCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для тестирования списка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4C99C2688553 // ut_OutlinerFormLocalConstants
- ;
- CONST Value '''Форма для тестирования списка'''
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '''Форма для тестирования списка'''
-
-ref; // ME_22395E715F87 ut_OutlinerFormCaption
-
-: ME_4C99C2688553
- CONST UID '4C99C2688553'
- CONST Name 'ut_OutlinerFormLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_LocalConst ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые константы для типа формы ut_OutlinerForm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Attributes
-   Seq: ( ME_22395E715F87 // ut_OutlinerFormCaption
- )
- ; // Attributes
- CONST "Need map interface" false
- CONST "Need mapping support" false
- CONST "spell names" false
-
-ref; // ME_4C99C2688553 ut_OutlinerFormLocalConstants
-
-FORWARD ME_4E813F56A930
-
-: ME_4FF1F5BCCD4D
- CONST UID '4FF1F5BCCD4D'
- CONST Name 'ut_OutlinerFormCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Заголовок пользовательского типа "Форма для тестирования списка"' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_4E813F56A930 // LCImplut_OutlinerFormLocalConstants
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_OutlinerFormCaption''; rValue : ''Форма для тестирования списка'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ut_OutlinerFormCaption''; rValue : ''Форма для тестирования списка'')'
- : Speller ME_22395E715F87 // ut_OutlinerFormCaption
- ;
-
-ref; // ME_4FF1F5BCCD4D ut_OutlinerFormCaption
-
-: ME_4E813F56A930
- CONST UID '4E813F56A930'
- CONST Name 'LCImplut_OutlinerFormLocalConstants'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ut_OutlinerFormLocalConstants' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Attributes
-   Seq: ( ME_4FF1F5BCCD4D // ut_OutlinerFormCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4C99C2688553 // ut_OutlinerFormLocalConstants
- ;
-
-ref; // ME_4E813F56A930 LCImplut_OutlinerFormLocalConstants
-
 : ME_4D469966011E
  CONST UID '4D469966011E'
  CONST Name 'TreeControl'
@@ -236,28 +141,6 @@ ref; // ME_711B618C77E3 Ini_FormFactory_OutlinerForm$Def
 
 ref; // ME_4D47C399028D 
 
-: ME_F9A353A98EF4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_F9A353A98EF4 
-
-: ME_5D319DCCB666
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4D4697F30281 // OutlinerForm
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_5D319DCCB666 
-
 : ME_4A8E8F2E0195_ME_4D4697F30281
  : Original WL 'ME_4A8E8F2E0195' '5000041101C8.pas.ms.script' // InitControls
  ;
@@ -300,15 +183,8 @@ ref; // ME_4A8E8F2E0195_ME_4D4697F30281 InitControls
  ME_6CA6AB1D6951 // OutlinerForm$Def
  )
  ; // Children
- : Constants
-   Seq: ( ME_4C99C2688553 // ut_OutlinerFormLocalConstants
- ME_4E813F56A930 // LCImplut_OutlinerFormLocalConstants
- )
- ; // Constants
  : Dependencies
    Seq: ( ME_4D47C399028D // TAlign
- ME_F9A353A98EF4 // Tl3StringIDEx
- ME_5D319DCCB666 // Tl3MessageID
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
