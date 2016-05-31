@@ -42,7 +42,6 @@ uses
  l3ImplUses
  , moDocument
  , moList
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

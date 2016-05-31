@@ -18,13 +18,13 @@ uses
 ;
 
 const
+ {* Локализуемые строки PrintAndExportFontSizeName }
+ str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
+  {* Использовать для экспорта и печати следующий размер шрифта }
  pi_List_PrintAndExportFontSize = 'Список/Использовать для экспорта и печати следующий размер шрифта';
   {* Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта" }
  dv_List_PrintAndExportFontSize = 0;
   {* Значение по-умолчанию настройки "Использовать для экспорта и печати следующий размер шрифта" }
- {* Локализуемые строки PrintAndExportFontSizeName }
- str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
-  {* Использовать для экспорта и печати следующий размер шрифта }
  {* Локализуемые строки PrintAndExportFontSizeValues }
  str_PrintAndExportFontSize_pef8: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef8'; rValue : '8');
   {* 8 }

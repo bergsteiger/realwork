@@ -12,9 +12,9 @@ interface
 uses
  l3IntfUses
  , archiDBTest
+ , evdDTTypes
  , ddImportPipe
  , ExportPipe
- , evdDTTypes
 ;
 
 type
