@@ -13,9 +13,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cutUsualLocalConstants }
+ str_cutUsualCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutUsualCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы cutUsual }
  cutUsualName = 'cutUsual';
   {* Строковый идентификатор пользовательского типа "" }
@@ -53,6 +57,8 @@ end;//Tkw_FormUserType_cutUsual.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cutUsualCaption.Init;
+ {* Инициализация str_cutUsualCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutUsual.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cutUsual }

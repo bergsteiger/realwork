@@ -34,6 +34,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F6B6E380367impl_uses*
+ //#UC END# *4F6B6E380367impl_uses*
 ;
 
 initialization

@@ -24,12 +24,42 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , Messages
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Windows
  , nsIntegrationSupport
- , Classes
+ , l3ProtoObject
 ;
 
 type
+ TMainForm = class;
+
+ IMainFormState = interface(IvcmBase)
+  ['{91AB783F-E890-4E0B-B4BF-7641733FCD57}']
+  function Get_BaseSearcherState: InsBaseSearcherInitialState;
+  function Get_InnerState: IvcmBase;
+  property BaseSearcherState: InsBaseSearcherInitialState
+   read Get_BaseSearcherState;
+  property InnerState: IvcmBase
+   read Get_InnerState;
+ end;//IMainFormState
+
+ TMainFormState = class(Tl3ProtoObject, IMainFormState)
+  private
+   f_BaseSearcherState: InsBaseSearcherInitialState;
+   f_InnerState: IvcmBase;
+  protected
+   function Get_BaseSearcherState: InsBaseSearcherInitialState;
+   function Get_InnerState: IvcmBase;
+  public
+   constructor Create(const aBaseSearcherState: InsBaseSearcherInitialState;
+    const aInnerState: IvcmBase); reintroduce;
+   class function Make(const aBaseSearcherState: InsBaseSearcherInitialState;
+    const aInnerState: IvcmBase): IMainFormState; reintroduce;
+ end;//TMainFormState
+
  TMainForm = class(TMainOptionsForm, Il3ItemNotifyRecipient, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsBaseSearchQueryDataProcessor, Il3MouseWheelListener, InsIntegrationProcessor, InsNotificationListener, InsBaseSearchInitialStateProvider, Il3TabbedContainersListener, InsBaseSearcherProvider)
   {* Главная форма }
   private
@@ -98,13 +128,29 @@ type
    procedure DoInit(aFromHistory: Boolean); override;
     {* Инициализация формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
     aForClone: Boolean); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
@@ -154,9 +200,6 @@ uses
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3AsincMessageWindow
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3SysUtils
  {$If NOT Defined(NoVCM)}
  , vcmBase
@@ -185,10 +228,59 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , MemoryUsage_ut_MemoryUsage_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A952BA3006Dimpl_uses*
+ //#UC END# *4A952BA3006Dimpl_uses*
 ;
 
 var g_IntegrationMessage: Cardinal = 0;
 var g_LastMainWindowMessage: Cardinal = 0;
+
+constructor TMainFormState.Create(const aBaseSearcherState: InsBaseSearcherInitialState;
+ const aInnerState: IvcmBase);
+//#UC START# *5729DFC3021F_5729DF4D0159_var*
+//#UC END# *5729DFC3021F_5729DF4D0159_var*
+begin
+//#UC START# *5729DFC3021F_5729DF4D0159_impl*
+ inherited Create;
+ f_BaseSearcherState := aBaseSearcherState;
+ f_InnerState := aInnerState;
+//#UC END# *5729DFC3021F_5729DF4D0159_impl*
+end;//TMainFormState.Create
+
+class function TMainFormState.Make(const aBaseSearcherState: InsBaseSearcherInitialState;
+ const aInnerState: IvcmBase): IMainFormState;
+var
+ l_Inst : TMainFormState;
+begin
+ l_Inst := Create(aBaseSearcherState, aInnerState);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TMainFormState.Make
+
+function TMainFormState.Get_BaseSearcherState: InsBaseSearcherInitialState;
+//#UC START# *5729DEC300A8_5729DF4D0159get_var*
+//#UC END# *5729DEC300A8_5729DF4D0159get_var*
+begin
+//#UC START# *5729DEC300A8_5729DF4D0159get_impl*
+ Result := f_BaseSearcherState;
+//#UC END# *5729DEC300A8_5729DF4D0159get_impl*
+end;//TMainFormState.Get_BaseSearcherState
+
+function TMainFormState.Get_InnerState: IvcmBase;
+//#UC START# *5729DFB7006F_5729DF4D0159get_var*
+//#UC END# *5729DFB7006F_5729DF4D0159get_var*
+begin
+//#UC START# *5729DFB7006F_5729DF4D0159get_impl*
+ Result := f_InnerState;
+//#UC END# *5729DFB7006F_5729DF4D0159get_impl*
+end;//TMainFormState.Get_InnerState
 
 procedure TMainForm.UpdateUnreadConsultations;
 //#UC START# *4F88013F007B_4A952BA3006D_var*
@@ -1212,11 +1304,51 @@ begin
 end;//TMainForm.DoInit
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TMainForm.ClearFields;
+{$If NOT Defined(NoVCM)}
+function TMainForm.DoSaveState(out theState: IvcmBase;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
+//#UC START# *49806ED503D5_4A952BA3006D_var*
+var
+ l_InnerState: IvcmBase;
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *49806ED503D5_4A952BA3006D_var*
 begin
- f_BaseSearcher := nil;
- inherited;
-end;//TMainForm.ClearFields
+//#UC START# *49806ED503D5_4A952BA3006D_impl*
+ Result := inherited DoSaveState(l_InnerState, aStateType, aForClone);
+ l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+ Assert(l_BaseSearcher <> nil);
+ theState := TMainFormState.Make(l_BaseSearcher.MakeState, l_InnerState);
+//#UC END# *49806ED503D5_4A952BA3006D_impl*
+end;//TMainForm.DoSaveState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function TMainForm.DoLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
+//#UC START# *49807428008C_4A952BA3006D_var*
+var
+ l_MainFormState: IMainFormState;
+ l_InnerState: IvcmBase;
+ l_BaseSearcher: InsBaseSearcher;
+//#UC END# *49807428008C_4A952BA3006D_var*
+begin
+//#UC START# *49807428008C_4A952BA3006D_impl*
+ if Supports(aState, IMainFormState, l_MainFormState) then
+ begin
+  l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  Assert(l_BaseSearcher <> nil);
+  l_BaseSearcher.AssignState(l_MainFormState.BaseSearcherState);
+  l_InnerState := l_MainFormState.InnerState;
+ end
+ else
+  l_InnerState := aState;
+ Result := inherited DoLoadState(l_InnerState, aStateType);
+//#UC END# *49807428008C_4A952BA3006D_impl*
+end;//TMainForm.DoLoadState
+{$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
 procedure TMainForm.ReleaseResources;
@@ -1257,6 +1389,27 @@ begin
  end;
 //#UC END# *54327E120331_4A952BA3006D_impl*
 end;//TMainForm.DoInitFromPrevContainer
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TMainForm.ClearFields;
+begin
+ f_BaseSearcher := nil;
+ inherited;
+end;//TMainForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TMainForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Common, nil);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishOp(en_Common, op_MemUsage, Common_MemUsage_Execute, nil, nil);
+ end;//with Entities.Entities
+end;//TMainForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

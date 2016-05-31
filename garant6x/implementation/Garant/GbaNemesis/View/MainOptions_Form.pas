@@ -52,13 +52,9 @@ type
  TMainOptionsForm = class(TNemesisMainForm)
   private
    f_RemindersLine: TnscRemindersLine;
-    {* Поле для свойства RemindersLine }
-   f_ControlledChangingWarning: TnscReminder;
-    {* Поле для свойства ControlledChangingWarning }
-   f_remUnreadConsultations: TnscReminder;
-    {* Поле для свойства remUnreadConsultations }
    f_IsRemUnreadConsultationsVisible: Boolean;
-    {* Поле для свойства IsRemUnreadConsultationsVisible }
+   f_ControlledChangingWarning: TnscReminder;
+   f_remUnreadConsultations: TnscReminder;
   protected
    f_InternetMap: InsStringValueMap;
    f_WindowInitialized: Boolean;
@@ -70,13 +66,21 @@ type
    procedure InitClone(aForm: TvcmMainForm); override;
    procedure vcmMainFormAfterInsertForm(const aForm: IvcmEntityForm); override;
    procedure DropChangeStatusToOpened; override;
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    procedure DoInitContainedForm(aForm: TvcmMainForm); override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
@@ -113,6 +117,10 @@ type
   public
    property RemindersLine: TnscRemindersLine
     read f_RemindersLine;
+   property ControlledChangingWarning: TnscReminder
+    read f_ControlledChangingWarning;
+   property remUnreadConsultations: TnscReminder
+    read f_remUnreadConsultations;
  end;//TMainOptionsForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -155,9 +163,20 @@ uses
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_System_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A29700261impl_uses*
+ //#UC END# *4C8A29700261impl_uses*
 ;
 
 var g_InternerMapStrings: IvcmStrings = nil;
@@ -560,12 +579,6 @@ begin
 //#UC END# *4F7AED150304_4C8A29700261_impl*
 end;//TMainOptionsForm.DropChangeStatusToOpened
 
-procedure TMainOptionsForm.ClearFields;
-begin
- f_InternetMap := nil;
- inherited;
-end;//TMainOptionsForm.ClearFields
-
 {$If NOT Defined(NoVCM)}
 procedure TMainOptionsForm.ReleaseResources;
 //#UC START# *538C374A00B7_4C8A29700261_var*
@@ -591,6 +604,102 @@ begin
 //#UC END# *546464260137_4C8A29700261_impl*
 end;//TMainOptionsForm.DoInitContainedForm
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TMainOptionsForm.ClearFields;
+begin
+ f_InternetMap := nil;
+ inherited;
+end;//TMainOptionsForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TMainOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Result, nil);
+  PublishFormEntity(en_Fonts, nil);
+  PublishFormEntity(en_Help, nil);
+  PublishFormEntity(en_System, nil);
+  PublishFormEntity(en_WarnOnControl, nil);
+  MakeEntitySupportedByControl(en_WarnOnControl, ControlledChangingWarning);
+  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, False);
+  PublishOp(en_Fonts, op_IncreaseFont, Fonts_IncreaseFont_Execute, Fonts_IncreaseFont_Test, nil);
+  ShowInContextMenu(en_Fonts, op_IncreaseFont, False);
+  ShowInToolbar(en_Fonts, op_IncreaseFont, True);
+  PublishOp(en_Fonts, op_DecreaseFont, Fonts_DecreaseFont_Execute, Fonts_DecreaseFont_Test, nil);
+  ShowInContextMenu(en_Fonts, op_DecreaseFont, False);
+  ShowInToolbar(en_Fonts, op_DecreaseFont, True);
+  PublishOp(en_Help, op_HotInformation, Help_HotInformation_Execute, Help_HotInformation_Test, nil);
+  ShowInContextMenu(en_Help, op_HotInformation, False);
+  ShowInToolbar(en_Help, op_HotInformation, False);
+  PublishOp(en_Help, op_HelpShortCuts, Help_HelpShortCuts_Execute, nil, nil);
+  ShowInContextMenu(en_Help, op_HelpShortCuts, False);
+  ShowInToolbar(en_Help, op_HelpShortCuts, False);
+  PublishOp(en_Help, op_HelpNewFeatures, Help_HelpNewFeatures_Execute, nil, nil);
+  ShowInContextMenu(en_Help, op_HelpNewFeatures, False);
+  ShowInToolbar(en_Help, op_HelpNewFeatures, False);
+  PublishOp(en_Help, op_ContactInformation, Help_ContactInformation_Execute, nil, nil);
+  ShowInContextMenu(en_Help, op_ContactInformation, False);
+  ShowInToolbar(en_Help, op_ContactInformation, False);
+  PublishOp(en_Help, op_ReplyBook, Help_ReplyBook_Execute, nil, nil);
+  ShowInContextMenu(en_Help, op_ReplyBook, False);
+  ShowInToolbar(en_Help, op_ReplyBook, False);
+  PublishOp(en_Help, op_GarantInternet, Help_GarantInternet_Execute, Help_GarantInternet_Test, nil);
+  ShowInContextMenu(en_Help, op_GarantInternet, False);
+  ShowInToolbar(en_Help, op_GarantInternet, False);
+  PublishOp(en_Help, op_About, Help_About_Execute, nil, nil);
+  ShowInContextMenu(en_Help, op_About, False);
+  ShowInToolbar(en_Help, op_About, False);
+  PublishOp(en_System, op_BookmarkList, System_BookmarkList_Execute, nil, nil);
+  ShowInContextMenu(en_System, op_BookmarkList, False);
+  ShowInToolbar(en_System, op_BookmarkList, False);
+  PublishOp(en_WarnOnControl, op_BuildControlledList, WarnOnControl_BuildControlledList_Execute, nil, nil);
+  ShowInContextMenu(en_WarnOnControl, op_BuildControlledList, True);
+  ShowInToolbar(en_WarnOnControl, op_BuildControlledList, False);
+  PublishOp(en_WarnOnControl, op_OpenUnderControlTree, WarnOnControl_OpenUnderControlTree_Execute, nil, nil);
+  ShowInContextMenu(en_WarnOnControl, op_OpenUnderControlTree, True);
+  ShowInToolbar(en_WarnOnControl, op_OpenUnderControlTree, False);
+  PublishOp(en_WarnOnControl, op_HideReminder, WarnOnControl_HideReminder_Execute, nil, nil);
+  ShowInContextMenu(en_WarnOnControl, op_HideReminder, True);
+  ShowInToolbar(en_WarnOnControl, op_HideReminder, False);
+  ShowInContextMenu(en_History, op_Back, False);
+  ShowInToolbar(en_History, op_Back, True);
+  ShowInContextMenu(en_History, op_Forward, False);
+  ShowInToolbar(en_History, op_Forward, True);
+  ShowInContextMenu(en_Common, op_OpenNewWindowByUser, False);
+  ShowInToolbar(en_Common, op_OpenNewWindowByUser, False);
+  ShowInContextMenu(en_Common, op_GetWindowList, False);
+  ShowInToolbar(en_Common, op_GetWindowList, False);
+  ShowInContextMenu(en_Common, op_CascadeWindows, False);
+  ShowInToolbar(en_Common, op_CascadeWindows, False);
+  ShowInContextMenu(en_Common, op_TileWindowsHorizontal, False);
+  ShowInToolbar(en_Common, op_TileWindowsHorizontal, False);
+  ShowInContextMenu(en_Common, op_TileWindowsVertical, False);
+  ShowInToolbar(en_Common, op_TileWindowsVertical, False);
+  ShowInContextMenu(en_Common, op_CloseAllWindows, False);
+  ShowInToolbar(en_Common, op_CloseAllWindows, False);
+ end;//with Entities.Entities
+end;//TMainOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainOptionsForm.MakeControls;
+begin
+ inherited;
+ f_RemindersLine := TnscRemindersLine.Create(Self);
+ f_RemindersLine.Name := 'RemindersLine';
+ f_RemindersLine.Parent := Self;
+ f_ControlledChangingWarning := TnscReminder.Create(RemindersLine);
+ f_ControlledChangingWarning.Name := 'ControlledChangingWarning';
+ f_remUnreadConsultations := TnscReminder.Create(RemindersLine);
+ f_remUnreadConsultations.Name := 'remUnreadConsultations';
+end;//TMainOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 //#UC START# *4C8A47F102D1*

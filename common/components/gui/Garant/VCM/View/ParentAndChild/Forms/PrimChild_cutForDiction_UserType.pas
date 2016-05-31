@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cutForDictionLocalConstants }
+ str_cutForDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutForDictionCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы cutForDiction }
  cutForDictionName = 'cutForDiction';
   {* Строковый идентификатор пользовательского типа "" }
@@ -54,6 +58,8 @@ end;//Tkw_FormUserType_cutForDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cutForDictionCaption.Init;
+ {* Инициализация str_cutForDictionCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutForDiction.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cutForDiction }

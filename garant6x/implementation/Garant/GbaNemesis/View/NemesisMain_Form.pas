@@ -104,7 +104,6 @@ type
    {$If NOT Defined(NoVCM)}
    procedure DoForward(const aParams: IvcmExecuteParamsPrim); override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function NeedUseTabs: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -132,12 +131,21 @@ type
     aOpenLast: Boolean;
     const aOpenAfter: IvcmEntityForm = nil): IvcmContainedForm; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
-    anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
     {* Коллеги, кто может описать этот метод? }
    procedure System_CantReceiveLegalServiceAnswer_Test(const aParams: IvcmTestParamsPrim);
     {* Статус связи с ППО }
@@ -168,10 +176,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nsConst
  , l3TabbedContainersDispatcher
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , afwFacade
  {$If Defined(Nemesis)}
@@ -193,7 +197,32 @@ uses
  , nsPrimaryMonitorResolutionEvent
  , nsDPIEvent
  , nsFontSizeEvent
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , WarningUserTypes_Warning_UserType
+ , BaloonWarningUserTypes_Fake_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ , BaloonWarningUserTypes_remOnlineDead_UserType
+ , BaloonWarningUserTypes_TrialModeWarning_UserType
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType
  , NemesisMain_utMainWindow_UserType
+ //#UC START# *4958D2EA00CCimpl_uses*
+ , vcmEntityForm
+ //#UC END# *4958D2EA00CCimpl_uses*
 ;
 
 const
@@ -206,11 +235,6 @@ const
   {* 'Не удалось установить связь с Интернет. Возможно, отсутствует активное соединение или сетевые настройки препятствуют обращению системы ГАРАНТ к интернет-ресурсам.'+' Онлайн-проверка актуальности документов и работа со службой Правовой поддержки онлайн будут временно недоступны.'+#13#10#13#10'Для решения технических вопросов обратитесь к Вашему системному администратору. Если проблемы с интернет-соединением возникают только для системы ГАРАНТ, обратитесь в обслуживающую Вас организацию:'#13#10'%s' }
  str_CaptionForSaving: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CaptionForSaving'; rValue : 'ГАРАНТ аэро');
   {* 'ГАРАНТ аэро' }
- {* Локализуемые строки utMainWindowLocalConstants }
- str_utMainWindowCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainWindowCaption'; rValue : 'Главное окно');
-  {* Заголовок пользовательского типа "Главное окно" }
- str_utMainWindowSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainWindowSettingsCaption'; rValue : 'Главная панель инструментов');
-  {* Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов }
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
@@ -426,7 +450,7 @@ end;//TNemesisMainForm.ResetControlledObjectsChanging
 
 function TNemesisMainForm.Loadable_Load_Execute(const aNode: IeeNode;
  const aData: IUnknown;
- anOp: TListLogicOperation = nsTypes.LLO_NONE): Boolean;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
  {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_4958D2EA00CCexec_var*
 var
@@ -460,7 +484,7 @@ begin
 //#UC END# *49895A2102E8_4958D2EA00CCexec_impl*
 end;//TNemesisMainForm.Loadable_Load_Execute
 
-procedure TNemesisMainForm.Loadable_Load(const aParams: IvcmExecuteParamsPrim);
+procedure TNemesisMainForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
@@ -619,13 +643,6 @@ begin
 //#UC END# *4C8DDEA5007E_4958D2EA00CC_impl*
 end;//TNemesisMainForm.DoForward
 {$IfEnd} // NOT Defined(NoVCM)
-
-procedure TNemesisMainForm.ClearFields;
-begin
- f_CarrierLostHint := nil;
- f_sdsMainWindow := nil;
- inherited;
-end;//TNemesisMainForm.ClearFields
 
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TNemesisMainForm.NeedUseTabs: Boolean;
@@ -793,6 +810,52 @@ begin
 end;//TNemesisMainForm.DoOpenNew
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
+procedure TNemesisMainForm.ClearFields;
+begin
+ f_CarrierLostHint := nil;
+ f_sdsMainWindow := nil;
+ inherited;
+end;//TNemesisMainForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TNemesisMainForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Loadable, nil);
+  PublishFormEntity(en_System, nil);
+  PublishFormEntity(en_Common, nil);
+  PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
+  PublishOp(en_System, op_CantReceiveLegalServiceAnswer, System_CantReceiveLegalServiceAnswer_Execute, System_CantReceiveLegalServiceAnswer_Test, System_CantReceiveLegalServiceAnswer_GetState);
+  ShowInContextMenu(en_System, op_CantReceiveLegalServiceAnswer, False);
+  ShowInToolbar(en_System, op_CantReceiveLegalServiceAnswer, False);
+ end;//with Entities.Entities
+end;//TNemesisMainForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TNemesisMainForm.MakeControls;
+begin
+ inherited;
+ with AddUsertype(utMainWindowName,
+  str_utMainWindowCaption,
+  str_utMainWindowSettingsCaption,
+  True,
+  -1,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utMainWindowName
+end;//TNemesisMainForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
+
 initialization
  str_CarrierLost.Init;
  {* Инициализация str_CarrierLost }
@@ -802,10 +865,6 @@ initialization
  {* Инициализация str_TotalFailure }
  str_CaptionForSaving.Init;
  {* Инициализация str_CaptionForSaving }
- str_utMainWindowCaption.Init;
- {* Инициализация str_utMainWindowCaption }
- str_utMainWindowSettingsCaption.Init;
- {* Инициализация str_utMainWindowSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TNemesisMainForm);
  {* Регистрация NemesisMain }

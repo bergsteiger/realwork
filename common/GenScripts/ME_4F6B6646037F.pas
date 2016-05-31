@@ -41,9 +41,8 @@ type
    f_ParentMinHeight: Integer;
    f_CalcHeightFlag: Boolean;
    f_ChildZone: TnscFormsPageControl;
-    {* Поле для свойства ChildZone }
    f_MainPageTab: TElTabSheet;
-    {* Поле для свойства MainPageTab }
+    {* MainDataCaption }
   private
    procedure UpdateMainTab(const aForm: IvcmEntityForm);
    procedure OnParentCanResize(Sender: TObject;
@@ -108,7 +107,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Forms
@@ -123,7 +121,6 @@ uses
  , afwFacade
  , l3String
  , l3Interfaces
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -132,6 +129,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F6B6646037Fimpl_uses*
+ //#UC END# *4F6B6646037Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -141,14 +140,6 @@ type
  {$IfEnd} // NOT Defined(NoVCL)
  )
  end;//THackControl
-
-const
- {* Локализуемые строки cutUsualLocalConstants }
- str_cutUsualCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutUsualCaption'; rValue : '');
-  {* Заголовок пользовательского типа "" }
- {* Локализуемые строки cutForDictionLocalConstants }
- str_cutForDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutForDictionCaption'; rValue : '');
-  {* Заголовок пользовательского типа "" }
 
 procedure TPrimChildForm.AdjustSizeToFixed;
 //#UC START# *4F71E05E036B_4F6B6646037F_var*
@@ -590,7 +581,7 @@ begin
  with AddUsertype(cutUsualName,
   str_cutUsualCaption,
   str_cutUsualCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -603,7 +594,7 @@ begin
  with AddUsertype(cutForDictionName,
   str_cutForDictionCaption,
   str_cutForDictionCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -616,7 +607,7 @@ begin
  f_ChildZone := TnscFormsPageControl.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := Self;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
   CanClose := vcm_ccEnable;
  end;//with DefineZone(vcm_ztChild
@@ -627,10 +618,6 @@ begin
 end;//TPrimChildForm.MakeControls
 
 initialization
- str_cutUsualCaption.Init;
- {* Инициализация str_cutUsualCaption }
- str_cutForDictionCaption.Init;
- {* Инициализация str_cutForDictionCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimChildForm);
  {* Регистрация PrimChild }

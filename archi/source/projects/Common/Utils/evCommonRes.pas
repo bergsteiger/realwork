@@ -45,7 +45,6 @@ implementation
 
 uses
  l3ImplUses
- , l3MessageID
 ;
 
 initialization

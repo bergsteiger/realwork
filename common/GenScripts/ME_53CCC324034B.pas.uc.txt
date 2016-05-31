@@ -16,14 +16,14 @@
 //#UC START# *53CCBA0D01C7_53CCC324034Bget_var*
 //#UC END# *53CCBA0D01C7_53CCC324034Bget_var*
 //#UC START# *53CCBA3D0104_53CCC324034B_impl*
- l_User := GlobalDataProvider.UserManager.UserByID(anID);
+ l_User := UserManager.UserByID(anID);
  Assert(Assigned(l_User));
  theName := l_User.LoginName;
  thePassword := l_User.Password;
 //#UC END# *53CCBA3D0104_53CCC324034B_impl*
 //#UC START# *53CCBA3D0104_53CCC324034B_var*
 var
- l_User: IdaArchiUser;
+ l_User: TArchiUser;
 //#UC END# *53CCBA3D0104_53CCC324034B_var*
 //#UC START# *53CCBA9702A7_53CCC324034B_impl*
  Result := f_BaseEngineHolder.BaseEngine.CSServer.ActiveClients.IsLogged(aUserID);

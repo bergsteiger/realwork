@@ -1,186 +1,204 @@
 unit PrimChild_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/ParentAndChild/Forms/PrimChild_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> Shared Delphi F1 Like Application::F1Like::View::ParentAndChild::PrimChild
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimChild_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimChild" MUID: (4F6B6646037F)
+// Имя типа: "TPrimChildForm"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  ,
-  ElPgCtl
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscFormsPageControl
-  {$IfEnd} //Nemesis
-  ,
-  l3StringIDEx,
-  PrimChild_cutUsual_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  F1Like_InternalOperations_Controls,
-  PrimChild_cutForDiction_UserType,
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , F1Like_InternalOperations_Controls
+ {$If Defined(Nemesis)}
+ , nscFormsPageControl
+ {$IfEnd} // Defined(Nemesis)
+ , ElPgCtl
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimChildForm = {form} class(TvcmContainerForm)
- private
- // private fields
-   f_ParentHeight : Integer;
-   f_ParentParentHeight : Integer;
-   f_ParentMinHeight : Integer;
-   f_CalcHeightFlag : Boolean;
-   f_ChildZone : TnscFormsPageControl;
-    {* Поле для свойства ChildZone}
-   f_MainPageTab : TElTabSheet;
-    {* Поле для свойства MainPageTab}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimChildForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_ParentHeight: Integer;
+   f_ParentParentHeight: Integer;
+   f_ParentMinHeight: Integer;
+   f_CalcHeightFlag: Boolean;
+   f_ChildZone: TnscFormsPageControl;
+   f_MainPageTab: TElTabSheet;
+    {* MainDataCaption }
+  private
    procedure UpdateMainTab(const aForm: IvcmEntityForm);
    procedure OnParentCanResize(Sender: TObject;
-     var ANewWidth: Integer;
-     var ANewHeight: Integer;
-     var CanResize: Boolean);
-     {* при восстановлении всех настроек и активной первой закладке не даём менять размер и запоминаем ANewHeight }
+    var ANewWidth: Integer;
+    var ANewHeight: Integer;
+    var CanResize: Boolean);
+    {* при восстановлении всех настроек и активной первой закладке не даём менять размер и запоминаем ANewHeight }
    procedure ChildZoneChange(Sender: TObject);
-   procedure VcmContainerFormAfterRemoveForm(const aForm: IvcmEntityForm);
-   procedure VcmContainerFormAfterInsertForm(const aForm: IvcmEntityForm);
-   procedure VcmContainerFormNeedUpdateTab(aSender: TObject;
-     const aForm: IvcmEntityForm);
+   procedure vcmContainerFormAfterRemoveForm(const aForm: IvcmEntityForm);
+   procedure vcmContainerFormAfterInsertForm(const aForm: IvcmEntityForm);
+   procedure vcmContainerFormNeedUpdateTab(aSender: TObject;
+    const aForm: IvcmEntityForm);
    procedure ChildZoneTabSheetClick(Sender: TObject;
-     Page: TElTabSheet);
- protected
- // realized methods
+    Page: TElTabSheet);
+  protected
+   function ChildZoneMinHeight: Integer;
+   function ActivePageHasOnlyEntityForm: Boolean;
+   function GrandParentProportional: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeActive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeInactive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoLoadFromSettings; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCL)}
+   procedure SetParent(AParent: TWinControl); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure AdjustSizeToFixed;
    procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
    procedure Switcher_SetFirstPageActive_Execute;
    procedure Switcher_SetFirstPageActive(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure BecomeActive; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure BecomeInactive; override;
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure DoLoadFromSettings; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCL)}
-   procedure SetParent(AParent: TWinControl); override;
-    {$IfEnd} //not NoVCL
- protected
- // protected methods
-   function ChildZoneMinHeight: Integer;
-   function ActivePageHasOnlyEntityForm: Boolean;
-   function GrandParentProportional: Boolean;
- public
- // public methods
-   procedure AdjustSizeToFixed;
- public
- // public properties
+  public
    property ChildZone: TnscFormsPageControl
-     read f_ChildZone;
+    read f_ChildZone;
    property MainPageTab: TElTabSheet
-     read f_MainPageTab;
-     {* MainDataCaption }
+    read f_MainPageTab;
+    {* MainDataCaption }
  end;//TPrimChildForm
-
- TvcmContainerFormRef = TPrimChildForm;
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  Windows,
-  l3MinMax,
-  nsFormUtils,
-  Messages,
-  PresentationInterfaces,
-  vtProportionalPanel,
-  afwFacade,
-  l3String,
-  l3Interfaces,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , Windows
+ , l3MinMax
+ , nsFormUtils
+ , Messages
+ , PresentationInterfaces
+ , vtProportionalPanel
+ , afwFacade
+ , l3String
+ , l3Interfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimChild_cutUsual_UserType
+ , PrimChild_cutForDiction_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F6B6646037Fimpl_uses*
+ //#UC END# *4F6B6646037Fimpl_uses*
+;
 
-var
-   { Локализуемые строки cutUsualLocalConstants }
-  str_cutUsualCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutUsualCaption'; rValue : '');
-   { Заголовок пользовательского типа "" }
-
-var
-   { Локализуемые строки cutForDictionLocalConstants }
-  str_cutForDictionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutForDictionCaption'; rValue : '');
-   { Заголовок пользовательского типа "" }
-
+{$If NOT Defined(NoVCM)}
 type
-  THackControl = {abstract} class(TControl)
-  end;//THackControl
+ THackControl = {abstract} class({$If NOT Defined(NoVCL)}
+ TControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
+ end;//THackControl
 
-// start class TPrimChildForm
+procedure TPrimChildForm.AdjustSizeToFixed;
+//#UC START# *4F71E05E036B_4F6B6646037F_var*
+{$IfNDef F1LikeButNotF1}
+var
+ l_C : IvcmContainer;
+ l_H : Integer;
+{$EndIf F1LikeButNotF1}
+//#UC END# *4F71E05E036B_4F6B6646037F_var*
+begin
+//#UC START# *4F71E05E036B_4F6B6646037F_impl*
+ {$IfNDef F1LikeButNotF1}
+ l_C := NativemainForm;
+ if (l_C <> nil) then
+ begin
+  l_H := l_C.AsForm.VCLWinControl.Height div 3;
+  l_H := Max(ChildZoneMinHeight, l_H);
+  if (Parent <> nil) then
+   if (ChildZone.ActivePageIndex > 0) then
+   begin
+     //http://mdp.garant.ru/pages/viewpage.action?pageId=476808814
+     Height := l_H;
+     Parent.Height := l_H;
+   end;
+ end;//l_C <> nil
+ {$EndIf F1LikeButNotF1}
+//#UC END# *4F71E05E036B_4F6B6646037F_impl*
+end;//TPrimChildForm.AdjustSizeToFixed
+
+function TPrimChildForm.ChildZoneMinHeight: Integer;
+//#UC START# *4F71E078021D_4F6B6646037F_var*
+//#UC END# *4F71E078021D_4F6B6646037F_var*
+begin
+//#UC START# *4F71E078021D_4F6B6646037F_impl*
+ Result := Max(ChildZone.TabHeight + 3, ChildZone.Constraints.MinHeight);
+//#UC END# *4F71E078021D_4F6B6646037F_impl*
+end;//TPrimChildForm.ChildZoneMinHeight
+
+function TPrimChildForm.ActivePageHasOnlyEntityForm: Boolean;
+//#UC START# *4F71E0B601D4_4F6B6646037F_var*
+//#UC END# *4F71E0B601D4_4F6B6646037F_var*
+begin
+//#UC START# *4F71E0B601D4_4F6B6646037F_impl*
+ Result := Assigned(ChildZone.ActivePage) and
+   (ChildZone.ActivePage.ControlCount = 1) and
+   (ChildZone.ActivePage.Controls[0] is TCustomForm) and
+   Supports(ChildZone.ActivePage.Controls[0], IvcmEntityForm);
+//#UC END# *4F71E0B601D4_4F6B6646037F_impl*
+end;//TPrimChildForm.ActivePageHasOnlyEntityForm
+
+function TPrimChildForm.GrandParentProportional: Boolean;
+//#UC START# *4F71E0D10182_4F6B6646037F_var*
+//#UC END# *4F71E0D10182_4F6B6646037F_var*
+begin
+//#UC START# *4F71E0D10182_4F6B6646037F_impl*
+ Result := Assigned(Parent) and Assigned(Parent.Parent) and
+  (Parent.Parent is TvtProportionalCustomPanel);
+//#UC END# *4F71E0D10182_4F6B6646037F_impl*
+end;//TPrimChildForm.GrandParentProportional
 
 procedure TPrimChildForm.UpdateMainTab(const aForm: IvcmEntityForm);
 //#UC START# *4F71E1C9011F_4F6B6646037F_var*
@@ -201,9 +219,10 @@ begin
 end;//TPrimChildForm.UpdateMainTab
 
 procedure TPrimChildForm.OnParentCanResize(Sender: TObject;
-  var ANewWidth: Integer;
-  var ANewHeight: Integer;
-  var CanResize: Boolean);
+ var ANewWidth: Integer;
+ var ANewHeight: Integer;
+ var CanResize: Boolean);
+ {* при восстановлении всех настроек и активной первой закладке не даём менять размер и запоминаем ANewHeight }
 //#UC START# *4F71E2050390_4F6B6646037F_var*
 //#UC END# *4F71E2050390_4F6B6646037F_var*
 begin
@@ -339,26 +358,26 @@ begin
 //#UC END# *4F71E25E0127_4F6B6646037F_impl*
 end;//TPrimChildForm.ChildZoneChange
 
-procedure TPrimChildForm.VcmContainerFormAfterRemoveForm(const aForm: IvcmEntityForm);
+procedure TPrimChildForm.vcmContainerFormAfterRemoveForm(const aForm: IvcmEntityForm);
 //#UC START# *4F71E27F0180_4F6B6646037F_var*
 //#UC END# *4F71E27F0180_4F6B6646037F_var*
 begin
 //#UC START# *4F71E27F0180_4F6B6646037F_impl*
  Op_Common_CheckChildZone.Call(Container, true);
 //#UC END# *4F71E27F0180_4F6B6646037F_impl*
-end;//TPrimChildForm.VcmContainerFormAfterRemoveForm
+end;//TPrimChildForm.vcmContainerFormAfterRemoveForm
 
-procedure TPrimChildForm.VcmContainerFormAfterInsertForm(const aForm: IvcmEntityForm);
+procedure TPrimChildForm.vcmContainerFormAfterInsertForm(const aForm: IvcmEntityForm);
 //#UC START# *4F71E2AE02D3_4F6B6646037F_var*
 //#UC END# *4F71E2AE02D3_4F6B6646037F_var*
 begin
 //#UC START# *4F71E2AE02D3_4F6B6646037F_impl*
  Op_Common_CheckChildZone.Call(Container, false);
 //#UC END# *4F71E2AE02D3_4F6B6646037F_impl*
-end;//TPrimChildForm.VcmContainerFormAfterInsertForm
+end;//TPrimChildForm.vcmContainerFormAfterInsertForm
 
-procedure TPrimChildForm.VcmContainerFormNeedUpdateTab(aSender: TObject;
-  const aForm: IvcmEntityForm);
+procedure TPrimChildForm.vcmContainerFormNeedUpdateTab(aSender: TObject;
+ const aForm: IvcmEntityForm);
 //#UC START# *4F71E2D500D1_4F6B6646037F_var*
 var
  l_Tab : TElTabSheet;
@@ -386,10 +405,10 @@ begin
  else
   nsSetPageIcon(aForm);
 //#UC END# *4F71E2D500D1_4F6B6646037F_impl*
-end;//TPrimChildForm.VcmContainerFormNeedUpdateTab
+end;//TPrimChildForm.vcmContainerFormNeedUpdateTab
 
 procedure TPrimChildForm.ChildZoneTabSheetClick(Sender: TObject;
-  Page: TElTabSheet);
+ Page: TElTabSheet);
 //#UC START# *4F71E3020328_4F6B6646037F_var*
 //#UC END# *4F71E3020328_4F6B6646037F_var*
 begin
@@ -400,65 +419,6 @@ begin
   NativeMainForm.SetFocusToMainObjectForm;
 //#UC END# *4F71E3020328_4F6B6646037F_impl*
 end;//TPrimChildForm.ChildZoneTabSheetClick
-
-procedure TPrimChildForm.AdjustSizeToFixed;
-//#UC START# *4F71E05E036B_4F6B6646037F_var*
-{$IfNDef F1LikeButNotF1}
-var
- l_C : IvcmContainer;
- l_H : Integer;
-{$EndIf F1LikeButNotF1}
-//#UC END# *4F71E05E036B_4F6B6646037F_var*
-begin
-//#UC START# *4F71E05E036B_4F6B6646037F_impl*
- {$IfNDef F1LikeButNotF1}
- l_C := NativemainForm;
- if (l_C <> nil) then
- begin
-  l_H := l_C.AsForm.VCLWinControl.Height div 3;
-  l_H := Max(ChildZoneMinHeight, l_H);
-  if (Parent <> nil) then
-   if (ChildZone.ActivePageIndex > 0) then
-   begin
-     //http://mdp.garant.ru/pages/viewpage.action?pageId=476808814
-     Height := l_H;
-     Parent.Height := l_H;
-   end;
- end;//l_C <> nil
- {$EndIf F1LikeButNotF1}
-//#UC END# *4F71E05E036B_4F6B6646037F_impl*
-end;//TPrimChildForm.AdjustSizeToFixed
-
-function TPrimChildForm.ChildZoneMinHeight: Integer;
-//#UC START# *4F71E078021D_4F6B6646037F_var*
-//#UC END# *4F71E078021D_4F6B6646037F_var*
-begin
-//#UC START# *4F71E078021D_4F6B6646037F_impl*
- Result := Max(ChildZone.TabHeight + 3, ChildZone.Constraints.MinHeight);
-//#UC END# *4F71E078021D_4F6B6646037F_impl*
-end;//TPrimChildForm.ChildZoneMinHeight
-
-function TPrimChildForm.ActivePageHasOnlyEntityForm: Boolean;
-//#UC START# *4F71E0B601D4_4F6B6646037F_var*
-//#UC END# *4F71E0B601D4_4F6B6646037F_var*
-begin
-//#UC START# *4F71E0B601D4_4F6B6646037F_impl*
- Result := Assigned(ChildZone.ActivePage) and
-   (ChildZone.ActivePage.ControlCount = 1) and
-   (ChildZone.ActivePage.Controls[0] is TCustomForm) and
-   Supports(ChildZone.ActivePage.Controls[0], IvcmEntityForm);
-//#UC END# *4F71E0B601D4_4F6B6646037F_impl*
-end;//TPrimChildForm.ActivePageHasOnlyEntityForm
-
-function TPrimChildForm.GrandParentProportional: Boolean;
-//#UC START# *4F71E0D10182_4F6B6646037F_var*
-//#UC END# *4F71E0D10182_4F6B6646037F_var*
-begin
-//#UC START# *4F71E0D10182_4F6B6646037F_impl*
- Result := Assigned(Parent) and Assigned(Parent.Parent) and
-  (Parent.Parent is TvtProportionalCustomPanel);
-//#UC END# *4F71E0D10182_4F6B6646037F_impl*
-end;//TPrimChildForm.GrandParentProportional
 
 procedure TPrimChildForm.Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
 //#UC START# *4AEF3E8C02F5_4F6B6646037Fexec_var*
@@ -473,8 +433,8 @@ end;//TPrimChildForm.Switcher_BecomeActive_Execute
 procedure TPrimChildForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISwitcher_BecomeActive_Params) do
-  Switcher_BecomeActive_Execute(Form);
-end;
+  Self.Switcher_BecomeActive_Execute(Form);
+end;//TPrimChildForm.Switcher_BecomeActive
 
 procedure TPrimChildForm.Switcher_SetFirstPageActive_Execute;
 //#UC START# *4AF832C401A1_4F6B6646037Fexec_var*
@@ -488,11 +448,11 @@ end;//TPrimChildForm.Switcher_SetFirstPageActive_Execute
 
 procedure TPrimChildForm.Switcher_SetFirstPageActive(const aParams: IvcmExecuteParams);
 begin
- Switcher_SetFirstPageActive_Execute;
-end;
+ Self.Switcher_SetFirstPageActive_Execute;
+end;//TPrimChildForm.Switcher_SetFirstPageActive
 
-{$If not defined(NoVCM)}
 procedure TPrimChildForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B6646037F_var*
 //#UC END# *49803F5503AA_4F6B6646037F_var*
 begin
@@ -504,9 +464,7 @@ begin
  Dispatcher.History.AddForm(Self.As_IvcmEntityForm);
 //#UC END# *49803F5503AA_4F6B6646037F_impl*
 end;//TPrimChildForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimChildForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4F6B6646037F_var*
 //#UC END# *4A8AE0FA03B2_4F6B6646037F_var*
@@ -518,10 +476,9 @@ begin
   Inherited BecomeActive;
 //#UC END# *4A8AE0FA03B2_4F6B6646037F_impl*
 end;//TPrimChildForm.BecomeActive
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimChildForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F6B6646037F_var*
 //#UC END# *4A8E8F2E0195_4F6B6646037F_var*
 begin
@@ -565,9 +522,7 @@ begin
  ChildZoneChange(ChildZone);
 //#UC END# *4A8E8F2E0195_4F6B6646037F_impl*
 end;//TPrimChildForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimChildForm.BecomeInactive;
 //#UC START# *4AD5FA8E03DD_4F6B6646037F_var*
 //#UC END# *4AD5FA8E03DD_4F6B6646037F_var*
@@ -579,9 +534,7 @@ begin
   Inherited BecomeInactive;
 //#UC END# *4AD5FA8E03DD_4F6B6646037F_impl*
 end;//TPrimChildForm.BecomeInactive
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimChildForm.DoLoadFromSettings;
 //#UC START# *4E7C2AA3037E_4F6B6646037F_var*
 //#UC END# *4E7C2AA3037E_4F6B6646037F_var*
@@ -591,9 +544,8 @@ begin
  AdjustSizeToFixed;
 //#UC END# *4E7C2AA3037E_4F6B6646037F_impl*
 end;//TPrimChildForm.DoLoadFromSettings
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimChildForm.SetParent(AParent: TWinControl);
 //#UC START# *4F71E1460089_4F6B6646037F_var*
 //#UC END# *4F71E1460089_4F6B6646037F_var*
@@ -608,9 +560,11 @@ begin
  end;//Assigned(AParent)
 //#UC END# *4F71E1460089_4F6B6646037F_impl*
 end;//TPrimChildForm.SetParent
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TPrimChildForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -619,26 +573,15 @@ begin
   PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
   PublishOpWithResult(en_Switcher, op_SetFirstPageActive, Switcher_SetFirstPageActive, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimChildForm.InitEntities
 
 procedure TPrimChildForm.MakeControls;
 begin
  inherited;
- f_ChildZone := TnscFormsPageControl.Create(Self);
- f_ChildZone.Name := 'ChildZone';
- f_ChildZone.Parent := Self;
- with DefineZone(vcm_ztChild, f_ChildZone) do
- begin
-  CanClose := vcm_ccEnable;
- end;//with DefineZone(vcm_ztChild, f_ChildZone)
- f_MainPageTab := TElTabSheet.Create(Self);
- f_MainPageTab.Name := 'MainPageTab';
- f_MainPageTab.Parent := ChildZone;
- f_MainPageTab.Caption := 'MainDataCaption';
  with AddUsertype(cutUsualName,
   str_cutUsualCaption,
   str_cutUsualCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -651,7 +594,7 @@ begin
  with AddUsertype(cutForDictionName,
   str_cutForDictionCaption,
   str_cutForDictionCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -661,16 +604,24 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(cutForDictionName
-end;
+ f_ChildZone := TnscFormsPageControl.Create(Self);
+ f_ChildZone.Name := 'ChildZone';
+ f_ChildZone.Parent := Self;
+ with DefineZone(vcm_ztChild, ChildZone) do
+ begin
+  CanClose := vcm_ccEnable;
+ end;//with DefineZone(vcm_ztChild
+ f_MainPageTab := TElTabSheet.Create(Self);
+ f_MainPageTab.Name := 'MainPageTab';
+ f_MainPageTab.Parent := ChildZone;
+ f_MainPageTab.Caption := 'MainDataCaption';
+end;//TPrimChildForm.MakeControls
 
 initialization
-// Инициализация str_cutUsualCaption
- str_cutUsualCaption.Init;
-// Инициализация str_cutForDictionCaption
- str_cutForDictionCaption.Init;
-{$If not defined(NoScripts)}
-// Регистрация PrimChild
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimChildForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimChild }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

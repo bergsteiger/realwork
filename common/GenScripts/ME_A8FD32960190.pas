@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_MainLocalConstants }
+ str_ut_MainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_MainCaption'; rValue : 'НЕ Роза');
+  {* Заголовок пользовательского типа "НЕ Роза" }
  {* Константы для типа формы ut_Main }
  ut_MainName = 'ut_Main';
   {* Строковый идентификатор пользовательского типа "НЕ Роза" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_Main.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_MainCaption.Init;
+ {* Инициализация str_ut_MainCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_Main.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_Main }

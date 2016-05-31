@@ -493,13 +493,6 @@ uses
  , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
- {$If NOT Defined(NoVCL)}
- , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
- , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
- , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
@@ -686,6 +679,18 @@ uses
  , vcmApplication in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces in 'w:\common\components\gui\Garant\VCM\vcmExternalInterfaces.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces in 'w:\common\components\gui\Garant\AFW\afwInterfaces.pas'
+ , afwTypes in 'w:\common\components\gui\Garant\AFW\afwTypes.pas'
+ {$If NOT Defined(NoVCL)}
+ , ImgList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
+ {$If NOT Defined(NoVCM)}
+ , vcmBaseOperationState in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationState.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmMainForm in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainForm.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -713,15 +718,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmGUI in 'w:\common\components\gui\Garant\VCM\vcmGUI.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces in 'w:\common\components\gui\Garant\VCM\vcmExternalInterfaces.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- , afwInterfaces in 'w:\common\components\gui\Garant\AFW\afwInterfaces.pas'
- , afwTypes in 'w:\common\components\gui\Garant\AFW\afwTypes.pas'
  {$If NOT Defined(NoVCL)}
- , ImgList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas'
+ , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
  {$IfEnd} // NOT Defined(NoVCL)
- , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
+ , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
+ , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
+ , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
  , vcmDialogs in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDialogs.pas'
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
@@ -1796,9 +1799,6 @@ uses
  , vcmActiveControlsCollection in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmActiveControlsCollection.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , vcmBaseOperationState in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationState.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmAction in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmAction.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(XE)}
@@ -2062,9 +2062,9 @@ uses
  , vcmUserTypeDefList in 'w:\common\components\gui\Garant\VCM\implementation\vcmUserTypeDefList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , IafwMenuUnlockedPostBuildPtrList in 'w:\common\components\gui\Garant\AFW\implementation\IafwMenuUnlockedPostBuildPtrList.pas'
- {$If NOT Defined(NoTB97)}
- , TB97Tlbr in 'w:\common\components\rtl\external\tb97\TB97Tlbr.pas'
- {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCM)}
+ , vcmToolbar in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoTB97)}
  , TB97 in 'w:\common\components\rtl\external\tb97\TB97.pas'
  {$IfEnd} // NOT Defined(NoTB97)
@@ -2073,9 +2073,9 @@ uses
  {$IfEnd} // NOT Defined(NoTB97)
  , afwCustomCommonControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas'
  , afwCustomCommonControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControlPrim.pas'
- {$If NOT Defined(NoVCM)}
- , vcmToolbar in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
- {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr in 'w:\common\components\rtl\external\tb97\TB97Tlbr.pas'
+ {$IfEnd} // NOT Defined(NoTB97)
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces in 'w:\common\components\gui\Garant\VCM\implementation\vcmLocalInterfaces.pas'
  {$IfEnd} // NOT Defined(NoVCM)

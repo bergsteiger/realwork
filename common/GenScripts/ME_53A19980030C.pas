@@ -18,7 +18,7 @@ uses
 ;
 
 const
- cMaxDayAge = 2;
+ cMaxDayAge = 5;
 
 type
  TalcuNotSortedTaskList = class(TalcuTaskListBase)

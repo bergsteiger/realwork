@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_Main_Form;
+unit Main_Form;
  {* Главная форма }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_COMPLETED_Main_Form.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Main_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "Main" MUID: (4A952BA3006D)
 // Имя типа: "TMainForm"
@@ -139,7 +139,6 @@ type
     aStateType: TvcmStateType): Boolean; override;
     {* Загружает состояние формы. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -147,6 +146,7 @@ type
    procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
     aForClone: Boolean); override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
     {* инициализирует сущности не из dfm.
@@ -228,9 +228,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , MemoryUsage_ut_MemoryUsage_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A952BA3006Dimpl_uses*
+ //#UC END# *4A952BA3006Dimpl_uses*
 ;
 
 var g_IntegrationMessage: Cardinal = 0;
@@ -1347,12 +1350,6 @@ begin
 end;//TMainForm.DoLoadState
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TMainForm.ClearFields;
-begin
- f_BaseSearcher := nil;
- inherited;
-end;//TMainForm.ClearFields
-
 {$If NOT Defined(NoVCM)}
 procedure TMainForm.ReleaseResources;
 //#UC START# *538C374A00B7_4A952BA3006D_var*
@@ -1393,6 +1390,12 @@ begin
 //#UC END# *54327E120331_4A952BA3006D_impl*
 end;//TMainForm.DoInitFromPrevContainer
 {$IfEnd} // NOT Defined(NoVCM)
+
+procedure TMainForm.ClearFields;
+begin
+ f_BaseSearcher := nil;
+ inherited;
+end;//TMainForm.ClearFields
 
 {$If NOT Defined(NoVCM)}
 procedure TMainForm.InitEntities;

@@ -1,122 +1,89 @@
 unit PrimParent_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/ParentAndChild/Forms/PrimParent_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> Shared Delphi F1 Like Application::F1Like::View::ParentAndChild::PrimParent
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimParent" MUID: (4F6B665B0143)
+// Имя типа: "TPrimParentForm"
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimParent_utHistory_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimParentForm = {form} class(TvcmContainerForm)
- private
- // private fields
-   f_ParentZone : TvtPanel;
-    {* Поле для свойства ParentZone}
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+ TPrimParentForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_ParentZone: TvtPanel;
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure FocusIsSetToUs; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure AfterInsertForm(const aForm: IvcmEntityForm); override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetNeedSetFocusToMainObjectFormOnRefresh: Boolean; override;
-     {* Надо ли передвигать фокус в главную форму при изменении сборки }
-    {$IfEnd} //not NoVCM
- public
- // public properties
+    {* Надо ли передвигать фокус в главную форму при изменении сборки }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property ParentZone: TvtPanel
-     read f_ParentZone;
+    read f_ParentZone;
  end;//TPrimParentForm
-
- TvcmContainerFormRef = TPrimParentForm;
 
 implementation
 
 uses
-  Windows,
-  Graphics,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
+ l3ImplUses
+ , Windows
+ , Graphics
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimParent_utHistory_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F6B665B0143impl_uses*
+ //#UC END# *4F6B665B0143impl_uses*
+;
 
-var
-   { Локализуемые строки utHistoryLocalConstants }
-  str_utHistoryCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utHistoryCaption'; rValue : 'История навигации');
-   { Заголовок пользовательского типа "История навигации" }
-
-// start class TPrimParentForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimParentForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B665B0143_var*
 //#UC END# *49803F5503AA_4F6B665B0143_var*
 begin
@@ -124,10 +91,9 @@ begin
  inherited;
 //#UC END# *49803F5503AA_4F6B665B0143_impl*
 end;//TPrimParentForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimParentForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4F6B665B0143_var*
 //#UC END# *4A8E8F2E0195_4F6B665B0143_var*
 begin
@@ -147,9 +113,7 @@ begin
  end;//with ParentZone
 //#UC END# *4A8E8F2E0195_4F6B665B0143_impl*
 end;//TPrimParentForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimParentForm.FocusIsSetToUs;
 //#UC START# *4F7C6D6801F4_4F6B665B0143_var*
 //#UC END# *4F7C6D6801F4_4F6B665B0143_var*
@@ -158,9 +122,7 @@ begin
  inherited;
 //#UC END# *4F7C6D6801F4_4F6B665B0143_impl*
 end;//TPrimParentForm.FocusIsSetToUs
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimParentForm.AfterInsertForm(const aForm: IvcmEntityForm);
 //#UC START# *4F7C6DFE00DE_4F6B665B0143_var*
 //#UC END# *4F7C6DFE00DE_4F6B665B0143_var*
@@ -169,10 +131,9 @@ begin
  inherited;
 //#UC END# *4F7C6DFE00DE_4F6B665B0143_impl*
 end;//TPrimParentForm.AfterInsertForm
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimParentForm.GetNeedSetFocusToMainObjectFormOnRefresh: Boolean;
+ {* Надо ли передвигать фокус в главную форму при изменении сборки }
 //#UC START# *541011910033_4F6B665B0143_var*
 //#UC END# *541011910033_4F6B665B0143_var*
 begin
@@ -180,21 +141,14 @@ begin
  Result := True;
 //#UC END# *541011910033_4F6B665B0143_impl*
 end;//TPrimParentForm.GetNeedSetFocusToMainObjectFormOnRefresh
-{$IfEnd} //not NoVCM
 
 procedure TPrimParentForm.MakeControls;
 begin
  inherited;
- f_ParentZone := TvtPanel.Create(Self);
- f_ParentZone.Name := 'ParentZone';
- f_ParentZone.Parent := Self;
- with DefineZone(vcm_ztParent, f_ParentZone) do
- begin
- end;//with DefineZone(vcm_ztParent, f_ParentZone)
  with AddUsertype(utHistoryName,
   str_utHistoryCaption,
   str_utHistoryCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -204,14 +158,19 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utHistoryName
-end;
+ f_ParentZone := TvtPanel.Create(Self);
+ f_ParentZone.Name := 'ParentZone';
+ f_ParentZone.Parent := Self;
+ with DefineZone(vcm_ztParent, ParentZone) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimParentForm.MakeControls
 
 initialization
-// Инициализация str_utHistoryCaption
- str_utHistoryCaption.Init;
-{$If not defined(NoScripts)}
-// Регистрация PrimParent
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimParentForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimParent }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

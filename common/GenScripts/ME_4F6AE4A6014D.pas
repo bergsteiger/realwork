@@ -47,7 +47,6 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

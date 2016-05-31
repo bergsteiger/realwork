@@ -24,19 +24,19 @@ uses
  , nscStatusBar
  {$IfEnd} // Defined(Nemesis)
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmMainForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtProportionalPanel
  , vtSizeablePanel
  {$If Defined(Nemesis)}
  , nscNavigator
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmContainerForm
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmMainForm
  {$IfEnd} // NOT Defined(NoVCM)
  , Classes
  {$If NOT Defined(NoVCM)}
@@ -57,22 +57,14 @@ type
    f_NeedSwitchKeyboard: Boolean;
    f_OldCaption: Il3CString;
    f_StatusBar: TnscStatusBar;
-    {* Поле для свойства StatusBar }
    f_ClientZone: TvtPanel;
-    {* Поле для свойства ClientZone }
    f_MainZone: TvtProportionalPanel;
-    {* Поле для свойства MainZone }
    f_ParentZonePanel: TvtPanel;
-    {* Поле для свойства ParentZonePanel }
    f_ChildZonePanel: TvtSizeablePanel;
-    {* Поле для свойства ChildZonePanel }
    f_BaseSearchPanel: TvtPanel;
-    {* Поле для свойства BaseSearchPanel }
    f_LeftNavigator: TnscNavigator;
-    {* Поле для свойства LeftNavigator }
    {$If Defined(HasRightNavigator)}
    f_RightNavigator: TnscNavigator;
-    {* Поле для свойства RightNavigator }
    {$IfEnd} // Defined(HasRightNavigator)
   private
    procedure vcmMainFormCloseQuery(Sender: TObject;
@@ -248,13 +240,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vtNavigator
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , F1Like_FormDefinitions_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , F1Like_FormDefinitions_Controls
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F6B382E00D9impl_uses*
+ //#UC END# *4F6B382E00D9impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -1154,11 +1151,23 @@ begin
   PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
   PublishOpWithResult(en_Common, op_CheckChildZone, Common_CheckChildZone, nil, nil);
   PublishOp(en_Common, op_OpenNewWindowByUser, Common_OpenNewWindowByUser_Execute, Common_OpenNewWindowByUser_Test, nil);
+  ShowInContextMenu(en_Common, op_OpenNewWindowByUser, False);
+  ShowInToolbar(en_Common, op_OpenNewWindowByUser, False);
   PublishOp(en_Common, op_GetWindowList, Common_GetWindowList_Execute, Common_GetWindowList_Test, nil);
+  ShowInContextMenu(en_Common, op_GetWindowList, False);
+  ShowInToolbar(en_Common, op_GetWindowList, False);
   PublishOp(en_Common, op_CascadeWindows, Common_CascadeWindows_Execute, Common_CascadeWindows_Test, nil);
+  ShowInContextMenu(en_Common, op_CascadeWindows, False);
+  ShowInToolbar(en_Common, op_CascadeWindows, False);
   PublishOp(en_Common, op_TileWindowsHorizontal, Common_TileWindowsHorizontal_Execute, Common_TileWindowsHorizontal_Test, nil);
+  ShowInContextMenu(en_Common, op_TileWindowsHorizontal, False);
+  ShowInToolbar(en_Common, op_TileWindowsHorizontal, False);
   PublishOp(en_Common, op_TileWindowsVertical, Common_TileWindowsVertical_Execute, Common_TileWindowsVertical_Test, nil);
+  ShowInContextMenu(en_Common, op_TileWindowsVertical, False);
+  ShowInToolbar(en_Common, op_TileWindowsVertical, False);
   PublishOp(en_Common, op_CloseAllWindows, Common_CloseAllWindows_Execute, Common_CloseAllWindows_Test, nil);
+  ShowInContextMenu(en_Common, op_CloseAllWindows, False);
+  ShowInToolbar(en_Common, op_CloseAllWindows, False);
  end;//with Entities.Entities
 end;//TMainPrimForm.InitEntities
 
@@ -1177,7 +1186,7 @@ begin
  f_ParentZonePanel := TvtPanel.Create(Self);
  f_ParentZonePanel.Name := 'ParentZonePanel';
  f_ParentZonePanel.Parent := MainZone;
- with DefineZone(vcm_ztParent, f_ParentZonePanel) do
+ with DefineZone(vcm_ztParent, ParentZonePanel) do
  begin
   //#UC START# *4F6B3F20007B*
   FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
@@ -1188,19 +1197,19 @@ begin
  f_ChildZonePanel := TvtSizeablePanel.Create(Self);
  f_ChildZonePanel.Name := 'ChildZonePanel';
  f_ChildZonePanel.Parent := MainZone;
- with DefineZone(vcm_ztChild, f_ChildZonePanel) do
+ with DefineZone(vcm_ztChild, ChildZonePanel) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_BaseSearchPanel := TvtPanel.Create(Self);
  f_BaseSearchPanel.Name := 'BaseSearchPanel';
  f_BaseSearchPanel.Parent := ClientZone;
- with DefineZone(vcm_ztMain, f_BaseSearchPanel) do
+ with DefineZone(vcm_ztMain, BaseSearchPanel) do
  begin
  end;//with DefineZone(vcm_ztMain
  f_LeftNavigator := TnscNavigator.Create(Self);
  f_LeftNavigator.Name := 'LeftNavigator';
  f_LeftNavigator.Parent := ClientZone;
- with DefineZone(vcm_ztNavigator, f_LeftNavigator) do
+ with DefineZone(vcm_ztNavigator, LeftNavigator) do
  begin
   CanClose := vcm_ccEnable;
   //#UC START# *4F6B38FB0206*
@@ -1216,7 +1225,7 @@ begin
  f_RightNavigator := TnscNavigator.Create(Self);
  f_RightNavigator.Name := 'RightNavigator';
  f_RightNavigator.Parent := ClientZone;
- with DefineZone(vcm_ztNavigator, f_RightNavigator) do
+ with DefineZone(vcm_ztNavigator, RightNavigator) do
  begin
   CanClose := vcm_ccEnable;
   //#UC START# *4F6B391B022C*

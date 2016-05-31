@@ -12,10 +12,10 @@ interface
 uses
  l3IntfUses
  , alcuSortedTaskList
- , k2DocumentGenerator
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
+ , k2DocumentGenerator
  , evdNativeWriter
  {$If NOT Defined(Nemesis)}
  , csTaskTypes

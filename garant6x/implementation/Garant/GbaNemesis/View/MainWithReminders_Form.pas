@@ -19,9 +19,15 @@ uses
  , F1_Without_Usecases_System_Controls
  , l3Interfaces
  {$If Defined(Nemesis)}
+ , nscRemindersLine
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
  , nscReminder
  {$IfEnd} // Defined(Nemesis)
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -38,8 +44,6 @@ const
   {* 'С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.' }
 
 type
- // RemindersZone
-
  TMainWithRemindersForm = class(TMainForm{$If Defined(Nemesis) AND NOT Defined(NoVCM)}
  , IvcmFlashingWindow
  {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoVCM)
@@ -47,13 +51,9 @@ type
   private
    f_Flashing: Boolean;
    f_remOnlineDead: TnscReminder;
-    {* Поле для свойства remOnlineDead }
    f_remNewChatMessages: TnscReminder;
-    {* Поле для свойства remNewChatMessages }
    f_TrialModeWarning: TnscReminder;
-    {* Поле для свойства TrialModeWarning }
    f_OldBaseWarning: TnscReminder;
-    {* Поле для свойства OldBaseWarning }
   protected
    f_remOnlineDeadHidden: Boolean;
    f_OldBaseWarningString: Il3CString;
@@ -81,9 +81,17 @@ type
    {$If NOT Defined(NoVCM)}
    procedure BecomeVisible; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure BecomeInvisible; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Reminder_RemMWControlledChangingWarning_Test(const aParams: IvcmTestParamsPrim);
@@ -98,6 +106,15 @@ type
    procedure Reminder_RemOnlineDead_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_remUnreadConsultations_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_remUnreadConsultations_Execute(const aParams: IvcmExecuteParamsPrim);
+  public
+   property remOnlineDead: TnscReminder
+    read f_remOnlineDead;
+   property remNewChatMessages: TnscReminder
+    read f_remNewChatMessages;
+   property TrialModeWarning: TnscReminder
+    read f_TrialModeWarning;
+   property OldBaseWarning: TnscReminder
+    read f_OldBaseWarning;
  end;//TMainWithRemindersForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -127,10 +144,14 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F7DAC14027Aimpl_uses*
+ //#UC END# *4F7DAC14027Aimpl_uses*
 ;
 
 procedure TMainWithRemindersForm.ControlledChangingWarningBecomeVisible(Sender: TObject);
@@ -484,12 +505,6 @@ begin
 end;//TMainWithRemindersForm.BecomeVisible
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TMainWithRemindersForm.ClearFields;
-begin
- f_OldBaseWarningString := nil;
- inherited;
-end;//TMainWithRemindersForm.ClearFields
-
 {$If NOT Defined(NoVCM)}
 procedure TMainWithRemindersForm.BecomeInvisible;
 //#UC START# *537C9007038A_4F7DAC14027A_var*
@@ -501,6 +516,51 @@ begin
   RemindersLine.Visible := Visible;
 //#UC END# *537C9007038A_4F7DAC14027A_impl*
 end;//TMainWithRemindersForm.BecomeInvisible
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TMainWithRemindersForm.ClearFields;
+begin
+ f_OldBaseWarningString := nil;
+ inherited;
+end;//TMainWithRemindersForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TMainWithRemindersForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Reminder, nil);
+  PublishOp(en_Reminder, op_RemMWControlledChangingWarning, Reminder_RemMWControlledChangingWarning_Execute, Reminder_RemMWControlledChangingWarning_Test, nil);
+  PublishOp(en_Reminder, op_RemMWOldBaseWarning, Reminder_RemMWOldBaseWarning_Execute, Reminder_RemMWOldBaseWarning_Test, nil);
+  PublishOp(en_Reminder, op_RemMWTrialModeWarning, Reminder_RemMWTrialModeWarning_Execute, Reminder_RemMWTrialModeWarning_Test, nil);
+  PublishOp(en_Reminder, op_RemNewChatMessages, Reminder_RemNewChatMessages_Execute, Reminder_RemNewChatMessages_Test, nil);
+  PublishOp(en_Reminder, op_RemOnlineDead, Reminder_RemOnlineDead_Execute, Reminder_RemOnlineDead_Test, nil);
+  PublishOp(en_Reminder, op_remUnreadConsultations, Reminder_remUnreadConsultations_Execute, Reminder_remUnreadConsultations_Test, nil);
+  ShowInContextMenu(en_Reminder, op_remUnreadConsultations, False);
+ end;//with Entities.Entities
+end;//TMainWithRemindersForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TMainWithRemindersForm.MakeControls;
+begin
+ inherited;
+ RemindersLine.Parent := Self;
+ with DefineZone(vcm_ztReminder, RemindersLine) do
+ begin
+ end;//with DefineZone(vcm_ztReminder
+ f_remOnlineDead := TnscReminder.Create(RemindersLine);
+ f_remOnlineDead.Name := 'remOnlineDead';
+ f_remNewChatMessages := TnscReminder.Create(RemindersLine);
+ f_remNewChatMessages.Name := 'remNewChatMessages';
+ f_TrialModeWarning := TnscReminder.Create(RemindersLine);
+ f_TrialModeWarning.Name := 'TrialModeWarning';
+ f_OldBaseWarning := TnscReminder.Create(RemindersLine);
+ f_OldBaseWarning.Name := 'OldBaseWarning';
+end;//TMainWithRemindersForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization

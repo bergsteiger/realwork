@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utHistoryLocalConstants }
+ str_utHistoryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utHistoryCaption'; rValue : 'История навигации');
+  {* Заголовок пользовательского типа "История навигации" }
  {* Константы для типа формы utHistory }
  utHistoryName = 'utHistory';
   {* Строковый идентификатор пользовательского типа "История навигации" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_utHistory.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utHistoryCaption.Init;
+ {* Инициализация str_utHistoryCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utHistory.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utHistory }

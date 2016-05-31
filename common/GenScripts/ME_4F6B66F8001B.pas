@@ -21,8 +21,6 @@ uses
 const
  fm_ChildForm: TvcmFormDescriptor = (rFormID : (rName : 'ChildForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TChildForm }
-
-const
  fm_ParentForm: TvcmFormDescriptor = (rFormID : (rName : 'ParentForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TParentForm }
 

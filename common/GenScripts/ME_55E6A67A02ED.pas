@@ -17,15 +17,16 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , l3Mutex
  , alcuTaskManager
- , daTypes
- {$If NOT Defined(Nemesis)}
- , dtIntf
- {$IfEnd} // NOT Defined(Nemesis)
  , l3BaseStream
- , l3Interfaces
  {$If NOT Defined(Nemesis)}
  , csProcessTask
  {$IfEnd} // NOT Defined(Nemesis)
+ , daTypes
+ , alcuMdpSyncIntf
+ {$If NOT Defined(Nemesis)}
+ , dtIntf
+ {$IfEnd} // NOT Defined(Nemesis)
+ , l3Interfaces
  {$If NOT Defined(Nemesis)}
  , dt_DictConst
  {$IfEnd} // NOT Defined(Nemesis)
@@ -34,13 +35,6 @@ uses
 
 type
  PSourceSyncRec = ^TSourceSyncRec;
-
- TmssOperation = (
-  ssoAll
-  , ssoNew
-  , ssoDel
-  , ssoUpd
- );//TmssOperation
 
  TShortNameIndex = 1 .. dt_DictConst.cSourceShortNameLen;
 
@@ -147,12 +141,7 @@ uses
  , daInterfaces
 ;
 
-type
- TOperationMap = array [TmssOperation] of AnsiString;
-
 const
- cMdpSourceSyncVersion = 4;
- c_mssOperationStr: TOperationMap = ('all', 'new', 'del', 'upd');
  c_SupportedDicts = [da_dlSources, da_dlTypes, da_dlCorSources];
 
 constructor TalcuDictChangeMDPSynchronizator.Create;

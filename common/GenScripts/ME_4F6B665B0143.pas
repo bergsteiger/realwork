@@ -30,7 +30,6 @@ type
  )
   private
    f_ParentZone: TvtPanel;
-    {* Поле для свойства ParentZone }
   protected
    {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
@@ -62,7 +61,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
  , Windows
  , Graphics
  , SysUtils
@@ -72,7 +70,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -80,14 +77,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F6B665B0143impl_uses*
+ //#UC END# *4F6B665B0143impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utHistoryLocalConstants }
- str_utHistoryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utHistoryCaption'; rValue : 'История навигации');
-  {* Заголовок пользовательского типа "История навигации" }
-
 procedure TPrimParentForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4F6B665B0143_var*
@@ -154,7 +148,7 @@ begin
  with AddUsertype(utHistoryName,
   str_utHistoryCaption,
   str_utHistoryCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -167,14 +161,12 @@ begin
  f_ParentZone := TvtPanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := Self;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
  end;//with DefineZone(vcm_ztParent
 end;//TPrimParentForm.MakeControls
 
 initialization
- str_utHistoryCaption.Init;
- {* Инициализация str_utHistoryCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimParentForm);
  {* Регистрация PrimParent }

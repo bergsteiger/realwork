@@ -50,8 +50,6 @@ implementation
 {$If Defined(NewGen)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -60,11 +58,6 @@ uses
  , MainKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_MainLocalConstants }
- str_ut_MainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_MainCaption'; rValue : 'НЕ Роза');
-  {* Заголовок пользовательского типа "НЕ Роза" }
 
 {$R *.DFM}
 
@@ -98,8 +91,6 @@ end;//TMainForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_MainCaption.Init;
- {* Инициализация str_ut_MainCaption }
  fm_MainForm.SetFactory(TMainForm.Make);
  {* Регистрация фабрики формы Main }
 {$If NOT Defined(NoScripts)}

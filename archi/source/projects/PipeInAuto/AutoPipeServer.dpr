@@ -491,13 +491,6 @@ uses
  , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
- {$If NOT Defined(NoVCL)}
- , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
- , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
- , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
@@ -1008,6 +1001,13 @@ uses
  , l3InterfacePtrList in 'w:\common\components\rtl\Garant\L3\l3InterfacePtrList.pas'
  , evStylesPrintAndExportSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
  , evStylesPrintAndExportFontSizeSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
+ , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
+ {$If NOT Defined(NoVCL)}
+ , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
+ , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , evFontInterface in 'w:\common\components\gui\Garant\Everest\evFontInterface.pas'
  , l3Nodes in 'w:\common\components\rtl\Garant\L3\l3Nodes.pas'
  , k2SimpleTagList in 'w:\common\components\rtl\Garant\K2\k2SimpleTagList.pas'
@@ -1896,6 +1896,7 @@ uses
  {$IfEnd} // Defined(ServerTasks)
  , alcuProcessingEnabledService in 'w:\archi\source\projects\PipeInAuto\Server\alcuProcessingEnabledService.pas'
  , l3ProcessingEnabledService in 'w:\common\components\rtl\Garant\L3\l3ProcessingEnabledService.pas'
+ , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dtIntf in 'w:\common\components\rtl\Garant\DT\dtIntf.pas'
  {$IfEnd} // NOT Defined(Nemesis)
@@ -1917,6 +1918,10 @@ uses
  {$If NOT Defined(Nemesis)}
  , csMdpSyncDicts in 'w:\common\components\rtl\Garant\cs\csMdpSyncDicts.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csMdpSyncPrim in 'w:\common\components\rtl\Garant\cs\csMdpSyncPrim.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , mdpSync_Const in 'w:\common\components\rtl\Garant\EVD\mdpSync_Const.pas'
  , mdpSyncDicts_Const in 'w:\common\components\rtl\Garant\EVD\mdpSyncDicts_Const.pas'
  {$If Defined(MDPSyncIntegrated)}
  , alcuMdpDocImporter in 'w:\archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas'

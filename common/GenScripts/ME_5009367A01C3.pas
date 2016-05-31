@@ -40,8 +40,8 @@ uses
  , FoldersDomainInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  , DocumentUserTypes_dftAnnotation_UserType
  , DocumentUserTypes_dftTranslation_UserType
  , ContentsUserTypes_utContents_UserType
