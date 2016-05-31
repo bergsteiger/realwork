@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , m3BaseStream
  , Windows
- , m3FileStreamMapView
  , ActiveX
+ , m3FileStreamMapView
  , Classes
 ;
 

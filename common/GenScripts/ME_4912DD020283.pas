@@ -16,8 +16,8 @@ uses
  , evInternalInterfaces
  , nevNavigation
  , eeConst
- , k2Base
  , l3Variant
+ , k2Base
  , Windows
  , nevTools
  //#UC START# *4912DD020283intf_uses*

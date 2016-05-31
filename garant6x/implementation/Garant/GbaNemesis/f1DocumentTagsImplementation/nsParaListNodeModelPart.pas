@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , nsParentedTagNode
  , F1TagDataProviderInterface
- , l3Interfaces
  , l3Variant
+ , l3Interfaces
  , nevTools
 ;
 

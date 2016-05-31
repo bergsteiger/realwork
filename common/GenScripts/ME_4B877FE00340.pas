@@ -13,9 +13,9 @@ uses
  l3IntfUses
  , evTunedEditor
  , eeInterfaces
+ , eeInterfacesEx
  , afwInterfaces
  , nevGUIInterfaces
- , eeInterfacesEx
  , evCustomEditorModelPart
  , nevTools
  , Windows

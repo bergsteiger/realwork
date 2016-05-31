@@ -10,10 +10,10 @@ interface
 
 uses
  l3IntfUses
+ , Graphics
  , Windows
  , l3Interfaces
  , Types
- , Graphics
  //#UC START# *56AB78880104intf_uses*
  //#UC END# *56AB78880104intf_uses*
 ;

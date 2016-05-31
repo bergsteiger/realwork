@@ -13,10 +13,10 @@ uses
  , m3StoragePrim
  , ActiveX
  , m3TOCHandleList
- , l3Interfaces
  , m3StorageInterfaces
- , l3_String
  , m3RootStreamManagerPrim
+ , l3Interfaces
+ , l3_String
 ;
 
 type

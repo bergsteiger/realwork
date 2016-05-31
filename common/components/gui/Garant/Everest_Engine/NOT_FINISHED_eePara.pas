@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , eeTagEditorTool
  , eeInterfaces
- , k2Base
  , l3Variant
+ , k2Base
  , l3Interfaces
 ;
 

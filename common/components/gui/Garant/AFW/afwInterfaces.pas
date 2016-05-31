@@ -32,14 +32,13 @@ const
  {* Алиасы для значений afwTypes.TafwScrollBarType }
  afw_sbHorz = afwTypes.afw_sbHorz;
  afw_sbVert = afwTypes.afw_sbVert;
-
-const
  afw_lpwTimeout = 500;
   {* задержка в мс перед показом асинхронного окна при длительной операции }
  ssControl = ssCtrl;
 {$If NOT Defined(NoVCL)}
  afw_CM_TEXTCHANGED = Controls.CM_TEXTCHANGED;
 {$IfEnd} // NOT Defined(NoVCL)
+const
  afw_lngRussian = 'ru';
  afw_lngEnglish = 'en';
 

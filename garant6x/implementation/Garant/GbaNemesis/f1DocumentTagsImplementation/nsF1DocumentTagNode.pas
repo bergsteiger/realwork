@@ -11,8 +11,8 @@ interface
 uses
  l3IntfUses
  , nsDocumentTagNodeBase
- , DocumentUnit
  , l3Variant
+ , DocumentUnit
  , k2Base
 ;
 

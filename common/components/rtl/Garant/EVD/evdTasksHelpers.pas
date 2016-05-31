@@ -10,8 +10,8 @@ interface
 
 uses
  l3IntfUses
- , l3LongintList
  , l3Interfaces
+ , l3LongintList
  , Classes
  , l3ProtoObject
  , l3Variant

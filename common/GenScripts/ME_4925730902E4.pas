@@ -47,7 +47,7 @@ type
  TdsContents = {final} class(_dsBaseContents_, IdsContents)
   {* бизнес объект формы ContentsForm }
   private
-   : IsdsDocument;
+   UseCase: IsdsDocument;
   protected
    function MakeSimpleTree: Il3SimpleTree; override;
     {* Создать данные дерева }

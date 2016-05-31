@@ -12,9 +12,9 @@ interface
 uses
  l3IntfUses
  , nsParaListNodeModelPart
+ , F1TagDataProviderInterface
  , l3Variant
  , k2Interfaces
- , F1TagDataProviderInterface
  , k2TagList
  , l3Interfaces
  , k2Base

@@ -11,10 +11,8 @@ interface
 
 uses
  l3IntfUses
- , ProcessTask_Const
+ , mdpSync_Const
  , k2String_Const
- , k2Bool_Const
- , k2Long_Const
 ;
 
  // mdpSyncDictsTag

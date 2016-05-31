@@ -1,9 +1,9 @@
-unit mdpSyncStages_Const;
+unit mdpSync_Const;
 
-// Модуль: "w:\common\components\rtl\Garant\EVD\mdpSyncStages_Const.pas"
+// Модуль: "w:\common\components\rtl\Garant\EVD\mdpSync_Const.pas"
 // Стереотип: "Tag"
-// Элемент модели: "mdpSyncStages" MUID: (573D84C30337)
-// Имя типа: "mdpSyncStagesTag"
+// Элемент модели: "mdpSync" MUID: (573D84C30337)
+// Имя типа: "mdpSyncTag"
 
 {$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
@@ -17,7 +17,7 @@ uses
  , k2Long_Const
 ;
 
- // mdpSyncStagesTag
+ // mdpSyncTag
 
 implementation
 

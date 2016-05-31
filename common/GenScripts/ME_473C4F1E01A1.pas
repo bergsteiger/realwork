@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , l3Canvas
  , l3Units
- , l3Interfaces
  , l3InternalInterfaces
+ , l3Interfaces
  , l3Core
  , Graphics
 ;

@@ -10,10 +10,10 @@ interface
 
 uses
  l3IntfUses
+ , l3Variant
  , DynamicTreeUnit
  , DocumentUnit
  , k2Base
- , l3Variant
 ;
 
 function nsFindTagByID(aTag: Tl3Tag;

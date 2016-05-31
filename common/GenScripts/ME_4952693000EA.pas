@@ -16,9 +16,9 @@ uses
  , vtScrollBar
  , nevTools
  , Classes
+ , eeInterfaces
  , ActiveX
  , l3Interfaces
- , eeInterfaces
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

@@ -24,8 +24,8 @@ uses
  , l3Memory
  , l3Base
  , l3Defaults
- , l3Core
  , l3Types
+ , l3Core
  , l3CacheableBase
 ;
 

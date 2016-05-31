@@ -11,8 +11,8 @@ interface
 uses
  l3IntfUses
  , m3RootStreamManagerPrim
- , m3FileRegion
  , m3StoreHeaderDataPrim
+ , m3FileRegion
  , l3CustomString
 ;
 

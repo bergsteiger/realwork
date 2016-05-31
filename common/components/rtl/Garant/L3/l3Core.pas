@@ -26,8 +26,6 @@ const
   {* The font pitch is set to variable. The characters in the font have different widths. }
  fpFixed = Graphics.fpFixed;
   {* The font pitch is set to fixed. All characters in the font have the same width. }
-
-const
  {* Алиасы для значений Classes.TShiftState }
  ssShift = Classes.ssShift;
  ssAlt = Classes.ssAlt;
@@ -36,8 +34,6 @@ const
  ssRight = Classes.ssRight;
  ssMiddle = Classes.ssMiddle;
  ssDouble = Classes.ssDouble;
-
-const
  {* Цвета }
  clDefault = Graphics.clDefault;
   {* Цвет по-умолчанию. }

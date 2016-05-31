@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , l3Variant
  , evdTaskTypes
- , Classes
  , k2Base
+ , Classes
 ;
 
 type

@@ -51,7 +51,7 @@ type
  TdsDocumentWithFlash = class(_dsDocument_, IdsDocumentWithFlash)
   {* БОФ документа-схемы }
   private
-   : IDocument;
+   UseCase: IDocument;
   protected
    {$If NOT Defined(NoVCM)}
    function MakeDisplayName: IvcmCString; override;

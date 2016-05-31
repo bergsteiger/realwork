@@ -10,8 +10,8 @@ interface
 uses
  l3IntfUses
  , Classes
- , Graphics
  , Types
+ , Graphics
 ;
 
 type

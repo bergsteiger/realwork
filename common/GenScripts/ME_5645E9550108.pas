@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , nsDataResetTreeStruct
  , DynamicDocListUnit
- , DynamicTreeUnit
  , l3TreeInterfaces
+ , DynamicTreeUnit
  , nsINodeWrapBase
  , l3Interfaces
  , l3InternalInterfaces

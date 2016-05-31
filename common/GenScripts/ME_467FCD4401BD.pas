@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , nsTagNodePrim
- , k2Base
  , l3Variant
+ , k2Base
  , F1TagDataProviderInterface
 ;
 

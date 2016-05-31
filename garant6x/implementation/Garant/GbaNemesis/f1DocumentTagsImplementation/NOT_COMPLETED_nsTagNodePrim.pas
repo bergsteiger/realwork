@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , nsTagNodePrimPrim
  , F1TagDataProviderInterface
- , k2Base
  , l3Variant
+ , k2Base
  , nsTagString
  , IOUnit
  , l3IID
