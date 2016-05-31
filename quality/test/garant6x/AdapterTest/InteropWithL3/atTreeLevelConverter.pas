@@ -77,4 +77,8 @@ begin
  Result := g_TatTreeLevelConverter <> nil;
 end;//TatTreeLevelConverter.Exists
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
+
+
 end.

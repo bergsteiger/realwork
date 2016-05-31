@@ -19,8 +19,6 @@ const
  LLO_OR = nsTypesNew.LLO_OR;
  LLO_AND_NOT = nsTypesNew.LLO_AND_NOT;
  LLO_NONE = nsTypesNew.LLO_NONE;
-
-const
  {* Алиасы для значений nsTypesNew.TnsFileFormat }
  ns_ffRTF = nsTypesNew.ns_ffRTF;
  ns_ffTxt = nsTypesNew.ns_ffTxt;
@@ -29,8 +27,6 @@ const
  ns_ffEvd = nsTypesNew.ns_ffEvd;
  ns_ffNull = nsTypesNew.ns_ffNull;
  ns_ffPDF = nsTypesNew.ns_ffPDF;
-
-const
  {* Константы для работы с деревом }
  nne_ResetChildrenCount = 1000;
   {* - событие сброса детей. }

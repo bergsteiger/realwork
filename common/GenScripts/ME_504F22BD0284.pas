@@ -63,6 +63,11 @@ begin
 //#UC END# *504F319402B1_504F22BD0284_impl*
 end;//_atBitMaskConverter_.ToMask
 
+{$Else atBitMaskConverter_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
+
+
 {$EndIf atBitMaskConverter_imp_impl}
 
 {$EndIf atBitMaskConverter_imp}

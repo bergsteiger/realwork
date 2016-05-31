@@ -10,11 +10,11 @@ interface
 
 uses
  l3IntfUses
+ , Types
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
- , Types
 ;
 
 procedure ShowSystemMenu(aForm: TForm;

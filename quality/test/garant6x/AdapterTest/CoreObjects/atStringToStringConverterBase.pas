@@ -64,4 +64,8 @@ begin
 //#UC END# *503F7A40002D_503F793301B3_impl*
 end;//TatStringToStringConverterBase.SecondToFirstCI
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
+
+
 end.

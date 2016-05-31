@@ -174,4 +174,8 @@ begin
 //#UC END# *48089F3701B4_504F1A8B004B_impl*
 end;//TatDocumentUnderControlOperation.InitParamList
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+
 end.

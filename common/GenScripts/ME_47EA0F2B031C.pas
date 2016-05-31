@@ -164,6 +164,7 @@ uses
  , BaloonWarningUserTypes_remListModified_UserType
  , UnderControlInterfaces
  , nsListWarningGenerator
+ , WarningUserTypes_Warning_UserType
 ;
 
 type _Instance_R_ = TsdsDrugList;

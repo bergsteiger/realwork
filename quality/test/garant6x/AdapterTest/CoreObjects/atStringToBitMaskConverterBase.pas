@@ -68,4 +68,8 @@ begin
 //#UC END# *504F8645031F_504F268A02FD_impl*
 end;//TatStringToBitMaskConverterBase.ToValues
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}
+
+
 end.

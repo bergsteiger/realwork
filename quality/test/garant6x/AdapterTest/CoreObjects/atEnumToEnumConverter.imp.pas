@@ -40,6 +40,11 @@ begin
 //#UC END# *503E67390123_503E66FA02FE_impl*
 end;//_atEnumToEnumConverter_.SecondToFirst
 
+{$Else atEnumToEnumConverter_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
+
+
 {$EndIf atEnumToEnumConverter_imp_impl}
 
 {$EndIf atEnumToEnumConverter_imp}

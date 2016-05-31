@@ -24,6 +24,11 @@
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
 
+{$Else atStringConverter_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
+
+
 {$EndIf atStringConverter_imp_impl}
 
 {$EndIf atStringConverter_imp}

@@ -59,4 +59,8 @@ begin
  Result := g_TatPositionTypeConverter <> nil;
 end;//TatPositionTypeConverter.Exists
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+
 end.

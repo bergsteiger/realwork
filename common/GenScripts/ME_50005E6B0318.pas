@@ -67,6 +67,11 @@ begin
 //#UC END# *503E3CC102AE_50005E6B0318_impl*
 end;//_atEnumConverter_.Error2nd
 
+{$Else atEnumConverter_imp_impl}
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
+
+
 {$EndIf atEnumConverter_imp_impl}
 
 {$EndIf atEnumConverter_imp}

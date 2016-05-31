@@ -78,4 +78,8 @@ begin
  Result := g_TatWordPositionConverter <> nil;
 end;//TatWordPositionConverter.Exists
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
+
+
 end.

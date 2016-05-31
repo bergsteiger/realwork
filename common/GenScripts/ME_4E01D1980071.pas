@@ -11,11 +11,11 @@ interface
 
 uses
  l3IntfUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Interfaces
+ , l3StringIDEx
  , Pl3StringIDExList
 ;
 

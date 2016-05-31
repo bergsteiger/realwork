@@ -15,8 +15,8 @@ uses
  , afwInterfaces
  , afwTypes
  , l3InternalInterfaces
- , Graphics
  , l3CanvasPrim
+ , Graphics
 ;
 
 type

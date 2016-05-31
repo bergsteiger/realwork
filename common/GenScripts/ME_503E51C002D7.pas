@@ -76,4 +76,8 @@ begin
  Result := g_TatNonATQueryLogicOperationConverter <> nil;
 end;//TatNonATQueryLogicOperationConverter.Exists
 
+initialization
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
+
+
 end.
